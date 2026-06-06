@@ -1,0 +1,34 @@
+{
+  "version": "3.0.0.0",
+  "baseVersion": "2.9.6.5",
+  "baseSha256": "fb5063235bd797ae8376c2f0c37da4863e375d85c611f5b3400904a151dfcafa",
+  "indexSha256": "483cc4614b2b08fbacb9539da72d927a9c4b433cb644e5e5cc01e6cd9efe5359",
+  "scoreTypeCount": 11,
+  "metricCounts": {
+    "calm": 5,
+    "zombie": 5,
+    "bomb": 5,
+    "critical_tactic": 5,
+    "critical_normal": 5,
+    "tactic_speed": 5,
+    "attack_speed": 5,
+    "normal_attack": 5,
+    "debuff": 5,
+    "anti_object": 5,
+    "annihilation": 5
+  },
+  "purposeCount": 6,
+  "roleRuleCount": 9,
+  "roleIndexItemCount": 2196,
+  "roleCounts": {
+    "main_general": 475,
+    "vice_general": 475,
+    "support_general": 475,
+    "attendant": 475,
+    "equipment": 237,
+    "formation": 21,
+    "siege_weapon": 6,
+    "warhorse": 5,
+    "warhorse_skill": 27
+  }
+}
