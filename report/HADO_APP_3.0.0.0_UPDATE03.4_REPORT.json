@@ -1,0 +1,24 @@
+{
+  "version": "3.0.0.0",
+  "update": "Update03.4",
+  "bugClass": "Navigator information architecture did not guide users through one decision at a time",
+  "rootCause": "The three entry methods were displayed as tabs, but the active method still rendered multiple selection panes simultaneously. The user had to infer the order of operations.",
+  "fixes": [
+    "define method-specific wizard sequences",
+    "main-general entry: main general -> purpose -> type -> confirmation",
+    "purpose entry: purpose -> type -> confirmation",
+    "direct type entry: type -> confirmation",
+    "show one decision pane at a time with explicit progress, back and next controls",
+    "retain the 10-point fixed-five-metric score introduced in Update03.2",
+    "retain the Update03.3 IME-safe candidate filtering with stable input and candidate DOM nodes"
+  ],
+  "regressionChecks": [
+    "wizard sequences exist for all three entry methods",
+    "step progress, back, next and confirmation rendering exist",
+    "simultaneous multi-pane rendering from Update03.3 is absent",
+    "compositionstart and compositionend handlers exist",
+    "input-triggered full render is absent",
+    "index.html and standalone HTML are identical"
+  ],
+  "indexSha256": "32159fa3d040d38e1dc99748278dc975ab04043bc50e992235d757ecbb055ef6"
+}
