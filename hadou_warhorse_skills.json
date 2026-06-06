@@ -1,0 +1,3897 @@
+{
+  "items": [
+    {
+      "category": "warhorse_skills",
+      "name": "騎・大固",
+      "type": "normal",
+      "baseName": "大固",
+      "troopType": "騎兵",
+      "troopPrefix": "騎",
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "自部隊が騎兵の場合、部隊の兵力、防御+150（編制時点の兵力/防御に加算）",
+        "2": "自部隊が騎兵の場合、部隊の兵力、防御+300（編制時点の兵力/防御に加算）",
+        "3": "自部隊が騎兵の場合、部隊の兵力、防御+450（編制時点の兵力/防御に加算）",
+        "4": "自部隊が騎兵の場合、部隊の兵力、防御+600（編制時点の兵力/防御に加算）",
+        "5": "自部隊が騎兵の場合、部隊の兵力、防御+750（編制時点の兵力/防御に加算）",
+        "6": "自部隊が騎兵の場合、部隊の兵力、防御+900（編制時点の兵力/防御に加算）",
+        "7": "自部隊が騎兵の場合、部隊の兵力、防御+1050（編制時点の兵力/防御に加算）",
+        "8": "自部隊が騎兵の場合、部隊の兵力、防御+1200（編制時点の兵力/防御に加算）",
+        "9": "自部隊が騎兵の場合、部隊の兵力、防御+1350（編制時点の兵力/防御に加算）",
+        "10": "自部隊が騎兵の場合、部隊の兵力、防御+1500（編制時点の兵力/防御に加算）"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 150,
+            "condition": "自部隊が騎兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 150,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 300,
+            "condition": "自部隊が騎兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 300,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 450,
+            "condition": "自部隊が騎兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 450,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 600,
+            "condition": "自部隊が騎兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 600,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "5": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 750,
+            "condition": "自部隊が騎兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 750,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "6": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 900,
+            "condition": "自部隊が騎兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 900,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 1050,
+            "condition": "自部隊が騎兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 1050,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "8": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 1200,
+            "condition": "自部隊が騎兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 1200,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "9": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 1350,
+            "condition": "自部隊が騎兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 1350,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "10": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 1500,
+            "condition": "自部隊が騎兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 1500,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image274.png",
+        "note": "騎・技能画像を代表として歩/弓同類技能を展開"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "歩・大固",
+      "type": "normal",
+      "baseName": "大固",
+      "troopType": "歩兵",
+      "troopPrefix": "歩",
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "自部隊が歩兵の場合、部隊の兵力、防御+150（編制時点の兵力/防御に加算）",
+        "2": "自部隊が歩兵の場合、部隊の兵力、防御+300（編制時点の兵力/防御に加算）",
+        "3": "自部隊が歩兵の場合、部隊の兵力、防御+450（編制時点の兵力/防御に加算）",
+        "4": "自部隊が歩兵の場合、部隊の兵力、防御+600（編制時点の兵力/防御に加算）",
+        "5": "自部隊が歩兵の場合、部隊の兵力、防御+750（編制時点の兵力/防御に加算）",
+        "6": "自部隊が歩兵の場合、部隊の兵力、防御+900（編制時点の兵力/防御に加算）",
+        "7": "自部隊が歩兵の場合、部隊の兵力、防御+1050（編制時点の兵力/防御に加算）",
+        "8": "自部隊が歩兵の場合、部隊の兵力、防御+1200（編制時点の兵力/防御に加算）",
+        "9": "自部隊が歩兵の場合、部隊の兵力、防御+1350（編制時点の兵力/防御に加算）",
+        "10": "自部隊が歩兵の場合、部隊の兵力、防御+1500（編制時点の兵力/防御に加算）"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 150,
+            "condition": "自部隊が歩兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 150,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 300,
+            "condition": "自部隊が歩兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 300,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 450,
+            "condition": "自部隊が歩兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 450,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 600,
+            "condition": "自部隊が歩兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 600,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "5": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 750,
+            "condition": "自部隊が歩兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 750,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "6": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 900,
+            "condition": "自部隊が歩兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 900,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 1050,
+            "condition": "自部隊が歩兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 1050,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "8": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 1200,
+            "condition": "自部隊が歩兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 1200,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "9": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 1350,
+            "condition": "自部隊が歩兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 1350,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "10": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 1500,
+            "condition": "自部隊が歩兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 1500,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image274.png",
+        "note": "騎・技能画像を代表として歩/弓同類技能を展開"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "弓・大固",
+      "type": "normal",
+      "baseName": "大固",
+      "troopType": "弓兵",
+      "troopPrefix": "弓",
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "自部隊が弓兵の場合、部隊の兵力、防御+150（編制時点の兵力/防御に加算）",
+        "2": "自部隊が弓兵の場合、部隊の兵力、防御+300（編制時点の兵力/防御に加算）",
+        "3": "自部隊が弓兵の場合、部隊の兵力、防御+450（編制時点の兵力/防御に加算）",
+        "4": "自部隊が弓兵の場合、部隊の兵力、防御+600（編制時点の兵力/防御に加算）",
+        "5": "自部隊が弓兵の場合、部隊の兵力、防御+750（編制時点の兵力/防御に加算）",
+        "6": "自部隊が弓兵の場合、部隊の兵力、防御+900（編制時点の兵力/防御に加算）",
+        "7": "自部隊が弓兵の場合、部隊の兵力、防御+1050（編制時点の兵力/防御に加算）",
+        "8": "自部隊が弓兵の場合、部隊の兵力、防御+1200（編制時点の兵力/防御に加算）",
+        "9": "自部隊が弓兵の場合、部隊の兵力、防御+1350（編制時点の兵力/防御に加算）",
+        "10": "自部隊が弓兵の場合、部隊の兵力、防御+1500（編制時点の兵力/防御に加算）"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 150,
+            "condition": "自部隊が弓兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 150,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 300,
+            "condition": "自部隊が弓兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 300,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 450,
+            "condition": "自部隊が弓兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 450,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 600,
+            "condition": "自部隊が弓兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 600,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "5": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 750,
+            "condition": "自部隊が弓兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 750,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "6": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 900,
+            "condition": "自部隊が弓兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 900,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 1050,
+            "condition": "自部隊が弓兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 1050,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "8": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 1200,
+            "condition": "自部隊が弓兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 1200,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "9": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 1350,
+            "condition": "自部隊が弓兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 1350,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "10": [
+          {
+            "target": "部隊",
+            "stat": "兵力",
+            "type": "flat",
+            "value": 1500,
+            "condition": "自部隊が弓兵の場合"
+          },
+          {
+            "target": "部隊",
+            "stat": "防御",
+            "type": "flat",
+            "value": 1500,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image274.png",
+        "note": "騎・技能画像を代表として歩/弓同類技能を展開"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "騎・重撃",
+      "type": "normal",
+      "baseName": "重撃",
+      "troopType": "騎兵",
+      "troopPrefix": "騎",
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "自部隊が騎兵の場合、部隊の攻撃+100（編制時点の攻撃に加算）",
+        "2": "自部隊が騎兵の場合、部隊の攻撃+200（編制時点の攻撃に加算）",
+        "3": "自部隊が騎兵の場合、部隊の攻撃+300（編制時点の攻撃に加算）",
+        "4": "自部隊が騎兵の場合、部隊の攻撃+400（編制時点の攻撃に加算）",
+        "5": "自部隊が騎兵の場合、部隊の攻撃+500（編制時点の攻撃に加算）",
+        "6": "自部隊が騎兵の場合、部隊の攻撃+600（編制時点の攻撃に加算）",
+        "7": "自部隊が騎兵の場合、部隊の攻撃+700（編制時点の攻撃に加算）",
+        "8": "自部隊が騎兵の場合、部隊の攻撃+800（編制時点の攻撃に加算）",
+        "9": "自部隊が騎兵の場合、部隊の攻撃+900（編制時点の攻撃に加算）",
+        "10": "自部隊が騎兵の場合、部隊の攻撃+1000（編制時点の攻撃に加算）"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 100,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 200,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 300,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 400,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "5": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 500,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "6": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 600,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 700,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "8": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 800,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "9": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 900,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "10": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 1000,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image275.png",
+        "note": "騎・技能画像を代表として歩/弓同類技能を展開"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "歩・重撃",
+      "type": "normal",
+      "baseName": "重撃",
+      "troopType": "歩兵",
+      "troopPrefix": "歩",
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "自部隊が歩兵の場合、部隊の攻撃+100（編制時点の攻撃に加算）",
+        "2": "自部隊が歩兵の場合、部隊の攻撃+200（編制時点の攻撃に加算）",
+        "3": "自部隊が歩兵の場合、部隊の攻撃+300（編制時点の攻撃に加算）",
+        "4": "自部隊が歩兵の場合、部隊の攻撃+400（編制時点の攻撃に加算）",
+        "5": "自部隊が歩兵の場合、部隊の攻撃+500（編制時点の攻撃に加算）",
+        "6": "自部隊が歩兵の場合、部隊の攻撃+600（編制時点の攻撃に加算）",
+        "7": "自部隊が歩兵の場合、部隊の攻撃+700（編制時点の攻撃に加算）",
+        "8": "自部隊が歩兵の場合、部隊の攻撃+800（編制時点の攻撃に加算）",
+        "9": "自部隊が歩兵の場合、部隊の攻撃+900（編制時点の攻撃に加算）",
+        "10": "自部隊が歩兵の場合、部隊の攻撃+1000（編制時点の攻撃に加算）"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 100,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 200,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 300,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 400,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "5": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 500,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "6": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 600,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 700,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "8": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 800,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "9": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 900,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "10": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 1000,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image275.png",
+        "note": "騎・技能画像を代表として歩/弓同類技能を展開"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "弓・重撃",
+      "type": "normal",
+      "baseName": "重撃",
+      "troopType": "弓兵",
+      "troopPrefix": "弓",
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "自部隊が弓兵の場合、部隊の攻撃+100（編制時点の攻撃に加算）",
+        "2": "自部隊が弓兵の場合、部隊の攻撃+200（編制時点の攻撃に加算）",
+        "3": "自部隊が弓兵の場合、部隊の攻撃+300（編制時点の攻撃に加算）",
+        "4": "自部隊が弓兵の場合、部隊の攻撃+400（編制時点の攻撃に加算）",
+        "5": "自部隊が弓兵の場合、部隊の攻撃+500（編制時点の攻撃に加算）",
+        "6": "自部隊が弓兵の場合、部隊の攻撃+600（編制時点の攻撃に加算）",
+        "7": "自部隊が弓兵の場合、部隊の攻撃+700（編制時点の攻撃に加算）",
+        "8": "自部隊が弓兵の場合、部隊の攻撃+800（編制時点の攻撃に加算）",
+        "9": "自部隊が弓兵の場合、部隊の攻撃+900（編制時点の攻撃に加算）",
+        "10": "自部隊が弓兵の場合、部隊の攻撃+1000（編制時点の攻撃に加算）"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 100,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 200,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 300,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 400,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "5": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 500,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "6": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 600,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 700,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "8": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 800,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "9": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 900,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "10": [
+          {
+            "target": "部隊",
+            "stat": "攻撃",
+            "type": "flat",
+            "value": 1000,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image275.png",
+        "note": "騎・技能画像を代表として歩/弓同類技能を展開"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "騎・賢駿",
+      "type": "normal",
+      "baseName": "賢駿",
+      "troopType": "騎兵",
+      "troopPrefix": "騎",
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "自部隊が騎兵の場合、部隊の知力+75（編制時点の知力に加算）",
+        "2": "自部隊が騎兵の場合、部隊の知力+150（編制時点の知力に加算）",
+        "3": "自部隊が騎兵の場合、部隊の知力+225（編制時点の知力に加算）",
+        "4": "自部隊が騎兵の場合、部隊の知力+300（編制時点の知力に加算）",
+        "5": "自部隊が騎兵の場合、部隊の知力+375（編制時点の知力に加算）",
+        "6": "自部隊が騎兵の場合、部隊の知力+450（編制時点の知力に加算）",
+        "7": "自部隊が騎兵の場合、部隊の知力+525（編制時点の知力に加算）",
+        "8": "自部隊が騎兵の場合、部隊の知力+600（編制時点の知力に加算）",
+        "9": "自部隊が騎兵の場合、部隊の知力+675（編制時点の知力に加算）",
+        "10": "自部隊が騎兵の場合、部隊の知力+750（編制時点の知力に加算）"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 75,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 150,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 225,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 300,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "5": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 375,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "6": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 450,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 525,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "8": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 600,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "9": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 675,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "10": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 750,
+            "condition": "自部隊が騎兵の場合"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image276.png",
+        "note": "騎・技能画像を代表として歩/弓同類技能を展開"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "歩・賢駿",
+      "type": "normal",
+      "baseName": "賢駿",
+      "troopType": "歩兵",
+      "troopPrefix": "歩",
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "自部隊が歩兵の場合、部隊の知力+75（編制時点の知力に加算）",
+        "2": "自部隊が歩兵の場合、部隊の知力+150（編制時点の知力に加算）",
+        "3": "自部隊が歩兵の場合、部隊の知力+225（編制時点の知力に加算）",
+        "4": "自部隊が歩兵の場合、部隊の知力+300（編制時点の知力に加算）",
+        "5": "自部隊が歩兵の場合、部隊の知力+375（編制時点の知力に加算）",
+        "6": "自部隊が歩兵の場合、部隊の知力+450（編制時点の知力に加算）",
+        "7": "自部隊が歩兵の場合、部隊の知力+525（編制時点の知力に加算）",
+        "8": "自部隊が歩兵の場合、部隊の知力+600（編制時点の知力に加算）",
+        "9": "自部隊が歩兵の場合、部隊の知力+675（編制時点の知力に加算）",
+        "10": "自部隊が歩兵の場合、部隊の知力+750（編制時点の知力に加算）"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 75,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 150,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 225,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 300,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "5": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 375,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "6": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 450,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 525,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "8": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 600,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "9": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 675,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "10": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 750,
+            "condition": "自部隊が歩兵の場合"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image276.png",
+        "note": "騎・技能画像を代表として歩/弓同類技能を展開"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "弓・賢駿",
+      "type": "normal",
+      "baseName": "賢駿",
+      "troopType": "弓兵",
+      "troopPrefix": "弓",
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "自部隊が弓兵の場合、部隊の知力+75（編制時点の知力に加算）",
+        "2": "自部隊が弓兵の場合、部隊の知力+150（編制時点の知力に加算）",
+        "3": "自部隊が弓兵の場合、部隊の知力+225（編制時点の知力に加算）",
+        "4": "自部隊が弓兵の場合、部隊の知力+300（編制時点の知力に加算）",
+        "5": "自部隊が弓兵の場合、部隊の知力+375（編制時点の知力に加算）",
+        "6": "自部隊が弓兵の場合、部隊の知力+450（編制時点の知力に加算）",
+        "7": "自部隊が弓兵の場合、部隊の知力+525（編制時点の知力に加算）",
+        "8": "自部隊が弓兵の場合、部隊の知力+600（編制時点の知力に加算）",
+        "9": "自部隊が弓兵の場合、部隊の知力+675（編制時点の知力に加算）",
+        "10": "自部隊が弓兵の場合、部隊の知力+750（編制時点の知力に加算）"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 75,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 150,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 225,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 300,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "5": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 375,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "6": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 450,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 525,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "8": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 600,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "9": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 675,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "10": [
+          {
+            "target": "部隊",
+            "stat": "知力",
+            "type": "flat",
+            "value": 750,
+            "condition": "自部隊が弓兵の場合"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image276.png",
+        "note": "騎・技能画像を代表として歩/弓同類技能を展開"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "騎・速撃",
+      "type": "normal",
+      "baseName": "速撃",
+      "troopType": "騎兵",
+      "troopPrefix": "騎",
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "自部隊が騎兵の場合、部隊の攻撃速度+3%",
+        "2": "自部隊が騎兵の場合、部隊の攻撃速度+6%",
+        "3": "自部隊が騎兵の場合、部隊の攻撃速度+9%",
+        "4": "自部隊が騎兵の場合、部隊の攻撃速度+12%",
+        "5": "自部隊が騎兵の場合、部隊の攻撃速度+15%",
+        "6": "自部隊が騎兵の場合、部隊の攻撃速度+18%",
+        "7": "自部隊が騎兵の場合、部隊の攻撃速度+21%",
+        "8": "自部隊が騎兵の場合、部隊の攻撃速度+24%",
+        "9": "自部隊が騎兵の場合、部隊の攻撃速度+27%",
+        "10": "自部隊が騎兵の場合、部隊の攻撃速度+30%"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 3,
+            "direction": "increase",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 6,
+            "direction": "increase",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 9,
+            "direction": "increase",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 12,
+            "direction": "increase",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "5": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 15,
+            "direction": "increase",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "6": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 18,
+            "direction": "increase",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 21,
+            "direction": "increase",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "8": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 24,
+            "direction": "increase",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "9": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 27,
+            "direction": "increase",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "10": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 30,
+            "direction": "increase",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image277.png",
+        "note": "騎・技能画像を代表として歩/弓同類技能を展開"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "歩・速撃",
+      "type": "normal",
+      "baseName": "速撃",
+      "troopType": "歩兵",
+      "troopPrefix": "歩",
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "自部隊が歩兵の場合、部隊の攻撃速度+3%",
+        "2": "自部隊が歩兵の場合、部隊の攻撃速度+6%",
+        "3": "自部隊が歩兵の場合、部隊の攻撃速度+9%",
+        "4": "自部隊が歩兵の場合、部隊の攻撃速度+12%",
+        "5": "自部隊が歩兵の場合、部隊の攻撃速度+15%",
+        "6": "自部隊が歩兵の場合、部隊の攻撃速度+18%",
+        "7": "自部隊が歩兵の場合、部隊の攻撃速度+21%",
+        "8": "自部隊が歩兵の場合、部隊の攻撃速度+24%",
+        "9": "自部隊が歩兵の場合、部隊の攻撃速度+27%",
+        "10": "自部隊が歩兵の場合、部隊の攻撃速度+30%"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 3,
+            "direction": "increase",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 6,
+            "direction": "increase",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 9,
+            "direction": "increase",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 12,
+            "direction": "increase",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "5": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 15,
+            "direction": "increase",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "6": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 18,
+            "direction": "increase",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 21,
+            "direction": "increase",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "8": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 24,
+            "direction": "increase",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "9": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 27,
+            "direction": "increase",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "10": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 30,
+            "direction": "increase",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image277.png",
+        "note": "騎・技能画像を代表として歩/弓同類技能を展開"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "弓・速撃",
+      "type": "normal",
+      "baseName": "速撃",
+      "troopType": "弓兵",
+      "troopPrefix": "弓",
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "自部隊が弓兵の場合、部隊の攻撃速度+3%",
+        "2": "自部隊が弓兵の場合、部隊の攻撃速度+6%",
+        "3": "自部隊が弓兵の場合、部隊の攻撃速度+9%",
+        "4": "自部隊が弓兵の場合、部隊の攻撃速度+12%",
+        "5": "自部隊が弓兵の場合、部隊の攻撃速度+15%",
+        "6": "自部隊が弓兵の場合、部隊の攻撃速度+18%",
+        "7": "自部隊が弓兵の場合、部隊の攻撃速度+21%",
+        "8": "自部隊が弓兵の場合、部隊の攻撃速度+24%",
+        "9": "自部隊が弓兵の場合、部隊の攻撃速度+27%",
+        "10": "自部隊が弓兵の場合、部隊の攻撃速度+30%"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 3,
+            "direction": "increase",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 6,
+            "direction": "increase",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 9,
+            "direction": "increase",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 12,
+            "direction": "increase",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "5": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 15,
+            "direction": "increase",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "6": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 18,
+            "direction": "increase",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 21,
+            "direction": "increase",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "8": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 24,
+            "direction": "increase",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "9": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 27,
+            "direction": "increase",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "10": [
+          {
+            "target": "部隊",
+            "stat": "攻撃速度",
+            "type": "percent",
+            "value": 30,
+            "direction": "increase",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image277.png",
+        "note": "騎・技能画像を代表として歩/弓同類技能を展開"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "騎・豪傑",
+      "type": "normal",
+      "baseName": "豪傑",
+      "troopType": "騎兵",
+      "troopPrefix": "騎",
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "自部隊が騎兵の場合、部隊の会心威力+5%",
+        "2": "自部隊が騎兵の場合、部隊の会心威力+10%",
+        "3": "自部隊が騎兵の場合、部隊の会心威力+15%",
+        "4": "自部隊が騎兵の場合、部隊の会心威力+20%",
+        "5": "自部隊が騎兵の場合、部隊の会心威力+25%",
+        "6": "自部隊が騎兵の場合、部隊の会心威力+30%",
+        "7": "自部隊が騎兵の場合、部隊の会心威力+35%",
+        "8": "自部隊が騎兵の場合、部隊の会心威力+40%",
+        "9": "自部隊が騎兵の場合、部隊の会心威力+45%",
+        "10": "自部隊が騎兵の場合、部隊の会心威力+50%"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 5,
+            "direction": "increase",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 10,
+            "direction": "increase",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 15,
+            "direction": "increase",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 20,
+            "direction": "increase",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "5": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 25,
+            "direction": "increase",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "6": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 30,
+            "direction": "increase",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 35,
+            "direction": "increase",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "8": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 40,
+            "direction": "increase",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "9": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 45,
+            "direction": "increase",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "10": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 50,
+            "direction": "increase",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image278.png",
+        "note": "騎・技能画像を代表として歩/弓同類技能を展開"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "歩・豪傑",
+      "type": "normal",
+      "baseName": "豪傑",
+      "troopType": "歩兵",
+      "troopPrefix": "歩",
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "自部隊が歩兵の場合、部隊の会心威力+5%",
+        "2": "自部隊が歩兵の場合、部隊の会心威力+10%",
+        "3": "自部隊が歩兵の場合、部隊の会心威力+15%",
+        "4": "自部隊が歩兵の場合、部隊の会心威力+20%",
+        "5": "自部隊が歩兵の場合、部隊の会心威力+25%",
+        "6": "自部隊が歩兵の場合、部隊の会心威力+30%",
+        "7": "自部隊が歩兵の場合、部隊の会心威力+35%",
+        "8": "自部隊が歩兵の場合、部隊の会心威力+40%",
+        "9": "自部隊が歩兵の場合、部隊の会心威力+45%",
+        "10": "自部隊が歩兵の場合、部隊の会心威力+50%"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 5,
+            "direction": "increase",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 10,
+            "direction": "increase",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 15,
+            "direction": "increase",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 20,
+            "direction": "increase",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "5": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 25,
+            "direction": "increase",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "6": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 30,
+            "direction": "increase",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 35,
+            "direction": "increase",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "8": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 40,
+            "direction": "increase",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "9": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 45,
+            "direction": "increase",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "10": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 50,
+            "direction": "increase",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image278.png",
+        "note": "騎・技能画像を代表として歩/弓同類技能を展開"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "弓・豪傑",
+      "type": "normal",
+      "baseName": "豪傑",
+      "troopType": "弓兵",
+      "troopPrefix": "弓",
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "自部隊が弓兵の場合、部隊の会心威力+5%",
+        "2": "自部隊が弓兵の場合、部隊の会心威力+10%",
+        "3": "自部隊が弓兵の場合、部隊の会心威力+15%",
+        "4": "自部隊が弓兵の場合、部隊の会心威力+20%",
+        "5": "自部隊が弓兵の場合、部隊の会心威力+25%",
+        "6": "自部隊が弓兵の場合、部隊の会心威力+30%",
+        "7": "自部隊が弓兵の場合、部隊の会心威力+35%",
+        "8": "自部隊が弓兵の場合、部隊の会心威力+40%",
+        "9": "自部隊が弓兵の場合、部隊の会心威力+45%",
+        "10": "自部隊が弓兵の場合、部隊の会心威力+50%"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 5,
+            "direction": "increase",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 10,
+            "direction": "increase",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 15,
+            "direction": "increase",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 20,
+            "direction": "increase",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "5": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 25,
+            "direction": "increase",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "6": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 30,
+            "direction": "increase",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 35,
+            "direction": "increase",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "8": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 40,
+            "direction": "increase",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "9": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 45,
+            "direction": "increase",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "10": [
+          {
+            "target": "部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 50,
+            "direction": "increase",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image278.png",
+        "note": "騎・技能画像を代表として歩/弓同類技能を展開"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "騎・緩衝",
+      "type": "normal",
+      "baseName": "緩衝",
+      "troopType": "騎兵",
+      "troopPrefix": "騎",
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "自部隊が騎兵の場合、通常攻撃・戦法による被ダメージ-5%",
+        "2": "自部隊が騎兵の場合、通常攻撃・戦法による被ダメージ-10%",
+        "3": "自部隊が騎兵の場合、通常攻撃・戦法による被ダメージ-15%",
+        "4": "自部隊が騎兵の場合、通常攻撃・戦法による被ダメージ-20%",
+        "5": "自部隊が騎兵の場合、通常攻撃・戦法による被ダメージ-25%",
+        "6": "自部隊が騎兵の場合、通常攻撃・戦法による被ダメージ-30%",
+        "7": "自部隊が騎兵の場合、通常攻撃・戦法による被ダメージ-35%",
+        "8": "自部隊が騎兵の場合、通常攻撃・戦法による被ダメージ-40%",
+        "9": "自部隊が騎兵の場合、通常攻撃・戦法による被ダメージ-45%",
+        "10": "自部隊が騎兵の場合、通常攻撃・戦法による被ダメージ-50%"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -5,
+            "direction": "decrease",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -10,
+            "direction": "decrease",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -15,
+            "direction": "decrease",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -20,
+            "direction": "decrease",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "5": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -25,
+            "direction": "decrease",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "6": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -30,
+            "direction": "decrease",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -35,
+            "direction": "decrease",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "8": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -40,
+            "direction": "decrease",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "9": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -45,
+            "direction": "decrease",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ],
+        "10": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -50,
+            "direction": "decrease",
+            "condition": "自部隊が騎兵の場合"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image280.png",
+        "note": "騎・技能画像を代表として歩/弓同類技能を展開"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "歩・緩衝",
+      "type": "normal",
+      "baseName": "緩衝",
+      "troopType": "歩兵",
+      "troopPrefix": "歩",
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "自部隊が歩兵の場合、通常攻撃・戦法による被ダメージ-5%",
+        "2": "自部隊が歩兵の場合、通常攻撃・戦法による被ダメージ-10%",
+        "3": "自部隊が歩兵の場合、通常攻撃・戦法による被ダメージ-15%",
+        "4": "自部隊が歩兵の場合、通常攻撃・戦法による被ダメージ-20%",
+        "5": "自部隊が歩兵の場合、通常攻撃・戦法による被ダメージ-25%",
+        "6": "自部隊が歩兵の場合、通常攻撃・戦法による被ダメージ-30%",
+        "7": "自部隊が歩兵の場合、通常攻撃・戦法による被ダメージ-35%",
+        "8": "自部隊が歩兵の場合、通常攻撃・戦法による被ダメージ-40%",
+        "9": "自部隊が歩兵の場合、通常攻撃・戦法による被ダメージ-45%",
+        "10": "自部隊が歩兵の場合、通常攻撃・戦法による被ダメージ-50%"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -5,
+            "direction": "decrease",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -10,
+            "direction": "decrease",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -15,
+            "direction": "decrease",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -20,
+            "direction": "decrease",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "5": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -25,
+            "direction": "decrease",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "6": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -30,
+            "direction": "decrease",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -35,
+            "direction": "decrease",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "8": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -40,
+            "direction": "decrease",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "9": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -45,
+            "direction": "decrease",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ],
+        "10": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -50,
+            "direction": "decrease",
+            "condition": "自部隊が歩兵の場合"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image280.png",
+        "note": "騎・技能画像を代表として歩/弓同類技能を展開"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "弓・緩衝",
+      "type": "normal",
+      "baseName": "緩衝",
+      "troopType": "弓兵",
+      "troopPrefix": "弓",
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "自部隊が弓兵の場合、通常攻撃・戦法による被ダメージ-5%",
+        "2": "自部隊が弓兵の場合、通常攻撃・戦法による被ダメージ-10%",
+        "3": "自部隊が弓兵の場合、通常攻撃・戦法による被ダメージ-15%",
+        "4": "自部隊が弓兵の場合、通常攻撃・戦法による被ダメージ-20%",
+        "5": "自部隊が弓兵の場合、通常攻撃・戦法による被ダメージ-25%",
+        "6": "自部隊が弓兵の場合、通常攻撃・戦法による被ダメージ-30%",
+        "7": "自部隊が弓兵の場合、通常攻撃・戦法による被ダメージ-35%",
+        "8": "自部隊が弓兵の場合、通常攻撃・戦法による被ダメージ-40%",
+        "9": "自部隊が弓兵の場合、通常攻撃・戦法による被ダメージ-45%",
+        "10": "自部隊が弓兵の場合、通常攻撃・戦法による被ダメージ-50%"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -5,
+            "direction": "decrease",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -10,
+            "direction": "decrease",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -15,
+            "direction": "decrease",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -20,
+            "direction": "decrease",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "5": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -25,
+            "direction": "decrease",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "6": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -30,
+            "direction": "decrease",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -35,
+            "direction": "decrease",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "8": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -40,
+            "direction": "decrease",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "9": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -45,
+            "direction": "decrease",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ],
+        "10": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -50,
+            "direction": "decrease",
+            "condition": "自部隊が弓兵の場合"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image280.png",
+        "note": "騎・技能画像を代表として歩/弓同類技能を展開"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "拡滅破効",
+      "type": "normal",
+      "troopType": null,
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "常に、50%の確率で通常攻撃の対象部隊数+1。通常攻撃でダメージを与えた際に5%の確率で、敵部隊の強化効果を1つ打ち消す",
+        "2": "常に、55%の確率で通常攻撃の対象部隊数+1。通常攻撃でダメージを与えた際に10%の確率で、敵部隊の強化効果を1つ打ち消す",
+        "3": "常に、60%の確率で通常攻撃の対象部隊数+1。通常攻撃でダメージを与えた際に15%の確率で、敵部隊の強化効果を1つ打ち消す",
+        "4": "常に、65%の確率で通常攻撃の対象部隊数+1。通常攻撃でダメージを与えた際に20%の確率で、敵部隊の強化効果を1つ打ち消す",
+        "5": "常に、70%の確率で通常攻撃の対象部隊数+1。通常攻撃でダメージを与えた際に25%の確率で、敵部隊の強化効果を1つ打ち消す",
+        "6": "常に、75%の確率で通常攻撃の対象部隊数+1。通常攻撃でダメージを与えた際に30%の確率で、敵部隊の強化効果を1つ打ち消す",
+        "7": "常に、80%の確率で通常攻撃の対象部隊数+1。通常攻撃でダメージを与えた際に35%の確率で、敵部隊の強化効果を1つ打ち消す",
+        "8": "常に、85%の確率で通常攻撃の対象部隊数+1。通常攻撃でダメージを与えた際に40%の確率で、敵部隊の強化効果を1つ打ち消す",
+        "9": "常に、90%の確率で通常攻撃の対象部隊数+1。通常攻撃でダメージを与えた際に45%の確率で、敵部隊の強化効果を1つ打ち消す",
+        "10": "常に、95%の確率で通常攻撃の対象部隊数+1。通常攻撃でダメージを与えた際に50%の確率で、敵部隊の強化効果を1つ打ち消す"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "自部隊",
+            "stat": "通常攻撃対象部隊数",
+            "type": "chance_flat",
+            "value": 1,
+            "chance_percent": 50,
+            "condition": "常に"
+          },
+          {
+            "target": "敵部隊",
+            "status": "強化効果解除",
+            "type": "chance_remove_buff",
+            "value": 1,
+            "chance_percent": 5,
+            "condition": "通常攻撃でダメージを与えた際"
+          }
+        ],
+        "2": [
+          {
+            "target": "自部隊",
+            "stat": "通常攻撃対象部隊数",
+            "type": "chance_flat",
+            "value": 1,
+            "chance_percent": 55,
+            "condition": "常に"
+          },
+          {
+            "target": "敵部隊",
+            "status": "強化効果解除",
+            "type": "chance_remove_buff",
+            "value": 1,
+            "chance_percent": 10,
+            "condition": "通常攻撃でダメージを与えた際"
+          }
+        ],
+        "3": [
+          {
+            "target": "自部隊",
+            "stat": "通常攻撃対象部隊数",
+            "type": "chance_flat",
+            "value": 1,
+            "chance_percent": 60,
+            "condition": "常に"
+          },
+          {
+            "target": "敵部隊",
+            "status": "強化効果解除",
+            "type": "chance_remove_buff",
+            "value": 1,
+            "chance_percent": 15,
+            "condition": "通常攻撃でダメージを与えた際"
+          }
+        ],
+        "4": [
+          {
+            "target": "自部隊",
+            "stat": "通常攻撃対象部隊数",
+            "type": "chance_flat",
+            "value": 1,
+            "chance_percent": 65,
+            "condition": "常に"
+          },
+          {
+            "target": "敵部隊",
+            "status": "強化効果解除",
+            "type": "chance_remove_buff",
+            "value": 1,
+            "chance_percent": 20,
+            "condition": "通常攻撃でダメージを与えた際"
+          }
+        ],
+        "5": [
+          {
+            "target": "自部隊",
+            "stat": "通常攻撃対象部隊数",
+            "type": "chance_flat",
+            "value": 1,
+            "chance_percent": 70,
+            "condition": "常に"
+          },
+          {
+            "target": "敵部隊",
+            "status": "強化効果解除",
+            "type": "chance_remove_buff",
+            "value": 1,
+            "chance_percent": 25,
+            "condition": "通常攻撃でダメージを与えた際"
+          }
+        ],
+        "6": [
+          {
+            "target": "自部隊",
+            "stat": "通常攻撃対象部隊数",
+            "type": "chance_flat",
+            "value": 1,
+            "chance_percent": 75,
+            "condition": "常に"
+          },
+          {
+            "target": "敵部隊",
+            "status": "強化効果解除",
+            "type": "chance_remove_buff",
+            "value": 1,
+            "chance_percent": 30,
+            "condition": "通常攻撃でダメージを与えた際"
+          }
+        ],
+        "7": [
+          {
+            "target": "自部隊",
+            "stat": "通常攻撃対象部隊数",
+            "type": "chance_flat",
+            "value": 1,
+            "chance_percent": 80,
+            "condition": "常に"
+          },
+          {
+            "target": "敵部隊",
+            "status": "強化効果解除",
+            "type": "chance_remove_buff",
+            "value": 1,
+            "chance_percent": 35,
+            "condition": "通常攻撃でダメージを与えた際"
+          }
+        ],
+        "8": [
+          {
+            "target": "自部隊",
+            "stat": "通常攻撃対象部隊数",
+            "type": "chance_flat",
+            "value": 1,
+            "chance_percent": 85,
+            "condition": "常に"
+          },
+          {
+            "target": "敵部隊",
+            "status": "強化効果解除",
+            "type": "chance_remove_buff",
+            "value": 1,
+            "chance_percent": 40,
+            "condition": "通常攻撃でダメージを与えた際"
+          }
+        ],
+        "9": [
+          {
+            "target": "自部隊",
+            "stat": "通常攻撃対象部隊数",
+            "type": "chance_flat",
+            "value": 1,
+            "chance_percent": 90,
+            "condition": "常に"
+          },
+          {
+            "target": "敵部隊",
+            "status": "強化効果解除",
+            "type": "chance_remove_buff",
+            "value": 1,
+            "chance_percent": 45,
+            "condition": "通常攻撃でダメージを与えた際"
+          }
+        ],
+        "10": [
+          {
+            "target": "自部隊",
+            "stat": "通常攻撃対象部隊数",
+            "type": "chance_flat",
+            "value": 1,
+            "chance_percent": 95,
+            "condition": "常に"
+          },
+          {
+            "target": "敵部隊",
+            "status": "強化効果解除",
+            "type": "chance_remove_buff",
+            "value": 1,
+            "chance_percent": 50,
+            "condition": "通常攻撃でダメージを与えた際"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image279.png"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "巻撃軽減",
+      "type": "normal",
+      "troopType": null,
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "常に、自身を対象としない範囲攻撃の被ダメージ-3%",
+        "2": "常に、自身を対象としない範囲攻撃の被ダメージ-6%",
+        "3": "常に、自身を対象としない範囲攻撃の被ダメージ-9%",
+        "4": "常に、自身を対象としない範囲攻撃の被ダメージ-12%",
+        "5": "常に、自身を対象としない範囲攻撃の被ダメージ-15%",
+        "6": "常に、自身を対象としない範囲攻撃の被ダメージ-18%",
+        "7": "常に、自身を対象としない範囲攻撃の被ダメージ-21%",
+        "8": "常に、自身を対象としない範囲攻撃の被ダメージ-24%",
+        "9": "常に、自身を対象としない範囲攻撃の被ダメージ-27%",
+        "10": "常に、自身を対象としない範囲攻撃の被ダメージ-30%"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "自身を対象としない範囲攻撃の被ダメージ",
+            "type": "percent",
+            "value": -3,
+            "direction": "decrease",
+            "condition": "常に"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "自身を対象としない範囲攻撃の被ダメージ",
+            "type": "percent",
+            "value": -6,
+            "direction": "decrease",
+            "condition": "常に"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "自身を対象としない範囲攻撃の被ダメージ",
+            "type": "percent",
+            "value": -9,
+            "direction": "decrease",
+            "condition": "常に"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "自身を対象としない範囲攻撃の被ダメージ",
+            "type": "percent",
+            "value": -12,
+            "direction": "decrease",
+            "condition": "常に"
+          }
+        ],
+        "5": [
+          {
+            "target": "部隊",
+            "stat": "自身を対象としない範囲攻撃の被ダメージ",
+            "type": "percent",
+            "value": -15,
+            "direction": "decrease",
+            "condition": "常に"
+          }
+        ],
+        "6": [
+          {
+            "target": "部隊",
+            "stat": "自身を対象としない範囲攻撃の被ダメージ",
+            "type": "percent",
+            "value": -18,
+            "direction": "decrease",
+            "condition": "常に"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "自身を対象としない範囲攻撃の被ダメージ",
+            "type": "percent",
+            "value": -21,
+            "direction": "decrease",
+            "condition": "常に"
+          }
+        ],
+        "8": [
+          {
+            "target": "部隊",
+            "stat": "自身を対象としない範囲攻撃の被ダメージ",
+            "type": "percent",
+            "value": -24,
+            "direction": "decrease",
+            "condition": "常に"
+          }
+        ],
+        "9": [
+          {
+            "target": "部隊",
+            "stat": "自身を対象としない範囲攻撃の被ダメージ",
+            "type": "percent",
+            "value": -27,
+            "direction": "decrease",
+            "condition": "常に"
+          }
+        ],
+        "10": [
+          {
+            "target": "部隊",
+            "stat": "自身を対象としない範囲攻撃の被ダメージ",
+            "type": "percent",
+            "value": -30,
+            "direction": "decrease",
+            "condition": "常に"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image281.png"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "防衛機動",
+      "type": "normal",
+      "troopType": null,
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "常に、要所/都市特性/主要都市の城壁の防衛中、部隊の機動+10% ※主要都市に属する要所/都市特性に限る",
+        "2": "常に、要所/都市特性/主要都市の城壁の防衛中、部隊の機動+14% ※主要都市に属する要所/都市特性に限る",
+        "3": "常に、要所/都市特性/主要都市の城壁の防衛中、部隊の機動+18% ※主要都市に属する要所/都市特性に限る",
+        "4": "常に、要所/都市特性/主要都市の城壁の防衛中、部隊の機動+22% ※主要都市に属する要所/都市特性に限る",
+        "5": "常に、要所/都市特性/主要都市の城壁の防衛中、部隊の機動+26% ※主要都市に属する要所/都市特性に限る",
+        "6": "常に、要所/都市特性/主要都市の城壁の防衛中、部隊の機動+30% ※主要都市に属する要所/都市特性に限る",
+        "7": "常に、要所/都市特性/主要都市の城壁の防衛中、部隊の機動+34% ※主要都市に属する要所/都市特性に限る",
+        "8": "常に、要所/都市特性/主要都市の城壁の防衛中、部隊の機動+38% ※主要都市に属する要所/都市特性に限る",
+        "9": "常に、要所/都市特性/主要都市の城壁の防衛中、部隊の機動+42% ※主要都市に属する要所/都市特性に限る",
+        "10": "常に、要所/都市特性/主要都市の城壁の防衛中、部隊の機動+50% ※主要都市に属する要所/都市特性に限る"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "機動",
+            "type": "percent",
+            "value": 10,
+            "direction": "increase",
+            "condition": "要所/都市特性/主要都市の城壁の防衛中"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "機動",
+            "type": "percent",
+            "value": 14,
+            "direction": "increase",
+            "condition": "要所/都市特性/主要都市の城壁の防衛中"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "機動",
+            "type": "percent",
+            "value": 18,
+            "direction": "increase",
+            "condition": "要所/都市特性/主要都市の城壁の防衛中"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "機動",
+            "type": "percent",
+            "value": 22,
+            "direction": "increase",
+            "condition": "要所/都市特性/主要都市の城壁の防衛中"
+          }
+        ],
+        "5": [
+          {
+            "target": "部隊",
+            "stat": "機動",
+            "type": "percent",
+            "value": 26,
+            "direction": "increase",
+            "condition": "要所/都市特性/主要都市の城壁の防衛中"
+          }
+        ],
+        "6": [
+          {
+            "target": "部隊",
+            "stat": "機動",
+            "type": "percent",
+            "value": 30,
+            "direction": "increase",
+            "condition": "要所/都市特性/主要都市の城壁の防衛中"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "機動",
+            "type": "percent",
+            "value": 34,
+            "direction": "increase",
+            "condition": "要所/都市特性/主要都市の城壁の防衛中"
+          }
+        ],
+        "8": [
+          {
+            "target": "部隊",
+            "stat": "機動",
+            "type": "percent",
+            "value": 38,
+            "direction": "increase",
+            "condition": "要所/都市特性/主要都市の城壁の防衛中"
+          }
+        ],
+        "9": [
+          {
+            "target": "部隊",
+            "stat": "機動",
+            "type": "percent",
+            "value": 42,
+            "direction": "increase",
+            "condition": "要所/都市特性/主要都市の城壁の防衛中"
+          }
+        ],
+        "10": [
+          {
+            "target": "部隊",
+            "stat": "機動",
+            "type": "percent",
+            "value": 50,
+            "direction": "increase",
+            "condition": "要所/都市特性/主要都市の城壁の防衛中"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image282.png"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "精巧猛進",
+      "type": "normal",
+      "troopType": null,
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "常に、兵器速度+3%、兵器による与ダメージ+5%、兵器が受けるダメージ-5% ※軽減効果は他効果と合算、最大95%軽減",
+        "2": "常に、兵器速度+6%、兵器による与ダメージ+10%、兵器が受けるダメージ-10% ※軽減効果は他効果と合算、最大95%軽減",
+        "3": "常に、兵器速度+9%、兵器による与ダメージ+15%、兵器が受けるダメージ-15% ※軽減効果は他効果と合算、最大95%軽減",
+        "4": "常に、兵器速度+12%、兵器による与ダメージ+20%、兵器が受けるダメージ-20% ※軽減効果は他効果と合算、最大95%軽減",
+        "5": "常に、兵器速度+15%、兵器による与ダメージ+25%、兵器が受けるダメージ-25% ※軽減効果は他効果と合算、最大95%軽減",
+        "6": "常に、兵器速度+18%、兵器による与ダメージ+30%、兵器が受けるダメージ-30% ※軽減効果は他効果と合算、最大95%軽減",
+        "7": "常に、兵器速度+21%、兵器による与ダメージ+35%、兵器が受けるダメージ-35% ※軽減効果は他効果と合算、最大95%軽減",
+        "8": "常に、兵器速度+24%、兵器による与ダメージ+40%、兵器が受けるダメージ-40% ※軽減効果は他効果と合算、最大95%軽減",
+        "9": "常に、兵器速度+27%、兵器による与ダメージ+45%、兵器が受けるダメージ-45% ※軽減効果は他効果と合算、最大95%軽減",
+        "10": "常に、兵器速度+30%、兵器による与ダメージ+50%、兵器が受けるダメージ-50% ※軽減効果は他効果と合算、最大95%軽減"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "兵器速度",
+            "type": "percent",
+            "value": 3,
+            "direction": "increase",
+            "condition": "常に"
+          },
+          {
+            "target": "部隊",
+            "stat": "兵器与ダメージ",
+            "type": "percent",
+            "value": 5,
+            "direction": "increase",
+            "condition": "常に"
+          },
+          {
+            "target": "部隊",
+            "stat": "兵器被ダメージ",
+            "type": "percent",
+            "value": -5,
+            "direction": "decrease",
+            "condition": "常に"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "兵器速度",
+            "type": "percent",
+            "value": 6,
+            "direction": "increase",
+            "condition": "常に"
+          },
+          {
+            "target": "部隊",
+            "stat": "兵器与ダメージ",
+            "type": "percent",
+            "value": 10,
+            "direction": "increase",
+            "condition": "常に"
+          },
+          {
+            "target": "部隊",
+            "stat": "兵器被ダメージ",
+            "type": "percent",
+            "value": -10,
+            "direction": "decrease",
+            "condition": "常に"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "兵器速度",
+            "type": "percent",
+            "value": 9,
+            "direction": "increase",
+            "condition": "常に"
+          },
+          {
+            "target": "部隊",
+            "stat": "兵器与ダメージ",
+            "type": "percent",
+            "value": 15,
+            "direction": "increase",
+            "condition": "常に"
+          },
+          {
+            "target": "部隊",
+            "stat": "兵器被ダメージ",
+            "type": "percent",
+            "value": -15,
+            "direction": "decrease",
+            "condition": "常に"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "兵器速度",
+            "type": "percent",
+            "value": 12,
+            "direction": "increase",
+            "condition": "常に"
+          },
+          {
+            "target": "部隊",
+            "stat": "兵器与ダメージ",
+            "type": "percent",
+            "value": 20,
+            "direction": "increase",
+            "condition": "常に"
+          },
+          {
+            "target": "部隊",
+            "stat": "兵器被ダメージ",
+            "type": "percent",
+            "value": -20,
+            "direction": "decrease",
+            "condition": "常に"
+          }
+        ],
+        "5": [
+          {
+            "target": "部隊",
+            "stat": "兵器速度",
+            "type": "percent",
+            "value": 15,
+            "direction": "increase",
+            "condition": "常に"
+          },
+          {
+            "target": "部隊",
+            "stat": "兵器与ダメージ",
+            "type": "percent",
+            "value": 25,
+            "direction": "increase",
+            "condition": "常に"
+          },
+          {
+            "target": "部隊",
+            "stat": "兵器被ダメージ",
+            "type": "percent",
+            "value": -25,
+            "direction": "decrease",
+            "condition": "常に"
+          }
+        ],
+        "6": [
+          {
+            "target": "部隊",
+            "stat": "兵器速度",
+            "type": "percent",
+            "value": 18,
+            "direction": "increase",
+            "condition": "常に"
+          },
+          {
+            "target": "部隊",
+            "stat": "兵器与ダメージ",
+            "type": "percent",
+            "value": 30,
+            "direction": "increase",
+            "condition": "常に"
+          },
+          {
+            "target": "部隊",
+            "stat": "兵器被ダメージ",
+            "type": "percent",
+            "value": -30,
+            "direction": "decrease",
+            "condition": "常に"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "兵器速度",
+            "type": "percent",
+            "value": 21,
+            "direction": "increase",
+            "condition": "常に"
+          },
+          {
+            "target": "部隊",
+            "stat": "兵器与ダメージ",
+            "type": "percent",
+            "value": 35,
+            "direction": "increase",
+            "condition": "常に"
+          },
+          {
+            "target": "部隊",
+            "stat": "兵器被ダメージ",
+            "type": "percent",
+            "value": -35,
+            "direction": "decrease",
+            "condition": "常に"
+          }
+        ],
+        "8": [
+          {
+            "target": "部隊",
+            "stat": "兵器速度",
+            "type": "percent",
+            "value": 24,
+            "direction": "increase",
+            "condition": "常に"
+          },
+          {
+            "target": "部隊",
+            "stat": "兵器与ダメージ",
+            "type": "percent",
+            "value": 40,
+            "direction": "increase",
+            "condition": "常に"
+          },
+          {
+            "target": "部隊",
+            "stat": "兵器被ダメージ",
+            "type": "percent",
+            "value": -40,
+            "direction": "decrease",
+            "condition": "常に"
+          }
+        ],
+        "9": [
+          {
+            "target": "部隊",
+            "stat": "兵器速度",
+            "type": "percent",
+            "value": 27,
+            "direction": "increase",
+            "condition": "常に"
+          },
+          {
+            "target": "部隊",
+            "stat": "兵器与ダメージ",
+            "type": "percent",
+            "value": 45,
+            "direction": "increase",
+            "condition": "常に"
+          },
+          {
+            "target": "部隊",
+            "stat": "兵器被ダメージ",
+            "type": "percent",
+            "value": -45,
+            "direction": "decrease",
+            "condition": "常に"
+          }
+        ],
+        "10": [
+          {
+            "target": "部隊",
+            "stat": "兵器速度",
+            "type": "percent",
+            "value": 30,
+            "direction": "increase",
+            "condition": "常に"
+          },
+          {
+            "target": "部隊",
+            "stat": "兵器与ダメージ",
+            "type": "percent",
+            "value": 50,
+            "direction": "increase",
+            "condition": "常に"
+          },
+          {
+            "target": "部隊",
+            "stat": "兵器被ダメージ",
+            "type": "percent",
+            "value": -50,
+            "direction": "decrease",
+            "condition": "常に"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image283.png"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "防衛迅活",
+      "type": "normal",
+      "troopType": null,
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "常に、要所/都市特性/主要都市の城壁の防衛中、部隊の戦法速度+5% ※主要都市に属する要所/都市特性に限る",
+        "2": "常に、要所/都市特性/主要都市の城壁の防衛中、部隊の戦法速度+5.5% ※主要都市に属する要所/都市特性に限る",
+        "3": "常に、要所/都市特性/主要都市の城壁の防衛中、部隊の戦法速度+6% ※主要都市に属する要所/都市特性に限る",
+        "4": "常に、要所/都市特性/主要都市の城壁の防衛中、部隊の戦法速度+6.5% ※主要都市に属する要所/都市特性に限る",
+        "5": "常に、要所/都市特性/主要都市の城壁の防衛中、部隊の戦法速度+7% ※主要都市に属する要所/都市特性に限る",
+        "6": "常に、要所/都市特性/主要都市の城壁の防衛中、部隊の戦法速度+7.5% ※主要都市に属する要所/都市特性に限る",
+        "7": "常に、要所/都市特性/主要都市の城壁の防衛中、部隊の戦法速度+8% ※主要都市に属する要所/都市特性に限る",
+        "8": "常に、要所/都市特性/主要都市の城壁の防衛中、部隊の戦法速度+8.5% ※主要都市に属する要所/都市特性に限る",
+        "9": "常に、要所/都市特性/主要都市の城壁の防衛中、部隊の戦法速度+9% ※主要都市に属する要所/都市特性に限る",
+        "10": "常に、要所/都市特性/主要都市の城壁の防衛中、部隊の戦法速度+10% ※主要都市に属する要所/都市特性に限る"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "戦法速度",
+            "type": "percent",
+            "value": 5,
+            "direction": "increase",
+            "condition": "要所/都市特性/主要都市の城壁の防衛中"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "戦法速度",
+            "type": "percent",
+            "value": 5.5,
+            "direction": "increase",
+            "condition": "要所/都市特性/主要都市の城壁の防衛中"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "戦法速度",
+            "type": "percent",
+            "value": 6,
+            "direction": "increase",
+            "condition": "要所/都市特性/主要都市の城壁の防衛中"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "戦法速度",
+            "type": "percent",
+            "value": 6.5,
+            "direction": "increase",
+            "condition": "要所/都市特性/主要都市の城壁の防衛中"
+          }
+        ],
+        "5": [
+          {
+            "target": "部隊",
+            "stat": "戦法速度",
+            "type": "percent",
+            "value": 7,
+            "direction": "increase",
+            "condition": "要所/都市特性/主要都市の城壁の防衛中"
+          }
+        ],
+        "6": [
+          {
+            "target": "部隊",
+            "stat": "戦法速度",
+            "type": "percent",
+            "value": 7.5,
+            "direction": "increase",
+            "condition": "要所/都市特性/主要都市の城壁の防衛中"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "戦法速度",
+            "type": "percent",
+            "value": 8,
+            "direction": "increase",
+            "condition": "要所/都市特性/主要都市の城壁の防衛中"
+          }
+        ],
+        "8": [
+          {
+            "target": "部隊",
+            "stat": "戦法速度",
+            "type": "percent",
+            "value": 8.5,
+            "direction": "increase",
+            "condition": "要所/都市特性/主要都市の城壁の防衛中"
+          }
+        ],
+        "9": [
+          {
+            "target": "部隊",
+            "stat": "戦法速度",
+            "type": "percent",
+            "value": 9,
+            "direction": "increase",
+            "condition": "要所/都市特性/主要都市の城壁の防衛中"
+          }
+        ],
+        "10": [
+          {
+            "target": "部隊",
+            "stat": "戦法速度",
+            "type": "percent",
+            "value": 10,
+            "direction": "increase",
+            "condition": "要所/都市特性/主要都市の城壁の防衛中"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image284.png"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "破砕猛攻",
+      "type": "normal",
+      "troopType": null,
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "常に、戦法でダメージを与える際、対物特効を5%上昇させた状態で攻撃",
+        "2": "常に、戦法でダメージを与える際、対物特効を10%上昇させた状態で攻撃",
+        "3": "常に、戦法でダメージを与える際、対物特効を15%上昇させた状態で攻撃",
+        "4": "常に、戦法でダメージを与える際、対物特効を20%上昇させた状態で攻撃",
+        "5": "常に、戦法でダメージを与える際、対物特効を25%上昇させた状態で攻撃",
+        "6": "常に、戦法でダメージを与える際、対物特効を30%上昇させた状態で攻撃",
+        "7": "常に、戦法でダメージを与える際、対物特効を35%上昇させた状態で攻撃",
+        "8": "常に、戦法でダメージを与える際、対物特効を40%上昇させた状態で攻撃",
+        "9": "常に、戦法でダメージを与える際、対物特効を45%上昇させた状態で攻撃",
+        "10": "常に、戦法でダメージを与える際、対物特効を50%上昇させた状態で攻撃"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "対物特効",
+            "type": "percent",
+            "value": 5,
+            "direction": "increase",
+            "condition": "戦法でダメージを与える際"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "対物特効",
+            "type": "percent",
+            "value": 10,
+            "direction": "increase",
+            "condition": "戦法でダメージを与える際"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "対物特効",
+            "type": "percent",
+            "value": 15,
+            "direction": "increase",
+            "condition": "戦法でダメージを与える際"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "対物特効",
+            "type": "percent",
+            "value": 20,
+            "direction": "increase",
+            "condition": "戦法でダメージを与える際"
+          }
+        ],
+        "5": [
+          {
+            "target": "部隊",
+            "stat": "対物特効",
+            "type": "percent",
+            "value": 25,
+            "direction": "increase",
+            "condition": "戦法でダメージを与える際"
+          }
+        ],
+        "6": [
+          {
+            "target": "部隊",
+            "stat": "対物特効",
+            "type": "percent",
+            "value": 30,
+            "direction": "increase",
+            "condition": "戦法でダメージを与える際"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "対物特効",
+            "type": "percent",
+            "value": 35,
+            "direction": "increase",
+            "condition": "戦法でダメージを与える際"
+          }
+        ],
+        "8": [
+          {
+            "target": "部隊",
+            "stat": "対物特効",
+            "type": "percent",
+            "value": 40,
+            "direction": "increase",
+            "condition": "戦法でダメージを与える際"
+          }
+        ],
+        "9": [
+          {
+            "target": "部隊",
+            "stat": "対物特効",
+            "type": "percent",
+            "value": 45,
+            "direction": "increase",
+            "condition": "戦法でダメージを与える際"
+          }
+        ],
+        "10": [
+          {
+            "target": "部隊",
+            "stat": "対物特効",
+            "type": "percent",
+            "value": 50,
+            "direction": "increase",
+            "condition": "戦法でダメージを与える際"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image285.png"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "防勢牽制",
+      "type": "normal",
+      "troopType": null,
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 10,
+      "levelCombine": "sum_cap",
+      "effectsByLevel": {
+        "1": "常に、駐屯/防衛中の部隊に通常攻撃・戦法でダメージを与えたとき5%の確率で、戦法速度-20%（10秒）",
+        "2": "常に、駐屯/防衛中の部隊に通常攻撃・戦法でダメージを与えたとき10%の確率で、戦法速度-20%（10秒）",
+        "3": "常に、駐屯/防衛中の部隊に通常攻撃・戦法でダメージを与えたとき15%の確率で、戦法速度-20%（10秒）",
+        "4": "常に、駐屯/防衛中の部隊に通常攻撃・戦法でダメージを与えたとき20%の確率で、戦法速度-20%（10秒）",
+        "5": "常に、駐屯/防衛中の部隊に通常攻撃・戦法でダメージを与えたとき25%の確率で、戦法速度-20%（10秒）",
+        "6": "常に、駐屯/防衛中の部隊に通常攻撃・戦法でダメージを与えたとき30%の確率で、戦法速度-20%（10秒）",
+        "7": "常に、駐屯/防衛中の部隊に通常攻撃・戦法でダメージを与えたとき35%の確率で、戦法速度-20%（10秒）",
+        "8": "常に、駐屯/防衛中の部隊に通常攻撃・戦法でダメージを与えたとき40%の確率で、戦法速度-20%（10秒）",
+        "9": "常に、駐屯/防衛中の部隊に通常攻撃・戦法でダメージを与えたとき45%の確率で、戦法速度-20%（10秒）",
+        "10": "常に、駐屯/防衛中の部隊に通常攻撃・戦法でダメージを与えたとき50%の確率で、戦法速度-20%（10秒）"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "敵部隊",
+            "status": "戦法速度",
+            "type": "chance_status_effect",
+            "value": -20,
+            "duration_sec": 10,
+            "chance_percent": 5,
+            "condition": "駐屯/防衛中の部隊に通常攻撃・戦法でダメージを与えたとき"
+          }
+        ],
+        "2": [
+          {
+            "target": "敵部隊",
+            "status": "戦法速度",
+            "type": "chance_status_effect",
+            "value": -20,
+            "duration_sec": 10,
+            "chance_percent": 10,
+            "condition": "駐屯/防衛中の部隊に通常攻撃・戦法でダメージを与えたとき"
+          }
+        ],
+        "3": [
+          {
+            "target": "敵部隊",
+            "status": "戦法速度",
+            "type": "chance_status_effect",
+            "value": -20,
+            "duration_sec": 10,
+            "chance_percent": 15,
+            "condition": "駐屯/防衛中の部隊に通常攻撃・戦法でダメージを与えたとき"
+          }
+        ],
+        "4": [
+          {
+            "target": "敵部隊",
+            "status": "戦法速度",
+            "type": "chance_status_effect",
+            "value": -20,
+            "duration_sec": 10,
+            "chance_percent": 20,
+            "condition": "駐屯/防衛中の部隊に通常攻撃・戦法でダメージを与えたとき"
+          }
+        ],
+        "5": [
+          {
+            "target": "敵部隊",
+            "status": "戦法速度",
+            "type": "chance_status_effect",
+            "value": -20,
+            "duration_sec": 10,
+            "chance_percent": 25,
+            "condition": "駐屯/防衛中の部隊に通常攻撃・戦法でダメージを与えたとき"
+          }
+        ],
+        "6": [
+          {
+            "target": "敵部隊",
+            "status": "戦法速度",
+            "type": "chance_status_effect",
+            "value": -20,
+            "duration_sec": 10,
+            "chance_percent": 30,
+            "condition": "駐屯/防衛中の部隊に通常攻撃・戦法でダメージを与えたとき"
+          }
+        ],
+        "7": [
+          {
+            "target": "敵部隊",
+            "status": "戦法速度",
+            "type": "chance_status_effect",
+            "value": -20,
+            "duration_sec": 10,
+            "chance_percent": 35,
+            "condition": "駐屯/防衛中の部隊に通常攻撃・戦法でダメージを与えたとき"
+          }
+        ],
+        "8": [
+          {
+            "target": "敵部隊",
+            "status": "戦法速度",
+            "type": "chance_status_effect",
+            "value": -20,
+            "duration_sec": 10,
+            "chance_percent": 40,
+            "condition": "駐屯/防衛中の部隊に通常攻撃・戦法でダメージを与えたとき"
+          }
+        ],
+        "9": [
+          {
+            "target": "敵部隊",
+            "status": "戦法速度",
+            "type": "chance_status_effect",
+            "value": -20,
+            "duration_sec": 10,
+            "chance_percent": 45,
+            "condition": "駐屯/防衛中の部隊に通常攻撃・戦法でダメージを与えたとき"
+          }
+        ],
+        "10": [
+          {
+            "target": "敵部隊",
+            "status": "戦法速度",
+            "type": "chance_status_effect",
+            "value": -20,
+            "duration_sec": 10,
+            "chance_percent": 50,
+            "condition": "駐屯/防衛中の部隊に通常攻撃・戦法でダメージを与えたとき"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "軍馬",
+        "image": "image286.png"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "絶影",
+      "type": "famous_fixed",
+      "famousHorse": "絶影",
+      "maxSetLevel": 3,
+      "maxEffectiveLevel": 3,
+      "levelCombine": "fixed_by_famous_horse_star",
+      "effectsByLevel": {
+        "1": "常に、攻撃を受けた際、負傷兵として生存する兵数+10%。自部隊の主将が曹操と好相性の際、副将の連鎖確率+1%。主将戦法発動時、自身1部隊の負傷兵を最大兵力の5%回復",
+        "2": "常に、攻撃を受けた際、負傷兵として生存する兵数+15%。自部隊の主将が曹操と好相性の際、副将の連鎖確率+3%。主将戦法発動時、自身1部隊の負傷兵を最大兵力の10%回復",
+        "3": "常に、攻撃を受けた際、負傷兵として生存する兵数+20%。自部隊の主将が曹操と好相性の際、副将の連鎖確率+5%。主将戦法発動時、自身1部隊の負傷兵を最大兵力の15%回復"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "負傷兵として生存する兵数",
+            "type": "percent",
+            "value": 10,
+            "direction": "increase",
+            "condition": "常に"
+          },
+          {
+            "target": "部隊",
+            "stat": "副将の連鎖確率",
+            "type": "percent",
+            "value": 1,
+            "direction": "increase",
+            "condition": "自部隊の主将が曹操と好相性の際"
+          },
+          {
+            "target": "部隊",
+            "stat": "負傷兵回復",
+            "type": "percent",
+            "value": 5,
+            "direction": "increase",
+            "condition": "主将戦法発動時"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "負傷兵として生存する兵数",
+            "type": "percent",
+            "value": 15,
+            "direction": "increase",
+            "condition": "常に"
+          },
+          {
+            "target": "部隊",
+            "stat": "副将の連鎖確率",
+            "type": "percent",
+            "value": 3,
+            "direction": "increase",
+            "condition": "自部隊の主将が曹操と好相性の際"
+          },
+          {
+            "target": "部隊",
+            "stat": "負傷兵回復",
+            "type": "percent",
+            "value": 10,
+            "direction": "increase",
+            "condition": "主将戦法発動時"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "負傷兵として生存する兵数",
+            "type": "percent",
+            "value": 20,
+            "direction": "increase",
+            "condition": "常に"
+          },
+          {
+            "target": "部隊",
+            "stat": "副将の連鎖確率",
+            "type": "percent",
+            "value": 5,
+            "direction": "increase",
+            "condition": "自部隊の主将が曹操と好相性の際"
+          },
+          {
+            "target": "部隊",
+            "stat": "負傷兵回復",
+            "type": "percent",
+            "value": 15,
+            "direction": "increase",
+            "condition": "主将戦法発動時"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "名馬",
+        "image": "image287.png",
+        "rankupImage": "image293.png"
+      }
+    },
+    {
+      "category": "warhorse_skills",
+      "name": "白龍",
+      "type": "famous_fixed",
+      "famousHorse": "白龍",
+      "maxSetLevel": 5,
+      "maxEffectiveLevel": 5,
+      "levelCombine": "fixed_by_famous_horse_star",
+      "effectsByLevel": {
+        "1": "常に、自部隊に弱化効果が発生していないとき、通常攻撃・戦法による被ダメージ-5%。自部隊の主将が趙雲と好相性の際、自部隊に弱化効果が発生していないとき、敵部隊に対する会心発生+5%。主将戦法発動時、自身1部隊の会心威力+10%（10秒）",
+        "2": "常に、自部隊に弱化効果が発生していないとき、通常攻撃・戦法による被ダメージ-7%。自部隊の主将が趙雲と好相性の際、自部隊に弱化効果が発生していないとき、敵部隊に対する会心発生+7%。主将戦法発動時、自身1部隊の会心威力+15%（10秒）",
+        "3": "常に、自部隊に弱化効果が発生していないとき、通常攻撃・戦法による被ダメージ-9%。自部隊の主将が趙雲と好相性の際、自部隊に弱化効果が発生していないとき、敵部隊に対する会心発生+9%。主将戦法発動時、自身1部隊の会心威力+20%（10秒）",
+        "4": "常に、自部隊に弱化効果が発生していないとき、通常攻撃・戦法による被ダメージ-11%。自部隊の主将が趙雲と好相性の際、自部隊に弱化効果が発生していないとき、敵部隊に対する会心発生+11%。主将戦法発動時、自身1部隊の会心威力+25%（10秒）",
+        "5": "常に、自部隊に弱化効果が発生していないとき、通常攻撃・戦法による被ダメージ-14%。自部隊の主将が趙雲と好相性の際、自部隊に弱化効果が発生していないとき、敵部隊に対する会心発生+14%。主将戦法発動時、自身1部隊の会心威力+30%（10秒）"
+      },
+      "numericEffectsByLevel": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -5,
+            "direction": "decrease",
+            "condition": "自部隊に弱化効果が発生していないとき"
+          },
+          {
+            "target": "部隊",
+            "stat": "会心発生",
+            "type": "percent",
+            "value": 5,
+            "direction": "increase",
+            "condition": "自部隊の主将が趙雲と好相性、かつ自部隊に弱化効果が発生していないとき"
+          },
+          {
+            "target": "自身1部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 10,
+            "duration_sec": 10,
+            "condition": "主将戦法発動時"
+          }
+        ],
+        "2": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -7,
+            "direction": "decrease",
+            "condition": "自部隊に弱化効果が発生していないとき"
+          },
+          {
+            "target": "部隊",
+            "stat": "会心発生",
+            "type": "percent",
+            "value": 7,
+            "direction": "increase",
+            "condition": "自部隊の主将が趙雲と好相性、かつ自部隊に弱化効果が発生していないとき"
+          },
+          {
+            "target": "自身1部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 15,
+            "duration_sec": 10,
+            "condition": "主将戦法発動時"
+          }
+        ],
+        "3": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -9,
+            "direction": "decrease",
+            "condition": "自部隊に弱化効果が発生していないとき"
+          },
+          {
+            "target": "部隊",
+            "stat": "会心発生",
+            "type": "percent",
+            "value": 9,
+            "direction": "increase",
+            "condition": "自部隊の主将が趙雲と好相性、かつ自部隊に弱化効果が発生していないとき"
+          },
+          {
+            "target": "自身1部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 20,
+            "duration_sec": 10,
+            "condition": "主将戦法発動時"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -11,
+            "direction": "decrease",
+            "condition": "自部隊に弱化効果が発生していないとき"
+          },
+          {
+            "target": "部隊",
+            "stat": "会心発生",
+            "type": "percent",
+            "value": 11,
+            "direction": "increase",
+            "condition": "自部隊の主将が趙雲と好相性、かつ自部隊に弱化効果が発生していないとき"
+          },
+          {
+            "target": "自身1部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 25,
+            "duration_sec": 10,
+            "condition": "主将戦法発動時"
+          }
+        ],
+        "5": [
+          {
+            "target": "部隊",
+            "stat": "通常攻撃・戦法被ダメージ",
+            "type": "percent",
+            "value": -14,
+            "direction": "decrease",
+            "condition": "自部隊に弱化効果が発生していないとき"
+          },
+          {
+            "target": "部隊",
+            "stat": "会心発生",
+            "type": "percent",
+            "value": 14,
+            "direction": "increase",
+            "condition": "自部隊の主将が趙雲と好相性、かつ自部隊に弱化効果が発生していないとき"
+          },
+          {
+            "target": "自身1部隊",
+            "stat": "会心威力",
+            "type": "percent",
+            "value": 30,
+            "duration_sec": 10,
+            "condition": "主将戦法発動時"
+          }
+        ]
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "名馬",
+        "image": "image288.png",
+        "rankupImage": "image294.png"
+      }
+    }
+  ],
+  "meta": {
+    "count": 27,
+    "exportedAt": "2026-05-10 12:11:08+0900",
+    "version": "warhorse_excel_1.0.0.0",
+    "sourceWorkbook": "三国志覇道_開発調査_20260509.xlsx",
+    "sourceSheets": [
+      "軍馬",
+      "名馬"
+    ],
+    "notes": [
+      "通常軍馬技能はExcel画像と上部メモから生成",
+      "騎・技能は歩・弓の同類技能へ展開",
+      "名馬固有技能は名馬シート画像から作成"
+    ]
+  }
+}

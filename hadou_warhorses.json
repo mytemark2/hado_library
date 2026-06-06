@@ -1,0 +1,215 @@
+{
+  "items": [
+    {
+      "category": "warhorses",
+      "name": "鹿毛",
+      "kind": "normal",
+      "favoriteEnabled": false,
+      "starEnabled": false,
+      "skillSlotCount": 3,
+      "fixedSkill": null,
+      "stats": {
+        "initial": {},
+        "max": {}
+      },
+      "source": {
+        "type": "seed",
+        "sheet": "軍馬"
+      }
+    },
+    {
+      "category": "warhorses",
+      "name": "青毛",
+      "kind": "normal",
+      "favoriteEnabled": false,
+      "starEnabled": false,
+      "skillSlotCount": 3,
+      "fixedSkill": null,
+      "stats": {
+        "initial": {},
+        "max": {}
+      },
+      "source": {
+        "type": "seed",
+        "sheet": "軍馬"
+      }
+    },
+    {
+      "category": "warhorses",
+      "name": "白毛",
+      "kind": "normal",
+      "favoriteEnabled": false,
+      "starEnabled": false,
+      "skillSlotCount": 3,
+      "fixedSkill": null,
+      "stats": {
+        "initial": {},
+        "max": {}
+      },
+      "source": {
+        "type": "seed",
+        "sheet": "軍馬"
+      }
+    },
+    {
+      "category": "warhorses",
+      "name": "白龍",
+      "kind": "famous",
+      "favoriteEnabled": true,
+      "starEnabled": true,
+      "skillSlotCount": 3,
+      "fixedSkill": {
+        "name": "白龍",
+        "levelByStar": {
+          "1": 1,
+          "2": 1,
+          "3": 2,
+          "4": 3,
+          "5": 3,
+          "6": 4,
+          "7": 5
+        }
+      },
+      "starEffects": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "機動",
+            "type": "percent",
+            "value": 2,
+            "source": "famous_horse_star"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "機動",
+            "type": "percent",
+            "value": 4,
+            "source": "famous_horse_star"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "機動",
+            "type": "percent",
+            "value": 6,
+            "source": "famous_horse_star"
+          }
+        ]
+      },
+      "stats": {
+        "initial": {
+          "攻撃": 90,
+          "防御": 135,
+          "知力": 0,
+          "輸送": 0,
+          "探索": 0,
+          "機動": 0
+        },
+        "max": {
+          "攻撃": 270,
+          "防御": 405,
+          "知力": 0,
+          "輸送": 0,
+          "探索": 0,
+          "機動": 6
+        }
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "名馬",
+        "initialImage": "image290.png",
+        "maxImage": "image289.png",
+        "rankupImage": "image294.png"
+      }
+    },
+    {
+      "category": "warhorses",
+      "name": "絶影",
+      "kind": "famous",
+      "favoriteEnabled": true,
+      "starEnabled": true,
+      "skillSlotCount": 3,
+      "fixedSkill": {
+        "name": "絶影",
+        "levelByStar": {
+          "1": 1,
+          "2": 1,
+          "3": 1,
+          "4": 2,
+          "5": 2,
+          "6": 2,
+          "7": 3
+        }
+      },
+      "starEffects": {
+        "1": [
+          {
+            "target": "部隊",
+            "stat": "機動",
+            "type": "percent",
+            "value": 2,
+            "source": "famous_horse_star"
+          }
+        ],
+        "4": [
+          {
+            "target": "部隊",
+            "stat": "機動",
+            "type": "percent",
+            "value": 4,
+            "source": "famous_horse_star"
+          }
+        ],
+        "7": [
+          {
+            "target": "部隊",
+            "stat": "機動",
+            "type": "percent",
+            "value": 6,
+            "source": "famous_horse_star"
+          }
+        ]
+      },
+      "stats": {
+        "initial": {
+          "攻撃": 60,
+          "防御": 90,
+          "知力": 45,
+          "輸送": 0,
+          "探索": 0,
+          "機動": 0
+        },
+        "max": {
+          "攻撃": 180,
+          "防御": 270,
+          "知力": 135,
+          "輸送": 0,
+          "探索": 0,
+          "機動": 6
+        }
+      },
+      "source": {
+        "type": "excel_image",
+        "sheet": "名馬",
+        "initialImage": "image292.png",
+        "maxImage": "image291.png",
+        "rankupImage": "image293.png"
+      }
+    }
+  ],
+  "meta": {
+    "count": 5,
+    "normalCount": 3,
+    "famousCount": 2,
+    "exportedAt": "2026-05-10 12:11:08+0900",
+    "version": "warhorse_excel_1.0.0.0",
+    "sourceWorkbook": "三国志覇道_開発調査_20260509.xlsx",
+    "sourceSheets": [
+      "軍馬",
+      "名馬"
+    ]
+  }
+}

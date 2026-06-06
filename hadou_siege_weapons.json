@@ -1,0 +1,896 @@
+{
+  "items": [
+    {
+      "category": "兵器",
+      "name": "井闌",
+      "description": "交戦相手に攻撃を行う。部隊に対して効果が高い",
+      "troopType": "",
+      "ethnicGroup": "",
+      "additionalEffect": "対物10.0%、効果範囲：単",
+      "additionalEffectDescription": "部隊に対して効果が高い",
+      "levels": [
+        {
+          "level": 1,
+          "maxDurability": 1450,
+          "attack": 230,
+          "antiObjectPercent": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 2,
+          "maxDurability": 1900,
+          "attack": 260,
+          "antiObjectPercent": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 3,
+          "maxDurability": 2350,
+          "attack": 290,
+          "antiObjectPercent": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 4,
+          "maxDurability": 2800,
+          "attack": 320,
+          "antiObjectPercent": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 5,
+          "maxDurability": 3250,
+          "attack": 350,
+          "antiObjectPercent": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 6,
+          "maxDurability": 3700,
+          "attack": 380,
+          "antiObjectPercent": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 7,
+          "maxDurability": 4150,
+          "attack": 410,
+          "antiObjectPercent": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 8,
+          "maxDurability": 4600,
+          "attack": 440,
+          "antiObjectPercent": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 9,
+          "maxDurability": 5050,
+          "attack": 470,
+          "antiObjectPercent": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 10,
+          "maxDurability": 5500,
+          "attack": 500,
+          "antiObjectPercent": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 11,
+          "maxDurability": 5950,
+          "attack": 530,
+          "antiObjectPercent": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 12,
+          "maxDurability": 6400,
+          "attack": 560,
+          "antiObjectPercent": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 13,
+          "maxDurability": 6850,
+          "attack": 590,
+          "antiObjectPercent": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 14,
+          "maxDurability": 7300,
+          "attack": 620,
+          "antiObjectPercent": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 15,
+          "maxDurability": 7750,
+          "attack": 650,
+          "antiObjectPercent": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 16,
+          "maxDurability": 8200,
+          "attack": 680,
+          "antiObjectPercent": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 17,
+          "maxDurability": 8650,
+          "attack": 710,
+          "antiObjectPercent": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 18,
+          "maxDurability": 9100,
+          "attack": 740,
+          "antiObjectPercent": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 19,
+          "maxDurability": 9550,
+          "attack": 770,
+          "antiObjectPercent": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 20,
+          "maxDurability": 10000,
+          "attack": 800,
+          "antiObjectPercent": 10,
+          "effectRange": "単"
+        }
+      ]
+    },
+    {
+      "category": "兵器",
+      "name": "木牛",
+      "description": "編制した部隊の輸送を大きく上昇させる",
+      "troopType": "",
+      "ethnicGroup": "",
+      "additionalEffect": "なし",
+      "additionalEffectDescription": "",
+      "levels": [
+        {
+          "level": 1,
+          "maxDurability": 1450,
+          "transport": 11000
+        },
+        {
+          "level": 2,
+          "maxDurability": 1900,
+          "transport": 12000
+        },
+        {
+          "level": 3,
+          "maxDurability": 2350,
+          "transport": 13000
+        },
+        {
+          "level": 4,
+          "maxDurability": 2800,
+          "transport": 14000
+        },
+        {
+          "level": 5,
+          "maxDurability": 3250,
+          "transport": 15000
+        },
+        {
+          "level": 6,
+          "maxDurability": 3700,
+          "transport": 16000
+        },
+        {
+          "level": 7,
+          "maxDurability": 4150,
+          "transport": 17000
+        },
+        {
+          "level": 8,
+          "maxDurability": 4600,
+          "transport": 18000
+        },
+        {
+          "level": 9,
+          "maxDurability": 5050,
+          "transport": 19000
+        },
+        {
+          "level": 10,
+          "maxDurability": 5500,
+          "transport": 20000
+        },
+        {
+          "level": 11,
+          "maxDurability": 5950,
+          "transport": 21000
+        },
+        {
+          "level": 12,
+          "maxDurability": 6400,
+          "transport": 22000
+        },
+        {
+          "level": 13,
+          "maxDurability": 6850,
+          "transport": 23000
+        },
+        {
+          "level": 14,
+          "maxDurability": 7300,
+          "transport": 24000
+        },
+        {
+          "level": 15,
+          "maxDurability": 7750,
+          "transport": 25000
+        },
+        {
+          "level": 16,
+          "maxDurability": 8200,
+          "transport": 26000
+        },
+        {
+          "level": 17,
+          "maxDurability": 8650,
+          "transport": 27000
+        },
+        {
+          "level": 18,
+          "maxDurability": 9100,
+          "transport": 28000
+        },
+        {
+          "level": 19,
+          "maxDurability": 9550,
+          "transport": 29000
+        },
+        {
+          "level": 20,
+          "maxDurability": 10000,
+          "transport": 30000
+        }
+      ]
+    },
+    {
+      "category": "兵器",
+      "name": "衝車",
+      "description": "交戦相手に攻撃を行う。部隊には効果が薄い",
+      "troopType": "",
+      "ethnicGroup": "",
+      "additionalEffect": "対物250.0%〜350.0%、効果範囲：単",
+      "additionalEffectDescription": "部隊には効果が薄い",
+      "levels": [
+        {
+          "level": 1,
+          "maxDurability": 1450,
+          "attack": 250,
+          "antiObjectPercent": 250,
+          "effectRange": "単"
+        },
+        {
+          "level": 2,
+          "maxDurability": 1900,
+          "attack": 263,
+          "antiObjectPercent": 255.26,
+          "effectRange": "単"
+        },
+        {
+          "level": 3,
+          "maxDurability": 2350,
+          "attack": 276,
+          "antiObjectPercent": 260.53,
+          "effectRange": "単"
+        },
+        {
+          "level": 4,
+          "maxDurability": 2800,
+          "attack": 289,
+          "antiObjectPercent": 265.79,
+          "effectRange": "単"
+        },
+        {
+          "level": 5,
+          "maxDurability": 3250,
+          "attack": 303,
+          "antiObjectPercent": 271.05,
+          "effectRange": "単"
+        },
+        {
+          "level": 6,
+          "maxDurability": 3700,
+          "attack": 316,
+          "antiObjectPercent": 276.32,
+          "effectRange": "単"
+        },
+        {
+          "level": 7,
+          "maxDurability": 4150,
+          "attack": 329,
+          "antiObjectPercent": 281.58,
+          "effectRange": "単"
+        },
+        {
+          "level": 8,
+          "maxDurability": 4600,
+          "attack": 342,
+          "antiObjectPercent": 286.84,
+          "effectRange": "単"
+        },
+        {
+          "level": 9,
+          "maxDurability": 5050,
+          "attack": 355,
+          "antiObjectPercent": 292.11,
+          "effectRange": "単"
+        },
+        {
+          "level": 10,
+          "maxDurability": 5500,
+          "attack": 368,
+          "antiObjectPercent": 297.37,
+          "effectRange": "単"
+        },
+        {
+          "level": 11,
+          "maxDurability": 5950,
+          "attack": 382,
+          "antiObjectPercent": 302.63,
+          "effectRange": "単"
+        },
+        {
+          "level": 12,
+          "maxDurability": 6400,
+          "attack": 395,
+          "antiObjectPercent": 307.89,
+          "effectRange": "単"
+        },
+        {
+          "level": 13,
+          "maxDurability": 6850,
+          "attack": 408,
+          "antiObjectPercent": 313.16,
+          "effectRange": "単"
+        },
+        {
+          "level": 14,
+          "maxDurability": 7300,
+          "attack": 421,
+          "antiObjectPercent": 318.42,
+          "effectRange": "単"
+        },
+        {
+          "level": 15,
+          "maxDurability": 7750,
+          "attack": 434,
+          "antiObjectPercent": 323.68,
+          "effectRange": "単"
+        },
+        {
+          "level": 16,
+          "maxDurability": 8200,
+          "attack": 447,
+          "antiObjectPercent": 328.95,
+          "effectRange": "単"
+        },
+        {
+          "level": 17,
+          "maxDurability": 8650,
+          "attack": 461,
+          "antiObjectPercent": 334.21,
+          "effectRange": "単"
+        },
+        {
+          "level": 18,
+          "maxDurability": 9100,
+          "attack": 474,
+          "antiObjectPercent": 339.47,
+          "effectRange": "単"
+        },
+        {
+          "level": 19,
+          "maxDurability": 9550,
+          "attack": 487,
+          "antiObjectPercent": 344.74,
+          "effectRange": "単"
+        },
+        {
+          "level": 20,
+          "maxDurability": 10000,
+          "attack": 500,
+          "antiObjectPercent": 350,
+          "effectRange": "単"
+        }
+      ]
+    },
+    {
+      "category": "兵器",
+      "name": "鼓車",
+      "description": "部隊の防御を上昇させ、堅固を付与する",
+      "troopType": "",
+      "ethnicGroup": "",
+      "additionalEffect": "効果量20%〜100%、継続10秒、効果範囲：単",
+      "additionalEffectDescription": "部隊の防御を上昇させ、堅固を付与する",
+      "levels": [
+        {
+          "level": 1,
+          "maxDurability": 1450,
+          "effectAmountPercent": 20,
+          "durationSeconds": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 2,
+          "maxDurability": 1900,
+          "effectAmountPercent": 24,
+          "durationSeconds": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 3,
+          "maxDurability": 2350,
+          "effectAmountPercent": 28,
+          "durationSeconds": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 4,
+          "maxDurability": 2800,
+          "effectAmountPercent": 33,
+          "durationSeconds": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 5,
+          "maxDurability": 3250,
+          "effectAmountPercent": 37,
+          "durationSeconds": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 6,
+          "maxDurability": 3700,
+          "effectAmountPercent": 41,
+          "durationSeconds": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 7,
+          "maxDurability": 4150,
+          "effectAmountPercent": 45,
+          "durationSeconds": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 8,
+          "maxDurability": 4600,
+          "effectAmountPercent": 49,
+          "durationSeconds": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 9,
+          "maxDurability": 5050,
+          "effectAmountPercent": 54,
+          "durationSeconds": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 10,
+          "maxDurability": 5500,
+          "effectAmountPercent": 58,
+          "durationSeconds": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 11,
+          "maxDurability": 5950,
+          "effectAmountPercent": 62,
+          "durationSeconds": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 12,
+          "maxDurability": 6400,
+          "effectAmountPercent": 66,
+          "durationSeconds": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 13,
+          "maxDurability": 6850,
+          "effectAmountPercent": 71,
+          "durationSeconds": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 14,
+          "maxDurability": 7300,
+          "effectAmountPercent": 75,
+          "durationSeconds": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 15,
+          "maxDurability": 7750,
+          "effectAmountPercent": 79,
+          "durationSeconds": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 16,
+          "maxDurability": 8200,
+          "effectAmountPercent": 83,
+          "durationSeconds": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 17,
+          "maxDurability": 8650,
+          "effectAmountPercent": 87,
+          "durationSeconds": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 18,
+          "maxDurability": 9100,
+          "effectAmountPercent": 92,
+          "durationSeconds": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 19,
+          "maxDurability": 9550,
+          "effectAmountPercent": 96,
+          "durationSeconds": 10,
+          "effectRange": "単"
+        },
+        {
+          "level": 20,
+          "maxDurability": 10000,
+          "effectAmountPercent": 100,
+          "durationSeconds": 10,
+          "effectRange": "単"
+        }
+      ]
+    },
+    {
+      "category": "兵器",
+      "name": "投石車",
+      "description": "範囲攻撃を行う。部隊にも物体にも効果がある",
+      "troopType": "",
+      "ethnicGroup": "",
+      "additionalEffect": "対物100.0%、効果範囲：中",
+      "additionalEffectDescription": "部隊にも物体にも効果がある",
+      "levels": [
+        {
+          "level": 1,
+          "maxDurability": 1450,
+          "attack": 250,
+          "antiObjectPercent": 100,
+          "effectRange": "中"
+        },
+        {
+          "level": 2,
+          "maxDurability": 1900,
+          "attack": 276,
+          "antiObjectPercent": 100,
+          "effectRange": "中"
+        },
+        {
+          "level": 3,
+          "maxDurability": 2350,
+          "attack": 303,
+          "antiObjectPercent": 100,
+          "effectRange": "中"
+        },
+        {
+          "level": 4,
+          "maxDurability": 2800,
+          "attack": 329,
+          "antiObjectPercent": 100,
+          "effectRange": "中"
+        },
+        {
+          "level": 5,
+          "maxDurability": 3250,
+          "attack": 355,
+          "antiObjectPercent": 100,
+          "effectRange": "中"
+        },
+        {
+          "level": 6,
+          "maxDurability": 3700,
+          "attack": 382,
+          "antiObjectPercent": 100,
+          "effectRange": "中"
+        },
+        {
+          "level": 7,
+          "maxDurability": 4150,
+          "attack": 408,
+          "antiObjectPercent": 100,
+          "effectRange": "中"
+        },
+        {
+          "level": 8,
+          "maxDurability": 4600,
+          "attack": 434,
+          "antiObjectPercent": 100,
+          "effectRange": "中"
+        },
+        {
+          "level": 9,
+          "maxDurability": 5050,
+          "attack": 461,
+          "antiObjectPercent": 100,
+          "effectRange": "中"
+        },
+        {
+          "level": 10,
+          "maxDurability": 5500,
+          "attack": 487,
+          "antiObjectPercent": 100,
+          "effectRange": "中"
+        },
+        {
+          "level": 11,
+          "maxDurability": 5950,
+          "attack": 513,
+          "antiObjectPercent": 100,
+          "effectRange": "中"
+        },
+        {
+          "level": 12,
+          "maxDurability": 6400,
+          "attack": 539,
+          "antiObjectPercent": 100,
+          "effectRange": "中"
+        },
+        {
+          "level": 13,
+          "maxDurability": 6850,
+          "attack": 566,
+          "antiObjectPercent": 100,
+          "effectRange": "中"
+        },
+        {
+          "level": 14,
+          "maxDurability": 7300,
+          "attack": 592,
+          "antiObjectPercent": 100,
+          "effectRange": "中"
+        },
+        {
+          "level": 15,
+          "maxDurability": 7750,
+          "attack": 618,
+          "antiObjectPercent": 100,
+          "effectRange": "中"
+        },
+        {
+          "level": 16,
+          "maxDurability": 8200,
+          "attack": 645,
+          "antiObjectPercent": 100,
+          "effectRange": "中"
+        },
+        {
+          "level": 17,
+          "maxDurability": 8650,
+          "attack": 671,
+          "antiObjectPercent": 100,
+          "effectRange": "中"
+        },
+        {
+          "level": 18,
+          "maxDurability": 9100,
+          "attack": 697,
+          "antiObjectPercent": 100,
+          "effectRange": "中"
+        },
+        {
+          "level": 19,
+          "maxDurability": 9550,
+          "attack": 724,
+          "antiObjectPercent": 100,
+          "effectRange": "中"
+        },
+        {
+          "level": 20,
+          "maxDurability": 10000,
+          "attack": 750,
+          "antiObjectPercent": 100,
+          "effectRange": "中"
+        }
+      ]
+    },
+    {
+      "category": "兵器",
+      "name": "木獣",
+      "description": "範囲内の敵に攻撃を行い、確率で大傷を付与する",
+      "troopType": "",
+      "ethnicGroup": "",
+      "additionalEffect": "対物150.0%、効果範囲：中、大傷10秒",
+      "additionalEffectDescription": "範囲内の敵に攻撃し、確率で大傷を付与する",
+      "levels": [
+        {
+          "level": 1,
+          "maxDurability": 1450,
+          "attack": 250,
+          "antiObjectPercent": 150,
+          "durationSeconds": 10,
+          "effectRange": "中"
+        },
+        {
+          "level": 2,
+          "maxDurability": 1900,
+          "attack": 263,
+          "antiObjectPercent": 150,
+          "durationSeconds": 10,
+          "effectRange": "中"
+        },
+        {
+          "level": 3,
+          "maxDurability": 2350,
+          "attack": 276,
+          "antiObjectPercent": 150,
+          "durationSeconds": 10,
+          "effectRange": "中"
+        },
+        {
+          "level": 4,
+          "maxDurability": 2800,
+          "attack": 289,
+          "antiObjectPercent": 150,
+          "durationSeconds": 10,
+          "effectRange": "中"
+        },
+        {
+          "level": 5,
+          "maxDurability": 3250,
+          "attack": 303,
+          "antiObjectPercent": 150,
+          "durationSeconds": 10,
+          "effectRange": "中"
+        },
+        {
+          "level": 6,
+          "maxDurability": 3700,
+          "attack": 316,
+          "antiObjectPercent": 150,
+          "durationSeconds": 10,
+          "effectRange": "中"
+        },
+        {
+          "level": 7,
+          "maxDurability": 4150,
+          "attack": 329,
+          "antiObjectPercent": 150,
+          "durationSeconds": 10,
+          "effectRange": "中"
+        },
+        {
+          "level": 8,
+          "maxDurability": 4600,
+          "attack": 342,
+          "antiObjectPercent": 150,
+          "durationSeconds": 10,
+          "effectRange": "中"
+        },
+        {
+          "level": 9,
+          "maxDurability": 5050,
+          "attack": 355,
+          "antiObjectPercent": 150,
+          "durationSeconds": 10,
+          "effectRange": "中"
+        },
+        {
+          "level": 10,
+          "maxDurability": 5500,
+          "attack": 368,
+          "antiObjectPercent": 150,
+          "durationSeconds": 10,
+          "effectRange": "中"
+        },
+        {
+          "level": 11,
+          "maxDurability": 5950,
+          "attack": 382,
+          "antiObjectPercent": 150,
+          "durationSeconds": 10,
+          "effectRange": "中"
+        },
+        {
+          "level": 12,
+          "maxDurability": 6400,
+          "attack": 395,
+          "antiObjectPercent": 150,
+          "durationSeconds": 10,
+          "effectRange": "中"
+        },
+        {
+          "level": 13,
+          "maxDurability": 6850,
+          "attack": 408,
+          "antiObjectPercent": 150,
+          "durationSeconds": 10,
+          "effectRange": "中"
+        },
+        {
+          "level": 14,
+          "maxDurability": 7300,
+          "attack": 421,
+          "antiObjectPercent": 150,
+          "durationSeconds": 10,
+          "effectRange": "中"
+        },
+        {
+          "level": 15,
+          "maxDurability": 7750,
+          "attack": 434,
+          "antiObjectPercent": 150,
+          "durationSeconds": 10,
+          "effectRange": "中"
+        },
+        {
+          "level": 16,
+          "maxDurability": 8200,
+          "attack": 447,
+          "antiObjectPercent": 150,
+          "durationSeconds": 10,
+          "effectRange": "中"
+        },
+        {
+          "level": 17,
+          "maxDurability": 8650,
+          "attack": 461,
+          "antiObjectPercent": 150,
+          "durationSeconds": 10,
+          "effectRange": "中"
+        },
+        {
+          "level": 18,
+          "maxDurability": 9100,
+          "attack": 474,
+          "antiObjectPercent": 150,
+          "durationSeconds": 10,
+          "effectRange": "中"
+        },
+        {
+          "level": 19,
+          "maxDurability": 9550,
+          "attack": 487,
+          "antiObjectPercent": 150,
+          "durationSeconds": 10,
+          "effectRange": "中"
+        },
+        {
+          "level": 20,
+          "maxDurability": 10000,
+          "attack": 500,
+          "antiObjectPercent": 150,
+          "durationSeconds": 10,
+          "effectRange": "中"
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "count": 6,
+    "source": "manual-snapshot",
+    "generatedAt": "2026-05-04",
+    "schema": "hadou_siege_weapons.v1"
+  }
+}

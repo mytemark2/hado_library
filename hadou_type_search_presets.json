@@ -1,0 +1,919 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-06-05T13:37:59.311Z",
+  "dataSetId": "2026-06-05T12:46:30.581Z",
+  "crawlerVersion": "1.0.5.23",
+  "generator": "hado_crawler_extension",
+  "sourceFiles": [
+    "hadou_generals.json",
+    "hadou_tactics.json",
+    "hadou_equipments.json",
+    "hadou_skills.json",
+    "hadou_status_effects.json",
+    "hadou_formations.json",
+    "hadou_siege_weapons.json",
+    "hadou_ethnic_armaments.json",
+    "hadou_ethnic_research_skills.json",
+    "hadou_five_elements.json",
+    "hadou_warhorses.json",
+    "hadou_warhorse_skills.json"
+  ],
+  "sourceFileMap": {
+    "generals": "hadou_generals.json",
+    "tactics": "hadou_tactics.json",
+    "equipments": "hadou_equipments.json",
+    "skills": "hadou_skills.json",
+    "statusEffects": "hadou_status_effects.json",
+    "formations": "hadou_formations.json",
+    "siegeWeapons": "hadou_siege_weapons.json",
+    "ethnicArmaments": "hadou_ethnic_armaments.json",
+    "ethnicResearchSkills": "hadou_ethnic_research_skills.json",
+    "fiveElements": "hadou_five_elements.json",
+    "warhorses": "hadou_warhorses.json",
+    "warhorseSkills": "hadou_warhorse_skills.json"
+  },
+  "sourceCounts": {
+    "generals": 475,
+    "tactics": 454,
+    "equipments": 237,
+    "skills": 617,
+    "statusEffects": 200,
+    "siegeWeapons": 6,
+    "ethnicArmaments": 18,
+    "ethnicResearchSkills": 32,
+    "formations": 21,
+    "fiveElements": 10,
+    "warhorses": 5,
+    "warhorseSkills": 27
+  },
+  "sourceHashes": {
+    "generals": "4d9aa25e",
+    "tactics": "aaafeed1",
+    "equipments": "4e60d216",
+    "skills": "53df17fd",
+    "statusEffects": "dcfa0de6",
+    "formations": "9c5d2dae",
+    "siegeWeapons": "5742664a",
+    "ethnicArmaments": "c731a91c",
+    "ethnicResearchSkills": "06d47d06",
+    "fiveElements": "17af35e0",
+    "warhorses": "c5edd890",
+    "warhorseSkills": "fac49238"
+  },
+  "sourceSha256": {
+    "generals": "4d9aa25e",
+    "tactics": "aaafeed1",
+    "equipments": "4e60d216",
+    "skills": "53df17fd",
+    "statusEffects": "dcfa0de6",
+    "formations": "9c5d2dae",
+    "siegeWeapons": "5742664a",
+    "ethnicArmaments": "c731a91c",
+    "ethnicResearchSkills": "06d47d06",
+    "fiveElements": "17af35e0",
+    "warhorses": "c5edd890",
+    "warhorseSkills": "fac49238"
+  },
+  "kind": "type_search_presets",
+  "qualityAudit": {
+    "ok": true,
+    "presetCount": 11,
+    "typeIds": [
+      "calm",
+      "zombie",
+      "bomb",
+      "critical_tactic",
+      "critical_normal",
+      "tactic_speed",
+      "attack_speed",
+      "normal_attack",
+      "debuff",
+      "anti_object",
+      "annihilation"
+    ],
+    "importanceCounts": {
+      "core": 10,
+      "recommended": 17,
+      "support": 9
+    },
+    "rawConditionCount": 71,
+    "canonicalConditionCount": 36,
+    "policy": "1.0.5.19 / 2.9.3.0: 型プリセットは条件別の中核・推奨・補助をJSON正本として保持し、アプリ側は推測せず表示・順位付けへ利用する。"
+  },
+  "items": [
+    {
+      "typeId": "calm",
+      "typeName": "鎮静型",
+      "description": "弱化無効・解除・回避を重ね、敵の妨害を受けにくくする型。",
+      "statusGroupKeys": [
+        "selfResistanceBuff"
+      ],
+      "conditions": [
+        {
+          "featureId": "status_effect:弱化無効",
+          "canonicalFeatureId": "concept:weakening_nullify",
+          "label": "弱化無効",
+          "conditionType": "statusEffect",
+          "importance": "core"
+        },
+        {
+          "featureId": "skill_effect:weakening_nullify",
+          "canonicalFeatureId": "concept:weakening_nullify",
+          "label": "弱化無効",
+          "conditionType": "typeFeature",
+          "importance": "core"
+        },
+        {
+          "featureId": "skill_effect:weakening_remove",
+          "canonicalFeatureId": "concept:weakening_remove",
+          "label": "弱化解除",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "status_effect:快気",
+          "canonicalFeatureId": "concept:weakening_remove",
+          "label": "快気",
+          "conditionType": "statusEffect",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "status_effect:絶縁",
+          "canonicalFeatureId": "status_effect:絶縁",
+          "label": "絶縁",
+          "conditionType": "statusEffect",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "skill_effect:strengthening_remove_avoid",
+          "canonicalFeatureId": "skill_effect:strengthening_remove_avoid",
+          "label": "強化解除回避",
+          "conditionType": "typeFeature",
+          "importance": "support"
+        },
+        {
+          "featureId": "skill_effect:strengthening_seize_avoid",
+          "canonicalFeatureId": "skill_effect:strengthening_seize_avoid",
+          "label": "強化奪取回避",
+          "conditionType": "typeFeature",
+          "importance": "support"
+        }
+      ],
+      "status": "phase3-canonical",
+      "statusEffectNames": [
+        "弱化無効",
+        "快気",
+        "絶縁"
+      ],
+      "typeFeatureIds": [
+        "skill_effect:weakening_nullify",
+        "skill_effect:weakening_remove",
+        "skill_effect:strengthening_remove_avoid",
+        "skill_effect:strengthening_seize_avoid"
+      ],
+      "importanceCounts": {
+        "core": 1,
+        "recommended": 2,
+        "support": 2
+      },
+      "rawConditionCount": 7,
+      "canonicalConditionCount": 5
+    },
+    {
+      "typeId": "zombie",
+      "typeName": "ゾンビ型",
+      "description": "壊滅回避、残存兵力、負傷兵生存・回復を重ねて長時間耐える型。",
+      "statusGroupKeys": [
+        "selfStateBuff",
+        "selfResistanceBuff"
+      ],
+      "conditions": [
+        {
+          "featureId": "skill_effect:annihilation_avoidance",
+          "canonicalFeatureId": "skill_effect:annihilation_avoidance",
+          "label": "壊滅回避",
+          "conditionType": "typeFeature",
+          "importance": "core"
+        },
+        {
+          "featureId": "skill_effect:remaining_troops",
+          "canonicalFeatureId": "skill_effect:remaining_troops",
+          "label": "残存兵力",
+          "conditionType": "typeFeature",
+          "importance": "core"
+        },
+        {
+          "featureId": "skill_effect:wounded_survival",
+          "canonicalFeatureId": "skill_effect:wounded_survival",
+          "label": "負傷兵生存",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "skill_effect:wounded_recovery",
+          "canonicalFeatureId": "skill_effect:wounded_recovery",
+          "label": "負傷兵回復",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "skill_effect:healing",
+          "canonicalFeatureId": "skill_effect:healing",
+          "label": "兵力回復",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "status_effect:活身",
+          "canonicalFeatureId": "status_effect:活身",
+          "label": "活身",
+          "conditionType": "statusEffect",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "status_effect:快気",
+          "canonicalFeatureId": "concept:weakening_remove",
+          "label": "快気",
+          "conditionType": "statusEffect",
+          "importance": "support"
+        },
+        {
+          "featureId": "status_effect:義奮",
+          "canonicalFeatureId": "status_effect:義奮",
+          "label": "義奮",
+          "conditionType": "statusEffect",
+          "importance": "support"
+        },
+        {
+          "featureId": "status_effect:攻撃無効",
+          "canonicalFeatureId": "status_effect:攻撃無効",
+          "label": "攻撃無効",
+          "conditionType": "statusEffect",
+          "importance": "support"
+        },
+        {
+          "featureId": "status_effect:有利巧守",
+          "canonicalFeatureId": "status_effect:有利巧守",
+          "label": "有利巧守",
+          "conditionType": "statusEffect",
+          "importance": "support"
+        },
+        {
+          "featureId": "skill_effect:damage_reduction",
+          "canonicalFeatureId": "skill_effect:damage_reduction",
+          "label": "被ダメージ軽減",
+          "conditionType": "typeFeature",
+          "importance": "support"
+        }
+      ],
+      "status": "phase3-canonical",
+      "statusEffectNames": [
+        "活身",
+        "快気",
+        "義奮",
+        "攻撃無効",
+        "有利巧守"
+      ],
+      "typeFeatureIds": [
+        "skill_effect:annihilation_avoidance",
+        "skill_effect:remaining_troops",
+        "skill_effect:wounded_survival",
+        "skill_effect:wounded_recovery",
+        "skill_effect:healing",
+        "skill_effect:damage_reduction"
+      ],
+      "importanceCounts": {
+        "core": 2,
+        "recommended": 4,
+        "support": 5
+      },
+      "rawConditionCount": 11,
+      "canonicalConditionCount": 11
+    },
+    {
+      "typeId": "bomb",
+      "typeName": "爆弾型",
+      "description": "暴乱、撃心、対物特効、戦法威力を重ねて駐屯や物体へ大きな一撃を狙う型。",
+      "statusGroupKeys": [
+        "selfAbilityBuff",
+        "selfStateBuff"
+      ],
+      "conditions": [
+        {
+          "featureId": "status_effect:暴乱",
+          "canonicalFeatureId": "status_effect:暴乱",
+          "label": "暴乱",
+          "conditionType": "statusEffect",
+          "importance": "core"
+        },
+        {
+          "featureId": "parameter:critical_tactic_rate",
+          "canonicalFeatureId": "concept:critical_tactic_rate",
+          "label": "撃心発生",
+          "conditionType": "typeFeature",
+          "importance": "core"
+        },
+        {
+          "featureId": "parameter:critical_tactic_power",
+          "canonicalFeatureId": "concept:critical_tactic_power",
+          "label": "撃心威力",
+          "conditionType": "typeFeature",
+          "importance": "core"
+        },
+        {
+          "featureId": "parameter:anti_object",
+          "canonicalFeatureId": "concept:anti_object",
+          "label": "対物特効",
+          "conditionType": "typeFeature",
+          "importance": "core"
+        },
+        {
+          "featureId": "status_effect:撃心発生変化(強化)",
+          "canonicalFeatureId": "concept:critical_tactic_rate",
+          "label": "撃心発生変化(強化)",
+          "conditionType": "statusEffect",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "status_effect:撃心威力変化(強化)",
+          "canonicalFeatureId": "concept:critical_tactic_power",
+          "label": "撃心威力変化(強化)",
+          "conditionType": "statusEffect",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "parameter:tactic_power",
+          "canonicalFeatureId": "parameter:tactic_power",
+          "label": "戦法威力",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "parameter:fire_attribute_power",
+          "canonicalFeatureId": "parameter:fire_attribute_power",
+          "label": "火属性威力",
+          "conditionType": "typeFeature",
+          "importance": "support"
+        }
+      ],
+      "status": "phase3-canonical",
+      "statusEffectNames": [
+        "暴乱",
+        "撃心発生変化(強化)",
+        "撃心威力変化(強化)"
+      ],
+      "typeFeatureIds": [
+        "parameter:critical_tactic_rate",
+        "parameter:critical_tactic_power",
+        "parameter:anti_object",
+        "parameter:tactic_power",
+        "parameter:fire_attribute_power"
+      ],
+      "importanceCounts": {
+        "core": 4,
+        "recommended": 1,
+        "support": 1
+      },
+      "rawConditionCount": 8,
+      "canonicalConditionCount": 6
+    },
+    {
+      "typeId": "critical_tactic",
+      "typeName": "撃心型",
+      "description": "撃心発生と撃心威力を中心に戦法火力を伸ばす型。",
+      "statusGroupKeys": [
+        "selfAbilityBuff"
+      ],
+      "conditions": [
+        {
+          "featureId": "parameter:critical_tactic_rate",
+          "canonicalFeatureId": "concept:critical_tactic_rate",
+          "label": "撃心発生",
+          "conditionType": "typeFeature",
+          "importance": "core"
+        },
+        {
+          "featureId": "parameter:critical_tactic_power",
+          "canonicalFeatureId": "concept:critical_tactic_power",
+          "label": "撃心威力",
+          "conditionType": "typeFeature",
+          "importance": "core"
+        },
+        {
+          "featureId": "status_effect:撃心発生変化(強化)",
+          "canonicalFeatureId": "concept:critical_tactic_rate",
+          "label": "撃心発生変化(強化)",
+          "conditionType": "statusEffect",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "status_effect:撃心威力変化(強化)",
+          "canonicalFeatureId": "concept:critical_tactic_power",
+          "label": "撃心威力変化(強化)",
+          "conditionType": "statusEffect",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "parameter:tactic_power",
+          "canonicalFeatureId": "parameter:tactic_power",
+          "label": "戦法威力",
+          "conditionType": "typeFeature",
+          "importance": "support"
+        }
+      ],
+      "status": "phase3-canonical",
+      "statusEffectNames": [
+        "撃心発生変化(強化)",
+        "撃心威力変化(強化)"
+      ],
+      "typeFeatureIds": [
+        "parameter:critical_tactic_rate",
+        "parameter:critical_tactic_power",
+        "parameter:tactic_power"
+      ],
+      "importanceCounts": {
+        "core": 2,
+        "recommended": 0,
+        "support": 1
+      },
+      "rawConditionCount": 5,
+      "canonicalConditionCount": 3
+    },
+    {
+      "typeId": "critical_normal",
+      "typeName": "会心型",
+      "description": "会心発生、会心威力、攻撃速度を中心に通常攻撃火力を伸ばす型。",
+      "statusGroupKeys": [
+        "selfAbilityBuff"
+      ],
+      "conditions": [
+        {
+          "featureId": "parameter:critical_rate",
+          "canonicalFeatureId": "concept:critical_rate",
+          "label": "会心発生",
+          "conditionType": "typeFeature",
+          "importance": "core"
+        },
+        {
+          "featureId": "parameter:critical_power",
+          "canonicalFeatureId": "concept:critical_power",
+          "label": "会心威力",
+          "conditionType": "typeFeature",
+          "importance": "core"
+        },
+        {
+          "featureId": "status_effect:会心発生変化(強化)",
+          "canonicalFeatureId": "concept:critical_rate",
+          "label": "会心発生変化(強化)",
+          "conditionType": "statusEffect",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "status_effect:会心威力変化(強化)",
+          "canonicalFeatureId": "concept:critical_power",
+          "label": "会心威力変化(強化)",
+          "conditionType": "statusEffect",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "parameter:attack_speed",
+          "canonicalFeatureId": "concept:attack_speed",
+          "label": "攻撃速度",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "status_effect:攻撃速度変化(強化)",
+          "canonicalFeatureId": "concept:attack_speed",
+          "label": "攻撃速度変化(強化)",
+          "conditionType": "statusEffect",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "parameter:normal_attack_power",
+          "canonicalFeatureId": "concept:normal_attack_power",
+          "label": "通常攻撃威力",
+          "conditionType": "typeFeature",
+          "importance": "support"
+        }
+      ],
+      "status": "phase3-canonical",
+      "statusEffectNames": [
+        "会心発生変化(強化)",
+        "会心威力変化(強化)",
+        "攻撃速度変化(強化)"
+      ],
+      "typeFeatureIds": [
+        "parameter:critical_rate",
+        "parameter:critical_power",
+        "parameter:attack_speed",
+        "parameter:normal_attack_power"
+      ],
+      "importanceCounts": {
+        "core": 2,
+        "recommended": 1,
+        "support": 1
+      },
+      "rawConditionCount": 7,
+      "canonicalConditionCount": 4
+    },
+    {
+      "typeId": "tactic_speed",
+      "typeName": "戦法速度型",
+      "description": "戦法速度、戦法短縮、出陣時戦法ゲージを組み合わせて先撃ちを狙う型。",
+      "statusGroupKeys": [
+        "selfAbilityBuff"
+      ],
+      "conditions": [
+        {
+          "featureId": "parameter:tactic_speed",
+          "canonicalFeatureId": "concept:tactic_speed",
+          "label": "戦法速度",
+          "conditionType": "typeFeature",
+          "importance": "core"
+        },
+        {
+          "featureId": "status_effect:戦法速度変化(強化)",
+          "canonicalFeatureId": "concept:tactic_speed",
+          "label": "戦法速度変化(強化)",
+          "conditionType": "statusEffect",
+          "importance": "core"
+        },
+        {
+          "featureId": "skill_effect:tactic_reduction",
+          "canonicalFeatureId": "skill_effect:tactic_reduction",
+          "label": "戦法短縮",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "skill_effect:initial_tactic_gauge",
+          "canonicalFeatureId": "skill_effect:initial_tactic_gauge",
+          "label": "出陣時戦法ゲージ",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        }
+      ],
+      "status": "phase3-canonical",
+      "statusEffectNames": [
+        "戦法速度変化(強化)"
+      ],
+      "typeFeatureIds": [
+        "parameter:tactic_speed",
+        "skill_effect:tactic_reduction",
+        "skill_effect:initial_tactic_gauge"
+      ],
+      "importanceCounts": {
+        "core": 1,
+        "recommended": 2,
+        "support": 0
+      },
+      "rawConditionCount": 4,
+      "canonicalConditionCount": 3
+    },
+    {
+      "typeId": "attack_speed",
+      "typeName": "攻撃速度型",
+      "description": "攻撃速度を高め、通常攻撃の回数と通常攻撃時に発生する効果の発動機会を増やす型。",
+      "statusGroupKeys": [
+        "selfAbilityBuff"
+      ],
+      "conditions": [
+        {
+          "featureId": "parameter:attack_speed",
+          "canonicalFeatureId": "concept:attack_speed",
+          "label": "攻撃速度",
+          "conditionType": "typeFeature",
+          "importance": "core"
+        },
+        {
+          "featureId": "status_effect:攻撃速度変化(強化)",
+          "canonicalFeatureId": "concept:attack_speed",
+          "label": "攻撃速度変化(強化)",
+          "conditionType": "statusEffect",
+          "importance": "core"
+        },
+        {
+          "featureId": "status_effect:通常攻撃拡張",
+          "canonicalFeatureId": "concept:normal_attack_expansion",
+          "label": "通常攻撃拡張",
+          "conditionType": "statusEffect",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "skill_effect:normal_attack_target_count",
+          "canonicalFeatureId": "concept:normal_attack_expansion",
+          "label": "通常攻撃対象数",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "parameter:normal_attack_power",
+          "canonicalFeatureId": "concept:normal_attack_power",
+          "label": "通常攻撃威力",
+          "conditionType": "typeFeature",
+          "importance": "support"
+        },
+        {
+          "featureId": "status_effect:通常攻撃威力変化(強化)",
+          "canonicalFeatureId": "concept:normal_attack_power",
+          "label": "通常攻撃威力変化(強化)",
+          "conditionType": "statusEffect",
+          "importance": "support"
+        }
+      ],
+      "status": "phase3-canonical",
+      "statusEffectNames": [
+        "攻撃速度変化(強化)",
+        "通常攻撃拡張",
+        "通常攻撃威力変化(強化)"
+      ],
+      "typeFeatureIds": [
+        "parameter:attack_speed",
+        "skill_effect:normal_attack_target_count",
+        "parameter:normal_attack_power"
+      ],
+      "importanceCounts": {
+        "core": 1,
+        "recommended": 1,
+        "support": 1
+      },
+      "rawConditionCount": 6,
+      "canonicalConditionCount": 3
+    },
+    {
+      "typeId": "normal_attack",
+      "typeName": "通常攻撃拡張型",
+      "description": "通常攻撃拡張、通常攻撃対象数、通常攻撃威力を組み合わせ、複数部隊への通常攻撃を伸ばす型。",
+      "statusGroupKeys": [
+        "selfAbilityBuff"
+      ],
+      "conditions": [
+        {
+          "featureId": "status_effect:通常攻撃拡張",
+          "canonicalFeatureId": "concept:normal_attack_expansion",
+          "label": "通常攻撃拡張",
+          "conditionType": "statusEffect",
+          "importance": "core"
+        },
+        {
+          "featureId": "skill_effect:normal_attack_target_count",
+          "canonicalFeatureId": "concept:normal_attack_expansion",
+          "label": "通常攻撃対象数",
+          "conditionType": "typeFeature",
+          "importance": "core"
+        },
+        {
+          "featureId": "parameter:normal_attack_power",
+          "canonicalFeatureId": "concept:normal_attack_power",
+          "label": "通常攻撃威力",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "status_effect:通常攻撃威力変化(強化)",
+          "canonicalFeatureId": "concept:normal_attack_power",
+          "label": "通常攻撃威力変化(強化)",
+          "conditionType": "statusEffect",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "parameter:attack_speed",
+          "canonicalFeatureId": "concept:attack_speed",
+          "label": "攻撃速度",
+          "conditionType": "typeFeature",
+          "importance": "support"
+        },
+        {
+          "featureId": "status_effect:攻撃速度変化(強化)",
+          "canonicalFeatureId": "concept:attack_speed",
+          "label": "攻撃速度変化(強化)",
+          "conditionType": "statusEffect",
+          "importance": "support"
+        }
+      ],
+      "status": "phase3-canonical",
+      "statusEffectNames": [
+        "通常攻撃拡張",
+        "通常攻撃威力変化(強化)",
+        "攻撃速度変化(強化)"
+      ],
+      "typeFeatureIds": [
+        "skill_effect:normal_attack_target_count",
+        "parameter:normal_attack_power",
+        "parameter:attack_speed"
+      ],
+      "importanceCounts": {
+        "core": 1,
+        "recommended": 1,
+        "support": 1
+      },
+      "rawConditionCount": 6,
+      "canonicalConditionCount": 3
+    },
+    {
+      "typeId": "debuff",
+      "typeName": "デバフ型",
+      "description": "敵の能力、状態、耐性を弱化し、戦法や連鎖を妨害する型。",
+      "statusGroupKeys": [
+        "enemyAbilityDebuff",
+        "enemyStateDebuff",
+        "enemyResistanceDebuff"
+      ],
+      "conditions": [
+        {
+          "featureId": "skill_effect:status_effect_rate",
+          "canonicalFeatureId": "skill_effect:status_effect_rate",
+          "label": "状態変化発生率",
+          "conditionType": "typeFeature",
+          "importance": "core"
+        },
+        {
+          "featureId": "status_effect:疑心",
+          "canonicalFeatureId": "status_effect:疑心",
+          "label": "疑心",
+          "conditionType": "statusEffect",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "status_effect:戦慄",
+          "canonicalFeatureId": "status_effect:戦慄",
+          "label": "戦慄",
+          "conditionType": "statusEffect",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "status_effect:同討",
+          "canonicalFeatureId": "status_effect:同討",
+          "label": "同討",
+          "conditionType": "statusEffect",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "status_effect:戦法遅延",
+          "canonicalFeatureId": "concept:tactic_delay",
+          "label": "戦法遅延",
+          "conditionType": "statusEffect",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "skill_effect:tactic_delay",
+          "canonicalFeatureId": "concept:tactic_delay",
+          "label": "戦法遅延",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "status_effect:連鎖無効",
+          "canonicalFeatureId": "concept:chain_nullify",
+          "label": "連鎖無効",
+          "conditionType": "statusEffect",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "skill_effect:chain_nullify",
+          "canonicalFeatureId": "concept:chain_nullify",
+          "label": "連鎖無効",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        }
+      ],
+      "status": "phase3-canonical",
+      "statusEffectNames": [
+        "疑心",
+        "戦慄",
+        "同討",
+        "戦法遅延",
+        "連鎖無効"
+      ],
+      "typeFeatureIds": [
+        "skill_effect:status_effect_rate",
+        "skill_effect:tactic_delay",
+        "skill_effect:chain_nullify"
+      ],
+      "importanceCounts": {
+        "core": 1,
+        "recommended": 5,
+        "support": 0
+      },
+      "rawConditionCount": 8,
+      "canonicalConditionCount": 6
+    },
+    {
+      "typeId": "anti_object",
+      "typeName": "対物型",
+      "description": "対物特効、戦法威力、通常攻撃威力を組み合わせて物体攻撃を伸ばす型。",
+      "statusGroupKeys": [
+        "selfAbilityBuff"
+      ],
+      "conditions": [
+        {
+          "featureId": "parameter:anti_object",
+          "canonicalFeatureId": "concept:anti_object",
+          "label": "対物特効",
+          "conditionType": "typeFeature",
+          "importance": "core"
+        },
+        {
+          "featureId": "status_effect:対物特効変化(強化)",
+          "canonicalFeatureId": "concept:anti_object",
+          "label": "対物特効変化(強化)",
+          "conditionType": "statusEffect",
+          "importance": "core"
+        },
+        {
+          "featureId": "parameter:tactic_power",
+          "canonicalFeatureId": "parameter:tactic_power",
+          "label": "戦法威力",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "parameter:normal_attack_power",
+          "canonicalFeatureId": "concept:normal_attack_power",
+          "label": "通常攻撃威力",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        }
+      ],
+      "status": "phase3-canonical",
+      "statusEffectNames": [
+        "対物特効変化(強化)"
+      ],
+      "typeFeatureIds": [
+        "parameter:anti_object",
+        "parameter:tactic_power",
+        "parameter:normal_attack_power"
+      ],
+      "importanceCounts": {
+        "core": 1,
+        "recommended": 2,
+        "support": 0
+      },
+      "rawConditionCount": 4,
+      "canonicalConditionCount": 3
+    },
+    {
+      "typeId": "annihilation",
+      "typeName": "殲滅型",
+      "description": "攻撃速度、会心、通常攻撃対象数、戦法威力を組み合わせて複数部隊を倒す型。",
+      "statusGroupKeys": [
+        "selfAbilityBuff",
+        "selfStateBuff"
+      ],
+      "conditions": [
+        {
+          "featureId": "parameter:attack_speed",
+          "canonicalFeatureId": "concept:attack_speed",
+          "label": "攻撃速度",
+          "conditionType": "typeFeature",
+          "importance": "core"
+        },
+        {
+          "featureId": "skill_effect:normal_attack_target_count",
+          "canonicalFeatureId": "skill_effect:normal_attack_target_count",
+          "label": "通常攻撃対象数",
+          "conditionType": "typeFeature",
+          "importance": "core"
+        },
+        {
+          "featureId": "parameter:critical_rate",
+          "canonicalFeatureId": "concept:critical_rate",
+          "label": "会心発生",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "parameter:critical_power",
+          "canonicalFeatureId": "concept:critical_power",
+          "label": "会心威力",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "parameter:tactic_power",
+          "canonicalFeatureId": "parameter:tactic_power",
+          "label": "戦法威力",
+          "conditionType": "typeFeature",
+          "importance": "support"
+        }
+      ],
+      "status": "phase3-canonical",
+      "statusEffectNames": [],
+      "typeFeatureIds": [
+        "parameter:attack_speed",
+        "skill_effect:normal_attack_target_count",
+        "parameter:critical_rate",
+        "parameter:critical_power",
+        "parameter:tactic_power"
+      ],
+      "importanceCounts": {
+        "core": 2,
+        "recommended": 2,
+        "support": 1
+      },
+      "rawConditionCount": 5,
+      "canonicalConditionCount": 5
+    }
+  ]
+}

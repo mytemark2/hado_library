@@ -1,0 +1,728 @@
+{
+  "items": [
+    {
+      "category": "武装",
+      "name": "突騎鞍",
+      "description": "烏桓が製作した鞍。突騎兵に用いられる",
+      "ethnicGroup": "烏桓",
+      "troopType": "騎兵",
+      "additionalEffect": "射程+0.5",
+      "additionalEffectDescription": "",
+      "levels": [
+        {
+          "level": 1,
+          "maxDurability": 8200,
+          "attack": 110,
+          "range": 0.5
+        },
+        {
+          "level": 2,
+          "maxDurability": 8400,
+          "attack": 120,
+          "range": 0.5
+        },
+        {
+          "level": 3,
+          "maxDurability": 8600,
+          "attack": 130,
+          "range": 0.5
+        },
+        {
+          "level": 4,
+          "maxDurability": 8800,
+          "attack": 140,
+          "range": 0.5
+        },
+        {
+          "level": 5,
+          "maxDurability": 9000,
+          "attack": 150,
+          "range": 0.5
+        }
+      ]
+    },
+    {
+      "category": "武装",
+      "name": "穿透箭",
+      "description": "鮮卑が用いた頑丈な矢。物体に対して効果が高い",
+      "ethnicGroup": "鮮卑",
+      "troopType": "弓兵",
+      "additionalEffect": "対物+11.2%〜+12.0%",
+      "additionalEffectDescription": "",
+      "levels": [
+        {
+          "level": 1,
+          "maxDurability": 8200,
+          "antiObjectPercent": 11.2
+        },
+        {
+          "level": 2,
+          "maxDurability": 8400,
+          "antiObjectPercent": 11.4
+        },
+        {
+          "level": 3,
+          "maxDurability": 8600,
+          "antiObjectPercent": 11.6
+        },
+        {
+          "level": 4,
+          "maxDurability": 8800,
+          "antiObjectPercent": 11.8
+        },
+        {
+          "level": 5,
+          "maxDurability": 9000,
+          "antiObjectPercent": 12
+        }
+      ]
+    },
+    {
+      "category": "武装",
+      "name": "羌弩",
+      "description": "羌が用いた威力の高い弩。弓兵の攻撃を上昇させる",
+      "ethnicGroup": "羌",
+      "troopType": "弓兵",
+      "additionalEffect": "攻撃上昇",
+      "additionalEffectDescription": "",
+      "levels": [
+        {
+          "level": 1,
+          "maxDurability": 8200,
+          "attack": 55
+        },
+        {
+          "level": 2,
+          "maxDurability": 8400,
+          "attack": 60
+        },
+        {
+          "level": 3,
+          "maxDurability": 8600,
+          "attack": 65
+        },
+        {
+          "level": 4,
+          "maxDurability": 8800,
+          "attack": 70
+        },
+        {
+          "level": 5,
+          "maxDurability": 9000,
+          "attack": 75
+        }
+      ]
+    },
+    {
+      "category": "武装",
+      "name": "藤甲",
+      "description": "南蛮兵が着用した藤蔓製の鎧。防御は高いが火に弱い",
+      "ethnicGroup": "南蛮",
+      "troopType": "歩兵",
+      "additionalEffect": "対弓兵防御上昇",
+      "additionalEffectDescription": "火に弱い",
+      "levels": [
+        {
+          "level": 1,
+          "maxDurability": 8200,
+          "defense": 110,
+          "mobility": 0
+        },
+        {
+          "level": 2,
+          "maxDurability": 8400,
+          "defense": 120,
+          "mobility": 5
+        },
+        {
+          "level": 3,
+          "maxDurability": 8600,
+          "defense": 130,
+          "mobility": 10
+        },
+        {
+          "level": 4,
+          "maxDurability": 8800,
+          "defense": 140,
+          "mobility": 15
+        },
+        {
+          "level": 5,
+          "maxDurability": 9000,
+          "defense": 150,
+          "mobility": 20
+        }
+      ]
+    },
+    {
+      "category": "武装",
+      "name": "五渓鋼斧",
+      "description": "五渓蛮が製作した鋼斧。歩兵の攻撃を高める",
+      "ethnicGroup": "五渓蛮",
+      "troopType": "歩兵",
+      "additionalEffect": "部隊攻撃・部隊防御補正",
+      "additionalEffectDescription": "",
+      "levels": [
+        {
+          "level": 1,
+          "maxDurability": 8200,
+          "attack": 43
+        },
+        {
+          "level": 2,
+          "maxDurability": 8400,
+          "attack": 46
+        },
+        {
+          "level": 3,
+          "maxDurability": 8600,
+          "attack": 49
+        },
+        {
+          "level": 4,
+          "maxDurability": 8800,
+          "attack": 52
+        },
+        {
+          "level": 5,
+          "maxDurability": 9000,
+          "attack": 55
+        }
+      ]
+    },
+    {
+      "category": "武装",
+      "name": "山越楯",
+      "description": "山越が製作した独特な絵柄の楯。部隊の生存率を高める",
+      "ethnicGroup": "山越",
+      "troopType": "歩兵",
+      "additionalEffect": "兵士生存率上昇、非戦闘時被害減",
+      "additionalEffectDescription": "",
+      "levels": [
+        {
+          "level": 1,
+          "maxDurability": 8200,
+          "defense": 110
+        },
+        {
+          "level": 2,
+          "maxDurability": 8400,
+          "defense": 120
+        },
+        {
+          "level": 3,
+          "maxDurability": 8600,
+          "defense": 130
+        },
+        {
+          "level": 4,
+          "maxDurability": 8800,
+          "defense": 140
+        },
+        {
+          "level": 5,
+          "maxDurability": 9000,
+          "defense": 150
+        }
+      ]
+    },
+    {
+      "category": "武装",
+      "name": "烏桓長槊",
+      "description": "烏桓が製作した長槊。部隊の攻撃を高める",
+      "ethnicGroup": "烏桓",
+      "troopType": "騎兵",
+      "additionalEffect": "攻撃上昇",
+      "additionalEffectDescription": "",
+      "levels": [
+        {
+          "level": 1,
+          "maxDurability": 8200,
+          "attack": 165
+        },
+        {
+          "level": 2,
+          "maxDurability": 8400,
+          "attack": 180
+        },
+        {
+          "level": 3,
+          "maxDurability": 8600,
+          "attack": 195
+        },
+        {
+          "level": 4,
+          "maxDurability": 8800,
+          "attack": 210
+        },
+        {
+          "level": 5,
+          "maxDurability": 9000,
+          "attack": 225
+        }
+      ]
+    },
+    {
+      "category": "武装",
+      "name": "鮮卑軽弓",
+      "description": "鮮卑が用いた騎射用の軽弓。方解石があしらわれている",
+      "ethnicGroup": "鮮卑",
+      "troopType": "弓兵",
+      "additionalEffect": "機動上昇",
+      "additionalEffectDescription": "",
+      "levels": [
+        {
+          "level": 1,
+          "maxDurability": 8200,
+          "attack": 43,
+          "mobility": 0
+        },
+        {
+          "level": 2,
+          "maxDurability": 8400,
+          "attack": 46,
+          "mobility": 5
+        },
+        {
+          "level": 3,
+          "maxDurability": 8600,
+          "attack": 49,
+          "mobility": 10
+        },
+        {
+          "level": 4,
+          "maxDurability": 8800,
+          "attack": 52,
+          "mobility": 15
+        },
+        {
+          "level": 5,
+          "maxDurability": 9000,
+          "attack": 55,
+          "mobility": 20
+        }
+      ]
+    },
+    {
+      "category": "武装",
+      "name": "羌鉄車",
+      "description": "羌が用いた鉄車。高い防御を誇るが、対物体攻撃に弱い",
+      "ethnicGroup": "羌",
+      "troopType": "弓兵",
+      "additionalEffect": "防御系",
+      "additionalEffectDescription": "",
+      "levels": [
+        {
+          "level": 1,
+          "maxDurability": 8200,
+          "defense": 165,
+          "antiObjectPercent": 0
+        },
+        {
+          "level": 2,
+          "maxDurability": 8400,
+          "defense": 180,
+          "antiObjectPercent": 0
+        },
+        {
+          "level": 3,
+          "maxDurability": 8600,
+          "defense": 195,
+          "antiObjectPercent": 0
+        },
+        {
+          "level": 4,
+          "maxDurability": 8800,
+          "defense": 210,
+          "antiObjectPercent": 0
+        },
+        {
+          "level": 5,
+          "maxDurability": 9000,
+          "defense": 225,
+          "antiObjectPercent": 0
+        }
+      ]
+    },
+    {
+      "category": "武装",
+      "name": "戦象鞍",
+      "description": "南蛮が製作した鞍。戦象に乗るために用いられる",
+      "ethnicGroup": "南蛮",
+      "troopType": "騎兵",
+      "additionalEffect": "対物補正",
+      "additionalEffectDescription": "",
+      "levels": [
+        {
+          "level": 1,
+          "maxDurability": 8200,
+          "attack": 43,
+          "antiObjectPercent": 4.3
+        },
+        {
+          "level": 2,
+          "maxDurability": 8400,
+          "attack": 46,
+          "antiObjectPercent": 4.47
+        },
+        {
+          "level": 3,
+          "maxDurability": 8600,
+          "attack": 49,
+          "antiObjectPercent": 4.65
+        },
+        {
+          "level": 4,
+          "maxDurability": 8800,
+          "attack": 52,
+          "antiObjectPercent": 4.83
+        },
+        {
+          "level": 5,
+          "maxDurability": 9000,
+          "attack": 55,
+          "antiObjectPercent": 5
+        }
+      ]
+    },
+    {
+      "category": "武装",
+      "name": "五渓鉄鎚",
+      "description": "五渓蛮が製作した鉄鎚。物体に対して高い威力を持つ",
+      "ethnicGroup": "五渓蛮",
+      "troopType": "歩兵",
+      "additionalEffect": "対物補正",
+      "additionalEffectDescription": "",
+      "levels": [
+        {
+          "level": 1,
+          "maxDurability": 8200,
+          "attack": 43,
+          "antiObjectPercent": 11.2
+        },
+        {
+          "level": 2,
+          "maxDurability": 8400,
+          "attack": 46,
+          "antiObjectPercent": 11.4
+        },
+        {
+          "level": 3,
+          "maxDurability": 8600,
+          "attack": 49,
+          "antiObjectPercent": 11.6
+        },
+        {
+          "level": 4,
+          "maxDurability": 8800,
+          "attack": 52,
+          "antiObjectPercent": 11.8
+        },
+        {
+          "level": 5,
+          "maxDurability": 9000,
+          "attack": 55,
+          "antiObjectPercent": 12
+        }
+      ]
+    },
+    {
+      "category": "武装",
+      "name": "山越毒槍",
+      "description": "山越が用いた毒槍。毒を含んだ穂先で敵を弱らせる",
+      "ethnicGroup": "山越",
+      "troopType": "歩兵",
+      "additionalEffect": "毒・弱化系",
+      "additionalEffectDescription": "",
+      "levels": [
+        {
+          "level": 1,
+          "maxDurability": 8200,
+          "attack": 43,
+          "antiObjectPercent": 0
+        },
+        {
+          "level": 2,
+          "maxDurability": 8400,
+          "attack": 46,
+          "antiObjectPercent": 0
+        },
+        {
+          "level": 3,
+          "maxDurability": 8600,
+          "attack": 49,
+          "antiObjectPercent": 0
+        },
+        {
+          "level": 4,
+          "maxDurability": 8800,
+          "attack": 52,
+          "antiObjectPercent": 0
+        },
+        {
+          "level": 5,
+          "maxDurability": 9000,
+          "attack": 55,
+          "antiObjectPercent": 0
+        }
+      ]
+    },
+    {
+      "category": "武装",
+      "name": "烏桓馬鎧",
+      "description": "烏桓が製作した馬鎧。槍を通さない頑丈さを誇る",
+      "ethnicGroup": "烏桓",
+      "troopType": "騎兵",
+      "additionalEffect": "防御系",
+      "additionalEffectDescription": "",
+      "levels": [
+        {
+          "level": 1,
+          "maxDurability": 8200,
+          "defense": 110,
+          "antiObjectPercent": 0
+        },
+        {
+          "level": 2,
+          "maxDurability": 8400,
+          "defense": 120,
+          "antiObjectPercent": 0
+        },
+        {
+          "level": 3,
+          "maxDurability": 8600,
+          "defense": 130,
+          "antiObjectPercent": 0
+        },
+        {
+          "level": 4,
+          "maxDurability": 8800,
+          "defense": 140,
+          "antiObjectPercent": 0
+        },
+        {
+          "level": 5,
+          "maxDurability": 9000,
+          "defense": 150,
+          "antiObjectPercent": 0
+        }
+      ]
+    },
+    {
+      "category": "武装",
+      "name": "東胡飛弓",
+      "description": "東胡の時代から鮮卑が用いた弓。獣皮で装飾されている",
+      "ethnicGroup": "鮮卑",
+      "troopType": "弓兵",
+      "additionalEffect": "弓兵向け",
+      "additionalEffectDescription": "",
+      "levels": [
+        {
+          "level": 1,
+          "maxDurability": 8200,
+          "attack": 43,
+          "antiObjectPercent": 0
+        },
+        {
+          "level": 2,
+          "maxDurability": 8400,
+          "attack": 46,
+          "antiObjectPercent": 0
+        },
+        {
+          "level": 3,
+          "maxDurability": 8600,
+          "attack": 49,
+          "antiObjectPercent": 0
+        },
+        {
+          "level": 4,
+          "maxDurability": 8800,
+          "attack": 52,
+          "antiObjectPercent": 0
+        },
+        {
+          "level": 5,
+          "maxDurability": 9000,
+          "attack": 55,
+          "antiObjectPercent": 0
+        }
+      ]
+    },
+    {
+      "category": "武装",
+      "name": "羌飛鎚",
+      "description": "羌が用いた投擲武器。端に鉄製部品が付いている",
+      "ethnicGroup": "羌",
+      "troopType": "騎兵",
+      "additionalEffect": "射程+0.5、対物補正",
+      "additionalEffectDescription": "",
+      "levels": [
+        {
+          "level": 1,
+          "maxDurability": 8200,
+          "attack": 43,
+          "antiObjectPercent": 3,
+          "range": 0.5
+        },
+        {
+          "level": 2,
+          "maxDurability": 8400,
+          "attack": 46,
+          "antiObjectPercent": 3.25,
+          "range": 0.5
+        },
+        {
+          "level": 3,
+          "maxDurability": 8600,
+          "attack": 49,
+          "antiObjectPercent": 3.5,
+          "range": 0.5
+        },
+        {
+          "level": 4,
+          "maxDurability": 8800,
+          "attack": 52,
+          "antiObjectPercent": 3.75,
+          "range": 0.5
+        },
+        {
+          "level": 5,
+          "maxDurability": 9000,
+          "attack": 55,
+          "antiObjectPercent": 4,
+          "range": 0.5
+        }
+      ]
+    },
+    {
+      "category": "武装",
+      "name": "南蛮羽箭",
+      "description": "南蛮が製作した赤矢。個性的な矢羽が目立つ",
+      "ethnicGroup": "南蛮",
+      "troopType": "弓兵",
+      "additionalEffect": "弓兵向け",
+      "additionalEffectDescription": "",
+      "levels": [
+        {
+          "level": 1,
+          "maxDurability": 8200,
+          "attack": 43,
+          "antiObjectPercent": 0
+        },
+        {
+          "level": 2,
+          "maxDurability": 8400,
+          "attack": 46,
+          "antiObjectPercent": 0
+        },
+        {
+          "level": 3,
+          "maxDurability": 8600,
+          "attack": 49,
+          "antiObjectPercent": 0
+        },
+        {
+          "level": 4,
+          "maxDurability": 8800,
+          "attack": 52,
+          "antiObjectPercent": 0
+        },
+        {
+          "level": 5,
+          "maxDurability": 9000,
+          "attack": 55,
+          "antiObjectPercent": 0
+        }
+      ]
+    },
+    {
+      "category": "武装",
+      "name": "五渓骨朶",
+      "description": "五渓蛮が用いた骨朶。鎧の上から衝撃を与える",
+      "ethnicGroup": "五渓蛮",
+      "troopType": "歩兵",
+      "additionalEffect": "打撃・衝撃系",
+      "additionalEffectDescription": "",
+      "levels": [
+        {
+          "level": 1,
+          "maxDurability": 8200,
+          "attack": 43,
+          "antiObjectPercent": 0
+        },
+        {
+          "level": 2,
+          "maxDurability": 8400,
+          "attack": 46,
+          "antiObjectPercent": 0
+        },
+        {
+          "level": 3,
+          "maxDurability": 8600,
+          "attack": 49,
+          "antiObjectPercent": 0
+        },
+        {
+          "level": 4,
+          "maxDurability": 8800,
+          "attack": 52,
+          "antiObjectPercent": 0
+        },
+        {
+          "level": 5,
+          "maxDurability": 9000,
+          "attack": 55,
+          "antiObjectPercent": 0
+        }
+      ]
+    },
+    {
+      "category": "武装",
+      "name": "三尖槍",
+      "description": "山越が用いた三つ叉の槍。三つの穂で幅広い対応が可能",
+      "ethnicGroup": "山越",
+      "troopType": "歩兵",
+      "additionalEffect": "槍系",
+      "additionalEffectDescription": "",
+      "levels": [
+        {
+          "level": 1,
+          "maxDurability": 8200,
+          "attack": 43,
+          "range": 0
+        },
+        {
+          "level": 2,
+          "maxDurability": 8400,
+          "attack": 46,
+          "range": 0
+        },
+        {
+          "level": 3,
+          "maxDurability": 8600,
+          "attack": 49,
+          "range": 0
+        },
+        {
+          "level": 4,
+          "maxDurability": 8800,
+          "attack": 52,
+          "range": 0
+        },
+        {
+          "level": 5,
+          "maxDurability": 9000,
+          "attack": 55,
+          "range": 0
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "count": 18,
+    "source": "manual-snapshot",
+    "generatedAt": "2026-05-04",
+    "schema": "hadou_ethnic_armaments.v1"
+  }
+}

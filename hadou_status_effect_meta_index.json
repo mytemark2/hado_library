@@ -1,0 +1,3971 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-06-05T13:37:59.311Z",
+  "dataSetId": "2026-06-05T12:46:30.581Z",
+  "crawlerVersion": "1.0.5.23",
+  "generator": "hado_crawler_extension",
+  "sourceFiles": [
+    "hadou_generals.json",
+    "hadou_tactics.json",
+    "hadou_equipments.json",
+    "hadou_skills.json",
+    "hadou_status_effects.json",
+    "hadou_formations.json",
+    "hadou_siege_weapons.json",
+    "hadou_ethnic_armaments.json",
+    "hadou_ethnic_research_skills.json",
+    "hadou_five_elements.json",
+    "hadou_warhorses.json",
+    "hadou_warhorse_skills.json"
+  ],
+  "sourceFileMap": {
+    "generals": "hadou_generals.json",
+    "tactics": "hadou_tactics.json",
+    "equipments": "hadou_equipments.json",
+    "skills": "hadou_skills.json",
+    "statusEffects": "hadou_status_effects.json",
+    "formations": "hadou_formations.json",
+    "siegeWeapons": "hadou_siege_weapons.json",
+    "ethnicArmaments": "hadou_ethnic_armaments.json",
+    "ethnicResearchSkills": "hadou_ethnic_research_skills.json",
+    "fiveElements": "hadou_five_elements.json",
+    "warhorses": "hadou_warhorses.json",
+    "warhorseSkills": "hadou_warhorse_skills.json"
+  },
+  "sourceCounts": {
+    "generals": 475,
+    "tactics": 454,
+    "equipments": 237,
+    "skills": 617,
+    "statusEffects": 200,
+    "siegeWeapons": 6,
+    "ethnicArmaments": 18,
+    "ethnicResearchSkills": 32,
+    "formations": 21,
+    "fiveElements": 10,
+    "warhorses": 5,
+    "warhorseSkills": 27
+  },
+  "sourceHashes": {
+    "generals": "4d9aa25e",
+    "tactics": "aaafeed1",
+    "equipments": "4e60d216",
+    "skills": "53df17fd",
+    "statusEffects": "dcfa0de6",
+    "formations": "9c5d2dae",
+    "siegeWeapons": "5742664a",
+    "ethnicArmaments": "c731a91c",
+    "ethnicResearchSkills": "06d47d06",
+    "fiveElements": "17af35e0",
+    "warhorses": "c5edd890",
+    "warhorseSkills": "fac49238"
+  },
+  "sourceSha256": {
+    "generals": "4d9aa25e",
+    "tactics": "aaafeed1",
+    "equipments": "4e60d216",
+    "skills": "53df17fd",
+    "statusEffects": "dcfa0de6",
+    "formations": "9c5d2dae",
+    "siegeWeapons": "5742664a",
+    "ethnicArmaments": "c731a91c",
+    "ethnicResearchSkills": "06d47d06",
+    "fiveElements": "17af35e0",
+    "warhorses": "c5edd890",
+    "warhorseSkills": "fac49238"
+  },
+  "kind": "status_effect_meta_index",
+  "groups": {
+    "selfAbilityBuff": {
+      "targetSide": "self",
+      "direction": "buff",
+      "label": "自部隊能力強化"
+    },
+    "selfStateBuff": {
+      "targetSide": "self",
+      "direction": "buff",
+      "label": "自部隊状態強化"
+    },
+    "selfResistanceBuff": {
+      "targetSide": "self",
+      "direction": "buff",
+      "label": "自部隊不利対策"
+    },
+    "enemyAbilityDebuff": {
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "label": "敵部隊能力低下"
+    },
+    "enemyStateDebuff": {
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "label": "敵部隊状態弱化"
+    },
+    "enemyResistanceDebuff": {
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "label": "敵部隊有利対策"
+    }
+  },
+  "qualityAudit": {
+    "itemCount": 200,
+    "groupCounts": {
+      "selfStateBuff": 10,
+      "selfAbilityBuff": 76,
+      "selfResistanceBuff": 23,
+      "enemyResistanceDebuff": 8,
+      "enemyStateDebuff": 38,
+      "enemyAbilityDebuff": 45
+    }
+  },
+  "items": [
+    {
+      "id": "status_effects:0:治癒",
+      "category": "status_effects",
+      "name": "治癒",
+      "displayName": "治癒",
+      "rawName": "治癒",
+      "type": "有利変化",
+      "description": "一定時間ごとに負傷兵を最大兵力に応じて回復する",
+      "summaryKey": "治癒",
+      "groupKey": "selfStateBuff",
+      "groupLabel": "自部隊状態強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化",
+      "aliases": [
+        "治癒"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:1:高揚",
+      "category": "status_effects",
+      "name": "高揚",
+      "displayName": "高揚",
+      "rawName": "高揚",
+      "type": "有利変化",
+      "description": "一定時間ごとに攻撃が累積して上昇する",
+      "summaryKey": "高揚",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "高揚"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:2:結束",
+      "category": "status_effects",
+      "name": "結束",
+      "displayName": "結束",
+      "rawName": "結束",
+      "type": "有利変化",
+      "description": "連鎖が起きやすくなる",
+      "summaryKey": "結束",
+      "groupKey": "selfStateBuff",
+      "groupLabel": "自部隊状態強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化",
+      "aliases": [
+        "結束"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:3:通常攻撃拡張",
+      "category": "status_effects",
+      "name": "通常攻撃拡張",
+      "displayName": "通常攻撃拡張",
+      "rawName": "通常攻撃拡張",
+      "type": "有利変化",
+      "description": "通常攻撃の対象数を増加する",
+      "summaryKey": "通常攻撃拡張",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "通常攻撃拡張"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:4:火属性強化",
+      "category": "status_effects",
+      "name": "火属性強化",
+      "displayName": "火属性強化",
+      "rawName": "火属性強化",
+      "type": "有利変化",
+      "description": "火属性攻撃の威力を上げる",
+      "summaryKey": "火属性強化",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "火属性強化"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:5:火属性付与",
+      "category": "status_effects",
+      "name": "火属性付与",
+      "displayName": "火属性付与",
+      "rawName": "火属性付与",
+      "type": "有利変化",
+      "description": "効果中の攻撃が火属性になる",
+      "summaryKey": "火属性付与",
+      "groupKey": "selfStateBuff",
+      "groupLabel": "自部隊状態強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化",
+      "aliases": [
+        "火属性付与"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:6:回避",
+      "category": "status_effects",
+      "name": "回避",
+      "displayName": "回避",
+      "rawName": "回避",
+      "type": "有利変化",
+      "description": "攻撃を避けやすくなる",
+      "summaryKey": "回避",
+      "groupKey": "selfResistanceBuff",
+      "groupLabel": "自部隊不利対策",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+自部隊回避/無効/遮断",
+      "aliases": [
+        "回避"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:7:堅固",
+      "category": "status_effects",
+      "name": "堅固",
+      "displayName": "堅固",
+      "rawName": "堅固",
+      "type": "有利変化",
+      "description": "最大兵力に応じて一定以下の威力の攻撃を無効化する（上限1000まで）",
+      "summaryKey": "堅固",
+      "groupKey": "selfResistanceBuff",
+      "groupLabel": "自部隊不利対策",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+自部隊回避/無効/遮断",
+      "aliases": [
+        "堅固"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:8:取込",
+      "category": "status_effects",
+      "name": "取込",
+      "displayName": "取込",
+      "rawName": "取込",
+      "type": "有利変化",
+      "description": "確率で受けた攻撃を無効化して、負傷兵を攻撃の威力に応じて回復する",
+      "summaryKey": "取込",
+      "groupKey": "selfResistanceBuff",
+      "groupLabel": "自部隊不利対策",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+自部隊回避/無効/遮断",
+      "aliases": [
+        "取込"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:9:攻撃無効",
+      "category": "status_effects",
+      "name": "攻撃無効",
+      "displayName": "攻撃無効",
+      "rawName": "攻撃無効",
+      "type": "有利変化",
+      "description": "効果回数分、受けた攻撃を無効化する",
+      "summaryKey": "攻撃無効",
+      "groupKey": "selfResistanceBuff",
+      "groupLabel": "自部隊不利対策",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+自部隊回避/無効/遮断",
+      "aliases": [
+        "攻撃無効"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:10:弱化無効",
+      "category": "status_effects",
+      "name": "弱化無効",
+      "displayName": "弱化無効",
+      "rawName": "弱化無効",
+      "type": "有利変化",
+      "description": "効果回数分、受けた弱化効果を無効化する",
+      "summaryKey": "弱化無効",
+      "groupKey": "selfResistanceBuff",
+      "groupLabel": "自部隊不利対策",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+自部隊回避/無効/遮断",
+      "aliases": [
+        "弱化無効"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:11:有利激攻",
+      "category": "status_effects",
+      "name": "有利激攻",
+      "displayName": "有利激攻",
+      "rawName": "有利激攻",
+      "type": "有利変化",
+      "description": "兵科相性が有利な敵に対する与ダメージが上昇する",
+      "summaryKey": "有利激攻",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "有利激攻"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:12:会心耐性",
+      "category": "status_effects",
+      "name": "会心耐性",
+      "displayName": "会心耐性",
+      "rawName": "会心耐性",
+      "type": "有利変化",
+      "description": "会心攻撃による被ダメージを軽減する",
+      "summaryKey": "会心耐性",
+      "groupKey": "selfResistanceBuff",
+      "groupLabel": "自部隊不利対策",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+自部隊回避/無効/遮断",
+      "aliases": [
+        "会心耐性"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:13:物理耐性",
+      "category": "status_effects",
+      "name": "物理耐性",
+      "displayName": "物理耐性",
+      "rawName": "物理耐性",
+      "type": "有利変化",
+      "description": "物理系統の被ダメージを軽減する",
+      "summaryKey": "物理耐性",
+      "groupKey": "selfResistanceBuff",
+      "groupLabel": "自部隊不利対策",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+自部隊回避/無効/遮断",
+      "aliases": [
+        "物理耐性"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:14:知力耐性",
+      "category": "status_effects",
+      "name": "知力耐性",
+      "displayName": "知力耐性",
+      "rawName": "知力耐性",
+      "type": "有利変化",
+      "description": "知力系統の被ダメージを軽減する",
+      "summaryKey": "知力耐性",
+      "groupKey": "selfResistanceBuff",
+      "groupLabel": "自部隊不利対策",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+自部隊回避/無効/遮断",
+      "aliases": [
+        "知力耐性"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:15:練心",
+      "category": "status_effects",
+      "name": "練心",
+      "displayName": "練心",
+      "rawName": "練心",
+      "type": "有利変化",
+      "description": "一定時間ごとに会心威力が累積して上昇する",
+      "summaryKey": "練心",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "練心"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:16:絶縁",
+      "category": "status_effects",
+      "name": "絶縁",
+      "displayName": "絶縁",
+      "rawName": "絶縁",
+      "type": "有利変化",
+      "description": "敵部隊の連鎖を含む戦法全体から、自部隊が受ける状態変化と攻撃の発生を無効にする",
+      "summaryKey": "絶縁",
+      "groupKey": "selfResistanceBuff",
+      "groupLabel": "自部隊不利対策",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+自部隊回避/無効/遮断",
+      "aliases": [
+        "絶縁"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:17:逆襲",
+      "category": "status_effects",
+      "name": "逆襲",
+      "displayName": "逆襲",
+      "rawName": "逆襲",
+      "type": "有利変化",
+      "description": "効果時間中に受けたダメージを累積して、自部隊の主将戦法ダメージに加算する（加算上限は自身の最大兵力の3倍まで。加算後、受けたダメージの累積値は0になる） ※壊滅するダメージを受けた時も累積する",
+      "summaryKey": "逆襲",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "逆襲"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:18:穿撃",
+      "category": "status_effects",
+      "name": "穿撃",
+      "displayName": "穿撃",
+      "rawName": "穿撃",
+      "type": "有利変化",
+      "description": "通常攻撃・戦法によってダメージを与える際、全ての強化効果を無視してダメージを与える ※有利変化「絶縁」により攻撃の発生が無効化されている場合、この効果は発揮されない",
+      "summaryKey": "穿撃",
+      "groupKey": "enemyResistanceDebuff",
+      "groupLabel": "敵部隊有利対策",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:有利変化+敵耐性低下/強化無視",
+      "aliases": [
+        "穿撃"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:19:物理戦法遮断",
+      "category": "status_effects",
+      "name": "物理戦法遮断",
+      "displayName": "物理戦法遮断",
+      "rawName": "物理戦法遮断",
+      "type": "有利変化",
+      "description": "効果時間中、自部隊の最大兵力に応じて物理系統の戦法ダメージを一定値カットする（カットの上限は3000まで。ダメージの下限は0）",
+      "summaryKey": "物理戦法遮断",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "物理戦法遮断"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:20:知力戦法遮断",
+      "category": "status_effects",
+      "name": "知力戦法遮断",
+      "displayName": "知力戦法遮断",
+      "rawName": "知力戦法遮断",
+      "type": "有利変化",
+      "description": "効果時間中、自部隊の最大兵力に応じて知力系統の戦法ダメージを一定値カットする（カットの上限は3000まで。ダメージの下限は0）",
+      "summaryKey": "知力戦法遮断",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "知力戦法遮断"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:21:不退",
+      "category": "status_effects",
+      "name": "不退",
+      "displayName": "不退",
+      "rawName": "不退",
+      "type": "有利変化",
+      "description": "壊滅するダメージを受けた時、効果回数分、兵力を1残して耐える（壊滅するダメージを受けなかった場合は回数を消費しない）",
+      "summaryKey": "不退",
+      "groupKey": "selfStateBuff",
+      "groupLabel": "自部隊状態強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化",
+      "aliases": [
+        "不退"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:22:呼応・一",
+      "category": "status_effects",
+      "name": "呼応・一",
+      "displayName": "呼応・一",
+      "rawName": "呼応・一",
+      "type": "有利変化",
+      "description": "副将1の戦法の連鎖が起きやすくなる",
+      "summaryKey": "呼応・一",
+      "groupKey": "selfStateBuff",
+      "groupLabel": "自部隊状態強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化",
+      "aliases": [
+        "呼応・一"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:23:呼応・二",
+      "category": "status_effects",
+      "name": "呼応・二",
+      "displayName": "呼応・二",
+      "rawName": "呼応・二",
+      "type": "有利変化",
+      "description": "副将2の戦法の連鎖が起きやすくなる",
+      "summaryKey": "呼応・二",
+      "groupKey": "selfStateBuff",
+      "groupLabel": "自部隊状態強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化",
+      "aliases": [
+        "呼応・二"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:24:戦法威力低下付与",
+      "category": "status_effects",
+      "name": "戦法威力低下付与",
+      "displayName": "戦法威力低下付与",
+      "rawName": "戦法威力低下付与",
+      "type": "有利変化",
+      "description": "効果時間中、自部隊の通常攻撃によってダメージが発生した部隊の戦法威力を低下させる（発生する戦法威力低下の効果時間は10秒）",
+      "summaryKey": "戦法威力低下付与",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "戦法威力低下付与"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:25:盤石",
+      "category": "status_effects",
+      "name": "盤石",
+      "displayName": "盤石",
+      "rawName": "盤石",
+      "type": "有利変化",
+      "description": "物理系統の攻撃を受ける際、部隊の知力の50％分を防御に上乗せして被ダメージを計算する 知力系統の攻撃を受ける際、部隊の防御の50％分を知力に上乗せして被ダメージを計算する",
+      "summaryKey": "盤石",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "盤石"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:26:有利巧守",
+      "category": "status_effects",
+      "name": "有利巧守",
+      "displayName": "有利巧守",
+      "rawName": "有利巧守",
+      "type": "有利変化",
+      "description": "兵科相性が有利な敵からの被ダメージが低下する",
+      "summaryKey": "有利巧守",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "有利巧守"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:27:奮心",
+      "category": "status_effects",
+      "name": "奮心",
+      "displayName": "奮心",
+      "rawName": "奮心",
+      "type": "有利変化",
+      "description": "効果時間中、能力弱化効果を効果回数に応じて無効化する この効果で能力弱化効果を無効化する度に攻撃が25％ずつ累積して上昇する",
+      "summaryKey": "奮心",
+      "groupKey": "selfResistanceBuff",
+      "groupLabel": "自部隊不利対策",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+自部隊回避/無効/遮断",
+      "aliases": [
+        "奮心"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:28:憤撃",
+      "category": "status_effects",
+      "name": "憤撃",
+      "displayName": "憤撃",
+      "rawName": "憤撃",
+      "type": "有利変化",
+      "description": "効果時間中に攻撃を受ける度、主将戦法の基礎威力が効果量ずつ累積して上昇する（累積は300％まで）",
+      "summaryKey": "憤撃",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "憤撃"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:29:闘気",
+      "category": "status_effects",
+      "name": "闘気",
+      "displayName": "闘気",
+      "rawName": "闘気",
+      "type": "有利変化",
+      "description": "兵力が50％以上の時、部隊の被ダメージを効果量分軽減",
+      "summaryKey": "闘気",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "闘気"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:30:轟炎",
+      "category": "status_effects",
+      "name": "轟炎",
+      "displayName": "轟炎",
+      "rawName": "轟炎",
+      "type": "有利変化",
+      "description": "通常攻撃または戦法による攻撃時、対象の火属性耐性を効果量分低下させた状態で攻撃する（物体に対しても火属性耐性を低下させた状態で攻撃する）",
+      "summaryKey": "轟炎",
+      "groupKey": "enemyResistanceDebuff",
+      "groupLabel": "敵部隊有利対策",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:有利変化+敵耐性低下/強化無視",
+      "aliases": [
+        "轟炎"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:31:弱化反射",
+      "category": "status_effects",
+      "name": "弱化反射",
+      "displayName": "弱化反射",
+      "rawName": "弱化反射",
+      "type": "有利変化",
+      "description": "効果回数分、受けた弱化効果を無効化して、付与してきた部隊に同じ弱化効果を付与する（反計、弱化反射によって付与される弱化効果にこの効果は適用されない）",
+      "summaryKey": "弱化反射",
+      "groupKey": "selfResistanceBuff",
+      "groupLabel": "自部隊不利対策",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+自部隊回避/無効/遮断",
+      "aliases": [
+        "弱化反射"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:32:瞬影",
+      "category": "status_effects",
+      "name": "瞬影",
+      "displayName": "瞬影",
+      "rawName": "瞬影",
+      "type": "有利変化",
+      "description": "自部隊より機動の低い部隊からの、自身を対象としない範囲攻撃によるダメージ・弱化効果を受けない（自身を対象とする攻撃によるダメージ・弱化効果は受ける）",
+      "summaryKey": "瞬影",
+      "groupKey": "selfResistanceBuff",
+      "groupLabel": "自部隊不利対策",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+自部隊回避/無効/遮断",
+      "aliases": [
+        "瞬影"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:33:強化促進",
+      "category": "status_effects",
+      "name": "強化促進",
+      "displayName": "強化促進",
+      "rawName": "強化促進",
+      "type": "有利変化",
+      "description": "能力強化効果を受ける際、効果量の50％分を上乗せする",
+      "summaryKey": "強化促進",
+      "groupKey": "selfStateBuff",
+      "groupLabel": "自部隊状態強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化",
+      "aliases": [
+        "強化促進"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:34:強固",
+      "category": "status_effects",
+      "name": "強固",
+      "displayName": "強固",
+      "rawName": "強固",
+      "type": "有利変化",
+      "description": "出陣時の自身の防御に応じて、部隊が受ける戦法ダメージをカットする（防御100につきダメージを100カット）（カットの上限は5000まで。ダメージの下限は0）",
+      "summaryKey": "強固",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "強固"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:35:鬼迫",
+      "category": "status_effects",
+      "name": "鬼迫",
+      "displayName": "鬼迫",
+      "rawName": "鬼迫",
+      "type": "有利変化",
+      "description": "自部隊より攻撃の低い部隊への与ダメージを効果量分上昇 自部隊より攻撃の低い部隊から受ける被ダメージを効果量分軽減",
+      "summaryKey": "鬼迫",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "鬼迫"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:36:借威",
+      "category": "status_effects",
+      "name": "借威",
+      "displayName": "借威",
+      "rawName": "借威",
+      "type": "有利変化",
+      "description": "弱化効果を受ける際、自部隊の攻撃または知力の高い方で発生確率を計算する（同値の場合は知力）",
+      "summaryKey": "借威",
+      "groupKey": "selfStateBuff",
+      "groupLabel": "自部隊状態強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化",
+      "aliases": [
+        "借威"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:37:猛奮",
+      "category": "status_effects",
+      "name": "猛奮",
+      "displayName": "猛奮",
+      "rawName": "猛奮",
+      "type": "有利変化",
+      "description": "兵力が50％以上の時、部隊の与ダメージが効果量分上昇",
+      "summaryKey": "猛奮",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "猛奮"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:38:練守",
+      "category": "status_effects",
+      "name": "練守",
+      "displayName": "練守",
+      "rawName": "練守",
+      "type": "有利変化",
+      "description": "自部隊に発生している強化効果の数に応じて、部隊の被ダメージを軽減（強化効果1つにつき5％ずつ軽減。最大50％軽減）",
+      "summaryKey": "練守",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "練守"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:39:追討",
+      "category": "status_effects",
+      "name": "追討",
+      "displayName": "追討",
+      "rawName": "追討",
+      "type": "有利変化",
+      "description": "弱化効果が発生している敵部隊への通常攻撃・戦法による与ダメージが上昇（弱化効果の数×効果量分上昇。最大+75%）",
+      "summaryKey": "追討",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "追討"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:40:龍鎧",
+      "category": "status_effects",
+      "name": "龍鎧",
+      "displayName": "龍鎧",
+      "rawName": "龍鎧",
+      "type": "有利変化",
+      "description": "自部隊に弱化効果が発生していない時、部隊の与ダメージを効果量分上昇、被ダメージを効果量分軽減",
+      "summaryKey": "龍鎧",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "龍鎧"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:41:戦法速度低下付与",
+      "category": "status_effects",
+      "name": "戦法速度低下付与",
+      "displayName": "戦法速度低下付与",
+      "rawName": "戦法速度低下付与",
+      "type": "有利変化",
+      "description": "効果時間中、自部隊の通常攻撃によってダメージが発生した部隊の戦法速度を低下させる（発生する戦法速度低下の効果時間は10秒）",
+      "summaryKey": "戦法速度低下付与",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "戦法速度低下付与"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:42:雄然",
+      "category": "status_effects",
+      "name": "雄然",
+      "displayName": "雄然",
+      "rawName": "雄然",
+      "type": "有利変化",
+      "description": "敵部隊からの、自身を対象としない範囲通常攻撃によるダメージを受けない（自身を対象とする通常攻撃のダメージは受ける）",
+      "summaryKey": "雄然",
+      "groupKey": "selfResistanceBuff",
+      "groupLabel": "自部隊不利対策",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+自部隊回避/無効/遮断",
+      "aliases": [
+        "雄然"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:43:豪昇",
+      "category": "status_effects",
+      "name": "豪昇",
+      "displayName": "豪昇",
+      "rawName": "豪昇",
+      "type": "有利変化",
+      "description": "自部隊に発生している強化効果の数に応じて、部隊の与ダメージが上昇（強化効果1つにつき5％ずつ上昇。最大50％上昇）",
+      "summaryKey": "豪昇",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "豪昇"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:44:他対象攻撃耐性",
+      "category": "status_effects",
+      "name": "他対象攻撃耐性",
+      "displayName": "他対象攻撃耐性",
+      "rawName": "他対象攻撃耐性",
+      "type": "有利変化",
+      "description": "自身を対象としない範囲攻撃の被ダメージを効果量分軽減する",
+      "summaryKey": "他対象攻撃耐性",
+      "groupKey": "selfResistanceBuff",
+      "groupLabel": "自部隊不利対策",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+自部隊回避/無効/遮断",
+      "aliases": [
+        "他対象攻撃耐性"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:45:巧知",
+      "category": "status_effects",
+      "name": "巧知",
+      "displayName": "巧知",
+      "rawName": "巧知",
+      "type": "有利変化",
+      "description": "知力系統の攻撃を行う際、部隊の攻撃の50％分を知力に上乗せして与ダメージを計算する",
+      "summaryKey": "巧知",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "巧知"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:46:閃襲",
+      "category": "status_effects",
+      "name": "閃襲",
+      "displayName": "閃襲",
+      "rawName": "閃襲",
+      "type": "有利変化",
+      "description": "自部隊の現在兵力に応じて、部隊の与ダメージを上昇（兵力2000につき5％ずつ上昇。最大50％上昇）（兵力2000未満は切り捨て）",
+      "summaryKey": "閃襲",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "閃襲"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:47:閃護",
+      "category": "status_effects",
+      "name": "閃護",
+      "displayName": "閃護",
+      "rawName": "閃護",
+      "type": "有利変化",
+      "description": "自部隊の現在兵力に応じて、部隊の被ダメージを軽減（兵力2000につき7.5％ずつ軽減。最大75％上昇）（兵力2000未満は切り捨て）",
+      "summaryKey": "閃護",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "閃護"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:48:恵守",
+      "category": "status_effects",
+      "name": "恵守",
+      "displayName": "恵守",
+      "rawName": "恵守",
+      "type": "有利変化",
+      "description": "敵部隊の連鎖を含む戦法全体から自部隊が受ける攻撃によるダメージを0にして、その際に自身1部隊の戦法ゲージを5％上昇（戦法ゲージ上昇は1度の発生で1回のみ発生）（戦法の途中で効果が打ち消された場合、以降のダメージは受ける）",
+      "summaryKey": "恵守",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "恵守"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:49:完璧",
+      "category": "status_effects",
+      "name": "完璧",
+      "displayName": "完璧",
+      "rawName": "完璧",
+      "type": "有利変化",
+      "description": "自部隊に弱化効果が発生していない時、自身を対象としない範囲攻撃によるダメージを受けない（自身を対象とする攻撃によるダメージは受ける）",
+      "summaryKey": "完璧",
+      "groupKey": "selfResistanceBuff",
+      "groupLabel": "自部隊不利対策",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+自部隊回避/無効/遮断",
+      "aliases": [
+        "完璧"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:50:烈風",
+      "category": "status_effects",
+      "name": "烈風",
+      "displayName": "烈風",
+      "rawName": "烈風",
+      "type": "有利変化",
+      "description": "兵力が50％以上で通常攻撃を行う際、自身に発生している能力強化の効果量を2倍にした状態でダメージを与える（強化の上限値は超えない）",
+      "summaryKey": "烈風",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "烈風"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:51:廉潔",
+      "category": "status_effects",
+      "name": "廉潔",
+      "displayName": "廉潔",
+      "rawName": "廉潔",
+      "type": "有利変化",
+      "description": "自部隊より攻撃の低い敵部隊から受ける弱化効果を50％の確率で避ける（確率は他効果と合算）",
+      "summaryKey": "廉潔",
+      "groupKey": "selfResistanceBuff",
+      "groupLabel": "自部隊不利対策",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+自部隊回避/無効/遮断",
+      "aliases": [
+        "廉潔"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:52:焔風",
+      "category": "status_effects",
+      "name": "焔風",
+      "displayName": "焔風",
+      "rawName": "焔風",
+      "type": "有利変化",
+      "description": "通常攻撃・戦法攻撃が火属性になり、部隊の被ダメージ−50% さらに知力系統の攻撃の与ダメージ+50%",
+      "summaryKey": "焔風",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "焔風"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:53:不敵",
+      "category": "status_effects",
+      "name": "不敵",
+      "displayName": "不敵",
+      "rawName": "不敵",
+      "type": "有利変化",
+      "description": "自部隊より最大兵力の低い敵部隊から受ける被ダメージを効果量分軽減",
+      "summaryKey": "不敵",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "不敵"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:54:窮策",
+      "category": "status_effects",
+      "name": "窮策",
+      "displayName": "窮策",
+      "rawName": "窮策",
+      "type": "有利変化",
+      "description": "自部隊の現在兵力が50％以下の時、部隊の与ダメージを効果量分上昇、被ダメージを効果量分軽減",
+      "summaryKey": "窮策",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "窮策"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:55:駿撃",
+      "category": "status_effects",
+      "name": "駿撃",
+      "displayName": "駿撃",
+      "rawName": "駿撃",
+      "type": "有利変化",
+      "description": "自部隊より機動の低い部隊への与ダメージを効果量分上昇",
+      "summaryKey": "駿撃",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "駿撃"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:56:泰然",
+      "category": "status_effects",
+      "name": "泰然",
+      "displayName": "泰然",
+      "rawName": "泰然",
+      "type": "有利変化",
+      "description": "効果時間中、受けた不利変化を全て無効化する（能力弱化効果、即時効果は無効化しない）",
+      "summaryKey": "泰然",
+      "groupKey": "selfResistanceBuff",
+      "groupLabel": "自部隊不利対策",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+自部隊回避/無効/遮断",
+      "aliases": [
+        "泰然"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:57:憤怒",
+      "category": "status_effects",
+      "name": "憤怒",
+      "displayName": "憤怒",
+      "rawName": "憤怒",
+      "type": "有利変化",
+      "description": "副将の連鎖確率が10％上昇 さらに通常攻撃時に50％の確率で、自身1部隊に1度の絶縁を10秒付与（1度の通常攻撃につき1回確率判定を行う。複数部隊に同時攻撃しても確率判定は1回） ※絶縁（有利変化）…敵部隊の連鎖を含む戦法全体から、自部隊が受ける状態変化と攻撃の発生を無効にする",
+      "summaryKey": "憤怒",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "憤怒"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:58:暴乱",
+      "category": "status_effects",
+      "name": "暴乱",
+      "displayName": "暴乱",
+      "rawName": "暴乱",
+      "type": "有利変化",
+      "description": "物体に対する与ダメージが効果量分上昇 さらに戦法攻撃時、物体に対しては撃心発生率を効果量分上昇させた状態で攻撃する",
+      "summaryKey": "暴乱",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "暴乱"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:59:威心・攻",
+      "category": "status_effects",
+      "name": "威心・攻",
+      "displayName": "威心・攻",
+      "rawName": "威心・攻",
+      "type": "有利変化",
+      "description": "自部隊に発生している状態変化によって攻撃が上昇している場合、上昇効果10％につき会心威力が5％ずつ上昇（最大+150%）",
+      "summaryKey": "威心・攻",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "威心・攻"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:60:覇弓",
+      "category": "status_effects",
+      "name": "覇弓",
+      "displayName": "覇弓",
+      "rawName": "覇弓",
+      "type": "有利変化",
+      "description": "自部隊に発生している強化効果または弱化効果の数に応じて、部隊の戦法による与ダメージが上昇（1つにつき効果量分ずつ上昇。最大で効果量×10%上昇）",
+      "summaryKey": "覇弓",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "覇弓"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:61:攻防一体",
+      "category": "status_effects",
+      "name": "攻防一体",
+      "displayName": "攻防一体",
+      "rawName": "攻防一体",
+      "type": "有利変化",
+      "description": "付与してきた部隊の「装備品能力値による攻撃上昇値+技能による攻撃上昇値+状態変化による攻撃上昇値」分、自部隊の防御が上昇する",
+      "summaryKey": "攻防一体",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "攻防一体"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:62:飲血",
+      "category": "status_effects",
+      "name": "飲血",
+      "displayName": "飲血",
+      "rawName": "飲血",
+      "type": "有利変化",
+      "description": "通常攻撃・戦法で与えたダメージと効果量に応じて、部隊の負傷兵を回復する",
+      "summaryKey": "飲血",
+      "groupKey": "selfStateBuff",
+      "groupLabel": "自部隊状態強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化",
+      "aliases": [
+        "飲血"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:63:不滅",
+      "category": "status_effects",
+      "name": "不滅",
+      "displayName": "不滅",
+      "rawName": "不滅",
+      "type": "有利変化",
+      "description": "効果時間中、受けた攻撃を無効化する",
+      "summaryKey": "不滅",
+      "groupKey": "selfResistanceBuff",
+      "groupLabel": "自部隊不利対策",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+自部隊回避/無効/遮断",
+      "aliases": [
+        "不滅"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:64:闇盾",
+      "category": "status_effects",
+      "name": "闇盾",
+      "displayName": "闇盾",
+      "rawName": "闇盾",
+      "type": "有利変化",
+      "description": "最大兵力の25％分のシールド値を生成する（最大5000。ダメージを軽減するたびにシールド値が減少する）",
+      "summaryKey": "闇盾",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "闇盾"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:65:火神降臨",
+      "category": "status_effects",
+      "name": "火神降臨",
+      "displayName": "火神降臨",
+      "rawName": "火神降臨",
+      "type": "有利変化",
+      "description": "兵力が50％以上の時、火属性の戦法攻撃の基礎威力が2倍になる",
+      "summaryKey": "火神降臨",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "火神降臨"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:66:火炮",
+      "category": "status_effects",
+      "name": "火炮",
+      "displayName": "火炮",
+      "rawName": "火炮",
+      "type": "有利変化",
+      "description": "効果中の攻撃が火属性になり、一定時間ごとに火攻撃威力が累積して上昇する（最大+200％）",
+      "summaryKey": "火炮",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "火炮"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:67:御剣飛行",
+      "category": "status_effects",
+      "name": "御剣飛行",
+      "displayName": "御剣飛行",
+      "rawName": "御剣飛行",
+      "type": "有利変化",
+      "description": "自部隊より機動の低い部隊に対する会心発生率と与ダメージを効果量分上昇、被ダメージを効果量分軽減",
+      "summaryKey": "御剣飛行",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "御剣飛行"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:68:快気",
+      "category": "status_effects",
+      "name": "快気",
+      "displayName": "快気",
+      "rawName": "快気",
+      "type": "有利変化",
+      "description": "交戦中、一定時間ごとに効果量分の確率で自身1部隊の弱化効果を1つ打ち消す",
+      "summaryKey": "快気",
+      "groupKey": "selfStateBuff",
+      "groupLabel": "自部隊状態強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化",
+      "aliases": [
+        "快気"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:69:賢壁",
+      "category": "status_effects",
+      "name": "賢壁",
+      "displayName": "賢壁",
+      "rawName": "賢壁",
+      "type": "有利変化",
+      "description": "出陣時の自身の知力に応じて、部隊が受ける知力系統の戦法ダメージをカットする（知力100につきダメージを200カット）（カットの上限は10000まで。ダメージの下限は0）",
+      "summaryKey": "賢壁",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "賢壁"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:70:撃迅",
+      "category": "status_effects",
+      "name": "撃迅",
+      "displayName": "撃迅",
+      "rawName": "撃迅",
+      "type": "有利変化",
+      "description": "自部隊に弱化効果が発生していない時、騎兵武将の戦法攻撃の際は撃心発生率を効果量分上昇させた状態で攻撃する ※有利変化のため、効果時間中に同一の効果が再度発生した場合、効果値は高い方で上書きされる（加算されない）",
+      "summaryKey": "撃迅",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "撃迅"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:71:義奮",
+      "category": "status_effects",
+      "name": "義奮",
+      "displayName": "義奮",
+      "rawName": "義奮",
+      "type": "有利変化",
+      "description": "部隊の戦法速度+20% 付与してきた部隊の「出陣時の防御の150％」分、付与された部隊の攻撃、防御、知力に上乗せする（効果時間中に同一効果が発生した場合、上乗せする攻撃、防御、知力の値は高い方の値で上書きされる）",
+      "summaryKey": "義奮",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "義奮"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:72:剛憤",
+      "category": "status_effects",
+      "name": "剛憤",
+      "displayName": "剛憤",
+      "rawName": "剛憤",
+      "type": "有利変化",
+      "description": "効果時間中に攻撃を受ける度、部隊の与ダメージを効果量ずつ累積して上昇する（累積は50％まで）",
+      "summaryKey": "剛憤",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "剛憤"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:73:強兵",
+      "category": "status_effects",
+      "name": "強兵",
+      "displayName": "強兵",
+      "rawName": "強兵",
+      "type": "有利変化",
+      "description": "自部隊より最大兵力の低い敵部隊への与ダメージを効果量分上昇",
+      "summaryKey": "強兵",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "強兵"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:74:撃炎",
+      "category": "status_effects",
+      "name": "撃炎",
+      "displayName": "撃炎",
+      "rawName": "撃炎",
+      "type": "有利変化",
+      "description": "火属性の戦法攻撃の撃心威力を効果量分上昇",
+      "summaryKey": "撃炎",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "撃炎"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:75:打開",
+      "category": "status_effects",
+      "name": "打開",
+      "displayName": "打開",
+      "rawName": "打開",
+      "type": "有利変化",
+      "description": "通常攻撃・連鎖を含む戦法全体の攻撃を受けた後、自部隊の兵力が50％以下で壊滅していない場合、自身1部隊の弱化効果を5つ打ち消す ※効果回数が1回消費され、5つの弱化解除が発生",
+      "summaryKey": "打開",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "打開"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:76:魁威",
+      "category": "status_effects",
+      "name": "魁威",
+      "displayName": "魁威",
+      "rawName": "魁威",
+      "type": "有利変化",
+      "description": "部隊の与ダメージが効果量分上昇 さらに自部隊より現在兵力が低い敵部隊から受ける弱化効果を避ける",
+      "summaryKey": "魁威",
+      "groupKey": "selfResistanceBuff",
+      "groupLabel": "自部隊不利対策",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+自部隊回避/無効/遮断",
+      "aliases": [
+        "魁威"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:77:活身",
+      "category": "status_effects",
+      "name": "活身",
+      "displayName": "活身",
+      "rawName": "活身",
+      "type": "有利変化",
+      "description": "一定時間ごとに、戦法による敵部隊に対する与ダメージが3％ずつ累積して上昇 さらに効果時間中に戦法攻撃を受ける度、戦法による敵部隊に対する与ダメージが5％ずつ累積して上昇（複数連鎖の場合、連鎖ごとに累積が判定される）（累積は100％まで）",
+      "summaryKey": "活身",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "活身"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:78:威槍",
+      "category": "status_effects",
+      "name": "威槍",
+      "displayName": "威槍",
+      "rawName": "威槍",
+      "type": "有利変化",
+      "description": "効果回数分、会心攻撃時に会心威力を200％上昇させた状態でダメージを与える（1回の通常攻撃で会心攻撃が複数回発生した場合、消費される回数は1回分のみ）",
+      "summaryKey": "威槍",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "威槍"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:79:操賢",
+      "category": "status_effects",
+      "name": "操賢",
+      "displayName": "操賢",
+      "rawName": "操賢",
+      "type": "有利変化",
+      "description": "効果時間中、兵器速度が200％上昇 兵器攻撃時、兵器の攻撃威力を200％上昇させた状態でダメージを与える",
+      "summaryKey": "操賢",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "操賢"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:80:龍吟",
+      "category": "status_effects",
+      "name": "龍吟",
+      "displayName": "龍吟",
+      "rawName": "龍吟",
+      "type": "有利変化",
+      "description": "物理系統の与ダメージ+50% 部隊の会心発生+50% 効果時間中、敵部隊を撃破する度に自身1部隊の弱化効果を3つ打ち消し（3つの弱化解除が発生）、3回の弱化無効を10秒付与",
+      "summaryKey": "龍吟",
+      "groupKey": "selfResistanceBuff",
+      "groupLabel": "自部隊不利対策",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+自部隊回避/無効/遮断",
+      "aliases": [
+        "龍吟"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:81:慧叡",
+      "category": "status_effects",
+      "name": "慧叡",
+      "displayName": "慧叡",
+      "rawName": "慧叡",
+      "type": "有利変化",
+      "description": "知力系統の攻撃の与ダメージが効果量分上昇、知力系統の攻撃の被ダメージを効果量分軽減",
+      "summaryKey": "慧叡",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "慧叡"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:82:護厳",
+      "category": "status_effects",
+      "name": "護厳",
+      "displayName": "護厳",
+      "rawName": "護厳",
+      "type": "有利変化",
+      "description": "部隊が駐屯/防衛中の際、戦法速度を効果量分上昇",
+      "summaryKey": "護厳",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+      "aliases": [
+        "護厳"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:83:献計",
+      "category": "status_effects",
+      "name": "献計",
+      "displayName": "献計",
+      "rawName": "献計",
+      "type": "有利変化",
+      "description": "付与してきた部隊の「出陣時の知力の100％」分、付与された部隊の攻撃、防御、知力に上乗せする（効果時間中に同一効果が発生した場合、上乗せする攻撃、防御、知力の値は高い方の値で上書きされる） さらに自部隊より知力の低い敵部隊から受ける弱化効果を50％の確率で避ける（確率は他効果と合算）",
+      "summaryKey": "献計",
+      "groupKey": "selfResistanceBuff",
+      "groupLabel": "自部隊不利対策",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:有利変化+自部隊回避/無効/遮断",
+      "aliases": [
+        "献計"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:84:病毒",
+      "category": "status_effects",
+      "name": "病毒",
+      "displayName": "病毒",
+      "rawName": "病毒",
+      "type": "不利変化",
+      "description": "一定時間ごとに残存兵力に応じて兵力が減る",
+      "summaryKey": "病毒",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "病毒"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:85:火傷",
+      "category": "status_effects",
+      "name": "火傷",
+      "displayName": "火傷",
+      "rawName": "火傷",
+      "type": "不利変化",
+      "description": "一定時間ごとに最大兵力に応じて火属性の攻撃を受ける",
+      "summaryKey": "火傷",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "火傷"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:86:凶兆",
+      "category": "status_effects",
+      "name": "凶兆",
+      "displayName": "凶兆",
+      "rawName": "凶兆",
+      "type": "不利変化",
+      "description": "一定時間ごとに残存兵力に応じて兵力が減る",
+      "summaryKey": "凶兆",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "凶兆"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:87:恐怖",
+      "category": "status_effects",
+      "name": "恐怖",
+      "displayName": "恐怖",
+      "rawName": "恐怖",
+      "type": "不利変化",
+      "description": "通常攻撃ができなくなる",
+      "summaryKey": "恐怖",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "恐怖"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:88:混乱",
+      "category": "status_effects",
+      "name": "混乱",
+      "displayName": "混乱",
+      "rawName": "混乱",
+      "type": "不利変化",
+      "description": "部隊に命令できなくなる",
+      "summaryKey": "混乱",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "混乱"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:89:同討",
+      "category": "status_effects",
+      "name": "同討",
+      "displayName": "同討",
+      "rawName": "同討",
+      "type": "不利変化",
+      "description": "自身を攻撃してしまうようになり、戦法が発動せず、命令できなくなる",
+      "summaryKey": "同討",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "同討"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:90:疑心",
+      "category": "status_effects",
+      "name": "疑心",
+      "displayName": "疑心",
+      "rawName": "疑心",
+      "type": "不利変化",
+      "description": "連鎖が起きにくくなる",
+      "summaryKey": "疑心",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "疑心"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:91:強化無効",
+      "category": "status_effects",
+      "name": "強化無効",
+      "displayName": "強化無効",
+      "rawName": "強化無効",
+      "type": "不利変化",
+      "description": "効果回数分、受けた強化効果を無効化する",
+      "summaryKey": "強化無効",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "強化無効"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:92:弱化残存",
+      "category": "status_effects",
+      "name": "弱化残存",
+      "displayName": "弱化残存",
+      "rawName": "弱化残存",
+      "type": "不利変化",
+      "description": "新たに発生する弱化効果の効果時間が長くなる",
+      "summaryKey": "弱化残存",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "弱化残存"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:93:畏怖",
+      "category": "status_effects",
+      "name": "畏怖",
+      "displayName": "畏怖",
+      "rawName": "畏怖",
+      "type": "不利変化",
+      "description": "戦法ゲージが上昇しなくなり、戦法が発動できなくなる",
+      "summaryKey": "畏怖",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化+能力/火力/速度低下系",
+      "aliases": [
+        "畏怖"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:94:異心",
+      "category": "status_effects",
+      "name": "異心",
+      "displayName": "異心",
+      "rawName": "異心",
+      "type": "不利変化",
+      "description": "付与されている状態で戦法が連鎖する度に自身1部隊の強化効果が1つ打ち消され、戦法速度が30％低下する（10秒）",
+      "summaryKey": "異心",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化+能力/火力/速度低下系",
+      "aliases": [
+        "異心"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:95:強化抑制",
+      "category": "status_effects",
+      "name": "強化抑制",
+      "displayName": "強化抑制",
+      "rawName": "強化抑制",
+      "type": "不利変化",
+      "description": "付与される能力強化効果の効果量が50％減少する",
+      "summaryKey": "強化抑制",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "強化抑制"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:96:挑発",
+      "category": "status_effects",
+      "name": "挑発",
+      "displayName": "挑発",
+      "rawName": "挑発",
+      "type": "不利変化",
+      "description": "付与してきた部隊に攻撃目標が変更されて命令できなくなる ※攻撃目標が交戦中でなくなった場合、解除される",
+      "summaryKey": "挑発",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "挑発"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:97:戦法範囲縮小",
+      "category": "status_effects",
+      "name": "戦法範囲縮小",
+      "displayName": "戦法範囲縮小",
+      "rawName": "戦法範囲縮小",
+      "type": "不利変化",
+      "description": "戦法の敵対象部隊数が減少する（下限1）",
+      "summaryKey": "戦法範囲縮小",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "戦法範囲縮小"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:98:禍兆",
+      "category": "status_effects",
+      "name": "禍兆",
+      "displayName": "禍兆",
+      "rawName": "禍兆",
+      "type": "不利変化",
+      "description": "一定時間ごとに最大兵力に応じて兵力が大きく減る",
+      "summaryKey": "禍兆",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "禍兆"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:99:戦法弱化",
+      "category": "status_effects",
+      "name": "戦法弱化",
+      "displayName": "戦法弱化",
+      "rawName": "戦法弱化",
+      "type": "不利変化",
+      "description": "自部隊の連鎖を含む戦法全体で発生する攻撃の威力・回復量・状態変化発生率が50％分減少する",
+      "summaryKey": "戦法弱化",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化+能力/火力/速度低下系",
+      "aliases": [
+        "戦法弱化"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:100:連鎖不能",
+      "category": "status_effects",
+      "name": "連鎖不能",
+      "displayName": "連鎖不能",
+      "rawName": "連鎖不能",
+      "type": "不利変化",
+      "description": "効果時間中に発動した戦法では連鎖が起きない",
+      "summaryKey": "連鎖不能",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "連鎖不能"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:101:会心率半減",
+      "category": "status_effects",
+      "name": "会心率半減",
+      "displayName": "会心率半減",
+      "rawName": "会心率半減",
+      "type": "不利変化",
+      "description": "効果時間中、会心発生率が半減する さらに会心発生率の上限が50％になる",
+      "summaryKey": "会心率半減",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化+能力/火力/速度低下系",
+      "aliases": [
+        "会心率半減"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:102:萎縮",
+      "category": "status_effects",
+      "name": "萎縮",
+      "displayName": "萎縮",
+      "rawName": "萎縮",
+      "type": "不利変化",
+      "description": "通常攻撃のダメージを受ける際、必ず会心ダメージになる",
+      "summaryKey": "萎縮",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "萎縮"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:103:連鎖無効",
+      "category": "status_effects",
+      "name": "連鎖無効",
+      "displayName": "連鎖無効",
+      "rawName": "連鎖無効",
+      "type": "不利変化",
+      "description": "効果回数分、戦法で連鎖が起きない",
+      "summaryKey": "連鎖無効",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "連鎖無効"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:104:怯心",
+      "category": "status_effects",
+      "name": "怯心",
+      "displayName": "怯心",
+      "rawName": "怯心",
+      "type": "不利変化",
+      "description": "効果時間中、自部隊の連鎖を含む戦法全体で発生する弱化効果の発生率が0％になる",
+      "summaryKey": "怯心",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "怯心"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:105:幻惑",
+      "category": "status_effects",
+      "name": "幻惑",
+      "displayName": "幻惑",
+      "rawName": "幻惑",
+      "type": "不利変化",
+      "description": "戦法ゲージが上昇しなくなり、通常攻撃・戦法の発動ができなくなる さらに命令できなくなる",
+      "summaryKey": "幻惑",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化+能力/火力/速度低下系",
+      "aliases": [
+        "幻惑"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:106:通常攻撃縮小",
+      "category": "status_effects",
+      "name": "通常攻撃縮小",
+      "displayName": "通常攻撃縮小",
+      "rawName": "通常攻撃縮小",
+      "type": "不利変化",
+      "description": "通常攻撃の対象数が減少する（下限1）",
+      "summaryKey": "通常攻撃縮小",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化+能力/火力/速度低下系",
+      "aliases": [
+        "通常攻撃縮小"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:107:分断",
+      "category": "status_effects",
+      "name": "分断",
+      "displayName": "分断",
+      "rawName": "分断",
+      "type": "不利変化",
+      "description": "効果時間中、自部隊以外の味方部隊から受ける状態変化を無効化する さらに自部隊以外の味方部隊に状態変化を付与できなくなる",
+      "summaryKey": "分断",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "分断"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:108:不利脆弱",
+      "category": "status_effects",
+      "name": "不利脆弱",
+      "displayName": "不利脆弱",
+      "rawName": "不利脆弱",
+      "type": "不利変化",
+      "description": "兵科相性が不利な敵からの被ダメージが上昇する",
+      "summaryKey": "不利脆弱",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化+能力/火力/速度低下系",
+      "aliases": [
+        "不利脆弱"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:109:強化反転",
+      "category": "status_effects",
+      "name": "強化反転",
+      "displayName": "強化反転",
+      "rawName": "強化反転",
+      "type": "不利変化",
+      "description": "効果回数分、自身に新たに発生する能力強化効果を弱化に変えて発生させる（弱化の下限は超えない）",
+      "summaryKey": "強化反転",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "強化反転"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:110:潜影",
+      "category": "status_effects",
+      "name": "潜影",
+      "displayName": "潜影",
+      "rawName": "潜影",
+      "type": "不利変化",
+      "description": "一定時間ごとに攻撃、知力、戦法威力がそれぞれ累積して低下する",
+      "summaryKey": "潜影",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化+能力/火力/速度低下系",
+      "aliases": [
+        "潜影"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:111:不利消沈",
+      "category": "status_effects",
+      "name": "不利消沈",
+      "displayName": "不利消沈",
+      "rawName": "不利消沈",
+      "type": "不利変化",
+      "description": "兵科相性が不利な敵に対する与ダメージが減少する",
+      "summaryKey": "不利消沈",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化+能力/火力/速度低下系",
+      "aliases": [
+        "不利消沈"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:112:騎兵戦法抑圧",
+      "category": "status_effects",
+      "name": "騎兵戦法抑圧",
+      "displayName": "騎兵戦法抑圧",
+      "rawName": "騎兵戦法抑圧",
+      "type": "不利変化",
+      "description": "効果時間中、部隊内の騎兵武将の戦法で発生する状態変化の発生率が0％になる",
+      "summaryKey": "騎兵戦法抑圧",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "騎兵戦法抑圧"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:113:弱化積鈍",
+      "category": "status_effects",
+      "name": "弱化積鈍",
+      "displayName": "弱化積鈍",
+      "rawName": "弱化積鈍",
+      "type": "不利変化",
+      "description": "自部隊に発生している弱化効果の数に応じて、部隊の与ダメージが低下（弱化効果1つにつき5％ずつ低下。最大75％低下）",
+      "summaryKey": "弱化積鈍",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化+能力/火力/速度低下系",
+      "aliases": [
+        "弱化積鈍"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:114:断道",
+      "category": "status_effects",
+      "name": "断道",
+      "displayName": "断道",
+      "rawName": "断道",
+      "type": "不利変化",
+      "description": "通常攻撃の間隔が2倍になり、最短の間隔が4秒になる さらに通常攻撃による与ダメージが25％減少する",
+      "summaryKey": "断道",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化+能力/火力/速度低下系",
+      "aliases": [
+        "断道"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:115:物理戦法弱点",
+      "category": "status_effects",
+      "name": "物理戦法弱点",
+      "displayName": "物理戦法弱点",
+      "rawName": "物理戦法弱点",
+      "type": "不利変化",
+      "description": "効果回数分、物理系統の戦法の被ダメージ+50%",
+      "summaryKey": "物理戦法弱点",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化+能力/火力/速度低下系",
+      "aliases": [
+        "物理戦法弱点"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:116:戦慄",
+      "category": "status_effects",
+      "name": "戦慄",
+      "displayName": "戦慄",
+      "rawName": "戦慄",
+      "type": "不利変化",
+      "description": "戦法の発動間隔が2倍になる（技能や状態変化などの効果を含めた戦法速度が半分になる） 状態変化による戦法ゲージの上昇量が半分になる さらに戦法攻撃による与ダメージが25％減少する",
+      "summaryKey": "戦慄",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化+能力/火力/速度低下系",
+      "aliases": [
+        "戦慄"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:117:深恐",
+      "category": "status_effects",
+      "name": "深恐",
+      "displayName": "深恐",
+      "rawName": "深恐",
+      "type": "不利変化",
+      "description": "効果時間中、主将戦法で発生する状態変化の発生率が25％に低下する（25％以下の場合は適用しない）",
+      "summaryKey": "深恐",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "深恐"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:118:困憊",
+      "category": "status_effects",
+      "name": "困憊",
+      "displayName": "困憊",
+      "rawName": "困憊",
+      "type": "不利変化",
+      "description": "物体への攻撃時、対物特効の能力強化効果が発揮されず、対物特効を50％低下させた状態でダメージを計算する（戦法や技能の対物特効を上昇させた状態で攻撃する効果も発揮されない）",
+      "summaryKey": "困憊",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化+能力/火力/速度低下系",
+      "aliases": [
+        "困憊"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:119:闇動",
+      "category": "status_effects",
+      "name": "闇動",
+      "displayName": "闇動",
+      "rawName": "闇動",
+      "type": "不利変化",
+      "description": "一定時間ごとに最大兵力と効果量に応じて兵力が減る さらに自部隊に発生している弱化効果の数に応じて部隊の被ダメージが上昇（弱化効果1つにつき5％ずつ上昇。最大50％上昇）",
+      "summaryKey": "闇動",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化+能力/火力/速度低下系",
+      "aliases": [
+        "闇動"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:120:封撃",
+      "category": "status_effects",
+      "name": "封撃",
+      "displayName": "封撃",
+      "rawName": "封撃",
+      "type": "不利変化",
+      "description": "効果時間中、効果量分の確率で戦法攻撃によるダメージが0になる 自部隊に弱化効果が5つ以上発生している場合、確率が2倍になる（連鎖ごとの初回攻撃時に確率判定が行われ、攻撃対象全体に効果が適用される）",
+      "summaryKey": "封撃",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "封撃"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:121:乱炎",
+      "category": "status_effects",
+      "name": "乱炎",
+      "displayName": "乱炎",
+      "rawName": "乱炎",
+      "type": "不利変化",
+      "description": "火属性の通常攻撃・戦法でダメージを受ける度に攻撃、知力、戦法威力がそれぞれ累積して低下する",
+      "summaryKey": "乱炎",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化+能力/火力/速度低下系",
+      "aliases": [
+        "乱炎"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:122:連鎖累減",
+      "category": "status_effects",
+      "name": "連鎖累減",
+      "displayName": "連鎖累減",
+      "rawName": "連鎖累減",
+      "type": "不利変化",
+      "description": "攻撃を受ける度に副将の連鎖確率が累積して減少する（攻撃を受ける度に効果量ずつ減少。最大75％）",
+      "summaryKey": "連鎖累減",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化+能力/火力/速度低下系",
+      "aliases": [
+        "連鎖累減"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:123:暗影詛呪",
+      "category": "status_effects",
+      "name": "暗影詛呪",
+      "displayName": "暗影詛呪",
+      "rawName": "暗影詛呪",
+      "type": "不利変化",
+      "description": "一定時間ごとに、最大兵力に応じて兵力が大きく減る",
+      "summaryKey": "暗影詛呪",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "暗影詛呪"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:124:氷呪",
+      "category": "status_effects",
+      "name": "氷呪",
+      "displayName": "氷呪",
+      "rawName": "氷呪",
+      "type": "不利変化",
+      "description": "効果時間中、部隊の被ダメージが効果量分上昇して通常攻撃・戦法の発動ができなくなる さらに命令できなくなる",
+      "summaryKey": "氷呪",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化+能力/火力/速度低下系",
+      "aliases": [
+        "氷呪"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:125:沙縛",
+      "category": "status_effects",
+      "name": "沙縛",
+      "displayName": "沙縛",
+      "rawName": "沙縛",
+      "type": "不利変化",
+      "description": "効果時間中に会心攻撃でダメージを受けた際、自身1部隊に効果量分の戦法遅延が発生する ※発生する戦法遅延は「断風」などの「敵部隊から戦法遅延を受ける」際に発動する効果の影響を受けない（敵部隊から受ける戦法遅延ではないため）",
+      "summaryKey": "沙縛",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "沙縛"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:126:毒﨧",
+      "category": "status_effects",
+      "name": "毒﨧",
+      "displayName": "毒﨧",
+      "rawName": "毒﨧",
+      "type": "不利変化",
+      "description": "効果時間中、一定時間ごとに最大兵力と効果量に応じて兵力が減る さらに自部隊以外の味方部隊から受ける状態変化を無効化する",
+      "summaryKey": "毒﨧",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "毒﨧"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:127:奪魂",
+      "category": "status_effects",
+      "name": "奪魂",
+      "displayName": "奪魂",
+      "rawName": "奪魂",
+      "type": "不利変化",
+      "description": "自部隊に発生している弱化効果の数に応じて、自部隊の与ダメージと連鎖確率が低下する（弱化効果1つにつき与ダメージが5％ずつ、連鎖確率が2％ずつ低下。与ダメージは最大50％低下、連鎖確率は最大20％低下）",
+      "summaryKey": "奪魂",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化+能力/火力/速度低下系",
+      "aliases": [
+        "奪魂"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:128:反情",
+      "category": "status_effects",
+      "name": "反情",
+      "displayName": "反情",
+      "rawName": "反情",
+      "type": "不利変化",
+      "description": "自部隊の兵力が50％以下の時、自部隊が受ける戦法短縮（即時効果）を無効化する",
+      "summaryKey": "反情",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化+能力/火力/速度低下系",
+      "aliases": [
+        "反情"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:129:砕心",
+      "category": "status_effects",
+      "name": "砕心",
+      "displayName": "砕心",
+      "rawName": "砕心",
+      "type": "不利変化",
+      "description": "効果時間中、自部隊の連鎖を含む戦法全体で発生する即時効果の発生率が0％になる",
+      "summaryKey": "砕心",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "砕心"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:130:感電",
+      "category": "status_effects",
+      "name": "感電",
+      "displayName": "感電",
+      "rawName": "感電",
+      "type": "不利変化",
+      "description": "効果時間中、戦法ゲージが上昇しなくなり、通常攻撃・戦法の発動ができなくなる さらに機動が半減する 感電発生時、機動の能力強化効果が消滅する ※消滅は即時効果を避ける/発生させなくする効果の影響を受けない（消滅は即時効果ではないため）",
+      "summaryKey": "感電",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化+能力/火力/速度低下系",
+      "aliases": [
+        "感電"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:131:鈍迷",
+      "category": "status_effects",
+      "name": "鈍迷",
+      "displayName": "鈍迷",
+      "rawName": "鈍迷",
+      "type": "不利変化",
+      "description": "効果時間中、攻撃、防御、知力の能力強化効果が発揮されず、攻撃、防御、知力が効果量分低下した状態になる さらに自部隊以外の味方部隊から受ける状態変化を無効化する",
+      "summaryKey": "鈍迷",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化+能力/火力/速度低下系",
+      "aliases": [
+        "鈍迷"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:132:歩兵戦法抑圧",
+      "category": "status_effects",
+      "name": "歩兵戦法抑圧",
+      "displayName": "歩兵戦法抑圧",
+      "rawName": "歩兵戦法抑圧",
+      "type": "不利変化",
+      "description": "効果時間中、部隊内の歩兵武将の戦法で発生する状態変化の発生率が0%になる",
+      "summaryKey": "歩兵戦法抑圧",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:不利変化",
+      "aliases": [
+        "歩兵戦法抑圧"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:133:攻撃短縮",
+      "category": "status_effects",
+      "name": "攻撃短縮",
+      "displayName": "攻撃短縮",
+      "rawName": "攻撃短縮",
+      "type": "即時効果",
+      "description": "通常攻撃の待ち時間を短縮する",
+      "summaryKey": "攻撃短縮",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:即時効果+fallback",
+      "aliases": [
+        "攻撃短縮"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:134:戦法短縮",
+      "category": "status_effects",
+      "name": "戦法短縮",
+      "displayName": "戦法短縮",
+      "rawName": "戦法短縮",
+      "type": "即時効果",
+      "description": "戦法の待ち時間を短縮する",
+      "summaryKey": "戦法短縮",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:即時効果+fallback",
+      "aliases": [
+        "戦法短縮"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:135:兵器行動短縮",
+      "category": "status_effects",
+      "name": "兵器行動短縮",
+      "displayName": "兵器行動短縮",
+      "rawName": "兵器行動短縮",
+      "type": "即時効果",
+      "description": "兵器の待ち時間を短縮する",
+      "summaryKey": "兵器行動短縮",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:即時効果+fallback",
+      "aliases": [
+        "兵器行動短縮"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:136:負傷兵数変化",
+      "category": "status_effects",
+      "name": "負傷兵数変化",
+      "displayName": "負傷兵数変化",
+      "rawName": "負傷兵数変化",
+      "type": "即時効果",
+      "description": "対象の負傷兵を消滅させる",
+      "summaryKey": "負傷兵数変化",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:即時効果+回復系",
+      "aliases": [
+        "負傷兵数変化"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:137:強化解除",
+      "category": "status_effects",
+      "name": "強化解除",
+      "displayName": "強化解除",
+      "rawName": "強化解除",
+      "type": "即時効果",
+      "description": "対象に発生している強化効果を打ち消す",
+      "summaryKey": "強化解除",
+      "groupKey": "enemyResistanceDebuff",
+      "groupLabel": "敵部隊有利対策",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:即時効果+敵強化解除/奪取/反転系",
+      "aliases": [
+        "強化解除"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:138:強化奪取",
+      "category": "status_effects",
+      "name": "強化奪取",
+      "displayName": "強化奪取",
+      "rawName": "強化奪取",
+      "type": "即時効果",
+      "description": "対象に発生している強化効果を打ち消して、効果時間を10秒として自身に付与（付与できる能力変化は合計100％まで）",
+      "summaryKey": "強化奪取",
+      "groupKey": "enemyResistanceDebuff",
+      "groupLabel": "敵部隊有利対策",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:即時効果+敵強化解除/奪取/反転系",
+      "aliases": [
+        "強化奪取"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:139:強化延長",
+      "category": "status_effects",
+      "name": "強化延長",
+      "displayName": "強化延長",
+      "rawName": "強化延長",
+      "type": "即時効果",
+      "description": "強化効果の効果時間を延長する",
+      "summaryKey": "強化延長",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:即時効果+fallback",
+      "aliases": [
+        "強化延長"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:140:反転",
+      "category": "status_effects",
+      "name": "反転",
+      "displayName": "反転",
+      "rawName": "反転",
+      "type": "即時効果",
+      "description": "能力強化の効果を弱化に変える（弱化の下限は超えない）",
+      "summaryKey": "反転",
+      "groupKey": "enemyResistanceDebuff",
+      "groupLabel": "敵部隊有利対策",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:即時効果+敵強化解除/奪取/反転系",
+      "aliases": [
+        "反転"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:141:弱化解除",
+      "category": "status_effects",
+      "name": "弱化解除",
+      "displayName": "弱化解除",
+      "rawName": "弱化解除",
+      "type": "即時効果",
+      "description": "対象に発生している弱化効果を打ち消す",
+      "summaryKey": "弱化解除",
+      "groupKey": "selfResistanceBuff",
+      "groupLabel": "自部隊不利対策",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:即時効果+自部隊弱化解除系",
+      "aliases": [
+        "弱化解除"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:142:弱化延長",
+      "category": "status_effects",
+      "name": "弱化延長",
+      "displayName": "弱化延長",
+      "rawName": "弱化延長",
+      "type": "即時効果",
+      "description": "弱化効果の効果時間を延長する",
+      "summaryKey": "弱化延長",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:即時効果+fallback",
+      "aliases": [
+        "弱化延長"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:143:戦法遅延",
+      "category": "status_effects",
+      "name": "戦法遅延",
+      "displayName": "戦法遅延",
+      "rawName": "戦法遅延",
+      "type": "即時効果",
+      "description": "戦法ゲージが減少する",
+      "summaryKey": "戦法遅延",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:即時効果+fallback",
+      "aliases": [
+        "戦法遅延"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:144:正転",
+      "category": "status_effects",
+      "name": "正転",
+      "displayName": "正転",
+      "rawName": "正転",
+      "type": "即時効果",
+      "description": "能力弱化の効果を2倍にして強化に変える 能力弱化効果が1つも発生していない部隊の場合、1回の弱化無効を付与（10秒）",
+      "summaryKey": "正転",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:即時効果+fallback",
+      "aliases": [
+        "正転"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:145:士気奪取",
+      "category": "status_effects",
+      "name": "士気奪取",
+      "displayName": "士気奪取",
+      "rawName": "士気奪取",
+      "type": "即時効果",
+      "description": "対象の戦法ゲージを減少させて、減少させた分、自身の戦法ゲージが増加する（自身の戦法ゲージの増加は合計30％まで）",
+      "summaryKey": "士気奪取",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:即時効果+fallback",
+      "aliases": [
+        "士気奪取"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:146:即時回復",
+      "category": "status_effects",
+      "name": "即時回復",
+      "displayName": "即時回復",
+      "rawName": "即時回復",
+      "type": "即時効果",
+      "description": "負傷兵を回復する",
+      "summaryKey": "即時回復",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:即時効果+回復系",
+      "aliases": [
+        "即時回復"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:147:強化増幅",
+      "category": "status_effects",
+      "name": "強化増幅",
+      "displayName": "強化増幅",
+      "rawName": "強化増幅",
+      "type": "即時効果",
+      "description": "能力強化効果の効果量を増幅させる（強化の上限値は超えない）",
+      "summaryKey": "強化増幅",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:即時効果+fallback",
+      "aliases": [
+        "強化増幅"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:148:武装破壊",
+      "category": "status_effects",
+      "name": "武装破壊",
+      "displayName": "武装破壊",
+      "rawName": "武装破壊",
+      "type": "即時効果",
+      "description": "武装の耐久を0にする",
+      "summaryKey": "武装破壊",
+      "groupKey": "enemyResistanceDebuff",
+      "groupLabel": "敵部隊有利対策",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:即時効果+敵強化解除/奪取/反転系",
+      "aliases": [
+        "武装破壊"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:149:強化時間短縮",
+      "category": "status_effects",
+      "name": "強化時間短縮",
+      "displayName": "強化時間短縮",
+      "rawName": "強化時間短縮",
+      "type": "即時効果",
+      "description": "強化効果の効果時間を短縮する（下限1秒）",
+      "summaryKey": "強化時間短縮",
+      "groupKey": "enemyResistanceDebuff",
+      "groupLabel": "敵部隊有利対策",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:即時効果+敵強化解除/奪取/反転系",
+      "aliases": [
+        "強化時間短縮"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:150:畏武",
+      "category": "status_effects",
+      "name": "畏武",
+      "displayName": "畏武",
+      "rawName": "畏武",
+      "type": "即時効果",
+      "description": "強化効果が5個消滅 付与してきた部隊の攻撃が、付与された部隊より高い場合は消滅個数が10個になり、さらに5回の強化無効が10秒付与される ※消滅は即時効果を避ける/発生させなくする効果の影響を受けない（消滅は即時効果ではないため）",
+      "summaryKey": "畏武",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:即時効果+fallback",
+      "aliases": [
+        "畏武"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:151:震乱",
+      "category": "status_effects",
+      "name": "震乱",
+      "displayName": "震乱",
+      "rawName": "震乱",
+      "type": "即時効果",
+      "description": "対象の戦法ゲージが効果量分消滅 付与してきた部隊の防御が付与された部隊より高い場合、さらに攻撃速度を10％低下させる（発生する攻撃速度低下の効果時間は10秒） ※消滅は即時効果を避ける/発生させなくする効果の影響を受けない（消滅は即時効果ではないため）",
+      "summaryKey": "震乱",
+      "groupKey": "enemyStateDebuff",
+      "groupLabel": "敵部隊状態弱化",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:即時効果+fallback",
+      "aliases": [
+        "震乱"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:152:兵科相性変化(強化)",
+      "category": "status_effects",
+      "name": "兵科相性変化(強化)",
+      "displayName": "兵科相性変化(強化)",
+      "rawName": "兵科相性変化(強化)",
+      "type": "能力変化(強化)",
+      "description": "兵科相性が有利になる",
+      "summaryKey": "兵科相性変化",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:能力変化(強化)",
+      "aliases": [
+        "兵科相性変化(強化)",
+        "兵科相性変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:153:兵科相性変化(弱化)",
+      "category": "status_effects",
+      "name": "兵科相性変化(弱化)",
+      "displayName": "兵科相性変化(弱化)",
+      "rawName": "兵科相性変化(弱化)",
+      "type": "能力変化(弱化)",
+      "description": "兵科相性が不利になる",
+      "summaryKey": "兵科相性変化",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:能力変化(弱化)",
+      "aliases": [
+        "兵科相性変化(弱化)",
+        "兵科相性変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:154:歩兵特効(強化)",
+      "category": "status_effects",
+      "name": "歩兵特効(強化)",
+      "displayName": "歩兵特効(強化)",
+      "rawName": "歩兵特効(強化)",
+      "type": "能力変化(強化)",
+      "description": "歩兵に対して有利になる",
+      "summaryKey": "歩兵特効",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:能力変化(強化)",
+      "aliases": [
+        "歩兵特効(強化)",
+        "歩兵特効"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:155:歩兵特効(弱化)",
+      "category": "status_effects",
+      "name": "歩兵特効(弱化)",
+      "displayName": "歩兵特効(弱化)",
+      "rawName": "歩兵特効(弱化)",
+      "type": "能力変化(弱化)",
+      "description": "歩兵に対して不利になる",
+      "summaryKey": "歩兵特効",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:能力変化(弱化)",
+      "aliases": [
+        "歩兵特効(弱化)",
+        "歩兵特効"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:156:弓兵特効(強化)",
+      "category": "status_effects",
+      "name": "弓兵特効(強化)",
+      "displayName": "弓兵特効(強化)",
+      "rawName": "弓兵特効(強化)",
+      "type": "能力変化(強化)",
+      "description": "弓兵に対して有利になる",
+      "summaryKey": "弓兵特効",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:能力変化(強化)",
+      "aliases": [
+        "弓兵特効(強化)",
+        "弓兵特効"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:157:弓兵特効(弱化)",
+      "category": "status_effects",
+      "name": "弓兵特効(弱化)",
+      "displayName": "弓兵特効(弱化)",
+      "rawName": "弓兵特効(弱化)",
+      "type": "能力変化(弱化)",
+      "description": "弓兵に対して不利になる",
+      "summaryKey": "弓兵特効",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:能力変化(弱化)",
+      "aliases": [
+        "弓兵特効(弱化)",
+        "弓兵特効"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:158:騎兵特効(強化)",
+      "category": "status_effects",
+      "name": "騎兵特効(強化)",
+      "displayName": "騎兵特効(強化)",
+      "rawName": "騎兵特効(強化)",
+      "type": "能力変化(強化)",
+      "description": "騎兵に対して有利になる",
+      "summaryKey": "騎兵特効",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:能力変化(強化)",
+      "aliases": [
+        "騎兵特効(強化)",
+        "騎兵特効"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:159:騎兵特効(弱化)",
+      "category": "status_effects",
+      "name": "騎兵特効(弱化)",
+      "displayName": "騎兵特効(弱化)",
+      "rawName": "騎兵特効(弱化)",
+      "type": "能力変化(弱化)",
+      "description": "騎兵に対して不利になる",
+      "summaryKey": "騎兵特効",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:能力変化(弱化)",
+      "aliases": [
+        "騎兵特効(弱化)",
+        "騎兵特効"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:160:対物特効変化(強化)",
+      "category": "status_effects",
+      "name": "対物特効変化(強化)",
+      "displayName": "対物特効変化(強化)",
+      "rawName": "対物特効変化(強化)",
+      "type": "能力変化(強化)",
+      "description": "物体に対して有利になる",
+      "summaryKey": "対物特効変化",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:能力変化(強化)",
+      "aliases": [
+        "対物特効変化(強化)",
+        "対物特効変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:161:対物特効変化(弱化)",
+      "category": "status_effects",
+      "name": "対物特効変化(弱化)",
+      "displayName": "対物特効変化(弱化)",
+      "rawName": "対物特効変化(弱化)",
+      "type": "能力変化(弱化)",
+      "description": "物体に対して不利になる",
+      "summaryKey": "対物特効変化",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:能力変化(弱化)",
+      "aliases": [
+        "対物特効変化(弱化)",
+        "対物特効変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:162:攻撃変化(強化)",
+      "category": "status_effects",
+      "name": "攻撃変化(強化)",
+      "displayName": "攻撃変化(強化)",
+      "rawName": "攻撃変化(強化)",
+      "type": "能力変化(強化)",
+      "description": "攻撃が上昇する",
+      "summaryKey": "攻撃変化",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:能力変化(強化)",
+      "aliases": [
+        "攻撃変化(強化)",
+        "攻撃変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:163:攻撃変化(弱化)",
+      "category": "status_effects",
+      "name": "攻撃変化(弱化)",
+      "displayName": "攻撃変化(弱化)",
+      "rawName": "攻撃変化(弱化)",
+      "type": "能力変化(弱化)",
+      "description": "攻撃が低下する",
+      "summaryKey": "攻撃変化",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:能力変化(弱化)",
+      "aliases": [
+        "攻撃変化(弱化)",
+        "攻撃変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:164:防御変化(強化)",
+      "category": "status_effects",
+      "name": "防御変化(強化)",
+      "displayName": "防御変化(強化)",
+      "rawName": "防御変化(強化)",
+      "type": "能力変化(強化)",
+      "description": "防御が上昇する",
+      "summaryKey": "防御変化",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:能力変化(強化)",
+      "aliases": [
+        "防御変化(強化)",
+        "防御変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:165:防御変化(弱化)",
+      "category": "status_effects",
+      "name": "防御変化(弱化)",
+      "displayName": "防御変化(弱化)",
+      "rawName": "防御変化(弱化)",
+      "type": "能力変化(弱化)",
+      "description": "防御が低下する",
+      "summaryKey": "防御変化",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:能力変化(弱化)",
+      "aliases": [
+        "防御変化(弱化)",
+        "防御変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:166:知力変化(強化)",
+      "category": "status_effects",
+      "name": "知力変化(強化)",
+      "displayName": "知力変化(強化)",
+      "rawName": "知力変化(強化)",
+      "type": "能力変化(強化)",
+      "description": "知力が上昇する",
+      "summaryKey": "知力変化",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:能力変化(強化)",
+      "aliases": [
+        "知力変化(強化)",
+        "知力変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:167:知力変化(弱化)",
+      "category": "status_effects",
+      "name": "知力変化(弱化)",
+      "displayName": "知力変化(弱化)",
+      "rawName": "知力変化(弱化)",
+      "type": "能力変化(弱化)",
+      "description": "知力が低下する",
+      "summaryKey": "知力変化",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:能力変化(弱化)",
+      "aliases": [
+        "知力変化(弱化)",
+        "知力変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:168:機動変化(強化)",
+      "category": "status_effects",
+      "name": "機動変化(強化)",
+      "displayName": "機動変化(強化)",
+      "rawName": "機動変化(強化)",
+      "type": "能力変化(強化)",
+      "description": "機動が上昇する",
+      "summaryKey": "機動変化",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:能力変化(強化)",
+      "aliases": [
+        "機動変化(強化)",
+        "機動変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:169:機動変化(弱化)",
+      "category": "status_effects",
+      "name": "機動変化(弱化)",
+      "displayName": "機動変化(弱化)",
+      "rawName": "機動変化(弱化)",
+      "type": "能力変化(弱化)",
+      "description": "機動が低下する",
+      "summaryKey": "機動変化",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:能力変化(弱化)",
+      "aliases": [
+        "機動変化(弱化)",
+        "機動変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:170:攻撃速度変化(強化)",
+      "category": "status_effects",
+      "name": "攻撃速度変化(強化)",
+      "displayName": "攻撃速度変化(強化)",
+      "rawName": "攻撃速度変化(強化)",
+      "type": "能力変化(強化)",
+      "description": "攻撃速度が上昇する",
+      "summaryKey": "攻撃速度変化",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:能力変化(強化)",
+      "aliases": [
+        "攻撃速度変化(強化)",
+        "攻撃速度変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:171:攻撃速度変化(弱化)",
+      "category": "status_effects",
+      "name": "攻撃速度変化(弱化)",
+      "displayName": "攻撃速度変化(弱化)",
+      "rawName": "攻撃速度変化(弱化)",
+      "type": "能力変化(弱化)",
+      "description": "攻撃速度が低下する",
+      "summaryKey": "攻撃速度変化",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:能力変化(弱化)",
+      "aliases": [
+        "攻撃速度変化(弱化)",
+        "攻撃速度変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:172:戦法速度変化(強化)",
+      "category": "status_effects",
+      "name": "戦法速度変化(強化)",
+      "displayName": "戦法速度変化(強化)",
+      "rawName": "戦法速度変化(強化)",
+      "type": "能力変化(強化)",
+      "description": "戦法速度が上昇する",
+      "summaryKey": "戦法速度変化",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:能力変化(強化)",
+      "aliases": [
+        "戦法速度変化(強化)",
+        "戦法速度変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:173:戦法速度変化(弱化)",
+      "category": "status_effects",
+      "name": "戦法速度変化(弱化)",
+      "displayName": "戦法速度変化(弱化)",
+      "rawName": "戦法速度変化(弱化)",
+      "type": "能力変化(弱化)",
+      "description": "戦法速度が低下する",
+      "summaryKey": "戦法速度変化",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:能力変化(弱化)",
+      "aliases": [
+        "戦法速度変化(弱化)",
+        "戦法速度変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:174:兵器速度変化(強化)",
+      "category": "status_effects",
+      "name": "兵器速度変化(強化)",
+      "displayName": "兵器速度変化(強化)",
+      "rawName": "兵器速度変化(強化)",
+      "type": "能力変化(強化)",
+      "description": "兵器速度が上昇する",
+      "summaryKey": "兵器速度変化",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:能力変化(強化)",
+      "aliases": [
+        "兵器速度変化(強化)",
+        "兵器速度変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:175:兵器速度変化(弱化)",
+      "category": "status_effects",
+      "name": "兵器速度変化(弱化)",
+      "displayName": "兵器速度変化(弱化)",
+      "rawName": "兵器速度変化(弱化)",
+      "type": "能力変化(弱化)",
+      "description": "兵器速度が低下する",
+      "summaryKey": "兵器速度変化",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:能力変化(弱化)",
+      "aliases": [
+        "兵器速度変化(弱化)",
+        "兵器速度変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:176:会心発生変化(強化)",
+      "category": "status_effects",
+      "name": "会心発生変化(強化)",
+      "displayName": "会心発生変化(強化)",
+      "rawName": "会心発生変化(強化)",
+      "type": "能力変化(強化)",
+      "description": "会心発生が上昇する",
+      "summaryKey": "会心発生変化",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:能力変化(強化)",
+      "aliases": [
+        "会心発生変化(強化)",
+        "会心発生変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:177:会心発生変化(弱化)",
+      "category": "status_effects",
+      "name": "会心発生変化(弱化)",
+      "displayName": "会心発生変化(弱化)",
+      "rawName": "会心発生変化(弱化)",
+      "type": "能力変化(弱化)",
+      "description": "会心発生が低下する",
+      "summaryKey": "会心発生変化",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:能力変化(弱化)",
+      "aliases": [
+        "会心発生変化(弱化)",
+        "会心発生変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:178:会心威力変化(強化)",
+      "category": "status_effects",
+      "name": "会心威力変化(強化)",
+      "displayName": "会心威力変化(強化)",
+      "rawName": "会心威力変化(強化)",
+      "type": "能力変化(強化)",
+      "description": "会心威力が上昇する",
+      "summaryKey": "会心威力変化",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:能力変化(強化)",
+      "aliases": [
+        "会心威力変化(強化)",
+        "会心威力変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:179:会心威力変化(弱化)",
+      "category": "status_effects",
+      "name": "会心威力変化(弱化)",
+      "displayName": "会心威力変化(弱化)",
+      "rawName": "会心威力変化(弱化)",
+      "type": "能力変化(弱化)",
+      "description": "会心威力が低下する",
+      "summaryKey": "会心威力変化",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:能力変化(弱化)",
+      "aliases": [
+        "会心威力変化(弱化)",
+        "会心威力変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:180:撃心発生変化(強化)",
+      "category": "status_effects",
+      "name": "撃心発生変化(強化)",
+      "displayName": "撃心発生変化(強化)",
+      "rawName": "撃心発生変化(強化)",
+      "type": "能力変化(強化)",
+      "description": "撃心発生が上昇する",
+      "summaryKey": "撃心発生変化",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:能力変化(強化)",
+      "aliases": [
+        "撃心発生変化(強化)",
+        "撃心発生変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:181:撃心発生変化(弱化)",
+      "category": "status_effects",
+      "name": "撃心発生変化(弱化)",
+      "displayName": "撃心発生変化(弱化)",
+      "rawName": "撃心発生変化(弱化)",
+      "type": "能力変化(弱化)",
+      "description": "撃心発生が低下する",
+      "summaryKey": "撃心発生変化",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:能力変化(弱化)",
+      "aliases": [
+        "撃心発生変化(弱化)",
+        "撃心発生変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:182:撃心威力変化(強化)",
+      "category": "status_effects",
+      "name": "撃心威力変化(強化)",
+      "displayName": "撃心威力変化(強化)",
+      "rawName": "撃心威力変化(強化)",
+      "type": "能力変化(強化)",
+      "description": "撃心威力が上昇する",
+      "summaryKey": "撃心威力変化",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:能力変化(強化)",
+      "aliases": [
+        "撃心威力変化(強化)",
+        "撃心威力変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:183:撃心威力変化(弱化)",
+      "category": "status_effects",
+      "name": "撃心威力変化(弱化)",
+      "displayName": "撃心威力変化(弱化)",
+      "rawName": "撃心威力変化(弱化)",
+      "type": "能力変化(弱化)",
+      "description": "撃心威力が低下する",
+      "summaryKey": "撃心威力変化",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:能力変化(弱化)",
+      "aliases": [
+        "撃心威力変化(弱化)",
+        "撃心威力変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:184:戦法威力変化(強化)",
+      "category": "status_effects",
+      "name": "戦法威力変化(強化)",
+      "displayName": "戦法威力変化(強化)",
+      "rawName": "戦法威力変化(強化)",
+      "type": "能力変化(強化)",
+      "description": "戦法威力が上昇する",
+      "summaryKey": "戦法威力変化",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:能力変化(強化)",
+      "aliases": [
+        "戦法威力変化(強化)",
+        "戦法威力変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:185:戦法威力変化(弱化)",
+      "category": "status_effects",
+      "name": "戦法威力変化(弱化)",
+      "displayName": "戦法威力変化(弱化)",
+      "rawName": "戦法威力変化(弱化)",
+      "type": "能力変化(弱化)",
+      "description": "戦法威力が低下する",
+      "summaryKey": "戦法威力変化",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:能力変化(弱化)",
+      "aliases": [
+        "戦法威力変化(弱化)",
+        "戦法威力変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:186:命中変化(強化)",
+      "category": "status_effects",
+      "name": "命中変化(強化)",
+      "displayName": "命中変化(強化)",
+      "rawName": "命中変化(強化)",
+      "type": "能力変化(強化)",
+      "description": "命中が上昇する",
+      "summaryKey": "命中変化",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:能力変化(強化)",
+      "aliases": [
+        "命中変化(強化)",
+        "命中変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:187:命中変化(弱化)",
+      "category": "status_effects",
+      "name": "命中変化(弱化)",
+      "displayName": "命中変化(弱化)",
+      "rawName": "命中変化(弱化)",
+      "type": "能力変化(弱化)",
+      "description": "確率で与えるダメージが0になる",
+      "summaryKey": "命中変化",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:能力変化(弱化)",
+      "aliases": [
+        "命中変化(弱化)",
+        "命中変化"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:188:火耐性変化(強化)",
+      "category": "status_effects",
+      "name": "火耐性変化(強化)",
+      "displayName": "火耐性変化(強化)",
+      "rawName": "火耐性変化(強化)",
+      "type": "能力変化(強化)",
+      "description": "火耐性が上昇する",
+      "summaryKey": "火耐性変化",
+      "groupKey": "selfResistanceBuff",
+      "groupLabel": "自部隊不利対策",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:能力変化(強化)+明示耐性",
+      "aliases": [
+        "火耐性変化(強化)",
+        "火耐性変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:189:火耐性変化(弱化)",
+      "category": "status_effects",
+      "name": "火耐性変化(弱化)",
+      "displayName": "火耐性変化(弱化)",
+      "rawName": "火耐性変化(弱化)",
+      "type": "能力変化(弱化)",
+      "description": "火耐性が低下する",
+      "summaryKey": "火耐性変化",
+      "groupKey": "enemyResistanceDebuff",
+      "groupLabel": "敵部隊有利対策",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:能力変化(弱化)+明示耐性",
+      "aliases": [
+        "火耐性変化(弱化)",
+        "火耐性変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:190:生存割合変化(強化)",
+      "category": "status_effects",
+      "name": "生存割合変化(強化)",
+      "displayName": "生存割合変化(強化)",
+      "rawName": "生存割合変化(強化)",
+      "type": "能力変化(強化)",
+      "description": "生存割合が上昇する",
+      "summaryKey": "生存割合変化",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:能力変化(強化)",
+      "aliases": [
+        "生存割合変化(強化)",
+        "生存割合変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:191:生存割合変化(弱化)",
+      "category": "status_effects",
+      "name": "生存割合変化(弱化)",
+      "displayName": "生存割合変化(弱化)",
+      "rawName": "生存割合変化(弱化)",
+      "type": "能力変化(弱化)",
+      "description": "生存割合が低下する",
+      "summaryKey": "生存割合変化",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:能力変化(弱化)",
+      "aliases": [
+        "生存割合変化(弱化)",
+        "生存割合変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:192:与ダメージ変化(強化)",
+      "category": "status_effects",
+      "name": "与ダメージ変化(強化)",
+      "displayName": "与ダメージ変化(強化)",
+      "rawName": "与ダメージ変化(強化)",
+      "type": "能力変化(強化)",
+      "description": "与ダメージが上昇する",
+      "summaryKey": "与ダメージ変化",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:能力変化(強化)",
+      "aliases": [
+        "与ダメージ変化(強化)",
+        "与ダメージ変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:193:与ダメージ変化(弱化)",
+      "category": "status_effects",
+      "name": "与ダメージ変化(弱化)",
+      "displayName": "与ダメージ変化(弱化)",
+      "rawName": "与ダメージ変化(弱化)",
+      "type": "能力変化(弱化)",
+      "description": "与ダメージが低下する",
+      "summaryKey": "与ダメージ変化",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:能力変化(弱化)",
+      "aliases": [
+        "与ダメージ変化(弱化)",
+        "与ダメージ変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:194:被ダメージ変化(強化)",
+      "category": "status_effects",
+      "name": "被ダメージ変化(強化)",
+      "displayName": "被ダメージ変化(強化)",
+      "rawName": "被ダメージ変化(強化)",
+      "type": "能力変化(強化)",
+      "description": "被ダメージが減少する",
+      "summaryKey": "被ダメージ変化",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:能力変化(強化)",
+      "aliases": [
+        "被ダメージ変化(強化)",
+        "被ダメージ変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:195:被ダメージ変化(弱化)",
+      "category": "status_effects",
+      "name": "被ダメージ変化(弱化)",
+      "displayName": "被ダメージ変化(弱化)",
+      "rawName": "被ダメージ変化(弱化)",
+      "type": "能力変化(弱化)",
+      "description": "被ダメージが上昇する",
+      "summaryKey": "被ダメージ変化",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:能力変化(弱化)",
+      "aliases": [
+        "被ダメージ変化(弱化)",
+        "被ダメージ変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:196:通常攻撃威力変化(強化)",
+      "category": "status_effects",
+      "name": "通常攻撃威力変化(強化)",
+      "displayName": "通常攻撃威力変化(強化)",
+      "rawName": "通常攻撃威力変化(強化)",
+      "type": "能力変化(強化)",
+      "description": "通常攻撃威力が上昇する",
+      "summaryKey": "通常攻撃威力変化",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:能力変化(強化)",
+      "aliases": [
+        "通常攻撃威力変化(強化)",
+        "通常攻撃威力変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:197:通常攻撃威力変化(弱化)",
+      "category": "status_effects",
+      "name": "通常攻撃威力変化(弱化)",
+      "displayName": "通常攻撃威力変化(弱化)",
+      "rawName": "通常攻撃威力変化(弱化)",
+      "type": "能力変化(弱化)",
+      "description": "通常攻撃威力が低下する",
+      "summaryKey": "通常攻撃威力変化",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:能力変化(弱化)",
+      "aliases": [
+        "通常攻撃威力変化(弱化)",
+        "通常攻撃威力変化"
+      ],
+      "sourceUrl": ""
+    },
+    {
+      "id": "status_effects:198:火属性戦法威力(強化)",
+      "category": "status_effects",
+      "name": "火属性戦法威力(強化)",
+      "displayName": "火属性戦法威力(強化)",
+      "rawName": "火属性戦法威力(強化)",
+      "type": "能力変化(強化)",
+      "description": "火属性の戦法による攻撃の威力が上昇する（戦法威力の能力強化効果と合算）",
+      "summaryKey": "火属性戦法威力",
+      "groupKey": "selfAbilityBuff",
+      "groupLabel": "自部隊能力強化",
+      "targetSide": "self",
+      "direction": "buff",
+      "classificationReason": "type:能力変化(強化)",
+      "aliases": [
+        "火属性戦法威力(強化)",
+        "火属性戦法威力"
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+    },
+    {
+      "id": "status_effects:199:火属性戦法威力(弱化)",
+      "category": "status_effects",
+      "name": "火属性戦法威力(弱化)",
+      "displayName": "火属性戦法威力(弱化)",
+      "rawName": "火属性戦法威力(弱化)",
+      "type": "能力変化(弱化)",
+      "description": "火属性戦法威力が低下する",
+      "summaryKey": "火属性戦法威力",
+      "groupKey": "enemyAbilityDebuff",
+      "groupLabel": "敵部隊能力低下",
+      "targetSide": "enemy",
+      "direction": "debuff",
+      "classificationReason": "type:能力変化(弱化)",
+      "aliases": [
+        "火属性戦法威力(弱化)",
+        "火属性戦法威力"
+      ],
+      "sourceUrl": ""
+    }
+  ]
+}

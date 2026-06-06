@@ -1,0 +1,2710 @@
+{
+  "items": [
+    {
+      "name": "基本",
+      "category": "formations",
+      "is_modified": false,
+      "base_formation": null,
+      "ability_impact": {
+        "主将": "大",
+        "副将": "小",
+        "補佐": "微"
+      },
+      "ability_impact_text": "主将：大　副将：小　補佐：微",
+      "skills": [],
+      "status_correction": "なし",
+      "unlock_condition": "初期から使用可能",
+      "image_url": "https://img.gamewith.jp/img/f356b0c10ab5c261b206f0260746afc1.jpeg",
+      "image_urls": [
+        "https://img.gamewith.jp/img/f356b0c10ab5c261b206f0260746afc1.jpeg"
+      ],
+      "raw_text": "基本 【能力影響】主将：大　副将：小　補佐：微 【技能】なし 【ステータス補正】なし 【解放条件】初期から使用可能",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/261056",
+      "crawled_at": "2026-05-30T07:50:12.552Z",
+      "layout": {
+        "grid": {
+          "rows": 3,
+          "cols": 3
+        },
+        "matrix": [
+          [
+            null,
+            "main",
+            null
+          ],
+          [
+            null,
+            "vice_1",
+            null
+          ],
+          [
+            "support_1",
+            "vice_2",
+            "support_2"
+          ]
+        ],
+        "positions": [
+          {
+            "slot": "main",
+            "role": "主将",
+            "label": "主",
+            "row": 0,
+            "col": 1,
+            "score": 1899
+          },
+          {
+            "slot": "vice_1",
+            "role": "副将1",
+            "label": "副",
+            "row": 1,
+            "col": 1,
+            "score": 1479
+          },
+          {
+            "slot": "vice_2",
+            "role": "副将2",
+            "label": "副",
+            "row": 2,
+            "col": 1,
+            "score": 1284
+          },
+          {
+            "slot": "support_1",
+            "role": "補佐1",
+            "label": "補",
+            "row": 2,
+            "col": 0,
+            "score": 1220
+          },
+          {
+            "slot": "support_2",
+            "role": "補佐2",
+            "label": "補",
+            "row": 2,
+            "col": 2,
+            "score": 1273
+          }
+        ],
+        "source": {
+          "type": "formation_image_analysis",
+          "image_url": "https://img.gamewith.jp/img/f356b0c10ab5c261b206f0260746afc1.jpeg",
+          "method": "3x3_grid_color_role_detection_v2_strict_score"
+        },
+        "confidence": 1,
+        "validation": {
+          "ok": true,
+          "missing": [],
+          "roleCounts": {
+            "main": 1,
+            "vice": 2,
+            "support": 2
+          },
+          "lowScoreAccepted": [],
+          "minAcceptedScore": 1220
+        }
+      }
+    },
+    {
+      "name": "歩兵陣",
+      "category": "formations",
+      "is_modified": false,
+      "base_formation": null,
+      "ability_impact": {
+        "主将": "中",
+        "副将": "中",
+        "補佐": "小"
+      },
+      "ability_impact_text": "主将：中　副将：中　補佐：小",
+      "skills": [
+        {
+          "name": "歩兵兵力",
+          "content": [
+            "■常に",
+            "●部隊内（主将/副将/補佐）の歩兵武将の人数×2%、部隊の兵力が上昇"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "歩兵陣",
+          "level": 1
+        },
+        {
+          "name": "歩兵攻撃",
+          "content": [
+            "■常に",
+            "●部隊内（主将/副将/補佐）の歩兵武将の人数×1%、部隊の攻撃が上昇"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "歩兵陣",
+          "level": 1
+        }
+      ],
+      "status_correction": "防御上昇、知力低下",
+      "unlock_condition": "研究所で「陣形解放」の研究を完了させた後、歩兵術にある「歩兵陣」の研究を完了させる",
+      "image_url": "https://img.gamewith.jp/img/a0d813b72c0bbbe0387686a0911970d3.jpeg",
+      "image_urls": [
+        "https://img.gamewith.jp/img/a0d813b72c0bbbe0387686a0911970d3.jpeg"
+      ],
+      "raw_text": "歩兵陣 【能力影響】主将：中　副将：中　補佐：小 【技能】《歩兵兵力》\n■常に\n　●部隊内（主将/副将/補佐）の歩兵武将の人数×2%、部隊の兵力が上昇《歩兵攻撃》\n■常に\n　●部隊内（主将/副将/補佐）の歩兵武将の人数×1%、部隊の攻撃が上昇 【ステータス補正】防御上昇、知力低下 【解放条件】研究所で「陣形解放」の研究を完了させた後、歩兵術にある「歩兵陣」の研究を完了させる",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/261056",
+      "crawled_at": "2026-05-30T07:50:12.552Z",
+      "layout": {
+        "grid": {
+          "rows": 3,
+          "cols": 3
+        },
+        "matrix": [
+          [
+            null,
+            "main",
+            null
+          ],
+          [
+            "support_1",
+            "vice_1",
+            "support_2"
+          ],
+          [
+            null,
+            "vice_2",
+            null
+          ]
+        ],
+        "positions": [
+          {
+            "slot": "main",
+            "role": "主将",
+            "label": "主",
+            "row": 0,
+            "col": 1,
+            "score": 1936
+          },
+          {
+            "slot": "vice_1",
+            "role": "副将1",
+            "label": "副",
+            "row": 1,
+            "col": 1,
+            "score": 1444
+          },
+          {
+            "slot": "vice_2",
+            "role": "副将2",
+            "label": "副",
+            "row": 2,
+            "col": 1,
+            "score": 1424
+          },
+          {
+            "slot": "support_1",
+            "role": "補佐1",
+            "label": "補",
+            "row": 1,
+            "col": 0,
+            "score": 1399
+          },
+          {
+            "slot": "support_2",
+            "role": "補佐2",
+            "label": "補",
+            "row": 1,
+            "col": 2,
+            "score": 1388
+          }
+        ],
+        "source": {
+          "type": "formation_image_analysis",
+          "image_url": "https://img.gamewith.jp/img/a0d813b72c0bbbe0387686a0911970d3.jpeg",
+          "method": "3x3_grid_color_role_detection_v2_strict_score"
+        },
+        "confidence": 1,
+        "validation": {
+          "ok": true,
+          "missing": [],
+          "roleCounts": {
+            "main": 1,
+            "vice": 2,
+            "support": 2
+          },
+          "lowScoreAccepted": [],
+          "minAcceptedScore": 1388
+        }
+      }
+    },
+    {
+      "name": "歩兵陣・改",
+      "category": "formations",
+      "is_modified": true,
+      "base_formation": "歩兵陣",
+      "ability_impact": {
+        "主将": "中",
+        "副将": "中",
+        "補佐": "小"
+      },
+      "ability_impact_text": "主将：中　副将：中　補佐：小",
+      "skills": [
+        {
+          "name": "歩兵金剛",
+          "content": [
+            "■常に",
+            "▼部隊内（主将/副将/補佐）に歩兵武将が3人以上編制されている時",
+            "●部隊の防御+15%",
+            "→歩兵武将が5人編制されている場合、効果が2倍（+30%）"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "歩兵陣・改",
+          "level": 1
+        },
+        {
+          "name": "歩兵気骨",
+          "content": [
+            "■自部隊が歩兵の場合",
+            "▼主将戦法発動時",
+            "●自身1部隊に1回の不退を付与（15秒）"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "歩兵陣・改",
+          "level": 1
+        }
+      ],
+      "status_correction": "防御上昇",
+      "unlock_condition": "研究で歩兵陣を解放した後、商店で「陣形図・歩兵改」を購入する",
+      "image_url": "https://img.gamewith.jp/img/21bee6065a73854134b4ec6b551bb9df.jpeg",
+      "image_urls": [
+        "https://img.gamewith.jp/img/21bee6065a73854134b4ec6b551bb9df.jpeg"
+      ],
+      "raw_text": "歩兵陣・改 【能力影響】主将：中　副将：中　補佐：小 【技能】《歩兵金剛》\n■常に\n▼部隊内（主将/副将/補佐）に歩兵武将が3人以上編制されている時\n　●部隊の防御+15%\n　→歩兵武将が5人編制されている場合、効果が2倍（+30%）《歩兵気骨》\n■自部隊が歩兵の場合\n▼主将戦法発動時\n　●自身1部隊に1回の不退を付与（15秒） 【ステータス補正】防御上昇 【解放条件】研究で歩兵陣を解放した後、商店で「陣形図・歩兵改」を購入する",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/261056",
+      "crawled_at": "2026-05-30T07:50:12.552Z",
+      "layout": {
+        "grid": {
+          "rows": 3,
+          "cols": 3
+        },
+        "matrix": [
+          [
+            null,
+            "main",
+            null
+          ],
+          [
+            "support_1",
+            "vice_1",
+            "support_2"
+          ],
+          [
+            null,
+            "vice_2",
+            null
+          ]
+        ],
+        "positions": [
+          {
+            "slot": "main",
+            "role": "主将",
+            "label": "主",
+            "row": 0,
+            "col": 1,
+            "score": 1936
+          },
+          {
+            "slot": "vice_1",
+            "role": "副将1",
+            "label": "副",
+            "row": 1,
+            "col": 1,
+            "score": 1444
+          },
+          {
+            "slot": "vice_2",
+            "role": "副将2",
+            "label": "副",
+            "row": 2,
+            "col": 1,
+            "score": 1424
+          },
+          {
+            "slot": "support_1",
+            "role": "補佐1",
+            "label": "補",
+            "row": 1,
+            "col": 0,
+            "score": 1399
+          },
+          {
+            "slot": "support_2",
+            "role": "補佐2",
+            "label": "補",
+            "row": 1,
+            "col": 2,
+            "score": 1388
+          }
+        ],
+        "source": {
+          "type": "formation_image_analysis",
+          "image_url": "https://img.gamewith.jp/img/21bee6065a73854134b4ec6b551bb9df.jpeg",
+          "method": "3x3_grid_color_role_detection_v2_strict_score"
+        },
+        "confidence": 1,
+        "validation": {
+          "ok": true,
+          "missing": [],
+          "roleCounts": {
+            "main": 1,
+            "vice": 2,
+            "support": 2
+          },
+          "lowScoreAccepted": [],
+          "minAcceptedScore": 1388
+        }
+      }
+    },
+    {
+      "name": "弓兵陣",
+      "category": "formations",
+      "is_modified": false,
+      "base_formation": null,
+      "ability_impact": {
+        "主将": "中",
+        "副将": "中",
+        "補佐": "小"
+      },
+      "ability_impact_text": "主将：中　副将：中　補佐：小",
+      "skills": [
+        {
+          "name": "弓兵兵力",
+          "content": [
+            "■常に",
+            "●部隊内（主将/副将/補佐）の弓兵武将の人数×2%、部隊の兵力が上昇"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "弓兵陣",
+          "level": 1
+        },
+        {
+          "name": "弓兵攻速",
+          "content": [
+            "■常に",
+            "●部隊内（主将/副将/補佐）の弓兵武将の人数×3%、部隊の攻撃速度が上昇"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "弓兵陣",
+          "level": 1
+        }
+      ],
+      "status_correction": "対物上昇、機動低下",
+      "unlock_condition": "研究所で「陣形解放」の研究を完了させた後、弓兵術にある「弓兵陣」の研究を完了させる",
+      "image_url": "https://img.gamewith.jp/img/820df1d62c4b247ba2c993413e0498ad.jpeg",
+      "image_urls": [
+        "https://img.gamewith.jp/img/820df1d62c4b247ba2c993413e0498ad.jpeg"
+      ],
+      "raw_text": "弓兵陣 【能力影響】主将：中　副将：中　補佐：小 【技能】《弓兵兵力》\n■常に\n　●部隊内（主将/副将/補佐）の弓兵武将の人数×2%、部隊の兵力が上昇《弓兵攻速》\n■常に\n　●部隊内（主将/副将/補佐）の弓兵武将の人数×3%、部隊の攻撃速度が上昇 【ステータス補正】対物上昇、機動低下 【解放条件】研究所で「陣形解放」の研究を完了させた後、弓兵術にある「弓兵陣」の研究を完了させる",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/261056",
+      "crawled_at": "2026-05-30T07:50:12.552Z",
+      "layout": {
+        "grid": {
+          "rows": 3,
+          "cols": 3
+        },
+        "matrix": [
+          [
+            "vice_1",
+            null,
+            "vice_2"
+          ],
+          [
+            "support_1",
+            null,
+            "support_2"
+          ],
+          [
+            null,
+            "main",
+            null
+          ]
+        ],
+        "positions": [
+          {
+            "slot": "main",
+            "role": "主将",
+            "label": "主",
+            "row": 2,
+            "col": 1,
+            "score": 1911
+          },
+          {
+            "slot": "vice_1",
+            "role": "副将1",
+            "label": "副",
+            "row": 0,
+            "col": 0,
+            "score": 1257
+          },
+          {
+            "slot": "vice_2",
+            "role": "副将2",
+            "label": "副",
+            "row": 0,
+            "col": 2,
+            "score": 1366
+          },
+          {
+            "slot": "support_1",
+            "role": "補佐1",
+            "label": "補",
+            "row": 1,
+            "col": 0,
+            "score": 1055
+          },
+          {
+            "slot": "support_2",
+            "role": "補佐2",
+            "label": "補",
+            "row": 1,
+            "col": 2,
+            "score": 1041
+          }
+        ],
+        "source": {
+          "type": "formation_image_analysis",
+          "image_url": "https://img.gamewith.jp/img/820df1d62c4b247ba2c993413e0498ad.jpeg",
+          "method": "3x3_grid_color_role_detection_v2_strict_score"
+        },
+        "confidence": 1,
+        "validation": {
+          "ok": true,
+          "missing": [],
+          "roleCounts": {
+            "main": 1,
+            "vice": 2,
+            "support": 2
+          },
+          "lowScoreAccepted": [],
+          "minAcceptedScore": 1041
+        }
+      }
+    },
+    {
+      "name": "弓兵陣・改",
+      "category": "formations",
+      "is_modified": true,
+      "base_formation": "弓兵陣",
+      "ability_impact": {
+        "主将": "中",
+        "副将": "中",
+        "補佐": "小"
+      },
+      "ability_impact_text": "主将：中　副将：中　補佐：小",
+      "skills": [
+        {
+          "name": "弓兵攻城",
+          "content": [
+            "■常に",
+            "▼部隊内（主将/副将/補佐）に弓兵武将が3人以上編制されている時",
+            "●部隊の対物体攻撃+10%",
+            "→弓兵武将が5人編制されている場合、効果が2倍（+20%）"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "弓兵陣・改",
+          "level": 1
+        },
+        {
+          "name": "弓兵破砕",
+          "content": [
+            "■自部隊が弓兵の場合",
+            "▼主将戦法発動時",
+            "●自身1部隊の対物特効+30%（10秒）"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "弓兵陣・改",
+          "level": 1
+        }
+      ],
+      "status_correction": "対物上昇",
+      "unlock_condition": "研究で弓兵陣を解放した後、商店で「陣形図・弓兵改」を購入する",
+      "image_url": "https://img.gamewith.jp/img/7517517e8d847671f80a841725e2d0d4.jpeg",
+      "image_urls": [
+        "https://img.gamewith.jp/img/7517517e8d847671f80a841725e2d0d4.jpeg"
+      ],
+      "raw_text": "弓兵陣・改 【能力影響】主将：中　副将：中　補佐：小 【技能】《弓兵攻城》\n■常に\n▼部隊内（主将/副将/補佐）に弓兵武将が3人以上編制されている時\n　●部隊の対物体攻撃+10%\n　→弓兵武将が5人編制されている場合、効果が2倍（+20%）\n《弓兵破砕》\n■自部隊が弓兵の場合\n▼主将戦法発動時\n　●自身1部隊の対物特効+30%（10秒） 【ステータス補正】対物上昇 【解放条件】研究で弓兵陣を解放した後、商店で「陣形図・弓兵改」を購入する",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/261056",
+      "crawled_at": "2026-05-30T07:50:12.553Z",
+      "layout": {
+        "grid": {
+          "rows": 3,
+          "cols": 3
+        },
+        "matrix": [
+          [
+            "support_1",
+            null,
+            "support_2"
+          ],
+          [
+            "vice_1",
+            null,
+            "vice_2"
+          ],
+          [
+            null,
+            "main",
+            null
+          ]
+        ],
+        "positions": [
+          {
+            "slot": "main",
+            "role": "主将",
+            "label": "主",
+            "row": 2,
+            "col": 1,
+            "score": 3324
+          },
+          {
+            "slot": "vice_1",
+            "role": "副将1",
+            "label": "副",
+            "row": 1,
+            "col": 0,
+            "score": 2265
+          },
+          {
+            "slot": "vice_2",
+            "role": "副将2",
+            "label": "副",
+            "row": 1,
+            "col": 2,
+            "score": 2362
+          },
+          {
+            "slot": "support_1",
+            "role": "補佐1",
+            "label": "補",
+            "row": 0,
+            "col": 0,
+            "score": 2299
+          },
+          {
+            "slot": "support_2",
+            "role": "補佐2",
+            "label": "補",
+            "row": 0,
+            "col": 2,
+            "score": 2192
+          }
+        ],
+        "source": {
+          "type": "formation_image_analysis",
+          "image_url": "https://img.gamewith.jp/img/7517517e8d847671f80a841725e2d0d4.jpeg",
+          "method": "3x3_grid_color_role_detection_v2_strict_score"
+        },
+        "confidence": 1,
+        "validation": {
+          "ok": true,
+          "missing": [],
+          "roleCounts": {
+            "main": 1,
+            "vice": 2,
+            "support": 2
+          },
+          "lowScoreAccepted": [],
+          "minAcceptedScore": 2192
+        }
+      }
+    },
+    {
+      "name": "騎兵陣",
+      "category": "formations",
+      "is_modified": false,
+      "base_formation": null,
+      "ability_impact": {
+        "主将": "中",
+        "副将": "中",
+        "補佐": "小"
+      },
+      "ability_impact_text": "主将：中　副将：中　補佐：小",
+      "skills": [
+        {
+          "name": "騎兵兵力",
+          "content": [
+            "■常に",
+            "●部隊内（主将/副将/補佐）の騎兵武将の人数×2%、部隊の兵力が上昇"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "騎兵陣",
+          "level": 1
+        },
+        {
+          "name": "騎兵機動",
+          "content": [
+            "■常に",
+            "●部隊内（主将/副将/補佐）の騎兵武将の人数×2%、部隊の機動が上昇"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "騎兵陣",
+          "level": 1
+        }
+      ],
+      "status_correction": "攻撃上昇、防御低下",
+      "unlock_condition": "研究所で「陣形解放」の研究を完了させた後、騎兵術にある「騎兵陣」の研究を完了させる",
+      "image_url": "https://img.gamewith.jp/img/16bdffaa82d9bd8f5125f80062289b1d.jpeg",
+      "image_urls": [
+        "https://img.gamewith.jp/img/16bdffaa82d9bd8f5125f80062289b1d.jpeg"
+      ],
+      "raw_text": "騎兵陣 【能力影響】主将：中　副将：中　補佐：小 【技能】《騎兵兵力》\n■常に\n　●部隊内（主将/副将/補佐）の騎兵武将の人数×2%、部隊の兵力が上昇\n《騎兵機動》\n■常に\n　●部隊内（主将/副将/補佐）の騎兵武将の人数×2%、部隊の機動が上昇 【ステータス補正】攻撃上昇、防御低下 【解放条件】研究所で「陣形解放」の研究を完了させた後、騎兵術にある「騎兵陣」の研究を完了させる",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/261056",
+      "crawled_at": "2026-05-30T07:50:12.553Z",
+      "layout": {
+        "grid": {
+          "rows": 3,
+          "cols": 3
+        },
+        "matrix": [
+          [
+            "vice_1",
+            "main",
+            "vice_2"
+          ],
+          [
+            null,
+            "support_1",
+            null
+          ],
+          [
+            null,
+            "support_2",
+            null
+          ]
+        ],
+        "positions": [
+          {
+            "slot": "main",
+            "role": "主将",
+            "label": "主",
+            "row": 0,
+            "col": 1,
+            "score": 1924
+          },
+          {
+            "slot": "vice_1",
+            "role": "副将1",
+            "label": "副",
+            "row": 0,
+            "col": 0,
+            "score": 1194
+          },
+          {
+            "slot": "vice_2",
+            "role": "副将2",
+            "label": "副",
+            "row": 0,
+            "col": 2,
+            "score": 1229
+          },
+          {
+            "slot": "support_1",
+            "role": "補佐1",
+            "label": "補",
+            "row": 1,
+            "col": 1,
+            "score": 1007
+          },
+          {
+            "slot": "support_2",
+            "role": "補佐2",
+            "label": "補",
+            "row": 2,
+            "col": 1,
+            "score": 1383
+          }
+        ],
+        "source": {
+          "type": "formation_image_analysis",
+          "image_url": "https://img.gamewith.jp/img/16bdffaa82d9bd8f5125f80062289b1d.jpeg",
+          "method": "3x3_grid_color_role_detection_v2_strict_score"
+        },
+        "confidence": 1,
+        "validation": {
+          "ok": true,
+          "missing": [],
+          "roleCounts": {
+            "main": 1,
+            "vice": 2,
+            "support": 2
+          },
+          "lowScoreAccepted": [],
+          "minAcceptedScore": 1007
+        }
+      }
+    },
+    {
+      "name": "騎兵陣・改",
+      "category": "formations",
+      "is_modified": true,
+      "base_formation": "騎兵陣",
+      "ability_impact": {
+        "主将": "中",
+        "副将": "中",
+        "補佐": "小"
+      },
+      "ability_impact_text": "主将：中　副将：中　補佐：小",
+      "skills": [
+        {
+          "name": "騎兵避之",
+          "content": [
+            "■常に",
+            "▼部隊内（主将/副将/補佐）に騎兵武将が3人以上編制されている時",
+            "●自身を対象としない範囲攻撃の被ダメージ-10%",
+            "→騎兵武将が5人編制されている場合、効果が2倍（-20%）"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "騎兵陣・改",
+          "level": 1
+        },
+        {
+          "name": "騎兵躍動",
+          "content": [
+            "■自部隊が騎兵の場合",
+            "▼主将戦法発動時",
+            "●自身1部隊の攻撃速度+25%（15秒）"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "騎兵陣・改",
+          "level": 1
+        }
+      ],
+      "status_correction": "攻撃上昇",
+      "unlock_condition": "研究で騎兵陣を解放した後、商店で「陣形図・騎兵改」を購入する",
+      "image_url": "https://img.gamewith.jp/img/c8a90e97539f169c941387c0556bc669.jpeg",
+      "image_urls": [
+        "https://img.gamewith.jp/img/c8a90e97539f169c941387c0556bc669.jpeg"
+      ],
+      "raw_text": "騎兵陣・改 【能力影響】主将：中　副将：中　補佐：小 【技能】《騎兵避之》\n■常に\n▼部隊内（主将/副将/補佐）に騎兵武将が3人以上編制されている時\n　●自身を対象としない範囲攻撃の被ダメージ-10%\n　→騎兵武将が5人編制されている場合、効果が2倍（-20%）《騎兵躍動》\n■自部隊が騎兵の場合\n▼主将戦法発動時\n　●自身1部隊の攻撃速度+25%（15秒） 【ステータス補正】攻撃上昇 【解放条件】研究で騎兵陣を解放した後、商店で「陣形図・騎兵改」を購入する",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/261056",
+      "crawled_at": "2026-05-30T07:50:12.553Z",
+      "layout": {
+        "grid": {
+          "rows": 3,
+          "cols": 3
+        },
+        "matrix": [
+          [
+            "support_1",
+            "main",
+            "support_2"
+          ],
+          [
+            null,
+            "vice_1",
+            null
+          ],
+          [
+            null,
+            "vice_2",
+            null
+          ]
+        ],
+        "positions": [
+          {
+            "slot": "main",
+            "role": "主将",
+            "label": "主",
+            "row": 0,
+            "col": 1,
+            "score": 3385
+          },
+          {
+            "slot": "vice_1",
+            "role": "副将1",
+            "label": "副",
+            "row": 1,
+            "col": 1,
+            "score": 2281
+          },
+          {
+            "slot": "vice_2",
+            "role": "副将2",
+            "label": "副",
+            "row": 2,
+            "col": 1,
+            "score": 2176
+          },
+          {
+            "slot": "support_1",
+            "role": "補佐1",
+            "label": "補",
+            "row": 0,
+            "col": 0,
+            "score": 2823
+          },
+          {
+            "slot": "support_2",
+            "role": "補佐2",
+            "label": "補",
+            "row": 0,
+            "col": 2,
+            "score": 2731
+          }
+        ],
+        "source": {
+          "type": "formation_image_analysis",
+          "image_url": "https://img.gamewith.jp/img/c8a90e97539f169c941387c0556bc669.jpeg",
+          "method": "3x3_grid_color_role_detection_v2_strict_score"
+        },
+        "confidence": 1,
+        "validation": {
+          "ok": true,
+          "missing": [],
+          "roleCounts": {
+            "main": 1,
+            "vice": 2,
+            "support": 2
+          },
+          "lowScoreAccepted": [],
+          "minAcceptedScore": 2176
+        }
+      }
+    },
+    {
+      "name": "防御陣",
+      "category": "formations",
+      "is_modified": false,
+      "base_formation": null,
+      "ability_impact": {
+        "主将": "中",
+        "副将": "中",
+        "補佐": "小"
+      },
+      "ability_impact_text": "主将：中　副将：中　補佐：小",
+      "skills": [
+        {
+          "name": "敏活",
+          "content": [
+            "■常に",
+            "●部隊の戦法速度+2%"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "防御陣",
+          "level": 1
+        },
+        {
+          "name": "軽減",
+          "content": [
+            "■常に",
+            "●自身1部隊にかかる弱化効果の効果時間を5%減少"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "防御陣",
+          "level": 1
+        }
+      ],
+      "status_correction": "防御上昇、攻撃低下",
+      "unlock_condition": "研究所で「陣形解放」の研究を完了させた後、都市開発にある「防御陣」の研究を完了させる",
+      "image_url": "https://img.gamewith.jp/img/d2b5b984b6c8a3037e1424046bfdf240.jpeg",
+      "image_urls": [
+        "https://img.gamewith.jp/img/d2b5b984b6c8a3037e1424046bfdf240.jpeg"
+      ],
+      "raw_text": "防御陣 【能力影響】主将：中　副将：中　補佐：小 【技能】《敏活》\n■常に\n　●部隊の戦法速度+2%\n《軽減》\n■常に\n　●自身1部隊にかかる弱化効果の効果時間を5%減少 【ステータス補正】防御上昇、攻撃低下 【解放条件】研究所で「陣形解放」の研究を完了させた後、都市開発にある「防御陣」の研究を完了させる",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/261056",
+      "crawled_at": "2026-05-30T07:50:12.553Z",
+      "layout": {
+        "grid": {
+          "rows": 3,
+          "cols": 3
+        },
+        "matrix": [
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            "vice_1",
+            "main",
+            "vice_2"
+          ],
+          [
+            "support_1",
+            null,
+            "support_2"
+          ]
+        ],
+        "positions": [
+          {
+            "slot": "main",
+            "role": "主将",
+            "label": "主",
+            "row": 1,
+            "col": 1,
+            "score": 1889
+          },
+          {
+            "slot": "vice_1",
+            "role": "副将1",
+            "label": "副",
+            "row": 1,
+            "col": 0,
+            "score": 1280
+          },
+          {
+            "slot": "vice_2",
+            "role": "副将2",
+            "label": "副",
+            "row": 1,
+            "col": 2,
+            "score": 1314
+          },
+          {
+            "slot": "support_1",
+            "role": "補佐1",
+            "label": "補",
+            "row": 2,
+            "col": 0,
+            "score": 1187
+          },
+          {
+            "slot": "support_2",
+            "role": "補佐2",
+            "label": "補",
+            "row": 2,
+            "col": 2,
+            "score": 1193
+          }
+        ],
+        "source": {
+          "type": "formation_image_analysis",
+          "image_url": "https://img.gamewith.jp/img/d2b5b984b6c8a3037e1424046bfdf240.jpeg",
+          "method": "3x3_grid_color_role_detection_v2_strict_score"
+        },
+        "confidence": 1,
+        "validation": {
+          "ok": true,
+          "missing": [],
+          "roleCounts": {
+            "main": 1,
+            "vice": 2,
+            "support": 2
+          },
+          "lowScoreAccepted": [],
+          "minAcceptedScore": 1187
+        }
+      }
+    },
+    {
+      "name": "兵器陣",
+      "category": "formations",
+      "is_modified": false,
+      "base_formation": null,
+      "ability_impact": {
+        "主将": "中",
+        "副将": "中",
+        "補佐": "小"
+      },
+      "ability_impact_text": "主将：中　副将：中　補佐：小",
+      "skills": [
+        {
+          "name": "兵器整備",
+          "content": [
+            "■常に",
+            "●兵器速度+25%",
+            "▼交戦開始時",
+            "●自身1部隊の兵器の待ち時間を50%短縮"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "兵器陣",
+          "level": 1
+        },
+        {
+          "name": "出力強化",
+          "content": [
+            "■常に",
+            "●兵器による与ダメージ+50%"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "兵器陣",
+          "level": 1
+        }
+      ],
+      "status_correction": "攻撃・知力上昇、兵力低下",
+      "unlock_condition": "研究所で「陣形解放」の研究を完了させた後、商店で「陣形図・兵器」を購入する",
+      "image_url": "https://img.gamewith.jp/img/6c804f1d0a65d48e3d0d53e8bcac5106.jpeg",
+      "image_urls": [
+        "https://img.gamewith.jp/img/6c804f1d0a65d48e3d0d53e8bcac5106.jpeg"
+      ],
+      "raw_text": "兵器陣 【能力影響】主将：中　副将：中　補佐：小 【技能】《兵器整備》\n■常に\n　●兵器速度+25%\n▼交戦開始時\n　●自身1部隊の兵器の待ち時間を50%短縮\n《出力強化》\n■常に\n　●兵器による与ダメージ+50% 【ステータス補正】攻撃・知力上昇、兵力低下 【解放条件】研究所で「陣形解放」の研究を完了させた後、商店で「陣形図・兵器」を購入する",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/261056",
+      "crawled_at": "2026-05-30T07:50:12.553Z",
+      "layout": {
+        "grid": {
+          "rows": 3,
+          "cols": 3
+        },
+        "matrix": [
+          [
+            null,
+            "main",
+            null
+          ],
+          [
+            "vice_1",
+            null,
+            "vice_2"
+          ],
+          [
+            "support_1",
+            null,
+            "support_2"
+          ]
+        ],
+        "positions": [
+          {
+            "slot": "main",
+            "role": "主将",
+            "label": "主",
+            "row": 0,
+            "col": 1,
+            "score": 3316
+          },
+          {
+            "slot": "vice_1",
+            "role": "副将1",
+            "label": "副",
+            "row": 1,
+            "col": 0,
+            "score": 2128
+          },
+          {
+            "slot": "vice_2",
+            "role": "副将2",
+            "label": "副",
+            "row": 1,
+            "col": 2,
+            "score": 2244
+          },
+          {
+            "slot": "support_1",
+            "role": "補佐1",
+            "label": "補",
+            "row": 2,
+            "col": 0,
+            "score": 2343
+          },
+          {
+            "slot": "support_2",
+            "role": "補佐2",
+            "label": "補",
+            "row": 2,
+            "col": 2,
+            "score": 2347
+          }
+        ],
+        "source": {
+          "type": "formation_image_analysis",
+          "image_url": "https://img.gamewith.jp/img/6c804f1d0a65d48e3d0d53e8bcac5106.jpeg",
+          "method": "3x3_grid_color_role_detection_v2_strict_score"
+        },
+        "confidence": 1,
+        "validation": {
+          "ok": true,
+          "missing": [],
+          "roleCounts": {
+            "main": 1,
+            "vice": 2,
+            "support": 2
+          },
+          "lowScoreAccepted": [],
+          "minAcceptedScore": 2128
+        }
+      }
+    },
+    {
+      "name": "兵器陣・改",
+      "category": "formations",
+      "is_modified": true,
+      "base_formation": "兵器陣",
+      "ability_impact": {
+        "主将": "中",
+        "副将": "中",
+        "補佐": "小"
+      },
+      "ability_impact_text": "主将：中　副将：中　補佐：小",
+      "skills": [
+        {
+          "name": "兵器整備",
+          "content": [
+            "■常に",
+            "●兵器速度+25%",
+            "▼交戦開始時",
+            "●自身1部隊の兵器の待ち時間を50%短縮"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "兵器陣・改",
+          "level": 1
+        },
+        {
+          "name": "兵器固衛",
+          "content": [
+            "■常に",
+            "●兵器が受けるダメージ₋30%",
+            "▼部隊が兵器を編制して健在の時",
+            "●戦法による被ダメージ₋30%"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "兵器陣・改",
+          "level": 1
+        }
+      ],
+      "status_correction": "攻撃・知力上昇",
+      "unlock_condition": "兵器陣を解放した後、商店で「陣形図・兵器改」を購入する",
+      "image_url": "https://img.gamewith.jp/img/9ddc59a731aa0f334ff68d5a14e717d5.png",
+      "image_urls": [
+        "https://img.gamewith.jp/img/9ddc59a731aa0f334ff68d5a14e717d5.png"
+      ],
+      "raw_text": "兵器陣・改 【能力影響】主将：中　副将：中　補佐：小 【技能】《兵器整備》\n■常に\n　●兵器速度+25%\n▼交戦開始時\n　●自身1部隊の兵器の待ち時間を50%短縮\n《兵器固衛》\n■常に\n　●兵器が受けるダメージ₋30%\n▼部隊が兵器を編制して健在の時\n　●戦法による被ダメージ₋30% 【ステータス補正】攻撃・知力上昇 【解放条件】兵器陣を解放した後、商店で「陣形図・兵器改」を購入する",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/261056",
+      "crawled_at": "2026-05-30T07:50:12.553Z",
+      "layout": {
+        "grid": {
+          "rows": 3,
+          "cols": 3
+        },
+        "matrix": [
+          [
+            null,
+            "main",
+            null
+          ],
+          [
+            "vice_1",
+            null,
+            "support_1"
+          ],
+          [
+            "vice_2",
+            null,
+            "support_2"
+          ]
+        ],
+        "positions": [
+          {
+            "slot": "main",
+            "role": "主将",
+            "label": "主",
+            "row": 0,
+            "col": 1,
+            "score": 1135
+          },
+          {
+            "slot": "vice_1",
+            "role": "副将1",
+            "label": "副",
+            "row": 1,
+            "col": 0,
+            "score": 642
+          },
+          {
+            "slot": "vice_2",
+            "role": "副将2",
+            "label": "副",
+            "row": 2,
+            "col": 0,
+            "score": 673
+          },
+          {
+            "slot": "support_1",
+            "role": "補佐1",
+            "label": "補",
+            "row": 1,
+            "col": 2,
+            "score": 846
+          },
+          {
+            "slot": "support_2",
+            "role": "補佐2",
+            "label": "補",
+            "row": 2,
+            "col": 2,
+            "score": 837
+          }
+        ],
+        "source": {
+          "type": "formation_image_analysis",
+          "image_url": "https://img.gamewith.jp/img/9ddc59a731aa0f334ff68d5a14e717d5.png",
+          "method": "3x3_grid_color_role_detection_v2_strict_score"
+        },
+        "confidence": 1,
+        "validation": {
+          "ok": true,
+          "missing": [],
+          "roleCounts": {
+            "main": 1,
+            "vice": 2,
+            "support": 2
+          },
+          "lowScoreAccepted": [],
+          "minAcceptedScore": 642
+        }
+      }
+    },
+    {
+      "name": "迎撃陣",
+      "category": "formations",
+      "is_modified": false,
+      "base_formation": null,
+      "ability_impact": {
+        "主将": "中",
+        "副将": "中",
+        "補佐": "小"
+      },
+      "ability_impact_text": "主将：中　副将：中　補佐：小",
+      "skills": [
+        {
+          "name": "駐屯防備",
+          "content": [
+            "■常に",
+            "▼駐屯/防衛中",
+            "●自身への被ダメージ-10%",
+            "●弱化効果を20%の確率で避ける（他技能と合算）"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "迎撃陣",
+          "level": 1
+        },
+        {
+          "name": "駐屯反撃",
+          "content": [
+            "■常に",
+            "▼駐屯/防衛中",
+            "●通常攻撃・戦法による与ダメージ+5%"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "迎撃陣",
+          "level": 1
+        }
+      ],
+      "status_correction": "機動上昇、対物低下",
+      "unlock_condition": "研究所で「陣形解放」の研究を完了させた後、都市軍備にある「迎撃陣」の研究を完了させる",
+      "image_url": "https://img.gamewith.jp/img/ddaa6c83acdc150c430e177cfec1d886.jpeg",
+      "image_urls": [
+        "https://img.gamewith.jp/img/ddaa6c83acdc150c430e177cfec1d886.jpeg"
+      ],
+      "raw_text": "迎撃陣 【能力影響】主将：中　副将：中　補佐：小 【技能】《駐屯防備》\n■常に\n▼駐屯/防衛中\n　●自身への被ダメージ-10%\n　●弱化効果を20%の確率で避ける（他技能と合算）\n《駐屯反撃》\n■常に\n▼駐屯/防衛中\n　●通常攻撃・戦法による与ダメージ+5% 【ステータス補正】機動上昇、対物低下 【解放条件】研究所で「陣形解放」の研究を完了させた後、都市軍備にある「迎撃陣」の研究を完了させる",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/261056",
+      "crawled_at": "2026-05-30T07:50:12.554Z",
+      "layout": {
+        "grid": {
+          "rows": 3,
+          "cols": 3
+        },
+        "matrix": [
+          [
+            "vice_1",
+            null,
+            "vice_2"
+          ],
+          [
+            null,
+            "main",
+            null
+          ],
+          [
+            "support_1",
+            null,
+            "support_2"
+          ]
+        ],
+        "positions": [
+          {
+            "slot": "main",
+            "role": "主将",
+            "label": "主",
+            "row": 1,
+            "col": 1,
+            "score": 2004
+          },
+          {
+            "slot": "vice_1",
+            "role": "副将1",
+            "label": "副",
+            "row": 0,
+            "col": 0,
+            "score": 1292
+          },
+          {
+            "slot": "vice_2",
+            "role": "副将2",
+            "label": "副",
+            "row": 0,
+            "col": 2,
+            "score": 1307
+          },
+          {
+            "slot": "support_1",
+            "role": "補佐1",
+            "label": "補",
+            "row": 2,
+            "col": 0,
+            "score": 1280
+          },
+          {
+            "slot": "support_2",
+            "role": "補佐2",
+            "label": "補",
+            "row": 2,
+            "col": 2,
+            "score": 1262
+          }
+        ],
+        "source": {
+          "type": "formation_image_analysis",
+          "image_url": "https://img.gamewith.jp/img/ddaa6c83acdc150c430e177cfec1d886.jpeg",
+          "method": "3x3_grid_color_role_detection_v2_strict_score"
+        },
+        "confidence": 1,
+        "validation": {
+          "ok": true,
+          "missing": [],
+          "roleCounts": {
+            "main": 1,
+            "vice": 2,
+            "support": 2
+          },
+          "lowScoreAccepted": [],
+          "minAcceptedScore": 1262
+        }
+      }
+    },
+    {
+      "name": "防衛陣",
+      "category": "formations",
+      "is_modified": false,
+      "base_formation": null,
+      "ability_impact": {
+        "主将": "中",
+        "副将": "中",
+        "補佐": "小"
+      },
+      "ability_impact_text": "主将：中　副将：中　補佐：小",
+      "skills": [
+        {
+          "name": "駐屯堅守",
+          "content": [
+            "■常に",
+            "▼自都市に駐屯中",
+            "●自都市の被ダメージ-10%（複数部隊での重複不可）"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "防衛陣",
+          "level": 1
+        },
+        {
+          "name": "駐屯修復",
+          "content": [
+            "■常に",
+            "▼自都市に駐屯中",
+            "●自都市の耐久の回復速度+900%（複数部隊での重複不可）"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "防衛陣",
+          "level": 1
+        }
+      ],
+      "status_correction": "防御上昇、機動低下",
+      "unlock_condition": "研究所で「陣形解放」の研究を完了させた後、都市防衛にある「防衛陣」の研究を完了させる",
+      "image_url": "https://img.gamewith.jp/img/edc2e5cbf8edb39ccc4e91b3d1084e93.jpeg",
+      "image_urls": [
+        "https://img.gamewith.jp/img/edc2e5cbf8edb39ccc4e91b3d1084e93.jpeg"
+      ],
+      "raw_text": "防衛陣 【能力影響】主将：中　副将：中　補佐：小 【技能】《駐屯堅守》\n■常に\n▼自都市に駐屯中\n　●自都市の被ダメージ-10%（複数部隊での重複不可）\n《駐屯修復》\n■常に\n▼自都市に駐屯中\n　●自都市の耐久の回復速度+900%（複数部隊での重複不可） 【ステータス補正】防御上昇、機動低下 【解放条件】研究所で「陣形解放」の研究を完了させた後、都市防衛にある「防衛陣」の研究を完了させる",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/261056",
+      "crawled_at": "2026-05-30T07:50:12.554Z",
+      "layout": {
+        "grid": {
+          "rows": 3,
+          "cols": 3
+        },
+        "matrix": [
+          [
+            "support_1",
+            "vice_1",
+            "main"
+          ],
+          [
+            null,
+            null,
+            "vice_2"
+          ],
+          [
+            null,
+            null,
+            "support_2"
+          ]
+        ],
+        "positions": [
+          {
+            "slot": "main",
+            "role": "主将",
+            "label": "主",
+            "row": 0,
+            "col": 2,
+            "score": 1858
+          },
+          {
+            "slot": "vice_1",
+            "role": "副将1",
+            "label": "副",
+            "row": 0,
+            "col": 1,
+            "score": 1233
+          },
+          {
+            "slot": "vice_2",
+            "role": "副将2",
+            "label": "副",
+            "row": 1,
+            "col": 2,
+            "score": 1320
+          },
+          {
+            "slot": "support_1",
+            "role": "補佐1",
+            "label": "補",
+            "row": 0,
+            "col": 0,
+            "score": 1504
+          },
+          {
+            "slot": "support_2",
+            "role": "補佐2",
+            "label": "補",
+            "row": 2,
+            "col": 2,
+            "score": 1484
+          }
+        ],
+        "source": {
+          "type": "formation_image_analysis",
+          "image_url": "https://img.gamewith.jp/img/edc2e5cbf8edb39ccc4e91b3d1084e93.jpeg",
+          "method": "3x3_grid_color_role_detection_v2_strict_score"
+        },
+        "confidence": 1,
+        "validation": {
+          "ok": true,
+          "missing": [],
+          "roleCounts": {
+            "main": 1,
+            "vice": 2,
+            "support": 2
+          },
+          "lowScoreAccepted": [],
+          "minAcceptedScore": 1233
+        }
+      }
+    },
+    {
+      "name": "賢策陣",
+      "category": "formations",
+      "is_modified": false,
+      "base_formation": null,
+      "ability_impact": {
+        "主将": "中",
+        "副将": "中",
+        "補佐": "小"
+      },
+      "ability_impact_text": "主将：中　副将：中　補佐：小",
+      "skills": [
+        {
+          "name": "連慧",
+          "content": [
+            "■常に",
+            "●部隊内（主将/副将/補佐）の主将と同兵科の武将数×1%、部隊の知力が上昇"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "賢策陣",
+          "level": 1
+        },
+        {
+          "name": "賢策軒昂",
+          "content": [
+            "■常に",
+            "▼出陣時",
+            "●戦法ゲージを、出陣時の部隊の知力に応じて上昇（知力500につき0.5%上昇。最大5%）（上限50%）"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "賢策陣",
+          "level": 1
+        }
+      ],
+      "status_correction": "知力上昇、攻撃低下",
+      "unlock_condition": "研究所で「陣形解放」の研究を完了させた後、商店で「陣形図・賢策」を購入する",
+      "image_url": "https://img.gamewith.jp/img/bc102f14bdd64859cefbd925da9b814a.jpeg",
+      "image_urls": [
+        "https://img.gamewith.jp/img/bc102f14bdd64859cefbd925da9b814a.jpeg"
+      ],
+      "raw_text": "賢策陣 【能力影響】主将：中　副将：中　補佐：小 【技能】《連慧》\n■常に\n　●部隊内（主将/副将/補佐）の主将と同兵科の武将数×1%、部隊の知力が上昇\n《賢策軒昂》\n■常に\n▼出陣時\n　●戦法ゲージを、出陣時の部隊の知力に応じて上昇（知力500につき0.5%上昇。最大5%）（上限50%） 【ステータス補正】知力上昇、攻撃低下 【解放条件】研究所で「陣形解放」の研究を完了させた後、商店で「陣形図・賢策」を購入する",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/261056",
+      "crawled_at": "2026-05-30T07:50:12.554Z",
+      "layout": {
+        "grid": {
+          "rows": 3,
+          "cols": 3
+        },
+        "matrix": [
+          [
+            "vice_1",
+            null,
+            "vice_2"
+          ],
+          [
+            "support_1",
+            "main",
+            "support_2"
+          ],
+          [
+            null,
+            null,
+            null
+          ]
+        ],
+        "positions": [
+          {
+            "slot": "main",
+            "role": "主将",
+            "label": "主",
+            "row": 1,
+            "col": 1,
+            "score": 3375
+          },
+          {
+            "slot": "vice_1",
+            "role": "副将1",
+            "label": "副",
+            "row": 0,
+            "col": 0,
+            "score": 2230
+          },
+          {
+            "slot": "vice_2",
+            "role": "副将2",
+            "label": "副",
+            "row": 0,
+            "col": 2,
+            "score": 2296
+          },
+          {
+            "slot": "support_1",
+            "role": "補佐1",
+            "label": "補",
+            "row": 1,
+            "col": 0,
+            "score": 1946
+          },
+          {
+            "slot": "support_2",
+            "role": "補佐2",
+            "label": "補",
+            "row": 1,
+            "col": 2,
+            "score": 1865
+          }
+        ],
+        "source": {
+          "type": "formation_image_analysis",
+          "image_url": "https://img.gamewith.jp/img/bc102f14bdd64859cefbd925da9b814a.jpeg",
+          "method": "3x3_grid_color_role_detection_v2_strict_score"
+        },
+        "confidence": 1,
+        "validation": {
+          "ok": true,
+          "missing": [],
+          "roleCounts": {
+            "main": 1,
+            "vice": 2,
+            "support": 2
+          },
+          "lowScoreAccepted": [],
+          "minAcceptedScore": 1865
+        }
+      }
+    },
+    {
+      "name": "賢策陣・改",
+      "category": "formations",
+      "is_modified": true,
+      "base_formation": "賢策陣",
+      "ability_impact": {
+        "主将": "中",
+        "副将": "中",
+        "補佐": "小"
+      },
+      "ability_impact_text": "主将：中　副将：中　補佐：小",
+      "skills": [
+        {
+          "name": "連慧",
+          "content": [
+            "■常に",
+            "●部隊内（主将/副将/補佐）の主将と同兵科の武将数×1%、部隊の知力が上昇"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "賢策陣・改",
+          "level": 1
+        },
+        {
+          "name": "賢策軒昂",
+          "content": [
+            "■常に",
+            "▼出陣時",
+            "●戦法ゲージを、出陣時の部隊の知力に応じて上昇（知力500につき0.5%上昇。最大5%）（上限50%）"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "賢策陣・改",
+          "level": 1
+        }
+      ],
+      "status_correction": "知力上昇、攻撃低下",
+      "unlock_condition": "賢策陣を解放した後、商店で「陣形図・賢策改」を購入する",
+      "image_url": "https://img.gamewith.jp/img/be5d4acf4b95f3728129c9d4a8d8d17c.jpeg",
+      "image_urls": [
+        "https://img.gamewith.jp/img/be5d4acf4b95f3728129c9d4a8d8d17c.jpeg"
+      ],
+      "raw_text": "賢策陣・改 【能力影響】主将：中　副将：中　補佐：小 【技能】《連慧》\n■常に\n　●部隊内（主将/副将/補佐）の主将と同兵科の武将数×1%、部隊の知力が上昇\n《賢策軒昂》\n■常に\n▼出陣時\n　●戦法ゲージを、出陣時の部隊の知力に応じて上昇（知力500につき0.5%上昇。最大5%）（上限50%） 【ステータス補正】知力上昇、攻撃低下 【解放条件】賢策陣を解放した後、商店で「陣形図・賢策改」を購入する",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/261056",
+      "crawled_at": "2026-05-30T07:50:12.554Z",
+      "layout": {
+        "grid": {
+          "rows": 3,
+          "cols": 3
+        },
+        "matrix": [
+          [
+            "support_1",
+            null,
+            "support_2"
+          ],
+          [
+            "vice_1",
+            "main",
+            "vice_2"
+          ],
+          [
+            null,
+            null,
+            null
+          ]
+        ],
+        "positions": [
+          {
+            "slot": "main",
+            "role": "主将",
+            "label": "主",
+            "row": 1,
+            "col": 1,
+            "score": 2676
+          },
+          {
+            "slot": "vice_1",
+            "role": "副将1",
+            "label": "副",
+            "row": 1,
+            "col": 0,
+            "score": 1925
+          },
+          {
+            "slot": "vice_2",
+            "role": "副将2",
+            "label": "副",
+            "row": 1,
+            "col": 2,
+            "score": 1972
+          },
+          {
+            "slot": "support_1",
+            "role": "補佐1",
+            "label": "補",
+            "row": 0,
+            "col": 0,
+            "score": 1704
+          },
+          {
+            "slot": "support_2",
+            "role": "補佐2",
+            "label": "補",
+            "row": 0,
+            "col": 2,
+            "score": 1677
+          }
+        ],
+        "source": {
+          "type": "formation_image_analysis",
+          "image_url": "https://img.gamewith.jp/img/be5d4acf4b95f3728129c9d4a8d8d17c.jpeg",
+          "method": "3x3_grid_color_role_detection_v2_strict_score"
+        },
+        "confidence": 1,
+        "validation": {
+          "ok": true,
+          "missing": [],
+          "roleCounts": {
+            "main": 1,
+            "vice": 2,
+            "support": 2
+          },
+          "lowScoreAccepted": [],
+          "minAcceptedScore": 1677
+        }
+      }
+    },
+    {
+      "name": "勇往陣",
+      "category": "formations",
+      "is_modified": false,
+      "base_formation": null,
+      "ability_impact": {
+        "主将": "中",
+        "副将": "中",
+        "補佐": "小"
+      },
+      "ability_impact_text": "主将：中　副将：中　補佐：小",
+      "skills": [
+        {
+          "name": "連帯",
+          "content": [
+            "■常に",
+            "●部隊内（主将/副将/補佐）の主将と同兵科の武将数×1%、部隊の攻撃が上昇"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "勇往陣",
+          "level": 1
+        },
+        {
+          "name": "勇往軒昂",
+          "content": [
+            "■常に",
+            "▼出陣時",
+            "●戦法ゲージを、出陣時の部隊の攻撃に応じて上昇（攻撃500につき0.5%上昇。最大5%）（上限50%）"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "勇往陣",
+          "level": 1
+        }
+      ],
+      "status_correction": "兵力・攻撃上昇、防御低下",
+      "unlock_condition": "研究所で「陣形解放」の研究を完了させた後、商店で「陣形図・勇往」を購入する",
+      "image_url": "https://img.gamewith.jp/img/7bae31f16038c1b0945a30dab66eb39e.jpeg",
+      "image_urls": [
+        "https://img.gamewith.jp/img/7bae31f16038c1b0945a30dab66eb39e.jpeg"
+      ],
+      "raw_text": "勇往陣 【能力影響】主将：中　副将：中　補佐：小 【技能】《連帯》\n■常に\n　●部隊内（主将/副将/補佐）の主将と同兵科の武将数×1%、部隊の攻撃が上昇\n《勇往軒昂》\n■常に\n▼出陣時\n　●戦法ゲージを、出陣時の部隊の攻撃に応じて上昇（攻撃500につき0.5%上昇。最大5%）（上限50%） 【ステータス補正】兵力・攻撃上昇、防御低下 【解放条件】研究所で「陣形解放」の研究を完了させた後、商店で「陣形図・勇往」を購入する",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/261056",
+      "crawled_at": "2026-05-30T07:50:12.554Z",
+      "layout": {
+        "grid": {
+          "rows": 3,
+          "cols": 3
+        },
+        "matrix": [
+          [
+            null,
+            "vice_1",
+            "vice_2"
+          ],
+          [
+            "support_1",
+            "main",
+            null
+          ],
+          [
+            "support_2",
+            null,
+            null
+          ]
+        ],
+        "positions": [
+          {
+            "slot": "main",
+            "role": "主将",
+            "label": "主",
+            "row": 1,
+            "col": 1,
+            "score": 3391
+          },
+          {
+            "slot": "vice_1",
+            "role": "副将1",
+            "label": "副",
+            "row": 0,
+            "col": 1,
+            "score": 2128
+          },
+          {
+            "slot": "vice_2",
+            "role": "副将2",
+            "label": "副",
+            "row": 0,
+            "col": 2,
+            "score": 2050
+          },
+          {
+            "slot": "support_1",
+            "role": "補佐1",
+            "label": "補",
+            "row": 1,
+            "col": 0,
+            "score": 2482
+          },
+          {
+            "slot": "support_2",
+            "role": "補佐2",
+            "label": "補",
+            "row": 2,
+            "col": 0,
+            "score": 2743
+          }
+        ],
+        "source": {
+          "type": "formation_image_analysis",
+          "image_url": "https://img.gamewith.jp/img/7bae31f16038c1b0945a30dab66eb39e.jpeg",
+          "method": "3x3_grid_color_role_detection_v2_strict_score"
+        },
+        "confidence": 1,
+        "validation": {
+          "ok": true,
+          "missing": [],
+          "roleCounts": {
+            "main": 1,
+            "vice": 2,
+            "support": 2
+          },
+          "lowScoreAccepted": [],
+          "minAcceptedScore": 2050
+        }
+      }
+    },
+    {
+      "name": "勇往陣・改",
+      "category": "formations",
+      "is_modified": true,
+      "base_formation": "勇往陣",
+      "ability_impact": {
+        "主将": "中",
+        "副将": "中",
+        "補佐": "小"
+      },
+      "ability_impact_text": "主将：中　副将：中　補佐：小",
+      "skills": [
+        {
+          "name": "連帯",
+          "content": [
+            "■常に",
+            "●部隊内（主将/副将/補佐）の主将と同兵科の武将数×1%、部隊の攻撃が上昇"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "勇往陣・改",
+          "level": 1
+        },
+        {
+          "name": "勇往軒昂",
+          "content": [
+            "■常に",
+            "▼出陣時",
+            "●戦法ゲージを、出陣時の部隊の攻撃に応じて上昇（攻撃500につき0.5%上昇。最大5%）（上限50%）"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "勇往陣・改",
+          "level": 1
+        }
+      ],
+      "status_correction": "兵力・攻撃上昇、防御低下",
+      "unlock_condition": "勇往陣を解放した後、商店で「陣形図・勇往改」を購入する",
+      "image_url": "https://img.gamewith.jp/img/44563cad1928ee225196fe51753b9baf.png",
+      "image_urls": [
+        "https://img.gamewith.jp/img/44563cad1928ee225196fe51753b9baf.png"
+      ],
+      "raw_text": "勇往陣・改 【能力影響】主将：中　副将：中　補佐：小 【技能】《連帯》\n■常に\n　●部隊内（主将/副将/補佐）の主将と同兵科の武将数×1%、部隊の攻撃が上昇\n《勇往軒昂》\n■常に\n▼出陣時\n　●戦法ゲージを、出陣時の部隊の攻撃に応じて上昇（攻撃500につき0.5%上昇。最大5%）（上限50%） 【ステータス補正】兵力・攻撃上昇、防御低下 【解放条件】勇往陣を解放した後、商店で「陣形図・勇往改」を購入する",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/261056",
+      "crawled_at": "2026-05-30T07:50:12.554Z",
+      "layout": {
+        "grid": {
+          "rows": 3,
+          "cols": 3
+        },
+        "matrix": [
+          [
+            null,
+            "vice_1",
+            "support_1"
+          ],
+          [
+            "vice_2",
+            "main",
+            null
+          ],
+          [
+            "support_2",
+            null,
+            null
+          ]
+        ],
+        "positions": [
+          {
+            "slot": "main",
+            "role": "主将",
+            "label": "主",
+            "row": 1,
+            "col": 1,
+            "score": 1195
+          },
+          {
+            "slot": "vice_1",
+            "role": "副将1",
+            "label": "副",
+            "row": 0,
+            "col": 1,
+            "score": 687
+          },
+          {
+            "slot": "vice_2",
+            "role": "副将2",
+            "label": "副",
+            "row": 1,
+            "col": 0,
+            "score": 680
+          },
+          {
+            "slot": "support_1",
+            "role": "補佐1",
+            "label": "補",
+            "row": 0,
+            "col": 2,
+            "score": 1075
+          },
+          {
+            "slot": "support_2",
+            "role": "補佐2",
+            "label": "補",
+            "row": 2,
+            "col": 0,
+            "score": 1036
+          }
+        ],
+        "source": {
+          "type": "formation_image_analysis",
+          "image_url": "https://img.gamewith.jp/img/44563cad1928ee225196fe51753b9baf.png",
+          "method": "3x3_grid_color_role_detection_v2_strict_score"
+        },
+        "confidence": 1,
+        "validation": {
+          "ok": true,
+          "missing": [],
+          "roleCounts": {
+            "main": 1,
+            "vice": 2,
+            "support": 2
+          },
+          "lowScoreAccepted": [],
+          "minAcceptedScore": 680
+        }
+      }
+    },
+    {
+      "name": "友結陣",
+      "category": "formations",
+      "is_modified": false,
+      "base_formation": null,
+      "ability_impact": {
+        "主将": "中",
+        "副将": "中",
+        "補佐": "小"
+      },
+      "ability_impact_text": "主将：中　副将：中　補佐：小",
+      "skills": [
+        {
+          "name": "友結軒昂",
+          "content": [
+            "■常に",
+            "▼出陣時",
+            "●戦法ゲージを部隊内（主将/副将/補佐）の主将と好相性の武将数に応じて上昇（好相性の武将1人につき2％ずつ上昇。最大10％）（上限50％）"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "友結陣",
+          "level": 1
+        },
+        {
+          "name": "友結陣戦",
+          "content": [
+            "■常に",
+            "●部隊内（主将/副将/補佐）の主将と好相性の武将数×2%、部隊の攻撃が上昇",
+            "●部隊内（主将/副将/補佐）の主将と好相性の武将数×2%、部隊の知力が上昇",
+            "●部隊内（主将/副将/補佐）の主将と好相性の武将数×3%、戦法による与ダメージが上昇"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "友結陣",
+          "level": 1
+        }
+      ],
+      "status_correction": "なし",
+      "unlock_condition": "研究所で「陣形解放」の研究を完了させた後、商店で「陣形図・友結」を購入する",
+      "image_url": "https://img.gamewith.jp/img/c9a26365862af3f7a01565797d27a6a4.png",
+      "image_urls": [
+        "https://img.gamewith.jp/img/c9a26365862af3f7a01565797d27a6a4.png"
+      ],
+      "raw_text": "友結陣 【能力影響】主将：中　副将：中　補佐：小 【技能】《友結軒昂》\n■常に\n▼出陣時\n　●戦法ゲージを部隊内（主将/副将/補佐）の主将と好相性の武将数に応じて上昇（好相性の武将1人につき2％ずつ上昇。最大10％）（上限50％）\n《友結陣戦》\n■常に\n　●部隊内（主将/副将/補佐）の主将と好相性の武将数×2%、部隊の攻撃が上昇\n　●部隊内（主将/副将/補佐）の主将と好相性の武将数×2%、部隊の知力が上昇\n　●部隊内（主将/副将/補佐）の主将と好相性の武将数×3%、戦法による与ダメージが上昇 【ステータス補正】なし 【解放条件】研究所で「陣形解放」の研究を完了させた後、商店で「陣形図・友結」を購入する",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/261056",
+      "crawled_at": "2026-05-30T07:50:12.554Z",
+      "layout": {
+        "grid": {
+          "rows": 3,
+          "cols": 3
+        },
+        "matrix": [
+          [
+            null,
+            "vice_1",
+            "support_1"
+          ],
+          [
+            "main",
+            null,
+            null
+          ],
+          [
+            null,
+            "vice_2",
+            "support_2"
+          ]
+        ],
+        "positions": [
+          {
+            "slot": "main",
+            "role": "主将",
+            "label": "主",
+            "row": 1,
+            "col": 0,
+            "score": 1167
+          },
+          {
+            "slot": "vice_1",
+            "role": "副将1",
+            "label": "副",
+            "row": 0,
+            "col": 1,
+            "score": 697
+          },
+          {
+            "slot": "vice_2",
+            "role": "副将2",
+            "label": "副",
+            "row": 2,
+            "col": 1,
+            "score": 732
+          },
+          {
+            "slot": "support_1",
+            "role": "補佐1",
+            "label": "補",
+            "row": 0,
+            "col": 2,
+            "score": 909
+          },
+          {
+            "slot": "support_2",
+            "role": "補佐2",
+            "label": "補",
+            "row": 2,
+            "col": 2,
+            "score": 960
+          }
+        ],
+        "source": {
+          "type": "formation_image_analysis",
+          "image_url": "https://img.gamewith.jp/img/c9a26365862af3f7a01565797d27a6a4.png",
+          "method": "3x3_grid_color_role_detection_v2_strict_score"
+        },
+        "confidence": 1,
+        "validation": {
+          "ok": true,
+          "missing": [],
+          "roleCounts": {
+            "main": 1,
+            "vice": 2,
+            "support": 2
+          },
+          "lowScoreAccepted": [],
+          "minAcceptedScore": 697
+        }
+      }
+    },
+    {
+      "name": "堅防陣",
+      "category": "formations",
+      "is_modified": false,
+      "base_formation": null,
+      "ability_impact": {
+        "主将": "中",
+        "副将": "中",
+        "補佐": "小"
+      },
+      "ability_impact_text": "主将：中　副将：中　補佐：小",
+      "skills": [
+        {
+          "name": "堅防確守",
+          "content": [
+            "■常に",
+            "●自身を対象としない範囲攻撃の被ダメージ₋5%",
+            "→駐屯/防衛中は効果が2倍（₋10%）",
+            "■自都市駐屯部隊に編制されている際",
+            "▼自都市に駐屯中",
+            "●自都市の被ダメージ₋5%（複数部隊で重複可能）"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "堅防陣",
+          "level": 1
+        },
+        {
+          "name": "堅防強陣",
+          "content": [
+            "■常に",
+            "●部隊の攻撃+5%",
+            "→自都市駐屯部隊に編制されている際、効果が3倍（+15%）",
+            "●部隊の知力+5%",
+            "→自都市駐屯部隊に編制されている際、効果が3倍（+15%）",
+            "●部隊の機動+5%",
+            "→自都市駐屯部隊に編制されている際、効果が3倍（+15%）",
+            "■自都市駐屯部隊に編制されている際",
+            "●部隊の戦法速度+10%"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "堅防陣",
+          "level": 1
+        }
+      ],
+      "status_correction": "兵力・防御上昇、対物低下",
+      "unlock_condition": "研究所で「陣形解放」の研究を完了させた後、商店で「陣形図・堅防」を購入する",
+      "image_url": "https://img.gamewith.jp/img/27d10380d46bf5cc5b526acfab6c2028.png",
+      "image_urls": [
+        "https://img.gamewith.jp/img/27d10380d46bf5cc5b526acfab6c2028.png"
+      ],
+      "raw_text": "堅防陣 【能力影響】主将：中　副将：中　補佐：小 【技能】《堅防確守》\n■常に\n　●自身を対象としない範囲攻撃の被ダメージ₋5%\n　→駐屯/防衛中は効果が2倍（₋10%）\n■自都市駐屯部隊に編制されている際\n▼自都市に駐屯中\n　●自都市の被ダメージ₋5%（複数部隊で重複可能）\n《堅防強陣》\n■常に\n　●部隊の攻撃+5%\n　→自都市駐屯部隊に編制されている際、効果が3倍（+15%）\n　●部隊の知力+5%\n　→自都市駐屯部隊に編制されている際、効果が3倍（+15%）\n　●部隊の機動+5%\n　→自都市駐屯部隊に編制されている際、効果が3倍（+15%）\n■自都市駐屯部隊に編制されている際\n　●部隊の戦法速度+10% 【ステータス補正】兵力・防御上昇、対物低下 【解放条件】研究所で「陣形解放」の研究を完了させた後、商店で「陣形図・堅防」を購入する",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/261056",
+      "crawled_at": "2026-05-30T07:50:12.555Z",
+      "layout": {
+        "grid": {
+          "rows": 3,
+          "cols": 3
+        },
+        "matrix": [
+          [
+            null,
+            null,
+            "vice_1"
+          ],
+          [
+            "vice_2",
+            "main",
+            null
+          ],
+          [
+            "support_1",
+            null,
+            "support_2"
+          ]
+        ],
+        "positions": [
+          {
+            "slot": "main",
+            "role": "主将",
+            "label": "主",
+            "row": 1,
+            "col": 1,
+            "score": 1161
+          },
+          {
+            "slot": "vice_1",
+            "role": "副将1",
+            "label": "副",
+            "row": 0,
+            "col": 2,
+            "score": 768
+          },
+          {
+            "slot": "vice_2",
+            "role": "副将2",
+            "label": "副",
+            "row": 1,
+            "col": 0,
+            "score": 594
+          },
+          {
+            "slot": "support_1",
+            "role": "補佐1",
+            "label": "補",
+            "row": 2,
+            "col": 0,
+            "score": 926
+          },
+          {
+            "slot": "support_2",
+            "role": "補佐2",
+            "label": "補",
+            "row": 2,
+            "col": 2,
+            "score": 1036
+          }
+        ],
+        "source": {
+          "type": "formation_image_analysis",
+          "image_url": "https://img.gamewith.jp/img/27d10380d46bf5cc5b526acfab6c2028.png",
+          "method": "3x3_grid_color_role_detection_v2_strict_score"
+        },
+        "confidence": 1,
+        "validation": {
+          "ok": true,
+          "missing": [],
+          "roleCounts": {
+            "main": 1,
+            "vice": 2,
+            "support": 2
+          },
+          "lowScoreAccepted": [],
+          "minAcceptedScore": 594
+        }
+      }
+    },
+    {
+      "name": "堅防陣・改",
+      "category": "formations",
+      "is_modified": true,
+      "base_formation": "堅防陣",
+      "ability_impact": {
+        "主将": "中",
+        "副将": "中",
+        "補佐": "小"
+      },
+      "ability_impact_text": "主将：中　副将：中　補佐：小",
+      "skills": [
+        {
+          "name": "堅防確守",
+          "content": [
+            "■常に",
+            "●自身を対象としない範囲攻撃の被ダメージ₋5%",
+            "→駐屯/防衛中は効果が2倍（₋10%）",
+            "■自都市駐屯部隊に編制されている際",
+            "▼自都市に駐屯中",
+            "●自都市の被ダメージ₋5%（複数部隊で重複可能）"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "堅防陣・改",
+          "level": 1
+        },
+        {
+          "name": "堅防強陣",
+          "content": [
+            "■常に",
+            "●部隊の攻撃+5%",
+            "→自都市駐屯部隊に編制されている際、効果が3倍（+15%）",
+            "●部隊の知力+5%",
+            "→自都市駐屯部隊に編制されている際、効果が3倍（+15%）",
+            "●部隊の機動+5%",
+            "→自都市駐屯部隊に編制されている際、効果が3倍（+15%）",
+            "■自都市駐屯部隊に編制されている際",
+            "●部隊の戦法速度+10%"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "堅防陣・改",
+          "level": 1
+        }
+      ],
+      "status_correction": "兵力・防御上昇、対物低下",
+      "unlock_condition": "堅防陣を解放した後、商店で「陣形図・堅防改」を購入する",
+      "image_url": "https://img.gamewith.jp/img/6f1053f0ec30e969a9f892c8a06d0588.png",
+      "image_urls": [
+        "https://img.gamewith.jp/img/6f1053f0ec30e969a9f892c8a06d0588.png"
+      ],
+      "raw_text": "堅防陣・改 【能力影響】主将：中　副将：中　補佐：小 【技能】《堅防確守》\n■常に\n　●自身を対象としない範囲攻撃の被ダメージ₋5%\n　→駐屯/防衛中は効果が2倍（₋10%）\n■自都市駐屯部隊に編制されている際\n▼自都市に駐屯中\n　●自都市の被ダメージ₋5%（複数部隊で重複可能）\n《堅防強陣》\n■常に\n　●部隊の攻撃+5%\n　→自都市駐屯部隊に編制されている際、効果が3倍（+15%）\n　●部隊の知力+5%\n　→自都市駐屯部隊に編制されている際、効果が3倍（+15%）\n　●部隊の機動+5%\n　→自都市駐屯部隊に編制されている際、効果が3倍（+15%）\n■自都市駐屯部隊に編制されている際\n　●部隊の戦法速度+10% 【ステータス補正】兵力・防御上昇、対物低下 【解放条件】堅防陣を解放した後、商店で「陣形図・堅防改」を購入する",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/261056",
+      "crawled_at": "2026-05-30T07:50:12.555Z",
+      "layout": {
+        "grid": {
+          "rows": 3,
+          "cols": 3
+        },
+        "matrix": [
+          [
+            null,
+            null,
+            "support_1"
+          ],
+          [
+            "support_2",
+            "main",
+            null
+          ],
+          [
+            "vice_1",
+            null,
+            "vice_2"
+          ]
+        ],
+        "positions": [
+          {
+            "slot": "main",
+            "role": "主将",
+            "label": "主",
+            "row": 1,
+            "col": 1,
+            "score": 1169
+          },
+          {
+            "slot": "vice_1",
+            "role": "副将1",
+            "label": "副",
+            "row": 2,
+            "col": 0,
+            "score": 622
+          },
+          {
+            "slot": "vice_2",
+            "role": "副将2",
+            "label": "副",
+            "row": 2,
+            "col": 2,
+            "score": 592
+          },
+          {
+            "slot": "support_1",
+            "role": "補佐1",
+            "label": "補",
+            "row": 0,
+            "col": 2,
+            "score": 800
+          },
+          {
+            "slot": "support_2",
+            "role": "補佐2",
+            "label": "補",
+            "row": 1,
+            "col": 0,
+            "score": 1030
+          }
+        ],
+        "source": {
+          "type": "formation_image_analysis",
+          "image_url": "https://img.gamewith.jp/img/6f1053f0ec30e969a9f892c8a06d0588.png",
+          "method": "3x3_grid_color_role_detection_v2_strict_score"
+        },
+        "confidence": 1,
+        "validation": {
+          "ok": true,
+          "missing": [],
+          "roleCounts": {
+            "main": 1,
+            "vice": 2,
+            "support": 2
+          },
+          "lowScoreAccepted": [],
+          "minAcceptedScore": 592
+        }
+      }
+    },
+    {
+      "name": "斬心陣",
+      "category": "formations",
+      "is_modified": false,
+      "base_formation": null,
+      "ability_impact": {
+        "主将": "中",
+        "副将": "中",
+        "補佐": "小"
+      },
+      "ability_impact_text": "主将：中　副将：中　補佐：小",
+      "skills": [
+        {
+          "name": "掃討",
+          "content": [
+            "■常に",
+            "●部隊の攻撃速度+6%"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "斬心陣",
+          "level": 1
+        },
+        {
+          "name": "斬心軒昂",
+          "content": [
+            "■常に",
+            "●自部隊の侍従に配置されている武将の人数×5%、部隊の会心威力が上昇",
+            "→自部隊の兵力が50％以上の際、効果が2倍（×10%）",
+            "●戦法攻撃を受ける際、戦法の攻撃威力を自部隊の侍従に配置されている武将の人数に応じて低下させた状態で被ダメージを計算する（侍従1人につき15％ずつ低下。最大60％低下）（低下後の戦法の攻撃威力の最低値は100％）",
+            "▼出陣時",
+            "●戦法ゲージを、自部隊の侍従に配置されている武将の人数に応じて上昇（侍従に配置されている武将1人につき1.5%ずつ上昇。最大6％）（上限50%）"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "斬心陣",
+          "level": 1
+        }
+      ],
+      "status_correction": "兵力上昇",
+      "unlock_condition": "研究所で「陣形解放」の研究を完了させた後、商店で「陣形図・斬心」を購入する",
+      "image_url": "https://img.gamewith.jp/img/71f3193021a4345522410b671b840069.png",
+      "image_urls": [
+        "https://img.gamewith.jp/img/71f3193021a4345522410b671b840069.png"
+      ],
+      "raw_text": "斬心陣 【能力影響】主将：中　副将：中　補佐：小 【技能】《掃討》\n■常に\n　●部隊の攻撃速度+6%\n《斬心軒昂》\n■常に\n　●自部隊の侍従に配置されている武将の人数×5%、部隊の会心威力が上昇\n　→自部隊の兵力が50％以上の際、効果が2倍（×10%）\n　●戦法攻撃を受ける際、戦法の攻撃威力を自部隊の侍従に配置されている武将の人数に応じて低下させた状態で被ダメージを計算する（侍従1人につき15％ずつ低下。最大60％低下）（低下後の戦法の攻撃威力の最低値は100％）\n▼出陣時\n　●戦法ゲージを、自部隊の侍従に配置されている武将の人数に応じて上昇（侍従に配置されている武将1人につき1.5%ずつ上昇。最大6％）（上限50%） 【ステータス補正】兵力上昇 【解放条件】研究所で「陣形解放」の研究を完了させた後、商店で「陣形図・斬心」を購入する",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/261056",
+      "crawled_at": "2026-05-30T07:50:12.555Z",
+      "layout": {
+        "grid": {
+          "rows": 3,
+          "cols": 3
+        },
+        "matrix": [
+          [
+            "support_1",
+            "vice_1",
+            null
+          ],
+          [
+            "support_2",
+            null,
+            "main"
+          ],
+          [
+            null,
+            "vice_2",
+            null
+          ]
+        ],
+        "positions": [
+          {
+            "slot": "main",
+            "role": "主将",
+            "label": "主",
+            "row": 1,
+            "col": 2,
+            "score": 1089
+          },
+          {
+            "slot": "vice_1",
+            "role": "副将1",
+            "label": "副",
+            "row": 0,
+            "col": 1,
+            "score": 721
+          },
+          {
+            "slot": "vice_2",
+            "role": "副将2",
+            "label": "副",
+            "row": 2,
+            "col": 1,
+            "score": 679
+          },
+          {
+            "slot": "support_1",
+            "role": "補佐1",
+            "label": "補",
+            "row": 0,
+            "col": 0,
+            "score": 1080
+          },
+          {
+            "slot": "support_2",
+            "role": "補佐2",
+            "label": "補",
+            "row": 1,
+            "col": 0,
+            "score": 944
+          }
+        ],
+        "source": {
+          "type": "formation_image_analysis",
+          "image_url": "https://img.gamewith.jp/img/71f3193021a4345522410b671b840069.png",
+          "method": "3x3_grid_color_role_detection_v2_strict_score"
+        },
+        "confidence": 1,
+        "validation": {
+          "ok": true,
+          "missing": [],
+          "roleCounts": {
+            "main": 1,
+            "vice": 2,
+            "support": 2
+          },
+          "lowScoreAccepted": [],
+          "minAcceptedScore": 679
+        }
+      }
+    },
+    {
+      "name": "猛盛陣",
+      "category": "formations",
+      "is_modified": false,
+      "base_formation": null,
+      "ability_impact": {
+        "主将": "中",
+        "副将": "中",
+        "補佐": "小"
+      },
+      "ability_impact_text": "主将：中　副将：中　補佐：小",
+      "skills": [
+        {
+          "name": "剛力",
+          "content": [
+            "■常に",
+            "●部隊の攻撃+3%"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "猛盛陣",
+          "level": 1
+        },
+        {
+          "name": "猛盛烈衛",
+          "content": [
+            "■常に",
+            "●出陣時の自部隊の攻撃に応じて、通常攻撃・戦法による与ダメージが上昇（攻撃500につき1.5%上昇。最大15％）",
+            "●出陣時の自部隊の攻撃に応じて、通常攻撃・戦法による被ダメージを軽減（攻撃500につき1.5%軽減。最大15%）",
+            "▼主将戦法発動後",
+            "●戦法発動時の連鎖数に応じて自身1部隊の戦法ゲージを増加（1連鎖時は10％、2連鎖時は15%、3連鎖時は20％増加）（出陣中に1度まで発動）"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "猛盛陣",
+          "level": 1
+        }
+      ],
+      "status_correction": "兵力・攻撃上昇",
+      "unlock_condition": "研究所で「陣形解放」の研究を完了させた後、商店で「陣形図・猛盛」を購入する",
+      "image_url": "https://img.gamewith.jp/img/ff015a856553886fcc691d7b6e2db49d.png",
+      "image_urls": [
+        "https://img.gamewith.jp/img/ff015a856553886fcc691d7b6e2db49d.png"
+      ],
+      "raw_text": "猛盛陣 【能力影響】主将：中　副将：中　補佐：小 【技能】《剛力》\n■常に\n　●部隊の攻撃+3%\n《猛盛烈衛》\n■常に\n　●出陣時の自部隊の攻撃に応じて、通常攻撃・戦法による与ダメージが上昇（攻撃500につき1.5%上昇。最大15％）\n　●出陣時の自部隊の攻撃に応じて、通常攻撃・戦法による被ダメージを軽減（攻撃500につき1.5%軽減。最大15%）\n▼主将戦法発動後\n　●戦法発動時の連鎖数に応じて自身1部隊の戦法ゲージを増加（1連鎖時は10％、2連鎖時は15%、3連鎖時は20％増加）（出陣中に1度まで発動） 【ステータス補正】兵力・攻撃上昇 【解放条件】研究所で「陣形解放」の研究を完了させた後、商店で「陣形図・猛盛」を購入する",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/261056",
+      "crawled_at": "2026-05-30T07:50:12.555Z",
+      "layout": {
+        "grid": {
+          "rows": 3,
+          "cols": 3
+        },
+        "matrix": [
+          [
+            "main",
+            null,
+            "support_1"
+          ],
+          [
+            "vice_1",
+            null,
+            null
+          ],
+          [
+            "vice_2",
+            null,
+            "support_2"
+          ]
+        ],
+        "positions": [
+          {
+            "slot": "main",
+            "role": "主将",
+            "label": "主",
+            "row": 0,
+            "col": 0,
+            "score": 1074
+          },
+          {
+            "slot": "vice_1",
+            "role": "副将1",
+            "label": "副",
+            "row": 1,
+            "col": 0,
+            "score": 765
+          },
+          {
+            "slot": "vice_2",
+            "role": "副将2",
+            "label": "副",
+            "row": 2,
+            "col": 0,
+            "score": 661
+          },
+          {
+            "slot": "support_1",
+            "role": "補佐1",
+            "label": "補",
+            "row": 0,
+            "col": 2,
+            "score": 824
+          },
+          {
+            "slot": "support_2",
+            "role": "補佐2",
+            "label": "補",
+            "row": 2,
+            "col": 2,
+            "score": 842
+          }
+        ],
+        "source": {
+          "type": "formation_image_analysis",
+          "image_url": "https://img.gamewith.jp/img/ff015a856553886fcc691d7b6e2db49d.png",
+          "method": "3x3_grid_color_role_detection_v2_strict_score"
+        },
+        "confidence": 1,
+        "validation": {
+          "ok": true,
+          "missing": [],
+          "roleCounts": {
+            "main": 1,
+            "vice": 2,
+            "support": 2
+          },
+          "lowScoreAccepted": [],
+          "minAcceptedScore": 661
+        }
+      }
+    }
+  ],
+  "meta": {
+    "count": 21,
+    "exportedAt": "2026-06-05T13:37:59.284Z",
+    "crawlerVersion": "1.0.5.23",
+    "source_url": "https://gamewith.jp/sangokushihadou/article/show/261056"
+  }
+}

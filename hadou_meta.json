@@ -1,0 +1,40 @@
+{
+  "exportedAt": "2026-06-05T13:37:59.280Z",
+  "collector": "hado_crawler_chrome_extension",
+  "crawlerVersion": "1.0.5.23",
+  "requestIntervalMs": 500,
+  "cacheMode": "standard",
+  "counts": {
+    "generals": 475,
+    "equipments": 237,
+    "skills": 617,
+    "formations": 21,
+    "status_effects": 200
+  },
+  "urlStats": {
+    "cacheMode": "standard",
+    "totalUrls": 0,
+    "networkFetch": 0,
+    "conditionalHit304": 0,
+    "memoryCacheHit": 0,
+    "persistentCacheHit": 0,
+    "fastCacheHit": 0,
+    "networkFetchByUrl": {},
+    "duplicateNetworkFetchUrls": [],
+    "records_count": 0
+  },
+  "source": {
+    "generals": "https://gamewith.jp/sangokushihadou/article/show/240737",
+    "equipments": "https://gamewith.jp/sangokushihadou/article/show/247977",
+    "skills": "https://gamewith.jp/sangokushihadou/article/show/244555",
+    "formations": "https://gamewith.jp/sangokushihadou/article/show/261056"
+  },
+  "compatibilityScaleFix": {
+    "total": 475,
+    "converted": 0,
+    "overRange": 0,
+    "invalid": 0,
+    "scale": "0-149_clockwise_from_12",
+    "policy": "no automatic 120-to-150 conversion; parsed image values are kept as 0-149"
+  }
+}

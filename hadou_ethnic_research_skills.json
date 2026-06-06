@@ -1,0 +1,2916 @@
+{
+  "meta": {
+    "schemaVersion": "1.0",
+    "category": "ethnicResearchSkills",
+    "sourceType": "excel_game_images",
+    "sourceWorkbook": "三国志覇道_開発調査_20260505.xlsx",
+    "sourceSheet": "専用技能",
+    "defaultTriggerMinLevel": 3,
+    "generatedAt": "2026-05-04T22:34:46.406030+00:00",
+    "count": 32,
+    "note": "LvⅣ止まりだった専用技能を全件点検し、4止まり技能はLvⅤまで補完。",
+    "version": "2.3.7.6",
+    "updatedAt": "2026-05-05 09:25:00"
+  },
+  "items": [
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "羌呼応",
+      "ethnicGroup": "羌",
+      "triggerSkill": "羌",
+      "triggerMinLevel": 3,
+      "maxLevel": 5,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n●技能「羌」を所持している副将の連鎖確率+1%\n●技能「羌」を所持していない副将の連鎖確率+0.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 1,
+              "unit": "%",
+              "conditionText": "技能「羌」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 0.5,
+              "unit": "%",
+              "conditionText": "技能「羌」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "roman": "Ⅱ",
+          "effectText": "■常に\n●技能「羌」を所持している副将の連鎖確率+2%\n●技能「羌」を所持していない副将の連鎖確率+1%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 2,
+              "unit": "%",
+              "conditionText": "技能「羌」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 1,
+              "unit": "%",
+              "conditionText": "技能「羌」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "roman": "Ⅲ",
+          "effectText": "■常に\n●技能「羌」を所持している副将の連鎖確率+3%\n●技能「羌」を所持していない副将の連鎖確率+1.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 3,
+              "unit": "%",
+              "conditionText": "技能「羌」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 1.5,
+              "unit": "%",
+              "conditionText": "技能「羌」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "roman": "Ⅳ",
+          "effectText": "■常に\n●技能「羌」を所持している副将の連鎖確率+4%\n●技能「羌」を所持していない副将の連鎖確率+2%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 4,
+              "unit": "%",
+              "conditionText": "技能「羌」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 2,
+              "unit": "%",
+              "conditionText": "技能「羌」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "roman": "Ⅴ",
+          "effectText": "■常に\n●技能「羌」を所持している副将の連鎖確率+5%\n●技能「羌」を所持していない副将の連鎖確率+2.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 5,
+              "unit": "%",
+              "conditionText": "技能「羌」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 2.5,
+              "unit": "%",
+              "conditionText": "技能「羌」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ],
+          "inferred": true,
+          "inferenceReason": "LvⅠ〜Ⅳの規則性とユーザー指摘「4までしか認識していない技能は全て5まである」に基づく補完"
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 1
+        }
+      ],
+      "confidence": "needs_review",
+      "sourceType": "excel_game_images",
+      "notes": [
+        "LvⅤは画像直接読取ではなく、LvⅠ〜Ⅳの規則性とユーザー指摘に基づき補完。"
+      ]
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "鮮卑呼応",
+      "ethnicGroup": "鮮卑",
+      "triggerSkill": "鮮卑",
+      "triggerMinLevel": 3,
+      "maxLevel": 5,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n●技能「鮮卑」を所持している副将の連鎖確率+1%\n●技能「鮮卑」を所持していない副将の連鎖確率+0.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 1,
+              "unit": "%",
+              "conditionText": "技能「鮮卑」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 0.5,
+              "unit": "%",
+              "conditionText": "技能「鮮卑」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "roman": "Ⅱ",
+          "effectText": "■常に\n●技能「鮮卑」を所持している副将の連鎖確率+2%\n●技能「鮮卑」を所持していない副将の連鎖確率+1%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 2,
+              "unit": "%",
+              "conditionText": "技能「鮮卑」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 1,
+              "unit": "%",
+              "conditionText": "技能「鮮卑」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "roman": "Ⅲ",
+          "effectText": "■常に\n●技能「鮮卑」を所持している副将の連鎖確率+3%\n●技能「鮮卑」を所持していない副将の連鎖確率+1.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 3,
+              "unit": "%",
+              "conditionText": "技能「鮮卑」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 1.5,
+              "unit": "%",
+              "conditionText": "技能「鮮卑」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "roman": "Ⅳ",
+          "effectText": "■常に\n●技能「鮮卑」を所持している副将の連鎖確率+4%\n●技能「鮮卑」を所持していない副将の連鎖確率+2%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 4,
+              "unit": "%",
+              "conditionText": "技能「鮮卑」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 2,
+              "unit": "%",
+              "conditionText": "技能「鮮卑」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "roman": "Ⅴ",
+          "effectText": "■常に\n●技能「鮮卑」を所持している副将の連鎖確率+5%\n●技能「鮮卑」を所持していない副将の連鎖確率+2.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 5,
+              "unit": "%",
+              "conditionText": "技能「鮮卑」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 2.5,
+              "unit": "%",
+              "conditionText": "技能「鮮卑」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ],
+          "inferred": true,
+          "inferenceReason": "LvⅠ〜Ⅳの規則性とユーザー指摘「4までしか認識していない技能は全て5まである」に基づく補完"
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 2
+        }
+      ],
+      "confidence": "needs_review",
+      "sourceType": "excel_game_images",
+      "notes": [
+        "LvⅤは画像直接読取ではなく、LvⅠ〜Ⅳの規則性とユーザー指摘に基づき補完。"
+      ]
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "烏桓呼応",
+      "ethnicGroup": "烏桓",
+      "triggerSkill": "烏桓",
+      "triggerMinLevel": 3,
+      "maxLevel": 5,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n●技能「烏桓」を所持している副将の連鎖確率+1%\n●技能「烏桓」を所持していない副将の連鎖確率+0.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 1,
+              "unit": "%",
+              "conditionText": "技能「烏桓」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 0.5,
+              "unit": "%",
+              "conditionText": "技能「烏桓」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "roman": "Ⅱ",
+          "effectText": "■常に\n●技能「烏桓」を所持している副将の連鎖確率+2%\n●技能「烏桓」を所持していない副将の連鎖確率+1%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 2,
+              "unit": "%",
+              "conditionText": "技能「烏桓」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 1,
+              "unit": "%",
+              "conditionText": "技能「烏桓」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "roman": "Ⅲ",
+          "effectText": "■常に\n●技能「烏桓」を所持している副将の連鎖確率+3%\n●技能「烏桓」を所持していない副将の連鎖確率+1.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 3,
+              "unit": "%",
+              "conditionText": "技能「烏桓」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 1.5,
+              "unit": "%",
+              "conditionText": "技能「烏桓」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "roman": "Ⅳ",
+          "effectText": "■常に\n●技能「烏桓」を所持している副将の連鎖確率+4%\n●技能「烏桓」を所持していない副将の連鎖確率+2%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 4,
+              "unit": "%",
+              "conditionText": "技能「烏桓」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 2,
+              "unit": "%",
+              "conditionText": "技能「烏桓」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "roman": "Ⅴ",
+          "effectText": "■常に\n●技能「烏桓」を所持している副将の連鎖確率+5%\n●技能「烏桓」を所持していない副将の連鎖確率+2.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 5,
+              "unit": "%",
+              "conditionText": "技能「烏桓」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 2.5,
+              "unit": "%",
+              "conditionText": "技能「烏桓」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ],
+          "inferred": true,
+          "inferenceReason": "LvⅠ〜Ⅳの規則性とユーザー指摘「4までしか認識していない技能は全て5まである」に基づく補完"
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 3
+        }
+      ],
+      "confidence": "needs_review",
+      "sourceType": "excel_game_images",
+      "notes": [
+        "LvⅤは画像直接読取ではなく、LvⅠ〜Ⅳの規則性とユーザー指摘に基づき補完。"
+      ]
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "南蛮呼応",
+      "ethnicGroup": "南蛮",
+      "triggerSkill": "南蛮",
+      "triggerMinLevel": 3,
+      "maxLevel": 5,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n●技能「南蛮」を所持している副将の連鎖確率+1%\n●技能「南蛮」を所持していない副将の連鎖確率+0.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 1,
+              "unit": "%",
+              "conditionText": "技能「南蛮」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 0.5,
+              "unit": "%",
+              "conditionText": "技能「南蛮」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "roman": "Ⅱ",
+          "effectText": "■常に\n●技能「南蛮」を所持している副将の連鎖確率+2%\n●技能「南蛮」を所持していない副将の連鎖確率+1%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 2,
+              "unit": "%",
+              "conditionText": "技能「南蛮」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 1,
+              "unit": "%",
+              "conditionText": "技能「南蛮」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "roman": "Ⅲ",
+          "effectText": "■常に\n●技能「南蛮」を所持している副将の連鎖確率+3%\n●技能「南蛮」を所持していない副将の連鎖確率+1.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 3,
+              "unit": "%",
+              "conditionText": "技能「南蛮」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 1.5,
+              "unit": "%",
+              "conditionText": "技能「南蛮」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "roman": "Ⅳ",
+          "effectText": "■常に\n●技能「南蛮」を所持している副将の連鎖確率+4%\n●技能「南蛮」を所持していない副将の連鎖確率+2%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 4,
+              "unit": "%",
+              "conditionText": "技能「南蛮」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 2,
+              "unit": "%",
+              "conditionText": "技能「南蛮」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "roman": "Ⅴ",
+          "effectText": "■常に\n●技能「南蛮」を所持している副将の連鎖確率+5%\n●技能「南蛮」を所持していない副将の連鎖確率+2.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 5,
+              "unit": "%",
+              "conditionText": "技能「南蛮」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 2.5,
+              "unit": "%",
+              "conditionText": "技能「南蛮」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ],
+          "inferred": true,
+          "inferenceReason": "LvⅠ〜Ⅳの規則性とユーザー指摘「4までしか認識していない技能は全て5まである」に基づく補完"
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 4
+        }
+      ],
+      "confidence": "needs_review",
+      "sourceType": "excel_game_images",
+      "notes": [
+        "LvⅤは画像直接読取ではなく、LvⅠ〜Ⅳの規則性とユーザー指摘に基づき補完。"
+      ]
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "五渓呼応",
+      "ethnicGroup": "五渓蛮",
+      "triggerSkill": "五渓蛮",
+      "triggerMinLevel": 3,
+      "maxLevel": 5,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n●技能「五渓蛮」を所持している副将の連鎖確率+1%\n●技能「五渓蛮」を所持していない副将の連鎖確率+0.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 1,
+              "unit": "%",
+              "conditionText": "技能「五渓蛮」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 0.5,
+              "unit": "%",
+              "conditionText": "技能「五渓蛮」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "roman": "Ⅱ",
+          "effectText": "■常に\n●技能「五渓蛮」を所持している副将の連鎖確率+2%\n●技能「五渓蛮」を所持していない副将の連鎖確率+1%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 2,
+              "unit": "%",
+              "conditionText": "技能「五渓蛮」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 1,
+              "unit": "%",
+              "conditionText": "技能「五渓蛮」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "roman": "Ⅲ",
+          "effectText": "■常に\n●技能「五渓蛮」を所持している副将の連鎖確率+3%\n●技能「五渓蛮」を所持していない副将の連鎖確率+1.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 3,
+              "unit": "%",
+              "conditionText": "技能「五渓蛮」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 1.5,
+              "unit": "%",
+              "conditionText": "技能「五渓蛮」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "roman": "Ⅳ",
+          "effectText": "■常に\n●技能「五渓蛮」を所持している副将の連鎖確率+4%\n●技能「五渓蛮」を所持していない副将の連鎖確率+2%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 4,
+              "unit": "%",
+              "conditionText": "技能「五渓蛮」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 2,
+              "unit": "%",
+              "conditionText": "技能「五渓蛮」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "roman": "Ⅴ",
+          "effectText": "■常に\n●技能「五渓蛮」を所持している副将の連鎖確率+5%\n●技能「五渓蛮」を所持していない副将の連鎖確率+2.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 5,
+              "unit": "%",
+              "conditionText": "技能「五渓蛮」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 2.5,
+              "unit": "%",
+              "conditionText": "技能「五渓蛮」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ],
+          "inferred": true,
+          "inferenceReason": "LvⅠ〜Ⅳの規則性とユーザー指摘「4までしか認識していない技能は全て5まである」に基づく補完"
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 5
+        }
+      ],
+      "confidence": "needs_review",
+      "sourceType": "excel_game_images",
+      "notes": [
+        "LvⅤは画像直接読取ではなく、LvⅠ〜Ⅳの規則性とユーザー指摘に基づき補完。"
+      ]
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "山越呼応",
+      "ethnicGroup": "山越",
+      "triggerSkill": "山越",
+      "triggerMinLevel": 3,
+      "maxLevel": 5,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n●技能「山越」を所持している副将の連鎖確率+1%\n●技能「山越」を所持していない副将の連鎖確率+0.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 1,
+              "unit": "%",
+              "conditionText": "技能「山越」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 0.5,
+              "unit": "%",
+              "conditionText": "技能「山越」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "roman": "Ⅱ",
+          "effectText": "■常に\n●技能「山越」を所持している副将の連鎖確率+2%\n●技能「山越」を所持していない副将の連鎖確率+1%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 2,
+              "unit": "%",
+              "conditionText": "技能「山越」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 1,
+              "unit": "%",
+              "conditionText": "技能「山越」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "roman": "Ⅲ",
+          "effectText": "■常に\n●技能「山越」を所持している副将の連鎖確率+3%\n●技能「山越」を所持していない副将の連鎖確率+1.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 3,
+              "unit": "%",
+              "conditionText": "技能「山越」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 1.5,
+              "unit": "%",
+              "conditionText": "技能「山越」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "roman": "Ⅳ",
+          "effectText": "■常に\n●技能「山越」を所持している副将の連鎖確率+4%\n●技能「山越」を所持していない副将の連鎖確率+2%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 4,
+              "unit": "%",
+              "conditionText": "技能「山越」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 2,
+              "unit": "%",
+              "conditionText": "技能「山越」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "roman": "Ⅴ",
+          "effectText": "■常に\n●技能「山越」を所持している副将の連鎖確率+5%\n●技能「山越」を所持していない副将の連鎖確率+2.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 5,
+              "unit": "%",
+              "conditionText": "技能「山越」を所持している副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            },
+            {
+              "timing": "normal",
+              "key": "連鎖確率",
+              "sign": "+",
+              "value": 2.5,
+              "unit": "%",
+              "conditionText": "技能「山越」を所持していない副将",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ],
+          "inferred": true,
+          "inferenceReason": "LvⅠ〜Ⅳの規則性とユーザー指摘「4までしか認識していない技能は全て5まである」に基づく補完"
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 6
+        }
+      ],
+      "confidence": "needs_review",
+      "sourceType": "excel_game_images",
+      "notes": [
+        "LvⅤは画像直接読取ではなく、LvⅠ〜Ⅳの規則性とユーザー指摘に基づき補完。"
+      ]
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "羌剛力",
+      "ethnicGroup": "羌",
+      "triggerSkill": "羌",
+      "triggerMinLevel": 3,
+      "maxLevel": 5,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n●部隊の攻撃+1.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 1.5,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "roman": "Ⅱ",
+          "effectText": "■常に\n●部隊の攻撃+7%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 7,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "roman": "Ⅲ",
+          "effectText": "■常に\n●部隊の攻撃+12%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 12,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "roman": "Ⅳ",
+          "effectText": "■常に\n●部隊の攻撃+18%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 18,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "roman": "Ⅴ",
+          "effectText": "■常に\n●部隊の攻撃+25%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 25,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 7
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "鮮卑剛力",
+      "ethnicGroup": "鮮卑",
+      "triggerSkill": "鮮卑",
+      "triggerMinLevel": 3,
+      "maxLevel": 5,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n●部隊の攻撃+1.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 1.5,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "roman": "Ⅱ",
+          "effectText": "■常に\n●部隊の攻撃+7%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 7,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "roman": "Ⅲ",
+          "effectText": "■常に\n●部隊の攻撃+12%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 12,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "roman": "Ⅳ",
+          "effectText": "■常に\n●部隊の攻撃+18%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 18,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "roman": "Ⅴ",
+          "effectText": "■常に\n●部隊の攻撃+25%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 25,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 8
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "烏桓剛力",
+      "ethnicGroup": "烏桓",
+      "triggerSkill": "烏桓",
+      "triggerMinLevel": 3,
+      "maxLevel": 5,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n●部隊の攻撃+1.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 1.5,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "roman": "Ⅱ",
+          "effectText": "■常に\n●部隊の攻撃+7%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 7,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "roman": "Ⅲ",
+          "effectText": "■常に\n●部隊の攻撃+12%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 12,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "roman": "Ⅳ",
+          "effectText": "■常に\n●部隊の攻撃+18%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 18,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "roman": "Ⅴ",
+          "effectText": "■常に\n●部隊の攻撃+25%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 25,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 9
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "南蛮剛力",
+      "ethnicGroup": "南蛮",
+      "triggerSkill": "南蛮",
+      "triggerMinLevel": 3,
+      "maxLevel": 5,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n●部隊の攻撃+1.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 1.5,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "roman": "Ⅱ",
+          "effectText": "■常に\n●部隊の攻撃+7%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 7,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "roman": "Ⅲ",
+          "effectText": "■常に\n●部隊の攻撃+12%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 12,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "roman": "Ⅳ",
+          "effectText": "■常に\n●部隊の攻撃+18%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 18,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "roman": "Ⅴ",
+          "effectText": "■常に\n●部隊の攻撃+25%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 25,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 10
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "五渓剛力",
+      "ethnicGroup": "五渓蛮",
+      "triggerSkill": "五渓蛮",
+      "triggerMinLevel": 3,
+      "maxLevel": 5,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n●部隊の攻撃+1.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 1.5,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "roman": "Ⅱ",
+          "effectText": "■常に\n●部隊の攻撃+7%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 7,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "roman": "Ⅲ",
+          "effectText": "■常に\n●部隊の攻撃+12%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 12,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "roman": "Ⅳ",
+          "effectText": "■常に\n●部隊の攻撃+18%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 18,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "roman": "Ⅴ",
+          "effectText": "■常に\n●部隊の攻撃+25%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 25,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 11
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "山越剛力",
+      "ethnicGroup": "山越",
+      "triggerSkill": "山越",
+      "triggerMinLevel": 3,
+      "maxLevel": 5,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n●部隊の攻撃+1.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 1.5,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "roman": "Ⅱ",
+          "effectText": "■常に\n●部隊の攻撃+7%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 7,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "roman": "Ⅲ",
+          "effectText": "■常に\n●部隊の攻撃+12%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 12,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "roman": "Ⅳ",
+          "effectText": "■常に\n●部隊の攻撃+18%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 18,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "roman": "Ⅴ",
+          "effectText": "■常に\n●部隊の攻撃+25%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 25,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 12
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "羌敏活",
+      "ethnicGroup": "羌",
+      "triggerSkill": "羌",
+      "triggerMinLevel": 3,
+      "maxLevel": 5,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n●部隊の戦法速度+1%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "戦法速度",
+              "sign": "+",
+              "value": 1,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "roman": "Ⅱ",
+          "effectText": "■常に\n●部隊の戦法速度+4%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "戦法速度",
+              "sign": "+",
+              "value": 4,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "roman": "Ⅲ",
+          "effectText": "■常に\n●部隊の戦法速度+7%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "戦法速度",
+              "sign": "+",
+              "value": 7,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "roman": "Ⅳ",
+          "effectText": "■常に\n●部隊の戦法速度+10%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "戦法速度",
+              "sign": "+",
+              "value": 10,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "roman": "Ⅴ",
+          "effectText": "■常に\n●部隊の戦法速度+15%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "戦法速度",
+              "sign": "+",
+              "value": 15,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 13
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "鮮卑攻城",
+      "ethnicGroup": "鮮卑",
+      "triggerSkill": "鮮卑",
+      "triggerMinLevel": 3,
+      "maxLevel": 5,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n●部隊の対物体攻撃+2%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "対物特効",
+              "sign": "+",
+              "value": 2,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "roman": "Ⅱ",
+          "effectText": "■常に\n●部隊の対物体攻撃+9%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "対物特効",
+              "sign": "+",
+              "value": 9,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "roman": "Ⅲ",
+          "effectText": "■常に\n●部隊の対物体攻撃+15%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "対物特効",
+              "sign": "+",
+              "value": 15,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "roman": "Ⅳ",
+          "effectText": "■常に\n●部隊の対物体攻撃+22%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "対物特効",
+              "sign": "+",
+              "value": 22,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "roman": "Ⅴ",
+          "effectText": "■常に\n●部隊の対物体攻撃+30%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "対物特効",
+              "sign": "+",
+              "value": 30,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 14
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "烏桓神速",
+      "ethnicGroup": "烏桓",
+      "triggerSkill": "烏桓",
+      "triggerMinLevel": 3,
+      "maxLevel": 5,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n●部隊の機動+1.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "機動",
+              "sign": "+",
+              "value": 1.5,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "roman": "Ⅱ",
+          "effectText": "■常に\n●部隊の機動+7%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "機動",
+              "sign": "+",
+              "value": 7,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "roman": "Ⅲ",
+          "effectText": "■常に\n●部隊の機動+12%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "機動",
+              "sign": "+",
+              "value": 12,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "roman": "Ⅳ",
+          "effectText": "■常に\n●部隊の機動+18%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "機動",
+              "sign": "+",
+              "value": 18,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "roman": "Ⅴ",
+          "effectText": "■常に\n●部隊の機動+25%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "機動",
+              "sign": "+",
+              "value": 25,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 15
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "五渓豪傑",
+      "ethnicGroup": "五渓蛮",
+      "triggerSkill": "五渓蛮",
+      "triggerMinLevel": 3,
+      "maxLevel": 5,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n●部隊の会心威力+3.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "会心威力",
+              "sign": "+",
+              "value": 3.5,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "roman": "Ⅱ",
+          "effectText": "■常に\n●部隊の会心威力+15%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "会心威力",
+              "sign": "+",
+              "value": 15,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "roman": "Ⅲ",
+          "effectText": "■常に\n●部隊の会心威力+24%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "会心威力",
+              "sign": "+",
+              "value": 24,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "roman": "Ⅳ",
+          "effectText": "■常に\n●部隊の会心威力+36%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "会心威力",
+              "sign": "+",
+              "value": 36,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "roman": "Ⅴ",
+          "effectText": "■常に\n●部隊の会心威力+50%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "会心威力",
+              "sign": "+",
+              "value": 50,
+              "unit": "%",
+              "conditionText": "常に",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 16
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "南蛮不屈",
+      "ethnicGroup": "南蛮",
+      "triggerSkill": "南蛮",
+      "triggerMinLevel": 3,
+      "maxLevel": 5,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n▼兵力が50%以下のとき\n●部隊の防御+3.5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "防御",
+              "sign": "+",
+              "value": 3.5,
+              "unit": "%",
+              "conditionText": "兵力が50%以下のとき",
+              "conditionType": "hpBelowOrEqual50",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "roman": "Ⅱ",
+          "effectText": "■常に\n▼兵力が50%以下のとき\n●部隊の防御+15%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "防御",
+              "sign": "+",
+              "value": 15,
+              "unit": "%",
+              "conditionText": "兵力が50%以下のとき",
+              "conditionType": "hpBelowOrEqual50",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "roman": "Ⅲ",
+          "effectText": "■常に\n▼兵力が50%以下のとき\n●部隊の防御+24%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "防御",
+              "sign": "+",
+              "value": 24,
+              "unit": "%",
+              "conditionText": "兵力が50%以下のとき",
+              "conditionType": "hpBelowOrEqual50",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "roman": "Ⅳ",
+          "effectText": "■常に\n▼兵力が50%以下のとき\n●部隊の防御+36%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "防御",
+              "sign": "+",
+              "value": 36,
+              "unit": "%",
+              "conditionText": "兵力が50%以下のとき",
+              "conditionType": "hpBelowOrEqual50",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "roman": "Ⅴ",
+          "effectText": "■常に\n▼兵力が50%以下のとき\n●部隊の防御+50%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "防御",
+              "sign": "+",
+              "value": 50,
+              "unit": "%",
+              "conditionText": "兵力が50%以下のとき",
+              "conditionType": "hpBelowOrEqual50",
+              "summaryTarget": "formationStatusRate"
+            }
+          ],
+          "inferred": true,
+          "inferenceReason": "LvⅠ〜Ⅳの規則性とユーザー指摘「4までしか認識していない技能は全て5まである」に基づく補完"
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 17
+        }
+      ],
+      "confidence": "needs_review",
+      "sourceType": "excel_game_images",
+      "notes": [
+        "LvⅤは画像直接読取ではなく、LvⅠ〜Ⅳの規則性とユーザー指摘に基づき補完。"
+      ]
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "山越堅実",
+      "ethnicGroup": "山越",
+      "triggerSkill": "山越",
+      "triggerMinLevel": 3,
+      "maxLevel": 5,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n●攻撃を受けた際、負傷兵として生存する兵数+5%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "負傷兵生存",
+              "sign": "+",
+              "value": 5,
+              "unit": "%",
+              "conditionText": "攻撃を受けた際",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "roman": "Ⅱ",
+          "effectText": "■常に\n●攻撃を受けた際、負傷兵として生存する兵数+14%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "負傷兵生存",
+              "sign": "+",
+              "value": 14,
+              "unit": "%",
+              "conditionText": "攻撃を受けた際",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "roman": "Ⅲ",
+          "effectText": "■常に\n●攻撃を受けた際、負傷兵として生存する兵数+20%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "負傷兵生存",
+              "sign": "+",
+              "value": 20,
+              "unit": "%",
+              "conditionText": "攻撃を受けた際",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "roman": "Ⅳ",
+          "effectText": "■常に\n●攻撃を受けた際、負傷兵として生存する兵数+30%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "負傷兵生存",
+              "sign": "+",
+              "value": 30,
+              "unit": "%",
+              "conditionText": "攻撃を受けた際",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "roman": "Ⅴ",
+          "effectText": "■常に\n●攻撃を受けた際、負傷兵として生存する兵数+50%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "負傷兵生存",
+              "sign": "+",
+              "value": 50,
+              "unit": "%",
+              "conditionText": "攻撃を受けた際",
+              "conditionType": "always",
+              "summaryTarget": "formationStatusRate"
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 18
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "羌堅装",
+      "ethnicGroup": "羌",
+      "triggerSkill": "羌",
+      "triggerMinLevel": 3,
+      "maxLevel": 1,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n●武装「羌弩」「羌鉄車」「羌飛鎚」が受けるダメージを30%軽減\n※軽減効果は他効果と合算、最大95%軽減",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "武装被ダメージ",
+              "sign": "-",
+              "value": 30,
+              "unit": "%",
+              "conditionText": "武装「羌弩」「羌鉄車」「羌飛鎚」が受けるダメージを軽減",
+              "conditionType": "armamentGroup",
+              "summaryTarget": "formationStatusRate",
+              "requiredArmaments": [
+                "羌弩",
+                "羌鉄車",
+                "羌飛鎚"
+              ]
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 19
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "鮮卑堅装",
+      "ethnicGroup": "鮮卑",
+      "triggerSkill": "鮮卑",
+      "triggerMinLevel": 3,
+      "maxLevel": 2,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n●武装「穿透箭」「鮮卑軽弓」「東胡飛弓」が受けるダメージを30%軽減\n※軽減効果は他効果と合算、最大95%軽減",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "武装被ダメージ",
+              "sign": "-",
+              "value": 30,
+              "unit": "%",
+              "conditionText": "武装「穿透箭」「鮮卑軽弓」「東胡飛弓」が受けるダメージを軽減",
+              "conditionType": "armamentGroup",
+              "summaryTarget": "formationStatusRate",
+              "requiredArmaments": [
+                "穿透箭",
+                "鮮卑軽弓",
+                "東胡飛弓"
+              ]
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "roman": "Ⅱ",
+          "effectText": "■常に\n●武装「穿透箭」「鮮卑軽弓」「東胡飛弓」が受けるダメージを40%軽減\n※軽減効果は他効果と合算、最大95%軽減",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "武装被ダメージ",
+              "sign": "-",
+              "value": 40,
+              "unit": "%",
+              "conditionText": "武装「穿透箭」「鮮卑軽弓」「東胡飛弓」が受けるダメージを軽減",
+              "conditionType": "armamentGroup",
+              "summaryTarget": "formationStatusRate",
+              "requiredArmaments": [
+                "穿透箭",
+                "鮮卑軽弓",
+                "東胡飛弓"
+              ]
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 20
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "烏桓堅装",
+      "ethnicGroup": "烏桓",
+      "triggerSkill": "烏桓",
+      "triggerMinLevel": 3,
+      "maxLevel": 2,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n●武装「突騎鞍」「烏桓長槊」「烏桓馬鎧」が受けるダメージを30%軽減\n※軽減効果は他効果と合算、最大95%軽減",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "武装被ダメージ",
+              "sign": "-",
+              "value": 30,
+              "unit": "%",
+              "conditionText": "武装「突騎鞍」「烏桓長槊」「烏桓馬鎧」が受けるダメージを軽減",
+              "conditionType": "armamentGroup",
+              "summaryTarget": "formationStatusRate",
+              "requiredArmaments": [
+                "突騎鞍",
+                "烏桓長槊",
+                "烏桓馬鎧"
+              ]
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "roman": "Ⅱ",
+          "effectText": "■常に\n●武装「突騎鞍」「烏桓長槊」「烏桓馬鎧」が受けるダメージを40%軽減\n※軽減効果は他効果と合算、最大95%軽減",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "武装被ダメージ",
+              "sign": "-",
+              "value": 40,
+              "unit": "%",
+              "conditionText": "武装「突騎鞍」「烏桓長槊」「烏桓馬鎧」が受けるダメージを軽減",
+              "conditionType": "armamentGroup",
+              "summaryTarget": "formationStatusRate",
+              "requiredArmaments": [
+                "突騎鞍",
+                "烏桓長槊",
+                "烏桓馬鎧"
+              ]
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 21
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "南蛮堅装",
+      "ethnicGroup": "南蛮",
+      "triggerSkill": "南蛮",
+      "triggerMinLevel": 3,
+      "maxLevel": 1,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n●武装「藤甲」「戦象鞍」「南蛮羽箭」が受けるダメージを30%軽減\n※軽減効果は他効果と合算、最大95%軽減",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "武装被ダメージ",
+              "sign": "-",
+              "value": 30,
+              "unit": "%",
+              "conditionText": "武装「藤甲」「戦象鞍」「南蛮羽箭」が受けるダメージを軽減",
+              "conditionType": "armamentGroup",
+              "summaryTarget": "formationStatusRate",
+              "requiredArmaments": [
+                "藤甲",
+                "戦象鞍",
+                "南蛮羽箭"
+              ]
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 22
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "五渓堅装",
+      "ethnicGroup": "五渓蛮",
+      "triggerSkill": "五渓蛮",
+      "triggerMinLevel": 3,
+      "maxLevel": 1,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n●武装「五渓鋼斧」「五渓鉄鎚」「五渓骨朶」が受けるダメージを30%軽減\n※軽減効果は他効果と合算、最大95%軽減",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "武装被ダメージ",
+              "sign": "-",
+              "value": 30,
+              "unit": "%",
+              "conditionText": "武装「五渓鋼斧」「五渓鉄鎚」「五渓骨朶」が受けるダメージを軽減",
+              "conditionType": "armamentGroup",
+              "summaryTarget": "formationStatusRate",
+              "requiredArmaments": [
+                "五渓鋼斧",
+                "五渓鉄鎚",
+                "五渓骨朶"
+              ]
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 23
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "山越堅装",
+      "ethnicGroup": "山越",
+      "triggerSkill": "山越",
+      "triggerMinLevel": 3,
+      "maxLevel": 1,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n●武装「山越楯」「山越毒槍」「三尖槍」が受けるダメージを30%軽減\n※軽減効果は他効果と合算、最大95%軽減",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "武装被ダメージ",
+              "sign": "-",
+              "value": 30,
+              "unit": "%",
+              "conditionText": "武装「山越楯」「山越毒槍」「三尖槍」が受けるダメージを軽減",
+              "conditionType": "armamentGroup",
+              "summaryTarget": "formationStatusRate",
+              "requiredArmaments": [
+                "山越楯",
+                "山越毒槍",
+                "三尖槍"
+              ]
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 24
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "鮮卑勢砕",
+      "ethnicGroup": "鮮卑",
+      "triggerSkill": "鮮卑",
+      "triggerMinLevel": 3,
+      "maxLevel": 1,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n▼部隊が武装「穿透箭」「鮮卑軽弓」「東胡飛弓」を編制し健在のとき\n●自部隊の現在兵力に応じて、通常攻撃・戦法による物体への与ダメージが上昇（兵力3000につき1%ずつ上昇。最大10%上昇）（兵力3000未満は切り捨て）",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "対物特効",
+              "sign": "+",
+              "value": 10,
+              "unit": "%",
+              "conditionText": "部隊が武装を編制し健在のとき / 兵力3000につき1%ずつ上昇。最大10%上昇",
+              "conditionType": "armamentEquipped",
+              "summaryTarget": "formationStatusRate",
+              "requiredArmaments": [
+                "穿透箭",
+                "鮮卑軽弓",
+                "東胡飛弓"
+              ]
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 25
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "南蛮堅忍",
+      "ethnicGroup": "南蛮",
+      "triggerSkill": "南蛮",
+      "triggerMinLevel": 3,
+      "maxLevel": 1,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n▼部隊が武装「藤甲」「戦象鞍」「南蛮羽箭」を編制し健在のとき\n●通常攻撃でダメージを受けたとき、次回受ける戦法による被ダメージが2%ずつ累積して軽減（最大-20%）（軽減後、累積値は0になる）",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "戦法被ダメージ",
+              "sign": "-",
+              "value": 20,
+              "unit": "%",
+              "conditionText": "部隊が武装を編制し健在のとき / 次回受ける戦法被ダメージを累積軽減。最大-20%",
+              "conditionType": "armamentEquipped",
+              "summaryTarget": "formationStatusRate",
+              "requiredArmaments": [
+                "藤甲",
+                "戦象鞍",
+                "南蛮羽箭"
+              ]
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 26
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "五渓乱撃",
+      "ethnicGroup": "五渓蛮",
+      "triggerSkill": "五渓蛮",
+      "triggerMinLevel": 3,
+      "maxLevel": 1,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n▼部隊が武装「五渓鋼斧」「五渓鉄鎚」「五渓骨朶」を編制し健在のとき\n●自部隊より低攻撃の部隊に対する通常攻撃による与ダメージ+20%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "通常攻撃与ダメージ",
+              "sign": "+",
+              "value": 20,
+              "unit": "%",
+              "conditionText": "部隊が武装を編制し健在のとき / 自部隊より低攻撃の部隊に対する通常攻撃",
+              "conditionType": "armamentEquipped",
+              "summaryTarget": "formationStatusRate",
+              "requiredArmaments": [
+                "五渓鋼斧",
+                "五渓鉄鎚",
+                "五渓骨朶"
+              ]
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 27
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "山越防護",
+      "ethnicGroup": "山越",
+      "triggerSkill": "山越",
+      "triggerMinLevel": 3,
+      "maxLevel": 1,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n▼部隊が武装「山越楯」「山越毒槍」「三尖槍」を編制し健在のとき\n●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ-20%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "被ダメージ",
+              "sign": "-",
+              "value": 20,
+              "unit": "%",
+              "conditionText": "部隊が武装を編制し健在のとき / 弱化効果が発生している敵部隊から",
+              "conditionType": "armamentEquipped",
+              "summaryTarget": "formationStatusRate",
+              "requiredArmaments": [
+                "山越楯",
+                "山越毒槍",
+                "三尖槍"
+              ]
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 28
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "烏桓先迅",
+      "ethnicGroup": "烏桓",
+      "triggerSkill": "烏桓",
+      "triggerMinLevel": 3,
+      "maxLevel": 1,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n▼部隊が武装「突騎鞍」「烏桓長槊」「烏桓馬鎧」を編制し健在のとき\n●自部隊より低機動の敵部隊からの通常攻撃・戦法による被ダメージ-10%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "被ダメージ",
+              "sign": "-",
+              "value": 10,
+              "unit": "%",
+              "conditionText": "部隊が武装を編制し健在のとき / 自部隊より低機動の敵部隊から",
+              "conditionType": "armamentEquipped",
+              "summaryTarget": "formationStatusRate",
+              "requiredArmaments": [
+                "突騎鞍",
+                "烏桓長槊",
+                "烏桓馬鎧"
+              ]
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 29
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "羌連進",
+      "ethnicGroup": "羌",
+      "triggerSkill": "羌",
+      "triggerMinLevel": 3,
+      "maxLevel": 1,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n▼部隊が武装「羌弩」「羌鉄車」「羌飛鎚」を編制し健在のとき\n●通常攻撃でダメージを与えたとき、自部隊の次回戦法による与ダメージが2%ずつ累積して上昇（最大+20%）（次回戦法発動後、累積値は0になる）",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "戦法攻撃与ダメージ",
+              "sign": "+",
+              "value": 20,
+              "unit": "%",
+              "conditionText": "部隊が武装を編制し健在のとき / 次回戦法による与ダメージを累積上昇。最大+20%",
+              "conditionType": "armamentEquipped",
+              "summaryTarget": "formationStatusRate",
+              "requiredArmaments": [
+                "羌弩",
+                "羌鉄車",
+                "羌飛鎚"
+              ]
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 30
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "鮮卑展装",
+      "ethnicGroup": "鮮卑",
+      "triggerSkill": "鮮卑",
+      "triggerMinLevel": 3,
+      "maxLevel": 1,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n▼部隊が武装「穿透箭」を編制し健在のとき\n●武装「穿透箭」の対物上昇値を10%加算\n▼部隊が武装「鮮卑軽弓」を編制し健在のとき\n●能力弱化効果を20%の確率で避ける（確率は他効果と合算）\n▼部隊が武装「東胡飛弓」を編制し健在のとき\n●駐屯/防衛中、部隊の会心発生+10%\n●駐屯/防衛中、部隊の撃心発生+25%",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "対物特効",
+              "sign": "+",
+              "value": 10,
+              "unit": "%",
+              "conditionText": "部隊が武装「穿透箭」を編制し健在のとき",
+              "conditionType": "armamentEquipped",
+              "summaryTarget": "formationStatusRate",
+              "requiredArmaments": [
+                "穿透箭"
+              ]
+            },
+            {
+              "timing": "normal",
+              "key": "能力弱化回避",
+              "sign": "+",
+              "value": 20,
+              "unit": "%",
+              "conditionText": "部隊が武装「鮮卑軽弓」を編制し健在のとき",
+              "conditionType": "armamentEquipped",
+              "summaryTarget": "formationStatusRate",
+              "requiredArmaments": [
+                "鮮卑軽弓"
+              ]
+            },
+            {
+              "timing": "defense",
+              "key": "会心発生",
+              "sign": "+",
+              "value": 10,
+              "unit": "%",
+              "conditionText": "部隊が武装「東胡飛弓」を編制し健在のとき / 駐屯/防衛中",
+              "conditionType": "armamentEquipped",
+              "summaryTarget": "formationStatusRate",
+              "requiredArmaments": [
+                "東胡飛弓"
+              ]
+            },
+            {
+              "timing": "defense",
+              "key": "撃心発生",
+              "sign": "+",
+              "value": 25,
+              "unit": "%",
+              "conditionText": "部隊が武装「東胡飛弓」を編制し健在のとき / 駐屯/防衛中",
+              "conditionType": "armamentEquipped",
+              "summaryTarget": "formationStatusRate",
+              "requiredArmaments": [
+                "東胡飛弓"
+              ]
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 31
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    },
+    {
+      "category": "異文化調査専用技能",
+      "type": "ethnicResearchSkill",
+      "name": "烏桓展装",
+      "ethnicGroup": "烏桓",
+      "triggerSkill": "烏桓",
+      "triggerMinLevel": 3,
+      "maxLevel": 1,
+      "levels": [
+        {
+          "level": 1,
+          "roman": "Ⅰ",
+          "effectText": "■常に\n▼部隊が武装「突騎鞍」を編制し健在のとき\n●敵部隊に対する会心発生+5%\n▼部隊が武装「烏桓長槊」を編制し健在のとき\n●部隊の防御+1500（編制時点の防御に加算）\n●歩兵部隊から受ける通常攻撃・戦法による被ダメージ-25%\n▼部隊が武装「烏桓馬鎧」を編制し健在のとき\n●部隊の攻撃+750（編制時点の攻撃に加算）",
+          "effects": [
+            {
+              "timing": "normal",
+              "key": "会心発生",
+              "sign": "+",
+              "value": 5,
+              "unit": "%",
+              "conditionText": "部隊が武装「突騎鞍」を編制し健在のとき / 敵部隊に対する",
+              "conditionType": "armamentEquipped",
+              "summaryTarget": "formationStatusRate",
+              "requiredArmaments": [
+                "突騎鞍"
+              ]
+            },
+            {
+              "timing": "normal",
+              "key": "防御",
+              "sign": "+",
+              "value": 1500,
+              "unit": "",
+              "conditionText": "部隊が武装「烏桓長槊」を編制し健在のとき / 編制時点の防御に加算",
+              "conditionType": "armamentEquipped",
+              "summaryTarget": "formationStatusRate",
+              "requiredArmaments": [
+                "烏桓長槊"
+              ]
+            },
+            {
+              "timing": "normal",
+              "key": "被ダメージ",
+              "sign": "-",
+              "value": 25,
+              "unit": "%",
+              "conditionText": "部隊が武装「烏桓長槊」を編制し健在のとき / 歩兵部隊から",
+              "conditionType": "armamentEquipped",
+              "summaryTarget": "formationStatusRate",
+              "requiredArmaments": [
+                "烏桓長槊"
+              ]
+            },
+            {
+              "timing": "normal",
+              "key": "攻撃",
+              "sign": "+",
+              "value": 750,
+              "unit": "",
+              "conditionText": "部隊が武装「烏桓馬鎧」を編制し健在のとき / 編制時点の攻撃に加算",
+              "conditionType": "armamentEquipped",
+              "summaryTarget": "formationStatusRate",
+              "requiredArmaments": [
+                "烏桓馬鎧"
+              ]
+            }
+          ]
+        }
+      ],
+      "sourceImages": [
+        {
+          "sheet": "専用技能",
+          "imageNo": 32
+        }
+      ],
+      "confidence": "confirmed",
+      "sourceType": "excel_game_images"
+    }
+  ]
+}

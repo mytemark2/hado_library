@@ -1,0 +1,306 @@
+{
+  "meta": {
+    "schema": "hadou_five_elements",
+    "version": "1.0.0",
+    "source": "三国志覇道_開発調査_20260509.xlsx 五行シート",
+    "count": 10
+  },
+  "items": [
+    {
+      "name": "木行",
+      "level": "Ⅰ",
+      "requirements": {
+        "wood": 30,
+        "fire": 0,
+        "earth": 0,
+        "metal": 0,
+        "water": 0
+      },
+      "text": "■常に\n●都市外での部隊の獲得経験+20%\n\n▼主将戦法発動後\n●自身1部隊にすでに発生している強化効果のうち、ランダムに1つの効果時間を4秒延長",
+      "parameterEffects": [
+        {
+          "key": "獲得経験",
+          "value": 20,
+          "unit": "%",
+          "sign": "+",
+          "timing": "normal",
+          "rawText": "都市外での部隊の獲得経験+20%"
+        }
+      ],
+      "dynamicEffects": []
+    },
+    {
+      "name": "水生木",
+      "level": "Ⅰ",
+      "requirements": {
+        "wood": 40,
+        "fire": 0,
+        "earth": 0,
+        "metal": 0,
+        "water": 35
+      },
+      "text": "■常に\n●部隊の機動+6%\n●部隊内（主将/副将/補佐）の木行Lv10以上の武将の人数×1%、部隊の攻撃が上昇",
+      "parameterEffects": [
+        {
+          "key": "機動",
+          "value": 6,
+          "unit": "%",
+          "sign": "+",
+          "timing": "normal",
+          "rawText": "部隊の機動+6%"
+        }
+      ],
+      "dynamicEffects": [
+        {
+          "type": "count_members_element_level",
+          "element": "wood",
+          "minLevel": 10,
+          "perMemberValue": 1,
+          "parameterKey": "攻撃",
+          "unit": "%",
+          "timing": "normal"
+        }
+      ]
+    },
+    {
+      "name": "火行",
+      "level": "Ⅰ",
+      "requirements": {
+        "wood": 0,
+        "fire": 30,
+        "earth": 0,
+        "metal": 0,
+        "water": 0
+      },
+      "text": "■常に\n●部隊が受ける火属性のダメージ-5%\n\n▼戦法のダメージを受けて壊滅しなかったとき\n●自身1部隊の戦法ゲージを5%増加",
+      "parameterEffects": [
+        {
+          "key": "火属性耐性",
+          "value": 5,
+          "unit": "%",
+          "sign": "+",
+          "timing": "normal",
+          "rawText": "部隊が受ける火属性のダメージ-5%"
+        },
+        {
+          "key": "戦法ゲージ",
+          "value": 5,
+          "unit": "%",
+          "sign": "+",
+          "timing": "defense",
+          "rawText": "戦法のダメージを受けて壊滅しなかったとき、戦法ゲージを5%増加"
+        }
+      ],
+      "dynamicEffects": []
+    },
+    {
+      "name": "木生火",
+      "level": "Ⅰ",
+      "requirements": {
+        "wood": 35,
+        "fire": 40,
+        "earth": 0,
+        "metal": 0,
+        "water": 0
+      },
+      "text": "■常に\n●部隊の攻撃+6%\n●部隊内（主将/副将/補佐）の火行Lv10以上の武将の人数×1%、部隊の対物体攻撃が上昇",
+      "parameterEffects": [
+        {
+          "key": "攻撃",
+          "value": 6,
+          "unit": "%",
+          "sign": "+",
+          "timing": "normal",
+          "rawText": "部隊の攻撃+6%"
+        }
+      ],
+      "dynamicEffects": [
+        {
+          "type": "count_members_element_level",
+          "element": "fire",
+          "minLevel": 10,
+          "perMemberValue": 1,
+          "parameterKey": "対物特効",
+          "unit": "%",
+          "timing": "normal"
+        }
+      ]
+    },
+    {
+      "name": "土行",
+      "level": "Ⅰ",
+      "requirements": {
+        "wood": 0,
+        "fire": 0,
+        "earth": 30,
+        "metal": 0,
+        "water": 0
+      },
+      "text": "■常に\n●部隊壊滅時の獲得物喪失-10%\n●通常攻撃時に25%の確率で、自身1部隊の弱化効果を1つ打ち消す\n（1度の通常攻撃につき1回発生判定をおこなう。複数部隊に同時攻撃しても発生判定は1回）",
+      "parameterEffects": [
+        {
+          "key": "獲得物喪失",
+          "value": 10,
+          "unit": "%",
+          "sign": "-",
+          "timing": "normal",
+          "rawText": "部隊壊滅時の獲得物喪失-10%"
+        }
+      ],
+      "dynamicEffects": []
+    },
+    {
+      "name": "火生土",
+      "level": "Ⅰ",
+      "requirements": {
+        "wood": 0,
+        "fire": 35,
+        "earth": 40,
+        "metal": 0,
+        "water": 0
+      },
+      "text": "■常に\n●部隊の対物体攻撃+6%\n●部隊内（主将/副将/補佐）の土行Lv10以上の武将の人数×1%、部隊の防御が上昇",
+      "parameterEffects": [
+        {
+          "key": "対物特効",
+          "value": 6,
+          "unit": "%",
+          "sign": "+",
+          "timing": "normal",
+          "rawText": "部隊の対物体攻撃+6%"
+        }
+      ],
+      "dynamicEffects": [
+        {
+          "type": "count_members_element_level",
+          "element": "earth",
+          "minLevel": 10,
+          "perMemberValue": 1,
+          "parameterKey": "防御",
+          "unit": "%",
+          "timing": "normal"
+        }
+      ]
+    },
+    {
+      "name": "金行",
+      "level": "Ⅰ",
+      "requirements": {
+        "wood": 0,
+        "fire": 0,
+        "earth": 0,
+        "metal": 30,
+        "water": 0
+      },
+      "text": "■常に\n●通常攻撃・戦法による被ダメージ-10%\n●都市外での銅銭入手量+5%",
+      "parameterEffects": [
+        {
+          "key": "被ダメージ",
+          "value": 10,
+          "unit": "%",
+          "sign": "-",
+          "timing": "normal",
+          "rawText": "通常攻撃・戦法による被ダメージ-10%"
+        },
+        {
+          "key": "銅銭入手量",
+          "value": 5,
+          "unit": "%",
+          "sign": "+",
+          "timing": "normal",
+          "rawText": "都市外での銅銭入手量+5%"
+        }
+      ],
+      "dynamicEffects": []
+    },
+    {
+      "name": "土生金",
+      "level": "Ⅰ",
+      "requirements": {
+        "wood": 0,
+        "fire": 0,
+        "earth": 35,
+        "metal": 40,
+        "water": 0
+      },
+      "text": "■常に\n●部隊の防御+6%\n●部隊内（主将/副将/補佐）の金行Lv10以上の武将の人数×1%、部隊の知力が上昇",
+      "parameterEffects": [
+        {
+          "key": "防御",
+          "value": 6,
+          "unit": "%",
+          "sign": "+",
+          "timing": "normal",
+          "rawText": "部隊の防御+6%"
+        }
+      ],
+      "dynamicEffects": [
+        {
+          "type": "count_members_element_level",
+          "element": "metal",
+          "minLevel": 10,
+          "perMemberValue": 1,
+          "parameterKey": "知力",
+          "unit": "%",
+          "timing": "normal"
+        }
+      ]
+    },
+    {
+      "name": "水行",
+      "level": "Ⅰ",
+      "requirements": {
+        "wood": 0,
+        "fire": 0,
+        "earth": 0,
+        "metal": 0,
+        "water": 30
+      },
+      "text": "■常に\n●攻撃を受けた際、負傷兵として生存する兵数+10%\n\n▼交戦開始時\n●自身に治癒が発生していない場合、自身1部隊に1%の治癒を20秒付与",
+      "parameterEffects": [
+        {
+          "key": "負傷兵生存",
+          "value": 10,
+          "unit": "%",
+          "sign": "+",
+          "timing": "normal",
+          "rawText": "攻撃を受けた際、負傷兵として生存する兵数+10%"
+        }
+      ],
+      "dynamicEffects": []
+    },
+    {
+      "name": "金生水",
+      "level": "Ⅰ",
+      "requirements": {
+        "wood": 0,
+        "fire": 0,
+        "earth": 0,
+        "metal": 35,
+        "water": 40
+      },
+      "text": "■常に\n●部隊の知力+6%\n●部隊内（主将/副将/補佐）の水行Lv10以上の武将の人数×1%、部隊の機動が上昇",
+      "parameterEffects": [
+        {
+          "key": "知力",
+          "value": 6,
+          "unit": "%",
+          "sign": "+",
+          "timing": "normal",
+          "rawText": "部隊の知力+6%"
+        }
+      ],
+      "dynamicEffects": [
+        {
+          "type": "count_members_element_level",
+          "element": "water",
+          "minLevel": 10,
+          "perMemberValue": 1,
+          "parameterKey": "機動",
+          "unit": "%",
+          "timing": "normal"
+        }
+      ]
+    }
+  ]
+}
