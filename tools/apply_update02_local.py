@@ -9,7 +9,9 @@ def load_items(path):
  for key in ('items','generals','formations','warhorses','warhorse_skills'):
   if isinstance(d.get(key),list): return d[key]
  return []
-def name(v): return str(v.get('displayName') or v.get('name') or v.get('title') or '').strip()
+def name(v):
+ s=str(v.get('displayName') or v.get('name') or v.get('title') or '').strip()
+ return re.sub(r'^【三國志\s*覇道】','',s).strip()
 roles=json.loads((root/'hadou_type_search_role_rules.json').read_text(encoding='utf-8'))
 catmap={'generals':'generals','equipments':'equipments','formations':'formations','siegeWeapons':'siege_weapons','warhorses':'warhorses','warhorseSkills':'warhorse_skills'}
 files={'generals':'hadou_generals.json','equipments':'hadou_equipments.json','formations':'hadou_formations.json','siegeWeapons':'hadou_siege_weapons.json','warhorses':'hadou_warhorses.json','warhorseSkills':'hadou_warhorse_skills.json'}
@@ -27,7 +29,9 @@ for role in roles['items']:
  counts[role['roleId']]=sum(1 for v in items if v['roleId']==role['roleId'])
 role_index={'schemaVersion':'1.0','kind':'type_search_role_index','releaseVersion':VERSION,'crawlerVersion':'1.1.0.0','items':items,'qualityAudit':{'ok':len(roles['items'])==9 and len(items)>0,'roleRuleCount':len(roles['items']),'itemCount':len(items),'roleCounts':counts,'source':'baseline generated from app repository JSON before next browser crawl'}}
 (root/'hadou_type_search_role_index.json').write_text(json.dumps(role_index,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-p=root/'index.html'; s=p.read_text(encoding='utf-8'); base_sha=hashlib.sha256(s.encode()).hexdigest()
+p=root/'index.html'; s=p.read_text(encoding='utf-8')
+report_path=root/'report/HADO_APP_3.0.0.0_UPDATE02_REPORT.json'
+base_sha=(json.loads(report_path.read_text(encoding='utf-8')).get('baseSha256') if report_path.exists() else hashlib.sha256(s.encode()).hexdigest())
 def one(pattern,repl,text,label,flags=0):
  new,n=re.subn(pattern,repl,text,count=1,flags=flags)
  if n!=1: raise SystemExit(f'{label} replacement count={n}')
