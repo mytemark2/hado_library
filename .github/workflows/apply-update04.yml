@@ -1,0 +1,45 @@
+name: Apply app 3.0.0.0 Update04
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - feature/app-3.0.0.0
+    paths:
+      - ".github/workflows/apply-update04.yml"
+      - "src/update04_type_candidates.js"
+      - "tools/apply_update04_1.py"
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/app-3.0.0.0
+      - name: Apply Update04.1 role candidate browser
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/apply_update04_1.py
+          node --check src/update04_type_candidates.js
+          python -m py_compile tools/apply_update04_1.py
+          python -m json.tool HADO_DEV_INFO.json >/dev/null
+          python -m json.tool report/HADO_APP_3.0.0.0_UPDATE04.1_REPORT.json >/dev/null
+          grep -q 'HADO_UPDATE04_START' index.html
+          grep -q 'Update04.1' index.html
+          grep -q '候補表示のみです。自動配置・保存データ変更は行いません。' index.html
+          cmp --silent index.html hado_library_3.0.0.0.html
+      - name: Commit Update04.1
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/update04_type_candidates.js tools/apply_update04_1.py .github/workflows/apply-update04.yml index.html hado_library_3.0.0.0.html HADO_DEV_INFO.json report/HADO_APP_3.0.0.0_UPDATE04.1_REPORT.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "feat: add selected-type role candidate browser for Update04.1"
+          git push origin HEAD:feature/app-3.0.0.0
