@@ -23,6 +23,12 @@ function Items($Json, [string[]]$Keys) {
 function Equal($Actual, $Expected, [string]$Label) {
   if ($Actual -ne $Expected) { throw "$Label が不正です。期待値=$Expected / 実際=$Actual" }
 }
+function Prop($Object, [string]$Name) {
+  if ($null -eq $Object) { return $null }
+  $prop = $Object.PSObject.Properties[$Name]
+  if ($null -eq $prop) { return $null }
+  return $prop.Value
+}
 
 $zipPath = (Resolve-Path -LiteralPath $CrawlerResultZip).Path
 $repo = (Resolve-Path -LiteralPath $RepoPath).Path
@@ -110,13 +116,21 @@ try {
     $derivedRows = @()
     Get-ChildItem -LiteralPath (Join-Path $temp 'data') -File -Filter 'hadou_*.json' | ForEach-Object {
       $obj = ReadJson $_.FullName
-      if ($null -ne $obj.kind) {
+      $kind = Prop $obj 'kind'
+      if ($null -ne $kind) {
+        $dataSetId = Prop $obj 'dataSetId'
+        $crawlerVersion = Prop $obj 'crawlerVersion'
+        $sourceFiles = Prop $obj 'sourceFiles'
+        $sourceSha256 = Prop $obj 'sourceSha256'
+        if ($null -eq $dataSetId -or $null -eq $crawlerVersion -or $null -eq $sourceFiles -or $null -eq $sourceSha256) {
+          throw "派生JSONメタデータが不足しています: $($_.Name)"
+        }
         $derivedRows += [PSCustomObject]@{
           File = $_.Name
-          DataSetId = [string]$obj.dataSetId
-          CrawlerVersion = [string]$obj.crawlerVersion
-          SourceFiles = ($obj.sourceFiles | ConvertTo-Json -Compress -Depth 20)
-          SourceSha256 = ($obj.sourceSha256 | ConvertTo-Json -Compress -Depth 20)
+          DataSetId = [string]$dataSetId
+          CrawlerVersion = [string]$crawlerVersion
+          SourceFiles = ($sourceFiles | ConvertTo-Json -Compress -Depth 20)
+          SourceSha256 = ($sourceSha256 | ConvertTo-Json -Compress -Depth 20)
         }
       }
     }
