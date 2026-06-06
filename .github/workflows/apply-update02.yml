@@ -1,0 +1,42 @@
+name: Apply app 3.0.0.0 Update02
+
+on:
+  push:
+    branches:
+      - feature/app-3.0.0.0
+    paths:
+      - ".github/workflows/apply-update02.yml"
+      - "tools/apply_update02.py"
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/app-3.0.0.0
+      - name: Apply Update02 files
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/apply_update02.py
+          python -m json.tool HADO_DEV_INFO.json >/dev/null
+          python -m json.tool hadou_type_score_rules.json >/dev/null
+          python -m json.tool hadou_type_purpose_rules.json >/dev/null
+          python -m json.tool hadou_type_search_role_rules.json >/dev/null
+          python -m json.tool hadou_type_search_role_index.json >/dev/null
+          grep -q '<title>覇道ライブラリ 3.0.0.0</title>' index.html
+          grep -q 'hado_library_3.0.0.0.html' index.html
+      - name: Commit Update02
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html hado_library_3.0.0.0.html HADO_DEV_INFO.json hadou_type_score_rules.json hadou_type_purpose_rules.json hadou_type_search_role_rules.json hadou_type_search_role_index.json report/HADO_APP_3.0.0.0_UPDATE02_REPORT.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "feat: implement app 3.0.0.0 Update02 type formation JSON foundation"
+          git push origin HEAD:feature/app-3.0.0.0
