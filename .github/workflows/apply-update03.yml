@@ -1,0 +1,83 @@
+name: Apply app 3.0.0.0 Update03
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - feature/app-3.0.0.0
+    paths:
+      - ".github/workflows/apply-update03.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/app-3.0.0.0
+
+      - name: Inject Update03 into HTML
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import base64,gzip,json,re,hashlib
+          start='<!-- HADO_UPDATE03_START -->'
+          end='<!-- HADO_UPDATE03_END -->'
+          js=gzip.decompress(base64.b64decode('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')).decode('utf-8')
+          block=start+'<script>\n'+js+'\n</script>'+end
+          for p in [Path('index.html'),Path('hado_library_3.0.0.0.html')]:
+              if not p.exists():
+                  continue
+              s=p.read_text(encoding='utf-8')
+              s=re.sub(re.escape(start)+r'.*?'+re.escape(end),'',s,flags=re.S)
+              if '</body>' not in s:
+                  raise SystemExit(f'</body> not found: {p}')
+              p.write_text(s.replace('</body>',block+'</body>',1),encoding='utf-8')
+          info=Path('HADO_DEV_INFO.json')
+          data=json.loads(info.read_text(encoding='utf-8'))
+          data.update({
+              'releaseStatus':'development',
+              'releaseVersion':'3.0.0.0',
+              'updateNo':'03',
+              'revision':0,
+              'displayVersion':'3.0.0.0 Update03.0',
+              'summary':'Update03.0: add three type-formation entry flows: main general, purpose, and direct type selection.',
+              'updatedAt':'2026-06-06T00:00:00+09:00'
+          })
+          info.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          report={
+              'version':'3.0.0.0',
+              'update':'Update03.0',
+              'features':['主将から考える','目的から考える','型を直接選ぶ'],
+              'mainGeneralOrder':'crawler JSON sourceIndex ascending',
+              'purposeRuleSource':'hadou_type_purpose_rules.json',
+              'typePresetSource':'hadou_type_search_presets.json',
+              'selectionStorageKey':'hado.typeEntry.selection.v1',
+              'eventName':'hado:type-search-entry-selected',
+              'indexSha256':hashlib.sha256(Path('index.html').read_bytes()).hexdigest()
+          }
+          Path('report').mkdir(exist_ok=True)
+          Path('report/HADO_APP_3.0.0.0_UPDATE03_REPORT.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+          python -m json.tool HADO_DEV_INFO.json >/dev/null
+          python -m json.tool report/HADO_APP_3.0.0.0_UPDATE03_REPORT.json >/dev/null
+          grep -q 'HADO_UPDATE03_START' index.html
+          grep -q '主将から考える' index.html
+          grep -q '目的から考える' index.html
+          grep -q '型を直接選ぶ' index.html
+
+      - name: Commit Update03
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html hado_library_3.0.0.0.html HADO_DEV_INFO.json report/HADO_APP_3.0.0.0_UPDATE03_REPORT.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "feat: add type formation entry navigator for app Update03.0"
+          git push origin HEAD:feature/app-3.0.0.0
