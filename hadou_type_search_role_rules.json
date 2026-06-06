@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0",
+  "kind": "type_search_role_rules",
+  "releaseVersion": "3.0.0.0",
+  "crawlerVersion": "1.1.0.0",
+  "policy": {
+    "scope": "候補提示のみ。組み合わせの自動決定は行わない。",
+    "newFormationPolicy": "型検索から新規部隊を作る場合、evaluationTypeIdへ選択中の型を自動設定する。",
+    "candidateTray": "配置先未確定の候補は部隊単位の候補トレイへ追加する。",
+    "formationGate": "侍従、陣形、兵科、射程、装備重複等の成立判定は既存の部隊編成ゲートを必ず通す。"
+  },
+  "items": [
+    {"roleId":"main_general","label":"主将","sourceCategories":["generals"],"sortKeys":["typeMetricScore","mainSkill","tactic","troopType","tacticInterval"]},
+    {"roleId":"vice_general","label":"副将","sourceCategories":["generals"],"sortKeys":["typeMetricScore","compatibilityWithMain","estimatedChainRate","chainOrder","viceSkill"]},
+    {"roleId":"support_general","label":"補佐","sourceCategories":["generals"],"sortKeys":["typeMetricScore","troopTypeMatch","skillComplement","parameterComplement"]},
+    {"roleId":"attendant","label":"侍従","sourceCategories":["generals"],"sortKeys":["typeMetricScore","appointmentDirection","compatibilityWithTargetLr","tacticGauge","range","resistance"]},
+    {"roleId":"equipment","label":"装備","sourceCategories":["equipments"],"sortKeys":["typeMetricScore","equipmentSlot","activationCondition"]},
+    {"roleId":"formation","label":"陣形","sourceCategories":["formations"],"sortKeys":["typeMetricScore","troopTypeCondition","layout","appointmentCollision"]},
+    {"roleId":"siege_weapon","label":"兵器","sourceCategories":["siegeWeapons"],"sortKeys":["typeMetricScore","purposeMatch"]},
+    {"roleId":"warhorse","label":"名馬","sourceCategories":["warhorses"],"sortKeys":["typeMetricScore","mobility","uniqueSkill","starEffect"]},
+    {"roleId":"warhorse_skill","label":"軍馬技能","sourceCategories":["warhorseSkills"],"sortKeys":["typeMetricScore","troopTypeCondition","activationCondition"]}
+  ],
+  "formationExtensions": {
+    "evaluationTypeId": "部隊編成画面で手動指定可能。型検索から新規作成した場合は自動設定。",
+    "memo": "部隊単位のマイメモ。",
+    "candidateTray": "部隊単位の候補トレイ。",
+    "groups": {"maxGroups":5,"maxFormationsPerGroup":12},
+    "history": {"maxEntriesPerFormation":10,"globalLimit":null,"snapshotOnSave":true,"skipConsecutiveDuplicate":true}
+  }
+}

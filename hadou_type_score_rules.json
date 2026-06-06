@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0",
+  "kind": "type_score_rules",
+  "releaseVersion": "3.0.0.0",
+  "crawlerVersion": "1.1.0.0",
+  "policy": {
+    "metricsPerType": 5,
+    "useWeights": false,
+    "showCompletionRate": false,
+    "scoreSkillLevel": false,
+    "includeTroops": true,
+    "outputs": [
+      "confirmedScore",
+      "conditionalMaxScore"
+    ],
+    "percent": "変化率%をそのまま加算",
+    "nonPercent": "基準増加量に対する比率×100",
+    "presence": "有効100点・無効0点",
+    "comparison": "同一型の改善比較に利用。異なる型同士は単純比較しない。"
+  },
+  "items": [
+    {"typeId":"calm","typeName":"鎮静型","metrics":[{"metricKey":"weakening_nullify","label":"弱化無効","method":"presence_fixed","basis":100},{"metricKey":"weakening_remove","label":"弱化解除","method":"presence_fixed","basis":100},{"metricKey":"strengthening_remove_avoid","label":"強化解除回避","method":"presence_fixed","basis":100},{"metricKey":"strengthening_seize_avoid","label":"強化奪取回避","method":"presence_fixed","basis":100},{"metricKey":"troops","label":"兵力","method":"percent_sum"}]},
+    {"typeId":"zombie","typeName":"ゾンビ型","metrics":[{"metricKey":"troops","label":"兵力","method":"percent_sum"},{"metricKey":"annihilation_avoidance","label":"壊滅回避","method":"presence_fixed","basis":100},{"metricKey":"remaining_troops","label":"残存兵力","method":"percent_sum_or_presence","basis":100},{"metricKey":"wounded_recovery","label":"負傷兵回復","method":"percent_sum_or_presence","basis":100},{"metricKey":"damage_reduction","label":"被ダメージ軽減","method":"percent_sum_or_presence","basis":100}]},
+    {"typeId":"bomb","typeName":"爆弾型","metrics":[{"metricKey":"critical_tactic_rate","label":"撃心発生","method":"percent_sum"},{"metricKey":"critical_tactic_power","label":"撃心威力","method":"percent_sum"},{"metricKey":"tactic_power","label":"戦法威力","method":"percent_sum"},{"metricKey":"anti_object","label":"対物特効","method":"percent_sum"},{"metricKey":"tactic_speed","label":"戦法速度","method":"percent_sum"}]},
+    {"typeId":"critical_tactic","typeName":"撃心型","metrics":[{"metricKey":"critical_tactic_rate","label":"撃心発生","method":"percent_sum"},{"metricKey":"critical_tactic_power","label":"撃心威力","method":"percent_sum"},{"metricKey":"tactic_power","label":"戦法威力","method":"percent_sum"},{"metricKey":"tactic_speed","label":"戦法速度","method":"percent_sum"},{"metricKey":"troops","label":"兵力","method":"percent_sum"}]},
+    {"typeId":"critical_normal","typeName":"会心型","metrics":[{"metricKey":"critical_rate","label":"会心発生","method":"percent_sum"},{"metricKey":"critical_power","label":"会心威力","method":"percent_sum"},{"metricKey":"normal_attack_power","label":"通常攻撃威力","method":"percent_sum"},{"metricKey":"attack_speed","label":"攻撃速度","method":"percent_sum"},{"metricKey":"normal_attack_target_count","label":"通常攻撃対象数","method":"baseline_ratio","basis":{"baselineIncrement":1,"baselinePoints":100}}]},
+    {"typeId":"tactic_speed","typeName":"戦法速度型","metrics":[{"metricKey":"tactic_speed","label":"戦法速度","method":"percent_sum"},{"metricKey":"tactic_reduction","label":"戦法短縮","method":"percent_sum_or_presence","basis":100},{"metricKey":"initial_tactic_gauge","label":"出陣時戦法ゲージ","method":"percent_sum_or_presence","basis":100},{"metricKey":"chain_rate","label":"連鎖率","method":"percent_sum"},{"metricKey":"troops","label":"兵力","method":"percent_sum"}]},
+    {"typeId":"attack_speed","typeName":"攻撃速度型","metrics":[{"metricKey":"attack_speed","label":"攻撃速度","method":"percent_sum"},{"metricKey":"normal_attack_target_count","label":"通常攻撃対象数","method":"baseline_ratio","basis":{"baselineIncrement":1,"baselinePoints":100}},{"metricKey":"normal_attack_power","label":"通常攻撃威力","method":"percent_sum"},{"metricKey":"critical_rate","label":"会心発生","method":"percent_sum"},{"metricKey":"range","label":"射程","method":"baseline_ratio","basis":{"baselineIncrement":0.5,"baselinePoints":100}}]},
+    {"typeId":"normal_attack","typeName":"通常攻撃拡張型","metrics":[{"metricKey":"normal_attack_target_count","label":"通常攻撃対象数","method":"baseline_ratio","basis":{"baselineIncrement":1,"baselinePoints":100}},{"metricKey":"normal_attack_power","label":"通常攻撃威力","method":"percent_sum"},{"metricKey":"attack_speed","label":"攻撃速度","method":"percent_sum"},{"metricKey":"range","label":"射程","method":"baseline_ratio","basis":{"baselineIncrement":0.5,"baselinePoints":100}},{"metricKey":"troops","label":"兵力","method":"percent_sum"}]},
+    {"typeId":"debuff","typeName":"デバフ型","metrics":[{"metricKey":"status_effect_rate","label":"状態変化発生率","method":"percent_sum"},{"metricKey":"tactic_delay","label":"戦法遅延","method":"percent_sum_or_presence","basis":100},{"metricKey":"chain_nullify","label":"連鎖無効","method":"presence_fixed","basis":100},{"metricKey":"enemy_attack_debuff","label":"敵部隊攻撃低下","method":"percent_sum"},{"metricKey":"enemy_defense_debuff","label":"敵部隊防御低下","method":"percent_sum"}]},
+    {"typeId":"anti_object","typeName":"対物型","metrics":[{"metricKey":"anti_object","label":"対物特効","method":"percent_sum"},{"metricKey":"tactic_power","label":"戦法威力","method":"percent_sum"},{"metricKey":"normal_attack_power","label":"通常攻撃威力","method":"percent_sum"},{"metricKey":"attack_speed","label":"攻撃速度","method":"percent_sum"},{"metricKey":"troops","label":"兵力","method":"percent_sum"}]},
+    {"typeId":"annihilation","typeName":"殲滅型","metrics":[{"metricKey":"tactic_power","label":"戦法威力","method":"percent_sum"},{"metricKey":"critical_tactic_power","label":"撃心威力","method":"percent_sum"},{"metricKey":"critical_power","label":"会心威力","method":"percent_sum"},{"metricKey":"attack_speed","label":"攻撃速度","method":"percent_sum"},{"metricKey":"troops","label":"兵力","method":"percent_sum"}]}
+  ]
+}

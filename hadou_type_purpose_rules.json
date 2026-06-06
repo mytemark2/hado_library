@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "kind": "type_purpose_rules",
+  "releaseVersion": "3.0.0.0",
+  "crawlerVersion": "1.1.0.0",
+  "entryFlows": [
+    {"flowId":"from_main_general","label":"主将から考える","policy":"武将はクローラーJSONの現在順序を維持し、新武将順で表示する。主将選択後に推奨目的を上位表示するが、全目的表示へ切替可能。"},
+    {"flowId":"from_purpose","label":"目的から考える","policy":"目的選択後に推奨型を上位表示する。"},
+    {"flowId":"from_type","label":"型を直接選ぶ","policy":"現行型検索と同様に型を直接選択できる。"}
+  ],
+  "items": [
+    {"purposeId":"troop_annihilation","purposeName":"対部隊殲滅","recommendedTypeIds":["annihilation","critical_tactic","critical_normal","attack_speed"]},
+    {"purposeId":"siege_base","purposeName":"攻城・拠点破壊","recommendedTypeIds":["anti_object","bomb","attack_speed","normal_attack"]},
+    {"purposeId":"garrison","purposeName":"駐屯","recommendedTypeIds":["zombie","calm","debuff"]},
+    {"purposeId":"interception","purposeName":"迎撃","recommendedTypeIds":["tactic_speed","debuff","attack_speed"]},
+    {"purposeId":"support","purposeName":"支援","recommendedTypeIds":["calm","debuff","tactic_speed"]},
+    {"purposeId":"counter","purposeName":"対策部隊","recommendedTypeIds":["calm","debuff","zombie"]}
+  ]
+}

@@ -6,7 +6,10 @@ on:
       - feature/app-3.0.0.0
     paths:
       - ".github/workflows/apply-update02.yml"
-      - "tools/apply_update02.py"
+      - "tools/apply_update02_local.py"
+      - "hadou_type_score_rules.json"
+      - "hadou_type_purpose_rules.json"
+      - "hadou_type_search_role_rules.json"
 
 permissions:
   contents: write
@@ -22,7 +25,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python tools/apply_update02.py
+          python tools/apply_update02_local.py
           python -m json.tool HADO_DEV_INFO.json >/dev/null
           python -m json.tool hadou_type_score_rules.json >/dev/null
           python -m json.tool hadou_type_purpose_rules.json >/dev/null
