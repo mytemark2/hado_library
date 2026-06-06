@@ -1,0 +1,21 @@
+{
+  "version": "3.0.0.0",
+  "update": "Update03.2",
+  "scoreLabel": "主将参考適合度",
+  "scoreScale": "0-10",
+  "scoreFormula": "matched fixed metrics / 5 * 10; each fixed metric = 2 points",
+  "purposeFormula": "maximum type score among recommended types for the purpose",
+  "inflationPrevention": [
+    "do not add points from candidate count",
+    "do not add points from broad feature count",
+    "use only five fixed metrics declared for each type",
+    "cap each type score at 10"
+  ],
+  "ui": [
+    "display score as x/10",
+    "display matched fixed metric count as x/5",
+    "display matched metric labels",
+    "preserve responsive layout and main-general reselection"
+  ],
+  "indexSha256": "2217eee3a7888bce465ca18eaab83e0b1574ba2642fcec590479e8528479d896"
+}
