@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-06-05T22:32:32.507+09:00",
-  "dataSetId": "2026-06-05T02:45:08Z",
-  "crawlerVersion": "1.0.5.23",
+  "generatedAt": "2026-06-06T09:16:01.325Z",
+  "dataSetId": "2026-06-05T12:46:30.581Z",
+  "crawlerVersion": "1.1.0.0",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
     "hadou_generals.json",
@@ -92,13 +92,13 @@
       "annihilation"
     ],
     "importanceCounts": {
-      "core": 12,
-      "recommended": 16,
-      "support": 8
+      "core": 10,
+      "recommended": 17,
+      "support": 9
     },
     "rawConditionCount": 71,
     "canonicalConditionCount": 36,
-    "policy": "1.0.5.23 / 2.9.6.0: 型プリセットは条件別の中核・推奨・補助をJSON正本として保持する。攻撃速度型を追加し、通常攻撃型を通常攻撃拡張型へ改名する。"
+    "policy": "1.0.5.19 / 2.9.3.0: 型プリセットは条件別の中核・推奨・補助をJSON正本として保持し、アプリ側は推測せず表示・順位付けへ利用する。"
   },
   "items": [
     {

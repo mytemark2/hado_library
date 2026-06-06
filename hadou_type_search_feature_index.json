@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-06-05T22:32:32.507+09:00",
-  "dataSetId": "2026-06-05T02:45:08Z",
-  "crawlerVersion": "1.0.5.23",
+  "generatedAt": "2026-06-06T09:16:01.325Z",
+  "dataSetId": "2026-06-05T12:46:30.581Z",
+  "crawlerVersion": "1.1.0.0",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
     "hadou_generals.json",
@@ -258,7 +258,7 @@
       "warhorseSkills": 27
     },
     "itemsWithAnyFeature": 649,
-    "statusEffectReferenceCount": 2991,
+    "statusEffectReferenceCount": 2953,
     "typeFeatureReferenceCount": 1738,
     "featureCounts": {
       "parameter:critical_rate": 108,
@@ -361,7 +361,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "知力を150％"
+          "matchedText": "知力+7%"
         },
         {
           "featureId": "status_effect:攻撃変化(弱化)",
@@ -1744,18 +1744,6 @@
           "matchedText": "攻撃を150％"
         },
         {
-          "featureId": "status_effect:機動変化(強化)",
-          "label": "機動変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "機動変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "機動を50％"
-        },
-        {
           "featureId": "status_effect:機動変化(弱化)",
           "label": "機動変化(弱化)",
           "featureType": "statusEffect",
@@ -1842,7 +1830,7 @@
           "matchedText": "技能を持つ武将が主将の場合は副将の連鎖確率を、自身または袁紹の相性のうち有利な方で求める"
         }
       ],
-      "statusEffectRefCount": 12,
+      "statusEffectRefCount": 11,
       "typeFeatureCount": 6
     },
     {
@@ -2436,18 +2424,6 @@
           "matchedText": "攻撃速度が上昇▼部隊撃破時 ●自身1"
         },
         {
-          "featureId": "status_effect:戦法速度変化(強化)",
-          "label": "戦法速度変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "戦法速度変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "戦法速度を5％"
-        },
-        {
           "featureId": "status_effect:戦法速度変化(弱化)",
           "label": "戦法速度変化(弱化)",
           "featureType": "statusEffect",
@@ -2670,7 +2646,7 @@
           "matchedText": "最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 広25％早い励神奮励の追加効果追加効果対象範囲継続憤怒自分 / 単10秒副将の連鎖確率が10％上昇さらに通常攻撃時に50％の確率で、自身1部隊に1度の絶縁を10秒付与（1度の通常攻撃につき1回確率判定を行う"
         }
       ],
-      "statusEffectRefCount": 15,
+      "statusEffectRefCount": 14,
       "typeFeatureCount": 8
     },
     {
@@ -3692,7 +3668,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "防御を100％"
+          "matchedText": "防御が上昇する不退味方 / 中20"
         },
         {
           "featureId": "status_effect:防御変化(弱化)",
@@ -4668,7 +4644,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "知力を150％"
+          "matchedText": "知力が上昇する弱化反射自分 / 単15"
         },
         {
           "featureId": "status_effect:知力変化(弱化)",
@@ -5941,7 +5917,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を無効化する弱化無効自分 / 単15"
+          "matchedText": "攻撃+2%"
         },
         {
           "featureId": "status_effect:攻撃無効",
@@ -6597,7 +6573,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "防御を150％"
+          "matchedText": "防御が上昇する撃心威力変化自分 / 単10"
         },
         {
           "featureId": "status_effect:防御変化(弱化)",
@@ -8442,18 +8418,6 @@
           "matchedText": "撃心威力を効果量分上昇攻撃変化自分 / 単10"
         },
         {
-          "featureId": "status_effect:対物特効変化(強化)",
-          "label": "対物特効変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "対物特効変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "対物特効を100％"
-        },
-        {
           "featureId": "status_effect:攻撃変化(強化)",
           "label": "攻撃変化(強化)",
           "featureType": "statusEffect",
@@ -8572,7 +8536,7 @@
           "matchedText": "敵部隊の主将と曹操の相性が良い場合、その敵部隊から受ける弱化効果と戦法遅延を避ける"
         }
       ],
-      "statusEffectRefCount": 9,
+      "statusEffectRefCount": 8,
       "typeFeatureCount": 7
     },
     {
@@ -8615,18 +8579,6 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "与ダメージを上昇（兵力2000"
-        },
-        {
-          "featureId": "status_effect:被ダメージ変化(弱化)",
-          "label": "被ダメージ変化(弱化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "被ダメージ変化(弱化)",
-          "groupKey": "enemyAbilityDebuff",
-          "groupLabel": "敵部隊能力低下",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "被ダメージを5％"
         },
         {
           "featureId": "status_effect:攻撃変化(強化)",
@@ -8727,7 +8679,7 @@
           "matchedText": "兵科相性が有利な敵からの戦法による被ダメージを5％軽減 →この技能を持つ武将の将星ランクに応じて、さらに3％ずつ軽減"
         }
       ],
-      "statusEffectRefCount": 8,
+      "statusEffectRefCount": 7,
       "typeFeatureCount": 6
     },
     {
@@ -9051,7 +9003,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "防御を100％"
+          "matchedText": "防御が上昇する毒﨧敵 / 広15"
         },
         {
           "featureId": "status_effect:防御変化(弱化)",
@@ -9481,7 +9433,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "知力を100％"
+          "matchedText": "知力が上昇する戦法威力変化自分 / 単10"
         },
         {
           "featureId": "status_effect:知力変化(弱化)",
@@ -9890,18 +9842,6 @@
           "matchedText": "被ダメージ₋20%"
         },
         {
-          "featureId": "status_effect:攻撃変化(強化)",
-          "label": "攻撃変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "攻撃変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を無効化する防御変化自分 / 単15"
-        },
-        {
           "featureId": "status_effect:防御変化(強化)",
           "label": "防御変化(強化)",
           "featureType": "statusEffect",
@@ -10000,7 +9940,7 @@
           "matchedText": "副将の連鎖確率+2%"
         }
       ],
-      "statusEffectRefCount": 7,
+      "statusEffectRefCount": 6,
       "typeFeatureCount": 6
     },
     {
@@ -10376,18 +10316,6 @@
           "matchedText": "与ダメージ+30%"
         },
         {
-          "featureId": "status_effect:被ダメージ変化(強化)",
-          "label": "被ダメージ変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "被ダメージ変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "被ダメージが低下する 徳威大振 兵科効果系統攻撃属性なし知力なし効果自身を含む味方3"
-        },
-        {
           "featureId": "status_effect:攻撃変化(強化)",
           "label": "攻撃変化(強化)",
           "featureType": "statusEffect",
@@ -10558,7 +10486,7 @@
           "matchedText": "技能で士気奪取と戦法遅延を避ける 技能「恩信」の効果で、自部隊にかかる士気奪取と戦法遅延を避けられる"
         }
       ],
-      "statusEffectRefCount": 12,
+      "statusEffectRefCount": 11,
       "typeFeatureCount": 9
     },
     {
@@ -11084,18 +11012,6 @@
           "matchedText": "対物特効と攻撃速度を50％"
         },
         {
-          "featureId": "status_effect:攻撃変化(強化)",
-          "label": "攻撃変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "攻撃変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を無効化する会心発生変化味方 / 広10"
-        },
-        {
           "featureId": "status_effect:攻撃無効",
           "label": "攻撃無効",
           "featureType": "statusEffect",
@@ -11182,7 +11098,7 @@
           "matchedText": "副将の連鎖確率+2%"
         }
       ],
-      "statusEffectRefCount": 6,
+      "statusEffectRefCount": 5,
       "typeFeatureCount": 9
     },
     {
@@ -11394,18 +11310,6 @@
           "matchedText": "知力が低下する防御変化敵 / 広10"
         },
         {
-          "featureId": "status_effect:命中変化(強化)",
-          "label": "命中変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "命中変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "命中を30％"
-        },
-        {
           "featureId": "status_effect:命中変化(弱化)",
           "label": "命中変化(弱化)",
           "featureType": "statusEffect",
@@ -11460,7 +11364,7 @@
           "matchedText": "兵科相性が不利な敵部隊に対する与ダメージ+15%、被ダメージ-15%地公2"
         }
       ],
-      "statusEffectRefCount": 8,
+      "statusEffectRefCount": 7,
       "typeFeatureCount": 2
     },
     {
@@ -12046,18 +11950,6 @@
           "matchedText": "攻撃を200％"
         },
         {
-          "featureId": "status_effect:防御変化(強化)",
-          "label": "防御変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "防御変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "防御を50％"
-        },
-        {
           "featureId": "status_effect:防御変化(弱化)",
           "label": "防御変化(弱化)",
           "featureType": "statusEffect",
@@ -12232,7 +12124,7 @@
           "matchedText": "副将の歩兵の連鎖確率+1%咬牙2"
         }
       ],
-      "statusEffectRefCount": 14,
+      "statusEffectRefCount": 13,
       "typeFeatureCount": 8
     },
     {
@@ -12949,18 +12841,6 @@
           "matchedText": "攻撃が低下する知力変化敵 / 広15"
         },
         {
-          "featureId": "status_effect:知力変化(強化)",
-          "label": "知力変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "知力変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "知力を50％"
-        },
-        {
           "featureId": "status_effect:知力変化(弱化)",
           "label": "知力変化(弱化)",
           "featureType": "statusEffect",
@@ -13039,7 +12919,7 @@
           "matchedText": "副将の連鎖確率+0.5%詭道2"
         }
       ],
-      "statusEffectRefCount": 10,
+      "statusEffectRefCount": 9,
       "typeFeatureCount": 2
     },
     {
@@ -13685,18 +13565,6 @@
           "matchedText": "与ダメージが2％"
         },
         {
-          "featureId": "status_effect:防御変化(強化)",
-          "label": "防御変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "防御変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "防御を25％"
-        },
-        {
           "featureId": "status_effect:防御変化(弱化)",
           "label": "防御変化(弱化)",
           "featureType": "statusEffect",
@@ -13707,6 +13575,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "防御が低下する恐怖敵 / 中10"
+        },
+        {
+          "featureId": "status_effect:防御変化(強化)",
+          "label": "防御変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "防御変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "防御が上昇▼この技能を持つ武将が戦法を発動した時 ●自身1"
         },
         {
           "featureId": "status_effect:恐怖",
@@ -13931,18 +13811,6 @@
           "matchedText": "与ダメージ+2%"
         },
         {
-          "featureId": "status_effect:知力変化(強化)",
-          "label": "知力変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "知力変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "知力を100％"
-        },
-        {
           "featureId": "status_effect:知力変化(弱化)",
           "label": "知力変化(弱化)",
           "featureType": "statusEffect",
@@ -13953,6 +13821,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "知力が低下する乱炎敵 / 中30"
+        },
+        {
+          "featureId": "status_effect:知力変化(強化)",
+          "label": "知力変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "知力変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "知力+35%"
         },
         {
           "featureId": "status_effect:強化無効",
@@ -14356,18 +14236,6 @@
           "matchedText": "被ダメージ−15％"
         },
         {
-          "featureId": "status_effect:知力変化(強化)",
-          "label": "知力変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "知力変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "知力を150％"
-        },
-        {
           "featureId": "status_effect:知力変化(弱化)",
           "label": "知力変化(弱化)",
           "featureType": "statusEffect",
@@ -14414,6 +14282,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-status-grant",
           "matchedText": "疑心"
+        },
+        {
+          "featureId": "status_effect:知力変化(強化)",
+          "label": "知力変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "知力変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "direct-ability-variation-row",
+          "matchedText": "知力変化 / 自分 / 単 10秒"
         }
       ],
       "typeFeatures": [
@@ -15075,18 +14955,6 @@
           "matchedText": "攻撃が低下する知力変化敵 / 中15"
         },
         {
-          "featureId": "status_effect:知力変化(強化)",
-          "label": "知力変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "知力変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "知力を50％"
-        },
-        {
           "featureId": "status_effect:知力変化(弱化)",
           "label": "知力変化(弱化)",
           "featureType": "statusEffect",
@@ -15097,6 +14965,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "知力が低下する封撃敵 / 中20"
+        },
+        {
+          "featureId": "status_effect:知力変化(強化)",
+          "label": "知力変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "知力変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "知力+7%"
         },
         {
           "featureId": "status_effect:強化無効",
@@ -15211,7 +15091,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "防御を100％"
+          "matchedText": "防御が上昇する防御変化敵 / 中10"
         },
         {
           "featureId": "status_effect:防御変化(弱化)",
@@ -15325,18 +15205,6 @@
           "matchedText": "与ダメージ+5%"
         },
         {
-          "featureId": "status_effect:被ダメージ変化(強化)",
-          "label": "被ダメージ変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "被ダメージ変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "被ダメージが減少（将星ランク1"
-        },
-        {
           "featureId": "status_effect:防御変化(強化)",
           "label": "防御変化(強化)",
           "featureType": "statusEffect",
@@ -15427,7 +15295,7 @@
           "matchedText": "この技能を持つ武将の将星ランクに応じて、自部隊より低知力の敵部隊からの戦法による被ダメージが減少（将星ランク1につき5%減少）警戒2"
         }
       ],
-      "statusEffectRefCount": 8,
+      "statusEffectRefCount": 7,
       "typeFeatureCount": 5
     },
     {
@@ -15803,7 +15671,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "知力を150％"
+          "matchedText": "知力が上昇する知力変化敵 / 広10"
         },
         {
           "featureId": "status_effect:知力変化(弱化)",
@@ -15949,18 +15817,6 @@
           "matchedText": "被ダメージを効果量分軽減防御変化自分 / 単10"
         },
         {
-          "featureId": "status_effect:攻撃変化(強化)",
-          "label": "攻撃変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "攻撃変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を50%"
-        },
-        {
           "featureId": "status_effect:防御変化(強化)",
           "label": "防御変化(強化)",
           "featureType": "statusEffect",
@@ -16075,7 +15931,7 @@
           "matchedText": "15%減少）さらに350%の攻撃（自部隊の主将とこの武将が好相性の際、威力が100%上昇）発動間隔対象範囲発動率連鎖順20秒敵 / 中25%普通奮力制敵の追加効果追加効果対象範囲継続窮策自分 / 単15秒自部隊の現在兵力が50％以下の時、部隊の与ダメージを効果量分上昇、被ダメージを効果量分軽減防御変化自分 / 単10秒部隊の防御が上昇する攻撃変化敵 / 中1…"
         }
       ],
-      "statusEffectRefCount": 8,
+      "statusEffectRefCount": 7,
       "typeFeatureCount": 5
     },
     {
@@ -16129,7 +15985,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "知力を50％"
+          "matchedText": "知力+1％"
         },
         {
           "featureId": "status_effect:深恐",
@@ -16502,18 +16358,6 @@
           "matchedText": "与ダメージが上昇（知力500"
         },
         {
-          "featureId": "status_effect:被ダメージ変化(強化)",
-          "label": "被ダメージ変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "被ダメージ変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "被ダメージが低下する防御変化自分 / 単10"
-        },
-        {
           "featureId": "status_effect:防御変化(強化)",
           "label": "防御変化(強化)",
           "featureType": "statusEffect",
@@ -16596,7 +16440,7 @@
           "matchedText": "部隊内（主将/副将/補佐）の自身と好相性の武将数に応じて副将の連鎖確率を上昇（好相性の武将1人につき1％ずつ上昇"
         }
       ],
-      "statusEffectRefCount": 7,
+      "statusEffectRefCount": 6,
       "typeFeatureCount": 4
     },
     {
@@ -16959,18 +16803,6 @@
           "matchedText": "被ダメージが上昇する不利消沈敵 / 中15"
         },
         {
-          "featureId": "status_effect:攻撃変化(強化)",
-          "label": "攻撃変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "攻撃変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を50%"
-        },
-        {
           "featureId": "status_effect:攻撃変化(弱化)",
           "label": "攻撃変化(弱化)",
           "featureType": "statusEffect",
@@ -17113,7 +16945,7 @@
           "matchedText": "UR虞翻の戦法 狂直尽言兵科効果系統攻撃属性なし回復なし効果自身を含む味方3部隊に15%の会心耐性を付与（この技能を持つ武将の将星ランクに応じて、会心耐性の効果量が5%ずつ上昇）対象を含む敵3部隊の攻撃を50%低下させて、15%の不利脆弱と不利消沈を付与自身1部隊の負傷兵を最大兵力の10%回復発動間隔対象範囲発動率連鎖順20秒自分 / 単25%早い狂直尽言の…"
         }
       ],
-      "statusEffectRefCount": 14,
+      "statusEffectRefCount": 13,
       "typeFeatureCount": 7
     },
     {
@@ -17861,18 +17693,6 @@
       "name": "LR藺相如（りんしょうじょ）",
       "statusEffectRefs": [
         {
-          "featureId": "status_effect:戦法速度変化(強化)",
-          "label": "戦法速度変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "戦法速度変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "戦法速度）を避ける■主将か、副将で主将と自身が好相性の際▼交戦開始時 ●自身1"
-        },
-        {
           "featureId": "status_effect:対物特効変化(強化)",
           "label": "対物特効変化(強化)",
           "featureType": "statusEffect",
@@ -18087,7 +17907,7 @@
           "matchedText": "LR藺相如の戦法 怒髪衝天兵科効果系統攻撃属性なしなしなし効果自身を含む味方4部隊の弱化効果を2つ打ち消して完璧を付与自身1部隊を全ての兵科と物体に対して有利にして対物特効を150%上昇（自部隊の主将とこの武将が好相性の際、対物特効上昇の効果量が2倍になる）対象を含む敵3部隊に1度の戦法弱化を付与発動間隔対象範囲発動率連鎖順20秒- / -25%早い怒髪衝天…"
         }
       ],
-      "statusEffectRefCount": 14,
+      "statusEffectRefCount": 13,
       "typeFeatureCount": 7
     },
     {
@@ -20065,7 +19885,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "知力を150%"
+          "matchedText": "知力が上昇する攻撃変化敵 / 特殊15"
         },
         {
           "featureId": "status_effect:知力変化(弱化)",
@@ -21376,7 +21196,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃速度を100%"
+          "matchedText": "攻撃速度変化自分 / 単15"
         },
         {
           "featureId": "status_effect:攻撃速度変化(弱化)",
@@ -21401,18 +21221,6 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "与ダメージ+15%"
-        },
-        {
-          "featureId": "status_effect:被ダメージ変化(強化)",
-          "label": "被ダメージ変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "被ダメージ変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "被ダメージが低下する歩兵特効自分 / 単15"
         },
         {
           "featureId": "status_effect:防御変化(強化)",
@@ -21457,7 +21265,7 @@
           "matchedText": "UR丁奉の戦法 臨陣勇決兵科効果系統攻撃属性なしなしなし効果自身1部隊に15%の有利巧守を付与（この武将の将星ランクに応じて効果量が5%ずつ上昇）さらに歩兵相性を良くして防御と攻撃速度を100%上昇（自部隊の主将とこの武将が好相性の際、上記効果の味方対象部隊数+2）発動間隔対象範囲発動率連鎖順20秒- / -25%早い臨陣勇決の追加効果追加効果対象範囲継続有…"
         }
       ],
-      "statusEffectRefCount": 6,
+      "statusEffectRefCount": 5,
       "typeFeatureCount": 2
     },
     {
@@ -21642,7 +21450,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "戦法速度を5%"
+          "matchedText": "戦法速度変化敵 / 中10"
         },
         {
           "featureId": "status_effect:会心威力変化(強化)",
@@ -21841,7 +21649,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "戦法威力を50%"
+          "matchedText": "戦法威力変化敵 / 広10"
         },
         {
           "featureId": "status_effect:戦法威力変化(弱化)",
@@ -22342,18 +22150,6 @@
       "name": "UR程昱（ていいく）",
       "statusEffectRefs": [
         {
-          "featureId": "status_effect:戦法速度変化(強化)",
-          "label": "戦法速度変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "戦法速度変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "戦法速度を25%"
-        },
-        {
           "featureId": "status_effect:戦法速度変化(弱化)",
           "label": "戦法速度変化(弱化)",
           "featureType": "statusEffect",
@@ -22364,6 +22160,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "戦法速度低下の効果量が5%"
+        },
+        {
+          "featureId": "status_effect:戦法速度変化(強化)",
+          "label": "戦法速度変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "戦法速度変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "戦法速度変化敵 / 広15"
         },
         {
           "featureId": "status_effect:攻撃変化(弱化)",
@@ -22847,18 +22655,6 @@
           "matchedText": "攻撃速度+15%"
         },
         {
-          "featureId": "status_effect:戦法速度変化(強化)",
-          "label": "戦法速度変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "戦法速度変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "戦法速度の弱化効果を避ける ※将星ランク7"
-        },
-        {
           "featureId": "status_effect:被ダメージ変化(強化)",
           "label": "被ダメージ変化(強化)",
           "featureType": "statusEffect",
@@ -22883,18 +22679,6 @@
           "matchedText": "攻撃+25%"
         },
         {
-          "featureId": "status_effect:防御変化(強化)",
-          "label": "防御変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "防御変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "防御を50%"
-        },
-        {
           "featureId": "status_effect:防御変化(弱化)",
           "label": "防御変化(弱化)",
           "featureType": "statusEffect",
@@ -22905,6 +22689,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "防御が低下する 勇毅振天 兵科効果系統攻撃属性弓兵物理なし効果自身1"
+        },
+        {
+          "featureId": "status_effect:防御変化(強化)",
+          "label": "防御変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "防御変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "防御+25%"
         },
         {
           "featureId": "status_effect:練守",
@@ -22985,7 +22781,7 @@
           "matchedText": "副将の連鎖確率+0.5%窮追2"
         }
       ],
-      "statusEffectRefCount": 10,
+      "statusEffectRefCount": 9,
       "typeFeatureCount": 5
     },
     {
@@ -22993,18 +22789,6 @@
       "categoryLabel": "武将",
       "name": "UR曹叡（そうえい）",
       "statusEffectRefs": [
-        {
-          "featureId": "status_effect:戦法速度変化(強化)",
-          "label": "戦法速度変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "戦法速度変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "戦法速度を15%"
-        },
         {
           "featureId": "status_effect:戦法速度変化(弱化)",
           "label": "戦法速度変化(弱化)",
@@ -23018,16 +22802,16 @@
           "matchedText": "戦法速度低下の効果量が5%"
         },
         {
-          "featureId": "status_effect:対物特効変化(強化)",
-          "label": "対物特効変化(強化)",
+          "featureId": "status_effect:戦法速度変化(強化)",
+          "label": "戦法速度変化(強化)",
           "featureType": "statusEffect",
-          "statusEffectName": "対物特効変化(強化)",
+          "statusEffectName": "戦法速度変化(強化)",
           "groupKey": "selfAbilityBuff",
           "groupLabel": "自部隊能力強化",
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "対物特効、戦法速度を15%"
+          "matchedText": "戦法速度変化敵 / 中10"
         },
         {
           "featureId": "status_effect:対物特効変化(弱化)",
@@ -23108,7 +22892,7 @@
           "matchedText": "妨害性能に優れる騎兵武将 UR曹叡は戦法で敵3部隊の知力、対物特効、戦法威力を低下させる"
         }
       ],
-      "statusEffectRefCount": 8,
+      "statusEffectRefCount": 7,
       "typeFeatureCount": 2
     },
     {
@@ -23897,7 +23681,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "知力を75%"
+          "matchedText": "知力が上昇する戦法威力変化味方 / 中10"
         },
         {
           "featureId": "status_effect:知力変化(弱化)",
@@ -24071,18 +23855,6 @@
           "matchedText": "防御が低下する機動変化敵 / 中10"
         },
         {
-          "featureId": "status_effect:機動変化(強化)",
-          "label": "機動変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "機動変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "機動を25%"
-        },
-        {
           "featureId": "status_effect:機動変化(弱化)",
           "label": "機動変化(弱化)",
           "featureType": "statusEffect",
@@ -24133,7 +23905,7 @@
           "matchedText": "技能を持つ武将が主将の場合は副将の連鎖確率を、自身または劉備の相性のうち有利な方で求める"
         }
       ],
-      "statusEffectRefCount": 5,
+      "statusEffectRefCount": 4,
       "typeFeatureCount": 3
     },
     {
@@ -25319,18 +25091,6 @@
           "matchedText": "被ダメージ-2%"
         },
         {
-          "featureId": "status_effect:機動変化(強化)",
-          "label": "機動変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "機動変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "機動を50%"
-        },
-        {
           "featureId": "status_effect:機動変化(弱化)",
           "label": "機動変化(弱化)",
           "featureType": "statusEffect",
@@ -25341,6 +25101,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "機動が減少する 妙才射穿 兵科効果系統攻撃属性弓兵物理なし効果自身1"
+        },
+        {
+          "featureId": "status_effect:機動変化(強化)",
+          "label": "機動変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "機動変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "機動+20%"
         },
         {
           "featureId": "status_effect:瞬影",
@@ -25650,7 +25422,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "防御を100%"
+          "matchedText": "防御が上昇する戦法威力変化自分 / 単10"
         },
         {
           "featureId": "status_effect:防御変化(弱化)",
@@ -26218,7 +25990,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "防御を50%"
+          "matchedText": "防御が上昇する戦法威力変化味方 / 中10"
         },
         {
           "featureId": "status_effect:防御変化(弱化)",
@@ -26317,7 +26089,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "知力を50%"
+          "matchedText": "知力が上昇する対物特効変化味方 / 中10"
         },
         {
           "featureId": "status_effect:知力変化(弱化)",
@@ -26694,18 +26466,6 @@
       "name": "UR文鴦（ぶんおう）",
       "statusEffectRefs": [
         {
-          "featureId": "status_effect:戦法威力変化(強化)",
-          "label": "戦法威力変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "戦法威力変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "戦法威力を5%"
-        },
-        {
           "featureId": "status_effect:戦法威力変化(弱化)",
           "label": "戦法威力変化(弱化)",
           "featureType": "statusEffect",
@@ -26716,6 +26476,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "戦法威力低下付与自分 / 単10"
+        },
+        {
+          "featureId": "status_effect:戦法威力変化(強化)",
+          "label": "戦法威力変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "戦法威力変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "戦法威力変化敵 / 中10"
         },
         {
           "featureId": "status_effect:攻撃速度変化(強化)",
@@ -27270,18 +27042,6 @@
           "matchedText": "攻撃が低下する知力変化敵 / 中10"
         },
         {
-          "featureId": "status_effect:知力変化(強化)",
-          "label": "知力変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "知力変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "知力を30%"
-        },
-        {
           "featureId": "status_effect:知力変化(弱化)",
           "label": "知力変化(弱化)",
           "featureType": "statusEffect",
@@ -27292,6 +27052,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "知力が低下する恐怖敵 / 中10"
+        },
+        {
+          "featureId": "status_effect:知力変化(強化)",
+          "label": "知力変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "知力変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "知力+9%"
         },
         {
           "featureId": "status_effect:恐怖",
@@ -27485,7 +27257,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を100%"
+          "matchedText": "攻撃が上昇する会心発生変化味方 / 中15"
         },
         {
           "featureId": "status_effect:攻撃変化(弱化)",
@@ -27623,18 +27395,6 @@
           "matchedText": "与ダメージ+5%"
         },
         {
-          "featureId": "status_effect:被ダメージ変化(強化)",
-          "label": "被ダメージ変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "被ダメージ変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "被ダメージが低下する防御変化自分 / 単 10"
-        },
-        {
           "featureId": "status_effect:防御変化(強化)",
           "label": "防御変化(強化)",
           "featureType": "statusEffect",
@@ -27705,7 +27465,7 @@
           "matchedText": "UR于禁の戦法 厳毅不抜兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を全て打ち消して50%の有利巧守を付与（駐屯/防衛中の部隊が優先して対象となる）自身1部隊の防御を200%上昇対象を含む敵3部隊の歩兵相性を悪くして戦法威力を50%低下（自部隊が駐屯/防衛中の場合、上記全ての効果時間が1.5倍になる）発動間隔対象範囲発動率連鎖順20秒-…"
         }
       ],
-      "statusEffectRefCount": 8,
+      "statusEffectRefCount": 7,
       "typeFeatureCount": 4
     },
     {
@@ -28938,18 +28698,6 @@
       "name": "UR文醜（ぶんしゅう）",
       "statusEffectRefs": [
         {
-          "featureId": "status_effect:戦法威力変化(強化)",
-          "label": "戦法威力変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "戦法威力変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "戦法威力を5%"
-        },
-        {
           "featureId": "status_effect:戦法威力変化(弱化)",
           "label": "戦法威力変化(弱化)",
           "featureType": "statusEffect",
@@ -29076,7 +28824,7 @@
           "matchedText": "副将1の連鎖確率が上昇するのは非常に強力だが、UR文醜と好相性の武将は数が非常に少なく、副将2の騎兵LR武将の侍従にも編制しにくいので呼応・一を活かして使うのは難しい"
         }
       ],
-      "statusEffectRefCount": 8,
+      "statusEffectRefCount": 7,
       "typeFeatureCount": 5
     },
     {
@@ -30433,18 +30181,6 @@
       "name": "UR典韋（てんい）",
       "statusEffectRefs": [
         {
-          "featureId": "status_effect:対物特効変化(強化)",
-          "label": "対物特効変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "対物特効変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "対物特効を50%"
-        },
-        {
           "featureId": "status_effect:攻撃変化(強化)",
           "label": "攻撃変化(強化)",
           "featureType": "statusEffect",
@@ -30466,7 +30202,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "防御を100％"
+          "matchedText": "防御が上昇する防御変化敵 / 中10"
         },
         {
           "featureId": "status_effect:防御変化(弱化)",
@@ -30591,7 +30327,7 @@
           "matchedText": "逆襲の効果時間中に受けたダメージは主将戦法の与ダメージに上乗せされるので、兵力低下時のカウンターで敵部隊に大ダメージを与えられる"
         }
       ],
-      "statusEffectRefCount": 9,
+      "statusEffectRefCount": 8,
       "typeFeatureCount": 6
     },
     {
@@ -30624,18 +30360,6 @@
           "matchedText": "防御が上昇する知力変化味方 / 広10"
         },
         {
-          "featureId": "status_effect:知力変化(強化)",
-          "label": "知力変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "知力変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "知力を50%"
-        },
-        {
           "featureId": "status_effect:知力変化(弱化)",
           "label": "知力変化(弱化)",
           "featureType": "statusEffect",
@@ -30646,6 +30370,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "知力が低下する兵科相性変化敵 / 広10"
+        },
+        {
+          "featureId": "status_effect:知力変化(強化)",
+          "label": "知力変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "知力変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "知力+5%"
         },
         {
           "featureId": "status_effect:戦法弱化",
@@ -30976,18 +30712,6 @@
           "matchedText": "攻撃が上昇する防御変化味方 / 中10"
         },
         {
-          "featureId": "status_effect:防御変化(強化)",
-          "label": "防御変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "防御変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "防御を100%"
-        },
-        {
           "featureId": "status_effect:防御変化(弱化)",
           "label": "防御変化(弱化)",
           "featureType": "statusEffect",
@@ -30998,6 +30722,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "防御が低下する 長駆直入 兵科効果系統攻撃属性歩兵物理なし効果自身を含む味方3"
+        },
+        {
+          "featureId": "status_effect:防御変化(強化)",
+          "label": "防御変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "防御変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "direct-ability-variation-row",
+          "matchedText": "防御変化 / 味方 / 中 10秒"
         }
       ],
       "typeFeatures": [
@@ -31230,7 +30966,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "防御を150％"
+          "matchedText": "防御が上昇する攻撃変化敵 / 中15"
         },
         {
           "featureId": "status_effect:防御変化(弱化)",
@@ -31957,18 +31693,6 @@
           "matchedText": "被ダメージ-10%"
         },
         {
-          "featureId": "status_effect:攻撃変化(強化)",
-          "label": "攻撃変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "攻撃変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を無効化する挑発敵 / 中10"
-        },
-        {
           "featureId": "status_effect:防御変化(強化)",
           "label": "防御変化(強化)",
           "featureType": "statusEffect",
@@ -32039,7 +31763,7 @@
           "matchedText": "物理系統の被ダメージ-10% →自身が主将の際は効果が2倍（-20%）挺身2"
         }
       ],
-      "statusEffectRefCount": 6,
+      "statusEffectRefCount": 5,
       "typeFeatureCount": 4
     },
     {
@@ -32467,18 +32191,6 @@
       "name": "覚醒郝昭（かくしょう）",
       "statusEffectRefs": [
         {
-          "featureId": "status_effect:対物特効変化(強化)",
-          "label": "対物特効変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "対物特効変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "対物特効を50%"
-        },
-        {
           "featureId": "status_effect:防御変化(強化)",
           "label": "防御変化(強化)",
           "featureType": "statusEffect",
@@ -32504,7 +32216,7 @@
         }
       ],
       "typeFeatures": [],
-      "statusEffectRefCount": 3,
+      "statusEffectRefCount": 2,
       "typeFeatureCount": 0
     },
     {
@@ -32660,18 +32372,6 @@
           "matchedText": "攻撃+4%"
         },
         {
-          "featureId": "status_effect:防御変化(強化)",
-          "label": "防御変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "防御変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "防御を30%"
-        },
-        {
           "featureId": "status_effect:防御変化(弱化)",
           "label": "防御変化(弱化)",
           "featureType": "statusEffect",
@@ -32730,7 +32430,7 @@
           "matchedText": "兵科相性が有利な敵部隊に対する与ダメージ+5%、被ダメージ-5%"
         }
       ],
-      "statusEffectRefCount": 9,
+      "statusEffectRefCount": 8,
       "typeFeatureCount": 4
     },
     {
@@ -33273,7 +32973,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を100%"
+          "matchedText": "攻撃が上昇する会心威力変化自分 / 単10"
         },
         {
           "featureId": "status_effect:攻撃変化(弱化)",
@@ -33806,18 +33506,6 @@
           "matchedText": "対物特効を25%"
         },
         {
-          "featureId": "status_effect:攻撃変化(強化)",
-          "label": "攻撃変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "攻撃変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を50%"
-        },
-        {
           "featureId": "status_effect:攻撃変化(弱化)",
           "label": "攻撃変化(弱化)",
           "featureType": "statusEffect",
@@ -33840,6 +33528,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "機動+3%"
+        },
+        {
+          "featureId": "status_effect:攻撃変化(強化)",
+          "label": "攻撃変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "攻撃変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "direct-ability-variation-row",
+          "matchedText": "攻撃変化 / 味方 / 中 15秒"
         }
       ],
       "typeFeatures": [
@@ -33938,7 +33638,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "知力を25%"
+          "matchedText": "知力+7%"
         },
         {
           "featureId": "status_effect:命中変化(強化)",
@@ -34073,7 +33773,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を100%"
+          "matchedText": "攻撃が上昇している場合、上昇効果10％"
         },
         {
           "featureId": "status_effect:攻撃変化(弱化)",
@@ -34856,7 +34556,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を20%"
+          "matchedText": "攻撃が上昇する 弥加の技能 鮮卑1"
         },
         {
           "featureId": "status_effect:攻撃変化(弱化)",
@@ -34902,7 +34602,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を20%"
+          "matchedText": "攻撃が上昇する 素利の技能 鮮卑1"
         },
         {
           "featureId": "status_effect:攻撃変化(弱化)",
@@ -35426,18 +35126,6 @@
       "name": "烏延（うえん）",
       "statusEffectRefs": [
         {
-          "featureId": "status_effect:機動変化(強化)",
-          "label": "機動変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "機動変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "機動を50%"
-        },
-        {
           "featureId": "status_effect:機動変化(弱化)",
           "label": "機動変化(弱化)",
           "featureType": "statusEffect",
@@ -35460,7 +35148,7 @@
           "matchedText": "自部隊の残存兵力の1%のダメージを敵1部隊に与える（上限500）兵心1"
         }
       ],
-      "statusEffectRefCount": 2,
+      "statusEffectRefCount": 1,
       "typeFeatureCount": 1
     },
     {
@@ -35468,18 +35156,6 @@
       "categoryLabel": "武将",
       "name": "楼班（ろうはん）",
       "statusEffectRefs": [
-        {
-          "featureId": "status_effect:防御変化(強化)",
-          "label": "防御変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "防御変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "防御を30%"
-        },
         {
           "featureId": "status_effect:防御変化(弱化)",
           "label": "防御変化(弱化)",
@@ -35503,7 +35179,7 @@
           "matchedText": "自部隊の残存兵力の1%のダメージを敵1部隊に与える（上限500）鍛造1"
         }
       ],
-      "statusEffectRefCount": 2,
+      "statusEffectRefCount": 1,
       "typeFeatureCount": 1
     },
     {
@@ -35533,7 +35209,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を20%"
+          "matchedText": "攻撃が上昇する 迷当大王の技能 羌1"
         },
         {
           "featureId": "status_effect:攻撃変化(弱化)",
@@ -35854,7 +35530,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を無効化する 歩度根の技能 鮮卑1"
+          "matchedText": "攻撃+4%"
         },
         {
           "featureId": "status_effect:攻撃変化(弱化)",
@@ -36547,18 +36223,6 @@
           "matchedText": "戦法速度が上昇する技能「敏活」は三國志 覇道において非常に強力な技能の1"
         },
         {
-          "featureId": "status_effect:攻撃変化(強化)",
-          "label": "攻撃変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "攻撃変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を50%"
-        },
-        {
           "featureId": "status_effect:攻撃変化(弱化)",
           "label": "攻撃変化(弱化)",
           "featureType": "statusEffect",
@@ -36593,6 +36257,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "self-countermeasure-skill",
           "matchedText": "弱化効果を5%の確率で避ける（他技能と合算）Ⅱ"
+        },
+        {
+          "featureId": "status_effect:攻撃変化(強化)",
+          "label": "攻撃変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "攻撃変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "direct-ability-variation-row",
+          "matchedText": "攻撃変化 / 味方 / 中 10秒"
         }
       ],
       "typeFeatures": [
@@ -36737,18 +36413,6 @@
           "matchedText": "会心威力を50%"
         },
         {
-          "featureId": "status_effect:対物特効変化(強化)",
-          "label": "対物特効変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "対物特効変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "対物特効、会心威力を50%"
-        },
-        {
           "featureId": "status_effect:攻撃変化(弱化)",
           "label": "攻撃変化(弱化)",
           "featureType": "statusEffect",
@@ -36787,14 +36451,6 @@
       ],
       "typeFeatures": [
         {
-          "featureId": "parameter:anti_object",
-          "label": "対物特効",
-          "featureType": "parameter",
-          "source": "effect-text",
-          "sourcePartType": "conservative-pattern",
-          "matchedText": "UR孫堅の戦法 勇烈弘毅兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃、防御、対物特効、会心威力を50%上昇対象部隊の主将とこの武将の相性が良いほど効果が上昇（最大+25%）発動間隔対象範囲発動率連鎖順25秒- / -25%早い勇烈弘毅の追加効果追加効果対象範囲継続攻撃変化味方 / 中10秒部隊の攻撃が低下する防御変化味方 / 中10秒部隊の…"
-        },
-        {
           "featureId": "skill_effect:normal_attack_target_count",
           "label": "通常攻撃対象数",
           "featureType": "skillEffect",
@@ -36819,8 +36475,8 @@
           "matchedText": "UR孫堅の戦法 勇烈弘毅兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃、防御、対物特効、会心威力を50%上昇対象部隊の主将とこの武将の相性が良いほど効果が上昇（最大+25%）発動間隔対象範囲発動率連鎖順25秒- / -25%早い勇烈弘毅の追加効果追加効果対象範囲継続攻撃変化味方 / 中10秒部隊の攻撃が低下する防御変化味方 / 中10秒部隊の…"
         }
       ],
-      "statusEffectRefCount": 6,
-      "typeFeatureCount": 4
+      "statusEffectRefCount": 5,
+      "typeFeatureCount": 3
     },
     {
       "category": "generals",
@@ -36849,7 +36505,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を30%"
+          "matchedText": "攻撃が上昇する UR董卓の技能 歓喜1"
         },
         {
           "featureId": "status_effect:攻撃変化(弱化)",
@@ -38186,7 +37842,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を75％"
+          "matchedText": "攻撃が上昇する防御変化味方 / 中15"
         },
         {
           "featureId": "status_effect:攻撃変化(弱化)",
@@ -38620,18 +38276,6 @@
           "matchedText": "会心発生+1%"
         },
         {
-          "featureId": "status_effect:対物特効変化(強化)",
-          "label": "対物特効変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "対物特効変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "対物特効を25%"
-        },
-        {
           "featureId": "status_effect:被ダメージ変化(強化)",
           "label": "被ダメージ変化(強化)",
           "featureType": "statusEffect",
@@ -38644,18 +38288,6 @@
           "matchedText": "被ダメージ-20%"
         },
         {
-          "featureId": "status_effect:知力変化(強化)",
-          "label": "知力変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "知力変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "知力を30%"
-        },
-        {
           "featureId": "status_effect:知力変化(弱化)",
           "label": "知力変化(弱化)",
           "featureType": "statusEffect",
@@ -38666,6 +38298,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "知力が低下する対物特効変化敵 / 中10"
+        },
+        {
+          "featureId": "status_effect:知力変化(強化)",
+          "label": "知力変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "知力変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "知力+4%"
         },
         {
           "featureId": "status_effect:対物特効変化(弱化)",
@@ -38698,7 +38342,7 @@
           "matchedText": "知力系統の被ダメージ-20%Ⅳ"
         }
       ],
-      "statusEffectRefCount": 6,
+      "statusEffectRefCount": 5,
       "typeFeatureCount": 2
     },
     {
@@ -38810,18 +38454,6 @@
           "matchedText": "被ダメージ-15%"
         },
         {
-          "featureId": "status_effect:知力変化(強化)",
-          "label": "知力変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "知力変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "知力を30%"
-        },
-        {
           "featureId": "status_effect:知力変化(弱化)",
           "label": "知力変化(弱化)",
           "featureType": "statusEffect",
@@ -38832,6 +38464,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "知力が低下する恐怖敵 / 狭10"
+        },
+        {
+          "featureId": "status_effect:知力変化(強化)",
+          "label": "知力変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "知力変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "知力にするⅡ■主将の際 ●通常攻撃の効果系統を知力にする ●部隊の知力+1%"
         },
         {
           "featureId": "status_effect:恐怖",
@@ -38887,18 +38531,6 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "戦法速度+4%"
-        },
-        {
-          "featureId": "status_effect:攻撃変化(強化)",
-          "label": "攻撃変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "攻撃変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を無効化する UR大喬の技能 威徳1"
         },
         {
           "featureId": "status_effect:攻撃無効",
@@ -38967,7 +38599,7 @@
           "matchedText": "UR大喬の戦法 奏楽衝天兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の戦法威力を50%上昇さらに10%の治癒と2回の攻撃無効を付与発動間隔対象範囲発動率連鎖順20秒- / -25%早い奏楽衝天の追加効果追加効果対象範囲継続戦法威力変化味方 / 中10秒戦法による攻撃の威力が上昇する治癒味方 / 中10秒一定時間ごとに最大兵力に応じて負傷兵を兵力に…"
         }
       ],
-      "statusEffectRefCount": 5,
+      "statusEffectRefCount": 4,
       "typeFeatureCount": 5
     },
     {
@@ -39163,7 +38795,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "会心威力を25%"
+          "matchedText": "会心威力変化自分 / 単15"
         },
         {
           "featureId": "status_effect:会心威力変化(弱化)",
@@ -39250,7 +38882,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を100%"
+          "matchedText": "攻撃が上昇する 覚醒関索の技能 発破1"
         },
         {
           "featureId": "status_effect:攻撃変化(弱化)",
@@ -39320,18 +38952,6 @@
           "matchedText": "防御-10%"
         },
         {
-          "featureId": "status_effect:知力変化(強化)",
-          "label": "知力変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "知力変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "知力を50%"
-        },
-        {
           "featureId": "status_effect:知力変化(弱化)",
           "label": "知力変化(弱化)",
           "featureType": "statusEffect",
@@ -39342,6 +38962,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "知力が低下する 虚誘掩殺 兵科効果系統攻撃属性なし知力なし効果対象を含む敵3"
+        },
+        {
+          "featureId": "status_effect:知力変化(強化)",
+          "label": "知力変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "知力変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "知力にする ●部隊の知力+1%"
         }
       ],
       "typeFeatures": [
@@ -39720,18 +39352,6 @@
           "matchedText": "防御が低下する命中変化敵 / 中10"
         },
         {
-          "featureId": "status_effect:命中変化(強化)",
-          "label": "命中変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "命中変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "命中を25％"
-        },
-        {
           "featureId": "status_effect:命中変化(弱化)",
           "label": "命中変化(弱化)",
           "featureType": "statusEffect",
@@ -39778,7 +39398,7 @@
           "matchedText": "副将の弓兵の連鎖確率+3%"
         }
       ],
-      "statusEffectRefCount": 6,
+      "statusEffectRefCount": 5,
       "typeFeatureCount": 4
     },
     {
@@ -40667,7 +40287,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "防御を50%"
+          "matchedText": "防御が上昇する 西涼鉄騎 兵科効果系統攻撃属性なしなしなし効果自身を含む味方3"
         },
         {
           "featureId": "status_effect:防御変化(弱化)",
@@ -40776,7 +40396,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "知力を20%"
+          "matchedText": "知力+3%"
         },
         {
           "featureId": "status_effect:混乱",
@@ -40831,7 +40451,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃速度を50%"
+          "matchedText": "攻撃速度変化敵 / 中15"
         },
         {
           "featureId": "status_effect:会心威力変化(強化)",
@@ -40894,18 +40514,6 @@
           "matchedText": "防御低下とダメージ・攻撃速度低下を与え、更に強化効果を2"
         },
         {
-          "featureId": "status_effect:防御変化(強化)",
-          "label": "防御変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "防御変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "防御を50%"
-        },
-        {
           "featureId": "status_effect:機動変化(強化)",
           "label": "機動変化(強化)",
           "featureType": "statusEffect",
@@ -40956,7 +40564,7 @@
           "matchedText": "火力面でも貢献できる 徐晃の戦法ダメージは250%とやや低倍率だが、防御低下の倍率が50%と高いため、火力面でも活躍が期待できる"
         }
       ],
-      "statusEffectRefCount": 9,
+      "statusEffectRefCount": 8,
       "typeFeatureCount": 3
     },
     {
@@ -40987,18 +40595,6 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "攻撃速度を150%"
-        },
-        {
-          "featureId": "status_effect:戦法速度変化(強化)",
-          "label": "戦法速度変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "戦法速度変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "戦法速度）を避けるⅢ■常に ●自身1"
         },
         {
           "featureId": "status_effect:会心発生変化(強化)",
@@ -41243,7 +40839,7 @@
           "matchedText": "自身1部隊にかかる能力弱化効果と恐怖、畏怖、戦法遅延を避ける"
         }
       ],
-      "statusEffectRefCount": 19,
+      "statusEffectRefCount": 18,
       "typeFeatureCount": 6
     },
     {
@@ -41420,7 +41016,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "会心威力を50％"
+          "matchedText": "会心威力変化自分 / 単15"
         },
         {
           "featureId": "status_effect:会心威力変化(弱化)",
@@ -41561,18 +41157,6 @@
           "matchedText": "攻撃+4%"
         },
         {
-          "featureId": "status_effect:防御変化(強化)",
-          "label": "防御変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "防御変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "防御を20%"
-        },
-        {
           "featureId": "status_effect:防御変化(弱化)",
           "label": "防御変化(弱化)",
           "featureType": "statusEffect",
@@ -41585,16 +41169,16 @@
           "matchedText": "防御が低下する同討敵 / 中10"
         },
         {
-          "featureId": "status_effect:知力変化(強化)",
-          "label": "知力変化(強化)",
+          "featureId": "status_effect:防御変化(強化)",
+          "label": "防御変化(強化)",
           "featureType": "statusEffect",
-          "statusEffectName": "知力変化(強化)",
+          "statusEffectName": "防御変化(強化)",
           "groupKey": "selfAbilityBuff",
           "groupLabel": "自部隊能力強化",
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "知力を20%"
+          "matchedText": "防御+2%"
         },
         {
           "featureId": "status_effect:知力変化(弱化)",
@@ -41607,6 +41191,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "知力が低下する防御変化敵 / 中10"
+        },
+        {
+          "featureId": "status_effect:知力変化(強化)",
+          "label": "知力変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "知力変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "知力+4%"
         },
         {
           "featureId": "status_effect:同討",
@@ -42856,7 +42452,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "防御を50％"
+          "matchedText": "防御が上昇する結束味方 / 中15"
         },
         {
           "featureId": "status_effect:防御変化(弱化)",
@@ -43697,7 +43293,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "防御を100％"
+          "matchedText": "防御が上昇する知力変化自分 / 単10"
         },
         {
           "featureId": "status_effect:防御変化(弱化)",
@@ -43822,7 +43418,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を50％"
+          "matchedText": "攻撃が上昇する 張任の技能 不屈1"
         },
         {
           "featureId": "status_effect:攻撃変化(弱化)",
@@ -43904,7 +43500,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "防御を100％"
+          "matchedText": "防御が上昇する 強運の庇護 兵科効果系統攻撃属性なしなしなし効果自身を含む味方3"
         },
         {
           "featureId": "status_effect:防御変化(弱化)",
@@ -45107,7 +44703,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を50％"
+          "matchedText": "攻撃が上昇する対物特効変化味方 / 狭10"
         },
         {
           "featureId": "status_effect:攻撃変化(弱化)",
@@ -45484,7 +45080,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "防御を50％"
+          "matchedText": "防御が上昇する 防備の謹言 兵科効果系統攻撃属性なしなしなし効果自身を含む味方2"
         },
         {
           "featureId": "status_effect:防御変化(弱化)",
@@ -45643,18 +45239,6 @@
           "matchedText": "被ダメージ-15%"
         },
         {
-          "featureId": "status_effect:知力変化(強化)",
-          "label": "知力変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "知力変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "知力を20％"
-        },
-        {
           "featureId": "status_effect:知力変化(弱化)",
           "label": "知力変化(弱化)",
           "featureType": "statusEffect",
@@ -45665,6 +45249,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "知力が低下する 詐謀偽計 兵科効果系統攻撃属性なし知力なし効果対象に200％"
+        },
+        {
+          "featureId": "status_effect:知力変化(強化)",
+          "label": "知力変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "知力変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "知力+2%"
         }
       ],
       "typeFeatures": [
@@ -45754,7 +45350,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を50％"
+          "matchedText": "攻撃が上昇する 顧雍の技能 鎮静1"
         },
         {
           "featureId": "status_effect:攻撃変化(弱化)",
@@ -45889,7 +45485,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "防御を150％"
+          "matchedText": "防御が上昇する 硬骨の守り 兵科効果系統攻撃属性なしなしなし効果自身1"
         },
         {
           "featureId": "status_effect:防御変化(弱化)",
@@ -45935,7 +45531,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を100％"
+          "matchedText": "攻撃が上昇する会心発生変化自分 / 単10"
         },
         {
           "featureId": "status_effect:攻撃変化(弱化)",
@@ -46483,7 +46079,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "戦法速度を50％"
+          "matchedText": "戦法速度変化敵 / 単15"
         },
         {
           "featureId": "status_effect:攻撃変化(強化)",
@@ -46636,18 +46232,6 @@
           "matchedText": "攻撃を100％"
         },
         {
-          "featureId": "status_effect:防御変化(強化)",
-          "label": "防御変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "防御変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "防御を30％"
-        },
-        {
           "featureId": "status_effect:防御変化(弱化)",
           "label": "防御変化(弱化)",
           "featureType": "statusEffect",
@@ -46673,7 +46257,7 @@
         }
       ],
       "typeFeatures": [],
-      "statusEffectRefCount": 4,
+      "statusEffectRefCount": 3,
       "typeFeatureCount": 0
     },
     {
@@ -46837,7 +46421,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を50％"
+          "matchedText": "攻撃が上昇する 張昭の技能 敏活1"
         },
         {
           "featureId": "status_effect:攻撃変化(弱化)",
@@ -47369,18 +46953,6 @@
           "matchedText": "戦法速度+2%"
         },
         {
-          "featureId": "status_effect:知力変化(強化)",
-          "label": "知力変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "知力変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "知力を50％"
-        },
-        {
           "featureId": "status_effect:知力変化(弱化)",
           "label": "知力変化(弱化)",
           "featureType": "statusEffect",
@@ -47391,6 +46963,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "知力が低下する 機知奇策 兵科効果系統攻撃属性なし知力なし効果対象を含む敵3"
+        },
+        {
+          "featureId": "status_effect:知力変化(強化)",
+          "label": "知力変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "知力変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "知力+3%"
         },
         {
           "featureId": "status_effect:機動変化(強化)",
@@ -47559,18 +47143,6 @@
           "matchedText": "防御が低下する知力変化敵 / 単10"
         },
         {
-          "featureId": "status_effect:知力変化(強化)",
-          "label": "知力変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "知力変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "知力を25％"
-        },
-        {
           "featureId": "status_effect:知力変化(弱化)",
           "label": "知力変化(弱化)",
           "featureType": "statusEffect",
@@ -47581,6 +47153,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "知力が低下する戦法速度変化敵 / 単10"
+        },
+        {
+          "featureId": "status_effect:知力変化(強化)",
+          "label": "知力変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "知力変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "知力+3%"
         },
         {
           "featureId": "status_effect:機動変化(強化)",
@@ -47657,7 +47241,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を150％"
+          "matchedText": "攻撃が上昇する高揚自分 / 単20"
         },
         {
           "featureId": "status_effect:攻撃変化(弱化)",
@@ -47696,18 +47280,6 @@
           "matchedText": "防御-9％"
         },
         {
-          "featureId": "status_effect:機動変化(強化)",
-          "label": "機動変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "機動変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "機動を30％"
-        },
-        {
           "featureId": "status_effect:機動変化(弱化)",
           "label": "機動変化(弱化)",
           "featureType": "statusEffect",
@@ -47718,6 +47290,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "機動が減少する 老当益壮 兵科効果系統攻撃属性なしなしなし効果自身1"
+        },
+        {
+          "featureId": "status_effect:機動変化(強化)",
+          "label": "機動変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "機動変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "機動+2%"
         },
         {
           "featureId": "status_effect:高揚",
@@ -48604,7 +48188,7 @@
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "攻撃を150％"
+          "matchedText": "攻撃が上昇する治癒自分 / 単20"
         },
         {
           "featureId": "status_effect:攻撃変化(弱化)",
@@ -48867,18 +48451,6 @@
           "matchedText": "攻撃+4%"
         },
         {
-          "featureId": "status_effect:防御変化(強化)",
-          "label": "防御変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "防御変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "防御を20％"
-        },
-        {
           "featureId": "status_effect:防御変化(弱化)",
           "label": "防御変化(弱化)",
           "featureType": "statusEffect",
@@ -48921,7 +48493,7 @@
           "matchedText": "通常攻撃でダメージを与えた際、15%の確率で敵部隊の防御-10%（10秒）先導1"
         }
       ],
-      "statusEffectRefCount": 4,
+      "statusEffectRefCount": 3,
       "typeFeatureCount": 2
     },
     {
@@ -49017,18 +48589,6 @@
       "name": "賈詡（かく）",
       "statusEffectRefs": [
         {
-          "featureId": "status_effect:対物特効変化(強化)",
-          "label": "対物特効変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "対物特効変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "対物特効を50％"
-        },
-        {
           "featureId": "status_effect:知力変化(強化)",
           "label": "知力変化(強化)",
           "featureType": "statusEffect",
@@ -49063,7 +48623,7 @@
           "matchedText": "ダメージを与えつつ対象の対物攻撃を低下させるため、拠点や都市の防衛に向いている"
         }
       ],
-      "statusEffectRefCount": 3,
+      "statusEffectRefCount": 2,
       "typeFeatureCount": 1
     },
     {
@@ -49084,18 +48644,6 @@
           "matchedText": "攻撃+4%"
         },
         {
-          "featureId": "status_effect:機動変化(強化)",
-          "label": "機動変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "機動変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "機動を50％"
-        },
-        {
           "featureId": "status_effect:機動変化(弱化)",
           "label": "機動変化(弱化)",
           "featureType": "statusEffect",
@@ -49109,7 +48657,7 @@
         }
       ],
       "typeFeatures": [],
-      "statusEffectRefCount": 3,
+      "statusEffectRefCount": 2,
       "typeFeatureCount": 0
     },
     {
@@ -49612,18 +49160,6 @@
           "matchedText": "会心発生+1%"
         },
         {
-          "featureId": "status_effect:対物特効変化(強化)",
-          "label": "対物特効変化(強化)",
-          "featureType": "statusEffect",
-          "statusEffectName": "対物特効変化(強化)",
-          "groupKey": "selfAbilityBuff",
-          "groupLabel": "自部隊能力強化",
-          "displayRole": "direct-status",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "semantic-owner-parameter",
-          "matchedText": "対物特効を50％"
-        },
-        {
           "featureId": "status_effect:被ダメージ変化(強化)",
           "label": "被ダメージ変化(強化)",
           "featureType": "statusEffect",
@@ -49690,7 +49226,7 @@
           "matchedText": "部隊が受ける火属性のダメージ-10%冶金1"
         }
       ],
-      "statusEffectRefCount": 6,
+      "statusEffectRefCount": 5,
       "typeFeatureCount": 2
     },
     {

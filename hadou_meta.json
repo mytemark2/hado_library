@@ -1,7 +1,7 @@
 {
-  "exportedAt": "2026-06-05T12:46:30.581Z",
+  "exportedAt": "2026-06-06T09:16:01.293Z",
   "collector": "hado_crawler_chrome_extension",
-  "crawlerVersion": "1.0.5.23",
+  "crawlerVersion": "1.1.0.0",
   "requestIntervalMs": 500,
   "cacheMode": "standard",
   "counts": {
@@ -36,6 +36,5 @@
     "invalid": 0,
     "scale": "0-149_clockwise_from_12",
     "policy": "no automatic 120-to-150 conversion; parsed image values are kept as 0-149"
-  },
-  "version": "1.0.5.23"
+  }
 }

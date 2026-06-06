@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-06-05T22:32:32.507+09:00",
-  "dataSetId": "2026-06-05T02:45:08Z",
-  "crawlerVersion": "1.0.5.23",
+  "generatedAt": "2026-06-06T09:16:01.325Z",
+  "dataSetId": "2026-06-05T12:46:30.581Z",
+  "crawlerVersion": "1.1.0.0",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
     "hadou_generals.json",
@@ -80,7 +80,7 @@
     "caseCount": 13,
     "failedCount": 0,
     "failedCaseIds": [],
-    "policy": "1.0.5.23: 型検索基盤、既存関連リンク回帰、プリセット重要度・条件解決・順位付け、LR司馬懿誤判定防止、攻撃速度型、通常攻撃拡張型を監査する。"
+    "policy": "1.0.5.23: 型検索基盤、既存関連リンク回帰、プリセット重要度スキーマ、条件解決、順位付け、LR司馬懿誤判定防止、攻撃速度型、通常攻撃拡張型を同時に監査する。名前表記差は正規化し、否定文脈は句単位で遮断する。"
   },
   "items": [
     {
@@ -90,8 +90,8 @@
       "detail": [
         {
           "groupKey": "selfAbilityBuff",
-          "ownerRelationCount": 3771,
-          "distinctOwnerCount": 1259
+          "ownerRelationCount": 3695,
+          "distinctOwnerCount": 1245
         },
         {
           "groupKey": "selfStateBuff",
@@ -105,8 +105,8 @@
         },
         {
           "groupKey": "enemyAbilityDebuff",
-          "ownerRelationCount": 706,
-          "distinctOwnerCount": 416
+          "ownerRelationCount": 704,
+          "distinctOwnerCount": 415
         },
         {
           "groupKey": "enemyStateDebuff",
@@ -172,8 +172,7 @@
         "hasKonpai": true,
         "hasShinkyou": true,
         "hasFalseAntiObjectBuff": false,
-        "hasFalseAntiObjectFeature": false,
-        "nameResolutionPolicy": "exact-or-reading-normalized"
+        "hasFalseAntiObjectFeature": false
       }
     },
     {
@@ -270,7 +269,51 @@
       "ok": true,
       "detail": {
         "typeId": "attack_speed",
-        "typeName": "攻撃速度型"
+        "typeName": "攻撃速度型",
+        "conditions": [
+          {
+            "featureId": "parameter:attack_speed",
+            "canonicalFeatureId": "concept:attack_speed",
+            "label": "攻撃速度",
+            "conditionType": "typeFeature",
+            "importance": "core"
+          },
+          {
+            "featureId": "status_effect:攻撃速度変化(強化)",
+            "canonicalFeatureId": "concept:attack_speed",
+            "label": "攻撃速度変化(強化)",
+            "conditionType": "statusEffect",
+            "importance": "core"
+          },
+          {
+            "featureId": "status_effect:通常攻撃拡張",
+            "canonicalFeatureId": "concept:normal_attack_expansion",
+            "label": "通常攻撃拡張",
+            "conditionType": "statusEffect",
+            "importance": "recommended"
+          },
+          {
+            "featureId": "skill_effect:normal_attack_target_count",
+            "canonicalFeatureId": "concept:normal_attack_expansion",
+            "label": "通常攻撃対象数",
+            "conditionType": "typeFeature",
+            "importance": "recommended"
+          },
+          {
+            "featureId": "parameter:normal_attack_power",
+            "canonicalFeatureId": "concept:normal_attack_power",
+            "label": "通常攻撃威力",
+            "conditionType": "typeFeature",
+            "importance": "support"
+          },
+          {
+            "featureId": "status_effect:通常攻撃威力変化(強化)",
+            "canonicalFeatureId": "concept:normal_attack_power",
+            "label": "通常攻撃威力変化(強化)",
+            "conditionType": "statusEffect",
+            "importance": "support"
+          }
+        ]
       }
     },
     {
@@ -279,7 +322,51 @@
       "ok": true,
       "detail": {
         "typeId": "normal_attack",
-        "typeName": "通常攻撃拡張型"
+        "typeName": "通常攻撃拡張型",
+        "conditions": [
+          {
+            "featureId": "status_effect:通常攻撃拡張",
+            "canonicalFeatureId": "concept:normal_attack_expansion",
+            "label": "通常攻撃拡張",
+            "conditionType": "statusEffect",
+            "importance": "core"
+          },
+          {
+            "featureId": "skill_effect:normal_attack_target_count",
+            "canonicalFeatureId": "concept:normal_attack_expansion",
+            "label": "通常攻撃対象数",
+            "conditionType": "typeFeature",
+            "importance": "core"
+          },
+          {
+            "featureId": "parameter:normal_attack_power",
+            "canonicalFeatureId": "concept:normal_attack_power",
+            "label": "通常攻撃威力",
+            "conditionType": "typeFeature",
+            "importance": "recommended"
+          },
+          {
+            "featureId": "status_effect:通常攻撃威力変化(強化)",
+            "canonicalFeatureId": "concept:normal_attack_power",
+            "label": "通常攻撃威力変化(強化)",
+            "conditionType": "statusEffect",
+            "importance": "recommended"
+          },
+          {
+            "featureId": "parameter:attack_speed",
+            "canonicalFeatureId": "concept:attack_speed",
+            "label": "攻撃速度",
+            "conditionType": "typeFeature",
+            "importance": "support"
+          },
+          {
+            "featureId": "status_effect:攻撃速度変化(強化)",
+            "canonicalFeatureId": "concept:attack_speed",
+            "label": "攻撃速度変化(強化)",
+            "conditionType": "statusEffect",
+            "importance": "support"
+          }
+        ]
       }
     }
   ]
