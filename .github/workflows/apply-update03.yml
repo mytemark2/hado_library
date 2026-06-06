@@ -8,7 +8,7 @@ on:
     paths:
       - ".github/workflows/apply-update03.yml"
       - "src/update03_type_entry.js"
-      - "tools/apply_update03_2.py"
+      - "tools/apply_update03_3.py"
 
 permissions:
   contents: write
@@ -21,32 +21,29 @@ jobs:
         with:
           ref: feature/app-3.0.0.0
 
-      - name: Validate Update03.2 JavaScript
+      - name: Apply Update03.3 IME-safe filtering
         shell: bash
         run: |
           set -euo pipefail
+          python tools/apply_update03_3.py
           node --check src/update03_type_entry.js
-
-      - name: Inject Update03.2 into HTML
-        shell: bash
-        run: |
-          set -euo pipefail
-          python tools/apply_update03_2.py
           python -m json.tool HADO_DEV_INFO.json >/dev/null
-          python -m json.tool report/HADO_APP_3.0.0.0_UPDATE03.2_REPORT.json >/dev/null
+          python -m json.tool report/HADO_APP_3.0.0.0_UPDATE03.3_REPORT.json >/dev/null
           grep -q 'HADO_UPDATE03_START' index.html
-          grep -q '主将参考適合度' index.html
-          grep -q '固定5項目を各2点' index.html
-          grep -q 'Update03.2' index.html
+          grep -q 'Update03.3' index.html
+          grep -q 'compositionstart' index.html
+          grep -q 'compositionend' index.html
+          grep -q 'IME変換確定後に候補を絞り込みます。' index.html
+          ! grep -q 'state.query = e.target.value; render();' index.html
           cmp --silent index.html hado_library_3.0.0.0.html
 
-      - name: Commit Update03.2
+      - name: Commit Update03.3
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html hado_library_3.0.0.0.html HADO_DEV_INFO.json report/HADO_APP_3.0.0.0_UPDATE03.2_REPORT.json
+          git add src/update03_type_entry.js index.html hado_library_3.0.0.0.html HADO_DEV_INFO.json report/HADO_APP_3.0.0.0_UPDATE03.3_REPORT.json
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m "fix: normalize type entry scores for app Update03.2"
+          git commit -m "fix: make type navigator main-general filtering IME-safe for Update03.3"
           git push origin HEAD:feature/app-3.0.0.0
