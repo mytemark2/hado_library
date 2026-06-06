@@ -1,4 +1,4 @@
-/* HADO app 3.0.0.0 Update03.2: type formation entry navigator */
+/* HADO app 3.0.0.0 Update03.3: type formation entry navigator */
 (() => {
   'use strict';
 
@@ -147,8 +147,8 @@
       return `<div class="hte-card hte-selected"><div class="hte-title">選択中の主将</div><div>${esc(state.mainGeneral.displayName || state.mainGeneral.name)}</div><div style="margin-top:10px;display:flex;gap:8px"><button class="hte-btn" data-action="change-main">主将を変更</button><button class="hte-btn" data-action="clear">解除</button></div></div>`;
     }
     const q = norm(state.query);
-    const generals = state.data.generals.filter((v) => !q || norm(v.displayName || v.name).includes(q));
-    return `<div class="hte-card"><div class="hte-title">主将を選択</div><input class="hte-search" id="hadoTypeEntryQuery" placeholder="主将名で絞り込み" value="${esc(state.query)}"><div class="hte-list">${generals.map((g) => `<button class="hte-item" data-main-id="${esc(g.id)}">${esc(g.displayName || g.name)}</button>`).join('')}</div><div class="hte-note" style="margin-top:8px">上ほど新しい武将です。</div></div>`;
+    const generals = state.data.generals;
+    return `<div class="hte-card"><div class="hte-title">主将を選択</div><input class="hte-search" id="hadoTypeEntryQuery" placeholder="主将名で絞り込み" value="${esc(state.query)}"><div class="hte-list">${generals.map((g) => `<button class="hte-item" data-main-id="${esc(g.id)}" ${q && !norm(g.displayName || g.name).includes(q) ? 'hidden' : ''}>${esc(g.displayName || g.name)}</button>`).join('')}</div><div class="hte-note" style="margin-top:8px">上ほど新しい武将です。IME変換確定後に候補を絞り込みます。</div></div>`;
   }
 
   function renderPurposes() {
@@ -166,7 +166,7 @@
   function render() {
     const modal = document.getElementById('hadoTypeEntryModal');
     if (!modal || !state.data) return;
-    modal.innerHTML = `<div class="hte-head"><div><h2>型編成ナビ</h2><div class="hte-sub">3.0.0.0 Update03.2 / 主将単体の参考適合度</div></div><button class="hte-btn" data-action="close">閉じる</button></div><div class="hte-tabs"><button class="hte-tab ${state.mode === 'main' ? 'active' : ''}" data-mode="main">主将から考える</button><button class="hte-tab ${state.mode === 'purpose' ? 'active' : ''}" data-mode="purpose">目的から考える</button><button class="hte-tab ${state.mode === 'type' ? 'active' : ''}" data-mode="type">型を直接選ぶ</button></div><div class="hte-body"><div class="hte-grid">${state.mode === 'main' ? renderMainPane() : ''}${state.mode !== 'type' ? renderPurposes() : ''}${(state.mode === 'type' || state.purposeId) ? renderTypes() : ''}</div></div><div class="hte-foot"><div><div class="hte-summary">主将: ${esc(state.mainGeneral?.displayName || state.mainGeneral?.name || '未選択')} / 目的: ${esc(state.data.purposes.find((p) => p.purposeId === state.purposeId)?.purposeName || '未選択')} / 型: ${esc(state.data.scoreRules.find((t) => t.typeId === state.typeId)?.typeName || '未選択')}</div><div id="hadoTypeEntryMessage" class="hte-note"></div></div><div class="hte-foot-actions"><button class="hte-btn" data-action="clear">リセット</button><button class="hte-btn primary" data-action="save">選択を保存</button></div></div>`;
+    modal.innerHTML = `<div class="hte-head"><div><h2>型編成ナビ</h2><div class="hte-sub">3.0.0.0 Update03.3 / 主将単体の参考適合度</div></div><button class="hte-btn" data-action="close">閉じる</button></div><div class="hte-tabs"><button class="hte-tab ${state.mode === 'main' ? 'active' : ''}" data-mode="main">主将から考える</button><button class="hte-tab ${state.mode === 'purpose' ? 'active' : ''}" data-mode="purpose">目的から考える</button><button class="hte-tab ${state.mode === 'type' ? 'active' : ''}" data-mode="type">型を直接選ぶ</button></div><div class="hte-body"><div class="hte-grid">${state.mode === 'main' ? renderMainPane() : ''}${state.mode !== 'type' ? renderPurposes() : ''}${(state.mode === 'type' || state.purposeId) ? renderTypes() : ''}</div></div><div class="hte-foot"><div><div class="hte-summary">主将: ${esc(state.mainGeneral?.displayName || state.mainGeneral?.name || '未選択')} / 目的: ${esc(state.data.purposes.find((p) => p.purposeId === state.purposeId)?.purposeName || '未選択')} / 型: ${esc(state.data.scoreRules.find((t) => t.typeId === state.typeId)?.typeName || '未選択')}</div><div id="hadoTypeEntryMessage" class="hte-note"></div></div><div class="hte-foot-actions"><button class="hte-btn" data-action="clear">リセット</button><button class="hte-btn primary" data-action="save">選択を保存</button></div></div>`;
 
     modal.querySelectorAll('[data-mode]').forEach((b) => b.addEventListener('click', () => { state.mode = b.dataset.mode; state.purposeId = ''; state.typeId = ''; render(); }));
     modal.querySelectorAll('[data-action="close"]').forEach((b) => b.addEventListener('click', close));
@@ -177,7 +177,24 @@
     modal.querySelectorAll('[data-purpose-id]').forEach((b) => b.addEventListener('click', () => { state.purposeId = b.dataset.purposeId; state.typeId = ''; render(); }));
     modal.querySelectorAll('[data-type-id]').forEach((b) => b.addEventListener('click', () => { state.typeId = b.dataset.typeId; render(); }));
     document.getElementById('hadoShowAllPurposes')?.addEventListener('change', (e) => { state.showAllPurposes = e.target.checked; render(); });
-    document.getElementById('hadoTypeEntryQuery')?.addEventListener('input', (e) => { state.query = e.target.value; render(); document.getElementById('hadoTypeEntryQuery')?.focus(); });
+    const queryInput = document.getElementById('hadoTypeEntryQuery');
+    if (queryInput) {
+      let composing = false;
+      const applyMainFilter = () => {
+        state.query = queryInput.value;
+        const q = norm(state.query);
+        modal.querySelectorAll('[data-main-id]').forEach((button) => {
+          const general = state.data.generals.find((g) => g.id === button.dataset.mainId);
+          button.hidden = Boolean(q) && !norm(general?.displayName || general?.name).includes(q);
+        });
+      };
+      queryInput.addEventListener('compositionstart', () => { composing = true; });
+      queryInput.addEventListener('compositionend', () => { composing = false; applyMainFilter(); });
+      queryInput.addEventListener('input', (e) => {
+        state.query = e.target.value;
+        if (!composing && !e.isComposing) applyMainFilter();
+      });
+    }
   }
 
   function close() { document.getElementById('hadoTypeEntryOverlay')?.remove(); }

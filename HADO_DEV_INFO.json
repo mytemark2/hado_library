@@ -3,9 +3,9 @@
   "releaseStatus": "development",
   "releaseVersion": "3.0.0.0",
   "updateNo": "03",
-  "revision": 2,
-  "displayVersion": "3.0.0.0 Update03.2",
+  "revision": 3,
+  "displayVersion": "3.0.0.0 Update03.3",
   "baseAppVersion": "2.9.6.5",
-  "summary": "Update03.2: normalize main-general reference fit scores to 0-10 using five fixed metrics per type and prevent annihilation-type inflation.",
+  "summary": "Update03.3: make main-general filtering IME-safe by keeping the input DOM stable and filtering candidate visibility after composition confirmation.",
   "updatedAt": "2026-06-06T00:00:00+09:00"
 }
