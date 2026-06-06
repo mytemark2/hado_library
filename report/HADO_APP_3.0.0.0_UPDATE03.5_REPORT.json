@@ -1,0 +1,22 @@
+{
+  "version": "3.0.0.0",
+  "update": "Update03.5",
+  "bugClass": "purpose mapping and cross-type ranking",
+  "rootCause": "coarse provisional purposes lacked role and reason metadata",
+  "fixes": [
+    "seven purposes",
+    "primary/support grouping",
+    "recommendation reasons",
+    "four composite types",
+    "reference match count only",
+    "IME handling retained"
+  ],
+  "regressionChecks": [
+    "seven purposes",
+    "fifteen types",
+    "five metrics per type",
+    "reason completeness",
+    "HTML equality"
+  ],
+  "indexSha256": "432197d9424522b8c0339f896c0cb591ef7af220eac7e4c6e9ef8046e88d9dce"
+}
