@@ -7,6 +7,8 @@ on:
       - feature/app-3.0.0.0
     paths:
       - ".github/workflows/apply-update03.yml"
+      - "src/update03_type_entry.js"
+      - "tools/apply_update03_2.py"
 
 permissions:
   contents: write
@@ -19,64 +21,32 @@ jobs:
         with:
           ref: feature/app-3.0.0.0
 
-      - name: Inject Update03.1 responsive UI into HTML
+      - name: Validate Update03.2 JavaScript
         shell: bash
         run: |
           set -euo pipefail
-          python - <<'PY'
-          from pathlib import Path
-          import base64,gzip,json,re,hashlib
-          start='<!-- HADO_UPDATE03_START -->'
-          end='<!-- HADO_UPDATE03_END -->'
-          js=gzip.decompress(base64.b64decode('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')).decode('utf-8')
-          block=start+'<script>\n'+js+'\n</script>'+end
-          for p in [Path('index.html'),Path('hado_library_3.0.0.0.html')]:
-              if not p.exists():
-                  continue
-              s=p.read_text(encoding='utf-8')
-              s=re.sub(re.escape(start)+r'.*?'+re.escape(end),'',s,flags=re.S)
-              if '</body>' not in s:
-                  raise SystemExit(f'</body> not found: {p}')
-              p.write_text(s.replace('</body>',block+'</body>',1),encoding='utf-8')
-          info=Path('HADO_DEV_INFO.json')
-          data=json.loads(info.read_text(encoding='utf-8'))
-          data.update({
-              'releaseStatus':'development',
-              'releaseVersion':'3.0.0.0',
-              'updateNo':'03',
-              'revision':1,
-              'displayVersion':'3.0.0.0 Update03.1',
-              'summary':'Update03.1: rebuild type-formation navigator UI for responsive desktop/mobile use and easy main-general reselection.',
-              'updatedAt':'2026-06-06T00:00:00+09:00'
-          })
-          info.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-          report={
-              'version':'3.0.0.0',
-              'update':'Update03.1',
-              'fixes':['PC modal overflow prevention','mobile single-column responsive layout','sticky footer','selected main-general card','main-general change button','main-general clear button','scrollable candidate list'],
-              'features':['主将から考える','目的から考える','型を直接選ぶ'],
-              'mainGeneralOrder':'crawler JSON sourceIndex ascending',
-              'selectionStorageKey':'hado.typeEntry.selection.v1',
-              'eventName':'hado:type-search-entry-selected',
-              'indexSha256':hashlib.sha256(Path('index.html').read_bytes()).hexdigest()
-          }
-          Path('report').mkdir(exist_ok=True)
-          Path('report/HADO_APP_3.0.0.0_UPDATE03.1_REPORT.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-          PY
+          node --check src/update03_type_entry.js
+
+      - name: Inject Update03.2 into HTML
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/apply_update03_2.py
           python -m json.tool HADO_DEV_INFO.json >/dev/null
-          python -m json.tool report/HADO_APP_3.0.0.0_UPDATE03.1_REPORT.json >/dev/null
+          python -m json.tool report/HADO_APP_3.0.0.0_UPDATE03.2_REPORT.json >/dev/null
           grep -q 'HADO_UPDATE03_START' index.html
-          grep -q '主将を変更' index.html
-          grep -q 'Update03.1' index.html
+          grep -q '主将参考適合度' index.html
+          grep -q '固定5項目を各2点' index.html
+          grep -q 'Update03.2' index.html
           cmp --silent index.html hado_library_3.0.0.0.html
 
-      - name: Commit Update03.1
+      - name: Commit Update03.2
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html hado_library_3.0.0.0.html HADO_DEV_INFO.json report/HADO_APP_3.0.0.0_UPDATE03.1_REPORT.json
+          git add index.html hado_library_3.0.0.0.html HADO_DEV_INFO.json report/HADO_APP_3.0.0.0_UPDATE03.2_REPORT.json
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m "fix: rebuild type formation navigator UI for app Update03.1"
+          git commit -m "fix: normalize type entry scores for app Update03.2"
           git push origin HEAD:feature/app-3.0.0.0
