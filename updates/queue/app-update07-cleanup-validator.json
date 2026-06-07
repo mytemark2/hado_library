@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "1.0",
+  "updateId": "app-update07-cleanup-validator",
+  "repository": "mytemark2/hado_library",
+  "branch": "feature/app-3.0.0.0",
+  "summary": "Remove obsolete local scoring aliases after Update07 shared-score extraction and add reusable root-JS validator.",
+  "operations": [
+    {
+      "op": "replace",
+      "path": "hado_type_entry.js",
+      "old": "/* HADO app 3.0.0.0 Update03.5: seven-purpose wizard with primary/support reasons */\n/* Update03.4 workflow compatibility marker: preserve existing verified workflow while applying Update03.5. */",
+      "new": "/* HADO app 3.0.0.0 Update07: seven-purpose wizard with shared 10-step suitability score */",
+      "expectedCount": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_entry.js",
+      "old": "  const METRIC_ALIASES = {\n    troops: ['兵力'], tactic_power: ['戦法威力'], critical_tactic_power: ['撃心威力'],\n    critical_power: ['会心威力'], attack_speed: ['攻撃速度'], critical_rate: ['会心発生', '会心発生率'],\n    critical_tactic_rate: ['撃心発生', '撃心発生率'], normal_attack_power: ['通常攻撃威力'],\n    normal_attack_target_count: ['通常攻撃対象数', '通常攻撃対象部隊数'], range: ['射程'], anti_object: ['対物特効'],\n    tactic_speed: ['戦法速度'], weakening_nullify: ['弱化無効', '弱化効果無効'], weakening_remove: ['弱化解除', '弱化効果解除'],\n    strengthening_remove_avoid: ['強化解除回避'], strengthening_seize_avoid: ['強化奪取回避'], annihilation_avoidance: ['壊滅回避'],\n    remaining_troops: ['残存兵力'], wounded_recovery: ['負傷兵回復'], damage_reduction: ['被ダメージ軽減'],\n    tactic_reduction: ['戦法短縮'], initial_tactic_gauge: ['出陣時戦法ゲージ'], chain_rate: ['連鎖率', '連鎖確率'],\n    status_effect_rate: ['状態変化発生率'], tactic_delay: ['戦法遅延'], chain_nullify: ['連鎖無効'],\n    enemy_attack_debuff: ['敵部隊攻撃低下'], enemy_defense_debuff: ['敵部隊防御低下'],\n    ally_buff_multi: ['味方バフ配布', '有利変化', '強化効果'], ally_target_count: ['味方対象部隊数', '味方部隊'], effect_duration: ['効果時間', '秒間'],\n    enemy_debuff_multi: ['敵デバフ配布', '不利変化', '弱化効果'], enemy_target_count: ['敵対象部隊数', '敵部隊'], enemy_anti_object_debuff: ['敵部隊対物特効低下', '対物特効低下'],\n    ally_wounded_recovery: ['味方負傷兵回復', '味方部隊の負傷兵'], ally_defense_buff: ['味方防御上昇', '味方部隊の防御'], combat_start_tactic_gauge: ['交戦開始時戦法ゲージ']\n  };\n\n",
+      "new": "",
+      "expectedCount": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_entry.js",
+      "old": "  const flatten = (v) => Array.isArray(v) ? v.map(flatten).join(' ') : (v && typeof v === 'object' ? Object.values(v).map(flatten).join(' ') : String(v ?? ''));\n",
+      "new": "",
+      "expectedCount": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_entry.js",
+      "old": "  function metricAliases(metric) { return [metric.label, ...(METRIC_ALIASES[metric.metricKey] || [])].filter(Boolean).map(norm); }\n",
+      "new": "",
+      "expectedCount": 1
+    },
+    {
+      "op": "write",
+      "path": "tools/validate_app_js.py",
+      "mustNotExist": true,
+      "content": "#!/usr/bin/env python3\n\"\"\"Validate HADO app JavaScript syntax, JSON syntax, and duplicated HTML identity.\"\"\"\nfrom __future__ import annotations\n\nimport json\nimport subprocess\nfrom pathlib import Path\n\nROOT = Path(__file__).resolve().parents[1]\n\ndef main() -> int:\n    js_files = sorted(ROOT.glob('*.js')) + sorted((ROOT / 'src').rglob('*.js'))\n    json_files = sorted(ROOT.glob('*.json'))\n    for path in json_files:\n        json.loads(path.read_text(encoding='utf-8'))\n    for path in js_files:\n        subprocess.run(['node', '--check', str(path)], check=True)\n    index = ROOT / 'index.html'\n    distribution = ROOT / 'hado_library_3.0.0.0.html'\n    if index.read_bytes() != distribution.read_bytes():\n        raise SystemExit('HTML mismatch: index.html != hado_library_3.0.0.0.html')\n    print(f'validated: js={len(js_files)}, json={len(json_files)}, html_identity=ok')\n    return 0\n\nif __name__ == '__main__':\n    raise SystemExit(main())\n"
+    },
+    {
+      "op": "replace",
+      "path": "docs/updates/update07/implementation.md",
+      "old": "- 相対パス読込のため、`file://` ローカル版と `https://` プレビュー版の双方で利用できる。",
+      "new": "- 相対パス読込のため、`file://` ローカル版と `https://` プレビュー版の双方で利用できる。\n\n### 共通化後の整理\n- `hado_type_entry.js` に残っていた旧 `METRIC_ALIASES`、`metricAliases`、`flatten` を削除した。\n- 採点別名表の正本は `hado_type_score.js` のみに集約した。\n\n### 再発防止\n- `tools/validate_app_js.py` を新設した。\n- ルート直下と `src/` 配下の全JSへ `node --check` を実行する。\n- ルート直下JSONの構文と、`index.html` / `hado_library_3.0.0.0.html` の同一性も検証する。",
+      "expectedCount": 1
+    },
+    {
+      "op": "replace",
+      "path": "docs/updates/update07/report.md",
+      "old": "- `index.html` と `hado_library_3.0.0.0.html` のSHA-256一致: 合格",
+      "new": "- `index.html` と `hado_library_3.0.0.0.html` のSHA-256一致: 合格\n- 旧 `METRIC_ALIASES`、`metricAliases`、`flatten` の削除: 合格\n- 再利用可能な検証スクリプト `tools/validate_app_js.py` の追加: 完了",
+      "expectedCount": 1
+    },
+    {
+      "op": "replace",
+      "path": "report/HADO_APP_3.0.0.0_UPDATE07_REPORT.json",
+      "old": "    \"report/HADO_APP_3.0.0.0_UPDATE07_REPORT.json\"\n  ],",
+      "new": "    \"report/HADO_APP_3.0.0.0_UPDATE07_REPORT.json\",\n    \"tools/validate_app_js.py\"\n  ],",
+      "expectedCount": 1
+    },
+    {
+      "op": "replace",
+      "path": "report/HADO_APP_3.0.0.0_UPDATE07_REPORT.json",
+      "old": "    \"HTML SHA-256 match: index.html == hado_library_3.0.0.0.html\"",
+      "new": "    \"HTML SHA-256 match: index.html == hado_library_3.0.0.0.html\",\n    \"obsolete local scoring aliases removed from hado_type_entry.js\",\n    \"reusable validator added: tools/validate_app_js.py\"",
+      "expectedCount": 1
+    }
+  ],
+  "requiredTokens": [
+    {
+      "path": "hado_type_entry.js",
+      "tokens": [
+        "Update07: seven-purpose wizard with shared 10-step suitability score",
+        "return window.HadoTypeScore.score(general, rule);"
+      ]
+    },
+    {
+      "path": "tools/validate_app_js.py",
+      "tokens": [
+        "ROOT.glob('*.js')",
+        "(ROOT / 'src').rglob('*.js')",
+        "HTML mismatch: index.html != hado_library_3.0.0.0.html"
+      ]
+    },
+    {
+      "path": "docs/updates/update07/implementation.md",
+      "tokens": [
+        "採点別名表の正本は `hado_type_score.js` のみに集約した。",
+        "`tools/validate_app_js.py` を新設した。"
+      ]
+    }
+  ],
+  "forbiddenTokens": [
+    {
+      "path": "hado_type_entry.js",
+      "tokens": [
+        "const METRIC_ALIASES = {",
+        "function metricAliases(metric)",
+        "const flatten ="
+      ]
+    }
+  ]
+}
