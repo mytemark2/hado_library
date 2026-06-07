@@ -24,6 +24,13 @@
 - 旧 `METRIC_ALIASES`、`metricAliases`、`flatten` の削除: 合格
 - 再利用可能な検証スクリプト `tools/validate_app_js.py` の追加: 完了
 
+## Update07.1 追加修正
+- 初版の `matched.length * 2` は仮ロジックであり、数値計算になっていなかったため撤去した。
+- `hadou_type_score_rules.json` の `percent_sum`、`percent_sum_or_presence`、`presence_fixed`、`baseline_ratio` を共通採点処理へ接続した。
+- 確定スコアと条件込最大を分離した。
+- 5項目の寄与点を各最大2点として画面へ表示する。
+- `tools/test_type_score.js` を追加した。
+
 ## 未実装
 - 保存データ表示モードの所有情報フィルター
 - 保存された将星、技能Lv、装備所有状況を反映した候補評価

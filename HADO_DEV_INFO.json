@@ -2,10 +2,10 @@
   "schemaVersion": "1.0",
   "releaseStatus": "development",
   "releaseVersion": "3.0.0.0",
-  "updateNo": "07",
-  "revision": 0,
-  "displayVersion": "3.0.0.0 Update07",
+  "updateNo": "07.1",
+  "revision": 1,
+  "displayVersion": "3.0.0.0 Update07.1",
   "baseAppVersion": "2.9.6.5",
-  "summary": "Update07: add shared 10-step type suitability scoring, narrow generic aliases to prevent inflated matches, and reuse the same scoring logic in the wizard and candidate list.",
-  "updatedAt": "2026-06-08T01:26:30+09:00"
+  "summary": "Update07.1: replace presence-only placeholder scoring with rule-based numeric calculation using percent_sum, percent_sum_or_presence, presence_fixed, and baseline_ratio; display confirmed and conditional maximum scores with per-metric contribution.",
+  "updatedAt": "2026-06-08T07:50:00+09:00"
 }

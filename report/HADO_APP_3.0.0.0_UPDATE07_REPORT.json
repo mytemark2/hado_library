@@ -45,5 +45,14 @@
     "obsolete local scoring aliases removed from hado_type_entry.js",
     "reusable validator added: tools/validate_app_js.py"
   ],
+  "fixRevision": "07.1",
+  "fixSummary": "Replaced presence-only placeholder with rule-based numeric scoring and visible confirmed/conditional breakdown.",
+  "ruleMethods": [
+    "percent_sum",
+    "percent_sum_or_presence",
+    "presence_fixed",
+    "baseline_ratio"
+  ],
+  "regressionAdded": "tools/test_type_score.js",
   "nextUpdate": "Update08: saved-data ownership filters, new formation creation, saved evaluation, history, and group management"
 }

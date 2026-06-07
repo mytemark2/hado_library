@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1.0",
+  "updateId": "app-update07-1-rule-score",
+  "repository": "mytemark2/hado_library",
+  "summary": "Update07.1: replace presence-only placeholder with rule-based numeric suitability calculation and visible breakdown.",
+  "appliedAt": "2026-06-07T22:43:09.884406+00:00",
+  "operations": [
+    {
+      "op": "write",
+      "path": "hado_type_score.js",
+      "sha256After": "3bdfa8246d1475817cfc2d8b193957881e53a2eeb826d53c5482193fb92a3bb3"
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_candidates.js",
+      "sha256After": "3fc8049fcc4db293e0743a55c1e8474d5d05d1b39c66c3e6a3c7f79965b121e9",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_candidates.js",
+      "sha256After": "49636dca41309075875597a0ce401a95fbca8ac480b0e6bfc858a31e61f8c626",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_candidates.js",
+      "sha256After": "bacb799a1201d57baf1832f706ecded31788053ec415ff09f33b2ab22acf4264",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_candidates.js",
+      "sha256After": "428bad8c4a2a88feb5b0bc574d076dd68cda10d397564069c57633c0be58feb9",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_candidates.js",
+      "sha256After": "ce9c08089efdc06ca5df83dcaf1cd0a6c83acba36dea67ed9326c3cfc963b383",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_entry.js",
+      "sha256After": "5899fd50d430992be6309c6a2f09e2ea7bf55c499f398f969fe8a2ed9c5fa05c",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_entry.js",
+      "sha256After": "a66fd21c0e028d09a53b9b2f37a4e3c590d755b0bf469cd7f672dc219db0410b",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_entry.js",
+      "sha256After": "d6e9a158a72e7b042ef3cb6850ddaa5ffe88273c83ac800d6bf46a207aae325f",
+      "count": 2
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_entry.js",
+      "sha256After": "a77ed74c1f2215587dcac66be6c2bba56e62520e6d5cc69caa98eda8b02ad914",
+      "count": 1
+    },
+    {
+      "op": "write",
+      "path": "HADO_DEV_INFO.json",
+      "sha256After": "2c35731b06ce9743a2f94b6e85d6d616064b3506260b2e111d01484ae15658bf"
+    },
+    {
+      "op": "write",
+      "path": "tools/test_type_score.js",
+      "sha256After": "0b712d2c25217a83ec3942b90fda67cd9668082213bd197786acfdfb584b4626"
+    },
+    {
+      "op": "write",
+      "path": "docs/updates/update07/fix01_rule_based_score.md",
+      "sha256After": "ab9b98da85073573fd6854c44af7fcfd72789e7c245b6f931b59c232fb6ded77"
+    },
+    {
+      "op": "replace",
+      "path": "docs/updates/update07/report.md",
+      "sha256After": "9cada5fa748eb5d237d60edc70312a4b65a58e720d5756d5615a4cfc77a9de2a",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "report/HADO_APP_3.0.0.0_UPDATE07_REPORT.json",
+      "sha256After": "5bc7b9d0a7eede6b923d871a3ef478d87e4a55e723b352dc9d872d17f0937e49",
+      "count": 1
+    }
+  ]
+}
