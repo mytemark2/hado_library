@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "target": "app",
+  "updateNo": "07.2",
+  "title": "Synchronize in-app diagnostic metadata with external development metadata",
+  "summary": "Update embedded FILE_META and HADO_BUILD_INFO values used by copied diagnostic logs, and expose type-score execution trace in diagnostic snapshot so preview verification reflects the loaded Update07.1 scoring implementation.",
+  "requirements": [
+    "Preserve external hado_type_score.js responsibility separation; do not inline scoring logic into HTML.",
+    "Update embedded FILE_META and HADO_BUILD_INFO diagnostic values from stale Update02 to Update07.2.",
+    "Add a lightweight typeScore diagnostic snapshot when the score module evaluates a candidate, including algorithm version, score, conditionalMaxScore, matched metric count, and contribution summary.",
+    "Keep HTML growth minimal and avoid duplicating scoring logic.",
+    "Update HADO_DEV_INFO.json to displayVersion 3.0.0.0 Update07.2 after applying.",
+    "Run regression tests and preview sync verification."
+  ],
+  "acceptanceCriteria": [
+    "Copied debug log no longer reports Update02 as current Build Info.",
+    "Copied debug log contains typeScore execution trace after running 型編成ナビ or 型候補一覧.",
+    "hado_type_score.js remains externally loaded.",
+    "Preview repository receives the same files automatically."
+  ]
+}
