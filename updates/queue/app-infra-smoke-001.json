@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0",
+  "updateId": "app-infra-smoke-001",
+  "repository": "mytemark2/hado_library",
+  "branch": "feature/app-3.0.0.0",
+  "expectedBaseCommit": "a6bb67aa58c3fa115723720e47d5b4e5dbfa8ca2",
+  "summary": "Infrastructure smoke test: no functional changes. Validate queue application, receipt generation, legacy cleanup, and preview dispatch.",
+  "operations": [],
+  "requiredTokens": [
+    {
+      "path": "src/update04_type_candidates.js",
+      "tokens": [
+        "Update04.2",
+        "function roleRows(role)",
+        "v._s.matched.length>0",
+        "function chipLabels("
+      ]
+    }
+  ],
+  "forbiddenTokens": [
+    {
+      "path": "src/update04_type_candidates.js",
+      "tokens": [
+        "[object Object]"
+      ]
+    }
+  ]
+}
