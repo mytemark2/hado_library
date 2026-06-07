@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "1.0",
+  "updateId": "app-update07-doc-audit",
+  "repository": "mytemark2/hado_library",
+  "branch": "feature/app-3.0.0.0",
+  "summary": "Record exact Update07 HTML size delta and completed post-apply audit results.",
+  "operations": [
+    {
+      "op": "replace",
+      "path": "docs/updates/update07/implementation.md",
+      "old": "- HTMLへの追加は `hado_type_score.js` の読込宣言1行相当のみとした。\n- 採点処理は外部JSへ分離した。",
+      "new": "- HTMLへの追加は `hado_type_score.js` の読込宣言1行相当のみとした。\n- HTML増減は `index.html` が **+102 bytes**、`hado_library_3.0.0.0.html` が **+102 bytes** である。\n- 採点処理は外部JSへ分離した。",
+      "expectedCount": 1
+    },
+    {
+      "op": "replace",
+      "path": "docs/updates/update07/report.md",
+      "old": "- HTMLへの大規模なJavaScript追記は行っていない。\n\n## ローカル監査",
+      "new": "- HTMLへの大規模なJavaScript追記は行っていない。\n- HTML増減は `index.html` が **+102 bytes**、`hado_library_3.0.0.0.html` が **+102 bytes** である。\n- 外部化判断: 採点ロジックはHTMLへ埋め込まず、責務名ファイル `hado_type_score.js` へ分離した。\n\n## ローカル監査",
+      "expectedCount": 1
+    },
+    {
+      "op": "replace",
+      "path": "docs/updates/update07/report.md",
+      "old": "- 兵力が採点対象として残る: 合格",
+      "new": "- 兵力が採点対象として残る: 合格\n- 採点項目固有の `味方対象部隊数` は正常加点される: 合格\n- GitHub反映後の `hado_type_score.js` SHA-256 が受領ファイルと一致: 合格\n- GitHub反映後の `hado_type_candidates.js` SHA-256 が受領ファイルと一致: 合格\n- `index.html` と `hado_library_3.0.0.0.html` のSHA-256一致: 合格",
+      "expectedCount": 1
+    },
+    {
+      "op": "replace",
+      "path": "report/HADO_APP_3.0.0.0_UPDATE07_REPORT.json",
+      "old": "    \"externalJsAdded\": \"hado_type_score.js\",\n    \"loadOrder\": [",
+      "new": "    \"externalJsAdded\": \"hado_type_score.js\",\n    \"htmlBytesAddedEach\": 102,\n    \"htmlFiles\": [\n      \"index.html\",\n      \"hado_library_3.0.0.0.html\"\n    ],\n    \"loadOrder\": [",
+      "expectedCount": 1
+    },
+    {
+      "op": "replace",
+      "path": "report/HADO_APP_3.0.0.0_UPDATE07_REPORT.json",
+      "old": "    \"synthetic score regression: 6 cases passed\"",
+      "new": "    \"synthetic score regression: 6 assertions passed\",\n    \"post-apply SHA-256 match: hado_type_score.js\",\n    \"post-apply SHA-256 match: hado_type_candidates.js\",\n    \"HTML SHA-256 match: index.html == hado_library_3.0.0.0.html\"",
+      "expectedCount": 1
+    }
+  ],
+  "requiredTokens": [
+    {
+      "path": "docs/updates/update07/implementation.md",
+      "tokens": [
+        "HTML増減は `index.html` が **+102 bytes**、`hado_library_3.0.0.0.html` が **+102 bytes**"
+      ]
+    },
+    {
+      "path": "docs/updates/update07/report.md",
+      "tokens": [
+        "外部化判断: 採点ロジックはHTMLへ埋め込まず",
+        "GitHub反映後の `hado_type_score.js` SHA-256 が受領ファイルと一致: 合格",
+        "`index.html` と `hado_library_3.0.0.0.html` のSHA-256一致: 合格"
+      ]
+    },
+    {
+      "path": "report/HADO_APP_3.0.0.0_UPDATE07_REPORT.json",
+      "tokens": [
+        "\"htmlBytesAddedEach\": 102",
+        "\"synthetic score regression: 6 assertions passed\""
+      ]
+    }
+  ]
+}
