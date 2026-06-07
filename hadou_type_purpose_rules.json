@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-06-07T04:23:26.754Z",
-  "dataSetId": "2026-06-06T09:16:01.293Z",
+  "generatedAt": "2026-06-07T06:04:52.977Z",
+  "dataSetId": "2026-06-07T04:23:26.720Z",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
     "hadou_generals.json",
@@ -75,8 +75,8 @@
   },
   "crawlerVersion": "1.1.0.0",
   "milestone": "crawler-1.1.0.0 / app-3.0.0.0",
-  "updateNo": "02.3",
-  "status": "purpose-role-model-v2",
+  "updateNo": "02.4",
+  "status": "vaccine-type-override",
   "entryFlows": [
     {
       "flowId": "from_main_general",
@@ -229,6 +229,10 @@
         {
           "typeId": "calm",
           "reason": "弱化や解除に耐え、防衛能力を維持する。"
+        },
+        {
+          "typeId": "vaccine",
+          "reason": "自部隊の不利対策と味方への非ダメージ支援で、防衛継続力を高める。"
         }
       ],
       "recommendedTypeIds": [
@@ -238,7 +242,8 @@
         "debuff_interference",
         "attack_speed",
         "tactic_speed",
-        "calm"
+        "calm",
+        "vaccine"
       ],
       "hiddenTypeIds": [
         "bomb",
@@ -337,6 +342,10 @@
         {
           "typeId": "attack_speed",
           "reason": "通常攻撃による妨害付与回数を増やす。"
+        },
+        {
+          "typeId": "vaccine",
+          "reason": "自部隊の不利対策と味方への非ダメージ支援で、駐屯部隊を維持する。"
         }
       ],
       "recommendedTypeIds": [
@@ -346,7 +355,8 @@
         "tactic_speed",
         "calm",
         "normal_attack",
-        "attack_speed"
+        "attack_speed",
+        "vaccine"
       ],
       "hiddenTypeIds": [
         "bomb",
@@ -381,13 +391,18 @@
         {
           "typeId": "zombie",
           "reason": "支援部隊を長く残し、再配布回数を増やす。"
+        },
+        {
+          "typeId": "vaccine",
+          "reason": "味方への非ダメージ支援と不利対策をまとめて確認する。"
         }
       ],
       "recommendedTypeIds": [
         "buff_support",
         "tactic_speed",
         "calm",
-        "zombie"
+        "zombie",
+        "vaccine"
       ],
       "hiddenTypeIds": [
         "bomb",
@@ -592,6 +607,10 @@
         {
           "typeId": "calm",
           "reason": "弱化や解除に耐え、防衛能力を維持する。"
+        },
+        {
+          "typeId": "vaccine",
+          "reason": "自部隊の不利対策と味方への非ダメージ支援で、防衛継続力を高める。"
         }
       ],
       "recommendedTypeIds": [
@@ -601,7 +620,8 @@
         "debuff_interference",
         "attack_speed",
         "tactic_speed",
-        "calm"
+        "calm",
+        "vaccine"
       ],
       "hiddenTypeIds": [
         "bomb",
@@ -700,6 +720,10 @@
         {
           "typeId": "attack_speed",
           "reason": "通常攻撃による妨害付与回数を増やす。"
+        },
+        {
+          "typeId": "vaccine",
+          "reason": "自部隊の不利対策と味方への非ダメージ支援で、駐屯部隊を維持する。"
         }
       ],
       "recommendedTypeIds": [
@@ -709,7 +733,8 @@
         "tactic_speed",
         "calm",
         "normal_attack",
-        "attack_speed"
+        "attack_speed",
+        "vaccine"
       ],
       "hiddenTypeIds": [
         "bomb",
@@ -744,13 +769,18 @@
         {
           "typeId": "zombie",
           "reason": "支援部隊を長く残し、再配布回数を増やす。"
+        },
+        {
+          "typeId": "vaccine",
+          "reason": "味方への非ダメージ支援と不利対策をまとめて確認する。"
         }
       ],
       "recommendedTypeIds": [
         "buff_support",
         "tactic_speed",
         "calm",
-        "zombie"
+        "zombie",
+        "vaccine"
       ],
       "hiddenTypeIds": [
         "bomb",

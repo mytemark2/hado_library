@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-06-07T04:23:26.754Z",
-  "dataSetId": "2026-06-06T09:16:01.293Z",
+  "generatedAt": "2026-06-07T06:04:52.977Z",
+  "dataSetId": "2026-06-07T04:23:26.720Z",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
     "hadou_generals.json",
@@ -75,11 +75,11 @@
   },
   "crawlerVersion": "1.1.0.0",
   "milestone": "crawler-1.1.0.0 / app-3.0.0.0",
-  "updateNo": "02.3",
-  "status": "purpose-role-model-v2",
+  "updateNo": "02.4",
+  "status": "vaccine-type-override",
   "policy": {
     "metricsPerType": 5,
-    "typeCount": 15,
+    "typeCount": 16,
     "useWeights": false,
     "showCompletionRate": false,
     "scoreSkillLevel": false,
@@ -624,6 +624,43 @@
           "method": "percent_sum"
         }
       ]
+    },
+    {
+      "typeId": "vaccine",
+      "typeName": "ワクチン型",
+      "description": "自部隊の不利対策と、味方への非ダメージ支援を持つ候補を確認する。",
+      "metrics": [
+        {
+          "metricKey": "self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "method": "presence_fixed",
+          "basis": 100
+        },
+        {
+          "metricKey": "ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "method": "presence_fixed",
+          "basis": 100
+        },
+        {
+          "metricKey": "weakening_nullify",
+          "label": "弱化無効",
+          "method": "presence_fixed",
+          "basis": 100
+        },
+        {
+          "metricKey": "weakening_remove",
+          "label": "弱化解除",
+          "method": "presence_fixed",
+          "basis": 100
+        },
+        {
+          "metricKey": "ally_wounded_recovery",
+          "label": "味方負傷兵回復",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        }
+      ]
     }
   ],
   "kind": "type_score_rules",
@@ -1155,6 +1192,43 @@
           "metricKey": "tactic_speed",
           "label": "戦法速度",
           "method": "percent_sum"
+        }
+      ]
+    },
+    {
+      "typeId": "vaccine",
+      "typeName": "ワクチン型",
+      "description": "自部隊の不利対策と、味方への非ダメージ支援を持つ候補を確認する。",
+      "metrics": [
+        {
+          "metricKey": "self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "method": "presence_fixed",
+          "basis": 100
+        },
+        {
+          "metricKey": "ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "method": "presence_fixed",
+          "basis": 100
+        },
+        {
+          "metricKey": "weakening_nullify",
+          "label": "弱化無効",
+          "method": "presence_fixed",
+          "basis": 100
+        },
+        {
+          "metricKey": "weakening_remove",
+          "label": "弱化解除",
+          "method": "presence_fixed",
+          "basis": 100
+        },
+        {
+          "metricKey": "ally_wounded_recovery",
+          "label": "味方負傷兵回復",
+          "method": "percent_sum_or_presence",
+          "basis": 100
         }
       ]
     }

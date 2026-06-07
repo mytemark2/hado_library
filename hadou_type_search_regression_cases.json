@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-06-07T04:23:26.754Z",
-  "dataSetId": "2026-06-06T09:16:01.293Z",
+  "generatedAt": "2026-06-07T06:04:52.977Z",
+  "dataSetId": "2026-06-07T04:23:26.720Z",
   "crawlerVersion": "1.1.0.0",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -254,6 +254,11 @@
           "core": 2,
           "recommended": 2,
           "support": 1
+        },
+        "vaccine": {
+          "core": 2,
+          "recommended": 2,
+          "support": 1
         }
       }
     },
@@ -262,9 +267,9 @@
       "description": "型プリセット条件が状態変化索引または補助型要素索引で解決可能である",
       "ok": true,
       "detail": {
-        "presetCount": 15,
-        "rawConditionCount": 91,
-        "canonicalConditionCount": 72,
+        "presetCount": 16,
+        "rawConditionCount": 96,
+        "canonicalConditionCount": 77,
         "unresolved": []
       }
     },

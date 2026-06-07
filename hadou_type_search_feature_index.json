@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-06-07T04:23:26.754Z",
-  "dataSetId": "2026-06-06T09:16:01.293Z",
+  "generatedAt": "2026-06-07T06:04:52.977Z",
+  "dataSetId": "2026-06-07T04:23:26.720Z",
   "crawlerVersion": "1.1.0.0",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -268,6 +268,16 @@
       "featureType": "skillEffect"
     },
     {
+      "featureId": "skill_effect:self_disadvantage_countermeasure",
+      "label": "自部隊不利対策",
+      "featureType": "skillEffect"
+    },
+    {
+      "featureId": "skill_effect:ally_non_damage_effect",
+      "label": "味方非ダメージ効果",
+      "featureType": "skillEffect"
+    },
+    {
       "featureId": "parameter:troops",
       "label": "兵力",
       "featureType": "parameter"
@@ -302,9 +312,9 @@
       "siegeWeapons": 6,
       "warhorseSkills": 27
     },
-    "itemsWithAnyFeature": 666,
+    "itemsWithAnyFeature": 667,
     "statusEffectReferenceCount": 2972,
-    "typeFeatureReferenceCount": 2995,
+    "typeFeatureReferenceCount": 3231,
     "featureCounts": {
       "parameter:critical_rate": 108,
       "skill_effect:chain_rate": 161,
@@ -316,6 +326,7 @@
       "parameter:tactic_speed": 103,
       "parameter:tactic_power": 108,
       "skill_effect:weakening_remove": 66,
+      "skill_effect:self_disadvantage_countermeasure": 109,
       "skill_effect:annihilation_avoidance": 55,
       "skill_effect:remaining_troops": 36,
       "skill_effect:wounded_recovery": 61,
@@ -330,6 +341,7 @@
       "skill_effect:ally_target_count": 295,
       "skill_effect:strengthening_remove_avoid": 13,
       "skill_effect:ally_defense_buff": 68,
+      "skill_effect:ally_non_damage_effect": 127,
       "parameter:anti_object": 110,
       "parameter:critical_tactic_power": 18,
       "skill_effect:wounded_survival": 49,
@@ -721,10 +733,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR司馬昭の戦法 遠慮深計兵科効果系統攻撃属性なし知力なし効果自身1部隊の弱化効果を5つ打ち消して75％の有利激攻を付与知力を100％、戦法威力を50％上昇対象を含む敵4部隊に30％の封縛を付与して400％の攻撃発動間隔対象範囲発動率連鎖順20秒敵 / 広25％早い遠慮深計の追加効果追加効果対象範囲継続弱化解除自分 / 単15秒対象に発生している弱化効果を打…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR司馬昭の戦法 遠慮深計兵科効果系統攻撃属性なし知力なし効果自身1部隊の弱化効果を5つ打ち消して75％の有利激攻を付与知力を100％、戦法威力を50％上昇対象を含む敵4部隊に30％の封縛を付与して400％の攻撃発動間隔対象範囲発動率連鎖順20秒敵 / 広25％早い遠慮深計の追加効果追加効果対象範囲継続弱化解除自分 / 単15秒対象に発生している弱化効果を打…"
         }
       ],
       "statusEffectRefCount": 8,
-      "typeFeatureCount": 7
+      "typeFeatureCount": 8
     },
     {
       "category": "generals",
@@ -1294,10 +1314,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "対象を含む敵3部隊に異心を付与（30秒）"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "絶縁（有利変化）…敵部隊の連鎖を含む戦法全体から、自部隊が受ける状態変化と攻撃の発生を無効にする猛奮自分 / 単20秒兵力が50％以上の時、部隊の与ダメージが効果量分上昇攻撃変化自分 / 単20秒部隊の攻撃が上昇する知力変化自分 / 単20秒部隊の知力が上昇する戦法威力変化自分 / 単20秒戦法による攻撃の威力が上昇する 驕栄当路 兵科効果系統攻撃属性なしな…"
         }
       ],
       "statusEffectRefCount": 17,
-      "typeFeatureCount": 6
+      "typeFeatureCount": 7
     },
     {
       "category": "generals",
@@ -1589,10 +1617,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR張良の戦法 決勝千里兵科効果系統攻撃属性なし知力なし効果自身を含む味方3部隊に献計と取込、30％の慧叡を付与さらに会心威力を100％、会心発生を30％上昇（自部隊が駐屯/防衛中の場合、会心威力と会心発生の上昇効果が2倍になる）対象を含む敵4部隊に400％の攻撃発動間隔対象範囲発動率連鎖順20秒敵 / 広25％普通決勝千里の追加効果追加効果対象範囲継続献計…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR張良の戦法 決勝千里兵科効果系統攻撃属性なし知力なし効果自身を含む味方3部隊に献計と取込、30％の慧叡を付与さらに会心威力を100％、会心発生を30％上昇（自部隊が駐屯/防衛中の場合、会心威力と会心発生の上昇効果が2倍になる）対象を含む敵4部隊に400％の攻撃発動間隔対象範囲発動率連鎖順20秒敵 / 広25％普通決勝千里の追加効果追加効果対象範囲継続献計…"
         }
       ],
       "statusEffectRefCount": 15,
-      "typeFeatureCount": 13
+      "typeFeatureCount": 14
     },
     {
       "category": "generals",
@@ -1832,10 +1868,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR華雄の戦法 豪強猛武兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に50％の猛奮と50％の不敵を付与して、攻撃と防御を150％、戦法威力を50％上昇対象を含む敵4部隊に400％の攻撃（自部隊の主将とこの武将が好相性の際、攻撃目標に対しては威力が1.5倍）発動間隔対象範囲発動率連鎖順25秒敵 / 広25％普通豪強猛武の追加効果追加効果対象範囲継続猛奮自分 …"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（攻撃）と萎縮を避ける"
         }
       ],
       "statusEffectRefCount": 14,
-      "typeFeatureCount": 8
+      "typeFeatureCount": 9
     },
     {
       "category": "generals",
@@ -1963,10 +2007,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR蒋欽の戦法 健浪討撃兵科効果系統攻撃属性歩兵物理なし効果自身を含む味方3部隊の騎兵相性を良くして、攻撃と防御を150％、戦法威力を30％上昇自身1部隊に穿撃を付与対象を含む敵3部隊に300％の攻撃（対象が騎兵の場合、威力を100％上昇させて攻撃する）（この武将の将星ランクに応じて、威力が15％ずつ上昇）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％普…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR蒋欽の戦法 健浪討撃兵科効果系統攻撃属性歩兵物理なし効果自身を含む味方3部隊の騎兵相性を良くして、攻撃と防御を150％、戦法威力を30％上昇自身1部隊に穿撃を付与対象を含む敵3部隊に300％の攻撃（対象が騎兵の場合、威力を100％上昇させて攻撃する）（この武将の将星ランクに応じて、威力が15％ずつ上昇）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％普…"
         }
       ],
       "statusEffectRefCount": 6,
-      "typeFeatureCount": 6
+      "typeFeatureCount": 7
     },
     {
       "category": "generals",
@@ -2540,10 +2592,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "戦法によるデバフ全解除も優秀 戦法で味方3部隊のデバフを全て解除できるため、護厳や技能「厳律」を捨てて貫通編制の副将で使うのもあり"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR于禁の戦法 討暴堅塁兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を全て打ち消して50％の強兵を付与、防御を200％上昇さらに自身1部隊に15％の護厳を付与対象を含む敵3部隊のすでに発生している強化効果のうち、3つの効果時間を15秒短縮する30％の確率で、強化時間短縮の個数が+3される（この武将の将星ランクに応じて確率が10％ずつ上昇…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR于禁の戦法 討暴堅塁兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を全て打ち消して50％の強兵を付与、防御を200％上昇さらに自身1部隊に15％の護厳を付与対象を含む敵3部隊のすでに発生している強化効果のうち、3つの効果時間を15秒短縮する30％の確率で、強化時間短縮の個数が+3される（この武将の将星ランクに応じて確率が10％ずつ上昇…"
         }
       ],
       "statusEffectRefCount": 8,
-      "typeFeatureCount": 11
+      "typeFeatureCount": 13
     },
     {
       "category": "generals",
@@ -3249,10 +3317,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR花鬘の戦法 励神奮励兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に憤怒/有利激攻（50％）/会心発生+50%/会心威力+150%のうち1つを付与（自部隊の主将とこの武将が好相性の際、上記効果で付与する効果が3つになる）さらに通常攻撃でダメージを与えた際、戦法速度を5％低下させる対象を含む敵4部隊に300％の攻撃（自部隊の「南蛮」の技能Lv×20%威力が…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "絶縁（有利変化）…敵部隊の連鎖を含む戦法全体から、自部隊が受ける状態変化と攻撃の発生を無効にする有利激攻自分 / 単10秒兵科相性が有利な敵に対する与ダメージが上昇する会心発生変化自分 / 単10秒会心の発生率が上昇する会心威力変化自分 / 単10秒会心発生時の威力が上昇する戦法速度低下付与自分 / 単10秒効果時間中、自部隊の通常攻撃によってダメージが発生…"
         }
       ],
       "statusEffectRefCount": 14,
-      "typeFeatureCount": 11
+      "typeFeatureCount": 12
     },
     {
       "category": "generals",
@@ -3504,10 +3580,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR祝融の戦法 赤帝爛舞兵科効果系統攻撃属性騎兵物理火効果自身を含む味方3部隊に穿撃と火属性を付与して、会心威力を100％上昇対象を含む敵4部隊の強化効果を3つ打ち消して500％の攻撃この武将が主将か、自部隊の主将が孟獲/花鬘/諸葛亮/関索の際、自身1部隊に烈風を付与（自部隊の「南蛮」の技能Lv×20%の確率で烈風の味方対象部隊数+2）発動間隔対象範囲発動率…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR祝融の戦法 赤帝爛舞兵科効果系統攻撃属性騎兵物理火効果自身を含む味方3部隊に穿撃と火属性を付与して、会心威力を100％上昇対象を含む敵4部隊の強化効果を3つ打ち消して500％の攻撃この武将が主将か、自部隊の主将が孟獲/花鬘/諸葛亮/関索の際、自身1部隊に烈風を付与（自部隊の「南蛮」の技能Lv×20%の確率で烈風の味方対象部隊数+2）発動間隔対象範囲発動率…"
         }
       ],
       "statusEffectRefCount": 13,
-      "typeFeatureCount": 11
+      "typeFeatureCount": 12
     },
     {
       "category": "generals",
@@ -3791,10 +3875,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR孟獲の戦法 頑抗不屈兵科効果系統攻撃属性騎兵物理なし効果自身を含む味方3部隊の攻撃と防御を150％上昇（自部隊の「南蛮」の技能Lv×10%、攻撃と防御上昇の効果量が上昇"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる一部の不利変化（恐怖、同討）と一部の即時効果（戦法遅延、震乱、強化奪取、負傷兵数変化）を避ける鍛造2"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR孟獲の戦法 頑抗不屈兵科効果系統攻撃属性騎兵物理なし効果自身を含む味方3部隊の攻撃と防御を150％上昇（自部隊の「南蛮」の技能Lv×10%、攻撃と防御上昇の効果量が上昇"
         }
       ],
       "statusEffectRefCount": 15,
-      "typeFeatureCount": 12
+      "typeFeatureCount": 14
     },
     {
       "category": "generals",
@@ -4134,10 +4234,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR項籍の戦法 抜山蓋世兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に100％の猛奮と100％の有利激攻を付与さらに会心発生を35％、会心威力を100％、攻撃を150％上昇対象を含む敵5部隊に全ての強化効果を無視して500％の攻撃（有利変化「絶縁」により攻撃の発生が無効化されている場合、強化効果を無視する効果は発揮されない）発動間隔対象範囲発動率連鎖順20…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "分断などの「自部隊以外の味方部隊から受ける状態変化を無効化する状態変化」発生中も、味方部隊が付与する状態変化の対象にならない"
         }
       ],
       "statusEffectRefCount": 19,
-      "typeFeatureCount": 13
+      "typeFeatureCount": 14
     },
     {
       "category": "generals",
@@ -4592,10 +4700,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR鄒氏の戦法 婉然惑媚兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の防御を100％上昇（この武将の将星ランクに応じて、防御上昇の効果量が15％ずつ上昇）さらに味方部隊の主将が男性の場合、3回の不退を付与して、すでに発生している能力強化効果のうちランダムに3つの効果量を1.2倍にする対象を含む敵4部隊に50％の確率で幻惑を付与（敵部隊の主将が男性…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（戦法威力変化/通常攻撃威力変化）と一部の不利変化（戦法範囲縮小/疑心/幻惑/氷呪/沙縛）を避ける"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR鄒氏の戦法 婉然惑媚兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の防御を100％上昇（この武将の将星ランクに応じて、防御上昇の効果量が15％ずつ上昇）さらに味方部隊の主将が男性の場合、3回の不退を付与して、すでに発生している能力強化効果のうちランダムに3つの効果量を1.2倍にする対象を含む敵4部隊に50％の確率で幻惑を付与（敵部隊の主将が男性…"
         }
       ],
       "statusEffectRefCount": 13,
-      "typeFeatureCount": 10
+      "typeFeatureCount": 12
     },
     {
       "category": "generals",
@@ -5030,10 +5154,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR周倉の戦法 万里馳義兵科効果系統攻撃属性歩兵物理なし効果自身1部隊の弱化効果を5つ打ち消して強化促進と瞬影、50％の駿撃を付与、攻撃を100％上昇対象を含む敵2部隊に400％の攻撃部隊内（主将/副将/補佐）に関羽/関銀屏/関平/関興/関索のうち1人以上いる場合、威力を500％にして攻撃する発動間隔対象範囲発動率連鎖順20秒敵 / 狭25％早い万里馳義の追…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自部隊の弱化効果を5つ解除してから駿撃を付与するので、敵部隊に対して高いダメージを出しやすいのが特徴"
         }
       ],
       "statusEffectRefCount": 12,
-      "typeFeatureCount": 7
+      "typeFeatureCount": 8
     },
     {
       "category": "generals",
@@ -5437,10 +5569,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR関羽の戦法 神武威顕兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に龍吟を付与さらに全ての兵科と物体に対して有利にして攻撃と会心威力を200％、戦法威力を50％上昇対象を含む敵3部隊に600％の攻撃この武将が主将の場合、敵部隊の一部の有利変化（取込、攻撃無効、不退、不滅）を無視してダメージを与える発動間隔対象範囲発動率連鎖順20秒敵 / 中25％遅い神武…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR関羽の戦法 神武威顕兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に龍吟を付与さらに全ての兵科と物体に対して有利にして攻撃と会心威力を200％、戦法威力を50％上昇対象を含む敵3部隊に600％の攻撃この武将が主将の場合、敵部隊の一部の有利変化（取込、攻撃無効、不退、不滅）を無視してダメージを与える発動間隔対象範囲発動率連鎖順20秒敵 / 中25％遅い神武…"
         }
       ],
       "statusEffectRefCount": 25,
-      "typeFeatureCount": 12
+      "typeFeatureCount": 13
     },
     {
       "category": "generals",
@@ -5978,10 +6118,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR黄月英の戦法 天地通察兵科効果系統攻撃属性なしなしなし効果自身1部隊に操賢を付与して対物特効を100％上昇自身を含む味方3部隊に火属性を付与さらに知力と火属性威力を100％上昇（自部隊の兵器が健在の場合、対物特効上昇、知力上昇、火属性強化の効果量が1.5倍になる）発動間隔対象範囲発動率連鎖順25秒- / -25％早い天地通察の追加効果追加効果対象範囲継続…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる弱化効果を、部隊内（主将/副将/補佐）の自身と好相性の武将数×10％の確率で避ける（確率は他効果と合算） →自部隊の知力が敵より高い場合、確率が2倍（×20％）"
         }
       ],
       "statusEffectRefCount": 7,
-      "typeFeatureCount": 6
+      "typeFeatureCount": 7
     },
     {
       "category": "generals",
@@ -6177,10 +6325,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR歩練師の戦法 昭顕徳厚兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を2つ打ち消して攻撃、知力、攻撃速度を75％上昇（この武将の将星ランクに応じて攻撃、知力、攻撃速度上昇の効果量が10％ずつ上昇）さらに、すでに発生している強化効果のうち、ランダムに5つの効果時間を10秒延長する発動間隔対象範囲発動率連鎖順25秒- / -25％早い昭顕…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR歩練師の戦法 昭顕徳厚兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を2つ打ち消して攻撃、知力、攻撃速度を75％上昇（この武将の将星ランクに応じて攻撃、知力、攻撃速度上昇の効果量が10％ずつ上昇）さらに、すでに発生している強化効果のうち、ランダムに5つの効果時間を10秒延長する発動間隔対象範囲発動率連鎖順25秒- / -25％早い昭顕…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR歩練師の戦法 昭顕徳厚兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を2つ打ち消して攻撃、知力、攻撃速度を75％上昇（この武将の将星ランクに応じて攻撃、知力、攻撃速度上昇の効果量が10％ずつ上昇）さらに、すでに発生している強化効果のうち、ランダムに5つの効果時間を10秒延長する発動間隔対象範囲発動率連鎖順25秒- / -25％早い昭顕…"
         }
       ],
       "statusEffectRefCount": 11,
-      "typeFeatureCount": 7
+      "typeFeatureCount": 9
     },
     {
       "category": "generals",
@@ -6400,10 +6564,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊に25％の不敵を30秒付与"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR夏侯惇(ORIGINS)の戦法 麒麟閃牙兵科効果系統攻撃属性騎兵物理なし効果対象を含む敵4部隊に畏怖を付与して400％の攻撃（この武将が主将の場合、戦法の敵対象部隊数が6部隊になる）（この戦法の敵対象は自部隊に近い部隊から判定される）この戦法でダメージを与えた部隊と同じ数の自身を含む味方部隊に15％の不敵、2回の奮心、10％の結束を付与（対象部隊の主将と…"
         }
       ],
       "statusEffectRefCount": 13,
-      "typeFeatureCount": 7
+      "typeFeatureCount": 8
     },
     {
       "category": "generals",
@@ -6639,10 +6811,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "味方4部隊を支援する弓兵武将 真・三國無双 ORIGINSコラボのLR孫尚香は、戦法で味方4部隊に複数のバフを付与する弓兵武将"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR孫尚香(ORIGINS)の戦法 乾坤飛圏兵科効果系統攻撃属性弓兵物理なし効果自身を含む味方4部隊の弱化効果を2つ打ち消して、50％の高揚と50％の闘気を付与さらに攻撃速度を100％、会心発生を50％上昇対象を含む敵4部隊に400％の攻撃（この武将が主将の場合、戦法の敵対象部隊数が6部隊になる）（この戦法の敵対象は自部隊に近い部隊から判定される）発動間隔対…"
         }
       ],
       "statusEffectRefCount": 13,
-      "typeFeatureCount": 9
+      "typeFeatureCount": 10
     },
     {
       "category": "generals",
@@ -7049,10 +7229,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR朱桓の戦法 激奮勇略兵科効果系統攻撃属性歩兵物理火効果自身を含む味方3部隊に75％の有利激攻を付与（自部隊の侍従に配置されている武将1人につき有利激攻の効果量が15％ずつ上昇）自身1部隊を全ての兵科と物体に対して有利にして、1回の攻撃無効と1回の弱化無効を付与（自部隊の侍従に配置されている武将1人につき攻撃無効と弱化無効の回数が1回ずつ上昇）対象を含む敵…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（攻撃/兵科相性変化）を避ける"
         }
       ],
       "statusEffectRefCount": 9,
-      "typeFeatureCount": 10
+      "typeFeatureCount": 11
     },
     {
       "category": "generals",
@@ -7216,10 +7404,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR楽進の戦法 驍胆猛迅兵科効果系統攻撃属性騎兵物理なし効果自身を含む味方3部隊に2回の威槍と5％の追討を付与自身1部隊の攻撃を200％、会心発生を50％上昇対象を含む敵3部隊の能力強化効果を3つ反転させて400％の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い驍胆猛迅の追加効果追加効果対象範囲継続威槍味方 / 中15秒効果回数分、会心攻撃時に会…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR楽進の戦法 驍胆猛迅兵科効果系統攻撃属性騎兵物理なし効果自身を含む味方3部隊に2回の威槍と5％の追討を付与自身1部隊の攻撃を200％、会心発生を50％上昇対象を含む敵3部隊の能力強化効果を3つ反転させて400％の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い驍胆猛迅の追加効果追加効果対象範囲継続威槍味方 / 中15秒効果回数分、会心攻撃時に会…"
         }
       ],
       "statusEffectRefCount": 7,
-      "typeFeatureCount": 9
+      "typeFeatureCount": 10
     },
     {
       "category": "generals",
@@ -7435,10 +7631,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR項燕の戦法 堅忍果決兵科効果系統攻撃属性弓兵特殊なし効果自身を含む味方3部隊に攻撃と知力を100％、戦法威力を50％上昇対象を含む敵4部隊に1度の戦法弱化を付与して、自部隊の攻撃または知力の高い方の系統で400％の攻撃を行う（同値の場合は知力系統）自部隊の主将とこの武将が好相性の際、自身を含む味方3部隊に5％の剛憤を付与発動間隔対象範囲発動率連鎖順20秒…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊の弱化効果を2％打ち消す"
         }
       ],
       "statusEffectRefCount": 10,
-      "typeFeatureCount": 11
+      "typeFeatureCount": 12
     },
     {
       "category": "generals",
@@ -7590,10 +7794,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR馬騰の戦法 甲騎騰躍兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に廉潔を付与して通常攻撃の対象部隊数+2攻撃と対物特効を150％上昇（自身が主将の際、上記効果が自身を含む味方騎兵3部隊にも付与される）対象を含む敵3部隊に400％の攻撃この武将が主将か、自部隊の主将が馬超/馬岱/馬雲騄の際、自身1部隊に烈風を付与発動間隔対象範囲発動率連鎖順25秒敵 / …"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR馬騰の戦法 甲騎騰躍兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に廉潔を付与して通常攻撃の対象部隊数+2攻撃と対物特効を150％上昇（自身が主将の際、上記効果が自身を含む味方騎兵3部隊にも付与される）対象を含む敵3部隊に400％の攻撃この武将が主将か、自部隊の主将が馬超/馬岱/馬雲騄の際、自身1部隊に烈風を付与発動間隔対象範囲発動率連鎖順25秒敵 / …"
         }
       ],
       "statusEffectRefCount": 8,
-      "typeFeatureCount": 6
+      "typeFeatureCount": 7
     },
     {
       "category": "generals",
@@ -8334,10 +8546,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR荀彧の戦法 鑑機先識兵科効果系統攻撃属性なし知力なし効果自身を含む味方3部隊の弱化効果を3つ打ち消して知力を150％、戦法威力を50％上昇対象を含む敵4部隊のすでに発生している強化効果のうち、5つの効果時間を15秒短縮して通常攻撃威力を50％低下さらに350％の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 広25％早い鑑機先識の追加効果追加効果対象範囲継…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR荀彧の戦法 鑑機先識兵科効果系統攻撃属性なし知力なし効果自身を含む味方3部隊の弱化効果を3つ打ち消して知力を150％、戦法威力を50％上昇対象を含む敵4部隊のすでに発生している強化効果のうち、5つの効果時間を15秒短縮して通常攻撃威力を50％低下さらに350％の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 広25％早い鑑機先識の追加効果追加効果対象範囲継…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR荀彧の戦法 鑑機先識兵科効果系統攻撃属性なし知力なし効果自身を含む味方3部隊の弱化効果を3つ打ち消して知力を150％、戦法威力を50％上昇対象を含む敵4部隊のすでに発生している強化効果のうち、5つの効果時間を15秒短縮して通常攻撃威力を50％低下さらに350％の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 広25％早い鑑機先識の追加効果追加効果対象範囲継…"
         }
       ],
       "statusEffectRefCount": 9,
-      "typeFeatureCount": 11
+      "typeFeatureCount": 13
     },
     {
       "category": "generals",
@@ -8557,10 +8785,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR袁紹の戦法 強盛莫敵兵科効果系統攻撃属性騎兵特殊なし効果自身を含む味方4部隊の攻撃と知力を150％上昇全ての兵科と物体に対して有利にする自身1部隊に25％の魁威を付与（この武将が主将の場合、魁威の効果量が2倍）対象を含む敵4部隊に自部隊の攻撃または知力の高い方の系統で250％の攻撃（同値の場合は知力系統）（この武将が主将で自部隊の現在兵力が50％以上の場…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR袁紹の戦法 強盛莫敵兵科効果系統攻撃属性騎兵特殊なし効果自身を含む味方4部隊の攻撃と知力を150％上昇全ての兵科と物体に対して有利にする自身1部隊に25％の魁威を付与（この武将が主将の場合、魁威の効果量が2倍）対象を含む敵4部隊に自部隊の攻撃または知力の高い方の系統で250％の攻撃（同値の場合は知力系統）（この武将が主将で自部隊の現在兵力が50％以上の場…"
         }
       ],
       "statusEffectRefCount": 11,
-      "typeFeatureCount": 10
+      "typeFeatureCount": 11
     },
     {
       "category": "generals",
@@ -8840,10 +9076,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "耐久力はかなり高い 戦法で敵に複数のデバフを付与したうえで、味方4部隊には3度の絶縁を付与するため耐久力はかなり高い"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "最大75％低下）鈍迷敵 / 広15秒効果時間中、攻撃、防御、知力の能力強化効果が発揮されず、攻撃、防御、知力が効果量分低下した状態になるさらに自部隊以外の味方部隊から受ける状態変化を無効化する絶縁味方 / 広15秒敵部隊の連鎖を含む戦法全体から、自部隊が受ける状態変化と攻撃の発生を無効にする LR曹操の技能 謀雄1"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR曹操の戦法 超世の傑兵科効果系統攻撃属性歩兵特殊なし効果対象を含む敵4部隊の強化効果を3つ奪い、全ての兵科と物体に対して不利にするさらに弱化積鈍と30％の鈍迷を付与自部隊の攻撃または知力の高い方の系統で500％の攻撃を行う（同値の場合は知力系統）この武将が主将の場合、自身を含む味方4部隊に3度の絶縁を付与発動間隔対象範囲発動率連鎖順20秒敵 / 広25％…"
         }
       ],
       "statusEffectRefCount": 16,
-      "typeFeatureCount": 10
+      "typeFeatureCount": 12
     },
     {
       "category": "generals",
@@ -9023,10 +9275,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR鮑叔牙の戦法 匡君済民兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を2つ打ち消して20％の結束を付与、通常攻撃威力と戦法威力を25％上昇自身1部隊に泰然を付与発動間隔対象範囲発動率連鎖順25秒- / -25％早い匡君済民の追加効果追加効果対象範囲継続弱化解除味方 / 中-対象に発生している弱化効果を打ち消す結束味方 / 中30秒連鎖…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR鮑叔牙の戦法 匡君済民兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を2つ打ち消して20％の結束を付与、通常攻撃威力と戦法威力を25％上昇自身1部隊に泰然を付与発動間隔対象範囲発動率連鎖順25秒- / -25％早い匡君済民の追加効果追加効果対象範囲継続弱化解除味方 / 中-対象に発生している弱化効果を打ち消す結束味方 / 中30秒連鎖…"
         }
       ],
       "statusEffectRefCount": 9,
-      "typeFeatureCount": 8
+      "typeFeatureCount": 9
     },
     {
       "category": "generals",
@@ -9266,10 +9526,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR姜維の戦法 才兼文武兵科効果系統攻撃属性騎兵特殊なし効果自身を含む味方2部隊の攻撃、知力、攻撃速度を100％上昇3回の打開と50％の窮策を付与（この武将が主将の場合、上記全ての効果の味方対象部隊数+2）対象を含む敵3部隊に自部隊の攻撃または知力の高い方の系統で400％の攻撃を行う（同値の場合は知力系統）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR姜維の戦法 才兼文武兵科効果系統攻撃属性騎兵特殊なし効果自身を含む味方2部隊の攻撃、知力、攻撃速度を100％上昇3回の打開と50％の窮策を付与（この武将が主将の場合、上記全ての効果の味方対象部隊数+2）対象を含む敵3部隊に自部隊の攻撃または知力の高い方の系統で400％の攻撃を行う（同値の場合は知力系統）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普…"
         }
       ],
       "statusEffectRefCount": 14,
-      "typeFeatureCount": 8
+      "typeFeatureCount": 9
     },
     {
       "category": "generals",
@@ -9485,10 +9753,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR辛憲英の戦法 聡明才鑑兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を2つ打ち消して、防御と知力を75％上昇（この武将の将星ランクに応じて、防御上昇と知力上昇の効果量が10％ずつ上昇）この武将が自部隊の主将と副将全員と好相性の場合、自身を含む味方3部隊に3回の弱化無効を15％の治癒を付与発動間隔対象範囲発動率連鎖順20秒- / -25…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR辛憲英の戦法 聡明才鑑兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を2つ打ち消して、防御と知力を75％上昇（この武将の将星ランクに応じて、防御上昇と知力上昇の効果量が10％ずつ上昇）この武将が自部隊の主将と副将全員と好相性の場合、自身を含む味方3部隊に3回の弱化無効を15％の治癒を付与発動間隔対象範囲発動率連鎖順20秒- / -25…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR辛憲英の戦法 聡明才鑑兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を2つ打ち消して、防御と知力を75％上昇（この武将の将星ランクに応じて、防御上昇と知力上昇の効果量が10％ずつ上昇）この武将が自部隊の主将と副将全員と好相性の場合、自身を含む味方3部隊に3回の弱化無効を15％の治癒を付与発動間隔対象範囲発動率連鎖順20秒- / -25…"
         }
       ],
       "statusEffectRefCount": 12,
-      "typeFeatureCount": 8
+      "typeFeatureCount": 10
     },
     {
       "category": "generals",
@@ -9736,10 +10020,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR呂玲綺の戦法 凛奮鳳舞兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊に75％の有利激攻を付与して攻撃を150％上昇自身1部隊に憤怒を付与して会心発生を75％上昇、さらに全ての兵科と物体に対して有利にする発動間隔対象範囲発動率連鎖順20秒- / -25％早い凛奮鳳舞の追加効果追加効果対象範囲継続有利激攻味方 / 中10秒兵科相性が有利な敵に対する…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "絶縁（有利変化）…敵部隊の連鎖を含む戦法全体から、自部隊が受ける状態変化と攻撃の発生を無効にする会心発生変化自分 / 単10秒会心の発生率が上昇する兵科相性変化自分 / 単10秒全ての兵科と物体に対して有利になる 凛奮鳳舞 兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊に75％の有利激攻を付与して攻撃を150％上昇自身1部隊に憤怒を付与して会心発生…"
         }
       ],
       "statusEffectRefCount": 14,
-      "typeFeatureCount": 9
+      "typeFeatureCount": 10
     },
     {
       "category": "generals",
@@ -10241,10 +10533,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR管夷吾の戦法 一匡天下兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃、防御、知力を100％上昇さらに50％の強兵と穿撃を付与する（自部隊が歩兵の場合、攻撃上昇、防御上昇、知力上昇の効果量が1.5倍になる）発動間隔対象範囲発動率連鎖順20秒- / -25％早い一匡天下の追加効果追加効果対象範囲継続攻撃変化味方 / 中10秒部隊の攻撃が上昇す…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR管夷吾の戦法 一匡天下兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃、防御、知力を100％上昇さらに50％の強兵と穿撃を付与する（自部隊が歩兵の場合、攻撃上昇、防御上昇、知力上昇の効果量が1.5倍になる）発動間隔対象範囲発動率連鎖順20秒- / -25％早い一匡天下の追加効果追加効果対象範囲継続攻撃変化味方 / 中10秒部隊の攻撃が上昇す…"
         }
       ],
       "statusEffectRefCount": 11,
-      "typeFeatureCount": 4
+      "typeFeatureCount": 5
     },
     {
       "category": "generals",
@@ -10619,10 +10919,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR阿奴の戦法 万蠱蝕天兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊に2回の弱化無効を付与自身1部隊の知力と防御を100％上昇対象を含む敵4部隊に2％の毒﨧と奪魂を付与発動間隔対象範囲発動率連鎖順20秒敵 / 単25％早い万蠱蝕天の追加効果追加効果対象範囲継続弱化無効味方 / 中15秒効果回数分、受けた弱化効果を無効化する知力変化自分 / 単10…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR阿奴の戦法 万蠱蝕天兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊に2回の弱化無効を付与自身1部隊の知力と防御を100％上昇対象を含む敵4部隊に2％の毒﨧と奪魂を付与発動間隔対象範囲発動率連鎖順20秒敵 / 単25％早い万蠱蝕天の追加効果追加効果対象範囲継続弱化無効味方 / 中15秒効果回数分、受けた弱化効果を無効化する知力変化自分 / 単10…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR阿奴の戦法 万蠱蝕天兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊に2回の弱化無効を付与自身1部隊の知力と防御を100％上昇対象を含む敵4部隊に2％の毒﨧と奪魂を付与発動間隔対象範囲発動率連鎖順20秒敵 / 単25％早い万蠱蝕天の追加効果追加効果対象範囲継続弱化無効味方 / 中15秒効果回数分、受けた弱化効果を無効化する知力変化自分 / 単10…"
         }
       ],
       "statusEffectRefCount": 14,
-      "typeFeatureCount": 11
+      "typeFeatureCount": 13
     },
     {
       "category": "generals",
@@ -10894,10 +11210,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR林月如の戦法 万里狂沙兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊に25％の物理耐性と知力耐性を付与（自身に付与する物理耐性と知力耐性の効果量は2倍）さらに攻撃を100％、会心発生を50％上昇対象を含む敵4部隊に5％の沙縛を付与発動間隔対象範囲発動率連鎖順20秒- / -25%早い万里狂沙の追加効果追加効果対象範囲継続物理耐性味方 / 中15…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（攻撃/命中）と同討を避ける"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR林月如の戦法 万里狂沙兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊に25％の物理耐性と知力耐性を付与（自身に付与する物理耐性と知力耐性の効果量は2倍）さらに攻撃を100％、会心発生を50％上昇対象を含む敵4部隊に5％の沙縛を付与発動間隔対象範囲発動率連鎖順20秒- / -25%早い万里狂沙の追加効果追加効果対象範囲継続物理耐性味方 / 中15…"
         }
       ],
       "statusEffectRefCount": 12,
-      "typeFeatureCount": 15
+      "typeFeatureCount": 17
     },
     {
       "category": "generals",
@@ -11065,10 +11397,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR趙霊児の戦法 風雪氷天兵科効果系統攻撃属性なし知力なし効果自身を含む味方3部隊を全ての兵科と物体に対して有利にする自身1部隊の知力を100％、戦法威力を30％上昇対象を含む敵3部隊の知力を50％低下させて30％の氷呪を付与自身に発生している能力強化効果の効果量を2倍にした状態で、対象を含む敵3部隊に350％の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / …"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/戦法威力）を避ける"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR趙霊児の戦法 風雪氷天兵科効果系統攻撃属性なし知力なし効果自身を含む味方3部隊を全ての兵科と物体に対して有利にする自身1部隊の知力を100％、戦法威力を30％上昇対象を含む敵3部隊の知力を50％低下させて30％の氷呪を付与自身に発生している能力強化効果の効果量を2倍にした状態で、対象を含む敵3部隊に350％の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / …"
         }
       ],
       "statusEffectRefCount": 8,
-      "typeFeatureCount": 8
+      "typeFeatureCount": 10
     },
     {
       "category": "generals",
@@ -11380,10 +11728,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR李逍遥の戦法 逍遥神剣兵科効果系統攻撃属性騎兵物理なし効果自身1部隊の攻撃と機動を150％、攻撃速度を100％上昇自身1部隊の通常攻撃の対象部隊数+3、50％の御剣飛行を付与対象を含む敵4部隊に300％の攻撃（攻撃目標に対しては威力が1.5倍）発動間隔対象範囲発動率連鎖順20秒敵 / 広25％普通逍遥神剣の追加効果追加効果対象範囲継続攻撃変化自分 / 単…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自部隊より機動の低い敵部隊から受ける一部の能力弱化効果（攻撃/攻撃速度/機動）と恐怖、畏怖を避ける"
         }
       ],
       "statusEffectRefCount": 18,
-      "typeFeatureCount": 11
+      "typeFeatureCount": 12
     },
     {
       "category": "generals",
@@ -11527,10 +11883,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "30％の確率で対象が「自部隊」から「味方3部隊」に増え、確率は自身の将星ランクに応じて10％ずつ上昇する"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "性能が将星ランクに依存する武将 UR司馬徽は戦法で自部隊の弱化効果を3つ解除する知力弓兵武将"
         }
       ],
       "statusEffectRefCount": 6,
-      "typeFeatureCount": 8
+      "typeFeatureCount": 9
     },
     {
       "category": "generals",
@@ -11890,10 +12254,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "サポート性能に特化した歩兵武将 LR劉備は戦法で味方4部隊に複数のバフを付与する歩兵武将"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR劉備の戦法 英風弘烈兵科効果系統攻撃属性なし回復なし効果自身を含む味方4部隊の弱化効果を4つ打ち消して、15％の練心を付与して会心発生を75％、攻撃速度を100％上昇さらに負傷兵を最大兵力の50％回復この武将が主将の場合、自身を含む自君主4部隊に義奮を付与発動間隔対象範囲発動率連鎖順20秒味方 / 広25％早い英風弘烈の追加効果追加効果対象範囲継続弱化解…"
         }
       ],
       "statusEffectRefCount": 18,
-      "typeFeatureCount": 17
+      "typeFeatureCount": 18
     },
     {
       "category": "generals",
@@ -12153,10 +12525,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "味方を強力に支援する弓兵武将 LR羊祜は戦法で味方3部隊の防御、知力、対物特効を上昇させる弓兵武将"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "味方を強力に支援する弓兵武将 LR羊祜は戦法で味方3部隊の防御、知力、対物特効を上昇させる弓兵武将"
         }
       ],
       "statusEffectRefCount": 11,
-      "typeFeatureCount": 15
+      "typeFeatureCount": 16
     },
     {
       "category": "generals",
@@ -12491,10 +12871,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "戦法の対象部隊数は味方2部隊と少ないが、自身が主将の際は味方4部隊に増えるので、主将時のサポート性能はかなり高い"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR呉起の戦法 治兵励士兵科効果系統攻撃属性なしなしなし効果自身を含む味方2部隊の弱化効果を5つ打ち消して強化促進を付与知力を100％、戦法威力を30％上昇させて全ての兵科と物体に対して有利にする（この武将が主将の場合、上記全ての効果の味方対象部隊数を+2する）発動間隔対象範囲発動率連鎖順20秒- / -25％早い治兵励士の追加効果追加効果対象範囲継続弱化解…"
         }
       ],
       "statusEffectRefCount": 9,
-      "typeFeatureCount": 6
+      "typeFeatureCount": 7
     },
     {
       "category": "generals",
@@ -12702,10 +13090,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "主将ならサポート役として使える 戦法で付与する撃迅と攻撃上昇は、自身が主将なら対象が味方3部隊に増える"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自部隊に弱化効果が発生していない時、騎兵武将の撃心発生率が効果量分だけ上昇するので、敵部隊を相手にしない飛ばし編制や、戦法で弱化効果を解除するLR趙雲の副将などで使える"
         }
       ],
       "statusEffectRefCount": 10,
-      "typeFeatureCount": 10
+      "typeFeatureCount": 11
     },
     {
       "category": "generals",
@@ -12869,10 +13265,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR呉国太の戦法 恵愛励翼兵科効果系統攻撃属性なし回復なし効果自身1部隊と、周囲の最も近くにいる味方1部隊に3回の攻撃無効を付与して会心発生を30％、対物特効と攻撃速度を50％上昇（自部隊の主将とこの武将が好相性の際、会心発生、対物特効、攻撃速度の上昇効果が1.5倍になる）さらに、すでに発生している強化効果のうちランダムに3つの効果時間を5秒延長して、負傷兵…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR呉国太の戦法 恵愛励翼兵科効果系統攻撃属性なし回復なし効果自身1部隊と、周囲の最も近くにいる味方1部隊に3回の攻撃無効を付与して会心発生を30％、対物特効と攻撃速度を50％上昇（自部隊の主将とこの武将が好相性の際、会心発生、対物特効、攻撃速度の上昇効果が1.5倍になる）さらに、すでに発生している強化効果のうちランダムに3つの効果時間を5秒延長して、負傷兵…"
         }
       ],
       "statusEffectRefCount": 5,
-      "typeFeatureCount": 12
+      "typeFeatureCount": 13
     },
     {
       "category": "generals",
@@ -13792,10 +14196,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR魯粛と同じ技能「友導」を所持しているので、明道方略冠と組み合わせれば交戦開始時から結束を付与して味方3部隊の連鎖確率を上げられる"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR魯粛の戦法 雄心万丈兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊に賢壁と3回の弱化無効を付与さらに防御と知力を100％上昇させて15％の結束を付与（自部隊の主将とこの武将が好相性の際、防御上昇と知力上昇の効果量が1.5倍、結束の効果量+5%）発動間隔対象範囲発動率連鎖順20秒- / -25％早い雄心万丈の追加効果追加効果対象範囲継続賢壁味方 …"
         }
       ],
       "statusEffectRefCount": 10,
-      "typeFeatureCount": 8
+      "typeFeatureCount": 9
     },
     {
       "category": "generals",
@@ -14047,10 +14459,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR典韋の戦法 雄武折衝兵科効果系統攻撃属性歩兵物理なし効果自身1部隊の攻撃を200％上昇対象を含む敵3部隊を全ての兵科と物体に対して不利にして、防御を50％低下させて400％の攻撃さらに負傷兵を50％消滅させる（自部隊の主将とこの武将が好相性の際、負傷兵の消滅量が100％になる）自身1部隊に逆襲を付与発動間隔対象範囲発動率連鎖順25秒敵 / 中25％遅い雄…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自部隊より低攻撃の部隊から受ける一部の能力弱化効果（攻撃/防御/戦法速度/戦法威力）と強化解除を避ける巡見2"
         }
       ],
       "statusEffectRefCount": 13,
-      "typeFeatureCount": 11
+      "typeFeatureCount": 12
     },
     {
       "category": "generals",
@@ -14234,10 +14654,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR李牧の戦法 奇陣翼撃兵科効果系統攻撃属性なし知力なし効果自身1部隊に1度の絶縁を付与（この武将が主将の場合、絶縁の回数+2）自身を含む味方4部隊の防御と知力を100％上昇対象を含む敵3部隊に砕心を付与して300％の攻撃（この戦法ダメージは自部隊の防御の10％を知力に加算して計算する）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通奇陣翼撃の追加効果…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR李牧の戦法 奇陣翼撃兵科効果系統攻撃属性なし知力なし効果自身1部隊に1度の絶縁を付与（この武将が主将の場合、絶縁の回数+2）自身を含む味方4部隊の防御と知力を100％上昇対象を含む敵3部隊に砕心を付与して300％の攻撃（この戦法ダメージは自部隊の防御の10％を知力に加算して計算する）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通奇陣翼撃の追加効果…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR李牧の戦法 奇陣翼撃兵科効果系統攻撃属性なし知力なし効果自身1部隊に1度の絶縁を付与（この武将が主将の場合、絶縁の回数+2）自身を含む味方4部隊の防御と知力を100％上昇対象を含む敵3部隊に砕心を付与して300％の攻撃（この戦法ダメージは自部隊の防御の10％を知力に加算して計算する）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通奇陣翼撃の追加効果…"
         }
       ],
       "statusEffectRefCount": 8,
-      "typeFeatureCount": 10
+      "typeFeatureCount": 12
     },
     {
       "category": "generals",
@@ -14469,10 +14905,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "弱化解除と負傷兵回復が強力な武将 LR華佗は戦法で自部隊の弱化効果を全て解除して、味方3部隊の負傷兵を全て回復する"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "弱化解除と負傷兵回復が強力な武将 LR華佗は戦法で自部隊の弱化効果を全て解除して、味方3部隊の負傷兵を全て回復する"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR華佗の戦法 聖手脳医兵科効果系統攻撃属性なし回復なし効果自身1部隊の弱化効果を全て打ち消す自身を含む味方3部隊に25％の物理耐性と知力耐性、50％の快気を付与（自身に付与する物理耐性と知力耐性の効果量は2倍）さらに全ての負傷兵を回復発動間隔対象範囲発動率連鎖順25秒味方 / 中25％早い聖手脳医の追加効果追加効果対象範囲継続弱化解除自分 / 単-対象に発…"
         }
       ],
       "statusEffectRefCount": 12,
-      "typeFeatureCount": 10
+      "typeFeatureCount": 12
     },
     {
       "category": "generals",
@@ -14684,10 +15136,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR岳飛の戦法 尽忠報国兵科効果系統攻撃属性歩兵武力なし効果自身を含む味方3部隊の攻撃を100％上昇自身1部隊に攻防一体を付与対象を含む敵3部隊の防御を25％低下、300％の攻撃（自部隊の兵力が少ないほど威力上昇）さらに挑発を付与（挑発は交戦中の敵部隊にのみ付与される）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％遅い尽忠報国の追加効果追加効果対象範囲継…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR岳飛の戦法 尽忠報国兵科効果系統攻撃属性歩兵武力なし効果自身を含む味方3部隊の攻撃を100％上昇自身1部隊に攻防一体を付与対象を含む敵3部隊の防御を25％低下、300％の攻撃（自部隊の兵力が少ないほど威力上昇）さらに挑発を付与（挑発は交戦中の敵部隊にのみ付与される）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％遅い尽忠報国の追加効果追加効果対象範囲継…"
         }
       ],
       "statusEffectRefCount": 9,
-      "typeFeatureCount": 12
+      "typeFeatureCount": 13
     },
     {
       "category": "generals",
@@ -14875,10 +15335,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR鄭成功の戦法 驚涛駭浪兵科効果系統攻撃属性弓兵物理火効果自身を含む味方3部隊の攻撃、防御、知力を100％上昇自身1部隊の対物特効を100％上昇、5％の火炮を付与対象を含む敵3部隊に300％の攻撃（自部隊の兵力が多いほど威力上昇）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い驚涛駭浪の追加効果追加効果対象範囲継続攻撃変化味方 / 中10秒部隊の攻撃…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR鄭成功の戦法 驚涛駭浪兵科効果系統攻撃属性弓兵物理火効果自身を含む味方3部隊の攻撃、防御、知力を100％上昇自身1部隊の対物特効を100％上昇、5％の火炮を付与対象を含む敵3部隊に300％の攻撃（自部隊の兵力が多いほど威力上昇）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い驚涛駭浪の追加効果追加効果対象範囲継続攻撃変化味方 / 中10秒部隊の攻撃…"
         }
       ],
       "statusEffectRefCount": 7,
-      "typeFeatureCount": 12
+      "typeFeatureCount": 13
     },
     {
       "category": "generals",
@@ -15392,10 +15860,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "副将の女性の連鎖確率+10%"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊に発生する一部の能力弱化効果（攻撃、防御、対物特効）を避ける"
         }
       ],
       "statusEffectRefCount": 12,
-      "typeFeatureCount": 6
+      "typeFeatureCount": 7
     },
     {
       "category": "generals",
@@ -15631,10 +16107,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR董卓の戦法 暴戻狂傲兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と対物特効を200％、撃心威力を50％上昇させて25％の暴乱を付与（この武将が主将の際、暴乱の効果量が2倍）対象を含む敵4部隊に500％の攻撃自部隊の主将/副将/補佐とその侍従に女性がいる場合、1人につき威力が50％上昇（最大+250%）発動間隔対象範囲発動率連鎖順30秒敵 / 広2…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自部隊より最大兵力の低い部隊から受ける一部の能力弱化効果（戦法速度）と士気奪取、戦法遅延、戦慄を避ける"
         }
       ],
       "statusEffectRefCount": 13,
-      "typeFeatureCount": 9
+      "typeFeatureCount": 10
     },
     {
       "category": "generals",
@@ -15949,10 +16433,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR鄭成功の戦法 碧血丹心兵科効果系統攻撃属性なし回復なし効果自身を含む味方3部隊の攻撃、防御、知力をランダムに80％、100％、120％上昇して1回の攻撃無効を付与さらに負傷兵を最大兵力の10％回復発動間隔対象範囲発動率連鎖順25秒味方 / 中25％早い碧血丹心の追加効果追加効果対象範囲継続攻撃変化味方 / 中10秒部隊の攻撃が上昇する防御変化味方 / 中…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR鄭成功の戦法 碧血丹心兵科効果系統攻撃属性なし回復なし効果自身を含む味方3部隊の攻撃、防御、知力をランダムに80％、100％、120％上昇して1回の攻撃無効を付与さらに負傷兵を最大兵力の10％回復発動間隔対象範囲発動率連鎖順25秒味方 / 中25％早い碧血丹心の追加効果追加効果対象範囲継続攻撃変化味方 / 中10秒部隊の攻撃が上昇する防御変化味方 / 中…"
         }
       ],
       "statusEffectRefCount": 7,
-      "typeFeatureCount": 10
+      "typeFeatureCount": 11
     },
     {
       "category": "generals",
@@ -16426,10 +16918,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR皇甫嵩の戦法 威望振武兵科効果系統攻撃属性なし知力火効果自身を含む味方3部隊に雄然を付与自身1部隊の知力、対物特効、火属性威力を100％上昇対象を含む敵4部隊に350％の攻撃この武将が主将の場合、自身に発生している能力強化効果と一部の有利変化（火属性強化）の効果量を1.5倍にした状態で戦法攻撃を行う発動間隔対象範囲発動率連鎖順25秒敵 / 広25％遅い威…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR皇甫嵩の戦法 威望振武兵科効果系統攻撃属性なし知力火効果自身を含む味方3部隊に雄然を付与自身1部隊の知力、対物特効、火属性威力を100％上昇対象を含む敵4部隊に350％の攻撃この武将が主将の場合、自身に発生している能力強化効果と一部の有利変化（火属性強化）の効果量を1.5倍にした状態で戦法攻撃を行う発動間隔対象範囲発動率連鎖順25秒敵 / 広25％遅い威…"
         }
       ],
       "statusEffectRefCount": 8,
-      "typeFeatureCount": 8
+      "typeFeatureCount": 9
     },
     {
       "category": "generals",
@@ -17086,10 +17586,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "サポート性能に特化した弓兵武将 LR孫権は戦法で味方3部隊の戦法ゲージを増やす弓兵武将"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR孫権の戦法 虎威英略兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を3つ打ち消して、攻撃と防御を100％上昇この武将が主将の場合、自身を含む自君主3部隊の戦法ゲージを5％増加戦法ゲージ増加の対象となった自君主部隊の主将とこの武将が好相性の際、戦法ゲージの増加量が2倍（10％）になり、さらに憤怒を付与（上記効果は全て、この武将と主将が好…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR孫権の戦法 虎威英略兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を3つ打ち消して、攻撃と防御を100％上昇この武将が主将の場合、自身を含む自君主3部隊の戦法ゲージを5％増加戦法ゲージ増加の対象となった自君主部隊の主将とこの武将が好相性の際、戦法ゲージの増加量が2倍（10％）になり、さらに憤怒を付与（上記効果は全て、この武将と主将が好…"
         }
       ],
       "statusEffectRefCount": 9,
-      "typeFeatureCount": 9
+      "typeFeatureCount": 11
     },
     {
       "category": "generals",
@@ -17269,10 +17785,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR郝昭の戦法 固守堅壁兵科効果系統攻撃属性騎兵物理なし効果自身を含む味方3部隊に30％の知力耐性と10％の堅固を付与して防御を200％上昇対象を含む敵3部隊の対物特効と攻撃速度を50％低下させて300％の攻撃発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通固守堅壁の追加効果追加効果対象範囲継続知力耐性味方 / 中10秒知力系統の被ダメージを軽減する堅…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR郝昭の戦法 固守堅壁兵科効果系統攻撃属性騎兵物理なし効果自身を含む味方3部隊に30％の知力耐性と10％の堅固を付与して防御を200％上昇対象を含む敵3部隊の対物特効と攻撃速度を50％低下させて300％の攻撃発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通固守堅壁の追加効果追加効果対象範囲継続知力耐性味方 / 中10秒知力系統の被ダメージを軽減する堅…"
         }
       ],
       "statusEffectRefCount": 9,
-      "typeFeatureCount": 8
+      "typeFeatureCount": 9
     },
     {
       "category": "generals",
@@ -17635,10 +18159,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR徐晃の戦法 長駆掃敵兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に泰然と穿撃を付与自身を含む味方3部隊の攻撃と防御を100％上昇対象を含む敵3部隊の防御を50％低下させて、自身に発生している能力強化の効果量を2倍にした状態で400％の攻撃（自部隊の主将とこの武将が好相性の際、威力が100％上昇）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％遅い長駆…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR徐晃の戦法 長駆掃敵兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に泰然と穿撃を付与自身を含む味方3部隊の攻撃と防御を100％上昇対象を含む敵3部隊の防御を50％低下させて、自身に発生している能力強化の効果量を2倍にした状態で400％の攻撃（自部隊の主将とこの武将が好相性の際、威力が100％上昇）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％遅い長駆…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR徐晃の戦法 長駆掃敵兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に泰然と穿撃を付与自身を含む味方3部隊の攻撃と防御を100％上昇対象を含む敵3部隊の防御を50％低下させて、自身に発生している能力強化の効果量を2倍にした状態で400％の攻撃（自部隊の主将とこの武将が好相性の際、威力が100％上昇）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％遅い長駆…"
         }
       ],
       "statusEffectRefCount": 7,
-      "typeFeatureCount": 8
+      "typeFeatureCount": 10
     },
     {
       "category": "generals",
@@ -17957,10 +18497,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR曹真の戦法 執節平敵兵科効果系統攻撃属性弓兵物理なし効果自身を含む味方3部隊の攻撃、防御、機動を100％上昇させて30％の闘気を付与自身1部隊に25％の駿撃を付与対象に400％の攻撃（この武将の将星ランクに応じて威力が20％ずつ上昇）発動間隔対象範囲発動率連鎖順25秒敵 / 単25％普通執節平敵の追加効果追加効果対象範囲継続攻撃変化味方 / 中20秒部隊…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR曹真の戦法 執節平敵兵科効果系統攻撃属性弓兵物理なし効果自身を含む味方3部隊の攻撃、防御、機動を100％上昇させて30％の闘気を付与自身1部隊に25％の駿撃を付与対象に400％の攻撃（この武将の将星ランクに応じて威力が20％ずつ上昇）発動間隔対象範囲発動率連鎖順25秒敵 / 単25％普通執節平敵の追加効果追加効果対象範囲継続攻撃変化味方 / 中20秒部隊…"
         }
       ],
       "statusEffectRefCount": 10,
-      "typeFeatureCount": 5
+      "typeFeatureCount": 6
     },
     {
       "category": "generals",
@@ -18375,10 +18923,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR徐庶の戦法 共図王覇兵科効果系統攻撃属性なし知力なし効果自身1部隊の能力弱化効果を5つ正転して知力を150％上昇対象を含む敵4部隊の知力を30％低下させて300％の攻撃自身が主将、もしくは自部隊の主将が劉備か曹操と好相性の際、自身1部隊に1度の絶縁を付与して自身を含む味方3部隊に50％の知力耐性を付与発動間隔対象範囲発動率連鎖順25秒敵 / 広25％早い…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR徐庶の戦法 共図王覇兵科効果系統攻撃属性なし知力なし効果自身1部隊の能力弱化効果を5つ正転して知力を150％上昇対象を含む敵4部隊の知力を30％低下させて300％の攻撃自身が主将、もしくは自部隊の主将が劉備か曹操と好相性の際、自身1部隊に1度の絶縁を付与して自身を含む味方3部隊に50％の知力耐性を付与発動間隔対象範囲発動率連鎖順25秒敵 / 広25％早い…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR徐庶の戦法 共図王覇兵科効果系統攻撃属性なし知力なし効果自身1部隊の能力弱化効果を5つ正転して知力を150％上昇対象を含む敵4部隊の知力を30％低下させて300％の攻撃自身が主将、もしくは自部隊の主将が劉備か曹操と好相性の際、自身1部隊に1度の絶縁を付与して自身を含む味方3部隊に50％の知力耐性を付与発動間隔対象範囲発動率連鎖順25秒敵 / 広25％早い…"
         }
       ],
       "statusEffectRefCount": 11,
-      "typeFeatureCount": 8
+      "typeFeatureCount": 10
     },
     {
       "category": "generals",
@@ -18542,10 +19106,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊に5%の堅固を付与（30秒）"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の防御+100％（15秒）"
         }
       ],
       "statusEffectRefCount": 7,
-      "typeFeatureCount": 9
+      "typeFeatureCount": 10
     },
     {
       "category": "generals",
@@ -19000,10 +19572,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "戦法で敵部隊に大ダメージを与える武将 LR諸葛亮は戦法で味方4部隊に強力なバフを付与する"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR諸葛亮の戦法 臥龍天舞兵科効果系統攻撃属性なし知力火効果自身1部隊に焔風を付与自身を含む味方4部隊を全ての兵科と物体に対して有利にして知力を100％、戦法威力を50％上昇対象を含む敵4部隊の能力強化効果を全て反転して500％の攻撃発動間隔対象範囲発動率連鎖順20秒敵 / 広25％遅い臥龍天舞の追加効果追加効果対象範囲継続焔風自分 / 単20秒通常攻撃・戦…"
         }
       ],
       "statusEffectRefCount": 16,
-      "typeFeatureCount": 9
+      "typeFeatureCount": 10
     },
     {
       "category": "generals",
@@ -19139,10 +19719,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR諸葛瑾の戦法 巧防明晰兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の騎兵相性を良くして、25％の有利巧守を付与自身1部隊の防御と知力を100％上昇、戦法威力を50％上昇発動間隔対象範囲発動率連鎖順25秒- / -25%早い巧防明晰の追加効果追加効果対象範囲継続騎兵特効味方 / 中10秒騎兵に対して有利になる有利巧守味方 / 中10秒兵科相性が…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR諸葛瑾の戦法 巧防明晰兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の騎兵相性を良くして、25％の有利巧守を付与自身1部隊の防御と知力を100％上昇、戦法威力を50％上昇発動間隔対象範囲発動率連鎖順25秒- / -25%早い巧防明晰の追加効果追加効果対象範囲継続騎兵特効味方 / 中10秒騎兵に対して有利になる有利巧守味方 / 中10秒兵科相性が…"
         }
       ],
       "statusEffectRefCount": 6,
-      "typeFeatureCount": 7
+      "typeFeatureCount": 8
     },
     {
       "category": "generals",
@@ -19469,10 +20057,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "対物火力に優れているが、対象が「部隊」の場合は敵3部隊に350％の物理ダメージを与えるので、攻城編制だけでなく駐屯編制でも活躍できる"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR高順の戦法 砕堅陥陣兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に廉潔と強固を付与して、攻撃と防御を200％上昇攻撃目標が部隊の場合、対象を含む敵3部隊に350％の攻撃攻撃目標が物体の場合、対物特効を350％上昇させた状態で対象に500％の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 特殊25％遅い砕堅陥陣の追加効果追加効果対象範囲継続廉潔自分 / 単…"
         }
       ],
       "statusEffectRefCount": 8,
-      "typeFeatureCount": 6
+      "typeFeatureCount": 7
     },
     {
       "category": "generals",
@@ -19724,10 +20320,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR虞翻の戦法 狂直尽言兵科効果系統攻撃属性なし回復なし効果自身を含む味方3部隊に15%の会心耐性を付与（この技能を持つ武将の将星ランクに応じて、会心耐性の効果量が5%ずつ上昇）対象を含む敵3部隊の攻撃を50%低下させて、15%の不利脆弱と不利消沈を付与自身1部隊の負傷兵を最大兵力の10%回復発動間隔対象範囲発動率連鎖順20秒自分 / 単25%早い狂直尽言の…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（攻撃速度/戦法速度）と強化奪取を避ける"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR虞翻の戦法 狂直尽言兵科効果系統攻撃属性なし回復なし効果自身を含む味方3部隊に15%の会心耐性を付与（この技能を持つ武将の将星ランクに応じて、会心耐性の効果量が5%ずつ上昇）対象を含む敵3部隊の攻撃を50%低下させて、15%の不利脆弱と不利消沈を付与自身1部隊の負傷兵を最大兵力の10%回復発動間隔対象範囲発動率連鎖順20秒自分 / 単25%早い狂直尽言の…"
         }
       ],
       "statusEffectRefCount": 13,
-      "typeFeatureCount": 11
+      "typeFeatureCount": 13
     },
     {
       "category": "generals",
@@ -19871,10 +20483,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR満寵の戦法 立志勇謀兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊に火属性を付与して火属性威力を75%上昇対象を含む敵3部隊の強化効果を2つ奪い、戦法の敵対象部隊数-1（敵部隊が弓兵の場合、戦法範囲縮小の効果量がさらに-1）（敵部隊の主将と孫権の相性が良い場合、戦法範囲縮小の効果量がさらに-1）発動間隔対象範囲発動率連鎖順20秒- / -25%…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（火属性）を避ける"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR満寵の戦法 立志勇謀兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊に火属性を付与して火属性威力を75%上昇対象を含む敵3部隊の強化効果を2つ奪い、戦法の敵対象部隊数-1（敵部隊が弓兵の場合、戦法範囲縮小の効果量がさらに-1）（敵部隊の主将と孫権の相性が良い場合、戦法範囲縮小の効果量がさらに-1）発動間隔対象範囲発動率連鎖順20秒- / -25%…"
         }
       ],
       "statusEffectRefCount": 6,
-      "typeFeatureCount": 8
+      "typeFeatureCount": 10
     },
     {
       "category": "generals",
@@ -20432,10 +21060,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR廖化の戦法 烈果活激兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊に25%の有利激攻を付与自身1部隊の攻撃を100%、戦法威力を15%上昇（この武将の将星ランクに応じて攻撃、戦法威力上昇の効果量が5%ずつ上昇）対象を含む敵3部隊の強化効果を2つ打ち消して1回の物理戦法弱点を付与発動間隔対象範囲発動率連鎖順20秒- / -25%普通烈果活激の追加…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR廖化の戦法 烈果活激兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊に25%の有利激攻を付与自身1部隊の攻撃を100%、戦法威力を15%上昇（この武将の将星ランクに応じて攻撃、戦法威力上昇の効果量が5%ずつ上昇）対象を含む敵3部隊の強化効果を2つ打ち消して1回の物理戦法弱点を付与発動間隔対象範囲発動率連鎖順20秒- / -25%普通烈果活激の追加…"
         }
       ],
       "statusEffectRefCount": 8,
-      "typeFeatureCount": 11
+      "typeFeatureCount": 12
     },
     {
       "category": "generals",
@@ -20878,10 +21514,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR藺相如の戦法 怒髪衝天兵科効果系統攻撃属性なしなしなし効果自身を含む味方4部隊の弱化効果を2つ打ち消して完璧を付与自身1部隊を全ての兵科と物体に対して有利にして対物特効を150%上昇（自部隊の主将とこの武将が好相性の際、対物特効上昇の効果量が2倍になる）対象を含む敵3部隊に1度の戦法弱化を付与発動間隔対象範囲発動率連鎖順20秒- / -25%早い怒髪衝天…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR藺相如の戦法 怒髪衝天兵科効果系統攻撃属性なしなしなし効果自身を含む味方4部隊の弱化効果を2つ打ち消して完璧を付与自身1部隊を全ての兵科と物体に対して有利にして対物特効を150%上昇（自部隊の主将とこの武将が好相性の際、対物特効上昇の効果量が2倍になる）対象を含む敵3部隊に1度の戦法弱化を付与発動間隔対象範囲発動率連鎖順20秒- / -25%早い怒髪衝天…"
         }
       ],
       "statusEffectRefCount": 13,
-      "typeFeatureCount": 12
+      "typeFeatureCount": 13
     },
     {
       "category": "generals",
@@ -21077,10 +21721,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR大喬の戦法 紅日麗天兵科効果系統攻撃属性なしなしなし効果自身1部隊の弱化効果を4つ打ち消して1度の恵守を付与自身を含む味方3部隊の攻撃を100%上昇させて15%の治癒を付与自部隊の主将とこの武将が好相性の際、自身を含む味方3部隊の戦法威力を50%上昇発動間隔対象範囲発動率連鎖順20秒- / -25%早い紅日麗天の追加効果追加効果対象範囲継続弱化解除自分 …"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "特にLR孫策と相性が良い LR大喬は戦法で自部隊の弱化効果を4つ解除する"
         }
       ],
       "statusEffectRefCount": 9,
-      "typeFeatureCount": 10
+      "typeFeatureCount": 11
     },
     {
       "category": "generals",
@@ -21387,10 +22039,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR孫策の戦法 如虎添翼兵科効果系統攻撃属性歩兵物理なし効果自身1部隊を全ての兵科と物体に対して有利にして閃襲と閃護を付与対象を含む敵3部隊に500%の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 中25%普通如虎添翼の追加効果追加効果対象範囲継続兵科相性変化自分 / 単15秒全ての兵科と物体に対して有利になる閃襲自分 / 単15秒自部隊の現在兵力に応じて部…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "宿志Lv2なら使いやすい 将星★7の技能「宿志」がLv2の場合、兵力50％以上で攻撃を受ける度に自部隊の弱化効果を1つ解除する"
         }
       ],
       "statusEffectRefCount": 8,
-      "typeFeatureCount": 4
+      "typeFeatureCount": 5
     },
     {
       "category": "generals",
@@ -21586,10 +22246,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR王異の戦法 参謀九奇兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の防御、知力を100%上昇対象を含む敵3部隊の攻撃と攻撃速度を50%低下させて、通常攻撃の対象部隊数-1（敵部隊が騎兵の場合、通常攻撃縮小の効果量がさらに-1）（敵部隊の主将と馬超の相性が良い場合、通常攻撃縮小の効果量がさらに-1）発動間隔対象範囲発動率連鎖順20秒- / -25…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "通常攻撃時に50%の確率で自身を含む味方3部隊の弱化効果を1つ打ち消す（1度の通常攻撃につき1回まで発動）"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR王異の戦法 参謀九奇兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の防御、知力を100%上昇対象を含む敵3部隊の攻撃と攻撃速度を50%低下させて、通常攻撃の対象部隊数-1（敵部隊が騎兵の場合、通常攻撃縮小の効果量がさらに-1）（敵部隊の主将と馬超の相性が良い場合、通常攻撃縮小の効果量がさらに-1）発動間隔対象範囲発動率連鎖順20秒- / -25…"
         }
       ],
       "statusEffectRefCount": 9,
-      "typeFeatureCount": 10
+      "typeFeatureCount": 12
     },
     {
       "category": "generals",
@@ -21940,10 +22616,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR張郃の戦法 随機巧変兵科効果系統攻撃属性騎兵物理なし効果自身を含む味方3部隊に50%の有利激攻を付与して、攻撃と防御を100%上昇対象を含む敵3部隊に断道を付与して騎兵相性を悪くするさらに400%の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 中25%普通随機巧変の追加効果追加効果対象範囲継続有利激攻味方 / 中15秒兵科相性が有利な敵に対する与ダメージ…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR張郃の戦法 随機巧変兵科効果系統攻撃属性騎兵物理なし効果自身を含む味方3部隊に50%の有利激攻を付与して、攻撃と防御を100%上昇対象を含む敵3部隊に断道を付与して騎兵相性を悪くするさらに400%の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 中25%普通随機巧変の追加効果追加効果対象範囲継続有利激攻味方 / 中15秒兵科相性が有利な敵に対する与ダメージ…"
         }
       ],
       "statusEffectRefCount": 6,
-      "typeFeatureCount": 9
+      "typeFeatureCount": 10
     },
     {
       "category": "generals",
@@ -22494,10 +23178,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR廉頗の戦法 豪壮峻烈兵科効果系統攻撃属性歩兵物理なし効果自身を含む味方4部隊に練守と2回の弱化無効を付与自身1部隊の攻撃、防御を150%、撃心威力を50%上昇対象を含む敵3部隊に撃心発生率を50%上昇させた状態で350%の攻撃（自部隊の攻撃が敵部隊より高い場合、この戦法の撃心発生率をさらに50%上昇させた状態で攻撃する）発動間隔対象範囲発動率連鎖順25秒…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる強化抑制と一部の能力弱化効果（攻撃/防御/戦法威力）を避ける"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR廉頗の戦法 豪壮峻烈兵科効果系統攻撃属性歩兵物理なし効果自身を含む味方4部隊に練守と2回の弱化無効を付与自身1部隊の攻撃、防御を150%、撃心威力を50%上昇対象を含む敵3部隊に撃心発生率を50%上昇させた状態で350%の攻撃（自部隊の攻撃が敵部隊より高い場合、この戦法の撃心発生率をさらに50%上昇させた状態で攻撃する）発動間隔対象範囲発動率連鎖順25秒…"
         }
       ],
       "statusEffectRefCount": 22,
-      "typeFeatureCount": 17
+      "typeFeatureCount": 19
     },
     {
       "category": "generals",
@@ -22891,10 +23591,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "URフレデリカの戦法 論理演算兵科効果系統攻撃属性なしなしなし効果自身1部隊の防御、知力を100%上昇（自部隊の主将とこの武将が好相性の際、効果量が1.5倍）対象を含む敵4部隊の強化効果を2つ打ち消して100%の弱化残存を付与さらに2回の強化無効を付与発動間隔対象範囲発動率連鎖順25秒- / -25%早い論理演算の追加効果追加効果対象範囲継続防御変化自分 /…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自部隊より低知力の敵から受ける弱化効果を部隊内（主将/副将/補佐）の自身と好相性の武将数×7%の確率で避ける（他技能と合算）"
         }
       ],
       "statusEffectRefCount": 8,
-      "typeFeatureCount": 4
+      "typeFeatureCount": 5
     },
     {
       "category": "generals",
@@ -23118,10 +23826,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "耐久力に特化した歩兵武将 URキルヒアイスは戦法で味方3部隊に物理耐性と知力耐性を付与する"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "URキルヒアイスの戦法 挺身の守兵科効果系統攻撃属性なしなしなし効果自身1部隊の弱化効果を2つ打ち消すさらに強化促進を付与して防御を100%上昇自身を含む味方3部隊に25%の物理耐性と知力耐性を付与（自部隊の主将とこの武将が好相性の際、物理耐性と知力耐性の効果量が2倍になる）発動間隔対象範囲発動率連鎖順20秒- / -25%早い挺身の守の追加効果追加効果対象…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "耐久力に特化した歩兵武将 URキルヒアイスは戦法で味方3部隊に物理耐性と知力耐性を付与する"
         }
       ],
       "statusEffectRefCount": 12,
-      "typeFeatureCount": 9
+      "typeFeatureCount": 11
     },
     {
       "category": "generals",
@@ -23353,10 +24077,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "超広範囲にデバフを付与する弓兵武将 LRヤンは戦法で敵6部隊に戦法弱化を付与するコラボ限定武将"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自部隊より低知力の敵から受ける弱化効果を部隊内（主将/副将/補佐）の自身と好相性の武将数×7%の確率で避ける（他技能と合算）"
         }
       ],
       "statusEffectRefCount": 14,
-      "typeFeatureCount": 7
+      "typeFeatureCount": 8
     },
     {
       "category": "generals",
@@ -23651,10 +24383,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR張昭の戦法 忠言方直兵科効果系統攻撃属性なしなしなし効果自身1部隊に盤石を付与して防御、知力を100%上昇（この武将の将星ランクに応じて防御、知力上昇の効果量が5%ずつ上昇）この武将が主将か副将2で、自部隊の主将と副将全員と好相性の場合、自身を含む味方3部隊に15%の呼応・一を付与発動間隔対象範囲発動率連鎖順25秒- / -25%早い忠言方直の追加効果追…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR張昭の戦法 忠言方直兵科効果系統攻撃属性なしなしなし効果自身1部隊に盤石を付与して防御、知力を100%上昇（この武将の将星ランクに応じて防御、知力上昇の効果量が5%ずつ上昇）この武将が主将か副将2で、自部隊の主将と副将全員と好相性の場合、自身を含む味方3部隊に15%の呼応・一を付与発動間隔対象範囲発動率連鎖順25秒- / -25%早い忠言方直の追加効果追…"
         }
       ],
       "statusEffectRefCount": 7,
-      "typeFeatureCount": 4
+      "typeFeatureCount": 5
     },
     {
       "category": "generals",
@@ -23826,10 +24566,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "呼応・二で連鎖確率を上昇する弓兵武将 UR張紘は戦法や技能で味方3部隊に呼応・二を付与する"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊に30%の物理耐性を30秒付与 堅直を持つ武将UR張紘 警戒 Ⅰ"
         }
       ],
       "statusEffectRefCount": 9,
-      "typeFeatureCount": 7
+      "typeFeatureCount": 8
     },
     {
       "category": "generals",
@@ -24200,10 +24948,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "戦法が強力な知力弓兵武将 LR陸遜は戦法で味方3部隊の知力と対物特効を最大125％上昇させる"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR陸遜の戦法 飛焔焦天兵科効果系統攻撃属性なし知力火効果自身を含む味方3部隊の防御、知力、対物特効を50%上昇（自部隊の主将/副将/補佐のこの武将と相性の良い武将1人につき効果量が15%上昇）さらに火属性を付与して火属性威力を100%上昇対象を含む敵3部隊に350%の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 中25%普通飛焔焦天の追加効果追加効果対象範…"
         }
       ],
       "statusEffectRefCount": 5,
-      "typeFeatureCount": 8
+      "typeFeatureCount": 9
     },
     {
       "category": "generals",
@@ -24299,10 +25055,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR曹洪の戦法 掩護転撃兵科効果系統攻撃属性騎兵物理なし効果自身を含む味方3部隊に30%の会心耐性を付与自身1部隊の騎兵相性を良くして攻撃と防御を100%上昇対象を含む敵3部隊に250%の攻撃（自部隊の主将とこの武将が好相性の際、攻撃と防御上昇の効果量と威力が1.5倍になる）発動間隔対象範囲発動率連鎖順20秒敵 / 中25%普通掩護転撃の追加効果追加効果対象…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR曹洪の戦法 掩護転撃兵科効果系統攻撃属性騎兵物理なし効果自身を含む味方3部隊に30%の会心耐性を付与自身1部隊の騎兵相性を良くして攻撃と防御を100%上昇対象を含む敵3部隊に250%の攻撃（自部隊の主将とこの武将が好相性の際、攻撃と防御上昇の効果量と威力が1.5倍になる）発動間隔対象範囲発動率連鎖順20秒敵 / 中25%普通掩護転撃の追加効果追加効果対象…"
         }
       ],
       "statusEffectRefCount": 4,
-      "typeFeatureCount": 5
+      "typeFeatureCount": 6
     },
     {
       "category": "generals",
@@ -24574,10 +25338,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR韓信の戦法 国士無双兵科効果系統攻撃属性なし知力なし効果自身を含む味方3部隊を全ての兵科と物体に対して有利にして戦法威力を50%上昇対象を含む敵3部隊に強化抑制を付与して400%の攻撃この武将が主将の場合、自身1部隊に雄然と1度の絶縁を付与発動間隔対象範囲発動率連鎖順25秒敵 / 中25%普通国士無双の追加効果追加効果対象範囲継続兵科相性変化味方 / 中…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR韓信の戦法 国士無双兵科効果系統攻撃属性なし知力なし効果自身を含む味方3部隊を全ての兵科と物体に対して有利にして戦法威力を50%上昇対象を含む敵3部隊に強化抑制を付与して400%の攻撃この武将が主将の場合、自身1部隊に雄然と1度の絶縁を付与発動間隔対象範囲発動率連鎖順25秒敵 / 中25%普通国士無双の追加効果追加効果対象範囲継続兵科相性変化味方 / 中…"
         }
       ],
       "statusEffectRefCount": 14,
-      "typeFeatureCount": 12
+      "typeFeatureCount": 13
     },
     {
       "category": "generals",
@@ -24741,10 +25513,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "対騎兵性能に特化した歩兵武将 LR賈詡は戦法で敵3部隊に50%の確率で同討と分断を付与する"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR賈詡の戦法 権以済事兵科効果系統攻撃属性なしなしなし効果自身1部隊の知力を150%上昇対象を含む敵3部隊に50%の確率で同討と分断を付与（騎兵の敵部隊が優先して対象となる）（敵部隊が騎兵の場合、同討と分断の付与率が2倍、効果時間が1.5倍になる）発動間隔対象範囲発動率連鎖順20秒- / -25%早い権以済事の追加効果追加効果対象範囲継続知力変化自分 / …"
         }
       ],
       "statusEffectRefCount": 9,
-      "typeFeatureCount": 6
+      "typeFeatureCount": 7
     },
     {
       "category": "generals",
@@ -25832,10 +26612,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR趙雲の戦法 満身是胆兵科効果系統攻撃属性騎兵物理なし効果自身1部隊の弱化効果を全て打ち消して25%の龍鎧を付与（この武将が主将の場合、龍鎧の効果量が2倍）さらに全ての兵科と物体に対して有利にして、攻撃速度を150%上昇対象を含む敵2部隊に500%の攻撃（この武将が主将の場合、威力が1.2倍）発動間隔対象範囲発動率連鎖順20秒敵 / 狭25%遅い満身是胆の…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "戦法発動時は自部隊の弱化効果を全て解除してからダメージを与えるので、全武将の中でも戦法火力は非常に高い"
         }
       ],
       "statusEffectRefCount": 22,
-      "typeFeatureCount": 9
+      "typeFeatureCount": 10
     },
     {
       "category": "generals",
@@ -26023,10 +26811,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "対部隊性能に優れた歩兵武将 UR程昱は戦法と技能で味方3部隊に追討を付与する"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR程昱の戦法 巧計奇謀兵科効果系統攻撃属性なし知力なし効果自身を含む味方3部隊に5%の追討を付与対象を含む敵4部隊の攻撃、防御、知力、戦法速度を25%低下（この武将の将星ランクに応じて攻撃、防御、知力、戦法速度低下の効果量が5%ずつ増加）さらに250%の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 広25%早い巧計奇謀の追加効果追加効果対象範囲継続追討味方…"
         }
       ],
       "statusEffectRefCount": 9,
-      "typeFeatureCount": 9
+      "typeFeatureCount": 10
     },
     {
       "category": "generals",
@@ -26198,10 +26994,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR蔡琰の戦法 才媛弾琴兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の知力を100%上昇させて10%の治癒を付与（自部隊の主将とこの武将が好相性の際、知力上昇と治癒の効果量が1.5倍になる）対象を含む敵3部隊の強化効果を2つ打ち消して通常攻撃威力と戦法威力を50%低下発動間隔対象範囲発動率連鎖順20秒- / -25%早い才媛弾琴の追加効果追加効果…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR蔡琰の戦法 才媛弾琴兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の知力を100%上昇させて10%の治癒を付与（自部隊の主将とこの武将が好相性の際、知力上昇と治癒の効果量が1.5倍になる）対象を含む敵3部隊の強化効果を2つ打ち消して通常攻撃威力と戦法威力を50%低下発動間隔対象範囲発動率連鎖順20秒- / -25%早い才媛弾琴の追加効果追加効果…"
         }
       ],
       "statusEffectRefCount": 7,
-      "typeFeatureCount": 10
+      "typeFeatureCount": 11
     },
     {
       "category": "generals",
@@ -26425,10 +27229,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR呂不韋の戦法 奇貨可居兵科効果系統攻撃属性なしなしなし効果自身1部隊の知力を150%上昇自身を含む味方3部隊に50%の知力耐性を付与対象を含む敵3部隊に5%の潜影と2回の強化反転を付与発動間隔対象範囲発動率連鎖順20秒- / -25%早い奇貨可居の追加効果追加効果対象範囲継続知力変化自分 / 単10秒部隊の知力が上昇する知力耐性味方 / 中10秒知力系統…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR呂不韋の戦法 奇貨可居兵科効果系統攻撃属性なしなしなし効果自身1部隊の知力を150%上昇自身を含む味方3部隊に50%の知力耐性を付与対象を含む敵3部隊に5%の潜影と2回の強化反転を付与発動間隔対象範囲発動率連鎖順20秒- / -25%早い奇貨可居の追加効果追加効果対象範囲継続知力変化自分 / 単10秒部隊の知力が上昇する知力耐性味方 / 中10秒知力系統…"
         }
       ],
       "statusEffectRefCount": 12,
-      "typeFeatureCount": 9
+      "typeFeatureCount": 10
     },
     {
       "category": "generals",
@@ -26616,10 +27428,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR黄忠の戦法 勇毅振天兵科効果系統攻撃属性弓兵物理なし効果自身1部隊を全ての兵科と物体に対して有利にして練守を付与自身を含む味方3部隊の戦法威力を50%上昇対象を含む敵3部隊の強化効果を3つ打ち消して防御を50%低下さらに400%の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 中25%遅い勇毅振天の追加効果追加効果対象範囲継続兵科相性変化自分 / 単20秒…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR黄忠の戦法 勇毅振天兵科効果系統攻撃属性弓兵物理なし効果自身1部隊を全ての兵科と物体に対して有利にして練守を付与自身を含む味方3部隊の戦法威力を50%上昇対象を含む敵3部隊の強化効果を3つ打ち消して防御を50%低下さらに400%の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 中25%遅い勇毅振天の追加効果追加効果対象範囲継続兵科相性変化自分 / 単20秒…"
         }
       ],
       "statusEffectRefCount": 9,
-      "typeFeatureCount": 9
+      "typeFeatureCount": 10
     },
     {
       "category": "generals",
@@ -27005,10 +27825,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "対物性能に特化した騎兵武将 LR孫堅は戦法で味方3部隊の対物特効を最大100%上昇させる"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR孫堅の戦法 江東猛虎兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に50%の猛奮を付与自身を含む味方3部隊の攻撃、防御、対物特効を50%上昇（自部隊の兵力が50%以上の場合、攻撃、防御、対物特効上昇の効果量が2倍になる）対物特効を100%上昇させた状態で対象を含む敵3部隊に350%の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 中25%普通江東猛虎の追加…"
         }
       ],
       "statusEffectRefCount": 7,
-      "typeFeatureCount": 7
+      "typeFeatureCount": 8
     },
     {
       "category": "generals",
@@ -27256,10 +28084,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR許褚の戦法 武衛折鋒兵科効果系統攻撃属性歩兵物理なし効果自身1部隊の弱化効果を3つ打ち消して攻撃と防御を150%上昇自身を含む味方3部隊に25%の物理耐性と10%の物理戦法遮断を付与（自部隊に付与する物理耐性と物理戦法遮断の効果量は2倍）対象を含む敵3部隊に400%の攻撃（この戦法ダメージは自部隊の防御の10%を攻撃に加算して計算する）発動間隔対象範囲発…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR許褚の戦法 武衛折鋒兵科効果系統攻撃属性歩兵物理なし効果自身1部隊の弱化効果を3つ打ち消して攻撃と防御を150%上昇自身を含む味方3部隊に25%の物理耐性と10%の物理戦法遮断を付与（自部隊に付与する物理耐性と物理戦法遮断の効果量は2倍）対象を含む敵3部隊に400%の攻撃（この戦法ダメージは自部隊の防御の10%を攻撃に加算して計算する）発動間隔対象範囲発…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR許褚の戦法 武衛折鋒兵科効果系統攻撃属性歩兵物理なし効果自身1部隊の弱化効果を3つ打ち消して攻撃と防御を150%上昇自身を含む味方3部隊に25%の物理耐性と10%の物理戦法遮断を付与（自部隊に付与する物理耐性と物理戦法遮断の効果量は2倍）対象を含む敵3部隊に400%の攻撃（この戦法ダメージは自部隊の防御の10%を攻撃に加算して計算する）発動間隔対象範囲発…"
         }
       ],
       "statusEffectRefCount": 14,
-      "typeFeatureCount": 9
+      "typeFeatureCount": 11
     },
     {
       "category": "generals",
@@ -27423,10 +28267,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR周倉の戦法 千里斉駆兵科効果系統攻撃属性歩兵物理なし効果自身1部隊の攻撃、会心威力、対物特効を75%上昇（この部隊の主将/副将/補佐/の歩兵または騎兵武将1人につき効果量が10%ずつ上昇）自身を含む味方3部隊の騎兵相性を良くする対象に400%の攻撃（この部隊の主将/副将/補佐の歩兵または騎兵武将1人につき威力が20%ずつ上昇）発動間隔対象範囲発動率連鎖順…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（攻撃/機動/対物特効）を避ける"
         }
       ],
       "statusEffectRefCount": 9,
-      "typeFeatureCount": 6
+      "typeFeatureCount": 7
     },
     {
       "category": "generals",
@@ -27630,10 +28482,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR孫臏の戦法 十陣略甲兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊を全ての兵科と物体に対して有利にして、攻撃速度を100%上昇自身1部隊の知力を150%上昇させて、通常攻撃の対象部隊数+1対象を含む敵3部隊に分断を付与発動間隔対象範囲発動率連鎖順20秒- / -25%早い十陣略甲の追加効果追加効果対象範囲継続兵科相性変化味方 / 中10秒全ての…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR孫臏の戦法 十陣略甲兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊を全ての兵科と物体に対して有利にして、攻撃速度を100%上昇自身1部隊の知力を150%上昇させて、通常攻撃の対象部隊数+1対象を含む敵3部隊に分断を付与発動間隔対象範囲発動率連鎖順20秒- / -25%早い十陣略甲の追加効果追加効果対象範囲継続兵科相性変化味方 / 中10秒全ての…"
         }
       ],
       "statusEffectRefCount": 9,
-      "typeFeatureCount": 11
+      "typeFeatureCount": 12
     },
     {
       "category": "generals",
@@ -27857,10 +28717,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "戦法によるバフも強力 戦法で敵の対象部隊数を減らしつつ、味方3部隊には知力上昇と戦法威力上昇を付与する"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる知力の弱化効果と疑心、連鎖無効、連鎖不能を避ける"
         }
       ],
       "statusEffectRefCount": 12,
-      "typeFeatureCount": 9
+      "typeFeatureCount": 10
     },
     {
       "category": "generals",
@@ -28175,10 +29043,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR王平の戦法 堅守不動兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の歩兵相性を良くして防御を100%、戦法威力を15%上昇（この武将の将星ランクに応じて防御上昇、戦法威力上昇の効果量が5%ずつ上昇）対象を含む敵3部隊の攻撃速度を50%低下さらに戦法ゲージを5%減少（下限0%）（敵部隊が歩兵の場合、戦法ゲージの減少量が2倍）発動間隔対象範囲発動率…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（戦法威力/戦法速度）を避ける石工2"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR王平の戦法 堅守不動兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の歩兵相性を良くして防御を100%、戦法威力を15%上昇（この武将の将星ランクに応じて防御上昇、戦法威力上昇の効果量が5%ずつ上昇）対象を含む敵3部隊の攻撃速度を50%低下さらに戦法ゲージを5%減少（下限0%）（敵部隊が歩兵の場合、戦法ゲージの減少量が2倍）発動間隔対象範囲発動率…"
         }
       ],
       "statusEffectRefCount": 8,
-      "typeFeatureCount": 11
+      "typeFeatureCount": 13
     },
     {
       "category": "generals",
@@ -28652,10 +29536,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR太史慈の戦法 八面烈射兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の会心発生を25%、防御と会心威力を75%上昇効果対象が弓兵の場合、効果が2倍になる自身1部隊の通常攻撃威力を50%上昇させて穿撃を付与発動間隔対象範囲発動率連鎖順20秒- / -25%早い八面烈射の追加効果追加効果対象範囲継続会心発生変化味方 / 中10秒会心の発生率が上昇す…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR太史慈の戦法 八面烈射兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の会心発生を25%、防御と会心威力を75%上昇効果対象が弓兵の場合、効果が2倍になる自身1部隊の通常攻撃威力を50%上昇させて穿撃を付与発動間隔対象範囲発動率連鎖順20秒- / -25%早い八面烈射の追加効果追加効果対象範囲継続会心発生変化味方 / 中10秒会心の発生率が上昇す…"
         }
       ],
       "statusEffectRefCount": 9,
-      "typeFeatureCount": 12
+      "typeFeatureCount": 13
     },
     {
       "category": "generals",
@@ -28939,10 +29831,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR呂布の戦法 飛将乱舞兵科効果系統攻撃属性弓兵物理なし効果自身1部隊に50%の鬼迫を付与対象を含む敵3部隊の強化効果を全て打ち消して500%の攻撃（自部隊の攻撃が敵部隊より高い場合、威力が1.2倍）発動間隔対象範囲発動率連鎖順30秒敵 / 中25%遅い飛将乱舞の追加効果追加効果対象範囲継続鬼迫自分 / 単15秒自部隊より攻撃の低い部隊への与ダメージを効果量…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（戦法速度）と士気奪取、戦法遅延、戦慄を避ける"
         }
       ],
       "statusEffectRefCount": 17,
-      "typeFeatureCount": 9
+      "typeFeatureCount": 10
     },
     {
       "category": "generals",
@@ -29050,10 +29950,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR曹仁の戦法 率励甚奮兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊に盤石を付与して防御を100%上昇自身1部隊の弓兵相性を良くして防御を100%上昇さらに強固を付与発動間隔対象範囲発動率連鎖順20秒- / -25%早い率励甚奮の追加効果追加効果対象範囲継続盤石味方 / 中10秒物理系統の攻撃を受ける際、部隊の知力の50%分を防御に上乗せして被ダ…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR曹仁の戦法 率励甚奮兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊に盤石を付与して防御を100%上昇自身1部隊の弓兵相性を良くして防御を100%上昇さらに強固を付与発動間隔対象範囲発動率連鎖順20秒- / -25%早い率励甚奮の追加効果追加効果対象範囲継続盤石味方 / 中10秒物理系統の攻撃を受ける際、部隊の知力の50%分を防御に上乗せして被ダ…"
         }
       ],
       "statusEffectRefCount": 5,
-      "typeFeatureCount": 5
+      "typeFeatureCount": 6
     },
     {
       "category": "generals",
@@ -29289,10 +30197,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR李信の戦法 果勢壮勇兵科効果系統攻撃属性なしなしなし効果自身1部隊に強化促進を付与して会心発生を50%、攻撃と会心威力を100%上昇対象を含む敵3部隊に怯心を付与発動間隔対象範囲発動率連鎖順20秒- / -25%早い果勢壮勇の追加効果追加効果対象範囲継続強化促進自分 / 単10秒能力強化効果を受ける際、効果量の50%を上乗せする会心発生変化自分 / 単1…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（攻撃/攻撃速度）と恐怖を避ける"
         }
       ],
       "statusEffectRefCount": 13,
-      "typeFeatureCount": 9
+      "typeFeatureCount": 10
     },
     {
       "category": "generals",
@@ -29965,10 +30881,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR郭嘉の戦法 運謀決策兵科効果系統攻撃属性なし知力なし効果自身を含む味方3部隊に3回の弱化反射を付与、知力を100%上昇対象を含む敵3部隊の強化効果を3つ解除、戦法速度を50%低下させて350%の攻撃自部隊に弱化効果が発生していない時、威力が1.5倍発動間隔対象範囲発動率連鎖順25秒敵 / 中25%普通運謀決策の追加効果追加効果対象範囲継続弱化反射味方 /…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR郭嘉の戦法 運謀決策兵科効果系統攻撃属性なし知力なし効果自身を含む味方3部隊に3回の弱化反射を付与、知力を100%上昇対象を含む敵3部隊の強化効果を3つ解除、戦法速度を50%低下させて350%の攻撃自部隊に弱化効果が発生していない時、威力が1.5倍発動間隔対象範囲発動率連鎖順25秒敵 / 中25%普通運謀決策の追加効果追加効果対象範囲継続弱化反射味方 /…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR郭嘉の戦法 運謀決策兵科効果系統攻撃属性なし知力なし効果自身を含む味方3部隊に3回の弱化反射を付与、知力を100%上昇対象を含む敵3部隊の強化効果を3つ解除、戦法速度を50%低下させて350%の攻撃自部隊に弱化効果が発生していない時、威力が1.5倍発動間隔対象範囲発動率連鎖順25秒敵 / 中25%普通運謀決策の追加効果追加効果対象範囲継続弱化反射味方 /…"
         }
       ],
       "statusEffectRefCount": 7,
-      "typeFeatureCount": 8
+      "typeFeatureCount": 10
     },
     {
       "category": "generals",
@@ -30240,10 +31172,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR周瑜の戦法 俊烈轟火兵科効果系統攻撃属性なし知力火効果自身を含む味方3部隊に50%の轟炎を付与して防御と知力を75%上昇自身1部隊の対物特効を150%上昇対象を含む敵3部隊に400%の攻撃さらに畏怖を付与発動間隔対象範囲発動率連鎖順25秒敵 / 中25%普通俊烈轟火の追加効果追加効果対象範囲継続轟炎味方 / 中10秒通常攻撃または戦法による攻撃時、対象の…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自部隊より低知力の部隊から受ける全ての弱化効果を避ける"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR周瑜の戦法 俊烈轟火兵科効果系統攻撃属性なし知力火効果自身を含む味方3部隊に50%の轟炎を付与して防御と知力を75%上昇自身1部隊の対物特効を150%上昇対象を含む敵3部隊に400%の攻撃さらに畏怖を付与発動間隔対象範囲発動率連鎖順25秒敵 / 中25%普通俊烈轟火の追加効果追加効果対象範囲継続轟炎味方 / 中10秒通常攻撃または戦法による攻撃時、対象の…"
         }
       ],
       "statusEffectRefCount": 14,
-      "typeFeatureCount": 12
+      "typeFeatureCount": 14
     },
     {
       "category": "generals",
@@ -30339,10 +31287,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "覚醒盧植の戦法 克己復礼・改兵科効果系統攻撃属性なしなしなし効果自身1部隊の弱化効果を全て打ち消す自身を含む味方3部隊に1回の弱化無効を付与（この戦法により打ち消した弱化効果の数だけ、付与回数が増加"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "覚醒盧植の戦法 克己復礼・改兵科効果系統攻撃属性なしなしなし効果自身1部隊の弱化効果を全て打ち消す自身を含む味方3部隊に1回の弱化無効を付与（この戦法により打ち消した弱化効果の数だけ、付与回数が増加"
         }
       ],
       "statusEffectRefCount": 4,
-      "typeFeatureCount": 5
+      "typeFeatureCount": 6
     },
     {
       "category": "generals",
@@ -30470,10 +31426,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "物理戦法火力を強化するサポート武将 覚醒張任は戦法で味方3部隊の攻撃、防御、戦法火力を上昇させる"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "物理戦法火力を強化するサポート武将 覚醒張任は戦法で味方3部隊の攻撃、防御、戦法火力を上昇させる"
         }
       ],
       "statusEffectRefCount": 6,
-      "typeFeatureCount": 6
+      "typeFeatureCount": 7
     },
     {
       "category": "generals",
@@ -30741,10 +31705,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "強力な戦法を持つ知力歩兵武将 LR呂尚は戦法で味方3部隊の知力と対物特効を100％上昇させる"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/対物特効）と分断を避ける"
         }
       ],
       "statusEffectRefCount": 13,
-      "typeFeatureCount": 13
+      "typeFeatureCount": 14
     },
     {
       "category": "generals",
@@ -30980,10 +31952,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "LR張飛の戦法 雄壮威猛兵科効果系統攻撃属性騎兵物理なし効果自身を含む味方3部隊の攻撃、防御、会心威力を100%上昇させて自身1部隊に50%の闘気を付与対象を含む敵3部隊に萎縮を付与して400%の攻撃発動間隔対象範囲発動率連鎖順20秒敵 / 中25%普通雄壮威猛の追加効果追加効果対象範囲継続攻撃変化味方 / 中10秒部隊の攻撃が上昇する防御変化味方 / 中1…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "LR張飛の戦法 雄壮威猛兵科効果系統攻撃属性騎兵物理なし効果自身を含む味方3部隊の攻撃、防御、会心威力を100%上昇させて自身1部隊に50%の闘気を付与対象を含む敵3部隊に萎縮を付与して400%の攻撃発動間隔対象範囲発動率連鎖順20秒敵 / 中25%普通雄壮威猛の追加効果追加効果対象範囲継続攻撃変化味方 / 中10秒部隊の攻撃が上昇する防御変化味方 / 中1…"
         }
       ],
       "statusEffectRefCount": 11,
-      "typeFeatureCount": 12
+      "typeFeatureCount": 13
     },
     {
       "category": "generals",
@@ -31270,10 +32250,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR張苞の戦法 桿勇虎翼兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に発生している弱化効果を3つ打ち消す10%の憤撃を付与して攻撃と防御を100%上昇対象を含む敵3部隊に300%の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 中25%普通桿勇虎翼の追加効果追加効果対象範囲継続弱化解除自分 / 単-対象に発生している弱化効果を打ち消す憤撃自分 / 単30秒効…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR張苞の戦法 桿勇虎翼兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に発生している弱化効果を3つ打ち消す10%の憤撃を付与して攻撃と防御を100%上昇対象を含む敵3部隊に300%の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 中25%普通桿勇虎翼の追加効果追加効果対象範囲継続弱化解除自分 / 単-対象に発生している弱化効果を打ち消す憤撃自分 / 単30秒効…"
         }
       ],
       "statusEffectRefCount": 4,
-      "typeFeatureCount": 6
+      "typeFeatureCount": 7
     },
     {
       "category": "generals",
@@ -31465,10 +32453,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "味方に火属性を付与する物理武将 UR祝融は戦法で味方3部隊に火属性を付与する"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR祝融の戦法 火神乱刃兵科効果系統攻撃属性騎兵物理火効果自身を含む味方3部隊に火属性を付与攻撃速度を100%上昇対象を含む敵3部隊の戦法速度と火属性耐性を50%低下さらに騎兵相性を悪くして300%の攻撃（自部隊の兵力が少ないほど威力上昇）発動間隔対象範囲発動率連鎖順20秒敵 / 中25%普通火神乱刃の追加効果追加効果対象範囲継続火属性付与味方 / 中10秒…"
         }
       ],
       "statusEffectRefCount": 8,
-      "typeFeatureCount": 11
+      "typeFeatureCount": 12
     },
     {
       "category": "generals",
@@ -31636,10 +32632,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR孟獲の戦法 蛮王不屈兵科効果系統攻撃属性騎兵物理なし効果自身を含む味方3部隊の攻撃と防御を150%上昇10%の堅固を付与自身1部隊の歩兵相性を良くして50%の物理耐性を付与対象を含む敵3部隊に400%の攻撃（自部隊の兵力が少ないほど威力上昇）発動間隔対象範囲発動率連鎖順30秒敵 / 中25%普通蛮王不屈の追加効果追加効果対象範囲継続攻撃変化味方 / 中1…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR孟獲の戦法 蛮王不屈兵科効果系統攻撃属性騎兵物理なし効果自身を含む味方3部隊の攻撃と防御を150%上昇10%の堅固を付与自身1部隊の歩兵相性を良くして50%の物理耐性を付与対象を含む敵3部隊に400%の攻撃（自部隊の兵力が少ないほど威力上昇）発動間隔対象範囲発動率連鎖順30秒敵 / 中25%普通蛮王不屈の追加効果追加効果対象範囲継続攻撃変化味方 / 中1…"
         }
       ],
       "statusEffectRefCount": 6,
-      "typeFeatureCount": 11
+      "typeFeatureCount": 12
     },
     {
       "category": "generals",
@@ -32260,10 +33264,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR于禁の戦法 厳毅不抜兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を全て打ち消して50%の有利巧守を付与（駐屯/防衛中の部隊が優先して対象となる）自身1部隊の防御を200%上昇対象を含む敵3部隊の歩兵相性を悪くして戦法威力を50%低下（自部隊が駐屯/防衛中の場合、上記全ての効果時間が1.5倍になる）発動間隔対象範囲発動率連鎖順20秒-…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR于禁の戦法 厳毅不抜兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を全て打ち消して50%の有利巧守を付与（駐屯/防衛中の部隊が優先して対象となる）自身1部隊の防御を200%上昇対象を含む敵3部隊の歩兵相性を悪くして戦法威力を50%低下（自部隊が駐屯/防衛中の場合、上記全ての効果時間が1.5倍になる）発動間隔対象範囲発動率連鎖順20秒-…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR于禁の戦法 厳毅不抜兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を全て打ち消して50%の有利巧守を付与（駐屯/防衛中の部隊が優先して対象となる）自身1部隊の防御を200%上昇対象を含む敵3部隊の歩兵相性を悪くして戦法威力を50%低下（自部隊が駐屯/防衛中の場合、上記全ての効果時間が1.5倍になる）発動間隔対象範囲発動率連鎖順20秒-…"
         }
       ],
       "statusEffectRefCount": 7,
-      "typeFeatureCount": 10
+      "typeFeatureCount": 12
     },
     {
       "category": "generals",
@@ -32327,10 +33347,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR諸葛恪の戦法 当意即妙兵科効果系統攻撃属性なし知力なし効果自身1部隊の防御と知力を100%上昇（自部隊の兵力が50%以上の場合、上記効果の効果量が2倍になる）戦法威力を50%上昇さらに対象に300%の攻撃この部隊に強化効果が付与されている場合、1種類につき威力が10%上昇（最大で+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 単25%遅い当意即妙の…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自部隊より低知力の部隊から受ける能力弱化効果を避ける"
         }
       ],
       "statusEffectRefCount": 4,
-      "typeFeatureCount": 1
+      "typeFeatureCount": 2
     },
     {
       "category": "generals",
@@ -32922,10 +33950,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR魯粛の戦法 壮志凌雲兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を2つ打ち消して2回の弱化無効と25%の知力耐性を付与（この武将の将星ランクに応じて知力耐性の効果量が5%ずつ上昇）さらに5%の結束を付与（この武将の将星ランクに応じて結束の効果量が1%ずつ上昇）発動間隔対象範囲発動率連鎖順20秒味方 / -25%早い壮志凌雲の追加効果…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR魯粛の戦法 壮志凌雲兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を2つ打ち消して2回の弱化無効と25%の知力耐性を付与（この武将の将星ランクに応じて知力耐性の効果量が5%ずつ上昇）さらに5%の結束を付与（この武将の将星ランクに応じて結束の効果量が1%ずつ上昇）発動間隔対象範囲発動率連鎖順20秒味方 / -25%早い壮志凌雲の追加効果…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR魯粛の戦法 壮志凌雲兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を2つ打ち消して2回の弱化無効と25%の知力耐性を付与（この武将の将星ランクに応じて知力耐性の効果量が5%ずつ上昇）さらに5%の結束を付与（この武将の将星ランクに応じて結束の効果量が1%ずつ上昇）発動間隔対象範囲発動率連鎖順20秒味方 / -25%早い壮志凌雲の追加効果…"
         }
       ],
       "statusEffectRefCount": 6,
-      "typeFeatureCount": 5
+      "typeFeatureCount": 7
     },
     {
       "category": "generals",
@@ -33121,10 +34165,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR曹丕の戦法 才芸兼該兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃速度と会心威力を50%上昇（対象の部隊にこの武将と相性の良い武将がいる場合、1人につき10%効果量が上昇）自身1部隊の知力と会心発生を50%上昇対象を含む敵3部隊に会心率半減を付与発動間隔対象範囲発動率連鎖順20秒味方 / -25%普通才芸兼該の追加効果追加効果対象範囲継続…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける"
         }
       ],
       "statusEffectRefCount": 9,
-      "typeFeatureCount": 10
+      "typeFeatureCount": 11
     },
     {
       "category": "generals",
@@ -34673,10 +35725,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR王元姫の戦法 興盛純和兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃、防御、知力を75％上昇（自部隊のこの武将と相性の良い武将1人につき効果量が10％上昇）攻撃速度と会心発生を50％上昇発動間隔対象範囲発動率連鎖順25秒- / -25%早い興盛純和の追加効果追加効果対象範囲継続攻撃変化味方 / 中10秒部隊の攻撃が上昇する防御変化味方 /…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR王元姫の戦法 興盛純和兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃、防御、知力を75％上昇（自部隊のこの武将と相性の良い武将1人につき効果量が10％上昇）攻撃速度と会心発生を50％上昇発動間隔対象範囲発動率連鎖順25秒- / -25%早い興盛純和の追加効果追加効果対象範囲継続攻撃変化味方 / 中10秒部隊の攻撃が上昇する防御変化味方 /…"
         }
       ],
       "statusEffectRefCount": 5,
-      "typeFeatureCount": 5
+      "typeFeatureCount": 6
     },
     {
       "category": "generals",
@@ -35077,10 +36137,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR馬騰の戦法 鉄騎奔騰兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃、防御、対物特効をこの部隊の騎兵武将1人につき10%上昇効果対象が騎兵の場合、効果量が2倍になる発動間隔対象範囲発動率連鎖順25秒- / -25%早い鉄騎奔騰の追加効果追加効果対象範囲継続攻撃変化味方 / 中10秒部隊の攻撃が上昇する防御変化味方 / 中10秒部隊の防御が上…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR馬騰の戦法 鉄騎奔騰兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃、防御、対物特効をこの部隊の騎兵武将1人につき10%上昇効果対象が騎兵の場合、効果量が2倍になる発動間隔対象範囲発動率連鎖順25秒- / -25%早い鉄騎奔騰の追加効果追加効果対象範囲継続攻撃変化味方 / 中10秒部隊の攻撃が上昇する防御変化味方 / 中10秒部隊の防御が上…"
         }
       ],
       "statusEffectRefCount": 5,
-      "typeFeatureCount": 7
+      "typeFeatureCount": 8
     },
     {
       "category": "generals",
@@ -35148,10 +36216,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "覚醒韓遂の戦法 馬上の知略・改兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の防御と知力を50％上昇騎兵の場合、効果が3倍になる発動間隔対象範囲発動率連鎖順20秒- / -25%早い馬上の知略・改の追加効果追加効果対象範囲継続防御変化味方 / 中10秒部隊の防御が上昇する知力変化味方 / 中10秒部隊の知力が上昇する 覚醒韓遂の技能 調和2"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "覚醒韓遂の戦法 馬上の知略・改兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の防御と知力を50％上昇騎兵の場合、効果が3倍になる発動間隔対象範囲発動率連鎖順20秒- / -25%早い馬上の知略・改の追加効果追加効果対象範囲継続防御変化味方 / 中10秒部隊の防御が上昇する知力変化味方 / 中10秒部隊の知力が上昇する 覚醒韓遂の技能 調和2"
         }
       ],
       "statusEffectRefCount": 3,
-      "typeFeatureCount": 3
+      "typeFeatureCount": 4
     },
     {
       "category": "generals",
@@ -35330,10 +36406,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "覚醒朱桓の戦法 叱咤激励・改兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃/攻撃速度/対物特効のうち2つを100%上昇さらに、すでに発生している強化効果のうち、ランダムに1つの効果時間を5秒延長する発動間隔対象範囲発動率連鎖順25秒- / -25%早い叱咤激励・改の追加効果追加効果対象範囲継続攻撃変化味方 / 中15秒部隊の攻撃が上昇する攻撃…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "覚醒朱桓の戦法 叱咤激励・改兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃/攻撃速度/対物特効のうち2つを100%上昇さらに、すでに発生している強化効果のうち、ランダムに1つの効果時間を5秒延長する発動間隔対象範囲発動率連鎖順25秒- / -25%早い叱咤激励・改の追加効果追加効果対象範囲継続攻撃変化味方 / 中15秒部隊の攻撃が上昇する攻撃…"
         }
       ],
       "statusEffectRefCount": 4,
-      "typeFeatureCount": 4
+      "typeFeatureCount": 5
     },
     {
       "category": "generals",
@@ -35481,10 +36565,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "能力弱化を能力強化に変える武将 UR徐庶は味方3部隊に発生している攻撃低下や防御低下などの「能力弱化効果」を「強化効果」に変える知力弓兵武将"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR徐庶の戦法 旋乾転坤兵科効果系統攻撃属性なし知力なし効果自身を含む味方3部隊の能力弱化効果を3つ正転さらに知力と攻撃速度を100％上昇対象を含む敵3部隊の強化効果を1つ打ち消して300％の攻撃発動間隔対象範囲発動率連鎖順30秒敵 / 中25%早い旋乾転坤の追加効果追加効果対象範囲継続正転味方 / 中-能力弱化の効果を2倍にして強化に変える"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "能力弱化を能力強化に変える武将 UR徐庶は味方3部隊に発生している攻撃低下や防御低下などの「能力弱化効果」を「強化効果」に変える知力弓兵武将"
         }
       ],
       "statusEffectRefCount": 7,
-      "typeFeatureCount": 7
+      "typeFeatureCount": 9
     },
     {
       "category": "generals",
@@ -35668,10 +36768,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR典韋の戦法 明目張胆兵科効果系統攻撃属性歩兵物理なし効果自身1部隊の攻撃と防御を100％上昇対象を含む敵3部隊の防御と対物特効を50%低下させて300％の攻撃さらに自身1部隊に逆襲を付与発動間隔対象範囲発動率連鎖順25秒敵 / 中25%普通明目張胆の追加効果追加効果対象範囲継続攻撃変化自分 / 単10秒部隊の攻撃が上昇する防御変化自分 / 単10秒部隊の…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊の弱化効果を全て打ち消す"
         }
       ],
       "statusEffectRefCount": 8,
-      "typeFeatureCount": 10
+      "typeFeatureCount": 11
     },
     {
       "category": "generals",
@@ -35803,10 +36911,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR曹操の戦法 壮心不已兵科効果系統攻撃属性騎兵特殊なし効果自身を含む味方4部隊の攻撃、防御、知力を50%上昇（対象の部隊にこの武将と相性の良い武将がいる場合、1人につき10%効果量が上昇）対象を含む敵4部隊を全ての兵科と物体に対して不利にして、1度の戦法弱化を付与さらに自部隊の攻撃または知力の高い方の系統で300%の攻撃を行う（同値の場合は知力系統）発動間…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR曹操の戦法 壮心不已兵科効果系統攻撃属性騎兵特殊なし効果自身を含む味方4部隊の攻撃、防御、知力を50%上昇（対象の部隊にこの武将と相性の良い武将がいる場合、1人につき10%効果量が上昇）対象を含む敵4部隊を全ての兵科と物体に対して不利にして、1度の戦法弱化を付与さらに自部隊の攻撃または知力の高い方の系統で300%の攻撃を行う（同値の場合は知力系統）発動間…"
         }
       ],
       "statusEffectRefCount": 7,
-      "typeFeatureCount": 5
+      "typeFeatureCount": 6
     },
     {
       "category": "generals",
@@ -36208,10 +37324,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR徐晃の戦法 長駆直入兵科効果系統攻撃属性歩兵物理なし効果自身を含む味方3部隊の攻撃と防御を100%上昇対象を含む敵3部隊の強化効果を1つ打ち消して防御を50%低下自身に付与されている能力強化の効果量を2倍にした状態で、対象を含む敵3部隊に300%の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 中25％遅い長駆直入の追加効果追加効果対象範囲継続攻撃変化味方…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR徐晃の戦法 長駆直入兵科効果系統攻撃属性歩兵物理なし効果自身を含む味方3部隊の攻撃と防御を100%上昇対象を含む敵3部隊の強化効果を1つ打ち消して防御を50%低下自身に付与されている能力強化の効果量を2倍にした状態で、対象を含む敵3部隊に300%の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 中25％遅い長駆直入の追加効果追加効果対象範囲継続攻撃変化味方…"
         }
       ],
       "statusEffectRefCount": 5,
-      "typeFeatureCount": 7
+      "typeFeatureCount": 8
     },
     {
       "category": "generals",
@@ -36537,10 +37661,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "デバフに特化した武将 覚醒呉懿は味方3部隊に高倍率の防御バフを付与しながら、敵3部隊に攻撃・知力・対物デバフを付与できる武将"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "デバフに特化した武将 覚醒呉懿は味方3部隊に高倍率の防御バフを付与しながら、敵3部隊に攻撃・知力・対物デバフを付与できる武将"
         }
       ],
       "statusEffectRefCount": 6,
-      "typeFeatureCount": 7
+      "typeFeatureCount": 8
     },
     {
       "category": "generals",
@@ -36692,10 +37824,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を除く味方2部隊に30%の物理耐性を30秒付与Ⅲ"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を除く味方2部隊に30%の物理耐性を30秒付与Ⅲ"
         }
       ],
       "statusEffectRefCount": 6,
-      "typeFeatureCount": 9
+      "typeFeatureCount": 10
     },
     {
       "category": "generals",
@@ -37038,10 +38178,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR張角の戦法 黄天当立兵科効果系統攻撃属性なし知力なし効果自身を含む味方3部隊の知力を100%上昇させて、取込と50%の会心耐性を付与対象を含む敵5部隊に250%の攻撃（自部隊の兵力が多いほど威力が上昇）さらに混乱を付与発動間隔対象範囲発動率連鎖順25秒敵 / 広25%遅い黄天当立の追加効果追加効果対象範囲継続知力変化味方 / 中15秒部隊の知力が上昇する…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR張角の戦法 黄天当立兵科効果系統攻撃属性なし知力なし効果自身を含む味方3部隊の知力を100%上昇させて、取込と50%の会心耐性を付与対象を含む敵5部隊に250%の攻撃（自部隊の兵力が多いほど威力が上昇）さらに混乱を付与発動間隔対象範囲発動率連鎖順25秒敵 / 広25%遅い黄天当立の追加効果追加効果対象範囲継続知力変化味方 / 中15秒部隊の知力が上昇する…"
         }
       ],
       "statusEffectRefCount": 13,
-      "typeFeatureCount": 9
+      "typeFeatureCount": 10
     },
     {
       "category": "generals",
@@ -37145,10 +38293,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "卞氏の戦法 慈祥勤倹兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を1つ打ち消す対象を含む敵3部隊に強化抑制を付与発動間隔対象範囲発動率連鎖順15秒- / -25%早い慈祥勤倹の追加効果追加効果対象範囲継続弱化解除味方 / 中-対象に発生している弱化効果を打ち消す強化抑制敵 / 中15秒自身に付与される能力強化効果の効果量が50%分減少す…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "卞氏の戦法 慈祥勤倹兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を1つ打ち消す対象を含む敵3部隊に強化抑制を付与発動間隔対象範囲発動率連鎖順15秒- / -25%早い慈祥勤倹の追加効果追加効果対象範囲継続弱化解除味方 / 中-対象に発生している弱化効果を打ち消す強化抑制敵 / 中15秒自身に付与される能力強化効果の効果量が50%分減少す…"
         }
       ],
       "statusEffectRefCount": 4,
-      "typeFeatureCount": 6
+      "typeFeatureCount": 7
     },
     {
       "category": "generals",
@@ -37371,10 +38527,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR呂蒙の戦法 勇謀兼備兵科効果系統攻撃属性なし知力なし効果自身を含む味方3部隊の知力と会心発生を50%上昇自身1部隊の会心威力を100%上昇対象を含む敵3部隊に300%の攻撃（この戦法のダメージは自部隊の攻撃の10%を知力に加算して計算する）発動間隔対象範囲発動率連鎖順25秒敵 / 中25%遅い勇謀兼備の追加効果追加効果対象範囲継続知力変化味方 / 中10…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる弱化効果を20%の確率で無効化し、付与してきた部隊に同じ弱化効果を付与（反計、弱化反射によって付与される弱化効果にこの効果は適用されない）警戒2"
         }
       ],
       "statusEffectRefCount": 5,
-      "typeFeatureCount": 5
+      "typeFeatureCount": 6
     },
     {
       "category": "generals",
@@ -37652,10 +38816,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "覚醒諸葛瑾の戦法 防備の謹言・改兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の防御、攻撃速度を50%上昇発動間隔対象範囲発動率連鎖順20秒- / -25%普通防備の謹言・改の追加効果追加効果対象範囲継続防御変化味方 / 中15秒部隊の防御が上昇する攻撃速度変化味方 / 中15秒攻撃の速度が上昇する 覚醒諸葛瑾の技能 厚徳1"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "覚醒諸葛瑾の戦法 防備の謹言・改兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の防御、攻撃速度を50%上昇発動間隔対象範囲発動率連鎖順20秒- / -25%普通防備の謹言・改の追加効果追加効果対象範囲継続防御変化味方 / 中15秒部隊の防御が上昇する攻撃速度変化味方 / 中15秒攻撃の速度が上昇する 覚醒諸葛瑾の技能 厚徳1"
         }
       ],
       "statusEffectRefCount": 4,
-      "typeFeatureCount": 6
+      "typeFeatureCount": 7
     },
     {
       "category": "generals",
@@ -38124,10 +39296,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "覚醒郝昭の戦法 堅固鉄壁・改兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の防御を200%上昇対象を含む敵3部隊の対物特効を50%低下発動間隔対象範囲発動率連鎖順25秒- / -25%早い堅固鉄壁・改の追加効果追加効果対象範囲継続防御変化味方 / 中15秒部隊の防御が上昇する対物特効変化敵 / 中15秒物体に対して不利になる 堅固鉄壁・改 兵科効果…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "覚醒郝昭の戦法 堅固鉄壁・改兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の防御を200%上昇対象を含む敵3部隊の対物特効を50%低下発動間隔対象範囲発動率連鎖順25秒- / -25%早い堅固鉄壁・改の追加効果追加効果対象範囲継続防御変化味方 / 中15秒部隊の防御が上昇する対物特効変化敵 / 中15秒物体に対して不利になる 堅固鉄壁・改 兵科効果…"
         }
       ],
       "statusEffectRefCount": 2,
-      "typeFeatureCount": 7
+      "typeFeatureCount": 8
     },
     {
       "category": "generals",
@@ -38231,10 +39411,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR孫権の戦法 虎咆雄略兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃、防御、知力を50%、会心発生を25%上昇（この武将と主将が好相性の部隊が優先して対象となり、対象部隊の主将とこの武将が好相性の際、効果が2倍になる）さらに、すでに発生している強化効果のうち、ランダムに3つの効果時間を5秒延長する発動間隔対象範囲発動率連鎖順30秒- / -…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR孫権の戦法 虎咆雄略兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃、防御、知力を50%、会心発生を25%上昇（この武将と主将が好相性の部隊が優先して対象となり、対象部隊の主将とこの武将が好相性の際、効果が2倍になる）さらに、すでに発生している強化効果のうち、ランダムに3つの効果時間を5秒延長する発動間隔対象範囲発動率連鎖順30秒- / -…"
         }
       ],
       "statusEffectRefCount": 4,
-      "typeFeatureCount": 6
+      "typeFeatureCount": 7
     },
     {
       "category": "generals",
@@ -38402,10 +39590,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR張郃の戦法 巧緻応変兵科効果系統攻撃属性歩兵物理なし効果自身を含む味方3部隊の攻撃速度を75%上昇さらに自身1部隊の戦法威力を50%上昇対象を含む敵4部隊の攻撃と防御を30%低下させて1回の強化無効を付与、さらに250%の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 広25%普通巧緻応変の追加効果追加効果対象範囲継続攻撃速度変化味方 / 中15秒攻撃の速…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR張郃の戦法 巧緻応変兵科効果系統攻撃属性歩兵物理なし効果自身を含む味方3部隊の攻撃速度を75%上昇さらに自身1部隊の戦法威力を50%上昇対象を含む敵4部隊の攻撃と防御を30%低下させて1回の強化無効を付与、さらに250%の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 広25%普通巧緻応変の追加効果追加効果対象範囲継続攻撃速度変化味方 / 中15秒攻撃の速…"
         }
       ],
       "statusEffectRefCount": 8,
-      "typeFeatureCount": 8
+      "typeFeatureCount": 9
     },
     {
       "category": "generals",
@@ -38642,10 +39838,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "覚醒郭淮の戦法 堅忍持久・改兵科効果系統攻撃属性なし回復なし効果自身を含む味方2部隊の防御を75%上昇し、10%の堅固を付与さらに最大兵力の15%の負傷兵を回復発動間隔対象範囲発動率連鎖順30秒味方 / 狭25%普通堅忍持久・改の追加効果追加効果対象範囲継続防御変化味方 / 狭10秒部隊の防御が上昇する堅固味方 / 狭15秒最大兵力に応じて一定以下の威力の攻…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "覚醒郭淮の戦法 堅忍持久・改兵科効果系統攻撃属性なし回復なし効果自身を含む味方2部隊の防御を75%上昇し、10%の堅固を付与さらに最大兵力の15%の負傷兵を回復発動間隔対象範囲発動率連鎖順30秒味方 / 狭25%普通堅忍持久・改の追加効果追加効果対象範囲継続防御変化味方 / 狭10秒部隊の防御が上昇する堅固味方 / 狭15秒最大兵力に応じて一定以下の威力の攻…"
         }
       ],
       "statusEffectRefCount": 2,
-      "typeFeatureCount": 7
+      "typeFeatureCount": 8
     },
     {
       "category": "generals",
@@ -38916,10 +40120,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "対物攻撃に特化した歩兵武将 UR夏侯惇は戦法で味方3部隊の対物特効を上昇させる歩兵武将"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR夏侯惇の戦法 豪気衝天兵科効果系統攻撃属性歩兵物理なし効果自身を含む味方3部隊の対物特効を75%上昇自身1部隊の攻撃、防御、攻撃速度、対物特効を50%上昇対物特効を100%上昇させた状態で、対象を含む敵3部隊に200%の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 中25%普通豪気衝天の追加効果追加効果対象範囲継続対物特効変化味方 / 中10秒物体に対し…"
         }
       ],
       "statusEffectRefCount": 4,
-      "typeFeatureCount": 7
+      "typeFeatureCount": 8
     },
     {
       "category": "generals",
@@ -39439,10 +40651,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR黄忠の戦法 神射万箭兵科効果系統攻撃属性弓兵物理なし効果自身を含む味方3部隊の戦法威力を30%上昇、5％の高揚を付与自身1部隊の戦法威力を20%上昇対象を含む敵3部隊の強化効果を2つ打ち消して300%の攻撃（この武将が主将の場合、この戦法の撃心発生率が1.5倍）発動間隔対象範囲発動率連鎖順25秒敵 / 中25%普通神射万箭の追加効果追加効果対象範囲継続戦…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR黄忠の戦法 神射万箭兵科効果系統攻撃属性弓兵物理なし効果自身を含む味方3部隊の戦法威力を30%上昇、5％の高揚を付与自身1部隊の戦法威力を20%上昇対象を含む敵3部隊の強化効果を2つ打ち消して300%の攻撃（この武将が主将の場合、この戦法の撃心発生率が1.5倍）発動間隔対象範囲発動率連鎖順25秒敵 / 中25%普通神射万箭の追加効果追加効果対象範囲継続戦…"
         }
       ],
       "statusEffectRefCount": 8,
-      "typeFeatureCount": 9
+      "typeFeatureCount": 10
     },
     {
       "category": "generals",
@@ -39645,10 +40865,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "覚醒李厳の戦法 窮地救援・改兵科効果系統攻撃属性なし回復なし効果自身を含む味方2部隊に対し最大兵力の25％の負傷兵を回復さらに防御、知力を50％上昇発動間隔対象範囲発動率連鎖順25秒味方 / 狭25%早い窮地救援・改の追加効果追加効果対象範囲継続防御変化味方 / 狭10秒部隊の防御が上昇する知力変化味方 / 狭10秒部隊の知力が上昇する 窮地救援・改 兵科効…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "覚醒李厳の戦法 窮地救援・改兵科効果系統攻撃属性なし回復なし効果自身を含む味方2部隊に対し最大兵力の25％の負傷兵を回復さらに防御、知力を50％上昇発動間隔対象範囲発動率連鎖順25秒味方 / 狭25%早い窮地救援・改の追加効果追加効果対象範囲継続防御変化味方 / 狭10秒部隊の防御が上昇する知力変化味方 / 狭10秒部隊の知力が上昇する 窮地救援・改 兵科効…"
         }
       ],
       "statusEffectRefCount": 3,
-      "typeFeatureCount": 6
+      "typeFeatureCount": 7
     },
     {
       "category": "generals",
@@ -40412,10 +41640,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "歩練師の戦法 佐命得幸兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃と知力を50%上昇さらに、すでに発生している強化効果のうち、ランダムに3つの効果時間を10秒延長する発動間隔対象範囲発動率連鎖順30秒- / -25%早い佐命得幸の追加効果追加効果対象範囲継続攻撃変化味方 / 中10秒部隊の攻撃が上昇する知力変化味方 / 中10秒部隊の知力が…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "歩練師の戦法 佐命得幸兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃と知力を50%上昇さらに、すでに発生している強化効果のうち、ランダムに3つの効果時間を10秒延長する発動間隔対象範囲発動率連鎖順30秒- / -25%早い佐命得幸の追加効果追加効果対象範囲継続攻撃変化味方 / 中10秒部隊の攻撃が上昇する知力変化味方 / 中10秒部隊の知力が…"
         }
       ],
       "statusEffectRefCount": 4,
-      "typeFeatureCount": 4
+      "typeFeatureCount": 5
     },
     {
       "category": "generals",
@@ -40594,10 +41830,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "覚醒曹真の戦法 三軍激励・改兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃、防御を75%上昇発動間隔対象範囲発動率連鎖順25秒- / -25%早い三軍激励・改の追加効果追加効果対象範囲継続攻撃変化味方 / 中10秒部隊の攻撃が上昇する防御変化味方 / 中10秒部隊の防御が上昇する 三軍激励・改 兵科効果系統攻撃属性なしなしなし効果自身を含む味…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "覚醒曹真の戦法 三軍激励・改兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃、防御を75%上昇発動間隔対象範囲発動率連鎖順25秒- / -25%早い三軍激励・改の追加効果追加効果対象範囲継続攻撃変化味方 / 中10秒部隊の攻撃が上昇する防御変化味方 / 中10秒部隊の防御が上昇する 三軍激励・改 兵科効果系統攻撃属性なしなしなし効果自身を含む味…"
         }
       ],
       "statusEffectRefCount": 3,
-      "typeFeatureCount": 4
+      "typeFeatureCount": 5
     },
     {
       "category": "generals",
@@ -42370,10 +43614,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "さらに味方3部隊に防御バフを付与するので高い耐久を発揮することができる"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "さらに味方3部隊に防御バフを付与するので高い耐久を発揮することができる"
         }
       ],
       "statusEffectRefCount": 6,
-      "typeFeatureCount": 7
+      "typeFeatureCount": 8
     },
     {
       "category": "generals",
@@ -42481,10 +43733,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "軻比能の戦法 勇健破砕兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃速度、防御、対物特効を50%上昇発動間隔対象範囲発動率連鎖順30秒- / -25%早い勇健破砕の追加効果追加効果対象範囲継続攻撃速度変化味方 / 中15秒攻撃の速度が上昇する防御変化味方 / 中15秒部隊の防御が上昇する対物特効変化味方 / 中15秒物体に対して有利になる 勇…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "軻比能の戦法 勇健破砕兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃速度、防御、対物特効を50%上昇発動間隔対象範囲発動率連鎖順30秒- / -25%早い勇健破砕の追加効果追加効果対象範囲継続攻撃速度変化味方 / 中15秒攻撃の速度が上昇する防御変化味方 / 中15秒部隊の防御が上昇する対物特効変化味方 / 中15秒物体に対して有利になる 勇…"
         }
       ],
       "statusEffectRefCount": 5,
-      "typeFeatureCount": 5
+      "typeFeatureCount": 6
     },
     {
       "category": "generals",
@@ -43173,10 +44433,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR孫堅の戦法 勇烈弘毅兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃、防御、対物特効、会心威力を50%上昇対象部隊の主将とこの武将の相性が良いほど効果が上昇（最大+25%）発動間隔対象範囲発動率連鎖順25秒- / -25%早い勇烈弘毅の追加効果追加効果対象範囲継続攻撃変化味方 / 中10秒部隊の攻撃が低下する防御変化味方 / 中10秒部隊の…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR孫堅の戦法 勇烈弘毅兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃、防御、対物特効、会心威力を50%上昇対象部隊の主将とこの武将の相性が良いほど効果が上昇（最大+25%）発動間隔対象範囲発動率連鎖順25秒- / -25%早い勇烈弘毅の追加効果追加効果対象範囲継続攻撃変化味方 / 中10秒部隊の攻撃が低下する防御変化味方 / 中10秒部隊の…"
         }
       ],
       "statusEffectRefCount": 5,
-      "typeFeatureCount": 6
+      "typeFeatureCount": 7
     },
     {
       "category": "generals",
@@ -43268,10 +44536,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "対物性能に特化した弓兵武将 UR董卓は戦法で味方3部隊の対物特効を上昇させる物理弓兵武将"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR董卓の戦法 暴威姦凶兵科効果系統攻撃属性弓兵物理なし効果自身を含む味方3部隊の対物特効を150%上昇させて、この部隊（主将/副将/補佐）の女性1人につき攻撃を30%上昇対象を含む敵3部隊に300%の攻撃この部隊に強化効果が付与されている場合、1種類につき威力が10%上昇（最大で+100%）発動間隔対象範囲発動率連鎖順30秒敵 / 中25%遅い暴威姦凶の追…"
         }
       ],
       "statusEffectRefCount": 3,
-      "typeFeatureCount": 6
+      "typeFeatureCount": 7
     },
     {
       "category": "generals",
@@ -43962,10 +45238,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "覚醒陳宮の戦法 掎角の勢・改兵科効果系統攻撃属性騎兵知力なし効果自身1部隊の弱化効果を2つ打ち消すさらに攻撃、防御、知力を50%上昇対象に250%の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 単25%普通掎角の勢・改の追加効果追加効果対象範囲継続弱化解除自分 / 単-対象に発生している弱化効果を打ち消す攻撃変化自分 / 単15秒部隊の攻撃が上昇する防御変化…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "覚醒陳宮の戦法 掎角の勢・改兵科効果系統攻撃属性騎兵知力なし効果自身1部隊の弱化効果を2つ打ち消すさらに攻撃、防御、知力を50%上昇対象に250%の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 単25%普通掎角の勢・改の追加効果追加効果対象範囲継続弱化解除自分 / 単-対象に発生している弱化効果を打ち消す攻撃変化自分 / 単15秒部隊の攻撃が上昇する防御変化…"
         }
       ],
       "statusEffectRefCount": 3,
-      "typeFeatureCount": 2
+      "typeFeatureCount": 3
     },
     {
       "category": "generals",
@@ -44057,10 +45341,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "覚醒王平の戦法 厳整固守兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の防御を50%、戦法威力を20%上昇発動間隔対象範囲発動率連鎖順25秒- / -25%早い厳整固守の追加効果追加効果対象範囲継続防御変化味方 / 中10秒部隊の防御が上昇する戦法威力変化味方 / 中10秒戦法による攻撃の威力が上昇する 厳整固守 兵科効果系統攻撃属性なしなしなし効…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "戦法威力を強化できる武将 覚醒王平は味方部隊の防御と戦法威力を強化する戦法を持つ武将"
         }
       ],
       "statusEffectRefCount": 3,
-      "typeFeatureCount": 6
+      "typeFeatureCount": 7
     },
     {
       "category": "generals",
@@ -44403,10 +45695,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR諸葛亮の戦法 神機妙算兵科効果系統攻撃属性なし知力なし効果自身を含む味方3部隊の火属性耐性を50%上昇さらに全ての兵科と物体に対して有利にする対象を含む敵3部隊に400%の攻撃、同討を付与発動間隔対象範囲発動率連鎖順25秒敵 / 中25%普通神機妙算の追加効果追加効果対象範囲継続火耐性変化味方 / 中15秒火属性の攻撃に強くなる兵科相性変化味方 / 中1…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR諸葛亮の戦法 神機妙算兵科効果系統攻撃属性なし知力なし効果自身を含む味方3部隊の火属性耐性を50%上昇さらに全ての兵科と物体に対して有利にする対象を含む敵3部隊に400%の攻撃、同討を付与発動間隔対象範囲発動率連鎖順25秒敵 / 中25%普通神機妙算の追加効果追加効果対象範囲継続火耐性変化味方 / 中15秒火属性の攻撃に強くなる兵科相性変化味方 / 中1…"
         }
       ],
       "statusEffectRefCount": 12,
-      "typeFeatureCount": 7
+      "typeFeatureCount": 8
     },
     {
       "category": "generals",
@@ -44688,10 +45988,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "耐久面を強化できる武将 覚醒曹仁は味方3部隊の防御を高める戦法をもつ武将"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "耐久面を強化できる武将 覚醒曹仁は味方3部隊の防御を高める戦法をもつ武将"
         }
       ],
       "statusEffectRefCount": 2,
-      "typeFeatureCount": 3
+      "typeFeatureCount": 4
     },
     {
       "category": "generals",
@@ -44898,10 +46206,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR太史慈の戦法 驍勇善射兵科効果系統攻撃属性弓兵物理なし効果自身を含む味方3部隊の攻撃を75％、防御と攻撃速度を50%上昇、3％の覇弓を付与（弓兵が優先して対象となり、対象が弓兵の場合は覇弓も含めて効果が2倍）さらに対象に400%の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 単25%早い驍勇善射の追加効果追加効果対象範囲継続攻撃変化味方 / 中15秒部隊…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR太史慈の戦法 驍勇善射兵科効果系統攻撃属性弓兵物理なし効果自身を含む味方3部隊の攻撃を75％、防御と攻撃速度を50%上昇、3％の覇弓を付与（弓兵が優先して対象となり、対象が弓兵の場合は覇弓も含めて効果が2倍）さらに対象に400%の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 単25%早い驍勇善射の追加効果追加効果対象範囲継続攻撃変化味方 / 中15秒部隊…"
         }
       ],
       "statusEffectRefCount": 7,
-      "typeFeatureCount": 4
+      "typeFeatureCount": 5
     },
     {
       "category": "generals",
@@ -45021,10 +46337,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR姜維の戦法 緯武経文兵科効果系統攻撃属性歩兵特殊火効果自身を含む味方3部隊の攻撃、知力を100%上昇さらに自身1部隊の知力を30%上昇対象を含む敵3部隊に自部隊の攻撃または知力の高い方の系統で300%の攻撃を行う(同値の場合は知力系統)発動間隔対象範囲発動率連鎖順25秒敵 / 中25%早い緯武経文の追加効果追加効果対象範囲継続攻撃変化味方 / 中15秒部…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（攻撃/知力）を避ける"
         }
       ],
       "statusEffectRefCount": 6,
-      "typeFeatureCount": 5
+      "typeFeatureCount": 6
     },
     {
       "category": "generals",
@@ -45936,10 +47260,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "司馬徽の戦法 明鏡止水兵科効果系統攻撃属性なしなしなし効果自身1部隊の弱化効果を2つ打ち消すさらに知力を200%上昇発動間隔対象範囲発動率連鎖順25秒味方 / 単25%早い明鏡止水の追加効果追加効果対象範囲継続弱化解除自分 / 単0秒対象に発生している弱化効果を打ち消す知力変化自分 / 単10秒部隊の知力が上昇する 明鏡止水 兵科効果系統攻撃属性なしなしなし…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "司馬徽の戦法 明鏡止水兵科効果系統攻撃属性なしなしなし効果自身1部隊の弱化効果を2つ打ち消すさらに知力を200%上昇発動間隔対象範囲発動率連鎖順25秒味方 / 単25%早い明鏡止水の追加効果追加効果対象範囲継続弱化解除自分 / 単0秒対象に発生している弱化効果を打ち消す知力変化自分 / 単10秒部隊の知力が上昇する 明鏡止水 兵科効果系統攻撃属性なしなしなし…"
         }
       ],
       "statusEffectRefCount": 5,
-      "typeFeatureCount": 3
+      "typeFeatureCount": 4
     },
     {
       "category": "generals",
@@ -46665,10 +47997,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR甘寧の戦法 百羽直貫兵科効果系統攻撃属性弓兵物理なし効果自身を含む味方3部隊の会心発生を50%上昇対象を含む敵3部隊に300%の攻撃さらに防御と命中を25%低下発動間隔対象範囲発動率連鎖順25秒敵 / 中25%普通百羽直貫の追加効果追加効果対象範囲継続会心発生変化味方 / 中15秒会心の発生率が上昇する防御変化敵 / 中10秒部隊の防御が低下する命中変化…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR甘寧の戦法 百羽直貫兵科効果系統攻撃属性弓兵物理なし効果自身を含む味方3部隊の会心発生を50%上昇対象を含む敵3部隊に300%の攻撃さらに防御と命中を25%低下発動間隔対象範囲発動率連鎖順25秒敵 / 中25%普通百羽直貫の追加効果追加効果対象範囲継続会心発生変化味方 / 中15秒会心の発生率が上昇する防御変化敵 / 中10秒部隊の防御が低下する命中変化…"
         }
       ],
       "statusEffectRefCount": 5,
-      "typeFeatureCount": 9
+      "typeFeatureCount": 10
     },
     {
       "category": "generals",
@@ -47026,10 +48366,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "朱儁の戦法 看破虚実兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を2つ打ち消しさらに攻撃と知力を50%上昇歩兵の場合、上昇の効果が2倍となる発動間隔対象範囲発動率連鎖順30秒味方 / 中25%早い看破虚実の追加効果追加効果対象範囲継続弱化解除味方 / 中0秒対象に発生している弱化効果を打ち消す攻撃変化味方 / 中10秒部隊の攻撃が上昇す…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "朱儁の戦法 看破虚実兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を2つ打ち消しさらに攻撃と知力を50%上昇歩兵の場合、上昇の効果が2倍となる発動間隔対象範囲発動率連鎖順30秒味方 / 中25%早い看破虚実の追加効果追加効果対象範囲継続弱化解除味方 / 中0秒対象に発生している弱化効果を打ち消す攻撃変化味方 / 中10秒部隊の攻撃が上昇す…"
         }
       ],
       "statusEffectRefCount": 2,
-      "typeFeatureCount": 7
+      "typeFeatureCount": 8
     },
     {
       "category": "generals",
@@ -47458,10 +48806,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "UR郭嘉の戦法 奇策妙計兵科効果系統攻撃属性なし知力なし効果自身の弱化効果を全て打ち消す対象を含む敵3部隊の強化効果を3つ打ち消して、1回の強化無効を付与して400%の攻撃さらに命中を20％低下発動間隔対象範囲発動率連鎖順20秒敵 / 中25%早い奇策妙計の追加効果追加効果対象範囲継続弱化解除自分 / 単-対象に発生している弱化効果を打ち消す強化解除敵 / …"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "UR郭嘉の戦法 奇策妙計兵科効果系統攻撃属性なし知力なし効果自身の弱化効果を全て打ち消す対象を含む敵3部隊の強化効果を3つ打ち消して、1回の強化無効を付与して400%の攻撃さらに命中を20％低下発動間隔対象範囲発動率連鎖順20秒敵 / 中25%早い奇策妙計の追加効果追加効果対象範囲継続弱化解除自分 / 単-対象に発生している弱化効果を打ち消す強化解除敵 / …"
         }
       ],
       "statusEffectRefCount": 6,
-      "typeFeatureCount": 4
+      "typeFeatureCount": 5
     },
     {
       "category": "generals",
@@ -47763,10 +49119,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "馬騰の戦法 西涼鉄騎兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃、防御を50%上昇騎兵の場合、効果が2倍になる発動間隔対象範囲発動率連鎖順25秒- / -25%早い西涼鉄騎の追加効果追加効果対象範囲継続攻撃変化味方 / 中15秒部隊の攻撃が上昇する防御変化味方 / 中15秒部隊の防御が上昇する 西涼鉄騎 兵科効果系統攻撃属性なしなしなし効果…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "馬騰の戦法 西涼鉄騎兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃、防御を50%上昇騎兵の場合、効果が2倍になる発動間隔対象範囲発動率連鎖順25秒- / -25%早い西涼鉄騎の追加効果追加効果対象範囲継続攻撃変化味方 / 中15秒部隊の攻撃が上昇する防御変化味方 / 中15秒部隊の防御が上昇する 西涼鉄騎 兵科効果系統攻撃属性なしなしなし効果…"
         }
       ],
       "statusEffectRefCount": 3,
-      "typeFeatureCount": 3
+      "typeFeatureCount": 4
     },
     {
       "category": "generals",
@@ -47850,10 +49214,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "于禁の戦法 軍律峻厳兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の防御を100%上昇さらに弱化効果を全て打ち消す発動間隔対象範囲発動率連鎖順20秒- / -25%早い軍律峻厳の追加効果追加効果対象範囲継続防御変化味方 / 中15秒部隊の防御が上昇する弱化解除味方 / 中-対象に発生している弱化効果を打ち消す 軍律峻厳 兵科効果系統攻撃属性なしなし…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "于禁の戦法 軍律峻厳兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の防御を100%上昇さらに弱化効果を全て打ち消す発動間隔対象範囲発動率連鎖順20秒- / -25%早い軍律峻厳の追加効果追加効果対象範囲継続防御変化味方 / 中15秒部隊の防御が上昇する弱化解除味方 / 中-対象に発生している弱化効果を打ち消す 軍律峻厳 兵科効果系統攻撃属性なしなし…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "于禁の戦法 軍律峻厳兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の防御を100%上昇さらに弱化効果を全て打ち消す発動間隔対象範囲発動率連鎖順20秒- / -25%早い軍律峻厳の追加効果追加効果対象範囲継続防御変化味方 / 中15秒部隊の防御が上昇する弱化解除味方 / 中-対象に発生している弱化効果を打ち消す 軍律峻厳 兵科効果系統攻撃属性なしなし…"
         }
       ],
       "statusEffectRefCount": 3,
-      "typeFeatureCount": 5
+      "typeFeatureCount": 7
     },
     {
       "category": "generals",
@@ -48355,10 +49735,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身1部隊にかかる能力弱化効果と恐怖、畏怖、戦法遅延を避ける"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（攻撃/防御/機動）を避ける猛者2"
         }
       ],
       "statusEffectRefCount": 18,
-      "typeFeatureCount": 6
+      "typeFeatureCount": 7
     },
     {
       "category": "generals",
@@ -49009,10 +50397,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "袁紹の戦法 大命轟然兵科効果系統攻撃属性なしなしなし効果自身を含む味方4部隊の攻撃、防御、対物、攻撃速度を25%上昇この武将が主将の場合は効果が2倍発動間隔対象範囲発動率連鎖順30秒- / -25%早い大命轟然の追加効果追加効果対象範囲継続対物特効変化味方 / 広15秒物体に対して有利になる攻撃速度変化味方 / 広15秒攻撃の速度が上昇する攻撃変化味方 / …"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "袁紹の戦法 大命轟然兵科効果系統攻撃属性なしなしなし効果自身を含む味方4部隊の攻撃、防御、対物、攻撃速度を25%上昇この武将が主将の場合は効果が2倍発動間隔対象範囲発動率連鎖順30秒- / -25%早い大命轟然の追加効果追加効果対象範囲継続対物特効変化味方 / 広15秒物体に対して有利になる攻撃速度変化味方 / 広15秒攻撃の速度が上昇する攻撃変化味方 / …"
         }
       ],
       "statusEffectRefCount": 4,
-      "typeFeatureCount": 4
+      "typeFeatureCount": 5
     },
     {
       "category": "generals",
@@ -49879,10 +51275,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "負傷兵回復と戦法速度向上が優秀 馬良は味方3部隊の負傷兵回復と戦法速度向上の戦法を持つ武将"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "負傷兵回復と戦法速度向上が優秀 馬良は味方3部隊の負傷兵回復と戦法速度向上の戦法を持つ武将"
         }
       ],
       "statusEffectRefCount": 3,
-      "typeFeatureCount": 6
+      "typeFeatureCount": 7
     },
     {
       "category": "generals",
@@ -49905,10 +51309,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "戦法発動間隔が20秒と短いので副将時の連鎖率を高く取りやすく、技能「軽減」でデバフの効果時間を減らせるので安定した部隊の火力発揮に貢献しやすい"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "盧植の戦法 克己復礼兵科効果系統攻撃属性なしなしなし効果自身1部隊の弱化効果を全て打ち消す発動間隔対象範囲発動率連鎖順20秒- / -25%遅い克己復礼の追加効果追加効果対象範囲継続弱化解除自分 / 単0秒対象に発生している弱化効果を打ち消す 克己復礼 兵科効果系統攻撃属性なしなしなし効果自身1部隊の弱化効果を全て打ち消す発動間隔対象範囲発動率連鎖順20秒-…"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 2
+      "typeFeatureCount": 3
     },
     {
       "category": "generals",
@@ -50222,10 +51634,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "負傷兵を全回復させる武将 華佗は味方2部隊の負傷兵を全て回復し、弱化効果を2つ打ち消せる武将"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "華佗の戦法 神医の治療兵科効果系統攻撃属性なし回復なし効果自身を含む味方2部隊の弱化効果を2つ打ち消すさらに全ての負傷兵を回復発動間隔対象範囲発動率連鎖順35秒味方 / 狭25%普通神医の治療の追加効果追加効果対象範囲継続弱化解除味方 / 中0秒対象に発生している弱化効果を打ち消す 華佗の技能 堅実1"
         }
       ],
       "statusEffectRefCount": 2,
-      "typeFeatureCount": 6
+      "typeFeatureCount": 7
     },
     {
       "category": "generals",
@@ -50337,10 +51757,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "魯粛の戦法 大同団結兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の防御を50％上昇さらに10％の結束を付与発動間隔対象範囲発動率連鎖順25秒- / -25%早い大同団結の追加効果追加効果対象範囲継続防御変化味方 / 中10秒部隊の防御が上昇する結束味方 / 中15秒連鎖が起きやすくなる 大同団結 兵科効果系統攻撃属性なしなしなし効果自身を含む味方…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "魯粛の戦法 大同団結兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の防御を50％上昇さらに10％の結束を付与発動間隔対象範囲発動率連鎖順25秒- / -25%早い大同団結の追加効果追加効果対象範囲継続防御変化味方 / 中10秒部隊の防御が上昇する結束味方 / 中15秒連鎖が起きやすくなる 大同団結 兵科効果系統攻撃属性なしなしなし効果自身を含む味方…"
         }
       ],
       "statusEffectRefCount": 6,
-      "typeFeatureCount": 4
+      "typeFeatureCount": 5
     },
     {
       "category": "generals",
@@ -50396,10 +51824,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "防御と知力を強化できる武将 韓遂は味方2部隊の防御と知力を強化する戦法を持つ武将"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "防御と知力を強化できる武将 韓遂は味方2部隊の防御と知力を強化する戦法を持つ武将"
         }
       ],
       "statusEffectRefCount": 2,
-      "typeFeatureCount": 3
+      "typeFeatureCount": 4
     },
     {
       "category": "generals",
@@ -51522,10 +52958,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "劉禅の戦法 強運の庇護兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を2つ打ち消す自身1部隊の攻撃、防御を100％上昇発動間隔対象範囲発動率連鎖順20秒- / -25%早い強運の庇護の追加効果追加効果対象範囲継続弱化解除味方 / 中0秒対象に発生している弱化効果を打ち消す攻撃変化自分 / 単10秒部隊の攻撃が上昇する防御変化自分 / 単1…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "劉禅の戦法 強運の庇護兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を2つ打ち消す自身1部隊の攻撃、防御を100％上昇発動間隔対象範囲発動率連鎖順20秒- / -25%早い強運の庇護の追加効果追加効果対象範囲継続弱化解除味方 / 中0秒対象に発生している弱化効果を打ち消す攻撃変化自分 / 単10秒部隊の攻撃が上昇する防御変化自分 / 単1…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "劉禅の戦法 強運の庇護兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の弱化効果を2つ打ち消す自身1部隊の攻撃、防御を100％上昇発動間隔対象範囲発動率連鎖順20秒- / -25%早い強運の庇護の追加効果追加効果対象範囲継続弱化解除味方 / 中0秒対象に発生している弱化効果を打ち消す攻撃変化自分 / 単10秒部隊の攻撃が上昇する防御変化自分 / 単1…"
         }
       ],
       "statusEffectRefCount": 4,
-      "typeFeatureCount": 6
+      "typeFeatureCount": 8
     },
     {
       "category": "generals",
@@ -51617,10 +53069,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "王元姫の戦法 才媛の庇護兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の防御、知力を50％上昇発動間隔対象範囲発動率連鎖順25秒- / -25%早い才媛の庇護の追加効果追加効果対象範囲継続防御変化味方 / 中15秒部隊の防御が上昇する知力変化味方 / 中15秒部隊の知力が上昇する 王元姫の技能 献身1"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "王元姫の戦法 才媛の庇護兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の防御、知力を50％上昇発動間隔対象範囲発動率連鎖順25秒- / -25%早い才媛の庇護の追加効果追加効果対象範囲継続防御変化味方 / 中15秒部隊の防御が上昇する知力変化味方 / 中15秒部隊の知力が上昇する 王元姫の技能 献身1"
         }
       ],
       "statusEffectRefCount": 5,
-      "typeFeatureCount": 3
+      "typeFeatureCount": 4
     },
     {
       "category": "generals",
@@ -51896,10 +53356,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "凌操の戦法 防御采配兵科効果系統攻撃属性なしなしなし効果自身を除く周囲にいる味方2部隊の防御を50％上昇発動間隔対象範囲発動率連鎖順25秒- / -20%遅い防御采配の追加効果追加効果対象範囲継続防御変化味方 / 中10秒部隊の防御が上昇する 防御采配 兵科効果系統攻撃属性なしなしなし効果自身を除く周囲にいる味方2部隊の防御を50％上昇発動間隔対象範囲発動率…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "凌操の戦法 防御采配兵科効果系統攻撃属性なしなしなし効果自身を除く周囲にいる味方2部隊の防御を50％上昇発動間隔対象範囲発動率連鎖順25秒- / -20%遅い防御采配の追加効果追加効果対象範囲継続防御変化味方 / 中10秒部隊の防御が上昇する 防御采配 兵科効果系統攻撃属性なしなしなし効果自身を除く周囲にいる味方2部隊の防御を50％上昇発動間隔対象範囲発動率…"
         }
       ],
       "statusEffectRefCount": 1,
-      "typeFeatureCount": 3
+      "typeFeatureCount": 4
     },
     {
       "category": "generals",
@@ -52511,10 +53979,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "王平の戦法 防御采配兵科効果系統攻撃属性なしなしなし効果自身を除く周囲にいる味方2部隊の防御を50％上昇発動間隔対象範囲発動率連鎖順25秒- / -20%遅い防御采配の追加効果追加効果対象範囲継続防御変化味方 / 中10秒部隊の防御が上昇する 防御采配 兵科効果系統攻撃属性なしなしなし効果自身を除く周囲にいる味方2部隊の防御を50％上昇発動間隔対象範囲発動率…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "王平の戦法 防御采配兵科効果系統攻撃属性なしなしなし効果自身を除く周囲にいる味方2部隊の防御を50％上昇発動間隔対象範囲発動率連鎖順25秒- / -20%遅い防御采配の追加効果追加効果対象範囲継続防御変化味方 / 中10秒部隊の防御が上昇する 防御采配 兵科効果系統攻撃属性なしなしなし効果自身を除く周囲にいる味方2部隊の防御を50％上昇発動間隔対象範囲発動率…"
         }
       ],
       "statusEffectRefCount": 1,
-      "typeFeatureCount": 3
+      "typeFeatureCount": 4
     },
     {
       "category": "generals",
@@ -53170,10 +54646,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "防御に優れた戦法と技能をもつ武将 曹仁は味方3部隊の防御を高める戦法をもつ武将"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "防御に優れた戦法と技能をもつ武将 曹仁は味方3部隊の防御を高める戦法をもつ武将"
         }
       ],
       "statusEffectRefCount": 1,
-      "typeFeatureCount": 3
+      "typeFeatureCount": 4
     },
     {
       "category": "generals",
@@ -53237,10 +54721,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "攻撃と防御を高める戦法をもつ武将 曹真は味方2部隊の攻撃と防御を高める戦法をもつ武将"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "攻撃と防御を高める戦法をもつ武将 曹真は味方2部隊の攻撃と防御を高める戦法をもつ武将"
         }
       ],
       "statusEffectRefCount": 2,
-      "typeFeatureCount": 4
+      "typeFeatureCount": 5
     },
     {
       "category": "generals",
@@ -53418,10 +54910,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "防御バフをもつ武将 諸葛瑾は味方2部隊の防御を上昇させる戦法をもつ武将"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "防御バフをもつ武将 諸葛瑾は味方2部隊の防御を上昇させる戦法をもつ武将"
         }
       ],
       "statusEffectRefCount": 2,
-      "typeFeatureCount": 5
+      "typeFeatureCount": 6
     },
     {
       "category": "generals",
@@ -54242,10 +55742,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "郭淮の戦法 堅忍持久兵科効果系統攻撃属性なし回復なし効果自身を含む味方2部隊の防御を50％上昇さらに最大兵力の10％の負傷兵を回復発動間隔対象範囲発動率連鎖順30秒味方 / 狭25%普通堅忍持久の追加効果追加効果対象範囲継続防御変化味方 / 狭10秒部隊の防御が上昇する 堅忍持久 兵科効果系統攻撃属性なし回復なし効果自身を含む味方2部隊の防御を50％上昇さら…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "郭淮の戦法 堅忍持久兵科効果系統攻撃属性なし回復なし効果自身を含む味方2部隊の防御を50％上昇さらに最大兵力の10％の負傷兵を回復発動間隔対象範囲発動率連鎖順30秒味方 / 狭25%普通堅忍持久の追加効果追加効果対象範囲継続防御変化味方 / 狭10秒部隊の防御が上昇する 堅忍持久 兵科効果系統攻撃属性なし回復なし効果自身を含む味方2部隊の防御を50％上昇さら…"
         }
       ],
       "statusEffectRefCount": 1,
-      "typeFeatureCount": 6
+      "typeFeatureCount": 7
     },
     {
       "category": "generals",
@@ -54805,10 +56313,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "田豊の戦法 剛毅果断兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃/防御/知力/攻撃速度/機動のうち3つを50％上昇発動間隔対象範囲発動率連鎖順25秒- / -25%早い剛毅果断の追加効果追加効果対象範囲継続攻撃変化味方 / 中10秒部隊の攻撃が上昇する防御変化味方 / 中10秒部隊の防御が上昇する知力変化味方 / 中10秒部隊の知力が上昇す…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "田豊の戦法 剛毅果断兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃/防御/知力/攻撃速度/機動のうち3つを50％上昇発動間隔対象範囲発動率連鎖順25秒- / -25%早い剛毅果断の追加効果追加効果対象範囲継続攻撃変化味方 / 中10秒部隊の攻撃が上昇する防御変化味方 / 中10秒部隊の防御が上昇する知力変化味方 / 中10秒部隊の知力が上昇す…"
         }
       ],
       "statusEffectRefCount": 5,
-      "typeFeatureCount": 5
+      "typeFeatureCount": 6
     },
     {
       "category": "generals",
@@ -54868,10 +56384,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "陳羣の戦法 清廉潔白兵科効果系統攻撃属性なしなしなし効果自身を含む味方2部隊の弱化効果を4つ打ち消す発動間隔対象範囲発動率連鎖順15秒- / -25%早い清廉潔白の追加効果追加効果対象範囲継続弱化解除味方 / 狭0秒対象に発生している弱化効果を打ち消す 清廉潔白 兵科効果系統攻撃属性なしなしなし効果自身を含む味方2部隊の弱化効果を4つ打ち消す発動間隔対象範囲…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "陳羣の戦法 清廉潔白兵科効果系統攻撃属性なしなしなし効果自身を含む味方2部隊の弱化効果を4つ打ち消す発動間隔対象範囲発動率連鎖順15秒- / -25%早い清廉潔白の追加効果追加効果対象範囲継続弱化解除味方 / 狭0秒対象に発生している弱化効果を打ち消す 清廉潔白 兵科効果系統攻撃属性なしなしなし効果自身を含む味方2部隊の弱化効果を4つ打ち消す発動間隔対象範囲…"
         }
       ],
       "statusEffectRefCount": 3,
-      "typeFeatureCount": 2
+      "typeFeatureCount": 3
     },
     {
       "category": "generals",
@@ -54991,10 +56515,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "張昭の戦法 直言極諫兵科効果系統攻撃属性なしなしなし効果自身を含む味方2部隊の弱化効果を2つ打ち消すさらに攻撃を50％上昇発動間隔対象範囲発動率連鎖順20秒- / -25%早い直言極諫の追加効果追加効果対象範囲継続弱化解除味方 / 狭0秒対象に発生している弱化効果を打ち消す攻撃変化味方 / 狭15秒部隊の攻撃が上昇する 直言極諫 兵科効果系統攻撃属性なしなし…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "張昭の戦法 直言極諫兵科効果系統攻撃属性なしなしなし効果自身を含む味方2部隊の弱化効果を2つ打ち消すさらに攻撃を50％上昇発動間隔対象範囲発動率連鎖順20秒- / -25%早い直言極諫の追加効果追加効果対象範囲継続弱化解除味方 / 狭0秒対象に発生している弱化効果を打ち消す攻撃変化味方 / 狭15秒部隊の攻撃が上昇する 直言極諫 兵科効果系統攻撃属性なしなし…"
         }
       ],
       "statusEffectRefCount": 6,
-      "typeFeatureCount": 5
+      "typeFeatureCount": 6
     },
     {
       "category": "generals",
@@ -55838,10 +57370,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "周泰の戦法 挺身敢闘兵科効果系統攻撃属性歩兵物理なし効果対象を含む敵3部隊に150％の攻撃（兵力が少ないほど威力上昇）自身を含む味方3部隊の防御を50％上昇発動間隔対象範囲発動率連鎖順30秒敵 / 中25%遅い挺身敢闘の追加効果追加効果対象範囲継続防御変化味方 / 中10秒部隊の防御が上昇する 挺身敢闘 兵科効果系統攻撃属性歩兵物理なし効果対象を含む敵3部隊…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "周泰の戦法 挺身敢闘兵科効果系統攻撃属性歩兵物理なし効果対象を含む敵3部隊に150％の攻撃（兵力が少ないほど威力上昇）自身を含む味方3部隊の防御を50％上昇発動間隔対象範囲発動率連鎖順30秒敵 / 中25%遅い挺身敢闘の追加効果追加効果対象範囲継続防御変化味方 / 中10秒部隊の防御が上昇する 挺身敢闘 兵科効果系統攻撃属性歩兵物理なし効果対象を含む敵3部隊…"
         }
       ],
       "statusEffectRefCount": 1,
-      "typeFeatureCount": 4
+      "typeFeatureCount": 5
     },
     {
       "category": "generals",
@@ -56545,10 +58085,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "王異の戦法 九計献策兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の防御、攻撃を50％上昇対象の戦法速度を10％低下（対象が騎兵なら20％）発動間隔対象範囲発動率連鎖順30秒- / -25%早い九計献策の追加効果追加効果対象範囲継続防御変化味方 / 中15秒部隊の防御が上昇する攻撃変化味方 / 中15秒部隊の攻撃が上昇する戦法速度変化敵 / 単15…"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "王異の戦法 九計献策兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の防御、攻撃を50％上昇対象の戦法速度を10％低下（対象が騎兵なら20％）発動間隔対象範囲発動率連鎖順30秒- / -25%早い九計献策の追加効果追加効果対象範囲継続防御変化味方 / 中15秒部隊の防御が上昇する攻撃変化味方 / 中15秒部隊の攻撃が上昇する戦法速度変化敵 / 単15…"
         }
       ],
       "statusEffectRefCount": 6,
-      "typeFeatureCount": 5
+      "typeFeatureCount": 6
     },
     {
       "category": "generals",
@@ -57107,10 +58655,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "趙雲の戦法 義気凛然兵科効果系統攻撃属性なしなしなし効果自身1部隊の攻撃速度を100％、会心発生を50％上昇さらに弱化効果を全て打ち消す発動間隔対象範囲発動率連鎖順25秒- / -25%早い義気凛然の追加効果追加効果対象範囲継続攻撃速度変化自分 / 単15秒攻撃の速度が上昇する会心発生変化自分 / 単15秒会心の発生率が上昇する弱化解除自分 / 単0秒対象に…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "趙雲の戦法 義気凛然兵科効果系統攻撃属性なしなしなし効果自身1部隊の攻撃速度を100％、会心発生を50％上昇さらに弱化効果を全て打ち消す発動間隔対象範囲発動率連鎖順25秒- / -25%早い義気凛然の追加効果追加効果対象範囲継続攻撃速度変化自分 / 単15秒攻撃の速度が上昇する会心発生変化自分 / 単15秒会心の発生率が上昇する弱化解除自分 / 単0秒対象に…"
         }
       ],
       "statusEffectRefCount": 5,
-      "typeFeatureCount": 3
+      "typeFeatureCount": 4
     },
     {
       "category": "generals",
@@ -57182,10 +58738,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "孫権の戦法 大計雄略兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃、知力を50％上昇弓兵の場合、効果が2倍になる発動間隔対象範囲発動率連鎖順30秒- / -25%早い大計雄略の追加効果追加効果対象範囲継続攻撃変化味方 / 中15秒部隊の攻撃が上昇する知力変化味方 / 中15秒部隊の知力が上昇する 大計雄略 兵科効果系統攻撃属性なしなしなし効果…"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自部隊に配置されている参軍の人数×2%の確率で能力弱化効果を避ける（他技能と合算）督戦1"
         }
       ],
       "statusEffectRefCount": 4,
-      "typeFeatureCount": 2
+      "typeFeatureCount": 3
     },
     {
       "category": "generals",
@@ -57253,10 +58817,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "甘寧の戦法 奮闘励起兵科効果系統攻撃属性歩兵物理なし効果自身を除く味方2部隊の戦法待ち時間を少し短縮対象の防御を20％低下"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "甘寧の戦法 奮闘励起兵科効果系統攻撃属性歩兵物理なし効果自身を除く味方2部隊の戦法待ち時間を少し短縮対象の防御を20％低下"
         }
       ],
       "statusEffectRefCount": 3,
-      "typeFeatureCount": 3
+      "typeFeatureCount": 4
     },
     {
       "category": "generals",
@@ -58262,10 +59834,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "サポート性能に特化した歩兵武将 姜維は戦法で味方3部隊の弱化効果を全て解除できる"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "姜維の戦法 麒麟児の志兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の攻撃、攻撃速度、知力を50％上昇さらに弱化効果を全て打ち消す発動間隔対象範囲発動率連鎖順30秒- / -25%早い麒麟児の志の追加効果追加効果対象範囲継続攻撃変化味方 / 中15秒部隊の攻撃が上昇する知力変化味方 / 中15秒部隊の知力が上昇する攻撃速度変化味方 / 中15秒攻撃…"
         }
       ],
       "statusEffectRefCount": 4,
-      "typeFeatureCount": 4
+      "typeFeatureCount": 5
     },
     {
       "category": "generals",
@@ -58351,10 +59931,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊の弱化効果を2つ打ち消す"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の弱化効果を2つ打ち消す"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 3
+      "typeFeatureCount": 4
     },
     {
       "category": "equipments",
@@ -58851,10 +60439,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊を全ての兵科と物体に対して有利にする（15秒）"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の火属性耐性+30%（15秒）南神盤石"
         }
       ],
       "statusEffectRefCount": 2,
-      "typeFeatureCount": 4
+      "typeFeatureCount": 5
     },
     {
       "category": "equipments",
@@ -59004,10 +60600,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊に15％の有利巧守を付与（15秒）帥号耐撃"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊に15％の会心耐性を付与（15秒）SSR時の最大技能背栄堅守"
         }
       ],
       "statusEffectRefCount": 4,
-      "typeFeatureCount": 3
+      "typeFeatureCount": 4
     },
     {
       "category": "equipments",
@@ -59451,10 +61055,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方4部隊の攻撃+40%（40秒）"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方4部隊の防御+40%（40秒）"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 1
+      "typeFeatureCount": 2
     },
     {
       "category": "equipments",
@@ -60229,10 +61841,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身1部隊の弱化効果を1つ打ち消す"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊の弱化効果を1つ打ち消す"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 2
+      "typeFeatureCount": 3
     },
     {
       "category": "equipments",
@@ -60698,10 +62318,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊の攻撃+15%（10秒）"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の防御+15%（10秒）"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 1
+      "typeFeatureCount": 2
     },
     {
       "category": "equipments",
@@ -61112,10 +62740,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊の弱化効果を1つ打ち消すSSR時の最大技能免冑示面"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の弱化効果を1つ打ち消すSSR時の最大技能免冑示面"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 5
+      "typeFeatureCount": 6
     },
     {
       "category": "equipments",
@@ -61257,10 +62893,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊の弱化効果を2つ打ち消す破軍連繋"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の弱化効果を2つ打ち消す破軍連繋"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 4
+      "typeFeatureCount": 5
     },
     {
       "category": "equipments",
@@ -61362,10 +63006,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊にすでに発生している強化効果のうちランダムに3つの効果時間を4秒延長堅守連繋"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊にすでに発生している強化効果のうちランダムに3つの効果時間を4秒延長堅守連繋"
         }
       ],
       "statusEffectRefCount": 1,
-      "typeFeatureCount": 5
+      "typeFeatureCount": 6
     },
     {
       "category": "equipments",
@@ -61540,10 +63192,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊の攻撃+20%（10秒） →対象が弓兵の場合、効果が3倍（+60%）"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の弱化効果を1つ打ち消す →対象が弓兵の場合、効果が2倍（2つ）SSR時の最大技能箭撃仁心"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の防御+20%（10秒） →対象が弓兵の場合、効果が3倍（+60%）回生弓術"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 3
+      "typeFeatureCount": 5
     },
     {
       "category": "equipments",
@@ -61641,10 +63309,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊の弱化効果を3つ打ち消す"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の弱化効果を3つ打ち消す"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 2
+      "typeFeatureCount": 3
     },
     {
       "category": "equipments",
@@ -61667,10 +63343,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊の攻撃+25%（10秒）"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の防御+25%（10秒）"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 2
+      "typeFeatureCount": 3
     },
     {
       "category": "equipments",
@@ -61722,10 +63406,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊の知力+20%（10秒） →この技能を持つ武将が女性の場合、効果量が2倍（+40%）"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊に20%の会心耐性を付与（10秒） →この技能を持つ武将が女性の場合、効果量が2倍（40%）賢慧躍動"
         }
       ],
       "statusEffectRefCount": 1,
-      "typeFeatureCount": 4
+      "typeFeatureCount": 5
     },
     {
       "category": "equipments",
@@ -62161,10 +63853,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊に既に発生している強化効果のうちランダムに2つの効果時間を4秒延長合心会覇"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊に既に発生している強化効果のうちランダムに2つの効果時間を4秒延長合心会覇"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 6
+      "typeFeatureCount": 7
     },
     {
       "category": "equipments",
@@ -62729,10 +64429,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊の攻撃+35%（10秒）"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の防御+35%（10秒）"
         }
       ],
       "statusEffectRefCount": 2,
-      "typeFeatureCount": 1
+      "typeFeatureCount": 2
     },
     {
       "category": "equipments",
@@ -62755,10 +64463,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊に25%の知力耐性を付与（10秒） →駐屯/防衛中は効果量が2倍（50%）"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊に25%の知力耐性を付与（10秒） →駐屯/防衛中は効果量が2倍（50%）"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 2
+      "typeFeatureCount": 3
     },
     {
       "category": "equipments",
@@ -62821,10 +64537,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "★1に強化することで対象が味方2部隊になるので、入手済みの場合は★1を目安に強化しよう"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "技能による弱化解除が優秀 技能「守護奮励」の効果で、戦法ダメージを受けた際に自部隊の弱化効果を1つ解除する"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の防御+40%（10秒）"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 7
+      "typeFeatureCount": 9
     },
     {
       "category": "equipments",
@@ -62995,10 +64727,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊の攻撃+20%（10秒）"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の防御+20%（10秒）"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 2
+      "typeFeatureCount": 3
     },
     {
       "category": "equipments",
@@ -63037,10 +64777,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方4部隊にすでに発生している強化効果のうち、ランダムに2つの効果時間を4秒延長"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方4部隊にすでに発生している強化効果のうち、ランダムに2つの効果時間を4秒延長"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 4
+      "typeFeatureCount": 5
     },
     {
       "category": "equipments",
@@ -63121,10 +64869,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊の弱化効果を1つ打ち消す →この技能を持つ武将が女性の場合、効果が3倍（3つ）"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の弱化効果を1つ打ち消す →この技能を持つ武将が女性の場合、効果が3倍（3つ）"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 5
+      "typeFeatureCount": 6
     },
     {
       "category": "equipments",
@@ -63570,10 +65326,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊の弱化効果を1つ打ち消す龍心完勢"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の弱化効果を1つ打ち消す龍心完勢"
         }
       ],
       "statusEffectRefCount": 12,
-      "typeFeatureCount": 3
+      "typeFeatureCount": 4
     },
     {
       "category": "equipments",
@@ -63638,10 +65402,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊の防御+25%（10秒）"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の防御+25%（10秒）"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 2
+      "typeFeatureCount": 3
     },
     {
       "category": "equipments",
@@ -63994,10 +65766,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方4部隊の弱化効果を2つ打ち消す"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方4部隊の弱化効果を2つ打ち消す"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 3
+      "typeFeatureCount": 4
     },
     {
       "category": "equipments",
@@ -64295,10 +66075,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊の攻撃+25%（10秒） →この部隊が騎兵の場合、騎兵部隊に対する効果量が2倍（+50%）"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の防御+25%（10秒） →この部隊が騎兵の場合、騎兵部隊に対する効果量が2倍（+50%）結騎撃砕"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 1
+      "typeFeatureCount": 2
     },
     {
       "category": "equipments",
@@ -64346,10 +66134,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自部隊に発生している強化効果の数×2%、通常攻撃・戦法による被ダメージを軽減（最大14%）SSR時の最大技能万徳興起"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊の弱化効果を2つ打ち消す戦策迅急"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 4
+      "typeFeatureCount": 5
     },
     {
       "category": "equipments",
@@ -64414,10 +66210,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身1部隊の弱化効果を2つ打ち消すハロウィン"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊の弱化効果を2つ打ち消すハロウィン"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 2
+      "typeFeatureCount": 3
     },
     {
       "category": "equipments",
@@ -64480,10 +66284,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊の弱化効果を3つ打ち消す"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の弱化効果を3つ打ち消す"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 7
+      "typeFeatureCount": 8
     },
     {
       "category": "equipments",
@@ -64506,10 +66318,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身1部隊の弱化効果を2つ打ち消すハロウィン"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊の弱化効果を2つ打ち消すハロウィン"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 2
+      "typeFeatureCount": 3
     },
     {
       "category": "equipments",
@@ -64599,10 +66419,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身に知力耐性が付与されていない場合、自身を含む味方3部隊に30%の知力耐性を35秒付与 →自部隊の知力が1600以上の際、効果時間が2倍（70秒）主助激成"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身に知力耐性が付与されていない場合、自身を含む味方3部隊に30%の知力耐性を35秒付与 →自部隊の知力が1600以上の際、効果時間が2倍（70秒）主助激成"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 3
+      "typeFeatureCount": 4
     },
     {
       "category": "equipments",
@@ -64919,10 +66747,26 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊の弱化効果を4つ打ち消す"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の弱化効果を4つ打ち消す"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の防御+75%（20秒）"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 3
+      "typeFeatureCount": 5
     },
     {
       "category": "equipments",
@@ -65432,10 +67276,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "対象を含む敵3部隊に50%の弱化残存を付与（10秒）万徳興起"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊の弱化効果を2つ打ち消す対衰追討"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 3
+      "typeFeatureCount": 4
     },
     {
       "category": "equipments",
@@ -65471,10 +67323,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊の知力+50%（10秒）"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の火属性耐性+50%（10秒）"
         }
       ],
       "statusEffectRefCount": 1,
-      "typeFeatureCount": 2
+      "typeFeatureCount": 3
     },
     {
       "category": "equipments",
@@ -65597,10 +67457,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊の攻撃+15%（15秒）"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の防御+15%（15秒）SSR時の最大技能傾国練達"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 2
+      "typeFeatureCount": 3
     },
     {
       "category": "equipments",
@@ -65639,10 +67507,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊に25%の物理耐性を付与（10秒） →駐屯/防衛中は効果量が2倍（50%）詭略妙衛"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊に25%の物理耐性を付与（10秒） →駐屯/防衛中は効果量が2倍（50%）詭略妙衛"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 4
+      "typeFeatureCount": 5
     },
     {
       "category": "equipments",
@@ -65739,9 +67615,18 @@
       "categoryLabel": "装備",
       "name": "羌毛領披風・黒革披風",
       "statusEffectRefs": [],
-      "typeFeatures": [],
+      "typeFeatures": [
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を対象としない範囲攻撃によるダメージ・状態変化を受けない回避兵術"
+        }
+      ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 0
+      "typeFeatureCount": 1
     },
     {
       "category": "equipments",
@@ -66212,10 +68097,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方2部隊の弱化効果を4つ打ち消す掎角深慮"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方2部隊の弱化効果を4つ打ち消す掎角深慮"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 4
+      "typeFeatureCount": 5
     },
     {
       "category": "equipments",
@@ -66333,10 +68226,18 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身1部隊の弱化効果を2つ打ち消す（1回の通常攻撃につき1回まで発動）SSR時の最大技能不乱躍動"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊の弱化効果を2つ打ち消す（1回の通常攻撃につき1回まで発動）SSR時の最大技能不乱躍動"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 3
+      "typeFeatureCount": 4
     },
     {
       "category": "equipments",
