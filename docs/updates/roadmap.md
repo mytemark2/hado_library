@@ -74,7 +74,7 @@
 - 実装は責務名ファイル `hado_candidate_tray.js` と `hado_candidate_tray_core.js` に統合し、Update番号付きJSファイルは残さない。
 
 ### Update07: 適合スコア表示と評価ロジック調整
-**状態:** 予定
+**状態:** 完了
 
 - 型ごとの採点項目は5項目、重みなしとする。
 - 技能Lvは採点しない。

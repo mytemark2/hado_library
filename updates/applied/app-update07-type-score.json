@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "1.0",
+  "updateId": "app-update07-type-score",
+  "repository": "mytemark2/hado_library",
+  "summary": "Update07: shared 10-step suitability score, score-inflation correction, reason display, and external JS split.",
+  "appliedAt": "2026-06-07T22:17:48.850383+00:00",
+  "operations": [
+    {
+      "op": "write",
+      "path": "hado_type_score.js",
+      "sha256After": "4d8db8bb4777e11356cd2023d3b1ef8acaf08092f51ddbe2cc9ac4aacbea561a"
+    },
+    {
+      "op": "write",
+      "path": "hado_type_candidates.js",
+      "sha256After": "caefc31df9493bfcee4d6731f8d428259b14317d4afc6f69b6f637710c78ce30"
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_entry.js",
+      "sha256After": "c29b31bc28e15784cceff4b99df9bc6855d0c871b1a14f5082dcdec6f26c9ee5",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_entry.js",
+      "sha256After": "e4a4627909aa72eed89f64d36563fd668b909d55fbaf5b8103146dc09d88f9b0",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_entry.js",
+      "sha256After": "befe0367a2eb6dc7946f5061381c32fd93b364ad18ac12875d183314b5947772",
+      "count": 2
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_entry.js",
+      "sha256After": "993b841bd06f26ec2bb5840f8221f615e83ff1183ed4df81c9ebd204be8c243c",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "index.html",
+      "sha256After": "c68210a16a56d6e184ac9802dad3b804c647bc3aff623a4db0192657df65fe57",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_library_3.0.0.0.html",
+      "sha256After": "c68210a16a56d6e184ac9802dad3b804c647bc3aff623a4db0192657df65fe57",
+      "count": 1
+    },
+    {
+      "op": "write",
+      "path": "HADO_DEV_INFO.json",
+      "sha256After": "d8507ce37e7d14840c0805c333759b58027799ac6d4fb95bf611dc4fa399275b"
+    },
+    {
+      "op": "replace",
+      "path": "docs/updates/roadmap.md",
+      "sha256After": "18f6693b165b6dbb98551591a60ffca85f516f4a57473e0fc2018d1111858352",
+      "count": 1
+    },
+    {
+      "op": "write",
+      "path": "docs/updates/update07/roadmap.md",
+      "sha256After": "1cc74b3ff76ef5ae50994c7e8ed7c054b906cb6680fc7e2b0aa99d4a3e447b2f"
+    },
+    {
+      "op": "write",
+      "path": "docs/updates/update07/implementation.md",
+      "sha256After": "6f23e514569e3336b9887ad8eeb176de74cd0d26d48f9b82cc88ee9c59d76441"
+    },
+    {
+      "op": "write",
+      "path": "docs/updates/update07/report.md",
+      "sha256After": "601e39ac7f5177d34e69d3037c2af3635715e0db2006a82cdc374dc2e8b390ea"
+    },
+    {
+      "op": "write",
+      "path": "report/HADO_APP_3.0.0.0_UPDATE07_REPORT.json",
+      "sha256After": "fef75e30113de7a89b963cedbf058b93f0d71c658e41eb8e1606ebbb4611ca3a"
+    }
+  ]
+}
