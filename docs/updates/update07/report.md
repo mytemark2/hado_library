@@ -6,6 +6,8 @@
 - 汎用語による過剰一致を抑制した。
 - 主軸理由と補助理由を区別した。
 - HTMLへの大規模なJavaScript追記は行っていない。
+- HTML増減は `index.html` が **+102 bytes**、`hado_library_3.0.0.0.html` が **+102 bytes** である。
+- 外部化判断: 採点ロジックはHTMLへ埋め込まず、責務名ファイル `hado_type_score.js` へ分離した。
 
 ## ローカル監査
 - `node --check hado_type_score.js`: 合格
@@ -15,6 +17,10 @@
 - 同一項目の技能Lv違いが重複加点されない: 合格
 - `味方部隊`、`敵部隊`、`弱化効果`、`秒間` などの汎用語だけでは加点されない: 合格
 - 兵力が採点対象として残る: 合格
+- 採点項目固有の `味方対象部隊数` は正常加点される: 合格
+- GitHub反映後の `hado_type_score.js` SHA-256 が受領ファイルと一致: 合格
+- GitHub反映後の `hado_type_candidates.js` SHA-256 が受領ファイルと一致: 合格
+- `index.html` と `hado_library_3.0.0.0.html` のSHA-256一致: 合格
 
 ## 未実装
 - 保存データ表示モードの所有情報フィルター

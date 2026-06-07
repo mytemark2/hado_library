@@ -30,6 +30,7 @@
 
 ### HTML肥大化対策
 - HTMLへの追加は `hado_type_score.js` の読込宣言1行相当のみとした。
+- HTML増減は `index.html` が **+102 bytes**、`hado_library_3.0.0.0.html` が **+102 bytes** である。
 - 採点処理は外部JSへ分離した。
 - 読込順は `hado_type_score.js` → `hado_type_entry.js` → `hado_type_candidates.js` とした。
 - 相対パス読込のため、`file://` ローカル版と `https://` プレビュー版の双方で利用できる。

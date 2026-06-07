@@ -23,6 +23,11 @@
   "htmlPolicy": {
     "largeInlineJsAdded": false,
     "externalJsAdded": "hado_type_score.js",
+    "htmlBytesAddedEach": 102,
+    "htmlFiles": [
+      "index.html",
+      "hado_library_3.0.0.0.html"
+    ],
     "loadOrder": [
       "hado_type_score.js",
       "hado_type_entry.js",
@@ -32,7 +37,10 @@
   "localChecks": [
     "node --check hado_type_score.js",
     "node --check hado_type_candidates.js",
-    "synthetic score regression: 6 cases passed"
+    "synthetic score regression: 6 assertions passed",
+    "post-apply SHA-256 match: hado_type_score.js",
+    "post-apply SHA-256 match: hado_type_candidates.js",
+    "HTML SHA-256 match: index.html == hado_library_3.0.0.0.html"
   ],
   "nextUpdate": "Update08: saved-data ownership filters, new formation creation, saved evaluation, history, and group management"
 }
