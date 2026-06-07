@@ -1,0 +1,158 @@
+{
+  "schemaVersion": "1.0",
+  "updateId": "app-update07-type-score",
+  "repository": "mytemark2/hado_library",
+  "branch": "feature/app-3.0.0.0",
+  "summary": "Update07: shared 10-step suitability score, score-inflation correction, reason display, and external JS split.",
+  "operations": [
+    {
+      "op": "write",
+      "path": "hado_type_score.js",
+      "mustNotExist": true,
+      "content": "/* HADO app 3.0.0.0 Update07: shared 10-step type suitability scoring */\n(()=>{'use strict';\nconst METRIC_ALIASES={\n  troops:['兵力'],tactic_power:['戦法威力'],critical_tactic_power:['撃心威力'],critical_power:['会心威力'],attack_speed:['攻撃速度'],critical_rate:['会心発生','会心発生率'],critical_tactic_rate:['撃心発生','撃心発生率'],normal_attack_power:['通常攻撃威力'],normal_attack_target_count:['通常攻撃対象数','通常攻撃対象部隊数'],range:['射程'],anti_object:['対物特効'],tactic_speed:['戦法速度'],weakening_nullify:['弱化無効','弱化効果無効'],weakening_remove:['弱化解除','弱化効果解除'],strengthening_remove_avoid:['強化解除回避'],strengthening_seize_avoid:['強化奪取回避'],annihilation_avoidance:['壊滅回避'],remaining_troops:['残存兵力'],wounded_recovery:['負傷兵回復','兵力回復'],damage_reduction:['被ダメージ軽減'],tactic_reduction:['戦法短縮'],initial_tactic_gauge:['出陣時戦法ゲージ'],chain_rate:['連鎖率','連鎖確率'],status_effect_rate:['状態変化発生率'],tactic_delay:['戦法遅延'],chain_nullify:['連鎖無効'],enemy_attack_debuff:['敵部隊攻撃低下'],enemy_defense_debuff:['敵部隊防御低下'],ally_buff_multi:['味方バフ配布'],ally_target_count:['味方対象部隊数'],effect_duration:['効果時間'],enemy_debuff_multi:['敵デバフ配布'],enemy_target_count:['敵対象部隊数'],enemy_anti_object_debuff:['敵部隊対物特効低下','対物特効低下'],ally_wounded_recovery:['味方負傷兵回復'],ally_defense_buff:['味方防御上昇'],combat_start_tactic_gauge:['交戦開始時戦法ゲージ'],self_disadvantage_countermeasure:['自部隊不利対策','skill_effect:self_disadvantage_countermeasure'],ally_non_damage_effect:['味方非ダメージ効果','skill_effect:ally_non_damage_effect']\n};\nconst norm=s=>String(s??'').normalize('NFKC').replace(/\\s+/g,'').toLowerCase();\nconst flat=v=>Array.isArray(v)?v.map(flat).join(' '):(v&&typeof v==='object'?Object.values(v).map(flat).join(' '):String(v??''));\nconst uniq=a=>[...new Set(a.filter(Boolean))];\nfunction aliases(metric){return uniq([metric?.label,...(METRIC_ALIASES[metric?.metricKey]||[])]).map(norm).filter(Boolean)}\nfunction segments(entity){return uniq([...(entity?.typeFeatures||[]),...(entity?.statusEffectRefs||[])].map(v=>norm(flat(v))).filter(Boolean))}\nfunction metricMatched(entity,metric){const as=aliases(metric),ss=segments(entity);return Boolean(as.length&&ss.some(s=>as.some(a=>s.includes(a))))}\nfunction score(entity,rule){const metrics=Array.isArray(rule?.metrics)?rule.metrics.slice(0,5):[];const matched=metrics.filter(m=>metricMatched(entity,m));const total=5;return{score:Math.min(10,matched.length*2),matched,total,matchedCount:matched.length};}\nfunction label(result){return `${Number(result?.score||0)}/10`;}\nwindow.HadoTypeScore={METRIC_ALIASES,metricMatched,score,label};\n})();\n"
+    },
+    {
+      "op": "write",
+      "path": "hado_type_candidates.js",
+      "content": "/* HADO app 3.0.0.0 Update07: candidate list with shared 10-step suitability score */\n(()=>{'use strict';\nconst KEY='hado.typeEntry.selection.v1',EV='hado:type-search-entry-selected',FILES=['hadou_type_search_role_index.json','hadou_type_score_rules.json','hadou_type_purpose_rules.json'];\nconst ROLES=[['main_general','主将'],['vice_general','副将'],['support_general','補佐'],['attendant','侍従'],['equipment','装備'],['formation','陣形'],['siege_weapon','兵器'],['warhorse','名馬'],['warhorse_skill','軍馬技能']];\nconst st={data:null,role:'main_general',q:'',sel:null};\nconst esc=s=>String(s??'').replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',\"'\":'&#39;'}[c])), norm=s=>String(s??'').normalize('NFKC').replace(/\\s+/g,'').toLowerCase(), flat=v=>Array.isArray(v)?v.map(flat).join(' '):(v&&typeof v==='object'?Object.values(v).map(flat).join(' '):String(v??'')), items=(v,ks)=>{if(Array.isArray(v))return v;for(const k of ks)if(Array.isArray(v?.[k]))return v[k];return[]};\nconst loadSel=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'null')}catch{return null}}, fetchJson=async f=>{const r=await fetch(f,{cache:'no-store'});if(!r.ok)throw Error(`${f}: HTTP ${r.status}`);return r.json()};\nconst type=()=>st.data?.types.find(v=>v.typeId===st.sel?.typeId), purpose=()=>st.data?.purposes.find(v=>v.purposeId===st.sel?.purposeId);\nfunction score(x){if(!window.HadoTypeScore)throw Error('適合スコア共通処理が読み込まれていません。');return window.HadoTypeScore.score(x,type())}\nfunction roleRows(role){const q=norm(st.q);return st.data.roles.filter(v=>v.roleId===role).map(v=>({...v,_s:score(v)})).filter(v=>v._s.matchedCount>0).filter(v=>!q||norm(flat([v.displayName,v.name,v.typeFeatures,v.statusEffectRefs])).includes(q)).sort((a,b)=>b._s.score-a._s.score||Number(a.sourceIndex||0)-Number(b.sourceIndex||0))}\nfunction rows(){return roleRows(st.role)}\nfunction chipLabel(x){if(x==null)return '';if(typeof x==='string'||typeof x==='number')return String(x);if(Array.isArray(x))return x.map(chipLabel).filter(Boolean).join(' / ');if(typeof x==='object')return String(x.label||x.statusEffectName||x.displayName||x.name||x.featureId||'');return ''}\nfunction chipLabels(v){return [...new Set([...(v.typeFeatures||[]),...(v.statusEffectRefs||[])].map(chipLabel).filter(Boolean))]}\nfunction canonicalName(v){return String(v?.name||v?.displayName||'').trim()}\nfunction displayName(v){return String(v?.displayName||v?.name||'').trim()}\nfunction selectionReason(){const p=purpose();if(!p)return '';const rows=[...(p.primaryTypes||[]).map(v=>({...v,roleLabel:'主軸理由'})),...(p.secondaryTypes||[]).map(v=>({...v,roleLabel:'補助理由'}))];const row=rows.find(v=>v.typeId===st.sel?.typeId);return row?.reason?`${row.roleLabel}: ${row.reason}`:''}\nfunction style(){if(document.getElementById('htc-style'))return;const e=document.createElement('style');e.id='htc-style';e.textContent=`#htc-open{position:fixed;right:18px;bottom:72px;z-index:99990;border:1px solid #1d4ed8;border-radius:999px;padding:11px 17px;background:#fff;color:#1d4ed8;font-weight:700;cursor:pointer}#htc-open:disabled{opacity:.5}#htc-overlay{position:fixed;inset:0;z-index:99992;background:#0f172a94;display:flex;align-items:center;justify-content:center;padding:16px}#htc-modal{width:min(1040px,100%);max-height:92dvh;background:#fff;border-radius:18px;display:grid;grid-template-rows:auto auto auto minmax(0,1fr) auto;overflow:hidden;color:#172033}.htc-p{padding:14px 18px}.htc-head,.htc-foot{display:flex;justify-content:space-between;gap:10px}.htc-tabs{display:flex;gap:7px;flex-wrap:wrap;background:#f8fafc}.htc-btn,.htc-tab{border:1px solid #cbd5e1;background:#fff;border-radius:10px;padding:8px 11px;cursor:pointer}.htc-tab.on{border-color:#2563eb;background:#eff6ff;color:#1d4ed8;font-weight:700}.htc-search{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:10px}.htc-body{overflow:auto}.htc-list{display:grid;gap:8px}.htc-item{border:1px solid #d8e0eb;border-radius:12px;padding:11px}.htc-title{font-weight:700}.htc-note,.htc-detail,.htc-score{font-size:12px;color:#64748b;line-height:1.55;margin-top:4px}.htc-score{font-weight:700;color:#334155}.htc-score strong{font-size:15px;color:#0f766e}.htc-chip{display:inline-block;border-radius:999px;padding:2px 7px;background:#eef2ff;color:#3730a3;margin:2px 4px 0 0}@media(max-width:720px){#htc-overlay{padding:0}#htc-modal{width:100%;height:100dvh;max-height:none;border-radius:0}}`;document.head.appendChild(e)}\nfunction close(){document.getElementById('htc-overlay')?.remove()}\nfunction render(){const m=document.getElementById('htc-modal'),rs=rows(),reason=selectionReason();m.innerHTML=`<div class=\"htc-p htc-head\"><div><h2>型候補一覧</h2><div class=\"htc-note\">3.0.0.0 Update07 / 選択中の型: ${esc(type()?.typeName||'未選択')} / 目的: ${esc(purpose()?.purposeName||'指定なし')}</div>${reason?`<div class=\"htc-note\">${esc(reason)}</div>`:''}</div><button class=\"htc-btn\" data-close>閉じる</button></div><div class=\"htc-p htc-tabs\">${ROLES.map(([id,l])=>`<button class=\"htc-tab ${st.role===id?'on':''}\" data-role=\"${id}\">${l} (${roleRows(id).length})</button>`).join('')}</div><div class=\"htc-p\"><input id=\"htc-q\" class=\"htc-search\" placeholder=\"名称・特徴で絞り込み\" value=\"${esc(st.q)}\"><div class=\"htc-note\">適合スコアは、選択中の型の5項目を同じ比率で判定した10段階表示です。技能Lvは採点しません。0点候補は表示しません。異なる型同士の順位付けには使いません。配置や成立判定は行わず、登録時に既存ゲートを必ず通します。</div></div><div class=\"htc-p htc-body\"><div class=\"htc-list\">${rs.map(v=>`<div class=\"htc-item\" data-role-id=\"${esc(v.roleId||st.role)}\" data-canonical-name=\"${esc(canonicalName(v))}\" data-display-name=\"${esc(displayName(v))}\"><div class=\"htc-title\">${esc(displayName(v))}</div><div class=\"htc-score\">適合スコア: <strong>${v._s.score}/10</strong>${v._s.matchedCount?' / '+v._s.matched.map(m=>esc(m.label)).join('、'):''}</div><div class=\"htc-detail\">${chipLabels(v).map(x=>`<span class=\"htc-chip\">${esc(x)}</span>`).join('')}</div></div>`).join('')||'<div class=\"htc-note\">該当候補がありません。</div>'}</div></div><div class=\"htc-p htc-foot\"><div class=\"htc-note\">候補表示のみです。自動配置・保存データ変更は行いません。</div><button class=\"htc-btn\" data-close>閉じる</button></div>`;m.querySelectorAll('[data-close]').forEach(b=>b.onclick=close);m.querySelectorAll('[data-role]').forEach(b=>b.onclick=()=>{st.role=b.dataset.role;st.q='';render()});m.querySelector('#htc-q').oninput=e=>{st.q=e.target.value;render()}}\nasync function open(){st.sel=loadSel();if(!st.sel?.typeId)return alert('型編成ナビで型を選択し、「選択を保存」を押してください。');if(!st.data){const[a,b,c]=await Promise.all(FILES.map(fetchJson));st.data={roles:items(a,['items']),types:items(b,['items','types']),purposes:items(c,['items','purposes'])}}if(!type())throw Error(`選択中の型が見つかりません: ${st.sel.typeId}`);close();const o=document.createElement('div');o.id='htc-overlay';o.innerHTML='<section id=\"htc-modal\"></section>';o.onclick=e=>{if(e.target===o)close()};document.body.appendChild(o);render()}\nfunction isFormationTab(){return typeof window.state==='object'?window.state.mainTab==='formation':document.getElementById('formationScreen')&&!document.getElementById('formationScreen').classList.contains('tab-content-hidden')}\nfunction syncVisibility(){const b=document.getElementById('htc-open');const visible=!!isFormationTab();if(b)b.hidden=!visible;if(!visible)close()}\nfunction refresh(){const b=document.getElementById('htc-open');if(b)b.disabled=!loadSel()?.typeId;syncVisibility()}\nfunction mount(){style();const b=document.createElement('button');b.id='htc-open';b.textContent='型候補一覧';b.onclick=()=>open().catch(e=>alert(`型候補一覧の読込に失敗しました。\\n${e.message}`));document.body.appendChild(b);refresh();addEventListener(EV,refresh);addEventListener('storage',refresh);new MutationObserver(syncVisibility).observe(document.documentElement,{attributes:true,subtree:true,attributeFilter:['class']});setInterval(syncVisibility,400)}\nif(document.readyState==='loading')addEventListener('DOMContentLoaded',mount);else mount();\n})();\n"
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_entry.js",
+      "old": "  function scoreType(general, rule) {\n    if (!general) return { score: null, matched: [], total: 5 };\n    const featureText = norm(flatten([general.typeFeatures || [], general.statusEffectRefs || []]));\n    const metrics = Array.isArray(rule.metrics) ? rule.metrics.slice(0, 5) : [];\n    const matched = metrics.filter((metric) => metricAliases(metric).some((a) => a && featureText.includes(a)));\n    return { score: Math.min(10, matched.length * 2), matched, total: 5 };\n  }",
+      "new": "  function scoreType(general, rule) {\n    if (!general) return { score: null, matched: [], total: 5, matchedCount: 0 };\n    if (!window.HadoTypeScore) throw new Error('適合スコア共通処理が読み込まれていません。');\n    return window.HadoTypeScore.score(general, rule);\n  }",
+      "expectedCount": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_entry.js",
+      "old": "  function typeCard(row) { const rule=state.data.scoreRules.find((t)=>t.typeId===row.typeId); if(!rule)return ''; const r=scoreType(state.mainGeneral,rule); return `<button class=\"hte-item ${state.typeId===rule.typeId?'active':''}\" data-type-id=\"${esc(rule.typeId)}\"><span class=\"hte-item-role ${row.role==='primary'?'primary':''}\">${esc(row.roleLabel||'型')}</span><div class=\"hte-title\">${esc(rule.typeName)}</div>${rule.description?`<div class=\"hte-reason\">${esc(rule.description)}</div>`:''}${row.reason?`<div class=\"hte-reason\"><strong>推奨理由:</strong> ${esc(row.reason)}</div>`:''}<div class=\"hte-score\">主将参考一致数: ${r.matched.length}/${r.total}項目${r.matched.length?` / ${r.matched.map((m)=>esc(m.label)).join('、')}`:''}</div></button>`; }",
+      "new": "  function typeCard(row) { const rule=state.data.scoreRules.find((t)=>t.typeId===row.typeId); if(!rule)return ''; const r=scoreType(state.mainGeneral,rule); return `<button class=\"hte-item ${state.typeId===rule.typeId?'active':''}\" data-type-id=\"${esc(rule.typeId)}\"><span class=\"hte-item-role ${row.role==='primary'?'primary':''}\">${esc(row.roleLabel||'型')}</span><div class=\"hte-title\">${esc(rule.typeName)}</div>${rule.description?`<div class=\"hte-reason\">${esc(rule.description)}</div>`:''}${row.reason?`<div class=\"hte-reason\"><strong>${esc(row.roleLabel==='主軸型'?'主軸理由':row.roleLabel==='補助型'?'補助理由':'推奨理由')}:</strong> ${esc(row.reason)}</div>`:''}<div class=\"hte-score\">主将適合スコア: ${r.score==null?'未採点':`${r.score}/10`}${r.matched.length?` / ${r.matched.map((m)=>esc(m.label)).join('、')}`:''}</div></button>`; }",
+      "expectedCount": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_entry.js",
+      "old": "参考一致数は同一型内の候補比較用です。異なる型同士の順位付けには使いません。",
+      "new": "適合スコアは選択中の型の5項目を同じ比率で判定した10段階表示です。技能Lvは採点しません。異なる型同士の順位付けには使いません。",
+      "expectedCount": 2
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_entry.js",
+      "old": "3.0.0.0 Update03.4 / 3.0.0.0 Update03.5 / 7用途・主軸型・補助型・理由表示",
+      "new": "3.0.0.0 Update07 / 10段階適合スコア・主軸型・補助型・理由表示",
+      "expectedCount": 1
+    },
+    {
+      "op": "replace",
+      "path": "index.html",
+      "old": "<!-- HADO_TYPE_ENTRY_START --><script src=\"./hado_type_entry.js\"></script><!-- HADO_TYPE_ENTRY_END -->",
+      "new": "<!-- HADO_TYPE_SCORE_START --><script src=\"./hado_type_score.js\"></script><!-- HADO_TYPE_SCORE_END --><!-- HADO_TYPE_ENTRY_START --><script src=\"./hado_type_entry.js\"></script><!-- HADO_TYPE_ENTRY_END -->",
+      "expectedCount": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_library_3.0.0.0.html",
+      "old": "<!-- HADO_TYPE_ENTRY_START --><script src=\"./hado_type_entry.js\"></script><!-- HADO_TYPE_ENTRY_END -->",
+      "new": "<!-- HADO_TYPE_SCORE_START --><script src=\"./hado_type_score.js\"></script><!-- HADO_TYPE_SCORE_END --><!-- HADO_TYPE_ENTRY_START --><script src=\"./hado_type_entry.js\"></script><!-- HADO_TYPE_ENTRY_END -->",
+      "expectedCount": 1
+    },
+    {
+      "op": "write",
+      "path": "HADO_DEV_INFO.json",
+      "content": "{\n  \"schemaVersion\": \"1.0\",\n  \"releaseStatus\": \"development\",\n  \"releaseVersion\": \"3.0.0.0\",\n  \"updateNo\": \"07\",\n  \"revision\": 0,\n  \"displayVersion\": \"3.0.0.0 Update07\",\n  \"baseAppVersion\": \"2.9.6.5\",\n  \"summary\": \"Update07: add shared 10-step type suitability scoring, narrow generic aliases to prevent inflated matches, and reuse the same scoring logic in the wizard and candidate list.\",\n  \"updatedAt\": \"2026-06-08T01:26:30+09:00\"\n}\n"
+    },
+    {
+      "op": "replace",
+      "path": "docs/updates/roadmap.md",
+      "old": "### Update07: 適合スコア表示と評価ロジック調整\n**状態:** 予定",
+      "new": "### Update07: 適合スコア表示と評価ロジック調整\n**状態:** 完了",
+      "expectedCount": 1
+    },
+    {
+      "op": "write",
+      "path": "docs/updates/update07/roadmap.md",
+      "mustNotExist": true,
+      "content": "# Update07 Roadmap\n\n## 目的\n型候補を比較しやすい10段階の適合スコアへ統一し、Update08の所有情報フィルター適用後にも再利用できる採点処理を確立する。\n\n## 対象\n- 型ごとに5項目、重みなし\n- 1項目2点、最大10点\n- 技能Lvは採点しない\n- 兵力を採点対象に含める\n- 型充足度という別指標は設けない\n- 主軸理由、補助理由を区別して表示する\n- 汎用語による過剰な候補一致を抑制する\n\n## 対象外\n- 保存データの所有情報フィルター\n- 新規部隊作成\n- 保存評価、履歴、グループ管理\n\n上記はUpdate08で実装する。\n"
+    },
+    {
+      "op": "write",
+      "path": "docs/updates/update07/implementation.md",
+      "mustNotExist": true,
+      "content": "# Update07 Implementation\n\n## 実装内容\n\n### 共通採点処理\n- `hado_type_score.js` を新設した。\n- 型ごとの先頭5項目を同一比率で採点し、1項目2点、最大10点とした。\n- 技能Lvは加点回数へ影響させない。\n- 兵力は通常の採点項目として維持した。\n- Update08で所有情報フィルター後の候補にも同じ関数を再利用できる構造とした。\n\n### 過剰一致の抑制\n候補の特徴文に含まれやすい汎用語だけで点が入らないよう、次のような広すぎる別名を除外した。\n\n- `有利変化`\n- `強化効果`\n- `味方部隊`\n- `秒間`\n- `不利変化`\n- `弱化効果`\n- `敵部隊`\n\n代わりに、`味方バフ配布`、`味方対象部隊数`、`敵デバフ配布`、`敵対象部隊数`、`効果時間` などの採点項目固有の表現で判定する。\n\n### 表示\n- 型編成ナビの主将比較を `主将適合スコア: n/10` 表示へ変更した。\n- 型候補一覧を `適合スコア: n/10` 表示へ変更した。\n- 主軸型は `主軸理由`、補助型は `補助理由` として表示する。\n- 0点候補は候補一覧へ表示しない。\n\n### HTML肥大化対策\n- HTMLへの追加は `hado_type_score.js` の読込宣言1行相当のみとした。\n- 採点処理は外部JSへ分離した。\n- 読込順は `hado_type_score.js` → `hado_type_entry.js` → `hado_type_candidates.js` とした。\n- 相対パス読込のため、`file://` ローカル版と `https://` プレビュー版の双方で利用できる。\n"
+    },
+    {
+      "op": "write",
+      "path": "docs/updates/update07/report.md",
+      "mustNotExist": true,
+      "content": "# Update07 Report\n\n## 完了内容\n- 10段階の適合スコアを共通処理として実装した。\n- 型編成ナビと型候補一覧を同一採点関数へ統一した。\n- 汎用語による過剰一致を抑制した。\n- 主軸理由と補助理由を区別した。\n- HTMLへの大規模なJavaScript追記は行っていない。\n\n## ローカル監査\n- `node --check hado_type_score.js`: 合格\n- `node --check hado_type_candidates.js`: 合格\n- 5項目一致 = 10点: 合格\n- 3項目一致 = 6点: 合格\n- 同一項目の技能Lv違いが重複加点されない: 合格\n- `味方部隊`、`敵部隊`、`弱化効果`、`秒間` などの汎用語だけでは加点されない: 合格\n- 兵力が採点対象として残る: 合格\n\n## 未実装\n- 保存データ表示モードの所有情報フィルター\n- 保存された将星、技能Lv、装備所有状況を反映した候補評価\n- 新規部隊作成、保存評価、履歴、グループ管理\n\n上記はUpdate08で実装する。\n\n## ユーザー確認操作\n1. プレビューで部隊編成タブを開く。\n2. `型編成ナビ` で目的と型を保存する。\n3. `型候補一覧` を開き、各候補が `適合スコア: n/10` で表示されることを確認する。\n4. 主軸型または補助型を選び、理由表示を確認する。\n5. 候補を候補トレイへ追加し、従来どおり `配置先を選ぶ` が機能することを確認する。\n"
+    },
+    {
+      "op": "write",
+      "path": "report/HADO_APP_3.0.0.0_UPDATE07_REPORT.json",
+      "mustNotExist": true,
+      "content": "{\n  \"schemaVersion\": \"1.0\",\n  \"updateId\": \"app-update07-type-score\",\n  \"releaseVersion\": \"3.0.0.0\",\n  \"updateNo\": \"07\",\n  \"status\": \"implemented\",\n  \"summary\": \"Shared 10-step suitability scoring for type navigator and candidate list; generic alias inflation reduced.\",\n  \"filesAdded\": [\n    \"hado_type_score.js\",\n    \"docs/updates/update07/roadmap.md\",\n    \"docs/updates/update07/implementation.md\",\n    \"docs/updates/update07/report.md\",\n    \"report/HADO_APP_3.0.0.0_UPDATE07_REPORT.json\"\n  ],\n  \"filesChanged\": [\n    \"index.html\",\n    \"hado_library_3.0.0.0.html\",\n    \"hado_type_entry.js\",\n    \"hado_type_candidates.js\",\n    \"HADO_DEV_INFO.json\",\n    \"docs/updates/roadmap.md\"\n  ],\n  \"htmlPolicy\": {\n    \"largeInlineJsAdded\": false,\n    \"externalJsAdded\": \"hado_type_score.js\",\n    \"loadOrder\": [\n      \"hado_type_score.js\",\n      \"hado_type_entry.js\",\n      \"hado_type_candidates.js\"\n    ]\n  },\n  \"localChecks\": [\n    \"node --check hado_type_score.js\",\n    \"node --check hado_type_candidates.js\",\n    \"synthetic score regression: 6 cases passed\"\n  ],\n  \"nextUpdate\": \"Update08: saved-data ownership filters, new formation creation, saved evaluation, history, and group management\"\n}\n"
+    }
+  ],
+  "requiredTokens": [
+    {
+      "path": "hado_type_score.js",
+      "tokens": [
+        "window.HadoTypeScore={",
+        "matched.length*2",
+        "ally_buff_multi:['味方バフ配布']",
+        "enemy_target_count:['敵対象部隊数']"
+      ]
+    },
+    {
+      "path": "hado_type_candidates.js",
+      "tokens": [
+        "適合スコア: <strong>${v._s.score}/10</strong>",
+        "主軸理由",
+        "補助理由",
+        "window.HadoTypeScore.score"
+      ]
+    },
+    {
+      "path": "hado_type_entry.js",
+      "tokens": [
+        "return window.HadoTypeScore.score(general, rule);",
+        "主将適合スコア:",
+        "10段階適合スコア"
+      ]
+    },
+    {
+      "path": "index.html",
+      "tokens": [
+        "./hado_type_score.js",
+        "./hado_type_entry.js",
+        "./hado_type_candidates.js"
+      ]
+    },
+    {
+      "path": "hado_library_3.0.0.0.html",
+      "tokens": [
+        "./hado_type_score.js",
+        "./hado_type_entry.js",
+        "./hado_type_candidates.js"
+      ]
+    },
+    {
+      "path": "docs/updates/roadmap.md",
+      "tokens": [
+        "### Update07: 適合スコア表示と評価ロジック調整\n**状態:** 完了"
+      ]
+    }
+  ],
+  "forbiddenTokens": [
+    {
+      "path": "hado_type_candidates.js",
+      "tokens": [
+        "参考一致数:",
+        "ally_target_count:['味方対象部隊数','味方部隊']",
+        "enemy_target_count:['敵対象部隊数','敵部隊']"
+      ]
+    }
+  ]
+}
