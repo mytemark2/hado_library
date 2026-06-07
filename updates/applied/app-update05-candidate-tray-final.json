@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0",
+  "updateId": "app-update05-candidate-tray-final",
+  "repository": "mytemark2/hado_library",
+  "summary": "Apply Update05 per-formation candidate tray and persist GitHub operation rules.",
+  "appliedAt": "2026-06-07T09:50:09.788829+00:00",
+  "operations": [
+    {
+      "op": "write",
+      "path": "src/update05_candidate_tray_core.js",
+      "sha256After": "544cfdace2bf88e7de1ecad445d1ef28864f372677e51aad7b1f81853a605c2b"
+    },
+    {
+      "op": "replace",
+      "path": "index.html",
+      "sha256After": "7db2edba1394b395fbf54dd4874826d5c4a7fc6fff64857faa8fc883d1b41ba9",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "index.html",
+      "sha256After": "b734f135bd16e70148d554826f14aa9512c4d0e8e098c43b81370e53de573cf8",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "index.html",
+      "sha256After": "c1d57988c8e0356bfb2aff430cff155526dbdb859509df58574fa1870607e43c",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "index.html",
+      "sha256After": "4151431d88eedf98961834ed5d6b7285c42070320c0238fa7ed9625d4c4e1d5d",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_library_3.0.0.0.html",
+      "sha256After": "7db2edba1394b395fbf54dd4874826d5c4a7fc6fff64857faa8fc883d1b41ba9",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_library_3.0.0.0.html",
+      "sha256After": "b734f135bd16e70148d554826f14aa9512c4d0e8e098c43b81370e53de573cf8",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_library_3.0.0.0.html",
+      "sha256After": "c1d57988c8e0356bfb2aff430cff155526dbdb859509df58574fa1870607e43c",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_library_3.0.0.0.html",
+      "sha256After": "4151431d88eedf98961834ed5d6b7285c42070320c0238fa7ed9625d4c4e1d5d",
+      "count": 1
+    },
+    {
+      "op": "write",
+      "path": "HADO_DEV_INFO.json",
+      "sha256After": "c0c06b5c929243b451814bf24cf09f81250c1bf38e77905243da9f3f23d3e6ef"
+    },
+    {
+      "op": "write",
+      "path": "docs/HADO_APP_3.0.0.0_UPDATE05_SCOPE.md",
+      "sha256After": "3c6848359c9df0d7f79097988d6acfc6b0ece974f1ad36625b751da59c4bcd28"
+    },
+    {
+      "op": "write",
+      "path": "report/HADO_APP_3.0.0.0_UPDATE05_REPORT.json",
+      "sha256After": "330d7ea548f86537154202857dbb06c2c2e5d0c6a3f2f87550a61863a9c5aa57"
+    },
+    {
+      "op": "write",
+      "path": "docs/HADO_GITHUB_OPERATION_RULES.md",
+      "sha256After": "e07439d7d469fde8af40cf71353676de987e737385b8f44c4d3e01168d5be556"
+    }
+  ]
+}
