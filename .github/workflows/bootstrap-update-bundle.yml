@@ -1,0 +1,255 @@
+name: Bootstrap reusable app update bundle infrastructure
+
+on:
+  push:
+    branches:
+      - feature/app-3.0.0.0
+    paths:
+      - ".github/workflows/bootstrap-update-bundle.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/app-3.0.0.0
+      - name: Generate reusable bundle infrastructure
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p tools updates/queue updates/applied docs .github/workflows
+          cat > tools/apply_update_bundle.py <<'PY'
+          #!/usr/bin/env python3
+          from pathlib import Path
+          from datetime import datetime, timezone
+          import argparse, base64, hashlib, json, subprocess
+
+          ROOT=Path('.').resolve()
+          BLOCKED_EXACT={'tools/apply_update_bundle.py'}
+          BLOCKED_PREFIXES=('.git/','.github/workflows/','updates/queue/','updates/applied/')
+
+          def sha256(path):
+              return hashlib.sha256(path.read_bytes()).hexdigest() if path.exists() else None
+
+          def safe_path(rel):
+              rel=str(rel or '').replace('\\','/').lstrip('./')
+              if not rel or rel.startswith('/') or '..' in Path(rel).parts:
+                  raise SystemExit(f'unsafe path: {rel}')
+              if rel in BLOCKED_EXACT or any(rel.startswith(p) for p in BLOCKED_PREFIXES):
+                  raise SystemExit(f'bundle cannot modify protected path: {rel}')
+              return rel
+
+          def decode_content(op):
+              if 'contentBase64' in op:
+                  return base64.b64decode(op['contentBase64'])
+              return str(op.get('content','')).encode('utf-8')
+
+          def require_before(path, expected):
+              actual=sha256(path)
+              if expected is not None and actual!=expected:
+                  raise SystemExit(f'sha256Before mismatch: {path} expected={expected} actual={actual}')
+
+          def audit_tokens(bundle):
+              for row in bundle.get('requiredTokens',[]):
+                  path=ROOT/safe_path(row.get('path'))
+                  text=path.read_text(encoding='utf-8')
+                  for token in row.get('tokens',[]):
+                      if token not in text:
+                          raise SystemExit(f'required token missing: {path}: {token}')
+              for row in bundle.get('forbiddenTokens',[]):
+                  path=ROOT/safe_path(row.get('path'))
+                  text=path.read_text(encoding='utf-8')
+                  for token in row.get('tokens',[]):
+                      if token in text:
+                          raise SystemExit(f'forbidden token remains: {path}: {token}')
+
+          def main():
+              ap=argparse.ArgumentParser(); ap.add_argument('--profile',required=True); args=ap.parse_args()
+              queue=sorted((ROOT/'updates/queue').glob('*.json'))
+              if not queue:
+                  print('No update bundle found.'); return
+              if len(queue)!=1:
+                  raise SystemExit(f'exactly one bundle is required, found {len(queue)}')
+              bundle_path=queue[0]
+              bundle=json.loads(bundle_path.read_text(encoding='utf-8'))
+              update_id=str(bundle.get('updateId') or '').strip()
+              if not update_id or '/' in update_id or '\\' in update_id:
+                  raise SystemExit('invalid updateId')
+              if bundle.get('repository')!='mytemark2/hado_library':
+                  raise SystemExit('repository mismatch')
+              if bundle.get('branch')!='feature/app-3.0.0.0':
+                  raise SystemExit('branch mismatch')
+              branch=subprocess.check_output(['git','branch','--show-current'],text=True).strip()
+              if branch!='feature/app-3.0.0.0':
+                  raise SystemExit(f'checked out branch mismatch: {branch}')
+              applied=[]
+              for op in bundle.get('operations',[]):
+                  rel=safe_path(op.get('path')); path=ROOT/rel
+                  require_before(path,op.get('sha256Before'))
+                  kind=op.get('op')
+                  if kind=='write':
+                      path.parent.mkdir(parents=True,exist_ok=True)
+                      data=decode_content(op); path.write_bytes(data)
+                      applied.append({'op':'write','path':rel,'sha256After':sha256(path)})
+                  elif kind=='delete':
+                      if not path.exists(): raise SystemExit(f'delete target missing: {rel}')
+                      path.unlink(); applied.append({'op':'delete','path':rel,'sha256After':None})
+                  else:
+                      raise SystemExit(f'unsupported operation: {kind}')
+              audit_tokens(bundle)
+              receipt={'schemaVersion':'1.0','updateId':update_id,'profile':args.profile,'summary':bundle.get('summary',''),'appliedAt':datetime.now(timezone.utc).isoformat(),'operations':applied}
+              out=ROOT/'updates/applied'/f'{update_id}.json'; out.parent.mkdir(parents=True,exist_ok=True)
+              out.write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+              bundle_path.unlink()
+              print(f'Applied bundle: {update_id}')
+          if __name__=='__main__': main()
+          PY
+          chmod +x tools/apply_update_bundle.py
+          cat > .github/workflows/apply-update-bundle.yml <<'YML'
+          name: Apply app update bundle
+
+          on:
+            workflow_dispatch:
+            push:
+              branches:
+                - feature/app-3.0.0.0
+              paths:
+                - "updates/queue/*.json"
+
+          permissions:
+            contents: write
+
+          jobs:
+            apply:
+              runs-on: ubuntu-latest
+              steps:
+                - uses: actions/checkout@v4
+                  with:
+                    ref: feature/app-3.0.0.0
+                - name: Apply queued bundle
+                  shell: bash
+                  run: |
+                    set -euo pipefail
+                    python tools/apply_update_bundle.py --profile app
+                - name: Validate app
+                  shell: bash
+                  run: |
+                    set -euo pipefail
+                    python -m py_compile tools/apply_update_bundle.py
+                    python -m json.tool HADO_DEV_INFO.json >/dev/null
+                    python - <<'PY'
+                    from pathlib import Path
+                    import json, subprocess
+                    for p in Path('.').glob('*.json'):
+                        json.loads(p.read_text(encoding='utf-8'))
+                    for p in Path('src').rglob('*.js'):
+                        subprocess.run(['node','--check',str(p)],check=True)
+                    PY
+                    cmp --silent index.html hado_library_3.0.0.0.html
+                - name: Commit applied bundle
+                  shell: bash
+                  run: |
+                    set -euo pipefail
+                    git config user.name "github-actions[bot]"
+                    git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                    git add -A
+                    if ! git diff --cached --quiet; then
+                      git commit -m "build: apply app update bundle"
+                      git push origin HEAD:feature/app-3.0.0.0
+                    fi
+                - name: Dispatch final preview sync
+                  shell: bash
+                  env:
+                    PREVIEW_REPO_TOKEN: ${{ secrets.PREVIEW_REPO_TOKEN }}
+                  run: |
+                    set -euo pipefail
+                    if [ -z "${PREVIEW_REPO_TOKEN:-}" ]; then
+                      echo "PREVIEW_REPO_TOKEN is not configured."
+                      exit 1
+                    fi
+                    curl --fail-with-body --silent --show-error \
+                      --request POST \
+                      --header "Accept: application/vnd.github+json" \
+                      --header "Authorization: Bearer ${PREVIEW_REPO_TOKEN}" \
+                      --header "X-GitHub-Api-Version: 2022-11-28" \
+                      https://api.github.com/repos/mytemark2/hado_library-preview/dispatches \
+                      --data '{"event_type":"sync_app_preview"}'
+          YML
+          cat > updates/README.md <<'MD'
+          # Update Bundle operation
+
+          Normal app updates are applied by adding exactly one JSON file under `updates/queue/`.
+          GitHub Actions applies all operations, validates the app, commits the resulting files, removes the queue file, writes a receipt under `updates/applied/`, and dispatches preview synchronization.
+
+          Protected paths cannot be modified by a normal bundle: `.github/workflows/`, `tools/apply_update_bundle.py`, `updates/queue/`, and `updates/applied/`.
+          MD
+          cat > docs/UPDATE_BUNDLE_OPERATIONS.md <<'MD'
+          # Update Bundle standard
+
+          ## Objective
+          Reduce normal GitHub write approvals to one queued bundle per repository and per Update.
+
+          ## Bundle schema
+          ```json
+          {
+            "schemaVersion": "1.0",
+            "updateId": "app-3.0.0.0-update04.3",
+            "repository": "mytemark2/hado_library",
+            "branch": "feature/app-3.0.0.0",
+            "summary": "Describe the Update",
+            "operations": [
+              {"op": "write", "path": "src/example.js", "sha256Before": "optional sha256", "content": "replacement UTF-8 text"},
+              {"op": "delete", "path": "obsolete.txt", "sha256Before": "required recommended"}
+            ],
+            "requiredTokens": [{"path": "src/example.js", "tokens": ["required marker"]}],
+            "forbiddenTokens": [{"path": "src/example.js", "tokens": ["forbidden marker"]}]
+          }
+          ```
+
+          ## Safety gates
+          - Exactly one queue file is processed per workflow run.
+          - Optional `sha256Before` prevents stale overwrites.
+          - Infrastructure paths are protected from normal bundles.
+          - JSON, JavaScript syntax, and standalone HTML equality are checked before commit.
+          - Preview synchronization is dispatched only after the final generated commit.
+          MD
+          touch updates/queue/.gitkeep updates/applied/.gitkeep
+          rm -f .github/workflows/apply-update03.yml .github/workflows/apply-update04.yml .github/workflows/apply-update04-2.yml
+          rm -f tools/apply_update03_4.py tools/apply_update04_1.py tools/apply_update04_2.py
+          rm -f .github/workflows/bootstrap-update-bundle.yml
+      - name: Validate generated infrastructure
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile tools/apply_update_bundle.py
+          grep -q 'updates/queue/*.json' .github/workflows/apply-update-bundle.yml
+          grep -q 'Dispatch final preview sync' .github/workflows/apply-update-bundle.yml
+          test ! -e .github/workflows/apply-update03.yml
+          test ! -e .github/workflows/apply-update04.yml
+          test ! -e .github/workflows/apply-update04-2.yml
+      - name: Commit reusable infrastructure
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "build: consolidate app updates into reusable bundle workflow"
+          git push origin HEAD:feature/app-3.0.0.0
+      - name: Dispatch preview sync
+        shell: bash
+        env:
+          PREVIEW_REPO_TOKEN: ${{ secrets.PREVIEW_REPO_TOKEN }}
+        run: |
+          set -euo pipefail
+          curl --fail-with-body --silent --show-error \
+            --request POST \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer ${PREVIEW_REPO_TOKEN}" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/mytemark2/hado_library-preview/dispatches \
+            --data '{"event_type":"sync_app_preview"}'
