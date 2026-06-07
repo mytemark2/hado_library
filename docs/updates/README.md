@@ -11,9 +11,9 @@
 | Update03 | 改訂完了 | 型編成ナビ・7用途への再整理 | [roadmap](update03/roadmap.md) | [implementation](update03/implementation.md) | [report](update03/report.md) |
 | Update04 | 改訂完了 | 9役割の型候補一覧・0件候補除外 | [roadmap](update04/roadmap.md) | [implementation](update04/implementation.md) | [report](update04/report.md) |
 | Update05 | 完了 | 部隊別候補トレイ・既存選択ダイアログ委譲 | [roadmap](update05/roadmap.md) | [implementation](update05/implementation.md) | [report](update05/report.md) |
-| Update06 | 予定 | 陣形・兵器・名馬・軍馬技能の候補トレイ接続 | [全体計画](roadmap.md#update06-残り4役割の候補トレイ接続) | - | - |
+| Update06 | 予定 | 残り4役割接続・保存データ対応前提の候補抽出分離 | [全体計画](roadmap.md#update06-残り4役割の候補トレイ接続) | - | - |
 | Update07 | 予定 | 10段階適合スコア・評価ロジック調整 | [全体計画](roadmap.md#update07-適合スコア表示と評価ロジック調整) | - | - |
-| Update08 | 予定 | 新規部隊作成・保存評価・履歴・グループ管理 | [全体計画](roadmap.md#update08-新規部隊作成保存評価履歴グループ管理) | - | - |
+| Update08 | 予定 | 保存データ対応型編成ナビ・新規部隊作成・保存評価・履歴・グループ管理 | [全体計画](roadmap.md#update08-保存データ対応型編成ナビ新規部隊作成保存評価履歴グループ管理) | - | - |
 | Update09 | 予定 | PC・スマホUI/UXと実用性改善 | [全体計画](roadmap.md#update09-uiux調整と実用性改善) | - | - |
 | Update10 | 予定 | 全体回帰・ガイド更新・正式版候補 | [全体計画](roadmap.md#update10-全体回帰ガイド更新正式版候補) | - | - |
 
