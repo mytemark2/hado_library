@@ -1,0 +1,40 @@
+name: Notify preview repository
+
+on:
+  push:
+    branches:
+      - feature/app-3.0.0.0
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check preview repository token
+        shell: bash
+        env:
+          PREVIEW_REPO_TOKEN: ${{ secrets.PREVIEW_REPO_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${PREVIEW_REPO_TOKEN:-}" ]; then
+            echo "PREVIEW_REPO_TOKEN is not configured. Preview dispatch is skipped."
+            echo "Add a fine-grained PAT for mytemark2/hado_library-preview as repository secret PREVIEW_REPO_TOKEN."
+            exit 0
+          fi
+
+      - name: Dispatch preview sync
+        shell: bash
+        env:
+          PREVIEW_REPO_TOKEN: ${{ secrets.PREVIEW_REPO_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${PREVIEW_REPO_TOKEN:-}" ]; then
+            echo "PREVIEW_REPO_TOKEN is not configured. Preview dispatch is skipped."
+            exit 0
+          fi
+          curl --fail-with-body --silent --show-error \
+            --request POST \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer ${PREVIEW_REPO_TOKEN}" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/mytemark2/hado_library-preview/dispatches \
+            --data '{"event_type":"sync_app_preview"}'
