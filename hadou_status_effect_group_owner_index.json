@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-06-06T09:16:01.325Z",
-  "dataSetId": "2026-06-05T12:46:30.581Z",
+  "generatedAt": "2026-06-07T04:23:26.754Z",
+  "dataSetId": "2026-06-06T09:16:01.293Z",
   "crawlerVersion": "1.1.0.0",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -33,10 +33,10 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 475,
-    "tactics": 454,
+    "generals": 476,
+    "tactics": 455,
     "equipments": 237,
-    "skills": 617,
+    "skills": 620,
     "statusEffects": 200,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
@@ -47,10 +47,10 @@
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "4d9aa25e",
-    "tactics": "aaafeed1",
+    "generals": "4c9aa0cb",
+    "tactics": "a9afed3e",
     "equipments": "4e60d216",
-    "skills": "53df17fd",
+    "skills": "bee67c33",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
@@ -61,10 +61,10 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "4d9aa25e",
-    "tactics": "aaafeed1",
+    "generals": "4c9aa0cb",
+    "tactics": "a9afed3e",
     "equipments": "4e60d216",
-    "skills": "53df17fd",
+    "skills": "bee67c33",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
@@ -77,9 +77,9 @@
   "kind": "status_effect_group_owner_index",
   "qualityAudit": {
     "groupCount": 6,
-    "totalOwnerCount": 5979,
-    "ownerRelationCount": 5979,
-    "distinctOwnerCount": 2399,
+    "totalOwnerCount": 6019,
+    "ownerRelationCount": 6019,
+    "distinctOwnerCount": 2410,
     "countRecalculatedAfterRelatedLinkRebuild": true,
     "relatedLinkOwnerEnriched": true,
     "rebuildFromRelatedLinkIndex": true,
@@ -9356,6 +9356,78 @@
           },
           {
             "category": "generals",
+            "name": "UR袁術（えんじゅつ）",
+            "displayName": "UR袁術（えんじゅつ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "戦法威力変化(強化)",
+            "matchedText": "戦法威力を50％"
+          },
+          {
+            "category": "generals",
+            "name": "UR袁術（えんじゅつ）",
+            "displayName": "UR袁術（えんじゅつ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージが効果量分上昇攻撃変化自分 / 単20"
+          },
+          {
+            "category": "generals",
+            "name": "UR袁術（えんじゅつ）",
+            "displayName": "UR袁術（えんじゅつ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(強化)",
+            "matchedText": "被ダメージ₋20％"
+          },
+          {
+            "category": "generals",
+            "name": "UR袁術（えんじゅつ）",
+            "displayName": "UR袁術（えんじゅつ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃が上昇する知力変化自分 / 単20"
+          },
+          {
+            "category": "generals",
+            "name": "UR袁術（えんじゅつ）",
+            "displayName": "UR袁術（えんじゅつ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(強化)",
+            "matchedText": "防御が上昇 ●自部隊の侍従に配置されている武将の人数×2%"
+          },
+          {
+            "category": "generals",
+            "name": "UR袁術（えんじゅつ）",
+            "displayName": "UR袁術（えんじゅつ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力が上昇する戦法威力変化自分 / 単20"
+          },
+          {
+            "category": "generals",
+            "name": "UR袁術（えんじゅつ）",
+            "displayName": "UR袁術（えんじゅつ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status",
+            "statusEffectName": "猛奮",
+            "matchedText": "猛奮"
+          },
+          {
+            "category": "generals",
+            "name": "UR袁術（えんじゅつ）",
+            "displayName": "UR袁術（えんじゅつ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "憤怒",
+            "matchedText": "憤怒"
+          },
+          {
+            "category": "generals",
             "name": "UR袁紹（えんしょう）",
             "displayName": "UR袁紹（えんしょう）",
             "source": "related_link_index",
@@ -10697,6 +10769,15 @@
           },
           {
             "category": "generals",
+            "name": "覚醒諸葛瑾（しょかつきん）",
+            "displayName": "覚醒諸葛瑾（しょかつきん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力+10%"
+          },
+          {
+            "category": "generals",
             "name": "覚醒徐盛（じょせい）",
             "displayName": "覚醒徐盛（じょせい）",
             "source": "related_link_index",
@@ -11027,6 +11108,15 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "対物特効変化(強化)",
             "matchedText": "対物特効を25%"
+          },
+          {
+            "category": "generals",
+            "name": "覚醒杜預（どよ）",
+            "displayName": "覚醒杜預（どよ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージが上昇 →敵部隊の機動が自部隊より低い場合は効果が2"
           },
           {
             "category": "generals",
@@ -23785,6 +23875,60 @@
           },
           {
             "category": "tactics",
+            "name": "驕栄当路",
+            "displayName": "驕栄当路",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "戦法威力変化(強化)",
+            "matchedText": "戦法威力を50％"
+          },
+          {
+            "category": "tactics",
+            "name": "驕栄当路",
+            "displayName": "驕栄当路",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージが効果量分上昇攻撃変化自分 / 単20"
+          },
+          {
+            "category": "tactics",
+            "name": "驕栄当路",
+            "displayName": "驕栄当路",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃が上昇する知力変化自分 / 単20"
+          },
+          {
+            "category": "tactics",
+            "name": "驕栄当路",
+            "displayName": "驕栄当路",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力を100％"
+          },
+          {
+            "category": "tactics",
+            "name": "驕栄当路",
+            "displayName": "驕栄当路",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status",
+            "statusEffectName": "猛奮",
+            "matchedText": "猛奮"
+          },
+          {
+            "category": "tactics",
+            "name": "驕栄当路",
+            "displayName": "驕栄当路",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "憤怒",
+            "matchedText": "憤怒"
+          },
+          {
+            "category": "tactics",
             "name": "驍胆猛迅",
             "displayName": "驍胆猛迅",
             "source": "related_link_index",
@@ -24315,6 +24459,60 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "知力変化(強化)",
             "matchedText": "知力+20%"
+          },
+          {
+            "category": "skills",
+            "name": "栄光",
+            "displayName": "栄光",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージ+10%"
+          },
+          {
+            "category": "skills",
+            "name": "栄光",
+            "displayName": "栄光",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "憤怒",
+            "matchedText": "憤怒"
+          },
+          {
+            "category": "skills",
+            "name": "栄勢",
+            "displayName": "栄勢",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(強化)",
+            "matchedText": "被ダメージ₋10%"
+          },
+          {
+            "category": "skills",
+            "name": "栄勢",
+            "displayName": "栄勢",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃+500"
+          },
+          {
+            "category": "skills",
+            "name": "栄勢",
+            "displayName": "栄勢",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(強化)",
+            "matchedText": "防御+500"
+          },
+          {
+            "category": "skills",
+            "name": "栄勢",
+            "displayName": "栄勢",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力+500"
           },
           {
             "category": "skills",
@@ -29565,6 +29763,24 @@
           },
           {
             "category": "skills",
+            "name": "尊立",
+            "displayName": "尊立",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃が上昇 ●自部隊の侍従に配置されている武将の人数×2%"
+          },
+          {
+            "category": "skills",
+            "name": "尊立",
+            "displayName": "尊立",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(強化)",
+            "matchedText": "防御が上昇 ●自部隊の侍従に配置されている武将の人数×2%"
+          },
+          {
+            "category": "skills",
             "name": "太公望",
             "displayName": "太公望",
             "source": "related_link_index",
@@ -33359,16 +33575,16 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 1677,
-        "tactics": 977,
-        "skills": 1033,
+        "generals": 1687,
+        "tactics": 983,
+        "skills": 1041,
         "equipments": 8,
         "statusEffects": 0
       },
-      "totalOwnerCount": 3695,
+      "totalOwnerCount": 3719,
       "source": "related_link_index",
-      "ownerRelationCount": 3695,
-      "distinctOwnerCount": 1245
+      "ownerRelationCount": 3719,
+      "distinctOwnerCount": 1250
     },
     {
       "groupKey": "selfStateBuff",
@@ -38312,6 +38528,51 @@
           },
           {
             "category": "generals",
+            "name": "UR袁術（えんじゅつ）",
+            "displayName": "UR袁術（えんじゅつ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "絶縁",
+            "matchedText": "絶縁"
+          },
+          {
+            "category": "generals",
+            "name": "UR袁術（えんじゅつ）",
+            "displayName": "UR袁術（えんじゅつ）",
+            "source": "related_link_index",
+            "sourcePartType": "self-granted-status-nullify",
+            "statusEffectName": "状態変化無効[憤怒]",
+            "matchedText": "自身1部隊に憤怒を付与（30秒）"
+          },
+          {
+            "category": "generals",
+            "name": "UR袁術（えんじゅつ）",
+            "displayName": "UR袁術（えんじゅつ）",
+            "source": "related_link_index",
+            "sourcePartType": "self-granted-status-nullify",
+            "statusEffectName": "状態変化無効[絶縁]",
+            "matchedText": "自身1部隊に憤怒を付与（30秒）"
+          },
+          {
+            "category": "generals",
+            "name": "UR袁術（えんじゅつ）",
+            "displayName": "UR袁術（えんじゅつ）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-granted-status",
+            "statusEffectName": "状態変化無効[絶縁]",
+            "matchedText": "敵部隊の連鎖を含む戦法全体から、自部隊が受ける状態変化と攻撃の発生を無効にする"
+          },
+          {
+            "category": "generals",
+            "name": "UR袁術（えんじゅつ）",
+            "displayName": "UR袁術（えんじゅつ）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-granted-status",
+            "statusEffectName": "状態変化無効[憤怒]",
+            "matchedText": "副将の連鎖確率が10％上昇 さらに通常攻撃時に50％の確率で、自身1部隊に1度の絶縁を10秒付与（1度の通常攻撃につき1回確率判定を行う。複数部隊に同時攻撃しても確率判定は1回） ※絶縁（有利変化）…敵部隊の連鎖を含む戦法全体から、自部隊が受ける状態変化と攻撃の発生を無効にする"
+          },
+          {
+            "category": "generals",
             "name": "UR貂蝉（ちょうせん）",
             "displayName": "UR貂蝉（ちょうせん）",
             "source": "related_link_index",
@@ -40123,6 +40384,33 @@
           },
           {
             "category": "tactics",
+            "name": "驕栄当路",
+            "displayName": "驕栄当路",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "絶縁",
+            "matchedText": "絶縁"
+          },
+          {
+            "category": "tactics",
+            "name": "驕栄当路",
+            "displayName": "驕栄当路",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-granted-status",
+            "statusEffectName": "状態変化無効[絶縁]",
+            "matchedText": "敵部隊の連鎖を含む戦法全体から、自部隊が受ける状態変化と攻撃の発生を無効にする"
+          },
+          {
+            "category": "tactics",
+            "name": "驕栄当路",
+            "displayName": "驕栄当路",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-granted-status",
+            "statusEffectName": "状態変化無効[憤怒]",
+            "matchedText": "副将の連鎖確率が10％上昇 さらに通常攻撃時に50％の確率で、自身1部隊に1度の絶縁を10秒付与（1度の通常攻撃につき1回確率判定を行う。複数部隊に同時攻撃しても確率判定は1回） ※絶縁（有利変化）…敵部隊の連鎖を含む戦法全体から、自部隊が受ける状態変化と攻撃の発生を無効にする"
+          },
+          {
+            "category": "tactics",
             "name": "麒麟閃牙",
             "displayName": "麒麟閃牙",
             "source": "related_link_index",
@@ -40230,6 +40518,24 @@
             "sourcePartType": "self-countermeasure-skill",
             "statusEffectName": "恐怖回避[栄華]",
             "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と恐怖を避ける"
+          },
+          {
+            "category": "skills",
+            "name": "栄光",
+            "displayName": "栄光",
+            "source": "related_link_index",
+            "sourcePartType": "self-granted-status-nullify",
+            "statusEffectName": "状態変化無効[憤怒]",
+            "matchedText": "自身1部隊に憤怒を付与（30秒）"
+          },
+          {
+            "category": "skills",
+            "name": "栄光",
+            "displayName": "栄光",
+            "source": "related_link_index",
+            "sourcePartType": "self-granted-status-nullify",
+            "statusEffectName": "状態変化無効[絶縁]",
+            "matchedText": "自身1部隊に憤怒を付与（30秒）"
           },
           {
             "category": "skills",
@@ -45251,16 +45557,16 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 496,
-        "tactics": 142,
-        "skills": 385,
+        "generals": 501,
+        "tactics": 145,
+        "skills": 387,
         "equipments": 182,
         "statusEffects": 0
       },
-      "totalOwnerCount": 1205,
+      "totalOwnerCount": 1215,
       "source": "related_link_index",
-      "ownerRelationCount": 1205,
-      "distinctOwnerCount": 415
+      "ownerRelationCount": 1215,
+      "distinctOwnerCount": 418
     },
     {
       "groupKey": "enemyAbilityDebuff",
@@ -47212,6 +47518,42 @@
             "sourcePartType": "direct-ability-variation-row",
             "statusEffectName": "戦法威力変化(弱化)",
             "matchedText": "戦法威力変化 / 敵 / 中 10秒"
+          },
+          {
+            "category": "generals",
+            "name": "UR袁術（えんじゅつ）",
+            "displayName": "UR袁術（えんじゅつ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(弱化)",
+            "matchedText": "攻撃-6％"
+          },
+          {
+            "category": "generals",
+            "name": "UR袁術（えんじゅつ）",
+            "displayName": "UR袁術（えんじゅつ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(弱化)",
+            "matchedText": "防御-6％"
+          },
+          {
+            "category": "generals",
+            "name": "UR袁術（えんじゅつ）",
+            "displayName": "UR袁術（えんじゅつ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(弱化)",
+            "matchedText": "知力が上昇 尊立を持つ武将UR袁術 栄勢 Ⅰ■常に ●通常攻撃・戦法による被ダメージ₋10%"
+          },
+          {
+            "category": "generals",
+            "name": "UR袁術（えんじゅつ）",
+            "displayName": "UR袁術（えんじゅつ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "異心",
+            "matchedText": "異心"
           },
           {
             "category": "generals",
@@ -50405,6 +50747,15 @@
           },
           {
             "category": "skills",
+            "name": "栄光",
+            "displayName": "栄光",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "異心",
+            "matchedText": "異心"
+          },
+          {
+            "category": "skills",
             "name": "英毅",
             "displayName": "英毅",
             "source": "related_link_index",
@@ -51089,6 +51440,15 @@
           },
           {
             "category": "skills",
+            "name": "尊立",
+            "displayName": "尊立",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(弱化)",
+            "matchedText": "知力が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 尊立を持つ武将 武将特徴 / 所持技能UR袁術天賦1000"
+          },
+          {
+            "category": "skills",
             "name": "太公望",
             "displayName": "太公望",
             "source": "related_link_index",
@@ -51615,16 +51975,16 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 420,
+        "generals": 424,
         "tactics": 145,
-        "skills": 139,
+        "skills": 141,
         "equipments": 0,
         "statusEffects": 0
       },
-      "totalOwnerCount": 704,
+      "totalOwnerCount": 710,
       "source": "related_link_index",
-      "ownerRelationCount": 704,
-      "distinctOwnerCount": 415
+      "ownerRelationCount": 710,
+      "distinctOwnerCount": 418
     },
     {
       "groupKey": "enemyStateDebuff",

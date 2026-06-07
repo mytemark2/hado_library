@@ -1,1 +1,1162 @@
-{"schemaVersion":"1.1","generatedAt":"2026-06-07T00:00:00+09:00","dataSetId":"2026-06-05T12:46:30.581Z","generator":"hado_crawler_extension","sourceFiles":["hadou_generals.json","hadou_tactics.json","hadou_equipments.json","hadou_skills.json","hadou_status_effects.json","hadou_formations.json","hadou_siege_weapons.json","hadou_ethnic_armaments.json","hadou_ethnic_research_skills.json","hadou_five_elements.json","hadou_warhorses.json","hadou_warhorse_skills.json"],"sourceFileMap":{"generals":"hadou_generals.json","tactics":"hadou_tactics.json","equipments":"hadou_equipments.json","skills":"hadou_skills.json","statusEffects":"hadou_status_effects.json","formations":"hadou_formations.json","siegeWeapons":"hadou_siege_weapons.json","ethnicArmaments":"hadou_ethnic_armaments.json","ethnicResearchSkills":"hadou_ethnic_research_skills.json","fiveElements":"hadou_five_elements.json","warhorses":"hadou_warhorses.json","warhorseSkills":"hadou_warhorse_skills.json"},"sourceCounts":{"generals":475,"tactics":454,"equipments":237,"skills":617,"statusEffects":200,"siegeWeapons":6,"ethnicArmaments":18,"ethnicResearchSkills":32,"formations":21,"fiveElements":10,"warhorses":5,"warhorseSkills":27},"sourceHashes":{"generals":"4d9aa25e","tactics":"aaafeed1","equipments":"4e60d216","skills":"53df17fd","statusEffects":"dcfa0de6","formations":"9c5d2dae","siegeWeapons":"5742664a","ethnicArmaments":"c731a91c","ethnicResearchSkills":"06d47d06","fiveElements":"17af35e0","warhorses":"c5edd890","warhorseSkills":"fac49238"},"sourceSha256":{"generals":"4d9aa25e","tactics":"aaafeed1","equipments":"4e60d216","skills":"53df17fd","statusEffects":"dcfa0de6","formations":"9c5d2dae","siegeWeapons":"5742664a","ethnicArmaments":"c731a91c","ethnicResearchSkills":"06d47d06","fiveElements":"17af35e0","warhorses":"c5edd890","warhorseSkills":"fac49238"},"crawlerVersion":"1.1.0.0","milestone":"crawler-1.1.0.0 / app-3.0.0.0","updateNo":"04.2","status":"vaccine-type-and-zero-match-exclusion","policy":{"metricsPerType":5,"typeCount":16,"useWeights":false,"showCompletionRate":false,"scoreSkillLevel":false,"includeTroops":true,"outputs":["confirmedScore","conditionalMaxScore"],"percent":"変化率%をそのまま加算","nonPercent":"基準増加量に対する比率×100","presence":"有効100点・無効0点","comparison":"同一型の改善比較に利用。異なる型同士は単純比較しない。","crossTypeUi":"異なる型同士は順位付けせず、主将の特徴との参考一致数だけを表示する。"},"types":[{"typeId":"calm","typeName":"鎮静型","description":"弱化無効・解除・回避を重ね、敵の妨害を受けにくくする。","metrics":[{"metricKey":"weakening_nullify","label":"弱化無効","method":"presence_fixed","basis":100},{"metricKey":"weakening_remove","label":"弱化解除","method":"presence_fixed","basis":100},{"metricKey":"strengthening_remove_avoid","label":"強化解除回避","method":"presence_fixed","basis":100},{"metricKey":"strengthening_seize_avoid","label":"強化奪取回避","method":"presence_fixed","basis":100},{"metricKey":"troops","label":"兵力","method":"percent_sum"}]},{"typeId":"zombie","typeName":"ゾンビ型","description":"壊滅回避、残存兵力、回復、被ダメージ軽減で長時間耐える。","metrics":[{"metricKey":"troops","label":"兵力","method":"percent_sum"},{"metricKey":"annihilation_avoidance","label":"壊滅回避","method":"presence_fixed","basis":100},{"metricKey":"remaining_troops","label":"残存兵力","method":"percent_sum_or_presence","basis":100},{"metricKey":"wounded_recovery","label":"負傷兵回復","method":"percent_sum_or_presence","basis":100},{"metricKey":"damage_reduction","label":"被ダメージ軽減","method":"percent_sum_or_presence","basis":100}]},{"typeId":"bomb","typeName":"爆弾型","description":"対物特効と撃心戦法を重ね、城壁へ一撃の大ダメージを与える。","metrics":[{"metricKey":"critical_tactic_rate","label":"撃心発生","method":"percent_sum"},{"metricKey":"critical_tactic_power","label":"撃心威力","method":"percent_sum"},{"metricKey":"tactic_power","label":"戦法威力","method":"percent_sum"},{"metricKey":"anti_object","label":"対物特効","method":"percent_sum"},{"metricKey":"tactic_speed","label":"戦法速度","method":"percent_sum"}]},{"typeId":"critical_tactic","typeName":"撃心型","description":"撃心発生・撃心威力・戦法威力を高め、戦法攻撃の上振れを狙う。","metrics":[{"metricKey":"critical_tactic_rate","label":"撃心発生","method":"percent_sum"},{"metricKey":"critical_tactic_power","label":"撃心威力","method":"percent_sum"},{"metricKey":"tactic_power","label":"戦法威力","method":"percent_sum"},{"metricKey":"tactic_speed","label":"戦法速度","method":"percent_sum"},{"metricKey":"troops","label":"兵力","method":"percent_sum"}]},{"typeId":"critical_normal","typeName":"会心型","description":"会心中心の通常攻撃で敵部隊へ高い継続火力を出す。","metrics":[{"metricKey":"critical_rate","label":"会心発生","method":"percent_sum"},{"metricKey":"critical_power","label":"会心威力","method":"percent_sum"},{"metricKey":"normal_attack_power","label":"通常攻撃威力","method":"percent_sum"},{"metricKey":"attack_speed","label":"攻撃速度","method":"percent_sum"},{"metricKey":"normal_attack_target_count","label":"通常攻撃対象数","method":"baseline_ratio","basis":{"baselineIncrement":1,"baselinePoints":100}}]},{"typeId":"tactic_speed","typeName":"戦法速度型","description":"出陣時ゲージ、戦法短縮、戦法速度により初回・継続戦法を早める。","metrics":[{"metricKey":"tactic_speed","label":"戦法速度","method":"percent_sum"},{"metricKey":"tactic_reduction","label":"戦法短縮","method":"percent_sum_or_presence","basis":100},{"metricKey":"initial_tactic_gauge","label":"出陣時戦法ゲージ","method":"percent_sum_or_presence","basis":100},{"metricKey":"chain_rate","label":"連鎖率","method":"percent_sum"},{"metricKey":"troops","label":"兵力","method":"percent_sum"}]},{"typeId":"attack_speed","typeName":"攻撃速度型","description":"攻撃速度を中心に通常攻撃回数を増やす。","metrics":[{"metricKey":"attack_speed","label":"攻撃速度","method":"percent_sum"},{"metricKey":"normal_attack_target_count","label":"通常攻撃対象数","method":"baseline_ratio","basis":{"baselineIncrement":1,"baselinePoints":100}},{"metricKey":"normal_attack_power","label":"通常攻撃威力","method":"percent_sum"},{"metricKey":"critical_rate","label":"会心発生","method":"percent_sum"},{"metricKey":"range","label":"射程","method":"baseline_ratio","basis":{"baselineIncrement":0.5,"baselinePoints":100}}]},{"typeId":"normal_attack","typeName":"通常攻撃拡張型","description":"通常攻撃対象数と射程を伸ばし、多数の敵部隊へ攻撃する。","metrics":[{"metricKey":"normal_attack_target_count","label":"通常攻撃対象数","method":"baseline_ratio","basis":{"baselineIncrement":1,"baselinePoints":100}},{"metricKey":"normal_attack_power","label":"通常攻撃威力","method":"percent_sum"},{"metricKey":"attack_speed","label":"攻撃速度","method":"percent_sum"},{"metricKey":"range","label":"射程","method":"baseline_ratio","basis":{"baselineIncrement":0.5,"baselinePoints":100}},{"metricKey":"troops","label":"兵力","method":"percent_sum"}]},{"typeId":"debuff","typeName":"デバフ型（基礎）","description":"状態変化発生率、戦法遅延、連鎖無効、敵攻撃・防御低下を確認する基礎型。","metrics":[{"metricKey":"status_effect_rate","label":"状態変化発生率","method":"percent_sum"},{"metricKey":"tactic_delay","label":"戦法遅延","method":"percent_sum_or_presence","basis":100},{"metricKey":"chain_nullify","label":"連鎖無効","method":"presence_fixed","basis":100},{"metricKey":"enemy_attack_debuff","label":"敵部隊攻撃低下","method":"percent_sum"},{"metricKey":"enemy_defense_debuff","label":"敵部隊防御低下","method":"percent_sum"}]},{"typeId":"anti_object","typeName":"対物型","description":"対物特効を中心に、城壁・要所へのダメージを伸ばす。","metrics":[{"metricKey":"anti_object","label":"対物特効","method":"percent_sum"},{"metricKey":"tactic_power","label":"戦法威力","method":"percent_sum"},{"metricKey":"normal_attack_power","label":"通常攻撃威力","method":"percent_sum"},{"metricKey":"attack_speed","label":"攻撃速度","method":"percent_sum"},{"metricKey":"troops","label":"兵力","method":"percent_sum"}]},{"typeId":"annihilation","typeName":"汎用火力型","description":"戦法・撃心・会心・攻撃速度を横断して確認する参考型。目的選択では主軸に使わない。","metrics":[{"metricKey":"tactic_power","label":"戦法威力","method":"percent_sum"},{"metricKey":"critical_tactic_power","label":"撃心威力","method":"percent_sum"},{"metricKey":"critical_power","label":"会心威力","method":"percent_sum"},{"metricKey":"attack_speed","label":"攻撃速度","method":"percent_sum"},{"metricKey":"troops","label":"兵力","method":"percent_sum"}]},{"typeId":"buff_support","typeName":"バフ支援型","description":"味方へ早く、多く、長くバフを配る。","metrics":[{"metricKey":"ally_buff_multi","label":"味方バフ配布","method":"presence_fixed","basis":100},{"metricKey":"ally_target_count","label":"味方対象部隊数","method":"percent_sum_or_presence","basis":100},{"metricKey":"effect_duration","label":"効果時間","method":"percent_sum_or_presence","basis":100},{"metricKey":"initial_tactic_gauge","label":"出陣時戦法ゲージ","method":"percent_sum_or_presence","basis":100},{"metricKey":"tactic_speed","label":"戦法速度","method":"percent_sum"}]},{"typeId":"debuff_interference","typeName":"デバフ妨害型","description":"敵へ早く、多く、長くデバフを配る。","metrics":[{"metricKey":"enemy_debuff_multi","label":"敵デバフ配布","method":"presence_fixed","basis":100},{"metricKey":"enemy_target_count","label":"敵対象部隊数","method":"percent_sum_or_presence","basis":100},{"metricKey":"effect_duration","label":"効果時間","method":"percent_sum_or_presence","basis":100},{"metricKey":"status_effect_rate","label":"状態変化発生率","method":"percent_sum"},{"metricKey":"tactic_speed","label":"戦法速度","method":"percent_sum"}]},{"typeId":"wall_defense","typeName":"城壁防衛型","description":"敵対物低下、多対象攻撃、回復、被ダメージ軽減で城壁前を守る。","metrics":[{"metricKey":"enemy_anti_object_debuff","label":"敵部隊対物特効低下","method":"percent_sum_or_presence","basis":100},{"metricKey":"normal_attack_target_count","label":"通常攻撃対象数","method":"baseline_ratio","basis":{"baselineIncrement":1,"baselinePoints":100}},{"metricKey":"attack_speed","label":"攻撃速度","method":"percent_sum"},{"metricKey":"wounded_recovery","label":"負傷兵回復","method":"percent_sum_or_presence","basis":100},{"metricKey":"damage_reduction","label":"被ダメージ軽減","method":"percent_sum_or_presence","basis":100}]},{"typeId":"garrison_support","typeName":"駐屯支援型","description":"敵対物低下、味方回復、防御強化、交戦開始時ゲージ、戦法速度で駐屯を支える。","metrics":[{"metricKey":"enemy_anti_object_debuff","label":"敵部隊対物特効低下","method":"percent_sum_or_presence","basis":100},{"metricKey":"ally_wounded_recovery","label":"味方負傷兵回復","method":"percent_sum_or_presence","basis":100},{"metricKey":"ally_defense_buff","label":"味方防御上昇","method":"percent_sum_or_presence","basis":100},{"metricKey":"combat_start_tactic_gauge","label":"交戦開始時戦法ゲージ","method":"percent_sum_or_presence","basis":100},{"metricKey":"tactic_speed","label":"戦法速度","method":"percent_sum"}]},{"typeId":"vaccine","typeName":"ワクチン型","description":"自部隊の不利対策と、味方への非ダメージ支援を持つ候補を確認する。","metrics":[{"metricKey":"self_disadvantage_countermeasure","label":"自部隊不利対策","method":"presence_fixed","basis":100},{"metricKey":"ally_non_damage_effect","label":"味方非ダメージ効果","method":"presence_fixed","basis":100},{"metricKey":"weakening_nullify","label":"弱化無効","method":"presence_fixed","basis":100},{"metricKey":"weakening_remove","label":"弱化解除","method":"presence_fixed","basis":100},{"metricKey":"ally_wounded_recovery","label":"味方負傷兵回復","method":"percent_sum_or_presence","basis":100}]}],"kind":"type_score_rules","items":[{"typeId":"calm","typeName":"鎮静型","description":"弱化無効・解除・回避を重ね、敵の妨害を受けにくくする。","metrics":[{"metricKey":"weakening_nullify","label":"弱化無効","method":"presence_fixed","basis":100},{"metricKey":"weakening_remove","label":"弱化解除","method":"presence_fixed","basis":100},{"metricKey":"strengthening_remove_avoid","label":"強化解除回避","method":"presence_fixed","basis":100},{"metricKey":"strengthening_seize_avoid","label":"強化奪取回避","method":"presence_fixed","basis":100},{"metricKey":"troops","label":"兵力","method":"percent_sum"}]},{"typeId":"zombie","typeName":"ゾンビ型","description":"壊滅回避、残存兵力、回復、被ダメージ軽減で長時間耐える。","metrics":[{"metricKey":"troops","label":"兵力","method":"percent_sum"},{"metricKey":"annihilation_avoidance","label":"壊滅回避","method":"presence_fixed","basis":100},{"metricKey":"remaining_troops","label":"残存兵力","method":"percent_sum_or_presence","basis":100},{"metricKey":"wounded_recovery","label":"負傷兵回復","method":"percent_sum_or_presence","basis":100},{"metricKey":"damage_reduction","label":"被ダメージ軽減","method":"percent_sum_or_presence","basis":100}]},{"typeId":"bomb","typeName":"爆弾型","description":"対物特効と撃心戦法を重ね、城壁へ一撃の大ダメージを与える。","metrics":[{"metricKey":"critical_tactic_rate","label":"撃心発生","method":"percent_sum"},{"metricKey":"critical_tactic_power","label":"撃心威力","method":"percent_sum"},{"metricKey":"tactic_power","label":"戦法威力","method":"percent_sum"},{"metricKey":"anti_object","label":"対物特効","method":"percent_sum"},{"metricKey":"tactic_speed","label":"戦法速度","method":"percent_sum"}]},{"typeId":"critical_tactic","typeName":"撃心型","description":"撃心発生・撃心威力・戦法威力を高め、戦法攻撃の上振れを狙う。","metrics":[{"metricKey":"critical_tactic_rate","label":"撃心発生","method":"percent_sum"},{"metricKey":"critical_tactic_power","label":"撃心威力","method":"percent_sum"},{"metricKey":"tactic_power","label":"戦法威力","method":"percent_sum"},{"metricKey":"tactic_speed","label":"戦法速度","method":"percent_sum"},{"metricKey":"troops","label":"兵力","method":"percent_sum"}]},{"typeId":"critical_normal","typeName":"会心型","description":"会心中心の通常攻撃で敵部隊へ高い継続火力を出す。","metrics":[{"metricKey":"critical_rate","label":"会心発生","method":"percent_sum"},{"metricKey":"critical_power","label":"会心威力","method":"percent_sum"},{"metricKey":"normal_attack_power","label":"通常攻撃威力","method":"percent_sum"},{"metricKey":"attack_speed","label":"攻撃速度","method":"percent_sum"},{"metricKey":"normal_attack_target_count","label":"通常攻撃対象数","method":"baseline_ratio","basis":{"baselineIncrement":1,"baselinePoints":100}}]},{"typeId":"tactic_speed","typeName":"戦法速度型","description":"出陣時ゲージ、戦法短縮、戦法速度により初回・継続戦法を早める。","metrics":[{"metricKey":"tactic_speed","label":"戦法速度","method":"percent_sum"},{"metricKey":"tactic_reduction","label":"戦法短縮","method":"percent_sum_or_presence","basis":100},{"metricKey":"initial_tactic_gauge","label":"出陣時戦法ゲージ","method":"percent_sum_or_presence","basis":100},{"metricKey":"chain_rate","label":"連鎖率","method":"percent_sum"},{"metricKey":"troops","label":"兵力","method":"percent_sum"}]},{"typeId":"attack_speed","typeName":"攻撃速度型","description":"攻撃速度を中心に通常攻撃回数を増やす。","metrics":[{"metricKey":"attack_speed","label":"攻撃速度","method":"percent_sum"},{"metricKey":"normal_attack_target_count","label":"通常攻撃対象数","method":"baseline_ratio","basis":{"baselineIncrement":1,"baselinePoints":100}},{"metricKey":"normal_attack_power","label":"通常攻撃威力","method":"percent_sum"},{"metricKey":"critical_rate","label":"会心発生","method":"percent_sum"},{"metricKey":"range","label":"射程","method":"baseline_ratio","basis":{"baselineIncrement":0.5,"baselinePoints":100}}]},{"typeId":"normal_attack","typeName":"通常攻撃拡張型","description":"通常攻撃対象数と射程を伸ばし、多数の敵部隊へ攻撃する。","metrics":[{"metricKey":"normal_attack_target_count","label":"通常攻撃対象数","method":"baseline_ratio","basis":{"baselineIncrement":1,"baselinePoints":100}},{"metricKey":"normal_attack_power","label":"通常攻撃威力","method":"percent_sum"},{"metricKey":"attack_speed","label":"攻撃速度","method":"percent_sum"},{"metricKey":"range","label":"射程","method":"baseline_ratio","basis":{"baselineIncrement":0.5,"baselinePoints":100}},{"metricKey":"troops","label":"兵力","method":"percent_sum"}]},{"typeId":"debuff","typeName":"デバフ型（基礎）","description":"状態変化発生率、戦法遅延、連鎖無効、敵攻撃・防御低下を確認する基礎型。","metrics":[{"metricKey":"status_effect_rate","label":"状態変化発生率","method":"percent_sum"},{"metricKey":"tactic_delay","label":"戦法遅延","method":"percent_sum_or_presence","basis":100},{"metricKey":"chain_nullify","label":"連鎖無効","method":"presence_fixed","basis":100},{"metricKey":"enemy_attack_debuff","label":"敵部隊攻撃低下","method":"percent_sum"},{"metricKey":"enemy_defense_debuff","label":"敵部隊防御低下","method":"percent_sum"}]},{"typeId":"anti_object","typeName":"対物型","description":"対物特効を中心に、城壁・要所へのダメージを伸ばす。","metrics":[{"metricKey":"anti_object","label":"対物特効","method":"percent_sum"},{"metricKey":"tactic_power","label":"戦法威力","method":"percent_sum"},{"metricKey":"normal_attack_power","label":"通常攻撃威力","method":"percent_sum"},{"metricKey":"attack_speed","label":"攻撃速度","method":"percent_sum"},{"metricKey":"troops","label":"兵力","method":"percent_sum"}]},{"typeId":"annihilation","typeName":"汎用火力型","description":"戦法・撃心・会心・攻撃速度を横断して確認する参考型。目的選択では主軸に使わない。","metrics":[{"metricKey":"tactic_power","label":"戦法威力","method":"percent_sum"},{"metricKey":"critical_tactic_power","label":"撃心威力","method":"percent_sum"},{"metricKey":"critical_power","label":"会心威力","method":"percent_sum"},{"metricKey":"attack_speed","label":"攻撃速度","method":"percent_sum"},{"metricKey":"troops","label":"兵力","method":"percent_sum"}]},{"typeId":"buff_support","typeName":"バフ支援型","description":"味方へ早く、多く、長くバフを配る。","metrics":[{"metricKey":"ally_buff_multi","label":"味方バフ配布","method":"presence_fixed","basis":100},{"metricKey":"ally_target_count","label":"味方対象部隊数","method":"percent_sum_or_presence","basis":100},{"metricKey":"effect_duration","label":"効果時間","method":"percent_sum_or_presence","basis":100},{"metricKey":"initial_tactic_gauge","label":"出陣時戦法ゲージ","method":"percent_sum_or_presence","basis":100},{"metricKey":"tactic_speed","label":"戦法速度","method":"percent_sum"}]},{"typeId":"debuff_interference","typeName":"デバフ妨害型","description":"敵へ早く、多く、長くデバフを配る。","metrics":[{"metricKey":"enemy_debuff_multi","label":"敵デバフ配布","method":"presence_fixed","basis":100},{"metricKey":"enemy_target_count","label":"敵対象部隊数","method":"percent_sum_or_presence","basis":100},{"metricKey":"effect_duration","label":"効果時間","method":"percent_sum_or_presence","basis":100},{"metricKey":"status_effect_rate","label":"状態変化発生率","method":"percent_sum"},{"metricKey":"tactic_speed","label":"戦法速度","method":"percent_sum"}]},{"typeId":"wall_defense","typeName":"城壁防衛型","description":"敵対物低下、多対象攻撃、回復、被ダメージ軽減で城壁前を守る。","metrics":[{"metricKey":"enemy_anti_object_debuff","label":"敵部隊対物特効低下","method":"percent_sum_or_presence","basis":100},{"metricKey":"normal_attack_target_count","label":"通常攻撃対象数","method":"baseline_ratio","basis":{"baselineIncrement":1,"baselinePoints":100}},{"metricKey":"attack_speed","label":"攻撃速度","method":"percent_sum"},{"metricKey":"wounded_recovery","label":"負傷兵回復","method":"percent_sum_or_presence","basis":100},{"metricKey":"damage_reduction","label":"被ダメージ軽減","method":"percent_sum_or_presence","basis":100}]},{"typeId":"garrison_support","typeName":"駐屯支援型","description":"敵対物低下、味方回復、防御強化、交戦開始時ゲージ、戦法速度で駐屯を支える。","metrics":[{"metricKey":"enemy_anti_object_debuff","label":"敵部隊対物特効低下","method":"percent_sum_or_presence","basis":100},{"metricKey":"ally_wounded_recovery","label":"味方負傷兵回復","method":"percent_sum_or_presence","basis":100},{"metricKey":"ally_defense_buff","label":"味方防御上昇","method":"percent_sum_or_presence","basis":100},{"metricKey":"combat_start_tactic_gauge","label":"交戦開始時戦法ゲージ","method":"percent_sum_or_presence","basis":100},{"metricKey":"tactic_speed","label":"戦法速度","method":"percent_sum"}]},{"typeId":"vaccine","typeName":"ワクチン型","description":"自部隊の不利対策と、味方への非ダメージ支援を持つ候補を確認する。","metrics":[{"metricKey":"self_disadvantage_countermeasure","label":"自部隊不利対策","method":"presence_fixed","basis":100},{"metricKey":"ally_non_damage_effect","label":"味方非ダメージ効果","method":"presence_fixed","basis":100},{"metricKey":"weakening_nullify","label":"弱化無効","method":"presence_fixed","basis":100},{"metricKey":"weakening_remove","label":"弱化解除","method":"presence_fixed","basis":100},{"metricKey":"ally_wounded_recovery","label":"味方負傷兵回復","method":"percent_sum_or_presence","basis":100}]}]}
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-06-07T04:23:26.754Z",
+  "dataSetId": "2026-06-06T09:16:01.293Z",
+  "generator": "hado_crawler_extension",
+  "sourceFiles": [
+    "hadou_generals.json",
+    "hadou_tactics.json",
+    "hadou_equipments.json",
+    "hadou_skills.json",
+    "hadou_status_effects.json",
+    "hadou_formations.json",
+    "hadou_siege_weapons.json",
+    "hadou_ethnic_armaments.json",
+    "hadou_ethnic_research_skills.json",
+    "hadou_five_elements.json",
+    "hadou_warhorses.json",
+    "hadou_warhorse_skills.json"
+  ],
+  "sourceFileMap": {
+    "generals": "hadou_generals.json",
+    "tactics": "hadou_tactics.json",
+    "equipments": "hadou_equipments.json",
+    "skills": "hadou_skills.json",
+    "statusEffects": "hadou_status_effects.json",
+    "formations": "hadou_formations.json",
+    "siegeWeapons": "hadou_siege_weapons.json",
+    "ethnicArmaments": "hadou_ethnic_armaments.json",
+    "ethnicResearchSkills": "hadou_ethnic_research_skills.json",
+    "fiveElements": "hadou_five_elements.json",
+    "warhorses": "hadou_warhorses.json",
+    "warhorseSkills": "hadou_warhorse_skills.json"
+  },
+  "sourceCounts": {
+    "generals": 476,
+    "tactics": 455,
+    "equipments": 237,
+    "skills": 620,
+    "statusEffects": 200,
+    "siegeWeapons": 6,
+    "ethnicArmaments": 18,
+    "ethnicResearchSkills": 32,
+    "formations": 21,
+    "fiveElements": 10,
+    "warhorses": 5,
+    "warhorseSkills": 27
+  },
+  "sourceHashes": {
+    "generals": "4c9aa0cb",
+    "tactics": "a9afed3e",
+    "equipments": "4e60d216",
+    "skills": "bee67c33",
+    "statusEffects": "dcfa0de6",
+    "formations": "9c5d2dae",
+    "siegeWeapons": "5742664a",
+    "ethnicArmaments": "c731a91c",
+    "ethnicResearchSkills": "06d47d06",
+    "fiveElements": "17af35e0",
+    "warhorses": "c5edd890",
+    "warhorseSkills": "fac49238"
+  },
+  "sourceSha256": {
+    "generals": "4c9aa0cb",
+    "tactics": "a9afed3e",
+    "equipments": "4e60d216",
+    "skills": "bee67c33",
+    "statusEffects": "dcfa0de6",
+    "formations": "9c5d2dae",
+    "siegeWeapons": "5742664a",
+    "ethnicArmaments": "c731a91c",
+    "ethnicResearchSkills": "06d47d06",
+    "fiveElements": "17af35e0",
+    "warhorses": "c5edd890",
+    "warhorseSkills": "fac49238"
+  },
+  "crawlerVersion": "1.1.0.0",
+  "milestone": "crawler-1.1.0.0 / app-3.0.0.0",
+  "updateNo": "02.3",
+  "status": "purpose-role-model-v2",
+  "policy": {
+    "metricsPerType": 5,
+    "typeCount": 15,
+    "useWeights": false,
+    "showCompletionRate": false,
+    "scoreSkillLevel": false,
+    "includeTroops": true,
+    "outputs": [
+      "confirmedScore",
+      "conditionalMaxScore"
+    ],
+    "percent": "変化率%をそのまま加算",
+    "nonPercent": "基準増加量に対する比率×100",
+    "presence": "有効100点・無効0点",
+    "comparison": "同一型の改善比較に利用。異なる型同士は単純比較しない。",
+    "crossTypeUi": "異なる型同士は順位付けせず、主将の特徴との参考一致数だけを表示する。"
+  },
+  "types": [
+    {
+      "typeId": "calm",
+      "typeName": "鎮静型",
+      "description": "弱化無効・解除・回避を重ね、敵の妨害を受けにくくする。",
+      "metrics": [
+        {
+          "metricKey": "weakening_nullify",
+          "label": "弱化無効",
+          "method": "presence_fixed",
+          "basis": 100
+        },
+        {
+          "metricKey": "weakening_remove",
+          "label": "弱化解除",
+          "method": "presence_fixed",
+          "basis": 100
+        },
+        {
+          "metricKey": "strengthening_remove_avoid",
+          "label": "強化解除回避",
+          "method": "presence_fixed",
+          "basis": 100
+        },
+        {
+          "metricKey": "strengthening_seize_avoid",
+          "label": "強化奪取回避",
+          "method": "presence_fixed",
+          "basis": 100
+        },
+        {
+          "metricKey": "troops",
+          "label": "兵力",
+          "method": "percent_sum"
+        }
+      ]
+    },
+    {
+      "typeId": "zombie",
+      "typeName": "ゾンビ型",
+      "description": "壊滅回避、残存兵力、回復、被ダメージ軽減で長時間耐える。",
+      "metrics": [
+        {
+          "metricKey": "troops",
+          "label": "兵力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "annihilation_avoidance",
+          "label": "壊滅回避",
+          "method": "presence_fixed",
+          "basis": 100
+        },
+        {
+          "metricKey": "remaining_troops",
+          "label": "残存兵力",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "wounded_recovery",
+          "label": "負傷兵回復",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "damage_reduction",
+          "label": "被ダメージ軽減",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        }
+      ]
+    },
+    {
+      "typeId": "bomb",
+      "typeName": "爆弾型",
+      "description": "対物特効と撃心戦法を重ね、城壁へ一撃の大ダメージを与える。",
+      "metrics": [
+        {
+          "metricKey": "critical_tactic_rate",
+          "label": "撃心発生",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "critical_tactic_power",
+          "label": "撃心威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "tactic_power",
+          "label": "戦法威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "anti_object",
+          "label": "対物特効",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "tactic_speed",
+          "label": "戦法速度",
+          "method": "percent_sum"
+        }
+      ]
+    },
+    {
+      "typeId": "critical_tactic",
+      "typeName": "撃心型",
+      "description": "撃心発生・撃心威力・戦法威力を高め、戦法攻撃の上振れを狙う。",
+      "metrics": [
+        {
+          "metricKey": "critical_tactic_rate",
+          "label": "撃心発生",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "critical_tactic_power",
+          "label": "撃心威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "tactic_power",
+          "label": "戦法威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "tactic_speed",
+          "label": "戦法速度",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "troops",
+          "label": "兵力",
+          "method": "percent_sum"
+        }
+      ]
+    },
+    {
+      "typeId": "critical_normal",
+      "typeName": "会心型",
+      "description": "会心中心の通常攻撃で敵部隊へ高い継続火力を出す。",
+      "metrics": [
+        {
+          "metricKey": "critical_rate",
+          "label": "会心発生",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "critical_power",
+          "label": "会心威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "normal_attack_power",
+          "label": "通常攻撃威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "attack_speed",
+          "label": "攻撃速度",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "normal_attack_target_count",
+          "label": "通常攻撃対象数",
+          "method": "baseline_ratio",
+          "basis": {
+            "baselineIncrement": 1,
+            "baselinePoints": 100
+          }
+        }
+      ]
+    },
+    {
+      "typeId": "tactic_speed",
+      "typeName": "戦法速度型",
+      "description": "出陣時ゲージ、戦法短縮、戦法速度により初回・継続戦法を早める。",
+      "metrics": [
+        {
+          "metricKey": "tactic_speed",
+          "label": "戦法速度",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "tactic_reduction",
+          "label": "戦法短縮",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "initial_tactic_gauge",
+          "label": "出陣時戦法ゲージ",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "chain_rate",
+          "label": "連鎖率",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "troops",
+          "label": "兵力",
+          "method": "percent_sum"
+        }
+      ]
+    },
+    {
+      "typeId": "attack_speed",
+      "typeName": "攻撃速度型",
+      "description": "攻撃速度を中心に通常攻撃回数を増やす。",
+      "metrics": [
+        {
+          "metricKey": "attack_speed",
+          "label": "攻撃速度",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "normal_attack_target_count",
+          "label": "通常攻撃対象数",
+          "method": "baseline_ratio",
+          "basis": {
+            "baselineIncrement": 1,
+            "baselinePoints": 100
+          }
+        },
+        {
+          "metricKey": "normal_attack_power",
+          "label": "通常攻撃威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "critical_rate",
+          "label": "会心発生",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "range",
+          "label": "射程",
+          "method": "baseline_ratio",
+          "basis": {
+            "baselineIncrement": 0.5,
+            "baselinePoints": 100
+          }
+        }
+      ]
+    },
+    {
+      "typeId": "normal_attack",
+      "typeName": "通常攻撃拡張型",
+      "description": "通常攻撃対象数と射程を伸ばし、多数の敵部隊へ攻撃する。",
+      "metrics": [
+        {
+          "metricKey": "normal_attack_target_count",
+          "label": "通常攻撃対象数",
+          "method": "baseline_ratio",
+          "basis": {
+            "baselineIncrement": 1,
+            "baselinePoints": 100
+          }
+        },
+        {
+          "metricKey": "normal_attack_power",
+          "label": "通常攻撃威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "attack_speed",
+          "label": "攻撃速度",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "range",
+          "label": "射程",
+          "method": "baseline_ratio",
+          "basis": {
+            "baselineIncrement": 0.5,
+            "baselinePoints": 100
+          }
+        },
+        {
+          "metricKey": "troops",
+          "label": "兵力",
+          "method": "percent_sum"
+        }
+      ]
+    },
+    {
+      "typeId": "debuff",
+      "typeName": "デバフ型（基礎）",
+      "description": "状態変化発生率、戦法遅延、連鎖無効、敵攻撃・防御低下を確認する基礎型。",
+      "metrics": [
+        {
+          "metricKey": "status_effect_rate",
+          "label": "状態変化発生率",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "tactic_delay",
+          "label": "戦法遅延",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "chain_nullify",
+          "label": "連鎖無効",
+          "method": "presence_fixed",
+          "basis": 100
+        },
+        {
+          "metricKey": "enemy_attack_debuff",
+          "label": "敵部隊攻撃低下",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "enemy_defense_debuff",
+          "label": "敵部隊防御低下",
+          "method": "percent_sum"
+        }
+      ]
+    },
+    {
+      "typeId": "anti_object",
+      "typeName": "対物型",
+      "description": "対物特効を中心に、城壁・要所へのダメージを伸ばす。",
+      "metrics": [
+        {
+          "metricKey": "anti_object",
+          "label": "対物特効",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "tactic_power",
+          "label": "戦法威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "normal_attack_power",
+          "label": "通常攻撃威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "attack_speed",
+          "label": "攻撃速度",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "troops",
+          "label": "兵力",
+          "method": "percent_sum"
+        }
+      ]
+    },
+    {
+      "typeId": "annihilation",
+      "typeName": "汎用火力型",
+      "description": "戦法・撃心・会心・攻撃速度を横断して確認する参考型。目的選択では主軸に使わない。",
+      "metrics": [
+        {
+          "metricKey": "tactic_power",
+          "label": "戦法威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "critical_tactic_power",
+          "label": "撃心威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "critical_power",
+          "label": "会心威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "attack_speed",
+          "label": "攻撃速度",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "troops",
+          "label": "兵力",
+          "method": "percent_sum"
+        }
+      ]
+    },
+    {
+      "typeId": "buff_support",
+      "typeName": "バフ支援型",
+      "description": "味方へ早く、多く、長くバフを配る。",
+      "metrics": [
+        {
+          "metricKey": "ally_buff_multi",
+          "label": "味方バフ配布",
+          "method": "presence_fixed",
+          "basis": 100
+        },
+        {
+          "metricKey": "ally_target_count",
+          "label": "味方対象部隊数",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "effect_duration",
+          "label": "効果時間",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "initial_tactic_gauge",
+          "label": "出陣時戦法ゲージ",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "tactic_speed",
+          "label": "戦法速度",
+          "method": "percent_sum"
+        }
+      ]
+    },
+    {
+      "typeId": "debuff_interference",
+      "typeName": "デバフ妨害型",
+      "description": "敵へ早く、多く、長くデバフを配る。",
+      "metrics": [
+        {
+          "metricKey": "enemy_debuff_multi",
+          "label": "敵デバフ配布",
+          "method": "presence_fixed",
+          "basis": 100
+        },
+        {
+          "metricKey": "enemy_target_count",
+          "label": "敵対象部隊数",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "effect_duration",
+          "label": "効果時間",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "status_effect_rate",
+          "label": "状態変化発生率",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "tactic_speed",
+          "label": "戦法速度",
+          "method": "percent_sum"
+        }
+      ]
+    },
+    {
+      "typeId": "wall_defense",
+      "typeName": "城壁防衛型",
+      "description": "敵対物低下、多対象攻撃、回復、被ダメージ軽減で城壁前を守る。",
+      "metrics": [
+        {
+          "metricKey": "enemy_anti_object_debuff",
+          "label": "敵部隊対物特効低下",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "normal_attack_target_count",
+          "label": "通常攻撃対象数",
+          "method": "baseline_ratio",
+          "basis": {
+            "baselineIncrement": 1,
+            "baselinePoints": 100
+          }
+        },
+        {
+          "metricKey": "attack_speed",
+          "label": "攻撃速度",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "wounded_recovery",
+          "label": "負傷兵回復",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "damage_reduction",
+          "label": "被ダメージ軽減",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        }
+      ]
+    },
+    {
+      "typeId": "garrison_support",
+      "typeName": "駐屯支援型",
+      "description": "敵対物低下、味方回復、防御強化、交戦開始時ゲージ、戦法速度で駐屯を支える。",
+      "metrics": [
+        {
+          "metricKey": "enemy_anti_object_debuff",
+          "label": "敵部隊対物特効低下",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "ally_wounded_recovery",
+          "label": "味方負傷兵回復",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "ally_defense_buff",
+          "label": "味方防御上昇",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "combat_start_tactic_gauge",
+          "label": "交戦開始時戦法ゲージ",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "tactic_speed",
+          "label": "戦法速度",
+          "method": "percent_sum"
+        }
+      ]
+    }
+  ],
+  "kind": "type_score_rules",
+  "items": [
+    {
+      "typeId": "calm",
+      "typeName": "鎮静型",
+      "description": "弱化無効・解除・回避を重ね、敵の妨害を受けにくくする。",
+      "metrics": [
+        {
+          "metricKey": "weakening_nullify",
+          "label": "弱化無効",
+          "method": "presence_fixed",
+          "basis": 100
+        },
+        {
+          "metricKey": "weakening_remove",
+          "label": "弱化解除",
+          "method": "presence_fixed",
+          "basis": 100
+        },
+        {
+          "metricKey": "strengthening_remove_avoid",
+          "label": "強化解除回避",
+          "method": "presence_fixed",
+          "basis": 100
+        },
+        {
+          "metricKey": "strengthening_seize_avoid",
+          "label": "強化奪取回避",
+          "method": "presence_fixed",
+          "basis": 100
+        },
+        {
+          "metricKey": "troops",
+          "label": "兵力",
+          "method": "percent_sum"
+        }
+      ]
+    },
+    {
+      "typeId": "zombie",
+      "typeName": "ゾンビ型",
+      "description": "壊滅回避、残存兵力、回復、被ダメージ軽減で長時間耐える。",
+      "metrics": [
+        {
+          "metricKey": "troops",
+          "label": "兵力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "annihilation_avoidance",
+          "label": "壊滅回避",
+          "method": "presence_fixed",
+          "basis": 100
+        },
+        {
+          "metricKey": "remaining_troops",
+          "label": "残存兵力",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "wounded_recovery",
+          "label": "負傷兵回復",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "damage_reduction",
+          "label": "被ダメージ軽減",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        }
+      ]
+    },
+    {
+      "typeId": "bomb",
+      "typeName": "爆弾型",
+      "description": "対物特効と撃心戦法を重ね、城壁へ一撃の大ダメージを与える。",
+      "metrics": [
+        {
+          "metricKey": "critical_tactic_rate",
+          "label": "撃心発生",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "critical_tactic_power",
+          "label": "撃心威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "tactic_power",
+          "label": "戦法威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "anti_object",
+          "label": "対物特効",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "tactic_speed",
+          "label": "戦法速度",
+          "method": "percent_sum"
+        }
+      ]
+    },
+    {
+      "typeId": "critical_tactic",
+      "typeName": "撃心型",
+      "description": "撃心発生・撃心威力・戦法威力を高め、戦法攻撃の上振れを狙う。",
+      "metrics": [
+        {
+          "metricKey": "critical_tactic_rate",
+          "label": "撃心発生",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "critical_tactic_power",
+          "label": "撃心威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "tactic_power",
+          "label": "戦法威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "tactic_speed",
+          "label": "戦法速度",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "troops",
+          "label": "兵力",
+          "method": "percent_sum"
+        }
+      ]
+    },
+    {
+      "typeId": "critical_normal",
+      "typeName": "会心型",
+      "description": "会心中心の通常攻撃で敵部隊へ高い継続火力を出す。",
+      "metrics": [
+        {
+          "metricKey": "critical_rate",
+          "label": "会心発生",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "critical_power",
+          "label": "会心威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "normal_attack_power",
+          "label": "通常攻撃威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "attack_speed",
+          "label": "攻撃速度",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "normal_attack_target_count",
+          "label": "通常攻撃対象数",
+          "method": "baseline_ratio",
+          "basis": {
+            "baselineIncrement": 1,
+            "baselinePoints": 100
+          }
+        }
+      ]
+    },
+    {
+      "typeId": "tactic_speed",
+      "typeName": "戦法速度型",
+      "description": "出陣時ゲージ、戦法短縮、戦法速度により初回・継続戦法を早める。",
+      "metrics": [
+        {
+          "metricKey": "tactic_speed",
+          "label": "戦法速度",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "tactic_reduction",
+          "label": "戦法短縮",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "initial_tactic_gauge",
+          "label": "出陣時戦法ゲージ",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "chain_rate",
+          "label": "連鎖率",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "troops",
+          "label": "兵力",
+          "method": "percent_sum"
+        }
+      ]
+    },
+    {
+      "typeId": "attack_speed",
+      "typeName": "攻撃速度型",
+      "description": "攻撃速度を中心に通常攻撃回数を増やす。",
+      "metrics": [
+        {
+          "metricKey": "attack_speed",
+          "label": "攻撃速度",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "normal_attack_target_count",
+          "label": "通常攻撃対象数",
+          "method": "baseline_ratio",
+          "basis": {
+            "baselineIncrement": 1,
+            "baselinePoints": 100
+          }
+        },
+        {
+          "metricKey": "normal_attack_power",
+          "label": "通常攻撃威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "critical_rate",
+          "label": "会心発生",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "range",
+          "label": "射程",
+          "method": "baseline_ratio",
+          "basis": {
+            "baselineIncrement": 0.5,
+            "baselinePoints": 100
+          }
+        }
+      ]
+    },
+    {
+      "typeId": "normal_attack",
+      "typeName": "通常攻撃拡張型",
+      "description": "通常攻撃対象数と射程を伸ばし、多数の敵部隊へ攻撃する。",
+      "metrics": [
+        {
+          "metricKey": "normal_attack_target_count",
+          "label": "通常攻撃対象数",
+          "method": "baseline_ratio",
+          "basis": {
+            "baselineIncrement": 1,
+            "baselinePoints": 100
+          }
+        },
+        {
+          "metricKey": "normal_attack_power",
+          "label": "通常攻撃威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "attack_speed",
+          "label": "攻撃速度",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "range",
+          "label": "射程",
+          "method": "baseline_ratio",
+          "basis": {
+            "baselineIncrement": 0.5,
+            "baselinePoints": 100
+          }
+        },
+        {
+          "metricKey": "troops",
+          "label": "兵力",
+          "method": "percent_sum"
+        }
+      ]
+    },
+    {
+      "typeId": "debuff",
+      "typeName": "デバフ型（基礎）",
+      "description": "状態変化発生率、戦法遅延、連鎖無効、敵攻撃・防御低下を確認する基礎型。",
+      "metrics": [
+        {
+          "metricKey": "status_effect_rate",
+          "label": "状態変化発生率",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "tactic_delay",
+          "label": "戦法遅延",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "chain_nullify",
+          "label": "連鎖無効",
+          "method": "presence_fixed",
+          "basis": 100
+        },
+        {
+          "metricKey": "enemy_attack_debuff",
+          "label": "敵部隊攻撃低下",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "enemy_defense_debuff",
+          "label": "敵部隊防御低下",
+          "method": "percent_sum"
+        }
+      ]
+    },
+    {
+      "typeId": "anti_object",
+      "typeName": "対物型",
+      "description": "対物特効を中心に、城壁・要所へのダメージを伸ばす。",
+      "metrics": [
+        {
+          "metricKey": "anti_object",
+          "label": "対物特効",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "tactic_power",
+          "label": "戦法威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "normal_attack_power",
+          "label": "通常攻撃威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "attack_speed",
+          "label": "攻撃速度",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "troops",
+          "label": "兵力",
+          "method": "percent_sum"
+        }
+      ]
+    },
+    {
+      "typeId": "annihilation",
+      "typeName": "汎用火力型",
+      "description": "戦法・撃心・会心・攻撃速度を横断して確認する参考型。目的選択では主軸に使わない。",
+      "metrics": [
+        {
+          "metricKey": "tactic_power",
+          "label": "戦法威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "critical_tactic_power",
+          "label": "撃心威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "critical_power",
+          "label": "会心威力",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "attack_speed",
+          "label": "攻撃速度",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "troops",
+          "label": "兵力",
+          "method": "percent_sum"
+        }
+      ]
+    },
+    {
+      "typeId": "buff_support",
+      "typeName": "バフ支援型",
+      "description": "味方へ早く、多く、長くバフを配る。",
+      "metrics": [
+        {
+          "metricKey": "ally_buff_multi",
+          "label": "味方バフ配布",
+          "method": "presence_fixed",
+          "basis": 100
+        },
+        {
+          "metricKey": "ally_target_count",
+          "label": "味方対象部隊数",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "effect_duration",
+          "label": "効果時間",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "initial_tactic_gauge",
+          "label": "出陣時戦法ゲージ",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "tactic_speed",
+          "label": "戦法速度",
+          "method": "percent_sum"
+        }
+      ]
+    },
+    {
+      "typeId": "debuff_interference",
+      "typeName": "デバフ妨害型",
+      "description": "敵へ早く、多く、長くデバフを配る。",
+      "metrics": [
+        {
+          "metricKey": "enemy_debuff_multi",
+          "label": "敵デバフ配布",
+          "method": "presence_fixed",
+          "basis": 100
+        },
+        {
+          "metricKey": "enemy_target_count",
+          "label": "敵対象部隊数",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "effect_duration",
+          "label": "効果時間",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "status_effect_rate",
+          "label": "状態変化発生率",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "tactic_speed",
+          "label": "戦法速度",
+          "method": "percent_sum"
+        }
+      ]
+    },
+    {
+      "typeId": "wall_defense",
+      "typeName": "城壁防衛型",
+      "description": "敵対物低下、多対象攻撃、回復、被ダメージ軽減で城壁前を守る。",
+      "metrics": [
+        {
+          "metricKey": "enemy_anti_object_debuff",
+          "label": "敵部隊対物特効低下",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "normal_attack_target_count",
+          "label": "通常攻撃対象数",
+          "method": "baseline_ratio",
+          "basis": {
+            "baselineIncrement": 1,
+            "baselinePoints": 100
+          }
+        },
+        {
+          "metricKey": "attack_speed",
+          "label": "攻撃速度",
+          "method": "percent_sum"
+        },
+        {
+          "metricKey": "wounded_recovery",
+          "label": "負傷兵回復",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "damage_reduction",
+          "label": "被ダメージ軽減",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        }
+      ]
+    },
+    {
+      "typeId": "garrison_support",
+      "typeName": "駐屯支援型",
+      "description": "敵対物低下、味方回復、防御強化、交戦開始時ゲージ、戦法速度で駐屯を支える。",
+      "metrics": [
+        {
+          "metricKey": "enemy_anti_object_debuff",
+          "label": "敵部隊対物特効低下",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "ally_wounded_recovery",
+          "label": "味方負傷兵回復",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "ally_defense_buff",
+          "label": "味方防御上昇",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "combat_start_tactic_gauge",
+          "label": "交戦開始時戦法ゲージ",
+          "method": "percent_sum_or_presence",
+          "basis": 100
+        },
+        {
+          "metricKey": "tactic_speed",
+          "label": "戦法速度",
+          "method": "percent_sum"
+        }
+      ]
+    }
+  ]
+}

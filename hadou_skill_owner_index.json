@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-06-06T09:16:01.325Z",
-  "dataSetId": "2026-06-05T12:46:30.581Z",
+  "generatedAt": "2026-06-07T04:23:26.754Z",
+  "dataSetId": "2026-06-06T09:16:01.293Z",
   "crawlerVersion": "1.1.0.0",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -33,10 +33,10 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 475,
-    "tactics": 454,
+    "generals": 476,
+    "tactics": 455,
     "equipments": 237,
-    "skills": 617,
+    "skills": 620,
     "statusEffects": 200,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
@@ -47,10 +47,10 @@
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "4d9aa25e",
-    "tactics": "aaafeed1",
+    "generals": "4c9aa0cb",
+    "tactics": "a9afed3e",
     "equipments": "4e60d216",
-    "skills": "53df17fd",
+    "skills": "bee67c33",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
@@ -61,10 +61,10 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "4d9aa25e",
-    "tactics": "aaafeed1",
+    "generals": "4c9aa0cb",
+    "tactics": "a9afed3e",
     "equipments": "4e60d216",
-    "skills": "53df17fd",
+    "skills": "bee67c33",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
@@ -78,10 +78,10 @@
   "qualityAudit": {
     "advisorSkillOwnerAudit": {
       "ok": true,
-      "advisorGeneralCount": 147,
-      "expectedOwnerCount": 264,
-      "actualOwnerCount": 264,
-      "advisorSkillCount": 78,
+      "advisorGeneralCount": 150,
+      "expectedOwnerCount": 270,
+      "actualOwnerCount": 270,
+      "advisorSkillCount": 81,
       "missingAdvisorOwnerKeys": [],
       "unexpectedAdvisorOwnerKeys": [],
       "displaySuffix": "(参)",
@@ -1169,6 +1169,51 @@
         }
       ],
       "ownerCount": 5
+    },
+    {
+      "skillName": "栄光",
+      "owners": [
+        {
+          "name": "UR袁術（えんじゅつ）",
+          "displayName": "UR袁術（えんじゅつ）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "栄勢",
+      "owners": [
+        {
+          "name": "UR袁術（えんじゅつ）",
+          "displayName": "UR袁術（えんじゅつ）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "尊立",
+      "owners": [
+        {
+          "name": "UR袁術（えんじゅつ）",
+          "displayName": "UR袁術（えんじゅつ）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        }
+      ],
+      "ownerCount": 1
     },
     {
       "skillName": "撃荒",
@@ -18300,6 +18345,15 @@
       "skillName": "強奪",
       "owners": [
         {
+          "name": "UR袁術（えんじゅつ）",
+          "displayName": "UR袁術（えんじゅつ）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        },
+        {
           "name": "LR董卓（とうたく）",
           "displayName": "LR董卓（とうたく）",
           "ownerType": "general",
@@ -18390,7 +18444,7 @@
           "usage": "normal"
         }
       ],
-      "ownerCount": 10
+      "ownerCount": 11
     },
     {
       "skillName": "攻城",
@@ -21493,6 +21547,16 @@
           "skillDisplayName": "助言(参)"
         },
         {
+          "name": "覚醒呉国太（ごこくたい）",
+          "displayName": "覚醒呉国太（ごこくたい）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "助言(参)"
+        },
+        {
           "name": "張春華（ちょうしゅんか）",
           "displayName": "張春華（ちょうしゅんか）",
           "ownerType": "general",
@@ -21793,7 +21857,7 @@
           "skillDisplayName": "助言(参)"
         }
       ],
-      "ownerCount": 38
+      "ownerCount": 39
     },
     {
       "skillName": "不屈",
@@ -21935,6 +21999,16 @@
         {
           "name": "覚醒呉懿（ごい）",
           "displayName": "覚醒呉懿（ごい）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "激励(参)"
+        },
+        {
+          "name": "覚醒諸葛瑾（しょかつきん）",
+          "displayName": "覚醒諸葛瑾（しょかつきん）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-advisor-skill-section",
@@ -22233,7 +22307,7 @@
           "skillDisplayName": "激励(参)"
         }
       ],
-      "ownerCount": 34
+      "ownerCount": 35
     },
     {
       "skillName": "扶帝",
@@ -22277,6 +22351,16 @@
         {
           "name": "覚醒曹植（そうしょく）",
           "displayName": "覚醒曹植（そうしょく）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "先導(参)"
+        },
+        {
+          "name": "覚醒杜預（どよ）",
+          "displayName": "覚醒杜預（どよ）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-advisor-skill-section",
@@ -22585,7 +22669,7 @@
           "skillDisplayName": "先導(参)"
         }
       ],
-      "ownerCount": 33
+      "ownerCount": 34
     },
     {
       "skillName": "督戦",
@@ -23126,6 +23210,22 @@
       "ownerCount": 1
     },
     {
+      "skillName": "輔政",
+      "owners": [
+        {
+          "name": "覚醒諸葛瑾（しょかつきん）",
+          "displayName": "覚醒諸葛瑾（しょかつきん）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "輔政(参)"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
       "skillName": "賢相",
       "owners": [
         {
@@ -23169,6 +23269,22 @@
           "isAdvisorSkill": true,
           "usage": "advisor",
           "skillDisplayName": "添花(参)"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "劈竹",
+      "owners": [
+        {
+          "name": "覚醒杜預（どよ）",
+          "displayName": "覚醒杜預（どよ）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "劈竹(参)"
         }
       ],
       "ownerCount": 1
@@ -23243,6 +23359,22 @@
           "isAdvisorSkill": true,
           "usage": "advisor",
           "skillDisplayName": "清詠(参)"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "賢母",
+      "owners": [
+        {
+          "name": "覚醒呉国太（ごこくたい）",
+          "displayName": "覚醒呉国太（ごこくたい）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "賢母(参)"
         }
       ],
       "ownerCount": 1

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-06-06T09:16:01.325Z",
-  "dataSetId": "2026-06-05T12:46:30.581Z",
+  "generatedAt": "2026-06-07T04:23:26.754Z",
+  "dataSetId": "2026-06-06T09:16:01.293Z",
   "crawlerVersion": "1.1.0.0",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -33,10 +33,10 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 475,
-    "tactics": 454,
+    "generals": 476,
+    "tactics": 455,
     "equipments": 237,
-    "skills": 617,
+    "skills": 620,
     "statusEffects": 200,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
@@ -47,10 +47,10 @@
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "4d9aa25e",
-    "tactics": "aaafeed1",
+    "generals": "4c9aa0cb",
+    "tactics": "a9afed3e",
     "equipments": "4e60d216",
-    "skills": "53df17fd",
+    "skills": "bee67c33",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
@@ -61,10 +61,10 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "4d9aa25e",
-    "tactics": "aaafeed1",
+    "generals": "4c9aa0cb",
+    "tactics": "a9afed3e",
     "equipments": "4e60d216",
-    "skills": "53df17fd",
+    "skills": "bee67c33",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
@@ -77,7 +77,7 @@
   "kind": "type_search_presets",
   "qualityAudit": {
     "ok": true,
-    "presetCount": 11,
+    "presetCount": 15,
     "typeIds": [
       "calm",
       "zombie",
@@ -89,15 +89,19 @@
       "normal_attack",
       "debuff",
       "anti_object",
-      "annihilation"
+      "annihilation",
+      "buff_support",
+      "debuff_interference",
+      "wall_defense",
+      "garrison_support"
     ],
     "importanceCounts": {
-      "core": 10,
-      "recommended": 17,
-      "support": 9
+      "core": 13,
+      "recommended": 23,
+      "support": 11
     },
-    "rawConditionCount": 71,
-    "canonicalConditionCount": 36,
+    "rawConditionCount": 91,
+    "canonicalConditionCount": 47,
     "policy": "1.0.5.19 / 2.9.3.0: 型プリセットは条件別の中核・推奨・補助をJSON正本として保持し、アプリ側は推測せず表示・順位付けへ利用する。"
   },
   "items": [
@@ -914,6 +918,193 @@
       },
       "rawConditionCount": 5,
       "canonicalConditionCount": 5
+    },
+    {
+      "typeId": "buff_support",
+      "typeName": "バフ支援型",
+      "description": "味方へ早く、多く、長くバフを配る型。",
+      "statusGroupKeys": [
+        "selfAbilityBuff",
+        "selfStateBuff"
+      ],
+      "conditions": [
+        {
+          "featureId": "skill_effect:ally_buff_multi",
+          "canonicalFeatureId": "skill_effect:ally_buff_multi",
+          "label": "味方バフ配布",
+          "conditionType": "typeFeature",
+          "importance": "core"
+        },
+        {
+          "featureId": "skill_effect:ally_target_count",
+          "canonicalFeatureId": "skill_effect:ally_target_count",
+          "label": "味方対象部隊数",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "skill_effect:effect_duration",
+          "canonicalFeatureId": "skill_effect:effect_duration",
+          "label": "効果時間",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "skill_effect:initial_tactic_gauge",
+          "canonicalFeatureId": "skill_effect:initial_tactic_gauge",
+          "label": "出陣時戦法ゲージ",
+          "conditionType": "typeFeature",
+          "importance": "support"
+        },
+        {
+          "featureId": "parameter:tactic_speed",
+          "canonicalFeatureId": "parameter:tactic_speed",
+          "label": "戦法速度",
+          "conditionType": "typeFeature",
+          "importance": "support"
+        }
+      ]
+    },
+    {
+      "typeId": "debuff_interference",
+      "typeName": "デバフ妨害型",
+      "description": "敵へ早く、多く、長くデバフを配る型。",
+      "statusGroupKeys": [
+        "enemyAbilityDebuff",
+        "enemyStateDebuff",
+        "enemyResistanceDebuff"
+      ],
+      "conditions": [
+        {
+          "featureId": "skill_effect:enemy_debuff_multi",
+          "canonicalFeatureId": "skill_effect:enemy_debuff_multi",
+          "label": "敵デバフ配布",
+          "conditionType": "typeFeature",
+          "importance": "core"
+        },
+        {
+          "featureId": "skill_effect:enemy_target_count",
+          "canonicalFeatureId": "skill_effect:enemy_target_count",
+          "label": "敵対象部隊数",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "skill_effect:effect_duration",
+          "canonicalFeatureId": "skill_effect:effect_duration",
+          "label": "効果時間",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "skill_effect:status_effect_rate",
+          "canonicalFeatureId": "skill_effect:status_effect_rate",
+          "label": "状態変化発生率",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "parameter:tactic_speed",
+          "canonicalFeatureId": "parameter:tactic_speed",
+          "label": "戦法速度",
+          "conditionType": "typeFeature",
+          "importance": "support"
+        }
+      ]
+    },
+    {
+      "typeId": "wall_defense",
+      "typeName": "城壁防衛型",
+      "description": "敵対物低下、多対象攻撃、回復、被ダメージ軽減で城壁前を守る型。",
+      "statusGroupKeys": [
+        "enemyAbilityDebuff",
+        "selfAbilityBuff",
+        "selfStateBuff"
+      ],
+      "conditions": [
+        {
+          "featureId": "skill_effect:enemy_anti_object_debuff",
+          "canonicalFeatureId": "skill_effect:enemy_anti_object_debuff",
+          "label": "敵部隊対物特効低下",
+          "conditionType": "typeFeature",
+          "importance": "core"
+        },
+        {
+          "featureId": "skill_effect:normal_attack_target_count",
+          "canonicalFeatureId": "skill_effect:normal_attack_target_count",
+          "label": "通常攻撃対象数",
+          "conditionType": "typeFeature",
+          "importance": "core"
+        },
+        {
+          "featureId": "skill_effect:wounded_recovery",
+          "canonicalFeatureId": "skill_effect:wounded_recovery",
+          "label": "負傷兵回復",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "skill_effect:damage_reduction",
+          "canonicalFeatureId": "skill_effect:damage_reduction",
+          "label": "被ダメージ軽減",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "parameter:attack_speed",
+          "canonicalFeatureId": "parameter:attack_speed",
+          "label": "攻撃速度",
+          "conditionType": "typeFeature",
+          "importance": "support"
+        }
+      ]
+    },
+    {
+      "typeId": "garrison_support",
+      "typeName": "駐屯支援型",
+      "description": "敵対物低下、味方回復、防御強化、交戦開始時ゲージ、戦法速度で駐屯を支える型。",
+      "statusGroupKeys": [
+        "enemyAbilityDebuff",
+        "selfAbilityBuff",
+        "selfStateBuff"
+      ],
+      "conditions": [
+        {
+          "featureId": "skill_effect:enemy_anti_object_debuff",
+          "canonicalFeatureId": "skill_effect:enemy_anti_object_debuff",
+          "label": "敵部隊対物特効低下",
+          "conditionType": "typeFeature",
+          "importance": "core"
+        },
+        {
+          "featureId": "skill_effect:ally_wounded_recovery",
+          "canonicalFeatureId": "skill_effect:ally_wounded_recovery",
+          "label": "味方負傷兵回復",
+          "conditionType": "typeFeature",
+          "importance": "core"
+        },
+        {
+          "featureId": "skill_effect:ally_defense_buff",
+          "canonicalFeatureId": "skill_effect:ally_defense_buff",
+          "label": "味方防御上昇",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "skill_effect:combat_start_tactic_gauge",
+          "canonicalFeatureId": "skill_effect:combat_start_tactic_gauge",
+          "label": "交戦開始時戦法ゲージ",
+          "conditionType": "typeFeature",
+          "importance": "recommended"
+        },
+        {
+          "featureId": "parameter:tactic_speed",
+          "canonicalFeatureId": "parameter:tactic_speed",
+          "label": "戦法速度",
+          "conditionType": "typeFeature",
+          "importance": "support"
+        }
+      ]
     }
   ]
 }
