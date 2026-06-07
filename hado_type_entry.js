@@ -108,26 +108,10 @@
     const q = norm(state.query); const generals = state.data.generals;
     return `<div class="hte-card"><div class="hte-title">主将を選択</div><input class="hte-search" id="hadoTypeEntryQuery" placeholder="主将名で絞り込み" value="${esc(state.query)}"><div class="hte-list">${generals.map((g) => `<button class="hte-item ${state.mainGeneral?.id === g.id ? 'active' : ''}" data-main-id="${esc(g.id)}" ${q && !norm(g.displayName || g.name).includes(q) ? 'hidden' : ''}>${esc(g.displayName || g.name)}</button>`).join('')}</div><div class="hte-note">上ほど新しい武将です。IME変換中は候補DOMを作り直さず、変換確定後に表示・非表示だけを切り替えます。</div></div>`;
   }
-  function renderPurposeStep() {
-    return `<div class="hte-card"><div class="hte-title">${state.mainGeneral ? '主将を使う目的を選択' : '目的を選択'}</div><div class="hte-note" style="margin-bottom:8px">目的は実戦用途で分離しています。型の順位ではなく、用途に必要な役割から選択してください。</div><div class="hte-list">${state.data.purposes.map((p) => `<button class="hte-item ${state.purposeId === p.purposeId ? 'active' : ''}" data-purpose-id="${esc(p.purposeId)}"><div class="hte-title">${esc(p.purposeName)}</div><div class="hte-reason">${esc(p.summary || '')}</div><div class="hte-score">主軸型: ${esc((p.primaryTypes || []).map((v) => state.data.scoreRules.find((t) => t.typeId === v.typeId)?.typeName || v.typeId).join('、'))}</div></button>`).join('')}</div></div>`;
-  }
-  function typeCard(row) {
-    const rule=state.data.scoreRules.find((t)=>t.typeId===row.typeId); if(!rule)return '';
-    const r=scoreType(state.mainGeneral,rule);
-    return `<button class="hte-item ${state.typeId===rule.typeId?'active':''}" data-type-id="${esc(rule.typeId)}"><span class="hte-item-role ${row.role==='primary'?'primary':''}">${esc(row.roleLabel||'型')}</span><div class="hte-title">${esc(rule.typeName)}</div>${rule.description?`<div class="hte-reason">${esc(rule.description)}</div>`:''}${row.reason?`<div class="hte-reason"><strong>推奨理由:</strong> ${esc(row.reason)}</div>`:''}<div class="hte-score">主将参考一致数: ${r.matched.length}/${r.total}項目${r.matched.length?` / ${r.matched.map((m)=>esc(m.label)).join('、')}`:''}</div></button>`;
-  }
-  function renderTypeStep() {
-    if(state.mode==='type'){
-      const rows=state.data.scoreRules.map((v)=>({typeId:v.typeId,role:'direct',roleLabel:'型を直接選択',reason:v.description||''}));
-      return `<div class="hte-card"><div class="hte-title">型を直接選択</div><div class="hte-list">${rows.map(typeCard).join('')}</div><div class="hte-note">参考一致数は同一型内の候補比較用です。異なる型同士の順位付けには使いません。</div></div>`;
-    }
-    const rows=purposeRows(purpose()),primary=rows.filter((v)=>v.role==='primary'),secondary=rows.filter((v)=>v.role!=='primary');
-    return `<div class="hte-card"><div class="hte-title">${esc(purpose()?.purposeName||'目的')}に使う型を選択</div><div class="hte-reason">${esc(purpose()?.summary||'')}</div><div class="hte-group-title">主軸型</div><div class="hte-list">${primary.map(typeCard).join('')}</div><div class="hte-group-title">補助型</div><div class="hte-list">${secondary.map(typeCard).join('')}</div><div class="hte-note">参考一致数は同一型内の候補比較用です。異なる型同士の順位付けには使いません。</div></div>`;
-  }
-  function renderConfirmStep() {
-    const row=purposeRows(purpose()).find((v)=>v.typeId===state.typeId)||null;
-    return `<div class="hte-card"><div class="hte-title">選択内容を確認</div><div class="hte-confirm"><div class="hte-confirm-row"><div class="hte-confirm-label">選び方</div><div>${esc(state.mode === 'main' ? '主将から考える' : state.mode === 'purpose' ? '目的から考える' : '型を直接選ぶ')}</div></div><div class="hte-confirm-row"><div class="hte-confirm-label">主将</div><div>${esc(state.mainGeneral?.displayName || state.mainGeneral?.name || '指定なし')}</div></div><div class="hte-confirm-row"><div class="hte-confirm-label">目的</div><div>${esc(purpose()?.purposeName || '指定なし')}</div></div><div class="hte-confirm-row"><div class="hte-confirm-label">型</div><div>${esc(typeRule()?.typeName || '未選択')}</div></div>${row?.reason?`<div class="hte-confirm-row"><div class="hte-confirm-label">選定理由</div><div>${esc(row.reason)}</div></div>`:''}</div><div class="hte-note" style="margin-top:10px">内容を確認し、「選択を保存」を押してください。</div></div>`;
-  }
+  function renderPurposeStep() { return `<div class="hte-card"><div class="hte-title">${state.mainGeneral ? '主将を使う目的を選択' : '目的を選択'}</div><div class="hte-note" style="margin-bottom:8px">目的は実戦用途で分離しています。型の順位ではなく、用途に必要な役割から選択してください。</div><div class="hte-list">${state.data.purposes.map((p) => `<button class="hte-item ${state.purposeId === p.purposeId ? 'active' : ''}" data-purpose-id="${esc(p.purposeId)}"><div class="hte-title">${esc(p.purposeName)}</div><div class="hte-reason">${esc(p.summary || '')}</div></button>`).join('')}</div></div>`; }
+  function typeCard(row) { const rule=state.data.scoreRules.find((t)=>t.typeId===row.typeId); if(!rule)return ''; const r=scoreType(state.mainGeneral,rule); return `<button class="hte-item ${state.typeId===rule.typeId?'active':''}" data-type-id="${esc(rule.typeId)}"><span class="hte-item-role ${row.role==='primary'?'primary':''}">${esc(row.roleLabel||'型')}</span><div class="hte-title">${esc(rule.typeName)}</div>${rule.description?`<div class="hte-reason">${esc(rule.description)}</div>`:''}${row.reason?`<div class="hte-reason"><strong>推奨理由:</strong> ${esc(row.reason)}</div>`:''}<div class="hte-score">主将参考一致数: ${r.matched.length}/${r.total}項目${r.matched.length?` / ${r.matched.map((m)=>esc(m.label)).join('、')}`:''}</div></button>`; }
+  function renderTypeStep() { if(state.mode==='type'){ const rows=state.data.scoreRules.map((v)=>({typeId:v.typeId,role:'direct',roleLabel:'型を直接選択',reason:v.description||''})); return `<div class="hte-card"><div class="hte-title">型を直接選択</div><div class="hte-list">${rows.map(typeCard).join('')}</div><div class="hte-note">参考一致数は同一型内の候補比較用です。異なる型同士の順位付けには使いません。</div></div>`; } const rows=purposeRows(purpose()),primary=rows.filter((v)=>v.role==='primary'),secondary=rows.filter((v)=>v.role!=='primary'); return `<div class="hte-card"><div class="hte-title">${esc(purpose()?.purposeName||'目的')}に使う型を選択</div><div class="hte-reason">${esc(purpose()?.summary||'')}</div><div class="hte-group-title">主軸型</div><div class="hte-list">${primary.map(typeCard).join('')}</div><div class="hte-group-title">補助型</div><div class="hte-list">${secondary.map(typeCard).join('')}</div><div class="hte-note">参考一致数は同一型内の候補比較用です。異なる型同士の順位付けには使いません。</div></div>`; }
+  function renderConfirmStep() { const row=purposeRows(purpose()).find((v)=>v.typeId===state.typeId)||null; return `<div class="hte-card"><div class="hte-title">選択内容を確認</div><div class="hte-confirm"><div class="hte-confirm-row"><div class="hte-confirm-label">選び方</div><div>${esc(state.mode === 'main' ? '主将から考える' : state.mode === 'purpose' ? '目的から考える' : '型を直接選ぶ')}</div></div><div class="hte-confirm-row"><div class="hte-confirm-label">主将</div><div>${esc(state.mainGeneral?.displayName || state.mainGeneral?.name || '指定なし')}</div></div><div class="hte-confirm-row"><div class="hte-confirm-label">目的</div><div>${esc(purpose()?.purposeName || '指定なし')}</div></div><div class="hte-confirm-row"><div class="hte-confirm-label">型</div><div>${esc(typeRule()?.typeName || '未選択')}</div></div>${row?.reason?`<div class="hte-confirm-row"><div class="hte-confirm-label">選定理由</div><div>${esc(row.reason)}</div></div>`:''}</div><div class="hte-note" style="margin-top:10px">内容を確認し、「選択を保存」を押してください。</div></div>`; }
   function renderStepBody() { return currentStep() === 'main' ? renderMainStep() : currentStep() === 'purpose' ? renderPurposeStep() : currentStep() === 'type' ? renderTypeStep() : renderConfirmStep(); }
 
   function render() {
@@ -143,27 +127,17 @@
     modal.querySelectorAll('[data-main-id]').forEach((b) => b.addEventListener('click', () => { state.mainGeneral = state.data.generals.find((g) => g.id === b.dataset.mainId) || null; state.purposeId = ''; state.typeId = ''; render(); }));
     modal.querySelectorAll('[data-purpose-id]').forEach((b) => b.addEventListener('click', () => { state.purposeId = b.dataset.purposeId; state.typeId = ''; render(); }));
     modal.querySelectorAll('[data-type-id]').forEach((b) => b.addEventListener('click', () => { state.typeId = b.dataset.typeId; render(); }));
-    document.getElementById('hadoShowAllPurposes')?.addEventListener('change', (e) => { state.showAllPurposes = e.target.checked; render(); });
     const queryInput = document.getElementById('hadoTypeEntryQuery');
-    if (queryInput) {
-      let composing = false;
-      const applyMainFilter = () => { state.query = queryInput.value; const q = norm(state.query); modal.querySelectorAll('[data-main-id]').forEach((button) => { const general = state.data.generals.find((g) => g.id === button.dataset.mainId); button.hidden = Boolean(q) && !norm(general?.displayName || general?.name).includes(q); }); };
-      queryInput.addEventListener('compositionstart', () => { composing = true; });
-      queryInput.addEventListener('compositionend', () => { composing = false; applyMainFilter(); });
-      queryInput.addEventListener('input', (e) => { state.query = e.target.value; if (!composing && !e.isComposing) applyMainFilter(); });
-    }
+    if (queryInput) { let composing = false; const applyMainFilter = () => { state.query = queryInput.value; const q = norm(state.query); modal.querySelectorAll('[data-main-id]').forEach((button) => { const general = state.data.generals.find((g) => g.id === button.dataset.mainId); button.hidden = Boolean(q) && !norm(general?.displayName || general?.name).includes(q); }); }; queryInput.addEventListener('compositionstart', () => { composing = true; }); queryInput.addEventListener('compositionend', () => { composing = false; applyMainFilter(); }); queryInput.addEventListener('input', (e) => { state.query = e.target.value; if (!composing && !e.isComposing) applyMainFilter(); }); }
   }
 
   function close() { document.getElementById('hadoTypeEntryOverlay')?.remove(); }
   async function open() {
     style();
-    if (!state.data) {
-      const [roleIndex, scoreRules, purposeRules] = await Promise.all([fetchJson(JSON_FILES.roles), fetchJson(JSON_FILES.scoreRules), fetchJson(JSON_FILES.purposeRules)]);
-      state.data = { generals: asItems(roleIndex, ['items']).filter((v) => v.roleId === 'main_general').sort((a, b) => Number(a.sourceIndex || 0) - Number(b.sourceIndex || 0)), scoreRules: asItems(scoreRules, ['items', 'types']), purposes: asItems(purposeRules, ['items', 'purposes']) };
-      loadSaved();
-    }
+    if (!state.data) { const [roleIndex, scoreRules, purposeRules] = await Promise.all([fetchJson(JSON_FILES.roles), fetchJson(JSON_FILES.scoreRules), fetchJson(JSON_FILES.purposeRules)]); state.data = { generals: asItems(roleIndex, ['items']).filter((v) => v.roleId === 'main_general').sort((a, b) => Number(a.sourceIndex || 0) - Number(b.sourceIndex || 0)), scoreRules: asItems(scoreRules, ['items', 'types']), purposes: asItems(purposeRules, ['items', 'purposes']) }; loadSaved(); }
     close(); const overlay = document.createElement('div'); overlay.id = 'hadoTypeEntryOverlay'; overlay.innerHTML = '<section id="hadoTypeEntryModal" role="dialog" aria-modal="true" aria-label="型編成ナビ"></section>'; overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); }); document.body.appendChild(overlay); render();
   }
-  function mount() { if (document.getElementById('hadoTypeEntryOpen')) return; style(); const button = document.createElement('button'); button.id = 'hadoTypeEntryOpen'; button.textContent = '型編成ナビ'; button.addEventListener('click', () => open().catch((e) => alert(`型編成ナビの読込に失敗しました。\n${e.message}`))); document.body.appendChild(button); }
+  function syncVisibility(){const button=document.getElementById('hadoTypeEntryOpen');const visible=typeof window.state==='object'?window.state.mainTab==='formation':document.getElementById('formationScreen')&&!document.getElementById('formationScreen').classList.contains('tab-content-hidden');if(button)button.hidden=!visible;if(!visible)close();}
+  function mount() { if (document.getElementById('hadoTypeEntryOpen')) return; style(); const button = document.createElement('button'); button.id = 'hadoTypeEntryOpen'; button.textContent = '型編成ナビ'; button.addEventListener('click', () => open().catch((e) => alert(`型編成ナビの読込に失敗しました。\n${e.message}`))); document.body.appendChild(button); syncVisibility(); new MutationObserver(syncVisibility).observe(document.documentElement,{attributes:true,subtree:true,attributeFilter:['class']}); setInterval(syncVisibility,400); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount); else mount();
 })();
