@@ -1,6 +1,7 @@
 name: Apply app Update05 candidate tray
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - feature/app-3.0.0.0
