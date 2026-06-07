@@ -21,6 +21,8 @@
 - GitHub反映後の `hado_type_score.js` SHA-256 が受領ファイルと一致: 合格
 - GitHub反映後の `hado_type_candidates.js` SHA-256 が受領ファイルと一致: 合格
 - `index.html` と `hado_library_3.0.0.0.html` のSHA-256一致: 合格
+- 旧 `METRIC_ALIASES`、`metricAliases`、`flatten` の削除: 合格
+- 再利用可能な検証スクリプト `tools/validate_app_js.py` の追加: 完了
 
 ## 未実装
 - 保存データ表示モードの所有情報フィルター

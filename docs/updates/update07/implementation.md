@@ -34,3 +34,12 @@
 - 採点処理は外部JSへ分離した。
 - 読込順は `hado_type_score.js` → `hado_type_entry.js` → `hado_type_candidates.js` とした。
 - 相対パス読込のため、`file://` ローカル版と `https://` プレビュー版の双方で利用できる。
+
+### 共通化後の整理
+- `hado_type_entry.js` に残っていた旧 `METRIC_ALIASES`、`metricAliases`、`flatten` を削除した。
+- 採点別名表の正本は `hado_type_score.js` のみに集約した。
+
+### 再発防止
+- `tools/validate_app_js.py` を新設した。
+- ルート直下と `src/` 配下の全JSへ `node --check` を実行する。
+- ルート直下JSONの構文と、`index.html` / `hado_library_3.0.0.0.html` の同一性も検証する。

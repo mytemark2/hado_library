@@ -10,7 +10,8 @@
     "docs/updates/update07/roadmap.md",
     "docs/updates/update07/implementation.md",
     "docs/updates/update07/report.md",
-    "report/HADO_APP_3.0.0.0_UPDATE07_REPORT.json"
+    "report/HADO_APP_3.0.0.0_UPDATE07_REPORT.json",
+    "tools/validate_app_js.py"
   ],
   "filesChanged": [
     "index.html",
@@ -40,7 +41,9 @@
     "synthetic score regression: 6 assertions passed",
     "post-apply SHA-256 match: hado_type_score.js",
     "post-apply SHA-256 match: hado_type_candidates.js",
-    "HTML SHA-256 match: index.html == hado_library_3.0.0.0.html"
+    "HTML SHA-256 match: index.html == hado_library_3.0.0.0.html",
+    "obsolete local scoring aliases removed from hado_type_entry.js",
+    "reusable validator added: tools/validate_app_js.py"
   ],
   "nextUpdate": "Update08: saved-data ownership filters, new formation creation, saved evaluation, history, and group management"
 }
