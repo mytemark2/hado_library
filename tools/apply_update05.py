@@ -143,3 +143,5 @@ report_path = ROOT / 'report/HADO_APP_3.0.0.0_UPDATE05_REPORT.json'
 report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
 print(json.dumps({'ok': True, 'update': 'Update05', 'indexSha256': report['indexSha256']}, ensure_ascii=False))
+
+# trigger: 2026-06-07T17:00:00+09:00
