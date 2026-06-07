@@ -2,12 +2,19 @@
 
 開発ブランチ: `feature/app-3.0.0.0`
 
+全体計画: [3.0.0.0 全体ロードマップ](roadmap.md)
+
 | Update | 状態 | 概要 | ロードマップ | 実装内容 | 報告 |
 |---|---|---|---|---|---|
 | Update01 | 完了 | 3.0.0.0基盤・プレビュー確認準備 | [roadmap](update01/roadmap.md) | [implementation](update01/implementation.md) | [report](update01/report.md) |
 | Update02 | 完了 | JSON取込監査・派生JSON統合 | [roadmap](update02/roadmap.md) | [implementation](update02/implementation.md) | [report](update02/report.md) |
-| Update03 | 改訂完了 | 型編成ナビ・目的選択改善 | [roadmap](update03/roadmap.md) | [implementation](update03/implementation.md) | [report](update03/report.md) |
-| Update04 | 改訂完了 | 型候補一覧・0件候補除外 | [roadmap](update04/roadmap.md) | [implementation](update04/implementation.md) | [report](update04/report.md) |
+| Update03 | 改訂完了 | 型編成ナビ・7用途への再整理 | [roadmap](update03/roadmap.md) | [implementation](update03/implementation.md) | [report](update03/report.md) |
+| Update04 | 改訂完了 | 9役割の型候補一覧・0件候補除外 | [roadmap](update04/roadmap.md) | [implementation](update04/implementation.md) | [report](update04/report.md) |
 | Update05 | 完了 | 部隊別候補トレイ・既存選択ダイアログ委譲 | [roadmap](update05/roadmap.md) | [implementation](update05/implementation.md) | [report](update05/report.md) |
+| Update06 | 予定 | 陣形・兵器・名馬・軍馬技能の候補トレイ接続 | [全体計画](roadmap.md#update06-残り4役割の候補トレイ接続) | - | - |
+| Update07 | 予定 | 10段階適合スコア・評価ロジック調整 | [全体計画](roadmap.md#update07-適合スコア表示と評価ロジック調整) | - | - |
+| Update08 | 予定 | 新規部隊作成・保存評価・履歴・グループ管理 | [全体計画](roadmap.md#update08-新規部隊作成保存評価履歴グループ管理) | - | - |
+| Update09 | 予定 | PC・スマホUI/UXと実用性改善 | [全体計画](roadmap.md#update09-uiux調整と実用性改善) | - | - |
+| Update10 | 予定 | 全体回帰・ガイド更新・正式版候補 | [全体計画](roadmap.md#update10-全体回帰ガイド更新正式版候補) | - | - |
 
 旧形式の仕様書とJSON報告は `docs/` および `report/` に保持する。今後のUpdateは本ディレクトリ構造で記録する。
