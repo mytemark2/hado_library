@@ -69,6 +69,17 @@ jobs:
                       path.parent.mkdir(parents=True,exist_ok=True)
                       data=base64.b64decode(op['contentBase64']) if 'contentBase64' in op else str(op.get('content','')).encode('utf-8')
                       path.write_bytes(data); applied.append({'op':'write','path':rel,'sha256After':sha256(path)})
+                  elif op.get('op')=='replace':
+                      if not path.exists(): raise SystemExit(f'replace target missing: {rel}')
+                      encoding=str(op.get('encoding') or 'utf-8')
+                      text=path.read_text(encoding=encoding)
+                      old=str(op.get('old','')); new=str(op.get('new',''))
+                      expected_count=int(op.get('expectedCount',1))
+                      actual_count=text.count(old)
+                      if not old or actual_count!=expected_count:
+                          raise SystemExit(f'replace count mismatch: {rel}: expected {expected_count}, actual {actual_count}')
+                      path.write_text(text.replace(old,new),encoding=encoding)
+                      applied.append({'op':'replace','path':rel,'sha256After':sha256(path),'count':actual_count})
                   elif op.get('op')=='delete':
                       if not path.exists(): raise SystemExit(f'delete target missing: {rel}')
                       path.unlink(); applied.append({'op':'delete','path':rel,'sha256After':None})
@@ -102,6 +113,7 @@ jobs:
           # Update Bundle operation
           Normal app updates are applied by adding exactly one JSON bundle under `updates/queue/`.
           GitHub Actions applies all operations, validates the app, commits the result, removes the queue file, writes a receipt under `updates/applied/`, and dispatches preview synchronization.
+          Supported operations: `write`, `replace`, `delete`.
           Protected paths: `.github/workflows/`, `updates/queue/`, `updates/applied/`.
           MD
 
