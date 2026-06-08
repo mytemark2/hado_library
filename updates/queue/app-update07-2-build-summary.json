@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "updateId": "app-update07-2-build-summary",
+  "repository": "mytemark2/hado_library",
+  "branch": "feature/app-3.0.0.0",
+  "summary": "Update07.2 build summary.",
+  "operations": [
+    {
+      "op": "replace",
+      "path": "hado_core.js",
+      "old": "summary:\"Update02: add type score, purpose, role rule and baseline role candidate JSON files.\"",
+      "new": "summary:\"Update07.2: type-score diagnostic trace.\"",
+      "expectedCount": 1
+    }
+  ]
+}
