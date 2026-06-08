@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "1.0",
+  "updateId": "app-update07-4-remove-type-candidate-help",
+  "repository": "mytemark2/hado_library",
+  "summary": "Update07.4: remove verbose explanatory text from type candidate list and compact footer.",
+  "appliedAt": "2026-06-08T06:57:59.583833+00:00",
+  "operations": [
+    {
+      "op": "replace",
+      "path": "HADO_DEV_INFO.json",
+      "sha256After": "b3edaceb43cc734b8ecee3a57d5fbfdaec4f5d86d0a454073ffba2e929e2fe3f",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "HADO_DEV_INFO.json",
+      "sha256After": "8833aedafb07e7ff6519da8392de858b3aad9198f4b4f6cec5b79710235afca9",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "HADO_DEV_INFO.json",
+      "sha256After": "5ea98df480778dc8aafa822d10d116bbed16798060413a9fa2292e2a377526c4",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "HADO_DEV_INFO.json",
+      "sha256After": "68f94de6dcdb5236ebeb11c4ba39903f66ce4caae1a66edeabdeb797d96c0889",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "HADO_DEV_INFO.json",
+      "sha256After": "9861ad136e479b621830eab8abd49387ace55009387e68bf3073bd3966927877",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_update_meta.js",
+      "sha256After": "5b74fff4e4f4e2dd97be3619bbfd9ced547d30984f5bdba9e50efcb26cb58883",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_update_meta.js",
+      "sha256After": "cb464ebc22653bd2687394e8ce54ccd11c84c7ed8a8dcc140da61ed13139f169",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_candidates.js",
+      "sha256After": "ab95895b4961f97103a3a3bd5acc51b413a867abd3ecf3302cb14e99be862f38",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_candidates.js",
+      "sha256After": "11a1262c74bbfb67dfc529ba824b46396a28b1f0f68d8d81e0d9de02c473eec4",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_candidates.js",
+      "sha256After": "07c714ac42bbc63c6dfcba0d2ed9688c1976df662b4b5f09a05a4e27acd55db7",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_candidates.js",
+      "sha256After": "1641a32ac29a58ac519451a56ea17d90c3e2f5bc8a1f39bfe3a822ce4e10be60",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_candidates.js",
+      "sha256After": "cbc00627c5d55f6f799badc75b9215a6063cea705ce0f39b4a767c1647749e67",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "docs/updates/update07/report.md",
+      "sha256After": "455089561c08967cc155c33af754f896f12e3b98aadaa23b3f8cabfe85e50437",
+      "count": 1
+    }
+  ]
+}
