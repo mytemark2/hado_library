@@ -55,13 +55,16 @@ const round1=n=>Math.round((Number(n)||0)*10)/10;
 const capped=v=>Math.min(100,Math.max(0,Number(v)||0));
 const metricPoints=v=>round1(capped(v)/50);
 const fmt=n=>String(round1(n)).replace(/\.0$/,'');
+function recordTrace(entity,rule,result){try{state.diagnostics.typeScore={timestamp:new Date().toISOString(),algorithmVersion:'3.0.0.0 Update07.2/type-score-trace-v1',entityName:String(entity?.displayName||entity?.name||entity?.id||''),roleId:String(entity?.roleId||''),typeId:String(rule?.typeId||''),typeName:String(rule?.typeName||''),score:result.score,confirmedScore:result.confirmedScore,conditionalMaxScore:result.conditionalMaxScore,matchedMetricCount:result.matchedCount,contributionSummary:summary(result),breakdown:result.breakdown};}catch(_){}}
 function score(entity,rule){
   const metrics=Array.isArray(rule?.metrics)?rule.metrics.slice(0,5):[];
   const breakdown=metrics.map(m=>metricValue(entity,m));
   const confirmedScore=round1(breakdown.reduce((s,m)=>s+capped(m.confirmedValue),0)/50);
   const conditionalMaxScore=round1(breakdown.reduce((s,m)=>s+capped(m.conditionalMaxValue),0)/50);
   const matched=breakdown.filter(m=>m.hit);
-  return {score:conditionalMaxScore,confirmedScore,conditionalMaxScore,matched,total:5,matchedCount:matched.length,breakdown};
+  const result={score:conditionalMaxScore,confirmedScore,conditionalMaxScore,matched,total:5,matchedCount:matched.length,breakdown};
+  recordTrace(entity,rule,result);
+  return result;
 }
 function label(result){return `${fmt(result?.confirmedScore||0)}/10（条件込最大 ${fmt(result?.conditionalMaxScore||0)}/10）`}
 function metricLabel(metric){const c=metricPoints(metric?.confirmedValue),m=metricPoints(metric?.conditionalMaxValue),v=c===m?fmt(c):`${fmt(c)}→${fmt(m)}`;return `${metric?.label||metric?.metricKey}:${v}/2`}
