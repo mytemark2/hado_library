@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0",
+  "updateId": "app-update07-2-trace-history",
+  "repository": "mytemark2/hado_library",
+  "branch": "feature/app-3.0.0.0",
+  "summary": "Update07.2: retain recent type-score trace summaries.",
+  "operations": [
+    {
+      "op": "replace",
+      "path": "hado_type_score.js",
+      "old": "state.diagnostics.typeScore={timestamp:new Date().toISOString(),algorithmVersion:'3.0.0.0 Update07.2/type-score-trace-v1',entityName:String(entity?.displayName||entity?.name||entity?.id||''),roleId:String(entity?.roleId||''),typeId:String(rule?.typeId||''),typeName:String(rule?.typeName||''),score:result.score,confirmedScore:result.confirmedScore,conditionalMaxScore:result.conditionalMaxScore,matchedMetricCount:result.matchedCount,contributionSummary:summary(result),breakdown:result.breakdown};",
+      "new": "const previous=state.diagnostics.typeScore||{},recent=Array.isArray(previous.recent)?previous.recent:[],trace={timestamp:new Date().toISOString(),algorithmVersion:'3.0.0.0 Update07.2/type-score-trace-v2',entityName:String(entity?.displayName||entity?.name||entity?.id||''),roleId:String(entity?.roleId||''),typeId:String(rule?.typeId||''),typeName:String(rule?.typeName||''),score:result.score,confirmedScore:result.confirmedScore,conditionalMaxScore:result.conditionalMaxScore,matchedMetricCount:result.matchedCount,contributionSummary:summary(result),breakdown:result.breakdown};recent.push({timestamp:trace.timestamp,entityName:trace.entityName,roleId:trace.roleId,typeId:trace.typeId,typeName:trace.typeName,confirmedScore:trace.confirmedScore,conditionalMaxScore:trace.conditionalMaxScore,matchedMetricCount:trace.matchedMetricCount,contributionSummary:trace.contributionSummary});if(recent.length>60)recent.splice(0,recent.length-60);state.diagnostics.typeScore={timestamp:trace.timestamp,algorithmVersion:trace.algorithmVersion,evaluationCount:Number(previous.evaluationCount||0)+1,last:trace,recent};",
+      "expectedCount": 1
+    }
+  ],
+  "requiredTokens": [
+    {
+      "path": "hado_type_score.js",
+      "tokens": [
+        "type-score-trace-v2",
+        "evaluationCount",
+        "recent.length>60"
+      ]
+    }
+  ]
+}
