@@ -2,10 +2,12 @@
   "schemaVersion": "1.0",
   "target": "app",
   "updateNo": "07.2",
-  "title": "Synchronize in-app diagnostic metadata with external development metadata",
-  "summary": "Update embedded FILE_META and HADO_BUILD_INFO values used by copied diagnostic logs, and expose type-score execution trace in diagnostic snapshot so preview verification reflects the loaded Update07.1 scoring implementation.",
+  "title": "Synchronize visible app title and in-app diagnostic metadata with development metadata",
+  "summary": "Update the visible application title, document title, embedded FILE_META and HADO_BUILD_INFO values used by copied diagnostic logs, and expose type-score execution trace in diagnostic snapshot so preview verification reflects the loaded Update07.1 scoring implementation.",
   "requirements": [
     "Preserve external hado_type_score.js responsibility separation; do not inline scoring logic into HTML.",
+    "Update the browser document title to include the current Update number: 覇道ライブラリ 3.0.0.0 Update07.2.",
+    "Update the visible app title/header version label to include the current Update number: 覇道ライブラリ 3.0.0.0 Update07.2.",
     "Update embedded FILE_META and HADO_BUILD_INFO diagnostic values from stale Update02 to Update07.2.",
     "Add a lightweight typeScore diagnostic snapshot when the score module evaluates a candidate, including algorithm version, score, conditionalMaxScore, matched metric count, and contribution summary.",
     "Keep HTML growth minimal and avoid duplicating scoring logic.",
@@ -13,8 +15,11 @@
     "Run regression tests and preview sync verification."
   ],
   "acceptanceCriteria": [
+    "Browser tab title displays 覇道ライブラリ 3.0.0.0 Update07.2.",
+    "Visible app title/header displays 覇道ライブラリ 3.0.0.0 Update07.2.",
     "Copied debug log no longer reports Update02 as current Build Info.",
     "Copied debug log contains typeScore execution trace after running 型編成ナビ or 型候補一覧.",
+    "HADO_DEV_INFO.json displayVersion is 3.0.0.0 Update07.2.",
     "hado_type_score.js remains externally loaded.",
     "Preview repository receives the same files automatically."
   ]
