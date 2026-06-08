@@ -2,15 +2,14 @@
   "schemaVersion": "1.0",
   "updateId": "app-update07-2-build-summary",
   "repository": "mytemark2/hado_library",
-  "branch": "feature/app-3.0.0.0",
   "summary": "Update07.2 build summary.",
+  "appliedAt": "2026-06-08T06:07:57.877643+00:00",
   "operations": [
     {
       "op": "replace",
       "path": "hado_core.js",
-      "old": "summary:\"Update02: add type score, purpose, role rule and baseline role candidate JSON files.\"",
-      "new": "summary:\"Update07.2: type-score diagnostic trace.\"",
-      "expectedCount": 1
+      "sha256After": "639ba4fa30712c000e00d0839f6f9723e44ed57af0dd7b3a4bd2b57a746564eb",
+      "count": 1
     }
   ]
 }
