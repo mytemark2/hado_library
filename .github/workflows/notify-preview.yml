@@ -1,0 +1,82 @@
+name: Notify Hado Library Preview
+
+on:
+  push:
+    branches:
+      - 'feature/app-*'
+  workflow_dispatch:
+    inputs:
+      app_ref:
+        description: 'Optional app branch/ref. Leave blank to use the current ref.'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+jobs:
+  notify-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve app branch
+        id: source
+        shell: bash
+        env:
+          INPUT_APP_REF: ${{ github.event.inputs.app_ref || '' }}
+        run: |
+          set -euo pipefail
+          if [ -n "${INPUT_APP_REF}" ]; then
+            APP_REF="${INPUT_APP_REF}"
+          else
+            APP_REF="${GITHUB_REF_NAME}"
+          fi
+          case "${APP_REF}" in
+            feature/app-*) ;;
+            *)
+              echo "Unsupported preview source branch: ${APP_REF}" >&2
+              exit 1
+              ;;
+          esac
+          echo "app_ref=${APP_REF}" >> "${GITHUB_OUTPUT}"
+          echo "Preview source branch: ${APP_REF}"
+
+      - name: Require preview dispatch token
+        shell: bash
+        env:
+          PREVIEW_REPO_TOKEN: ${{ secrets.PREVIEW_REPO_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${PREVIEW_REPO_TOKEN}" ]; then
+            echo "Repository secret PREVIEW_REPO_TOKEN is missing." >&2
+            echo "Create a fine-grained token with access to mytemark2/hado_library-preview and permission Contents: Read and write, then register it as PREVIEW_REPO_TOKEN in mytemark2/hado_library." >&2
+            exit 1
+          fi
+
+      - name: Dispatch preview deployment
+        shell: bash
+        env:
+          PREVIEW_REPO_TOKEN: ${{ secrets.PREVIEW_REPO_TOKEN }}
+          APP_REF: ${{ steps.source.outputs.app_ref }}
+        run: |
+          set -euo pipefail
+          payload="$(python - <<'PY'
+          import json
+          import os
+          print(json.dumps({
+              'event_type': 'app_branch_updated',
+              'client_payload': {
+                  'app_ref': os.environ['APP_REF'],
+                  'source_repository': os.environ['GITHUB_REPOSITORY'],
+                  'source_sha': os.environ['GITHUB_SHA'],
+              },
+          }))
+          PY
+          )"
+          curl --fail-with-body --silent --show-error \
+            --request POST \
+            --url 'https://api.github.com/repos/mytemark2/hado_library-preview/dispatches' \
+            --header 'Accept: application/vnd.github+json' \
+            --header "Authorization: Bearer ${PREVIEW_REPO_TOKEN}" \
+            --header 'X-GitHub-Api-Version: 2022-11-28' \
+            --data "${payload}"
+          echo "Preview deployment dispatched for ${APP_REF}."
