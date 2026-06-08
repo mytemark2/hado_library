@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "updateId": "app-update07-3-final-meta",
+  "repository": "mytemark2/hado_library",
+  "branch": "feature/app-3.0.0.0",
+  "summary": "Update07.3: align display and diagnostic metadata after type-score trace implementation.",
+  "operations": [
+    {"op":"replace","path":"HADO_DEV_INFO.json","old":"  \"revision\": 2,","new":"  \"revision\": 3,","expectedCount":1},
+    {"op":"replace","path":"HADO_DEV_INFO.json","old":"  \"displayVersion\": \"3.0.0.0 Update07.2\",","new":"  \"displayVersion\": \"3.0.0.0 Update07.3\",","expectedCount":1},
+    {"op":"replace","path":"HADO_DEV_INFO.json","old":"  \"summary\": \"Update07.2: synchronize displayed Update number.\",","new":"  \"summary\": \"Update07.3: type-score diagnostic trace.\",","expectedCount":1},
+    {"op":"replace","path":"hado_update_meta.js","old":"    updateNo: '07.2',","new":"    updateNo: '07.3',","expectedCount":1},
+    {"op":"replace","path":"hado_update_meta.js","old":"    displayVersion: '3.0.0.0 Update07.2'","new":"    displayVersion: '3.0.0.0 Update07.3'","expectedCount":1},
+    {"op":"replace","path":"hado_type_score.js","old":"3.0.0.0 Update07.2/type-score-trace-v2","new":"3.0.0.0 Update07.3/type-score-trace-v3","expectedCount":1},
+    {"op":"replace","path":"hado_core.js","old":"summary:\"Update07.2: type-score diagnostic trace.\"","new":"summary:\"Update07.3: type-score diagnostic trace.\"","expectedCount":1},
+    {"op":"replace","path":"docs/updates/update07/report.md","old":"## Update07.2 診断ログ追加","new":"## Update07.3 診断ログ追加","expectedCount":1}
+  ],
+  "requiredTokens": [
+    {"path":"HADO_DEV_INFO.json","tokens":["\"updateNo\": \"07.3\"","\"displayVersion\": \"3.0.0.0 Update07.3\""]},
+    {"path":"hado_update_meta.js","tokens":["updateNo: '07.3'","displayVersion: '3.0.0.0 Update07.3'"]},
+    {"path":"hado_type_score.js","tokens":["3.0.0.0 Update07.3/type-score-trace-v3"]},
+    {"path":"docs/updates/update07/report.md","tokens":["## Update07.3 診断ログ追加"]}
+  ]
+}
