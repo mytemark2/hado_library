@@ -38,7 +38,7 @@ const startupDebugLines=[];
 const MAX_DEBUG_LINES=220;
 const FILE_META={fileName:"hado_library_3.0.0.0.html",createdAt:"2026-06-06 00:00:00"};
 // FEATURE[HADO-VERSIONING]: 2.x.x.y バージョン管理。メジャー/マイナーはユーザー採番、x は機能追加、y は不具合修正。
-const HADO_BUILD_INFO={version:"3.0.0.0",baseVersion:"2.9.6.5",changeType:"feature",summary:"Update07.2: type-score diagnostic trace.",baseSha256:"fb5063235bd797ae8376c2f0c37da4863e375d85c611f5b3400904a151dfcafa"};
+const HADO_BUILD_INFO={version:"3.0.0.0",baseVersion:"2.9.6.5",changeType:"feature",summary:"Update07.3: type-score diagnostic trace.",baseSha256:"fb5063235bd797ae8376c2f0c37da4863e375d85c611f5b3400904a151dfcafa"};
 
 // FEATURE[HADO-2.9.6.3-WEB-DEPLOYMENT]: HTTP(S)配信時は公開JSONを自動取得し、手動JSONロードUIを表示しない。
 const IS_WEB_DEPLOYMENT=/^https?:$/.test(location.protocol);

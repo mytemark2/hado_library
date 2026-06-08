@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "1.0",
+  "updateId": "app-update07-3-final-meta",
+  "repository": "mytemark2/hado_library",
+  "summary": "Update07.3: align display and diagnostic metadata after type-score trace implementation.",
+  "appliedAt": "2026-06-08T06:43:01.583828+00:00",
+  "operations": [
+    {
+      "op": "replace",
+      "path": "HADO_DEV_INFO.json",
+      "sha256After": "7a49534f8e844bb723d8070ea390ac430bd572050da11641154fea874816b921",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "HADO_DEV_INFO.json",
+      "sha256After": "2ff1317ff7e089efeb85e0aaa6d655e99cf51f51a7d691833125edf871e90399",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "HADO_DEV_INFO.json",
+      "sha256After": "902f3ac95d72ff0a5930ff353f56a086a416e6e5ec977b5874013b8660322a42",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_update_meta.js",
+      "sha256After": "10815b7cf2b0ea03aae95c027a3ec85f1487b2bb3d67d995f490b770025b5dbb",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_update_meta.js",
+      "sha256After": "4a5a45a31217c909bc551e018ca8754e2c24c65a4faf4acc4b3efdb61e8abb3f",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_score.js",
+      "sha256After": "79ad882349c49d874e11991c19357e4e8a5e464505143337b30d6af7d0ed7ab7",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_core.js",
+      "sha256After": "ff96e9761b624a18be6e4d039eadd7ac6f67d0c3c2c3d20bde0f7572f4748988",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "docs/updates/update07/report.md",
+      "sha256After": "0d70ee1040ee41fc8e20001dda970208250612440950adade27d2b6b6a6272b2",
+      "count": 1
+    }
+  ]
+}
