@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "updateId": "app-update07-3-step1",
+  "repository": "mytemark2/hado_library",
+  "branch": "feature/app-3.0.0.0",
+  "operations": [
+    {
+      "op": "replace",
+      "path": "HADO_DEV_INFO.json",
+      "old": "\"updateNo\": \"07.2\"",
+      "new": "\"updateNo\": \"07.3\"",
+      "expectedCount": 1
+    }
+  ]
+}
