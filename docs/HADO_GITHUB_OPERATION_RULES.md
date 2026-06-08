@@ -6,7 +6,20 @@
 - `mytemark2/hado_library-preview`: ブラウザ動作確認専用。修正元にしない。
 
 ## 作業開始時
-Repo、Branch、最新Commit SHA、`main`との差分、版数情報、Push済み状態を確認する。修正元識別にはGit Commit SHAを使い、作業開始時の全ファイルSHA-256確認は行わない。
+Repo、Branch、最新Commit SHA、`main`との差分、版数情報、Push済み状態を確認する。修正元識別にはGit Commit SHAを使う。記憶、過去チャット、ローカル残骸、`main`だけで修正元を決めない。
+
+## 通常更新の反映方法
+通常更新は、最新の開発ブランチ一式を取得し、ローカル作業領域で完成ソースを直接修正する。変更済みファイルはまとめて1Commitへ反映する。
+
+GitHub連携ツールだけで通常Git操作ができない場合は、Git Trees API相当の `create_blob`、`create_tree`、`create_commit`、`update_ref` を使い、完成ファイル一式を1Commitにまとめる。
+
+以下は通常更新に使用しない。
+- `updates/queue/*.json` へ置換命令を登録する方式
+- `old` / `new` / `expectedCount` を持つ検索・置換キュー
+- Actions内でアプリソースを文字列置換する仕組み
+- Update固有の使い捨て適用Workflow
+- 定期巡回・schedule前提の同期
+- 手動Workflow実行を通常運用に含めること
 
 ## Update記録
 各Updateは `docs/updates/<update>/roadmap.md`、`implementation.md`、`report.md` に記録する。`docs/updates/README.md` も原則としてコードと同じCommitで更新する。旧形式資料は削除せず、新形式文書から参照する。
