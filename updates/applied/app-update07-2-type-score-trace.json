@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "updateId": "app-update07-2-type-score-trace",
+  "repository": "mytemark2/hado_library",
+  "summary": "Update07.2: record latest type-score execution trace without changing score calculation.",
+  "appliedAt": "2026-06-08T05:01:32.481922+00:00",
+  "operations": [
+    {
+      "op": "replace",
+      "path": "hado_type_score.js",
+      "sha256After": "6b2a2def2722491fd0261530ee2821f586ecf84681ebc86a87cf4d9e88978135",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_score.js",
+      "sha256After": "af7f242e174b9c196413c0d06dc0284480b667b72550944b5553606e21332275",
+      "count": 1
+    }
+  ]
+}

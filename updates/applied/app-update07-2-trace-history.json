@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "updateId": "app-update07-2-trace-history",
+  "repository": "mytemark2/hado_library",
+  "summary": "Update07.2: retain recent type-score trace summaries.",
+  "appliedAt": "2026-06-08T06:10:41.997812+00:00",
+  "operations": [
+    {
+      "op": "replace",
+      "path": "hado_type_score.js",
+      "sha256After": "fb981415e7ad87f4f2ff921a6ca91a55191202ee24df93346d866d225813e258",
+      "count": 1
+    }
+  ]
+}

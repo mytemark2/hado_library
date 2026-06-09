@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "1.0",
+  "updateId": "app-update07-cleanup-validator",
+  "repository": "mytemark2/hado_library",
+  "summary": "Remove obsolete local scoring aliases after Update07 shared-score extraction and add reusable root-JS validator.",
+  "appliedAt": "2026-06-07T22:27:45.494884+00:00",
+  "operations": [
+    {
+      "op": "replace",
+      "path": "hado_type_entry.js",
+      "sha256After": "381178055973278a3eba329c7c52880ae7667f10bb7fcdc6cbedeee0abf1e25f",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_entry.js",
+      "sha256After": "d36f627ecc7e00cebeb8272d2c4c7a74df6ac0bae879740622ae131e8769cfa8",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_entry.js",
+      "sha256After": "d011844df395b22503753058d2790eaca52b210730dc973f51cb6d0a03176f2e",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_entry.js",
+      "sha256After": "6fca39312e57356cb7a18f5faeb3cc69e911c55cdd2c31600b8d707d84066b11",
+      "count": 1
+    },
+    {
+      "op": "write",
+      "path": "tools/validate_app_js.py",
+      "sha256After": "49afa5ce3918242e9d4b49dd2c0495f75505e3a23040d5029e580c80e2b2b469"
+    },
+    {
+      "op": "replace",
+      "path": "docs/updates/update07/implementation.md",
+      "sha256After": "8f44e9ce13f005a51f4640034da4a3c01ab8663b67fa4a6b7a848847ca39804f",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "docs/updates/update07/report.md",
+      "sha256After": "6081b0b6e6d3222d248dc458841d093a19e1688f6751fd06a93a54381c028205",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "report/HADO_APP_3.0.0.0_UPDATE07_REPORT.json",
+      "sha256After": "d3612de5e09b0cd6010f7a00627c6e2e6358065c62349ad6ffb4d3cdb4b19e87",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "report/HADO_APP_3.0.0.0_UPDATE07_REPORT.json",
+      "sha256After": "aae981e7eaefceff02a828ec234c41a3dc7dccf91990a567502206142820310f",
+      "count": 1
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "updateId": "app-update07-2-diagnostic-slot",
+  "repository": "mytemark2/hado_library",
+  "summary": "Update07.2: expose type-score diagnostic slot in copied logs.",
+  "appliedAt": "2026-06-08T03:48:05.086787+00:00",
+  "operations": [
+    {
+      "op": "replace",
+      "path": "hado_core.js",
+      "sha256After": "6c9414f8f0d5259aed200cffaa3b8c9098af61e2af1724d63fcac47b4ac54e1f",
+      "count": 1
+    }
+  ]
+}

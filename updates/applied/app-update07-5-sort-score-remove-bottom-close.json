@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0",
+  "updateId": "app-update07-5-sort-score-remove-bottom-close",
+  "repository": "mytemark2/hado_library",
+  "summary": "Update07.5: sort type candidates by displayed confirmed score and remove redundant bottom close button.",
+  "appliedAt": "2026-06-08T08:55:05.014601+00:00",
+  "operations": [
+    {
+      "op": "replace",
+      "path": "HADO_DEV_INFO.json",
+      "sha256After": "7789dab480e3b3dfe2703daa4dd3508042c7b520edfbb8486bd2ab115e452a94",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "HADO_DEV_INFO.json",
+      "sha256After": "2e41660c361962336328f62b0715eb865e299b5ab7c9605b5c3a067581856975",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "HADO_DEV_INFO.json",
+      "sha256After": "9c4260c597be96c4748bf57fdcc1a7b15b753052d2095d180cbfaa9af290ad3d",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "HADO_DEV_INFO.json",
+      "sha256After": "48983b7d3ac00c7e6ec8bf6f884476d279014a16c5d2dd4df5b3bc0537567c7e",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "HADO_DEV_INFO.json",
+      "sha256After": "468a440a66ad1c4088567859a04b49822fe657add86923efb6939521fcd51d8f",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_update_meta.js",
+      "sha256After": "4df99fc9d8c77a71ec14b8acbc221aa63840b2b630a2482b20e06949cd894b67",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_update_meta.js",
+      "sha256After": "d9a2707c4d02139403dc0531501d1800126332926a6c0f38243a571f076951ff",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_candidates.js",
+      "sha256After": "b257f6854249406fe1e54e1d4fbc3c64fe54a079eb35777495e887cce80f4d41",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_candidates.js",
+      "sha256After": "4cbedac933a9a0671c83ac6fbf6edaf9a8e92bcd4ccfd103b20d1fddb8594cab",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_candidates.js",
+      "sha256After": "72409779144901dae5551773a111d707f4c5a5270e2b0a5041210b102c89c5b3",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_candidates.js",
+      "sha256After": "c0668937f6e71335760f7209fd29059cc3797830e7dd3814901263eee6b970e3",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_candidates.js",
+      "sha256After": "0bb2c8d1342702e1ac94e2772c07043c4139ef7a573de40c81c5b061a0eb4a4e",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "hado_type_candidates.js",
+      "sha256After": "cdaef7fc4af2e528171feecd948bb4514593afad7d1702f55eb3656a54363f50",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "docs/updates/update07/report.md",
+      "sha256After": "5bfca9af66e1c92579ca14c7cc41b1edfc1a9d7740ad29cc780307633559a048",
+      "count": 1
+    }
+  ]
+}

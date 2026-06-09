@@ -1,0 +1,22 @@
+{
+  "version": "3.0.0.0",
+  "update": "Update05",
+  "candidateTrayPersisted": true,
+  "evaluationTypeIdPersisted": true,
+  "directPlacement": false,
+  "existingSelectorHandoff": true,
+  "formalStandaloneInliningRequired": true,
+  "connectedRoles": [
+    "main_general",
+    "vice_general",
+    "support_general",
+    "attendant",
+    "equipment"
+  ],
+  "deferredRoles": [
+    "formation",
+    "siege_weapon",
+    "warhorse",
+    "warhorse_skill"
+  ]
+}

@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-06-05T22:32:32.507+09:00",
-  "dataSetId": "2026-06-05T02:45:08Z",
-  "crawlerVersion": "1.0.5.23",
+  "generatedAt": "2026-06-07T06:04:52.977Z",
+  "dataSetId": "2026-06-07T04:23:26.720Z",
+  "crawlerVersion": "1.1.0.0",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
     "hadou_generals.json",
@@ -33,10 +33,10 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 475,
-    "tactics": 454,
+    "generals": 476,
+    "tactics": 455,
     "equipments": 237,
-    "skills": 617,
+    "skills": 620,
     "statusEffects": 200,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
@@ -47,10 +47,10 @@
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "4d9aa25e",
-    "tactics": "aaafeed1",
+    "generals": "4c9aa0cb",
+    "tactics": "a9afed3e",
     "equipments": "4e60d216",
-    "skills": "53df17fd",
+    "skills": "bee67c33",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
@@ -61,10 +61,10 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "4d9aa25e",
-    "tactics": "aaafeed1",
+    "generals": "4c9aa0cb",
+    "tactics": "a9afed3e",
     "equipments": "4e60d216",
-    "skills": "53df17fd",
+    "skills": "bee67c33",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
@@ -80,7 +80,7 @@
     "caseCount": 13,
     "failedCount": 0,
     "failedCaseIds": [],
-    "policy": "1.0.5.23: 型検索基盤、既存関連リンク回帰、プリセット重要度・条件解決・順位付け、LR司馬懿誤判定防止、攻撃速度型、通常攻撃拡張型を監査する。"
+    "policy": "1.0.5.23: 型検索基盤、既存関連リンク回帰、プリセット重要度スキーマ、条件解決、順位付け、LR司馬懿誤判定防止、攻撃速度型、通常攻撃拡張型を同時に監査する。名前表記差は正規化し、否定文脈は句単位で遮断する。"
   },
   "items": [
     {
@@ -90,8 +90,8 @@
       "detail": [
         {
           "groupKey": "selfAbilityBuff",
-          "ownerRelationCount": 3771,
-          "distinctOwnerCount": 1259
+          "ownerRelationCount": 3719,
+          "distinctOwnerCount": 1250
         },
         {
           "groupKey": "selfStateBuff",
@@ -100,13 +100,13 @@
         },
         {
           "groupKey": "selfResistanceBuff",
-          "ownerRelationCount": 1205,
-          "distinctOwnerCount": 415
+          "ownerRelationCount": 1215,
+          "distinctOwnerCount": 418
         },
         {
           "groupKey": "enemyAbilityDebuff",
-          "ownerRelationCount": 706,
-          "distinctOwnerCount": 416
+          "ownerRelationCount": 710,
+          "distinctOwnerCount": 418
         },
         {
           "groupKey": "enemyStateDebuff",
@@ -125,7 +125,7 @@
       "description": "型検索補助索引が4カテゴリを全件収録する",
       "ok": true,
       "detail": {
-        "generals": 475,
+        "generals": 476,
         "equipments": 237,
         "siegeWeapons": 6,
         "warhorseSkills": 27
@@ -172,8 +172,7 @@
         "hasKonpai": true,
         "hasShinkyou": true,
         "hasFalseAntiObjectBuff": false,
-        "hasFalseAntiObjectFeature": false,
-        "nameResolutionPolicy": "exact-or-reading-normalized"
+        "hasFalseAntiObjectFeature": false
       }
     },
     {
@@ -235,6 +234,31 @@
           "core": 2,
           "recommended": 2,
           "support": 1
+        },
+        "buff_support": {
+          "core": 1,
+          "recommended": 2,
+          "support": 2
+        },
+        "debuff_interference": {
+          "core": 1,
+          "recommended": 3,
+          "support": 1
+        },
+        "wall_defense": {
+          "core": 2,
+          "recommended": 2,
+          "support": 1
+        },
+        "garrison_support": {
+          "core": 2,
+          "recommended": 2,
+          "support": 1
+        },
+        "vaccine": {
+          "core": 2,
+          "recommended": 2,
+          "support": 1
         }
       }
     },
@@ -243,9 +267,9 @@
       "description": "型プリセット条件が状態変化索引または補助型要素索引で解決可能である",
       "ok": true,
       "detail": {
-        "presetCount": 11,
-        "rawConditionCount": 71,
-        "canonicalConditionCount": 52,
+        "presetCount": 16,
+        "rawConditionCount": 96,
+        "canonicalConditionCount": 77,
         "unresolved": []
       }
     },
@@ -270,7 +294,51 @@
       "ok": true,
       "detail": {
         "typeId": "attack_speed",
-        "typeName": "攻撃速度型"
+        "typeName": "攻撃速度型",
+        "conditions": [
+          {
+            "featureId": "parameter:attack_speed",
+            "canonicalFeatureId": "concept:attack_speed",
+            "label": "攻撃速度",
+            "conditionType": "typeFeature",
+            "importance": "core"
+          },
+          {
+            "featureId": "status_effect:攻撃速度変化(強化)",
+            "canonicalFeatureId": "concept:attack_speed",
+            "label": "攻撃速度変化(強化)",
+            "conditionType": "statusEffect",
+            "importance": "core"
+          },
+          {
+            "featureId": "status_effect:通常攻撃拡張",
+            "canonicalFeatureId": "concept:normal_attack_expansion",
+            "label": "通常攻撃拡張",
+            "conditionType": "statusEffect",
+            "importance": "recommended"
+          },
+          {
+            "featureId": "skill_effect:normal_attack_target_count",
+            "canonicalFeatureId": "concept:normal_attack_expansion",
+            "label": "通常攻撃対象数",
+            "conditionType": "typeFeature",
+            "importance": "recommended"
+          },
+          {
+            "featureId": "parameter:normal_attack_power",
+            "canonicalFeatureId": "concept:normal_attack_power",
+            "label": "通常攻撃威力",
+            "conditionType": "typeFeature",
+            "importance": "support"
+          },
+          {
+            "featureId": "status_effect:通常攻撃威力変化(強化)",
+            "canonicalFeatureId": "concept:normal_attack_power",
+            "label": "通常攻撃威力変化(強化)",
+            "conditionType": "statusEffect",
+            "importance": "support"
+          }
+        ]
       }
     },
     {
@@ -279,7 +347,51 @@
       "ok": true,
       "detail": {
         "typeId": "normal_attack",
-        "typeName": "通常攻撃拡張型"
+        "typeName": "通常攻撃拡張型",
+        "conditions": [
+          {
+            "featureId": "status_effect:通常攻撃拡張",
+            "canonicalFeatureId": "concept:normal_attack_expansion",
+            "label": "通常攻撃拡張",
+            "conditionType": "statusEffect",
+            "importance": "core"
+          },
+          {
+            "featureId": "skill_effect:normal_attack_target_count",
+            "canonicalFeatureId": "concept:normal_attack_expansion",
+            "label": "通常攻撃対象数",
+            "conditionType": "typeFeature",
+            "importance": "core"
+          },
+          {
+            "featureId": "parameter:normal_attack_power",
+            "canonicalFeatureId": "concept:normal_attack_power",
+            "label": "通常攻撃威力",
+            "conditionType": "typeFeature",
+            "importance": "recommended"
+          },
+          {
+            "featureId": "status_effect:通常攻撃威力変化(強化)",
+            "canonicalFeatureId": "concept:normal_attack_power",
+            "label": "通常攻撃威力変化(強化)",
+            "conditionType": "statusEffect",
+            "importance": "recommended"
+          },
+          {
+            "featureId": "parameter:attack_speed",
+            "canonicalFeatureId": "concept:attack_speed",
+            "label": "攻撃速度",
+            "conditionType": "typeFeature",
+            "importance": "support"
+          },
+          {
+            "featureId": "status_effect:攻撃速度変化(強化)",
+            "canonicalFeatureId": "concept:attack_speed",
+            "label": "攻撃速度変化(強化)",
+            "conditionType": "statusEffect",
+            "importance": "support"
+          }
+        ]
       }
     }
   ]

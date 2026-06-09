@@ -1,0 +1,192 @@
+{
+  "version": "3.0.0.0",
+  "update": "Update02.2",
+  "crawlerResultZip": "gamewith_hadou_crawler_result_1.1.0.0.zip",
+  "crawlerVersion": "1.1.0.0",
+  "inputZip": "hado_library_3.0.0.0_Update02.1.zip",
+  "networkFetch": 0,
+  "selectedJsonCount": 33,
+  "selectedPriority": [
+    "data",
+    "previous",
+    "inherited"
+  ],
+  "selectedMappings": [
+    {
+      "fileName": "hadou_effect_condition_blocks.json",
+      "sourcePath": "data/hadou_effect_condition_blocks.json",
+      "sha256": "7716cf96f7bb708b214d171b98d65a4461502c68ac27936faa0f6b364b32b005"
+    },
+    {
+      "fileName": "hadou_equipment_skill_stage_index.json",
+      "sourcePath": "data/hadou_equipment_skill_stage_index.json",
+      "sha256": "f8b401b27ac11804e8952e8e1cfc28f26c1a674c4356e0116591ae8e8c1bffee"
+    },
+    {
+      "fileName": "hadou_formation_candidate_index.json",
+      "sourcePath": "data/hadou_formation_candidate_index.json",
+      "sha256": "c0031f3efadf81a512a9ac53948ac980ba6df59603a0332f97d276e80083dd13"
+    },
+    {
+      "fileName": "hadou_meta.json",
+      "sourcePath": "data/hadou_meta.json",
+      "sha256": "70f8c73ddf3527c7296611d7faf6976020a02350d993e7194be4beac799b9497"
+    },
+    {
+      "fileName": "hadou_parameter_summary_index.json",
+      "sourcePath": "data/hadou_parameter_summary_index.json",
+      "sha256": "915f5d0a36dafbda213f6d2dac5f6264f2e3388582c0c1605b2225a5cd1681d8"
+    },
+    {
+      "fileName": "hadou_related_link_index.json",
+      "sourcePath": "data/hadou_related_link_index.json",
+      "sha256": "57b59ed4aaaf8511f9902caa9c5ab99ba3b157147a200aa403b7c446b9f54fbc"
+    },
+    {
+      "fileName": "hadou_result_card_index.json",
+      "sourcePath": "data/hadou_result_card_index.json",
+      "sha256": "597bac4cd9253b58da3014b2866f754110b98da5261fe7d2a8f642932eacc9cf"
+    },
+    {
+      "fileName": "hadou_search_index.json",
+      "sourcePath": "data/hadou_search_index.json",
+      "sha256": "c53310b73844be7bf59e08537ad52f3736a2e17748848e0a085b6725112da64a"
+    },
+    {
+      "fileName": "hadou_skill_owner_index.json",
+      "sourcePath": "data/hadou_skill_owner_index.json",
+      "sha256": "12d940f16f013d71da60d4ce6c2a70e6c52a7be0fb5105e040fb4064af01a81b"
+    },
+    {
+      "fileName": "hadou_status_effect_group_owner_index.json",
+      "sourcePath": "data/hadou_status_effect_group_owner_index.json",
+      "sha256": "53ce9ebfedc862979b085055e27c85bd7d3b1daea5d0bd52b5a2ccb436dc65bb"
+    },
+    {
+      "fileName": "hadou_status_effect_meta_index.json",
+      "sourcePath": "data/hadou_status_effect_meta_index.json",
+      "sha256": "419fa59e05a4f452387c6cbf303229a9c27f54b36ba61b3e1687762484d933e2"
+    },
+    {
+      "fileName": "hadou_status_effect_relations.json",
+      "sourcePath": "data/hadou_status_effect_relations.json",
+      "sha256": "c896f1e156b1b2cda7efefc5409fc5879ef799faef2271b68bb317e9805021fc"
+    },
+    {
+      "fileName": "hadou_tactic_attack_index.json",
+      "sourcePath": "data/hadou_tactic_attack_index.json",
+      "sha256": "91efce518eb21daa2c435e725e8a1023fc687646f04160ff3430ae46a1e816f9"
+    },
+    {
+      "fileName": "hadou_tactics.json",
+      "sourcePath": "data/hadou_tactics.json",
+      "sha256": "1005613b9150588c10ae9363ba60037a8b9a6a5ab0f48a9e174f8ffbcae635dd"
+    },
+    {
+      "fileName": "hadou_tag_index.json",
+      "sourcePath": "data/hadou_tag_index.json",
+      "sha256": "7ef4d7ec5103dcdf7569ce5e3c1dd7d77ae325ab259c6adb823afae6acd50776"
+    },
+    {
+      "fileName": "hadou_type_purpose_rules.json",
+      "sourcePath": "data/hadou_type_purpose_rules.json",
+      "sha256": "3221c9d901a08869db783476caec3a98a0e90353e8415fa7572e55dde6be1341"
+    },
+    {
+      "fileName": "hadou_type_score_rules.json",
+      "sourcePath": "data/hadou_type_score_rules.json",
+      "sha256": "7025198c5540a64c1e1f65957a7d20302e6111520f21f282cc2a2d033f20fd2a"
+    },
+    {
+      "fileName": "hadou_type_search_feature_index.json",
+      "sourcePath": "data/hadou_type_search_feature_index.json",
+      "sha256": "5f8bb20695eb942bdd9338fef2ac293b5be6d201394a99f4c7799bbec97d932e"
+    },
+    {
+      "fileName": "hadou_type_search_presets.json",
+      "sourcePath": "data/hadou_type_search_presets.json",
+      "sha256": "11047440d2fdc0e2bbd8a02e05ece470390b3a20e05dd93b8b1c57ddef04311e"
+    },
+    {
+      "fileName": "hadou_type_search_regression_cases.json",
+      "sourcePath": "data/hadou_type_search_regression_cases.json",
+      "sha256": "fb5e71ba50542f7d584e08e2020b0be875918d03d675d2295c8207587c3986b2"
+    },
+    {
+      "fileName": "hadou_type_search_role_index.json",
+      "sourcePath": "data/hadou_type_search_role_index.json",
+      "sha256": "bb01a0a7f28c7122e53b41a0ba8dded6fb75c905122727a297406c6caae025de"
+    },
+    {
+      "fileName": "hadou_type_search_role_rules.json",
+      "sourcePath": "data/hadou_type_search_role_rules.json",
+      "sha256": "325a04c9c6fa0ebc1a9b20bba8edd1c5e4f7815a83d6e63fcf58c118284253da"
+    },
+    {
+      "fileName": "hadou_equipments.json",
+      "sourcePath": "previous/hadou_equipments.json",
+      "sha256": "5d50bcd818a8ff07a8affbb4d1e4d55aa04ade6d357cbacbfc42e844edbafca0"
+    },
+    {
+      "fileName": "hadou_formations.json",
+      "sourcePath": "previous/hadou_formations.json",
+      "sha256": "bc24c3a61e936cde2548bcf168177129f0fec3e1b7f946336ffecaecc302f113"
+    },
+    {
+      "fileName": "hadou_generals.json",
+      "sourcePath": "previous/hadou_generals.json",
+      "sha256": "ffe5646297e8d5f11fff96598051379f5822983cd8c6893f3182c582a6a60d02"
+    },
+    {
+      "fileName": "hadou_skills.json",
+      "sourcePath": "previous/hadou_skills.json",
+      "sha256": "98f31ec65476099ee41e5acb8ff57836de49bc4b7671ed988374b7af4a8ebdde"
+    },
+    {
+      "fileName": "hadou_status_effects.json",
+      "sourcePath": "previous/hadou_status_effects.json",
+      "sha256": "19388f958403ed890333021c43453f0ac4069a31503408f10c06c76c21dbb244"
+    },
+    {
+      "fileName": "hadou_ethnic_armaments.json",
+      "sourcePath": "inherited/hadou_ethnic_armaments.json",
+      "sha256": "4c1889b1d9032870bde27a02775ac34866f88e16d47a03fc34586045b8a072fd"
+    },
+    {
+      "fileName": "hadou_ethnic_research_skills.json",
+      "sourcePath": "inherited/hadou_ethnic_research_skills.json",
+      "sha256": "848ea891173cb93fca04f6f52a1a888e447d154581012dba206c66cb26a6eaaf"
+    },
+    {
+      "fileName": "hadou_five_elements.json",
+      "sourcePath": "inherited/hadou_five_elements.json",
+      "sha256": "698daeb6782fc7df86339b478e6dfb7caf78a9f51e1e06e7651f2861b6995290"
+    },
+    {
+      "fileName": "hadou_siege_weapons.json",
+      "sourcePath": "inherited/hadou_siege_weapons.json",
+      "sha256": "3cc07b07ee4a0758bfbb3ac0c576be4e110c041a18c73a56d4437da10e3f6a7a"
+    },
+    {
+      "fileName": "hadou_warhorse_skills.json",
+      "sourcePath": "inherited/hadou_warhorse_skills.json",
+      "sha256": "808b250f406a8a1aeac666ae0cf57b1a0e4fadfac06843ebe1b9596f82df44e0"
+    },
+    {
+      "fileName": "hadou_warhorses.json",
+      "sourcePath": "inherited/hadou_warhorses.json",
+      "sha256": "93289c069ac9d569dcd0971212024160c6af3f69f473cd82ca9d6a3f8109e29a"
+    }
+  ],
+  "warhorseCount": 5,
+  "warhorseSkillCount": 27,
+  "typeScoreRuleCount": 11,
+  "metricsPerType": 5,
+  "purposeRuleCount": 6,
+  "roleRuleCount": 9,
+  "roleIndexCount": 2196,
+  "forbiddenTagHitCount": 0,
+  "derivedMetadataCount": 20,
+  "dataSetId": "06/05/2026 12:46:30",
+  "importedAt": "2026-06-06T18:46:30.7040175+09:00"
+}

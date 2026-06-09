@@ -1,0 +1,15 @@
+{
+  "version": "3.0.0.0",
+  "update": "Update03.0",
+  "features": [
+    "主将から考える",
+    "目的から考える",
+    "型を直接選ぶ"
+  ],
+  "mainGeneralOrder": "crawler JSON sourceIndex ascending",
+  "purposeRuleSource": "hadou_type_purpose_rules.json",
+  "typePresetSource": "hadou_type_search_presets.json",
+  "selectionStorageKey": "hado.typeEntry.selection.v1",
+  "eventName": "hado:type-search-entry-selected",
+  "indexSha256": "3c40e45cb30c414ab1363425a09839d2d8cb86a864e70918276aa79f9d238888"
+}

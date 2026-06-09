@@ -1,0 +1,22 @@
+{
+  "version": "3.0.0.0",
+  "update": "Update03.1",
+  "fixes": [
+    "PC modal overflow prevention",
+    "mobile single-column responsive layout",
+    "sticky footer",
+    "selected main-general card",
+    "main-general change button",
+    "main-general clear button",
+    "scrollable candidate list"
+  ],
+  "features": [
+    "主将から考える",
+    "目的から考える",
+    "型を直接選ぶ"
+  ],
+  "mainGeneralOrder": "crawler JSON sourceIndex ascending",
+  "selectionStorageKey": "hado.typeEntry.selection.v1",
+  "eventName": "hado:type-search-entry-selected",
+  "indexSha256": "cca964dc6cf28a7d4811566f9bfdaf84c31594b42d69230ed2ef59b23991a7e5"
+}

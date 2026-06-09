@@ -1,13 +1,13 @@
 {
-  "exportedAt": "2026-06-05T12:46:30.581Z",
+  "exportedAt": "2026-06-07T06:04:52.951Z",
   "collector": "hado_crawler_chrome_extension",
-  "crawlerVersion": "1.0.5.23",
+  "crawlerVersion": "1.1.0.0",
   "requestIntervalMs": 500,
   "cacheMode": "standard",
   "counts": {
-    "generals": 475,
+    "generals": 476,
     "equipments": 237,
-    "skills": 617,
+    "skills": 620,
     "formations": 21,
     "status_effects": 200
   },
@@ -30,12 +30,11 @@
     "formations": "https://gamewith.jp/sangokushihadou/article/show/261056"
   },
   "compatibilityScaleFix": {
-    "total": 475,
+    "total": 476,
     "converted": 0,
     "overRange": 0,
     "invalid": 0,
     "scale": "0-149_clockwise_from_12",
     "policy": "no automatic 120-to-150 conversion; parsed image values are kept as 0-149"
-  },
-  "version": "1.0.5.23"
+  }
 }

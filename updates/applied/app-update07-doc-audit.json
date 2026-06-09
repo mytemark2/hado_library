@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0",
+  "updateId": "app-update07-doc-audit",
+  "repository": "mytemark2/hado_library",
+  "summary": "Record exact Update07 HTML size delta and completed post-apply audit results.",
+  "appliedAt": "2026-06-07T22:23:34.065874+00:00",
+  "operations": [
+    {
+      "op": "replace",
+      "path": "docs/updates/update07/implementation.md",
+      "sha256After": "a381031a1a3753446b08ef1d21af9d2ee7625f2a65f706eb34224199c3c5b0ed",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "docs/updates/update07/report.md",
+      "sha256After": "951111e48deb8d936ad8febeeb4c73542767e9a0defae1b6493ef28f04429a15",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "docs/updates/update07/report.md",
+      "sha256After": "390ed9290f54d4f1598fe00fbb15e0102855d964924db947cf305eab19550ba0",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "report/HADO_APP_3.0.0.0_UPDATE07_REPORT.json",
+      "sha256After": "e400e9ac11ccd5afce784cd0043d564b4975a90bcf5a1f93cdaddf90830d18a2",
+      "count": 1
+    },
+    {
+      "op": "replace",
+      "path": "report/HADO_APP_3.0.0.0_UPDATE07_REPORT.json",
+      "sha256After": "1077a78b6583b75ab55c0d0c86e0ae35f9b3c257c375e32000df75e156652fcb",
+      "count": 1
+    }
+  ]
+}

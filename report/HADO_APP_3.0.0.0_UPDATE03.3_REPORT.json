@@ -1,0 +1,21 @@
+{
+  "version": "3.0.0.0",
+  "update": "Update03.3",
+  "bugClass": "IME composition broken by input-triggered full DOM rerender",
+  "rootCause": "The input event called render(), replacing the text field while Japanese IME composition was active and resetting the caret.",
+  "fixes": [
+    "do not rerender the modal on main-general query input",
+    "keep all main-general candidate DOM nodes mounted",
+    "toggle candidate hidden state instead of rebuilding the list",
+    "pause filtering between compositionstart and compositionend",
+    "apply filtering after Japanese conversion is confirmed",
+    "support query deletion so previously hidden candidates reappear"
+  ],
+  "regressionChecks": [
+    "compositionstart handler exists",
+    "compositionend handler exists",
+    "input-triggered full render is absent",
+    "index.html and standalone HTML are identical"
+  ],
+  "indexSha256": "775bd1681ee10da9a32fb0dab9fae459e11b47626e7863c1f5110a005e567f0f"
+}

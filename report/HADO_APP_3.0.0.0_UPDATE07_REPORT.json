@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "1.0",
+  "updateId": "app-update07-type-score",
+  "releaseVersion": "3.0.0.0",
+  "updateNo": "07",
+  "status": "implemented",
+  "summary": "Shared 10-step suitability scoring for type navigator and candidate list; generic alias inflation reduced.",
+  "filesAdded": [
+    "hado_type_score.js",
+    "docs/updates/update07/roadmap.md",
+    "docs/updates/update07/implementation.md",
+    "docs/updates/update07/report.md",
+    "report/HADO_APP_3.0.0.0_UPDATE07_REPORT.json",
+    "tools/validate_app_js.py"
+  ],
+  "filesChanged": [
+    "index.html",
+    "hado_library_3.0.0.0.html",
+    "hado_type_entry.js",
+    "hado_type_candidates.js",
+    "HADO_DEV_INFO.json",
+    "docs/updates/roadmap.md"
+  ],
+  "htmlPolicy": {
+    "largeInlineJsAdded": false,
+    "externalJsAdded": "hado_type_score.js",
+    "htmlBytesAddedEach": 102,
+    "htmlFiles": [
+      "index.html",
+      "hado_library_3.0.0.0.html"
+    ],
+    "loadOrder": [
+      "hado_type_score.js",
+      "hado_type_entry.js",
+      "hado_type_candidates.js"
+    ]
+  },
+  "localChecks": [
+    "node --check hado_type_score.js",
+    "node --check hado_type_candidates.js",
+    "synthetic score regression: 6 assertions passed",
+    "post-apply SHA-256 match: hado_type_score.js",
+    "post-apply SHA-256 match: hado_type_candidates.js",
+    "HTML SHA-256 match: index.html == hado_library_3.0.0.0.html",
+    "obsolete local scoring aliases removed from hado_type_entry.js",
+    "reusable validator added: tools/validate_app_js.py"
+  ],
+  "fixRevision": "07.1",
+  "fixSummary": "Replaced presence-only placeholder with rule-based numeric scoring and visible confirmed/conditional breakdown.",
+  "ruleMethods": [
+    "percent_sum",
+    "percent_sum_or_presence",
+    "presence_fixed",
+    "baseline_ratio"
+  ],
+  "regressionAdded": "tools/test_type_score.js",
+  "nextUpdate": "Update08: saved-data ownership filters, new formation creation, saved evaluation, history, and group management"
+}

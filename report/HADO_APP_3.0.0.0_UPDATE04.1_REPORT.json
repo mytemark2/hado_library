@@ -1,0 +1,32 @@
+{
+  "version": "3.0.0.0",
+  "update": "Update04.1",
+  "scope": "selected-type role candidate browser only",
+  "roleCount": 9,
+  "roles": [
+    "main_general",
+    "vice_general",
+    "support_general",
+    "attendant",
+    "equipment",
+    "formation",
+    "siege_weapon",
+    "warhorse",
+    "warhorse_skill"
+  ],
+  "safety": {
+    "candidateDisplayOnly": true,
+    "autoPlacement": false,
+    "formationSaveMutation": false,
+    "existingFormationGateBypass": false
+  },
+  "regressionChecks": [
+    "nine role tabs",
+    "selected type display",
+    "same-type reference match count",
+    "query filter",
+    "candidate-only note",
+    "HTML equality"
+  ],
+  "indexSha256": "090cc6c9243eb5a381fb4e8f18b5e1488df90b3b33108532f57b38b113decc44"
+}
