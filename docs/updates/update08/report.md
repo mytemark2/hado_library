@@ -55,6 +55,12 @@
 - 型候補一覧は固定の Update 文字列を持たず、`window.HADO_APP_DISPLAY_VERSION` / `window.HADO_APP_VERSION_META` を参照する。
 - 再発防止として、メタJSON、`hado_update_meta.js`、HTML読み込み順、型候補JSのハードコード有無を検証する `tools/validate_update_version_consistency.py` を追加した。
 
+## Update08.4 修正
+- 保存データ表示の型候補一覧で対象武将がまだ少ない原因として、所有判定の元データが `saves[].generals` / `saves[].equipments` に偏っていた点を修正した。
+- 保存データでは将星、能力設定、継承技能、装備星、装備段階を設定した時点で実質的に保存対象として扱うため、`generalStars` / `generalSettings` / `inheritedSkills` / `equipmentStars` / `equipmentStages` のキーも候補所有判定に含める。
+- 再発防止として、保存モード索引が明示所有リスト・将星・設定値・段階を所有ソースに含むことを検証する `tools/validate_saved_mode_index_ownership_sources.py` を追加した。
+- 表示バージョンを `3.0.0.0 Update08.4` へインクリメント済み。
+
 ## プレビュー同期
 この作業環境ではPush後のGitHub Actions結果とプレビューURLの実機確認は未実行。コミット後、push-triggered `Notify Hado Library Preview` の成功とデプロイcommit一致を確認する。
 
