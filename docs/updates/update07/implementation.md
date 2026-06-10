@@ -43,3 +43,17 @@
 - `tools/validate_app_js.py` を新設した。
 - ルート直下と `src/` 配下の全JSへ `node --check` を実行する。
 - ルート直下JSONの構文と、`index.html` / `hado_library_3.0.0.0.html` の同一性も検証する。
+### Update07.6 候補選択表示と役割限定条件対応
+- `hado_type_candidates.js` で候補カードのクリック選択状態を表示し、同じ候補の再クリックで選択解除できるようにした。
+- `hado_type_score.js` で `主将`、`副将`、`補佐`、`侍従` などの役割限定句を候補役割と照合し、役割不一致の句を採点対象から除外した。
+- 技能Lv表記そのものを対象数などの数値採点に混入させず、該当役割で発動する句に含まれる効果量だけを採点するようにした。
+- 型候補一覧へ候補トレイ追加ボタンを自動挿入していた `hado_candidate_tray_core.js` の処理を無効化し、既存ボタンが残っても削除するようにした。
+- HTML増減は `index.html` 0 bytes、`hado_library_3.0.0.0.html` 0 bytes。
+- 外部化判断: HTMLへ追記せず、既存責務の外部JSのみを変更した。
+
+### Update07.6.1 プレビュー外部JSキャッシュ対策
+- 原因調査の結果、プレビュー上のHTMLとメタ情報はUpdate07.6へ更新されていた一方、外部JSの `script src` がUpdate07.5以前と同一URLのままだったため、ブラウザまたはGitHub Pages側のキャッシュが旧JSを再利用し、候補選択UI・候補トレイ追加ボタン削除・役割限定句フィルタが画面へ反映されない可能性があった。
+- `index.html` と `hado_library_3.0.0.0.html` の外部JS読込URLへ `?v=3.0.0.0-update07.6` を付与し、Update07.6のJSを確実に再取得させるようにした。
+- HTML増減は `index.html` **+231 bytes**、`hado_library_3.0.0.0.html` **+231 bytes**。
+- 外部化判断: 新規ロジックはHTMLへ追加せず、既存外部JSの読込URLだけを更新した。
+- 読込順は `hado_type_score.js` → `hado_type_entry.js` → `hado_type_candidates.js` → `hado_candidate_tray_core.js` → `hado_candidate_tray.js` のまま維持した。
