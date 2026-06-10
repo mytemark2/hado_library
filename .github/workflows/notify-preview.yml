@@ -2,27 +2,41 @@ name: Notify Hado Library Preview
 
 on:
   push:
-    branches-ignore:
-      - main
+    branches:
+      - 'feature/app-*'
+  workflow_dispatch:
+    inputs:
+      app_ref:
+        description: 'Optional app branch/ref. Leave blank to use the current ref.'
+        required: false
+        default: ''
 
 permissions:
   contents: read
 
 jobs:
   notify-preview:
-    if: ${{ github.event.deleted == false }}
     runs-on: ubuntu-latest
     steps:
       - name: Resolve app branch
         id: source
         shell: bash
+        env:
+          INPUT_APP_REF: ${{ github.event.inputs.app_ref || '' }}
         run: |
           set -euo pipefail
-          APP_REF="${GITHUB_REF_NAME}"
-          if [ -z "${APP_REF}" ] || [ "${APP_REF}" = "main" ]; then
-            echo "Unsupported preview source branch: ${APP_REF}" >&2
-            exit 1
+          if [ -n "${INPUT_APP_REF}" ]; then
+            APP_REF="${INPUT_APP_REF}"
+          else
+            APP_REF="${GITHUB_REF_NAME}"
           fi
+          case "${APP_REF}" in
+            feature/app-*) ;;
+            *)
+              echo "Unsupported preview source branch: ${APP_REF}" >&2
+              exit 1
+              ;;
+          esac
           echo "app_ref=${APP_REF}" >> "${GITHUB_OUTPUT}"
           echo "Preview source branch: ${APP_REF}"
 

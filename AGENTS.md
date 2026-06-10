@@ -61,7 +61,7 @@ If a single coherent commit cannot be produced because of an unavoidable platfor
 
 Do **not** implement or use any of the following:
 
-- `updates/queue/*.json` or equivalent files that store search-and-replace instructions. Do not recreate an `updates/queue/` directory; remove it if it reappears.
+- `updates/queue/*.json` or equivalent files that store search-and-replace instructions.
 - Replacement queues containing fields such as `old`, `new`, or `expectedCount`.
 - GitHub Actions that mutate application source files through ad hoc string replacement.
 - Disposable, Update-specific apply workflows.
@@ -189,7 +189,7 @@ Allowed patterns include:
 - or an equivalent push-triggered design.
 
 Do not use scheduled polling as the normal path.
-Do not require or expose manual workflow dispatch for normal operation in the application repository preview notification workflow.
+Do not require manual workflow dispatch for normal operation.
 
 ## 11. Distribution package rules
 
