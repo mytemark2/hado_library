@@ -22,4 +22,22 @@ assertEq(r.confirmedScore,4.9,'confirmedScore');
 assertEq(r.conditionalMaxScore,5,'conditionalMaxScore');
 assertEq(r.matchedCount,5,'matchedCount');
 assertEq(S.summary(r),'兵力:0.4/2 / 弱化無効:2/2 / 通常攻撃対象数:2/2 / 攻撃速度:0.5/2 / 連鎖率:0→0.1/2','summary');
-console.log('Update07.1 type-score regression: passed');
+
+const roleRule={metrics:[
+  {metricKey:'chain_rate',label:'連鎖率',method:'percent_sum'},
+  {metricKey:'attack_speed',label:'攻撃速度',method:'percent_sum'},
+  {metricKey:'normal_attack_target_count',label:'通常攻撃対象数',method:'baseline_ratio',basis:{baselineIncrement:1,baselinePoints:100}}
+]};
+const roleLimited={roleId:'main_general',typeFeatures:[
+  {featureId:'skill_effect:chain_rate',label:'連鎖確率',matchedText:'■副将の際 ●副将の連鎖確率+5% 技能Lv3'},
+  {featureId:'parameter:attack_speed',label:'攻撃速度',matchedText:'■主将の際 ●攻撃速度+20% 技能Lv2'},
+  {featureId:'skill_effect:normal_attack_target_count',label:'通常攻撃対象数',matchedText:'■主将の際 ●通常攻撃対象部隊数+1 技能Lv5'}
+]};
+const rr=S.score(roleLimited,roleRule);
+assertEq(rr.confirmedScore,0,'role confirmedScore');
+assertEq(rr.conditionalMaxScore,2.4,'role conditionalMaxScore');
+assertEq(rr.matchedCount,2,'role matchedCount');
+assertEq(S.metricRows(roleLimited,roleRule.metrics[0]).length,0,'vice-only chain excluded for main role');
+assertEq(S.metricRows({...roleLimited,roleId:'vice_general'},roleRule.metrics[0]).length,1,'vice-only chain included for vice role');
+
+console.log('Update07.6 type-score regression: passed');

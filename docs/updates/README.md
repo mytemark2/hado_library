@@ -2,7 +2,7 @@
 
 開発ブランチ: `feature/app-3.0.0.0`
 
-現在の到達点: `3.0.0.0 Update07.5`
+現在の到達点: `3.0.0.0 Update07.6`
 
 全体計画: [3.0.0.0 全体ロードマップ](roadmap.md)
 
@@ -14,7 +14,7 @@
 | Update04 | 改訂完了 | 9役割の型候補一覧・0件候補除外 | [roadmap](update04/roadmap.md) | [implementation](update04/implementation.md) | [report](update04/report.md) |
 | Update05 | 完了 | 部隊別候補トレイ・既存選択ダイアログ委譲 | [roadmap](update05/roadmap.md) | [implementation](update05/implementation.md) | [report](update05/report.md) |
 | Update06 | 完了 | 残り4役割接続・9役割すべての候補トレイ導線統一 | [roadmap](update06/roadmap.md) | [implementation](update06/implementation.md) | [report](update06/report.md) |
-| Update07 | 完了（最新: 07.5） | 10段階適合スコア・評価ロジック調整・候補一覧の表示順とフッター整理 | [roadmap](update07/roadmap.md) | [implementation](update07/implementation.md) | [report](update07/report.md) |
+| Update07 | 完了（最新: 07.6） | 10段階適合スコア・評価ロジック調整・候補一覧の選択状態表示と役割限定条件対応 | [roadmap](update07/roadmap.md) | [implementation](update07/implementation.md) | [report](update07/report.md) |
 | Update08 | 予定 | 保存データ対応型編成ナビ・新規部隊作成・保存評価・履歴・グループ管理 | [全体計画](roadmap.md#update08-保存データ対応型編成ナビ新規部隊作成保存評価履歴グループ管理) | - | - |
 | Update09 | 予定 | PC・スマホUI/UXと実用性改善 | [全体計画](roadmap.md#update09-uiux調整と実用性改善) | - | - |
 | Update10 | 予定 | 全体回帰・ガイド更新・正式版候補 | [全体計画](roadmap.md#update10-全体回帰ガイド更新正式版候補) | - | - |
