@@ -1863,7 +1863,7 @@ function syncCurrentSaveSelection(){if(els.saveSelect&&!els.saveSelect.disabled&
 function sanitizeSearchHistoryList(list){return uniq(Array.isArray(list)?list.map(v=>norm(v)).filter(Boolean):[]);}
 function readTextFileCompat(file){return new Promise((resolve,reject)=>{try{const reader=new FileReader();reader.onload=()=>resolve(String(reader.result||''));reader.onerror=()=>reject(reader.error||new Error('ファイル読込に失敗しました'));reader.readAsText(file,'UTF-8');}catch(err){if(file&&typeof file.text==='function'){file.text().then(resolve,reject);}else{reject(err);}}});}
 function forceRefreshSearchHistoryAfterImport(context=''){persistSearchHistory();renderSearchHistory();setTimeout(()=>{renderSearchHistory();debugLog('importSaveData:force-refresh',{context,searchHistoryCount:(state.searchHistory||[]).length,first:(state.searchHistory||[])[0]||'',mobileOptionCount:els.mobileSearchHistorySelect?els.mobileSearchHistorySelect.options.length:0,mobileFirstOption:els.mobileSearchHistorySelect&&els.mobileSearchHistorySelect.options[1]?els.mobileSearchHistorySelect.options[1].textContent:''});debugResponsiveSnapshot('importSaveData:force-refresh');},0);}
-function buildFormationDataExportObject(){return sanitizeFormationData({formations:state.formations,currentFormationId:state.currentFormationId});}
+function buildFormationDataExportObject(){return sanitizeFormationData({groups:state.formationGroups,currentFormationGroupId:state.currentFormationGroupId,formations:state.formations,currentFormationId:state.currentFormationId});}
 function readImportedFormationData(parsed){const hasFormationData=!!(parsed&&parsed.formationData)||Array.isArray(parsed?.formations);const source=parsed?.formationData||{formations:parsed?.formations,currentFormationId:parsed?.currentFormationId};return {hasFormationData,data:sanitizeFormationData(source)};}
 function buildSaveDataExportObject(){syncCurrentSaveSelection();const current=getCurrentSave();const formationData=buildFormationDataExportObject();const payload={saves:current?[sanitizeSaveRecord(JSON.parse(JSON.stringify(current)))]:[],currentSaveId:current?.id||'',searchHistory:sanitizeSearchHistoryList(state.searchHistory),formationData,exportedAt:new Date().toISOString(),exportVersion:`hado_library_${HADO_BUILD_INFO.version}`,exportScope:'currentSave',importPolicy:'singleSaveAddOrOverwrite'};debugLog('exportSaveData:build',{saveCount:payload.saves.length,currentSaveId:payload.currentSaveId,formationCount:formationData.formations.length,currentFormationId:formationData.currentFormationId,searchHistoryCount:payload.searchHistory.length});return payload;}
 function exportSaveDataToFile(){try{const payload=buildSaveDataExportObject();const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`hado_library_save_data_${new Date().toISOString().slice(0,19).replace(/[T:]/g,'-')}.json`;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);}catch(err){window.alert(`Exportに失敗しました: ${err?.message||err}`);}}
@@ -1891,7 +1891,7 @@ function mergeImportedFormationDataIntoCurrent(importedFormation, sourceName='')
   const existing=Array.isArray(state.formations)?state.formations:[];
   const byId=new Map(existing.map(f=>[f.id,f]));
   let added=0;let overwritten=0;
-  incoming.forEach(f=>{if(!f||!f.id)return;if(byId.has(f.id))overwritten++;else added++;byId.set(f.id,sanitizeFormationData({formations:[f],currentFormationId:f.id}).formations[0]||f);});
+  incoming.forEach(f=>{if(!f||!f.id)return;if(byId.has(f.id))overwritten++;else added++;byId.set(f.id,sanitizeFormationData({groups:state.formationGroups,currentFormationGroupId:state.currentFormationGroupId,formations:[f],currentFormationId:f.id}).formations[0]||f);});
   state.formations=[...byId.values()];
   const importedCurrent=norm(importedFormation.data?.currentFormationId||'');
   if(importedCurrent&&state.formations.some(f=>f.id===importedCurrent))state.currentFormationId=importedCurrent;
@@ -2757,8 +2757,10 @@ function addGrantedSkillsToSavedIndex(skillName,level,skillNames,statusEffectNam
 function rebuildSavedModeIndex(){
 const current=getCurrentSave();
 pruneInvalidInheritedSkillsForCurrentSave('rebuildSavedModeIndex');
-const generalNames=new Set((current?.generals||[]).map(v=>normalizeSaveItemName(v)).filter(Boolean));
-const equipmentNames=new Set((current?.equipments||[]).map(v=>normalizeSaveItemName(v)).filter(Boolean));
+const generalOwnershipSources=[...(current?.generals||[]),...Object.keys(current?.generalStars||{}),...Object.keys(current?.generalSettings||{}),...Object.keys(current?.inheritedSkills||{})];
+const equipmentOwnershipSources=[...(current?.equipments||[]),...Object.keys(current?.equipmentStars||{}),...Object.keys(current?.equipmentStages||{})];
+const generalNames=new Set(generalOwnershipSources.map(v=>normalizeSaveItemName(v)).filter(Boolean));
+const equipmentNames=new Set(equipmentOwnershipSources.map(v=>normalizeSaveItemName(v)).filter(Boolean));
 const skillNames=new Set();
 const statusEffectNames=new Set();
 const lookup=state.lookupIndexes||{};
@@ -2789,7 +2791,7 @@ if(legacySkillFieldCount)debugLog('saveData:legacy-general-skills-ignored-in-ind
 const nextSavedSearchCacheKey=buildSavedSearchCacheKey(current);
 if(state.savedSearchCacheKey!==nextSavedSearchCacheKey){state.savedSearchCacheKey=nextSavedSearchCacheKey;state.savedSearchCacheSeq=(state.savedSearchCacheSeq||0)+1;debugLog('savedSearchCache:key-update',{seq:state.savedSearchCacheSeq,currentSave:current?.name||'',generals:generalNames.size,equipments:equipmentNames.size});}
 if(grantedSkillDiagnostics.length)debugLog('savedModeIndex:granted-skills-added',{count:grantedSkillDiagnostics.length,sample:grantedSkillDiagnostics.slice(0,20)});
-debugLog('rebuildSavedModeIndex',{generals:generalNames.size,equipments:equipmentNames.size,skills:skillNames.size,statusEffects:statusEffectNames.size,currentSave:current?.name||'',savedSearchCacheSeq:state.savedSearchCacheSeq,policy:'general skills resolved from saved generalStars and granted reference skills',sample:savedSkillDiagnostics.slice(0,8),grantedSkillCount:grantedSkillDiagnostics.length,grantedSkillSample:grantedSkillDiagnostics.slice(0,8)});
+debugLog('rebuildSavedModeIndex',{generals:generalNames.size,equipments:equipmentNames.size,skills:skillNames.size,statusEffects:statusEffectNames.size,currentSave:current?.name||'',savedSearchCacheSeq:state.savedSearchCacheSeq,ownershipSources:{generals:(current?.generals||[]).length,generalStars:Object.keys(current?.generalStars||{}).length,generalSettings:Object.keys(current?.generalSettings||{}).length,inheritedSkills:Object.keys(current?.inheritedSkills||{}).length,equipments:(current?.equipments||[]).length,equipmentStars:Object.keys(current?.equipmentStars||{}).length,equipmentStages:Object.keys(current?.equipmentStages||{}).length},policy:'saved ownership includes explicit lists plus saved stars/settings; general skills resolved from saved generalStars and granted reference skills',sample:savedSkillDiagnostics.slice(0,8),grantedSkillCount:grantedSkillDiagnostics.length,grantedSkillSample:grantedSkillDiagnostics.slice(0,8)});
 state.savedModeIndex={generalNames,equipmentNames,skillNames,statusEffectNames};
 invalidateTypeSearchResultCache('saved-mode-index-rebuild');
 }
