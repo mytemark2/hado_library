@@ -49,6 +49,12 @@
 - 再発防止として、型候補JSONの武将/装備候補名が保存マスタ名へ照合可能であることを検証する `tools/validate_type_candidate_saved_name_matching.py` を追加した。
 - 表示バージョンを `3.0.0.0 Update08.2` へインクリメント済み。
 
+## Update08.3 修正
+- 修正ごとの視認性を担保するため、表示バージョンを `3.0.0.0 Update08.3` へインクリメントした。
+- 複数ファイルで表示バージョンを直接定義しないよう、実行時フォールバックの単一定義を `hado_update_meta.js` の `HADO_VERSION` に集約した。
+- 型候補一覧は固定の Update 文字列を持たず、`window.HADO_APP_DISPLAY_VERSION` / `window.HADO_APP_VERSION_META` を参照する。
+- 再発防止として、メタJSON、`hado_update_meta.js`、HTML読み込み順、型候補JSのハードコード有無を検証する `tools/validate_update_version_consistency.py` を追加した。
+
 ## プレビュー同期
 この作業環境ではPush後のGitHub Actions結果とプレビューURLの実機確認は未実行。コミット後、push-triggered `Notify Hado Library Preview` の成功とデプロイcommit一致を確認する。
 
