@@ -1,0 +1,43 @@
+{
+  "updateNo": "08.2",
+  "displayVersion": "3.0.0.0 Update08.2",
+  "status": "completed-local-validation",
+  "summary": "Fix saved-mode type candidate ownership matching so compact role-index names match saved crawler master names.",
+  "bugClassification": "Saved-data candidate filtering false negative",
+  "rootCause": "Saved ownership sets contain crawler display names with the 【三國志 覇道】 prefix and readings removed by normalizeSaveItemName, while type-candidate rows use compact names with readings. The Update08.1 filter compared these strings directly, so owned generals/equipment were incorrectly excluded.",
+  "changedFiles": [
+    "HADO_DEV_INFO.json",
+    "hado_update_meta.js",
+    "hado_type_candidates.js",
+    "docs/updates/roadmap.md",
+    "docs/updates/update08/implementation.md",
+    "docs/updates/update08/report.md",
+    "tools/validate_type_candidate_saved_name_matching.py",
+    "report/HADO_APP_3.0.0.0_UPDATE08.2_REPORT.json"
+  ],
+  "htmlSizeChange": {
+    "index.html": 0,
+    "hado_library_3.0.0.0.html": 0
+  },
+  "externalizationDecision": "No HTML changes; the fix is in existing external JavaScript and a validation tool.",
+  "validation": [
+    {"command":"node --check hado_type_candidates.js","result":"pass"},
+    {"command":"node --check hado_update_meta.js","result":"pass"},
+    {"command":"python3 -m json.tool HADO_DEV_INFO.json","result":"pass"},
+    {"command":"python3 -m json.tool report/HADO_APP_3.0.0.0_UPDATE08.2_REPORT.json","result":"pass"},
+    {"command":"python3 tools/validate_type_candidate_saved_name_matching.py","result":"pass"},
+    {"command":"python3 tools/validate_formation_link_helpers.py","result":"pass"},
+    {"command":"python3 tools/validate_app_js.py","result":"pass"},
+    {"command":"node tools/test_type_score.js","result":"pass"},
+    {"command":"node hado_status_effect_regression.js","result":"pass"},
+    {"command":"test ! -d updates/queue","result":"pass"}
+  ],
+  "workflowResult": "pending-after-push",
+  "previewResult": "pending-after-push",
+  "userPasteDataIfStillLow": [
+    "HADO_DEV_INFO.json の displayVersion shown by the preview",
+    "Current save export JSON with personal notes removed if desired, especially saves[].generals and saves[].equipments",
+    "The selected purpose/type in the type navigation",
+    "Candidate count shown for each role tab in the type candidate modal"
+  ]
+}

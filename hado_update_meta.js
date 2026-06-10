@@ -5,8 +5,8 @@
   const META_URL = './HADO_DEV_INFO.json';
   const FALLBACK = {
     releaseVersion: '3.0.0.0',
-    updateNo: '08.1',
-    displayVersion: '3.0.0.0 Update08.1'
+    updateNo: '08.2',
+    displayVersion: '3.0.0.0 Update08.2'
   };
 
   let current = FALLBACK;
