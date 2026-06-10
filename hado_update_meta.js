@@ -3,11 +3,15 @@
   'use strict';
 
   const META_URL = './HADO_DEV_INFO.json';
-  const FALLBACK = {
+  const HADO_VERSION = Object.freeze({
     releaseVersion: '3.0.0.0',
-    updateNo: '07.6',
-    displayVersion: '3.0.0.0 Update07.6'
-  };
+    updateNo: '08.3'
+  });
+  const FALLBACK = Object.freeze({
+    ...HADO_VERSION,
+    displayVersion: `${HADO_VERSION.releaseVersion} Update${HADO_VERSION.updateNo}`
+  });
+  window.HADO_APP_VERSION_META = FALLBACK;
 
   let current = FALLBACK;
   let syncing = false;
@@ -47,6 +51,7 @@
 
       window.HADO_DEV_INFO = current;
       window.HADO_APP_DISPLAY_VERSION = display;
+      window.HADO_APP_VERSION_META = current;
     } finally {
       syncing = false;
     }
