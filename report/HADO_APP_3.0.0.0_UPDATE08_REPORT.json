@@ -2,7 +2,7 @@
   "updateNo": "08",
   "displayVersion": "3.0.0.0 Update08",
   "status": "completed-local-validation",
-  "summary": "Saved-data-aware type candidates, type-based new formation creation, formation evaluation metadata/history, and group limits.",
+  "summary": "Saved-data-aware type candidates, type-based new formation creation, formation evaluation metadata/history, group limits, and active-script formation link helper fix.",
   "changedFiles": [
     "hado_formation.js",
     "hado_core.js",
@@ -13,7 +13,9 @@
     "docs/updates/update08/roadmap.md",
     "docs/updates/update08/implementation.md",
     "docs/updates/update08/report.md",
-    "report/HADO_APP_3.0.0.0_UPDATE08_REPORT.json"
+    "report/HADO_APP_3.0.0.0_UPDATE08_REPORT.json",
+    "hado_status_effects.js",
+    "tools/validate_formation_link_helpers.py"
   ],
   "htmlSizeChange": {
     "index.html": 0,
@@ -55,6 +57,10 @@
     },
     {
       "command": "test ! -d updates/queue",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_formation_link_helpers.py",
       "result": "pass"
     }
   ],

@@ -21,16 +21,24 @@
 - `docs/updates/update08/roadmap.md`
 - `docs/updates/update08/implementation.md`
 - `docs/updates/update08/report.md`
+- `hado_status_effects.js`
+- `tools/validate_formation_link_helpers.py`
 
 ## HTMLサイズと外部化
 - HTML変更なし。
 - Update08の新規挙動は外部JSへ実装した。
+
+## 追加修正
+- 部隊編成描画で `formationEntityLinkHtml is not defined` が発生していたため、実際にHTMLから読み込まれる `hado_status_effects.js` に編成画面用リンクヘルパーを配置した。
+- 旧結合ファイル `hado_app.js` には同ヘルパーが残っていたが、現在のHTMLロード順では読み込まれないため、外部分割後の配置漏れが原因だった。
+- 再発防止として、HTMLで有効なスクリプト群に編成リンクヘルパーが存在することを検証する `tools/validate_formation_link_helpers.py` を追加した。
 
 ## 検証結果
 - JavaScript構文検証: 成功。
 - JSON構文検証: 成功。
 - アプリJS検証: 成功。
 - `updates/queue` は存在しない。
+- HTML有効スクリプト内の編成リンクヘルパー存在検証: 成功。
 
 ## プレビュー同期
 この作業環境ではPush後のGitHub Actions結果とプレビューURLの実機確認は未実行。コミット後、push-triggered `Notify Hado Library Preview` の成功とデプロイcommit一致を確認する。
