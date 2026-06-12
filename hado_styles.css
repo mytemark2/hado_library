@@ -1,0 +1,1441 @@
+:root{--bg:#f6f7fb;--panel:#fff;--border:#d9dce7;--text:#1f2937;--muted:#6b7280;--primary:#1d4ed8;--mark:#fde68a}*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}.app{max-width:1400px;margin:0 auto;padding:16px;display:grid;gap:12px}.panel{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:14px;box-shadow:0 1px 2px rgba(0,0,0,.04)}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.between{justify-content:space-between}h1,h2,p{margin:0}.note,.meta{font-size:13px;color:var(--muted);line-height:1.6}button{border:1px solid var(--border);background:#fff;border-radius:10px;padding:10px 14px;cursor:pointer;font-size:14px;color:var(--text)}.file-action-label{display:inline-block;border:1px solid var(--border);background:#fff;border-radius:10px;padding:10px 14px;cursor:pointer;font-size:14px;color:var(--text);line-height:normal}button.toggle-active{background:var(--primary);border-color:var(--primary);color:#fff}input[type=text]{width:100%;border:1px solid var(--border);border-radius:10px;padding:10px 12px;font-size:14px}.search-wrap{display:grid;gap:10px}.category-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.category-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.btn-select-all{background:#dcfce7;border-color:#86efac;color:#166534}.btn-clear-all{background:#fee2e2;border-color:#fca5a5;color:#991b1b}.layout{display:grid;grid-template-columns:minmax(260px,1fr) minmax(560px,2fr);gap:12px}.results{list-style:none;padding:0;margin:0;border:1px solid var(--border);border-radius:10px;overflow:auto;max-height:720px;background:#fff}.results li{padding:12px;border-bottom:1px solid var(--border);cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:8px}.results li:last-child{border-bottom:none}.results li:hover{background:#f8fbff}.results li.active{background:#eff6ff}.badge{display:inline-block;font-size:12px;border:1px solid var(--border);border-radius:999px;padding:2px 8px;color:#475569;margin-right:6px;margin-top:4px;background:#fff}.detail{max-height:720px;overflow:auto;display:grid;gap:16px}.detail-empty{padding:32px 16px;text-align:center;color:var(--muted)}.kv-table,.section-table,.generic-table{width:100%;border-collapse:collapse}.kv-table td,.kv-table th,.section-table td,.generic-table td,.generic-table th{border:1px solid var(--border);padding:8px;vertical-align:top}.detail table.detail-two-col{table-layout:fixed}.detail table.detail-two-col td:first-child,.detail table.detail-two-col th:first-child{width:var(--detail-label-col-width,25%)!important;max-width:var(--detail-label-col-width,25%);overflow-wrap:anywhere;word-break:break-word}.detail table.detail-two-col td:nth-child(2),.detail table.detail-two-col th:nth-child(2){width:calc(100% - var(--detail-label-col-width,25%));overflow-wrap:anywhere;word-break:break-word}.detail-col-width-control{justify-content:flex-end}.detail-col-width-control input[type=range]{width:120px}.generic-table thead th{background:#f8fafc;text-align:left}.section-table td:first-child{width:220px}.merge-cell{font-weight:700;background:#f8fafc}.detail a{color:#1d4ed8;text-decoration:none}.detail a:hover{text-decoration:underline}.raw{margin:0;white-space:pre-wrap;word-break:break-word;font-size:12px;border:1px solid var(--border);border-radius:10px;padding:12px;background:#fafafa}.debug-log-pre{max-height:30em;overflow-y:auto}.section-title{font-size:18px;font-weight:700}.divider{border:none;border-top:1px solid #d1d5db;margin:8px 0}mark.search-hit{background:var(--mark);padding:0 2px;border-radius:2px}.save-star{border:none;background:transparent;padding:0 4px;cursor:pointer;font-size:18px;line-height:1;color:#94a3b8}.save-star.is-saved{color:#f59e0b}.title-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.control-select{border:1px solid var(--border);background:#fff;border-radius:10px;padding:10px 12px;font-size:14px;color:var(--text)}.search-meta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}.search-history-panel{position:fixed;left:8px;top:120px;width:220px;max-height:70vh;overflow:auto;z-index:10}.search-history-title{font-size:13px;color:var(--muted);margin-bottom:8px}.search-history-list{display:grid;gap:6px}.search-history-item{display:flex;align-items:center;gap:6px}.search-history-keyword{flex:1;min-width:0;border:1px solid var(--border);background:#fff;border-radius:8px;padding:8px 10px;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.search-history-delete{border:1px solid var(--border);background:#fff;border-radius:8px;padding:8px 10px;line-height:1}.search-history-empty{font-size:12px;color:var(--muted)}.general-detail-layout{display:grid;grid-template-columns:minmax(260px,1fr) minmax(0,2fr);gap:16px}.general-detail-col{display:grid;gap:16px}.general-detail-stack{display:grid;gap:16px}.general-card{border:1px solid var(--border);border-radius:14px;background:#fff;overflow:hidden}.general-card-header{padding:12px 14px;border-bottom:1px solid var(--border);background:#f8fafc;font-size:16px;font-weight:700}.general-card-sub{display:block;margin-top:4px;font-size:12px;color:var(--muted);font-weight:400}.general-card-body{padding:14px}.general-detail-layout .kv-table th,.general-detail-layout .kv-table td,.general-detail-layout .generic-table th,.general-detail-layout .generic-table td{padding:10px}.general-list{margin:0;padding-left:18px;color:var(--text)}.general-list li{margin:0 0 8px 0;line-height:1.7}.general-rank-grid{display:grid;gap:12px}.general-chip{display:inline-flex;align-items:center;justify-content:center;min-width:36px;padding:3px 10px;border-radius:999px;background:#1f2937;color:#fff;font-size:12px;font-weight:700}.general-tag-grid{display:grid;gap:10px}.general-tag-row{display:grid;grid-template-columns:80px minmax(0,1fr);gap:10px;border:1px solid var(--border);border-radius:12px;padding:12px;background:#fff}.general-tag-label{font-weight:700}.general-note{font-size:13px;color:var(--muted);line-height:1.7}.general-text{line-height:1.8}.general-skill-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.general-skill-card{border:1px solid var(--border);border-radius:12px;padding:12px;background:#fff}.general-skill-card.advisor-skill-card{border-style:dashed;background:#f8fafc}.advisor-skill-badge{margin-left:6px;background:#eef2ff;color:#3730a3}.appointment-skill-badge{margin-left:6px;background:#fef3c7;color:#92400e}.general-skill-card.appointment-skill-card{border-style:dashed;background:#fffbeb}.general-skill-name{font-size:16px;font-weight:700;margin-bottom:8px}.general-two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.search-history-select,.result-select-wrap{display:none}.mobile-search-history-panel{display:none}.search-history-select,.result-select{width:100%;border:1px solid var(--border);border-radius:10px;padding:10px 12px;font-size:14px;color:var(--text);background:#fff}.detail-nav-group{display:inline-flex;align-items:center;gap:4px;flex-wrap:nowrap}.history-nav-btn{min-width:34px;height:30px;padding:0 8px;border-radius:8px;line-height:1;display:inline-flex;align-items:center;justify-content:center;font-size:16px;font-weight:700}.history-nav-btn .nav-icon{pointer-events:none}.history-nav-btn:disabled{opacity:.45;cursor:not-allowed}.copy-btn{padding:6px 10px;border-radius:8px;font-size:13px}.result-copy-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}@media (max-width:980px),(pointer:coarse){.result-copy-actions{width:100%;justify-content:flex-start}.result-copy-actions .copy-btn{white-space:normal;line-height:1.3}}.detail-toolbar{margin-bottom:10px;justify-content:space-between}a.detail-entity-link{color:#1d4ed8;text-decoration:underline;text-underline-offset:2px}.detail-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.detail-tab-btn{border:1px solid var(--border);background:#fff;border-radius:999px;padding:8px 12px;font-size:13px}.detail-tab-btn.is-active{background:var(--primary);border-color:var(--primary);color:#fff}.parameter-summary{display:grid;gap:12px}.parameter-block{border:1px solid var(--border);border-radius:14px;background:#fff;overflow:hidden}.parameter-block-title{padding:10px 12px;border-bottom:1px solid var(--border);background:#f8fafc;font-weight:700}.parameter-block-body{padding:10px 12px;display:grid;gap:5px}.parameter-group{display:grid;gap:6px}.parameter-group-title{font-weight:700;color:#374151}.parameter-row{display:grid;gap:2px;border-top:1px dashed #e5e7eb;padding-top:3px}.parameter-row:first-child{border-top:none;padding-top:0}.parameter-main{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;line-height:1.35}.parameter-key{font-weight:600}.parameter-value-inline{font-weight:700}.parameter-value{font-weight:700}.parameter-detail{font-size:12px;color:var(--muted);line-height:1.6}.parameter-inline-detail{font-size:12px;color:var(--muted);font-weight:400}.parameter-detail-pc-inline{font-size:12px;color:var(--muted);font-weight:400}.parameter-detail-pc{display:block;font-size:12px;color:var(--muted);line-height:1.5;margin-left:12px}.parameter-detail-mobile{display:none}.parameter-detail-mobile summary{cursor:pointer;color:#2563eb;font-size:12px;list-style:none}.parameter-detail-mobile summary::-webkit-details-marker{display:none}.parameter-detail-expanded{display:grid;gap:2px}.parameter-empty{color:var(--muted);font-size:13px}.parameter-special-list{line-height:1.7}@media (max-width:980px),(pointer:coarse){.app{margin:0 auto!important;max-width:1400px!important;width:100%!important}.parameter-detail-pc-inline{display:none}.parameter-mobile-detail-text{display:inline-block;color:var(--muted);font-size:12px;margin-left:6px}.parameter-detail-pc{display:none}.parameter-detail-mobile{display:inline-block}.parameter-detail-mobile[open]{display:block;width:100%;margin-top:2px}.parameter-detail-mobile .parameter-detail-expanded{margin-top:3px;color:var(--muted)}.layout{grid-template-columns:1fr}.results,.detail{max-height:none}.results{display:none!important}.result-select-wrap{display:grid!important;gap:8px}.pc-search-history-panel{display:none!important}.mobile-search-history-panel{display:block!important;position:static!important;width:auto!important;max-height:none!important;overflow:visible!important;z-index:auto!important}.mobile-search-history-panel .search-history-select{display:block!important}.search-history-list{display:none!important}.general-detail-layout{grid-template-columns:1fr}.general-skill-grid,.general-two-col{grid-template-columns:1fr}.detail-col-width-control{width:100%;justify-content:flex-start}.detail-col-width-control input[type=range]{width:min(180px,60vw)}}.load-overlay{position:fixed;inset:0;background:rgba(15,23,42,.42);display:none;align-items:center;justify-content:center;z-index:210000;padding:16px}.load-overlay.is-visible{display:flex}.load-card{width:min(560px,96vw);background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 8px 24px rgba(0,0,0,.14);display:grid;gap:12px}.load-title{font-size:18px;font-weight:700}.load-progress{width:100%;height:14px;appearance:none}.load-progress::-webkit-progress-bar{background:#e5e7eb;border-radius:999px}.load-progress::-webkit-progress-value{background:var(--primary);border-radius:999px}.load-progress::-moz-progress-bar{background:var(--primary);border-radius:999px}.load-stats{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}.load-detail{font-size:13px;color:var(--muted);line-height:1.6;white-space:pre-wrap;word-break:break-word}.star-rating-wrap{display:grid;gap:10px}.star-rating-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.star-rating-value{font-size:16px;font-weight:700;color:#b45309}.star-rating-btn{border:1px solid var(--border);background:#fff;border-radius:8px;padding:6px 8px;cursor:pointer;font-size:18px;line-height:1;color:#cbd5e1}.star-rating-btn.is-on{color:#f59e0b;border-color:#fbbf24;background:#fffbeb}.equipment-stage-setting-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.equipment-stage-setting-radio{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);border-radius:999px;padding:6px 10px;background:#fff}.equipment-stage-setting-radio input{margin:0}.equipment-stage-setting-radio.is-active{border-color:#93c5fd;background:#eff6ff;color:#1d4ed8;font-weight:700}.equipment-stage-setting-value{font-size:16px;font-weight:700;color:#1d4ed8}.general-stage-radio,.equipment-stage-radio{display:inline-flex;align-items:center;gap:6px;margin-right:8px}
+
+.save-input-overlay{position:fixed;inset:0;background:rgba(15,23,42,.54);display:none;align-items:center;justify-content:center;z-index:220000;padding:16px;isolation:isolate}.save-input-overlay.is-visible{display:flex}.save-input-overlay .save-input-card{z-index:220001}.save-input-overlay.is-visible{display:flex}.save-input-card{width:min(420px,94vw);background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:0 8px 24px rgba(0,0,0,.18);display:grid;gap:12px}.save-input-title{font-size:16px;font-weight:700}.save-input-actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}.save-input-actions button{min-width:80px}
+
+.search-input-row,.tag-input-row{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;align-items:center}.search-input-row button,.tag-input-row button{white-space:nowrap}.name-only-search-label{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;border:1px solid var(--border);background:#fff;border-radius:10px;padding:10px 12px;font-size:14px;color:var(--text)}.name-only-search-label input{margin:0}
+.tag-input-row{grid-template-columns:auto minmax(0,1fr) auto auto}.tag-search-wrap{display:grid;gap:8px}.tag-rule-note{font-size:12px;color:var(--muted);line-height:1.5}.selected-tag-list{display:flex;gap:6px;flex-wrap:wrap;align-items:center}.selected-tag-group{display:inline-flex;gap:4px;align-items:center;flex-wrap:wrap;border:1px dashed #bfdbfe;border-radius:10px;padding:3px 5px;background:#f8fbff}.selected-tag-group-label{font-size:11px;font-weight:700;color:#475569;padding:0 2px}.selected-tag-badge{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--border);border-radius:999px;padding:4px 8px;background:#eff6ff;color:#1d4ed8;font-size:12px}.selected-tag-remove{border:none;background:transparent;color:#1d4ed8;padding:0 2px;line-height:1;font-size:14px}.tag-picker-panel{display:none;border:1px solid var(--border);border-radius:12px;padding:12px;background:#fafafa;max-height:320px;overflow:auto}.tag-picker-panel.is-visible{display:grid;gap:12px}.tag-picker-group{display:grid;gap:6px}.tag-picker-title{font-size:13px;font-weight:700;color:var(--muted)}.tag-picker-options{display:flex;gap:6px;flex-wrap:wrap}.tag-picker-option{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--border);border-radius:999px;padding:5px 8px;background:#fff;font-size:12px}.tag-search-note{font-size:12px;color:var(--muted)}.mobile-search-history-actions,.result-select-actions{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center}.mobile-delete-history-btn,.mobile-result-favorite-btn{white-space:nowrap}.mobile-result-favorite-btn:disabled{opacity:.45;cursor:not-allowed}@media (min-width:981px) and (pointer:fine){.app{margin-left:240px;max-width:calc(100vw - 260px)}}@media (max-width:520px){.detail-tabs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px}.detail-tab-btn{white-space:nowrap;padding:8px 10px}.parameter-row{grid-template-columns:1fr}.parameter-value{text-align:left}.app{margin-left:auto!important;max-width:1400px!important}.layout{grid-template-columns:1fr!important}.results{display:none!important}.result-select-wrap{display:grid!important;gap:8px}.pc-search-history-panel{display:none!important}.mobile-search-history-panel{display:block!important;position:static!important;width:auto!important;max-height:none!important;overflow:visible!important;z-index:auto!important}.mobile-search-history-panel .search-history-select{display:block!important}.search-history-list{display:none!important}.general-detail-layout{grid-template-columns:1fr}.general-skill-grid,.general-two-col{grid-template-columns:1fr}.detail-col-width-control{width:100%;justify-content:flex-start}.detail-col-width-control input[type=range]{width:min(180px,60vw)}.search-input-row,.tag-input-row{grid-template-columns:1fr}.tag-input-row{align-items:stretch}.tag-picker-panel{max-height:45vh}}
+
+/* parameter summary responsive detail display - fixed
+   PC/tablet wide: show evidence inline, no [詳細].
+   Narrow mobile: hide inline evidence, show [詳細] disclosure. */
+.parameter-detail-pc-inline{display:inline;color:var(--muted);font-size:12px;font-weight:400}
+.parameter-detail-mobile{display:none}
+.parameter-mobile-detail-text{display:inline-block;color:var(--muted);font-size:12px;margin-left:6px}
+@media (max-width:980px){
+  .parameter-detail-pc-inline{display:none}
+  .parameter-detail-mobile{display:inline-block}
+  .parameter-detail-mobile[open]{display:block;width:100%;margin-top:2px}
+  .parameter-detail-mobile summary{cursor:pointer;color:#2563eb;font-size:12px;list-style:none}
+  .parameter-detail-mobile summary::-webkit-details-marker{display:none}
+}
+@media (min-width:981px){
+  .parameter-detail-mobile{display:none!important}
+  .parameter-detail-pc-inline{display:inline!important}
+}
+
+
+/* parameter summary detail disclosure - unified PC/mobile logic */
+.parameter-detail-disclosure{display:block;margin-top:2px;color:var(--muted);font-size:12px;line-height:1.5}
+.parameter-detail-disclosure summary{display:inline-block;cursor:pointer;color:#2563eb;font-size:12px;list-style:none;user-select:none}
+.parameter-detail-disclosure summary::-webkit-details-marker{display:none}
+.parameter-detail-disclosure[open] summary{margin-bottom:2px}
+.parameter-detail-expanded{display:grid;gap:2px;margin-left:12px}
+@media (max-width:980px){
+  .parameter-detail-disclosure:not([data-user-opened]){ }
+}
+@media (max-width:980px),(pointer:coarse){
+  .parameter-detail-disclosure{margin-top:2px}
+}
+
+
+/* parameter detail summary inline fix */
+.parameter-main>.parameter-detail-disclosure{display:inline-block;margin:0 0 0 2px;vertical-align:baseline}
+.parameter-main>.parameter-detail-disclosure summary{display:inline;cursor:pointer;color:#2563eb;font-size:12px;list-style:none;user-select:none;white-space:nowrap}
+.parameter-main>.parameter-detail-disclosure summary::-webkit-details-marker{display:none}
+.parameter-main>.parameter-detail-disclosure .parameter-detail-expanded{display:grid;gap:2px;margin:2px 0 0 0;min-width:max-content;color:var(--muted)}
+@media (max-width:980px){
+  .parameter-main>.parameter-detail-disclosure{display:inline-block}
+  .parameter-main>.parameter-detail-disclosure .parameter-detail-expanded{min-width:0;max-width:100%;white-space:normal}
+}
+
+
+/* mobile detail overflow guard: prevents detail rendering from widening viewport */
+@media (max-width:980px),(pointer:coarse){
+  html,body{max-width:100%;overflow-x:hidden;}
+  .app{width:100%;max-width:100vw!important;overflow-x:hidden;padding-left:10px;padding-right:10px;}
+  .layout,.panel,.detail,#detail,.general-detail-stack,.general-detail-layout,.general-detail-col,.general-card,.general-card-body,.general-text,.section-title,.title-row,.parameter-summary,.parameter-block,.parameter-block-body,.parameter-main,.parameter-detail-expanded,.detail-tabs{min-width:0;max-width:100%;overflow-wrap:anywhere;word-break:break-word;}
+  #detail *{box-sizing:border-box;min-width:0;max-width:100%;overflow-wrap:anywhere;word-break:break-word;}
+  #detail .row,#detail .title-row,#detail .parameter-main{min-width:0;max-width:100%;}
+  #detail .row.between>div{min-width:0;max-width:100%;}
+  #detail table,#detail .kv-table,#detail .section-table,#detail .generic-table{width:100%!important;max-width:100%;table-layout:fixed;}
+  #detail th,#detail td{white-space:normal;overflow-wrap:anywhere;word-break:break-word;max-width:100%;}
+  #detail a{overflow-wrap:anywhere;word-break:break-word;}
+  #detail pre,#detail code,#detail .raw{white-space:pre-wrap;overflow-x:auto;max-width:100%;}
+  #detail .parameter-main>.parameter-detail-disclosure .parameter-detail-expanded{min-width:0!important;max-width:100%;white-space:normal;}
+  #detail .general-card{overflow:hidden;}
+}
+
+
+/* UI restore: file settings + main mode tabs */
+.file-settings-header{display:grid;gap:8px}
+.file-settings-title-row{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.file-settings-summary{display:grid;gap:6px;border-top:1px solid var(--border);padding-top:8px}
+.file-settings-summary-line{display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0}
+.file-settings-summary-line .control-select{max-width:min(100%,360px)}
+.file-settings-toggle{border:none;background:transparent;padding:0;font-weight:700;color:var(--text);display:inline-flex;align-items:center;gap:4px}
+.file-settings-body{display:grid;gap:10px;padding-top:8px;border-top:1px dashed var(--border)}
+.file-settings-panel.is-collapsed .file-settings-body{display:none!important}
+.main-tab-panel{padding:0;background:transparent;border:none;box-shadow:none}
+.main-tab-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.main-tab-btn{border:1px solid var(--border);background:#fff;border-radius:999px;padding:11px 14px;font-weight:700;text-align:center}
+.main-tab-btn.is-active{background:var(--primary);border-color:var(--primary);color:#fff}
+.formation-panel{display:grid;gap:12px}
+.formation-coming-soon{padding:32px 16px;text-align:center;color:var(--muted);border:1px dashed var(--border);border-radius:12px;background:#fafafa;font-weight:700}
+.tab-content-hidden{display:none!important}
+@media (max-width:980px),(pointer:coarse){
+  .main-tab-row{grid-template-columns:1fr 1fr}
+  .file-settings-summary-line{align-items:stretch}
+  .file-settings-summary-line .control-select{width:100%;max-width:100%}
+}
+
+
+/* FEATURE[HADO-2.1.2.0-FORMATION]: 簡易部隊編成 */
+.formation-panel{display:grid;gap:12px}.formation-layout{display:grid;grid-template-columns:minmax(260px,360px) minmax(0,1fr);gap:12px}.formation-list-panel,.formation-detail-panel{border:1px solid var(--border);border-radius:12px;background:#fff;padding:12px;display:grid;gap:10px}.formation-list-actions,.formation-top-actions,.formation-quick-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.formation-list{display:grid;gap:8px}.formation-list-item{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;align-items:center;border:1px solid var(--border);border-radius:10px;background:#fff;padding:10px;cursor:pointer;text-align:left}.formation-list-item.is-active{background:#eff6ff;border-color:#93c5fd}.formation-list-no{width:28px;height:28px;border:1px solid var(--border);border-radius:8px;display:inline-flex;align-items:center;justify-content:center;color:#475569;background:#fff}.formation-list-name{font-weight:700}.formation-list-meta{font-size:12px;color:var(--muted);margin-top:3px}.formation-mobile-select-wrap{display:none}.formation-mobile-actions{display:flex;gap:8px;flex-wrap:wrap}.formation-mobile-actions button{flex:1;min-width:88px}.formation-header-grid{display:grid;grid-template-columns:minmax(180px,320px) minmax(240px,1fr) auto;gap:10px;align-items:end}.formation-mode-pill{display:inline-flex;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:#fff}.formation-mode-pill span{padding:9px 12px;font-size:13px}.formation-mode-pill .is-active{background:var(--primary);color:#fff}.formation-slots{display:grid;grid-template-columns:repeat(5,minmax(160px,1fr));gap:10px}.formation-slot-card{border:1px solid var(--border);border-radius:12px;background:#fff;overflow:hidden;display:grid}.formation-slot-header{background:#f8fafc;border-bottom:1px solid var(--border);padding:8px 10px;font-weight:700;color:#1d4ed8;display:flex;justify-content:space-between;gap:6px}.formation-slot-body{padding:10px;display:grid;gap:8px}.formation-empty{color:var(--muted);font-size:13px;border:1px dashed var(--border);border-radius:10px;padding:14px;text-align:center;background:#fafafa}.formation-unit-name{font-weight:700}.formation-unit-sub{font-size:12px;color:var(--muted)}.formation-assistant,.formation-equips{border:1px solid #e5e7eb;border-radius:10px;background:#f8fafc;padding:8px;display:grid;gap:6px}.formation-equip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.formation-equip-cell{border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;min-height:48px;font-size:12px;display:grid;gap:3px}.formation-equip-label{font-weight:700;color:#475569}.formation-equip-name{color:#111827;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.formation-summary-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}.formation-table{width:100%;border-collapse:collapse;font-size:13px}.formation-table th,.formation-table td{border:1px solid var(--border);padding:7px;vertical-align:top}.formation-table th{background:#f8fafc;text-align:left}.formation-badge{display:inline-block;border:1px solid #bfdbfe;background:#eff6ff;color:#1d4ed8;border-radius:999px;padding:1px 7px;font-size:12px;margin:1px}.formation-calc{display:grid;gap:4px;font-size:12px;line-height:1.5;color:#374151;min-width:220px}.formation-calc-line{display:block}.formation-calc-total{font-weight:700;color:#111827}.formation-calc-empty{color:var(--muted)}.formation-note{font-size:12px;color:var(--muted);line-height:1.6}.formation-save-dirty{color:#b45309;font-weight:700}.formation-add-btn{background:#eff6ff;border-color:#93c5fd;color:#1d4ed8;font-weight:700}.formation-add-popover{position:fixed;left:50%;top:50%;right:auto;transform:translate(-50%,-50%);width:min(720px,calc(100vw - 32px));max-height:calc(100vh - 32px);overflow:auto;background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:0 12px 32px rgba(15,23,42,.18);z-index:10000;padding:14px;display:grid;gap:12px}.formation-add-popover[hidden]{display:none}.formation-add-anchor{position:relative;display:inline-flex}.formation-destination-grid{display:grid;gap:10px;max-height:48vh;overflow:auto}.formation-destination-group{display:grid;gap:6px;border-top:1px solid #e5e7eb;padding-top:8px}.formation-destination-title{font-weight:700;color:#374151}.formation-destination-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.formation-destination-option{border:1px solid var(--border);background:#fff;border-radius:10px;padding:9px 10px;text-align:left;font-size:13px}.formation-destination-option.is-selected{border-color:#2563eb;background:#eff6ff;color:#1d4ed8;font-weight:700}.formation-quick-grid-wrap{display:grid;gap:8px}.formation-quick-grid{display:grid;grid-template-columns:repeat(3,minmax(72px,1fr));grid-template-rows:repeat(3,minmax(64px,auto));gap:6px}.formation-quick-cell{border:1px solid var(--border);border-radius:10px;background:#fff;min-height:64px;padding:6px;display:grid;gap:4px;align-content:center}.formation-quick-cell.is-empty{background:#f8fafc;color:#94a3b8;border-style:dashed}.formation-quick-cell.is-selected{border-color:#2563eb;background:#eff6ff}.formation-quick-cell-title{font-weight:700;font-size:12px;color:#334155}.formation-quick-cell-current{font-size:11px;color:#64748b;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.formation-quick-cell button{width:100%;border:1px solid var(--border);background:#fff;border-radius:8px;padding:5px 6px;font-size:12px;text-align:center}.formation-quick-cell button.is-selected{border-color:#2563eb;background:#dbeafe;color:#1d4ed8;font-weight:700}.formation-quick-cell button.is-attendant{background:#fdf2f8;border-color:#f9a8d4;color:#9d174d}.formation-quick-cell button.is-equipment{background:#f8fafc}.formation-quick-cell-note{font-size:11px;color:#64748b;line-height:1.35}.formation-toast{position:fixed;right:16px;bottom:16px;z-index:10001;background:#111827;color:#fff;border-radius:12px;padding:12px 14px;box-shadow:0 8px 24px rgba(0,0,0,.2);display:flex;gap:10px;align-items:center;max-width:min(520px,92vw)}.formation-toast button{background:#fff;color:#111827;padding:6px 10px;border-radius:8px}.formation-popover-footer{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}.formation-danger{color:#991b1b}.formation-card-actions{display:flex;gap:6px;flex-wrap:wrap}.formation-select{width:100%;border:1px solid var(--border);border-radius:10px;padding:10px 12px;background:#fff;color:var(--text)}.formation-list-panel{align-self:start;min-height:0}.formation-list{max-height:60vh;overflow-y:auto;align-content:start;grid-auto-rows:max-content;padding-right:2px}.formation-list-item{width:100%}.formation-section-header{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}.formation-filter-select{border:1px solid var(--border);background:#fff;border-radius:10px;padding:7px 10px;font-size:13px;color:var(--text)}
+body.formation-tab .mobile-search-history-panel{display:none!important}
+body.formation-tab .pc-search-history-panel{display:none!important}
+@media (min-width:981px) and (pointer:fine){body.formation-tab .formation-layout{grid-template-columns:1fr}body.formation-tab .formation-list-panel{position:fixed;left:8px;top:120px;width:220px;max-height:70vh;overflow:auto;z-index:11;box-shadow:0 1px 2px rgba(0,0,0,.04)}body.formation-tab .formation-detail-panel{min-width:0}body.formation-tab .formation-list-actions{display:grid;grid-template-columns:1fr;gap:6px}body.formation-tab .formation-list-actions button{width:100%;padding:8px 10px}body.formation-tab .formation-list{max-height:calc(70vh - 120px)}}
+@media (max-width:980px),(pointer:coarse){.formation-layout{grid-template-columns:1fr}.formation-list-panel{display:none}.formation-mobile-select-wrap{display:grid;gap:8px}.formation-header-grid{grid-template-columns:1fr}.formation-slots{grid-template-columns:1fr}.formation-summary-grid{grid-template-columns:1fr}.formation-add-popover{position:fixed;left:10px;right:10px;top:auto;bottom:10px;transform:none;width:auto;max-height:85vh;overflow:auto}.formation-destination-options{grid-template-columns:1fr}.formation-toast{left:10px;right:10px;bottom:10px}}
+
+
+/* FEATURE[HADO-2.2.0.1-UI]: スマホ表示調整・部隊編成計算式列折り畳み */
+.operation-history-break{display:none;}
+@media (max-width:980px),(pointer:coarse){
+  .operation-history-break{display:block;flex-basis:100%;width:0;height:0;padding:0;margin:0;}
+  #opHistoryBackBtn{flex-basis:auto;margin-left:0;width:auto;min-width:auto;align-self:flex-start;}
+  .result-select-wrap>label[for="resultSelect"]{display:none!important;}
+  .formation-param-table.is-calc-collapsed td.formation-calc-cell{display:none;}
+  .formation-param-table .formation-calc-header{white-space:nowrap;width:1%;}
+  .formation-calc-toggle{padding:6px 9px;font-size:12px;border-radius:8px;}
+}
+@media (min-width:981px) and (pointer:fine){
+  .formation-param-table .formation-calc-toggle{display:none;}
+  .formation-param-table td.formation-calc-cell{display:table-cell!important;}
+}
+
+
+/* FEATURE[HADO-2.2.1.0-EQUIPMENT-STAGE]: データ/装備ラジオのグループ枠 */
+.settings-group{border:1px solid var(--border);border-radius:12px;padding:8px 10px;background:#fff;display:flex;align-items:center;gap:10px;flex-wrap:wrap;min-width:0}
+.settings-group legend{padding:0 6px;font-size:12px;font-weight:700;color:#475569}
+.settings-group-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;min-width:0}
+.equipment-stage-radio{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+@media (max-width:980px),(pointer:coarse){.settings-group{width:100%;align-items:flex-start}.settings-group-row{width:100%}.equipment-stage-radio{margin-right:4px}}
+/* 2.2.8.7 general detail mobile readability */
+.general-mobile-card-grid{display:grid;gap:10px}.general-mini-card{border:1px solid var(--border);border-radius:12px;background:#fff;padding:12px}.general-mini-card-title{font-weight:700;margin-bottom:8px}.general-kv-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.general-kv-item{border:1px solid #eef2f7;border-radius:10px;padding:8px;background:#f8fafc}.general-kv-label{display:block;font-size:12px;color:var(--muted);margin-bottom:2px}.general-kv-value{font-weight:700;overflow-wrap:anywhere}.general-chip-list{display:flex;flex-wrap:wrap;gap:8px}.general-link-chip{display:inline-flex;align-items:center;min-height:32px;max-width:100%;border:1px solid var(--border);border-radius:999px;padding:6px 10px;background:#eff6ff;color:#1d4ed8;font-size:13px;line-height:1.25;text-decoration:none;overflow-wrap:anywhere}.general-link-chip:hover{text-decoration:underline}.general-link-chip.no-link{background:#f8fafc;color:var(--text)}.general-chip-section{display:grid;gap:8px}.general-chip-section-title{font-size:13px;font-weight:700;color:#374151}.general-troop-timeline{display:grid;gap:10px}.general-troop-step{border:1px solid var(--border);border-radius:12px;background:#fff;padding:12px;display:grid;gap:8px}.general-troop-step-title{font-weight:700;color:#1f2937}.general-commentary-grid{display:grid;gap:10px}.general-commentary-card{border:1px solid var(--border);border-radius:12px;background:#fff;padding:12px}.general-commentary-title{font-weight:700;margin-bottom:8px}.general-commentary-body{line-height:1.75}.general-ability-scroll{overflow-x:auto}.general-ability-scroll .generic-table{min-width:720px}@media (max-width:520px){.general-kv-grid{grid-template-columns:1fr}.general-link-chip{border-radius:12px}.general-card-body{padding:12px}.general-ability-scroll .generic-table{min-width:680px}}
+
+/* 2.2.8.9 troop card compact layout */
+.general-troop-card{padding:10px}
+.general-troop-card .general-mini-card-title{margin-bottom:6px}
+.general-troop-compact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 8px}
+.general-troop-compact-item{display:flex;align-items:baseline;justify-content:space-between;gap:6px;border:0;border-radius:0;background:transparent;padding:2px 0;min-width:0;border-bottom:1px dashed #eef2f7}
+.general-troop-compact-label{font-size:12px;color:var(--muted);white-space:nowrap}
+.general-troop-compact-value{font-size:13px;font-weight:700;overflow-wrap:anywhere;text-align:right}
+.general-troop-milestones-details>summary{cursor:pointer;list-style:none;font-weight:700;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.general-troop-milestones-details>summary::-webkit-details-marker{display:none}
+.general-troop-milestones-details>summary::after{content:'開く';font-size:12px;color:#2563eb;font-weight:600}
+.general-troop-milestones-details[open]>summary::after{content:'閉じる'}
+.general-troop-timeline{gap:6px;margin-top:8px}
+.general-troop-step{padding:8px;border-radius:10px;gap:6px}
+.general-troop-step-title{font-size:13px}
+.general-troop-card .meta{font-size:12px;line-height:1.35}
+@media (max-width:520px){.general-troop-card .general-kv-grid,.general-troop-compact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.general-troop-card{padding:9px}.general-troop-step{padding:8px}.general-troop-compact-item{padding:1px 0}.general-troop-compact-label{font-size:11px}.general-troop-compact-value{font-size:12px}}
+
+
+
+/* FEATURE[HADO-2.2.10.0-STABILITY-MOBILE]: smartphone stability and lighter rendering */
+.result-select-note{font-size:12px;color:var(--muted);line-height:1.5;margin-top:4px}
+.formation-mobile-summary-section{border:1px solid var(--border);border-radius:12px;background:#fff;overflow:hidden;margin:0 0 10px 0}
+.formation-mobile-summary-section>summary{cursor:pointer;list-style:none;padding:10px 12px;background:#f8fafc;font-weight:700;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.formation-mobile-summary-section>summary::-webkit-details-marker{display:none}
+.formation-mobile-summary-section>summary::after{content:'開く';font-size:12px;color:var(--muted);font-weight:600}
+.formation-mobile-summary-section[open]>summary::after{content:'閉じる'}
+.formation-mobile-summary-body{padding:10px 10px 12px}
+@media (min-width:981px) and (pointer:fine){
+  /* BUGFIX[HADO-2.4.5.0-FORMATION-PC-COLLAPSE]: PCでも状態変化率・合算技能・兵器/武装パラメータを折り畳み可能にする */
+  .formation-mobile-summary-section{border:1px solid var(--border);border-radius:12px;background:#fff;overflow:hidden;margin:0 0 10px 0}
+  .formation-mobile-summary-section>summary{display:flex;padding:10px 12px;background:#f8fafc;font-weight:700;cursor:pointer}
+  .formation-mobile-summary-body{padding:10px 10px 12px}
+}
+
+
+.formation-extension-panel{border:1px solid var(--border);border-radius:12px;background:#fff;padding:12px;display:grid;gap:10px}
+.formation-extension-grid{display:grid;grid-template-columns:repeat(4,minmax(140px,1fr));gap:10px;align-items:end}
+.formation-extension-grid label{display:grid;gap:4px}
+.formation-extension-note{font-size:12px;color:var(--muted);line-height:1.6}
+.formation-roster-compact{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.formation-roster-compact-cell{border:1px solid var(--border);border-radius:10px;background:#f8fafc;padding:7px;min-width:0}
+.formation-roster-compact-label{font-size:11px;color:var(--muted);font-weight:700}
+.formation-roster-compact-name{font-size:12px;color:#111827;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* BUGFIX[HADO-2.3.8.2-SUMMARY-LAYOUT]: 折りたたみ時の省略内容はタイトルの次行に表示 */
+.formation-extension-details>summary,.formation-slots-details>summary{display:grid!important;grid-template-columns:1fr auto;align-items:start;gap:6px 10px}
+.formation-extension-details>summary .formation-summary-current{grid-column:1/-1;margin:0;min-width:0;width:100%}
+.formation-slots-details>summary .formation-roster-compact{grid-column:1/-1;margin:0!important;width:100%;min-width:0}
+.formation-extension-details[open]>summary .formation-summary-current{display:none!important}
+.formation-slots-details[open]>summary .formation-roster-compact{display:none!important}
+/* BUGFIX[HADO-2.3.5.2-FORMATION-COLLAPSE]: PCでも兵器・武装/武将詳細を折り畳めるようにし、展開時は省略表示を隠す */
+.formation-extension-details[open]>summary .formation-summary-current{display:none!important}
+.formation-slots-details>summary{align-items:flex-start}
+.formation-slots-details>summary .formation-roster-compact{flex:1;margin-left:8px}
+.formation-slots-details[open]>summary .formation-roster-compact{display:none!important}
+@media (min-width:981px) and (pointer:fine){
+  .formation-extension-details.formation-mobile-summary-section,.formation-slots-details.formation-mobile-summary-section{border:1px solid var(--border);border-radius:12px;background:#fff;overflow:hidden;margin:0 0 10px 0}
+  .formation-extension-details.formation-mobile-summary-section>summary,.formation-slots-details.formation-mobile-summary-section>summary{display:flex!important;padding:10px 12px;background:#f8fafc;font-weight:700;cursor:pointer}
+  .formation-extension-details .formation-mobile-summary-body,.formation-slots-details .formation-mobile-summary-body{padding:10px 10px 12px}
+}
+@media (max-width:980px),(pointer:coarse){.formation-extension-grid{grid-template-columns:1fr 1fr}.formation-extension-panel{padding:10px}.formation-roster-compact{grid-template-columns:1fr 1fr}.formation-roster-compact-cell:first-child{grid-column:1/-1}}
+@media (max-width:520px){.formation-extension-grid{grid-template-columns:1fr}}
+
+/* BUGFIX[HADO-2.3.6.2-FORMATION-UI]: 兵器/武装パラメータと状態変化率を区分別に折り畳み表示 */
+.formation-extension-param-details{border:1px solid var(--border);border-radius:12px;background:#fff;overflow:hidden;margin:0 0 10px 0}
+.formation-extension-param-details>summary{cursor:pointer;list-style:none;padding:10px 12px;background:#f8fafc;font-weight:700;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.formation-extension-param-details>summary::-webkit-details-marker{display:none}
+.formation-extension-param-details>summary::after{content:'開く';font-size:12px;color:var(--muted);font-weight:600}.formation-extension-param-details[open]>summary::after{content:'閉じる'}
+.formation-extension-param-body{padding:10px 10px 12px}
+.formation-timing-details{border:1px solid var(--border);border-radius:12px;background:#fff;overflow:hidden;margin:0 0 10px 0}
+.formation-timing-details>summary{cursor:pointer;list-style:none;padding:10px 12px;background:#f8fafc;font-weight:700;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.formation-timing-details>summary::-webkit-details-marker{display:none}.formation-timing-details>summary::after{content:'開く';font-size:12px;color:var(--muted);font-weight:600}.formation-timing-details[open]>summary::after{content:'閉じる'}
+.formation-timing-body{padding:10px 10px 12px}
+
+/* BUGFIX[HADO-2.4.2.8-JIJU-GRID]: 侍従位置を3x3の小型グリッドで表示 */
+.jiju-position-display{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap;vertical-align:middle;line-height:1.2}
+.jiju-position-grid{display:grid;grid-template-columns:repeat(3,10px);grid-template-rows:repeat(3,10px);gap:1px;flex:0 0 auto}
+.jiju-position-cell{width:10px;height:10px;border:1px solid #cbd5e1;background:#fff;border-radius:2px;box-sizing:border-box}
+.jiju-position-cell.is-center{background:#64748b;border-color:#64748b}
+.jiju-position-cell.is-active{background:var(--primary);border-color:var(--primary)}
+.jiju-position-text{font-size:12px;color:var(--text);white-space:nowrap}
+@media (max-width:520px){.jiju-position-display{gap:5px}.jiju-position-grid{grid-template-columns:repeat(3,9px);grid-template-rows:repeat(3,9px)}.jiju-position-cell{width:9px;height:9px}.jiju-position-text{font-size:12px}}
+/* BUGFIX[HADO-2.4.2.9-AFFINITY-CLOCK]: 相性値を丸時計グラフで表示 */
+.affinity-display{display:inline-flex;align-items:center;gap:6px;vertical-align:middle;line-height:1.2}
+.affinity-clock{width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}
+.affinity-clock svg{width:18px;height:18px;display:block}
+.affinity-value{font-size:12px;color:var(--text);white-space:nowrap}
+.affinity-clock-bg{stroke:#94a3b8;stroke-width:1;fill:#e5e7eb}
+.affinity-clock-hand{stroke:#0f172a;stroke-width:1.8;stroke-linecap:round}
+.affinity-clock-center{fill:#0f172a}
+.affinity-clock-mark{stroke:#0f172a;stroke-width:1.2;stroke-linecap:round;opacity:.55}
+@media (max-width:520px){.affinity-display{gap:5px}.affinity-clock{width:17px;height:17px}.affinity-clock svg{width:17px;height:17px}.affinity-value{font-size:12px}}
+
+.formation-master-grid{display:inline-grid;grid-template-columns:repeat(3,34px);grid-template-rows:repeat(3,34px);gap:4px;vertical-align:middle;margin-right:10px}.formation-master-grid.is-team-grid{grid-template-columns:repeat(3,minmax(58px,1fr));grid-template-rows:repeat(3,42px);width:min(260px,100%);margin:0}.formation-master-cell{display:flex;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:8px;background:#f8fafc;font-size:12px;font-weight:700;color:#475569;min-width:34px;min-height:34px}.formation-master-cell.is-empty{background:#fff;color:#cbd5e1}.formation-master-cell.is-main{background:#dbeafe;border-color:#93c5fd;color:#1e40af}.formation-master-cell.is-vice{background:#dcfce7;border-color:#86efac;color:#166534}.formation-master-cell.is-support{background:#fef3c7;border-color:#fcd34d;color:#92400e}.formation-master-cell.is-attendant{background:#fce7f3;border-color:#f9a8d4;color:#9d174d}.formation-master-cell.is-blocked{background:#f1f5f9;color:#94a3b8;border-style:dashed}.formation-jiju-note{font-size:12px;color:var(--muted);line-height:1.5}.formation-jiju-warning{font-size:12px;color:#b45309;line-height:1.5}.formation-master-layout-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.formation-master-skill-list{display:grid;gap:10px}.formation-master-skill{border:1px solid var(--border);border-radius:12px;padding:10px;background:#fff}.formation-master-skill-name{font-weight:700;margin-bottom:6px}
+
+
+/* FEATURE[HADO-2.5.0.1-UX-SHELL]: 初回導線・状態カード・簡易使い方説明 */
+.ux-home-panel{display:grid;gap:12px;border-color:#bfdbfe;background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%)}
+.ux-home-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.ux-home-title{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ux-home-badge{display:inline-flex;align-items:center;border:1px solid #93c5fd;background:#eff6ff;color:#1d4ed8;border-radius:999px;padding:3px 9px;font-size:12px;font-weight:700}
+.ux-home-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.ux-status-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.ux-status-card{border:1px solid var(--border);border-radius:14px;background:#fff;padding:12px;display:grid;gap:5px;min-width:0}
+.ux-status-label{font-size:12px;color:var(--muted);font-weight:700}
+.ux-status-value{font-size:16px;font-weight:800;color:#111827;overflow-wrap:anywhere}
+.ux-status-note{font-size:12px;color:var(--muted);line-height:1.45;overflow-wrap:anywhere}
+.ux-guide-details{border:1px solid var(--border);border-radius:14px;background:#fff;overflow:hidden}
+.ux-guide-details>summary{cursor:pointer;list-style:none;padding:11px 13px;background:#f8fafc;font-weight:800;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ux-guide-details>summary::-webkit-details-marker{display:none}
+.ux-guide-details>summary::after{content:'開く';font-size:12px;color:var(--muted);font-weight:600}.ux-guide-details[open]>summary::after{content:'閉じる'}
+.ux-guide-body{padding:12px;display:grid;gap:10px}
+.ux-guide-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.ux-guide-step{border:1px solid #dbeafe;border-radius:14px;background:#eff6ff;padding:12px;display:grid;gap:7px;min-width:0}
+.ux-guide-step-title{font-weight:800;color:#1e3a8a}
+.ux-guide-step-text{font-size:13px;color:#334155;line-height:1.55}
+.ux-guide-step-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:3px}
+.ux-guide-step-actions button{padding:8px 10px;border-radius:9px;font-size:13px;background:#fff}
+.ux-home-panel.is-dismissed{display:none!important}
+@media (max-width:980px),(pointer:coarse){.ux-status-grid{grid-template-columns:1fr 1fr}.ux-guide-steps{grid-template-columns:1fr}.ux-home-header{display:grid}.ux-home-actions{justify-content:flex-start}.ux-guide-step-actions button{flex:1;min-width:120px}}
+@media (max-width:520px){.ux-status-grid{grid-template-columns:1fr}.ux-status-card{padding:10px}.ux-home-panel{padding:12px}}
+
+/* BUGFIX[HADO-2.5.0.1-UX-SHELL-ORDER]: タイトル、スタートガイド、ファイル設定を独立表示 */
+.app-title-panel{display:grid;gap:8px}
+.app-title-panel .file-settings-title-row{padding:0}
+.ux-home-primary-actions{border-top:1px dashed var(--border);padding-top:10px}
+.ux-home-close-row{display:flex;justify-content:center;border-top:1px solid #e5e7eb;padding-top:12px}.ux-home-dismiss-btn{font-size:15px;font-weight:700;padding:12px 18px;min-width:220px}
+@media (max-width:980px),(pointer:coarse){.app-title-panel .file-settings-title-row{display:grid;gap:8px}.debug-log-top-actions{justify-content:flex-start}.ux-home-primary-actions{display:none!important}.ux-home-dismiss-btn{width:auto;max-width:100%;font-size:16px;padding:13px 20px}}
+
+
+
+/* FEATURE[HADO-2.5.1.0-SEARCH-UX]: 検索条件チップ・検索プリセット・結果カード */
+.search-preset-row{display:flex;gap:6px;flex-wrap:nowrap;align-items:center;border:1px solid var(--border);border-radius:10px;background:#f8fafc;padding:6px 8px;min-height:0}
+.search-preset-label{font-size:12px;font-weight:800;color:#475569;margin-right:2px;white-space:nowrap}
+.search-preset-btn{padding:7px 10px;border-radius:999px;font-size:13px;background:#fff}
+.search-preset-btn:hover{background:#eff6ff;border-color:#93c5fd;color:#1d4ed8}.search-preset-select{min-width:0;border:1px solid var(--border);border-radius:8px;background:#fff;padding:5px 8px;font-size:13px;color:var(--text);height:34px;line-height:1.2}.search-preset-group-select{flex:0 1 170px}.search-preset-effect-select{flex:1 1 240px}.quick-search-reset-btn{flex:0 0 auto;height:34px;padding:5px 9px;border-radius:8px;font-size:12px;background:#fff;color:#475569}.quick-search-reset-btn.is-active{border-color:#93c5fd;background:#eff6ff;color:#1d4ed8;font-weight:700}.search-preset-source{display:none;font-size:11px;color:var(--muted)}
+.search-condition-chips{display:flex;gap:6px;flex-wrap:wrap;align-items:center;min-height:30px}
+.search-condition-chip{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--border);border-radius:999px;background:#fff;padding:5px 9px;font-size:12px;color:#334155;line-height:1.2}
+.search-condition-chip.is-keyword{background:#eff6ff;border-color:#bfdbfe;color:#1d4ed8;font-weight:700}
+.search-condition-chip.is-empty{color:var(--muted);background:#f8fafc}
+.search-result-card-main{display:grid;gap:5px;min-width:0;width:100%}
+.search-result-top{display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-width:0}
+.search-result-category{display:inline-flex;align-items:center;border:1px solid #bfdbfe;border-radius:999px;background:#eff6ff;color:#1d4ed8;font-size:12px;font-weight:800;padding:2px 8px;line-height:1.4;white-space:nowrap}
+.search-result-title{font-weight:800;font-size:15px;color:#111827;overflow-wrap:anywhere;word-break:break-word}
+.search-result-metric{display:inline-flex;border:1px solid #fde68a;border-radius:999px;background:#fffbeb;color:#92400e;font-size:12px;font-weight:800;padding:2px 8px;line-height:1.4}
+.search-result-meta{font-size:12px;color:var(--muted);line-height:1.45;overflow-wrap:anywhere;word-break:break-word}
+.search-result-reason{font-size:12px;color:#334155;line-height:1.45;margin-top:3px;overflow-wrap:anywhere;word-break:break-word}
+.search-result-reason strong{color:#0f172a}
+.search-result-subrow{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.search-result-mini-badge{display:inline-flex;border:1px solid var(--border);border-radius:999px;background:#fff;color:#475569;font-size:11px;padding:2px 7px;line-height:1.35}
+.search-result-mini-badge.is-saved{border-color:#fbbf24;background:#fffbeb;color:#b45309;font-weight:800}
+@media (max-width:980px),(pointer:coarse){.search-preset-row{display:flex;grid-template-columns:none;gap:6px;align-items:center}.search-preset-label{grid-column:auto;flex:0 0 auto}.search-preset-btn{width:auto;padding:7px 9px}.search-preset-group-select{flex:0 0 42%;max-width:42%;font-size:12px;padding:5px 6px}.search-preset-effect-select{flex:1 1 0;min-width:0;font-size:12px;padding:5px 6px}.search-preset-source{display:none}.search-condition-chips{gap:5px}.search-condition-chip{font-size:11px;padding:5px 8px}.results li{align-items:center}.search-result-title{font-size:14px}}
+
+
+
+/* BUGFIX[HADO-2.5.1.1-MOBILE-SEARCH-UX]: スマホ検索UIの再整理 */
+.search-help-note{font-size:12px;color:var(--muted);line-height:1.5;margin-top:-2px}
+.results{border:none;background:transparent;display:grid;gap:8px;max-height:720px;overflow:auto}
+.results li{border:1px solid var(--border)!important;border-radius:12px;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04);padding:11px 12px}
+.results li.active{border-color:#93c5fd!important;background:#eff6ff}
+.search-result-mini-badge.is-dataset{background:#f8fafc}.search-result-more-row{justify-content:center!important;background:#f8fafc!important}.search-result-more-row button{width:100%;font-weight:800}
+@media (max-width:980px),(pointer:coarse){
+  .mobile-search-history-panel{order:20}
+  .search-wrap{gap:8px}
+  .search-preset-row{display:flex;gap:6px;overflow:visible;flex-wrap:nowrap;padding:6px 8px;border-radius:10px;scrollbar-width:thin}
+  .search-preset-label{flex:0 0 auto;align-self:center;margin-right:2px;white-space:nowrap}
+  .search-preset-btn{flex:0 0 auto;width:auto!important;white-space:nowrap;padding:7px 9px;font-size:12px}.search-preset-select{min-width:0;height:34px;padding:5px 6px;font-size:12px}.search-preset-group-select{flex:0 0 38%;max-width:38%}.search-preset-effect-select{flex:1 1 0;min-width:0}.quick-search-reset-btn{height:34px;padding:5px 8px;font-size:12px}
+  .category-row{gap:6px}.category-actions{gap:6px}
+  .search-input-row{display:grid!important;grid-template-columns:auto minmax(0,1fr) auto!important;gap:6px;align-items:center}
+  .name-only-search-label{padding:8px 9px;border-radius:9px;font-size:12px;min-height:38px;justify-content:center}
+  .name-only-search-label span{display:none}
+  .name-only-search-label::after{content:'名称';white-space:nowrap}
+  #searchInput{min-width:0;padding:9px 10px;font-size:14px}
+  #clearKeywordBtn{padding:8px 9px;font-size:12px;border-radius:9px}
+  .tag-input-row{display:grid!important;grid-template-columns:auto minmax(0,1fr) auto auto!important;gap:6px;align-items:center}
+  #tagPickerToggleBtn,#addTagSearchBtn,#clearTagSearchBtn{padding:8px 9px;font-size:12px;border-radius:9px;white-space:nowrap}
+  #tagSearchInput{min-width:0;padding:9px 10px;font-size:14px}
+  .selected-tag-list{gap:5px;min-height:24px}.selected-tag-badge{font-size:11px;padding:3px 7px}.tag-search-note{font-size:11px}
+  .search-condition-chips{max-height:58px;overflow:auto;align-content:flex-start;border:1px dashed #e5e7eb;border-radius:10px;padding:6px;background:#fafafa}
+  .search-condition-chip{font-size:11px;padding:4px 7px}
+  .results{display:none!important}
+  .result-select-wrap{display:grid!important;gap:6px}
+  .result-select{font-size:14px;padding:10px 11px}
+  .result-select-note{font-size:11px;margin-top:0}
+}
+@media (max-width:520px){
+  .search-input-row{grid-template-columns:auto minmax(0,1fr) auto!important}
+  .tag-input-row{grid-template-columns:auto minmax(0,1fr) auto auto!important}
+}
+
+
+
+/* FEATURE[HADO-2.5.2.0-SAVE-MANAGER]: 保存管理パネル */
+.save-manager-panel{display:grid;gap:12px}
+.save-manager-header{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.save-manager-title{display:grid;gap:3px}
+.save-manager-status-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.save-manager-card{border:1px solid var(--border);border-radius:14px;background:#fff;padding:12px;display:grid;gap:5px;min-width:0}
+.save-manager-label{font-size:12px;font-weight:800;color:#475569}
+.save-manager-value{font-size:17px;font-weight:800;color:#111827;overflow-wrap:anywhere;word-break:break-word}
+.save-manager-note{font-size:12px;color:var(--muted);line-height:1.45;overflow-wrap:anywhere;word-break:break-word}
+.save-manager-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;border:1px solid var(--border);border-radius:12px;background:#f8fafc;padding:10px}
+.save-manager-actions button,.save-manager-actions .file-action-label{padding:9px 12px;border-radius:10px;font-size:13px}
+.save-manager-warning{border:1px solid #fde68a;border-radius:12px;background:#fffbeb;color:#92400e;padding:10px 12px;font-size:13px;line-height:1.6}
+.save-manager-checklist{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.save-manager-check{border:1px solid #dbeafe;border-radius:12px;background:#eff6ff;padding:9px 10px;font-size:12px;line-height:1.5;color:#1e3a8a}
+@media (max-width:980px),(pointer:coarse){.save-manager-status-grid{grid-template-columns:1fr 1fr}.save-manager-checklist{grid-template-columns:1fr}.save-manager-actions{display:grid;grid-template-columns:1fr 1fr}.save-manager-actions button,.save-manager-actions .file-action-label{width:100%;text-align:center}.save-manager-header{display:grid}.save-manager-value{font-size:15px}}
+@media (max-width:520px){.save-manager-status-grid{grid-template-columns:1fr}.save-manager-actions{grid-template-columns:1fr}.save-manager-panel{padding:12px}}
+
+
+
+/* BUGFIX[HADO-2.5.2.1-SAVE-MANAGER-COMPACT]: 保存管理をスマホで縦長化させない */
+.save-manager-compact-panel{padding:0;overflow:hidden}
+.save-manager-details>summary{cursor:pointer;list-style:none;padding:12px 14px;background:#f8fafc;font-weight:800;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.save-manager-details>summary::-webkit-details-marker{display:none}
+.save-manager-details>summary::after{content:'開く';font-size:12px;color:var(--muted);font-weight:700;white-space:nowrap}
+.save-manager-details[open]>summary::after{content:'閉じる'}
+.save-manager-summary-main{white-space:nowrap}
+.save-manager-summary-text{min-width:0;text-align:right;font-size:12px;color:var(--muted);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.save-manager-body{display:grid;gap:10px;padding:12px 14px}
+.save-manager-compact-panel .save-manager-warning{font-size:12px;padding:8px 10px}
+@media (max-width:980px),(pointer:coarse){
+  .save-manager-compact-panel{margin-top:0}
+  .save-manager-details>summary{padding:10px 12px}
+  .save-manager-summary-text{text-align:left;white-space:normal;line-height:1.35}
+  .save-manager-body{padding:10px 12px;gap:8px}
+  .save-manager-status-grid{grid-template-columns:1fr 1fr!important;gap:6px}
+  .save-manager-card{padding:8px;border-radius:10px;gap:2px}
+  .save-manager-label{font-size:11px}
+  .save-manager-value{font-size:13px}
+  .save-manager-note{display:none}
+  .save-manager-header .note{font-size:12px;line-height:1.4}
+  .save-manager-actions{grid-template-columns:1fr 1fr!important;gap:6px;padding:8px}
+  .save-manager-actions button,.save-manager-actions .file-action-label{padding:8px 8px;font-size:12px}
+}
+@media (max-width:520px){
+  .save-manager-status-grid{grid-template-columns:1fr 1fr!important}
+  .save-manager-actions{grid-template-columns:1fr 1fr!important}
+}
+
+
+
+/* FEATURE[HADO-2.5.2.2-DATA-BAR]: データバー + データ管理シート + 診断メニュー */
+.app-title-panel.data-context-panel{position:sticky;top:0;z-index:30;border-color:rgba(191,219,254,.8);background:rgba(255,255,255,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 8px 24px rgba(15,23,42,.08);padding:10px 12px}
+.data-context-main{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center}
+.app-identity{display:grid;gap:1px;min-width:0}.app-display-name{font-size:13px;font-weight:900;color:#0f172a;letter-spacing:.02em}.app-identity h1{font-size:11px;font-weight:700;color:var(--muted);margin:0;line-height:1.1;white-space:nowrap}.data-context-line{min-width:0;font-size:14px;font-weight:800;color:#111827;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border:1px solid #bfdbfe;background:linear-gradient(135deg,#eff6ff 0%,#f8fafc 100%);border-radius:999px;padding:8px 34px 8px 12px;cursor:pointer;position:relative;box-shadow:inset 0 0 0 1px rgba(255,255,255,.65)}.data-context-line::after{content:'変更';position:absolute;right:9px;top:50%;transform:translateY(-50%);font-size:10px;font-weight:900;color:#1d4ed8;background:rgba(255,255,255,.72);border:1px solid rgba(147,197,253,.9);border-radius:999px;padding:1px 5px;line-height:1.25}.data-context-line:focus-visible{outline:3px solid rgba(37,99,235,.28);outline-offset:2px}.data-context-actions{display:flex;gap:6px;align-items:center;justify-content:flex-end}.data-context-action{padding:8px 11px;border-radius:999px;font-size:13px;font-weight:800;background:#fff}.legacy-data-controls{position:absolute!important;left:-10000px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;padding:0!important;border:0!important;box-shadow:none!important}.save-manager-panel{display:none!important}.data-management-sheet,.diagnostic-sheet{position:fixed;inset:0;z-index:10050;display:grid;align-items:end;justify-items:center}.data-management-sheet[hidden],.diagnostic-sheet[hidden]{display:none!important}.data-sheet-backdrop{position:absolute;inset:0;background:rgba(15,23,42,.42)}.data-sheet-card,.diagnostic-card{position:relative;width:min(760px,100%);max-height:min(88vh,760px);overflow:auto;background:rgba(255,255,255,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(226,232,240,.95);border-radius:24px 24px 0 0;box-shadow:0 -18px 48px rgba(15,23,42,.22);padding:16px;display:grid;gap:14px}.diagnostic-card{max-width:520px}.data-sheet-header{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.data-sheet-header h2{margin:0;font-size:18px}.data-mode-segment{display:grid;grid-template-columns:1fr 1fr;gap:6px;border:1px solid #dbeafe;background:#eff6ff;border-radius:999px;padding:4px}.data-mode-btn{border:0;border-radius:999px;background:transparent;font-weight:900;padding:10px 12px}.data-mode-btn.is-active{background:#1d4ed8;color:#fff;box-shadow:0 4px 12px rgba(29,78,216,.25)}.data-mode-pane{border:1px solid var(--border);border-radius:16px;background:#fff;padding:12px;display:grid;gap:10px}.data-mode-pane.is-hidden{display:none!important}.data-sheet-section-title{font-weight:900;color:#111827}.data-option-group{display:grid;grid-template-columns:90px repeat(3,minmax(0,1fr));gap:7px;align-items:center}.data-option-label{font-size:12px;font-weight:900;color:#475569}.data-option-btn{padding:9px 10px;border-radius:999px;font-size:13px;font-weight:800}.data-option-btn.is-active{background:#1d4ed8;border-color:#1d4ed8;color:#fff}.data-select-label{display:grid;gap:6px;font-size:12px;font-weight:900;color:#475569}.data-sheet-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.data-sheet-actions button,.data-sheet-actions .file-action-label{width:100%;text-align:center;border-radius:12px;font-weight:800;padding:10px 8px}.data-file-status{font-size:13px;color:#334155;background:#f8fafc;border:1px solid var(--border);border-radius:12px;padding:9px 10px}.data-sheet-footer{display:flex;justify-content:center;padding-top:2px}.data-sheet-done-btn{min-width:220px;background:#1d4ed8;border-color:#1d4ed8;color:#fff;font-size:15px;font-weight:900;border-radius:999px;padding:12px 18px}.diagnostic-row{display:flex;align-items:center;gap:8px;border:1px solid var(--border);border-radius:14px;background:#fff;padding:12px;font-weight:800}.ux-home-dismiss-btn{background:#1d4ed8;border-color:#1d4ed8;color:#fff;border-radius:999px}.main-tab-panel{position:relative;z-index:10}.main-tab-row{background:#eef2ff;border:1px solid #dbeafe;border-radius:999px;padding:4px}.main-tab-btn{border:0;background:transparent}.main-tab-btn.is-active{box-shadow:0 4px 12px rgba(29,78,216,.22)}
+@media (max-width:980px),(pointer:coarse){.app-title-panel.data-context-panel{padding:8px 10px}.data-context-main{grid-template-columns:minmax(0,1fr) auto;gap:7px}.app-identity{display:none}.data-context-line{font-size:12px;padding:8px 32px 8px 9px;max-width:100%;overflow:hidden;text-overflow:ellipsis}.data-context-line::after{right:7px;font-size:9px;padding:1px 4px}.data-context-actions{gap:5px;flex-shrink:0}.data-context-action{padding:8px 9px;font-size:12px}.data-sheet-card,.diagnostic-card{width:100%;max-height:86vh;border-radius:22px 22px 0 0;padding:14px}.data-option-group{grid-template-columns:1fr;gap:6px}.data-option-label{font-size:12px}.data-sheet-actions{grid-template-columns:1fr 1fr}.data-sheet-done-btn{width:100%;min-width:0}.main-tab-row{gap:4px}.main-tab-btn{padding:9px 10px}.ux-home-panel.is-dismissed{display:none!important}}
+@media (min-width:981px) and (pointer:fine){.data-management-sheet,.diagnostic-sheet{align-items:center}.data-sheet-card,.diagnostic-card{border-radius:24px;width:min(760px,calc(100vw - 48px))}}
+
+
+
+/* BUGFIX[HADO-2.5.6.19-MOBILE-STICKY-TABS]: スマホでは上部データバーから検索/部隊編成タブまでを常時表示 */
+@media (max-width:980px),(pointer:coarse){
+  .app-title-panel.data-context-panel{position:sticky!important;top:0!important;z-index:60!important}
+  #mainTabPanel.main-tab-panel{position:sticky!important;top:var(--mobile-main-tab-sticky-top,52px)!important;z-index:55!important;background:rgba(246,247,251,.94)!important;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:4px 0!important;border-radius:999px;box-shadow:0 6px 18px rgba(15,23,42,.08)}
+}
+
+/* BUGFIX[HADO-2.5.2.4-FORMATION-ADD-UX]: 内容詳細から部隊編成へ追加する際の配置先表示を明確化 */
+.formation-add-target-summary{border:1px solid var(--border);border-radius:12px;background:#f8fafc;padding:10px;display:grid;gap:4px}
+.formation-add-target-name{font-weight:700;color:#1d4ed8;overflow-wrap:anywhere}
+.formation-quick-cell-role{display:inline-flex;align-items:center;justify-content:center;width:max-content;max-width:100%;border-radius:999px;padding:2px 8px;background:#eef2ff;color:#3730a3;font-size:11px;font-weight:700}
+.formation-quick-action-label{font-weight:700}
+.formation-quick-replace-warning{font-size:11px;color:#b45309;line-height:1.35}
+.formation-quick-cell.is-replace-target{border-color:#f59e0b;background:#fffbeb}
+.formation-quick-cell.is-replace-target.is-selected{border-color:#2563eb;background:#eff6ff}
+@media (max-width:980px),(pointer:coarse){.formation-add-popover .formation-section-header{align-items:flex-start}.formation-add-target-summary{padding:9px}.formation-quick-cell{min-height:72px}.formation-quick-cell button{padding:7px 6px}}
+
+
+
+/* FEATURE[HADO-2.5.3.1-FORMATION-COMPOSE-LAYOUT]: 編成タブを編成バー・3x3配置・選択中武将編集へ再構成 */
+.formation-compose-v2{display:grid;gap:12px}
+.formation-compose-toolbar{border:1px solid rgba(148,163,184,.55);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(248,250,252,.92));padding:12px;box-shadow:0 8px 24px rgba(15,23,42,.06);display:grid;gap:10px}
+.formation-compose-toolbar-head{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.formation-compose-title{font-weight:800;color:#0f172a;font-size:15px}
+.formation-compose-meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.formation-compose-bar-grid{display:grid;grid-template-columns:minmax(160px,1.2fr) repeat(6,minmax(110px,1fr));gap:8px;align-items:end}
+.formation-compose-bar-grid label{display:grid;gap:4px;min-width:0}
+.formation-compose-bar-grid .formation-save-inline{align-self:end;display:flex;gap:6px;align-items:center;justify-content:flex-end;min-width:0}
+.formation-compose-main-grid{display:grid;grid-template-columns:minmax(260px,360px) minmax(0,1fr);gap:12px;align-items:start}.formation-selected-stack{display:grid;gap:12px;min-width:0;align-content:start}.formation-warhorse-editor-card{width:100%;min-width:0}.formation-warhorse-editor-card .formation-advisor-label{margin-top:0!important}.formation-warhorse-mobile-placement{display:none;width:100%;min-width:0}
+.formation-board-card,.formation-selected-card{border:1px solid rgba(148,163,184,.55);border-radius:18px;background:#fff;padding:12px;box-shadow:0 8px 20px rgba(15,23,42,.05);display:grid;gap:10px;min-width:0}
+.formation-board-head,.formation-selected-head{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.formation-board-title,.formation-selected-title{font-weight:800;color:#0f172a}
+.formation-team-grid-selectable{display:grid;grid-template-columns:repeat(3,minmax(72px,1fr));grid-template-rows:repeat(3,minmax(66px,auto));gap:8px;min-width:0}
+.formation-team-cell-btn{border:1px solid var(--border);border-radius:14px;background:#fff;min-height:66px;padding:7px;display:grid;gap:4px;align-content:center;text-align:left;color:var(--text);box-shadow:none;min-width:0}
+.formation-team-cell-btn.is-main{background:#eff6ff;border-color:#93c5fd;color:#1e40af}.formation-team-cell-btn.is-vice{background:#f0fdf4;border-color:#86efac;color:#166534}.formation-team-cell-btn.is-support{background:#fffbeb;border-color:#fcd34d;color:#92400e}.formation-team-cell-btn.is-attendant{background:#fdf2f8;border-color:#f9a8d4;color:#9d174d}.formation-team-cell-btn.is-empty{background:#f8fafc;border-style:dashed;color:#94a3b8}.formation-team-cell-btn.is-selected{outline:3px solid rgba(37,99,235,.28);border-color:#2563eb;background:#dbeafe;color:#1d4ed8}
+.formation-team-role{font-size:11px;font-weight:800;color:inherit;opacity:.92}.formation-team-name{font-size:12px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}.formation-team-sub{font-size:10px;color:#64748b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.formation-selected-summary{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:start;border:1px solid #e2e8f0;border-radius:14px;background:#f8fafc;padding:10px}.formation-selected-name{font-size:16px;font-weight:800;overflow-wrap:anywhere}.formation-selected-sub{font-size:12px;color:var(--muted);line-height:1.55}.formation-selected-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.formation-selected-equips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.formation-selected-equip{border:1px solid #e2e8f0;border-radius:12px;background:#fff;padding:8px;display:grid;gap:5px;min-width:0}.formation-selected-equip-label{font-size:12px;font-weight:800;color:#475569}.formation-selected-equip-name{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.formation-selected-empty{border:1px dashed var(--border);border-radius:14px;background:#f8fafc;color:var(--muted);padding:18px;text-align:center;font-weight:700}
+@media (max-width:980px),(pointer:coarse){.formation-compose-toolbar{padding:10px;border-radius:16px}.formation-compose-bar-grid{grid-template-columns:1fr 1fr}.formation-compose-bar-grid label:first-child{grid-column:1/-1}.formation-compose-bar-grid .formation-save-inline{grid-column:1/-1;justify-content:stretch}.formation-compose-bar-grid .formation-save-inline button{width:100%}.formation-compose-main-grid{grid-template-columns:1fr}.formation-team-grid-selectable{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.formation-team-cell-btn{min-height:58px;padding:6px;border-radius:12px}.formation-team-name{font-size:11px}.formation-selected-equips{grid-template-columns:1fr 1fr 1fr}.formation-selected-summary{grid-template-columns:1fr}.formation-selected-actions{justify-content:flex-start}}
+@media (max-width:520px){.formation-compose-bar-grid{grid-template-columns:1fr}.formation-selected-equips{grid-template-columns:1fr}.formation-compose-meta .formation-badge{font-size:11px}.formation-board-card,.formation-selected-card{padding:10px}}
+
+
+/* FEATURE[HADO-2.5.3.2-FORMATION-COMPOSE-REBUILD]: 仕様書準拠の編成タブ再構成 */
+.formation-edit-shell{display:grid;gap:14px}.formation-compose-toolbar{position:relative;overflow:hidden}.formation-compose-toolbar::before{content:'';position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,#2563eb,#06b6d4,#22c55e)}.formation-compose-toolbar>*{position:relative}.formation-compose-bar-grid{grid-template-columns:minmax(180px,1.4fr) repeat(3,minmax(118px,1fr)) repeat(4,minmax(108px,1fr)) auto}.formation-save-inline button{min-height:42px;font-weight:800}.formation-compose-main-grid{grid-template-columns:minmax(320px,420px) minmax(360px,1fr);align-items:stretch}.formation-board-card{min-height:100%}.formation-selected-card{min-height:100%}.formation-board-title::before{content:'配置 ';color:#2563eb}.formation-selected-title::before{content:'編集 ';color:#2563eb}.formation-team-grid-selectable{grid-template-columns:repeat(3,minmax(86px,1fr));grid-template-rows:repeat(3,minmax(84px,1fr));gap:10px}.formation-team-cell-btn{min-height:84px;justify-items:start;transition:transform .12s ease,box-shadow .12s ease,border-color .12s ease}.formation-team-cell-btn:not(.is-empty){cursor:pointer}.formation-team-cell-btn:not(.is-empty):hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(15,23,42,.10)}.formation-team-cell-btn.is-selected{box-shadow:0 0 0 3px rgba(37,99,235,.20),0 10px 24px rgba(37,99,235,.14)}.formation-team-role{font-size:12px}.formation-team-name{font-size:13px}.formation-team-sub{font-size:11px}.formation-selected-summary{background:linear-gradient(180deg,#f8fafc,#fff)}.formation-selected-equips{grid-template-columns:repeat(3,minmax(0,1fr))}.formation-quick-summary-strip{border-color:#bfdbfe;background:linear-gradient(90deg,#eff6ff,#ffffff)}.formation-quick-summary-title{color:#1e40af}.formation-quick-summary-title::before{content:'結果サマリー';font-weight:900;color:#0f172a}.formation-quick-summary-title>span:first-child{display:none}
+@media (max-width:980px),(pointer:coarse){.formation-compose-main-grid{grid-template-columns:1fr}.formation-compose-bar-grid{grid-template-columns:1fr 1fr}.formation-compose-bar-grid label:first-child,.formation-compose-bar-grid .formation-save-inline{grid-column:1/-1}.formation-team-grid-selectable{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(3,minmax(70px,auto));gap:7px}.formation-team-cell-btn{min-height:70px}.formation-selected-card{order:2}.formation-board-card{order:1}.formation-quick-summary-strip{order:3}.formation-compose-toolbar{border-radius:18px}.formation-compose-toolbar-head{align-items:flex-start}.formation-compose-title{font-size:14px}.formation-compose-meta{width:100%}}
+@media (max-width:520px){.formation-compose-bar-grid{grid-template-columns:1fr}.formation-team-grid-selectable{grid-template-rows:repeat(3,minmax(62px,auto));gap:6px}.formation-team-cell-btn{min-height:62px;padding:6px}.formation-team-role{font-size:11px}.formation-team-name{font-size:11px}.formation-team-sub{font-size:10px}.formation-selected-equips{grid-template-columns:1fr}.formation-selected-name{font-size:15px}}
+
+
+/* BUGFIX[HADO-2.5.3.3-MOBILE-FORMATION-COMPACT]: スマホ編成タブを1画面に圧縮し、編集/結果はダイアログ表示 */
+.formation-team-board-no-link{user-select:none}
+
+/* FEATURE[HADO-2.5.4.0-FORMATION-SELECTOR-DIALOG]: 編成タブ内から武将・侍従・装備を選択ダイアログで登録/変更 */
+.formation-edit-action-row{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:6px}
+.formation-edit-action-row .copy-btn{padding:7px 10px;font-weight:700}
+.formation-selector-dialog-body{display:grid;gap:10px}.formation-selector-filter-grid{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(2,minmax(110px,.8fr));gap:8px}.formation-selector-filter-grid.has-status-filter{grid-template-columns:minmax(0,1.4fr) repeat(4,minmax(110px,.8fr))}.formation-selector-filter-grid.has-status-filter.is-equipment{grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(110px,.8fr))}.formation-selector-list{display:grid;gap:7px;max-height:44vh;overflow:auto;padding-right:2px}.formation-selector-item{border:1px solid #e2e8f0;border-radius:14px;background:#fff;padding:9px 10px;text-align:left;display:grid;gap:3px}.formation-selector-item:hover{border-color:#93c5fd;background:#eff6ff}.formation-selector-item-title{font-weight:800;color:#0f172a;overflow-wrap:anywhere}.formation-selector-item-sub{font-size:12px;color:var(--muted);line-height:1.4}.formation-selector-condition{font-size:12px;color:#166534;font-weight:700}.formation-selector-permission{font-size:12px;color:#1d4ed8;font-weight:700}.formation-selector-empty{border:1px dashed var(--border);border-radius:14px;background:#f8fafc;color:var(--muted);padding:18px;text-align:center;font-weight:700}.formation-selector-fixed-note{font-size:12px;color:#475569;line-height:1.5;background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:8px}.formation-selector-command-row{display:flex;gap:8px;flex-wrap:wrap}.formation-team-cell-btn.is-jiju-slot{position:relative;background:#fdf2f8;border-color:#f9a8d4;color:#9d174d;border-style:dashed;cursor:pointer}.formation-team-cell-btn.is-jiju-slot::before,.formation-team-cell-btn.is-attendant::before{content:'';position:absolute;left:9px;right:9px;top:7px;border-top:2px dashed rgba(157,23,77,.35);pointer-events:none}.formation-team-cell-btn.is-jiju-slot .formation-team-sub::before,.formation-team-cell-btn.is-attendant .formation-team-sub::before{content:'└ ';font-weight:900;color:#9d174d}.formation-team-cell-btn.is-jiju-slot:hover{background:#fce7f3;border-color:#f472b6}.formation-selector-filter-grid.is-attendant{grid-template-columns:minmax(0,1fr)}.formation-selector-filter-grid.is-advisor{grid-template-columns:minmax(0,1.4fr) minmax(150px,.9fr)}
+@media (max-width:520px){.formation-selector-filter-grid{grid-template-columns:1fr}.formation-selector-list{max-height:42dvh}.formation-mobile-dialog-overlay.is-selector-top .formation-selector-list{max-height:36dvh}.formation-mobile-dialog-overlay.is-selector-top .formation-mobile-dialog-card{border-top-left-radius:16px;border-top-right-radius:16px}.formation-edit-action-row .copy-btn{flex:1 1 auto}}
+
+.formation-mobile-dialog-overlay{position:fixed;inset:0;z-index:12000;background:rgba(15,23,42,.46);display:flex;align-items:flex-end;justify-content:center;padding:12px}.formation-mobile-dialog-overlay.is-selector-top{align-items:flex-start;padding-top:max(10px,env(safe-area-inset-top));padding-bottom:8px}.formation-mobile-dialog-overlay.is-selector-top .formation-mobile-dialog-card{max-height:min(78vh,calc(100vh - 20px - env(safe-area-inset-top)))}.formation-mobile-dialog-card{width:min(720px,100%);max-height:86vh;overflow:auto;border:1px solid rgba(148,163,184,.6);border-radius:20px;background:rgba(255,255,255,.98);box-shadow:0 18px 48px rgba(15,23,42,.28);padding:12px;display:grid;gap:10px}.formation-mobile-dialog-head{display:flex;align-items:center;justify-content:space-between;gap:8px}.formation-mobile-dialog-title{font-size:15px;font-weight:900;color:#0f172a}.formation-mobile-dialog-close{padding:7px 12px;border-radius:999px;font-weight:800}.formation-mobile-summary-dialog-body{display:grid;gap:8px}.formation-mobile-summary-dialog-body .formation-quick-summary-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;overflow:visible}.formation-mobile-summary-dialog-body .formation-quick-summary-chip{white-space:normal;text-align:left;border-radius:12px}
+@media (max-width:980px),(pointer:coarse){
+  body.formation-tab .formation-panel{gap:6px;padding:8px!important}
+  body.formation-tab .formation-panel>h2{display:none!important}
+  body.formation-tab .formation-detail-panel{padding:8px;gap:6px;border-radius:14px}
+  body.formation-tab .formation-work-tabs{margin:0;padding:3px 0;gap:6px;position:static;background:transparent;backdrop-filter:none}
+  body.formation-tab .formation-work-tab-btn{padding:7px 8px;font-size:13px;min-height:34px;flex:1 1 0}
+  body.formation-tab .formation-mobile-select-wrap{gap:4px;margin:0}
+  body.formation-tab .formation-mobile-actions{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+  body.formation-tab .formation-edit-shell{gap:6px}
+  body.formation-tab .formation-compose-toolbar{padding:6px;border-radius:14px;gap:5px;box-shadow:0 4px 12px rgba(15,23,42,.05)}
+  body.formation-tab .formation-compose-toolbar-head{display:none!important}
+  body.formation-tab .formation-compose-bar-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;align-items:end}
+  body.formation-tab .formation-compose-bar-grid label{gap:1px;min-width:0}
+  body.formation-tab .formation-compose-bar-grid label:first-child{grid-column:auto!important}
+  body.formation-tab .formation-compose-bar-grid .note{font-size:9.5px;line-height:1.05;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  body.formation-tab .formation-compose-bar-grid input,
+  body.formation-tab .formation-compose-bar-grid select{min-height:30px;height:30px;padding:4px 5px;border-radius:9px;font-size:11px}
+  body.formation-tab .formation-compose-bar-grid .formation-save-inline{grid-column:auto!important;align-self:end;justify-content:stretch}
+  body.formation-tab .formation-compose-bar-grid .formation-save-inline button{min-height:30px;height:30px;padding:4px 6px;border-radius:9px;font-size:11px;width:100%}
+  body.formation-tab .formation-compose-main-grid{display:block}
+  body.formation-tab .formation-board-card{padding:6px;border-radius:14px;gap:5px;box-shadow:0 4px 12px rgba(15,23,42,.05)}
+  body.formation-tab .formation-board-head{margin:0;gap:4px}
+  body.formation-tab .formation-board-title{font-size:13px}.formation-board-title::before{content:''!important}
+  body.formation-tab .formation-jiju-note{font-size:10px;line-height:1.1}
+  body.formation-tab .formation-team-grid-selectable{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(3,minmax(44px,1fr));gap:4px}
+  body.formation-tab .formation-team-cell-btn{min-height:44px;padding:4px;border-radius:10px;gap:1px;align-content:center}
+  body.formation-tab .formation-team-role{font-size:9.5px;line-height:1.05}
+  body.formation-tab .formation-team-name{font-size:10px;line-height:1.05}
+  body.formation-tab .formation-team-sub{font-size:9px;line-height:1.05}
+  body.formation-tab .formation-selected-card:not(.is-dialog){display:none!important}
+
+/* FIX[HADO-2.7.0.26-MOBILE-WARHORSE-PANEL]: スマホ部隊編成で軍馬枠が選択カード非表示ルールに巻き込まれるデグレを防止 */
+@media (max-width:980px),(pointer:coarse){
+  body.formation-tab .formation-selected-card.formation-warhorse-editor-card:not(.is-dialog){display:none!important;}body.formation-tab .formation-warhorse-mobile-placement{display:block!important;margin-top:6px;width:100%;min-width:0;}
+  body.formation-tab .formation-selected-stack{display:grid!important;gap:8px!important;min-width:0!important;}
+}
+  body.formation-tab .formation-quick-summary-strip{padding:6px;border-radius:12px;gap:4px;cursor:pointer;box-shadow:0 4px 12px rgba(15,23,42,.04)}
+  body.formation-tab .formation-quick-summary-title{font-size:12px;line-height:1.15}
+  body.formation-tab .formation-quick-summary-title .note{font-size:10px}
+  body.formation-tab .formation-quick-summary-list{gap:4px;padding-bottom:0;overflow:hidden;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+  body.formation-tab .formation-quick-summary-chip{padding:4px 5px;border-radius:9px;font-size:10px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  body.formation-tab .formation-quick-summary-chip .value{margin-left:2px}
+  body.formation-tab .formation-quick-summary-empty{font-size:11px}
+}
+@media (max-width:420px),(pointer:coarse){
+  body.formation-tab .formation-compose-bar-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  body.formation-tab .formation-compose-bar-grid input,
+  body.formation-tab .formation-compose-bar-grid select,
+  body.formation-tab .formation-compose-bar-grid .formation-save-inline button{font-size:10.5px;padding-left:4px;padding-right:4px}
+  body.formation-tab .formation-team-grid-selectable{grid-template-rows:repeat(3,minmax(40px,1fr))}
+  body.formation-tab .formation-team-cell-btn{min-height:40px}
+}
+
+/* FEATURE[HADO-2.5.3.0-FORMATION-TABS]: 部隊編成の編成/結果/詳細タブ分離 */
+.formation-work-tabs{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:2px 0 8px}.formation-work-tab-btn{flex:0 0 auto;border:1px solid var(--border);background:#fff;border-radius:999px;padding:9px 14px;font-weight:700;color:#334155}.formation-work-tab-btn.is-active{background:var(--primary);border-color:var(--primary);color:#fff;box-shadow:0 2px 8px rgba(29,78,216,.18)}.formation-work-tab-panel{display:grid;gap:12px}.formation-compose-bar{border:1px solid var(--border);border-radius:16px;background:linear-gradient(180deg,#ffffff,#f8fafc);padding:12px;display:grid;gap:10px}.formation-quick-summary-strip{border:1px solid var(--border);border-radius:14px;background:#fff;padding:10px;display:grid;gap:8px}.formation-quick-summary-title{display:flex;justify-content:space-between;gap:8px;align-items:center;font-weight:700}.formation-quick-summary-list{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;-webkit-overflow-scrolling:touch}.formation-quick-summary-chip{flex:0 0 auto;border:1px solid #bfdbfe;background:#eff6ff;color:#1d4ed8;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:700;white-space:nowrap}.formation-quick-summary-chip .value{color:#0f172a;margin-left:4px}.formation-quick-summary-empty{font-size:12px;color:var(--muted)}.formation-tab-intro{font-size:12px;color:var(--muted);line-height:1.6;margin:0}.formation-result-focus,.formation-detail-focus{display:grid;gap:12px}.formation-detail-focus .formation-mobile-summary-section,.formation-result-focus .formation-mobile-summary-section{margin-bottom:0}
+@media (max-width:980px),(pointer:coarse){.formation-work-tabs{position:sticky;top:0;z-index:8;background:rgba(246,247,251,.92);backdrop-filter:blur(10px);padding:6px 0;flex-wrap:nowrap;overflow-x:auto}.formation-work-tab-btn{flex:1 0 88px;padding:10px 12px}.formation-compose-bar{padding:10px;border-radius:14px}.formation-quick-summary-list{gap:6px}.formation-quick-summary-chip{padding:6px 9px}}
+
+
+.diagnostic-app-version{display:inline-flex;align-items:center;margin-top:6px;padding:4px 10px;border-radius:999px;background:#eef2ff;color:#3730a3;font-size:12px;font-weight:700;border:1px solid #c7d2fe}
+@media (max-width:980px),(pointer:coarse){
+  #appTitlePanel{position:sticky!important;top:0!important;z-index:80!important}
+  #mainTabPanel{order:30!important;position:sticky!important;top:58px!important;z-index:70!important;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 6px 18px rgba(15,23,42,.08)}
+  .mobile-search-history-panel{order:31!important}
+  .search-wrap{order:32!important}
+  .layout{order:33!important}
+  #formationScreen{order:34!important}
+  #debugPanel{order:90!important}
+}
+
+/* BUGFIX[HADO-2.5.4.9-FORMATION-DIALOG-WIDTH]: スマホ登録ダイアログの横幅超過を抑止 */
+.formation-mobile-dialog-card{box-sizing:border-box;max-width:calc(100vw - 24px)}
+.formation-mobile-dialog-card *{box-sizing:border-box}
+@media (max-width:520px){.formation-mobile-dialog-overlay{padding-left:10px;padding-right:10px}.formation-mobile-dialog-card{width:calc(100vw - 20px);max-width:calc(100vw - 20px);min-width:0}.formation-selector-dialog-body,.formation-selector-filter-grid,.formation-selector-list{min-width:0;max-width:100%}.formation-selector-filter-grid input,.formation-selector-filter-grid select{min-width:0;max-width:100%;width:100%}}
+
+
+/* FIX[HADO-2.5.5.25-MOBILE-SEARCH-UX]: スマホ検索UIを横幅内に収めるため、クイック検索を無題フィルタバー化し、カテゴリを横スクロールチップレール化 */
+.search-preset-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr) auto;gap:6px;align-items:center;width:100%;max-width:100%;overflow:hidden;padding:6px;border-radius:12px}
+.search-preset-label{display:none!important}
+.search-preset-select{width:100%;min-width:0;max-width:100%;height:34px;font-size:13px;padding:5px 7px}
+.search-preset-group-select,.search-preset-effect-select{flex:initial!important;max-width:none!important}
+.quick-search-reset-btn{width:34px;min-width:34px;height:34px;padding:0;border-radius:10px;font-size:16px;line-height:1;font-weight:800}
+.category-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px;align-items:center;max-width:100%;overflow:hidden}
+#categoryBar{display:flex;flex-wrap:nowrap;gap:6px;min-width:0;max-width:100%;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding-bottom:1px}
+#categoryBar button{flex:0 0 auto;white-space:nowrap;border-radius:999px;padding:7px 10px;font-size:12px;line-height:1.2}
+.category-actions{display:flex;flex-wrap:nowrap;gap:4px;align-items:center}
+.category-actions button{white-space:nowrap;border-radius:999px;padding:7px 8px;font-size:12px;line-height:1.2}
+.search-wrap{max-width:100%;overflow:hidden}
+@media (max-width:980px),(pointer:coarse){
+  .search-wrap{gap:7px;padding:10px}
+  .search-wrap>h2{display:none}
+  .search-preset-row{grid-template-columns:minmax(0,0.82fr) minmax(0,1.18fr) 32px;gap:5px;padding:5px}
+  .search-preset-select{height:32px;font-size:12px;padding:4px 5px;border-radius:9px}
+  .quick-search-reset-btn{width:32px;min-width:32px;height:32px;font-size:15px;border-radius:9px}
+  #categoryBar button{padding:7px 9px;font-size:12px}
+  .category-actions button{padding:7px 7px;font-size:11px}
+  .search-help-note{display:none}
+  .search-condition-chips{max-height:46px;overflow:auto}
+}
+
+/* FIX[HADO-2.5.7.1-SEARCH-COLLAPSE]: 検索ダイアログを折り畳み可能にし、検索条件をヘッダー行へ移動 */
+.search-dialog-header{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center}
+.search-dialog-header h2{white-space:nowrap}
+.search-dialog-body{display:grid;gap:10px}
+.search-dialog-toggle{white-space:nowrap;border-radius:999px;padding:7px 12px;font-size:13px;font-weight:700;line-height:1.2;background:#f8fafc}
+.search-wrap.is-search-collapsed .search-dialog-body{display:none!important}
+.search-condition-chips.search-condition-chips-header{min-width:0;max-height:56px;overflow:auto;align-content:flex-start}
+@media (max-width:980px),(pointer:coarse){
+  .search-dialog-header{grid-template-columns:auto minmax(0,1fr) auto;gap:6px;align-items:start}
+  .search-dialog-header h2{font-size:18px;line-height:1.8}
+  .search-dialog-toggle{padding:7px 8px;font-size:12px}
+  .search-condition-chips.search-condition-chips-header{max-height:46px}
+}
+@media (max-width:520px){
+  .search-dialog-header{grid-template-columns:auto minmax(0,1fr) auto}
+}
+
+/* FIX[HADO-2.5.7.2-PC-SEARCH-VIEWPORT]: PC検索画面はページ全体を固定し、履歴・一覧・詳細だけを下端までスクロール */
+@media (min-width:981px) and (pointer:fine){
+  body.hado-pc-search-viewport{overflow:hidden!important}
+  body.hado-pc-search-viewport .app{height:100vh!important;max-height:100vh!important;overflow:hidden!important;align-content:start}
+  body.hado-pc-search-viewport #searchPanel{flex:0 0 auto;min-height:0}
+  body.hado-pc-search-viewport .layout{height:var(--pc-search-workspace-height,520px)!important;max-height:var(--pc-search-workspace-height,520px)!important;min-height:220px;align-items:stretch;overflow:hidden}
+  body.hado-pc-search-viewport .layout>.panel{min-height:0;display:flex;flex-direction:column;overflow:hidden}
+  body.hado-pc-search-viewport .layout>.panel>.row:first-child,
+  body.hado-pc-search-viewport .layout>.panel>.detail-toolbar{flex:0 0 auto}
+  body.hado-pc-search-viewport .results,
+  body.hado-pc-search-viewport .detail{max-height:none!important;min-height:0!important;height:auto!important;flex:1 1 auto;overflow:auto}
+  body.hado-pc-search-viewport .pc-search-history-panel{top:var(--pc-search-workspace-top,120px)!important;height:var(--pc-search-workspace-height,520px)!important;max-height:none!important;overflow:auto!important}
+}
+
+/* FIX[HADO-2.5.7.3-PC-SEARCH-HISTORY-TOP]: PC検索時、検索履歴パネルは検索パネル上端に揃え、下端まで表示する */
+@media (min-width:981px) and (pointer:fine){
+  body.hado-pc-search-viewport .pc-search-history-panel{
+    top:var(--pc-search-history-top,var(--pc-search-workspace-top,120px))!important;
+    height:var(--pc-search-history-height,var(--pc-search-workspace-height,520px))!important;
+    max-height:none!important;
+    overflow:auto!important;
+  }
+  body.hado-pc-search-viewport #searchPanel{
+    overflow:visible!important;
+  }
+  body.hado-pc-search-viewport #searchPanel:not(.is-search-collapsed) .search-dialog-body{
+    display:grid!important;
+  }
+  body.hado-pc-search-viewport #searchPanel.is-search-collapsed .search-dialog-body{
+    display:none!important;
+  }
+  body.hado-pc-search-viewport #searchPanel:not(.is-search-collapsed) .search-meta-row{
+    display:flex!important;
+    visibility:visible!important;
+  }
+}
+
+
+
+
+
+
+/* BUGFIX[HADO-2.5.6.20-MOBILE-FIXED-TOP-NAV]: スマホではデータバー＋検索/部隊編成タブをfixed固定し、本文スクロールから分離 */
+/* FEATURE[HADO-2.5.7.0-GLOBAL-FIXED-TOP-NAV]: スマホ限定条件を外し、PCでも上部データバー＋検索/部隊編成タブをfixed固定 */
+html{scroll-padding-top:var(--mobile-fixed-stack-space,118px)}
+.app{padding-top:var(--mobile-fixed-stack-space,118px)!important}
+#appTitlePanel.app-title-panel.data-context-panel{
+  position:fixed!important;
+  top:0!important;left:0!important;right:0!important;
+  width:100%!important;max-width:none!important;margin:0!important;
+  z-index:2000!important;border-radius:0 0 12px 12px!important;
+}
+#mainTabPanel.main-tab-panel{
+  position:fixed!important;
+  top:var(--mobile-main-tab-fixed-top,52px)!important;left:0!important;right:0!important;
+  width:100%!important;max-width:none!important;margin:0!important;
+  z-index:1990!important;padding:4px 8px!important;border-radius:0!important;
+  background:rgba(246,247,251,.96)!important;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  box-shadow:0 6px 18px rgba(15,23,42,.10)!important;
+}
+#mainTabPanel .main-tab-row{max-width:1400px;margin:0 auto}
+
+/* FIX[HADO-2.5.7.5-SEARCH-CHIPS-AUTO-FIT]: 検索条件チップがヘッダー幅からはみ出さないよう自動調整 */
+.search-dialog-header{min-width:0}
+.search-dialog-header>*{min-width:0}
+.search-condition-chips.search-condition-chips-header{width:100%;max-width:100%}
+.search-condition-chip{min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media (max-width:980px),(pointer:coarse){
+  .search-dialog-header{align-items:start}
+  .search-condition-chips.search-condition-chips-header{max-height:none;overflow:visible}
+}
+/* FIX[HADO-2.5.7.5-FORMATION-SELECTOR-MOBILE]: モバイル選択ダイアログの高さ・フィルター段組み・候補一覧の表示領域を改善 */
+.formation-mobile-dialog-overlay.is-selector-top .formation-mobile-dialog-card{display:flex;flex-direction:column;min-height:0;max-height:min(92dvh,calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 10px))}
+.formation-mobile-dialog-overlay.is-selector-top .formation-selector-dialog-body{display:flex;flex-direction:column;flex:1 1 auto;min-height:0}
+.formation-mobile-dialog-overlay.is-selector-top [data-formation-selector-results]{display:flex;flex-direction:column;flex:1 1 auto;min-height:0}
+.formation-mobile-dialog-overlay.is-selector-top .formation-selector-list{flex:1 1 auto;min-height:0;max-height:none}
+@media (max-width:980px),(pointer:coarse){
+  .formation-mobile-dialog-overlay.is-selector-top{padding-left:10px;padding-right:10px;padding-top:max(10px,env(safe-area-inset-top));padding-bottom:max(8px,env(safe-area-inset-bottom))}
+  .formation-mobile-dialog-overlay.is-selector-top .formation-mobile-dialog-card{width:calc(100vw - 20px);max-width:calc(100vw - 20px);padding:12px 12px calc(12px + env(safe-area-inset-bottom))}
+  .formation-selector-filter-grid,
+  .formation-selector-filter-grid.has-status-filter,
+  .formation-selector-filter-grid.has-status-filter.is-equipment,
+  .formation-selector-filter-grid.is-attendant,.formation-selector-filter-grid.is-advisor{grid-template-columns:1fr}
+  .formation-selector-list{max-height:none}
+}
+
+/* FIX[HADO-2.5.7.6-CATEGORY-TWO-ROWS]: 検索カテゴリを2段表示にして横はみ出しを抑止 */
+.category-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:start}
+#categoryBar.row{display:grid;grid-template-columns:repeat(5,max-content);gap:8px;align-items:center;min-width:0}
+#categoryBar button{white-space:nowrap}
+.category-actions{justify-content:flex-end}
+@media (max-width:980px),(pointer:coarse){
+  .category-row{grid-template-columns:1fr}
+  #categoryBar.row{grid-template-columns:repeat(5,minmax(0,1fr));width:100%}
+  #categoryBar button{min-width:0;padding-left:8px;padding-right:8px}
+  .category-actions{justify-content:flex-end;width:100%}
+}
+/* FIX[HADO-2.5.7.6-FORMATION-SLOT-DIALOG-TALL]: 武将編集ダイアログを画面高に近づけ、不要な縦スクロールを低減 */
+.formation-mobile-dialog-overlay[data-formation-dialog-backdrop="slot"]{align-items:flex-start;padding-top:max(10px,env(safe-area-inset-top));padding-bottom:max(8px,env(safe-area-inset-bottom))}
+.formation-mobile-dialog-overlay[data-formation-dialog-backdrop="slot"] .formation-mobile-dialog-card{max-height:min(96dvh,calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 18px));width:min(860px,100%)}
+@media (max-width:520px){
+  .formation-mobile-dialog-overlay[data-formation-dialog-backdrop="slot"] .formation-mobile-dialog-card{max-height:min(96dvh,calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 14px))}
+}
+
+/* FIX[HADO-2.5.8.2-SEARCH-FORMATION-LAYOUT]: 検索展開・部隊編成PCレイアウト調整 */
+.search-wrap:not(.is-search-collapsed) .search-dialog-body{display:grid!important;max-height:none!important;overflow:visible!important;visibility:visible!important}
+.search-wrap:not(.is-search-collapsed) .search-meta-row{display:flex!important;visibility:visible!important;min-height:32px!important}
+.search-wrap:not(.is-search-collapsed){max-height:none!important;overflow:visible!important}
+.search-param-details{border:1px solid var(--border);border-radius:14px;background:#fff;overflow:hidden}.search-param-details>summary{cursor:pointer;padding:10px 12px;background:#f8fafc;font-weight:700;display:flex;justify-content:space-between;gap:8px;align-items:center}.search-param-details .parameter-block{border:none;border-radius:0}.search-param-details .parameter-block-title{display:none}.search-param-details .parameter-block-body{padding:10px 12px}
+.formation-team-cell-btn .formation-team-sub{display:none!important}.formation-selected-equipment-title{display:none!important}.formation-selected-card-body{display:grid;gap:12px}.formation-selected-skill-panel{border:1px solid #e2e8f0;border-radius:14px;background:#f8fafc;padding:10px;min-width:0;display:grid;gap:8px}.formation-selected-skill-title{font-weight:900;color:#0f172a}.formation-selected-skill-list{display:grid;gap:6px;overflow:auto;max-height:42vh;padding-right:2px}.formation-selected-skill-row{border:1px solid #e2e8f0;border-radius:10px;background:#fff;padding:7px 8px;display:grid;gap:3px}.formation-selected-skill-name{font-weight:800;color:#0f172a}.formation-selected-skill-meta{font-size:12px;color:#64748b;line-height:1.45}.formation-selected-skill-empty{border:1px dashed var(--border);border-radius:10px;background:#fff;color:var(--muted);padding:10px;text-align:center;font-size:13px}
+@media (min-width:981px) and (pointer:fine){
+  body.formation-tab .formation-list-panel{top:var(--mobile-fixed-stack-space,118px)!important;bottom:8px!important;height:auto!important;max-height:none!important;display:flex!important;flex-direction:column!important;overflow:hidden!important}
+  body.formation-tab .formation-list-panel .formation-list{flex:1 1 auto!important;min-height:0!important;max-height:none!important;overflow:auto!important}
+  body.formation-tab .formation-selected-card{align-self:stretch!important;min-height:0!important}
+  body.formation-tab .formation-selected-card-body{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start;min-height:0}
+  body.formation-tab .formation-selected-editor-main{min-width:0}
+  body.formation-tab .formation-selected-skill-panel{max-height:calc(100vh - var(--mobile-fixed-stack-space,118px) - 180px);overflow:hidden}
+  body.formation-tab .formation-selected-skill-list{max-height:calc(100vh - var(--mobile-fixed-stack-space,118px) - 250px)}
+  body.formation-tab .formation-compose-main-grid{grid-template-columns:minmax(320px,420px) minmax(520px,1fr)!important}
+}
+@media (max-width:980px),(pointer:coarse){.formation-selected-skill-panel{display:none!important}}
+
+/* FIX[HADO-2.5.8.3-PC-SEARCH-FORMATION-VIEWPORT]: PC幅ではタッチ判定に依存せず、検索/部隊編成を画面内固定レイアウトにする */
+@media (min-width:981px){
+  body.hado-pc-search-viewport,
+  body.formation-tab{overflow:hidden!important}
+  body.hado-pc-search-viewport .app,
+  body.formation-tab .app{height:100vh!important;max-height:100vh!important;overflow:hidden!important;align-content:start!important}
+  body.hado-pc-search-viewport #searchPanel:not(.is-search-collapsed){height:auto!important;min-height:218px!important;max-height:none!important;overflow:visible!important;padding-bottom:16px!important}
+  body.hado-pc-search-viewport #searchPanel:not(.is-search-collapsed) #searchDialogBody{display:grid!important;height:auto!important;min-height:max-content!important;max-height:none!important;overflow:visible!important;visibility:visible!important;grid-auto-rows:max-content!important}
+  body.hado-pc-search-viewport #searchPanel:not(.is-search-collapsed) .category-row{margin-bottom:0!important}
+  body.hado-pc-search-viewport #searchPanel:not(.is-search-collapsed) .search-meta-row{display:flex!important;visibility:visible!important;min-height:32px!important;align-items:center!important}
+  body.hado-pc-search-viewport #searchPanel.is-search-collapsed{min-height:0!important;overflow:hidden!important}
+  body.hado-pc-search-viewport .layout{height:var(--pc-search-workspace-height,520px)!important;max-height:var(--pc-search-workspace-height,520px)!important;min-height:180px!important;overflow:hidden!important;align-items:stretch!important}
+  body.hado-pc-search-viewport .layout>.panel{min-height:0!important;overflow:hidden!important;display:flex!important;flex-direction:column!important}
+  body.hado-pc-search-viewport .results,
+  body.hado-pc-search-viewport .detail{flex:1 1 auto!important;min-height:0!important;max-height:none!important;overflow:auto!important}
+
+  body.formation-tab #formationScreen{height:calc(100vh - var(--mobile-fixed-stack-space,118px) - 8px)!important;max-height:calc(100vh - var(--mobile-fixed-stack-space,118px) - 8px)!important;min-height:0!important;overflow:hidden!important;display:grid!important;grid-template-rows:auto minmax(0,1fr)!important}
+  body.formation-tab #formationRoot,
+  body.formation-tab .formation-layout{height:100%!important;min-height:0!important;overflow:hidden!important}
+  body.formation-tab .formation-layout{grid-template-columns:1fr!important}
+  body.formation-tab .formation-list-panel{position:fixed!important;left:8px!important;top:var(--mobile-fixed-stack-space,118px)!important;bottom:8px!important;width:220px!important;height:auto!important;max-height:none!important;min-height:0!important;overflow:hidden!important;display:flex!important;flex-direction:column!important;z-index:11!important}
+  body.formation-tab .formation-list-panel .formation-list{flex:1 1 auto!important;min-height:0!important;max-height:none!important;overflow:auto!important;align-content:start!important}
+  body.formation-tab .formation-detail-panel{height:100%!important;min-height:0!important;overflow:hidden!important;display:flex!important;flex-direction:column!important}
+  body.formation-tab .formation-work-tab-panel:not(.tab-content-hidden){flex:1 1 auto!important;min-height:0!important;overflow:hidden!important}
+  body.formation-tab .formation-edit-shell{display:flex!important;flex-direction:column!important;min-height:0!important}
+  body.formation-tab .formation-compose-toolbar{flex:0 0 auto!important}
+  body.formation-tab .formation-compose-main-grid{flex:1 1 auto!important;min-height:0!important;overflow:hidden!important;align-items:stretch!important;grid-template-columns:minmax(320px,420px) minmax(520px,1fr)!important}
+  body.formation-tab .formation-board-card,
+  body.formation-tab .formation-selected-card{min-height:0!important;overflow:hidden!important;align-self:stretch!important}
+  body.formation-tab .formation-selected-card{display:flex!important;flex-direction:column!important}
+  body.formation-tab .formation-selected-head{flex:0 0 auto!important}
+  body.formation-tab .formation-selected-card-body{flex:1 1 auto!important;min-height:0!important;height:100%!important;display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;align-items:stretch!important;overflow:hidden!important}
+  body.formation-tab .formation-selected-editor-main{min-width:0!important;min-height:0!important;overflow:auto!important}
+  body.formation-tab .formation-selected-skill-panel{height:100%!important;max-height:none!important;min-height:0!important;overflow:hidden!important;display:flex!important;flex-direction:column!important;padding:8px!important}
+  body.formation-tab .formation-selected-skill-title{display:none!important}
+  body.formation-tab .formation-selected-skill-list{flex:1 1 auto!important;min-height:0!important;max-height:none!important;overflow:auto!important;display:grid!important;align-content:start!important;gap:4px!important;padding-right:4px!important}
+  body.formation-tab .formation-selected-skill-row{padding:6px 8px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important}
+  body.formation-tab .formation-selected-skill-name{font-size:13px!important;line-height:1.25!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;width:100%!important}
+  body.formation-tab .formation-selected-skill-meta{display:none!important}
+}
+
+/* FIX[HADO-2.5.8.4-PC-SEARCH-FLEX-LAYOUT]: 検索パネルの全情報表示を優先し、検索結果パネルの重なりを防止 */
+@media (min-width:981px){
+  body.hado-pc-search-viewport{overflow:hidden!important}
+  body.hado-pc-search-viewport .app{height:100vh!important;max-height:100vh!important;overflow:hidden!important;display:flex!important;flex-direction:column!important;gap:12px!important;align-content:stretch!important}
+  body.hado-pc-search-viewport #searchPanel{flex:0 0 auto!important;height:auto!important;max-height:none!important;min-height:0!important;overflow:visible!important;position:relative!important;z-index:4}
+  body.hado-pc-search-viewport #searchPanel:not(.is-search-collapsed) #searchDialogBody{display:grid!important;visibility:visible!important;height:auto!important;max-height:none!important;overflow:visible!important}
+  body.hado-pc-search-viewport #searchPanel.is-search-collapsed #searchDialogBody{display:none!important}
+  body.hado-pc-search-viewport #searchPanel:not(.is-search-collapsed) .search-meta-row{display:flex!important;visibility:visible!important}
+  body.hado-pc-search-viewport .layout{flex:1 1 auto!important;height:auto!important;max-height:none!important;min-height:0!important;align-items:stretch!important;overflow:hidden!important;position:relative!important;z-index:1}
+  body.hado-pc-search-viewport .layout>.panel{min-height:0!important;display:flex!important;flex-direction:column!important;overflow:hidden!important}
+  body.hado-pc-search-viewport .layout>.panel>.row:first-child,
+  body.hado-pc-search-viewport .layout>.panel>.detail-toolbar{flex:0 0 auto!important}
+  body.hado-pc-search-viewport .results,
+  body.hado-pc-search-viewport .detail{max-height:none!important;min-height:0!important;height:auto!important;flex:1 1 auto!important;overflow:auto!important}
+  body.hado-pc-search-viewport .pc-search-history-panel{top:var(--pc-search-history-top,120px)!important;height:var(--pc-search-history-height,520px)!important;max-height:none!important;overflow:auto!important}
+}
+/* FIX[HADO-2.5.8.4-FORMATION-SKILL-GRID]: 選択武将の合算技能を1行4技能基準で表示し、幅不足時は自動的に列数を落とす */
+.formation-selected-skill-list{grid-template-columns:repeat(4,minmax(0,1fr));align-content:start;gap:6px}
+.formation-selected-skill-row{min-width:0;padding:6px 7px}
+.formation-selected-skill-name{display:flex;align-items:center;gap:4px;min-width:0;font-size:13px;line-height:1.25}
+.formation-selected-skill-name span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.formation-selected-skill-name .formation-badge{flex:0 0 auto;margin:0;padding:1px 5px;font-size:11px}
+@media (max-width:1280px){.formation-selected-skill-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:1080px){.formation-selected-skill-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:980px),(pointer:coarse){.formation-selected-skill-list{grid-template-columns:1fr}}
+
+
+/* FEATURE[HADO-2.5.10.0-ADVISOR-SLOTS]: 配置パネル下部の参軍5枠 */
+.formation-advisor-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;margin-top:6px}
+.formation-advisor-cell{border:1px solid var(--border);border-radius:8px;background:#fff;padding:5px 4px;min-width:0;display:grid;gap:2px;text-align:center;cursor:pointer}
+.formation-advisor-cell:hover{background:#eff6ff;border-color:#93c5fd}
+.formation-advisor-label{font-weight:700;font-size:11px;color:#475569;line-height:1.1}
+.formation-advisor-name{font-size:12px;color:#111827;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.formation-advisor-skills{font-size:10px;color:#64748b;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.formation-advisor-remove{padding:2px 5px;font-size:10px;line-height:1.1;border-radius:6px}
+@media (max-width:980px),(pointer:coarse){.formation-advisor-row{grid-template-columns:repeat(5,minmax(0,1fr));gap:3px}.formation-advisor-cell{padding:4px 2px}.formation-advisor-label{font-size:10px}.formation-advisor-name{font-size:10px}.formation-advisor-skills{display:none}}
+
+
+/* FIX[HADO-2.5.10.1-ADVISOR-STABILIZE]: 参軍枠の視認性・候補ダイアログ安定化 */
+.formation-advisor-row{align-items:stretch}
+.formation-advisor-cell{position:relative;min-height:48px;grid-template-rows:auto auto auto;overflow:hidden}
+.formation-advisor-cell.has-advisor{background:#f8fafc;border-color:#cbd5e1}
+.formation-advisor-cell.has-active-advisor{background:#eff6ff;border-color:#93c5fd}
+.formation-advisor-cell.has-locked-advisor{background:#fff7ed;border-color:#fed7aa}
+.formation-advisor-name{font-weight:700}
+.formation-advisor-skills{max-width:100%}
+.formation-selector-advisor-note{font-size:11px;color:var(--muted);line-height:1.35;margin-top:2px}
+
+/* FEATURE[HADO-2.6.5.0-WARHORSE-SLOTS]: 部隊編成画面の軍馬3枠 */
+.formation-warhorse-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;margin-top:6px}
+.formation-warhorse-cell{border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px 5px;min-width:0;display:grid;gap:3px}
+.formation-warhorse-cell.has-warhorse{background:#f0fdf4;border-color:#86efac}
+.formation-warhorse-label{font-weight:700;font-size:11px;color:#166534;line-height:1.1;text-align:center}
+.formation-warhorse-select{width:100%;min-width:0;border:1px solid var(--border);border-radius:7px;padding:5px 6px;background:#fff;font-size:11px}
+.formation-warhorse-note{font-size:10px;color:#64748b;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}
+.formation-warhorse-actions{display:flex;gap:4px;justify-content:center;flex-wrap:wrap}.formation-warhorse-remove,.formation-warhorse-edit{padding:2px 5px;font-size:10px;line-height:1.1;border-radius:6px}.formation-warhorse-edit{background:#fff!important;border-color:#bfdbfe!important;color:#1d4ed8!important}
+@media (max-width:980px),(pointer:coarse){.formation-warhorse-row{grid-template-columns:repeat(3,minmax(0,1fr));gap:3px}.formation-warhorse-cell{padding:4px 2px}.formation-warhorse-label{font-size:10px}.formation-warhorse-select{font-size:10px;padding:4px 3px}.formation-warhorse-note{display:none}}
+.formation-selector-command-row{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+@media (min-width:981px) and (pointer:fine){.formation-advisor-cell{padding:5px 4px}.formation-advisor-label{font-size:11px}.formation-advisor-name{font-size:11px}.formation-advisor-skills{font-size:10px}}
+
+/* FEATURE[HADO-2.5.9.0-FIVE-ELEMENTS]: 部隊編成の合算五行表示 */
+.formation-five-elements-section .five-element-total-line{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-weight:700}
+.formation-five-elements-section .five-element-chip{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--border);border-radius:999px;padding:3px 8px;background:#f8fafc;color:#0f172a;font-size:.86rem}
+.formation-five-elements-section .five-element-grid{display:grid;grid-template-columns:minmax(90px,1.2fr) repeat(5,minmax(44px,.7fr));gap:1px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--border);font-size:.88rem}
+.formation-five-elements-section .five-element-grid>div{background:#fff;padding:7px 8px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.formation-five-elements-section .five-element-grid .head{background:#f8fafc;font-weight:700;color:#334155}
+.formation-five-elements-section .five-element-grid .num{text-align:right;font-variant-numeric:tabular-nums}
+@media (max-width:980px),(pointer:coarse){.formation-five-elements-section .five-element-grid{font-size:.82rem;grid-template-columns:minmax(82px,1.2fr) repeat(5,minmax(34px,.65fr))}.formation-five-elements-section .five-element-grid>div{padding:6px 5px}}
+
+/* FEATURE[HADO-2.6.1.0-WARHORSE-TAB]: 軍馬編成タブ外枠 */
+.warhorse-panel{display:grid;gap:12px}.warhorse-root{display:grid;gap:12px}.warhorse-layout{display:grid;grid-template-columns:minmax(240px,340px) minmax(0,1fr) minmax(240px,360px);gap:12px;min-height:0}.warhorse-card{border:1px solid var(--border);border-radius:14px;background:#fff;padding:12px;display:grid;gap:10px;min-width:0}.warhorse-card h3{margin:0;font-size:15px}.warhorse-summary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.warhorse-summary-card{border:1px solid #dbeafe;background:#eff6ff;border-radius:12px;padding:10px;display:grid;gap:4px}.warhorse-summary-label{font-size:12px;color:#475569;font-weight:800}.warhorse-summary-value{font-size:20px;font-weight:900;color:#1d4ed8}.warhorse-list{display:grid;gap:8px;max-height:52vh;overflow:auto}.warhorse-list-item{border:1px solid var(--border);border-radius:10px;background:#fff;padding:9px;display:grid;gap:3px}.warhorse-list-title{font-weight:800;color:#111827;overflow-wrap:anywhere}.warhorse-list-meta{font-size:12px;color:var(--muted);line-height:1.4}.warhorse-placeholder{border:1px dashed var(--border);border-radius:12px;background:#f8fafc;color:#64748b;padding:16px;line-height:1.7}.warhorse-roadmap-list{margin:0;padding-left:1.2em;color:#334155;font-size:13px;line-height:1.7}.warhorse-action-row{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:8px;align-items:center;position:static!important;background:transparent!important;border-top:1px solid #e2e8f0;padding-top:10px;margin-top:4px}.warhorse-action-row button[disabled]{opacity:.55;cursor:not-allowed}@media (max-width:980px),(pointer:coarse){.warhorse-layout{grid-template-columns:1fr}.warhorse-summary-grid{grid-template-columns:1fr 1fr}.warhorse-list{max-height:none}.main-tab-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-radius:18px}.main-tab-btn{white-space:nowrap;font-size:12px;padding-left:6px;padding-right:6px}}
+.warhorse-list-item.is-selected{border-color:#2563eb;background:#eff6ff;box-shadow:0 0 0 1px rgba(37,99,235,.18)}.warhorse-list-item[data-warhorse-owned-id]{cursor:pointer}.warhorse-editor-grid{display:grid;grid-template-columns:130px minmax(0,1fr);gap:8px 10px;align-items:center}.warhorse-editor-label{font-size:12px;font-weight:800;color:#475569}.warhorse-editor-value{font-size:13px;color:#111827;overflow-wrap:anywhere}.warhorse-empty-note{border:1px dashed var(--border);border-radius:12px;background:#f8fafc;color:#64748b;padding:12px;line-height:1.6}.warhorse-danger-btn{border-color:#fecaca!important;background:#fff1f2!important;color:#b91c1c!important}.warhorse-action-row button:not([disabled]){cursor:pointer}.warhorse-editor-form{display:grid;gap:12px}.warhorse-form-grid{display:grid;grid-template-columns:130px minmax(0,1fr);gap:8px 10px;align-items:center}.warhorse-form-grid input,.warhorse-form-grid select{width:100%;min-width:0;border:1px solid var(--border);border-radius:8px;padding:7px 8px;background:#fff}.warhorse-skill-grid{display:grid;grid-template-columns:minmax(0,1fr) 86px;gap:8px;align-items:center}.warhorse-stat-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}.warhorse-stat-cell{display:grid;gap:4px}.warhorse-stat-cell span{font-size:12px;font-weight:800;color:#475569}.warhorse-form-note{font-size:12px;color:#64748b;line-height:1.6}.warhorse-save-btn{background:#2563eb!important;border-color:#2563eb!important;color:#fff!important;font-weight:800}@media (max-width:980px),(pointer:coarse){.warhorse-form-grid{grid-template-columns:1fr}.warhorse-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.warhorse-action-row{grid-template-columns:1fr}.warhorse-action-row button{width:100%}}
+
+/* FIX[HADO-2.6.5.1-WARHORSE-UX]: 軍馬編成を内部スクロール化し、作成をダイアログ化 */
+body.warhorse-tab .warhorse-panel{display:grid;grid-template-rows:auto minmax(0,1fr);height:calc(100vh - 156px);overflow:hidden;min-height:0}
+body.warhorse-tab .warhorse-panel h2{margin:0 0 8px 0;min-height:auto;line-height:1.2}
+body.warhorse-tab .warhorse-root{height:100%;min-height:0;overflow:hidden}
+body.warhorse-tab .warhorse-layout{height:100%;min-height:0;grid-template-columns:minmax(250px,360px) minmax(0,1fr)}
+body.warhorse-tab .warhorse-card{min-height:0;overflow:hidden;box-shadow:0 10px 26px rgba(15,23,42,.06)}
+body.warhorse-tab .warhorse-card-body{min-height:0;overflow:auto;display:grid;gap:10px;padding-right:2px}
+body.warhorse-tab .warhorse-card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+body.warhorse-tab .warhorse-card-title{display:grid;gap:3px}
+body.warhorse-tab .warhorse-card-title h3{margin:0;font-size:15px}
+body.warhorse-tab .warhorse-card-title .note{font-size:12px;line-height:1.4}
+body.warhorse-tab .warhorse-list{max-height:none;min-height:0;overflow:visible}
+body.warhorse-tab .warhorse-list-item{position:relative;transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease;background:linear-gradient(180deg,#fff,#f8fafc)}
+body.warhorse-tab .warhorse-list-item:hover{border-color:#93c5fd;box-shadow:0 8px 18px rgba(37,99,235,.10);transform:translateY(-1px)}
+body.warhorse-tab .warhorse-item-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:5px}
+body.warhorse-tab .warhorse-item-actions button{font-size:11px;padding:4px 7px;border-radius:8px}
+body.warhorse-tab .warhorse-primary-btn{background:#2563eb!important;border-color:#2563eb!important;color:#fff!important;font-weight:900;border-radius:999px;padding:8px 12px!important}
+body.warhorse-tab .warhorse-secondary-btn{border-radius:999px;padding:8px 12px!important;background:#f8fafc!important}
+body.warhorse-tab .warhorse-empty-state{border:1px dashed #bfdbfe;background:linear-gradient(135deg,#eff6ff,#f8fafc);border-radius:14px;padding:14px;display:grid;gap:8px;color:#334155;line-height:1.6}
+.warhorse-modal{position:fixed;inset:0;z-index:2500;display:grid;place-items:center;padding:16px;background:rgba(15,23,42,.42);backdrop-filter:blur(4px)}
+.warhorse-modal[hidden]{display:none!important}
+.warhorse-modal-card{width:min(560px,calc(100vw - 24px));max-height:calc(100vh - 32px);overflow:auto;border-radius:22px;background:#fff;box-shadow:0 24px 70px rgba(15,23,42,.28);border:1px solid #dbeafe;padding:16px;display:grid;gap:14px}
+.warhorse-modal-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.warhorse-modal-title{display:grid;gap:3px}.warhorse-modal-title h3{margin:0;font-size:18px}.warhorse-modal-close{border-radius:999px!important;width:34px;height:34px;padding:0!important}
+.warhorse-create-segment{display:grid;grid-template-columns:1fr 1fr;gap:8px}.warhorse-create-segment button{border-radius:14px;padding:12px 10px!important;background:#f8fafc}.warhorse-create-segment button.is-active{background:#eff6ff!important;border-color:#2563eb!important;color:#1d4ed8!important;font-weight:900;box-shadow:0 0 0 2px rgba(37,99,235,.12)}
+.warhorse-modal-grid{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px;align-items:center}.warhorse-modal-grid label{font-size:12px;font-weight:900;color:#475569}.warhorse-modal-grid input,.warhorse-modal-grid select{width:100%;border:1px solid var(--border);border-radius:10px;padding:9px 10px;background:#fff}.warhorse-modal-actions{display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap}.warhorse-modal-create{background:#2563eb!important;border-color:#2563eb!important;color:#fff!important;font-weight:900}.warhorse-modal-preview{border:1px solid #e2e8f0;border-radius:14px;background:#f8fafc;padding:10px;color:#475569;font-size:12px;line-height:1.5}
+@media (max-width:980px),(pointer:coarse){body.warhorse-tab{overflow:hidden}body.warhorse-tab .app{height:100dvh;overflow:hidden}body.warhorse-tab .warhorse-panel{height:calc(100dvh - 126px);overflow:hidden;min-height:0;padding:8px;gap:6px}body.warhorse-tab .warhorse-panel>h2{display:none}body.warhorse-tab .warhorse-root{height:100%;min-height:0;overflow:hidden}body.warhorse-tab .warhorse-layout{height:100%;min-height:0;grid-template-columns:1fr;grid-template-rows:minmax(138px,34%) minmax(0,1fr);gap:8px;overflow:hidden}body.warhorse-tab .warhorse-card{min-height:0;overflow:hidden;padding:9px;border-radius:12px}body.warhorse-tab .warhorse-card-header{align-items:center}body.warhorse-tab .warhorse-card-title h3{font-size:14px}body.warhorse-tab .warhorse-card-title .note{font-size:11px;line-height:1.25}body.warhorse-tab .warhorse-card-body{min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}body.warhorse-tab .warhorse-list{min-height:0;max-height:none;overflow:visible}body.warhorse-tab .warhorse-list-item{padding:7px}body.warhorse-tab .warhorse-list-meta{font-size:11px;line-height:1.25}body.warhorse-tab .warhorse-form-grid{gap:6px}body.warhorse-tab .warhorse-editor-form{gap:8px}body.warhorse-tab .warhorse-action-row{position:static!important;background:transparent!important;border-top:1px solid #e2e8f0;padding-top:10px;margin-top:4px;z-index:auto}.warhorse-modal-grid{grid-template-columns:1fr}.warhorse-create-segment{grid-template-columns:1fr}}
+
+body.warhorse-tab .mobile-search-history-panel,body.warhorse-tab .pc-search-history-panel{display:none!important}
+
+/* HADO-2.6.5.3 warhorse list-first UX */
+body.warhorse-tab .warhorse-panel{display:grid;grid-template-rows:auto minmax(0,1fr);height:calc(100vh - 156px);overflow:hidden;min-height:0}
+body.warhorse-tab .warhorse-root{height:100%;min-height:0;overflow:hidden}
+body.warhorse-tab .warhorse-layout{height:100%;min-height:0;display:grid;grid-template-columns:1fr;overflow:hidden}
+body.warhorse-tab .warhorse-card{min-height:0;overflow:hidden;box-shadow:0 10px 26px rgba(15,23,42,.06)}
+body.warhorse-tab .warhorse-card-body{min-height:0;overflow:auto;display:block;padding-right:2px}
+body.warhorse-tab .warhorse-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;max-height:none;overflow:visible}
+body.warhorse-tab .warhorse-list-item{display:grid;gap:8px;text-align:left;border-radius:14px;padding:12px;background:linear-gradient(180deg,#fff,#f8fafc);border:1px solid #dbeafe;box-shadow:0 8px 20px rgba(15,23,42,.05)}
+body.warhorse-tab .warhorse-list-item:hover{border-color:#60a5fa;box-shadow:0 12px 26px rgba(37,99,235,.13);transform:translateY(-1px)}
+.warhorse-list-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}.warhorse-kind-chip{display:inline-flex;align-items:center;border-radius:999px;padding:3px 8px;font-size:11px;font-weight:900;background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;white-space:nowrap}.warhorse-kind-chip.is-famous{background:#fef3c7;color:#92400e;border-color:#fde68a}.warhorse-compact-row{display:flex;flex-wrap:wrap;gap:5px}.warhorse-chip{display:inline-flex;align-items:center;max-width:100%;border:1px solid #e2e8f0;background:#fff;border-radius:999px;padding:3px 7px;font-size:11px;color:#334155;line-height:1.3}.warhorse-chip.is-fixed{background:#fefce8;border-color:#fde68a;color:#854d0e}.warhorse-chip.is-empty{background:#f8fafc;color:#94a3b8}.warhorse-list-footer{display:flex;justify-content:space-between;gap:8px;align-items:center;border-top:1px dashed #e2e8f0;padding-top:7px;margin-top:2px}.warhorse-assignment-note{font-size:11px;color:#64748b}.warhorse-edit-mini{display:none!important}
+.warhorse-edit-modal .warhorse-modal-card{width:min(720px,calc(100vw - 24px))}
+@media (max-width:980px),(pointer:coarse){body.warhorse-tab{overflow:hidden}body.warhorse-tab .app{height:100dvh;overflow:hidden}body.warhorse-tab .warhorse-panel{height:calc(100dvh - 126px);overflow:hidden;min-height:0;padding:8px;gap:6px}body.warhorse-tab .warhorse-panel>h2{display:none}body.warhorse-tab .warhorse-layout{height:100%;grid-template-columns:1fr;grid-template-rows:minmax(0,1fr)}body.warhorse-tab .warhorse-list{grid-template-columns:1fr;gap:8px}body.warhorse-tab .warhorse-card{padding:9px;border-radius:12px}body.warhorse-tab .warhorse-card-body{-webkit-overflow-scrolling:touch;overscroll-behavior:contain}.warhorse-modal-card{max-height:calc(100dvh - 24px);overflow:auto}.warhorse-list-item:hover{transform:none}}
+
+.warhorse-delete-confirm-card{border:1px solid #fca5a5;background:#fff7f7;border-radius:12px;padding:10px 12px;display:grid;gap:8px}.warhorse-delete-confirm-title{font-weight:800;color:#991b1b}.warhorse-delete-confirm-text{font-size:13px;color:#7f1d1d;line-height:1.6}.warhorse-delete-confirm-actions{display:flex;gap:8px;flex-wrap:wrap}.warhorse-delete-cancel-btn{background:#fff;border-color:#d1d5db;color:#374151}.warhorse-danger-btn{background:#fff7f7!important;border-color:#fca5a5!important;color:#991b1b!important}.warhorse-delete-bottom-bar{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:10060;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;width:min(720px,calc(100vw - 24px));background:#fff;border:1px solid #fecaca;border-left:6px solid #dc2626;border-radius:16px;padding:12px 14px;box-shadow:0 16px 42px rgba(15,23,42,.26)}.warhorse-delete-bottom-title{font-weight:900;color:#991b1b;font-size:14px}.warhorse-delete-bottom-text{font-size:13px;color:#7f1d1d;line-height:1.5}.warhorse-delete-bottom-actions{display:flex;gap:8px;align-items:center}.warhorse-delete-bottom-actions button{white-space:nowrap;border-radius:999px!important;padding:9px 13px!important}.warhorse-delete-bottom-confirm{background:#dc2626!important;border-color:#dc2626!important;color:#fff!important;font-weight:900}.warhorse-delete-bottom-cancel{background:#fff!important;border-color:#d1d5db!important;color:#374151!important}.warhorse-undo-toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:10050;display:flex;align-items:center;gap:10px;max-width:min(560px,calc(100vw - 24px));background:#111827;color:#fff;border-radius:12px;padding:12px 14px;box-shadow:0 10px 28px rgba(15,23,42,.28);font-size:13px;line-height:1.5}.warhorse-undo-toast button{background:#fff;color:#111827;border-color:#fff;padding:7px 10px;border-radius:8px;white-space:nowrap}@media (max-width:980px),(pointer:coarse){.warhorse-delete-confirm-actions button{flex:1;min-width:120px}.warhorse-delete-bottom-bar{left:10px;right:10px;bottom:10px;transform:none;width:auto;grid-template-columns:1fr;gap:10px;padding:12px}.warhorse-delete-bottom-actions{display:grid;grid-template-columns:1fr 1fr}.warhorse-delete-bottom-actions button{width:100%}.warhorse-undo-toast{left:10px;right:10px;bottom:10px;transform:none;max-width:none}}.warhorse-assignment-grid{display:grid;gap:10px}.warhorse-assignment-cell{border:1px solid var(--border);border-radius:12px;background:#f8fafc;padding:10px;display:grid;gap:7px}.warhorse-assignment-cell.has-warhorse{background:#f0fdf4;border-color:#86efac}.warhorse-assignment-label{font-weight:900;color:#166534;font-size:13px}.warhorse-assignment-select{width:100%;border:1px solid var(--border);border-radius:9px;padding:8px;background:#fff}.warhorse-assignment-note{font-size:12px;color:#64748b;line-height:1.45;overflow-wrap:anywhere}.warhorse-assignment-actions{display:flex;gap:8px;flex-wrap:wrap}.warhorse-assignment-remove,.warhorse-assignment-edit{justify-self:start;border-radius:999px!important;padding:5px 10px!important;font-size:12px!important}.warhorse-assignment-edit{background:#fff!important;border-color:#bfdbfe!important;color:#1d4ed8!important}@media (max-width:980px),(pointer:coarse){.warhorse-assignment-grid{gap:8px}.warhorse-assignment-cell{padding:8px}.warhorse-assignment-select{font-size:12px;padding:7px}.warhorse-assignment-note{font-size:11px}}
+/* FIX[HADO-2.7.0.7-DEBUG-PANEL-PC-FLOW]: Debug Log表示時はPC検索固定レイアウトを解除し、内容詳細の下に通常フローで表示する */
+@media (min-width:981px){
+  body.debug-panel-visible.hado-pc-search-viewport{overflow:auto!important}
+  body.debug-panel-visible.hado-pc-search-viewport .app{height:auto!important;max-height:none!important;overflow:visible!important}
+  body.debug-panel-visible.hado-pc-search-viewport .layout{height:auto!important;max-height:none!important;overflow:visible!important;align-items:start!important}
+  body.debug-panel-visible.hado-pc-search-viewport .layout>.panel{max-height:none!important;overflow:visible!important}
+  body.debug-panel-visible #debugPanel{position:static!important;grid-column:1/-1!important;z-index:auto!important;max-height:none!important;overflow:visible!important;align-self:stretch!important}
+  body.debug-panel-visible #debugPanelContent{max-height:30em!important;overflow:auto!important}
+}
+
+
+/* FIX[HADO-2.7.0.19-PC-SEARCH-LAYOUT]: PC検索条件レイアウト整理 */
+@media (min-width:981px) and (pointer:fine){
+  body.hado-pc-search-viewport .category-row{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;gap:8px!important}
+  body.hado-pc-search-viewport #categoryBar.row{display:flex!important;flex-wrap:nowrap!important;gap:8px!important;align-items:center!important;width:auto!important;max-width:none!important;overflow:visible!important;min-width:0!important}
+  body.hado-pc-search-viewport #categoryBar button{flex:0 0 auto!important;white-space:nowrap!important;min-width:auto!important}
+  body.hado-pc-search-viewport .category-actions{flex:0 0 auto!important;justify-content:flex-end!important;white-space:nowrap!important}
+  body.hado-pc-search-viewport .search-query-row{display:grid!important;grid-template-columns:minmax(300px,1fr) minmax(420px,1.15fr)!important;gap:8px!important;align-items:start!important}
+  body.hado-pc-search-viewport .search-input-row,
+  body.hado-pc-search-viewport .tag-input-row{min-width:0!important}
+  body.hado-pc-search-viewport .tag-search-wrap{min-width:0!important}
+  body.hado-pc-search-viewport .detail-title-actions{display:flex!important;align-items:center!important;gap:8px!important;min-width:0!important}
+  body.hado-pc-search-viewport .detail-title-actions h2{margin-right:4px!important;white-space:nowrap!important}
+}
+@media (max-width:980px),(pointer:coarse){
+  .search-query-row{display:grid!important;grid-template-columns:1fr!important;gap:8px!important}
+  .detail-title-actions{display:flex!important;align-items:center!important;gap:6px!important;flex-wrap:wrap!important}
+}
+
+
+/* FIX[HADO-2.7.0.22-PC-SEARCH-LAYOUT-REAPPLY]: PC検索画面レイアウト再適用。ロジック変更なし。 */
+@media (min-width:981px) and (pointer:fine){
+  #searchPanel .category-row{
+    display:flex!important;
+    flex-wrap:nowrap!important;
+    align-items:center!important;
+    gap:8px!important;
+    overflow:visible!important;
+  }
+  #searchPanel #categoryBar.row{
+    display:flex!important;
+    flex-wrap:nowrap!important;
+    align-items:center!important;
+    gap:8px!important;
+    min-width:0!important;
+    width:auto!important;
+    overflow:visible!important;
+  }
+  #searchPanel #categoryBar.row button{
+    flex:0 0 auto!important;
+    white-space:nowrap!important;
+    min-width:auto!important;
+  }
+  #searchPanel .category-actions{
+    display:flex!important;
+    flex:0 0 auto!important;
+    flex-wrap:nowrap!important;
+    justify-content:flex-end!important;
+    white-space:nowrap!important;
+  }
+  #searchPanel .search-query-row{
+    display:grid!important;
+    grid-template-columns:minmax(320px,1fr) minmax(460px,1.2fr)!important;
+    gap:8px!important;
+    align-items:start!important;
+  }
+  #searchPanel .search-input-row,
+  #searchPanel .tag-input-row{
+    min-width:0!important;
+  }
+  #searchPanel .tag-search-wrap{
+    min-width:0!important;
+  }
+  .detail-toolbar .detail-title-actions{
+    display:flex!important;
+    align-items:center!important;
+    gap:8px!important;
+    min-width:0!important;
+  }
+  .detail-toolbar .detail-title-actions h2{
+    margin-right:4px!important;
+    white-space:nowrap!important;
+  }
+}
+@media (max-width:980px),(pointer:coarse){
+  #searchPanel .category-row{grid-template-columns:1fr!important;}
+  #searchPanel #categoryBar.row{grid-template-columns:repeat(5,minmax(0,1fr))!important;width:100%!important;}
+  #searchPanel .search-query-row{display:grid!important;grid-template-columns:1fr!important;gap:8px!important;}
+  .detail-toolbar .detail-title-actions{display:flex!important;align-items:center!important;gap:6px!important;flex-wrap:wrap!important;}
+}
+
+
+/* FIX[HADO-2.7.0.23-PC-FORMATION-LAYOUT]: PC部隊編成レイアウト微修正。ロジック変更なし。 */
+@media (min-width:981px) and (pointer:fine){
+  #mainTabPanel .main-tab-row{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:8px!important;
+    align-items:center!important;
+    white-space:nowrap!important;
+  }
+  #mainTabPanel .main-tab-btn{
+    min-width:0!important;
+    white-space:nowrap!important;
+  }
+}
+
+
+/* FEATURE[HADO-2.7.1.0-GUIDED-TOUR]: スマホゲーム風の吹き出しガイド */
+.guided-tour-overlay{position:fixed;inset:0;z-index:2147483000;display:none;pointer-events:none;background:rgba(15,23,42,.28)}
+.guided-tour-overlay.is-active{display:block}
+.guided-tour-spotlight{position:fixed;z-index:2147483050;border:3px solid #facc15;border-radius:16px;box-shadow:0 0 0 9999px rgba(15,23,42,.42),0 10px 30px rgba(15,23,42,.25);transition:all .18s ease;pointer-events:none;background:rgba(255,255,255,.03)}
+.guided-tour-bubble{position:fixed;z-index:2147483200;width:min(380px,calc(100vw - 28px));max-height:calc(100vh - 24px);overflow:auto;border:1px solid #bfdbfe;border-radius:18px;background:#fff;box-shadow:0 18px 48px rgba(15,23,42,.28);padding:14px;display:grid;gap:10px;pointer-events:auto}
+.guided-tour-bubble::before{content:"";position:absolute;width:14px;height:14px;background:#fff;border-left:1px solid #bfdbfe;border-top:1px solid #bfdbfe;transform:rotate(45deg);left:24px;top:-8px}
+.guided-tour-bubble.is-above::before{top:auto;bottom:-8px;transform:rotate(225deg)}
+.guided-tour-kicker{font-size:12px;font-weight:800;color:#2563eb;letter-spacing:.04em}
+.guided-tour-title{font-size:17px;font-weight:900;color:#0f172a;line-height:1.35}
+.guided-tour-text{font-size:14px;line-height:1.65;color:#334155;white-space:pre-line}
+.guided-tour-actions{display:flex;gap:8px;align-items:center;justify-content:flex-end;flex-wrap:wrap;border-top:1px solid #e5e7eb;padding-top:10px}
+.guided-tour-actions button{border-radius:999px;padding:8px 12px;font-size:13px;font-weight:800}
+.guided-tour-actions .guided-tour-end{background:#fff;color:#475569;border-color:#cbd5e1;margin-right:auto}
+.guided-tour-actions .guided-tour-prev{background:#f8fafc;color:#334155;border-color:#cbd5e1}
+.guided-tour-actions .guided-tour-next{background:#2563eb;color:#fff;border-color:#2563eb}
+.guided-tour-progress{font-size:12px;color:#64748b;font-weight:700;margin-right:4px}
+.guided-tour-focus{position:relative;z-index:2147483060!important;outline:3px solid rgba(250,204,21,.88)!important;outline-offset:3px!important;border-radius:12px!important}
+body.guided-tour-active{overflow-x:hidden}
+@media (max-width:980px),(pointer:coarse){.guided-tour-overlay{background:rgba(15,23,42,.18)}.guided-tour-bubble{left:12px!important;right:12px!important;top:auto!important;bottom:12px!important;width:auto!important;max-height:min(56vh,430px);border-radius:18px 18px 16px 16px;overscroll-behavior:contain}.guided-tour-bubble::before{display:none}.guided-tour-text{max-height:24vh;overflow:auto}.guided-tour-actions{justify-content:space-between;position:sticky;bottom:-14px;background:#fff;padding-top:10px}.guided-tour-actions button{flex:1;min-width:0}.guided-tour-actions .guided-tour-end{flex:1;margin-right:0}}
+
+
+/* FIX[HADO-2.7.1.3-GUIDE-DOCK]: ガイドパネルは対象要素に隠れないよう上下固定・最前面表示にする */
+.guided-tour-bubble{z-index:2147483600!important;cursor:pointer;overscroll-behavior:contain}
+.guided-tour-bubble.guide-dock-top,
+.guided-tour-bubble.guide-dock-bottom{position:fixed!important;left:50%!important;right:auto!important;transform:translateX(-50%)!important;width:min(540px,calc(100vw - 28px))!important;max-height:min(46vh,380px)!important}
+.guided-tour-bubble.guide-dock-top{top:12px!important;bottom:auto!important}
+.guided-tour-bubble.guide-dock-bottom{top:auto!important;bottom:12px!important}
+.guided-tour-bubble.guide-dock-top::before,
+.guided-tour-bubble.guide-dock-bottom::before{display:none!important}
+.guided-tour-bubble.guide-dock-top .guided-tour-actions,
+.guided-tour-bubble.guide-dock-bottom .guided-tour-actions{position:sticky;bottom:-14px;background:#fff;z-index:1}
+@media (max-width:980px),(pointer:coarse){
+  .guided-tour-bubble.guide-dock-top,
+  .guided-tour-bubble.guide-dock-bottom{left:12px!important;right:12px!important;transform:none!important;width:auto!important;max-height:min(52vh,430px)!important}
+  .guided-tour-bubble.guide-dock-top{top:12px!important;bottom:auto!important}
+  .guided-tour-bubble.guide-dock-bottom{top:auto!important;bottom:12px!important}
+}
+
+
+/* FIX[HADO-2.7.1.4-GUIDE-FRONT-AVOID-OVERLAP]: ガイドを常時最前面にし、対象枠と重ならない上下固定配置にする */
+.guided-tour-overlay{z-index:2147483600!important;isolation:isolate!important;pointer-events:none!important}
+.guided-tour-spotlight{z-index:2147483602!important;pointer-events:none!important}
+.guided-tour-focus{z-index:2147483500!important}
+.guided-tour-bubble{z-index:2147483647!important;position:fixed!important;pointer-events:auto!important;cursor:pointer!important;box-shadow:0 22px 60px rgba(15,23,42,.34)!important}
+.guided-tour-bubble.guide-dock-top,
+.guided-tour-bubble.guide-dock-bottom{left:50%!important;right:auto!important;transform:translateX(-50%)!important;width:min(540px,calc(100vw - 28px))!important;max-height:min(42vh,360px)!important;overflow:auto!important}
+.guided-tour-bubble.guide-dock-top{top:12px!important;bottom:auto!important}
+.guided-tour-bubble.guide-dock-bottom{top:auto!important;bottom:12px!important}
+.guided-tour-bubble.guide-dock-top::before,
+.guided-tour-bubble.guide-dock-bottom::before{display:none!important}
+.guided-tour-bubble .guided-tour-actions{position:sticky!important;bottom:-14px!important;background:#fff!important;z-index:2!important}
+@media (max-width:980px),(pointer:coarse){
+  .guided-tour-bubble.guide-dock-top,
+  .guided-tour-bubble.guide-dock-bottom{left:10px!important;right:10px!important;transform:none!important;width:auto!important;max-height:min(50vh,430px)!important}
+  .guided-tour-bubble.guide-dock-top{top:calc(env(safe-area-inset-top,0px) + 8px)!important;bottom:auto!important}
+  .guided-tour-bubble.guide-dock-bottom{top:auto!important;bottom:calc(env(safe-area-inset-bottom,0px) + 8px)!important}
+}
+
+
+/* FIX[HADO-2.7.1.5-GUIDE-QUALITY]: ガイド枠欠落修正と操作性改善 */
+.guided-tour-bubble{will-change:transform,top,bottom!important}
+.guided-tour-spotlight{will-change:left,top,width,height!important}
+.guided-tour-bubble .guided-tour-actions{display:flex!important;gap:8px!important;flex-wrap:wrap!important;align-items:center!important;justify-content:flex-end!important}
+@media (max-width:980px),(pointer:coarse){
+  .guided-tour-bubble{max-height:min(46vh,390px)!important}
+  .guided-tour-text{line-height:1.55!important}
+}
+
+
+
+/* FIX[HADO-2.7.3.57-FORMATION-INNER-TAB-SCROLL-ISOLATION]: 部隊編成の編成/結果/詳細タブをhidden属性とスクロール領域で分離し、結果/詳細タブに編成タブ内容が混入しないようにする */
+.formation-work-tab-panel.tab-content-hidden,
+.formation-work-tab-panel[hidden]{display:none!important;visibility:hidden!important;height:0!important;min-height:0!important;max-height:0!important;overflow:hidden!important;pointer-events:none!important;}
+body.formation-tab .formation-detail-panel{min-height:0!important;overflow:hidden!important;}
+body.formation-tab .formation-result-focus:not(.tab-content-hidden),
+body.formation-tab .formation-detail-focus:not(.tab-content-hidden){display:flex!important;flex-direction:column!important;flex:1 1 auto!important;min-height:0!important;height:100%!important;max-height:100%!important;overflow:auto!important;padding-right:4px;}
+body.formation-tab .formation-result-focus>.formation-mobile-summary-section,
+body.formation-tab .formation-detail-focus>.formation-mobile-summary-section{flex:0 0 auto;min-width:0;max-width:100%;}
+body.formation-tab .formation-result-focus>.formation-param-section{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;overflow:hidden;}
+body.formation-tab .formation-result-focus>.formation-param-section>summary{flex:0 0 auto;}
+body.formation-tab .formation-result-focus>.formation-param-section>.formation-mobile-summary-body{flex:1 1 auto;min-height:0;overflow:auto;}
+body.formation-tab .formation-detail-focus .formation-mobile-summary-body{min-width:0;max-width:100%;overflow:auto;}
+body.formation-tab .formation-detail-focus .formation-table,
+body.formation-tab .formation-detail-focus .generic-table{min-width:max-content;}
+body.formation-tab .formation-detail-focus .five-element-grid{min-width:0;max-width:100%;overflow-x:auto;}
+
+
+
+/* FIX[HADO-2.7.3.58-FORMATION-RESULT-DETAIL-SCROLL-AND-REQUIRED-METRICS]: 結果/詳細タブは独立スクロール領域にし、攻撃速度・部隊の射程を重要結果として常時表示する */
+.formation-required-result-strip{display:grid;grid-template-columns:auto repeat(2,minmax(150px,1fr));gap:8px;align-items:stretch;margin:0 0 10px 0;flex:0 0 auto;min-width:0}
+.formation-required-result-title{font-weight:900;color:#0f172a;display:flex;align-items:center;padding:8px 2px;white-space:nowrap}
+.formation-required-result-chip{border:1px solid #bfdbfe;background:#eff6ff;border-radius:14px;padding:8px 10px;display:grid;gap:2px;min-width:0}
+.formation-required-result-chip.is-missing{border-color:#e2e8f0;background:#f8fafc;color:#64748b}
+.formation-required-result-label{font-size:12px;color:#475569;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.formation-required-result-chip strong{font-size:16px;color:#0f172a;line-height:1.2}
+body.formation-tab .formation-result-focus:not([hidden]),
+body.formation-tab .formation-detail-focus:not([hidden]){display:block!important;min-height:0!important;overflow-y:auto!important;overflow-x:hidden!important;padding-right:6px;scrollbar-gutter:stable;max-height:calc(100vh - var(--mobile-fixed-stack-space,118px) - 76px)!important;height:calc(100vh - var(--mobile-fixed-stack-space,118px) - 76px)!important}
+body.formation-tab .formation-result-focus .formation-param-section{display:block!important;min-height:0!important;max-height:none!important;overflow:visible!important}
+body.formation-tab .formation-result-focus .formation-param-section>.formation-mobile-summary-body{display:block!important;min-height:0!important;max-height:none!important;overflow:visible!important}
+body.formation-tab .formation-result-focus .formation-param-timing-stack,
+body.formation-tab .formation-detail-focus .formation-mobile-summary-body{min-width:0;max-width:100%;overflow:visible!important}
+body.formation-tab .formation-detail-focus .formation-mobile-summary-section{overflow:visible!important}
+body.formation-tab .formation-detail-focus .five-element-grid,
+body.formation-tab .formation-detail-focus .formation-table,
+body.formation-tab .formation-detail-focus .generic-table,
+body.formation-tab .formation-result-focus .formation-table{max-width:100%;overflow-x:auto;display:block}
+@media (max-width:980px),(pointer:coarse){
+  .formation-required-result-strip{grid-template-columns:1fr 1fr}.formation-required-result-title{grid-column:1 / -1;padding:2px 0}
+  body.formation-tab .formation-result-focus:not([hidden]),
+  body.formation-tab .formation-detail-focus:not([hidden]){max-height:calc(100dvh - var(--mobile-fixed-stack-space,118px) - 86px)!important;height:calc(100dvh - var(--mobile-fixed-stack-space,118px) - 86px)!important}
+}
+
+
+.tactic-attack-summary{display:grid;gap:10px}
+.tactic-attack-summary-card{border-color:#bfdbfe;background:#eff6ff}
+.tactic-attack-summary-card .general-card-header{color:#1d4ed8}
+.tactic-attack-label{font-size:16px;font-weight:800;color:#1d4ed8}
+.tactic-attack-formula{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#f8fafc;border:1px solid var(--border);border-radius:10px;padding:8px;overflow-wrap:anywhere}
+.tactic-attack-list{margin:0;padding-left:1.2em;line-height:1.65}
+.tactic-attack-empty{color:var(--muted);font-size:13px}
+.tactic-attack-note{font-size:12px;color:var(--muted);line-height:1.5}
+
+/* HADO-2.8.9.16: formation tactic readability refinement */
+.search-enter-note{white-space:nowrap;align-self:center;margin-right:4px;}
+.tag-input-row{align-items:center;}
+.formation-tactic-attack-section{display:grid;grid-template-columns:repeat(2,minmax(320px,1fr));gap:12px;align-items:start;}
+.formation-tactic-attack-section>.formation-note{grid-column:1/-1;margin:0 0 2px 0;padding:8px 10px;border:1px solid #e2e8f0;border-radius:10px;background:#f8fafc;color:#475569;}
+.formation-tactic-subsection{margin:0;border-color:#cbd5e1;box-shadow:0 1px 2px rgba(15,23,42,.04);}
+.formation-tactic-subsection>summary{position:relative;display:block!important;padding:14px 44px 13px 15px!important;min-height:78px;background:linear-gradient(180deg,#fff,#f8fafc)!important;}
+.formation-tactic-subsection>summary::after{content:'＋'!important;position:absolute;right:14px;top:50%;transform:translateY(-50%);width:24px;height:24px;border:1px solid #bfdbfe;border-radius:999px;background:#eff6ff;color:#1d4ed8;font-size:16px;line-height:21px;text-align:center;font-weight:800;}
+.formation-tactic-subsection[open]>summary::after{content:'−'!important;background:#1d4ed8;color:#fff;border-color:#1d4ed8;}
+.formation-tactic-section-summary{display:grid;grid-template-columns:1fr;gap:9px;width:100%;min-width:0;}
+.formation-tactic-summary-main{font-weight:850;font-size:15px;line-height:1.35;color:#0f172a;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.formation-tactic-summary-chips{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-start;min-width:0;}
+.formation-tactic-summary-chip{display:inline-flex;align-items:center;border:1px solid #bfdbfe;background:#eff6ff;color:#1d4ed8;border-radius:999px;padding:3px 9px;font-size:12px;font-weight:700;line-height:1.35;white-space:normal;max-width:100%;}
+.formation-tactic-summary-chip.is-warn{border-color:#fde68a;background:#fffbeb;color:#92400e;}
+.formation-tactic-subsection .formation-mobile-summary-body{padding:12px;background:#fff;}
+.formation-tactic-subsection .parameter-block{border:0;border-radius:0;box-shadow:none;}
+.formation-tactic-subsection .parameter-block-title{display:none;}
+.formation-tactic-subsection .parameter-row{padding:7px 0;border-top:1px dashed #e2e8f0;}
+.formation-tactic-subsection .parameter-row:first-child{border-top:none;}
+.formation-tactic-subsection .parameter-main{gap:8px 10px;}
+@media (max-width:980px),(pointer:coarse){.tag-input-row{display:grid!important;grid-template-columns:1fr auto 1fr auto auto;gap:6px;align-items:center}.search-enter-note{grid-column:1/-1;white-space:normal}.formation-tactic-attack-section{grid-template-columns:1fr}.formation-tactic-subsection>summary{min-height:auto}.formation-tactic-summary-main{white-space:normal}.formation-tactic-summary-chip{font-size:11px;padding:3px 7px}}
+
+
+/* HADO-2.8.9.17: search panel row alignment recovery */
+#searchPanel .search-dialog-body{display:grid!important;gap:10px!important;}
+#searchPanel .search-query-row{
+  display:grid!important;
+  grid-template-columns:minmax(430px,1.05fr) minmax(560px,1.2fr)!important;
+  gap:10px 12px!important;
+  align-items:start!important;
+  width:100%!important;
+  max-width:100%!important;
+}
+#searchPanel .search-input-row,
+#searchPanel .tag-input-row{
+  min-width:0!important;
+  align-items:center!important;
+}
+#searchPanel .search-input-row{
+  display:grid!important;
+  grid-template-columns:auto minmax(260px,1fr) auto!important;
+  gap:8px!important;
+}
+#searchPanel .tag-search-wrap{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:6px!important;
+  min-width:0!important;
+}
+#searchPanel .tag-input-row{
+  display:flex!important;
+  flex-wrap:nowrap!important;
+  gap:8px!important;
+  width:100%!important;
+  max-width:100%!important;
+}
+#searchPanel .search-enter-note{
+  flex:0 0 auto!important;
+  white-space:nowrap!important;
+  margin:0 2px 0 0!important;
+  align-self:center!important;
+  line-height:1.4!important;
+}
+#searchPanel #tagPickerToggleBtn{
+  flex:0 0 auto!important;
+  width:auto!important;
+  min-width:64px!important;
+  max-width:none!important;
+  padding-left:14px!important;
+  padding-right:14px!important;
+}
+#searchPanel #tagSearchInput{
+  flex:1 1 260px!important;
+  min-width:160px!important;
+  width:auto!important;
+}
+#searchPanel #addTagSearchBtn,
+#searchPanel #clearTagSearchBtn,
+#searchPanel #clearKeywordBtn{
+  flex:0 0 auto!important;
+  width:auto!important;
+  white-space:nowrap!important;
+}
+#searchPanel .selected-tag-list{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  gap:6px!important;
+  align-items:center!important;
+  min-height:22px!important;
+  padding-left:calc(64px + 8px)!important;
+}
+@media (max-width:1180px){
+  #searchPanel .search-query-row{grid-template-columns:1fr!important;}
+  #searchPanel .tag-input-row{display:grid!important;grid-template-columns:auto auto minmax(180px,1fr) auto auto!important;}
+  #searchPanel .selected-tag-list{padding-left:0!important;}
+}
+@media (max-width:980px),(pointer:coarse){
+  #searchPanel .search-query-row{grid-template-columns:1fr!important;gap:8px!important;}
+  #searchPanel .search-input-row{grid-template-columns:auto minmax(0,1fr) auto!important;gap:6px!important;}
+  #searchPanel .tag-input-row{display:grid!important;grid-template-columns:auto auto minmax(0,1fr) auto!important;gap:6px!important;}
+  #searchPanel .search-enter-note{grid-column:1 / -1!important;white-space:normal!important;font-size:12px!important;}
+  #searchPanel #clearTagSearchBtn{grid-column:1 / -1!important;width:100%!important;}
+  #searchPanel #tagPickerToggleBtn{min-width:58px!important;padding-left:10px!important;padding-right:10px!important;}
+  #searchPanel .selected-tag-list{padding-left:0!important;}
+}
+@media (max-width:560px){
+  #searchPanel .search-input-row{grid-template-columns:1fr auto!important;}
+  #searchPanel .name-only-search-label{grid-column:1 / -1!important;}
+  #searchPanel .tag-input-row{grid-template-columns:auto minmax(0,1fr) auto!important;}
+  #searchPanel .search-enter-note{grid-column:1 / -1!important;}
+  #searchPanel #tagPickerToggleBtn{grid-column:1 / 2!important;}
+  #searchPanel #tagSearchInput{grid-column:2 / 3!important;}
+  #searchPanel #addTagSearchBtn{grid-column:3 / 4!important;}
+  #searchPanel #clearTagSearchBtn{grid-column:1 / -1!important;}
+}
+
+
+
+/* HADO-2.8.9.18: search status line and tactic formula disclosure */
+#searchPanel .search-status-line{
+  display:flex!important;
+  flex-wrap:nowrap!important;
+  align-items:center!important;
+  gap:10px!important;
+  min-height:26px!important;
+  width:100%!important;
+  max-width:100%!important;
+  overflow:hidden!important;
+}
+#searchPanel .search-status-line .meta,
+#searchPanel .search-status-line .tag-search-note{
+  font-size:12px!important;
+  line-height:1.35!important;
+  white-space:nowrap!important;
+  color:#64748b!important;
+}
+#searchPanel .search-status-line .selected-tag-list{
+  display:flex!important;
+  flex:0 1 auto!important;
+  flex-wrap:nowrap!important;
+  gap:6px!important;
+  align-items:center!important;
+  min-height:0!important;
+  padding-left:0!important;
+  overflow:hidden!important;
+}
+#searchPanel .search-status-line #resultMeta{
+  flex:1 1 auto!important;
+  min-width:160px!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+#searchPanel .search-enter-note{flex:0 0 auto!important;}
+#searchPanel .tag-input-row{grid-template-columns:auto minmax(0,1fr) auto auto!important;}
+@media (max-width:980px),(pointer:coarse){
+  #searchPanel .search-status-line{gap:7px!important;flex-wrap:nowrap!important;}
+  #searchPanel .search-status-line .meta,
+  #searchPanel .search-status-line .tag-search-note{font-size:11px!important;}
+  #searchPanel .search-status-line #resultMeta{min-width:120px!important;}
+}
+.formation-tactic-formula-details{margin-top:8px;border:1px dashed #cbd5e1;border-radius:10px;background:#ffffff;}
+.formation-tactic-formula-details>summary{cursor:pointer;list-style:none;padding:7px 10px;font-size:12px;font-weight:800;color:#1d4ed8;display:inline-flex;align-items:center;gap:6px;}
+.formation-tactic-formula-details>summary::-webkit-details-marker{display:none;}
+.formation-tactic-formula-details>summary::before{content:'＋';display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;border-radius:999px;border:1px solid #bfdbfe;background:#eff6ff;line-height:1;}
+.formation-tactic-formula-details[open]>summary::before{content:'−';background:#1d4ed8;color:#fff;border-color:#1d4ed8;}
+.formation-tactic-formula-details .parameter-detail-expanded{padding:0 10px 10px 10px;color:#334155;font-size:12px;line-height:1.55;}
+.formation-tactic-chain-row .parameter-detail-expanded{display:block;}
+
+
+.formation-tactic-enlarge-strip{cursor:pointer;border-color:#bfdbfe;background:linear-gradient(90deg,#eff6ff,#ffffff);}
+.formation-tactic-enlarge-strip:hover{box-shadow:0 6px 18px rgba(37,99,235,.12);transform:translateY(-1px);}
+.formation-tactic-summary-dialog-overlay{align-items:center!important;padding:18px!important;}
+.formation-tactic-summary-dialog-overlay .formation-mobile-dialog-card{width:min(1080px,calc(100vw - 36px));max-height:min(88vh,920px);overflow:auto;}
+.formation-tactic-summary-dialog-overlay .formation-tactic-enlarge-strip{display:none;}
+@media (max-width:980px),(pointer:coarse){.formation-tactic-summary-dialog-overlay{align-items:flex-end!important;padding:12px!important}.formation-tactic-summary-dialog-overlay .formation-mobile-dialog-card{width:min(720px,100%);max-height:86vh}}
+/* FIX[HADO-2.9.0.1-FORMATION-EDIT-SUMMARY-DIALOG]: 編成タブの結果サマリーをPCでも確実に拡大表示する */ .formation-result-enlarge-strip{cursor:pointer;border-color:#bfdbfe;background:linear-gradient(90deg,#eff6ff,#ffffff);} .formation-result-enlarge-strip:hover{box-shadow:0 6px 18px rgba(37,99,235,.12);transform:translateY(-1px);} .formation-summary-dialog-overlay{align-items:center!important;padding:18px!important;z-index:13000!important;} .formation-summary-dialog-overlay .formation-mobile-dialog-card{width:min(920px,calc(100vw - 36px));max-height:min(88vh,780px);overflow:auto;} @media (max-width:980px),(pointer:coarse){.formation-summary-dialog-overlay{align-items:flex-end!important;padding:12px!important}.formation-summary-dialog-overlay .formation-mobile-dialog-card{width:min(720px,100%);max-height:86vh}}
+
+
+/* FIX[HADO-2.9.0.29-MOBILE-SEARCH-COMPACT-ROWS]:
+   スマホ検索条件は、名称・検索キーワード・クリア、および
+   タグ・タグキーワード・追加・クリアを各1行で維持する。
+   入力欄を優先し、チェックボックスと操作ボタンは最小サイズに詰める。 */
+@media (max-width:520px){
+  .search-query-row{gap:5px!important}
+  .search-input-row,
+  .tag-input-row{width:100%;gap:4px!important;align-items:center!important}
+  .search-input-row{grid-template-columns:auto minmax(0,1fr) auto!important}
+  .tag-input-row{grid-template-columns:auto minmax(0,1fr) auto auto!important}
+  .name-only-search-label{
+    min-height:26px!important;
+    padding:2px 4px!important;
+    gap:2px!important;
+    border-radius:6px!important;
+    font-size:11px!important;
+    line-height:1!important;
+    white-space:nowrap!important;
+  }
+  .name-only-search-label input{
+    width:13px!important;
+    height:13px!important;
+    min-width:13px!important;
+    margin:0!important;
+  }
+  #searchInput,
+  #tagSearchInput{
+    width:100%!important;
+    min-width:0!important;
+    height:30px!important;
+    padding:5px 7px!important;
+    font-size:13px!important;
+  }
+  #clearKeywordBtn,
+  #clearTagSearchBtn{
+    min-height:26px!important;
+    padding:3px 5px!important;
+    border-radius:6px!important;
+    font-size:11px!important;
+    line-height:1!important;
+    white-space:nowrap!important;
+  }
+  #tagPickerToggleBtn,
+  #addTagSearchBtn{
+    min-height:26px!important;
+    padding:3px 5px!important;
+    border-radius:6px!important;
+    font-size:11px!important;
+    line-height:1!important;
+    white-space:nowrap!important;
+  }
+}
+
+
+/* FEATURE[HADO-2.9.0.30-STARTUP-DATA-RELOAD-SHEET]: 起動時データアクセス不可・更新検出時の選択画面 */
+.startup-data-overlay{position:fixed;inset:0;background:rgba(15,23,42,.58);display:none;align-items:center;justify-content:center;z-index:230000;padding:16px}.startup-data-overlay.is-visible{display:flex}.startup-data-card{width:min(640px,96vw);max-height:min(86vh,760px);overflow:auto;background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 12px 34px rgba(0,0,0,.22);display:grid;gap:12px}.startup-data-title{font-size:20px;font-weight:700}.startup-data-reason{font-size:14px;line-height:1.75;color:#374151;white-space:pre-wrap}.startup-data-compare{font-size:12px;line-height:1.65;color:#64748b;background:#f8fafc;border:1px solid #e5e7eb;border-radius:10px;padding:10px;white-space:pre-wrap;word-break:break-word}.startup-data-actions{display:flex;gap:8px;flex-wrap:wrap}.startup-data-actions button{min-height:38px}.startup-data-cache-note{font-size:12px;color:#b45309;line-height:1.6}.startup-data-file-input{display:none}
+
+
+/* FIX[HADO-2.9.0.31-MOBILE-SEARCH-COMPACT]: スマホ検索2行を1行固定し、名称チェックと操作ボタンを最小化 */
+@media (max-width:520px){
+  .search-input-row{display:grid!important;grid-template-columns:auto minmax(0,1fr) auto!important;gap:4px!important;align-items:center!important}
+  .tag-input-row{display:grid!important;grid-template-columns:auto minmax(0,1fr) auto auto!important;gap:4px!important;align-items:center!important}
+  .name-only-search-label{min-height:24px!important;height:24px!important;padding:2px 4px!important;gap:3px!important;border-radius:6px!important;font-size:11px!important;line-height:1!important}
+  .name-only-search-label input[type=checkbox]{width:12px!important;height:12px!important;min-width:12px!important;min-height:12px!important;margin:0!important}
+  #searchInput,#tagSearchInput{min-width:0!important;height:28px!important;padding:3px 6px!important;border-radius:6px!important;font-size:12px!important}
+  #clearKeywordBtn,#tagPickerToggleBtn,#addTagSearchBtn,#clearTagSearchBtn{min-width:0!important;min-height:24px!important;height:24px!important;padding:2px 5px!important;border-radius:6px!important;font-size:11px!important;line-height:1!important;white-space:nowrap!important}
+}
+
+
+/* FIX[HADO-2.9.0.32-MOBILE-SEARCH-SPECIFICITY-OVERRIDE]:
+   2.9.0.31 の未適用原因は、先行する #searchPanel 付きスマホCSSが
+   grid-column / width / min-width を !important で保持していたこと。
+   同等以上の詳細度で残存指定を解除し、名称行・タグ行を各1行に固定する。 */
+@media (max-width:520px){
+  #searchPanel .search-query-row{gap:5px!important}
+  #searchPanel .search-input-row{
+    display:grid!important;
+    grid-template-columns:auto minmax(0,1fr) auto!important;
+    gap:4px!important;
+    align-items:center!important;
+    width:100%!important;
+    min-width:0!important;
+  }
+  #searchPanel .tag-input-row{
+    display:grid!important;
+    grid-template-columns:auto minmax(0,1fr) auto auto!important;
+    gap:4px!important;
+    align-items:center!important;
+    width:100%!important;
+    min-width:0!important;
+  }
+  #searchPanel .name-only-search-label{
+    grid-column:auto!important;
+    min-height:24px!important;
+    height:24px!important;
+    padding:2px 4px!important;
+    gap:3px!important;
+    border-radius:6px!important;
+    font-size:11px!important;
+    line-height:1!important;
+    white-space:nowrap!important;
+  }
+  #searchPanel .name-only-search-label input[type=checkbox]{
+    width:12px!important;
+    height:12px!important;
+    min-width:12px!important;
+    min-height:12px!important;
+    margin:0!important;
+  }
+  #searchPanel #searchInput,
+  #searchPanel #tagSearchInput{
+    grid-column:auto!important;
+    width:100%!important;
+    min-width:0!important;
+    height:28px!important;
+    padding:3px 6px!important;
+    border-radius:6px!important;
+    font-size:12px!important;
+  }
+  #searchPanel #clearKeywordBtn,
+  #searchPanel #tagPickerToggleBtn,
+  #searchPanel #addTagSearchBtn,
+  #searchPanel #clearTagSearchBtn{
+    grid-column:auto!important;
+    width:auto!important;
+    min-width:0!important;
+    min-height:24px!important;
+    height:24px!important;
+    padding:2px 5px!important;
+    border-radius:6px!important;
+    font-size:11px!important;
+    line-height:1!important;
+    white-space:nowrap!important;
+  }
+}
+
+/* FEATURE[HADO-2.9.2.0-TYPE-SEARCH]: 型検索の基本UI。既存検索UIとは独立して表示を切り替える。 */
+.search-mode-row{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:0 0 8px}.search-mode-btn{border:1px solid #cbd5e1;background:#f8fafc;color:#334155;border-radius:999px;padding:5px 11px;font-size:12px;font-weight:700;cursor:pointer}.search-mode-btn.is-active{background:#0f766e;border-color:#0f766e;color:#fff}.type-search-panel{border:1px solid #d6e4e2;background:#f8fffe;border-radius:8px;padding:8px;margin:0 0 8px}.type-search-row{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:4px 0}.type-search-row-label{min-width:74px;color:#334155;font-size:12px;font-weight:700}.type-search-select{min-width:220px;max-width:100%;padding:5px 6px;border:1px solid #cbd5e1;border-radius:6px;background:#fff}.type-search-selected{display:flex;gap:4px;align-items:center;flex-wrap:wrap;min-height:24px}.type-search-badge{display:inline-flex;align-items:center;gap:3px;background:#e6fffb;border:1px solid #99f6e4;color:#115e59;border-radius:999px;padding:2px 7px;font-size:12px}.type-search-badge-remove{border:0;background:transparent;color:#0f766e;cursor:pointer;font-size:14px;line-height:1;padding:0}.type-search-empty{color:#64748b;font-size:12px}.type-search-actions{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:6px}.type-search-summary{color:#475569;font-size:12px}.type-search-result-reasons{margin-top:4px;color:#475569;font-size:12px;line-height:1.45}.type-search-result-reasons strong{color:#0f766e}.type-search-category-hidden{display:none!important}@media(max-width:980px){.type-search-select{min-width:160px;flex:1}.type-search-row-label{min-width:62px}.search-mode-btn{padding:4px 8px}}
+
+/* FEATURE[HADO-2.9.3.0-TYPE-PRESET]: 型プリセット、中核・推奨・補助表示。 */
+.type-search-preset-info{display:grid;gap:3px;padding:6px 8px;margin:3px 0 5px;border:1px solid #dbeafe;border-radius:7px;background:#eff6ff;color:#334155;font-size:12px;line-height:1.45}.type-search-preset-info.is-empty{color:#64748b;background:#f8fafc;border-color:#e2e8f0}.type-search-preset-title{font-weight:700;color:#1d4ed8}.type-search-preset-dirty{display:inline-block;margin-left:6px;padding:1px 5px;border-radius:999px;background:#fff7ed;color:#9a3412;font-size:11px}.type-search-importance-note{display:flex;gap:5px;flex-wrap:wrap;align-items:center;color:#64748b;font-size:11px}.type-search-importance-chip{display:inline-flex;align-items:center;border-radius:999px;padding:1px 6px;font-size:11px;font-weight:700}.type-search-importance-chip.is-core{background:#fee2e2;color:#991b1b}.type-search-importance-chip.is-recommended{background:#fef3c7;color:#92400e}.type-search-importance-chip.is-support{background:#e0f2fe;color:#075985}.type-search-importance-chip.is-manual{background:#e2e8f0;color:#475569}.type-search-badge.is-core{background:#fee2e2;border-color:#fecaca;color:#991b1b}.type-search-badge.is-recommended{background:#fef3c7;border-color:#fde68a;color:#92400e}.type-search-badge.is-support{background:#e0f2fe;border-color:#bae6fd;color:#075985}.type-search-badge.is-manual{background:#e2e8f0;border-color:#cbd5e1;color:#475569}.type-search-badge-label{font-size:10px;font-weight:700}.type-search-result-reason-group{display:block;margin-top:2px}.type-search-result-reason-label{font-weight:700}.type-search-result-reason-label.is-core{color:#b91c1c}.type-search-result-reason-label.is-recommended{color:#a16207}.type-search-result-reason-label.is-support{color:#0369a1}.type-search-result-reason-label.is-manual{color:#475569}
+/* FIX[HADO-2.9.2.2-SEARCH-MODE-HIDDEN-GATE]: モード切替時のhidden属性をdisplay指定より優先する。 */
+#searchPresetBar[hidden],
+#typeSearchPanel[hidden],
+#searchQueryRow[hidden],
+#normalSearchInputRow[hidden],
+#tagSearchWrap[hidden]{display:none!important}
+
+/* UI[HADO-2.9.5.1-TYPE-SEARCH-COMPACT]: 型検索を通常時3行へ圧縮。 */
+.type-search-panel-compact{padding:6px;margin:0 0 6px}.type-search-panel-compact .type-search-row{gap:4px;margin:2px 0;align-items:center}.type-search-panel-compact .type-search-row-label{min-width:36px;font-size:11px}.type-search-panel-compact .type-search-select{min-width:170px;padding:3px 5px;font-size:12px;height:27px}.type-search-panel-compact .type-search-preset-select{min-width:150px}.type-search-panel-compact .type-search-compact-btn{min-width:28px;min-height:25px;height:25px;padding:2px 6px;border-radius:6px;font-size:11px;line-height:1;white-space:nowrap}.type-search-panel-compact .type-search-selected{flex:1 1 240px;min-width:0;min-height:22px;gap:3px}.type-search-panel-compact .type-search-badge{padding:1px 5px;font-size:11px}.type-search-panel-compact .type-search-badge-label{font-size:9px}.type-search-panel-compact .type-search-badge-remove{font-size:13px}.type-search-preset-info{flex:1 1 280px;display:block;padding:3px 6px;margin:0;min-width:220px;font-size:11px;line-height:1.35}.type-search-preset-info summary{cursor:pointer;color:#334155;list-style-position:inside}.type-search-preset-detail{display:grid;gap:3px;padding:4px 2px 1px}.type-search-preset-condition-group{display:block}.type-search-help{position:relative;flex:0 0 auto}.type-search-help summary{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border:1px solid #cbd5e1;border-radius:999px;background:#fff;color:#475569;font-size:12px;font-weight:700;cursor:pointer;list-style:none}.type-search-help summary::-webkit-details-marker{display:none}.type-search-help-body{position:absolute;right:0;z-index:5;width:min(420px,calc(100vw - 48px));padding:7px 8px;margin-top:4px;border:1px solid #cbd5e1;border-radius:7px;background:#fff;box-shadow:0 4px 12px rgba(15,23,42,.14);color:#475569;font-size:11px;line-height:1.45}.type-search-help-body .type-search-importance-note{margin-top:4px}.type-search-row-preset{align-items:flex-start}@media(max-width:980px){.type-search-panel-compact .type-search-row-label{min-width:30px}.type-search-panel-compact .type-search-select{min-width:128px;flex:0 1 180px}.type-search-panel-compact .type-search-preset-select{flex:1 1 145px}.type-search-preset-info{order:5;flex-basis:100%;min-width:0}.type-search-panel-compact .type-search-selected{flex-basis:160px}.type-search-help-body{right:-2px}}
+
+/* UI[HADO-2.9.5.2-ROLE-SEPARATED-VISUAL-GRAMMAR]:
+   タブ / 選択操作 / 選択済み条件 / 表示専用ラベルを、色だけでなく形状・記号・配置で分離する。 */
+/* 画面切替はピルではなく下線付きタブ。 */
+.search-mode-row{gap:14px;border-bottom:1px solid #cbd5e1;padding:0 2px;margin-bottom:7px;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin}
+.search-mode-btn{flex:0 0 auto;border:0;border-bottom:3px solid transparent;border-radius:0;background:transparent;color:#64748b;padding:6px 3px 5px;font-size:12px;font-weight:800;box-shadow:none}
+.search-mode-btn:hover{background:#f8fafc;color:#0f766e}
+.search-mode-btn.is-active{background:transparent;border-color:transparent;border-bottom-color:#0f766e;color:#0f766e;box-shadow:none}
+.main-tab-row{display:flex;gap:0;border-bottom:1px solid #cbd5e1;background:#fff}
+.main-tab-btn{flex:1 1 0;border:0;border-bottom:3px solid transparent;border-radius:0;background:transparent;color:#64748b;padding:10px 12px;font-weight:800;box-shadow:none}
+.main-tab-btn:hover{background:#f8fafc;color:#1d4ed8}
+.main-tab-btn.is-active{background:transparent;border-color:transparent;border-bottom-color:#1d4ed8;color:#1d4ed8;box-shadow:none}
+.detail-tabs{gap:0;border-bottom:1px solid #e2e8f0;overflow-x:auto;overflow-y:hidden;flex-wrap:nowrap;scrollbar-width:thin}
+.detail-tab-btn{flex:0 0 auto;border:0;border-bottom:3px solid transparent;border-radius:0;background:transparent;color:#64748b;padding:7px 10px;font-size:12px;font-weight:800;box-shadow:none}
+.detail-tab-btn:hover{background:#f8fafc;color:#1d4ed8}
+.detail-tab-btn.is-active{background:transparent;border-color:transparent;border-bottom-color:#1d4ed8;color:#1d4ed8;box-shadow:none}
+/* カテゴリは複数選択可能なチェック式トグル。 */
+#categoryBar button{display:inline-flex;align-items:center;gap:5px;border:1px solid #cbd5e1;border-radius:6px;background:#fff;color:#475569;padding:6px 8px;font-weight:700;box-shadow:none}
+#categoryBar button::before{content:'□';color:#64748b;font-size:13px;line-height:1;font-weight:900}
+#categoryBar button:hover{border-color:#93c5fd;background:#f8fbff;color:#1d4ed8}
+#categoryBar button.toggle-active{border-color:#93c5fd;background:#eff6ff;color:#1d4ed8;box-shadow:inset 3px 0 0 #1d4ed8}
+#categoryBar button.toggle-active::before{content:'✓';color:#1d4ed8}
+.category-actions button{border-radius:6px!important;padding:6px 8px!important;font-weight:700}
+/* タグ候補は選択操作。選択済みタグは削除可能トークン。 */
+.tag-picker-option{border-radius:6px;padding:5px 8px;background:#fff;box-shadow:none}
+.tag-picker-option:hover{border-color:#93c5fd;background:#eff6ff}
+.selected-tag-group{border-radius:7px;background:#f8fbff}
+.selected-tag-badge{border-radius:999px;border-color:#93c5fd;background:#eff6ff;color:#1d4ed8;padding:3px 7px;font-weight:700}
+.selected-tag-remove{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;color:#1d4ed8;font-weight:900}
+.selected-tag-remove:hover{background:#dbeafe}
+/* 型検索の選択済み条件は×付きトークン。表示専用重要度は小型ラベル。 */
+.type-search-badge{border-radius:999px;padding:2px 5px 2px 4px;box-shadow:0 1px 0 rgba(15,23,42,.05)}
+.type-search-badge-label,.type-search-importance-chip{display:inline-flex;align-items:center;gap:2px;border-radius:3px;padding:1px 4px;font-size:10px;font-weight:900;line-height:1.25}
+.type-search-badge.is-core .type-search-badge-label::before,.type-search-importance-chip.is-core::before{content:'■';font-size:8px}
+.type-search-badge.is-recommended .type-search-badge-label::before,.type-search-importance-chip.is-recommended::before{content:'▲';font-size:8px}
+.type-search-badge.is-support .type-search-badge-label::before,.type-search-importance-chip.is-support::before{content:'・';font-size:12px;line-height:.7}
+.type-search-badge.is-manual .type-search-badge-label::before,.type-search-importance-chip.is-manual::before{content:'＋';font-size:10px}
+.type-search-badge-remove{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;margin-left:1px;border-radius:50%;font-weight:900}
+.type-search-badge-remove:hover{background:rgba(255,255,255,.72)}
+/* 条件サマリーと検索結果の表示専用ラベルは角丸を抑える。 */
+.search-condition-chip{border-radius:5px;background:#f8fafc;padding:4px 7px}
+.search-condition-chip.is-keyword{background:#eff6ff}
+.search-result-category,.search-result-metric{border-radius:4px;padding:2px 6px}
+.type-search-result-reason-group{position:relative;padding-left:10px}
+.type-search-result-reason-group::before{content:'•';position:absolute;left:1px;color:#94a3b8}
+/* スマホでもタブとチェック式カテゴリの文法を維持。 */
+@media(max-width:980px),(pointer:coarse){
+  .search-mode-row{gap:11px}
+  .search-mode-btn{padding:5px 2px 4px;font-size:11px}
+  .main-tab-btn{padding:9px 7px;font-size:12px}
+  #categoryBar button{padding:6px 7px!important;font-size:11px!important}
+  .category-actions button{padding:6px 6px!important;font-size:10px!important}
+}
+/* HTML externalization utility classes */
+.row-gap-6{gap:6px}.note-warning{color:#b45309}.hidden-file-input{display:none}.offscreen-file-input{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}.result-heading-row{margin-bottom:10px}.section-title-note{font-size:.72em;font-weight:600;vertical-align:middle}.section-title-note-danger{color:#dc2626}.section-title-note-muted{color:#64748b}.hidden-panel{display:none}.align-center{align-items:center}
