@@ -53,6 +53,30 @@ jobs:
           echo "display_version=${display_version}" >> "${GITHUB_OUTPUT}"
           echo "Source display version: ${display_version}"
 
+      - name: Validate source preview assets before dispatch
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          required_files = ['index.html', 'hado_library_3.0.0.0.html', 'hado_styles.css', 'hado_version.js']
+          for name in required_files:
+              path = Path(name)
+              if not path.is_file():
+                  raise SystemExit(f'Required preview source asset missing: {name}')
+          index = Path('index.html').read_text(encoding='utf-8')
+          css = Path('hado_styles.css').read_text(encoding='utf-8')
+          if './hado_styles.css' not in index:
+              raise SystemExit('index.html does not reference ./hado_styles.css')
+          if len(css) < 100000:
+              raise SystemExit(f'hado_styles.css is unexpectedly small: {len(css)} bytes')
+          for snippet in (':root{', '.panel{', '.app{'):
+              if snippet not in css:
+                  raise SystemExit(f'hado_styles.css missing required snippet: {snippet}')
+          print(f'Source preview assets validated: hado_styles.css {len(css)} bytes')
+          PY
+
       - name: Require preview dispatch token
         shell: bash
         env:
@@ -229,6 +253,7 @@ jobs:
                       and deployed_display == expected_display
                       and './hado_version.js' in index_html
                       and './hado_styles.css' in index_html
+                      and len(css_text) >= 100000
                       and ':root{' in css_text
                       and '.panel{' in css_text
                   ):

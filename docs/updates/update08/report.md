@@ -117,6 +117,13 @@
 - 再発防止として、`tools/validate_preview_workflow.py` に sync commit待機、Pages workflow dispatch、dispatch endpoint、`PREVIEW_REPO_TOKEN` の必須チェックを追加した。
 - 表示バージョンを `3.0.0.0 Update08.12` へインクリメント済み。
 
+## Update08.13 修正
+- previewサイトを直接確認した結果、`hado_styles.css` が404/またはコメント断片だけの不完全なCSSとして公開されている状態を確認した。これはCSS配信の有無だけでなく、同期元/同期後assetの内容検証が不足していたことが原因。
+- app側 `.github/workflows/notify-preview.yml` に、dispatch前の `Validate source preview assets before dispatch` を追加し、`index.html` が `./hado_styles.css` を参照し、ローカル `hado_styles.css` が10万byte以上で `:root{` / `.panel{` / `.app{` を含むことを検証する。
+- 公開preview検証も `hado_styles.css` が10万byte以上で `:root{` / `.panel{` を含むことを条件にし、404・空ファイル・コメント断片だけのCSSを失敗扱いにする。
+- 再発防止として、`tools/validate_preview_workflow.py` に source asset preflight と CSSサイズ閾値チェックがworkflowから消えた場合に失敗する検証を追加した。
+- 表示バージョンを `3.0.0.0 Update08.13` へインクリメント済み。
+
 ## プレビュー同期
 この作業環境ではPush後のGitHub Actions結果とプレビューURLの実機確認は未実行。コミット後、push-triggered `Notify Hado Library Preview` の成功とデプロイcommit一致を確認する。
 

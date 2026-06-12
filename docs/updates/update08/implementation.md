@@ -17,6 +17,7 @@
 - `3.0.0.0 Update08.10` として、preview検証に `hado_styles.css` の公開有無・HTML参照・主要CSS内容確認を追加し、CSS未配信をworkflow失敗として検知するようにした。
 - `3.0.0.0 Update08.11` として、preview repo側の Pages 公開workflow `jekyll-gh-pages.yml` が存在し、`actions/jekyll-build-pages` と `actions/deploy-pages` を含むことをapp側通知前に検証するようにした。
 - `3.0.0.0 Update08.12` として、preview repoへの同期commit反映を `PREVIEW_SOURCE_COMMIT.txt` で待機した後、app側workflowから preview repo の `jekyll-gh-pages.yml` を自動dispatchしてPages公開を明示起動するようにした。
+- `3.0.0.0 Update08.13` として、dispatch前にローカル `hado_styles.css` のサイズ/必須CSS断片を検証し、公開previewの `hado_styles.css` も10万byte以上かつ必須CSSを含むことを検証するようにした。
 - 部隊作成・複製時にグループあたり12部隊制限を適用し、グループは最大5件に制限した。
 - 既存の将星解決、装備段階、保存データ索引を再利用し、HTMLへ大型ロジックを追加しない方針を維持した。
 

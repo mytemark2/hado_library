@@ -8,6 +8,9 @@ ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github" / "workflows" / "notify-preview.yml"
 REQUIRED = (
     "uses: actions/checkout@v4",
+    "Validate source preview assets before dispatch",
+    "hado_styles.css is unexpectedly small",
+    "len(css_text) >= 100000",
     "display_version",
     "hado_version.js",
     "Verify preview reflects source commit and version assets",
