@@ -109,6 +109,14 @@
 - 再発防止として、`tools/validate_preview_workflow.py` に `Verify preview Pages deployment workflow exists`、`jekyll-gh-pages.yml`、`actions/deploy-pages`、`actions/jekyll-build-pages` の必須チェックを追加した。
 - 表示バージョンを `3.0.0.0 Update08.11` へインクリメント済み。
 
+## Update08.12 修正
+- 毎回サイト公開を取り消して作り直さないと反映されない原因として、preview repoの `sync-preview.yml` がGitHub Actions内で `git push` しており、そのpushでは別workflowの `on: push` が通常起動しないため、Pages公開workflowが自動実行されない点を修正した。
+- app側 `.github/workflows/notify-preview.yml` で `sync_app_preview` dispatch後、preview repo `main` の `PREVIEW_SOURCE_COMMIT.txt` がpush元SHAになるまでGitHub APIで待機する。
+- 同期commit確認後、app側workflowから preview repo の `actions/workflows/jekyll-gh-pages.yml/dispatches` を呼び、Pages公開workflowを自動起動する。これによりユーザーがサイト公開を手動で作り直す必要をなくす。
+- `PREVIEW_REPO_TOKEN` は preview repo の Contents Read/Write に加え Actions Read/Write 権限が必要になった。
+- 再発防止として、`tools/validate_preview_workflow.py` に sync commit待機、Pages workflow dispatch、dispatch endpoint、`PREVIEW_REPO_TOKEN` の必須チェックを追加した。
+- 表示バージョンを `3.0.0.0 Update08.12` へインクリメント済み。
+
 ## プレビュー同期
 この作業環境ではPush後のGitHub Actions結果とプレビューURLの実機確認は未実行。コミット後、push-triggered `Notify Hado Library Preview` の成功とデプロイcommit一致を確認する。
 
