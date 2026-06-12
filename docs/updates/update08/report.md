@@ -124,6 +124,14 @@
 - 再発防止として、`tools/validate_preview_workflow.py` に source asset preflight と CSSサイズ閾値チェックがworkflowから消えた場合に失敗する検証を追加した。
 - 表示バージョンを `3.0.0.0 Update08.13` へインクリメント済み。
 
+## Update08.14 修正
+- previewサイトを再確認し、`hado_styles.css` が依然として404になる原因を、app側の修正commitがあるbranchとpreview repo側 `sync-preview.yml` が hard-code して clone する `feature/app-3.0.0.0` の不一致、および repository_dispatch 後にpreview repo側同期workflowへ依存し続ける構造と判断した。
+- app側 `.github/workflows/notify-preview.yml` から `repository_dispatch` 依存を撤廃し、pushされた現在のsource branch checkoutを `rsync --delete` でpreview repo `main` へ直接同期する方式に変更した。これにより `hado_styles.css` を含む同一checkoutのassetがpreview repoへ入る。
+- 同期先preview repo上で `index.html` / `hado_library_3.0.0.0.html` / `hado_styles.css` / `hado_version.js` / `PREVIEW_SOURCE_COMMIT.txt` の存在、CSSサイズ10万byte以上、`:root{` / `.panel{` / `.app{` を検証してからcommit/pushする。
+- 公開preview検証では `PREVIEW_SOURCE_BRANCH.txt` も確認し、どのbranch/commitが公開されたかを固定して照合する。
+- 再発防止として、`tools/validate_preview_workflow.py` に direct rsync、preview repo push、source branch marker、CSS同期先検証を必須化し、旧 `repository_dispatch` / `sync_app_preview` / hard-code clone pattern が残ったら失敗する検証を追加した。
+- 表示バージョンを `3.0.0.0 Update08.14` へインクリメント済み。
+
 ## プレビュー同期
 この作業環境ではPush後のGitHub Actions結果とプレビューURLの実機確認は未実行。コミット後、push-triggered `Notify Hado Library Preview` の成功とデプロイcommit一致を確認する。
 

@@ -3,7 +3,7 @@ name: Notify Hado Library Preview
 on:
   push:
     branches:
-      - feature/app-3.0.0.0
+      - '**'
 
 permissions:
   contents: read
@@ -22,13 +22,13 @@ jobs:
         run: |
           set -euo pipefail
           APP_REF="${GITHUB_REF_NAME}"
-          if [ "${APP_REF}" != "feature/app-3.0.0.0" ]; then
-            echo "Unsupported preview source branch: ${APP_REF}" >&2
-            echo "Preview sync is intentionally restricted to feature/app-3.0.0.0 because the preview repository sync workflow clones that branch." >&2
+          if [ -z "${APP_REF}" ]; then
+            echo "Source branch name could not be resolved." >&2
             exit 1
           fi
           echo "app_ref=${APP_REF}" >> "${GITHUB_OUTPUT}"
           echo "Preview source branch: ${APP_REF}"
+          echo "Preview source commit: ${GITHUB_SHA}"
 
       - name: Read source display version
         id: meta
@@ -53,7 +53,7 @@ jobs:
           echo "display_version=${display_version}" >> "${GITHUB_OUTPUT}"
           echo "Source display version: ${display_version}"
 
-      - name: Validate source preview assets before dispatch
+      - name: Validate source preview assets before sync
         shell: bash
         run: |
           set -euo pipefail
@@ -69,6 +69,8 @@ jobs:
           css = Path('hado_styles.css').read_text(encoding='utf-8')
           if './hado_styles.css' not in index:
               raise SystemExit('index.html does not reference ./hado_styles.css')
+          if './hado_version.js' not in index:
+              raise SystemExit('index.html does not reference ./hado_version.js')
           if len(css) < 100000:
               raise SystemExit(f'hado_styles.css is unexpectedly small: {len(css)} bytes')
           for snippet in (':root{', '.panel{', '.app{'):
@@ -77,7 +79,7 @@ jobs:
           print(f'Source preview assets validated: hado_styles.css {len(css)} bytes')
           PY
 
-      - name: Require preview dispatch token
+      - name: Require preview repository token
         shell: bash
         env:
           PREVIEW_REPO_TOKEN: ${{ secrets.PREVIEW_REPO_TOKEN }}
@@ -124,7 +126,8 @@ jobs:
           print('Preview Pages workflow exists and contains deploy-pages/Jekyll build steps.')
           PY
 
-      - name: Dispatch preview deployment
+      - name: Sync preview repository contents
+        id: sync
         shell: bash
         env:
           PREVIEW_REPO_TOKEN: ${{ secrets.PREVIEW_REPO_TOKEN }}
@@ -132,72 +135,61 @@ jobs:
           DISPLAY_VERSION: ${{ steps.meta.outputs.display_version }}
         run: |
           set -euo pipefail
-          payload="$(python - <<'PY'
-          import json
-          import os
-          print(json.dumps({
-              'event_type': 'sync_app_preview',
-              'client_payload': {
-                  'app_ref': os.environ['APP_REF'],
-                  'source_repository': os.environ['GITHUB_REPOSITORY'],
-                  'source_sha': os.environ['GITHUB_SHA'],
-                  'display_version': os.environ['DISPLAY_VERSION'],
-              },
-          }))
-          PY
-          )"
-          curl --fail-with-body --silent --show-error \
-            --request POST \
-            --url 'https://api.github.com/repos/mytemark2/hado_library-preview/dispatches' \
-            --header 'Accept: application/vnd.github+json' \
-            --header "Authorization: Bearer ${PREVIEW_REPO_TOKEN}" \
-            --header 'X-GitHub-Api-Version: 2022-11-28' \
-            --data "${payload}"
-          echo "Preview deployment dispatched for ${APP_REF} (${DISPLAY_VERSION})."
+          PREVIEW_DIR="$(mktemp -d)"
+          trap 'rm -rf "${PREVIEW_DIR}"' EXIT
 
-      - name: Wait for preview repository sync commit
-        shell: bash
-        env:
-          PREVIEW_REPO_TOKEN: ${{ secrets.PREVIEW_REPO_TOKEN }}
-          EXPECTED_SOURCE_SHA: ${{ github.sha }}
-        run: |
-          set -euo pipefail
-          python - <<'PY'
-          import base64
-          import json
-          import os
+          git clone --depth 1 "https://x-access-token:${PREVIEW_REPO_TOKEN}@github.com/mytemark2/hado_library-preview.git" "${PREVIEW_DIR}"
+
+          rsync -a --delete \
+            --exclude '.git/' \
+            --exclude '.github/' \
+            --exclude 'docs/' \
+            --exclude 'report/' \
+            --exclude 'src/' \
+            --exclude 'tools/' \
+            ./ "${PREVIEW_DIR}/"
+
+          touch "${PREVIEW_DIR}/.nojekyll"
+          printf '%s\n' "${GITHUB_SHA}" > "${PREVIEW_DIR}/PREVIEW_SOURCE_COMMIT.txt"
+          printf '%s\n' "${APP_REF}" > "${PREVIEW_DIR}/PREVIEW_SOURCE_BRANCH.txt"
+          printf '%s\n' "${DISPLAY_VERSION}" > "${PREVIEW_DIR}/PREVIEW_DISPLAY_VERSION.txt"
+
+          python - "${PREVIEW_DIR}" <<'PY'
           import sys
-          import time
-          import urllib.request
+          from pathlib import Path
 
-          token = os.environ['PREVIEW_REPO_TOKEN']
-          expected = os.environ['EXPECTED_SOURCE_SHA']
-          url = 'https://api.github.com/repos/mytemark2/hado_library-preview/contents/PREVIEW_SOURCE_COMMIT.txt?ref=main'
-
-          def read_marker():
-              req = urllib.request.Request(url, headers={
-                  'Accept': 'application/vnd.github+json',
-                  'Authorization': f'Bearer {token}',
-                  'X-GitHub-Api-Version': '2022-11-28',
-              })
-              with urllib.request.urlopen(req, timeout=20) as res:
-                  payload = json.loads(res.read().decode('utf-8'))
-              return base64.b64decode(payload.get('content', '')).decode('utf-8', errors='replace').strip()
-
-          last = ''
-          for attempt in range(1, 31):
-              try:
-                  last = read_marker()
-                  if last == expected:
-                      print(f'Preview repository sync commit verified: {expected}')
-                      sys.exit(0)
-              except Exception as exc:  # noqa: BLE001 - workflow diagnostic
-                  last = repr(exc)
-              print(f'Preview repository marker not updated yet (attempt {attempt}/30): {last}')
-              time.sleep(10)
-          print(f'Preview repository did not sync expected source commit: {expected}; last={last}', file=sys.stderr)
-          sys.exit(1)
+          preview = Path(sys.argv[1])
+          required_files = ['index.html', 'hado_library_3.0.0.0.html', 'hado_styles.css', 'hado_version.js', 'PREVIEW_SOURCE_COMMIT.txt']
+          for name in required_files:
+              path = preview / name
+              if not path.is_file():
+                  raise SystemExit(f'Preview repository sync missing required asset: {name}')
+          index = (preview / 'index.html').read_text(encoding='utf-8')
+          css = (preview / 'hado_styles.css').read_text(encoding='utf-8')
+          if './hado_styles.css' not in index:
+              raise SystemExit('Synced preview index.html does not reference ./hado_styles.css')
+          if './hado_version.js' not in index:
+              raise SystemExit('Synced preview index.html does not reference ./hado_version.js')
+          if len(css) < 100000:
+              raise SystemExit(f'Synced hado_styles.css is unexpectedly small: {len(css)} bytes')
+          for snippet in (':root{', '.panel{', '.app{'):
+              if snippet not in css:
+                  raise SystemExit(f'Synced hado_styles.css missing required snippet: {snippet}')
+          print(f'Synced preview assets validated: hado_styles.css {len(css)} bytes')
           PY
+
+          git -C "${PREVIEW_DIR}" config user.name "github-actions[bot]"
+          git -C "${PREVIEW_DIR}" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C "${PREVIEW_DIR}" add -A
+          if git -C "${PREVIEW_DIR}" diff --cached --quiet; then
+            echo "No preview repository changes."
+            echo "changed=false" >> "${GITHUB_OUTPUT}"
+          else
+            git -C "${PREVIEW_DIR}" commit -m "sync preview from ${APP_REF}: ${GITHUB_SHA}"
+            git -C "${PREVIEW_DIR}" push origin HEAD:main
+            echo "changed=true" >> "${GITHUB_OUTPUT}"
+          fi
+          echo "Preview repository content is synchronized from ${APP_REF} (${GITHUB_SHA})."
 
       - name: Dispatch preview Pages deployment workflow
         shell: bash
@@ -219,6 +211,7 @@ jobs:
         env:
           EXPECTED_DISPLAY_VERSION: ${{ steps.meta.outputs.display_version }}
           EXPECTED_SOURCE_SHA: ${{ github.sha }}
+          EXPECTED_SOURCE_BRANCH: ${{ steps.source.outputs.app_ref }}
           PREVIEW_URL: https://mytemark2.github.io/hado_library-preview/
         run: |
           set -euo pipefail
@@ -231,6 +224,7 @@ jobs:
 
           expected_display = os.environ['EXPECTED_DISPLAY_VERSION']
           expected_sha = os.environ['EXPECTED_SOURCE_SHA']
+          expected_branch = os.environ['EXPECTED_SOURCE_BRANCH']
           base_url = os.environ['PREVIEW_URL'].rstrip('/') + '/'
 
           def fetch_text(path):
@@ -242,6 +236,7 @@ jobs:
           for attempt in range(1, 31):
               try:
                   source_sha = fetch_text('PREVIEW_SOURCE_COMMIT.txt').strip()
+                  source_branch = fetch_text('PREVIEW_SOURCE_BRANCH.txt').strip()
                   version_js = fetch_text('hado_version.js')
                   index_html = fetch_text('index.html')
                   css_text = fetch_text('hado_styles.css')
@@ -250,17 +245,19 @@ jobs:
                   deployed_display = f"{release.group(1)} Update{update.group(1)}" if release and update else ''
                   if (
                       source_sha == expected_sha
+                      and source_branch == expected_branch
                       and deployed_display == expected_display
                       and './hado_version.js' in index_html
                       and './hado_styles.css' in index_html
                       and len(css_text) >= 100000
                       and ':root{' in css_text
                       and '.panel{' in css_text
+                      and '.app{' in css_text
                   ):
-                      print(f'Preview verified: {expected_display} / {expected_sha}')
+                      print(f'Preview verified: {expected_display} / {expected_branch} / {expected_sha}')
                       sys.exit(0)
                   last = (
-                      f'source_sha={source_sha!r}, deployed_display={deployed_display!r}, '
+                      f'source_sha={source_sha!r}, source_branch={source_branch!r}, deployed_display={deployed_display!r}, '
                       f'index_has_version={"./hado_version.js" in index_html}, '
                       f'index_has_css={"./hado_styles.css" in index_html}, css_len={len(css_text)}'
                   )
