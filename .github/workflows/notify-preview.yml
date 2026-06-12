@@ -13,6 +13,9 @@ jobs:
     if: ${{ github.event.deleted == false }}
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
       - name: Resolve app branch
         id: source
         shell: bash
@@ -25,6 +28,29 @@ jobs:
           fi
           echo "app_ref=${APP_REF}" >> "${GITHUB_OUTPUT}"
           echo "Preview source branch: ${APP_REF}"
+
+      - name: Read source display version
+        id: meta
+        shell: bash
+        run: |
+          set -euo pipefail
+          display_version="$(python - <<'PY'
+          import re
+          from pathlib import Path
+          source = Path('hado_version.js').read_text(encoding='utf-8')
+          release = re.search(r"releaseVersion:\s*'([^']+)'", source)
+          update = re.search(r"updateNo:\s*'([^']+)'", source)
+          if not release or not update:
+              raise SystemExit('releaseVersion/updateNo not found in hado_version.js')
+          print(f"{release.group(1)} Update{update.group(1)}")
+          PY
+          )"
+          if [ -z "${display_version}" ]; then
+            echo "displayVersion could not be resolved from hado_version.js" >&2
+            exit 1
+          fi
+          echo "display_version=${display_version}" >> "${GITHUB_OUTPUT}"
+          echo "Source display version: ${display_version}"
 
       - name: Require preview dispatch token
         shell: bash
@@ -43,6 +69,7 @@ jobs:
         env:
           PREVIEW_REPO_TOKEN: ${{ secrets.PREVIEW_REPO_TOKEN }}
           APP_REF: ${{ steps.source.outputs.app_ref }}
+          DISPLAY_VERSION: ${{ steps.meta.outputs.display_version }}
         run: |
           set -euo pipefail
           payload="$(python - <<'PY'
@@ -54,6 +81,7 @@ jobs:
                   'app_ref': os.environ['APP_REF'],
                   'source_repository': os.environ['GITHUB_REPOSITORY'],
                   'source_sha': os.environ['GITHUB_SHA'],
+                  'display_version': os.environ['DISPLAY_VERSION'],
               },
           }))
           PY
@@ -65,4 +93,37 @@ jobs:
             --header "Authorization: Bearer ${PREVIEW_REPO_TOKEN}" \
             --header 'X-GitHub-Api-Version: 2022-11-28' \
             --data "${payload}"
-          echo "Preview deployment dispatched for ${APP_REF}."
+          echo "Preview deployment dispatched for ${APP_REF} (${DISPLAY_VERSION})."
+
+      - name: Verify preview reflects source display version
+        shell: bash
+        env:
+          EXPECTED_DISPLAY_VERSION: ${{ steps.meta.outputs.display_version }}
+          PREVIEW_URL: https://mytemark2.github.io/hado_library-preview/
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import os
+          import sys
+          import time
+          import urllib.request
+
+          expected = os.environ['EXPECTED_DISPLAY_VERSION']
+          url = os.environ['PREVIEW_URL']
+          last = ''
+          for attempt in range(1, 31):
+              try:
+                  with urllib.request.urlopen(url, timeout=20) as res:
+                      body = res.read().decode('utf-8', errors='replace')
+                  if expected in body:
+                      print(f'Preview version verified: {expected} ({url})')
+                      sys.exit(0)
+                  last = body[:500]
+              except Exception as exc:  # noqa: BLE001 - keep workflow diagnostics readable
+                  last = repr(exc)
+              print(f'Preview not updated yet (attempt {attempt}/30); waiting 10s...')
+              time.sleep(10)
+          print(f'Preview did not show expected display version: {expected}', file=sys.stderr)
+          print(f'Last preview response sample: {last}', file=sys.stderr)
+          sys.exit(1)
+          PY
