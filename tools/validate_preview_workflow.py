@@ -1,0 +1,33 @@
+#!/usr/bin/env python3
+"""Validate preview notification workflow verifies the deployed preview version."""
+from __future__ import annotations
+
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+WORKFLOW = ROOT / ".github" / "workflows" / "notify-preview.yml"
+REQUIRED = (
+    "uses: actions/checkout@v4",
+    "display_version",
+    "hado_version.js",
+    "Verify preview reflects source display version",
+    "https://mytemark2.github.io/hado_library-preview/",
+    "EXPECTED_DISPLAY_VERSION",
+)
+FORBIDDEN = ("workflow_dispatch:", "schedule:")
+
+
+def main() -> int:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    missing = [snippet for snippet in REQUIRED if snippet not in text]
+    forbidden = [snippet for snippet in FORBIDDEN if snippet in text]
+    if missing:
+        raise SystemExit("preview workflow missing: " + ", ".join(missing))
+    if forbidden:
+        raise SystemExit("preview workflow contains prohibited trigger: " + ", ".join(forbidden))
+    print("preview workflow verifies source display version after repository_dispatch")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
