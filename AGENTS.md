@@ -127,6 +127,9 @@ Confirm the repository's actual implementation before editing. Applicable items 
 
 Do not assume that every item exists. Do not invent missing files. If an expected item does not exist, report that finding.
 
+For every user-visible correction after a numbered Update is marked complete, increment the visible Update suffix together with metadata (for example `Update08` -> `Update08.1`, then `Update08.2`). Update all applicable display/version references in the same commit so preview users can distinguish deployed fixes.
+Keep runtime version fallback constants centralized in `hado_update_meta.js`; other JavaScript should read `window.HADO_APP_DISPLAY_VERSION` or `window.HADO_APP_VERSION_META` instead of hard-coding the visible Update string.
+
 ## 8. Bug-fix policy
 
 A bug fix is incomplete unless the following are addressed:
