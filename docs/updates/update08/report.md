@@ -61,6 +61,19 @@
 - 再発防止として、保存モード索引が明示所有リスト・将星・設定値・段階を所有ソースに含むことを検証する `tools/validate_saved_mode_index_ownership_sources.py` を追加した。
 - 表示バージョンを `3.0.0.0 Update08.4` へインクリメント済み。
 
+## Update08.5 修正
+- 保存データ表示の型候補一覧で「所有はしているが選択中の型スコアが0点」の武将・装備が `matchedCount > 0` 条件で非表示になっていた点を修正した。
+- 保存データ表示では所有対象に絞り込んだうえで、適合0点の対象も表示し、スコア順で下位に並べる。これにより保存データに切り替えた途端に大半の所有対象が消える状態を避ける。
+- 再発防止として、保存モード候補一覧が `matchedCount > 0` を保存対象へ強制しないことを検証する `tools/validate_saved_type_candidates_zero_score_visible.py` を追加した。
+- 表示バージョンを `3.0.0.0 Update08.5` へインクリメント済み。
+
+## Update08.6 修正
+- HTMLからCSS分離が未完了だった原因として、既存の大型 `<style>` ブロックが `index.html` / `hado_library_3.0.0.0.html` に残っていた点を修正した。
+- 共通CSSを `hado_styles.css` に外部化し、両HTMLは `<link href="./hado_styles.css" rel="stylesheet"/>` の参照のみを持つ。
+- プレビューが古い件は、2026-06-12時点でプレビューURLの表示が `3.0.0.0 Update08.4` のままで、ローカル正本 `Update08.5` 以降の反映が完了していないことを確認した。Push後に `Notify Hado Library Preview` の成功、preview側deploy commit、表示バージョン `Update08.6` の一致確認が必要。
+- 再発防止として、HTMLに `<style>` ブロックや `style=` 属性が残っていないこと、`hado_styles.css` が参照されていることを検証する `tools/validate_external_css.py` を追加した。
+- 表示バージョンを `3.0.0.0 Update08.6` へインクリメント済み。
+
 ## プレビュー同期
 この作業環境ではPush後のGitHub Actions結果とプレビューURLの実機確認は未実行。コミット後、push-triggered `Notify Hado Library Preview` の成功とデプロイcommit一致を確認する。
 

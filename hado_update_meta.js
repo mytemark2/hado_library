@@ -5,7 +5,7 @@
   const META_URL = './HADO_DEV_INFO.json';
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.0.0.0',
-    updateNo: '08.4'
+    updateNo: '08.6'
   });
   const FALLBACK = Object.freeze({
     ...HADO_VERSION,
