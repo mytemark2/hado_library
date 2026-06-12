@@ -20,6 +20,10 @@ REQUIRED = (
     "hado_styles.css",
     "./hado_styles.css",
     "feature/app-3.0.0.0",
+    "Verify preview Pages deployment workflow exists",
+    "jekyll-gh-pages.yml",
+    "actions/deploy-pages",
+    "actions/jekyll-build-pages",
 )
 FORBIDDEN = ("workflow_dispatch:", "schedule:", "app_branch_updated", "branches-ignore:")
 
@@ -32,7 +36,7 @@ def main() -> int:
         raise SystemExit("preview workflow missing: " + ", ".join(missing))
     if forbidden:
         raise SystemExit("preview workflow contains prohibited trigger: " + ", ".join(forbidden))
-    print("preview workflow dispatches sync_app_preview and verifies source commit/version/css assets")
+    print("preview workflow preflights Pages deployment and verifies source commit/version/css assets")
     return 0
 
 

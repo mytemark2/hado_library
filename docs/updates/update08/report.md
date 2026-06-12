@@ -102,6 +102,13 @@
 - 再発防止として、`tools/validate_preview_workflow.py` に `hado_styles.css` と `./hado_styles.css` の必須チェックを追加した。
 - 表示バージョンを `3.0.0.0 Update08.10` へインクリメント済み。
 
+## Update08.11 修正
+- preview repoの `jekyll-gh-pages.yml` を作り直したらCSSが読み込まれるようになった理由は、preview同期が「app repoからpreview repoへファイルをコピーする段階」と「preview repoの内容をGitHub Pagesへ公開する段階」の2段階であり、後者のPages公開workflowが欠落・不整合・未実行だと、`hado_styles.css` がrepoに入っていても公開URLへ反映されないため。
+- app側 `.github/workflows/notify-preview.yml` に、dispatch前のpreflightとして preview repo `main` の `.github/workflows/jekyll-gh-pages.yml` をGitHub APIで読み取り、`actions/jekyll-build-pages`、`actions/deploy-pages`、`push:`、`branches:` を含むことを検証する処理を追加した。
+- これにより、Pages公開workflowが消えた/壊れた状態ではpreview同期を進めず、原因を明示してworkflowを失敗させる。
+- 再発防止として、`tools/validate_preview_workflow.py` に `Verify preview Pages deployment workflow exists`、`jekyll-gh-pages.yml`、`actions/deploy-pages`、`actions/jekyll-build-pages` の必須チェックを追加した。
+- 表示バージョンを `3.0.0.0 Update08.11` へインクリメント済み。
+
 ## プレビュー同期
 この作業環境ではPush後のGitHub Actions結果とプレビューURLの実機確認は未実行。コミット後、push-triggered `Notify Hado Library Preview` の成功とデプロイcommit一致を確認する。
 
