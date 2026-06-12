@@ -13,6 +13,7 @@
 - `3.0.0.0 Update08.6` として、HTML内の大型CSSブロックを `hado_styles.css` へ分離し、HTMLはCSS参照のみを持つ構造にした。
 - `3.0.0.0 Update08.7` として、起動直後のChromeフリーズ対策のため、表示バージョン同期の全DOM `MutationObserver` を廃止し、初期化・メタ読込後・明示イベントのみで同期するようにした。
 - `3.0.0.0 Update08.8` として、実行時の可視バージョン定義を `hado_version.js` の `HADO_VERSION` だけに集約し、`HADO_DEV_INFO.json` と `hado_update_meta.js` から重複する `updateNo` / `displayVersion` 定義を廃止した。
+- `3.0.0.0 Update08.9` として、アプリ側preview通知の `repository_dispatch` event_type をpreview側workflowの `sync_app_preview` と一致させ、`PREVIEW_SOURCE_COMMIT.txt` と `hado_version.js` で反映commit/versionを検証するようにした。
 - 部隊作成・複製時にグループあたり12部隊制限を適用し、グループは最大5件に制限した。
 - 既存の将星解決、装備段階、保存データ索引を再利用し、HTMLへ大型ロジックを追加しない方針を維持した。
 

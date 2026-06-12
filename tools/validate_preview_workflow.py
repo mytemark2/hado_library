@@ -10,11 +10,16 @@ REQUIRED = (
     "uses: actions/checkout@v4",
     "display_version",
     "hado_version.js",
-    "Verify preview reflects source display version",
+    "Verify preview reflects source commit and version assets",
     "https://mytemark2.github.io/hado_library-preview/",
     "EXPECTED_DISPLAY_VERSION",
+    "EXPECTED_SOURCE_SHA",
+    "sync_app_preview",
+    "PREVIEW_SOURCE_COMMIT.txt",
+    "hado_version.js",
+    "feature/app-3.0.0.0",
 )
-FORBIDDEN = ("workflow_dispatch:", "schedule:")
+FORBIDDEN = ("workflow_dispatch:", "schedule:", "app_branch_updated", "branches-ignore:")
 
 
 def main() -> int:
@@ -25,7 +30,7 @@ def main() -> int:
         raise SystemExit("preview workflow missing: " + ", ".join(missing))
     if forbidden:
         raise SystemExit("preview workflow contains prohibited trigger: " + ", ".join(forbidden))
-    print("preview workflow verifies source display version after repository_dispatch")
+    print("preview workflow dispatches sync_app_preview and verifies source commit/version assets")
     return 0
 
 

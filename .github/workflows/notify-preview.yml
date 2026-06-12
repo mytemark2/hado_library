@@ -2,8 +2,8 @@ name: Notify Hado Library Preview
 
 on:
   push:
-    branches-ignore:
-      - main
+    branches:
+      - feature/app-3.0.0.0
 
 permissions:
   contents: read
@@ -22,8 +22,9 @@ jobs:
         run: |
           set -euo pipefail
           APP_REF="${GITHUB_REF_NAME}"
-          if [ -z "${APP_REF}" ] || [ "${APP_REF}" = "main" ]; then
+          if [ "${APP_REF}" != "feature/app-3.0.0.0" ]; then
             echo "Unsupported preview source branch: ${APP_REF}" >&2
+            echo "Preview sync is intentionally restricted to feature/app-3.0.0.0 because the preview repository sync workflow clones that branch." >&2
             exit 1
           fi
           echo "app_ref=${APP_REF}" >> "${GITHUB_OUTPUT}"
@@ -76,7 +77,7 @@ jobs:
           import json
           import os
           print(json.dumps({
-              'event_type': 'app_branch_updated',
+              'event_type': 'sync_app_preview',
               'client_payload': {
                   'app_ref': os.environ['APP_REF'],
                   'source_repository': os.environ['GITHUB_REPOSITORY'],
@@ -95,35 +96,52 @@ jobs:
             --data "${payload}"
           echo "Preview deployment dispatched for ${APP_REF} (${DISPLAY_VERSION})."
 
-      - name: Verify preview reflects source display version
+      - name: Verify preview reflects source commit and version assets
         shell: bash
         env:
           EXPECTED_DISPLAY_VERSION: ${{ steps.meta.outputs.display_version }}
+          EXPECTED_SOURCE_SHA: ${{ github.sha }}
           PREVIEW_URL: https://mytemark2.github.io/hado_library-preview/
         run: |
           set -euo pipefail
           python - <<'PY'
           import os
+          import re
           import sys
           import time
           import urllib.request
 
-          expected = os.environ['EXPECTED_DISPLAY_VERSION']
-          url = os.environ['PREVIEW_URL']
+          expected_display = os.environ['EXPECTED_DISPLAY_VERSION']
+          expected_sha = os.environ['EXPECTED_SOURCE_SHA']
+          base_url = os.environ['PREVIEW_URL'].rstrip('/') + '/'
+
+          def fetch_text(path):
+              url = base_url + path
+              with urllib.request.urlopen(url, timeout=20) as res:
+                  return res.read().decode('utf-8', errors='replace')
+
           last = ''
           for attempt in range(1, 31):
               try:
-                  with urllib.request.urlopen(url, timeout=20) as res:
-                      body = res.read().decode('utf-8', errors='replace')
-                  if expected in body:
-                      print(f'Preview version verified: {expected} ({url})')
+                  source_sha = fetch_text('PREVIEW_SOURCE_COMMIT.txt').strip()
+                  version_js = fetch_text('hado_version.js')
+                  index_html = fetch_text('index.html')
+                  release = re.search(r"releaseVersion:\s*'([^']+)'", version_js)
+                  update = re.search(r"updateNo:\s*'([^']+)'", version_js)
+                  deployed_display = f"{release.group(1)} Update{update.group(1)}" if release and update else ''
+                  if (
+                      source_sha == expected_sha
+                      and deployed_display == expected_display
+                      and './hado_version.js' in index_html
+                  ):
+                      print(f'Preview verified: {expected_display} / {expected_sha}')
                       sys.exit(0)
-                  last = body[:500]
+                  last = f'source_sha={source_sha!r}, deployed_display={deployed_display!r}, index_has_version={"./hado_version.js" in index_html}'
               except Exception as exc:  # noqa: BLE001 - keep workflow diagnostics readable
                   last = repr(exc)
-              print(f'Preview not updated yet (attempt {attempt}/30); waiting 10s...')
+              print(f'Preview assets not updated yet (attempt {attempt}/30); waiting 10s... {last}')
               time.sleep(10)
-          print(f'Preview did not show expected display version: {expected}', file=sys.stderr)
-          print(f'Last preview response sample: {last}', file=sys.stderr)
+          print(f'Preview did not match source commit/version: {expected_sha} / {expected_display}', file=sys.stderr)
+          print(f'Last preview asset state: {last}', file=sys.stderr)
           sys.exit(1)
           PY

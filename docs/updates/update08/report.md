@@ -88,6 +88,13 @@
 - 再発防止として、`tools/validate_update_version_consistency.py` を更新し、`HADO_DEV_INFO.json` や `hado_update_meta.js` に重複バージョン定義が戻った場合は失敗するようにした。
 - 表示バージョンを `3.0.0.0 Update08.8` へインクリメント済み。
 
+## Update08.9 修正
+- プレビューが `Update08.4` に戻る/古いままになる原因として、アプリ側 `.github/workflows/notify-preview.yml` が `repository_dispatch` の `event_type: app_branch_updated` を送っていた一方、preview側workflowは `types: [sync_app_preview]` を待ち受けており、通常push通知ではpreview同期が起動しない契約不一致を確認した。
+- preview側workflowは `feature/app-3.0.0.0` を固定cloneするため、アプリ側通知も同ブランチpushに限定し、`main`以外すべてを通知する設定を廃止した。
+- dispatch後検証を、HTML本文に期待表示文字列があるかだけではなく、preview公開物の `PREVIEW_SOURCE_COMMIT.txt` がpush元SHAと一致し、`hado_version.js` の `releaseVersion` / `updateNo` が期待表示バージョンと一致し、`index.html` が `hado_version.js` を参照していることの検証へ強化した。
+- 再発防止として、`tools/validate_preview_workflow.py` を更新し、`sync_app_preview`、`feature/app-3.0.0.0`、`PREVIEW_SOURCE_COMMIT.txt`、`hado_version.js` の検証がworkflowから消えた場合に失敗するようにした。
+- 表示バージョンを `3.0.0.0 Update08.9` へインクリメント済み。
+
 ## プレビュー同期
 この作業環境ではPush後のGitHub Actions結果とプレビューURLの実機確認は未実行。コミット後、push-triggered `Notify Hado Library Preview` の成功とデプロイcommit一致を確認する。
 
