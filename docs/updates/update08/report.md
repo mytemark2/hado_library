@@ -95,6 +95,13 @@
 - 再発防止として、`tools/validate_preview_workflow.py` を更新し、`sync_app_preview`、`feature/app-3.0.0.0`、`PREVIEW_SOURCE_COMMIT.txt`、`hado_version.js` の検証がworkflowから消えた場合に失敗するようにした。
 - 表示バージョンを `3.0.0.0 Update08.9` へインクリメント済み。
 
+## Update08.10 修正
+- CSSがpreviewで読み込まれない状態を見逃した原因として、preview検証が `PREVIEW_SOURCE_COMMIT.txt`、`hado_version.js`、`index.html` のversion参照確認に留まり、外部化した `hado_styles.css` の公開・参照・内容を確認していなかった点を修正した。
+- preview側syncは `rsync` でCSSもコピー対象に含め得る構造だが、アプリ側workflowでCSS assetを必須検証していなかったため、CSS未配信やHTML参照漏れを検知できなかった。
+- `Notify Hado Library Preview` のpost-dispatch検証で、公開 `index.html` が `./hado_styles.css` を参照し、公開 `hado_styles.css` が取得でき、`:root{` と `.panel{` を含むことを確認するようにした。
+- 再発防止として、`tools/validate_preview_workflow.py` に `hado_styles.css` と `./hado_styles.css` の必須チェックを追加した。
+- 表示バージョンを `3.0.0.0 Update08.10` へインクリメント済み。
+
 ## プレビュー同期
 この作業環境ではPush後のGitHub Actions結果とプレビューURLの実機確認は未実行。コミット後、push-triggered `Notify Hado Library Preview` の成功とデプロイcommit一致を確認する。
 

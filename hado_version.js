@@ -3,11 +3,11 @@
   'use strict';
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.0.0.0',
-    updateNo: '08.9',
-    revision: 17,
+    updateNo: '08.10',
+    revision: 18,
     baseAppVersion: '2.9.6.5',
-    summary: 'Update08.9: align preview dispatch contract and verify deployed assets.',
-    updatedAt: '2026-06-12T03:00:00+09:00'
+    summary: 'Update08.10: require preview CSS asset verification.',
+    updatedAt: '2026-06-12T04:00:00+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;
 })();

@@ -126,6 +126,7 @@ jobs:
                   source_sha = fetch_text('PREVIEW_SOURCE_COMMIT.txt').strip()
                   version_js = fetch_text('hado_version.js')
                   index_html = fetch_text('index.html')
+                  css_text = fetch_text('hado_styles.css')
                   release = re.search(r"releaseVersion:\s*'([^']+)'", version_js)
                   update = re.search(r"updateNo:\s*'([^']+)'", version_js)
                   deployed_display = f"{release.group(1)} Update{update.group(1)}" if release and update else ''
@@ -133,10 +134,17 @@ jobs:
                       source_sha == expected_sha
                       and deployed_display == expected_display
                       and './hado_version.js' in index_html
+                      and './hado_styles.css' in index_html
+                      and ':root{' in css_text
+                      and '.panel{' in css_text
                   ):
                       print(f'Preview verified: {expected_display} / {expected_sha}')
                       sys.exit(0)
-                  last = f'source_sha={source_sha!r}, deployed_display={deployed_display!r}, index_has_version={"./hado_version.js" in index_html}'
+                  last = (
+                      f'source_sha={source_sha!r}, deployed_display={deployed_display!r}, '
+                      f'index_has_version={"./hado_version.js" in index_html}, '
+                      f'index_has_css={"./hado_styles.css" in index_html}, css_len={len(css_text)}'
+                  )
               except Exception as exc:  # noqa: BLE001 - keep workflow diagnostics readable
                   last = repr(exc)
               print(f'Preview assets not updated yet (attempt {attempt}/30); waiting 10s... {last}')

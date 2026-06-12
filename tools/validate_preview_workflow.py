@@ -17,6 +17,8 @@ REQUIRED = (
     "sync_app_preview",
     "PREVIEW_SOURCE_COMMIT.txt",
     "hado_version.js",
+    "hado_styles.css",
+    "./hado_styles.css",
     "feature/app-3.0.0.0",
 )
 FORBIDDEN = ("workflow_dispatch:", "schedule:", "app_branch_updated", "branches-ignore:")
@@ -30,7 +32,7 @@ def main() -> int:
         raise SystemExit("preview workflow missing: " + ", ".join(missing))
     if forbidden:
         raise SystemExit("preview workflow contains prohibited trigger: " + ", ".join(forbidden))
-    print("preview workflow dispatches sync_app_preview and verifies source commit/version assets")
+    print("preview workflow dispatches sync_app_preview and verifies source commit/version/css assets")
     return 0
 
 
