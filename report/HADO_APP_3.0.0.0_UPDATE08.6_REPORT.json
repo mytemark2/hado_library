@@ -1,0 +1,113 @@
+{
+  "updateNo": "08.6",
+  "displayVersion": "3.0.0.0 Update08.6",
+  "status": "completed-local-validation",
+  "summary": "Externalize the main HTML CSS block and remaining inline style attributes into hado_styles.css, and add preview-version verification to the push-triggered preview notification workflow.",
+  "bugClassification": "Incomplete externalization and incomplete preview synchronization verification",
+  "rootCause": "The large CSS block and several inline style attributes remained embedded in index.html and hado_library_3.0.0.0.html. Also, the preview workflow dispatched the preview repository but did not verify that the deployed preview page showed the source displayVersion, allowing stale preview content such as Update08.4 to remain unnoticed.",
+  "changedFiles": [
+    "HADO_DEV_INFO.json",
+    "hado_update_meta.js",
+    "index.html",
+    "hado_library_3.0.0.0.html",
+    "hado_styles.css",
+    ".github/workflows/notify-preview.yml",
+    "docs/updates/roadmap.md",
+    "docs/updates/update08/implementation.md",
+    "docs/updates/update08/report.md",
+    "tools/validate_external_css.py",
+    "tools/validate_preview_workflow.py",
+    "report/HADO_APP_3.0.0.0_UPDATE08.6_REPORT.json"
+  ],
+  "htmlSizeChange": {
+    "index.html": {
+      "beforeBytes": 202484,
+      "afterBytes": 28444,
+      "deltaBytes": -174040
+    },
+    "hado_library_3.0.0.0.html": {
+      "beforeBytes": 202484,
+      "afterBytes": 28444,
+      "deltaBytes": -174040
+    }
+  },
+  "externalizationDecision": "Move the shared static CSS block and remaining inline style attributes from both HTML files into hado_styles.css. Keep HTML limited to DOM structure plus external CSS/JS references.",
+  "previewInvestigation": {
+    "checkedUrl": "https://mytemark2.github.io/hado_library-preview/",
+    "observedDisplayVersion": "3.0.0.0 Update08.4 [Preview]",
+    "sourceDisplayVersionAfterFix": "3.0.0.0 Update08.6",
+    "cause": "Preview deployment is stale relative to source; previous workflow/reporting did not enforce post-dispatch display-version verification."
+  },
+  "validation": [
+    {
+      "command": "node --check hado_type_candidates.js",
+      "result": "pass"
+    },
+    {
+      "command": "node --check hado_update_meta.js",
+      "result": "pass"
+    },
+    {
+      "command": "python3 -m json.tool HADO_DEV_INFO.json",
+      "result": "pass"
+    },
+    {
+      "command": "python3 -m json.tool report/HADO_APP_3.0.0.0_UPDATE08.6_REPORT.json",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_external_css.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_preview_workflow.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_update_version_consistency.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_saved_type_candidates_zero_score_visible.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_saved_mode_index_ownership_sources.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_type_candidate_saved_name_matching.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_formation_link_helpers.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_app_js.py",
+      "result": "pass"
+    },
+    {
+      "command": "node tools/test_type_score.js",
+      "result": "pass"
+    },
+    {
+      "command": "node hado_status_effect_regression.js",
+      "result": "pass"
+    },
+    {
+      "command": "test ! -d updates/queue",
+      "result": "pass"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass"
+    }
+  ],
+  "workflowResult": "pending-after-push; workflow now fails if preview page does not show the pushed displayVersion within the polling window",
+  "previewResult": "currently stale at Update08.4 before this fix; must show Update08.6 after push-triggered workflow succeeds",
+  "minimumUserAcceptance": "After push, confirm preview URL shows 3.0.0.0 Update08.6 and page styling is unchanged with hado_styles.css loaded.",
+  "cssSizeBytes": {
+    "hado_styles.css": 174397
+  }
+}

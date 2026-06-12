@@ -1,0 +1,37 @@
+{
+  "updateNo": "08.1",
+  "displayVersion": "3.0.0.0 Update08.1",
+  "status": "completed-local-validation",
+  "summary": "Increment visible correction version after the Update08 formation link-helper fix so preview users can distinguish the deployed correction.",
+  "rootCause": "The Update08 correction was made without incrementing the visible Update suffix, making preview state indistinguishable from the prior Update08 build.",
+  "changedFiles": [
+    "AGENTS.md",
+    "HADO_DEV_INFO.json",
+    "hado_update_meta.js",
+    "hado_type_candidates.js",
+    "docs/updates/roadmap.md",
+    "docs/updates/update08/implementation.md",
+    "docs/updates/update08/report.md",
+    "report/HADO_APP_3.0.0.0_UPDATE08.1_REPORT.json"
+  ],
+  "htmlSizeChange": {
+    "index.html": 0,
+    "hado_library_3.0.0.0.html": 0
+  },
+  "externalizationDecision": "No HTML changes; visible Update08.1 labels are driven by metadata and existing external JavaScript.",
+  "validation": [
+    {"command":"node --check hado_type_candidates.js","result":"pass"},
+    {"command":"node --check hado_update_meta.js","result":"pass"},
+    {"command":"python3 -m json.tool HADO_DEV_INFO.json","result":"pass"},
+    {"command":"python3 -m json.tool report/HADO_APP_3.0.0.0_UPDATE08.1_REPORT.json","result":"pass"},
+    {"command":"python3 tools/validate_formation_link_helpers.py","result":"pass"},
+    {"command":"python3 tools/validate_app_js.py","result":"pass"},
+    {"command":"test ! -d updates/queue","result":"pass"}
+  ],
+  "workflowResult": "pending-after-push",
+  "previewResult": "pending-after-push",
+  "unresolvedItems": [
+    "Confirm push-triggered preview workflow result and preview commit after the branch is pushed.",
+    "Verify the preview URL shows 3.0.0.0 Update08.1 after deployment."
+  ]
+}
