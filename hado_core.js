@@ -2757,8 +2757,8 @@ function addGrantedSkillsToSavedIndex(skillName,level,skillNames,statusEffectNam
 function rebuildSavedModeIndex(){
 const current=getCurrentSave();
 pruneInvalidInheritedSkillsForCurrentSave('rebuildSavedModeIndex');
-const generalOwnershipSources=[...(current?.generals||[]),...Object.keys(current?.generalStars||{}),...Object.keys(current?.generalSettings||{}),...Object.keys(current?.inheritedSkills||{})];
-const equipmentOwnershipSources=[...(current?.equipments||[]),...Object.keys(current?.equipmentStars||{}),...Object.keys(current?.equipmentStages||{})];
+const generalOwnershipSources=[...(current?.generals||[])];
+const equipmentOwnershipSources=[...(current?.equipments||[])];
 const generalNames=new Set(generalOwnershipSources.map(v=>normalizeSaveItemName(v)).filter(Boolean));
 const equipmentNames=new Set(equipmentOwnershipSources.map(v=>normalizeSaveItemName(v)).filter(Boolean));
 const skillNames=new Set();
@@ -2791,7 +2791,7 @@ if(legacySkillFieldCount)debugLog('saveData:legacy-general-skills-ignored-in-ind
 const nextSavedSearchCacheKey=buildSavedSearchCacheKey(current);
 if(state.savedSearchCacheKey!==nextSavedSearchCacheKey){state.savedSearchCacheKey=nextSavedSearchCacheKey;state.savedSearchCacheSeq=(state.savedSearchCacheSeq||0)+1;debugLog('savedSearchCache:key-update',{seq:state.savedSearchCacheSeq,currentSave:current?.name||'',generals:generalNames.size,equipments:equipmentNames.size});}
 if(grantedSkillDiagnostics.length)debugLog('savedModeIndex:granted-skills-added',{count:grantedSkillDiagnostics.length,sample:grantedSkillDiagnostics.slice(0,20)});
-debugLog('rebuildSavedModeIndex',{generals:generalNames.size,equipments:equipmentNames.size,skills:skillNames.size,statusEffects:statusEffectNames.size,currentSave:current?.name||'',savedSearchCacheSeq:state.savedSearchCacheSeq,ownershipSources:{generals:(current?.generals||[]).length,generalStars:Object.keys(current?.generalStars||{}).length,generalSettings:Object.keys(current?.generalSettings||{}).length,inheritedSkills:Object.keys(current?.inheritedSkills||{}).length,equipments:(current?.equipments||[]).length,equipmentStars:Object.keys(current?.equipmentStars||{}).length,equipmentStages:Object.keys(current?.equipmentStages||{}).length},policy:'saved ownership includes explicit lists plus saved stars/settings; general skills resolved from saved generalStars and granted reference skills',sample:savedSkillDiagnostics.slice(0,8),grantedSkillCount:grantedSkillDiagnostics.length,grantedSkillSample:grantedSkillDiagnostics.slice(0,8)});
+debugLog('rebuildSavedModeIndex',{generals:generalNames.size,equipments:equipmentNames.size,skills:skillNames.size,statusEffects:statusEffectNames.size,currentSave:current?.name||'',savedSearchCacheSeq:state.savedSearchCacheSeq,ownershipSources:{generals:(current?.generals||[]).length,generalStars:Object.keys(current?.generalStars||{}).length,generalSettings:Object.keys(current?.generalSettings||{}).length,inheritedSkills:Object.keys(current?.inheritedSkills||{}).length,equipments:(current?.equipments||[]).length,equipmentStars:Object.keys(current?.equipmentStars||{}).length,equipmentStages:Object.keys(current?.equipmentStages||{}).length},policy:'saved ownership is favorites only; general skills are resolved from saved generalStars for owned generals',sample:savedSkillDiagnostics.slice(0,8),grantedSkillCount:grantedSkillDiagnostics.length,grantedSkillSample:grantedSkillDiagnostics.slice(0,8)});
 state.savedModeIndex={generalNames,equipmentNames,skillNames,statusEffectNames};
 invalidateTypeSearchResultCache('saved-mode-index-rebuild');
 }

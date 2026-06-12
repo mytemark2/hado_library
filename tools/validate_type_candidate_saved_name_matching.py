@@ -12,6 +12,27 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+
+SOURCE = (ROOT / "hado_type_candidates.js").read_text(encoding="utf-8")
+REQUIRED_SOURCE_SNIPPETS = (
+    "const removeReading=",
+    "function savedSkillNameSetForGeneral(name)",
+    "function savedScoreEntity(v)",
+    "addSavedNames(generalNames,save.generals)",
+    "addSavedNames(equipmentNames,save.equipments)",
+    "getResolvedGeneralSkillLevelMap(item)",
+    "rowUsesUnownedSkill(row,ownedSkills)",
+)
+FORBIDDEN_SOURCE_SNIPPETS = (
+    "const rarityPrefixRe=",
+    "function savedAliasKeys(s)",
+    "addSavedObjectKeys(generalNames,save.generalStars)",
+    "addSavedObjectKeys(generalNames,save.generalSettings)",
+    "addSavedObjectKeys(generalNames,save.inheritedSkills)",
+    "addSavedObjectKeys(equipmentNames,save.equipmentStars)",
+    "addSavedObjectKeys(equipmentNames,save.equipmentStages)",
+)
+
 ROLE_TO_MASTER = {
     "main_general": "hadou_generals.json",
     "vice_general": "hadou_generals.json",
@@ -39,6 +60,18 @@ def match_key(value: object) -> str:
 
 
 def main() -> int:
+    source_missing = [snippet for snippet in REQUIRED_SOURCE_SNIPPETS if snippet not in SOURCE]
+    forbidden_source = [snippet for snippet in FORBIDDEN_SOURCE_SNIPPETS if snippet in SOURCE]
+    if source_missing:
+        raise SystemExit("type candidate saved ownership/star-skill policy missing: " + ", ".join(source_missing))
+    if forbidden_source:
+        raise SystemExit("type candidate saved ownership is too broad: " + ", ".join(forbidden_source))
+    exact_samples = [("LR司馬師（しばし）", "LR司馬師"), ("【三國志 覇道】LR関羽（かんう）", "LR関羽")]
+    exact_problems = [f"{a} != {b}" for a, b in exact_samples if match_key(a) != match_key(b)]
+    if exact_problems:
+        raise SystemExit("saved reading/prefix normalization failed: " + ", ".join(exact_problems))
+    if match_key("関羽") == match_key("LR関羽（かんう）"):
+        raise SystemExit("saved ownership must not equate base 関羽 with LR関羽")
     role_items = load_items("hadou_type_search_role_index.json")
     problems: list[str] = []
     for role_id, master_file in ROLE_TO_MASTER.items():

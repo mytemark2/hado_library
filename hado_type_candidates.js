@@ -6,8 +6,10 @@ const st={data:null,role:'main_general',q:'',sel:null,picked:''};
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const norm=s=>String(s??'').normalize('NFKC').replace(/\s+/g,'').toLowerCase();
 const saveName=s=>String(s??'').normalize('NFKC').trim();
-function savedMatchKey(s){let v=saveName(s);try{if(typeof normalizeSaveItemName==='function')v=normalizeSaveItemName(v)}catch{}return saveName(v).replace(/^【三國志\s*覇道】/,'').replace(/^【[^】]+】/,'')}
+const removeReading=s=>String(s??'').replace(/[（(][ぁ-ゖァ-ヺー・\s]+[）)]/g,'');
+function savedMatchKey(s){let v=saveName(s);try{if(typeof normalizeSaveItemName==='function')v=normalizeSaveItemName(v)}catch{}return removeReading(saveName(v).replace(/^【三國志\s*覇道】/,'').replace(/^【[^】]+】/,'')).trim()}
 function savedNameSetHas(set,name){const key=savedMatchKey(name);if(!key)return false;for(const owned of set||[]){if(savedMatchKey(owned)===key)return true}return false}
+function addSavedNames(out,values){(values||[]).forEach(v=>{const n=savedMatchKey(v);if(n)out.add(n)});return out}
 const flat=v=>Array.isArray(v)?v.map(flat).join(' '):(v&&typeof v==='object'?Object.values(v).map(flat).join(' '):String(v??''));
 const items=(v,ks)=>{if(Array.isArray(v))return v;for(const k of ks)if(Array.isArray(v?.[k]))return v[k];return[]};
 const loadSel=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'null')}catch{return null}};
@@ -15,15 +17,19 @@ const fetchJson=async f=>{const r=await fetch(f,{cache:'no-store'});if(!r.ok)thr
 const type=()=>st.data?.types.find(v=>v.typeId===st.sel?.typeId);
 const purpose=()=>st.data?.purposes.find(v=>v.purposeId===st.sel?.purposeId);
 function displayVersion(){return window.HADO_APP_DISPLAY_VERSION||window.HADO_APP_VERSION_META?.displayVersion||'3.0.0.0'}
-function score(x){if(!window.HadoTypeScore)throw Error('適合スコア共通処理が読み込まれていません。');return window.HadoTypeScore.score(x,type())}
+function score(x){if(!window.HadoTypeScore)throw Error('適合スコア共通処理が読み込まれていません。');return window.HadoTypeScore.score(savedScoreEntity(x),type())}
 function appState(){try{return typeof state==='object'?state:null}catch{return null}}
 function savedModeActive(){return appState()?.viewMode==='saved'}
 function currentSave(){try{return typeof getCurrentSave==='function'?getCurrentSave():null}catch{return null}}
-function savedIndex(){return appState()?.savedModeIndex||{generalNames:new Set(),equipmentNames:new Set()}}
+function savedIndex(){const save=currentSave()||{};const generalNames=new Set(),equipmentNames=new Set();addSavedNames(generalNames,save.generals);addSavedNames(equipmentNames,save.equipments);return{generalNames,equipmentNames}}
 function savedOwnershipRole(roleId){return ['main_general','vice_general','support_general','attendant','equipment','warhorse','warhorse_skill'].includes(roleId)}
 function savedCandidateAllowed(v){if(!savedModeActive())return true;const idx=savedIndex(),name=canonicalName(v)||displayName(v);if(!savedMatchKey(name))return false;if(['main_general','vice_general','support_general','attendant'].includes(v.roleId))return savedNameSetHas(idx.generalNames,name);if(v.roleId==='equipment')return savedNameSetHas(idx.equipmentNames,name);if(v.roleId==='warhorse'||v.roleId==='warhorse_skill'){try{return Object.keys(getCurrentWarhorseData()?.owned||{}).length>0}catch{return false}}return true}
+function savedSkillNameSetForGeneral(name){if(!savedModeActive()||!['function','undefined'].includes(typeof findSavedGeneralItemByName))return null;try{const item=typeof findSavedGeneralItemByName==='function'?findSavedGeneralItemByName(name):null;if(!item)return new Set();const map=typeof getResolvedGeneralSkillLevelMap==='function'?getResolvedGeneralSkillLevelMap(item):new Map();return new Set([...map.keys()].map(savedMatchKey).filter(Boolean))}catch{return null}}
+function allMasterSkillNames(){const skills=appState()?.skills||[];if(st._skillNamesSource===skills&&Array.isArray(st._skillNames))return st._skillNames;st._skillNamesSource=skills;st._skillNames=skills.map(x=>savedMatchKey((typeof getItemDisplayName==='function'?getItemDisplayName(x):'')||x?.name||x?.title||'')).filter(Boolean).sort((a,b)=>b.length-a.length);return st._skillNames}
+function rowUsesUnownedSkill(row,ownedSkills){if(!ownedSkills||row?.source!=='effect-text')return false;const text=savedMatchKey(row?.matchedText||'');if(!text||text.includes('の戦法'))return false;const hits=allMasterSkillNames().filter(n=>n&&text.includes(n));return hits.length>0&&!hits.some(n=>ownedSkills.has(n))}
+function savedScoreEntity(v){if(!savedModeActive()||!['main_general','vice_general','support_general','attendant'].includes(v?.roleId))return v;const ownedSkills=savedSkillNameSetForGeneral(canonicalName(v)||displayName(v));if(!ownedSkills)return v;const filter=row=>!rowUsesUnownedSkill(row,ownedSkills);return {...v,typeFeatures:(v.typeFeatures||[]).filter(filter),statusEffectRefs:(v.statusEffectRefs||[]).filter(filter),_savedOwnedSkillCount:ownedSkills.size}}
 function candidateVisibleByScore(v){return v._s.matchedCount>0||(savedModeActive()&&savedOwnershipRole(v.roleId))}
-function savedCandidateNote(){if(!savedModeActive())return '全データ表示: 全武将・全装備・全名馬などを候補対象にします。';const save=currentSave();return `保存データ表示: ${esc(save?.name||'保存データ')} の所有武将・装備・名馬に候補を限定します。保存データ内の対象は適合0点でも表示し、将星/装備段階などの保存設定は既存評価処理へ反映されます。`}
+function savedCandidateNote(){if(!savedModeActive())return '全データ表示: 全武将・全装備・全名馬などを候補対象にします。';const save=currentSave();return `保存データ表示: ${esc(save?.name||'保存データ')} のお気に入り武将・装備・名馬に候補を限定します。武将は保存将星で解放済みの技能だけを型評価へ反映し、所有対象は適合0点でも表示します。`}
 function roleRows(role){const q=norm(st.q);return st.data.roles.filter(v=>v.roleId===role).map(v=>({...v,_s:score(v)})).filter(savedCandidateAllowed).filter(candidateVisibleByScore).filter(v=>!q||norm(flat([v.displayName,v.name,v.typeFeatures,v.statusEffectRefs])).includes(q)).sort((a,b)=>b._s.confirmedScore-a._s.confirmedScore||b._s.conditionalMaxScore-a._s.conditionalMaxScore||Number(a.sourceIndex||0)-Number(b.sourceIndex||0))}
 function rows(){return roleRows(st.role)}
 function rowKey(v){return `${v?.roleId||st.role}::${canonicalName(v)||displayName(v)}`}

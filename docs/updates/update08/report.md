@@ -132,6 +132,22 @@
 - 再発防止として、`tools/validate_preview_workflow.py` に direct rsync、preview repo push、source branch marker、CSS同期先検証を必須化し、旧 `repository_dispatch` / `sync_app_preview` / hard-code clone pattern が残ったら失敗する検証を追加した。
 - 表示バージョンを `3.0.0.0 Update08.14` へインクリメント済み。
 
+## Update08.15 修正
+- 提示保存データでは多数の武将・装備が保存されている一方、IssueLogのBuild Infoは `Update07.3` / type-score `Update07.6` で、Update08.5以降の「保存所有0点候補を表示」修正が入った実行状態ではないことを確認した。
+- ただし現行実装にも、型候補一覧が `state.savedModeIndex` のSetだけに依存し、保存データ本体からの再構築や旧名/基礎名・レアリティ付き名・ORIGINS表記の別名照合が不足する弱点が残っていた。
+- `hado_type_candidates.js` の保存候補判定を修正し、現在保存データの `generals` / `generalStars` / `generalSettings` / `inheritedSkills` / `equipments` / `equipmentStars` / `equipmentStages` を型候補一覧側でも直接合成して照合するようにした。
+- `関羽` と `LR関羽（かんう）`、`LR夏侯惇(ORIGINS)` と `夏侯惇` のような差分を別名キーとして照合し、保存データ候補が過少表示される原因を減らした。
+- 再発防止として、`tools/validate_type_candidate_saved_name_matching.py` に保存データ本体fallbackと別名キー照合の必須検証を追加した。
+- 表示バージョンを `3.0.0.0 Update08.15` へインクリメント済み。
+
+## Update08.16 修正
+- Update08.15の修正方針は、保存データ型候補一覧で重要な2軸（①武将を所有=お気に入りしているか、②その武将の保存将星で所有する技能で型判断しているか）に対して、名前照合・所有Set拡張に寄り過ぎていたため見直した。
+- 所有判定は `generals` / `equipments` のお気に入りリストに限定し、`generalStars` / `generalSettings` / `inheritedSkills` / `equipmentStars` / `equipmentStages` のキーを所有扱いにする処理を廃止した。
+- 武将候補の型スコアは、保存データ表示時に `getResolvedGeneralSkillLevelMap` で保存将星から解放済み技能を解決し、未解放技能由来の `effect-text` 特徴行を除外して `HadoTypeScore` へ渡すようにした。
+- 全データ表示では従来通り全候補を対象にし、武将設定の最大将星前提で全技能を評価する。保存データ表示ではお気に入り武将のみを候補にし、その保存将星で解放済みの技能だけを型評価へ反映する。
+- 再発防止として、`tools/validate_saved_mode_index_ownership_sources.py` と `tools/validate_type_candidate_saved_name_matching.py` を、stars/settingsを所有扱いに戻した場合や、レアリティ違いを同一所有扱いにした場合に失敗する検証へ更新した。
+- 表示バージョンを `3.0.0.0 Update08.16` へインクリメント済み。
+
 ## プレビュー同期
 この作業環境ではPush後のGitHub Actions結果とプレビューURLの実機確認は未実行。コミット後、push-triggered `Notify Hado Library Preview` の成功とデプロイcommit一致を確認する。
 
