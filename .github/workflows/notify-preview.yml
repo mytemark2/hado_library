@@ -35,14 +35,18 @@ jobs:
         run: |
           set -euo pipefail
           display_version="$(python - <<'PY'
-          import json
-          with open('HADO_DEV_INFO.json', encoding='utf-8') as fh:
-              data = json.load(fh)
-          print(data.get('displayVersion') or f"{data.get('releaseVersion', '')} Update{data.get('updateNo', '')}")
+          import re
+          from pathlib import Path
+          source = Path('hado_version.js').read_text(encoding='utf-8')
+          release = re.search(r"releaseVersion:\s*'([^']+)'", source)
+          update = re.search(r"updateNo:\s*'([^']+)'", source)
+          if not release or not update:
+              raise SystemExit('releaseVersion/updateNo not found in hado_version.js')
+          print(f"{release.group(1)} Update{update.group(1)}")
           PY
           )"
           if [ -z "${display_version}" ]; then
-            echo "displayVersion could not be resolved from HADO_DEV_INFO.json" >&2
+            echo "displayVersion could not be resolved from hado_version.js" >&2
             exit 1
           fi
           echo "display_version=${display_version}" >> "${GITHUB_OUTPUT}"

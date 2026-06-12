@@ -51,7 +51,7 @@
 
 ## Update08.3 修正
 - 修正ごとの視認性を担保するため、表示バージョンを `3.0.0.0 Update08.3` へインクリメントした。
-- 複数ファイルで表示バージョンを直接定義しないよう、実行時フォールバックの単一定義を `hado_update_meta.js` の `HADO_VERSION` に集約した。
+- 複数ファイルで表示バージョンを直接定義しないよう、実行時フォールバックの単一定義を `hado_version.js` の `HADO_VERSION` に集約した。
 - 型候補一覧は固定の Update 文字列を持たず、`window.HADO_APP_DISPLAY_VERSION` / `window.HADO_APP_VERSION_META` を参照する。
 - 再発防止として、メタJSON、`hado_update_meta.js`、HTML読み込み順、型候補JSのハードコード有無を検証する `tools/validate_update_version_consistency.py` を追加した。
 
@@ -73,6 +73,20 @@
 - プレビューが古い件は、2026-06-12時点でプレビューURLの表示が `3.0.0.0 Update08.4` のままで、ローカル正本 `Update08.5` 以降の反映が完了していないことを確認した。Push後に `Notify Hado Library Preview` の成功、preview側deploy commit、表示バージョン `Update08.6` の一致確認が必要。
 - 再発防止として、HTMLに `<style>` ブロックや `style=` 属性が残っていないこと、`hado_styles.css` が参照されていることを検証する `tools/validate_external_css.py` を追加した。
 - 表示バージョンを `3.0.0.0 Update08.6` へインクリメント済み。
+
+## Update08.7 修正
+- 起動直後からChromeがフリーズする原因として、`hado_update_meta.js` が `document.documentElement` 全体を `MutationObserver` で監視し、起動時の大量DOM更新ごとに表示バージョン同期処理とDOM queryを繰り返す構造になっていた点を修正した。
+- 全DOM監視を廃止し、初期化時、`HADO_DEV_INFO.json` 読込後、`pageshow`、および `hado:version-sync-request` の明示イベント時だけ同期する。
+- 型編成ナビと候補トレイは描画時に `window.HADO_APP_DISPLAY_VERSION` / `window.HADO_APP_VERSION_META` を読むようにし、全DOM監視に依存しない表示へ変更した。
+- 再発防止として、`hado_update_meta.js` に広域 `MutationObserver` が残っていないことを検証する `tools/validate_update_meta_no_broad_observer.py` を追加した。
+- 表示バージョンを `3.0.0.0 Update08.7` へインクリメント済み。
+
+## Update08.8 修正
+- 可視バージョン/Update番号を毎回複数ファイルへ書く必要が残っていた原因として、`HADO_DEV_INFO.json` と `hado_update_meta.js` が `updateNo` / `displayVersion` を重複定義していた点を修正した。
+- 実行時の唯一の定義元を `hado_version.js` の `HADO_VERSION` const にし、`hado_update_meta.js`、HTML、preview workflow、検証スクリプトはその値を参照するだけにした。
+- `HADO_DEV_INFO.json` から `releaseVersion` / `updateNo` / `displayVersion` / `revision` の重複フィールドを除去し、`versionSource: "hado_version.js"` のみを保持する。
+- 再発防止として、`tools/validate_update_version_consistency.py` を更新し、`HADO_DEV_INFO.json` や `hado_update_meta.js` に重複バージョン定義が戻った場合は失敗するようにした。
+- 表示バージョンを `3.0.0.0 Update08.8` へインクリメント済み。
 
 ## プレビュー同期
 この作業環境ではPush後のGitHub Actions結果とプレビューURLの実機確認は未実行。コミット後、push-triggered `Notify Hado Library Preview` の成功とデプロイcommit一致を確認する。

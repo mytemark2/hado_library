@@ -9,7 +9,7 @@ WORKFLOW = ROOT / ".github" / "workflows" / "notify-preview.yml"
 REQUIRED = (
     "uses: actions/checkout@v4",
     "display_version",
-    "HADO_DEV_INFO.json",
+    "hado_version.js",
     "Verify preview reflects source display version",
     "https://mytemark2.github.io/hado_library-preview/",
     "EXPECTED_DISPLAY_VERSION",
