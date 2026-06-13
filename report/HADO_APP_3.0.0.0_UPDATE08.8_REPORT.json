@@ -1,0 +1,99 @@
+{
+  "updateNo": "08.8",
+  "displayVersion": "3.0.0.0 Update08.8",
+  "status": "completed-local-validation",
+  "summary": "Centralize the visible app version in hado_version.js so future Update bumps do not require editing multiple runtime metadata files.",
+  "bugClassification": "Version metadata duplication / maintenance regression",
+  "rootCause": "The prior centralization still left updateNo/displayVersion duplicated between HADO_DEV_INFO.json and hado_update_meta.js, so each visible correction required multiple runtime metadata edits and could drift.",
+  "changedFiles": [
+    "AGENTS.md",
+    "HADO_DEV_INFO.json",
+    "hado_version.js",
+    "hado_update_meta.js",
+    "index.html",
+    "hado_library_3.0.0.0.html",
+    ".github/workflows/notify-preview.yml",
+    "tools/validate_update_version_consistency.py",
+    "tools/validate_preview_workflow.py",
+    "docs/updates/README.md",
+    "docs/updates/roadmap.md",
+    "docs/updates/update08/implementation.md",
+    "docs/updates/update08/report.md",
+    "report/HADO_APP_3.0.0.0_UPDATE08.8_REPORT.json"
+  ],
+  "htmlSizeChange": {
+    "index.html": "script tag only",
+    "hado_library_3.0.0.0.html": "script tag only"
+  },
+  "externalizationDecision": "No inline logic added. A small external hado_version.js file is loaded before hado_update_meta.js; CSS remains externalized.",
+  "singleVersionSource": "hado_version.js / window.HADO_VERSION",
+  "validation": [
+    {
+      "command": "node --check hado_version.js",
+      "result": "pass"
+    },
+    {
+      "command": "node --check hado_update_meta.js",
+      "result": "pass"
+    },
+    {
+      "command": "node --check hado_type_entry.js",
+      "result": "pass"
+    },
+    {
+      "command": "node --check hado_candidate_tray.js",
+      "result": "pass"
+    },
+    {
+      "command": "node --check hado_type_candidates.js",
+      "result": "pass"
+    },
+    {
+      "command": "python3 -m json.tool HADO_DEV_INFO.json",
+      "result": "pass"
+    },
+    {
+      "command": "python3 -m json.tool report/HADO_APP_3.0.0.0_UPDATE08.8_REPORT.json",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_update_version_consistency.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_preview_workflow.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_update_meta_no_broad_observer.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_external_css.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_app_js.py",
+      "result": "pass"
+    },
+    {
+      "command": "node tools/test_type_score.js",
+      "result": "pass"
+    },
+    {
+      "command": "node hado_status_effect_regression.js",
+      "result": "pass"
+    },
+    {
+      "command": "test ! -d updates/queue",
+      "result": "pass"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass"
+    }
+  ],
+  "workflowResult": "pending-after-push",
+  "previewResult": "pending-after-push",
+  "minimumUserAcceptance": "After deploy, confirm preview shows 3.0.0.0 Update08.8. For future visible version bumps, update hado_version.js only for runtime version values."
+}
