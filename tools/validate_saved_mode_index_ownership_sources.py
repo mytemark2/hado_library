@@ -22,6 +22,7 @@ REQUIRED_TYPE = (
     "addGrantedSkillNames(out,levels,skillName,level)",
     "savedSkillProfileForGeneral(name)",
     "requiredSkillLevel(text,skillName)",
+    "const LEVEL_JOIN=",
     "collectGrantedSkillEntriesForSavedIndex(skillName,level)",
 )
 FORBIDDEN = (

@@ -20,13 +20,13 @@ const sandbox = {
   },
   state: {
     viewMode: 'saved',
-    skills: [{ name: '連堅' }, { name: '堅強' }, { name: '未解放' }]
+    skills: [{ name: '連堅' }, { name: '堅強' }, { name: '未解放' }, { name: '盟主' }, { name: '備急' }]
   },
   normalizeSaveItemName: value => String(value || '').normalize('NFKC').trim(),
   getItemDisplayName: item => item?.name || item?.title || '',
   getCurrentSave: () => ({ name: '保存テスト', generals: ['LRテスト'], equipments: [] }),
   findSavedGeneralItemByName: name => ({ name }),
-  getResolvedGeneralSkillLevelMap: () => new Map([['連堅', { level: savedLevel }]]),
+  getResolvedGeneralSkillLevelMap: () => new Map([['連堅', { level: savedLevel }], ['盟主', { level: savedLevel }], ['備急', { level: savedLevel }]]),
   collectGrantedSkillEntriesForSavedIndex: (skillName, level) => skillName === '連堅' && level === 'Ⅱ' ? [{ name: '堅強', level: 'Ⅱ', found: true }] : [],
   getCurrentInheritedSkill: () => null,
   createFormationFromTypeSelection: () => null
@@ -55,6 +55,10 @@ const row = {
 };
 assert.strictEqual(debug.rowUsesUnownedSkill(row, profile.names, 'main_general', profile.levels), false, 'main role should keep saved-star granted skill in main-only clause');
 assert.strictEqual(debug.rowUsesUnownedSkill(row, profile.names, 'vice_general', profile.levels), true, 'vice role should reject unowned skill in vice-only clause');
+assert.strictEqual(debug.requiredSkillLevel('盟主がLv3以上であれば攻撃無効も付与できる', '盟主'), 3, 'skill requirement should parse がLv3以上');
+assert.strictEqual(debug.requiredSkillLevel('技能「備急」をLv2にすると通常攻撃威力上昇も付与', '備急'), 2, 'skill requirement should parse をLv2');
+assert.strictEqual(debug.requiredSkillLevel('●歓喜Lv2', '歓喜'), 2, 'skill requirement should parse direct skill Lv2');
+assert.strictEqual(debug.requiredSkillLevel('自部隊の「南蛮」の技能Lv×20%、威力が上昇', '南蛮'), 1, 'skill multiplier without threshold should not become Lv20');
 
 savedLevel = 'Ⅰ';
 profile = debug.savedSkillProfileForGeneral('LRテスト');
@@ -62,5 +66,6 @@ assert(profile.names.has('連堅'), 'lower saved star still owns the source skil
 assert.strictEqual(profile.levels.get('連堅'), 1, 'lower saved star should track lower source skill level');
 assert(!profile.names.has('堅強'), 'lower saved star should not own level-2 granted skill');
 assert.strictEqual(debug.rowUsesUnownedSkill(row, profile.names, 'main_general', profile.levels), true, 'main role should reject skill clauses above the saved skill level');
+assert.strictEqual(debug.rowUsesUnownedSkill({source:'effect-text',matchedText:'盟主がLv3以上であれば攻撃無効も付与できる'}, profile.names, 'main_general', profile.levels), true, 'Lv3 prose condition should be rejected when saved skill is Lv1');
 
-console.log('Update08.19 saved type candidate role-limited skill filter regression: passed');
+console.log('Update08.20 saved type candidate limited skill requirement regression: passed');

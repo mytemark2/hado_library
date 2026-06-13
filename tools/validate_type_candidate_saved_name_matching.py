@@ -26,6 +26,8 @@ REQUIRED_SOURCE_SNIPPETS = (
     "addGrantedSkillNames(out,levels,skillName,level)",
     "savedSkillProfileForGeneral(name)",
     "requiredSkillLevel(text,skillName)",
+    "const LEVEL_JOIN=",
+    "const LEVEL_TOKEN=",
     "skillLevelNumber=v=>",
 )
 FORBIDDEN_SOURCE_SNIPPETS = (

@@ -1,4 +1,4 @@
-/* HADO app type candidates Update08.19: saved-mode role-limited skill level filtering and type-based new formation creation */
+/* HADO app type candidates Update08.20: saved-mode limited skill requirement parsing and type-based new formation creation */
 (()=>{'use strict';
 const KEY='hado.typeEntry.selection.v1',EV='hado:type-search-entry-selected',FILES=['hadou_type_search_role_index.json','hadou_type_score_rules.json','hadou_type_purpose_rules.json'];
 const ROLES=[['main_general','主将'],['vice_general','副将'],['support_general','補佐'],['attendant','侍従'],['equipment','装備'],['formation','陣形'],['siege_weapon','兵器'],['warhorse','名馬'],['warhorse_skill','軍馬技能']];
@@ -35,7 +35,10 @@ function allMasterSkillNames(){const skills=appState()?.skills||[];if(st._skillN
 function savedRoleCompatibleText(row,roleId){try{if(window.HadoTypeScore&&typeof window.HadoTypeScore.roleCompatibleText==='function')return window.HadoTypeScore.roleCompatibleText(row,roleId)}catch{}return row?.matchedText||rowText(row)}
 function rowText(row){return flat([row?.label,row?.statusEffectName,row?.featureId,row?.matchedText])}
 const escRe=s=>String(s).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
-function requiredSkillLevel(text,skillName){const key=savedMatchKey(skillName);if(!text||!key)return 0;const re=new RegExp(escRe(key)+'(?:lv)?([1-9]|10|Ⅰ|Ⅱ|Ⅲ|Ⅳ|Ⅴ|Ⅵ|Ⅶ|Ⅷ|Ⅸ|Ⅹ)?','g');let required=0,m;while((m=re.exec(text))){required=Math.max(required,skillLevelNumber(m[1]||'Ⅰ')||1);if(re.lastIndex===m.index)re.lastIndex++}return required}
+const LEVEL_TOKEN='(?:10|[1-9]|Ⅹ|Ⅸ|Ⅷ|Ⅶ|Ⅵ|Ⅴ|Ⅳ|Ⅲ|Ⅱ|Ⅰ|VIII|VII|VI|IV|IX|III|II|I|X)';
+const SEP='[」』）)\\s　]*';
+const LEVEL_JOIN=SEP+'(?:の)?(?:技能)?'+SEP+'(?:を|が|は|なら|で|まで|に|へ)?'+SEP;
+function requiredSkillLevel(text,skillName){const key=savedMatchKey(skillName);if(!text||!key)return 0;const source=savedMatchKey(text);const keyRe=new RegExp(escRe(key),'g');let required=0,m;while((m=keyRe.exec(source))){const tail=source.slice(m.index+key.length,m.index+key.length+28);const direct=tail.match(new RegExp('^'+SEP+'(?:Lv|lv)?('+LEVEL_TOKEN+')'));const viaLv=tail.match(new RegExp('^'+LEVEL_JOIN+'(?:Lv|lv|レベル)(?:が|は)?\\s*('+LEVEL_TOKEN+')'));const level=(viaLv&&viaLv[1])||(direct&&direct[1])||'Ⅰ';required=Math.max(required,skillLevelNumber(level)||1);if(keyRe.lastIndex===m.index)keyRe.lastIndex++}return required}
 function rowUsesUnownedSkill(row,ownedSkills,roleId,ownedLevels=new Map()){if(!ownedSkills||row?.source!=='effect-text')return false;const text=savedMatchKey(savedRoleCompatibleText(row,roleId));if(!text||text.includes('の戦法'))return false;const hits=allMasterSkillNames().filter(n=>n&&text.includes(n));return hits.some(n=>!ownedSkills.has(n)||(requiredSkillLevel(text,n)>(ownedLevels.get(n)||0)))}
 function savedScoreEntity(v){if(!savedModeActive()||!['main_general','vice_general','support_general','attendant'].includes(v?.roleId))return v;const profile=savedSkillProfileForGeneral(canonicalName(v)||displayName(v));if(!profile)return v;const filter=row=>!rowUsesUnownedSkill(row,profile.names,v.roleId,profile.levels);return {...v,typeFeatures:(v.typeFeatures||[]).filter(filter),statusEffectRefs:(v.statusEffectRefs||[]).filter(filter),_savedOwnedSkillCount:profile.names.size}}
 function candidateVisibleByScore(v){return v._s.matchedCount>0||(savedModeActive()&&savedOwnershipRole(v.roleId))}
