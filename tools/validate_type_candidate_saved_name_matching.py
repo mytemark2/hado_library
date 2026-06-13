@@ -21,7 +21,9 @@ REQUIRED_SOURCE_SNIPPETS = (
     "addSavedNames(generalNames,save.generals)",
     "addSavedNames(equipmentNames,save.equipments)",
     "getResolvedGeneralSkillLevelMap(item)",
-    "rowUsesUnownedSkill(row,ownedSkills)",
+    "rowUsesUnownedSkill(row,ownedSkills,roleId)",
+    "savedRoleCompatibleText(row,roleId)",
+    "addGrantedSkillNames(out,skillName,level)",
 )
 FORBIDDEN_SOURCE_SNIPPETS = (
     "const rarityPrefixRe=",

@@ -19,6 +19,8 @@ REQUIRED_TYPE = (
     "function savedScoreEntity(v)",
     "function savedSkillNameSetForGeneral(name)",
     "getResolvedGeneralSkillLevelMap(item)",
+    "addGrantedSkillNames(out,skillName,level)",
+    "collectGrantedSkillEntriesForSavedIndex(skillName,level)",
 )
 FORBIDDEN = (
     "const generalOwnershipSources=[...(current?.generals||[]),...Object.keys(current?.generalStars||{})",

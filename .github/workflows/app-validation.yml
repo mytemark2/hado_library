@@ -55,6 +55,7 @@ jobs:
         run: |
           set -euo pipefail
           node tools/test_type_score.js
+          node tools/test_saved_type_candidate_filter.js
           node hado_status_effect_regression.js
           test ! -d updates/queue
           git diff --check

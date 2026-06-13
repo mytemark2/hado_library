@@ -47,4 +47,12 @@ assertEq(mainMixed.matchedCount,1,'mixed text main-only should match main role')
 const viceMixed=window.HadoTypeScore.score({roleId:'vice_general',displayName:'副将候補',typeFeatures:[{featureId:'skill_effect:enemy_target_count',label:'敵対象部隊数',matchedText:mainOnlyMixedText}]},mixedRule);
 assertEq(viceMixed.matchedCount,0,'mixed text main-only should not match vice role');
 
-console.log('Update08.17 type-score regression: passed');
+const bulletScopedText='■主将の際 ●通常攻撃対象部隊数+1。■副将の際 ●連鎖確率+2%。';
+const bulletRule={typeId:'bullet-role-scope',typeName:'役割見出しスコープ',metrics:[{metricKey:'normal_attack_target_count',label:'通常攻撃対象数',method:'presence_fixed',basis:100},{metricKey:'chain_rate',label:'連鎖確率',method:'presence_fixed',basis:100}]};
+const bulletMain=window.HadoTypeScore.score({roleId:'main_general',displayName:'主将候補',typeFeatures:[{featureId:'skill_effect:normal_attack_target_count',label:'通常攻撃対象数',matchedText:bulletScopedText},{featureId:'skill_effect:chain_rate',label:'連鎖確率',matchedText:bulletScopedText}]},bulletRule);
+assertEq(bulletMain.matchedCount,1,'bullet scoped main should only match main clause');
+const bulletVice=window.HadoTypeScore.score({roleId:'vice_general',displayName:'副将候補',typeFeatures:[{featureId:'skill_effect:normal_attack_target_count',label:'通常攻撃対象数',matchedText:bulletScopedText},{featureId:'skill_effect:chain_rate',label:'連鎖確率',matchedText:bulletScopedText}]},bulletRule);
+assertEq(bulletVice.matchedCount,1,'bullet scoped vice should only match vice clause');
+assertEq(window.HadoTypeScore.metricRows({roleId:'vice_general',typeFeatures:[{featureId:'skill_effect:normal_attack_target_count',label:'通常攻撃対象数',matchedText:bulletScopedText}]},bulletRule.metrics[0]).length,0,'main bullet should not leak to vice role');
+
+console.log('Update08.18 type-score regression: passed');
