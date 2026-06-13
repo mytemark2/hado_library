@@ -19,7 +19,9 @@ REQUIRED_TYPE = (
     "function savedScoreEntity(v)",
     "function savedSkillNameSetForGeneral(name)",
     "getResolvedGeneralSkillLevelMap(item)",
-    "addGrantedSkillNames(out,skillName,level)",
+    "addGrantedSkillNames(out,levels,skillName,level)",
+    "savedSkillProfileForGeneral(name)",
+    "requiredSkillLevel(text,skillName)",
     "collectGrantedSkillEntriesForSavedIndex(skillName,level)",
 )
 FORBIDDEN = (
