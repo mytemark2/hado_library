@@ -40,4 +40,11 @@ assertEq(rr.matchedCount,2,'role matchedCount');
 assertEq(S.metricRows(roleLimited,roleRule.metrics[0]).length,0,'vice-only chain excluded for main role');
 assertEq(S.metricRows({...roleLimited,roleId:'vice_general'},roleRule.metrics[0]).length,1,'vice-only chain included for vice role');
 
-console.log('Update07.6 type-score regression: passed');
+const mainOnlyMixedText='LRテストの戦法 効果自身を含む味方4部隊の攻撃速度を100％上昇（この武将が主将の場合、戦法の敵対象部隊数が6部隊になる）（対象部隊の主将とこの武将が好相性の際、効果量が2倍になる）';
+const mixedRule={typeId:'mixed-main-only',typeName:'主将限定混在',metrics:[{metricKey:'enemy_target_count',label:'敵対象部隊数',method:'presence_fixed',basis:100}]};
+const mainMixed=window.HadoTypeScore.score({roleId:'main_general',displayName:'主将候補',typeFeatures:[{featureId:'skill_effect:enemy_target_count',label:'敵対象部隊数',matchedText:mainOnlyMixedText}]},mixedRule);
+assertEq(mainMixed.matchedCount,1,'mixed text main-only should match main role');
+const viceMixed=window.HadoTypeScore.score({roleId:'vice_general',displayName:'副将候補',typeFeatures:[{featureId:'skill_effect:enemy_target_count',label:'敵対象部隊数',matchedText:mainOnlyMixedText}]},mixedRule);
+assertEq(viceMixed.matchedCount,0,'mixed text main-only should not match vice role');
+
+console.log('Update08.17 type-score regression: passed');

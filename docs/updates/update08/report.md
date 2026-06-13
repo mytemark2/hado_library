@@ -148,6 +148,13 @@
 - 再発防止として、`tools/validate_saved_mode_index_ownership_sources.py` と `tools/validate_type_candidate_saved_name_matching.py` を、stars/settingsを所有扱いに戻した場合や、レアリティ違いを同一所有扱いにした場合に失敗する検証へ更新した。
 - 表示バージョンを `3.0.0.0 Update08.16` へインクリメント済み。
 
+## Update08.17 修正
+- 主将限定などの役割限定判定が消えるデグレを調査し、`roleAllowedSet` の主将判定にある除外条件が広すぎることを確認した。
+- 実データの戦法本文では `この武将が主将の場合` と `対象部隊の主将と...` が同じ `matchedText` に混在することがあり、従来の `主将と` 除外により主将限定句まで無効化されていた。
+- `hado_type_score.js` の主将限定判定から広域除外を外し、`主将の戦法` / `主将と` のような非限定語が同じ文にあっても、明示的な `この武将が主将の場合` / `主将時` / `■主将` を役割限定として維持するようにした。
+- 再発防止として、`tools/test_type_score.js` に「主将限定句と主将参照語が混在する戦法本文」で主将は一致し、副将は一致しない回帰テストを追加した。
+- 表示バージョンを `3.0.0.0 Update08.17` へインクリメント済み。
+
 ## プレビュー同期
 この作業環境ではPush後のGitHub Actions結果とプレビューURLの実機確認は未実行。コミット後、push-triggered `Notify Hado Library Preview` の成功とデプロイcommit一致を確認する。
 
