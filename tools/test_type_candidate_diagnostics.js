@@ -5,6 +5,7 @@ const assert = require('assert');
 const sandbox = {
   console: { info() {}, log() {}, warn() {}, error() {} },
   setInterval: () => 0,
+  setTimeout: fn => { if (typeof fn === 'function') fn(); return 0; },
   addEventListener: () => {},
   alert: () => {},
   localStorage: { getItem: () => null, setItem: () => {}, removeItem: () => {} },

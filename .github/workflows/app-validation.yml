@@ -49,6 +49,7 @@ jobs:
           python3 tools/validate_type_candidate_saved_name_matching.py
           python3 tools/validate_saved_mode_index_ownership_sources.py
           python3 tools/validate_saved_type_candidates_zero_score_visible.py
+          python3 tools/validate_type_candidate_render_performance.py
           python3 tools/validate_formation_link_helpers.py
 
       - name: Functional regression checks

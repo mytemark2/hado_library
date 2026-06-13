@@ -200,3 +200,10 @@
 - Debug API: `window.HadoTypeCandidatesDebug.getDiagnostics()` で `state.diagnostics.typeCandidates` の最新/履歴/ロール別集計を参照可能。
 - Auto Merge: `Allow auto-merge` とベースブランチ保護状態をworkflowで出力し、Auto Mergeを有効化できない場合はworkflow failureとして設定漏れを明示する。
 - 追加回帰: `node tools/test_type_candidate_diagnostics.js` を追加し、限定行・ロール不一致・保存技能未所有除外理由・診断保存を検証した。
+
+## Update08.23 描画性能改善レポート
+- 分類: 型候補一覧と部隊編成画面の描画性能改善。ユーザー操作への応答を優先し、ログ/診断は非同期化する。
+- 原因: 型候補一覧 `render()` が全ロール件数算出のたびに全候補を再スコアリングし、保存データ診断と `HadoTypeScore.recordTrace` を候補ごとに同期実行していた。部隊編成では `renderFormationScreenCore()` が通常描画のたびに `buildTacticAttackDiagnosticSnapshot()` で全武将・全戦法を走査していた。
+- 実装: ロール別候補結果キャッシュ、候補一覧一括スコアリング中の型スコアtrace抑止、保存データ診断ログのidle非同期flush、Console verboseログの明示フラグ化、保存技能監査/フィルタの1パス化を追加した。
+- 部隊編成: 戦法攻撃診断の全件スキャンを通常描画から外し、`deferTacticAttackDiagnosticSnapshot()` でidle時に実行するよう変更した。
+- 回帰防止: `tools/validate_type_candidate_render_performance.py` を追加し、キャッシュ・非同期診断・trace抑止・部隊編成診断遅延化のコードパターンを検証する。
