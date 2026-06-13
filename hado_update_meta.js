@@ -3,20 +3,19 @@
   'use strict';
 
   const META_URL = './HADO_DEV_INFO.json';
-  const FALLBACK = {
-    releaseVersion: '3.0.0.0',
-    updateNo: '07.6',
-    displayVersion: '3.0.0.0 Update07.6'
-  };
+  const VERSION_SOURCE = Object.freeze({ ...(window.HADO_VERSION || {}) });
+  const FALLBACK = Object.freeze(normalizeMeta(VERSION_SOURCE));
+  window.HADO_APP_VERSION_META = FALLBACK;
 
   let current = FALLBACK;
   let syncing = false;
+  let started = false;
 
   function normalizeMeta(raw) {
-    const releaseVersion = String(raw?.releaseVersion || FALLBACK.releaseVersion).trim();
-    const updateNo = String(raw?.updateNo || FALLBACK.updateNo).trim();
-    const displayVersion = String(raw?.displayVersion || `${releaseVersion} Update${updateNo}`).trim();
-    return { ...raw, releaseVersion, updateNo, displayVersion };
+    const releaseVersion = String(raw?.releaseVersion || VERSION_SOURCE.releaseVersion || '').trim();
+    const updateNo = String(raw?.updateNo || VERSION_SOURCE.updateNo || '').trim();
+    const displayVersion = String(raw?.displayVersion || (releaseVersion && updateNo ? `${releaseVersion} Update${updateNo}` : releaseVersion)).trim();
+    return { ...VERSION_SOURCE, ...raw, releaseVersion, updateNo, displayVersion };
   }
 
   function setText(node, value) {
@@ -47,6 +46,7 @@
 
       window.HADO_DEV_INFO = current;
       window.HADO_APP_DISPLAY_VERSION = display;
+      window.HADO_APP_VERSION_META = current;
     } finally {
       syncing = false;
     }
@@ -62,14 +62,20 @@
     }
   }
 
+  function requestSync() {
+    syncVisibleVersion(current);
+  }
+
   function start() {
+    if (started) return;
+    started = true;
     syncVisibleVersion(FALLBACK);
     loadMeta();
-    new MutationObserver(() => syncVisibleVersion(current)).observe(document.documentElement, {
-      childList: true,
-      subtree: true
-    });
+    window.addEventListener('pageshow', requestSync);
+    window.addEventListener('hado:version-sync-request', requestSync);
   }
+
+  window.HADO_SYNC_VISIBLE_VERSION = requestSync;
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, { once: true });
   else start();
