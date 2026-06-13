@@ -1,0 +1,92 @@
+name: Auto-merge Internal PR
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  enable-auto-merge:
+    name: enable-auto-merge
+    runs-on: ubuntu-latest
+    if: >-
+      github.event.pull_request.draft == false &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    steps:
+      - name: Diagnose repository auto-merge settings
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const repo = await github.rest.repos.get({ owner: context.repo.owner, repo: context.repo.repo });
+            core.info(`allow_auto_merge=${repo.data.allow_auto_merge}`);
+            core.info(`delete_branch_on_merge=${repo.data.delete_branch_on_merge}`);
+            core.info(`base_branch=${pr.base.ref}`);
+            if (!repo.data.allow_auto_merge) {
+              core.setFailed('Repository setting Allow auto-merge is disabled. Enable Settings > General > Pull Requests > Allow auto-merge.');
+              return;
+            }
+            try {
+              const branch = await github.rest.repos.getBranch({ owner: context.repo.owner, repo: context.repo.repo, branch: pr.base.ref });
+              core.info(`base_branch_protected=${branch.data.protected}`);
+              if (!branch.data.protected) {
+                core.warning('Base branch is not protected. Auto-merge can be unavailable or can merge without the intended App Validation / app-validation gate.');
+              }
+            } catch (error) {
+              core.warning(`Could not read base branch protection summary: ${error.message}`);
+            }
+
+      - name: Enable auto-merge for same-repository PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const query = `query($owner:String!, $repo:String!, $number:Int!) {
+              repository(owner:$owner, name:$repo) {
+                pullRequest(number:$number) {
+                  id
+                  isDraft
+                  autoMergeRequest { enabledAt }
+                  mergeable
+                  headRepository { nameWithOwner }
+                }
+              }
+            }`;
+            const variables = {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              number: pr.number,
+            };
+            const result = await github.graphql(query, variables);
+            const pullRequest = result.repository.pullRequest;
+            if (!pullRequest || pullRequest.isDraft) {
+              core.info('Skip: pull request is missing or draft.');
+              return;
+            }
+            if (pullRequest.headRepository.nameWithOwner !== `${context.repo.owner}/${context.repo.repo}`) {
+              core.info('Skip: pull request is not from this repository.');
+              return;
+            }
+            if (pullRequest.autoMergeRequest) {
+              core.info('Auto-merge is already enabled.');
+              return;
+            }
+            core.info(`mergeable=${pullRequest.mergeable}`);
+            const mutation = `mutation($pullRequestId:ID!) {
+              enablePullRequestAutoMerge(input:{pullRequestId:$pullRequestId, mergeMethod:MERGE}) {
+                pullRequest { number }
+              }
+            }`;
+            try {
+              await github.graphql(mutation, { pullRequestId: pullRequest.id });
+              core.info(`Auto-merge enabled for PR #${pr.number}.`);
+            } catch (error) {
+              core.setFailed(`Auto-merge could not be enabled automatically: ${error.message}\nConfirm repository settings: Allow auto-merge, branch protection required checks include App Validation / app-validation, merge queue setting if required, and this workflow has Pull requests write permission.`);
+            }

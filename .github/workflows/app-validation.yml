@@ -1,0 +1,65 @@
+name: App Validation
+
+on:
+  pull_request:
+  merge_group:
+
+permissions:
+  contents: read
+
+jobs:
+  app-validation:
+    name: app-validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: JavaScript syntax checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check hado_version.js
+          node --check hado_update_meta.js
+          node --check hado_core.js
+          node --check hado_formation.js
+          node --check hado_type_candidates.js
+          node --check hado_type_entry.js
+          node --check hado_candidate_tray.js
+
+      - name: JSON syntax checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m json.tool HADO_DEV_INFO.json >/tmp/HADO_DEV_INFO.checked.json
+          for report in report/*.json; do
+            python3 -m json.tool "$report" >/tmp/"$(basename "$report")".checked.json
+          done
+
+      - name: Repository policy and asset validations
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/validate_app_js.py
+          python3 tools/validate_external_css.py
+          python3 tools/validate_preview_workflow.py
+          python3 tools/validate_auto_merge_workflow.py
+          python3 tools/validate_update_version_consistency.py
+          python3 tools/validate_update_meta_no_broad_observer.py
+          python3 tools/validate_type_candidate_saved_name_matching.py
+          python3 tools/validate_saved_mode_index_ownership_sources.py
+          python3 tools/validate_saved_type_candidates_zero_score_visible.py
+          python3 tools/validate_type_candidate_render_performance.py
+          python3 tools/validate_formation_link_helpers.py
+
+      - name: Functional regression checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          node tools/test_type_score.js
+          node tools/test_saved_type_candidate_filter.js
+          node tools/test_type_candidate_counts.js
+          node tools/test_type_candidate_diagnostics.js
+          node hado_status_effect_regression.js
+          test ! -d updates/queue
+          git diff --check

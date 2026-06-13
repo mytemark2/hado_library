@@ -1,0 +1,39 @@
+{
+  "updateNo": "08.20",
+  "displayVersion": "3.0.0.0 Update08.20",
+  "status": "completed-local-validation",
+  "summary": "Parse real saved-data limited skill requirement phrases such as 盟主がLv3以上 and 技能「備急」をLv2.",
+  "bugClassification": "Saved-mode limited-skill requirement parsing regression",
+  "rootCause": "The previous saved-mode limited-skill fix tracked skill levels but only reliably handled tightly-coupled forms such as skillName2 or skillNameLv2. Real candidate text often inserts quotes, particles, 技能, and Lv/レベル wording between the skill name and the required level, so those clauses were still treated as Lv1 and not filtered when the saved star was insufficient.",
+  "changedFiles": [
+    "hado_type_candidates.js",
+    "hado_version.js",
+    "HADO_DEV_INFO.json",
+    "tools/test_saved_type_candidate_filter.js",
+    "tools/test_type_score.js",
+    "docs/updates/README.md",
+    "docs/updates/roadmap.md",
+    "docs/updates/update08/implementation.md",
+    "docs/updates/update08/report.md",
+    "report/HADO_APP_3.0.0.0_UPDATE08.20_REPORT.json"
+  ],
+  "htmlSizeChange": {
+    "index.html": 0,
+    "hado_library_3.0.0.0.html": 0
+  },
+  "externalizationDecision": "No HTML/CSS change. The fix is in external saved-mode type candidate JavaScript and regression tests.",
+  "validation": [
+    {"command": "node --check hado_type_candidates.js", "result": "pass"},
+    {"command": "node --check hado_version.js", "result": "pass"},
+    {"command": "node tools/test_saved_type_candidate_filter.js", "result": "pass"},
+    {"command": "node tools/test_type_score.js", "result": "pass"},
+    {"command": "python3 tools/validate_update_version_consistency.py", "result": "pass"},
+    {"command": "python3 tools/validate_app_js.py", "result": "pass"},
+    {"command": "python3 tools/validate_type_candidate_saved_name_matching.py", "result": "pass"},
+    {"command": "python3 tools/validate_saved_mode_index_ownership_sources.py", "result": "pass"},
+    {"command": "git diff --check", "result": "pass"}
+  ],
+  "workflowResult": "pending-after-push",
+  "previewResult": "pending-after-push",
+  "minimumUserAcceptance": "In saved-data mode, verify candidates whose text says 盟主がLv3以上 or 技能「備急」をLv2 are excluded while the saved star only provides Lv1, and appear/score only when the saved star or equipment state provides the required level."
+}

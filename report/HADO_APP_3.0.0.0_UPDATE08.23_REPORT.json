@@ -1,0 +1,36 @@
+{
+  "version": "3.0.0.0 Update08.23",
+  "summary": "Cache type-candidate rendering and defer heavy diagnostics to improve formation/type candidate responsiveness.",
+  "bugClassification": "render performance regression from synchronous candidate scoring and diagnostics",
+  "rootCause": "Type candidate render recalculated all role rows and emitted synchronous diagnostics on each render; formation render synchronously scanned all generals/tactics for tactic-attack diagnostics.",
+  "changes": [
+    "Add roleRows cache keyed by type/purpose/role/query/save signature",
+    "Suspend HadoTypeScore trace during bulk candidate scoring",
+    "Flush type-candidate diagnostics asynchronously via requestIdleCallback/setTimeout",
+    "Gate console diagnostic output behind HADO_TYPE_CANDIDATE_VERBOSE_LOGS",
+    "Combine saved candidate audit/filter into one pass",
+    "Defer formation tactic-attack full diagnostic snapshot"
+  ],
+  "changedFiles": [
+    "hado_type_candidates.js",
+    "hado_type_score.js",
+    "hado_core.js",
+    "hado_formation.js",
+    "hado_version.js",
+    "HADO_DEV_INFO.json",
+    ".github/workflows/app-validation.yml",
+    "tools/validate_type_candidate_render_performance.py",
+    "tools/validate_merge_queue_workflow.py",
+    "docs/updates/update08/implementation.md",
+    "docs/updates/update08/report.md"
+  ],
+  "validation": [
+    "node --check hado_type_candidates.js",
+    "node --check hado_type_score.js",
+    "node --check hado_core.js",
+    "node --check hado_formation.js",
+    "python3 tools/validate_type_candidate_render_performance.py"
+  ],
+  "workflowResult": "pending-after-push",
+  "previewResult": "pending-after-push"
+}
