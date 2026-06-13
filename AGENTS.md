@@ -127,6 +127,9 @@ Confirm the repository's actual implementation before editing. Applicable items 
 
 Do not assume that every item exists. Do not invent missing files. If an expected item does not exist, report that finding.
 
+For every user-visible correction after a numbered Update is marked complete, increment the visible Update suffix together with metadata (for example `Update08` -> `Update08.1`, then `Update08.2`). Update all applicable display/version references in the same commit so preview users can distinguish deployed fixes.
+Keep visible runtime version constants centralized only in `hado_version.js`; `hado_update_meta.js` and other JavaScript should read `window.HADO_VERSION`, `window.HADO_APP_DISPLAY_VERSION`, or `window.HADO_APP_VERSION_META` instead of hard-coding the visible Update string. Do not duplicate `releaseVersion`, `updateNo`, `displayVersion`, or `revision` in `HADO_DEV_INFO.json`.
+
 ## 8. Bug-fix policy
 
 A bug fix is incomplete unless the following are addressed:
@@ -178,6 +181,10 @@ After pushing the development branch:
 5. If synchronization fails, inspect the failed step, fix the cause, rerun the validation, and only then report completion.
 
 A setup that requires the user to manually run a workflow for ordinary preview deployment is incomplete.
+
+## 9.4 Merge queue and auto-merge
+
+Keep `.github/workflows/app-validation.yml` compatible with GitHub merge queue by including both `pull_request` and `merge_group` triggers. The required GitHub status check for branch protection should be `App Validation / app-validation`. Repository-level settings such as `Allow auto-merge` and `Require merge queue` must be enabled by a repository administrator; do not replace real conflict resolution with blanket `ours`/`theirs` rules.
 
 ## 10. Preview synchronization design
 
