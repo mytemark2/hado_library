@@ -192,3 +192,11 @@
 2. 型候補一覧から「この型で新規部隊」を押し、既存部隊が上書きされず新規部隊が追加されることを確認する。
 3. 評価スコアとマイメモを入力し、「履歴へ保存」で履歴が最大10件に収まることを確認する。
 4. グループ追加と部隊追加で最大5グループ、各12部隊の上限が機能することを確認する。
+
+## Update08.22 診断ログ追加レポート
+- 分類: 保存データ＋限定の原因調査を継続可能にするための診断強化。今回の主目的は不具合本体の推測修正ではなく、次回ログだけで除外理由を判定できる状態にすること。
+- 原因調査結果: 既存セルフチェックは `hado_type_candidates.js` の保存データ経路を通っておらず、`savedScoreEntity` / `rowUsesUnownedSkill` / `savedCandidateAllowed` の実UI除外理由を観測できていなかった。
+- 実装: `typeCandidate:saved-role-rows` 診断に、source/owned/visible/final件数、限定行数、ロール不一致行数、保存技能・Lv不足除外数、サンプル、保存データ元件数を出力するようにした。
+- Debug API: `window.HadoTypeCandidatesDebug.getDiagnostics()` で `state.diagnostics.typeCandidates` の最新/履歴/ロール別集計を参照可能。
+- Auto Merge: `Allow auto-merge` とベースブランチ保護状態をworkflowで出力し、Auto Mergeを有効化できない場合はworkflow failureとして設定漏れを明示する。
+- 追加回帰: `node tools/test_type_candidate_diagnostics.js` を追加し、限定行・ロール不一致・保存技能未所有除外理由・診断保存を検証した。

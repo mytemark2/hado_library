@@ -55,7 +55,7 @@ The automation removes the routine manual step of enabling auto-merge/checking w
 
 ## Troubleshooting
 
-If auto-merge is not enabled automatically:
+If auto-merge is not enabled automatically, first open the failed `Auto-merge Internal PR / enable-auto-merge` run. Update08.22 makes this workflow fail instead of only warning when a required repository setting blocks automatic enablement. The log prints `allow_auto_merge`, `base_branch`, `base_branch_protected`, and the GraphQL mutation error.
 
 1. Confirm **Allow auto-merge** is enabled in repository settings.
 2. Confirm branch protection/rulesets require at least one check, such as `App Validation / app-validation`.

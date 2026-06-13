@@ -9,19 +9,25 @@ WORKFLOW = ROOT / ".github" / "workflows" / "auto-merge-codex-pr.yml"
 REQUIRED = (
     "name: Auto-merge Internal PR",
     "pull_request_target:",
-    "contents: write",
+    "contents: read",
     "pull-requests: write",
     "github.event.pull_request.head.repo.full_name == github.repository",
     "github.event.pull_request.draft == false",
     "uses: actions/github-script@v7",
+    "Diagnose repository auto-merge settings",
+    "allow_auto_merge",
+    "getBranch",
     "enablePullRequestAutoMerge",
     "mergeMethod:MERGE",
     "autoMergeRequest",
+    "core.setFailed",
+    "App Validation / app-validation",
 )
 FORBIDDEN = (
     "actions/checkout",
     "pull_request:\n",
     "workflow_dispatch:",
+    "contents: write",
 )
 
 
@@ -35,7 +41,7 @@ def main() -> int:
         raise SystemExit("auto-merge workflow missing: " + ", ".join(missing))
     if forbidden:
         raise SystemExit("auto-merge workflow contains unsafe/manual pattern: " + ", ".join(forbidden))
-    print("auto-merge workflow ok: same-repository non-draft PRs enable auto-merge without checkout")
+    print("auto-merge workflow ok: same-repository non-draft PRs diagnose settings and fail loudly when enablement is blocked")
     return 0
 
 
