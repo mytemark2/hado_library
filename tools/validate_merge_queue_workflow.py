@@ -20,6 +20,7 @@ REQUIRED = (
     "python3 tools/validate_saved_mode_index_ownership_sources.py",
     "node tools/test_type_score.js",
     "node tools/test_saved_type_candidate_filter.js",
+    "node tools/test_type_candidate_counts.js",
     "node hado_status_effect_regression.js",
     "git diff --check",
 )

@@ -55,4 +55,4 @@ const bulletVice=window.HadoTypeScore.score({roleId:'vice_general',displayName:'
 assertEq(bulletVice.matchedCount,1,'bullet scoped vice should only match vice clause');
 assertEq(window.HadoTypeScore.metricRows({roleId:'vice_general',typeFeatures:[{featureId:'skill_effect:normal_attack_target_count',label:'通常攻撃対象数',matchedText:bulletScopedText}]},bulletRule.metrics[0]).length,0,'main bullet should not leak to vice role');
 
-console.log('Update08.20 type-score regression: passed');
+console.log('Update08.21 type-score regression: passed');

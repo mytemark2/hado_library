@@ -68,4 +68,4 @@ assert(!profile.names.has('堅強'), 'lower saved star should not own level-2 gr
 assert.strictEqual(debug.rowUsesUnownedSkill(row, profile.names, 'main_general', profile.levels), true, 'main role should reject skill clauses above the saved skill level');
 assert.strictEqual(debug.rowUsesUnownedSkill({source:'effect-text',matchedText:'盟主がLv3以上であれば攻撃無効も付与できる'}, profile.names, 'main_general', profile.levels), true, 'Lv3 prose condition should be rejected when saved skill is Lv1');
 
-console.log('Update08.20 saved type candidate limited skill requirement regression: passed');
+console.log('Update08.21 saved type candidate limited skill requirement regression: passed');

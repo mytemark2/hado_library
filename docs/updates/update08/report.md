@@ -177,6 +177,13 @@
 - セルフチェックとして、`tools/test_saved_type_candidate_filter.js` に `盟主がLv3以上`、`技能「備急」をLv2`、`●歓喜Lv2`、`技能Lv×20%` の解析結果と、保存Lv不足時の除外を追加した。
 - 表示バージョンを `3.0.0.0 Update08.20` へインクリメント済み。
 
+## Update08.21 修正
+- 保存データ＋限定パターンのセルフチェック観点を再確認し、`candidateVisibleByScore` が保存データでは所有済み0点候補まで表示していたため、主将/副将/補佐/侍従の選択可能件数が所有数ベースで横並びになり得る原因を確認した。
+- `hado_type_candidates.js` の候補表示を `matchedCount > 0` の選択可能候補へ戻し、保存データではお気に入り所有に限定しつつ、型に適合した候補だけを件数・一覧へ出すようにした。
+- セルフチェックとして `tools/test_type_candidate_counts.js` を追加し、ワクチン型で全データ件数 `主将182 / 副将175 / 補佐175 / 侍従171`、保存データ全所有相当でも同件数、保存サンプルでも合計比率40.3%で大幅崩壊せず、役割別件数差が残ることを確認した。
+- `tools/validate_saved_type_candidates_zero_score_visible.py` を、0点所有候補を選択可能表示しない方針の検証へ変更した。
+- 表示バージョンを `3.0.0.0 Update08.21` へインクリメント済み。
+
 ## プレビュー同期
 この作業環境ではPush後のGitHub Actions結果とプレビューURLの実機確認は未実行。コミット後、push-triggered `Notify Hado Library Preview` の成功とデプロイcommit一致を確認する。
 

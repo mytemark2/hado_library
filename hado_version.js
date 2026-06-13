@@ -3,11 +3,11 @@
   'use strict';
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.0.0.0',
-    updateNo: '08.20',
-    revision: 28,
+    updateNo: '08.21',
+    revision: 29,
     baseAppVersion: '2.9.6.5',
-    summary: 'Update08.20: parse saved limited skill requirements.',
-    updatedAt: '2026-06-13T12:45:00+09:00'
+    summary: 'Update08.21: fix saved candidate selectable counts.',
+    updatedAt: '2026-06-13T13:25:00+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;
 })();
