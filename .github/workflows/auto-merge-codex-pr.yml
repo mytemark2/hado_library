@@ -1,0 +1,69 @@
+name: Auto-merge Internal PR
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  enable-auto-merge:
+    name: enable-auto-merge
+    runs-on: ubuntu-latest
+    if: >-
+      github.event.pull_request.draft == false &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    steps:
+      - name: Enable auto-merge for same-repository PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const query = `query($owner:String!, $repo:String!, $number:Int!) {
+              repository(owner:$owner, name:$repo) {
+                pullRequest(number:$number) {
+                  id
+                  isDraft
+                  autoMergeRequest { enabledAt }
+                  mergeable
+                  headRepository { nameWithOwner }
+                }
+              }
+            }`;
+            const variables = {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              number: pr.number,
+            };
+            const result = await github.graphql(query, variables);
+            const pullRequest = result.repository.pullRequest;
+            if (!pullRequest || pullRequest.isDraft) {
+              core.info('Skip: pull request is missing or draft.');
+              return;
+            }
+            if (pullRequest.headRepository.nameWithOwner !== `${context.repo.owner}/${context.repo.repo}`) {
+              core.info('Skip: pull request is not from this repository.');
+              return;
+            }
+            if (pullRequest.autoMergeRequest) {
+              core.info('Auto-merge is already enabled.');
+              return;
+            }
+            const mutation = `mutation($pullRequestId:ID!) {
+              enablePullRequestAutoMerge(input:{pullRequestId:$pullRequestId, mergeMethod:MERGE}) {
+                pullRequest { number }
+              }
+            }`;
+            try {
+              await github.graphql(mutation, { pullRequestId: pullRequest.id });
+              core.info(`Auto-merge enabled for PR #${pr.number}.`);
+            } catch (error) {
+              core.warning(`Auto-merge could not be enabled automatically: ${error.message}`);
+              core.warning('Confirm repository settings: Allow auto-merge, branch protection, required App Validation, and merge queue if required.');
+            }

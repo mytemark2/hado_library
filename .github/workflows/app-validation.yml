@@ -43,6 +43,7 @@ jobs:
           python3 tools/validate_app_js.py
           python3 tools/validate_external_css.py
           python3 tools/validate_preview_workflow.py
+          python3 tools/validate_auto_merge_workflow.py
           python3 tools/validate_update_version_consistency.py
           python3 tools/validate_update_meta_no_broad_observer.py
           python3 tools/validate_type_candidate_saved_name_matching.py

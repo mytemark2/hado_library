@@ -16,8 +16,10 @@ REQUIRED = (
     "node --check hado_type_candidates.js",
     "python3 tools/validate_app_js.py",
     "python3 tools/validate_update_version_consistency.py",
+    "python3 tools/validate_auto_merge_workflow.py",
     "python3 tools/validate_saved_mode_index_ownership_sources.py",
     "node tools/test_type_score.js",
+    "node tools/test_saved_type_candidate_filter.js",
     "node hado_status_effect_regression.js",
     "git diff --check",
 )

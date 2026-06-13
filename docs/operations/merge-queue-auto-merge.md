@@ -1,19 +1,28 @@
 # Merge queue + Auto-merge setup
 
-This repository uses a code-side `App Validation` workflow for pull requests and GitHub merge queue groups.
-Repository administrators must enable the GitHub settings below; they cannot be committed as normal source files.
+This repository uses code-side workflows to reduce manual conflict/update checks for internal pull requests.
+Repository administrators must still enable the GitHub repository settings below; settings cannot be committed as normal source files.
 
-## Why this is needed
+## Code-side automation now present
 
-GitHub merge queue removes the normal need for pull request authors to repeatedly update their branch before merge.
-GitHub Actions required checks used by merge queue must listen for the `merge_group` event; otherwise the queue waits for a status check that is never reported.
+### App Validation
 
-The workflow added for this repository is:
-
-- `.github/workflows/app-validation.yml`
+- Workflow: `.github/workflows/app-validation.yml`
 - Workflow name: `App Validation`
 - Required job name: `app-validation`
 - Triggers: `pull_request`, `merge_group`
+
+This is the required status check used by branch protection and merge queue.
+
+### Internal PR auto-merge
+
+- Workflow: `.github/workflows/auto-merge-codex-pr.yml`
+- Workflow name: `Auto-merge Internal PR`
+- Trigger: `pull_request_target`
+- Scope: non-draft pull requests whose head repository is the same repository as the base repository.
+- Security rule: this workflow does **not** check out pull request code. It only calls the GitHub GraphQL `enablePullRequestAutoMerge` mutation.
+
+With repository auto-merge enabled, same-repository PRs can be marked for auto-merge automatically after they are opened or updated. GitHub will then wait for required checks and merge queue validation instead of requiring the author to repeatedly press a conflict/update button.
 
 ## Required repository settings
 
@@ -26,34 +35,36 @@ A repository administrator should configure the application repository (`mytemar
 5. Enable **Require a pull request before merging**.
 6. Enable **Require status checks to pass**.
 7. Add required status check: `app-validation` from workflow `App Validation`.
-8. Enable **Require merge queue**.
+8. Enable **Require merge queue** if the repository should serialize merges through GitHub's queue.
 9. Keep the queue merge method aligned with the repository's normal merge strategy.
 
 ## Normal operation after setup
 
-1. Open a pull request.
-2. Wait for `App Validation / app-validation` to pass.
-3. Enable auto-merge on the pull request, or add the pull request to the merge queue.
-4. GitHub creates a merge-group ref and runs `App Validation` again via the `merge_group` trigger.
-5. If the merge-group validation passes and there is no real conflict, GitHub merges automatically.
+1. Open a non-draft pull request from a branch in `mytemark2/hado_library`.
+2. `Auto-merge Internal PR` enables auto-merge automatically.
+3. `App Validation / app-validation` runs on the pull request.
+4. If merge queue is required, GitHub creates a merge-group ref and runs `App Validation` again via the `merge_group` trigger.
+5. If validation passes and there is no real textual conflict, GitHub merges automatically.
 
-## What this does not automate
+## What this does not and cannot automate
 
-Merge queue and auto-merge do not automatically resolve real textual conflicts. If the same source lines are changed incompatibly, the pull request branch must still be corrected.
+GitHub does not provide a safe setting to ignore real merge conflicts. If two branches edit the same lines incompatibly, the pull request branch must still be corrected.
 Do not use blanket `ours` or `theirs` conflict resolution for source files in this repository.
 
-## Manual fallback
+The automation removes the routine manual step of enabling auto-merge/checking whether the PR can be merged. It does not hide actual conflicts or failed required checks.
 
-If the auto-merge button is not visible:
+## Troubleshooting
+
+If auto-merge is not enabled automatically:
 
 1. Confirm **Allow auto-merge** is enabled in repository settings.
-2. Confirm the base branch has a branch protection/ruleset requirement such as required checks or reviews.
-3. Confirm `App Validation / app-validation` is selected as a required check.
-4. Confirm the pull request is not a draft.
-5. Confirm there is no unresolved merge conflict.
+2. Confirm branch protection/rulesets require at least one check, such as `App Validation / app-validation`.
+3. Confirm the pull request is not a draft.
+4. Confirm the pull request branch is in the same repository, not a fork.
+5. Open the `Auto-merge Internal PR` workflow log and check the warning emitted by the GitHub GraphQL mutation.
 
 If merge queue does not start:
 
 1. Confirm **Require merge queue** is enabled for the base branch rule.
 2. Confirm `App Validation` contains the `merge_group` trigger.
-3. Confirm the pull request has passed the normal required checks before adding it to the queue.
+3. Confirm the pull request has passed the normal required checks before GitHub queues it.

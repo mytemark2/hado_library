@@ -184,7 +184,7 @@ A setup that requires the user to manually run a workflow for ordinary preview d
 
 ## 9.4 Merge queue and auto-merge
 
-Keep `.github/workflows/app-validation.yml` compatible with GitHub merge queue by including both `pull_request` and `merge_group` triggers. The required GitHub status check for branch protection should be `App Validation / app-validation`. Repository-level settings such as `Allow auto-merge` and `Require merge queue` must be enabled by a repository administrator; do not replace real conflict resolution with blanket `ours`/`theirs` rules.
+Keep `.github/workflows/app-validation.yml` compatible with GitHub merge queue by including both `pull_request` and `merge_group` triggers. The required GitHub status check for branch protection should be `App Validation / app-validation`. Repository-level settings such as `Allow auto-merge` and `Require merge queue` must be enabled by a repository administrator; use `.github/workflows/auto-merge-codex-pr.yml` to enable auto-merge for same-repository non-draft PRs, but do not replace real conflict resolution with blanket `ours`/`theirs` rules.
 
 ## 10. Preview synchronization design
 
