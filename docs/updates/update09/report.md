@@ -162,3 +162,19 @@
 ### 未解決事項
 - Phase 3の画面実装とPC/スマホ実操作確認は次作業。
 - GitHub Actionsとpreview同期確認はpush後に実施が必要。
+
+
+## Phase 3: Preview workflow Node.js 20 warning follow-up
+
+### 調査結果
+- `Notify Hado Library Preview` の提示ログに出ていた `Node.js 20 actions are deprecated` は、preview同期処理本体の失敗原因ではなく、JavaScript Actionの実行ランタイム移行に関するGitHub Actions runnerの警告である。
+- 該当箇所は `actions/checkout@v4` であり、preview同期の成否は別途 `Require preview repository token`、`Sync preview repository contents`、`Dispatch preview Pages deployment workflow`、`Verify preview reflects source commit and version assets` の各ステップ結果で判断する必要がある。
+
+### 対応
+- `Notify Hado Library Preview` と `App Validation` の `actions/checkout` を Node.js 24 対応版の `actions/checkout@v5` へ更新した。
+- `Auto-merge Internal PR` の `actions/github-script` を Node.js 24 対応版の `actions/github-script@v8` へ更新した。
+- workflow契約検証スクリプトを更新し、古いNode.js 20世代のAction指定へ戻った場合に検知できるようにした。
+
+### 残確認
+- GitHub Actions上で `Notify Hado Library Preview` を再実行し、警告解消と実際の失敗ステップ有無を確認する。
+- preview公開URLの `PREVIEW_SOURCE_COMMIT.txt`、`PREVIEW_SOURCE_BRANCH.txt`、`PREVIEW_DISPLAY_VERSION.txt`、`hado_version.js` が期待値に一致することを確認する。

@@ -7,7 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github" / "workflows" / "notify-preview.yml"
 REQUIRED = (
-    "uses: actions/checkout@v4",
+    "uses: actions/checkout@v5",
     "branches:\n      - '**'",
     "Validate source preview assets before sync",
     "hado_styles.css is unexpectedly small",
