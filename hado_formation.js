@@ -1236,7 +1236,73 @@ function addWarhorseSkillRow(skillRows,name,holder,level){if(!name||!level)retur
 function addWarhorseNumericEffects(effectsRaw,skill,effectiveLevel,sourceLabel,ctx,excludedLog,holder){const levelKey=String(Math.max(1,Number(effectiveLevel)||1));const rawEffects=skill?.numericEffectsByLevel?.[levelKey]||[];const rawText=skill?.effectsByLevel?.[levelKey]||'';(Array.isArray(rawEffects)?rawEffects:[]).forEach(effect=>{const key=normalizeWarhorseNumericEffectKey(effect);const value=Number(effect?.value);if(!key||!Number.isFinite(value)||value===0){excludedLog.push({holder,slot:'warhorse',skillName:skill?.name||'',source:sourceLabel,parameter:key,reason:'invalid warhorse numeric effect'});return;}const cond=isWarhorseEffectConditionSatisfied(effect,ctx);if(!cond.ok){excludedLog.push({holder,slot:'warhorse',skillName:skill?.name||'',source:sourceLabel,parameter:key,reason:cond.reason,conditions:[cond]});return;}addEffect(effectsRaw,{timing:norm(effect?.timing||'normal')||'normal',key,value:Math.abs(value),unit:effect?.type==='percent'?'%':'',sign:warhorseEffectSign(effect),sourceLabel,condition:cleanConditionText(effect?.condition||''),rawText:rawText||effect?.rawText||'',sourceItemCategory:'warhorseSkills',sourceItemName:skill?.name||''});});}
 function collectActiveWarhorseFormationEffects(f,ctx,skillRows,effectsRaw,contributionLog,excludedLog){const data=getCurrentWarhorseData();const active=Array.isArray(data.activeSlots)?data.activeSlots.slice(0,3):[null,null,null];while(active.length<3)active.push(null);const normalBySkill=new Map();const adopted=[];active.forEach((id,idx)=>{const entry=data.owned?.[norm(id||'')];if(!entry)return;const master=getWarhorseMasterById(entry.horseMasterId);const holder=`軍馬${idx+1}:${entry.name||entry.customName||entry.id}`;(Array.isArray(entry.skills)?entry.skills:[]).forEach(sk=>{const skill=getWarhorseSkillById(sk.skillId);if(!skill){excludedLog.push({holder,slot:`warhorse:${idx+1}`,skillName:sk.skillId,source:`軍馬:${entry.name||entry.id}`,reason:'warhorse skill master not found'});return;}const skillName=skill.name||skill.title||sk.skillId;const current=normalBySkill.get(skillName)||{skill,level:0,holders:[]};current.level+=Number(sk.level)||0;current.holders.push(holder);normalBySkill.set(skillName,current);});const isFamous=getWarhorseMasterKind(master)==='famous';if(isFamous){const fixedName=getWarhorseFixedSkillName(master);const fixedSkill=getWarhorseSkillById(fixedName)||getWarhorseSkillById(master?.fixedSkill?.name||master?.raw?.fixedSkill?.name||'');const fixedLv=getFamousHorseFixedSkillLevel(master,entry.star||0);if(fixedName&&fixedSkill&&fixedLv){addWarhorseSkillRow(skillRows,fixedSkill.name||fixedName,holder,fixedLv);contributionLog.push({holder,slot:`warhorse:${idx+1}`,skillName:fixedSkill.name||fixedName,level:fixedLv,source:`軍馬:${entry.name||entry.id}:${fixedSkill.name||fixedName}`,sourceType:'horse',adoptedBlocks:['名馬固有軍馬技能']});addWarhorseNumericEffects(effectsRaw,fixedSkill,fixedLv,`軍馬:${entry.name||entry.id}:${fixedSkill.name||fixedName}${ROMAN_LEVELS[Math.max(0,Math.min(ROMAN_LEVELS.length-1,(Number(fixedLv)||1)-1))]||fixedLv}`,ctx,excludedLog,holder);adopted.push({slot:idx+1,horse:entry.name||entry.id,skill:fixedSkill.name||fixedName,level:fixedLv,type:'famousFixed'});}const starEffects=getFamousHorseStarEffects(master,entry.star||0);(starEffects||[]).forEach(effect=>{const key=normalizeWarhorseNumericEffectKey(effect);const value=Number(effect?.value);if(!key||!Number.isFinite(value)||value===0)return;addEffect(effectsRaw,{timing:norm(effect?.timing||'normal')||'normal',key,value:Math.abs(value),unit:effect?.type==='percent'?'%':'',sign:warhorseEffectSign(effect),sourceLabel:`軍馬:${entry.name||entry.id}:将星効果`,condition:`将星${normalizeWarhorseFamousStarValue(entry.star||0)}`,rawText:formatWarhorseEffectSummary(effect),sourceItemCategory:'warhorses',sourceItemName:entry.name||entry.id});adopted.push({slot:idx+1,horse:entry.name||entry.id,skill:'将星効果',level:normalizeWarhorseFamousStarValue(entry.star||0),type:'famousStar'});});}});normalBySkill.forEach(({skill,level,holders},skillName)=>{const cap=Math.max(1,Number(skill?.maxEffectiveLevel)||10);const effectiveLevel=Math.max(1,Math.min(cap,level));addWarhorseSkillRow(skillRows,skillName,holders.join(' / '),effectiveLevel);contributionLog.push({holder:holders.join(' / '),slot:'warhorse',skillName,level:effectiveLevel,source:`軍馬:${skillName}`,sourceType:'horse',adoptedBlocks:[`通常軍馬技能Lv合算 ${level} / 上限${cap}`]});addWarhorseNumericEffects(effectsRaw,skill,effectiveLevel,`軍馬:${skillName}${ROMAN_LEVELS[Math.max(0,Math.min(ROMAN_LEVELS.length-1,(Number(effectiveLevel)||1)-1))]||effectiveLevel}`,ctx,excludedLog,holders.join(' / '));adopted.push({slot:'normal',horse:holders,skill:skillName,level:effectiveLevel,type:'normal'});});debugLog('formation:warhorse-effects',{formationId:f?.id||'',activeSlots:active,adoptedCount:adopted.length,adopted});return adopted;}
 
+function getFormationParameterDataCacheStore(){
+  if(!state._formationParameterDataCache)state._formationParameterDataCache=new Map();
+  return state._formationParameterDataCache;
+}
+function formationParameterDataSignature(f){
+  const save=typeof getCurrentSave==='function'?getCurrentSave():null;
+  const picked={
+    viewMode:state.viewMode||'',
+    saveId:save?.id||'',
+    savedSeq:state.savedSearchCacheSeq||0,
+    generals:save?.generals||[],
+    generalStars:save?.generalStars||{},
+    generalSettings:save?.generalSettings||{},
+    inheritedSkills:save?.inheritedSkills||{},
+    equipments:save?.equipments||[],
+    equipmentStars:save?.equipmentStars||{},
+    equipmentStages:save?.equipmentStages||{},
+    warhorses:save?.warhorses?.owned||{},
+    formation:{
+      id:f?.id||'',
+      slots:f?.slots||{},
+      formationName:f?.formationName||'',
+      deploymentType:f?.deploymentType||'',
+      siegeWeapon:f?.siegeWeapon||{},
+      ethnicArmament:f?.ethnicArmament||{},
+      ethnicGeneralName:f?.ethnicGeneralName||'',
+      advisorSlots:f?.advisorSlots||{},
+      warhorseSlots:f?.warhorseSlots||[]
+    },
+    dataCounts:{
+      generals:state.generals?.length||0,
+      skills:state.skills?.length||0,
+      equipments:state.equipments?.length||0,
+      formations:state.formationMasters?.length||0,
+      siegeWeapons:state.siegeWeapons?.length||0,
+      ethnicArmaments:state.ethnicArmaments?.length||0,
+      fiveElements:state.fiveElements?.length||0,
+      warhorseSkills:state.warhorseSkills?.length||0
+    }
+  };
+  try{return JSON.stringify(picked);}catch{return `${f?.id||''}:${f?.updatedAt||''}:${Date.now()}`;}
+}
+function clearFormationParameterDataCache(reason='manual'){
+  const cache=state._formationParameterDataCache;
+  if(cache&&cache.size)cache.clear();
+  state._formationParameterDataCacheClearedAt=debugTimestamp();
+  debugLog('formationParameterData:cache-clear',{reason});
+}
 function buildFormationParameterData(f){
+  const cache=getFormationParameterDataCacheStore();
+  const key=formationParameterDataSignature(f);
+  const hit=cache.get(key);
+  if(hit){
+    state._formationParameterDataCacheStats=state._formationParameterDataCacheStats||{hit:0,miss:0};
+    state._formationParameterDataCacheStats.hit++;
+    return hit.data;
+  }
+  const started=performance.now();
+  const data=buildFormationParameterDataUncached(f);
+  if(cache.size>6)cache.clear();
+  cache.set(key,{data,createdAt:Date.now()});
+  state._formationParameterDataCacheStats=state._formationParameterDataCacheStats||{hit:0,miss:0};
+  state._formationParameterDataCacheStats.miss++;
+  debugLog('formationParameterData:cache-miss',{formationId:f?.id||'',formationName:f?.name||'',cacheSize:cache.size,ms:Number((performance.now()-started).toFixed(1)),policy:'Update09 Phase2 caches parameter calculation by formation/save signature'});
+  return data;
+}
+function buildFormationParameterDataUncached(f){
   const ctx=buildFormationContext(f);
   const items=collectFormationItems(f);
   const effectsRaw=[];const specials=[];const skillRows=new Map();const savedSkillLevelSeen=new Set();

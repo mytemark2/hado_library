@@ -12,7 +12,7 @@ REQUIRED = (
     "merge_group:",
     "app-validation:",
     "name: app-validation",
-    "uses: actions/checkout@v4",
+    "uses: actions/checkout@v5",
     "node --check hado_type_candidates.js",
     "python3 tools/validate_app_js.py",
     "python3 tools/validate_update_version_consistency.py",
