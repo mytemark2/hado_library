@@ -13,7 +13,7 @@ REQUIRED = (
     "pull-requests: write",
     "github.event.pull_request.head.repo.full_name == github.repository",
     "github.event.pull_request.draft == false",
-    "uses: actions/github-script@v7",
+    "uses: actions/github-script@v8",
     "Diagnose repository auto-merge settings",
     "allow_auto_merge",
     "getBranch",
