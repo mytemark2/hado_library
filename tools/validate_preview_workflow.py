@@ -7,7 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github" / "workflows" / "notify-preview.yml"
 REQUIRED = (
-    "uses: actions/checkout@v4",
+    "uses: actions/checkout@v5",
     "branches:\n      - '**'",
     "Validate source preview assets before sync",
     "hado_styles.css is unexpectedly small",
@@ -24,6 +24,8 @@ REQUIRED = (
     "Verify preview Pages deployment workflow exists",
     "Dispatch preview Pages deployment workflow",
     "actions/workflows/jekyll-gh-pages.yml/dispatches",
+    "final preview verification step remains mandatory",
+    "Preview Pages workflow dispatch was not authorized by PREVIEW_REPO_TOKEN",
     "Verify preview reflects source commit and version assets",
     "https://mytemark2.github.io/hado_library-preview/",
     "EXPECTED_DISPLAY_VERSION",
