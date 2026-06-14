@@ -87,7 +87,7 @@ jobs:
           set -euo pipefail
           if [ -z "${PREVIEW_REPO_TOKEN}" ]; then
             echo "Repository secret PREVIEW_REPO_TOKEN is missing." >&2
-            echo "Create a fine-grained token with access to mytemark2/hado_library-preview and permissions Contents: Read and write and Actions: Read and write, then register it as PREVIEW_REPO_TOKEN in mytemark2/hado_library." >&2
+            echo "Create a fine-grained token with access to mytemark2/hado_library-preview and permission Contents: Read and write, then register it as PREVIEW_REPO_TOKEN in mytemark2/hado_library. Actions: Read and write is optional and only enables an immediate Pages workflow dispatch; final preview verification still protects the deployment result." >&2
             exit 1
           fi
 
@@ -197,14 +197,27 @@ jobs:
           PREVIEW_REPO_TOKEN: ${{ secrets.PREVIEW_REPO_TOKEN }}
         run: |
           set -euo pipefail
-          curl --fail-with-body --silent --show-error \
+          response_body="$(mktemp)"
+          http_status="$(${CURL:-curl} --silent --show-error \
             --request POST \
             --url 'https://api.github.com/repos/mytemark2/hado_library-preview/actions/workflows/jekyll-gh-pages.yml/dispatches' \
             --header 'Accept: application/vnd.github+json' \
             --header "Authorization: Bearer ${PREVIEW_REPO_TOKEN}" \
             --header 'X-GitHub-Api-Version: 2022-11-28' \
-            --data '{"ref":"main"}'
-          echo 'Preview Pages deployment workflow dispatched for main.'
+            --data '{"ref":"main"}' \
+            --output "${response_body}" \
+            --write-out '%{http_code}')"
+          if [ "${http_status}" = "204" ]; then
+            echo 'Preview Pages deployment workflow dispatched for main.'
+          elif [ "${http_status}" = "403" ]; then
+            echo 'Preview Pages workflow dispatch was not authorized by PREVIEW_REPO_TOKEN; continuing because the preview repository push should trigger its push-based Pages workflow.' >&2
+            echo 'The final preview verification step remains mandatory and will fail if the pushed preview repository contents are not published.' >&2
+            cat "${response_body}" >&2 || true
+          else
+            echo "Preview Pages workflow dispatch returned HTTP ${http_status}." >&2
+            cat "${response_body}" >&2 || true
+            exit 1
+          fi
 
       - name: Verify preview reflects source commit and version assets
         shell: bash

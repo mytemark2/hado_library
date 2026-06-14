@@ -178,3 +178,21 @@
 ### 残確認
 - GitHub Actions上で `Notify Hado Library Preview` を再実行し、警告解消と実際の失敗ステップ有無を確認する。
 - preview公開URLの `PREVIEW_SOURCE_COMMIT.txt`、`PREVIEW_SOURCE_BRANCH.txt`、`PREVIEW_DISPLAY_VERSION.txt`、`hado_version.js` が期待値に一致することを確認する。
+
+
+## Phase 3: Preview workflow dispatch 403 follow-up
+
+### 調査結果
+- `Dispatch preview Pages deployment workflow` で `Resource not accessible by personal access token` / HTTP 403 が出る場合、preview repoへの同期push自体ではなく、preview repoの Pages workflow を API dispatch する権限が `PREVIEW_REPO_TOKEN` に不足している。
+- preview repo側の `jekyll-gh-pages.yml` は push trigger も持つ前提で検証しているため、app workflowが preview repo `main` へpushした後は、dispatch権限がなくてもpush-triggered Pages公開で反映される可能性がある。
+- 重要なのはdispatch APIの成功だけではなく、最後の `Verify preview reflects source commit and version assets` で公開URLのcommit/version/CSSが期待値と一致することである。
+
+### 対応
+- `Dispatch preview Pages deployment workflow` のHTTP 403は即失敗にせず、警告を出して最終preview検証へ進むようにした。
+- HTTP 204の場合は従来通りdispatch成功として扱い、403以外の想定外HTTP statusは失敗させる。
+- `PREVIEW_REPO_TOKEN` の必須権限説明を Contents Read/Write 中心へ見直し、Actions Read/Writeは即時dispatch用の任意権限として扱う。
+- workflow契約検証に、dispatch 403時も最終preview検証が必須であることのチェックを追加した。
+
+### 残確認
+- GitHub Actions上で `Notify Hado Library Preview` を再実行し、dispatch 403が警告扱いになった後、`Verify preview reflects source commit and version assets` が成功することを確認する。
+- final verificationが失敗する場合は、preview repo側のpush trigger Pages workflowが実行されているか、または `PREVIEW_REPO_TOKEN` に Actions Read/Write を付与する必要がある。
