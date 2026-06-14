@@ -165,6 +165,7 @@
 - `python3 tools/validate_external_css.py`
 - `python3 tools/validate_type_candidate_render_performance.py`
 - `python3 tools/validate_update_version_consistency.py`
+- `python3 tools/validate_update09_phase3_formation_ui.py`
 
 
 ## Phase 2: 性能・再描画改善
@@ -207,7 +208,9 @@
 - `python3 tools/validate_external_css.py`
 - `python3 tools/validate_type_candidate_render_performance.py`
 - `python3 tools/validate_update_version_consistency.py`
+- `python3 tools/validate_update09_phase3_formation_ui.py`
 - `python3 tools/validate_formation_link_helpers.py`
+- `python3 tools/validate_update09_phase3_formation_ui.py`
 - `python3 tools/validate_preview_workflow.py`
 - `python3 tools/validate_merge_queue_workflow.py`
 - `python3 tools/validate_auto_merge_workflow.py`
@@ -233,3 +236,33 @@
 
 ### 外部化判断
 - 今回は改修メモと可視バージョン整理のみ。実装時は部隊編成の既存責務である `hado_formation.js` と表示調整の `hado_styles.css` へ統合し、HTMLへ大型ロジックを追加しない。
+
+
+## Phase 3.1: 部隊編成レイアウトと変更ダイアログ実装
+
+### 変更概要
+- 可視バージョンを `3.0.0.0 Update09.3.1` / revision 34 へ更新した。
+- 部隊編成のグループ行を、グループ選択・現在名・名前変更・グループ追加・上限表示まで含めて1行表示へ整理した。
+- グループ名変更はインライン入力を廃止し、別ダイアログで編集するようにした。
+- 編成盤面のスロット選択はPC/スマホともポップアップ編集を開くようにし、右側の常時編集カードは案内表示へ変更した。
+- 型表示は型名のみを通常表示し、表示型IDの常時表示入力欄を廃止した。
+- トータルスコア/評価スコアは入力欄を廃止し、武将・装備・侍従・参軍・兵器/武装・合算技能・状態変化・型から自動計算した読み取り専用サマリーとして表示するようにした。
+- 履歴へ保存ボタンと履歴一覧の常時表示を廃止し、保存ボタン押下時に現在の自動計算スコアを保存するようにした。
+- マイメモは1行表示にし、編集時だけ別ダイアログを開くようにした。
+
+### HTMLサイズ
+- `index.html`: 変更なし。
+- `hado_library_3.0.0.0.html`: 変更なし。
+
+### 外部化判断
+- Phase 3の画面挙動は既存責務の `hado_formation.js` へ統合した。
+- 表示調整は既存外部CSSの `hado_styles.css` へ統合した。
+- HTMLへ大型ロジックやインラインスクリプトは追加していない。
+
+### 検証
+- `node --check hado_formation.js`
+- `python3 -m json.tool HADO_DEV_INFO.json`
+- `python3 tools/validate_app_js.py`
+- `python3 tools/validate_external_css.py`
+- `python3 tools/validate_update_version_consistency.py`
+- `python3 tools/validate_update09_phase3_formation_ui.py`

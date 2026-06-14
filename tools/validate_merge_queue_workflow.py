@@ -19,6 +19,7 @@ REQUIRED = (
     "python3 tools/validate_auto_merge_workflow.py",
     "python3 tools/validate_saved_mode_index_ownership_sources.py",
     "python3 tools/validate_type_candidate_render_performance.py",
+    "python3 tools/validate_update09_phase3_formation_ui.py",
     "node tools/test_type_score.js",
     "node tools/test_saved_type_candidate_filter.js",
     "node tools/test_type_candidate_counts.js",

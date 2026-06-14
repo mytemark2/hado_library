@@ -3,11 +3,11 @@
   'use strict';
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.0.0.0',
-    updateNo: '09.3.0',
-    revision: 33,
+    updateNo: '09.3.1',
+    revision: 34,
     baseAppVersion: '2.9.6.5',
-    summary: 'Update09.3.0: record Phase 3 formation layout revision policy.',
-    updatedAt: '2026-06-13T19:30:00+09:00'
+    summary: 'Update09.3.1: implement Phase 3 formation layout dialogs and score display.',
+    updatedAt: '2026-06-14T09:30:00+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;
 })();
