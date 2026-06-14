@@ -18,6 +18,10 @@ REQUIRED_JS = (
     "formationMemoEditBtn",
     "Update09 Phase3 uses popup editing for PC and mobile",
     "state.formationSlotDialogOpen=true",
+    "getWarhorseAssignmentOptionLabel",
+    "openFormationWarhorseEditFromSlot",
+    "setFormationWarhorseSlot",
+    "renderFormationWarhorseSlotsHtml",
 )
 FORBIDDEN_JS = (
     "formationEvaluationTypeInput",

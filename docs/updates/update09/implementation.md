@@ -266,3 +266,17 @@
 - `python3 tools/validate_external_css.py`
 - `python3 tools/validate_update_version_consistency.py`
 - `python3 tools/validate_update09_phase3_formation_ui.py`
+
+
+## Phase 3.2: 部隊編成描画エラー修正
+
+### 変更概要
+- 可視バージョンを `3.0.0.0 Update09.3.2` / revision 35 へ更新した。
+- Phase 3のポップアップ編集化で参照していた `renderFormationWarhorseSlotsHtml()` が未定義だったため、部隊編成描画時にエラーになる問題を修正した。
+- 軍馬3枠の表示、選択、解除、編集導線を `hado_formation.js` に復元し、既存の保存データ軍馬情報 `getCurrentWarhorseData()` と連携するようにした。
+- 再発防止として、Phase 3 UI契約検証に軍馬スロット表示/更新/編集ヘルパーの存在確認を追加した。
+
+### 検証
+- `node --check hado_formation.js`
+- `python3 tools/validate_update09_phase3_formation_ui.py`
+- `python3 tools/validate_update_version_consistency.py`

@@ -222,3 +222,20 @@
 
 ### 残確認
 - ブラウザ実機でのPC/スマホ操作確認、GitHub Actions、preview同期確認はpush後に実施する。
+
+
+## Phase 3.2: 部隊編成描画エラー修正レポート
+
+### 不具合分類・根本原因
+- 分類: Phase 3 UI実装時の参照漏れによる描画停止。
+- 根本原因: 右側の常時編集カードを案内表示へ変更した際にも、軍馬カード側で `renderFormationWarhorseSlotsHtml()` を呼び続けていたが、このヘルパーが `hado_formation.js` に存在しなかった。
+
+### 対応
+- `renderFormationWarhorseSlotsHtml()`、`setFormationWarhorseSlot()`、`openFormationWarhorseEditFromSlot()`、`getWarhorseAssignmentOptionLabel()` を追加し、軍馬3枠の表示・選択・解除・編集導線を復元した。
+- Phase 3 UI契約検証へ軍馬関連ヘルパーの存在確認を追加した。
+- 可視バージョンを `3.0.0.0 Update09.3.2` へ更新した。
+
+### 受け入れ確認
+1. 部隊編成画面を開いて、描画エラーが発生しないこと。
+2. 編成タブ内に軍馬3枠が表示されること。
+3. 登録済み軍馬を選択/解除でき、編集ボタンから軍馬編成へ移動できること。
