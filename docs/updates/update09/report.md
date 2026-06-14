@@ -137,3 +137,28 @@
 ## Remaining issues
 - ブラウザ実機でのPC/スマホ体感確認、GitHub Actions、preview同期確認は未実施。
 - Phase 3以降の部隊編成レイアウト/ポップアップ化、ガイド整理、導線統合は未着手。
+
+
+## Phase 3: 部隊編成レイアウト改修メモ
+
+### 変更概要
+- Phase 3着手に向け、可視表示を `Update09.x.y` 形式で管理する方針を追加した。Phase 3初回は `3.0.0.0 Update09.3.0` とする。
+- グループ表示、型選択、スコア表示、保存/履歴、マイメモ編集のPhase 3改修メモを追加した。
+- 実装前の設計整理のため、HTMLサイズ変更はない。
+
+### ユーザー受け入れ確認項目
+1. Phase 3実装後、画面上部の表示が `3.0.0.0 Update09.3.0` 以降になっていることを確認する。
+2. 部隊編成のグループ行が、ボタンを含めて1行で表示され、名前変更は別ダイアログで行えることを確認する。
+3. 型選択が重複表示されず、表示型IDが通常UIに出ていないことを確認する。
+4. トータルスコアと評価スコアが入力ダイアログではなく、自動計算の読み取り専用表示としてまとまっていることを確認する。
+5. 履歴へ保存ボタンがなく、保存ボタンで保存できること、マイメモは1行表示で編集時のみ別ダイアログになることを確認する。
+
+### 検証
+- `python3 -m json.tool HADO_DEV_INFO.json`: PASS。
+- `python3 tools/validate_update_version_consistency.py`: PASS。
+- `python3 tools/validate_app_js.py`: PASS。
+- `python3 tools/validate_external_css.py`: PASS。
+
+### 未解決事項
+- Phase 3の画面実装とPC/スマホ実操作確認は次作業。
+- GitHub Actionsとpreview同期確認はpush後に実施が必要。
