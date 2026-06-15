@@ -323,3 +323,19 @@
 
 ### 外部化判断
 - アプリ本体のHTML/JS/CSSは変更していない。preview通知workflowと検証スクリプトのみの診断強化である。
+
+## Phase 3.3 preview workflow簡素化
+
+### 変更概要
+- `Notify Hado Library Preview` から、アプリ検証と重複するsource preview asset事前検証を削除した。
+- preview repo同期後のHTML/CSSサイズ/断片検証を削除した。
+- preview Pages workflow定義をGitHub APIで事前確認するステップを削除した。
+- 公開preview検証は、source commit、source branch、`hado_version.js` の表示バージョン一致へ絞った。
+- `tools/validate_preview_workflow.py` を簡素化後のpreview workflow契約に合わせた。
+
+### HTMLサイズ
+- `index.html`: 変更なし。
+- `hado_library_3.0.0.0.html`: 変更なし。
+
+### 外部化判断
+- アプリ本体のHTML/JS/CSSは変更していない。preview通知workflowと検証スクリプトのみの責務整理である。

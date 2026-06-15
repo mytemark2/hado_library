@@ -283,3 +283,22 @@
 1. 失敗したActions runの `GITHUB_SHA` とブランチを確認し、そのコミットに `hado_library_3.0.0.0.html` が含まれているか確認する。
 2. 含まれていない場合は、`index.html` と同一内容の `hado_library_3.0.0.0.html` をソースブランチへ含めてpushする。
 3. 含まれているのに失敗する場合は、今回強化したログの `Root files visible to workflow` を確認し、checkout対象SHA/ブランチ、またはワークフロー実行対象が想定ブランチと一致しているかを確認する。
+
+## Phase 3.3 preview workflow簡素化レポート
+
+### 不具合分類・根本原因
+- 分類: preview通知workflowに、アプリ検証と重複する事前/同期後アセット検証を入れすぎたことによる不要な失敗。
+- 根本原因: `Notify Hado Library Preview` は本来、pushされたソースをpreview repoへ同期し、公開previewが対象commit/versionへ更新されたか確認する責務で十分だった。しかし、`hado_library_3.0.0.0.html` の存在、CSSサイズ、CSS必須断片、preview Pages workflow定義のAPI読取など、`App Validation` やpreview repo側の責務と重複するチェックを追加していたため、UI改修とは無関係な条件で即失敗する状態になっていた。
+- ログZIPはこの環境から直接取得できなかったが、提示された失敗ログと現行workflowを照合し、失敗点がsource asset検証であることを確認した。
+
+### 対応
+- `notify-preview.yml` から `Validate source preview assets before sync` を削除した。
+- `notify-preview.yml` から `Verify preview Pages deployment workflow exists` を削除した。
+- preview repoへのrsync後に行っていたHTML/CSSサイズ/断片検証を削除した。
+- 公開preview確認は、`PREVIEW_SOURCE_COMMIT.txt`、`PREVIEW_SOURCE_BRANCH.txt`、`hado_version.js` によるcommit/branch/version一致確認に絞った。
+- `tools/validate_preview_workflow.py` も、簡素化後の責務に合わせて更新した。
+
+### 今後の切り分け
+- アプリ本体のHTML/CSS/JS整合性は `App Validation` で確認する。
+- preview通知workflowは、同期・push・必要ならdispatch・公開commit/version一致確認だけを行う。
+- preview workflowが失敗した場合は、token/clone/push/dispatch/公開反映のどこで止まったかを見る。アプリ内部の静的検証失敗と混同しない。
