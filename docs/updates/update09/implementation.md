@@ -280,3 +280,32 @@
 - `node --check hado_formation.js`
 - `python3 tools/validate_update09_phase3_formation_ui.py`
 - `python3 tools/validate_update_version_consistency.py`
+
+
+## Phase 3.3: スコアパネル・グループ管理・型候補説明・軍馬表示の追加整理
+
+### 変更概要
+- 可視バージョンを `3.0.0.0 Update09.3.3` / revision 36 へ更新した。
+- `編集はポップアップで行います` パネルを廃止し、その位置へ `トータルスコア` パネルを移動した。
+- 部隊編成スコアは各武将枠ごとのスコア合算として再計算し、トータルスコア/評価スコアの下に主将・副将・補佐別の内訳を表示するようにした。
+- グループ行は `グループ`、`グループリスト`、`変更` の3表示に整理し、変更ダイアログから新規作成・名前変更・削除を行う構成へ変更した。
+- 型候補一覧の説明から可視バージョン、補足説明、候補クリック説明を削除し、選択中の型・目的・全データ表示/保存データ表示を1行で表示するようにした。
+- 軍馬選択の `編集` ボタンを廃止し、軍馬3枠を横並びグリッドで表示するようにした。
+
+### HTMLサイズ
+- `index.html`: 変更なし。
+- `hado_library_3.0.0.0.html`: 変更なし。
+
+### 外部化判断
+- 挙動変更は既存責務の `hado_formation.js` と `hado_type_candidates.js` へ統合した。
+- 表示調整は既存外部CSSの `hado_styles.css` へ統合した。
+- HTMLへ大型ロジックやインラインスクリプトは追加していない。
+
+### 検証
+- `node --check hado_formation.js`
+- `node --check hado_type_candidates.js`
+- `python3 -m json.tool HADO_DEV_INFO.json`
+- `python3 tools/validate_app_js.py`
+- `python3 tools/validate_external_css.py`
+- `python3 tools/validate_update_version_consistency.py`
+- `python3 tools/validate_update09_phase3_formation_ui.py`
