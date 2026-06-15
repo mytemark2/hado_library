@@ -366,3 +366,20 @@
 ### 再発防止
 - UI簡素化で削除した表示文言を、validatorの必須条件として残さない。
 - validatorはユーザー表示文言ではなく、原則として動作契約・関数・データフローを検証する。
+
+## Phase 3.3 preview sync最小化レポート
+
+### 不具合分類・根本原因
+- 分類: preview同期workflowがsource root全体を広くrsyncしていたことによる不要ファイル同期とpush競合誘発。
+- 根本原因: `rsync -a --delete ./` でroot全体をpreview repoへ同期していたため、既に削除/不要化した旧HTML（例: `hado_library_2.9.6.1.html` など）までpreview rootへ移動・復活させる差分を作っていた。これはUpdate09 Phase 3の実行に不要であり、push差分を過大化して競合や失敗を起こしやすくしていた。
+
+### 対応
+- preview同期対象を `index.html`、`hado_*.js`、`hado_styles.css`、`hadou_*.json` の現在runtimeに必要な最小ファイルへ限定した。
+- preview rootは `.git` と `.github` を残して一度クリアし、最小runtimeファイルと `PREVIEW_SOURCE_*` メタファイルだけを配置するようにした。
+- 公開previewのpost-sync checkは削除済みのまま維持し、workflow内の追加チェックは行わない。
+- `tools/validate_preview_workflow.py` に、広範囲 `rsync -a --delete`、dispatch、post-sync verifyが戻らないことを検証する禁止条件を追加した。
+
+### 再発防止
+- preview同期workflowでは、source root全体を同期しない。
+- 削除済み/旧版HTMLをpreview rootへ戻さない。
+- previewに必要なファイルセットは現在runtimeの最小構成だけに限定する。

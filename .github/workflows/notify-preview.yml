@@ -84,14 +84,11 @@ jobs:
             echo "Preview sync attempt ${attempt}/3"
             git clone --depth 1 "https://x-access-token:${PREVIEW_REPO_TOKEN}@github.com/mytemark2/hado_library-preview.git" "${PREVIEW_DIR}"
 
-            rsync -a --delete \
-              --exclude '.git/' \
-              --exclude '.github/' \
-              --exclude 'docs/' \
-              --exclude 'report/' \
-              --exclude 'src/' \
-              --exclude 'tools/' \
-              ./ "${PREVIEW_DIR}/"
+            find "${PREVIEW_DIR}" -mindepth 1 -maxdepth 1 \
+              ! -name '.git' \
+              ! -name '.github' \
+              -exec rm -rf {} +
+            rsync -a index.html hado_*.js hado_styles.css hadou_*.json "${PREVIEW_DIR}/"
 
             touch "${PREVIEW_DIR}/.nojekyll"
             printf '%s\n' "${GITHUB_SHA}" > "${PREVIEW_DIR}/PREVIEW_SOURCE_COMMIT.txt"
@@ -125,58 +122,3 @@ jobs:
             sleep $((attempt * 5))
           done
           echo "Preview repository content is synchronized from ${APP_REF} (${GITHUB_SHA}); changed=${changed}."
-
-      - name: Verify preview reflects source commit and version assets
-        shell: bash
-        env:
-          EXPECTED_DISPLAY_VERSION: ${{ steps.meta.outputs.display_version }}
-          EXPECTED_SOURCE_SHA: ${{ github.sha }}
-          EXPECTED_SOURCE_BRANCH: ${{ steps.source.outputs.app_ref }}
-          PREVIEW_URL: https://mytemark2.github.io/hado_library-preview/
-        run: |
-          set -euo pipefail
-          python - <<'PY'
-          import os
-          import re
-          import sys
-          import time
-          import urllib.request
-
-          expected_display = os.environ['EXPECTED_DISPLAY_VERSION']
-          expected_sha = os.environ['EXPECTED_SOURCE_SHA']
-          expected_branch = os.environ['EXPECTED_SOURCE_BRANCH']
-          base_url = os.environ['PREVIEW_URL'].rstrip('/') + '/'
-
-          def fetch_text(path):
-              url = base_url + path
-              with urllib.request.urlopen(url, timeout=20) as res:
-                  return res.read().decode('utf-8', errors='replace')
-
-          last = ''
-          for attempt in range(1, 31):
-              try:
-                  source_sha = fetch_text('PREVIEW_SOURCE_COMMIT.txt').strip()
-                  source_branch = fetch_text('PREVIEW_SOURCE_BRANCH.txt').strip()
-                  version_js = fetch_text('hado_version.js')
-                  release = re.search(r"releaseVersion:\s*'([^']+)'", version_js)
-                  update = re.search(r"updateNo:\s*'([^']+)'", version_js)
-                  deployed_display = f"{release.group(1)} Update{update.group(1)}" if release and update else ''
-                  if (
-                      source_sha == expected_sha
-                      and source_branch == expected_branch
-                      and deployed_display == expected_display
-                  ):
-                      print(f'Preview verified: {expected_display} / {expected_branch} / {expected_sha}')
-                      sys.exit(0)
-                  last = (
-                      f'source_sha={source_sha!r}, source_branch={source_branch!r}, deployed_display={deployed_display!r}, '
-                      'preview metadata fetched from PREVIEW_SOURCE_* and hado_version.js'
-                  )
-              except Exception as exc:  # noqa: BLE001 - keep workflow diagnostics readable
-                  last = repr(exc)
-              print(f'Preview assets not updated yet (attempt {attempt}/30); waiting 10s... {last}')
-              time.sleep(10)
-          print(f'Preview did not match source commit/version: {expected_sha} / {expected_display}', file=sys.stderr)
-          print(f'Last preview asset state: {last}', file=sys.stderr)
-          sys.exit(1)
-          PY

@@ -396,3 +396,18 @@
 
 ### 外部化判断
 - アプリ本体のHTML/JS/CSSは変更していない。validatorの旧UI文言依存を削除したのみである。
+
+## Phase 3.3 preview sync最小化
+
+### 変更概要
+- `Notify Hado Library Preview` の同期対象を `index.html`、`hado_*.js`、`hado_styles.css`、`hadou_*.json` に限定した。
+- `rsync -a --delete ./` を廃止し、preview root全体同期をやめた。
+- preview rootの `.git` / `.github` 以外を削除してから、現在runtimeに必要な最小ファイルと `PREVIEW_SOURCE_*` だけを配置するようにした。
+- `tools/validate_preview_workflow.py` に、広範囲rsync・dispatch・post-sync verifyが戻らないことを検証する禁止条件を追加した。
+
+### HTMLサイズ
+- `index.html`: 変更なし。
+- `hado_library_3.0.0.0.html`: 変更なし。
+
+### 外部化判断
+- アプリ本体のHTML/JS/CSSは変更していない。preview同期workflowと検証スクリプトのみの最小化である。

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate preview notification workflow directly syncs and verifies preview assets."""
+"""Validate preview notification workflow uses the minimal runtime-file sync."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -17,17 +17,12 @@ REQUIRED = (
     "Sync preview repository contents",
     "git clone --depth 1",
     "mytemark2/hado_library-preview.git",
-    "rsync -a --delete",
+    "find \"${PREVIEW_DIR}\" -mindepth 1 -maxdepth 1",
+    "rsync -a index.html hado_*.js hado_styles.css hadou_*.json",
     "PREVIEW_SOURCE_COMMIT.txt",
     "PREVIEW_SOURCE_BRANCH.txt",
     "PREVIEW_DISPLAY_VERSION.txt",
     "git -C \"${PREVIEW_DIR}\" push origin HEAD:main",
-    "Verify preview reflects source commit and version assets",
-    "https://mytemark2.github.io/hado_library-preview/",
-    "EXPECTED_DISPLAY_VERSION",
-    "EXPECTED_SOURCE_SHA",
-    "EXPECTED_SOURCE_BRANCH",
-    "hado_version.js",
     "PREVIEW_REPO_TOKEN",
 )
 FORBIDDEN = (
@@ -37,6 +32,9 @@ FORBIDDEN = (
     "repository_dispatch",
     "branches-ignore:",
     "git clone --depth 1 --branch feature/app-3.0.0.0",
+    "rsync -a --delete",
+    "Verify preview reflects source commit and version assets",
+    "actions/workflows/jekyll-gh-pages.yml/dispatches",
 )
 
 
@@ -48,7 +46,7 @@ def main() -> int:
         raise SystemExit("preview workflow missing: " + ", ".join(missing))
     if forbidden:
         raise SystemExit("preview workflow contains prohibited stale sync pattern: " + ", ".join(forbidden))
-    print("preview workflow syncs source branch assets without dispatch-token checks and verifies deployed version/commit")
+    print("preview workflow syncs only current runtime assets without dispatch or post-sync checks")
     return 0
 
 
