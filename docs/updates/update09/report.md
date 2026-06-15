@@ -352,3 +352,17 @@
 ### 再発防止
 - 通常開発workflowでは、配布パッケージ用HTMLを必須にしない。配布物チェックは配布作成時だけ実施する。
 - preview通知workflowでは、preview repoへのpush-triggered deploymentを正とし、通常同期に追加のActions権限/API dispatchを要求しない。
+
+## Phase 3.3 saved候補validator文言依存修正レポート
+
+### 不具合分類・根本原因
+- 分類: UI文言削除後にvalidatorだけが旧説明文を要求し続けたことによるApp Validation失敗。
+- 根本原因: 型候補一覧から補足説明を削除するPhase 3要件に従って `適合する候補だけを選択可能として表示` というユーザー向け文言は削除済みだった。しかし `tools/validate_saved_type_candidates_zero_score_visible.py` がその文言の存在を必須にしていたため、実装挙動は正しいままvalidatorが失敗した。
+
+### 対応
+- `tools/validate_saved_type_candidates_zero_score_visible.py` から旧UI文言の必須チェックを削除した。
+- validatorは `candidateVisibleByScore()` と `owned.filter(...).filter(candidateVisibleByScore)` 相当の実装挙動だけを検証するようにした。
+
+### 再発防止
+- UI簡素化で削除した表示文言を、validatorの必須条件として残さない。
+- validatorはユーザー表示文言ではなく、原則として動作契約・関数・データフローを検証する。

@@ -383,3 +383,16 @@
 
 ### 外部化判断
 - アプリ本体のHTML/JS/CSSは変更していない。workflowと検証スクリプトの責務整理である。
+
+## Phase 3.3 saved候補validator文言依存修正
+
+### 変更概要
+- `tools/validate_saved_type_candidates_zero_score_visible.py` から、削除済みUI文言 `適合する候補だけを選択可能として表示` の必須チェックを削除した。
+- saved-mode候補の0点除外は、表示文言ではなく `candidateVisibleByScore()` と `owned.filter(candidateVisibleByScore)` の挙動で検証するようにした。
+
+### HTMLサイズ
+- `index.html`: 変更なし。
+- `hado_library_3.0.0.0.html`: 変更なし。
+
+### 外部化判断
+- アプリ本体のHTML/JS/CSSは変更していない。validatorの旧UI文言依存を削除したのみである。
