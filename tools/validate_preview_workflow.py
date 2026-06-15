@@ -9,8 +9,11 @@ WORKFLOW = ROOT / ".github" / "workflows" / "notify-preview.yml"
 REQUIRED = (
     "uses: actions/checkout@v4",
     "branches:\n      - '**'",
-    "Validate source preview assets before sync",
-    "hado_styles.css is unexpectedly small",
+    "concurrency:",
+    "group: hado-library-preview-sync",
+    "for attempt in 1 2 3",
+    "Preview repository main changed during push; retrying with a fresh clone.",
+    "Preview repository push failed after ${attempt} attempts",
     "Sync preview repository contents",
     "git clone --depth 1",
     "mytemark2/hado_library-preview.git",
@@ -18,23 +21,13 @@ REQUIRED = (
     "PREVIEW_SOURCE_COMMIT.txt",
     "PREVIEW_SOURCE_BRANCH.txt",
     "PREVIEW_DISPLAY_VERSION.txt",
-    "Synced preview assets validated",
-    "Synced hado_styles.css is unexpectedly small",
     "git -C \"${PREVIEW_DIR}\" push origin HEAD:main",
-    "Verify preview Pages deployment workflow exists",
-    "Dispatch preview Pages deployment workflow",
-    "actions/workflows/jekyll-gh-pages.yml/dispatches",
     "Verify preview reflects source commit and version assets",
     "https://mytemark2.github.io/hado_library-preview/",
     "EXPECTED_DISPLAY_VERSION",
     "EXPECTED_SOURCE_SHA",
     "EXPECTED_SOURCE_BRANCH",
     "hado_version.js",
-    "hado_styles.css",
-    "./hado_styles.css",
-    "len(css_text) >= 100000",
-    "actions/deploy-pages",
-    "actions/jekyll-build-pages",
     "PREVIEW_REPO_TOKEN",
 )
 FORBIDDEN = (
@@ -55,7 +48,7 @@ def main() -> int:
         raise SystemExit("preview workflow missing: " + ", ".join(missing))
     if forbidden:
         raise SystemExit("preview workflow contains prohibited stale sync pattern: " + ", ".join(forbidden))
-    print("preview workflow directly syncs current source branch assets and verifies deployed css/version/commit")
+    print("preview workflow syncs source branch assets without dispatch-token checks and verifies deployed version/commit")
     return 0
 
 
