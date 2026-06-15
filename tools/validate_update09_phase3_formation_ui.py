@@ -13,6 +13,11 @@ REQUIRED_JS = (
     "formationEvaluationTypeDisplayName",
     "calculateFormationGeneralScoreRows",
     "calculateFormationAutoScores",
+    "ensureFormationTypeScoreRulesLoaded",
+    "getFormationTypeScoreRule",
+    "formationTypeScoreEntity",
+    "scorePolicy:'type-matched-item-count'",
+    "<strong>${esc(scores.totalScore)}件</strong>",
     "renderFormationScoreSummaryHtml",
     "formation-score-card",
     "renderFormationGroupNameDialogHtml",
@@ -32,6 +37,8 @@ REQUIRED_JS = (
 FORBIDDEN_JS = (
     "formationEvaluationTypeInput",
     "formationTotalScoreInput",
+    "<strong>${esc(scores.totalScore)}点</strong>",
+    "評価:${esc(scores.evaluationScore)}点",
     "formationEvaluationScoreInput",
     "formationEvaluationSaveBtn",
     "履歴へ保存",
@@ -42,6 +49,7 @@ FORBIDDEN_JS = (
 REQUIRED_TYPE_CANDIDATES = (
     "typeCandidateViewModeLabel",
     "全データ表示",
+    "window.HADO_TYPE_SCORE_RULES=st.data.types",
     "保存データ表示",
     "選択中の型: ${esc(type()?.typeName||'未選択')} / 目的: ${esc(purpose()?.purposeName||'指定なし')} / ${esc(typeCandidateViewModeLabel())}",
 )
