@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: JavaScript syntax checks
         shell: bash
@@ -51,6 +51,7 @@ jobs:
           python3 tools/validate_saved_type_candidates_zero_score_visible.py
           python3 tools/validate_type_candidate_render_performance.py
           python3 tools/validate_formation_link_helpers.py
+          python3 tools/validate_update09_phase3_formation_ui.py
 
       - name: Functional regression checks
         shell: bash
