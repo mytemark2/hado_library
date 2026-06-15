@@ -339,3 +339,18 @@
 
 ### 外部化判断
 - アプリ本体のHTML/JS/CSSは変更していない。preview通知workflowと検証スクリプトのみの責務整理である。
+
+## Phase 3.3 workflow action version rollback
+
+### 変更概要
+- `actions/checkout@v5` を `actions/checkout@v4` へ戻した。
+- `actions/github-script@v8` を `actions/github-script@v7` へ戻した。
+- preview、merge queue、auto-merge workflow validatorの期待値も安定版へ戻した。
+- Node.js 20 deprecationは現時点では警告として扱い、runner互換性未確認のmajor upgradeをpreview/UI改修PRに混ぜないよう整理した。
+
+### HTMLサイズ
+- `index.html`: 変更なし。
+- `hado_library_3.0.0.0.html`: 変更なし。
+
+### 外部化判断
+- アプリ本体のHTML/JS/CSSは変更していない。GitHub Actions workflowと検証スクリプトのみの互換性修正である。

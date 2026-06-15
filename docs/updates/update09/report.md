@@ -302,3 +302,20 @@
 - アプリ本体のHTML/CSS/JS整合性は `App Validation` で確認する。
 - preview通知workflowは、同期・push・必要ならdispatch・公開commit/version一致確認だけを行う。
 - preview workflowが失敗した場合は、token/clone/push/dispatch/公開反映のどこで止まったかを見る。アプリ内部の静的検証失敗と混同しない。
+
+## Phase 3.3 workflow action version rollback report
+
+### 不具合分類・根本原因
+- 分類: GitHub Actions共通部品の過剰アップグレードによる複数workflow失敗。
+- 根本原因: `Node.js 20 actions are deprecated` は警告であり、直ちに失敗原因ではなかったにもかかわらず、`actions/checkout@v5` と `actions/github-script@v8` へ先行更新した。これらはrunner互換条件が上がるため、リポジトリ側の実行環境で4つのworkflowが同時に失敗するリスクを作った。
+- 類似原因: App Validation、Notify Preview、Auto-merge、各validatorで同じaction version前提を共有していたため、1つの誤ったversion判断が複数workflowへ波及した。
+
+### 対応
+- `actions/checkout` を `@v4` へ戻した。
+- `actions/github-script` を `@v7` へ戻した。
+- `tools/validate_preview_workflow.py`、`tools/validate_merge_queue_workflow.py`、`tools/validate_auto_merge_workflow.py` の期待値も安定版に戻した。
+- Node 20 deprecation warningは「警告」として扱い、workflowを壊す先行アップグレードを行わない方針へ戻した。
+
+### 再発防止
+- GitHub Actionsの共通action major versionを上げる場合は、警告だけで判断せず、対象runner互換性と実際の成功runを確認してから変更する。
+- 複数workflowへ横断適用する変更は、App Validation、Notify Preview、Auto-merge、merge queue validatorの全てで同一version前提になっていないか確認する。
