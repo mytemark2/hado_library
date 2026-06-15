@@ -354,3 +354,32 @@
 
 ### 外部化判断
 - アプリ本体のHTML/JS/CSSは変更していない。GitHub Actions workflowと検証スクリプトのみの互換性修正である。
+
+## Phase 3.3 preview push競合対策
+
+### 変更概要
+- `Notify Hado Library Preview` に `concurrency: group: hado-library-preview-sync` を追加し、preview同期runを直列化した。
+- preview repoへのpushがremote更新競合で拒否された場合に備え、fresh cloneから最大3回retryする処理を追加した。
+- `tools/validate_preview_workflow.py` にconcurrency/retry契約の検証を追加した。
+
+### HTMLサイズ
+- `index.html`: 変更なし。
+- `hado_library_3.0.0.0.html`: 変更なし。
+
+### 外部化判断
+- アプリ本体のHTML/JS/CSSは変更していない。preview通知workflowと検証スクリプトのみの競合対策である。
+
+## Phase 3.3 dispatch権限/配布HTML必須チェック削除
+
+### 変更概要
+- `Notify Hado Library Preview` から `workflow_dispatch` API呼び出しステップを削除し、preview repo pushによるデプロイ起動に一本化した。
+- `PREVIEW_REPO_TOKEN` の案内を Contents: Read and write のみに整理し、Actions: write を不要にした。
+- `tools/validate_app_js.py`、`tools/validate_external_css.py`、`tools/validate_update_version_consistency.py` から通常開発時の `hado_library_3.0.0.0.html` 必須チェックを削除した。
+- `tools/validate_preview_workflow.py` からdispatch API前提の検証を削除した。
+
+### HTMLサイズ
+- `index.html`: 変更なし。
+- `hado_library_3.0.0.0.html`: 変更なし。
+
+### 外部化判断
+- アプリ本体のHTML/JS/CSSは変更していない。workflowと検証スクリプトの責務整理である。

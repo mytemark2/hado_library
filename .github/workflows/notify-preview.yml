@@ -8,6 +8,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: hado-library-preview-sync
+  cancel-in-progress: false
+
 jobs:
   notify-preview:
     if: ${{ github.event.deleted == false }}
@@ -61,7 +65,7 @@ jobs:
           set -euo pipefail
           if [ -z "${PREVIEW_REPO_TOKEN}" ]; then
             echo "Repository secret PREVIEW_REPO_TOKEN is missing." >&2
-            echo "Create a fine-grained token with access to mytemark2/hado_library-preview and permission Contents: Read and write, then register it as PREVIEW_REPO_TOKEN in mytemark2/hado_library. Actions: Read and write is optional and only enables an immediate Pages workflow dispatch; final preview verification still protects the deployment result." >&2
+            echo "Create a fine-grained token with access to mytemark2/hado_library-preview and permission Contents: Read and write, then register it as PREVIEW_REPO_TOKEN in mytemark2/hado_library. The preview repository push triggers deployment; Actions: Read and write is not required." >&2
             exit 1
           fi
 
@@ -74,65 +78,53 @@ jobs:
           DISPLAY_VERSION: ${{ steps.meta.outputs.display_version }}
         run: |
           set -euo pipefail
-          PREVIEW_DIR="$(mktemp -d)"
-          trap 'rm -rf "${PREVIEW_DIR}"' EXIT
+          changed=false
+          for attempt in 1 2 3; do
+            PREVIEW_DIR="$(mktemp -d)"
+            echo "Preview sync attempt ${attempt}/3"
+            git clone --depth 1 "https://x-access-token:${PREVIEW_REPO_TOKEN}@github.com/mytemark2/hado_library-preview.git" "${PREVIEW_DIR}"
 
-          git clone --depth 1 "https://x-access-token:${PREVIEW_REPO_TOKEN}@github.com/mytemark2/hado_library-preview.git" "${PREVIEW_DIR}"
+            rsync -a --delete \
+              --exclude '.git/' \
+              --exclude '.github/' \
+              --exclude 'docs/' \
+              --exclude 'report/' \
+              --exclude 'src/' \
+              --exclude 'tools/' \
+              ./ "${PREVIEW_DIR}/"
 
-          rsync -a --delete \
-            --exclude '.git/' \
-            --exclude '.github/' \
-            --exclude 'docs/' \
-            --exclude 'report/' \
-            --exclude 'src/' \
-            --exclude 'tools/' \
-            ./ "${PREVIEW_DIR}/"
+            touch "${PREVIEW_DIR}/.nojekyll"
+            printf '%s\n' "${GITHUB_SHA}" > "${PREVIEW_DIR}/PREVIEW_SOURCE_COMMIT.txt"
+            printf '%s\n' "${APP_REF}" > "${PREVIEW_DIR}/PREVIEW_SOURCE_BRANCH.txt"
+            printf '%s\n' "${DISPLAY_VERSION}" > "${PREVIEW_DIR}/PREVIEW_DISPLAY_VERSION.txt"
 
-          touch "${PREVIEW_DIR}/.nojekyll"
-          printf '%s\n' "${GITHUB_SHA}" > "${PREVIEW_DIR}/PREVIEW_SOURCE_COMMIT.txt"
-          printf '%s\n' "${APP_REF}" > "${PREVIEW_DIR}/PREVIEW_SOURCE_BRANCH.txt"
-          printf '%s\n' "${DISPLAY_VERSION}" > "${PREVIEW_DIR}/PREVIEW_DISPLAY_VERSION.txt"
+            git -C "${PREVIEW_DIR}" config user.name "github-actions[bot]"
+            git -C "${PREVIEW_DIR}" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git -C "${PREVIEW_DIR}" add -A
+            if git -C "${PREVIEW_DIR}" diff --cached --quiet; then
+              echo "No preview repository changes."
+              rm -rf "${PREVIEW_DIR}"
+              echo "changed=false" >> "${GITHUB_OUTPUT}"
+              break
+            fi
 
-          git -C "${PREVIEW_DIR}" config user.name "github-actions[bot]"
-          git -C "${PREVIEW_DIR}" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git -C "${PREVIEW_DIR}" add -A
-          if git -C "${PREVIEW_DIR}" diff --cached --quiet; then
-            echo "No preview repository changes."
-            echo "changed=false" >> "${GITHUB_OUTPUT}"
-          else
             git -C "${PREVIEW_DIR}" commit -m "sync preview from ${APP_REF}: ${GITHUB_SHA}"
-            git -C "${PREVIEW_DIR}" push origin HEAD:main
-            echo "changed=true" >> "${GITHUB_OUTPUT}"
-          fi
-          echo "Preview repository content is synchronized from ${APP_REF} (${GITHUB_SHA})."
+            if git -C "${PREVIEW_DIR}" push origin HEAD:main; then
+              changed=true
+              rm -rf "${PREVIEW_DIR}"
+              echo "changed=true" >> "${GITHUB_OUTPUT}"
+              break
+            fi
 
-      - name: Dispatch preview Pages deployment workflow
-        shell: bash
-        env:
-          PREVIEW_REPO_TOKEN: ${{ secrets.PREVIEW_REPO_TOKEN }}
-        run: |
-          set -euo pipefail
-          response_body="$(mktemp)"
-          http_status="$(${CURL:-curl} --silent --show-error \
-            --request POST \
-            --url 'https://api.github.com/repos/mytemark2/hado_library-preview/actions/workflows/jekyll-gh-pages.yml/dispatches' \
-            --header 'Accept: application/vnd.github+json' \
-            --header "Authorization: Bearer ${PREVIEW_REPO_TOKEN}" \
-            --header 'X-GitHub-Api-Version: 2022-11-28' \
-            --data '{"ref":"main"}' \
-            --output "${response_body}" \
-            --write-out '%{http_code}')"
-          if [ "${http_status}" = "204" ]; then
-            echo 'Preview Pages deployment workflow dispatched for main.'
-          elif [ "${http_status}" = "403" ]; then
-            echo 'Preview Pages workflow dispatch was not authorized by PREVIEW_REPO_TOKEN; continuing because the preview repository push should trigger its push-based Pages workflow.' >&2
-            echo 'The final preview verification step remains mandatory and will fail if the pushed preview repository contents are not published.' >&2
-            cat "${response_body}" >&2 || true
-          else
-            echo "Preview Pages workflow dispatch returned HTTP ${http_status}." >&2
-            cat "${response_body}" >&2 || true
-            exit 1
-          fi
+            rm -rf "${PREVIEW_DIR}"
+            if [ "${attempt}" = "3" ]; then
+              echo "Preview repository push failed after ${attempt} attempts; another run may be updating main continuously." >&2
+              exit 1
+            fi
+            echo "Preview repository main changed during push; retrying with a fresh clone." >&2
+            sleep $((attempt * 5))
+          done
+          echo "Preview repository content is synchronized from ${APP_REF} (${GITHUB_SHA}); changed=${changed}."
 
       - name: Verify preview reflects source commit and version assets
         shell: bash

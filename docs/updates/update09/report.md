@@ -319,3 +319,36 @@
 ### 再発防止
 - GitHub Actionsの共通action major versionを上げる場合は、警告だけで判断せず、対象runner互換性と実際の成功runを確認してから変更する。
 - 複数workflowへ横断適用する変更は、App Validation、Notify Preview、Auto-merge、merge queue validatorの全てで同一version前提になっていないか確認する。
+
+## Phase 3.3 preview push競合修正レポート
+
+### 不具合分類・根本原因
+- 分類: preview repository `main` への並列push競合。
+- 根本原因: `Notify Hado Library Preview` はpreview repoをcloneしてcommitを作成した後に `main` へpushしていたが、同時または近接して別のpreview同期runが `main` を更新すると、手元cloneの期待old SHAとremote current SHAがずれ、GitHubから `cannot lock ref 'refs/heads/main': is at ... but expected ...` として拒否される。これはアプリ改修内容ではなく、preview同期workflowの競合制御不足である。
+
+### 対応
+- `Notify Hado Library Preview` に `concurrency` を追加し、同一リポジトリ内のpreview同期runを直列化した。
+- preview repo pushがremote更新競合で失敗した場合に、最大3回までfresh cloneからrsync/commit/pushをやり直すretryを追加した。
+- 3回連続で競合する場合のみ、継続的に別runがpreview mainを更新している異常状態として失敗させる。
+- `tools/validate_preview_workflow.py` にconcurrencyとretry文言の存在確認を追加し、同じ競合対策が消えないようにした。
+
+### 再発防止
+- preview repoのような共有ブランチへworkflowからpushする場合は、必ずworkflow-level concurrencyかpush retryのいずれか、または両方を入れる。
+- `cannot lock ref ... is at ... but expected ...` はコンテンツ検証エラーではなく、remote branch更新競合として扱う。
+
+## Phase 3.3 dispatch権限/配布HTML必須チェック削除レポート
+
+### 不具合分類・根本原因
+- 分類: preview通知workflowとApp Validationに残っていた不要な権限/API呼び出し・重複ファイル必須チェック。
+- 根本原因: preview repoへのpushでPages deploymentが起動する構成にもかかわらず、`workflow_dispatch` APIを呼び続けていたため、`PREVIEW_REPO_TOKEN` に Actions: write がない環境で403になった。また、通常開発のApp Validationで `hado_library_3.0.0.0.html` を必須にしていたため、root正本である `index.html` が存在していても配布用HTMLがないブランチで失敗した。
+
+### 対応
+- `Notify Hado Library Preview` から `Dispatch preview Pages deployment workflow` ステップを削除した。
+- `PREVIEW_REPO_TOKEN` の必要権限を preview repo の Contents: Read and write に絞り、Actions: write を不要にした。
+- `tools/validate_app_js.py` から `hado_library_3.0.0.0.html` との同一性必須チェックを削除し、通常開発では `index.html` の存在確認に絞った。
+- `tools/validate_external_css.py` と `tools/validate_update_version_consistency.py` も通常開発のroot HTMLである `index.html` を検証対象に絞った。
+- `tools/validate_preview_workflow.py` からdispatch API前提の検証を削除した。
+
+### 再発防止
+- 通常開発workflowでは、配布パッケージ用HTMLを必須にしない。配布物チェックは配布作成時だけ実施する。
+- preview通知workflowでは、preview repoへのpush-triggered deploymentを正とし、通常同期に追加のActions権限/API dispatchを要求しない。
