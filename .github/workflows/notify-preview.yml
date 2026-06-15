@@ -61,10 +61,17 @@ jobs:
           from pathlib import Path
 
           required_files = ['index.html', 'hado_library_3.0.0.0.html', 'hado_styles.css', 'hado_version.js']
-          for name in required_files:
-              path = Path(name)
-              if not path.is_file():
-                  raise SystemExit(f'Required preview source asset missing: {name}')
+          missing = [name for name in required_files if not Path(name).is_file()]
+          if missing:
+              present = ', '.join(sorted(p.name for p in Path('.').iterdir() if p.is_file())[:80])
+              tracked = ', '.join(sorted(p for p in required_files if Path(p).is_file())) or '(none)'
+              raise SystemExit(
+                  'Required preview source asset missing: ' + ', '.join(missing) + '\n'
+                  + 'This means the checked-out source commit does not contain every root preview asset required by notify-preview. '
+                  + 'Confirm the failed run SHA/branch includes the legacy distribution alias hado_library_3.0.0.0.html, not only index.html.\n'
+                  + f'Present required assets: {tracked}\n'
+                  + f'Root files visible to workflow: {present}'
+              )
           index = Path('index.html').read_text(encoding='utf-8')
           css = Path('hado_styles.css').read_text(encoding='utf-8')
           if './hado_styles.css' not in index:
@@ -160,10 +167,14 @@ jobs:
 
           preview = Path(sys.argv[1])
           required_files = ['index.html', 'hado_library_3.0.0.0.html', 'hado_styles.css', 'hado_version.js', 'PREVIEW_SOURCE_COMMIT.txt']
-          for name in required_files:
-              path = preview / name
-              if not path.is_file():
-                  raise SystemExit(f'Preview repository sync missing required asset: {name}')
+          missing = [name for name in required_files if not (preview / name).is_file()]
+          if missing:
+              present = ', '.join(sorted(p.name for p in preview.iterdir() if p.is_file())[:80])
+              raise SystemExit(
+                  'Preview repository sync missing required asset: ' + ', '.join(missing) + '\n'
+                  + 'The source checkout or rsync exclusion rules failed to provide every root preview asset.\n'
+                  + f'Preview root files after rsync: {present}'
+              )
           index = (preview / 'index.html').read_text(encoding='utf-8')
           css = (preview / 'hado_styles.css').read_text(encoding='utf-8')
           if './hado_styles.css' not in index:

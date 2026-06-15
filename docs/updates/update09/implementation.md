@@ -309,3 +309,17 @@
 - `python3 tools/validate_external_css.py`
 - `python3 tools/validate_update_version_consistency.py`
 - `python3 tools/validate_update09_phase3_formation_ui.py`
+
+## Phase 3.3 preview通知診断強化
+
+### 変更概要
+- `Notify Hado Library Preview` のsource preview asset検証で必須ファイルが欠落した場合、欠落名だけでなく、存在している必須アセットとworkflowから見えているルートファイル一覧を出力するようにした。
+- preview repo同期後検証でも、欠落時に同期後rootファイル一覧を出力するようにした。
+- `tools/validate_preview_workflow.py` に、preview asset欠落時の診断文言がworkflowに残っていることを検証する項目を追加した。
+
+### HTMLサイズ
+- `index.html`: 変更なし。
+- `hado_library_3.0.0.0.html`: 変更なし。
+
+### 外部化判断
+- アプリ本体のHTML/JS/CSSは変更していない。preview通知workflowと検証スクリプトのみの診断強化である。

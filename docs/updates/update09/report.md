@@ -266,3 +266,20 @@
 3. グループ行が `グループ`、`グループリスト`、`変更` だけになり、変更ダイアログで新規作成・名前変更・削除できること。
 4. 型候補一覧の上部が `選択中の型 / 目的 / 全データ表示または保存データ表示` の1行だけになっていること。
 5. 軍馬選択に `編集` ボタンがなく、スマホ幅で3つの軍馬枠が横並びで表示されること。
+
+## Phase 3.3 preview通知失敗調査
+
+### 不具合分類・根本原因
+- 分類: preview同期前の必須アセット検証失敗。
+- 根本原因: `Notify Hado Library Preview` の `Validate source preview assets before sync` ステップは、previewへ同期するルート直下アセットとして `index.html`、`hado_library_3.0.0.0.html`、`hado_styles.css`、`hado_version.js` の4ファイルを必須としている。提示ログでは、このうち `hado_library_3.0.0.0.html` がチェックアウト済みworkspaceに存在しなかったため、preview repoへ同期する前に意図通り停止した。
+- 補足: ローカルの現在HEADでは `hado_library_3.0.0.0.html` は存在し、同じ検証スクリプトもPASSした。そのため、失敗したActions runは「現在HEADそのもののCSS/JSエラー」ではなく、実行対象SHA/ブランチのチェックアウト結果に必須previewアセットが欠けていたことが直接原因である。
+
+### 対応
+- `notify-preview.yml` の必須アセット検証を、単に `Required preview source asset missing` で停止するだけでなく、欠落ファイル、存在している必須アセット、workflowから見えているルートファイル一覧を出力する診断メッセージへ強化した。
+- preview repoへのrsync後検証でも同様に、同期後rootに存在するファイル一覧を出すようにした。
+- 再発防止として `tools/validate_preview_workflow.py` に、今回追加した診断文言の存在確認を追加した。
+
+### 対応方法
+1. 失敗したActions runの `GITHUB_SHA` とブランチを確認し、そのコミットに `hado_library_3.0.0.0.html` が含まれているか確認する。
+2. 含まれていない場合は、`index.html` と同一内容の `hado_library_3.0.0.0.html` をソースブランチへ含めてpushする。
+3. 含まれているのに失敗する場合は、今回強化したログの `Root files visible to workflow` を確認し、checkout対象SHA/ブランチ、またはワークフロー実行対象が想定ブランチと一致しているかを確認する。
