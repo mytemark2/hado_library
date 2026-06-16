@@ -519,3 +519,14 @@
 - Removed the misleading top-level aggregate `評価スコア` display from the score-card header; the expandable rows are now the evaluation scores.
 - 可視バージョンを `3.0.0.0 Update09.3.13` / revision 46 へ更新した。
 - HTML size change: none. The fix is external JavaScript plus documentation/validator updates only.
+
+
+## Phase 3.14 formation layout cleanup
+
+- Removed the outer visual frame from the 部隊編成 panel and moved the `部隊編成` label into the internal tab row before `編成` / `戦法` / `変化率` / `詳細`.
+- Removed the old explanatory note `※部隊編成の合算技能は配置・好相性・兵科などの条件を判定して反映します。` from the visible formation screen via the formation tab panel cleanup.
+- Simplified the 軍馬 panel by removing the `軍馬` heading and `保存データの軍馬を最大3枠まで部隊へ反映` note.
+- Changed the total score header to show `トータルスコア` and its value on the same line, removed the header-level `評価項目`, and made the evaluation-score rows compact no-scroll chips.
+- Disabled horizontal scrolling in the score breakdown and result summary lists.
+- 可視バージョンを `3.0.0.0 Update09.3.14` / revision 47 へ更新した。
+- HTML size change: none. The fix is external JavaScript/CSS plus documentation/validator updates only.

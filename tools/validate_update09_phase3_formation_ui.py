@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 FORMATION = ROOT / "hado_formation.js"
 TYPE_CANDIDATES = ROOT / "hado_type_candidates.js"
 CSS = ROOT / "hado_styles.css"
+HTML = ROOT / "index.html"
 
 REQUIRED_JS = (
     "formationEvaluationTypeDisplayName",
@@ -27,6 +28,8 @@ REQUIRED_JS = (
     "formation-score-summary-head",
     "formation-score-summary-body",
     "formation-score-toggle-note",
+    "formation-work-tabs-title",
+    "formation-score-chip",
     "renderFormationTeamBoardSelectableHtml(f,selectedEditorHtml+quickSummaryHtml)",
     "formation-mobile-score-result-placement",
     "${formationWarhorseEditorHtml}${selectedEditorHtml}${quickSummaryHtml}",
@@ -45,6 +48,8 @@ REQUIRED_JS = (
     "formation-warhorse-slots-body",
 )
 FORBIDDEN_JS = (
+    "保存データの軍馬を最大3枠まで部隊へ反映",
+    "<h3>軍馬</h3>",
     "formationEvaluationTypeInput",
     "formationTotalScoreInput",
     "<strong>${esc(scores.totalScore)}点</strong>",
@@ -81,6 +86,10 @@ REQUIRED_CSS = (
     ".formation-score-summary>summary",
     ".formation-score-summary-body",
     ".formation-score-toggle-note",
+    "body.formation-tab #formationScreen>h2",
+    ".formation-work-tabs-title",
+    ".formation-score-generals{grid-template-columns:repeat(5",
+    ".formation-quick-summary-list{display:grid!important",
     "formation-selected-card.formation-score-card:not(.is-dialog)",
     ".formation-mobile-score-result-placement",
     "formation-selected-stack>.formation-quick-summary-strip",
@@ -99,6 +108,7 @@ def main() -> int:
     js = FORMATION.read_text(encoding="utf-8")
     type_js = TYPE_CANDIDATES.read_text(encoding="utf-8")
     css = CSS.read_text(encoding="utf-8")
+    html_text = HTML.read_text(encoding="utf-8")
     missing_js = [snippet for snippet in REQUIRED_JS if snippet not in js]
     forbidden_js = [snippet for snippet in FORBIDDEN_JS if snippet in js]
     missing_type = [snippet for snippet in REQUIRED_TYPE_CANDIDATES if snippet not in type_js]
@@ -117,6 +127,9 @@ def main() -> int:
         raise SystemExit("Update09 Phase3 formation UI missing CSS: " + ", ".join(missing_css))
     if forbidden_css:
         raise SystemExit("Update09 Phase3 formation UI still contains obsolete CSS: " + ", ".join(forbidden_css))
+    forbidden_html = [s for s in ("※部隊編成の合算技能は配置・好相性・兵科などの条件を判定して反映します。", "<h2>部隊編成") if s in html_text]
+    if forbidden_html:
+        raise SystemExit("Update09 Phase3 formation UI still contains obsolete HTML: " + ", ".join(forbidden_html))
     print("Update09 Phase3 formation UI contract ok: score card, group management, type notes, warhorse layout")
     return 0
 

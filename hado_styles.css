@@ -1469,3 +1469,19 @@ body.formation-tab .formation-result-focus .formation-table{max-width:100%;overf
   body.formation-tab .formation-advisor-name{font-size:9.5px!important;line-height:1.05!important}
   body.formation-tab .formation-advisor-skills,.formation-advisor-remove{display:none!important}
 }
+
+
+/* FIX[Update09.3.14-FORMATION-LAYOUT-CLEANUP]: 部隊編成枠・軍馬説明・スコア/サマリー横スクロールを整理 */
+body.formation-tab #formationScreen{border:0!important;background:transparent!important;box-shadow:none!important;padding:0!important}
+body.formation-tab #formationScreen>h2,body.formation-tab #formationScreen>.note{display:none!important}
+.formation-work-tabs-title{font-weight:900;color:#0f172a;white-space:nowrap;margin-right:2px;padding:8px 4px}
+.formation-warhorse-slots .formation-section-header{display:none!important}
+.formation-score-summary-head{grid-template-columns:1fr auto;align-items:center}
+.formation-score-total{justify-content:flex-start;gap:8px}
+.formation-score-sub{display:none!important}
+.formation-score-generals{grid-template-columns:repeat(5,minmax(0,1fr))!important;overflow:hidden!important}
+.formation-score-chip{display:flex!important;align-items:center;justify-content:space-between;gap:3px;min-width:0}
+.formation-score-chip .value{font-weight:900;color:#0f172a;flex:0 0 auto}
+.formation-quick-summary-list{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));overflow:hidden!important;padding-bottom:0!important;min-width:0}
+.formation-quick-summary-chip{min-width:0!important;overflow:hidden!important;text-overflow:ellipsis!important}
+@media (max-width:980px),(pointer:coarse){body.formation-tab .formation-work-tabs{overflow:hidden!important}.formation-work-tabs-title{padding:9px 2px;font-size:13px}.formation-score-generals{grid-template-columns:repeat(5,minmax(0,1fr))!important}.formation-score-breakdown>span{padding:3px 4px}.formation-score-label{margin-right:2px}.formation-quick-summary-list{grid-template-columns:repeat(3,minmax(0,1fr))!important;overflow:hidden!important}}

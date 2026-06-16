@@ -508,3 +508,12 @@
 - Permanent countermeasure: formation total score is now explicitly calculated as the sum of the five evaluation-score rows, and the header no longer labels that aggregate as 評価スコア.
 - Impact scope checked: 部隊編成 score card, formation list score label, type-candidate fit score semantics, and mobile score expansion layout.
 - Minimum acceptance: open 部隊編成, expand トータルスコア, and confirm the five displayed rows are the 評価スコア values and the header トータルスコア equals their sum.
+
+
+## Phase 3.14 formation layout cleanup
+
+- Classification: formation layout and visual-noise improvement.
+- Root cause: Phase 3 retained legacy panel framing, duplicated title placement, explanatory notes, and horizontally scrollable chip rows after the layout had moved to compact score/result cards.
+- Permanent countermeasure: the formation title now lives in the internal tab row, the old panel frame and explanatory notes are hidden/removed, warhorse heading text is removed, and score/result chip rows are constrained to no-scroll compact layouts.
+- Impact scope checked: 部隊編成 outer panel, internal tabs, 軍馬 panel, total score card, evaluation-score rows, result summary rows, PC/mobile overflow behavior.
+- Minimum acceptance: open 部隊編成 and confirm the visible order starts with `部隊編成 | 編成 | 戦法 | 変化率 | 詳細`, the old explanatory note and warhorse heading/note are absent, and score/result rows do not horizontally scroll.
