@@ -460,3 +460,11 @@
 - 軍馬枠に削除ボタンがなく、プルダウンの `未設定` で解除できること。
 - トータルスコア、評価スコア、適合スコアが数値のみで表示されること。
 - 型候補一覧で武将の適合スコアと評価項目別スコア内訳が表示され、トータルスコアは表示されないこと。
+
+## Phase 3.8 official JSON load regression fix
+
+- Classification: runtime official JSON loading regression after Update09.3.7 scoring changes.
+- Root cause: Phase 3 score rendering started depending on `hadou_type_score_rules.json`, but the startup official JSON bundle did not load that file. The app therefore had a split dependency: core JSON loaded at startup, while score rules were fetched later by feature-specific code.
+- Permanent countermeasure: `hadou_type_score_rules.json` is now an optional member of the official JSON bundle, and `applyLoadedData()` publishes it to `window.HADO_TYPE_SCORE_RULES` before formation/type score rendering uses it.
+- Impact scope checked: HTTP preview official JSON loading, local file/folder JSON loading, formation score rendering, and the existing standalone fallback fetch for score rules.
+- HTML size change: none. The change stays in external JavaScript.

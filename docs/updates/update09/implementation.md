@@ -285,7 +285,7 @@
 ## Phase 3.3: スコアパネル・グループ管理・型候補説明・軍馬表示の追加整理
 
 ### 変更概要
-- 可視バージョンを `3.0.0.0 Update09.3.7` / revision 40 へ更新した。
+- 可視バージョンを `3.0.0.0 Update09.3.8` / revision 41 へ更新した。
 - `編集はポップアップで行います` パネルを廃止し、その位置へ `トータルスコア` パネルを移動した。
 - 部隊編成スコアは各武将枠ごとのスコア合算として再計算し、トータルスコア/評価スコアの下に主将・副将・補佐別の内訳を表示するようにした。
 - グループ行は `グループ`、`グループリスト`、`変更` の3表示に整理し、変更ダイアログから新規作成・名前変更・削除を行う構成へ変更した。
@@ -474,3 +474,11 @@
 
 ### 外部化判断
 - 表示ロジックは `hado_type_score.js` / `hado_type_candidates.js` / `hado_formation.js`、スマホ表示位置は `hado_styles.css`、再発防止は `tools/validate_update09_phase3_formation_ui.py` に統合した。HTMLへのロジック追加は行っていない。
+
+## Phase 3.8 official JSON load fix
+
+- Fixed a regression where the formation/type score rules were loaded by a later standalone fetch instead of the official JSON bundle.
+- Added `hadou_type_score_rules.json` to the optional official JSON bundle in `hado_bootstrap.js` and publish it to `window.HADO_TYPE_SCORE_RULES` during `applyLoadedData()`.
+- Kept the existing standalone fetch fallback for old caches or unusual local states, but normal HTTP preview startup now has the score rules available as part of the same official JSON loading path.
+- Mirrored the same bundle definition in `hado_app.js` to keep the monolithic runtime artifact consistent with the split runtime files.
+- HTML size change: none. The fix is external JavaScript only.
