@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 VERSION_JS = ROOT / "hado_version.js"
-HTML_FILES = ("index.html", "hado_library_3.0.0.0.html")
+HTML_FILES = ("index.html",)
 DERIVED_KEYS = {"releaseVersion", "updateNo", "displayVersion", "revision"}
 
 

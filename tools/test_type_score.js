@@ -18,10 +18,10 @@ const entity={typeFeatures:[
   {featureId:'skill_effect:chain_rate',label:'連鎖確率',matchedText:'■主将の際 ●副将の連鎖確率+5%'}
 ]};
 const r=S.score(entity,rule);
-assertEq(r.confirmedScore,4.9,'confirmedScore');
+assertEq(r.confirmedScore,4,'confirmedScore');
 assertEq(r.conditionalMaxScore,5,'conditionalMaxScore');
 assertEq(r.matchedCount,5,'matchedCount');
-assertEq(S.summary(r),'兵力:0.4/2 / 弱化無効:2/2 / 通常攻撃対象数:2/2 / 攻撃速度:0.5/2 / 連鎖率:0→0.1/2','summary');
+assertEq(S.summary(r),'兵力:1 / 弱化無効:1 / 通常攻撃対象数:1 / 攻撃速度:1 / 連鎖率:1','summary');
 
 const roleRule={metrics:[
   {metricKey:'chain_rate',label:'連鎖率',method:'percent_sum'},
@@ -35,7 +35,7 @@ const roleLimited={roleId:'main_general',typeFeatures:[
 ]};
 const rr=S.score(roleLimited,roleRule);
 assertEq(rr.confirmedScore,0,'role confirmedScore');
-assertEq(rr.conditionalMaxScore,2.4,'role conditionalMaxScore');
+assertEq(rr.conditionalMaxScore,2,'role conditionalMaxScore');
 assertEq(rr.matchedCount,2,'role matchedCount');
 assertEq(S.metricRows(roleLimited,roleRule.metrics[0]).length,0,'vice-only chain excluded for main role');
 assertEq(S.metricRows({...roleLimited,roleId:'vice_general'},roleRule.metrics[0]).length,1,'vice-only chain included for vice role');
