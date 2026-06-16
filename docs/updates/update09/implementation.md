@@ -285,7 +285,7 @@
 ## Phase 3.3: スコアパネル・グループ管理・型候補説明・軍馬表示の追加整理
 
 ### 変更概要
-- 可視バージョンを `3.0.0.0 Update09.3.10` / revision 43 へ更新した。
+- 可視バージョンを `3.0.0.0 Update09.3.11` / revision 44 へ更新した。
 - `編集はポップアップで行います` パネルを廃止し、その位置へ `トータルスコア` パネルを移動した。
 - 部隊編成スコアは各武将枠ごとのスコア合算として再計算し、トータルスコア/評価スコアの下に主将・副将・補佐別の内訳を表示するようにした。
 - グループ行は `グループ`、`グループリスト`、`変更` の3表示に整理し、変更ダイアログから新規作成・名前変更・削除を行う構成へ変更した。
@@ -494,3 +494,10 @@
 - Corrected the smartphone formation edit stack order to match the requested flow: warhorse panel -> total score panel -> result summary panel.
 - Kept the score panel expandable behavior from Phase 3.9.
 - HTML size change: none. The change is external JavaScript/CSS contract and documentation only.
+
+## Phase 3.11 mobile visible panel and advisor compactness fix
+
+- Moved the smartphone-visible score/result pair into the board card immediately after the smartphone warhorse placement, so the visible order is warhorse -> total score -> result summary without relying on the hidden selected-stack card area.
+- Kept the PC selected stack unchanged and hides the duplicate selected-stack result summary on smartphone.
+- Compacted smartphone warhorse controls and advisor cells by reducing header, select, cell, and label heights.
+- HTML size change: none. The change is external JavaScript and CSS only.

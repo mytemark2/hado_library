@@ -482,3 +482,10 @@
 - Root cause: Phase 3.9 placed the score panel before the result summary but misunderstood the desired full order and left the warhorse panel after both panels.
 - Permanent countermeasure: the render order and validator contract now require `formationWarhorseEditorHtml -> selectedEditorHtml -> quickSummaryHtml`.
 - Minimum acceptance: on smartphone width, open 部隊編成 and confirm the visible order is 軍馬 -> トータルスコア -> 結果サマリー.
+
+## Phase 3.11 mobile visible panel and advisor compactness fix
+
+- Classification: smartphone formation visibility/layout regression.
+- Root cause: the requested order was applied inside the selected stack, but smartphone CSS hides selected cards and renders warhorse in the board card. As a result, the visible smartphone flow still depended on separate hidden/visible regions and the score/result panels could be missed.
+- Permanent countermeasure: smartphone-visible score and result summary panels are now rendered inside the board card directly after the smartphone warhorse placement; advisor and warhorse controls are compacted with mobile-specific CSS.
+- Minimum acceptance: on smartphone width, open 部隊編成 and confirm 軍馬 -> トータルスコア -> 結果サマリー are all visible, and the 参軍 row is compact rather than vertically long.
