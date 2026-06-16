@@ -468,3 +468,17 @@
 - Permanent countermeasure: `hadou_type_score_rules.json` is now an optional member of the official JSON bundle, and `applyLoadedData()` publishes it to `window.HADO_TYPE_SCORE_RULES` before formation/type score rendering uses it.
 - Impact scope checked: HTTP preview official JSON loading, local file/folder JSON loading, formation score rendering, and the existing standalone fallback fetch for score rules.
 - HTML size change: none. The change stays in external JavaScript.
+
+## Phase 3.9 mobile score/result layout fix
+
+- Classification: smartphone formation layout defect.
+- Root cause: the result summary was rendered after the whole compose grid, while the total score panel was inside the selected-stack column. On smartphone this made the two panels depend on grid/stack flow and could place or overlay them unexpectedly.
+- Permanent countermeasure: the result summary is now rendered directly after the score panel in the same stack. The score panel is a tappable `details` component so smartphone users can expand evaluation-item scores only when needed.
+- Minimum acceptance: on smartphone width, open 部隊編成 and confirm the visible order is 軍馬 -> トータルスコア -> 結果サマリー, then tap トータルスコア to expand/collapse the itemized evaluation scores.
+
+## Phase 3.10 mobile panel order correction
+
+- Classification: smartphone formation panel ordering defect.
+- Root cause: Phase 3.9 placed the score panel before the result summary but misunderstood the desired full order and left the warhorse panel after both panels.
+- Permanent countermeasure: the render order and validator contract now require `formationWarhorseEditorHtml -> selectedEditorHtml -> quickSummaryHtml`.
+- Minimum acceptance: on smartphone width, open 部隊編成 and confirm the visible order is 軍馬 -> トータルスコア -> 結果サマリー.

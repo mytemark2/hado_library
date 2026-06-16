@@ -285,7 +285,7 @@
 ## Phase 3.3: スコアパネル・グループ管理・型候補説明・軍馬表示の追加整理
 
 ### 変更概要
-- 可視バージョンを `3.0.0.0 Update09.3.8` / revision 41 へ更新した。
+- 可視バージョンを `3.0.0.0 Update09.3.10` / revision 43 へ更新した。
 - `編集はポップアップで行います` パネルを廃止し、その位置へ `トータルスコア` パネルを移動した。
 - 部隊編成スコアは各武将枠ごとのスコア合算として再計算し、トータルスコア/評価スコアの下に主将・副将・補佐別の内訳を表示するようにした。
 - グループ行は `グループ`、`グループリスト`、`変更` の3表示に整理し、変更ダイアログから新規作成・名前変更・削除を行う構成へ変更した。
@@ -482,3 +482,15 @@
 - Kept the existing standalone fetch fallback for old caches or unusual local states, but normal HTTP preview startup now has the score rules available as part of the same official JSON loading path.
 - Mirrored the same bundle definition in `hado_app.js` to keep the monolithic runtime artifact consistent with the split runtime files.
 - HTML size change: none. The fix is external JavaScript only.
+
+## Phase 3.9 mobile score/result layout fix
+
+- Moved the result summary strip into the same right-side/mobile stack immediately after the total score panel, so mobile formation edit order is now warhorse panel -> score panel -> result summary.
+- Changed the score panel markup to a `details` panel: desktop opens by default, while smartphone display starts collapsed and expands score breakdown rows when tapped.
+- Added CSS for the expandable score panel summary/body and tap hint without changing HTML size.
+
+## Phase 3.10 mobile panel order correction
+
+- Corrected the smartphone formation edit stack order to match the requested flow: warhorse panel -> total score panel -> result summary panel.
+- Kept the score panel expandable behavior from Phase 3.9.
+- HTML size change: none. The change is external JavaScript/CSS contract and documentation only.
