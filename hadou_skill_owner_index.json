@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-06-07T06:04:52.977Z",
-  "dataSetId": "2026-06-07T04:23:26.720Z",
+  "generatedAt": "2026-06-14T06:09:45.870Z",
+  "dataSetId": "2026-06-07T06:04:52.951Z",
   "crawlerVersion": "1.1.0.0",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -35,7 +35,7 @@
   "sourceCounts": {
     "generals": 476,
     "tactics": 455,
-    "equipments": 237,
+    "equipments": 238,
     "skills": 620,
     "statusEffects": 200,
     "siegeWeapons": 6,
@@ -49,7 +49,7 @@
   "sourceHashes": {
     "generals": "4c9aa0cb",
     "tactics": "a9afed3e",
-    "equipments": "4e60d216",
+    "equipments": "5960e367",
     "skills": "bee67c33",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
@@ -63,7 +63,7 @@
   "sourceSha256": {
     "generals": "4c9aa0cb",
     "tactics": "a9afed3e",
-    "equipments": "4e60d216",
+    "equipments": "5960e367",
     "skills": "bee67c33",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
@@ -3843,9 +3843,16 @@
           "source": "general-skill-table",
           "isAdvisorSkill": false,
           "usage": "normal"
+        },
+        {
+          "name": "太平辟邪霊符",
+          "displayName": "太平辟邪霊符",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
         }
       ],
-      "ownerCount": 1
+      "ownerCount": 2
     },
     {
       "skillName": "天雷",
@@ -3858,9 +3865,16 @@
           "source": "general-skill-table",
           "isAdvisorSkill": false,
           "usage": "normal"
+        },
+        {
+          "name": "太平辟邪霊符",
+          "displayName": "太平辟邪霊符",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
         }
       ],
-      "ownerCount": 1
+      "ownerCount": 2
     },
     {
       "skillName": "慧烈",
@@ -7195,15 +7209,15 @@
           "usage": "normal"
         },
         {
-          "name": "稜花朱塗拂塵",
-          "displayName": "稜花朱塗拂塵",
+          "name": "蜀科",
+          "displayName": "蜀科",
           "ownerType": "equipment",
           "category": "equipments",
           "source": "equipment-skill-table"
         },
         {
-          "name": "蜀科",
-          "displayName": "蜀科",
+          "name": "稜花朱塗拂塵",
+          "displayName": "稜花朱塗拂塵",
           "ownerType": "equipment",
           "category": "equipments",
           "source": "equipment-skill-table"
@@ -7224,15 +7238,15 @@
           "usage": "normal"
         },
         {
-          "name": "稜花朱塗拂塵",
-          "displayName": "稜花朱塗拂塵",
+          "name": "蜀科",
+          "displayName": "蜀科",
           "ownerType": "equipment",
           "category": "equipments",
           "source": "equipment-skill-table"
         },
         {
-          "name": "蜀科",
-          "displayName": "蜀科",
+          "name": "稜花朱塗拂塵",
+          "displayName": "稜花朱塗拂塵",
           "ownerType": "equipment",
           "category": "equipments",
           "source": "equipment-skill-table"
@@ -12774,6 +12788,13 @@
           "usage": "normal"
         },
         {
+          "name": "太平辟邪霊符",
+          "displayName": "太平辟邪霊符",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        },
+        {
           "name": "黄天頭巾",
           "displayName": "黄天頭巾",
           "ownerType": "equipment",
@@ -12809,7 +12830,7 @@
           "source": "equipment-skill-table"
         }
       ],
-      "ownerCount": 15
+      "ownerCount": 16
     },
     {
       "skillName": "鍛造",
@@ -14756,6 +14777,13 @@
           "source": "equipment-skill-table"
         },
         {
+          "name": "白羽扇",
+          "displayName": "白羽扇",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        },
+        {
           "name": "麟角槍",
           "displayName": "麟角槍",
           "ownerType": "equipment",
@@ -14777,7 +14805,7 @@
           "source": "text-scan"
         }
       ],
-      "ownerCount": 39
+      "ownerCount": 40
     },
     {
       "skillName": "火術",
@@ -19393,6 +19421,13 @@
           "usage": "normal"
         },
         {
+          "name": "太平辟邪霊符",
+          "displayName": "太平辟邪霊符",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        },
+        {
           "name": "堅壁獣面兜",
           "displayName": "堅壁獣面兜",
           "ownerType": "equipment",
@@ -19456,6 +19491,13 @@
           "source": "equipment-skill-table"
         },
         {
+          "name": "司馬氏兵記",
+          "displayName": "司馬氏兵記",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        },
+        {
           "name": "疾風護臂甲",
           "displayName": "疾風護臂甲",
           "ownerType": "equipment",
@@ -19491,7 +19533,7 @@
           "source": "text-scan"
         }
       ],
-      "ownerCount": 18
+      "ownerCount": 20
     },
     {
       "skillName": "警戒",
@@ -24348,11 +24390,11 @@
       "ownerCount": 1
     },
     {
-      "skillName": "雪威才気",
+      "skillName": "天黄才気",
       "owners": [
         {
-          "name": "稜花朱塗拂塵",
-          "displayName": "稜花朱塗拂塵",
+          "name": "太平辟邪霊符",
+          "displayName": "太平辟邪霊符",
           "ownerType": "equipment",
           "category": "equipments",
           "source": "equipment-skill-table"
@@ -24361,11 +24403,11 @@
       "ownerCount": 1
     },
     {
-      "skillName": "堪撃賢聡",
+      "skillName": "公導賢抗",
       "owners": [
         {
-          "name": "稜花朱塗拂塵",
-          "displayName": "稜花朱塗拂塵",
+          "name": "太平辟邪霊符",
+          "displayName": "太平辟邪霊符",
           "ownerType": "equipment",
           "category": "equipments",
           "source": "equipment-skill-table"
@@ -24374,11 +24416,11 @@
       "ownerCount": 1
     },
     {
-      "skillName": "英計躍動",
+      "skillName": "雷光逆乱",
       "owners": [
         {
-          "name": "稜花朱塗拂塵",
-          "displayName": "稜花朱塗拂塵",
+          "name": "太平辟邪霊符",
+          "displayName": "太平辟邪霊符",
           "ownerType": "equipment",
           "category": "equipments",
           "source": "equipment-skill-table"
@@ -24418,6 +24460,45 @@
         {
           "name": "蜀科",
           "displayName": "蜀科",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "雪威才気",
+      "owners": [
+        {
+          "name": "稜花朱塗拂塵",
+          "displayName": "稜花朱塗拂塵",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "堪撃賢聡",
+      "owners": [
+        {
+          "name": "稜花朱塗拂塵",
+          "displayName": "稜花朱塗拂塵",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "英計躍動",
+      "owners": [
+        {
+          "name": "稜花朱塗拂塵",
+          "displayName": "稜花朱塗拂塵",
           "ownerType": "equipment",
           "category": "equipments",
           "source": "equipment-skill-table"
@@ -27618,6 +27699,19 @@
       "ownerCount": 1
     },
     {
+      "skillName": "弱仇妙衛",
+      "owners": [
+        {
+          "name": "司馬氏兵記",
+          "displayName": "司馬氏兵記",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
       "skillName": "確固強剛",
       "owners": [
         {
@@ -30595,6 +30689,19 @@
     },
     {
       "skillName": "術策怒涛",
+      "owners": [
+        {
+          "name": "白羽扇",
+          "displayName": "白羽扇",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "倒撃英知",
       "owners": [
         {
           "name": "白羽扇",
