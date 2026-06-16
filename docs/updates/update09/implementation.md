@@ -501,3 +501,21 @@
 - Kept the PC selected stack unchanged and hides the duplicate selected-stack result summary on smartphone.
 - Compacted smartphone warhorse controls and advisor cells by reducing header, select, cell, and label heights.
 - HTML size change: none. The change is external JavaScript and CSS only.
+
+
+## Phase 3.12 formation evaluation-score regression fix
+
+- Restored the 部隊編成 score panel evaluation score to aggregate the selected formation members' type-search feature rows instead of relying only on already-summarized formation parameter effects.
+- The score panel now resolves each assigned武将/侍従/装備 against `hadou_type_search_feature_index.json`, applies the member role (`main_general`, `vice_general`, `support_general`, `attendant`), and sums the five selected type metrics' matched item counts.
+- The type-candidate 適合スコア calculation in `hado_type_score.js` was not changed, because the reported regression was limited to the formation score panel.
+- 可視バージョンを `3.0.0.0 Update09.3.12` / revision 45 へ更新した。
+- HTML size change: none. The fix is external JavaScript plus validator/documentation updates only.
+
+
+## Phase 3.13 score terminology alignment
+
+- Corrected the 部隊編成 score terminology to match the requested definitions: each of the five metric rows is an 評価スコア, and トータルスコア is the sum of those five formation-level evaluation scores.
+- Kept 型候補一覧の適合スコア semantics unchanged: 適合スコア is the target武将's sum of the five evaluation-score item counts.
+- Removed the misleading top-level aggregate `評価スコア` display from the score-card header; the expandable rows are now the evaluation scores.
+- 可視バージョンを `3.0.0.0 Update09.3.13` / revision 46 へ更新した。
+- HTML size change: none. The fix is external JavaScript plus documentation/validator updates only.

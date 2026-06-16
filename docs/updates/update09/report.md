@@ -489,3 +489,22 @@
 - Root cause: the requested order was applied inside the selected stack, but smartphone CSS hides selected cards and renders warhorse in the board card. As a result, the visible smartphone flow still depended on separate hidden/visible regions and the score/result panels could be missed.
 - Permanent countermeasure: smartphone-visible score and result summary panels are now rendered inside the board card directly after the smartphone warhorse placement; advisor and warhorse controls are compacted with mobile-specific CSS.
 - Minimum acceptance: on smartphone width, open 部隊編成 and confirm 軍馬 -> トータルスコア -> 結果サマリー are all visible, and the 参軍 row is compact rather than vertically long.
+
+
+## Phase 3.12 formation evaluation-score regression fix
+
+- Classification: formation score calculation regression.
+- Root cause: the Phase 3 formation score panel calculated evaluation rows from `data.effects` after the formation parameter summary had already merged effects. That lost the member-level type-search feature rows used by the candidate score calculation, so the formation 評価スコア could be lower or zero even though candidate 適合スコア was correct.
+- Impact scope checked: 部隊編成 score panel, selected formation members, role-scoped score matching, type-candidate fit/adaptation scoring, and smartphone score/result layout.
+- Permanent countermeasure: formation score calculation now builds member score entities from `hadou_type_search_feature_index.json`, applies each member role before calling `HadoTypeScore.score()`, and sums the five evaluation metrics into the score panel rows. The validator now requires the member-aggregate score policy marker.
+- Minimum acceptance: open 部隊編成, choose a type, and confirm the トータルスコア/評価スコア and each evaluation item change according to the assigned members while the 型候補一覧の適合スコア remains unchanged.
+- HTML size change: none. The change stays in external JavaScript and validation/docs.
+
+
+## Phase 3.13 score terminology alignment
+
+- Classification: score terminology and aggregation regression.
+- Root cause: the UI treated 評価スコア as one aggregate number in the score-card header. The requested definition is that 評価スコア exists per each of the five type evaluation items, while 適合スコア and トータルスコア are the sums of those five rows for a武将 and a部隊 respectively.
+- Permanent countermeasure: formation total score is now explicitly calculated as the sum of the five evaluation-score rows, and the header no longer labels that aggregate as 評価スコア.
+- Impact scope checked: 部隊編成 score card, formation list score label, type-candidate fit score semantics, and mobile score expansion layout.
+- Minimum acceptance: open 部隊編成, expand トータルスコア, and confirm the five displayed rows are the 評価スコア values and the header トータルスコア equals their sum.
