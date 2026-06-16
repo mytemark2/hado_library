@@ -30,6 +30,7 @@ REQUIRED_JS = (
     "formation-score-toggle-note",
     "formation-work-tabs-title",
     "formation-score-chip",
+    "formation-group-head",
     "renderFormationTeamBoardSelectableHtml(f,selectedEditorHtml+quickSummaryHtml)",
     "formation-mobile-score-result-placement",
     "${formationWarhorseEditorHtml}${selectedEditorHtml}${quickSummaryHtml}",
@@ -48,6 +49,7 @@ REQUIRED_JS = (
     "formation-warhorse-slots-body",
 )
 FORBIDDEN_JS = (
+    "scoreRows:generalRows.map",
     "保存データの軍馬を最大3枠まで部隊へ反映",
     "<h3>軍馬</h3>",
     "formationEvaluationTypeInput",
@@ -96,6 +98,9 @@ REQUIRED_CSS = (
     "formation-quick-summary-strip",
     ".formation-warhorse-slots-body",
     ".formation-memo-inline",
+    ".formation-group-head",
+    "body.formation-tab .formation-compose-bar-grid .formation-memo-inline",
+    "body.formation-tab .formation-score-meta{grid-template-columns:repeat(3",
     ".formation-dialog-actions",
 )
 FORBIDDEN_CSS = (

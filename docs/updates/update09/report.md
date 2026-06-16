@@ -517,3 +517,12 @@
 - Permanent countermeasure: the formation title now lives in the internal tab row, the old panel frame and explanatory notes are hidden/removed, warhorse heading text is removed, and score/result chip rows are constrained to no-scroll compact layouts.
 - Impact scope checked: 部隊編成 outer panel, internal tabs, 軍馬 panel, total score card, evaluation-score rows, result summary rows, PC/mobile overflow behavior.
 - Minimum acceptance: open 部隊編成 and confirm the visible order starts with `部隊編成 | 編成 | 戦法 | 変化率 | 詳細`, the old explanatory note and warhorse heading/note are absent, and score/result rows do not horizontally scroll.
+
+
+## Phase 3.15 PC/mobile formation layout and score-row fallback fix
+
+- Classification: formation layout refinement and score display regression.
+- Root cause: PC group/memo rows still used the previous dense grid, smartphone score spacing inherited a margin from the mobile placement container, and the no-rule fallback reused old general slot score rows (`主将`, `副将`) instead of type evaluation metric rows.
+- Permanent countermeasure: group and memo rows have explicit layout contracts, mobile score spacing/meta rows have dedicated overrides, and formation score fallback no longer emits general-slot rows.
+- Impact scope checked: PC group controls, PC compose bar memo row, smartphone 軍馬 -> トータルスコア spacing, smartphone score metadata, and score rows when type rules/member rows are unavailable.
+- Minimum acceptance: PCでグループが2行、マイメモが独立1行になっていること、スマホで軍馬直下にトータルスコアが詰まって表示されること、評価スコア行に主将/副将が出ないことを確認する。

@@ -530,3 +530,14 @@
 - Disabled horizontal scrolling in the score breakdown and result summary lists.
 - 可視バージョンを `3.0.0.0 Update09.3.14` / revision 47 へ更新した。
 - HTML size change: none. The fix is external JavaScript/CSS plus documentation/validator updates only.
+
+
+## Phase 3.15 PC/mobile formation layout and score-row fallback fix
+
+- Changed group controls to a two-row layout: row 1 shows `グループ` and `変更`, row 2 shows the group list select.
+- On PC, moved `マイメモ` + memo text + `編集` to its own next row and kept them on one line.
+- Tightened smartphone spacing between the 軍馬 list and the トータルスコア card.
+- Kept score metadata (`型`, `合算技能`, `状態変化`) on one row on smartphone.
+- Removed the fallback that displayed 主将/副将/補佐 slot labels as score rows when type score rules or member feature rows were unavailable; the score panel now only shows actual type evaluation metric rows.
+- 可視バージョンを `3.0.0.0 Update09.3.15` / revision 48 へ更新した。
+- HTML size change: none. The fix is external JavaScript/CSS plus documentation/validator updates only.
