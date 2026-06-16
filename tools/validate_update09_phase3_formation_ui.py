@@ -17,7 +17,7 @@ REQUIRED_JS = (
     "getFormationTypeScoreRule",
     "formationTypeScoreEntity",
     "scorePolicy:'type-matched-item-count'",
-    "<strong>${esc(scores.totalScore)}件</strong>",
+    "<strong>${esc(scores.totalScore)}</strong>",
     "renderFormationScoreSummaryHtml",
     "formation-score-card",
     "renderFormationGroupNameDialogHtml",
@@ -45,12 +45,13 @@ FORBIDDEN_JS = (
     "評価型ID",
     "編集はポップアップで行います",
     "data-formation-warhorse-edit",
+    "data-formation-warhorse-remove",
 )
 REQUIRED_TYPE_CANDIDATES = (
     "typeCandidateViewModeLabel",
     "全データ表示",
     "window.HADO_TYPE_SCORE_RULES=st.data.types",
-    "評価項目: ${esc(window.HadoTypeScore.summary(v._s))}",
+    "評価項目別スコア: ${esc(window.HadoTypeScore.summary(v._s))}",
     "保存データ表示",
     "選択中の型: ${esc(type()?.typeName||'未選択')} / 目的: ${esc(purpose()?.purposeName||'指定なし')} / ${esc(typeCandidateViewModeLabel())}",
 )
@@ -59,6 +60,7 @@ FORBIDDEN_TYPE_CANDIDATES = (
     "savedCandidateNote()",
     "${esc(displayVersion())} / 選択中の型",
     "トータルスコア: <strong>${esc(v._s?.totalScore||0)}件</strong>",
+    "適合スコア: <strong>${esc(window.HadoTypeScore.label(v._s))}</strong> / 評価スコア",
 )
 REQUIRED_CSS = (
     ".formation-group-controls",
@@ -67,6 +69,7 @@ REQUIRED_CSS = (
     ".formation-score-summary",
     ".formation-score-breakdown",
     "formation-selected-card.formation-score-card:not(.is-dialog)",
+    "formation-quick-summary-strip",
     ".formation-warhorse-slots-body",
     ".formation-memo-inline",
     ".formation-dialog-actions",

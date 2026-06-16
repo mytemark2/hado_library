@@ -21,7 +21,7 @@ const r=S.score(entity,rule);
 assertEq(r.confirmedScore,4,'confirmedScore');
 assertEq(r.conditionalMaxScore,5,'conditionalMaxScore');
 assertEq(r.matchedCount,5,'matchedCount');
-assertEq(S.summary(r),'兵力:1件 / 弱化無効:1件 / 通常攻撃対象数:1件 / 攻撃速度:1件 / 連鎖率:1件','summary');
+assertEq(S.summary(r),'兵力:1 / 弱化無効:1 / 通常攻撃対象数:1 / 攻撃速度:1 / 連鎖率:1','summary');
 
 const roleRule={metrics:[
   {metricKey:'chain_rate',label:'連鎖率',method:'percent_sum'},

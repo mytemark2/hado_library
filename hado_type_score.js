@@ -93,8 +93,8 @@ function score(entity,rule){
   recordTrace(entity,rule,result);
   return result;
 }
-function label(result){return `${fmt((result?.fitScore??result?.conditionalMaxScore)||0)}件`}
-function metricLabel(metric){return `${metric?.label||metric?.metricKey}:${fmt((metric?.itemCount??metric?.conditionalMaxValue)||0)}件`}
+function label(result){return `${fmt((result?.fitScore??result?.conditionalMaxScore)||0)}`}
+function metricLabel(metric){return `${metric?.label||metric?.metricKey}:${fmt((metric?.itemCount??metric?.conditionalMaxValue)||0)}`}
 function summary(result){return (result?.breakdown||[]).map(metricLabel).join(' / ')}
 window.HadoTypeScore={METRIC_ALIASES,metricRows,metricValue,score,label,metricLabel,summary,roleCompatibleText,roleAllowedSet};
 })();

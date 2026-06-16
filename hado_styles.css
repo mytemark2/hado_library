@@ -1446,3 +1446,5 @@ body.formation-tab .formation-result-focus .formation-table{max-width:100%;overf
 @media (max-width:520px){.formation-score-breakdown{grid-template-columns:1fr}.formation-group-current{max-width:none}}
 /* FIX[Update09.3.6-MOBILE-FORMATION-SCORE]: スマホ部隊編成でもスコアカードは非表示にしない */
 @media (max-width:980px),(pointer:coarse){body.formation-tab .formation-selected-card.formation-score-card:not(.is-dialog){display:block!important;margin-top:8px}}
+/* FIX[Update09.3.7-MOBILE-FORMATION-SCORE-POSITION]: スコアカードを結果サマリーと重ならない通常フローに固定 */
+@media (max-width:980px),(pointer:coarse){body.formation-tab .formation-selected-card.formation-score-card:not(.is-dialog){position:relative!important;z-index:1!important;clear:both!important;margin:8px 0!important}body.formation-tab .formation-quick-summary-strip{position:relative!important;z-index:0!important;clear:both!important;margin-top:8px!important}}
