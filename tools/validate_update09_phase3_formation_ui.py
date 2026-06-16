@@ -50,6 +50,7 @@ REQUIRED_TYPE_CANDIDATES = (
     "typeCandidateViewModeLabel",
     "全データ表示",
     "window.HADO_TYPE_SCORE_RULES=st.data.types",
+    "評価項目: ${esc(window.HadoTypeScore.summary(v._s))}",
     "保存データ表示",
     "選択中の型: ${esc(type()?.typeName||'未選択')} / 目的: ${esc(purpose()?.purposeName||'指定なし')} / ${esc(typeCandidateViewModeLabel())}",
 )
@@ -57,6 +58,7 @@ FORBIDDEN_TYPE_CANDIDATES = (
     "候補をクリックすると選択状態になります",
     "savedCandidateNote()",
     "${esc(displayVersion())} / 選択中の型",
+    "トータルスコア: <strong>${esc(v._s?.totalScore||0)}件</strong>",
 )
 REQUIRED_CSS = (
     ".formation-group-controls",
@@ -64,6 +66,7 @@ REQUIRED_CSS = (
     ".formation-score-card",
     ".formation-score-summary",
     ".formation-score-breakdown",
+    "formation-selected-card.formation-score-card:not(.is-dialog)",
     ".formation-warhorse-slots-body",
     ".formation-memo-inline",
     ".formation-dialog-actions",
