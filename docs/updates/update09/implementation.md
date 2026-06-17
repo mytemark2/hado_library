@@ -541,3 +541,13 @@
 - Removed the fallback that displayed 主将/副将/補佐 slot labels as score rows when type score rules or member feature rows were unavailable; the score panel now only shows actual type evaluation metric rows.
 - 可視バージョンを `3.0.0.0 Update09.3.15` / revision 48 へ更新した。
 - HTML size change: none. The fix is external JavaScript/CSS plus documentation/validator updates only.
+
+
+## Phase 3.17 smartphone formation member-score resolution fix
+
+- Removed the `formationTypeScoreEntity()` scoring fallback from `calculateFormationAutoScores()` so the score card no longer records `roleId: formation` as the final type-score trace when member scoring is unavailable.
+- Relaxed `getFormationTypeSearchFeatureItems()` to use `typeSearchFeatureIndex.items` whenever the items array exists, instead of requiring an `available` flag. This prevents official/preview derived JSON bundles with loaded items from being treated as empty.
+- Added diagnostics for member feature resolution counts and misses, including collected formation item count, resolved member count, type-search feature item count, and sample misses.
+- When member scoring is unavailable, the score card now shows the selected type's five metric rows as zero instead of falling back to pseudo-formation scoring.
+- 可視バージョンを `3.0.0.0 Update09.3.17` / revision 50 へ更新した。
+- HTML size change: none. The fix is external JavaScript plus documentation/validator updates only.

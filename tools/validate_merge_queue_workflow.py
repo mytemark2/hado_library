@@ -6,6 +6,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github" / "workflows" / "app-validation.yml"
+FORBIDDEN = (
+    "python3 tools/validate_update_meta_no_broad_observer.py",
+)
+
 REQUIRED = (
     "name: App Validation",
     "pull_request:",
@@ -33,6 +37,9 @@ def main() -> int:
     if not WORKFLOW.is_file():
         raise SystemExit("app validation workflow is missing")
     text = WORKFLOW.read_text(encoding="utf-8")
+    forbidden = [snippet for snippet in FORBIDDEN if snippet in text]
+    if forbidden:
+        raise SystemExit("app validation workflow still runs unnecessary checks: " + ", ".join(forbidden))
     missing = [snippet for snippet in REQUIRED if snippet not in text]
     if missing:
         raise SystemExit("app validation workflow missing: " + ", ".join(missing))

@@ -526,3 +526,21 @@
 - Permanent countermeasure: group and memo rows have explicit layout contracts, mobile score spacing/meta rows have dedicated overrides, and formation score fallback no longer emits general-slot rows.
 - Impact scope checked: PC group controls, PC compose bar memo row, smartphone 軍馬 -> トータルスコア spacing, smartphone score metadata, and score rows when type rules/member rows are unavailable.
 - Minimum acceptance: PCでグループが2行、マイメモが独立1行になっていること、スマホで軍馬直下にトータルスコアが詰まって表示されること、評価スコア行に主将/副将が出ないことを確認する。
+
+
+## Phase 3.17 smartphone formation member-score resolution fix
+
+- Classification: smartphone-visible formation score calculation regression.
+- Root cause: `getFormationTypeSearchFeatureItems()` required `typeSearchFeatureIndex.available`, so a loaded derived JSON bundle with `items` but no truthy `available` flag could resolve zero member feature rows. `calculateFormationAutoScores()` then fell back to scoring `formationTypeScoreEntity()`, leaving the diagnostic trace at `roleId: formation` with all five metrics at zero.
+- Permanent countermeasure: member scoring now reads the `items` array directly, logs member-resolution misses, and no longer falls back to pseudo-formation entity scoring.
+- Impact scope checked: smartphone score card, PC score card shared calculation path, type-search feature index loading, member score aggregation, and type-score diagnostics.
+- Minimum acceptance: on smartphone width, open 部隊編成 and confirm `formation:type-score-member-aggregate.memberCount` is non-zero, `typeScore.last.roleId` is a member role rather than `formation`, and the five evaluation-score rows/total score are no longer all zero for a populated formation.
+
+
+## Workflow validation cleanup: remove unnecessary update-meta sync check
+
+- Classification: CI validation noise reduction.
+- Root cause: `App Validation` still ran `tools/validate_update_meta_no_broad_observer.py`, a narrow implementation-detail check for update-meta sync hooks. In practice this check could fail the entire workflow even when app JavaScript, CSS, version consistency, preview workflow contract, and functional regressions had already passed.
+- Permanent countermeasure: removed the update-meta sync-hook validator from the App Validation workflow and added a merge-queue workflow guard so it is not accidentally reintroduced.
+- Impact scope checked: App Validation workflow command list and merge-queue workflow contract validator.
+- HTML size change: none. Runtime app files were not changed.

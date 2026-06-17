@@ -17,11 +17,13 @@ REQUIRED_JS = (
     "ensureFormationTypeScoreRulesLoaded",
     "getFormationTypeScoreRule",
     "formationTypeScoreEntity",
-    "scorePolicy:'type-matched-item-count'",
     "<strong>${esc(scores.totalScore)}</strong>",
     "renderFormationScoreSummaryHtml",
     "calculateFormationMemberScoreRows",
     "type-member-matched-item-count",
+    "type-member-score-unavailable",
+    "no formationTypeScoreEntity fallback",
+    "formation:type-score-member-resolve",
     "total-score-is-five-evaluation-score-sum",
     "評価スコアを表示",
     "formation-score-card",
@@ -50,6 +52,7 @@ REQUIRED_JS = (
 )
 FORBIDDEN_JS = (
     "scoreRows:generalRows.map",
+    "window.HadoTypeScore.score(formationTypeScoreEntity",
     "保存データの軍馬を最大3枠まで部隊へ反映",
     "<h3>軍馬</h3>",
     "formationEvaluationTypeInput",
