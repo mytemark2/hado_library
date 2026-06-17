@@ -93,3 +93,74 @@
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',patch,{once:true});else patch();
 })();
+
+/* FIX[Update09.3.21-FORMATION-SCORE-DIAG-NO-LIST-OVERWRITE]:
+   Prevent empty list-render scoring from overwriting the real selected formation score diagnostic. */
+(() => {
+  'use strict';
+  function esc1(v){return (typeof esc==='function')?esc(v):String(v??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+  function n1(v){try{return typeof normalizeSaveItemName==='function'?normalizeSaveItemName(v||''):String(v||'').trim();}catch(_){return String(v||'').trim();}}
+  function hasScoreInput(data){return !!(data&&(Array.isArray(data.effects)&&data.effects.length||Array.isArray(data.parameterRows)&&data.parameterRows.length||data.parameterCalculation));}
+  function diagnosticFormationData(f){
+    const d=window.state?.diagnostics?.formation||{};
+    const pc=d.parameterCalculation||{};
+    const fid=String(f?.id||''), fname=n1(f?.name||'');
+    const pid=String(pc.formationId||''), pname=n1(pc.formationName||'');
+    const matches=(fid&&pid&&fid===pid)||(fname&&pname&&fname===pname);
+    if(!matches)return null;
+    const rows=Array.isArray(pc.rows)?pc.rows:[];
+    const effects=Array.isArray(d.effectSources)?d.effectSources:[];
+    if(!rows.length&&!effects.length)return null;
+    return {parameterCalculation:pc,parameterRows:rows,effects};
+  }
+  function silentEmptyScore(f,reason){
+    const score=Number(f?.totalScore||f?.evaluationScore||0)||0;
+    return {totalScore:score,evaluationScore:score,breakdown:{scoreRows:[],filledGenerals:typeof countFormationFilledGenerals==='function'?countFormationFilledGenerals(f):0,skillCount:0,parameterCount:0,evaluationTypeName:typeof formationEvaluationTypeDisplayName==='function'?formationEvaluationTypeDisplayName(f):'',scorePolicy:'empty-data-no-diagnostic-overwrite',memberCount:0,candidateScores:[],emptyReason:reason||'list render skipped empty score data'}};
+  }
+  function patch(){
+    const originalAuto=window.calculateFormationAutoScores||calculateFormationAutoScores;
+    if(typeof originalAuto==='function'&&!originalAuto.__u09321){
+      const wrapped=function(f,data={}){
+        const hydrated=hasScoreInput(data)?data:diagnosticFormationData(f);
+        if(hydrated)return originalAuto(f,hydrated);
+        return silentEmptyScore(f,'formation score input is empty; diagnostic not overwritten');
+      };
+      wrapped.__u09321=true;
+      window.calculateFormationAutoScores=wrapped;
+      try{calculateFormationAutoScores=wrapped;}catch(_){}
+    }
+
+    if(typeof renderFormationListHtml==='function'&&!renderFormationListHtml.__u09321){
+      const wrappedList=function(){
+        const visible=typeof getVisibleFormations==='function'?getVisibleFormations():[];
+        return visible.map((f,i)=>{
+          const siege=typeof formationExtensionDisplayName==='function'?formationExtensionDisplayName('siegeWeapon',f.siegeWeapon||{}):'';
+          const arm=typeof formationExtensionDisplayName==='function'?formationExtensionDisplayName('ethnicArmament',f.ethnicArmament||{}):'';
+          const score=Number(f?.totalScore||f?.evaluationScore||0)||0;
+          return `<button type="button" class="formation-list-item ${f.id===state.currentFormationId?'is-active':''}" data-formation-select="${esc1(f.id)}"><span class="formation-list-no">${i+1}</span><span><span class="formation-list-name">${esc1(f.name)}</span><span class="formation-list-meta">型:${esc1(formationEvaluationTypeDisplayName(f))} / 合計:${esc1(score)}<br>更新: ${esc1(formatFormationDate(f.updatedAt))}<br>兵器:${esc1(siege)} / 武装:${esc1(arm)}</span></span><span>${f.id===state.currentFormationId?'編集中':'›'}</span></button>`;
+        }).join('')||'<div class="detail-empty">このグループに部隊がありません</div>';
+      };
+      wrappedList.__u09321=true;
+      renderFormationListHtml=wrappedList;
+      window.renderFormationListHtml=wrappedList;
+    }
+
+    if(typeof renderFormationScoreSummaryHtml==='function'&&!renderFormationScoreSummaryHtml.__u09321){
+      const wrappedSummary=function(f,data){
+        const input=hasScoreInput(data)?data:(diagnosticFormationData(f)||data||{});
+        const scores=calculateFormationAutoScores(f,input);
+        f.totalScore=scores.totalScore;f.evaluationScore=scores.evaluationScore;
+        const rows=(scores.breakdown?.scoreRows||[]).slice(0,5);
+        while(rows.length<5)rows.push({label:`評価${rows.length+1}`,score:0});
+        const empty=scores.breakdown?.emptyReason?`<div class="formation-note">${esc1(scores.breakdown.emptyReason)}</div>`:'';
+        return `<div class="formation-score-summary" aria-label="自動計算スコア"><div class="formation-score-summary-head"><div class="formation-score-total"><span>トータルスコア</span><strong>${esc1(scores.totalScore)}</strong></div><span class="formation-score-toggle-note">評価スコア5項目</span></div><div class="formation-score-breakdown formation-score-generals formation-score-evaluation-inline">${rows.map(r=>`<span class="formation-score-chip"><span class="formation-score-label">${esc1(r.label||'')}</span><span class="value">${esc1(r.score||0)}</span></span>`).join('')}</div>${empty}</div>`;
+      };
+      wrappedSummary.__u09321=true;
+      renderFormationScoreSummaryHtml=wrappedSummary;
+      window.renderFormationScoreSummaryHtml=wrappedSummary;
+    }
+
+    try{if(typeof renderFormationScreen==='function'&&window.state?.mainTab==='formation')renderFormationScreen();}catch(_){}
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',patch,{once:true});else patch();
+})();
