@@ -571,3 +571,10 @@
 - Added a PC-width CSS override so the formation score card is visible in the right pane even when the device/browser matches `pointer: coarse`.
 - The override keeps mobile-only score placement hidden on PC-width layouts, preserving the mobile `軍馬 → トータルスコア → 結果サマリー` flow only for mobile width.
 - 可視バージョンを `3.0.0.0 Update09.3.19` / revision 52 へ更新した。
+
+## Update09.3.20 formation score execution validation
+
+- Added `tools/test_formation_type_score_render.js` as an executable post-fix proof for the formation render path.
+- The test invokes `renderFormationScoreSummaryHtml()` rather than only unit-testing `HadoTypeScore.score()`, so it covers the same path that renders the 部隊編成 score panel and writes copy-debug-log diagnostics.
+- Required evidence asserted by the test: `typeScore.calculationInvoked === true`, `presetCount === 16`, loaded `typeSearchFeatureIndex` item count is non-zero, parameter/effect counts are non-zero, at least one candidate has `totalScore > 0`, and at least one evaluation row has matched effect or parameter details.
+- Wired the test into `.github/workflows/app-validation.yml` and `tools/validate_merge_queue_workflow.py`.

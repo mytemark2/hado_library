@@ -26,6 +26,7 @@ REQUIRED = (
     "python3 tools/validate_type_search_feature_index_data.py",
     "python3 tools/validate_update09_phase3_formation_ui.py",
     "node tools/test_type_score.js",
+    "node tools/test_formation_type_score_render.js",
     "node tools/test_saved_type_candidate_filter.js",
     "node tools/test_type_candidate_counts.js",
     "node tools/test_type_candidate_diagnostics.js",

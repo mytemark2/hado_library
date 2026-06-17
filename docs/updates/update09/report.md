@@ -567,3 +567,13 @@
 - Implementation change: added a PC-width override that always shows the right-pane `.formation-score-card` inside `.formation-selected-stack` and hides the mobile-only score placement at `min-width: 981px`.
 - Impact scope checked: PC-width formation edit panel score card, touch-capable PC media query interaction, and mobile score placement separation.
 - HTML size change: none. CSS-only fix plus metadata/docs.
+
+## 2026-06-17 Update09.3.20 formation type-score execution proof
+
+- Classification: formation score calculation verification gap and duplicate-source counting bug.
+- Root cause: the previous Update09.3.19 response proved only score-card visibility. It did not add a repeatable post-fix check that executes the formation render score path and proves `typeScore` is populated with a non-zero score and matched effect/parameter evidence.
+- Implementation change: added `tools/test_formation_type_score_render.js`, which loads `hado_type_score.js` and `hado_formation.js` in a VM, calls `renderFormationScoreSummaryHtml()` with a formation containing actual parameter/effect data, and asserts that `state.diagnostics.typeScore` has `calculationInvoked: true`, non-empty candidate scores, a non-zero total, and matched effect or parameter rows. The formation effect scoring entity now keeps parameter rows in `typeFeatures` and effect rows in `statusEffectRefs`, avoiding duplicate parameter/effect scoring from the same effect source.
+- Post-fix diagnostic excerpt from the new executable check: `calculationInvoked=true`, `presetCount=16`, `featureItemCount=746`, `parameterRowCount=1`, `effectSourceCount=1`, `candidateScoresLength=1`, `maxTotalScore=2`, top type `会心型`, positive row `会心発生`, matched effect `検証技能`, matched parameter `会心発生`.
+- Permanent countermeasure: App Validation now runs the formation render score diagnostic test, and the merge-queue workflow validator requires that command so the test cannot silently disappear from CI.
+- Impact scope checked: `calculateFormationTypeScore()`, `renderFormationScoreSummaryHtml()`, `calculateFormationAutoScores()`, diagnostic output (`typeScore`, `typeSearch`, `typeSearchCache`), and UI output containing `トータルスコア`.
+- HTML size change: none. The regression proof is an external test and the runtime calculation fix remains in external JavaScript.
