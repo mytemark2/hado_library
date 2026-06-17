@@ -551,3 +551,9 @@
 - When member scoring is unavailable, the score card now shows the selected type's five metric rows as zero instead of falling back to pseudo-formation scoring.
 - 可視バージョンを `3.0.0.0 Update09.3.17` / revision 50 へ更新した。
 - HTML size change: none. The fix is external JavaScript plus documentation/validator updates only.
+
+## 2026-06-17 Update09.3.17 type-search feature index validation
+
+- Added `tools/validate_type_search_feature_index_data.py` as a focused recurrence guard for the formation score issue caused by an empty `hadou_type_search_feature_index.json`.
+- Wired the guard into App Validation and the merge-queue workflow contract validator so an empty or unusable type-search feature index cannot pass CI.
+- The validator checks only the directly relevant data contract: file existence, non-empty JSON, non-empty `items`, required source categories, and presence of `typeFeatures` / `statusEffectRefs` rows used by formation member score resolution.

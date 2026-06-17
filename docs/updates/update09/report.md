@@ -544,3 +544,10 @@
 - Permanent countermeasure: removed the update-meta sync-hook validator from the App Validation workflow and added a merge-queue workflow guard so it is not accidentally reintroduced.
 - Impact scope checked: App Validation workflow command list and merge-queue workflow contract validator.
 - HTML size change: none. Runtime app files were not changed.
+
+## 2026-06-17 Update09.3.17 type-search feature index regression guard
+
+- Rechecked the current source artifact `hadou_type_search_feature_index.json`; it is not an empty file in this working tree and contains 746 `items` across generals, equipments, siege weapons, and warhorse skills.
+- Root cause for the reported preview behavior is that a deployment with an empty `hadou_type_search_feature_index.json` leaves `state.derivedData.typeSearchFeatureIndex.items` empty, so formation score member resolution cannot find武将/装備 feature rows and the aggregate diagnostic remains at `memberCount=0`.
+- Added a minimal App Validation guard that fails when `hadou_type_search_feature_index.json` is missing, empty, has `items: []`, lacks required categories, or lacks usable `typeFeatures` / `statusEffectRefs` rows. This prevents the same empty-artifact deployment from passing validation again.
+- Preview sync remains minimal: because `notify-preview.yml` already syncs `hadou_*.json`, the same non-empty JSON will be copied to the preview repository when the source branch is pushed and the preview workflow runs.
