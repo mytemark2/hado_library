@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-06-07T06:04:52.977Z",
-  "dataSetId": "2026-06-07T04:23:26.720Z",
+  "generatedAt": "2026-06-14T06:09:45.870Z",
+  "dataSetId": "2026-06-07T06:04:52.951Z",
   "crawlerVersion": "1.1.0.0",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -35,7 +35,7 @@
   "sourceCounts": {
     "generals": 476,
     "tactics": 455,
-    "equipments": 237,
+    "equipments": 238,
     "skills": 620,
     "statusEffects": 200,
     "siegeWeapons": 6,
@@ -49,7 +49,7 @@
   "sourceHashes": {
     "generals": "4c9aa0cb",
     "tactics": "a9afed3e",
-    "equipments": "4e60d216",
+    "equipments": "5960e367",
     "skills": "bee67c33",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
@@ -63,7 +63,7 @@
   "sourceSha256": {
     "generals": "4c9aa0cb",
     "tactics": "a9afed3e",
-    "equipments": "4e60d216",
+    "equipments": "5960e367",
     "skills": "bee67c33",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
@@ -76,13 +76,13 @@
   },
   "kind": "related_link_index",
   "qualityAudit": {
-    "itemCount": 2740,
-    "totalRelatedCount": 25154,
+    "itemCount": 2746,
+    "totalRelatedCount": 25240,
     "categoryCounts": {
       "generals": 476,
       "tactics": 455,
-      "equipments": 236,
-      "skills": 1254,
+      "equipments": 237,
+      "skills": 1259,
       "statusEffects": 200,
       "siegeWeapons": 6,
       "ethnicArmaments": 18,
@@ -94,8 +94,8 @@
     },
     "coverageAudit": {
       "ok": true,
-      "expectedDatasetItemCount": 2106,
-      "indexedItemCount": 2740,
+      "expectedDatasetItemCount": 2107,
+      "indexedItemCount": 2746,
       "emptyRelatedItemCount": 315,
       "missingCount": 0,
       "missing": [],
@@ -120,7 +120,7 @@
     },
     "annotationLeakAudit": {
       "ok": true,
-      "checkedItemCount": 2740,
+      "checkedItemCount": 2746,
       "ngCount": 0,
       "items": [],
       "policy": "1.0.5.13: 生成時に採用した直接付与句をsourceText/directGrantVerifiedで監査する。局所証拠に注記・例外説明・条件参照が混入した場合、または直接付与根拠のない二段階派生が1件でもあれば派生JSON出力を停止する。条件参照の「状態変化名が発生している場合」は直接付与として採用しない。"
@@ -128,9 +128,9 @@
     "displayRoleAudit": {
       "ok": true,
       "version": "1.1.0.0",
-      "functionalSummaryCount": 955,
+      "functionalSummaryCount": 967,
       "grantedStatusCount": 260,
-      "directStatusCount": 4817,
+      "directStatusCount": 4828,
       "coveredGrantedStatusCount": 91,
       "uncoveredGrantedStatusCount": 169,
       "samples": [
@@ -650,13 +650,13 @@
     "selfCountermeasureFullAudit": {
       "ok": true,
       "version": "1.1.0.0",
-      "skillCount": 89,
+      "skillCount": 90,
       "grantingSkillCount": 19,
       "grantOnlySkillCount": 18,
       "advisorSupplementalSkillCount": 81,
-      "generatedCount": 394,
+      "generatedCount": 398,
       "grantedExpansionCount": 76,
-      "ownerAppliedCount": 562,
+      "ownerAppliedCount": 570,
       "tacticGrantedStatusCount": 369,
       "tacticCountermeasureCount": 55,
       "policy": "1.0.5.11: 通常技能に加え武将JSON内の参軍技能セクションも自部隊不利対策の派生展開対象にする。参軍技能由来リンクは技能名の後ろに(参)を付与し、能力限定の弱化回避は知力低下回避等へ個別化する。専用名宝は装備カテゴリのソースであり、武将本人の戦法/技能として扱わない。アプリ側補完を不要にするためfinalDisplayName/linkTarget/precomputedByCrawlerを付与。",
@@ -34708,6 +34708,20 @@
           },
           {
             "category": "statusEffects",
+            "name": "会心発生変化(強化)",
+            "source": "parameter_summary_index",
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff",
+            "relationType": "",
+            "sourcePartType": "semantic-owner-parameter",
+            "matchedText": "会心発生率を50％",
+            "parameter": "会心発生",
+            "displayRole": "direct-status"
+          },
+          {
+            "category": "statusEffects",
             "name": "与ダメージ変化(強化)",
             "source": "parameter_summary_index",
             "groupKey": "selfAbilityBuff",
@@ -34718,6 +34732,20 @@
             "sourcePartType": "semantic-owner-parameter",
             "matchedText": "与ダメージ+30%",
             "parameter": "与ダメージ",
+            "displayRole": "direct-status"
+          },
+          {
+            "category": "statusEffects",
+            "name": "被ダメージ変化(強化)",
+            "source": "parameter_summary_index",
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff",
+            "relationType": "",
+            "sourcePartType": "semantic-owner-parameter",
+            "matchedText": "被ダメージ-30%",
+            "parameter": "被ダメージ",
             "displayRole": "direct-status"
           },
           {
@@ -34744,7 +34772,7 @@
             "direction": "buff",
             "sourcePartType": "semantic-owner-status-grant",
             "matchedText": "取込",
-            "sourceText": "兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数₋3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇",
+            "sourceText": "兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇",
             "directGrantVerified": true,
             "directGrantEvidence": "取込を付与",
             "displayRole": "granted-status",
@@ -34762,7 +34790,7 @@
             "direction": "debuff",
             "sourcePartType": "semantic-owner-status-grant",
             "matchedText": "萎縮",
-            "sourceText": "兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数₋3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇",
+            "sourceText": "兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇",
             "directGrantVerified": true,
             "directGrantEvidence": "萎縮を付与",
             "displayRole": "direct-status"
@@ -34781,6 +34809,102 @@
             "directGrantVerified": true,
             "directGrantEvidence": "感電を6秒付与",
             "displayRole": "direct-status"
+          },
+          {
+            "category": "statusEffects",
+            "name": "知力低下回避[天雷]",
+            "source": "self_countermeasure_index",
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "target": "知力低下",
+            "relationType": "回避",
+            "skillName": "天雷",
+            "sourceText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける",
+            "sourcePartType": "self-countermeasure-skill",
+            "displayName": "知力低下回避[天雷]",
+            "finalDisplayName": "知力低下回避[天雷]",
+            "linkTarget": "知力低下",
+            "precomputedByCrawler": true,
+            "sourceSkillName": "天雷",
+            "ownerName": "LR張角（ちょうかく）",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "sourceSkillDisplayName": "天雷",
+            "displayRole": "functional-summary",
+            "sourceName": "天雷",
+            "sourceKind": "skill"
+          },
+          {
+            "category": "statusEffects",
+            "name": "攻撃速度低下回避[天雷]",
+            "source": "self_countermeasure_index",
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "target": "攻撃速度低下",
+            "relationType": "回避",
+            "skillName": "天雷",
+            "sourceText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける",
+            "sourcePartType": "self-countermeasure-skill",
+            "displayName": "攻撃速度低下回避[天雷]",
+            "finalDisplayName": "攻撃速度低下回避[天雷]",
+            "linkTarget": "攻撃速度低下",
+            "precomputedByCrawler": true,
+            "sourceSkillName": "天雷",
+            "ownerName": "LR張角（ちょうかく）",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "sourceSkillDisplayName": "天雷",
+            "displayRole": "functional-summary",
+            "sourceName": "天雷",
+            "sourceKind": "skill"
+          },
+          {
+            "category": "statusEffects",
+            "name": "会心率半減回避[天雷]",
+            "source": "self_countermeasure_index",
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "target": "会心率半減",
+            "relationType": "回避",
+            "skillName": "天雷",
+            "sourceText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と一部の不利変化（会心率半減/通常攻撃縮小）を避ける",
+            "sourcePartType": "self-countermeasure-skill",
+            "displayName": "会心率半減回避[天雷]",
+            "finalDisplayName": "会心率半減回避[天雷]",
+            "linkTarget": "会心率半減",
+            "precomputedByCrawler": true,
+            "sourceSkillName": "天雷",
+            "ownerName": "LR張角（ちょうかく）",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "sourceSkillDisplayName": "天雷",
+            "displayRole": "functional-summary",
+            "sourceName": "天雷",
+            "sourceKind": "skill"
+          },
+          {
+            "category": "statusEffects",
+            "name": "通常攻撃縮小回避[天雷]",
+            "source": "self_countermeasure_index",
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "target": "通常攻撃縮小",
+            "relationType": "回避",
+            "skillName": "天雷",
+            "sourceText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と一部の不利変化（会心率半減/通常攻撃縮小）を避ける",
+            "sourcePartType": "self-countermeasure-skill",
+            "displayName": "通常攻撃縮小回避[天雷]",
+            "finalDisplayName": "通常攻撃縮小回避[天雷]",
+            "linkTarget": "通常攻撃縮小",
+            "precomputedByCrawler": true,
+            "sourceSkillName": "天雷",
+            "ownerName": "LR張角（ちょうかく）",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "sourceSkillDisplayName": "天雷",
+            "displayRole": "functional-summary",
+            "sourceName": "天雷",
+            "sourceKind": "skill"
           },
           {
             "category": "statusEffects",
@@ -35098,6 +35222,22 @@
           },
           {
             "category": "statusEffects",
+            "name": "会心発生変化(強化)",
+            "source": "parameter_summary_index",
+            "detail": {
+              "name": "会心発生変化(強化)",
+              "groupKey": "selfAbilityBuff",
+              "groupLabel": "自部隊能力強化",
+              "targetSide": "self",
+              "direction": "buff",
+              "relationType": "",
+              "sourcePartType": "semantic-owner-parameter",
+              "matchedText": "会心発生率を50％",
+              "parameter": "会心発生"
+            }
+          },
+          {
+            "category": "statusEffects",
             "name": "与ダメージ変化(強化)",
             "source": "parameter_summary_index",
             "detail": {
@@ -35110,6 +35250,22 @@
               "sourcePartType": "semantic-owner-parameter",
               "matchedText": "与ダメージ+30%",
               "parameter": "与ダメージ"
+            }
+          },
+          {
+            "category": "statusEffects",
+            "name": "被ダメージ変化(強化)",
+            "source": "parameter_summary_index",
+            "detail": {
+              "name": "被ダメージ変化(強化)",
+              "groupKey": "selfAbilityBuff",
+              "groupLabel": "自部隊能力強化",
+              "targetSide": "self",
+              "direction": "buff",
+              "relationType": "",
+              "sourcePartType": "semantic-owner-parameter",
+              "matchedText": "被ダメージ-30%",
+              "parameter": "被ダメージ"
             }
           },
           {
@@ -35139,7 +35295,7 @@
               "direction": "buff",
               "sourcePartType": "semantic-owner-status-grant",
               "matchedText": "取込",
-              "sourceText": "兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数₋3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇",
+              "sourceText": "兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇",
               "directGrantVerified": true,
               "directGrantEvidence": "取込を付与"
             }
@@ -35155,7 +35311,7 @@
               "direction": "debuff",
               "sourcePartType": "semantic-owner-status-grant",
               "matchedText": "萎縮",
-              "sourceText": "兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数₋3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇",
+              "sourceText": "兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇",
               "directGrantVerified": true,
               "directGrantEvidence": "萎縮を付与"
             }
@@ -35174,6 +35330,102 @@
               "sourceText": "通常攻撃時、対象を含む敵2部隊に感電を6秒付与（1度の通常攻撃につき1回発生判定を行う",
               "directGrantVerified": true,
               "directGrantEvidence": "感電を6秒付与"
+            }
+          },
+          {
+            "category": "statusEffects",
+            "name": "知力低下回避[天雷]",
+            "source": "self_countermeasure_index",
+            "detail": {
+              "groupKey": "selfResistanceBuff",
+              "groupLabel": "自部隊不利対策",
+              "name": "知力低下回避[天雷]",
+              "target": "知力低下",
+              "relationType": "回避",
+              "skillName": "天雷",
+              "sourceText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける",
+              "sourcePartType": "self-countermeasure-skill",
+              "displayName": "知力低下回避[天雷]",
+              "finalDisplayName": "知力低下回避[天雷]",
+              "linkTarget": "知力低下",
+              "precomputedByCrawler": true,
+              "sourceSkillName": "天雷",
+              "ownerName": "LR張角（ちょうかく）",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "sourceSkillDisplayName": "天雷"
+            }
+          },
+          {
+            "category": "statusEffects",
+            "name": "攻撃速度低下回避[天雷]",
+            "source": "self_countermeasure_index",
+            "detail": {
+              "groupKey": "selfResistanceBuff",
+              "groupLabel": "自部隊不利対策",
+              "name": "攻撃速度低下回避[天雷]",
+              "target": "攻撃速度低下",
+              "relationType": "回避",
+              "skillName": "天雷",
+              "sourceText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける",
+              "sourcePartType": "self-countermeasure-skill",
+              "displayName": "攻撃速度低下回避[天雷]",
+              "finalDisplayName": "攻撃速度低下回避[天雷]",
+              "linkTarget": "攻撃速度低下",
+              "precomputedByCrawler": true,
+              "sourceSkillName": "天雷",
+              "ownerName": "LR張角（ちょうかく）",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "sourceSkillDisplayName": "天雷"
+            }
+          },
+          {
+            "category": "statusEffects",
+            "name": "会心率半減回避[天雷]",
+            "source": "self_countermeasure_index",
+            "detail": {
+              "groupKey": "selfResistanceBuff",
+              "groupLabel": "自部隊不利対策",
+              "name": "会心率半減回避[天雷]",
+              "target": "会心率半減",
+              "relationType": "回避",
+              "skillName": "天雷",
+              "sourceText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と一部の不利変化（会心率半減/通常攻撃縮小）を避ける",
+              "sourcePartType": "self-countermeasure-skill",
+              "displayName": "会心率半減回避[天雷]",
+              "finalDisplayName": "会心率半減回避[天雷]",
+              "linkTarget": "会心率半減",
+              "precomputedByCrawler": true,
+              "sourceSkillName": "天雷",
+              "ownerName": "LR張角（ちょうかく）",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "sourceSkillDisplayName": "天雷"
+            }
+          },
+          {
+            "category": "statusEffects",
+            "name": "通常攻撃縮小回避[天雷]",
+            "source": "self_countermeasure_index",
+            "detail": {
+              "groupKey": "selfResistanceBuff",
+              "groupLabel": "自部隊不利対策",
+              "name": "通常攻撃縮小回避[天雷]",
+              "target": "通常攻撃縮小",
+              "relationType": "回避",
+              "skillName": "天雷",
+              "sourceText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と一部の不利変化（会心率半減/通常攻撃縮小）を避ける",
+              "sourcePartType": "self-countermeasure-skill",
+              "displayName": "通常攻撃縮小回避[天雷]",
+              "finalDisplayName": "通常攻撃縮小回避[天雷]",
+              "linkTarget": "通常攻撃縮小",
+              "precomputedByCrawler": true,
+              "sourceSkillName": "天雷",
+              "ownerName": "LR張角（ちょうかく）",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "sourceSkillDisplayName": "天雷"
             }
           },
           {
@@ -35365,7 +35617,7 @@
         "tactics": 1,
         "skills": 5,
         "equipments": 0,
-        "statusEffects": 15,
+        "statusEffects": 21,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -35374,9 +35626,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 21
+        "sourceRefs": 27
       },
-      "totalRelatedCount": 42
+      "totalRelatedCount": 54
     },
     {
       "category": "generals",
@@ -116936,6 +117188,20 @@
           },
           {
             "category": "statusEffects",
+            "name": "被ダメージ変化(弱化)",
+            "source": "parameter_summary_index",
+            "groupKey": "enemyAbilityDebuff",
+            "groupLabel": "敵部隊能力低下",
+            "targetSide": "enemy",
+            "direction": "debuff",
+            "relationType": "",
+            "sourcePartType": "semantic-owner-parameter",
+            "matchedText": "被ダメージを、敵部隊に発生している弱化効果の数×1.5%",
+            "parameter": "被ダメージ",
+            "displayRole": "direct-status"
+          },
+          {
+            "category": "statusEffects",
             "name": "攻撃変化(弱化)",
             "source": "parameter_summary_index",
             "groupKey": "enemyAbilityDebuff",
@@ -117192,6 +117458,22 @@
           },
           {
             "category": "statusEffects",
+            "name": "被ダメージ変化(弱化)",
+            "source": "parameter_summary_index",
+            "detail": {
+              "name": "被ダメージ変化(弱化)",
+              "groupKey": "enemyAbilityDebuff",
+              "groupLabel": "敵部隊能力低下",
+              "targetSide": "enemy",
+              "direction": "debuff",
+              "relationType": "",
+              "sourcePartType": "semantic-owner-parameter",
+              "matchedText": "被ダメージを、敵部隊に発生している弱化効果の数×1.5%",
+              "parameter": "被ダメージ"
+            }
+          },
+          {
+            "category": "statusEffects",
             "name": "攻撃変化(弱化)",
             "source": "parameter_summary_index",
             "detail": {
@@ -117304,7 +117586,7 @@
         "tactics": 1,
         "skills": 4,
         "equipments": 0,
-        "statusEffects": 11,
+        "statusEffects": 12,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -117313,9 +117595,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 16
+        "sourceRefs": 17
       },
-      "totalRelatedCount": 32
+      "totalRelatedCount": 34
     },
     {
       "category": "generals",
@@ -181296,7 +181578,7 @@
             "direction": "buff",
             "sourcePartType": "semantic-owner-status-grant",
             "matchedText": "取込",
-            "sourceText": "兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数₋3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇",
+            "sourceText": "兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇",
             "directGrantVerified": true,
             "directGrantEvidence": "取込を付与",
             "displayRole": "granted-status",
@@ -181314,7 +181596,7 @@
             "direction": "debuff",
             "sourcePartType": "semantic-owner-status-grant",
             "matchedText": "萎縮",
-            "sourceText": "兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数₋3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇",
+            "sourceText": "兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇",
             "directGrantVerified": true,
             "directGrantEvidence": "萎縮を付与",
             "displayRole": "direct-status"
@@ -181392,7 +181674,7 @@
               "direction": "buff",
               "sourcePartType": "semantic-owner-status-grant",
               "matchedText": "取込",
-              "sourceText": "兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数₋3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇",
+              "sourceText": "兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇",
               "directGrantVerified": true,
               "directGrantEvidence": "取込を付与"
             }
@@ -181408,7 +181690,7 @@
               "direction": "debuff",
               "sourcePartType": "semantic-owner-status-grant",
               "matchedText": "萎縮",
-              "sourceText": "兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数₋3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇",
+              "sourceText": "兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇",
               "directGrantVerified": true,
               "directGrantEvidence": "萎縮を付与"
             }
@@ -236067,18 +236349,18 @@
     },
     {
       "category": "equipments",
-      "name": "稜花朱塗拂塵",
+      "name": "太平辟邪霊符",
       "related": {
         "generals": [],
         "tactics": [],
         "skills": [
           {
             "category": "skills",
-            "name": "威刑",
+            "name": "黄老",
             "source": "skill_owner_index",
-            "skillName": "威刑",
-            "displayName": "威刑",
-            "linkTarget": "威刑",
+            "skillName": "黄老",
+            "displayName": "黄老",
+            "linkTarget": "黄老",
             "isAdvisorSkill": false,
             "usage": "normal",
             "ownerType": "equipment",
@@ -236086,11 +236368,11 @@
           },
           {
             "category": "skills",
-            "name": "雪怨",
+            "name": "天雷",
             "source": "skill_owner_index",
-            "skillName": "雪怨",
-            "displayName": "雪怨",
-            "linkTarget": "雪怨",
+            "skillName": "天雷",
+            "displayName": "天雷",
+            "linkTarget": "天雷",
             "isAdvisorSkill": false,
             "usage": "normal",
             "ownerType": "equipment",
@@ -236098,11 +236380,11 @@
           },
           {
             "category": "skills",
-            "name": "機略",
+            "name": "反逆",
             "source": "skill_owner_index",
-            "skillName": "機略",
-            "displayName": "機略",
-            "linkTarget": "機略",
+            "skillName": "反逆",
+            "displayName": "反逆",
+            "linkTarget": "反逆",
             "isAdvisorSkill": false,
             "usage": "normal",
             "ownerType": "equipment",
@@ -236110,11 +236392,11 @@
           },
           {
             "category": "skills",
-            "name": "雪威才気",
+            "name": "軽減",
             "source": "skill_owner_index",
-            "skillName": "雪威才気",
-            "displayName": "雪威才気",
-            "linkTarget": "雪威才気",
+            "skillName": "軽減",
+            "displayName": "軽減",
+            "linkTarget": "軽減",
             "isAdvisorSkill": false,
             "usage": "normal",
             "ownerType": "equipment",
@@ -236122,11 +236404,11 @@
           },
           {
             "category": "skills",
-            "name": "堪撃賢聡",
+            "name": "天黄才気",
             "source": "skill_owner_index",
-            "skillName": "堪撃賢聡",
-            "displayName": "堪撃賢聡",
-            "linkTarget": "堪撃賢聡",
+            "skillName": "天黄才気",
+            "displayName": "天黄才気",
+            "linkTarget": "天黄才気",
             "isAdvisorSkill": false,
             "usage": "normal",
             "ownerType": "equipment",
@@ -236134,11 +236416,23 @@
           },
           {
             "category": "skills",
-            "name": "英計躍動",
+            "name": "公導賢抗",
             "source": "skill_owner_index",
-            "skillName": "英計躍動",
-            "displayName": "英計躍動",
-            "linkTarget": "英計躍動",
+            "skillName": "公導賢抗",
+            "displayName": "公導賢抗",
+            "linkTarget": "公導賢抗",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table"
+          },
+          {
+            "category": "skills",
+            "name": "雷光逆乱",
+            "source": "skill_owner_index",
+            "skillName": "雷光逆乱",
+            "displayName": "雷光逆乱",
+            "linkTarget": "雷光逆乱",
             "isAdvisorSkill": false,
             "usage": "normal",
             "ownerType": "equipment",
@@ -236146,7 +236440,104 @@
           }
         ],
         "equipments": [],
-        "statusEffects": [],
+        "statusEffects": [
+          {
+            "category": "statusEffects",
+            "name": "知力低下回避[天雷]",
+            "source": "self_countermeasure_index",
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "target": "知力低下",
+            "relationType": "回避",
+            "skillName": "天雷",
+            "sourceText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける",
+            "sourcePartType": "self-countermeasure-skill",
+            "displayName": "知力低下回避[天雷]",
+            "finalDisplayName": "知力低下回避[天雷]",
+            "linkTarget": "知力低下",
+            "precomputedByCrawler": true,
+            "sourceSkillName": "天雷",
+            "ownerName": "太平辟邪霊符",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "sourceSkillDisplayName": "天雷",
+            "displayRole": "functional-summary",
+            "sourceName": "天雷",
+            "sourceKind": "skill"
+          },
+          {
+            "category": "statusEffects",
+            "name": "攻撃速度低下回避[天雷]",
+            "source": "self_countermeasure_index",
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "target": "攻撃速度低下",
+            "relationType": "回避",
+            "skillName": "天雷",
+            "sourceText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける",
+            "sourcePartType": "self-countermeasure-skill",
+            "displayName": "攻撃速度低下回避[天雷]",
+            "finalDisplayName": "攻撃速度低下回避[天雷]",
+            "linkTarget": "攻撃速度低下",
+            "precomputedByCrawler": true,
+            "sourceSkillName": "天雷",
+            "ownerName": "太平辟邪霊符",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "sourceSkillDisplayName": "天雷",
+            "displayRole": "functional-summary",
+            "sourceName": "天雷",
+            "sourceKind": "skill"
+          },
+          {
+            "category": "statusEffects",
+            "name": "会心率半減回避[天雷]",
+            "source": "self_countermeasure_index",
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "target": "会心率半減",
+            "relationType": "回避",
+            "skillName": "天雷",
+            "sourceText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と一部の不利変化（会心率半減/通常攻撃縮小）を避ける",
+            "sourcePartType": "self-countermeasure-skill",
+            "displayName": "会心率半減回避[天雷]",
+            "finalDisplayName": "会心率半減回避[天雷]",
+            "linkTarget": "会心率半減",
+            "precomputedByCrawler": true,
+            "sourceSkillName": "天雷",
+            "ownerName": "太平辟邪霊符",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "sourceSkillDisplayName": "天雷",
+            "displayRole": "functional-summary",
+            "sourceName": "天雷",
+            "sourceKind": "skill"
+          },
+          {
+            "category": "statusEffects",
+            "name": "通常攻撃縮小回避[天雷]",
+            "source": "self_countermeasure_index",
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "target": "通常攻撃縮小",
+            "relationType": "回避",
+            "skillName": "天雷",
+            "sourceText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と一部の不利変化（会心率半減/通常攻撃縮小）を避ける",
+            "sourcePartType": "self-countermeasure-skill",
+            "displayName": "通常攻撃縮小回避[天雷]",
+            "finalDisplayName": "通常攻撃縮小回避[天雷]",
+            "linkTarget": "通常攻撃縮小",
+            "precomputedByCrawler": true,
+            "sourceSkillName": "天雷",
+            "ownerName": "太平辟邪霊符",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "sourceSkillDisplayName": "天雷",
+            "displayRole": "functional-summary",
+            "sourceName": "天雷",
+            "sourceKind": "skill"
+          }
+        ],
         "formations": [],
         "warhorses": [],
         "warhorseSkills": [],
@@ -236158,12 +236549,12 @@
         "sourceRefs": [
           {
             "category": "skills",
-            "name": "威刑",
+            "name": "黄老",
             "source": "skill_owner_index",
             "detail": {
-              "skillName": "威刑",
-              "displayName": "威刑",
-              "linkTarget": "威刑",
+              "skillName": "黄老",
+              "displayName": "黄老",
+              "linkTarget": "黄老",
               "isAdvisorSkill": false,
               "usage": "normal",
               "ownerType": "equipment",
@@ -236172,12 +236563,12 @@
           },
           {
             "category": "skills",
-            "name": "雪怨",
+            "name": "天雷",
             "source": "skill_owner_index",
             "detail": {
-              "skillName": "雪怨",
-              "displayName": "雪怨",
-              "linkTarget": "雪怨",
+              "skillName": "天雷",
+              "displayName": "天雷",
+              "linkTarget": "天雷",
               "isAdvisorSkill": false,
               "usage": "normal",
               "ownerType": "equipment",
@@ -236186,12 +236577,12 @@
           },
           {
             "category": "skills",
-            "name": "機略",
+            "name": "反逆",
             "source": "skill_owner_index",
             "detail": {
-              "skillName": "機略",
-              "displayName": "機略",
-              "linkTarget": "機略",
+              "skillName": "反逆",
+              "displayName": "反逆",
+              "linkTarget": "反逆",
               "isAdvisorSkill": false,
               "usage": "normal",
               "ownerType": "equipment",
@@ -236200,12 +236591,12 @@
           },
           {
             "category": "skills",
-            "name": "雪威才気",
+            "name": "軽減",
             "source": "skill_owner_index",
             "detail": {
-              "skillName": "雪威才気",
-              "displayName": "雪威才気",
-              "linkTarget": "雪威才気",
+              "skillName": "軽減",
+              "displayName": "軽減",
+              "linkTarget": "軽減",
               "isAdvisorSkill": false,
               "usage": "normal",
               "ownerType": "equipment",
@@ -236214,12 +236605,12 @@
           },
           {
             "category": "skills",
-            "name": "堪撃賢聡",
+            "name": "天黄才気",
             "source": "skill_owner_index",
             "detail": {
-              "skillName": "堪撃賢聡",
-              "displayName": "堪撃賢聡",
-              "linkTarget": "堪撃賢聡",
+              "skillName": "天黄才気",
+              "displayName": "天黄才気",
+              "linkTarget": "天黄才気",
               "isAdvisorSkill": false,
               "usage": "normal",
               "ownerType": "equipment",
@@ -236228,12 +236619,26 @@
           },
           {
             "category": "skills",
-            "name": "英計躍動",
+            "name": "公導賢抗",
             "source": "skill_owner_index",
             "detail": {
-              "skillName": "英計躍動",
-              "displayName": "英計躍動",
-              "linkTarget": "英計躍動",
+              "skillName": "公導賢抗",
+              "displayName": "公導賢抗",
+              "linkTarget": "公導賢抗",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table"
+            }
+          },
+          {
+            "category": "skills",
+            "name": "雷光逆乱",
+            "source": "skill_owner_index",
+            "detail": {
+              "skillName": "雷光逆乱",
+              "displayName": "雷光逆乱",
+              "linkTarget": "雷光逆乱",
               "isAdvisorSkill": false,
               "usage": "normal",
               "ownerType": "equipment",
@@ -236245,9 +236650,9 @@
       "relatedCounts": {
         "generals": 0,
         "tactics": 0,
-        "skills": 6,
+        "skills": 7,
         "equipments": 0,
-        "statusEffects": 0,
+        "statusEffects": 4,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -236256,9 +236661,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 6
+        "sourceRefs": 7
       },
-      "totalRelatedCount": 12
+      "totalRelatedCount": 18
     },
     {
       "category": "equipments",
@@ -236429,6 +236834,201 @@
               "skillName": "英計抑敵",
               "displayName": "英計抑敵",
               "linkTarget": "英計抑敵",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table"
+            }
+          }
+        ]
+      },
+      "relatedCounts": {
+        "generals": 0,
+        "tactics": 0,
+        "skills": 6,
+        "equipments": 0,
+        "statusEffects": 0,
+        "formations": 0,
+        "warhorses": 0,
+        "warhorseSkills": 0,
+        "ethnicArmaments": 0,
+        "ethnicResearchSkills": 0,
+        "siegeWeapons": 0,
+        "parameterEffects": 0,
+        "statusGroups": 0,
+        "sourceRefs": 6
+      },
+      "totalRelatedCount": 12
+    },
+    {
+      "category": "equipments",
+      "name": "稜花朱塗拂塵",
+      "related": {
+        "generals": [],
+        "tactics": [],
+        "skills": [
+          {
+            "category": "skills",
+            "name": "威刑",
+            "source": "skill_owner_index",
+            "skillName": "威刑",
+            "displayName": "威刑",
+            "linkTarget": "威刑",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table"
+          },
+          {
+            "category": "skills",
+            "name": "雪怨",
+            "source": "skill_owner_index",
+            "skillName": "雪怨",
+            "displayName": "雪怨",
+            "linkTarget": "雪怨",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table"
+          },
+          {
+            "category": "skills",
+            "name": "機略",
+            "source": "skill_owner_index",
+            "skillName": "機略",
+            "displayName": "機略",
+            "linkTarget": "機略",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table"
+          },
+          {
+            "category": "skills",
+            "name": "雪威才気",
+            "source": "skill_owner_index",
+            "skillName": "雪威才気",
+            "displayName": "雪威才気",
+            "linkTarget": "雪威才気",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table"
+          },
+          {
+            "category": "skills",
+            "name": "堪撃賢聡",
+            "source": "skill_owner_index",
+            "skillName": "堪撃賢聡",
+            "displayName": "堪撃賢聡",
+            "linkTarget": "堪撃賢聡",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table"
+          },
+          {
+            "category": "skills",
+            "name": "英計躍動",
+            "source": "skill_owner_index",
+            "skillName": "英計躍動",
+            "displayName": "英計躍動",
+            "linkTarget": "英計躍動",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table"
+          }
+        ],
+        "equipments": [],
+        "statusEffects": [],
+        "formations": [],
+        "warhorses": [],
+        "warhorseSkills": [],
+        "ethnicArmaments": [],
+        "ethnicResearchSkills": [],
+        "siegeWeapons": [],
+        "parameterEffects": [],
+        "statusGroups": [],
+        "sourceRefs": [
+          {
+            "category": "skills",
+            "name": "威刑",
+            "source": "skill_owner_index",
+            "detail": {
+              "skillName": "威刑",
+              "displayName": "威刑",
+              "linkTarget": "威刑",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table"
+            }
+          },
+          {
+            "category": "skills",
+            "name": "雪怨",
+            "source": "skill_owner_index",
+            "detail": {
+              "skillName": "雪怨",
+              "displayName": "雪怨",
+              "linkTarget": "雪怨",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table"
+            }
+          },
+          {
+            "category": "skills",
+            "name": "機略",
+            "source": "skill_owner_index",
+            "detail": {
+              "skillName": "機略",
+              "displayName": "機略",
+              "linkTarget": "機略",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table"
+            }
+          },
+          {
+            "category": "skills",
+            "name": "雪威才気",
+            "source": "skill_owner_index",
+            "detail": {
+              "skillName": "雪威才気",
+              "displayName": "雪威才気",
+              "linkTarget": "雪威才気",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table"
+            }
+          },
+          {
+            "category": "skills",
+            "name": "堪撃賢聡",
+            "source": "skill_owner_index",
+            "detail": {
+              "skillName": "堪撃賢聡",
+              "displayName": "堪撃賢聡",
+              "linkTarget": "堪撃賢聡",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table"
+            }
+          },
+          {
+            "category": "skills",
+            "name": "英計躍動",
+            "source": "skill_owner_index",
+            "detail": {
+              "skillName": "英計躍動",
+              "displayName": "英計躍動",
+              "linkTarget": "英計躍動",
               "isAdvisorSkill": false,
               "usage": "normal",
               "ownerType": "equipment",
@@ -254593,6 +255193,18 @@
           },
           {
             "category": "skills",
+            "name": "軽減",
+            "source": "skill_owner_index",
+            "skillName": "軽減",
+            "displayName": "軽減",
+            "linkTarget": "軽減",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table"
+          },
+          {
+            "category": "skills",
             "name": "後顧鬼想",
             "source": "skill_owner_index",
             "skillName": "後顧鬼想",
@@ -254610,6 +255222,18 @@
             "skillName": "方略警衛",
             "displayName": "方略警衛",
             "linkTarget": "方略警衛",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table"
+          },
+          {
+            "category": "skills",
+            "name": "弱仇妙衛",
+            "source": "skill_owner_index",
+            "skillName": "弱仇妙衛",
+            "displayName": "弱仇妙衛",
+            "linkTarget": "弱仇妙衛",
             "isAdvisorSkill": false,
             "usage": "normal",
             "ownerType": "equipment",
@@ -254657,6 +255281,20 @@
           },
           {
             "category": "skills",
+            "name": "軽減",
+            "source": "skill_owner_index",
+            "detail": {
+              "skillName": "軽減",
+              "displayName": "軽減",
+              "linkTarget": "軽減",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table"
+            }
+          },
+          {
+            "category": "skills",
             "name": "後顧鬼想",
             "source": "skill_owner_index",
             "detail": {
@@ -254682,13 +255320,27 @@
               "ownerType": "equipment",
               "sourcePartType": "equipment-skill-table"
             }
+          },
+          {
+            "category": "skills",
+            "name": "弱仇妙衛",
+            "source": "skill_owner_index",
+            "detail": {
+              "skillName": "弱仇妙衛",
+              "displayName": "弱仇妙衛",
+              "linkTarget": "弱仇妙衛",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table"
+            }
           }
         ]
       },
       "relatedCounts": {
         "generals": 0,
         "tactics": 0,
-        "skills": 4,
+        "skills": 6,
         "equipments": 0,
         "statusEffects": 0,
         "formations": 0,
@@ -254699,9 +255351,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 4
+        "sourceRefs": 6
       },
-      "totalRelatedCount": 8
+      "totalRelatedCount": 12
     },
     {
       "category": "equipments",
@@ -269018,6 +269670,18 @@
           },
           {
             "category": "skills",
+            "name": "敏活",
+            "source": "skill_owner_index",
+            "skillName": "敏活",
+            "displayName": "敏活",
+            "linkTarget": "敏活",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table"
+          },
+          {
+            "category": "skills",
             "name": "伏龍練達",
             "source": "skill_owner_index",
             "skillName": "伏龍練達",
@@ -269035,6 +269699,18 @@
             "skillName": "術策怒涛",
             "displayName": "術策怒涛",
             "linkTarget": "術策怒涛",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table"
+          },
+          {
+            "category": "skills",
+            "name": "倒撃英知",
+            "source": "skill_owner_index",
+            "skillName": "倒撃英知",
+            "displayName": "倒撃英知",
+            "linkTarget": "倒撃英知",
             "isAdvisorSkill": false,
             "usage": "normal",
             "ownerType": "equipment",
@@ -269068,6 +269744,20 @@
           },
           {
             "category": "skills",
+            "name": "敏活",
+            "source": "skill_owner_index",
+            "detail": {
+              "skillName": "敏活",
+              "displayName": "敏活",
+              "linkTarget": "敏活",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table"
+            }
+          },
+          {
+            "category": "skills",
             "name": "伏龍練達",
             "source": "skill_owner_index",
             "detail": {
@@ -269093,13 +269783,27 @@
               "ownerType": "equipment",
               "sourcePartType": "equipment-skill-table"
             }
+          },
+          {
+            "category": "skills",
+            "name": "倒撃英知",
+            "source": "skill_owner_index",
+            "detail": {
+              "skillName": "倒撃英知",
+              "displayName": "倒撃英知",
+              "linkTarget": "倒撃英知",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table"
+            }
           }
         ]
       },
       "relatedCounts": {
         "generals": 0,
         "tactics": 0,
-        "skills": 3,
+        "skills": 5,
         "equipments": 0,
         "statusEffects": 0,
         "formations": 0,
@@ -269110,9 +269814,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 3
+        "sourceRefs": 5
       },
-      "totalRelatedCount": 6
+      "totalRelatedCount": 10
     },
     {
       "category": "equipments",
@@ -305573,8 +306277,33 @@
         ],
         "tactics": [],
         "skills": [],
-        "equipments": [],
+        "equipments": [
+          {
+            "category": "equipments",
+            "name": "太平辟邪霊符",
+            "source": "skill_owner_index",
+            "skillName": "黄老",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table"
+          }
+        ],
         "statusEffects": [
+          {
+            "category": "statusEffects",
+            "name": "攻撃速度変化(強化)",
+            "source": "parameter_summary_index",
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff",
+            "relationType": "",
+            "sourcePartType": "semantic-owner-parameter",
+            "matchedText": "攻撃速度+100%",
+            "parameter": "攻撃速度",
+            "displayRole": "direct-status"
+          },
           {
             "category": "statusEffects",
             "name": "与ダメージ変化(強化)",
@@ -305587,6 +306316,20 @@
             "sourcePartType": "semantic-owner-parameter",
             "matchedText": "与ダメージ+30%",
             "parameter": "与ダメージ",
+            "displayRole": "direct-status"
+          },
+          {
+            "category": "statusEffects",
+            "name": "被ダメージ変化(強化)",
+            "source": "parameter_summary_index",
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff",
+            "relationType": "",
+            "sourcePartType": "semantic-owner-parameter",
+            "matchedText": "被ダメージ₋30%",
+            "parameter": "被ダメージ",
             "displayRole": "direct-status"
           },
           {
@@ -305613,9 +306356,24 @@
             "direction": "debuff",
             "sourcePartType": "semantic-owner-status-grant",
             "matchedText": "感電",
-            "sourceText": "技能「天雷」で通常攻撃時に付与する感電の付与部隊数+1（加算後の上限3）自部隊の「反逆」の技能Lv×20%の確率で通常攻撃の対象部隊数+2Ⅱ-Ⅲ-Ⅳ-Ⅴ-",
+            "sourceText": "感電が発生している敵部隊に対する通常攻撃・戦法による与ダメージ+30%",
             "directGrantVerified": true,
-            "directGrantEvidence": "感電の付与",
+            "directGrantEvidence": "感電が発生",
+            "displayRole": "direct-status"
+          },
+          {
+            "category": "statusEffects",
+            "name": "威槍",
+            "source": "semantic_owner_status",
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff",
+            "sourcePartType": "semantic-owner-status-grant",
+            "matchedText": "威槍",
+            "sourceText": "自身1部隊に3回の威槍を付与（15秒）",
+            "directGrantVerified": true,
+            "directGrantEvidence": "威槍を付与",
             "displayRole": "direct-status"
           }
         ],
@@ -305641,6 +306399,34 @@
             }
           },
           {
+            "category": "equipments",
+            "name": "太平辟邪霊符",
+            "source": "skill_owner_index",
+            "detail": {
+              "skillName": "黄老",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table"
+            }
+          },
+          {
+            "category": "statusEffects",
+            "name": "攻撃速度変化(強化)",
+            "source": "parameter_summary_index",
+            "detail": {
+              "name": "攻撃速度変化(強化)",
+              "groupKey": "selfAbilityBuff",
+              "groupLabel": "自部隊能力強化",
+              "targetSide": "self",
+              "direction": "buff",
+              "relationType": "",
+              "sourcePartType": "semantic-owner-parameter",
+              "matchedText": "攻撃速度+100%",
+              "parameter": "攻撃速度"
+            }
+          },
+          {
             "category": "statusEffects",
             "name": "与ダメージ変化(強化)",
             "source": "parameter_summary_index",
@@ -305654,6 +306440,22 @@
               "sourcePartType": "semantic-owner-parameter",
               "matchedText": "与ダメージ+30%",
               "parameter": "与ダメージ"
+            }
+          },
+          {
+            "category": "statusEffects",
+            "name": "被ダメージ変化(強化)",
+            "source": "parameter_summary_index",
+            "detail": {
+              "name": "被ダメージ変化(強化)",
+              "groupKey": "selfAbilityBuff",
+              "groupLabel": "自部隊能力強化",
+              "targetSide": "self",
+              "direction": "buff",
+              "relationType": "",
+              "sourcePartType": "semantic-owner-parameter",
+              "matchedText": "被ダメージ₋30%",
+              "parameter": "被ダメージ"
             }
           },
           {
@@ -305683,9 +306485,25 @@
               "direction": "debuff",
               "sourcePartType": "semantic-owner-status-grant",
               "matchedText": "感電",
-              "sourceText": "技能「天雷」で通常攻撃時に付与する感電の付与部隊数+1（加算後の上限3）自部隊の「反逆」の技能Lv×20%の確率で通常攻撃の対象部隊数+2Ⅱ-Ⅲ-Ⅳ-Ⅴ-",
+              "sourceText": "感電が発生している敵部隊に対する通常攻撃・戦法による与ダメージ+30%",
               "directGrantVerified": true,
-              "directGrantEvidence": "感電の付与"
+              "directGrantEvidence": "感電が発生"
+            }
+          },
+          {
+            "category": "statusEffects",
+            "name": "威槍",
+            "source": "semantic_owner_status",
+            "detail": {
+              "groupKey": "selfAbilityBuff",
+              "groupLabel": "自部隊能力強化",
+              "targetSide": "self",
+              "direction": "buff",
+              "sourcePartType": "semantic-owner-status-grant",
+              "matchedText": "威槍",
+              "sourceText": "自身1部隊に3回の威槍を付与（15秒）",
+              "directGrantVerified": true,
+              "directGrantEvidence": "威槍を付与"
             }
           }
         ]
@@ -305694,8 +306512,8 @@
         "generals": 1,
         "tactics": 0,
         "skills": 0,
-        "equipments": 0,
-        "statusEffects": 3,
+        "equipments": 1,
+        "statusEffects": 6,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -305704,9 +306522,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 4
+        "sourceRefs": 8
       },
-      "totalRelatedCount": 8
+      "totalRelatedCount": 16
     },
     {
       "category": "skills",
@@ -305726,8 +306544,72 @@
         ],
         "tactics": [],
         "skills": [],
-        "equipments": [],
+        "equipments": [
+          {
+            "category": "equipments",
+            "name": "太平辟邪霊符",
+            "source": "skill_owner_index",
+            "skillName": "天雷",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table"
+          }
+        ],
         "statusEffects": [
+          {
+            "category": "statusEffects",
+            "name": "会心発生変化(強化)",
+            "source": "critical_rate_half_pseudo_status",
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff",
+            "sourcePartType": "critical-rate-half-pseudo",
+            "parameter": "会心発生",
+            "matchedText": "会心率半減",
+            "displayRole": "direct-status"
+          },
+          {
+            "category": "statusEffects",
+            "name": "会心率半減",
+            "source": "semantic_owner_status",
+            "groupKey": "enemyAbilityDebuff",
+            "groupLabel": "敵部隊能力低下",
+            "targetSide": "enemy",
+            "direction": "debuff",
+            "sourcePartType": "semantic-owner-status",
+            "matchedText": "会心率半減",
+            "displayRole": "direct-status"
+          },
+          {
+            "category": "statusEffects",
+            "name": "会心発生変化(強化)",
+            "source": "parameter_summary_index",
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff",
+            "relationType": "",
+            "sourcePartType": "semantic-owner-parameter",
+            "matchedText": "会心発生率を50％",
+            "parameter": "会心発生",
+            "displayRole": "direct-status"
+          },
+          {
+            "category": "statusEffects",
+            "name": "被ダメージ変化(強化)",
+            "source": "parameter_summary_index",
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff",
+            "relationType": "",
+            "sourcePartType": "semantic-owner-parameter",
+            "matchedText": "被ダメージを軽減（知力500",
+            "parameter": "被ダメージ",
+            "displayRole": "direct-status"
+          },
           {
             "category": "statusEffects",
             "name": "知力変化(強化)",
@@ -305756,6 +306638,101 @@
             "directGrantVerified": true,
             "directGrantEvidence": "感電を6秒付与",
             "displayRole": "direct-status"
+          },
+          {
+            "category": "statusEffects",
+            "name": "威槍",
+            "source": "semantic_owner_status",
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff",
+            "sourcePartType": "semantic-owner-status-grant",
+            "matchedText": "威槍",
+            "sourceText": "自身1部隊に2回の威槍を付与（15秒）Ⅳ",
+            "directGrantVerified": true,
+            "directGrantEvidence": "威槍を付与",
+            "displayRole": "direct-status"
+          },
+          {
+            "category": "statusEffects",
+            "name": "知力低下回避[天雷]",
+            "source": "self_countermeasure_index",
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "target": "知力低下",
+            "relationType": "回避",
+            "skillName": "天雷",
+            "sourceText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける",
+            "sourcePartType": "self-countermeasure-skill",
+            "displayName": "知力低下回避[天雷]",
+            "finalDisplayName": "知力低下回避[天雷]",
+            "linkTarget": "知力低下",
+            "precomputedByCrawler": true,
+            "sourceSkillName": "天雷",
+            "displayRole": "functional-summary",
+            "sourceName": "天雷",
+            "sourceKind": "skill"
+          },
+          {
+            "category": "statusEffects",
+            "name": "攻撃速度低下回避[天雷]",
+            "source": "self_countermeasure_index",
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "target": "攻撃速度低下",
+            "relationType": "回避",
+            "skillName": "天雷",
+            "sourceText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける",
+            "sourcePartType": "self-countermeasure-skill",
+            "displayName": "攻撃速度低下回避[天雷]",
+            "finalDisplayName": "攻撃速度低下回避[天雷]",
+            "linkTarget": "攻撃速度低下",
+            "precomputedByCrawler": true,
+            "sourceSkillName": "天雷",
+            "displayRole": "functional-summary",
+            "sourceName": "天雷",
+            "sourceKind": "skill"
+          },
+          {
+            "category": "statusEffects",
+            "name": "会心率半減回避[天雷]",
+            "source": "self_countermeasure_index",
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "target": "会心率半減",
+            "relationType": "回避",
+            "skillName": "天雷",
+            "sourceText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と一部の不利変化（会心率半減/通常攻撃縮小）を避ける",
+            "sourcePartType": "self-countermeasure-skill",
+            "displayName": "会心率半減回避[天雷]",
+            "finalDisplayName": "会心率半減回避[天雷]",
+            "linkTarget": "会心率半減",
+            "precomputedByCrawler": true,
+            "sourceSkillName": "天雷",
+            "displayRole": "functional-summary",
+            "sourceName": "天雷",
+            "sourceKind": "skill"
+          },
+          {
+            "category": "statusEffects",
+            "name": "通常攻撃縮小回避[天雷]",
+            "source": "self_countermeasure_index",
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "target": "通常攻撃縮小",
+            "relationType": "回避",
+            "skillName": "天雷",
+            "sourceText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と一部の不利変化（会心率半減/通常攻撃縮小）を避ける",
+            "sourcePartType": "self-countermeasure-skill",
+            "displayName": "通常攻撃縮小回避[天雷]",
+            "finalDisplayName": "通常攻撃縮小回避[天雷]",
+            "linkTarget": "通常攻撃縮小",
+            "precomputedByCrawler": true,
+            "sourceSkillName": "天雷",
+            "displayRole": "functional-summary",
+            "sourceName": "天雷",
+            "sourceKind": "skill"
           }
         ],
         "formations": [],
@@ -305777,6 +306754,77 @@
               "usage": "normal",
               "ownerType": "general",
               "sourcePartType": "general-skill-table"
+            }
+          },
+          {
+            "category": "equipments",
+            "name": "太平辟邪霊符",
+            "source": "skill_owner_index",
+            "detail": {
+              "skillName": "天雷",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table"
+            }
+          },
+          {
+            "category": "statusEffects",
+            "name": "会心発生変化(強化)",
+            "source": "critical_rate_half_pseudo_status",
+            "detail": {
+              "groupKey": "selfAbilityBuff",
+              "groupLabel": "自部隊能力強化",
+              "targetSide": "self",
+              "direction": "buff",
+              "sourcePartType": "critical-rate-half-pseudo",
+              "parameter": "会心発生",
+              "matchedText": "会心率半減"
+            }
+          },
+          {
+            "category": "statusEffects",
+            "name": "会心率半減",
+            "source": "semantic_owner_status",
+            "detail": {
+              "groupKey": "enemyAbilityDebuff",
+              "groupLabel": "敵部隊能力低下",
+              "targetSide": "enemy",
+              "direction": "debuff",
+              "sourcePartType": "semantic-owner-status",
+              "matchedText": "会心率半減"
+            }
+          },
+          {
+            "category": "statusEffects",
+            "name": "会心発生変化(強化)",
+            "source": "parameter_summary_index",
+            "detail": {
+              "name": "会心発生変化(強化)",
+              "groupKey": "selfAbilityBuff",
+              "groupLabel": "自部隊能力強化",
+              "targetSide": "self",
+              "direction": "buff",
+              "relationType": "",
+              "sourcePartType": "semantic-owner-parameter",
+              "matchedText": "会心発生率を50％",
+              "parameter": "会心発生"
+            }
+          },
+          {
+            "category": "statusEffects",
+            "name": "被ダメージ変化(強化)",
+            "source": "parameter_summary_index",
+            "detail": {
+              "name": "被ダメージ変化(強化)",
+              "groupKey": "selfAbilityBuff",
+              "groupLabel": "自部隊能力強化",
+              "targetSide": "self",
+              "direction": "buff",
+              "relationType": "",
+              "sourcePartType": "semantic-owner-parameter",
+              "matchedText": "被ダメージを軽減（知力500",
+              "parameter": "被ダメージ"
             }
           },
           {
@@ -305810,6 +306858,102 @@
               "directGrantVerified": true,
               "directGrantEvidence": "感電を6秒付与"
             }
+          },
+          {
+            "category": "statusEffects",
+            "name": "威槍",
+            "source": "semantic_owner_status",
+            "detail": {
+              "groupKey": "selfAbilityBuff",
+              "groupLabel": "自部隊能力強化",
+              "targetSide": "self",
+              "direction": "buff",
+              "sourcePartType": "semantic-owner-status-grant",
+              "matchedText": "威槍",
+              "sourceText": "自身1部隊に2回の威槍を付与（15秒）Ⅳ",
+              "directGrantVerified": true,
+              "directGrantEvidence": "威槍を付与"
+            }
+          },
+          {
+            "category": "statusEffects",
+            "name": "知力低下回避[天雷]",
+            "source": "self_countermeasure_index",
+            "detail": {
+              "groupKey": "selfResistanceBuff",
+              "groupLabel": "自部隊不利対策",
+              "name": "知力低下回避[天雷]",
+              "target": "知力低下",
+              "relationType": "回避",
+              "skillName": "天雷",
+              "sourceText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける",
+              "sourcePartType": "self-countermeasure-skill",
+              "displayName": "知力低下回避[天雷]",
+              "finalDisplayName": "知力低下回避[天雷]",
+              "linkTarget": "知力低下",
+              "precomputedByCrawler": true,
+              "sourceSkillName": "天雷"
+            }
+          },
+          {
+            "category": "statusEffects",
+            "name": "攻撃速度低下回避[天雷]",
+            "source": "self_countermeasure_index",
+            "detail": {
+              "groupKey": "selfResistanceBuff",
+              "groupLabel": "自部隊不利対策",
+              "name": "攻撃速度低下回避[天雷]",
+              "target": "攻撃速度低下",
+              "relationType": "回避",
+              "skillName": "天雷",
+              "sourceText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける",
+              "sourcePartType": "self-countermeasure-skill",
+              "displayName": "攻撃速度低下回避[天雷]",
+              "finalDisplayName": "攻撃速度低下回避[天雷]",
+              "linkTarget": "攻撃速度低下",
+              "precomputedByCrawler": true,
+              "sourceSkillName": "天雷"
+            }
+          },
+          {
+            "category": "statusEffects",
+            "name": "会心率半減回避[天雷]",
+            "source": "self_countermeasure_index",
+            "detail": {
+              "groupKey": "selfResistanceBuff",
+              "groupLabel": "自部隊不利対策",
+              "name": "会心率半減回避[天雷]",
+              "target": "会心率半減",
+              "relationType": "回避",
+              "skillName": "天雷",
+              "sourceText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と一部の不利変化（会心率半減/通常攻撃縮小）を避ける",
+              "sourcePartType": "self-countermeasure-skill",
+              "displayName": "会心率半減回避[天雷]",
+              "finalDisplayName": "会心率半減回避[天雷]",
+              "linkTarget": "会心率半減",
+              "precomputedByCrawler": true,
+              "sourceSkillName": "天雷"
+            }
+          },
+          {
+            "category": "statusEffects",
+            "name": "通常攻撃縮小回避[天雷]",
+            "source": "self_countermeasure_index",
+            "detail": {
+              "groupKey": "selfResistanceBuff",
+              "groupLabel": "自部隊不利対策",
+              "name": "通常攻撃縮小回避[天雷]",
+              "target": "通常攻撃縮小",
+              "relationType": "回避",
+              "skillName": "天雷",
+              "sourceText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と一部の不利変化（会心率半減/通常攻撃縮小）を避ける",
+              "sourcePartType": "self-countermeasure-skill",
+              "displayName": "通常攻撃縮小回避[天雷]",
+              "finalDisplayName": "通常攻撃縮小回避[天雷]",
+              "linkTarget": "通常攻撃縮小",
+              "precomputedByCrawler": true,
+              "sourceSkillName": "天雷"
+            }
           }
         ]
       },
@@ -305817,8 +306961,8 @@
         "generals": 1,
         "tactics": 0,
         "skills": 0,
-        "equipments": 0,
-        "statusEffects": 2,
+        "equipments": 1,
+        "statusEffects": 11,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -305827,9 +306971,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 3
+        "sourceRefs": 13
       },
-      "totalRelatedCount": 6
+      "totalRelatedCount": 26
     },
     {
       "category": "skills",
@@ -333216,7 +334360,7 @@
         "equipments": [
           {
             "category": "equipments",
-            "name": "稜花朱塗拂塵",
+            "name": "蜀科",
             "source": "skill_owner_index",
             "skillName": "威刑",
             "isAdvisorSkill": false,
@@ -333226,7 +334370,7 @@
           },
           {
             "category": "equipments",
-            "name": "蜀科",
+            "name": "稜花朱塗拂塵",
             "source": "skill_owner_index",
             "skillName": "威刑",
             "isAdvisorSkill": false,
@@ -333374,7 +334518,7 @@
           },
           {
             "category": "equipments",
-            "name": "稜花朱塗拂塵",
+            "name": "蜀科",
             "source": "skill_owner_index",
             "detail": {
               "skillName": "威刑",
@@ -333386,7 +334530,7 @@
           },
           {
             "category": "equipments",
-            "name": "蜀科",
+            "name": "稜花朱塗拂塵",
             "source": "skill_owner_index",
             "detail": {
               "skillName": "威刑",
@@ -333565,7 +334709,7 @@
         "equipments": [
           {
             "category": "equipments",
-            "name": "稜花朱塗拂塵",
+            "name": "蜀科",
             "source": "skill_owner_index",
             "skillName": "雪怨",
             "isAdvisorSkill": false,
@@ -333575,7 +334719,7 @@
           },
           {
             "category": "equipments",
-            "name": "蜀科",
+            "name": "稜花朱塗拂塵",
             "source": "skill_owner_index",
             "skillName": "雪怨",
             "isAdvisorSkill": false,
@@ -333767,7 +334911,7 @@
           },
           {
             "category": "equipments",
-            "name": "稜花朱塗拂塵",
+            "name": "蜀科",
             "source": "skill_owner_index",
             "detail": {
               "skillName": "雪怨",
@@ -333779,7 +334923,7 @@
           },
           {
             "category": "equipments",
-            "name": "蜀科",
+            "name": "稜花朱塗拂塵",
             "source": "skill_owner_index",
             "detail": {
               "skillName": "雪怨",
@@ -370608,6 +371752,16 @@
         "equipments": [
           {
             "category": "equipments",
+            "name": "太平辟邪霊符",
+            "source": "skill_owner_index",
+            "skillName": "反逆",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table"
+          },
+          {
+            "category": "equipments",
             "name": "黄天頭巾",
             "source": "skill_owner_index",
             "skillName": "反逆",
@@ -370846,6 +372000,18 @@
           },
           {
             "category": "equipments",
+            "name": "太平辟邪霊符",
+            "source": "skill_owner_index",
+            "detail": {
+              "skillName": "反逆",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table"
+            }
+          },
+          {
+            "category": "equipments",
             "name": "黄天頭巾",
             "source": "skill_owner_index",
             "detail": {
@@ -370974,7 +372140,7 @@
         "generals": 10,
         "tactics": 0,
         "skills": 0,
-        "equipments": 5,
+        "equipments": 6,
         "statusEffects": 4,
         "formations": 0,
         "warhorses": 0,
@@ -370984,9 +372150,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 19
+        "sourceRefs": 20
       },
-      "totalRelatedCount": 38
+      "totalRelatedCount": 40
     },
     {
       "category": "skills",
@@ -376931,6 +378097,16 @@
           },
           {
             "category": "equipments",
+            "name": "白羽扇",
+            "source": "skill_owner_index",
+            "skillName": "敏活",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table"
+          },
+          {
+            "category": "equipments",
             "name": "麟角槍",
             "source": "skill_owner_index",
             "skillName": "敏活",
@@ -377560,6 +378736,18 @@
           },
           {
             "category": "equipments",
+            "name": "白羽扇",
+            "source": "skill_owner_index",
+            "detail": {
+              "skillName": "敏活",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table"
+            }
+          },
+          {
+            "category": "equipments",
             "name": "麟角槍",
             "source": "skill_owner_index",
             "detail": {
@@ -377776,7 +378964,7 @@
         "generals": 24,
         "tactics": 0,
         "skills": 0,
-        "equipments": 14,
+        "equipments": 15,
         "statusEffects": 11,
         "formations": 0,
         "warhorses": 0,
@@ -377786,9 +378974,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 50
+        "sourceRefs": 51
       },
-      "totalRelatedCount": 100
+      "totalRelatedCount": 102
     },
     {
       "category": "skills",
@@ -392077,6 +393265,16 @@
         "equipments": [
           {
             "category": "equipments",
+            "name": "太平辟邪霊符",
+            "source": "skill_owner_index",
+            "skillName": "軽減",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table"
+          },
+          {
+            "category": "equipments",
             "name": "堅壁獣面兜",
             "source": "skill_owner_index",
             "skillName": "軽減",
@@ -392158,6 +393356,16 @@
           {
             "category": "equipments",
             "name": "彩漆鳳龍紋盾",
+            "source": "skill_owner_index",
+            "skillName": "軽減",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table"
+          },
+          {
+            "category": "equipments",
+            "name": "司馬氏兵記",
             "source": "skill_owner_index",
             "skillName": "軽減",
             "isAdvisorSkill": false,
@@ -392277,6 +393485,18 @@
           },
           {
             "category": "equipments",
+            "name": "太平辟邪霊符",
+            "source": "skill_owner_index",
+            "detail": {
+              "skillName": "軽減",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table"
+            }
+          },
+          {
+            "category": "equipments",
             "name": "堅壁獣面兜",
             "source": "skill_owner_index",
             "detail": {
@@ -392385,6 +393605,18 @@
           },
           {
             "category": "equipments",
+            "name": "司馬氏兵記",
+            "source": "skill_owner_index",
+            "detail": {
+              "skillName": "軽減",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table"
+            }
+          },
+          {
+            "category": "equipments",
             "name": "疾風護臂甲",
             "source": "skill_owner_index",
             "detail": {
@@ -392449,7 +393681,7 @@
         "generals": 4,
         "tactics": 0,
         "skills": 0,
-        "equipments": 13,
+        "equipments": 15,
         "statusEffects": 0,
         "formations": 0,
         "warhorses": 0,
@@ -392459,9 +393691,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 18
+        "sourceRefs": 20
       },
-      "totalRelatedCount": 36
+      "totalRelatedCount": 40
     },
     {
       "category": "skills",
@@ -420413,7 +421645,7 @@
     },
     {
       "category": "skills",
-      "name": "雪威才気",
+      "name": "天黄才気",
       "related": {
         "generals": [],
         "tactics": [],
@@ -420421,9 +421653,9 @@
         "equipments": [
           {
             "category": "equipments",
-            "name": "稜花朱塗拂塵",
+            "name": "太平辟邪霊符",
             "source": "skill_owner_index",
-            "skillName": "雪威才気",
+            "skillName": "天黄才気",
             "isAdvisorSkill": false,
             "usage": "normal",
             "ownerType": "equipment",
@@ -420442,10 +421674,10 @@
         "sourceRefs": [
           {
             "category": "equipments",
-            "name": "稜花朱塗拂塵",
+            "name": "太平辟邪霊符",
             "source": "skill_owner_index",
             "detail": {
-              "skillName": "雪威才気",
+              "skillName": "天黄才気",
               "isAdvisorSkill": false,
               "usage": "normal",
               "ownerType": "equipment",
@@ -420474,7 +421706,7 @@
     },
     {
       "category": "skills",
-      "name": "堪撃賢聡",
+      "name": "公導賢抗",
       "related": {
         "generals": [],
         "tactics": [],
@@ -420482,9 +421714,9 @@
         "equipments": [
           {
             "category": "equipments",
-            "name": "稜花朱塗拂塵",
+            "name": "太平辟邪霊符",
             "source": "skill_owner_index",
-            "skillName": "堪撃賢聡",
+            "skillName": "公導賢抗",
             "isAdvisorSkill": false,
             "usage": "normal",
             "ownerType": "equipment",
@@ -420503,10 +421735,10 @@
         "sourceRefs": [
           {
             "category": "equipments",
-            "name": "稜花朱塗拂塵",
+            "name": "太平辟邪霊符",
             "source": "skill_owner_index",
             "detail": {
-              "skillName": "堪撃賢聡",
+              "skillName": "公導賢抗",
               "isAdvisorSkill": false,
               "usage": "normal",
               "ownerType": "equipment",
@@ -420535,7 +421767,7 @@
     },
     {
       "category": "skills",
-      "name": "英計躍動",
+      "name": "雷光逆乱",
       "related": {
         "generals": [],
         "tactics": [],
@@ -420543,9 +421775,9 @@
         "equipments": [
           {
             "category": "equipments",
-            "name": "稜花朱塗拂塵",
+            "name": "太平辟邪霊符",
             "source": "skill_owner_index",
-            "skillName": "英計躍動",
+            "skillName": "雷光逆乱",
             "isAdvisorSkill": false,
             "usage": "normal",
             "ownerType": "equipment",
@@ -420564,10 +421796,10 @@
         "sourceRefs": [
           {
             "category": "equipments",
-            "name": "稜花朱塗拂塵",
+            "name": "太平辟邪霊符",
             "source": "skill_owner_index",
             "detail": {
-              "skillName": "英計躍動",
+              "skillName": "雷光逆乱",
               "isAdvisorSkill": false,
               "usage": "normal",
               "ownerType": "equipment",
@@ -420751,6 +421983,189 @@
             "source": "skill_owner_index",
             "detail": {
               "skillName": "英計抑敵",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table"
+            }
+          }
+        ]
+      },
+      "relatedCounts": {
+        "generals": 0,
+        "tactics": 0,
+        "skills": 0,
+        "equipments": 1,
+        "statusEffects": 0,
+        "formations": 0,
+        "warhorses": 0,
+        "warhorseSkills": 0,
+        "ethnicArmaments": 0,
+        "ethnicResearchSkills": 0,
+        "siegeWeapons": 0,
+        "parameterEffects": 0,
+        "statusGroups": 0,
+        "sourceRefs": 1
+      },
+      "totalRelatedCount": 2
+    },
+    {
+      "category": "skills",
+      "name": "雪威才気",
+      "related": {
+        "generals": [],
+        "tactics": [],
+        "skills": [],
+        "equipments": [
+          {
+            "category": "equipments",
+            "name": "稜花朱塗拂塵",
+            "source": "skill_owner_index",
+            "skillName": "雪威才気",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table"
+          }
+        ],
+        "statusEffects": [],
+        "formations": [],
+        "warhorses": [],
+        "warhorseSkills": [],
+        "ethnicArmaments": [],
+        "ethnicResearchSkills": [],
+        "siegeWeapons": [],
+        "parameterEffects": [],
+        "statusGroups": [],
+        "sourceRefs": [
+          {
+            "category": "equipments",
+            "name": "稜花朱塗拂塵",
+            "source": "skill_owner_index",
+            "detail": {
+              "skillName": "雪威才気",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table"
+            }
+          }
+        ]
+      },
+      "relatedCounts": {
+        "generals": 0,
+        "tactics": 0,
+        "skills": 0,
+        "equipments": 1,
+        "statusEffects": 0,
+        "formations": 0,
+        "warhorses": 0,
+        "warhorseSkills": 0,
+        "ethnicArmaments": 0,
+        "ethnicResearchSkills": 0,
+        "siegeWeapons": 0,
+        "parameterEffects": 0,
+        "statusGroups": 0,
+        "sourceRefs": 1
+      },
+      "totalRelatedCount": 2
+    },
+    {
+      "category": "skills",
+      "name": "堪撃賢聡",
+      "related": {
+        "generals": [],
+        "tactics": [],
+        "skills": [],
+        "equipments": [
+          {
+            "category": "equipments",
+            "name": "稜花朱塗拂塵",
+            "source": "skill_owner_index",
+            "skillName": "堪撃賢聡",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table"
+          }
+        ],
+        "statusEffects": [],
+        "formations": [],
+        "warhorses": [],
+        "warhorseSkills": [],
+        "ethnicArmaments": [],
+        "ethnicResearchSkills": [],
+        "siegeWeapons": [],
+        "parameterEffects": [],
+        "statusGroups": [],
+        "sourceRefs": [
+          {
+            "category": "equipments",
+            "name": "稜花朱塗拂塵",
+            "source": "skill_owner_index",
+            "detail": {
+              "skillName": "堪撃賢聡",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table"
+            }
+          }
+        ]
+      },
+      "relatedCounts": {
+        "generals": 0,
+        "tactics": 0,
+        "skills": 0,
+        "equipments": 1,
+        "statusEffects": 0,
+        "formations": 0,
+        "warhorses": 0,
+        "warhorseSkills": 0,
+        "ethnicArmaments": 0,
+        "ethnicResearchSkills": 0,
+        "siegeWeapons": 0,
+        "parameterEffects": 0,
+        "statusGroups": 0,
+        "sourceRefs": 1
+      },
+      "totalRelatedCount": 2
+    },
+    {
+      "category": "skills",
+      "name": "英計躍動",
+      "related": {
+        "generals": [],
+        "tactics": [],
+        "skills": [],
+        "equipments": [
+          {
+            "category": "equipments",
+            "name": "稜花朱塗拂塵",
+            "source": "skill_owner_index",
+            "skillName": "英計躍動",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table"
+          }
+        ],
+        "statusEffects": [],
+        "formations": [],
+        "warhorses": [],
+        "warhorseSkills": [],
+        "ethnicArmaments": [],
+        "ethnicResearchSkills": [],
+        "siegeWeapons": [],
+        "parameterEffects": [],
+        "statusGroups": [],
+        "sourceRefs": [
+          {
+            "category": "equipments",
+            "name": "稜花朱塗拂塵",
+            "source": "skill_owner_index",
+            "detail": {
+              "skillName": "英計躍動",
               "isAdvisorSkill": false,
               "usage": "normal",
               "ownerType": "equipment",
@@ -435746,6 +437161,67 @@
     },
     {
       "category": "skills",
+      "name": "弱仇妙衛",
+      "related": {
+        "generals": [],
+        "tactics": [],
+        "skills": [],
+        "equipments": [
+          {
+            "category": "equipments",
+            "name": "司馬氏兵記",
+            "source": "skill_owner_index",
+            "skillName": "弱仇妙衛",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table"
+          }
+        ],
+        "statusEffects": [],
+        "formations": [],
+        "warhorses": [],
+        "warhorseSkills": [],
+        "ethnicArmaments": [],
+        "ethnicResearchSkills": [],
+        "siegeWeapons": [],
+        "parameterEffects": [],
+        "statusGroups": [],
+        "sourceRefs": [
+          {
+            "category": "equipments",
+            "name": "司馬氏兵記",
+            "source": "skill_owner_index",
+            "detail": {
+              "skillName": "弱仇妙衛",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table"
+            }
+          }
+        ]
+      },
+      "relatedCounts": {
+        "generals": 0,
+        "tactics": 0,
+        "skills": 0,
+        "equipments": 1,
+        "statusEffects": 0,
+        "formations": 0,
+        "warhorses": 0,
+        "warhorseSkills": 0,
+        "ethnicArmaments": 0,
+        "ethnicResearchSkills": 0,
+        "siegeWeapons": 0,
+        "parameterEffects": 0,
+        "statusGroups": 0,
+        "sourceRefs": 1
+      },
+      "totalRelatedCount": 2
+    },
+    {
+      "category": "skills",
       "name": "確固強剛",
       "related": {
         "generals": [],
@@ -449624,6 +451100,67 @@
             "source": "skill_owner_index",
             "detail": {
               "skillName": "術策怒涛",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table"
+            }
+          }
+        ]
+      },
+      "relatedCounts": {
+        "generals": 0,
+        "tactics": 0,
+        "skills": 0,
+        "equipments": 1,
+        "statusEffects": 0,
+        "formations": 0,
+        "warhorses": 0,
+        "warhorseSkills": 0,
+        "ethnicArmaments": 0,
+        "ethnicResearchSkills": 0,
+        "siegeWeapons": 0,
+        "parameterEffects": 0,
+        "statusGroups": 0,
+        "sourceRefs": 1
+      },
+      "totalRelatedCount": 2
+    },
+    {
+      "category": "skills",
+      "name": "倒撃英知",
+      "related": {
+        "generals": [],
+        "tactics": [],
+        "skills": [],
+        "equipments": [
+          {
+            "category": "equipments",
+            "name": "白羽扇",
+            "source": "skill_owner_index",
+            "skillName": "倒撃英知",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table"
+          }
+        ],
+        "statusEffects": [],
+        "formations": [],
+        "warhorses": [],
+        "warhorseSkills": [],
+        "ethnicArmaments": [],
+        "ethnicResearchSkills": [],
+        "siegeWeapons": [],
+        "parameterEffects": [],
+        "statusGroups": [],
+        "sourceRefs": [
+          {
+            "category": "equipments",
+            "name": "白羽扇",
+            "source": "skill_owner_index",
+            "detail": {
+              "skillName": "倒撃英知",
               "isAdvisorSkill": false,
               "usage": "normal",
               "ownerType": "equipment",
