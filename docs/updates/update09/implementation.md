@@ -557,3 +557,11 @@
 - Added `tools/validate_type_search_feature_index_data.py` as a focused recurrence guard for the formation score issue caused by an empty `hadou_type_search_feature_index.json`.
 - Wired the guard into App Validation and the merge-queue workflow contract validator so an empty or unusable type-search feature index cannot pass CI.
 - The validator checks only the directly relevant data contract: file existence, non-empty JSON, non-empty `items`, required source categories, and presence of `typeFeatures` / `statusEffectRefs` rows used by formation member score resolution.
+
+## 2026-06-17 Update09.3.18 formation type-score render path
+
+- Added a formation-specific type-score calculation path that is invoked while rendering the score card.
+- The calculation prioritizes `formation.parameterCalculation` rows and `formation.effectSources`, uses `typeSearchPresets` / score rules for the 5 metrics, and uses `typeSearchFeatureIndex` only as auxiliary context/diagnostic input.
+- If no type is selected, the renderer calculates all presets/rules and shows top candidate scores; if a type is selected, it shows that type's five evaluation rows and total score.
+- The diagnostic `state.diagnostics.typeScore` now records `calculationInvoked`, source counts, candidate scores, rendered status, and `emptyReason` instead of staying `{}`.
+- 可視バージョンを `3.0.0.0 Update09.3.18` / revision 51 へ更新した。
