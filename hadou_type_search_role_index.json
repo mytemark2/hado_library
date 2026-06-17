@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-06-07T06:04:52.977Z",
-  "dataSetId": "2026-06-07T04:23:26.720Z",
+  "generatedAt": "2026-06-14T06:09:45.870Z",
+  "dataSetId": "2026-06-07T06:04:52.951Z",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
     "hadou_generals.json",
@@ -34,7 +34,7 @@
   "sourceCounts": {
     "generals": 476,
     "tactics": 455,
-    "equipments": 237,
+    "equipments": 238,
     "skills": 620,
     "statusEffects": 200,
     "siegeWeapons": 6,
@@ -48,7 +48,7 @@
   "sourceHashes": {
     "generals": "4c9aa0cb",
     "tactics": "a9afed3e",
-    "equipments": "4e60d216",
+    "equipments": "5960e367",
     "skills": "bee67c33",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
@@ -62,7 +62,7 @@
   "sourceSha256": {
     "generals": "4c9aa0cb",
     "tactics": "a9afed3e",
-    "equipments": "4e60d216",
+    "equipments": "5960e367",
     "skills": "bee67c33",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
@@ -13979,7 +13979,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数₋3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
         },
         {
           "featureId": "parameter:attack_speed",
@@ -13996,14 +13996,6 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 広25％遅い革令天成の追加効果追加効果対象範囲継続取込味方 / 広10秒確率で受けた攻撃を無効化して、負傷兵を攻撃の威力に応じて回復する知力変化味方 / 広10秒部隊の知力が上昇する会心率半減敵 / 広15秒効果時間中、会心発生率が半減するさらに会心発生率の上限が50％になる萎縮敵 / 広15秒通常攻…"
-        },
-        {
-          "featureId": "skill_effect:weakening_remove",
-          "label": "弱化解除",
-          "featureType": "skillEffect",
-          "source": "effect-text",
-          "sourcePartType": "conservative-pattern",
-          "matchedText": "感電の効果時間中は通常攻撃と戦法発動ができなくなるので、弱化解除をされない限り敵部隊を完全に封じ込められる"
         },
         {
           "featureId": "skill_effect:healing",
@@ -14027,7 +14019,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数₋3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
         },
         {
           "featureId": "skill_effect:enemy_debuff_multi",
@@ -14035,7 +14027,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "通常攻撃で付与する感電が強力 技能「天雷」により、通常攻撃の際に敵2部隊へ感電を付与する"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
         },
         {
           "featureId": "skill_effect:effect_duration",
@@ -14043,7 +14035,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "感電の効果時間中は通常攻撃と戦法発動ができなくなるので、弱化解除をされない限り敵部隊を完全に封じ込められる"
+          "matchedText": "最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 広25％遅い革令天成の追加効果追加効果対象範囲継続取込味方 / 広10秒確率で受けた攻撃を無効化して、負傷兵を攻撃の威力に応じて回復する知力変化味方 / 広10秒部隊の知力が上昇する会心率半減敵 / 広15秒効果時間中、会心発生率が半減するさらに会心発生率の上限が50％になる萎縮敵 / 広15秒通常攻…"
         },
         {
           "featureId": "skill_effect:enemy_target_count",
@@ -14051,7 +14043,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "通常攻撃で付与する感電が強力 技能「天雷」により、通常攻撃の際に敵2部隊へ感電を付与する"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
         },
         {
           "featureId": "skill_effect:ally_target_count",
@@ -14059,7 +14051,15 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数₋3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける"
         }
       ],
       "statusEffectRefs": [
@@ -14100,6 +14100,18 @@
           "matchedText": "攻撃速度+10%"
         },
         {
+          "featureId": "status_effect:会心発生変化(強化)",
+          "label": "会心発生変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "会心発生変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "会心発生率を50％"
+        },
+        {
           "featureId": "status_effect:与ダメージ変化(強化)",
           "label": "与ダメージ変化(強化)",
           "featureType": "statusEffect",
@@ -14110,6 +14122,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "与ダメージ+30%"
+        },
+        {
+          "featureId": "status_effect:被ダメージ変化(強化)",
+          "label": "被ダメージ変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "被ダメージ変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "被ダメージ-30%"
         },
         {
           "featureId": "status_effect:知力変化(強化)",
@@ -14158,6 +14182,54 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-status-grant",
           "matchedText": "感電"
+        },
+        {
+          "featureId": "status_effect:知力低下回避[天雷]",
+          "label": "知力低下回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "知力低下回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける"
+        },
+        {
+          "featureId": "status_effect:攻撃速度低下回避[天雷]",
+          "label": "攻撃速度低下回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "攻撃速度低下回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける"
+        },
+        {
+          "featureId": "status_effect:会心率半減回避[天雷]",
+          "label": "会心率半減回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "会心率半減回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と一部の不利変化（会心率半減/通常攻撃縮小）を避ける"
+        },
+        {
+          "featureId": "status_effect:通常攻撃縮小回避[天雷]",
+          "label": "通常攻撃縮小回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "通常攻撃縮小回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と一部の不利変化（会心率半減/通常攻撃縮小）を避ける"
         },
         {
           "featureId": "status_effect:疑心回避[大賢]",
@@ -14245,7 +14317,7 @@
         }
       ],
       "typeFeatureCount": 12,
-      "statusEffectRefCount": 15,
+      "statusEffectRefCount": 21,
       "sortKeys": [
         "typeMetricScore",
         "mainSkill",
@@ -47857,6 +47929,18 @@
           "matchedText": "被ダメージ-20%"
         },
         {
+          "featureId": "status_effect:被ダメージ変化(弱化)",
+          "label": "被ダメージ変化(弱化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "被ダメージ変化(弱化)",
+          "groupKey": "enemyAbilityDebuff",
+          "groupLabel": "敵部隊能力低下",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "被ダメージを、敵部隊に発生している弱化効果の数×1.5%"
+        },
+        {
           "featureId": "status_effect:攻撃変化(弱化)",
           "label": "攻撃変化(弱化)",
           "featureType": "statusEffect",
@@ -47930,7 +48014,7 @@
         }
       ],
       "typeFeatureCount": 10,
-      "statusEffectRefCount": 11,
+      "statusEffectRefCount": 12,
       "sortKeys": [
         "typeMetricScore",
         "mainSkill",
@@ -78753,7 +78837,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数₋3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
         },
         {
           "featureId": "parameter:attack_speed",
@@ -78770,14 +78854,6 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 広25％遅い革令天成の追加効果追加効果対象範囲継続取込味方 / 広10秒確率で受けた攻撃を無効化して、負傷兵を攻撃の威力に応じて回復する知力変化味方 / 広10秒部隊の知力が上昇する会心率半減敵 / 広15秒効果時間中、会心発生率が半減するさらに会心発生率の上限が50％になる萎縮敵 / 広15秒通常攻…"
-        },
-        {
-          "featureId": "skill_effect:weakening_remove",
-          "label": "弱化解除",
-          "featureType": "skillEffect",
-          "source": "effect-text",
-          "sourcePartType": "conservative-pattern",
-          "matchedText": "感電の効果時間中は通常攻撃と戦法発動ができなくなるので、弱化解除をされない限り敵部隊を完全に封じ込められる"
         },
         {
           "featureId": "skill_effect:healing",
@@ -78801,7 +78877,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数₋3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
         },
         {
           "featureId": "skill_effect:enemy_debuff_multi",
@@ -78809,7 +78885,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "通常攻撃で付与する感電が強力 技能「天雷」により、通常攻撃の際に敵2部隊へ感電を付与する"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
         },
         {
           "featureId": "skill_effect:effect_duration",
@@ -78817,7 +78893,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "感電の効果時間中は通常攻撃と戦法発動ができなくなるので、弱化解除をされない限り敵部隊を完全に封じ込められる"
+          "matchedText": "最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 広25％遅い革令天成の追加効果追加効果対象範囲継続取込味方 / 広10秒確率で受けた攻撃を無効化して、負傷兵を攻撃の威力に応じて回復する知力変化味方 / 広10秒部隊の知力が上昇する会心率半減敵 / 広15秒効果時間中、会心発生率が半減するさらに会心発生率の上限が50％になる萎縮敵 / 広15秒通常攻…"
         },
         {
           "featureId": "skill_effect:enemy_target_count",
@@ -78825,7 +78901,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "通常攻撃で付与する感電が強力 技能「天雷」により、通常攻撃の際に敵2部隊へ感電を付与する"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
         },
         {
           "featureId": "skill_effect:ally_target_count",
@@ -78833,7 +78909,15 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数₋3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける"
         }
       ],
       "statusEffectRefs": [
@@ -78874,6 +78958,18 @@
           "matchedText": "攻撃速度+10%"
         },
         {
+          "featureId": "status_effect:会心発生変化(強化)",
+          "label": "会心発生変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "会心発生変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "会心発生率を50％"
+        },
+        {
           "featureId": "status_effect:与ダメージ変化(強化)",
           "label": "与ダメージ変化(強化)",
           "featureType": "statusEffect",
@@ -78884,6 +78980,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "与ダメージ+30%"
+        },
+        {
+          "featureId": "status_effect:被ダメージ変化(強化)",
+          "label": "被ダメージ変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "被ダメージ変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "被ダメージ-30%"
         },
         {
           "featureId": "status_effect:知力変化(強化)",
@@ -78932,6 +79040,54 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-status-grant",
           "matchedText": "感電"
+        },
+        {
+          "featureId": "status_effect:知力低下回避[天雷]",
+          "label": "知力低下回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "知力低下回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける"
+        },
+        {
+          "featureId": "status_effect:攻撃速度低下回避[天雷]",
+          "label": "攻撃速度低下回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "攻撃速度低下回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける"
+        },
+        {
+          "featureId": "status_effect:会心率半減回避[天雷]",
+          "label": "会心率半減回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "会心率半減回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と一部の不利変化（会心率半減/通常攻撃縮小）を避ける"
+        },
+        {
+          "featureId": "status_effect:通常攻撃縮小回避[天雷]",
+          "label": "通常攻撃縮小回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "通常攻撃縮小回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と一部の不利変化（会心率半減/通常攻撃縮小）を避ける"
         },
         {
           "featureId": "status_effect:疑心回避[大賢]",
@@ -79019,7 +79175,7 @@
         }
       ],
       "typeFeatureCount": 12,
-      "statusEffectRefCount": 15,
+      "statusEffectRefCount": 21,
       "sortKeys": [
         "typeMetricScore",
         "compatibilityWithMain",
@@ -112631,6 +112787,18 @@
           "matchedText": "被ダメージ-20%"
         },
         {
+          "featureId": "status_effect:被ダメージ変化(弱化)",
+          "label": "被ダメージ変化(弱化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "被ダメージ変化(弱化)",
+          "groupKey": "enemyAbilityDebuff",
+          "groupLabel": "敵部隊能力低下",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "被ダメージを、敵部隊に発生している弱化効果の数×1.5%"
+        },
+        {
           "featureId": "status_effect:攻撃変化(弱化)",
           "label": "攻撃変化(弱化)",
           "featureType": "statusEffect",
@@ -112704,7 +112872,7 @@
         }
       ],
       "typeFeatureCount": 10,
-      "statusEffectRefCount": 11,
+      "statusEffectRefCount": 12,
       "sortKeys": [
         "typeMetricScore",
         "compatibilityWithMain",
@@ -143467,7 +143635,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数₋3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
         },
         {
           "featureId": "parameter:attack_speed",
@@ -143484,14 +143652,6 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 広25％遅い革令天成の追加効果追加効果対象範囲継続取込味方 / 広10秒確率で受けた攻撃を無効化して、負傷兵を攻撃の威力に応じて回復する知力変化味方 / 広10秒部隊の知力が上昇する会心率半減敵 / 広15秒効果時間中、会心発生率が半減するさらに会心発生率の上限が50％になる萎縮敵 / 広15秒通常攻…"
-        },
-        {
-          "featureId": "skill_effect:weakening_remove",
-          "label": "弱化解除",
-          "featureType": "skillEffect",
-          "source": "effect-text",
-          "sourcePartType": "conservative-pattern",
-          "matchedText": "感電の効果時間中は通常攻撃と戦法発動ができなくなるので、弱化解除をされない限り敵部隊を完全に封じ込められる"
         },
         {
           "featureId": "skill_effect:healing",
@@ -143515,7 +143675,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数₋3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
         },
         {
           "featureId": "skill_effect:enemy_debuff_multi",
@@ -143523,7 +143683,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "通常攻撃で付与する感電が強力 技能「天雷」により、通常攻撃の際に敵2部隊へ感電を付与する"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
         },
         {
           "featureId": "skill_effect:effect_duration",
@@ -143531,7 +143691,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "感電の効果時間中は通常攻撃と戦法発動ができなくなるので、弱化解除をされない限り敵部隊を完全に封じ込められる"
+          "matchedText": "最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 広25％遅い革令天成の追加効果追加効果対象範囲継続取込味方 / 広10秒確率で受けた攻撃を無効化して、負傷兵を攻撃の威力に応じて回復する知力変化味方 / 広10秒部隊の知力が上昇する会心率半減敵 / 広15秒効果時間中、会心発生率が半減するさらに会心発生率の上限が50％になる萎縮敵 / 広15秒通常攻…"
         },
         {
           "featureId": "skill_effect:enemy_target_count",
@@ -143539,7 +143699,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "通常攻撃で付与する感電が強力 技能「天雷」により、通常攻撃の際に敵2部隊へ感電を付与する"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
         },
         {
           "featureId": "skill_effect:ally_target_count",
@@ -143547,7 +143707,15 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数₋3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける"
         }
       ],
       "statusEffectRefs": [
@@ -143588,6 +143756,18 @@
           "matchedText": "攻撃速度+10%"
         },
         {
+          "featureId": "status_effect:会心発生変化(強化)",
+          "label": "会心発生変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "会心発生変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "会心発生率を50％"
+        },
+        {
           "featureId": "status_effect:与ダメージ変化(強化)",
           "label": "与ダメージ変化(強化)",
           "featureType": "statusEffect",
@@ -143598,6 +143778,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "与ダメージ+30%"
+        },
+        {
+          "featureId": "status_effect:被ダメージ変化(強化)",
+          "label": "被ダメージ変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "被ダメージ変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "被ダメージ-30%"
         },
         {
           "featureId": "status_effect:知力変化(強化)",
@@ -143646,6 +143838,54 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-status-grant",
           "matchedText": "感電"
+        },
+        {
+          "featureId": "status_effect:知力低下回避[天雷]",
+          "label": "知力低下回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "知力低下回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける"
+        },
+        {
+          "featureId": "status_effect:攻撃速度低下回避[天雷]",
+          "label": "攻撃速度低下回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "攻撃速度低下回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける"
+        },
+        {
+          "featureId": "status_effect:会心率半減回避[天雷]",
+          "label": "会心率半減回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "会心率半減回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と一部の不利変化（会心率半減/通常攻撃縮小）を避ける"
+        },
+        {
+          "featureId": "status_effect:通常攻撃縮小回避[天雷]",
+          "label": "通常攻撃縮小回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "通常攻撃縮小回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と一部の不利変化（会心率半減/通常攻撃縮小）を避ける"
         },
         {
           "featureId": "status_effect:疑心回避[大賢]",
@@ -143733,7 +143973,7 @@
         }
       ],
       "typeFeatureCount": 12,
-      "statusEffectRefCount": 15,
+      "statusEffectRefCount": 21,
       "sortKeys": [
         "typeMetricScore",
         "troopTypeMatch",
@@ -177129,6 +177369,18 @@
           "matchedText": "被ダメージ-20%"
         },
         {
+          "featureId": "status_effect:被ダメージ変化(弱化)",
+          "label": "被ダメージ変化(弱化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "被ダメージ変化(弱化)",
+          "groupKey": "enemyAbilityDebuff",
+          "groupLabel": "敵部隊能力低下",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "被ダメージを、敵部隊に発生している弱化効果の数×1.5%"
+        },
+        {
           "featureId": "status_effect:攻撃変化(弱化)",
           "label": "攻撃変化(弱化)",
           "featureType": "statusEffect",
@@ -177202,7 +177454,7 @@
         }
       ],
       "typeFeatureCount": 10,
-      "statusEffectRefCount": 11,
+      "statusEffectRefCount": 12,
       "sortKeys": [
         "typeMetricScore",
         "troopTypeMatch",
@@ -207885,7 +208137,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数₋3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
         },
         {
           "featureId": "parameter:attack_speed",
@@ -207902,14 +208154,6 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 広25％遅い革令天成の追加効果追加効果対象範囲継続取込味方 / 広10秒確率で受けた攻撃を無効化して、負傷兵を攻撃の威力に応じて回復する知力変化味方 / 広10秒部隊の知力が上昇する会心率半減敵 / 広15秒効果時間中、会心発生率が半減するさらに会心発生率の上限が50％になる萎縮敵 / 広15秒通常攻…"
-        },
-        {
-          "featureId": "skill_effect:weakening_remove",
-          "label": "弱化解除",
-          "featureType": "skillEffect",
-          "source": "effect-text",
-          "sourcePartType": "conservative-pattern",
-          "matchedText": "感電の効果時間中は通常攻撃と戦法発動ができなくなるので、弱化解除をされない限り敵部隊を完全に封じ込められる"
         },
         {
           "featureId": "skill_effect:healing",
@@ -207933,7 +208177,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数₋3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
         },
         {
           "featureId": "skill_effect:enemy_debuff_multi",
@@ -207941,7 +208185,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "通常攻撃で付与する感電が強力 技能「天雷」により、通常攻撃の際に敵2部隊へ感電を付与する"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
         },
         {
           "featureId": "skill_effect:effect_duration",
@@ -207949,7 +208193,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "感電の効果時間中は通常攻撃と戦法発動ができなくなるので、弱化解除をされない限り敵部隊を完全に封じ込められる"
+          "matchedText": "最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 広25％遅い革令天成の追加効果追加効果対象範囲継続取込味方 / 広10秒確率で受けた攻撃を無効化して、負傷兵を攻撃の威力に応じて回復する知力変化味方 / 広10秒部隊の知力が上昇する会心率半減敵 / 広15秒効果時間中、会心発生率が半減するさらに会心発生率の上限が50％になる萎縮敵 / 広15秒通常攻…"
         },
         {
           "featureId": "skill_effect:enemy_target_count",
@@ -207957,7 +208201,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "通常攻撃で付与する感電が強力 技能「天雷」により、通常攻撃の際に敵2部隊へ感電を付与する"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
         },
         {
           "featureId": "skill_effect:ally_target_count",
@@ -207965,7 +208209,15 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数₋3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける"
         }
       ],
       "statusEffectRefs": [
@@ -208006,6 +208258,18 @@
           "matchedText": "攻撃速度+10%"
         },
         {
+          "featureId": "status_effect:会心発生変化(強化)",
+          "label": "会心発生変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "会心発生変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "会心発生率を50％"
+        },
+        {
           "featureId": "status_effect:与ダメージ変化(強化)",
           "label": "与ダメージ変化(強化)",
           "featureType": "statusEffect",
@@ -208016,6 +208280,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "与ダメージ+30%"
+        },
+        {
+          "featureId": "status_effect:被ダメージ変化(強化)",
+          "label": "被ダメージ変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "被ダメージ変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "被ダメージ-30%"
         },
         {
           "featureId": "status_effect:知力変化(強化)",
@@ -208064,6 +208340,54 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-status-grant",
           "matchedText": "感電"
+        },
+        {
+          "featureId": "status_effect:知力低下回避[天雷]",
+          "label": "知力低下回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "知力低下回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける"
+        },
+        {
+          "featureId": "status_effect:攻撃速度低下回避[天雷]",
+          "label": "攻撃速度低下回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "攻撃速度低下回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける"
+        },
+        {
+          "featureId": "status_effect:会心率半減回避[天雷]",
+          "label": "会心率半減回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "会心率半減回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と一部の不利変化（会心率半減/通常攻撃縮小）を避ける"
+        },
+        {
+          "featureId": "status_effect:通常攻撃縮小回避[天雷]",
+          "label": "通常攻撃縮小回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "通常攻撃縮小回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と一部の不利変化（会心率半減/通常攻撃縮小）を避ける"
         },
         {
           "featureId": "status_effect:疑心回避[大賢]",
@@ -208151,7 +208475,7 @@
         }
       ],
       "typeFeatureCount": 12,
-      "statusEffectRefCount": 15,
+      "statusEffectRefCount": 21,
       "sortKeys": [
         "typeMetricScore",
         "appointmentDirection",
@@ -241979,6 +242303,18 @@
           "matchedText": "被ダメージ-20%"
         },
         {
+          "featureId": "status_effect:被ダメージ変化(弱化)",
+          "label": "被ダメージ変化(弱化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "被ダメージ変化(弱化)",
+          "groupKey": "enemyAbilityDebuff",
+          "groupLabel": "敵部隊能力低下",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "被ダメージを、敵部隊に発生している弱化効果の数×1.5%"
+        },
+        {
           "featureId": "status_effect:攻撃変化(弱化)",
           "label": "攻撃変化(弱化)",
           "featureType": "statusEffect",
@@ -242052,7 +242388,7 @@
         }
       ],
       "typeFeatureCount": 10,
-      "statusEffectRefCount": 11,
+      "statusEffectRefCount": 12,
       "sortKeys": [
         "typeMetricScore",
         "appointmentDirection",
@@ -259173,50 +259509,91 @@
       ]
     },
     {
-      "id": "equipment:equipments:0:稜花朱塗拂塵",
+      "id": "equipment:equipments:0:太平辟邪霊符",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "稜花朱塗拂塵",
-      "displayName": "稜花朱塗拂塵",
+      "name": "太平辟邪霊符",
+      "displayName": "太平辟邪霊符",
       "sourceIndex": 0,
       "typeFeatures": [
         {
-          "featureId": "skill_effect:annihilation_avoidance",
-          "label": "壊滅回避",
-          "featureType": "skillEffect",
+          "featureId": "parameter:critical_power",
+          "label": "会心威力",
+          "featureType": "parameter",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "戦法のダメージを受けて壊滅しなかった時"
+          "matchedText": "部隊の「反逆」のLv×4%、部隊の会心威力が上昇SSR時の最大技能天黄才気"
         },
         {
-          "featureId": "skill_effect:weakening_remove",
-          "label": "弱化解除",
-          "featureType": "skillEffect",
+          "featureId": "parameter:normal_attack_power",
+          "label": "通常攻撃威力",
+          "featureType": "parameter",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "自身を含む味方3部隊の弱化効果を2つ打ち消す"
+          "matchedText": "自身1部隊の通常攻撃威力+30%（15秒）雷光逆乱"
         },
         {
-          "featureId": "skill_effect:ally_target_count",
-          "label": "味方対象部隊数",
+          "featureId": "skill_effect:damage_reduction",
+          "label": "被ダメージ軽減",
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "自身を含む味方3部隊の弱化効果を2つ打ち消す"
-        },
-        {
-          "featureId": "skill_effect:self_disadvantage_countermeasure",
-          "label": "自部隊不利対策",
-          "featureType": "skillEffect",
-          "source": "effect-text",
-          "sourcePartType": "conservative-pattern",
-          "matchedText": "自身を含む味方3部隊の弱化効果を2つ打ち消す"
+          "matchedText": "出陣時の自部隊の知力に応じて、通常攻撃による被ダメージを軽減（知力500につき4％軽減"
         }
       ],
-      "statusEffectRefs": [],
-      "typeFeatureCount": 4,
-      "statusEffectRefCount": 0,
+      "statusEffectRefs": [
+        {
+          "featureId": "status_effect:知力低下回避[天雷]",
+          "label": "知力低下回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "知力低下回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける"
+        },
+        {
+          "featureId": "status_effect:攻撃速度低下回避[天雷]",
+          "label": "攻撃速度低下回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "攻撃速度低下回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける"
+        },
+        {
+          "featureId": "status_effect:会心率半減回避[天雷]",
+          "label": "会心率半減回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "会心率半減回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と一部の不利変化（会心率半減/通常攻撃縮小）を避ける"
+        },
+        {
+          "featureId": "status_effect:通常攻撃縮小回避[天雷]",
+          "label": "通常攻撃縮小回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "通常攻撃縮小回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と一部の不利変化（会心率半減/通常攻撃縮小）を避ける"
+        }
+      ],
+      "typeFeatureCount": 3,
+      "statusEffectRefCount": 4,
       "sortKeys": [
         "typeMetricScore",
         "equipmentSlot",
@@ -259267,13 +259644,64 @@
       ]
     },
     {
-      "id": "equipment:equipments:2:堅壁獣面兜",
+      "id": "equipment:equipments:2:稜花朱塗拂塵",
+      "roleId": "equipment",
+      "roleLabel": "装備",
+      "category": "equipments",
+      "name": "稜花朱塗拂塵",
+      "displayName": "稜花朱塗拂塵",
+      "sourceIndex": 2,
+      "typeFeatures": [
+        {
+          "featureId": "skill_effect:annihilation_avoidance",
+          "label": "壊滅回避",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "戦法のダメージを受けて壊滅しなかった時"
+        },
+        {
+          "featureId": "skill_effect:weakening_remove",
+          "label": "弱化解除",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の弱化効果を2つ打ち消す"
+        },
+        {
+          "featureId": "skill_effect:ally_target_count",
+          "label": "味方対象部隊数",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の弱化効果を2つ打ち消す"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊の弱化効果を2つ打ち消す"
+        }
+      ],
+      "statusEffectRefs": [],
+      "typeFeatureCount": 4,
+      "statusEffectRefCount": 0,
+      "sortKeys": [
+        "typeMetricScore",
+        "equipmentSlot",
+        "activationCondition"
+      ]
+    },
+    {
+      "id": "equipment:equipments:3:堅壁獣面兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "堅壁獣面兜",
       "displayName": "堅壁獣面兜",
-      "sourceIndex": 2,
+      "sourceIndex": 3,
       "typeFeatures": [
         {
           "featureId": "skill_effect:damage_reduction",
@@ -259415,13 +259843,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:3:披荊斬棘戈",
+      "id": "equipment:equipments:4:披荊斬棘戈",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "披荊斬棘戈",
       "displayName": "披荊斬棘戈",
-      "sourceIndex": 3,
+      "sourceIndex": 4,
       "typeFeatures": [],
       "statusEffectRefs": [
         {
@@ -259650,13 +260078,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:4:踞虎峻厳兜",
+      "id": "equipment:equipments:5:踞虎峻厳兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "踞虎峻厳兜",
       "displayName": "踞虎峻厳兜",
-      "sourceIndex": 4,
+      "sourceIndex": 5,
       "typeFeatures": [
         {
           "featureId": "parameter:tactic_speed",
@@ -259693,13 +260121,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:5:紫金白羽炎冠",
+      "id": "equipment:equipments:6:紫金白羽炎冠",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "紫金白羽炎冠",
       "displayName": "紫金白羽炎冠",
-      "sourceIndex": 5,
+      "sourceIndex": 6,
       "typeFeatures": [
         {
           "featureId": "skill_effect:damage_reduction",
@@ -259777,13 +260205,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:6:魁元月牙湾刀",
+      "id": "equipment:equipments:7:魁元月牙湾刀",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "魁元月牙湾刀",
       "displayName": "魁元月牙湾刀",
-      "sourceIndex": 6,
+      "sourceIndex": 7,
       "typeFeatures": [
         {
           "featureId": "skill_effect:wounded_survival",
@@ -259804,13 +260232,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:7:黄天頭巾",
+      "id": "equipment:equipments:8:黄天頭巾",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "黄天頭巾",
       "displayName": "黄天頭巾",
-      "sourceIndex": 7,
+      "sourceIndex": 8,
       "typeFeatures": [
         {
           "featureId": "skill_effect:damage_reduction",
@@ -259839,13 +260267,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:8:西方の銀杯",
+      "id": "equipment:equipments:9:西方の銀杯",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "西方の銀杯",
       "displayName": "西方の銀杯",
-      "sourceIndex": 8,
+      "sourceIndex": 9,
       "typeFeatures": [
         {
           "featureId": "skill_effect:ally_buff_multi",
@@ -259874,13 +260302,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:9:武略冠世兜",
+      "id": "equipment:equipments:10:武略冠世兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "武略冠世兜",
       "displayName": "武略冠世兜",
-      "sourceIndex": 9,
+      "sourceIndex": 10,
       "typeFeatures": [
         {
           "featureId": "skill_effect:damage_reduction",
@@ -259974,13 +260402,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:10:大志冠世剣",
+      "id": "equipment:equipments:11:大志冠世剣",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "大志冠世剣",
       "displayName": "大志冠世剣",
-      "sourceIndex": 10,
+      "sourceIndex": 11,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -260066,13 +260494,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:11:龍紋護臂甲",
+      "id": "equipment:equipments:12:龍紋護臂甲",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "龍紋護臂甲",
       "displayName": "龍紋護臂甲",
-      "sourceIndex": 11,
+      "sourceIndex": 12,
       "typeFeatures": [
         {
           "featureId": "parameter:normal_attack_power",
@@ -260214,13 +260642,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:12:冷艶鋸",
+      "id": "equipment:equipments:13:冷艶鋸",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "冷艶鋸",
       "displayName": "冷艶鋸",
-      "sourceIndex": 12,
+      "sourceIndex": 13,
       "typeFeatures": [
         {
           "featureId": "skill_effect:normal_attack_target_count",
@@ -260370,13 +260798,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:13:遁甲天書",
+      "id": "equipment:equipments:14:遁甲天書",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "遁甲天書",
       "displayName": "遁甲天書",
-      "sourceIndex": 13,
+      "sourceIndex": 14,
       "typeFeatures": [
         {
           "featureId": "skill_effect:damage_reduction",
@@ -260413,13 +260841,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:14:三國志40周年の書",
+      "id": "equipment:equipments:15:三國志40周年の書",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "三國志40周年の書",
       "displayName": "三國志40周年の書",
-      "sourceIndex": 14,
+      "sourceIndex": 15,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -260448,13 +260876,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:15:三國志40周年の盾",
+      "id": "equipment:equipments:16:三國志40周年の盾",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "三國志40周年の盾",
       "displayName": "三國志40周年の盾",
-      "sourceIndex": 15,
+      "sourceIndex": 16,
       "typeFeatures": [
         {
           "featureId": "skill_effect:ally_target_count",
@@ -260483,13 +260911,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:16:三國志40周年の旗",
+      "id": "equipment:equipments:17:三國志40周年の旗",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "三國志40周年の旗",
       "displayName": "三國志40周年の旗",
-      "sourceIndex": 16,
+      "sourceIndex": 17,
       "typeFeatures": [],
       "statusEffectRefs": [],
       "typeFeatureCount": 0,
@@ -260501,13 +260929,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:17:呂氏春秋",
+      "id": "equipment:equipments:18:呂氏春秋",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "呂氏春秋",
       "displayName": "呂氏春秋",
-      "sourceIndex": 17,
+      "sourceIndex": 18,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -260536,13 +260964,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:18:万機相輔冠",
+      "id": "equipment:equipments:19:万機相輔冠",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "万機相輔冠",
       "displayName": "万機相輔冠",
-      "sourceIndex": 18,
+      "sourceIndex": 19,
       "typeFeatures": [
         {
           "featureId": "parameter:tactic_speed",
@@ -260579,13 +261007,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:19:孫尚香の乾坤圏",
+      "id": "equipment:equipments:20:孫尚香の乾坤圏",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "孫尚香の乾坤圏",
       "displayName": "孫尚香の乾坤圏",
-      "sourceIndex": 19,
+      "sourceIndex": 20,
       "typeFeatures": [
         {
           "featureId": "parameter:critical_power",
@@ -260663,13 +261091,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:20:夏侯惇の眼帯",
+      "id": "equipment:equipments:21:夏侯惇の眼帯",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "夏侯惇の眼帯",
       "displayName": "夏侯惇の眼帯",
-      "sourceIndex": 20,
+      "sourceIndex": 21,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -260739,13 +261167,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:21:張飛の頭巾",
+      "id": "equipment:equipments:22:張飛の頭巾",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "張飛の頭巾",
       "displayName": "張飛の頭巾",
-      "sourceIndex": 21,
+      "sourceIndex": 22,
       "typeFeatures": [
         {
           "featureId": "parameter:tactic_power",
@@ -260815,13 +261243,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:22:飛鳥装束",
+      "id": "equipment:equipments:23:飛鳥装束",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "飛鳥装束",
       "displayName": "飛鳥装束",
-      "sourceIndex": 22,
+      "sourceIndex": 23,
       "typeFeatures": [],
       "statusEffectRefs": [],
       "typeFeatureCount": 0,
@@ -260833,13 +261261,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:23:猛鋭黒革帯",
+      "id": "equipment:equipments:24:猛鋭黒革帯",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "猛鋭黒革帯",
       "displayName": "猛鋭黒革帯",
-      "sourceIndex": 23,
+      "sourceIndex": 24,
       "typeFeatures": [
         {
           "featureId": "skill_effect:annihilation_avoidance",
@@ -260873,13 +261301,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:24:緋紅尖晶石首飾",
+      "id": "equipment:equipments:25:緋紅尖晶石首飾",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "緋紅尖晶石首飾",
       "displayName": "緋紅尖晶石首飾",
-      "sourceIndex": 24,
+      "sourceIndex": 25,
       "typeFeatures": [
         {
           "featureId": "parameter:tactic_power",
@@ -260908,115 +261336,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:25:武衛虎侯頭巾",
+      "id": "equipment:equipments:26:武衛虎侯頭巾",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "武衛虎侯頭巾",
       "displayName": "武衛虎侯頭巾",
-      "sourceIndex": 25,
-      "typeFeatures": [],
-      "statusEffectRefs": [
-        {
-          "featureId": "status_effect:恐怖回避[堅厚]",
-          "label": "恐怖回避[堅厚]",
-          "featureType": "statusEffect",
-          "statusEffectName": "恐怖回避[堅厚]",
-          "groupKey": "selfResistanceBuff",
-          "groupLabel": "自部隊不利対策",
-          "displayRole": "functional-summary",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "self-countermeasure-skill",
-          "matchedText": "自身1部隊にかかる恐怖、畏怖、萎縮を避ける"
-        },
-        {
-          "featureId": "status_effect:畏怖回避[堅厚]",
-          "label": "畏怖回避[堅厚]",
-          "featureType": "statusEffect",
-          "statusEffectName": "畏怖回避[堅厚]",
-          "groupKey": "selfResistanceBuff",
-          "groupLabel": "自部隊不利対策",
-          "displayRole": "functional-summary",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "self-countermeasure-skill",
-          "matchedText": "自身1部隊にかかる恐怖、畏怖、萎縮を避ける"
-        },
-        {
-          "featureId": "status_effect:萎縮回避[堅厚]",
-          "label": "萎縮回避[堅厚]",
-          "featureType": "statusEffect",
-          "statusEffectName": "萎縮回避[堅厚]",
-          "groupKey": "selfResistanceBuff",
-          "groupLabel": "自部隊不利対策",
-          "displayRole": "functional-summary",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "self-countermeasure-skill",
-          "matchedText": "自身1部隊にかかる恐怖、畏怖、萎縮を避ける"
-        },
-        {
-          "featureId": "status_effect:会心無効[堅厚]",
-          "label": "会心無効[堅厚]",
-          "featureType": "statusEffect",
-          "statusEffectName": "会心無効[堅厚]",
-          "groupKey": "selfResistanceBuff",
-          "groupLabel": "自部隊不利対策",
-          "displayRole": "functional-summary",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "self-countermeasure-skill",
-          "matchedText": "物理系統のダメージを受ける際に会心/撃心が発生しない（通常のダメージになる）Ⅱ"
-        },
-        {
-          "featureId": "status_effect:撃心無効[堅厚]",
-          "label": "撃心無効[堅厚]",
-          "featureType": "statusEffect",
-          "statusEffectName": "撃心無効[堅厚]",
-          "groupKey": "selfResistanceBuff",
-          "groupLabel": "自部隊不利対策",
-          "displayRole": "functional-summary",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "self-countermeasure-skill",
-          "matchedText": "物理系統のダメージを受ける際に会心/撃心が発生しない（通常のダメージになる）Ⅱ"
-        },
-        {
-          "featureId": "status_effect:戦慄回避[堅厚]",
-          "label": "戦慄回避[堅厚]",
-          "featureType": "statusEffect",
-          "statusEffectName": "戦慄回避[堅厚]",
-          "groupKey": "selfResistanceBuff",
-          "groupLabel": "自部隊不利対策",
-          "displayRole": "functional-summary",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "self-countermeasure-skill",
-          "matchedText": "自身1部隊にかかる恐怖、畏怖、萎縮、戦慄、怯心を避ける"
-        },
-        {
-          "featureId": "status_effect:怯心回避[堅厚]",
-          "label": "怯心回避[堅厚]",
-          "featureType": "statusEffect",
-          "statusEffectName": "怯心回避[堅厚]",
-          "groupKey": "selfResistanceBuff",
-          "groupLabel": "自部隊不利対策",
-          "displayRole": "functional-summary",
-          "source": "hadou_related_link_index.json",
-          "sourcePartType": "self-countermeasure-skill",
-          "matchedText": "自身1部隊にかかる恐怖、畏怖、萎縮、戦慄、怯心を避ける"
-        }
-      ],
-      "typeFeatureCount": 0,
-      "statusEffectRefCount": 7,
-      "sortKeys": [
-        "typeMetricScore",
-        "equipmentSlot",
-        "activationCondition"
-      ]
-    },
-    {
-      "id": "equipment:equipments:26:武衛虎士刀",
-      "roleId": "equipment",
-      "roleLabel": "装備",
-      "category": "equipments",
-      "name": "武衛虎士刀",
-      "displayName": "武衛虎士刀",
       "sourceIndex": 26,
       "typeFeatures": [],
       "statusEffectRefs": [
@@ -261114,13 +261439,116 @@
       ]
     },
     {
-      "id": "equipment:equipments:27:麒龍志継鎧",
+      "id": "equipment:equipments:27:武衛虎士刀",
+      "roleId": "equipment",
+      "roleLabel": "装備",
+      "category": "equipments",
+      "name": "武衛虎士刀",
+      "displayName": "武衛虎士刀",
+      "sourceIndex": 27,
+      "typeFeatures": [],
+      "statusEffectRefs": [
+        {
+          "featureId": "status_effect:恐怖回避[堅厚]",
+          "label": "恐怖回避[堅厚]",
+          "featureType": "statusEffect",
+          "statusEffectName": "恐怖回避[堅厚]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる恐怖、畏怖、萎縮を避ける"
+        },
+        {
+          "featureId": "status_effect:畏怖回避[堅厚]",
+          "label": "畏怖回避[堅厚]",
+          "featureType": "statusEffect",
+          "statusEffectName": "畏怖回避[堅厚]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる恐怖、畏怖、萎縮を避ける"
+        },
+        {
+          "featureId": "status_effect:萎縮回避[堅厚]",
+          "label": "萎縮回避[堅厚]",
+          "featureType": "statusEffect",
+          "statusEffectName": "萎縮回避[堅厚]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる恐怖、畏怖、萎縮を避ける"
+        },
+        {
+          "featureId": "status_effect:会心無効[堅厚]",
+          "label": "会心無効[堅厚]",
+          "featureType": "statusEffect",
+          "statusEffectName": "会心無効[堅厚]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "物理系統のダメージを受ける際に会心/撃心が発生しない（通常のダメージになる）Ⅱ"
+        },
+        {
+          "featureId": "status_effect:撃心無効[堅厚]",
+          "label": "撃心無効[堅厚]",
+          "featureType": "statusEffect",
+          "statusEffectName": "撃心無効[堅厚]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "物理系統のダメージを受ける際に会心/撃心が発生しない（通常のダメージになる）Ⅱ"
+        },
+        {
+          "featureId": "status_effect:戦慄回避[堅厚]",
+          "label": "戦慄回避[堅厚]",
+          "featureType": "statusEffect",
+          "statusEffectName": "戦慄回避[堅厚]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる恐怖、畏怖、萎縮、戦慄、怯心を避ける"
+        },
+        {
+          "featureId": "status_effect:怯心回避[堅厚]",
+          "label": "怯心回避[堅厚]",
+          "featureType": "statusEffect",
+          "statusEffectName": "怯心回避[堅厚]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる恐怖、畏怖、萎縮、戦慄、怯心を避ける"
+        }
+      ],
+      "typeFeatureCount": 0,
+      "statusEffectRefCount": 7,
+      "sortKeys": [
+        "typeMetricScore",
+        "equipmentSlot",
+        "activationCondition"
+      ]
+    },
+    {
+      "id": "equipment:equipments:28:麒龍志継鎧",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "麒龍志継鎧",
       "displayName": "麒龍志継鎧",
-      "sourceIndex": 27,
+      "sourceIndex": 28,
       "typeFeatures": [
         {
           "featureId": "skill_effect:chain_rate",
@@ -261166,13 +261594,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:28:蜀山武功秘籍",
+      "id": "equipment:equipments:29:蜀山武功秘籍",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "蜀山武功秘籍",
       "displayName": "蜀山武功秘籍",
-      "sourceIndex": 28,
+      "sourceIndex": 29,
       "typeFeatures": [],
       "statusEffectRefs": [],
       "typeFeatureCount": 0,
@@ -261184,13 +261612,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:29:雄俊光錦袍鎧",
+      "id": "equipment:equipments:30:雄俊光錦袍鎧",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "雄俊光錦袍鎧",
       "displayName": "雄俊光錦袍鎧",
-      "sourceIndex": 29,
+      "sourceIndex": 30,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -261268,13 +261696,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:30:雄俊羽毛扇",
+      "id": "equipment:equipments:31:雄俊羽毛扇",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "雄俊羽毛扇",
       "displayName": "雄俊羽毛扇",
-      "sourceIndex": 30,
+      "sourceIndex": 31,
       "typeFeatures": [
         {
           "featureId": "skill_effect:enemy_target_count",
@@ -261344,13 +261772,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:31:岱斗帽沿兜",
+      "id": "equipment:equipments:32:岱斗帽沿兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "岱斗帽沿兜",
       "displayName": "岱斗帽沿兜",
-      "sourceIndex": 31,
+      "sourceIndex": 32,
       "typeFeatures": [
         {
           "featureId": "skill_effect:wounded_survival",
@@ -261379,13 +261807,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:32:驍武凶悍大刀",
+      "id": "equipment:equipments:33:驍武凶悍大刀",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "驍武凶悍大刀",
       "displayName": "驍武凶悍大刀",
-      "sourceIndex": 32,
+      "sourceIndex": 33,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -261422,13 +261850,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:33:煉蠱皿",
+      "id": "equipment:equipments:34:煉蠱皿",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "煉蠱皿",
       "displayName": "煉蠱皿",
-      "sourceIndex": 33,
+      "sourceIndex": 34,
       "typeFeatures": [
         {
           "featureId": "parameter:tactic_power",
@@ -261465,13 +261893,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:34:金蛇鞭",
+      "id": "equipment:equipments:35:金蛇鞭",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "金蛇鞭",
       "displayName": "金蛇鞭",
-      "sourceIndex": 34,
+      "sourceIndex": 35,
       "typeFeatures": [
         {
           "featureId": "skill_effect:normal_attack_target_count",
@@ -261581,13 +262009,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:35:聖霊披風",
+      "id": "equipment:equipments:36:聖霊披風",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "聖霊披風",
       "displayName": "聖霊披風",
-      "sourceIndex": 35,
+      "sourceIndex": 36,
       "typeFeatures": [
         {
           "featureId": "skill_effect:damage_reduction",
@@ -261633,13 +262061,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:36:無塵剣",
+      "id": "equipment:equipments:37:無塵剣",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "無塵剣",
       "displayName": "無塵剣",
-      "sourceIndex": 36,
+      "sourceIndex": 37,
       "typeFeatures": [
         {
           "featureId": "parameter:critical_power",
@@ -261757,13 +262185,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:37:龍淵剣",
+      "id": "equipment:equipments:38:龍淵剣",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "龍淵剣",
       "displayName": "龍淵剣",
-      "sourceIndex": 37,
+      "sourceIndex": 38,
       "typeFeatures": [
         {
           "featureId": "skill_effect:wounded_recovery",
@@ -261816,13 +262244,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:38:五色線",
+      "id": "equipment:equipments:39:五色線",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "五色線",
       "displayName": "五色線",
-      "sourceIndex": 38,
+      "sourceIndex": 39,
       "typeFeatures": [
         {
           "featureId": "skill_effect:damage_reduction",
@@ -261843,13 +262271,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:39:孫臏兵法",
+      "id": "equipment:equipments:40:孫臏兵法",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "孫臏兵法",
       "displayName": "孫臏兵法",
-      "sourceIndex": 39,
+      "sourceIndex": 40,
       "typeFeatures": [
         {
           "featureId": "parameter:critical_power",
@@ -261894,13 +262322,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:40:報讐克勝冠",
+      "id": "equipment:equipments:41:報讐克勝冠",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "報讐克勝冠",
       "displayName": "報讐克勝冠",
-      "sourceIndex": 40,
+      "sourceIndex": 41,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -261945,13 +262373,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:41:劉家伝来の宝剣",
+      "id": "equipment:equipments:42:劉家伝来の宝剣",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "劉家伝来の宝剣",
       "displayName": "劉家伝来の宝剣",
-      "sourceIndex": 41,
+      "sourceIndex": 42,
       "typeFeatures": [
         {
           "featureId": "skill_effect:ally_target_count",
@@ -261980,13 +262408,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:42:躬先越嶺笠兜",
+      "id": "equipment:equipments:43:躬先越嶺笠兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "躬先越嶺笠兜",
       "displayName": "躬先越嶺笠兜",
-      "sourceIndex": 42,
+      "sourceIndex": 43,
       "typeFeatures": [
         {
           "featureId": "skill_effect:chain_rate",
@@ -262007,13 +262435,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:43:果勇金銅鎧",
+      "id": "equipment:equipments:44:果勇金銅鎧",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "果勇金銅鎧",
       "displayName": "果勇金銅鎧",
-      "sourceIndex": 43,
+      "sourceIndex": 44,
       "typeFeatures": [
         {
           "featureId": "skill_effect:damage_reduction",
@@ -262103,13 +262531,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:44:白旄乾坤旗",
+      "id": "equipment:equipments:45:白旄乾坤旗",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "白旄乾坤旗",
       "displayName": "白旄乾坤旗",
-      "sourceIndex": 44,
+      "sourceIndex": 45,
       "typeFeatures": [
         {
           "featureId": "parameter:tactic_power",
@@ -262235,13 +262663,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:45:紅纓帥兜",
+      "id": "equipment:equipments:46:紅纓帥兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "紅纓帥兜",
       "displayName": "紅纓帥兜",
-      "sourceIndex": 45,
+      "sourceIndex": 46,
       "typeFeatures": [
         {
           "featureId": "skill_effect:damage_reduction",
@@ -262262,13 +262690,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:46:瀝泉槍",
+      "id": "equipment:equipments:47:瀝泉槍",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "瀝泉槍",
       "displayName": "瀝泉槍",
-      "sourceIndex": 46,
+      "sourceIndex": 47,
       "typeFeatures": [
         {
           "featureId": "skill_effect:wounded_survival",
@@ -262313,13 +262741,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:47:大紅柘榴石首飾",
+      "id": "equipment:equipments:48:大紅柘榴石首飾",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "大紅柘榴石首飾",
       "displayName": "大紅柘榴石首飾",
-      "sourceIndex": 47,
+      "sourceIndex": 48,
       "typeFeatures": [
         {
           "featureId": "parameter:anti_object",
@@ -262348,13 +262776,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:48:黄天大道旗槍",
+      "id": "equipment:equipments:49:黄天大道旗槍",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "黄天大道旗槍",
       "displayName": "黄天大道旗槍",
-      "sourceIndex": 48,
+      "sourceIndex": 49,
       "typeFeatures": [
         {
           "featureId": "skill_effect:normal_attack_target_count",
@@ -262407,13 +262835,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:49:獠牙鬼面",
+      "id": "equipment:equipments:50:獠牙鬼面",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "獠牙鬼面",
       "displayName": "獠牙鬼面",
-      "sourceIndex": 49,
+      "sourceIndex": 50,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -262474,13 +262902,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:50:百保鮮卑重甲",
+      "id": "equipment:equipments:51:百保鮮卑重甲",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "百保鮮卑重甲",
       "displayName": "百保鮮卑重甲",
-      "sourceIndex": 50,
+      "sourceIndex": 51,
       "typeFeatures": [
         {
           "featureId": "parameter:critical_power",
@@ -262501,13 +262929,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:51:六尺斬馬刀",
+      "id": "equipment:equipments:52:六尺斬馬刀",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "六尺斬馬刀",
       "displayName": "六尺斬馬刀",
-      "sourceIndex": 51,
+      "sourceIndex": 52,
       "typeFeatures": [],
       "statusEffectRefs": [],
       "typeFeatureCount": 0,
@@ -262519,13 +262947,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:52:龍紋鉄甲",
+      "id": "equipment:equipments:53:龍紋鉄甲",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "龍紋鉄甲",
       "displayName": "龍紋鉄甲",
-      "sourceIndex": 52,
+      "sourceIndex": 53,
       "typeFeatures": [
         {
           "featureId": "skill_effect:wounded_survival",
@@ -262562,13 +262990,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:53:二兎観月扇",
+      "id": "equipment:equipments:54:二兎観月扇",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "二兎観月扇",
       "displayName": "二兎観月扇",
-      "sourceIndex": 53,
+      "sourceIndex": 54,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -262613,13 +263041,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:54:迅風衝決剣",
+      "id": "equipment:equipments:55:迅風衝決剣",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "迅風衝決剣",
       "displayName": "迅風衝決剣",
-      "sourceIndex": 54,
+      "sourceIndex": 55,
       "typeFeatures": [
         {
           "featureId": "parameter:anti_object",
@@ -262672,13 +263100,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:55:勢焔雷紋兜",
+      "id": "equipment:equipments:56:勢焔雷紋兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "勢焔雷紋兜",
       "displayName": "勢焔雷紋兜",
-      "sourceIndex": 55,
+      "sourceIndex": 56,
       "typeFeatures": [
         {
           "featureId": "parameter:normal_attack_power",
@@ -262723,13 +263151,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:56:彩漆鳳龍紋盾",
+      "id": "equipment:equipments:57:彩漆鳳龍紋盾",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "彩漆鳳龍紋盾",
       "displayName": "彩漆鳳龍紋盾",
-      "sourceIndex": 56,
+      "sourceIndex": 57,
       "typeFeatures": [
         {
           "featureId": "skill_effect:damage_reduction",
@@ -262803,13 +263231,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:57:玄漆紫玉金冠",
+      "id": "equipment:equipments:58:玄漆紫玉金冠",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "玄漆紫玉金冠",
       "displayName": "玄漆紫玉金冠",
-      "sourceIndex": 57,
+      "sourceIndex": 58,
       "typeFeatures": [
         {
           "featureId": "skill_effect:enemy_debuff_multi",
@@ -262838,13 +263266,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:58:虎豹元帥兜",
+      "id": "equipment:equipments:59:虎豹元帥兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "虎豹元帥兜",
       "displayName": "虎豹元帥兜",
-      "sourceIndex": 58,
+      "sourceIndex": 59,
       "typeFeatures": [
         {
           "featureId": "skill_effect:damage_reduction",
@@ -262865,13 +263293,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:59:弘雅守信冠",
+      "id": "equipment:equipments:60:弘雅守信冠",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "弘雅守信冠",
       "displayName": "弘雅守信冠",
-      "sourceIndex": 59,
+      "sourceIndex": 60,
       "typeFeatures": [
         {
           "featureId": "skill_effect:wounded_recovery",
@@ -262932,13 +263360,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:60:厳毅典麗宝剣",
+      "id": "equipment:equipments:61:厳毅典麗宝剣",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "厳毅典麗宝剣",
       "displayName": "厳毅典麗宝剣",
-      "sourceIndex": 60,
+      "sourceIndex": 61,
       "typeFeatures": [
         {
           "featureId": "parameter:tactic_speed",
@@ -262983,13 +263411,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:61:赤心硬殻兜",
+      "id": "equipment:equipments:62:赤心硬殻兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "赤心硬殻兜",
       "displayName": "赤心硬殻兜",
-      "sourceIndex": 61,
+      "sourceIndex": 62,
       "typeFeatures": [
         {
           "featureId": "skill_effect:weakening_remove",
@@ -263042,13 +263470,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:62:虎筋弦神弓",
+      "id": "equipment:equipments:63:虎筋弦神弓",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "虎筋弦神弓",
       "displayName": "虎筋弦神弓",
-      "sourceIndex": 62,
+      "sourceIndex": 63,
       "typeFeatures": [
         {
           "featureId": "skill_effect:normal_attack_target_count",
@@ -263126,13 +263554,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:63:鉄脊蛇矛",
+      "id": "equipment:equipments:64:鉄脊蛇矛",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "鉄脊蛇矛",
       "displayName": "鉄脊蛇矛",
-      "sourceIndex": 63,
+      "sourceIndex": 64,
       "typeFeatures": [
         {
           "featureId": "skill_effect:weakening_remove",
@@ -263169,13 +263597,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:64:黄焔柳緑披風",
+      "id": "equipment:equipments:65:黄焔柳緑披風",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "黄焔柳緑披風",
       "displayName": "黄焔柳緑披風",
-      "sourceIndex": 64,
+      "sourceIndex": 65,
       "typeFeatures": [
         {
           "featureId": "skill_effect:ally_buff_multi",
@@ -263212,13 +263640,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:65:貞烈弓籠手",
+      "id": "equipment:equipments:66:貞烈弓籠手",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "貞烈弓籠手",
       "displayName": "貞烈弓籠手",
-      "sourceIndex": 65,
+      "sourceIndex": 66,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -263284,13 +263712,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:66:春秋左氏伝",
+      "id": "equipment:equipments:67:春秋左氏伝",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "春秋左氏伝",
       "displayName": "春秋左氏伝",
-      "sourceIndex": 66,
+      "sourceIndex": 67,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -263332,13 +263760,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:67:緑絹金花抹額",
+      "id": "equipment:equipments:68:緑絹金花抹額",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "緑絹金花抹額",
       "displayName": "緑絹金花抹額",
-      "sourceIndex": 67,
+      "sourceIndex": 68,
       "typeFeatures": [
         {
           "featureId": "parameter:critical_power",
@@ -263375,13 +263803,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:68:炎帝神農茶譜",
+      "id": "equipment:equipments:69:炎帝神農茶譜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "炎帝神農茶譜",
       "displayName": "炎帝神農茶譜",
-      "sourceIndex": 68,
+      "sourceIndex": 69,
       "typeFeatures": [
         {
           "featureId": "skill_effect:wounded_survival",
@@ -263442,13 +263870,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:69:賢佐治道笏",
+      "id": "equipment:equipments:70:賢佐治道笏",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "賢佐治道笏",
       "displayName": "賢佐治道笏",
-      "sourceIndex": 69,
+      "sourceIndex": 70,
       "typeFeatures": [
         {
           "featureId": "parameter:anti_object",
@@ -263485,13 +263913,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:70:魔術師の帽子",
+      "id": "equipment:equipments:71:魔術師の帽子",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "魔術師の帽子",
       "displayName": "魔術師の帽子",
-      "sourceIndex": 70,
+      "sourceIndex": 71,
       "typeFeatures": [
         {
           "featureId": "parameter:tactic_speed",
@@ -263549,13 +263977,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:71:星間航路図",
+      "id": "equipment:equipments:72:星間航路図",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "星間航路図",
       "displayName": "星間航路図",
-      "sourceIndex": 71,
+      "sourceIndex": 72,
       "typeFeatures": [],
       "statusEffectRefs": [],
       "typeFeatureCount": 0,
@@ -263567,13 +263995,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:72:金色のロケット",
+      "id": "equipment:equipments:73:金色のロケット",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "金色のロケット",
       "displayName": "金色のロケット",
-      "sourceIndex": 72,
+      "sourceIndex": 73,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -263626,13 +264054,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:73:励志方正冠",
+      "id": "equipment:equipments:74:励志方正冠",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "励志方正冠",
       "displayName": "励志方正冠",
-      "sourceIndex": 73,
+      "sourceIndex": 74,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -263677,13 +264105,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:74:鋭師飛鵠兜",
+      "id": "equipment:equipments:75:鋭師飛鵠兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "鋭師飛鵠兜",
       "displayName": "鋭師飛鵠兜",
-      "sourceIndex": 74,
+      "sourceIndex": 75,
       "typeFeatures": [
         {
           "featureId": "skill_effect:enemy_target_count",
@@ -263704,13 +264132,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:75:鳳鳴双飛金冠",
+      "id": "equipment:equipments:76:鳳鳴双飛金冠",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "鳳鳴双飛金冠",
       "displayName": "鳳鳴双飛金冠",
-      "sourceIndex": 75,
+      "sourceIndex": 76,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -263755,13 +264183,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:76:朝陽仁恵玉冠",
+      "id": "equipment:equipments:77:朝陽仁恵玉冠",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "朝陽仁恵玉冠",
       "displayName": "朝陽仁恵玉冠",
-      "sourceIndex": 76,
+      "sourceIndex": 77,
       "typeFeatures": [
         {
           "featureId": "skill_effect:wounded_survival",
@@ -263830,13 +264258,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:77:碧緑双翼兜",
+      "id": "equipment:equipments:78:碧緑双翼兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "碧緑双翼兜",
       "displayName": "碧緑双翼兜",
-      "sourceIndex": 77,
+      "sourceIndex": 78,
       "typeFeatures": [
         {
           "featureId": "skill_effect:weakening_nullify",
@@ -263881,13 +264309,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:78:焦尾琴",
+      "id": "equipment:equipments:79:焦尾琴",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "焦尾琴",
       "displayName": "焦尾琴",
-      "sourceIndex": 78,
+      "sourceIndex": 79,
       "typeFeatures": [
         {
           "featureId": "skill_effect:attack_nullify",
@@ -263956,13 +264384,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:79:西方の紅帽",
+      "id": "equipment:equipments:80:西方の紅帽",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "西方の紅帽",
       "displayName": "西方の紅帽",
-      "sourceIndex": 79,
+      "sourceIndex": 80,
       "typeFeatures": [
         {
           "featureId": "parameter:anti_object",
@@ -263999,13 +264427,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:80:奉天銀灰冠",
+      "id": "equipment:equipments:81:奉天銀灰冠",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "奉天銀灰冠",
       "displayName": "奉天銀灰冠",
-      "sourceIndex": 80,
+      "sourceIndex": 81,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -264042,13 +264470,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:81:先登承志頭巾",
+      "id": "equipment:equipments:82:先登承志頭巾",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "先登承志頭巾",
       "displayName": "先登承志頭巾",
-      "sourceIndex": 81,
+      "sourceIndex": 82,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -264085,13 +264513,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:82:飛刀",
+      "id": "equipment:equipments:83:飛刀",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "飛刀",
       "displayName": "飛刀",
-      "sourceIndex": 82,
+      "sourceIndex": 83,
       "typeFeatures": [
         {
           "featureId": "skill_effect:ally_target_count",
@@ -264125,13 +264553,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:83:南天羽飾兜",
+      "id": "equipment:equipments:84:南天羽飾兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "南天羽飾兜",
       "displayName": "南天羽飾兜",
-      "sourceIndex": 83,
+      "sourceIndex": 84,
       "typeFeatures": [
         {
           "featureId": "skill_effect:annihilation_avoidance",
@@ -264176,13 +264604,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:84:威福笠兜",
+      "id": "equipment:equipments:85:威福笠兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "威福笠兜",
       "displayName": "威福笠兜",
-      "sourceIndex": 84,
+      "sourceIndex": 85,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -264256,13 +264684,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:85:諸葛巾",
+      "id": "equipment:equipments:86:諸葛巾",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "諸葛巾",
       "displayName": "諸葛巾",
-      "sourceIndex": 85,
+      "sourceIndex": 86,
       "typeFeatures": [
         {
           "featureId": "skill_effect:damage_reduction",
@@ -264368,13 +264796,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:86:壮気直躬剣",
+      "id": "equipment:equipments:87:壮気直躬剣",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "壮気直躬剣",
       "displayName": "壮気直躬剣",
-      "sourceIndex": 86,
+      "sourceIndex": 87,
       "typeFeatures": [
         {
           "featureId": "skill_effect:damage_reduction",
@@ -264403,13 +264831,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:87:九華扇",
+      "id": "equipment:equipments:88:九華扇",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "九華扇",
       "displayName": "九華扇",
-      "sourceIndex": 87,
+      "sourceIndex": 88,
       "typeFeatures": [
         {
           "featureId": "skill_effect:normal_attack_target_count",
@@ -264454,13 +264882,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:88:興起嵩峻兜",
+      "id": "equipment:equipments:89:興起嵩峻兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "興起嵩峻兜",
       "displayName": "興起嵩峻兜",
-      "sourceIndex": 88,
+      "sourceIndex": 89,
       "typeFeatures": [
         {
           "featureId": "skill_effect:ally_target_count",
@@ -264514,14 +264942,22 @@
       ]
     },
     {
-      "id": "equipment:equipments:89:司馬氏兵記",
+      "id": "equipment:equipments:90:司馬氏兵記",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "司馬氏兵記",
       "displayName": "司馬氏兵記",
-      "sourceIndex": 89,
+      "sourceIndex": 90,
       "typeFeatures": [
+        {
+          "featureId": "skill_effect:damage_reduction",
+          "label": "被ダメージ軽減",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "敵部隊からの通常攻撃・戦法による被ダメージを、敵部隊に発生している弱化効果の数×1.5%軽減（最大15％）SSR時の最大技能後顧鬼想"
+        },
         {
           "featureId": "skill_effect:ally_buff_multi",
           "label": "味方バフ配布",
@@ -264529,6 +264965,22 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊に25%の知力耐性を付与（10秒） →駐屯/防衛中は効果量が2倍（50%）"
+        },
+        {
+          "featureId": "skill_effect:enemy_debuff_multi",
+          "label": "敵デバフ配布",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "敵部隊からの通常攻撃・戦法による被ダメージを、敵部隊に発生している弱化効果の数×1.5%軽減（最大15％）SSR時の最大技能後顧鬼想"
+        },
+        {
+          "featureId": "skill_effect:effect_duration",
+          "label": "効果時間",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊に取込を付与（10秒） →駐屯/防衛中は効果時間が2倍（20秒）弱仇妙衛"
         },
         {
           "featureId": "skill_effect:ally_target_count",
@@ -264548,7 +265000,7 @@
         }
       ],
       "statusEffectRefs": [],
-      "typeFeatureCount": 3,
+      "typeFeatureCount": 6,
       "statusEffectRefCount": 0,
       "sortKeys": [
         "typeMetricScore",
@@ -264557,13 +265009,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:90:奮勇燕尾牌",
+      "id": "equipment:equipments:91:奮勇燕尾牌",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "奮勇燕尾牌",
       "displayName": "奮勇燕尾牌",
-      "sourceIndex": 90,
+      "sourceIndex": 91,
       "typeFeatures": [
         {
           "featureId": "skill_effect:annihilation_avoidance",
@@ -264648,13 +265100,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:91:羊の遊泳圏",
+      "id": "equipment:equipments:92:羊の遊泳圏",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "羊の遊泳圏",
       "displayName": "羊の遊泳圏",
-      "sourceIndex": 91,
+      "sourceIndex": 92,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -264691,13 +265143,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:92:龍の水槍",
+      "id": "equipment:equipments:93:龍の水槍",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "龍の水槍",
       "displayName": "龍の水槍",
-      "sourceIndex": 92,
+      "sourceIndex": 93,
       "typeFeatures": [],
       "statusEffectRefs": [],
       "typeFeatureCount": 0,
@@ -264709,13 +265161,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:93:断江倒海鞭",
+      "id": "equipment:equipments:94:断江倒海鞭",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "断江倒海鞭",
       "displayName": "断江倒海鞭",
-      "sourceIndex": 93,
+      "sourceIndex": 94,
       "typeFeatures": [
         {
           "featureId": "parameter:critical_tactic_power",
@@ -264744,13 +265196,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:94:燦金赤纓兜",
+      "id": "equipment:equipments:95:燦金赤纓兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "燦金赤纓兜",
       "displayName": "燦金赤纓兜",
-      "sourceIndex": 94,
+      "sourceIndex": 95,
       "typeFeatures": [
         {
           "featureId": "parameter:critical_tactic_power",
@@ -264779,13 +265231,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:95:雄豪肩呑鎧",
+      "id": "equipment:equipments:96:雄豪肩呑鎧",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "雄豪肩呑鎧",
       "displayName": "雄豪肩呑鎧",
-      "sourceIndex": 95,
+      "sourceIndex": 96,
       "typeFeatures": [
         {
           "featureId": "parameter:tactic_power",
@@ -264806,13 +265258,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:96:富春孫氏家伝",
+      "id": "equipment:equipments:97:富春孫氏家伝",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "富春孫氏家伝",
       "displayName": "富春孫氏家伝",
-      "sourceIndex": 96,
+      "sourceIndex": 97,
       "typeFeatures": [
         {
           "featureId": "parameter:anti_object",
@@ -264841,13 +265293,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:97:奔走の算盤",
+      "id": "equipment:equipments:98:奔走の算盤",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "奔走の算盤",
       "displayName": "奔走の算盤",
-      "sourceIndex": 97,
+      "sourceIndex": 98,
       "typeFeatures": [],
       "statusEffectRefs": [],
       "typeFeatureCount": 0,
@@ -264859,13 +265311,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:98:亢龍鋼鞭",
+      "id": "equipment:equipments:99:亢龍鋼鞭",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "亢龍鋼鞭",
       "displayName": "亢龍鋼鞭",
-      "sourceIndex": 98,
+      "sourceIndex": 99,
       "typeFeatures": [
         {
           "featureId": "parameter:critical_rate",
@@ -264902,13 +265354,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:99:思紹",
+      "id": "equipment:equipments:100:思紹",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "思紹",
       "displayName": "思紹",
-      "sourceIndex": 99,
+      "sourceIndex": 100,
       "typeFeatures": [
         {
           "featureId": "parameter:tactic_power",
@@ -264961,13 +265413,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:100:鋼胆鉄心槍",
+      "id": "equipment:equipments:101:鋼胆鉄心槍",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "鋼胆鉄心槍",
       "displayName": "鋼胆鉄心槍",
-      "sourceIndex": 100,
+      "sourceIndex": 101,
       "typeFeatures": [
         {
           "featureId": "parameter:critical_power",
@@ -265004,13 +265456,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:101:銀山雪海鎧",
+      "id": "equipment:equipments:102:銀山雪海鎧",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "銀山雪海鎧",
       "displayName": "銀山雪海鎧",
-      "sourceIndex": 101,
+      "sourceIndex": 102,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -265071,13 +265523,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:102:雲矩紋玉具宝剣",
+      "id": "equipment:equipments:103:雲矩紋玉具宝剣",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "雲矩紋玉具宝剣",
       "displayName": "雲矩紋玉具宝剣",
-      "sourceIndex": 102,
+      "sourceIndex": 103,
       "typeFeatures": [
         {
           "featureId": "skill_effect:damage_reduction",
@@ -265138,13 +265590,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:103:藍田玉軍令牌",
+      "id": "equipment:equipments:104:藍田玉軍令牌",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "藍田玉軍令牌",
       "displayName": "藍田玉軍令牌",
-      "sourceIndex": 103,
+      "sourceIndex": 104,
       "typeFeatures": [
         {
           "featureId": "skill_effect:wounded_survival",
@@ -265186,13 +265638,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:104:狼毛紫纓兜",
+      "id": "equipment:equipments:105:狼毛紫纓兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "狼毛紫纓兜",
       "displayName": "狼毛紫纓兜",
-      "sourceIndex": 104,
+      "sourceIndex": 105,
       "typeFeatures": [
         {
           "featureId": "parameter:tactic_power",
@@ -265213,13 +265665,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:105:疾風護臂甲",
+      "id": "equipment:equipments:106:疾風護臂甲",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "疾風護臂甲",
       "displayName": "疾風護臂甲",
-      "sourceIndex": 105,
+      "sourceIndex": 106,
       "typeFeatures": [
         {
           "featureId": "skill_effect:normal_attack_target_count",
@@ -265272,13 +265724,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:106:登極龍紋金觚",
+      "id": "equipment:equipments:107:登極龍紋金觚",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "登極龍紋金觚",
       "displayName": "登極龍紋金觚",
-      "sourceIndex": 106,
+      "sourceIndex": 107,
       "typeFeatures": [
         {
           "featureId": "parameter:critical_rate",
@@ -265360,13 +265812,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:107:木牛試作模型",
+      "id": "equipment:equipments:108:木牛試作模型",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "木牛試作模型",
       "displayName": "木牛試作模型",
-      "sourceIndex": 107,
+      "sourceIndex": 108,
       "typeFeatures": [
         {
           "featureId": "parameter:anti_object",
@@ -265395,13 +265847,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:108:白銀龍胆鎧",
+      "id": "equipment:equipments:109:白銀龍胆鎧",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "白銀龍胆鎧",
       "displayName": "白銀龍胆鎧",
-      "sourceIndex": 108,
+      "sourceIndex": 109,
       "typeFeatures": [
         {
           "featureId": "parameter:critical_power",
@@ -265591,13 +266043,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:109:錦帆鈴飾",
+      "id": "equipment:equipments:110:錦帆鈴飾",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "錦帆鈴飾",
       "displayName": "錦帆鈴飾",
-      "sourceIndex": 109,
+      "sourceIndex": 110,
       "typeFeatures": [
         {
           "featureId": "parameter:critical_power",
@@ -265642,13 +266094,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:110:明道方略冠",
+      "id": "equipment:equipments:111:明道方略冠",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "明道方略冠",
       "displayName": "明道方略冠",
-      "sourceIndex": 110,
+      "sourceIndex": 111,
       "typeFeatures": [
         {
           "featureId": "parameter:tactic_power",
@@ -265685,13 +266137,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:111:平蜀地理図",
+      "id": "equipment:equipments:112:平蜀地理図",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "平蜀地理図",
       "displayName": "平蜀地理図",
-      "sourceIndex": 111,
+      "sourceIndex": 112,
       "typeFeatures": [
         {
           "featureId": "parameter:anti_object",
@@ -265728,13 +266180,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:112:道論",
+      "id": "equipment:equipments:113:道論",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "道論",
       "displayName": "道論",
-      "sourceIndex": 112,
+      "sourceIndex": 113,
       "typeFeatures": [
         {
           "featureId": "parameter:tactic_power",
@@ -265763,13 +266215,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:113:真鋼鎮定剣",
+      "id": "equipment:equipments:114:真鋼鎮定剣",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "真鋼鎮定剣",
       "displayName": "真鋼鎮定剣",
-      "sourceIndex": 113,
+      "sourceIndex": 114,
       "typeFeatures": [
         {
           "featureId": "parameter:anti_object",
@@ -265803,13 +266255,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:114:召虎鉤鎌刀",
+      "id": "equipment:equipments:115:召虎鉤鎌刀",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "召虎鉤鎌刀",
       "displayName": "召虎鉤鎌刀",
-      "sourceIndex": 114,
+      "sourceIndex": 115,
       "typeFeatures": [
         {
           "featureId": "skill_effect:normal_attack_target_count",
@@ -265846,13 +266298,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:115:西方の鞭",
+      "id": "equipment:equipments:116:西方の鞭",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "西方の鞭",
       "displayName": "西方の鞭",
-      "sourceIndex": 115,
+      "sourceIndex": 116,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -265889,13 +266341,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:116:西方の盾",
+      "id": "equipment:equipments:117:西方の盾",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "西方の盾",
       "displayName": "西方の盾",
-      "sourceIndex": 116,
+      "sourceIndex": 117,
       "typeFeatures": [],
       "statusEffectRefs": [],
       "typeFeatureCount": 0,
@@ -265907,13 +266359,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:117:天禄一角兜",
+      "id": "equipment:equipments:118:天禄一角兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "天禄一角兜",
       "displayName": "天禄一角兜",
-      "sourceIndex": 117,
+      "sourceIndex": 118,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -265966,13 +266418,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:118:天柱鉄大刀",
+      "id": "equipment:equipments:119:天柱鉄大刀",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "天柱鉄大刀",
       "displayName": "天柱鉄大刀",
-      "sourceIndex": 118,
+      "sourceIndex": 119,
       "typeFeatures": [
         {
           "featureId": "parameter:critical_tactic_power",
@@ -266001,13 +266453,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:119:純和青金石首飾",
+      "id": "equipment:equipments:120:純和青金石首飾",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "純和青金石首飾",
       "displayName": "純和青金石首飾",
-      "sourceIndex": 119,
+      "sourceIndex": 120,
       "typeFeatures": [
         {
           "featureId": "parameter:critical_power",
@@ -266052,13 +266504,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:120:瑠璃珠金花冠",
+      "id": "equipment:equipments:121:瑠璃珠金花冠",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "瑠璃珠金花冠",
       "displayName": "瑠璃珠金花冠",
-      "sourceIndex": 120,
+      "sourceIndex": 121,
       "typeFeatures": [
         {
           "featureId": "skill_effect:enemy_target_count",
@@ -266079,13 +266531,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:121:驍悍傲骨鎧",
+      "id": "equipment:equipments:122:驍悍傲骨鎧",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "驍悍傲骨鎧",
       "displayName": "驍悍傲骨鎧",
-      "sourceIndex": 121,
+      "sourceIndex": 122,
       "typeFeatures": [
         {
           "featureId": "skill_effect:enemy_target_count",
@@ -266106,13 +266558,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:122:鷹揚玄冥兜",
+      "id": "equipment:equipments:123:鷹揚玄冥兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "鷹揚玄冥兜",
       "displayName": "鷹揚玄冥兜",
-      "sourceIndex": 122,
+      "sourceIndex": 123,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -266157,13 +266609,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:123:青嚢書・名家医書",
+      "id": "equipment:equipments:124:青嚢書・名家医書",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "青嚢書・名家医書",
       "displayName": "青嚢書・名家医書",
-      "sourceIndex": 123,
+      "sourceIndex": 124,
       "typeFeatures": [
         {
           "featureId": "parameter:tactic_power",
@@ -266216,13 +266668,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:124:太平賢良黄金冠",
+      "id": "equipment:equipments:125:太平賢良黄金冠",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "太平賢良黄金冠",
       "displayName": "太平賢良黄金冠",
-      "sourceIndex": 124,
+      "sourceIndex": 125,
       "typeFeatures": [
         {
           "featureId": "skill_effect:damage_reduction",
@@ -266344,13 +266796,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:125:黄幡豹尾",
+      "id": "equipment:equipments:126:黄幡豹尾",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "黄幡豹尾",
       "displayName": "黄幡豹尾",
-      "sourceIndex": 125,
+      "sourceIndex": 126,
       "typeFeatures": [],
       "statusEffectRefs": [
         {
@@ -266399,13 +266851,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:126:玄熊毛銀黄兜",
+      "id": "equipment:equipments:127:玄熊毛銀黄兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "玄熊毛銀黄兜",
       "displayName": "玄熊毛銀黄兜",
-      "sourceIndex": 126,
+      "sourceIndex": 127,
       "typeFeatures": [
         {
           "featureId": "skill_effect:ally_buff_multi",
@@ -266434,13 +266886,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:127:金繍緑錦披風",
+      "id": "equipment:equipments:128:金繍緑錦披風",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "金繍緑錦披風",
       "displayName": "金繍緑錦披風",
-      "sourceIndex": 127,
+      "sourceIndex": 128,
       "typeFeatures": [
         {
           "featureId": "skill_effect:wounded_survival",
@@ -266501,13 +266953,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:128:神獣面白纓兜",
+      "id": "equipment:equipments:129:神獣面白纓兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "神獣面白纓兜",
       "displayName": "神獣面白纓兜",
-      "sourceIndex": 128,
+      "sourceIndex": 129,
       "typeFeatures": [
         {
           "featureId": "skill_effect:ally_target_count",
@@ -266536,13 +266988,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:129:白狐毛皮披風",
+      "id": "equipment:equipments:130:白狐毛皮披風",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "白狐毛皮披風",
       "displayName": "白狐毛皮披風",
-      "sourceIndex": 129,
+      "sourceIndex": 130,
       "typeFeatures": [],
       "statusEffectRefs": [],
       "typeFeatureCount": 0,
@@ -266554,13 +267006,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:130:大喬琵琶",
+      "id": "equipment:equipments:131:大喬琵琶",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "大喬琵琶",
       "displayName": "大喬琵琶",
-      "sourceIndex": 130,
+      "sourceIndex": 131,
       "typeFeatures": [
         {
           "featureId": "parameter:tactic_speed",
@@ -266613,13 +267065,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:131:与韓将軍書",
+      "id": "equipment:equipments:132:与韓将軍書",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "与韓将軍書",
       "displayName": "与韓将軍書",
-      "sourceIndex": 131,
+      "sourceIndex": 132,
       "typeFeatures": [
         {
           "featureId": "skill_effect:normal_attack_target_count",
@@ -266664,13 +267116,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:132:南瓜の灯燈",
+      "id": "equipment:equipments:133:南瓜の灯燈",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "南瓜の灯燈",
       "displayName": "南瓜の灯燈",
-      "sourceIndex": 132,
+      "sourceIndex": 133,
       "typeFeatures": [
         {
           "featureId": "skill_effect:wounded_survival",
@@ -266707,13 +267159,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:133:蝙蝠披風",
+      "id": "equipment:equipments:134:蝙蝠披風",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "蝙蝠披風",
       "displayName": "蝙蝠披風",
-      "sourceIndex": 133,
+      "sourceIndex": 134,
       "typeFeatures": [
         {
           "featureId": "skill_effect:annihilation_avoidance",
@@ -266790,13 +267242,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:134:西方の杖",
+      "id": "equipment:equipments:135:西方の杖",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "西方の杖",
       "displayName": "西方の杖",
-      "sourceIndex": 134,
+      "sourceIndex": 135,
       "typeFeatures": [
         {
           "featureId": "skill_effect:wounded_survival",
@@ -266833,13 +267285,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:135:双鉄戟",
+      "id": "equipment:equipments:136:双鉄戟",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "双鉄戟",
       "displayName": "双鉄戟",
-      "sourceIndex": 135,
+      "sourceIndex": 136,
       "typeFeatures": [
         {
           "featureId": "skill_effect:wounded_recovery",
@@ -266901,13 +267353,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:136:朱襟白絹半臂",
+      "id": "equipment:equipments:137:朱襟白絹半臂",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "朱襟白絹半臂",
       "displayName": "朱襟白絹半臂",
-      "sourceIndex": 136,
+      "sourceIndex": 137,
       "typeFeatures": [
         {
           "featureId": "skill_effect:ally_buff_multi",
@@ -266952,13 +267404,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:137:孔明の木像",
+      "id": "equipment:equipments:138:孔明の木像",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "孔明の木像",
       "displayName": "孔明の木像",
-      "sourceIndex": 137,
+      "sourceIndex": 138,
       "typeFeatures": [
         {
           "featureId": "parameter:tactic_speed",
@@ -266987,13 +267439,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:138:紅玉珍珠金耳墜",
+      "id": "equipment:equipments:139:紅玉珍珠金耳墜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "紅玉珍珠金耳墜",
       "displayName": "紅玉珍珠金耳墜",
-      "sourceIndex": 138,
+      "sourceIndex": 139,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -267030,13 +267482,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:139:剛断戦斧",
+      "id": "equipment:equipments:140:剛断戦斧",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "剛断戦斧",
       "displayName": "剛断戦斧",
-      "sourceIndex": 139,
+      "sourceIndex": 140,
       "typeFeatures": [
         {
           "featureId": "parameter:tactic_power",
@@ -267073,13 +267525,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:140:孟徳新書",
+      "id": "equipment:equipments:141:孟徳新書",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "孟徳新書",
       "displayName": "孟徳新書",
-      "sourceIndex": 140,
+      "sourceIndex": 141,
       "typeFeatures": [
         {
           "featureId": "skill_effect:chain_rate",
@@ -267124,13 +267576,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:141:烈志蒼驥鎧",
+      "id": "equipment:equipments:142:烈志蒼驥鎧",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "烈志蒼驥鎧",
       "displayName": "烈志蒼驥鎧",
-      "sourceIndex": 141,
+      "sourceIndex": 142,
       "typeFeatures": [
         {
           "featureId": "skill_effect:damage_reduction",
@@ -267167,13 +267619,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:142:倚天の剣",
+      "id": "equipment:equipments:143:倚天の剣",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "倚天の剣",
       "displayName": "倚天の剣",
-      "sourceIndex": 142,
+      "sourceIndex": 143,
       "typeFeatures": [
         {
           "featureId": "skill_effect:chain_rate",
@@ -267207,13 +267659,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:143:羅綺香嚢",
+      "id": "equipment:equipments:144:羅綺香嚢",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "羅綺香嚢",
       "displayName": "羅綺香嚢",
-      "sourceIndex": 143,
+      "sourceIndex": 144,
       "typeFeatures": [],
       "statusEffectRefs": [],
       "typeFeatureCount": 0,
@@ -267225,13 +267677,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:144:荀氏春秋要論",
+      "id": "equipment:equipments:145:荀氏春秋要論",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "荀氏春秋要論",
       "displayName": "荀氏春秋要論",
-      "sourceIndex": 144,
+      "sourceIndex": 145,
       "typeFeatures": [
         {
           "featureId": "skill_effect:annihilation_avoidance",
@@ -267276,13 +267728,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:145:克敵機謀剣",
+      "id": "equipment:equipments:146:克敵機謀剣",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "克敵機謀剣",
       "displayName": "克敵機謀剣",
-      "sourceIndex": 145,
+      "sourceIndex": 146,
       "typeFeatures": [
         {
           "featureId": "skill_effect:chain_rate",
@@ -267319,13 +267771,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:146:千創玄英鎧",
+      "id": "equipment:equipments:147:千創玄英鎧",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "千創玄英鎧",
       "displayName": "千創玄英鎧",
-      "sourceIndex": 146,
+      "sourceIndex": 147,
       "typeFeatures": [
         {
           "featureId": "skill_effect:weakening_remove",
@@ -267378,13 +267830,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:147:克己猟龍兜",
+      "id": "equipment:equipments:148:克己猟龍兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "克己猟龍兜",
       "displayName": "克己猟龍兜",
-      "sourceIndex": 147,
+      "sourceIndex": 148,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -267413,13 +267865,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:148:太平九節杖",
+      "id": "equipment:equipments:149:太平九節杖",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "太平九節杖",
       "displayName": "太平九節杖",
-      "sourceIndex": 148,
+      "sourceIndex": 149,
       "typeFeatures": [],
       "statusEffectRefs": [],
       "typeFeatureCount": 0,
@@ -267431,13 +267883,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:149:青嚢書・名家医書",
+      "id": "equipment:equipments:150:青嚢書・名家医書",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "青嚢書・名家医書",
       "displayName": "青嚢書・名家医書",
-      "sourceIndex": 149,
+      "sourceIndex": 150,
       "typeFeatures": [
         {
           "featureId": "parameter:tactic_power",
@@ -267490,13 +267942,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:150:金系帯紫錦披風",
+      "id": "equipment:equipments:151:金系帯紫錦披風",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "金系帯紫錦披風",
       "displayName": "金系帯紫錦披風",
-      "sourceIndex": 150,
+      "sourceIndex": 151,
       "typeFeatures": [
         {
           "featureId": "parameter:anti_object",
@@ -267517,13 +267969,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:151:玲瓏獅蛮帯",
+      "id": "equipment:equipments:152:玲瓏獅蛮帯",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "玲瓏獅蛮帯",
       "displayName": "玲瓏獅蛮帯",
-      "sourceIndex": 151,
+      "sourceIndex": 152,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -267560,13 +268012,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:152:金繍紅錦半臂",
+      "id": "equipment:equipments:153:金繍紅錦半臂",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "金繍紅錦半臂",
       "displayName": "金繍紅錦半臂",
-      "sourceIndex": 152,
+      "sourceIndex": 153,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -267595,13 +268047,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:153:克定鋭刀",
+      "id": "equipment:equipments:154:克定鋭刀",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "克定鋭刀",
       "displayName": "克定鋭刀",
-      "sourceIndex": 153,
+      "sourceIndex": 154,
       "typeFeatures": [
         {
           "featureId": "skill_effect:enemy_target_count",
@@ -267622,13 +268074,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:154:古錠刀",
+      "id": "equipment:equipments:155:古錠刀",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "古錠刀",
       "displayName": "古錠刀",
-      "sourceIndex": 154,
+      "sourceIndex": 155,
       "typeFeatures": [
         {
           "featureId": "parameter:anti_object",
@@ -267649,13 +268101,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:155:孤月独明剣",
+      "id": "equipment:equipments:156:孤月独明剣",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "孤月独明剣",
       "displayName": "孤月独明剣",
-      "sourceIndex": 155,
+      "sourceIndex": 156,
       "typeFeatures": [
         {
           "featureId": "parameter:anti_object",
@@ -267692,13 +268144,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:156:獅子頭の兜",
+      "id": "equipment:equipments:157:獅子頭の兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "獅子頭の兜",
       "displayName": "獅子頭の兜",
-      "sourceIndex": 156,
+      "sourceIndex": 157,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -267735,13 +268187,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:157:商君書",
+      "id": "equipment:equipments:158:商君書",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "商君書",
       "displayName": "商君書",
-      "sourceIndex": 157,
+      "sourceIndex": 158,
       "typeFeatures": [],
       "statusEffectRefs": [],
       "typeFeatureCount": 0,
@@ -267753,13 +268205,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:158:才捷弓",
+      "id": "equipment:equipments:159:才捷弓",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "才捷弓",
       "displayName": "才捷弓",
-      "sourceIndex": 158,
+      "sourceIndex": 159,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -267796,13 +268248,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:159:二石之弓",
+      "id": "equipment:equipments:160:二石之弓",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "二石之弓",
       "displayName": "二石之弓",
-      "sourceIndex": 159,
+      "sourceIndex": 160,
       "typeFeatures": [
         {
           "featureId": "skill_effect:effect_duration",
@@ -267823,13 +268275,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:160:立義鋼刀",
+      "id": "equipment:equipments:161:立義鋼刀",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "立義鋼刀",
       "displayName": "立義鋼刀",
-      "sourceIndex": 160,
+      "sourceIndex": 161,
       "typeFeatures": [
         {
           "featureId": "skill_effect:annihilation_avoidance",
@@ -267874,30 +268326,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:161:玉帯",
+      "id": "equipment:equipments:162:玉帯",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "玉帯",
       "displayName": "玉帯",
-      "sourceIndex": 161,
-      "typeFeatures": [],
-      "statusEffectRefs": [],
-      "typeFeatureCount": 0,
-      "statusEffectRefCount": 0,
-      "sortKeys": [
-        "typeMetricScore",
-        "equipmentSlot",
-        "activationCondition"
-      ]
-    },
-    {
-      "id": "equipment:equipments:162:冕冠",
-      "roleId": "equipment",
-      "roleLabel": "装備",
-      "category": "equipments",
-      "name": "冕冠",
-      "displayName": "冕冠",
       "sourceIndex": 162,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -267910,13 +268344,31 @@
       ]
     },
     {
-      "id": "equipment:equipments:163:軍師錦羅袍",
+      "id": "equipment:equipments:163:冕冠",
+      "roleId": "equipment",
+      "roleLabel": "装備",
+      "category": "equipments",
+      "name": "冕冠",
+      "displayName": "冕冠",
+      "sourceIndex": 163,
+      "typeFeatures": [],
+      "statusEffectRefs": [],
+      "typeFeatureCount": 0,
+      "statusEffectRefCount": 0,
+      "sortKeys": [
+        "typeMetricScore",
+        "equipmentSlot",
+        "activationCondition"
+      ]
+    },
+    {
+      "id": "equipment:equipments:164:軍師錦羅袍",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "軍師錦羅袍",
       "displayName": "軍師錦羅袍",
-      "sourceIndex": 163,
+      "sourceIndex": 164,
       "typeFeatures": [
         {
           "featureId": "parameter:tactic_speed",
@@ -267945,13 +268397,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:164:疾風剛弓",
+      "id": "equipment:equipments:165:疾風剛弓",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "疾風剛弓",
       "displayName": "疾風剛弓",
-      "sourceIndex": 164,
+      "sourceIndex": 165,
       "typeFeatures": [
         {
           "featureId": "skill_effect:chain_rate",
@@ -267972,13 +268424,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:165:龍紋緑袍鎧",
+      "id": "equipment:equipments:166:龍紋緑袍鎧",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "龍紋緑袍鎧",
       "displayName": "龍紋緑袍鎧",
-      "sourceIndex": 165,
+      "sourceIndex": 166,
       "typeFeatures": [
         {
           "featureId": "skill_effect:wounded_recovery",
@@ -268028,13 +268480,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:166:翡翠玉笛",
+      "id": "equipment:equipments:167:翡翠玉笛",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "翡翠玉笛",
       "displayName": "翡翠玉笛",
-      "sourceIndex": 166,
+      "sourceIndex": 167,
       "typeFeatures": [
         {
           "featureId": "skill_effect:weakening_remove",
@@ -268079,13 +268531,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:167:黄武勢剣",
+      "id": "equipment:equipments:168:黄武勢剣",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "黄武勢剣",
       "displayName": "黄武勢剣",
-      "sourceIndex": 167,
+      "sourceIndex": 168,
       "typeFeatures": [
         {
           "featureId": "parameter:tactic_power",
@@ -268135,13 +268587,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:168:武弁大冠",
+      "id": "equipment:equipments:169:武弁大冠",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "武弁大冠",
       "displayName": "武弁大冠",
-      "sourceIndex": 168,
+      "sourceIndex": 169,
       "typeFeatures": [
         {
           "featureId": "parameter:anti_object",
@@ -268210,13 +268662,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:169:太師黄金爵",
+      "id": "equipment:equipments:170:太師黄金爵",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "太師黄金爵",
       "displayName": "太師黄金爵",
-      "sourceIndex": 169,
+      "sourceIndex": 170,
       "typeFeatures": [
         {
           "featureId": "parameter:anti_object",
@@ -268253,13 +268705,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:170:紫藤紗錦披帛",
+      "id": "equipment:equipments:171:紫藤紗錦披帛",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "紫藤紗錦披帛",
       "displayName": "紫藤紗錦披帛",
-      "sourceIndex": 170,
+      "sourceIndex": 171,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -268296,13 +268748,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:171:黒紗金飾冠",
+      "id": "equipment:equipments:172:黒紗金飾冠",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "黒紗金飾冠",
       "displayName": "黒紗金飾冠",
-      "sourceIndex": 171,
+      "sourceIndex": 172,
       "typeFeatures": [
         {
           "featureId": "parameter:anti_object",
@@ -268355,30 +268807,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:172:だんだら羽織",
+      "id": "equipment:equipments:173:だんだら羽織",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "だんだら羽織",
       "displayName": "だんだら羽織",
-      "sourceIndex": 172,
-      "typeFeatures": [],
-      "statusEffectRefs": [],
-      "typeFeatureCount": 0,
-      "statusEffectRefCount": 0,
-      "sortKeys": [
-        "typeMetricScore",
-        "equipmentSlot",
-        "activationCondition"
-      ]
-    },
-    {
-      "id": "equipment:equipments:173:和泉守兼定",
-      "roleId": "equipment",
-      "roleLabel": "装備",
-      "category": "equipments",
-      "name": "和泉守兼定",
-      "displayName": "和泉守兼定",
       "sourceIndex": 173,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -268391,13 +268825,31 @@
       ]
     },
     {
-      "id": "equipment:equipments:174:三叉束髪紫金冠",
+      "id": "equipment:equipments:174:和泉守兼定",
+      "roleId": "equipment",
+      "roleLabel": "装備",
+      "category": "equipments",
+      "name": "和泉守兼定",
+      "displayName": "和泉守兼定",
+      "sourceIndex": 174,
+      "typeFeatures": [],
+      "statusEffectRefs": [],
+      "typeFeatureCount": 0,
+      "statusEffectRefCount": 0,
+      "sortKeys": [
+        "typeMetricScore",
+        "equipmentSlot",
+        "activationCondition"
+      ]
+    },
+    {
+      "id": "equipment:equipments:175:三叉束髪紫金冠",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "三叉束髪紫金冠",
       "displayName": "三叉束髪紫金冠",
-      "sourceIndex": 174,
+      "sourceIndex": 175,
       "typeFeatures": [
         {
           "featureId": "skill_effect:damage_reduction",
@@ -268463,13 +268915,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:175:白羽扇",
+      "id": "equipment:equipments:176:白羽扇",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "白羽扇",
       "displayName": "白羽扇",
-      "sourceIndex": 175,
+      "sourceIndex": 176,
       "typeFeatures": [],
       "statusEffectRefs": [],
       "typeFeatureCount": 0,
@@ -268481,13 +268933,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:176:羌毛領披風・黒革披風",
+      "id": "equipment:equipments:177:羌毛領披風・黒革披風",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "羌毛領披風・黒革披風",
       "displayName": "羌毛領披風・黒革披風",
-      "sourceIndex": 176,
+      "sourceIndex": 177,
       "typeFeatures": [
         {
           "featureId": "skill_effect:self_disadvantage_countermeasure",
@@ -268508,13 +268960,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:177:烏桓貂毛兜・黒羊兜",
+      "id": "equipment:equipments:178:烏桓貂毛兜・黒羊兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "烏桓貂毛兜・黒羊兜",
       "displayName": "烏桓貂毛兜・黒羊兜",
-      "sourceIndex": 177,
+      "sourceIndex": 178,
       "typeFeatures": [
         {
           "featureId": "skill_effect:damage_reduction",
@@ -268535,13 +268987,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:178:南蛮獣牙首飾・洞主首飾",
+      "id": "equipment:equipments:179:南蛮獣牙首飾・洞主首飾",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "南蛮獣牙首飾・洞主首飾",
       "displayName": "南蛮獣牙首飾・洞主首飾",
-      "sourceIndex": 178,
+      "sourceIndex": 179,
       "typeFeatures": [],
       "statusEffectRefs": [],
       "typeFeatureCount": 0,
@@ -268553,13 +269005,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:179:麟角槍",
+      "id": "equipment:equipments:180:麟角槍",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "麟角槍",
       "displayName": "麟角槍",
-      "sourceIndex": 179,
+      "sourceIndex": 180,
       "typeFeatures": [
         {
           "featureId": "skill_effect:ally_target_count",
@@ -268605,13 +269057,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:180:射透弓",
+      "id": "equipment:equipments:181:射透弓",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "射透弓",
       "displayName": "射透弓",
-      "sourceIndex": 180,
+      "sourceIndex": 181,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -268648,13 +269100,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:181:狐白裘・狐裘",
+      "id": "equipment:equipments:182:狐白裘・狐裘",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "狐白裘・狐裘",
       "displayName": "狐白裘・狐裘",
-      "sourceIndex": 181,
+      "sourceIndex": 182,
       "typeFeatures": [],
       "statusEffectRefs": [],
       "typeFeatureCount": 0,
@@ -268666,13 +269118,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:182:太平要術の書・経国要術",
+      "id": "equipment:equipments:183:太平要術の書・経国要術",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "太平要術の書・経国要術",
       "displayName": "太平要術の書・経国要術",
-      "sourceIndex": 182,
+      "sourceIndex": 183,
       "typeFeatures": [
         {
           "featureId": "skill_effect:chain_rate",
@@ -268709,13 +269161,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:183:虎皮披風",
+      "id": "equipment:equipments:184:虎皮披風",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "虎皮披風",
       "displayName": "虎皮披風",
-      "sourceIndex": 183,
+      "sourceIndex": 184,
       "typeFeatures": [
         {
           "featureId": "skill_effect:damage_reduction",
@@ -268736,13 +269188,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:184:青釭の剣",
+      "id": "equipment:equipments:185:青釭の剣",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "青釭の剣",
       "displayName": "青釭の剣",
-      "sourceIndex": 184,
+      "sourceIndex": 185,
       "typeFeatures": [
         {
           "featureId": "parameter:anti_object",
@@ -268916,13 +269368,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:185:山越鋸歯刀・山越刀",
+      "id": "equipment:equipments:186:山越鋸歯刀・山越刀",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "山越鋸歯刀・山越刀",
       "displayName": "山越鋸歯刀・山越刀",
-      "sourceIndex": 185,
+      "sourceIndex": 186,
       "typeFeatures": [
         {
           "featureId": "parameter:tactic_speed",
@@ -268959,13 +269411,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:186:五渓狼牙棒・狼牙棒",
+      "id": "equipment:equipments:187:五渓狼牙棒・狼牙棒",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "五渓狼牙棒・狼牙棒",
       "displayName": "五渓狼牙棒・狼牙棒",
-      "sourceIndex": 186,
+      "sourceIndex": 187,
       "typeFeatures": [
         {
           "featureId": "parameter:critical_power",
@@ -268986,13 +269438,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:187:鮮卑角端弓・角弓",
+      "id": "equipment:equipments:188:鮮卑角端弓・角弓",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "鮮卑角端弓・角弓",
       "displayName": "鮮卑角端弓・角弓",
-      "sourceIndex": 187,
+      "sourceIndex": 188,
       "typeFeatures": [
         {
           "featureId": "parameter:anti_object",
@@ -269013,13 +269465,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:188:虎臣瓢箪",
+      "id": "equipment:equipments:189:虎臣瓢箪",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "虎臣瓢箪",
       "displayName": "虎臣瓢箪",
-      "sourceIndex": 188,
+      "sourceIndex": 189,
       "typeFeatures": [
         {
           "featureId": "parameter:critical_rate",
@@ -269048,13 +269500,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:189:太尉冠",
+      "id": "equipment:equipments:190:太尉冠",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "太尉冠",
       "displayName": "太尉冠",
-      "sourceIndex": 189,
+      "sourceIndex": 190,
       "typeFeatures": [
         {
           "featureId": "skill_effect:weakening_remove",
@@ -269107,13 +269559,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:190:周郎琵琶",
+      "id": "equipment:equipments:191:周郎琵琶",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "周郎琵琶",
       "displayName": "周郎琵琶",
-      "sourceIndex": 190,
+      "sourceIndex": 191,
       "typeFeatures": [
         {
           "featureId": "parameter:anti_object",
@@ -269142,13 +269594,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:191:鳴鈴双短戟",
+      "id": "equipment:equipments:192:鳴鈴双短戟",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "鳴鈴双短戟",
       "displayName": "鳴鈴双短戟",
-      "sourceIndex": 191,
+      "sourceIndex": 192,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -269185,13 +269637,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:192:郭子兵略",
+      "id": "equipment:equipments:193:郭子兵略",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "郭子兵略",
       "displayName": "郭子兵略",
-      "sourceIndex": 192,
+      "sourceIndex": 193,
       "typeFeatures": [
         {
           "featureId": "skill_effect:enemy_target_count",
@@ -269212,13 +269664,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:193:召虎兜",
+      "id": "equipment:equipments:194:召虎兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "召虎兜",
       "displayName": "召虎兜",
-      "sourceIndex": 193,
+      "sourceIndex": 194,
       "typeFeatures": [],
       "statusEffectRefs": [],
       "typeFeatureCount": 0,
@@ -269230,13 +269682,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:194:雌雄一対の剣",
+      "id": "equipment:equipments:195:雌雄一対の剣",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "雌雄一対の剣",
       "displayName": "雌雄一対の剣",
-      "sourceIndex": 194,
+      "sourceIndex": 195,
       "typeFeatures": [
         {
           "featureId": "parameter:attack_speed",
@@ -269281,13 +269733,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:195:方天画戟",
+      "id": "equipment:equipments:196:方天画戟",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "方天画戟",
       "displayName": "方天画戟",
-      "sourceIndex": 195,
+      "sourceIndex": 196,
       "typeFeatures": [
         {
           "featureId": "skill_effect:normal_attack_target_count",
@@ -269316,13 +269768,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:196:孫子の兵法書",
+      "id": "equipment:equipments:197:孫子の兵法書",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "孫子の兵法書",
       "displayName": "孫子の兵法書",
-      "sourceIndex": 196,
+      "sourceIndex": 197,
       "typeFeatures": [
         {
           "featureId": "skill_effect:annihilation_avoidance",
@@ -269351,13 +269803,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:197:七星宝刀",
+      "id": "equipment:equipments:198:七星宝刀",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "七星宝刀",
       "displayName": "七星宝刀",
-      "sourceIndex": 197,
+      "sourceIndex": 198,
       "typeFeatures": [
         {
           "featureId": "skill_effect:normal_attack_target_count",
@@ -269394,13 +269846,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:198:元戎弩",
+      "id": "equipment:equipments:199:元戎弩",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "元戎弩",
       "displayName": "元戎弩",
-      "sourceIndex": 198,
+      "sourceIndex": 199,
       "typeFeatures": [
         {
           "featureId": "skill_effect:normal_attack_target_count",
@@ -269429,13 +269881,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:199:青龍偃月刀",
+      "id": "equipment:equipments:200:青龍偃月刀",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "青龍偃月刀",
       "displayName": "青龍偃月刀",
-      "sourceIndex": 199,
+      "sourceIndex": 200,
       "typeFeatures": [],
       "statusEffectRefs": [],
       "typeFeatureCount": 0,
@@ -269447,13 +269899,13 @@
       ]
     },
     {
-      "id": "equipment:equipments:200:蛇矛",
+      "id": "equipment:equipments:201:蛇矛",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "蛇矛",
       "displayName": "蛇矛",
-      "sourceIndex": 200,
+      "sourceIndex": 201,
       "typeFeatures": [
         {
           "featureId": "parameter:critical_rate",
@@ -269482,30 +269934,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:201:呂氏鏡・羽人獣文鏡",
+      "id": "equipment:equipments:202:呂氏鏡・羽人獣文鏡",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "呂氏鏡・羽人獣文鏡",
       "displayName": "呂氏鏡・羽人獣文鏡",
-      "sourceIndex": 201,
-      "typeFeatures": [],
-      "statusEffectRefs": [],
-      "typeFeatureCount": 0,
-      "statusEffectRefCount": 0,
-      "sortKeys": [
-        "typeMetricScore",
-        "equipmentSlot",
-        "activationCondition"
-      ]
-    },
-    {
-      "id": "equipment:equipments:202:戦国策・名家史書",
-      "roleId": "equipment",
-      "roleLabel": "装備",
-      "category": "equipments",
-      "name": "戦国策・名家史書",
-      "displayName": "戦国策・名家史書",
       "sourceIndex": 202,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -269518,12 +269952,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:203:易経・名家経書",
+      "id": "equipment:equipments:203:戦国策・名家史書",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "易経・名家経書",
-      "displayName": "易経・名家経書",
+      "name": "戦国策・名家史書",
+      "displayName": "戦国策・名家史書",
       "sourceIndex": 203,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -269536,12 +269970,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:204:桐琴",
+      "id": "equipment:equipments:204:易経・名家経書",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "桐琴",
-      "displayName": "桐琴",
+      "name": "易経・名家経書",
+      "displayName": "易経・名家経書",
       "sourceIndex": 204,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -269554,12 +269988,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:205:史学伝書",
+      "id": "equipment:equipments:205:桐琴",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "史学伝書",
-      "displayName": "史学伝書",
+      "name": "桐琴",
+      "displayName": "桐琴",
       "sourceIndex": 205,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -269572,12 +270006,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:206:瑪瑙",
+      "id": "equipment:equipments:206:史学伝書",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "瑪瑙",
-      "displayName": "瑪瑙",
+      "name": "史学伝書",
+      "displayName": "史学伝書",
       "sourceIndex": 206,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -269590,12 +270024,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:207:銅鏡",
+      "id": "equipment:equipments:207:瑪瑙",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "銅鏡",
-      "displayName": "銅鏡",
+      "name": "瑪瑙",
+      "displayName": "瑪瑙",
       "sourceIndex": 207,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -269608,12 +270042,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:208:史書抄本",
+      "id": "equipment:equipments:208:銅鏡",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "史書抄本",
-      "displayName": "史書抄本",
+      "name": "銅鏡",
+      "displayName": "銅鏡",
       "sourceIndex": 208,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -269626,12 +270060,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:209:経書抄本",
+      "id": "equipment:equipments:209:史書抄本",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "経書抄本",
-      "displayName": "経書抄本",
+      "name": "史書抄本",
+      "displayName": "史書抄本",
       "sourceIndex": 209,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -269644,12 +270078,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:210:委貌冠・小冠",
+      "id": "equipment:equipments:210:経書抄本",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "委貌冠・小冠",
-      "displayName": "委貌冠・小冠",
+      "name": "経書抄本",
+      "displayName": "経書抄本",
       "sourceIndex": 210,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -269662,12 +270096,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:211:黒光鎧・黒鉄鎧",
+      "id": "equipment:equipments:211:委貌冠・小冠",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "黒光鎧・黒鉄鎧",
-      "displayName": "黒光鎧・黒鉄鎧",
+      "name": "委貌冠・小冠",
+      "displayName": "委貌冠・小冠",
       "sourceIndex": 211,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -269680,13 +270114,31 @@
       ]
     },
     {
-      "id": "equipment:equipments:212:明光鎧・明鉄鎧",
+      "id": "equipment:equipments:212:黒光鎧・黒鉄鎧",
+      "roleId": "equipment",
+      "roleLabel": "装備",
+      "category": "equipments",
+      "name": "黒光鎧・黒鉄鎧",
+      "displayName": "黒光鎧・黒鉄鎧",
+      "sourceIndex": 212,
+      "typeFeatures": [],
+      "statusEffectRefs": [],
+      "typeFeatureCount": 0,
+      "statusEffectRefCount": 0,
+      "sortKeys": [
+        "typeMetricScore",
+        "equipmentSlot",
+        "activationCondition"
+      ]
+    },
+    {
+      "id": "equipment:equipments:213:明光鎧・明鉄鎧",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "明光鎧・明鉄鎧",
       "displayName": "明光鎧・明鉄鎧",
-      "sourceIndex": 212,
+      "sourceIndex": 213,
       "typeFeatures": [
         {
           "featureId": "skill_effect:wounded_survival",
@@ -269715,30 +270167,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:213:鉄牌",
+      "id": "equipment:equipments:214:鉄牌",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "鉄牌",
       "displayName": "鉄牌",
-      "sourceIndex": 213,
-      "typeFeatures": [],
-      "statusEffectRefs": [],
-      "typeFeatureCount": 0,
-      "statusEffectRefCount": 0,
-      "sortKeys": [
-        "typeMetricScore",
-        "equipmentSlot",
-        "activationCondition"
-      ]
-    },
-    {
-      "id": "equipment:equipments:214:鉄兜",
-      "roleId": "equipment",
-      "roleLabel": "装備",
-      "category": "equipments",
-      "name": "鉄兜",
-      "displayName": "鉄兜",
       "sourceIndex": 214,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -269751,12 +270185,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:215:筒袖鎧",
+      "id": "equipment:equipments:215:鉄兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "筒袖鎧",
-      "displayName": "筒袖鎧",
+      "name": "鉄兜",
+      "displayName": "鉄兜",
       "sourceIndex": 215,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -269769,12 +270203,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:216:銅牌",
+      "id": "equipment:equipments:216:筒袖鎧",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "銅牌",
-      "displayName": "銅牌",
+      "name": "筒袖鎧",
+      "displayName": "筒袖鎧",
       "sourceIndex": 216,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -269787,12 +270221,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:217:銅兜",
+      "id": "equipment:equipments:217:銅牌",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "銅兜",
-      "displayName": "銅兜",
+      "name": "銅牌",
+      "displayName": "銅牌",
       "sourceIndex": 217,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -269805,12 +270239,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:218:銅鎧",
+      "id": "equipment:equipments:218:銅兜",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "銅鎧",
-      "displayName": "銅鎧",
+      "name": "銅兜",
+      "displayName": "銅兜",
       "sourceIndex": 218,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -269823,12 +270257,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:219:蛇戟・鉄戟",
+      "id": "equipment:equipments:219:銅鎧",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "蛇戟・鉄戟",
-      "displayName": "蛇戟・鉄戟",
+      "name": "銅鎧",
+      "displayName": "銅鎧",
       "sourceIndex": 219,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -269841,12 +270275,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:220:象鼻刀・大桿刀",
+      "id": "equipment:equipments:220:蛇戟・鉄戟",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "象鼻刀・大桿刀",
-      "displayName": "象鼻刀・大桿刀",
+      "name": "蛇戟・鉄戟",
+      "displayName": "蛇戟・鉄戟",
       "sourceIndex": 220,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -269859,12 +270293,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:221:鉄槍",
+      "id": "equipment:equipments:221:象鼻刀・大桿刀",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "鉄槍",
-      "displayName": "鉄槍",
+      "name": "象鼻刀・大桿刀",
+      "displayName": "象鼻刀・大桿刀",
       "sourceIndex": 221,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -269877,12 +270311,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:222:眉尖刀",
+      "id": "equipment:equipments:222:鉄槍",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "眉尖刀",
-      "displayName": "眉尖刀",
+      "name": "鉄槍",
+      "displayName": "鉄槍",
       "sourceIndex": 222,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -269895,12 +270329,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:223:銅槍",
+      "id": "equipment:equipments:223:眉尖刀",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "銅槍",
-      "displayName": "銅槍",
+      "name": "眉尖刀",
+      "displayName": "眉尖刀",
       "sourceIndex": 223,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -269913,12 +270347,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:224:銅大刀",
+      "id": "equipment:equipments:224:銅槍",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "銅大刀",
-      "displayName": "銅大刀",
+      "name": "銅槍",
+      "displayName": "銅槍",
       "sourceIndex": 224,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -269931,12 +270365,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:225:宝雕弓・檀弓",
+      "id": "equipment:equipments:225:銅大刀",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "宝雕弓・檀弓",
-      "displayName": "宝雕弓・檀弓",
+      "name": "銅大刀",
+      "displayName": "銅大刀",
       "sourceIndex": 225,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -269949,12 +270383,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:226:宝剣・鉄剣",
+      "id": "equipment:equipments:226:宝雕弓・檀弓",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "宝剣・鉄剣",
-      "displayName": "宝剣・鉄剣",
+      "name": "宝雕弓・檀弓",
+      "displayName": "宝雕弓・檀弓",
       "sourceIndex": 226,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -269967,12 +270401,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:227:鉄弓",
+      "id": "equipment:equipments:227:宝剣・鉄剣",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "鉄弓",
-      "displayName": "鉄弓",
+      "name": "宝剣・鉄剣",
+      "displayName": "宝剣・鉄剣",
       "sourceIndex": 227,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -269985,12 +270419,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:228:鉄弩",
+      "id": "equipment:equipments:228:鉄弓",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "鉄弩",
-      "displayName": "鉄弩",
+      "name": "鉄弓",
+      "displayName": "鉄弓",
       "sourceIndex": 228,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -270003,12 +270437,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:229:短弓",
+      "id": "equipment:equipments:229:鉄弩",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "短弓",
-      "displayName": "短弓",
+      "name": "鉄弩",
+      "displayName": "鉄弩",
       "sourceIndex": 229,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -270021,12 +270455,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:230:銅剣",
+      "id": "equipment:equipments:230:短弓",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "銅剣",
-      "displayName": "銅剣",
+      "name": "短弓",
+      "displayName": "短弓",
       "sourceIndex": 230,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -270039,12 +270473,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:231:宝双剣・鉄双剣",
+      "id": "equipment:equipments:231:銅剣",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "宝双剣・鉄双剣",
-      "displayName": "宝双剣・鉄双剣",
+      "name": "銅剣",
+      "displayName": "銅剣",
       "sourceIndex": 231,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -270057,12 +270491,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:232:神刀・鉄刀",
+      "id": "equipment:equipments:232:宝双剣・鉄双剣",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "神刀・鉄刀",
-      "displayName": "神刀・鉄刀",
+      "name": "宝双剣・鉄双剣",
+      "displayName": "宝双剣・鉄双剣",
       "sourceIndex": 232,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -270075,12 +270509,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:233:鉄矛",
+      "id": "equipment:equipments:233:神刀・鉄刀",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "鉄矛",
-      "displayName": "鉄矛",
+      "name": "神刀・鉄刀",
+      "displayName": "神刀・鉄刀",
       "sourceIndex": 233,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -270093,12 +270527,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:234:呉鉤",
+      "id": "equipment:equipments:234:鉄矛",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "呉鉤",
-      "displayName": "呉鉤",
+      "name": "鉄矛",
+      "displayName": "鉄矛",
       "sourceIndex": 234,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -270111,12 +270545,12 @@
       ]
     },
     {
-      "id": "equipment:equipments:235:銅矛",
+      "id": "equipment:equipments:235:呉鉤",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
-      "name": "銅矛",
-      "displayName": "銅矛",
+      "name": "呉鉤",
+      "displayName": "呉鉤",
       "sourceIndex": 235,
       "typeFeatures": [],
       "statusEffectRefs": [],
@@ -270129,13 +270563,31 @@
       ]
     },
     {
-      "id": "equipment:equipments:236:銅刀",
+      "id": "equipment:equipments:236:銅矛",
+      "roleId": "equipment",
+      "roleLabel": "装備",
+      "category": "equipments",
+      "name": "銅矛",
+      "displayName": "銅矛",
+      "sourceIndex": 236,
+      "typeFeatures": [],
+      "statusEffectRefs": [],
+      "typeFeatureCount": 0,
+      "statusEffectRefCount": 0,
+      "sortKeys": [
+        "typeMetricScore",
+        "equipmentSlot",
+        "activationCondition"
+      ]
+    },
+    {
+      "id": "equipment:equipments:237:銅刀",
       "roleId": "equipment",
       "roleLabel": "装備",
       "category": "equipments",
       "name": "銅刀",
       "displayName": "銅刀",
-      "sourceIndex": 236,
+      "sourceIndex": 237,
       "typeFeatures": [],
       "statusEffectRefs": [],
       "typeFeatureCount": 0,
@@ -271687,13 +272139,13 @@
   "qualityAudit": {
     "ok": true,
     "roleRuleCount": 9,
-    "itemCount": 2200,
+    "itemCount": 2201,
     "roleCounts": {
       "main_general": 476,
       "vice_general": 476,
       "support_general": 476,
       "attendant": 476,
-      "equipment": 237,
+      "equipment": 238,
       "formation": 21,
       "siege_weapon": 6,
       "warhorse": 5,
@@ -271701,7 +272153,7 @@
     },
     "sourceCounts": {
       "generals": 476,
-      "equipments": 237,
+      "equipments": 238,
       "formations": 21,
       "siegeWeapons": 6,
       "warhorses": 5,
