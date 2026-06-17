@@ -1494,3 +1494,9 @@ body.formation-tab #formationScreen>h2,body.formation-tab #formationScreen>.note
 .formation-group-select-label{display:grid;gap:3px;min-width:0}
 @media (min-width:981px) and (pointer:fine){body.formation-tab .formation-compose-bar-grid .formation-memo-inline{grid-column:1/-1;grid-row:auto;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:8px}body.formation-tab .formation-memo-inline .note{grid-column:auto!important;white-space:nowrap}body.formation-tab .formation-memo-text{min-height:30px;padding:6px 9px}}
 @media (max-width:980px),(pointer:coarse){body.formation-tab .formation-warhorse-mobile-placement{margin-bottom:0!important}body.formation-tab .formation-mobile-score-result-placement{gap:3px!important;margin-top:2px!important}body.formation-tab .formation-mobile-score-result-placement .formation-selected-card.formation-score-card{margin-top:0!important}body.formation-tab .formation-score-meta{grid-template-columns:repeat(3,minmax(0,1fr))!important}body.formation-tab .formation-score-summary{gap:3px;padding:6px}body.formation-tab .formation-score-summary-body{gap:3px}}
+
+/* FIX[Update09.3.19-PC-FORMATION-SCORE-VISIBLE]: PC幅ではタッチ端末でもスコアカードを右ペインに必ず表示 */
+@media (min-width:981px){
+  body.formation-tab .formation-selected-stack>.formation-selected-card.formation-score-card:not(.is-dialog){display:block!important;visibility:visible!important;min-height:0!important;overflow:visible!important;}
+  body.formation-tab .formation-mobile-score-result-placement{display:none!important;}
+}

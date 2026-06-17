@@ -565,3 +565,9 @@
 - If no type is selected, the renderer calculates all presets/rules and shows top candidate scores; if a type is selected, it shows that type's five evaluation rows and total score.
 - The diagnostic `state.diagnostics.typeScore` now records `calculationInvoked`, source counts, candidate scores, rendered status, and `emptyReason` instead of staying `{}`.
 - 可視バージョンを `3.0.0.0 Update09.3.18` / revision 51 へ更新した。
+
+## 2026-06-17 Update09.3.19 PC formation score visibility
+
+- Added a PC-width CSS override so the formation score card is visible in the right pane even when the device/browser matches `pointer: coarse`.
+- The override keeps mobile-only score placement hidden on PC-width layouts, preserving the mobile `軍馬 → トータルスコア → 結果サマリー` flow only for mobile width.
+- 可視バージョンを `3.0.0.0 Update09.3.19` / revision 52 へ更新した。

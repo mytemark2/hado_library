@@ -559,3 +559,11 @@
 - Implementation change: `calculateFormationTypeScore()` now runs from the formation score summary render path, uses `parameterCalculation` rows and `effectSources` as the primary scoring entity, evaluates the selected type or all available presets/rules, writes the same result to the UI and `state.diagnostics.typeScore`, and records `calculationInvoked`, preset/item/parameter/effect counts, candidate scores, and empty reasons.
 - Permanent countermeasure: the score diagnostic is no longer left as `{}` during formation rendering; when scoring cannot proceed it records an explicit `emptyReason` instead.
 - HTML size change: none. The fix remains in external JavaScript plus documentation/validator updates.
+
+## 2026-06-17 Update09.3.19 PC formation score visibility fix
+
+- Classification: PC-width layout visibility regression.
+- Root cause: older mobile/coarse-pointer CSS hid `.formation-selected-card:not(.is-dialog)` for touch-capable devices. On PC-width devices that report `pointer: coarse`, the right-pane score card could still be hidden even though the layout was visually PC-sized.
+- Implementation change: added a PC-width override that always shows the right-pane `.formation-score-card` inside `.formation-selected-stack` and hides the mobile-only score placement at `min-width: 981px`.
+- Impact scope checked: PC-width formation edit panel score card, touch-capable PC media query interaction, and mobile score placement separation.
+- HTML size change: none. CSS-only fix plus metadata/docs.
