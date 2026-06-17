@@ -172,6 +172,13 @@ const positiveRow = (typeScore?.candidateScores || [])
   .find(row => Number(row.score || 0) > 0 && ((row.matchedEffects || []).length || (row.matchedParameters || []).length));
 
 assert(html.includes('トータルスコア'), 'score summary HTML must render total score label');
+assert((html.match(/data-formation-score-detail-index/g)||[]).length === 5, 'evaluation score chips must render five button controls');
+assert(html.includes('formation-score-detail-panel'), 'selected evaluation score must render a detail panel');
+assert(html.includes('+1点'), 'score detail rows must show point contribution');
+assert(!html.includes('>効果<') && !html.includes('>変化率<'), 'normal UI must not expose debug bucket headings');
+assert(html.includes('検証耐性技能') || html.includes('検証支援技能') || html.includes('検証回復技能'), 'score detail HTML must include matched source labels');
+assert(html.includes('+1') || html.includes('+20%') || html.includes('+10%'), 'score detail HTML must include matched values as supplemental text');
+assert(html.includes('条件：常に'), 'score detail HTML must show user-facing default condition');
 assert(typeScore && typeof typeScore === 'object', 'typeScore diagnostic must exist');
 assert.strictEqual(typeScore.calculationInvoked, true, 'formation render must invoke type-score calculation');
 assert.strictEqual(typeScore.formationId, formation.id, 'diagnostic must include formation id');

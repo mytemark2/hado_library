@@ -587,3 +587,11 @@
 - Permanent countermeasure: direct type-score regression coverage was added for vaccine aliases in `tools/test_type_score.js`, and the formation render diagnostic test now uses vaccine instead of an unrelated critical-score type.
 - Lesson learned: if `typeScore.calculationInvoked=true`, rows/effects are non-empty, and `candidateScores` exists but all matched arrays are empty, treat it as a metric alias / feature-id matching problem first rather than changing JSON generation, CSS, cache, or render placement.
 - HTML size change: none. The fix is in external JavaScript and tests.
+
+## 2026-06-17 Update09.3.22 expandable formation evaluation-score details
+
+- Classification: formation score UX improvement.
+- Request: clicking an evaluation score under the total score should show the score breakdown.
+- Implementation change: formation score rows now carry `matchedEffects` and `matchedParameters` from the scoring diagnostic into `renderFormationScoreSummaryHtml()`. Rows with evidence render as clickable `<details>` chips that expand to show matched effect and parameter sources, while rows without evidence remain compact chips.
+- Regression proof: `tools/test_formation_type_score_render.js` now asserts the score summary HTML contains expandable score detail markup and matched evidence labels in addition to the existing non-zero vaccine score diagnostics.
+- HTML size change: none. The behavior is implemented in external JavaScript and CSS.

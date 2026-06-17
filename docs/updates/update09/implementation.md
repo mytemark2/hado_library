@@ -585,3 +585,9 @@
 - Updated `hado_type_score.js` aliases for vaccine-related metrics instead of changing JSON loading, score-card CSS, or the formation render path.
 - Updated `tools/test_formation_type_score_render.js` to score `selectedTypeId=vaccine` with real-style parameter/effect rows and assert non-zero matched evidence.
 - Added direct `tools/test_type_score.js` coverage for vaccine alias matching so future work distinguishes “calculation not invoked” from “calculation invoked but aliases did not match.”
+
+## Update09.3.22 expandable score row details
+
+- Passed score-row `matchedEffects` / `matchedParameters` through `calculateFormationAutoScores()` into score summary rendering.
+- Added clickable details markup for evaluation score chips so users can expand a row and see matched source labels/values.
+- Added CSS for compact evidence rows and extended the formation render proof test to require the expandable detail markup.
