@@ -164,3 +164,114 @@
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',patch,{once:true});else patch();
 })();
+
+/* FIX[FORMATION-VACCINE-SCORE-MATCH]: Map vaccine metrics to actual formation parameter/effect names. */
+(() => {
+  'use strict';
+  const normText=s=>String(s??'').normalize('NFKC').replace(/\s+/g,'').toLowerCase();
+  const esc2=v=>(typeof esc==='function')?esc(v):String(v??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  function hasInput(data){return !!(data&&(Array.isArray(data.effects)&&data.effects.length||Array.isArray(data.parameterRows)&&data.parameterRows.length||data.parameterCalculation));}
+  function diagData(f){
+    const d=window.state?.diagnostics?.formation||{};
+    const pc=d.parameterCalculation||{};
+    const rows=Array.isArray(pc.rows)?pc.rows:[];
+    const effects=Array.isArray(d.effectSources)?d.effectSources:[];
+    if(!rows.length&&!effects.length)return null;
+    const fid=String(f?.id||''), pid=String(pc.formationId||'');
+    const fn=normText(f?.name||''), pn=normText(pc.formationName||'');
+    if((fid&&pid&&fid===pid)||(fn&&pn&&fn===pn))return {parameterCalculation:pc,parameterRows:rows,effects};
+    return null;
+  }
+  function flatten(v){
+    if(Array.isArray(v))return v.map(flatten).join(' ');
+    if(v&&typeof v==='object')return Object.entries(v).filter(([k])=>!['rows','formula'].includes(k)).map(([,x])=>flatten(x)).join(' ');
+    return String(v??'');
+  }
+  function pRows(data){
+    const pc=data?.parameterCalculation||{};
+    return Array.isArray(data?.parameterRows)?data.parameterRows:(Array.isArray(pc.rows)?pc.rows:[]);
+  }
+  function eRows(data){return Array.isArray(data?.effects)?data.effects:[];}
+  function rowText(row){return normText(flatten(row));}
+  function keyText(row){return normText([row?.key,row?.parameterKey,row?.parameterName,row?.displayValue,row?.sourceLabel,row?.condition,row?.rawText].filter(Boolean).join(' '));}
+  function asDebug(row,kind){
+    if(typeof formationScoreRowToDebug==='function')return formationScoreRowToDebug({...row,sourceKind:kind});
+    return {sourceKind:kind,label:row?.parameterName||row?.key||row?.parameterKey||'',sourceLabel:row?.sourceLabel||'',key:row?.key||row?.parameterKey||'',value:row?.displayValue||row?.value||'',matchedText:String(flatten(row)).slice(0,160)};
+  }
+  function unique(rows){
+    const seen=new Set();
+    return rows.filter(row=>{const k=[row.sourceKind,row.key,row.label,row.sourceLabel,row.value,row.matchedText].join('|');if(seen.has(k))return false;seen.add(k);return true;});
+  }
+  function collect(data,predicate){
+    const matchedParameters=pRows(data).filter(r=>predicate(rowText(r),keyText(r),r,'parameter')).map(r=>asDebug(r,'parameter'));
+    const matchedEffects=eRows(data).filter(r=>predicate(rowText(r),keyText(r),r,'effect')).map(r=>asDebug(r,'effect'));
+    return {matchedParameters:unique(matchedParameters).slice(0,40),matchedEffects:unique(matchedEffects).slice(0,40)};
+  }
+  function positiveSupport(t,k){
+    if(/敵|低下|奪取|解除|弱化|デバフ/.test(t))return false;
+    if(/-[0-9]/.test(t)&&!/被ダメージ|獲得物喪失/.test(t))return false;
+    return /部隊の攻撃|部隊の防御|部隊の知力|部隊の機動|部隊の兵力|攻撃速度|戦法速度|戦法ゲージ|会心発生|会心威力|連鎖確率|連鎖率|通常攻撃対象数|射程|負傷兵回復|負傷兵生存|耐性|味方/.test(t+k);
+  }
+  const PREDICATES={
+    self_disadvantage_countermeasure:(t,k)=>/被ダメージ|耐性|負傷兵として生存|負傷兵生存|壊滅|弱化無効|弱化効果無効|弱化解除|状態変化無効|不利|不利変化/.test(t+k),
+    ally_non_damage_effect:(t,k)=>positiveSupport(t,k),
+    weakening_nullify:(t,k)=>/弱化無効|弱化効果無効|弱化.*無効|状態変化無効.*弱化|デバフ.*無効/.test(t+k),
+    weakening_remove:(t,k)=>/弱化解除|弱化効果解除|弱化.*解除|デバフ.*解除|弱化.*取り除/.test(t+k),
+    ally_wounded_recovery:(t,k)=>/負傷兵回復|味方負傷兵回復|兵力回復|負傷兵.*回復/.test(t+k)
+  };
+  function patchVaccine(scores,f,data){
+    const selected=scores?.breakdown?.candidateScores?.[0];
+    const isVaccine=normText(selected?.typeId||f?.evaluationTypeId||'')==='vaccine'||normText(selected?.typeName||f?.evaluationTypeName||'').includes('ワクチン');
+    if(!isVaccine)return scores;
+    const input=hasInput(data)?data:diagData(f);
+    if(!input)return scores;
+    const metricDefs=[
+      ['self_disadvantage_countermeasure','自部隊不利対策'],
+      ['ally_non_damage_effect','味方非ダメージ効果'],
+      ['weakening_nullify','弱化無効'],
+      ['weakening_remove','弱化解除'],
+      ['ally_wounded_recovery','味方負傷兵回復']
+    ];
+    const rows=metricDefs.map(([key,label])=>{const hit=collect(input,PREDICATES[key]);return {label,score:hit.matchedParameters.length+hit.matchedEffects.length,matchedParameters:hit.matchedParameters,matchedEffects:hit.matchedEffects};});
+    const total=rows.reduce((sum,row)=>sum+Number(row.score||0),0);
+    const candidate={typeId:'vaccine',typeName:'ワクチン型',totalScore:total,rows};
+    scores.totalScore=total;
+    scores.evaluationScore=total;
+    scores.breakdown=scores.breakdown||{};
+    scores.breakdown.scoreRows=rows.map(r=>({label:r.label,score:r.score,unit:'件'}));
+    scores.breakdown.candidateScores=[candidate];
+    scores.breakdown.parameterCount=eRows(input).length||pRows(input).length;
+    scores.breakdown.emptyReason=total?'':'ワクチン型に一致する効果がありません';
+    scores.breakdown.scorePolicy='formation-vaccine-effect-keyword-match';
+    try{
+      const d=window.state?.diagnostics||{};
+      d.typeScore={...(d.typeScore||{}),timestamp:new Date().toISOString(),formationId:f?.id||'',formationName:f?.name||'',selectedTypeId:'vaccine',selectedTypeName:'ワクチン型',parameterRowCount:pRows(input).length,effectSourceCount:eRows(input).length,calculationInvoked:true,candidateScores:[candidate],rendered:true,emptyReason:scores.breakdown.emptyReason,reason:scores.breakdown.emptyReason,policy:'formation-vaccine-effect-keyword-match'};
+      d.typeSearch={...(d.typeSearch||{}),timestamp:d.typeScore.timestamp,mode:'formation-score',candidateScoreCount:1,selectedTypeId:'vaccine',rendered:true,reason:d.typeScore.reason||''};
+    }catch(_){}
+    return scores;
+  }
+  function patch(){
+    const base=window.calculateFormationAutoScores||calculateFormationAutoScores;
+    if(typeof base==='function'&&!base.__vaccineMatch){
+      const wrapped=function(f,data={}){return patchVaccine(base(f,data),f,data);};
+      wrapped.__vaccineMatch=true;
+      window.calculateFormationAutoScores=wrapped;
+      try{calculateFormationAutoScores=wrapped;}catch(_){}
+    }
+    if(typeof renderFormationScoreSummaryHtml==='function'&&!renderFormationScoreSummaryHtml.__vaccineMatch){
+      const wrappedSummary=function(f,data){
+        const scores=calculateFormationAutoScores(f,data||{});
+        f.totalScore=scores.totalScore;f.evaluationScore=scores.evaluationScore;
+        const rows=(scores.breakdown?.scoreRows||[]).slice(0,5);
+        while(rows.length<5)rows.push({label:`評価${rows.length+1}`,score:0});
+        const empty=scores.breakdown?.emptyReason?`<div class="formation-note">${esc2(scores.breakdown.emptyReason)}</div>`:'';
+        return `<div class="formation-score-summary" aria-label="自動計算スコア"><div class="formation-score-summary-head"><div class="formation-score-total"><span>トータルスコア</span><strong>${esc2(scores.totalScore)}</strong></div><span class="formation-score-toggle-note">評価スコア5項目</span></div><div class="formation-score-breakdown formation-score-generals formation-score-evaluation-inline">${rows.map(r=>`<span class="formation-score-chip"><span class="formation-score-label">${esc2(r.label||'')}</span><span class="value">${esc2(r.score||0)}</span></span>`).join('')}</div>${empty}</div>`;
+      };
+      wrappedSummary.__vaccineMatch=true;
+      renderFormationScoreSummaryHtml=wrappedSummary;
+      window.renderFormationScoreSummaryHtml=wrappedSummary;
+    }
+    try{if(typeof renderFormationScreen==='function'&&window.state?.mainTab==='formation')renderFormationScreen();}catch(_){}
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',patch,{once:true});else patch();
+})();
