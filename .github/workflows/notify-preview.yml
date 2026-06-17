@@ -3,7 +3,7 @@ name: Notify Hado Library Preview
 on:
   push:
     branches:
-      - '**'
+      - feature/app-3.0.0.0
 
 permissions:
   contents: read
@@ -94,6 +94,14 @@ jobs:
             printf '%s\n' "${GITHUB_SHA}" > "${PREVIEW_DIR}/PREVIEW_SOURCE_COMMIT.txt"
             printf '%s\n' "${APP_REF}" > "${PREVIEW_DIR}/PREVIEW_SOURCE_BRANCH.txt"
             printf '%s\n' "${DISPLAY_VERSION}" > "${PREVIEW_DIR}/PREVIEW_DISPLAY_VERSION.txt"
+
+            test -s "${PREVIEW_DIR}/hado_formation.js"
+            test -s "${PREVIEW_DIR}/hado_styles.css"
+            test -s "${PREVIEW_DIR}/PREVIEW_SOURCE_COMMIT.txt"
+            grep -q 'formation-score-metric-chip' "${PREVIEW_DIR}/hado_formation.js"
+            grep -q 'data-formation-score-detail-index' "${PREVIEW_DIR}/hado_formation.js"
+            grep -q 'setFormationScoreDetailIndex' "${PREVIEW_DIR}/hado_formation.js"
+            grep -q "${GITHUB_SHA}" "${PREVIEW_DIR}/PREVIEW_SOURCE_COMMIT.txt"
 
             git -C "${PREVIEW_DIR}" config user.name "github-actions[bot]"
             git -C "${PREVIEW_DIR}" config user.email "41898282+github-actions[bot]@users.noreply.github.com"

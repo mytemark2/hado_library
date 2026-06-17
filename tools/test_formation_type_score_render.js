@@ -196,6 +196,8 @@ assert.strictEqual(typeScore.emptyReason, '', 'successful scoring must not repor
 assert(typeSearch && typeSearch.mode === 'formation-score', 'typeSearch diagnostic must mirror formation score execution');
 assert(typeSearchCache && Number(typeSearchCache.stats?.store || 0) > 0, 'formation score path must populate typeSearchCache stats');
 assert(debugEvents.some(event => event.name === 'typeScore'), 'copy-debug-log source must receive typeScore debug event');
+assert(fs.readFileSync('hado_formation.js','utf8').includes('formationScoreDetail:bind'), 'formation detail bind diagnostics must exist');
+assert(fs.readFileSync('hado_formation.js','utf8').includes('formationScoreDetail:click'), 'formation detail click diagnostics must exist');
 
 const proof = {
   htmlIncludesTotalScore: html.includes('トータルスコア'),
