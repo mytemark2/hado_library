@@ -58,6 +58,7 @@ const context = {
     return false;
   },
   PARAM_DISPLAY_GROUP_ORDER: ['能力'],
+  PARAM_GROUPS: [{ keys: ['弱化無効', '攻撃速度', '負傷兵回復'] }],
   timingLabel(value) {
     return value;
   },
@@ -101,8 +102,8 @@ vm.runInContext(fs.readFileSync('hado_formation.js', 'utf8'), context, { filenam
 const formation = {
   id: 'formation_type_score_render_test',
   name: '検証部隊',
-  evaluationTypeId: 'critical_normal',
-  evaluationTypeName: '会心型',
+  evaluationTypeId: 'vaccine',
+  evaluationTypeName: 'ワクチン型',
   slots: {
     main: { general: '', equipments: {} },
     deputy1: { general: '', equipments: {} },
@@ -118,20 +119,44 @@ const formationData = {
   summary: {
     normal: {
       '能力': {
-        '会心発生': { sign: '+', maxTotal: 10, unit: '%' }
+        '弱化無効': { sign: '+', maxTotal: 1, unit: '' },
+        '攻撃速度': { sign: '+', maxTotal: 20, unit: '%' },
+        '負傷兵回復': { sign: '+', maxTotal: 10, unit: '%' }
       }
     }
   },
   effects: [
     {
-      key: '会心発生',
+      key: '弱化無効',
+      group: '耐性',
+      timing: 'normal',
+      value: 1,
+      sign: '+',
+      unit: '',
+      sourceLabel: '検証耐性技能',
+      rawText: '弱化効果無効を付与',
+      condition: ''
+    },
+    {
+      key: '攻撃速度',
       group: '能力',
+      timing: 'normal',
+      value: 20,
+      sign: '+',
+      unit: '%',
+      sourceLabel: '検証支援技能',
+      rawText: '自身を含む味方3部隊の攻撃速度+20%',
+      condition: ''
+    },
+    {
+      key: '負傷兵回復',
+      group: '回復',
       timing: 'normal',
       value: 10,
       sign: '+',
       unit: '%',
-      sourceLabel: '検証技能',
-      rawText: '会心発生+10%',
+      sourceLabel: '検証回復技能',
+      rawText: '味方3部隊の負傷兵を最大兵力の10%回復',
       condition: ''
     }
   ]
@@ -151,6 +176,7 @@ assert(typeScore && typeof typeScore === 'object', 'typeScore diagnostic must ex
 assert.strictEqual(typeScore.calculationInvoked, true, 'formation render must invoke type-score calculation');
 assert.strictEqual(typeScore.formationId, formation.id, 'diagnostic must include formation id');
 assert.strictEqual(typeScore.formationName, formation.name, 'diagnostic must include formation name');
+assert.strictEqual(typeScore.selectedTypeId, 'vaccine', 'vaccine type must be scored when selected');
 assert.strictEqual(typeScore.presetCount, 16, 'all type presets must be loaded');
 assert(Number(typeScore.featureItemCount || 0) > 0, 'feature index must be loaded');
 assert(Number(typeScore.parameterRowCount || 0) > 0, 'parameter rows must feed scoring');

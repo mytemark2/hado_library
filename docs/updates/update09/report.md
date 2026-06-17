@@ -577,3 +577,13 @@
 - Permanent countermeasure: App Validation now runs the formation render score diagnostic test, and the merge-queue workflow validator requires that command so the test cannot silently disappear from CI.
 - Impact scope checked: `calculateFormationTypeScore()`, `renderFormationScoreSummaryHtml()`, `calculateFormationAutoScores()`, diagnostic output (`typeScore`, `typeSearch`, `typeSearchCache`), and UI output containing `トータルスコア`.
 - HTML size change: none. The regression proof is an external test and the runtime calculation fix remains in external JavaScript.
+
+## 2026-06-17 Update09.3.21 vaccine score alias matching fix
+
+- Classification: type-score matching defect, not a data-load or render-path defect.
+- Root cause: the previous investigation over-focused on whether `typeScore` was invoked and whether derived JSON / formation parameter rows existed. For `selectedTypeId=vaccine`, the real failure mode was `candidateScores[0].totalScore=0` with all `matchedEffects` / `matchedParameters` empty because `hado_type_score.js` did not map real effect/parameter wording to the vaccine metric keys.
+- Implementation change: expanded `METRIC_ALIASES` for vaccine-related metric keys, especially `self_disadvantage_countermeasure`, `ally_non_damage_effect`, `weakening_nullify`, `weakening_remove`, and `ally_wounded_recovery`, using real wording such as `弱化効果無効`, `不利変化無効`, `自身を含む味方`, `攻撃速度`, `戦法ゲージ`, `通常攻撃対象部隊数`, `負傷兵回復`, and `負傷兵を最大兵力`.
+- Regression proof: `tools/test_formation_type_score_render.js` now selects `vaccine` / `ワクチン型` and feeds actual-style parameter/effect rows. The post-fix diagnostic has `selectedTypeId=vaccine`, `presetCount=16`, `parameterRowCount=3`, `effectSourceCount=3`, `candidateScoresLength=1`, `maxTotalScore=10`, and matched evidence in `自部隊不利対策`, `味方非ダメージ効果`, `弱化無効`, and `味方負傷兵回復` rows.
+- Permanent countermeasure: direct type-score regression coverage was added for vaccine aliases in `tools/test_type_score.js`, and the formation render diagnostic test now uses vaccine instead of an unrelated critical-score type.
+- Lesson learned: if `typeScore.calculationInvoked=true`, rows/effects are non-empty, and `candidateScores` exists but all matched arrays are empty, treat it as a metric alias / feature-id matching problem first rather than changing JSON generation, CSS, cache, or render placement.
+- HTML size change: none. The fix is in external JavaScript and tests.

@@ -578,3 +578,10 @@
 - The test invokes `renderFormationScoreSummaryHtml()` rather than only unit-testing `HadoTypeScore.score()`, so it covers the same path that renders the 部隊編成 score panel and writes copy-debug-log diagnostics.
 - Required evidence asserted by the test: `typeScore.calculationInvoked === true`, `presetCount === 16`, loaded `typeSearchFeatureIndex` item count is non-zero, parameter/effect counts are non-zero, at least one candidate has `totalScore > 0`, and at least one evaluation row has matched effect or parameter details.
 - Wired the test into `.github/workflows/app-validation.yml` and `tools/validate_merge_queue_workflow.py`.
+
+## Update09.3.21 vaccine metric alias correction
+
+- Audited the current code against the reported final fix pattern and confirmed the old failure mode was still present: `METRIC_ALIASES` only had generic vaccine labels, so real parameter/effect labels such as `弱化効果無効`, `自身を含む味方`, `攻撃速度`, and `負傷兵を最大兵力` could miss all five vaccine metrics.
+- Updated `hado_type_score.js` aliases for vaccine-related metrics instead of changing JSON loading, score-card CSS, or the formation render path.
+- Updated `tools/test_formation_type_score_render.js` to score `selectedTypeId=vaccine` with real-style parameter/effect rows and assert non-zero matched evidence.
+- Added direct `tools/test_type_score.js` coverage for vaccine alias matching so future work distinguishes “calculation not invoked” from “calculation invoked but aliases did not match.”
