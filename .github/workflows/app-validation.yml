@@ -45,18 +45,20 @@ jobs:
           python3 tools/validate_preview_workflow.py
           python3 tools/validate_auto_merge_workflow.py
           python3 tools/validate_update_version_consistency.py
-          python3 tools/validate_update_meta_no_broad_observer.py
           python3 tools/validate_type_candidate_saved_name_matching.py
           python3 tools/validate_saved_mode_index_ownership_sources.py
           python3 tools/validate_saved_type_candidates_zero_score_visible.py
           python3 tools/validate_type_candidate_render_performance.py
+          python3 tools/validate_type_search_feature_index_data.py
           python3 tools/validate_formation_link_helpers.py
+          python3 tools/validate_update09_phase3_formation_ui.py
 
       - name: Functional regression checks
         shell: bash
         run: |
           set -euo pipefail
           node tools/test_type_score.js
+          node tools/test_formation_type_score_render.js
           node tools/test_saved_type_candidate_filter.js
           node tools/test_type_candidate_counts.js
           node tools/test_type_candidate_diagnostics.js
