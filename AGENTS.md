@@ -17,7 +17,7 @@ Related repositories:
 - Preview repository: `mytemark2/hado_library-preview`
 
 Default development branch at the time this file was created:
-- Application: `feature/app-3.0.0.0`
+- Application: `future/app-3.0.0.0`
 
 Do not assume that this branch remains current forever. Before editing, confirm the target branch from the user's task, the latest Roadmap, and the current repository state. Do not silently switch to `main`.
 
@@ -40,6 +40,19 @@ Do not select a modification base from:
 - or an older file with a similar name.
 
 If the repository state, branch, or authoritative source is ambiguous, inspect the repository documents first. If ambiguity remains, report it explicitly before making a destructive change.
+
+### 3.1 Pull request base discipline
+
+For application changes, treat `future/app-3.0.0.0` as the canonical development branch unless a newer repository document or explicit user instruction supersedes it. Do not base new work on `main`, `hado-2.9.6.5`, stale `codex/...` branches, old pull request heads, or generated preview artifacts.
+
+Before opening a pull request, confirm and report:
+- canonical branch name and the commit SHA inspected before editing;
+- pull request base branch is `future/app-3.0.0.0`;
+- head branch is the single Codex work branch for the current task;
+- no old branch, old pull request diff, or unrelated generated artifact is mixed into the final diff;
+- whether any conflict occurred, and if so, the cause and the content-aware resolution.
+
+If an existing unmerged pull request already covers the same files or defect, update that pull request branch when possible instead of creating a parallel duplicate pull request. Never resolve conflicts by mechanically choosing one side wholesale; reconcile the latest canonical branch with the requested change and rerun validation.
 
 ## 4. Required modification method
 
@@ -130,6 +143,9 @@ Do not assume that every item exists. Do not invent missing files. If an expecte
 For every user-visible correction after a numbered Update is marked complete, increment the visible Update suffix together with metadata (for example `Update08` -> `Update08.1`, then `Update08.2`). Update all applicable display/version references in the same commit so preview users can distinguish deployed fixes.
 Keep visible runtime version constants centralized only in `hado_version.js`; `hado_update_meta.js` and other JavaScript should read `window.HADO_VERSION`, `window.HADO_APP_DISPLAY_VERSION`, or `window.HADO_APP_VERSION_META` instead of hard-coding the visible Update string. Do not duplicate `releaseVersion`, `updateNo`, `displayVersion`, or `revision` in `HADO_DEV_INFO.json`.
 
+
+If the user explicitly says not to change the version, do not edit `hado_version.js` or `HADO_DEV_INFO.json`. If either file is edited, the final report must state that it was edited and why. Never report a file as unchanged if it appears in the final diff.
+
 ## 8. Bug-fix policy
 
 A bug fix is incomplete unless the following are addressed:
@@ -182,6 +198,16 @@ After pushing the development branch:
 
 A setup that requires the user to manually run a workflow for ordinary preview deployment is incomplete.
 
+
+For any change that affects preview synchronization, preview-visible UI, version display, or runtime assets, completion additionally requires verifying the real preview repository and public Pages URL. Do not report preview completion from workflow text or local tests alone. Verify and report:
+- app repository branch and HEAD commit;
+- preview repository `main` HEAD;
+- presence of `index.html`, `hado_formation.js`, `hado_styles.css`, `hadou_*.json`, `.nojekyll`, `PREVIEW_SOURCE_COMMIT.txt`, `PREVIEW_SOURCE_BRANCH.txt`, and `PREVIEW_DISPLAY_VERSION.txt` in `mytemark2/hado_library-preview/main`;
+- `PREVIEW_SOURCE_COMMIT.txt` equals the intended app commit, `PREVIEW_SOURCE_BRANCH.txt` equals the intended source branch, and `PREVIEW_DISPLAY_VERSION.txt` equals the visible app version;
+- the public URL `https://mytemark2.github.io/hado_library-preview/` shows the intended version and contains/executes the target DOM, JavaScript, CSS, and debug-log behavior.
+
+If network, credentials, GitHub Actions visibility, or browser automation prevents any of these checks, state that the work is **not preview-complete**, list exactly what could not be verified, and do not ask the user to treat the task as complete.
+
 ## 9.4 Merge queue and auto-merge
 
 Keep `.github/workflows/app-validation.yml` compatible with GitHub merge queue by including both `pull_request` and `merge_group` triggers. The required GitHub status check for branch protection should be `App Validation / app-validation`. Repository-level settings such as `Allow auto-merge` and `Require merge queue` must be enabled by a repository administrator; use `.github/workflows/auto-merge-codex-pr.yml` to enable auto-merge for same-repository non-draft PRs, but do not replace real conflict resolution with blanket `ours`/`theirs` rules.
@@ -197,6 +223,9 @@ Allowed patterns include:
 
 Do not use scheduled polling as the normal path.
 Do not require or expose manual workflow dispatch for normal operation in the application repository preview notification workflow.
+
+
+The normal preview sync must not allow stale branches or old artifacts to overwrite the public preview. Prefer a single intended application development branch as the push source, write source marker files into preview, and keep preview sync checks focused on the actual runtime files and marker files rather than broad or unrelated asset assertions.
 
 ## 11. Distribution package rules
 
@@ -262,6 +291,9 @@ At completion, report:
 10. **Preview synchronization result**
 11. **Minimum user acceptance operation**
 12. **Remaining issues**, explicitly stating `none` when there are none
+
+
+When preview matters, include a dedicated **Preview confirmation** subsection with: public URL, displayed version, preview marker file contents, preview repository commit, DOM checks, operation checks, debug-log checks, and explicit pass/fail/blocked status. If any item is not verified, mark the work as not complete rather than implying completion.
 
 ## 15. Maintain this file
 

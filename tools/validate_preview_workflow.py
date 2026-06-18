@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github" / "workflows" / "notify-preview.yml"
 REQUIRED = (
     "uses: actions/checkout@v4",
-    "branches:\n      - feature/app-3.0.0.0",
+    "branches:\n      - future/app-3.0.0.0",
     "concurrency:",
     "group: hado-library-preview-sync",
     "for attempt in 1 2 3",
@@ -36,7 +36,7 @@ FORBIDDEN = (
     "repository_dispatch",
     "branches-ignore:",
     "branches:\n      - '**'",
-    "git clone --depth 1 --branch feature/app-3.0.0.0",
+    "git clone --depth 1 --branch future/app-3.0.0.0",
     "rsync -a --delete",
     "Verify preview reflects source commit and version assets",
     "actions/workflows/jekyll-gh-pages.yml/dispatches",
@@ -51,7 +51,7 @@ def main() -> int:
         raise SystemExit("preview workflow missing: " + ", ".join(missing))
     if forbidden:
         raise SystemExit("preview workflow contains prohibited stale sync pattern: " + ", ".join(forbidden))
-    print("preview workflow syncs feature/app-3.0.0.0 runtime assets with source commit marker and UI contract checks")
+    print("preview workflow syncs future/app-3.0.0.0 runtime assets with source commit marker and UI contract checks")
     return 0
 
 
