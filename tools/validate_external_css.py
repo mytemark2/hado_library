@@ -5,7 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-HTML_FILES = ("index.html", "hado_library_3.0.0.0.html")
+HTML_FILES = ("index.html",)
 CSS_FILE = "hado_styles.css"
 LINK = f'<link href="./{CSS_FILE}" rel="stylesheet"/>'
 
@@ -25,7 +25,7 @@ def main() -> int:
             errors.append(f"{name} does not reference {CSS_FILE}")
     if errors:
         raise SystemExit("\n".join(errors))
-    print("external CSS ok: HTML references hado_styles.css and has no style blocks/attributes")
+    print("external CSS ok: index.html references hado_styles.css and has no style blocks/attributes")
     return 0
 
 
