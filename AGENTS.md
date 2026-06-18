@@ -43,11 +43,11 @@ If the repository state, branch, or authoritative source is ambiguous, inspect t
 
 ### 3.1 Pull request base discipline
 
-For application changes, treat `future/app-3.0.0.0` as the canonical development branch unless a newer repository document or explicit user instruction supersedes it. Do not base new work on `main`, `hado-2.9.6.5`, stale `codex/...` branches, old pull request heads, or generated preview artifacts.
+For application changes, treat `feature/app-3.0.0.0` as the canonical development branch unless a newer repository document or explicit user instruction supersedes it. Do not base new work on `main`, `hado-2.9.6.5`, stale `codex/...` branches, old pull request heads, or generated preview artifacts.
 
 Before opening a pull request, confirm and report:
 - canonical branch name and the commit SHA inspected before editing;
-- pull request base branch is `future/app-3.0.0.0`;
+- pull request base branch is `feature/app-3.0.0.0`;
 - head branch is the single Codex work branch for the current task;
 - no old branch, old pull request diff, or unrelated generated artifact is mixed into the final diff;
 - whether any conflict occurred, and if so, the cause and the content-aware resolution.
