@@ -41,6 +41,14 @@ REQUIRED = (
     "(cd \"${PREVIEW_DIR}\" && sha256sum -c PREVIEW_SOURCE_FILES.txt)",
     "git -C \"${PREVIEW_DIR}\" push origin HEAD:main",
     "sync preview from ${APP_REF}: ${SOURCE_COMMIT}",
+    "Actions: Read and write is required because this workflow dispatches the preview repository Pages workflow",
+    "Dispatch and wait for preview Pages deployment",
+    "actions/workflows/${workflow_file}/dispatches",
+    "${api_root}/actions/runs/${run_id}",
+    "https://mytemark2.github.io/hado_library-preview/PREVIEW_SOURCE_COMMIT.txt",
+    "https://mytemark2.github.io/hado_library-preview/PREVIEW_DISPLAY_VERSION.txt",
+    "[ \"${public_source}\" = \"${SOURCE_COMMIT}\" ]",
+    "[ \"${public_version}\" = \"${DISPLAY_VERSION}\" ]",
     "PREVIEW_REPO_TOKEN",
 )
 FORBIDDEN = (
@@ -54,7 +62,6 @@ FORBIDDEN = (
     "git clone --depth 1 --branch feature/app-3.0.0.0",
     "rsync -a --delete",
     "Verify preview reflects source commit and version assets",
-    "actions/workflows/jekyll-gh-pages.yml/dispatches",
 )
 
 
