@@ -35,11 +35,11 @@ jobs:
             core.info(`allow_auto_merge_interpreted=${allowAutoMergeInterpreted}`);
             core.info(`delete_branch_on_merge_raw=${String(repo.data.delete_branch_on_merge)}`);
             if (allowAutoMergeRaw === false) {
-              core.setFailed('Repository setting Allow auto-merge is explicitly false. Auto-merge cannot be enabled until repository settings allow it.');
+              core.setFailed('Repository setting Allow auto-merge is explicitly disabled.\nEnable Settings > General > Pull Requests > Allow auto-merge.');
               return;
             }
-            if (allowAutoMergeRaw === undefined) {
-              core.warning('Repository allow_auto_merge was not returned by the REST API; continuing to GraphQL enablePullRequestAutoMerge for the authoritative result.');
+            if (allowAutoMergeRaw === undefined || allowAutoMergeRaw === null) {
+              core.warning('allow_auto_merge was not returned by repos.get.\nDo not treat this as disabled; continue and let the GraphQL enablePullRequestAutoMerge mutation be the source of truth.');
             }
             try {
               const branch = await github.rest.repos.getBranch({ owner: context.repo.owner, repo: context.repo.repo, branch: pr.base.ref });
