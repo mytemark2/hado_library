@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-06-07T06:04:52.977Z",
-  "dataSetId": "2026-06-07T04:23:26.720Z",
+  "generatedAt": "2026-06-14T06:09:45.870Z",
+  "dataSetId": "2026-06-07T06:04:52.951Z",
   "crawlerVersion": "1.1.0.0",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -35,7 +35,7 @@
   "sourceCounts": {
     "generals": 476,
     "tactics": 455,
-    "equipments": 237,
+    "equipments": 238,
     "skills": 620,
     "statusEffects": 200,
     "siegeWeapons": 6,
@@ -49,7 +49,7 @@
   "sourceHashes": {
     "generals": "4c9aa0cb",
     "tactics": "a9afed3e",
-    "equipments": "4e60d216",
+    "equipments": "5960e367",
     "skills": "bee67c33",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
@@ -63,7 +63,7 @@
   "sourceSha256": {
     "generals": "4c9aa0cb",
     "tactics": "a9afed3e",
-    "equipments": "4e60d216",
+    "equipments": "5960e367",
     "skills": "bee67c33",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
@@ -76,11 +76,11 @@
   },
   "kind": "result_card_index",
   "qualityAudit": {
-    "itemCount": 2107,
+    "itemCount": 2108,
     "categories": {
       "generals": 476,
       "tactics": 455,
-      "equipments": 237,
+      "equipments": 238,
       "skills": 620,
       "status_effects": 200,
       "siege_weapons": 6,
@@ -19171,29 +19171,33 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243393"
     },
     {
-      "id": "equipments:0:稜花朱塗拂塵",
+      "id": "equipments:0:太平辟邪霊符",
       "category": "equipments",
-      "name": "稜花朱塗拂塵",
-      "rawName": "【三國志 覇道】稜花朱塗拂塵",
-      "title": "【三國志 覇道】稜花朱塗拂塵の能力と技能",
-      "displayName": "稜花朱塗拂塵",
-      "subtitle": "UR / 武器 / 弓兵",
+      "name": "太平辟邪霊符",
+      "rawName": "【三國志 覇道】太平辟邪霊符",
+      "title": "【三國志 覇道】太平辟邪霊符の能力と技能",
+      "displayName": "太平辟邪霊符",
+      "subtitle": "UR / 文物 / 騎兵 歩兵 弓兵",
       "badges": [
         "UR",
-        "武器",
+        "文物",
+        "騎兵",
+        "歩兵",
         "弓兵"
       ],
-      "optionLabel": "稜花朱塗拂塵｜UR / 武器 / 弓兵",
+      "optionLabel": "太平辟邪霊符｜UR / 文物 / 騎兵 歩兵 弓兵",
       "sortKey": 0,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
-        "種類:武器",
+        "種類:文物",
+        "兵科:騎兵",
+        "兵科:歩兵",
         "兵科:弓兵"
       ],
       "hasParameterSummary": true,
       "hasStatusRelations": false,
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/562240"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/563061"
     },
     {
       "id": "equipments:1:蜀科",
@@ -19225,7 +19229,32 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/562241"
     },
     {
-      "id": "equipments:2:堅壁獣面兜",
+      "id": "equipments:2:稜花朱塗拂塵",
+      "category": "equipments",
+      "name": "稜花朱塗拂塵",
+      "rawName": "【三國志 覇道】稜花朱塗拂塵",
+      "title": "【三國志 覇道】稜花朱塗拂塵の能力と技能",
+      "displayName": "稜花朱塗拂塵",
+      "subtitle": "UR / 武器 / 弓兵",
+      "badges": [
+        "UR",
+        "武器",
+        "弓兵"
+      ],
+      "optionLabel": "稜花朱塗拂塵｜UR / 武器 / 弓兵",
+      "sortKey": 2,
+      "tagSummary": [
+        "レアリティ:UR",
+        "最高レア:UR",
+        "種類:武器",
+        "兵科:弓兵"
+      ],
+      "hasParameterSummary": true,
+      "hasStatusRelations": false,
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/562240"
+    },
+    {
+      "id": "equipments:3:堅壁獣面兜",
       "category": "equipments",
       "name": "堅壁獣面兜",
       "rawName": "【三國志 覇道】堅壁獣面兜",
@@ -19240,7 +19269,7 @@
         "弓兵"
       ],
       "optionLabel": "堅壁獣面兜｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 2,
+      "sortKey": 3,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -19254,7 +19283,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/555369"
     },
     {
-      "id": "equipments:3:披荊斬棘戈",
+      "id": "equipments:4:披荊斬棘戈",
       "category": "equipments",
       "name": "披荊斬棘戈",
       "rawName": "【三國志 覇道】披荊斬棘戈",
@@ -19267,7 +19296,7 @@
         "歩兵"
       ],
       "optionLabel": "披荊斬棘戈｜UR / 武器 / 歩兵",
-      "sortKey": 3,
+      "sortKey": 4,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -19279,7 +19308,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/555368"
     },
     {
-      "id": "equipments:4:踞虎峻厳兜",
+      "id": "equipments:5:踞虎峻厳兜",
       "category": "equipments",
       "name": "踞虎峻厳兜",
       "rawName": "【三國志 覇道】踞虎峻厳兜",
@@ -19294,7 +19323,7 @@
         "弓兵"
       ],
       "optionLabel": "踞虎峻厳兜｜SSR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 4,
+      "sortKey": 5,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -19308,7 +19337,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/549850"
     },
     {
-      "id": "equipments:5:紫金白羽炎冠",
+      "id": "equipments:6:紫金白羽炎冠",
       "category": "equipments",
       "name": "紫金白羽炎冠",
       "rawName": "【三國志 覇道】紫金白羽炎冠",
@@ -19323,7 +19352,7 @@
         "弓兵"
       ],
       "optionLabel": "紫金白羽炎冠｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 5,
+      "sortKey": 6,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -19337,7 +19366,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/547820"
     },
     {
-      "id": "equipments:6:魁元月牙湾刀",
+      "id": "equipments:7:魁元月牙湾刀",
       "category": "equipments",
       "name": "魁元月牙湾刀",
       "rawName": "【三國志 覇道】魁元月牙湾刀",
@@ -19350,7 +19379,7 @@
         "騎兵"
       ],
       "optionLabel": "魁元月牙湾刀｜UR / 武器 / 騎兵",
-      "sortKey": 6,
+      "sortKey": 7,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -19362,7 +19391,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/547819"
     },
     {
-      "id": "equipments:7:黄天頭巾",
+      "id": "equipments:8:黄天頭巾",
       "category": "equipments",
       "name": "黄天頭巾",
       "rawName": "【三國志 覇道】黄天頭巾",
@@ -19377,7 +19406,7 @@
         "弓兵"
       ],
       "optionLabel": "黄天頭巾｜SSR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 7,
+      "sortKey": 8,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -19391,7 +19420,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/546211"
     },
     {
-      "id": "equipments:8:西方の銀杯",
+      "id": "equipments:9:西方の銀杯",
       "category": "equipments",
       "name": "西方の銀杯",
       "rawName": "【三國志 覇道】西方の銀杯",
@@ -19406,7 +19435,7 @@
         "弓兵"
       ],
       "optionLabel": "西方の銀杯｜SSR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 8,
+      "sortKey": 9,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -19420,7 +19449,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/544475"
     },
     {
-      "id": "equipments:9:武略冠世兜",
+      "id": "equipments:10:武略冠世兜",
       "category": "equipments",
       "name": "武略冠世兜",
       "rawName": "【三國志 覇道】武略冠世兜",
@@ -19435,7 +19464,7 @@
         "弓兵"
       ],
       "optionLabel": "武略冠世兜｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 9,
+      "sortKey": 10,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -19449,7 +19478,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/541903"
     },
     {
-      "id": "equipments:10:大志冠世剣",
+      "id": "equipments:11:大志冠世剣",
       "category": "equipments",
       "name": "大志冠世剣",
       "rawName": "【三國志 覇道】大志冠世剣",
@@ -19462,7 +19491,7 @@
         "弓兵"
       ],
       "optionLabel": "大志冠世剣｜UR / 武器 / 弓兵",
-      "sortKey": 10,
+      "sortKey": 11,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -19474,7 +19503,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/541902"
     },
     {
-      "id": "equipments:11:龍紋護臂甲",
+      "id": "equipments:12:龍紋護臂甲",
       "category": "equipments",
       "name": "龍紋護臂甲",
       "rawName": "【三國志 覇道】龍紋護臂甲",
@@ -19489,7 +19518,7 @@
         "弓兵"
       ],
       "optionLabel": "龍紋護臂甲｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 11,
+      "sortKey": 12,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -19503,7 +19532,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/537943"
     },
     {
-      "id": "equipments:12:冷艶鋸",
+      "id": "equipments:13:冷艶鋸",
       "category": "equipments",
       "name": "冷艶鋸",
       "rawName": "【三國志 覇道】冷艶鋸",
@@ -19516,7 +19545,7 @@
         "騎兵"
       ],
       "optionLabel": "冷艶鋸｜UR / 武器 / 騎兵",
-      "sortKey": 12,
+      "sortKey": 13,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -19528,7 +19557,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/537942"
     },
     {
-      "id": "equipments:13:遁甲天書",
+      "id": "equipments:14:遁甲天書",
       "category": "equipments",
       "name": "遁甲天書",
       "rawName": "【三國志 覇道】遁甲天書",
@@ -19543,7 +19572,7 @@
         "弓兵"
       ],
       "optionLabel": "遁甲天書｜SSR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 13,
+      "sortKey": 14,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -19557,7 +19586,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/536572"
     },
     {
-      "id": "equipments:14:三國志40周年の書",
+      "id": "equipments:15:三國志40周年の書",
       "category": "equipments",
       "name": "三國志40周年の書",
       "rawName": "【三國志 覇道】三國志40周年の書",
@@ -19572,7 +19601,7 @@
         "弓兵"
       ],
       "optionLabel": "三國志40周年の書｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 14,
+      "sortKey": 15,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -19586,7 +19615,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/533665"
     },
     {
-      "id": "equipments:15:三國志40周年の盾",
+      "id": "equipments:16:三國志40周年の盾",
       "category": "equipments",
       "name": "三國志40周年の盾",
       "rawName": "【三國志 覇道】三國志40周年の盾",
@@ -19601,7 +19630,7 @@
         "弓兵"
       ],
       "optionLabel": "三國志40周年の盾｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 15,
+      "sortKey": 16,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -19615,7 +19644,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/533664"
     },
     {
-      "id": "equipments:16:三國志40周年の旗",
+      "id": "equipments:17:三國志40周年の旗",
       "category": "equipments",
       "name": "三國志40周年の旗",
       "rawName": "【三國志 覇道】三國志40周年の旗",
@@ -19630,7 +19659,7 @@
         "弓兵"
       ],
       "optionLabel": "三國志40周年の旗｜UR / 武器 / 騎兵 歩兵 弓兵",
-      "sortKey": 16,
+      "sortKey": 17,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -19644,7 +19673,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/533663"
     },
     {
-      "id": "equipments:17:呂氏春秋",
+      "id": "equipments:18:呂氏春秋",
       "category": "equipments",
       "name": "呂氏春秋",
       "rawName": "【三國志 覇道】呂氏春秋",
@@ -19659,7 +19688,7 @@
         "弓兵"
       ],
       "optionLabel": "呂氏春秋｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 17,
+      "sortKey": 18,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -19673,7 +19702,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/533604"
     },
     {
-      "id": "equipments:18:万機相輔冠",
+      "id": "equipments:19:万機相輔冠",
       "category": "equipments",
       "name": "万機相輔冠",
       "rawName": "【三國志 覇道】万機相輔冠",
@@ -19688,7 +19717,7 @@
         "弓兵"
       ],
       "optionLabel": "万機相輔冠｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 18,
+      "sortKey": 19,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -19702,7 +19731,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/533603"
     },
     {
-      "id": "equipments:19:孫尚香の乾坤圏",
+      "id": "equipments:20:孫尚香の乾坤圏",
       "category": "equipments",
       "name": "孫尚香の乾坤圏",
       "rawName": "【三國志 覇道】孫尚香の乾坤圏",
@@ -19715,7 +19744,7 @@
         "弓兵"
       ],
       "optionLabel": "孫尚香の乾坤圏｜UR / 武器 / 弓兵",
-      "sortKey": 19,
+      "sortKey": 20,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -19727,7 +19756,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/530733"
     },
     {
-      "id": "equipments:20:夏侯惇の眼帯",
+      "id": "equipments:21:夏侯惇の眼帯",
       "category": "equipments",
       "name": "夏侯惇の眼帯",
       "rawName": "【三國志 覇道】夏侯惇の眼帯",
@@ -19742,7 +19771,7 @@
         "弓兵"
       ],
       "optionLabel": "夏侯惇の眼帯｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 20,
+      "sortKey": 21,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -19756,7 +19785,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/530732"
     },
     {
-      "id": "equipments:21:張飛の頭巾",
+      "id": "equipments:22:張飛の頭巾",
       "category": "equipments",
       "name": "張飛の頭巾",
       "rawName": "【三國志 覇道】張飛の頭巾",
@@ -19771,7 +19800,7 @@
         "弓兵"
       ],
       "optionLabel": "張飛の頭巾｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 21,
+      "sortKey": 22,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -19785,7 +19814,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/530731"
     },
     {
-      "id": "equipments:22:飛鳥装束",
+      "id": "equipments:23:飛鳥装束",
       "category": "equipments",
       "name": "飛鳥装束",
       "rawName": "【三國志 覇道】飛鳥装束",
@@ -19800,7 +19829,7 @@
         "弓兵"
       ],
       "optionLabel": "飛鳥装束｜SSR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 22,
+      "sortKey": 23,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -19814,7 +19843,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/530730"
     },
     {
-      "id": "equipments:23:猛鋭黒革帯",
+      "id": "equipments:24:猛鋭黒革帯",
       "category": "equipments",
       "name": "猛鋭黒革帯",
       "rawName": "【三國志 覇道】猛鋭黒革帯",
@@ -19829,7 +19858,7 @@
         "弓兵"
       ],
       "optionLabel": "猛鋭黒革帯｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 23,
+      "sortKey": 24,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -19843,7 +19872,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/525201"
     },
     {
-      "id": "equipments:24:緋紅尖晶石首飾",
+      "id": "equipments:25:緋紅尖晶石首飾",
       "category": "equipments",
       "name": "緋紅尖晶石首飾",
       "rawName": "【三國志 覇道】緋紅尖晶石首飾",
@@ -19858,7 +19887,7 @@
         "弓兵"
       ],
       "optionLabel": "緋紅尖晶石首飾｜SSR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 24,
+      "sortKey": 25,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -19872,7 +19901,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/519388"
     },
     {
-      "id": "equipments:25:武衛虎侯頭巾",
+      "id": "equipments:26:武衛虎侯頭巾",
       "category": "equipments",
       "name": "武衛虎侯頭巾",
       "rawName": "【三國志 覇道】武衛虎侯頭巾",
@@ -19887,7 +19916,7 @@
         "弓兵"
       ],
       "optionLabel": "武衛虎侯頭巾｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 25,
+      "sortKey": 26,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -19901,7 +19930,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/516255"
     },
     {
-      "id": "equipments:26:武衛虎士刀",
+      "id": "equipments:27:武衛虎士刀",
       "category": "equipments",
       "name": "武衛虎士刀",
       "rawName": "【三國志 覇道】武衛虎士刀",
@@ -19914,7 +19943,7 @@
         "歩兵"
       ],
       "optionLabel": "武衛虎士刀｜UR / 武器 / 歩兵",
-      "sortKey": 26,
+      "sortKey": 27,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -19926,7 +19955,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/516254"
     },
     {
-      "id": "equipments:27:麒龍志継鎧",
+      "id": "equipments:28:麒龍志継鎧",
       "category": "equipments",
       "name": "麒龍志継鎧",
       "rawName": "【三國志 覇道】麒龍志継鎧",
@@ -19941,7 +19970,7 @@
         "弓兵"
       ],
       "optionLabel": "麒龍志継鎧｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 27,
+      "sortKey": 28,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -19955,7 +19984,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/513868"
     },
     {
-      "id": "equipments:28:蜀山武功秘籍",
+      "id": "equipments:29:蜀山武功秘籍",
       "category": "equipments",
       "name": "蜀山武功秘籍",
       "rawName": "【三國志 覇道】蜀山武功秘籍",
@@ -19970,7 +19999,7 @@
         "弓兵"
       ],
       "optionLabel": "蜀山武功秘籍｜SSR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 28,
+      "sortKey": 29,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -19984,7 +20013,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/508393"
     },
     {
-      "id": "equipments:29:雄俊光錦袍鎧",
+      "id": "equipments:30:雄俊光錦袍鎧",
       "category": "equipments",
       "name": "雄俊光錦袍鎧",
       "rawName": "【三國志 覇道】雄俊光錦袍鎧",
@@ -19999,7 +20028,7 @@
         "弓兵"
       ],
       "optionLabel": "雄俊光錦袍鎧｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 29,
+      "sortKey": 30,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20013,7 +20042,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/505421"
     },
     {
-      "id": "equipments:30:雄俊羽毛扇",
+      "id": "equipments:31:雄俊羽毛扇",
       "category": "equipments",
       "name": "雄俊羽毛扇",
       "rawName": "【三國志 覇道】雄俊羽毛扇",
@@ -20026,7 +20055,7 @@
         "弓兵"
       ],
       "optionLabel": "雄俊羽毛扇｜UR / 武器 / 弓兵",
-      "sortKey": 30,
+      "sortKey": 31,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20038,7 +20067,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/505420"
     },
     {
-      "id": "equipments:31:岱斗帽沿兜",
+      "id": "equipments:32:岱斗帽沿兜",
       "category": "equipments",
       "name": "岱斗帽沿兜",
       "rawName": "【三國志 覇道】岱斗帽沿兜",
@@ -20053,7 +20082,7 @@
         "弓兵"
       ],
       "optionLabel": "岱斗帽沿兜｜SSR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 31,
+      "sortKey": 32,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -20067,7 +20096,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/503958"
     },
     {
-      "id": "equipments:32:驍武凶悍大刀",
+      "id": "equipments:33:驍武凶悍大刀",
       "category": "equipments",
       "name": "驍武凶悍大刀",
       "rawName": "【三國志 覇道】驍武凶悍大刀",
@@ -20080,7 +20109,7 @@
         "歩兵"
       ],
       "optionLabel": "驍武凶悍大刀｜UR / 武器 / 歩兵",
-      "sortKey": 32,
+      "sortKey": 33,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20092,7 +20121,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/503957"
     },
     {
-      "id": "equipments:33:煉蠱皿",
+      "id": "equipments:34:煉蠱皿",
       "category": "equipments",
       "name": "煉蠱皿",
       "rawName": "【三國志 覇道】煉蠱皿",
@@ -20107,7 +20136,7 @@
         "弓兵"
       ],
       "optionLabel": "煉蠱皿｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 33,
+      "sortKey": 34,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20121,7 +20150,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/507436"
     },
     {
-      "id": "equipments:34:金蛇鞭",
+      "id": "equipments:35:金蛇鞭",
       "category": "equipments",
       "name": "金蛇鞭",
       "rawName": "【三國志 覇道】金蛇鞭",
@@ -20134,7 +20163,7 @@
         "騎兵"
       ],
       "optionLabel": "金蛇鞭｜UR / 武器 / 騎兵",
-      "sortKey": 34,
+      "sortKey": 35,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20146,7 +20175,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/507435"
     },
     {
-      "id": "equipments:35:聖霊披風",
+      "id": "equipments:36:聖霊披風",
       "category": "equipments",
       "name": "聖霊披風",
       "rawName": "【三國志 覇道】聖霊披風",
@@ -20161,7 +20190,7 @@
         "弓兵"
       ],
       "optionLabel": "聖霊披風｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 35,
+      "sortKey": 36,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20175,7 +20204,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/507434"
     },
     {
-      "id": "equipments:36:無塵剣",
+      "id": "equipments:37:無塵剣",
       "category": "equipments",
       "name": "無塵剣",
       "rawName": "【三國志 覇道】無塵剣",
@@ -20188,7 +20217,7 @@
         "騎兵"
       ],
       "optionLabel": "無塵剣｜UR / 武器 / 騎兵",
-      "sortKey": 36,
+      "sortKey": 37,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20200,7 +20229,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/507433"
     },
     {
-      "id": "equipments:37:龍淵剣",
+      "id": "equipments:38:龍淵剣",
       "category": "equipments",
       "name": "龍淵剣",
       "rawName": "【三國志 覇道】龍淵剣",
@@ -20215,7 +20244,7 @@
         "弓兵"
       ],
       "optionLabel": "龍淵剣｜UR / 武器 / 騎兵 歩兵 弓兵",
-      "sortKey": 37,
+      "sortKey": 38,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20229,7 +20258,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/498628"
     },
     {
-      "id": "equipments:38:五色線",
+      "id": "equipments:39:五色線",
       "category": "equipments",
       "name": "五色線",
       "rawName": "【三國志 覇道】五色線",
@@ -20244,7 +20273,7 @@
         "弓兵"
       ],
       "optionLabel": "五色線｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 38,
+      "sortKey": 39,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20258,7 +20287,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/498627"
     },
     {
-      "id": "equipments:39:孫臏兵法",
+      "id": "equipments:40:孫臏兵法",
       "category": "equipments",
       "name": "孫臏兵法",
       "rawName": "【三國志 覇道】孫臏兵法",
@@ -20273,7 +20302,7 @@
         "弓兵"
       ],
       "optionLabel": "孫臏兵法｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 39,
+      "sortKey": 40,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20287,7 +20316,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/496769"
     },
     {
-      "id": "equipments:40:報讐克勝冠",
+      "id": "equipments:41:報讐克勝冠",
       "category": "equipments",
       "name": "報讐克勝冠",
       "rawName": "【三國志 覇道】報讐克勝冠",
@@ -20302,7 +20331,7 @@
         "弓兵"
       ],
       "optionLabel": "報讐克勝冠｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 40,
+      "sortKey": 41,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20316,7 +20345,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/496768"
     },
     {
-      "id": "equipments:41:劉家伝来の宝剣",
+      "id": "equipments:42:劉家伝来の宝剣",
       "category": "equipments",
       "name": "劉家伝来の宝剣",
       "rawName": "【三國志 覇道】劉家伝来の宝剣",
@@ -20331,7 +20360,7 @@
         "弓兵"
       ],
       "optionLabel": "劉家伝来の宝剣｜SSR / 武器 / 騎兵 歩兵 弓兵",
-      "sortKey": 41,
+      "sortKey": 42,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -20345,7 +20374,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/490428"
     },
     {
-      "id": "equipments:42:躬先越嶺笠兜",
+      "id": "equipments:43:躬先越嶺笠兜",
       "category": "equipments",
       "name": "躬先越嶺笠兜",
       "rawName": "【三國志 覇道】躬先越嶺笠兜",
@@ -20360,7 +20389,7 @@
         "弓兵"
       ],
       "optionLabel": "躬先越嶺笠兜｜SSR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 42,
+      "sortKey": 43,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -20374,7 +20403,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/490375"
     },
     {
-      "id": "equipments:43:果勇金銅鎧",
+      "id": "equipments:44:果勇金銅鎧",
       "category": "equipments",
       "name": "果勇金銅鎧",
       "rawName": "【三國志 覇道】果勇金銅鎧",
@@ -20389,7 +20418,7 @@
         "弓兵"
       ],
       "optionLabel": "果勇金銅鎧｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 43,
+      "sortKey": 44,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20403,7 +20432,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/485969"
     },
     {
-      "id": "equipments:44:白旄乾坤旗",
+      "id": "equipments:45:白旄乾坤旗",
       "category": "equipments",
       "name": "白旄乾坤旗",
       "rawName": "【三國志 覇道】白旄乾坤旗",
@@ -20416,7 +20445,7 @@
         "歩兵"
       ],
       "optionLabel": "白旄乾坤旗｜UR / 武器 / 歩兵",
-      "sortKey": 44,
+      "sortKey": 45,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20428,7 +20457,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/485968"
     },
     {
-      "id": "equipments:45:紅纓帥兜",
+      "id": "equipments:46:紅纓帥兜",
       "category": "equipments",
       "name": "紅纓帥兜",
       "rawName": "【三國志 覇道】紅纓帥兜",
@@ -20443,7 +20472,7 @@
         "弓兵"
       ],
       "optionLabel": "紅纓帥兜｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 45,
+      "sortKey": 46,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20457,7 +20486,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/483832"
     },
     {
-      "id": "equipments:46:瀝泉槍",
+      "id": "equipments:47:瀝泉槍",
       "category": "equipments",
       "name": "瀝泉槍",
       "rawName": "【三國志 覇道】瀝泉槍",
@@ -20470,7 +20499,7 @@
         "歩兵"
       ],
       "optionLabel": "瀝泉槍｜UR / 武器 / 歩兵",
-      "sortKey": 46,
+      "sortKey": 47,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20482,7 +20511,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/483831"
     },
     {
-      "id": "equipments:47:大紅柘榴石首飾",
+      "id": "equipments:48:大紅柘榴石首飾",
       "category": "equipments",
       "name": "大紅柘榴石首飾",
       "rawName": "【三國志 覇道】大紅柘榴石首飾",
@@ -20497,7 +20526,7 @@
         "弓兵"
       ],
       "optionLabel": "大紅柘榴石首飾｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 47,
+      "sortKey": 48,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20511,7 +20540,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/481849"
     },
     {
-      "id": "equipments:48:黄天大道旗槍",
+      "id": "equipments:49:黄天大道旗槍",
       "category": "equipments",
       "name": "黄天大道旗槍",
       "rawName": "【三國志 覇道】黄天大道旗槍",
@@ -20526,7 +20555,7 @@
         "弓兵"
       ],
       "optionLabel": "黄天大道旗槍｜UR / 武器 / 騎兵 歩兵 弓兵",
-      "sortKey": 48,
+      "sortKey": 49,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20540,7 +20569,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/480404"
     },
     {
-      "id": "equipments:49:獠牙鬼面",
+      "id": "equipments:50:獠牙鬼面",
       "category": "equipments",
       "name": "獠牙鬼面",
       "rawName": "【三國志 覇道】獠牙鬼面",
@@ -20555,7 +20584,7 @@
         "弓兵"
       ],
       "optionLabel": "獠牙鬼面｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 49,
+      "sortKey": 50,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20569,7 +20598,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/479493"
     },
     {
-      "id": "equipments:50:百保鮮卑重甲",
+      "id": "equipments:51:百保鮮卑重甲",
       "category": "equipments",
       "name": "百保鮮卑重甲",
       "rawName": "【三國志 覇道】百保鮮卑重甲",
@@ -20584,7 +20613,7 @@
         "弓兵"
       ],
       "optionLabel": "百保鮮卑重甲｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 50,
+      "sortKey": 51,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20598,7 +20627,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/479492"
     },
     {
-      "id": "equipments:51:六尺斬馬刀",
+      "id": "equipments:52:六尺斬馬刀",
       "category": "equipments",
       "name": "六尺斬馬刀",
       "rawName": "【三國志 覇道】六尺斬馬刀",
@@ -20611,7 +20640,7 @@
         "騎兵"
       ],
       "optionLabel": "六尺斬馬刀｜SSR / 武器 / 騎兵",
-      "sortKey": 51,
+      "sortKey": 52,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -20623,7 +20652,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/479491"
     },
     {
-      "id": "equipments:52:龍紋鉄甲",
+      "id": "equipments:53:龍紋鉄甲",
       "category": "equipments",
       "name": "龍紋鉄甲",
       "rawName": "【三國志 覇道】龍紋鉄甲",
@@ -20638,7 +20667,7 @@
         "弓兵"
       ],
       "optionLabel": "龍紋鉄甲｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 52,
+      "sortKey": 53,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20652,7 +20681,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/479490"
     },
     {
-      "id": "equipments:53:二兎観月扇",
+      "id": "equipments:54:二兎観月扇",
       "category": "equipments",
       "name": "二兎観月扇",
       "rawName": "【三國志 覇道】二兎観月扇",
@@ -20665,7 +20694,7 @@
         "弓兵"
       ],
       "optionLabel": "二兎観月扇｜SSR / 武器 / 弓兵",
-      "sortKey": 53,
+      "sortKey": 54,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -20677,7 +20706,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/479489"
     },
     {
-      "id": "equipments:54:迅風衝決剣",
+      "id": "equipments:55:迅風衝決剣",
       "category": "equipments",
       "name": "迅風衝決剣",
       "rawName": "【三國志 覇道】迅風衝決剣",
@@ -20690,7 +20719,7 @@
         "歩兵"
       ],
       "optionLabel": "迅風衝決剣｜UR / 武器 / 歩兵",
-      "sortKey": 54,
+      "sortKey": 55,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20702,7 +20731,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/479488"
     },
     {
-      "id": "equipments:55:勢焔雷紋兜",
+      "id": "equipments:56:勢焔雷紋兜",
       "category": "equipments",
       "name": "勢焔雷紋兜",
       "rawName": "【三國志 覇道】勢焔雷紋兜",
@@ -20717,7 +20746,7 @@
         "弓兵"
       ],
       "optionLabel": "勢焔雷紋兜｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 55,
+      "sortKey": 56,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20731,7 +20760,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/477513"
     },
     {
-      "id": "equipments:56:彩漆鳳龍紋盾",
+      "id": "equipments:57:彩漆鳳龍紋盾",
       "category": "equipments",
       "name": "彩漆鳳龍紋盾",
       "rawName": "【三國志 覇道】彩漆鳳龍紋盾",
@@ -20746,7 +20775,7 @@
         "弓兵"
       ],
       "optionLabel": "彩漆鳳龍紋盾｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 56,
+      "sortKey": 57,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20760,7 +20789,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/471309"
     },
     {
-      "id": "equipments:57:玄漆紫玉金冠",
+      "id": "equipments:58:玄漆紫玉金冠",
       "category": "equipments",
       "name": "玄漆紫玉金冠",
       "rawName": "【三國志 覇道】玄漆紫玉金冠",
@@ -20775,7 +20804,7 @@
         "弓兵"
       ],
       "optionLabel": "玄漆紫玉金冠｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 57,
+      "sortKey": 58,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20789,7 +20818,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/466171"
     },
     {
-      "id": "equipments:58:虎豹元帥兜",
+      "id": "equipments:59:虎豹元帥兜",
       "category": "equipments",
       "name": "虎豹元帥兜",
       "rawName": "【三國志 覇道】虎豹元帥兜",
@@ -20804,7 +20833,7 @@
         "弓兵"
       ],
       "optionLabel": "虎豹元帥兜｜SSR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 58,
+      "sortKey": 59,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -20818,7 +20847,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/463701"
     },
     {
-      "id": "equipments:59:弘雅守信冠",
+      "id": "equipments:60:弘雅守信冠",
       "category": "equipments",
       "name": "弘雅守信冠",
       "rawName": "【三國志 覇道】弘雅守信冠",
@@ -20833,7 +20862,7 @@
         "弓兵"
       ],
       "optionLabel": "弘雅守信冠｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 59,
+      "sortKey": 60,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20847,7 +20876,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/462356"
     },
     {
-      "id": "equipments:60:厳毅典麗宝剣",
+      "id": "equipments:61:厳毅典麗宝剣",
       "category": "equipments",
       "name": "厳毅典麗宝剣",
       "rawName": "【三國志 覇道】厳毅典麗宝剣",
@@ -20860,7 +20889,7 @@
         "騎兵"
       ],
       "optionLabel": "厳毅典麗宝剣｜UR / 武器 / 騎兵",
-      "sortKey": 60,
+      "sortKey": 61,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20872,7 +20901,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/458825"
     },
     {
-      "id": "equipments:61:赤心硬殻兜",
+      "id": "equipments:62:赤心硬殻兜",
       "category": "equipments",
       "name": "赤心硬殻兜",
       "rawName": "【三國志 覇道】赤心硬殻兜",
@@ -20887,7 +20916,7 @@
         "弓兵"
       ],
       "optionLabel": "赤心硬殻兜｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 61,
+      "sortKey": 62,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20901,7 +20930,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/458195"
     },
     {
-      "id": "equipments:62:虎筋弦神弓",
+      "id": "equipments:63:虎筋弦神弓",
       "category": "equipments",
       "name": "虎筋弦神弓",
       "rawName": "【三國志 覇道】虎筋弦神弓",
@@ -20914,7 +20943,7 @@
         "弓兵"
       ],
       "optionLabel": "虎筋弦神弓｜UR / 武器 / 弓兵",
-      "sortKey": 62,
+      "sortKey": 63,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20926,7 +20955,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/457314"
     },
     {
-      "id": "equipments:63:鉄脊蛇矛",
+      "id": "equipments:64:鉄脊蛇矛",
       "category": "equipments",
       "name": "鉄脊蛇矛",
       "rawName": "【三國志 覇道】鉄脊蛇矛",
@@ -20939,7 +20968,7 @@
         "歩兵"
       ],
       "optionLabel": "鉄脊蛇矛｜UR / 武器 / 歩兵",
-      "sortKey": 63,
+      "sortKey": 64,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -20951,7 +20980,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/456268"
     },
     {
-      "id": "equipments:64:黄焔柳緑披風",
+      "id": "equipments:65:黄焔柳緑披風",
       "category": "equipments",
       "name": "黄焔柳緑披風",
       "rawName": "【三國志 覇道】黄焔柳緑披風",
@@ -20966,7 +20995,7 @@
         "弓兵"
       ],
       "optionLabel": "黄焔柳緑披風｜SSR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 64,
+      "sortKey": 65,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -20980,7 +21009,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/453622"
     },
     {
-      "id": "equipments:65:貞烈弓籠手",
+      "id": "equipments:66:貞烈弓籠手",
       "category": "equipments",
       "name": "貞烈弓籠手",
       "rawName": "【三國志 覇道】貞烈弓籠手",
@@ -20995,7 +21024,7 @@
         "弓兵"
       ],
       "optionLabel": "貞烈弓籠手｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 65,
+      "sortKey": 66,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21009,7 +21038,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/452658"
     },
     {
-      "id": "equipments:66:春秋左氏伝",
+      "id": "equipments:67:春秋左氏伝",
       "category": "equipments",
       "name": "春秋左氏伝",
       "rawName": "【三國志 覇道】春秋左氏伝",
@@ -21024,7 +21053,7 @@
         "弓兵"
       ],
       "optionLabel": "春秋左氏伝｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 66,
+      "sortKey": 67,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21038,7 +21067,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/450469"
     },
     {
-      "id": "equipments:67:緑絹金花抹額",
+      "id": "equipments:68:緑絹金花抹額",
       "category": "equipments",
       "name": "緑絹金花抹額",
       "rawName": "【三國志 覇道】緑絹金花抹額",
@@ -21053,7 +21082,7 @@
         "弓兵"
       ],
       "optionLabel": "緑絹金花抹額｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 67,
+      "sortKey": 68,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21067,7 +21096,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/449511"
     },
     {
-      "id": "equipments:68:炎帝神農茶譜",
+      "id": "equipments:69:炎帝神農茶譜",
       "category": "equipments",
       "name": "炎帝神農茶譜",
       "rawName": "【三國志 覇道】炎帝神農茶譜",
@@ -21082,7 +21111,7 @@
         "弓兵"
       ],
       "optionLabel": "炎帝神農茶譜｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 68,
+      "sortKey": 69,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21096,7 +21125,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/447687"
     },
     {
-      "id": "equipments:69:賢佐治道笏",
+      "id": "equipments:70:賢佐治道笏",
       "category": "equipments",
       "name": "賢佐治道笏",
       "rawName": "【三國志 覇道】賢佐治道笏",
@@ -21111,7 +21140,7 @@
         "弓兵"
       ],
       "optionLabel": "賢佐治道笏｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 69,
+      "sortKey": 70,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21125,7 +21154,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/444329"
     },
     {
-      "id": "equipments:70:魔術師の帽子",
+      "id": "equipments:71:魔術師の帽子",
       "category": "equipments",
       "name": "魔術師の帽子",
       "rawName": "【三國志 覇道】魔術師の帽子",
@@ -21140,7 +21169,7 @@
         "弓兵"
       ],
       "optionLabel": "魔術師の帽子｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 70,
+      "sortKey": 71,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21154,7 +21183,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/440944"
     },
     {
-      "id": "equipments:71:星間航路図",
+      "id": "equipments:72:星間航路図",
       "category": "equipments",
       "name": "星間航路図",
       "rawName": "【三國志 覇道】星間航路図",
@@ -21169,7 +21198,7 @@
         "弓兵"
       ],
       "optionLabel": "星間航路図｜SSR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 71,
+      "sortKey": 72,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -21183,7 +21212,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/440928"
     },
     {
-      "id": "equipments:72:金色のロケット",
+      "id": "equipments:73:金色のロケット",
       "category": "equipments",
       "name": "金色のロケット",
       "rawName": "【三國志 覇道】金色のロケット",
@@ -21198,7 +21227,7 @@
         "弓兵"
       ],
       "optionLabel": "金色のロケット｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 72,
+      "sortKey": 73,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21212,7 +21241,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/440929"
     },
     {
-      "id": "equipments:73:励志方正冠",
+      "id": "equipments:74:励志方正冠",
       "category": "equipments",
       "name": "励志方正冠",
       "rawName": "【三國志 覇道】励志方正冠",
@@ -21227,7 +21256,7 @@
         "弓兵"
       ],
       "optionLabel": "励志方正冠｜SSR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 73,
+      "sortKey": 74,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -21241,7 +21270,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/440903"
     },
     {
-      "id": "equipments:74:鋭師飛鵠兜",
+      "id": "equipments:75:鋭師飛鵠兜",
       "category": "equipments",
       "name": "鋭師飛鵠兜",
       "rawName": "【三國志 覇道】鋭師飛鵠兜",
@@ -21256,7 +21285,7 @@
         "弓兵"
       ],
       "optionLabel": "鋭師飛鵠兜｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 74,
+      "sortKey": 75,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21270,7 +21299,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/439591"
     },
     {
-      "id": "equipments:75:鳳鳴双飛金冠",
+      "id": "equipments:76:鳳鳴双飛金冠",
       "category": "equipments",
       "name": "鳳鳴双飛金冠",
       "rawName": "【三國志 覇道】鳳鳴双飛金冠",
@@ -21285,7 +21314,7 @@
         "弓兵"
       ],
       "optionLabel": "鳳鳴双飛金冠｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 75,
+      "sortKey": 76,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21299,7 +21328,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/437134"
     },
     {
-      "id": "equipments:76:朝陽仁恵玉冠",
+      "id": "equipments:77:朝陽仁恵玉冠",
       "category": "equipments",
       "name": "朝陽仁恵玉冠",
       "rawName": "【三國志 覇道】朝陽仁恵玉冠",
@@ -21314,7 +21343,7 @@
         "弓兵"
       ],
       "optionLabel": "朝陽仁恵玉冠｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 76,
+      "sortKey": 77,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21328,7 +21357,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/437133"
     },
     {
-      "id": "equipments:77:碧緑双翼兜",
+      "id": "equipments:78:碧緑双翼兜",
       "category": "equipments",
       "name": "碧緑双翼兜",
       "rawName": "【三國志 覇道】碧緑双翼兜",
@@ -21343,7 +21372,7 @@
         "弓兵"
       ],
       "optionLabel": "碧緑双翼兜｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 77,
+      "sortKey": 78,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21357,7 +21386,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/435964"
     },
     {
-      "id": "equipments:78:焦尾琴",
+      "id": "equipments:79:焦尾琴",
       "category": "equipments",
       "name": "焦尾琴",
       "rawName": "【三國志 覇道】焦尾琴",
@@ -21372,7 +21401,7 @@
         "弓兵"
       ],
       "optionLabel": "焦尾琴｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 78,
+      "sortKey": 79,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21386,7 +21415,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/432216"
     },
     {
-      "id": "equipments:79:西方の紅帽",
+      "id": "equipments:80:西方の紅帽",
       "category": "equipments",
       "name": "西方の紅帽",
       "rawName": "【三國志 覇道】西方の紅帽",
@@ -21401,7 +21430,7 @@
         "弓兵"
       ],
       "optionLabel": "西方の紅帽｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 79,
+      "sortKey": 80,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21415,7 +21444,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/430131"
     },
     {
-      "id": "equipments:80:奉天銀灰冠",
+      "id": "equipments:81:奉天銀灰冠",
       "category": "equipments",
       "name": "奉天銀灰冠",
       "rawName": "【三國志 覇道】奉天銀灰冠",
@@ -21430,7 +21459,7 @@
         "弓兵"
       ],
       "optionLabel": "奉天銀灰冠｜SSR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 80,
+      "sortKey": 81,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -21444,7 +21473,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/430025"
     },
     {
-      "id": "equipments:81:先登承志頭巾",
+      "id": "equipments:82:先登承志頭巾",
       "category": "equipments",
       "name": "先登承志頭巾",
       "rawName": "【三國志 覇道】先登承志頭巾",
@@ -21459,7 +21488,7 @@
         "弓兵"
       ],
       "optionLabel": "先登承志頭巾｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 81,
+      "sortKey": 82,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21473,7 +21502,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/428594"
     },
     {
-      "id": "equipments:82:飛刀",
+      "id": "equipments:83:飛刀",
       "category": "equipments",
       "name": "飛刀",
       "rawName": "【三國志 覇道】飛刀",
@@ -21486,7 +21515,7 @@
         "騎兵"
       ],
       "optionLabel": "飛刀｜UR / 武器 / 騎兵",
-      "sortKey": 82,
+      "sortKey": 83,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21498,7 +21527,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/426693"
     },
     {
-      "id": "equipments:83:南天羽飾兜",
+      "id": "equipments:84:南天羽飾兜",
       "category": "equipments",
       "name": "南天羽飾兜",
       "rawName": "【三國志 覇道】南天羽飾兜",
@@ -21513,7 +21542,7 @@
         "弓兵"
       ],
       "optionLabel": "南天羽飾兜｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 83,
+      "sortKey": 84,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21527,7 +21556,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/426692"
     },
     {
-      "id": "equipments:84:威福笠兜",
+      "id": "equipments:85:威福笠兜",
       "category": "equipments",
       "name": "威福笠兜",
       "rawName": "【三國志 覇道】威福笠兜",
@@ -21542,7 +21571,7 @@
         "弓兵"
       ],
       "optionLabel": "威福笠兜｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 84,
+      "sortKey": 85,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21556,7 +21585,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/424279"
     },
     {
-      "id": "equipments:85:諸葛巾",
+      "id": "equipments:86:諸葛巾",
       "category": "equipments",
       "name": "諸葛巾",
       "rawName": "【三國志 覇道】諸葛巾",
@@ -21571,7 +21600,7 @@
         "弓兵"
       ],
       "optionLabel": "諸葛巾｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 85,
+      "sortKey": 86,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21585,7 +21614,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/422731"
     },
     {
-      "id": "equipments:86:壮気直躬剣",
+      "id": "equipments:87:壮気直躬剣",
       "category": "equipments",
       "name": "壮気直躬剣",
       "rawName": "【三國志 覇道】壮気直躬剣",
@@ -21598,7 +21627,7 @@
         "騎兵"
       ],
       "optionLabel": "壮気直躬剣｜UR / 武器 / 騎兵",
-      "sortKey": 86,
+      "sortKey": 87,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21610,7 +21639,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/420676"
     },
     {
-      "id": "equipments:87:九華扇",
+      "id": "equipments:88:九華扇",
       "category": "equipments",
       "name": "九華扇",
       "rawName": "【三國志 覇道】九華扇",
@@ -21625,7 +21654,7 @@
         "弓兵"
       ],
       "optionLabel": "九華扇｜UR / 武器 / 騎兵 歩兵 弓兵",
-      "sortKey": 87,
+      "sortKey": 88,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21639,7 +21668,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/417800"
     },
     {
-      "id": "equipments:88:興起嵩峻兜",
+      "id": "equipments:89:興起嵩峻兜",
       "category": "equipments",
       "name": "興起嵩峻兜",
       "rawName": "【三國志 覇道】興起嵩峻兜",
@@ -21654,7 +21683,7 @@
         "弓兵"
       ],
       "optionLabel": "興起嵩峻兜｜SSR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 88,
+      "sortKey": 89,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -21668,25 +21697,25 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/417593"
     },
     {
-      "id": "equipments:89:司馬氏兵記",
+      "id": "equipments:90:司馬氏兵記",
       "category": "equipments",
       "name": "司馬氏兵記",
       "rawName": "【三國志 覇道】司馬氏兵記",
       "title": "【三國志 覇道】司馬氏兵記の能力と技能",
       "displayName": "司馬氏兵記",
-      "subtitle": "SSR / 文物 / 騎兵 歩兵 弓兵",
+      "subtitle": "UR / 文物 / 騎兵 歩兵 弓兵",
       "badges": [
-        "SSR",
+        "UR",
         "文物",
         "騎兵",
         "歩兵",
         "弓兵"
       ],
-      "optionLabel": "司馬氏兵記｜SSR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 89,
+      "optionLabel": "司馬氏兵記｜UR / 文物 / 騎兵 歩兵 弓兵",
+      "sortKey": 90,
       "tagSummary": [
-        "レアリティ:SSR",
-        "最高レア:SSR",
+        "レアリティ:UR",
+        "最高レア:UR",
         "種類:文物",
         "兵科:騎兵",
         "兵科:歩兵",
@@ -21697,7 +21726,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/415881"
     },
     {
-      "id": "equipments:90:奮勇燕尾牌",
+      "id": "equipments:91:奮勇燕尾牌",
       "category": "equipments",
       "name": "奮勇燕尾牌",
       "rawName": "【三國志 覇道】奮勇燕尾牌",
@@ -21712,7 +21741,7 @@
         "弓兵"
       ],
       "optionLabel": "奮勇燕尾牌｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 90,
+      "sortKey": 91,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21726,7 +21755,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/415882"
     },
     {
-      "id": "equipments:91:羊の遊泳圏",
+      "id": "equipments:92:羊の遊泳圏",
       "category": "equipments",
       "name": "羊の遊泳圏",
       "rawName": "【三國志 覇道】羊の遊泳圏",
@@ -21741,7 +21770,7 @@
         "弓兵"
       ],
       "optionLabel": "羊の遊泳圏｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 91,
+      "sortKey": 92,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21755,7 +21784,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/412321"
     },
     {
-      "id": "equipments:92:龍の水槍",
+      "id": "equipments:93:龍の水槍",
       "category": "equipments",
       "name": "龍の水槍",
       "rawName": "【三國志 覇道】龍の水槍",
@@ -21770,7 +21799,7 @@
         "弓兵"
       ],
       "optionLabel": "龍の水槍｜UR / 武器 / 騎兵 歩兵 弓兵",
-      "sortKey": 92,
+      "sortKey": 93,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21784,7 +21813,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/411533"
     },
     {
-      "id": "equipments:93:断江倒海鞭",
+      "id": "equipments:94:断江倒海鞭",
       "category": "equipments",
       "name": "断江倒海鞭",
       "rawName": "【三國志 覇道】断江倒海鞭",
@@ -21797,7 +21826,7 @@
         "弓兵"
       ],
       "optionLabel": "断江倒海鞭｜UR / 武器 / 弓兵",
-      "sortKey": 93,
+      "sortKey": 94,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21809,7 +21838,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/410935"
     },
     {
-      "id": "equipments:94:燦金赤纓兜",
+      "id": "equipments:95:燦金赤纓兜",
       "category": "equipments",
       "name": "燦金赤纓兜",
       "rawName": "【三國志 覇道】燦金赤纓兜",
@@ -21824,7 +21853,7 @@
         "弓兵"
       ],
       "optionLabel": "燦金赤纓兜｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 94,
+      "sortKey": 95,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21838,7 +21867,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/410936"
     },
     {
-      "id": "equipments:95:雄豪肩呑鎧",
+      "id": "equipments:96:雄豪肩呑鎧",
       "category": "equipments",
       "name": "雄豪肩呑鎧",
       "rawName": "【三國志 覇道】雄豪肩呑鎧",
@@ -21853,7 +21882,7 @@
         "弓兵"
       ],
       "optionLabel": "雄豪肩呑鎧｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 95,
+      "sortKey": 96,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21867,7 +21896,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/408742"
     },
     {
-      "id": "equipments:96:富春孫氏家伝",
+      "id": "equipments:97:富春孫氏家伝",
       "category": "equipments",
       "name": "富春孫氏家伝",
       "rawName": "【三國志 覇道】富春孫氏家伝",
@@ -21882,7 +21911,7 @@
         "弓兵"
       ],
       "optionLabel": "富春孫氏家伝｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 96,
+      "sortKey": 97,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21896,7 +21925,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/408743"
     },
     {
-      "id": "equipments:97:奔走の算盤",
+      "id": "equipments:98:奔走の算盤",
       "category": "equipments",
       "name": "奔走の算盤",
       "rawName": "【三國志 覇道】奔走の算盤",
@@ -21911,7 +21940,7 @@
         "弓兵"
       ],
       "optionLabel": "奔走の算盤｜SSR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 97,
+      "sortKey": 98,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -21925,7 +21954,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/405582"
     },
     {
-      "id": "equipments:98:亢龍鋼鞭",
+      "id": "equipments:99:亢龍鋼鞭",
       "category": "equipments",
       "name": "亢龍鋼鞭",
       "rawName": "【三國志 覇道】亢龍鋼鞭",
@@ -21938,7 +21967,7 @@
         "騎兵"
       ],
       "optionLabel": "亢龍鋼鞭｜SSR / 武器 / 騎兵",
-      "sortKey": 98,
+      "sortKey": 99,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -21950,7 +21979,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/405123"
     },
     {
-      "id": "equipments:99:思紹",
+      "id": "equipments:100:思紹",
       "category": "equipments",
       "name": "思紹",
       "rawName": "【三國志 覇道】思紹",
@@ -21963,7 +21992,7 @@
         "歩兵"
       ],
       "optionLabel": "思紹｜UR / 武器 / 歩兵",
-      "sortKey": 99,
+      "sortKey": 100,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -21975,7 +22004,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/402668"
     },
     {
-      "id": "equipments:100:鋼胆鉄心槍",
+      "id": "equipments:101:鋼胆鉄心槍",
       "category": "equipments",
       "name": "鋼胆鉄心槍",
       "rawName": "【三國志 覇道】鋼胆鉄心槍",
@@ -21988,7 +22017,7 @@
         "騎兵"
       ],
       "optionLabel": "鋼胆鉄心槍｜UR / 武器 / 騎兵",
-      "sortKey": 100,
+      "sortKey": 101,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22000,7 +22029,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/402281"
     },
     {
-      "id": "equipments:101:銀山雪海鎧",
+      "id": "equipments:102:銀山雪海鎧",
       "category": "equipments",
       "name": "銀山雪海鎧",
       "rawName": "【三國志 覇道】銀山雪海鎧",
@@ -22015,7 +22044,7 @@
         "弓兵"
       ],
       "optionLabel": "銀山雪海鎧｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 101,
+      "sortKey": 102,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22029,7 +22058,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/402282"
     },
     {
-      "id": "equipments:102:雲矩紋玉具宝剣",
+      "id": "equipments:103:雲矩紋玉具宝剣",
       "category": "equipments",
       "name": "雲矩紋玉具宝剣",
       "rawName": "【三國志 覇道】雲矩紋玉具宝剣",
@@ -22042,7 +22071,7 @@
         "歩兵"
       ],
       "optionLabel": "雲矩紋玉具宝剣｜UR / 武器 / 歩兵",
-      "sortKey": 102,
+      "sortKey": 103,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22054,7 +22083,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/397296"
     },
     {
-      "id": "equipments:103:藍田玉軍令牌",
+      "id": "equipments:104:藍田玉軍令牌",
       "category": "equipments",
       "name": "藍田玉軍令牌",
       "rawName": "【三國志 覇道】藍田玉軍令牌",
@@ -22069,7 +22098,7 @@
         "弓兵"
       ],
       "optionLabel": "藍田玉軍令牌｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 103,
+      "sortKey": 104,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22083,7 +22112,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/397295"
     },
     {
-      "id": "equipments:104:狼毛紫纓兜",
+      "id": "equipments:105:狼毛紫纓兜",
       "category": "equipments",
       "name": "狼毛紫纓兜",
       "rawName": "【三國志 覇道】狼毛紫纓兜",
@@ -22098,7 +22127,7 @@
         "弓兵"
       ],
       "optionLabel": "狼毛紫纓兜｜SSR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 104,
+      "sortKey": 105,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -22112,7 +22141,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/396756"
     },
     {
-      "id": "equipments:105:疾風護臂甲",
+      "id": "equipments:106:疾風護臂甲",
       "category": "equipments",
       "name": "疾風護臂甲",
       "rawName": "【三國志 覇道】疾風護臂甲",
@@ -22127,7 +22156,7 @@
         "弓兵"
       ],
       "optionLabel": "疾風護臂甲｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 105,
+      "sortKey": 106,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22141,7 +22170,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/396757"
     },
     {
-      "id": "equipments:106:登極龍紋金觚",
+      "id": "equipments:107:登極龍紋金觚",
       "category": "equipments",
       "name": "登極龍紋金觚",
       "rawName": "【三國志 覇道】登極龍紋金觚",
@@ -22156,7 +22185,7 @@
         "弓兵"
       ],
       "optionLabel": "登極龍紋金觚｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 106,
+      "sortKey": 107,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22170,7 +22199,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/394781"
     },
     {
-      "id": "equipments:107:木牛試作模型",
+      "id": "equipments:108:木牛試作模型",
       "category": "equipments",
       "name": "木牛試作模型",
       "rawName": "【三國志 覇道】木牛試作模型",
@@ -22185,7 +22214,7 @@
         "弓兵"
       ],
       "optionLabel": "木牛試作模型｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 107,
+      "sortKey": 108,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22199,7 +22228,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/394780"
     },
     {
-      "id": "equipments:108:白銀龍胆鎧",
+      "id": "equipments:109:白銀龍胆鎧",
       "category": "equipments",
       "name": "白銀龍胆鎧",
       "rawName": "【三國志 覇道】白銀龍胆鎧",
@@ -22214,7 +22243,7 @@
         "弓兵"
       ],
       "optionLabel": "白銀龍胆鎧｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 108,
+      "sortKey": 109,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22228,7 +22257,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/392438"
     },
     {
-      "id": "equipments:109:錦帆鈴飾",
+      "id": "equipments:110:錦帆鈴飾",
       "category": "equipments",
       "name": "錦帆鈴飾",
       "rawName": "【三國志 覇道】錦帆鈴飾",
@@ -22243,7 +22272,7 @@
         "弓兵"
       ],
       "optionLabel": "錦帆鈴飾｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 109,
+      "sortKey": 110,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22257,7 +22286,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/392439"
     },
     {
-      "id": "equipments:110:明道方略冠",
+      "id": "equipments:111:明道方略冠",
       "category": "equipments",
       "name": "明道方略冠",
       "rawName": "【三國志 覇道】明道方略冠",
@@ -22272,7 +22301,7 @@
         "弓兵"
       ],
       "optionLabel": "明道方略冠｜SSR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 110,
+      "sortKey": 111,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -22286,7 +22315,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/392383"
     },
     {
-      "id": "equipments:111:平蜀地理図",
+      "id": "equipments:112:平蜀地理図",
       "category": "equipments",
       "name": "平蜀地理図",
       "rawName": "【三國志 覇道】平蜀地理図",
@@ -22301,7 +22330,7 @@
         "弓兵"
       ],
       "optionLabel": "平蜀地理図｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 111,
+      "sortKey": 112,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22315,7 +22344,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/390395"
     },
     {
-      "id": "equipments:112:道論",
+      "id": "equipments:113:道論",
       "category": "equipments",
       "name": "道論",
       "rawName": "【三國志 覇道】道論",
@@ -22330,7 +22359,7 @@
         "弓兵"
       ],
       "optionLabel": "道論｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 112,
+      "sortKey": 113,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22344,7 +22373,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/390396"
     },
     {
-      "id": "equipments:113:真鋼鎮定剣",
+      "id": "equipments:114:真鋼鎮定剣",
       "category": "equipments",
       "name": "真鋼鎮定剣",
       "rawName": "【三國志 覇道】真鋼鎮定剣",
@@ -22357,7 +22386,7 @@
         "騎兵"
       ],
       "optionLabel": "真鋼鎮定剣｜UR / 武器 / 騎兵",
-      "sortKey": 113,
+      "sortKey": 114,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22369,7 +22398,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/388070"
     },
     {
-      "id": "equipments:114:召虎鉤鎌刀",
+      "id": "equipments:115:召虎鉤鎌刀",
       "category": "equipments",
       "name": "召虎鉤鎌刀",
       "rawName": "【三國志 覇道】召虎鉤鎌刀",
@@ -22382,7 +22411,7 @@
         "歩兵"
       ],
       "optionLabel": "召虎鉤鎌刀｜UR / 武器 / 歩兵",
-      "sortKey": 114,
+      "sortKey": 115,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22394,7 +22423,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/388071"
     },
     {
-      "id": "equipments:115:西方の鞭",
+      "id": "equipments:116:西方の鞭",
       "category": "equipments",
       "name": "西方の鞭",
       "rawName": "【三國志 覇道】西方の鞭",
@@ -22409,7 +22438,7 @@
         "弓兵"
       ],
       "optionLabel": "西方の鞭｜UR / 武器 / 騎兵 歩兵 弓兵",
-      "sortKey": 115,
+      "sortKey": 116,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22423,7 +22452,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/387162"
     },
     {
-      "id": "equipments:116:西方の盾",
+      "id": "equipments:117:西方の盾",
       "category": "equipments",
       "name": "西方の盾",
       "rawName": "【三國志 覇道】西方の盾",
@@ -22438,7 +22467,7 @@
         "弓兵"
       ],
       "optionLabel": "西方の盾｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 116,
+      "sortKey": 117,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22452,7 +22481,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/387163"
     },
     {
-      "id": "equipments:117:天禄一角兜",
+      "id": "equipments:118:天禄一角兜",
       "category": "equipments",
       "name": "天禄一角兜",
       "rawName": "【三國志 覇道】天禄一角兜",
@@ -22467,7 +22496,7 @@
         "弓兵"
       ],
       "optionLabel": "天禄一角兜｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 117,
+      "sortKey": 118,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22481,7 +22510,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/386391"
     },
     {
-      "id": "equipments:118:天柱鉄大刀",
+      "id": "equipments:119:天柱鉄大刀",
       "category": "equipments",
       "name": "天柱鉄大刀",
       "rawName": "【三國志 覇道】天柱鉄大刀",
@@ -22494,7 +22523,7 @@
         "騎兵"
       ],
       "optionLabel": "天柱鉄大刀｜UR / 武器 / 騎兵",
-      "sortKey": 118,
+      "sortKey": 119,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22506,7 +22535,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/386392"
     },
     {
-      "id": "equipments:119:純和青金石首飾",
+      "id": "equipments:120:純和青金石首飾",
       "category": "equipments",
       "name": "純和青金石首飾",
       "rawName": "【三國志 覇道】純和青金石首飾",
@@ -22521,7 +22550,7 @@
         "弓兵"
       ],
       "optionLabel": "純和青金石首飾｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 119,
+      "sortKey": 120,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22535,7 +22564,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/385627"
     },
     {
-      "id": "equipments:120:瑠璃珠金花冠",
+      "id": "equipments:121:瑠璃珠金花冠",
       "category": "equipments",
       "name": "瑠璃珠金花冠",
       "rawName": "【三國志 覇道】瑠璃珠金花冠",
@@ -22550,7 +22579,7 @@
         "弓兵"
       ],
       "optionLabel": "瑠璃珠金花冠｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 120,
+      "sortKey": 121,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22564,7 +22593,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/384332"
     },
     {
-      "id": "equipments:121:驍悍傲骨鎧",
+      "id": "equipments:122:驍悍傲骨鎧",
       "category": "equipments",
       "name": "驍悍傲骨鎧",
       "rawName": "【三國志 覇道】驍悍傲骨鎧",
@@ -22579,7 +22608,7 @@
         "弓兵"
       ],
       "optionLabel": "驍悍傲骨鎧｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 121,
+      "sortKey": 122,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22593,7 +22622,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/384333"
     },
     {
-      "id": "equipments:122:鷹揚玄冥兜",
+      "id": "equipments:123:鷹揚玄冥兜",
       "category": "equipments",
       "name": "鷹揚玄冥兜",
       "rawName": "【三國志 覇道】鷹揚玄冥兜",
@@ -22608,7 +22637,7 @@
         "弓兵"
       ],
       "optionLabel": "鷹揚玄冥兜｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 122,
+      "sortKey": 123,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22622,7 +22651,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/381755"
     },
     {
-      "id": "equipments:123:青嚢書・名家医書",
+      "id": "equipments:124:青嚢書・名家医書",
       "category": "equipments",
       "name": "青嚢書・名家医書",
       "rawName": "【三國志 覇道】青嚢書・名家医書",
@@ -22637,7 +22666,7 @@
         "弓兵"
       ],
       "optionLabel": "青嚢書・名家医書｜SSR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 123,
+      "sortKey": 124,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -22651,7 +22680,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/381628"
     },
     {
-      "id": "equipments:124:太平賢良黄金冠",
+      "id": "equipments:125:太平賢良黄金冠",
       "category": "equipments",
       "name": "太平賢良黄金冠",
       "rawName": "【三國志 覇道】太平賢良黄金冠",
@@ -22666,7 +22695,7 @@
         "弓兵"
       ],
       "optionLabel": "太平賢良黄金冠｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 124,
+      "sortKey": 125,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22680,7 +22709,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/380542"
     },
     {
-      "id": "equipments:125:黄幡豹尾",
+      "id": "equipments:126:黄幡豹尾",
       "category": "equipments",
       "name": "黄幡豹尾",
       "rawName": "【三國志 覇道】黄幡豹尾",
@@ -22695,7 +22724,7 @@
         "弓兵"
       ],
       "optionLabel": "黄幡豹尾｜SSR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 125,
+      "sortKey": 126,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -22709,7 +22738,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/379087"
     },
     {
-      "id": "equipments:126:玄熊毛銀黄兜",
+      "id": "equipments:127:玄熊毛銀黄兜",
       "category": "equipments",
       "name": "玄熊毛銀黄兜",
       "rawName": "【三國志 覇道】玄熊毛銀黄兜",
@@ -22724,7 +22753,7 @@
         "弓兵"
       ],
       "optionLabel": "玄熊毛銀黄兜｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 126,
+      "sortKey": 127,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22738,7 +22767,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/378225"
     },
     {
-      "id": "equipments:127:金繍緑錦披風",
+      "id": "equipments:128:金繍緑錦披風",
       "category": "equipments",
       "name": "金繍緑錦披風",
       "rawName": "【三國志 覇道】金繍緑錦披風",
@@ -22753,7 +22782,7 @@
         "弓兵"
       ],
       "optionLabel": "金繍緑錦披風｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 127,
+      "sortKey": 128,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22767,7 +22796,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/378226"
     },
     {
-      "id": "equipments:128:神獣面白纓兜",
+      "id": "equipments:129:神獣面白纓兜",
       "category": "equipments",
       "name": "神獣面白纓兜",
       "rawName": "【三國志 覇道】神獣面白纓兜",
@@ -22782,7 +22811,7 @@
         "弓兵"
       ],
       "optionLabel": "神獣面白纓兜｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 128,
+      "sortKey": 129,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22796,7 +22825,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/372045"
     },
     {
-      "id": "equipments:129:白狐毛皮披風",
+      "id": "equipments:130:白狐毛皮披風",
       "category": "equipments",
       "name": "白狐毛皮披風",
       "rawName": "【三國志 覇道】白狐毛皮披風",
@@ -22811,7 +22840,7 @@
         "弓兵"
       ],
       "optionLabel": "白狐毛皮披風｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 129,
+      "sortKey": 130,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22825,7 +22854,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/372046"
     },
     {
-      "id": "equipments:130:大喬琵琶",
+      "id": "equipments:131:大喬琵琶",
       "category": "equipments",
       "name": "大喬琵琶",
       "rawName": "【三國志 覇道】大喬琵琶",
@@ -22840,7 +22869,7 @@
         "弓兵"
       ],
       "optionLabel": "大喬琵琶｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 130,
+      "sortKey": 131,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22854,7 +22883,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/370324"
     },
     {
-      "id": "equipments:131:与韓将軍書",
+      "id": "equipments:132:与韓将軍書",
       "category": "equipments",
       "name": "与韓将軍書",
       "rawName": "【三國志 覇道】与韓将軍書",
@@ -22869,7 +22898,7 @@
         "弓兵"
       ],
       "optionLabel": "与韓将軍書｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 131,
+      "sortKey": 132,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22883,7 +22912,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/370325"
     },
     {
-      "id": "equipments:132:南瓜の灯燈",
+      "id": "equipments:133:南瓜の灯燈",
       "category": "equipments",
       "name": "南瓜の灯燈",
       "rawName": "【三國志 覇道】南瓜の灯燈",
@@ -22898,7 +22927,7 @@
         "弓兵"
       ],
       "optionLabel": "南瓜の灯燈｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 132,
+      "sortKey": 133,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22912,7 +22941,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/370111"
     },
     {
-      "id": "equipments:133:蝙蝠披風",
+      "id": "equipments:134:蝙蝠披風",
       "category": "equipments",
       "name": "蝙蝠披風",
       "rawName": "【三國志 覇道】蝙蝠披風",
@@ -22927,7 +22956,7 @@
         "弓兵"
       ],
       "optionLabel": "蝙蝠披風｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 133,
+      "sortKey": 134,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22941,7 +22970,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/369589"
     },
     {
-      "id": "equipments:134:西方の杖",
+      "id": "equipments:135:西方の杖",
       "category": "equipments",
       "name": "西方の杖",
       "rawName": "【三國志 覇道】西方の杖",
@@ -22956,7 +22985,7 @@
         "弓兵"
       ],
       "optionLabel": "西方の杖｜UR / 武器 / 騎兵 歩兵 弓兵",
-      "sortKey": 134,
+      "sortKey": 135,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22970,7 +22999,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/369590"
     },
     {
-      "id": "equipments:135:双鉄戟",
+      "id": "equipments:136:双鉄戟",
       "category": "equipments",
       "name": "双鉄戟",
       "rawName": "【三國志 覇道】双鉄戟",
@@ -22983,7 +23012,7 @@
         "歩兵"
       ],
       "optionLabel": "双鉄戟｜UR / 武器 / 歩兵",
-      "sortKey": 135,
+      "sortKey": 136,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -22995,7 +23024,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/366805"
     },
     {
-      "id": "equipments:136:朱襟白絹半臂",
+      "id": "equipments:137:朱襟白絹半臂",
       "category": "equipments",
       "name": "朱襟白絹半臂",
       "rawName": "【三國志 覇道】朱襟白絹半臂",
@@ -23010,7 +23039,7 @@
         "弓兵"
       ],
       "optionLabel": "朱襟白絹半臂｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 136,
+      "sortKey": 137,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23024,7 +23053,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/366806"
     },
     {
-      "id": "equipments:137:孔明の木像",
+      "id": "equipments:138:孔明の木像",
       "category": "equipments",
       "name": "孔明の木像",
       "rawName": "【三國志 覇道】孔明の木像",
@@ -23039,7 +23068,7 @@
         "弓兵"
       ],
       "optionLabel": "孔明の木像｜SSR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 137,
+      "sortKey": 138,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -23053,7 +23082,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/363472"
     },
     {
-      "id": "equipments:138:紅玉珍珠金耳墜",
+      "id": "equipments:139:紅玉珍珠金耳墜",
       "category": "equipments",
       "name": "紅玉珍珠金耳墜",
       "rawName": "【三國志 覇道】紅玉珍珠金耳墜",
@@ -23068,7 +23097,7 @@
         "弓兵"
       ],
       "optionLabel": "紅玉珍珠金耳墜｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 138,
+      "sortKey": 139,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23082,7 +23111,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/361962"
     },
     {
-      "id": "equipments:139:剛断戦斧",
+      "id": "equipments:140:剛断戦斧",
       "category": "equipments",
       "name": "剛断戦斧",
       "rawName": "【三國志 覇道】剛断戦斧",
@@ -23095,7 +23124,7 @@
         "歩兵"
       ],
       "optionLabel": "剛断戦斧｜UR / 武器 / 歩兵",
-      "sortKey": 139,
+      "sortKey": 140,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23107,7 +23136,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/361963"
     },
     {
-      "id": "equipments:140:孟徳新書",
+      "id": "equipments:141:孟徳新書",
       "category": "equipments",
       "name": "孟徳新書",
       "rawName": "【三國志 覇道】孟徳新書",
@@ -23122,7 +23151,7 @@
         "弓兵"
       ],
       "optionLabel": "孟徳新書｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 140,
+      "sortKey": 141,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23136,7 +23165,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/361680"
     },
     {
-      "id": "equipments:141:烈志蒼驥鎧",
+      "id": "equipments:142:烈志蒼驥鎧",
       "category": "equipments",
       "name": "烈志蒼驥鎧",
       "rawName": "【三國志 覇道】烈志蒼驥鎧",
@@ -23151,7 +23180,7 @@
         "弓兵"
       ],
       "optionLabel": "烈志蒼驥鎧｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 141,
+      "sortKey": 142,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23165,7 +23194,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/361681"
     },
     {
-      "id": "equipments:142:倚天の剣",
+      "id": "equipments:143:倚天の剣",
       "category": "equipments",
       "name": "倚天の剣",
       "rawName": "【三國志 覇道】倚天の剣",
@@ -23178,7 +23207,7 @@
         "騎兵"
       ],
       "optionLabel": "倚天の剣｜UR / 武器 / 騎兵",
-      "sortKey": 142,
+      "sortKey": 143,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23190,7 +23219,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/361682"
     },
     {
-      "id": "equipments:143:羅綺香嚢",
+      "id": "equipments:144:羅綺香嚢",
       "category": "equipments",
       "name": "羅綺香嚢",
       "rawName": "【三國志 覇道】羅綺香嚢",
@@ -23205,7 +23234,7 @@
         "弓兵"
       ],
       "optionLabel": "羅綺香嚢｜SSR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 143,
+      "sortKey": 144,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -23219,7 +23248,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/359566"
     },
     {
-      "id": "equipments:144:荀氏春秋要論",
+      "id": "equipments:145:荀氏春秋要論",
       "category": "equipments",
       "name": "荀氏春秋要論",
       "rawName": "【三國志 覇道】荀氏春秋要論",
@@ -23234,7 +23263,7 @@
         "弓兵"
       ],
       "optionLabel": "荀氏春秋要論｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 144,
+      "sortKey": 145,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23248,7 +23277,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/354254"
     },
     {
-      "id": "equipments:145:克敵機謀剣",
+      "id": "equipments:146:克敵機謀剣",
       "category": "equipments",
       "name": "克敵機謀剣",
       "rawName": "【三國志 覇道】克敵機謀剣",
@@ -23261,7 +23290,7 @@
         "騎兵"
       ],
       "optionLabel": "克敵機謀剣｜UR / 武器 / 騎兵",
-      "sortKey": 145,
+      "sortKey": 146,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23273,7 +23302,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/354255"
     },
     {
-      "id": "equipments:146:千創玄英鎧",
+      "id": "equipments:147:千創玄英鎧",
       "category": "equipments",
       "name": "千創玄英鎧",
       "rawName": "【三國志 覇道】千創玄英鎧",
@@ -23288,7 +23317,7 @@
         "弓兵"
       ],
       "optionLabel": "千創玄英鎧｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 146,
+      "sortKey": 147,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23302,7 +23331,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/351113"
     },
     {
-      "id": "equipments:147:克己猟龍兜",
+      "id": "equipments:148:克己猟龍兜",
       "category": "equipments",
       "name": "克己猟龍兜",
       "rawName": "【三國志 覇道】克己猟龍兜",
@@ -23317,7 +23346,7 @@
         "弓兵"
       ],
       "optionLabel": "克己猟龍兜｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 147,
+      "sortKey": 148,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23331,7 +23360,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/351114"
     },
     {
-      "id": "equipments:148:太平九節杖",
+      "id": "equipments:149:太平九節杖",
       "category": "equipments",
       "name": "太平九節杖",
       "rawName": "【三國志 覇道】太平九節杖",
@@ -23344,7 +23373,7 @@
         "歩兵"
       ],
       "optionLabel": "太平九節杖｜UR / 武器 / 歩兵",
-      "sortKey": 148,
+      "sortKey": 149,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23356,7 +23385,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/347554"
     },
     {
-      "id": "equipments:149:青嚢書・名家医書",
+      "id": "equipments:150:青嚢書・名家医書",
       "category": "equipments",
       "name": "青嚢書・名家医書",
       "rawName": "【三國志 覇道】青嚢書・名家医書",
@@ -23371,7 +23400,7 @@
         "弓兵"
       ],
       "optionLabel": "青嚢書・名家医書｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 149,
+      "sortKey": 150,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23385,7 +23414,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/346228"
     },
     {
-      "id": "equipments:150:金系帯紫錦披風",
+      "id": "equipments:151:金系帯紫錦披風",
       "category": "equipments",
       "name": "金系帯紫錦披風",
       "rawName": "【三國志 覇道】金系帯紫錦披風",
@@ -23400,7 +23429,7 @@
         "弓兵"
       ],
       "optionLabel": "金系帯紫錦披風｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 150,
+      "sortKey": 151,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23414,7 +23443,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/346229"
     },
     {
-      "id": "equipments:151:玲瓏獅蛮帯",
+      "id": "equipments:152:玲瓏獅蛮帯",
       "category": "equipments",
       "name": "玲瓏獅蛮帯",
       "rawName": "【三國志 覇道】玲瓏獅蛮帯",
@@ -23429,7 +23458,7 @@
         "弓兵"
       ],
       "optionLabel": "玲瓏獅蛮帯｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 151,
+      "sortKey": 152,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23443,7 +23472,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/346230"
     },
     {
-      "id": "equipments:152:金繍紅錦半臂",
+      "id": "equipments:153:金繍紅錦半臂",
       "category": "equipments",
       "name": "金繍紅錦半臂",
       "rawName": "【三國志 覇道】金繍紅錦半臂",
@@ -23458,7 +23487,7 @@
         "弓兵"
       ],
       "optionLabel": "金繍紅錦半臂｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 152,
+      "sortKey": 153,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23472,7 +23501,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/343324"
     },
     {
-      "id": "equipments:153:克定鋭刀",
+      "id": "equipments:154:克定鋭刀",
       "category": "equipments",
       "name": "克定鋭刀",
       "rawName": "【三國志 覇道】克定鋭刀",
@@ -23485,7 +23514,7 @@
         "歩兵"
       ],
       "optionLabel": "克定鋭刀｜UR / 武器 / 歩兵",
-      "sortKey": 153,
+      "sortKey": 154,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23497,7 +23526,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/343325"
     },
     {
-      "id": "equipments:154:古錠刀",
+      "id": "equipments:155:古錠刀",
       "category": "equipments",
       "name": "古錠刀",
       "rawName": "【三國志 覇道】古錠刀",
@@ -23512,7 +23541,7 @@
         "弓兵"
       ],
       "optionLabel": "古錠刀｜UR / 武器 / 騎兵 歩兵 弓兵",
-      "sortKey": 154,
+      "sortKey": 155,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23526,7 +23555,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/331326"
     },
     {
-      "id": "equipments:155:孤月独明剣",
+      "id": "equipments:156:孤月独明剣",
       "category": "equipments",
       "name": "孤月独明剣",
       "rawName": "【三國志 覇道】孤月独明剣",
@@ -23539,7 +23568,7 @@
         "歩兵"
       ],
       "optionLabel": "孤月独明剣｜UR / 武器 / 歩兵",
-      "sortKey": 155,
+      "sortKey": 156,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23551,7 +23580,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/327124"
     },
     {
-      "id": "equipments:156:獅子頭の兜",
+      "id": "equipments:157:獅子頭の兜",
       "category": "equipments",
       "name": "獅子頭の兜",
       "rawName": "【三國志 覇道】獅子頭の兜",
@@ -23566,7 +23595,7 @@
         "弓兵"
       ],
       "optionLabel": "獅子頭の兜｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 156,
+      "sortKey": 157,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23580,7 +23609,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/327125"
     },
     {
-      "id": "equipments:157:商君書",
+      "id": "equipments:158:商君書",
       "category": "equipments",
       "name": "商君書",
       "rawName": "【三國志 覇道】商君書",
@@ -23595,7 +23624,7 @@
         "弓兵"
       ],
       "optionLabel": "商君書｜SSR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 157,
+      "sortKey": 158,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -23609,7 +23638,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/324401"
     },
     {
-      "id": "equipments:158:才捷弓",
+      "id": "equipments:159:才捷弓",
       "category": "equipments",
       "name": "才捷弓",
       "rawName": "【三國志 覇道】才捷弓",
@@ -23624,7 +23653,7 @@
         "歩兵"
       ],
       "optionLabel": "才捷弓｜UR / 武器 / 弓兵 騎兵 歩兵",
-      "sortKey": 158,
+      "sortKey": 159,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23638,7 +23667,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/324402"
     },
     {
-      "id": "equipments:159:二石之弓",
+      "id": "equipments:160:二石之弓",
       "category": "equipments",
       "name": "二石之弓",
       "rawName": "【三國志 覇道】二石之弓",
@@ -23651,7 +23680,7 @@
         "弓兵"
       ],
       "optionLabel": "二石之弓｜UR / 武器 / 弓兵",
-      "sortKey": 159,
+      "sortKey": 160,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23663,7 +23692,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/323140"
     },
     {
-      "id": "equipments:160:立義鋼刀",
+      "id": "equipments:161:立義鋼刀",
       "category": "equipments",
       "name": "立義鋼刀",
       "rawName": "【三國志 覇道】立義鋼刀",
@@ -23676,7 +23705,7 @@
         "騎兵"
       ],
       "optionLabel": "立義鋼刀｜UR / 武器 / 騎兵",
-      "sortKey": 160,
+      "sortKey": 161,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23688,7 +23717,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/323141"
     },
     {
-      "id": "equipments:161:玉帯",
+      "id": "equipments:162:玉帯",
       "category": "equipments",
       "name": "玉帯",
       "rawName": "【三國志 覇道】玉帯",
@@ -23703,7 +23732,7 @@
         "弓兵"
       ],
       "optionLabel": "玉帯｜SR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 161,
+      "sortKey": 162,
       "tagSummary": [
         "レアリティ:SR",
         "最高レア:SR",
@@ -23717,7 +23746,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/321658"
     },
     {
-      "id": "equipments:162:冕冠",
+      "id": "equipments:163:冕冠",
       "category": "equipments",
       "name": "冕冠",
       "rawName": "【三國志 覇道】冕冠",
@@ -23732,7 +23761,7 @@
         "弓兵"
       ],
       "optionLabel": "冕冠｜SSR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 162,
+      "sortKey": 163,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -23746,7 +23775,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/321659"
     },
     {
-      "id": "equipments:163:軍師錦羅袍",
+      "id": "equipments:164:軍師錦羅袍",
       "category": "equipments",
       "name": "軍師錦羅袍",
       "rawName": "【三國志 覇道】軍師錦羅袍",
@@ -23761,7 +23790,7 @@
         "弓兵"
       ],
       "optionLabel": "軍師錦羅袍｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 163,
+      "sortKey": 164,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23775,7 +23804,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/318381"
     },
     {
-      "id": "equipments:164:疾風剛弓",
+      "id": "equipments:165:疾風剛弓",
       "category": "equipments",
       "name": "疾風剛弓",
       "rawName": "【三國志 覇道】疾風剛弓",
@@ -23788,7 +23817,7 @@
         "弓兵"
       ],
       "optionLabel": "疾風剛弓｜UR / 武器 / 弓兵",
-      "sortKey": 164,
+      "sortKey": 165,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23800,7 +23829,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/318382"
     },
     {
-      "id": "equipments:165:龍紋緑袍鎧",
+      "id": "equipments:166:龍紋緑袍鎧",
       "category": "equipments",
       "name": "龍紋緑袍鎧",
       "rawName": "【三國志 覇道】龍紋緑袍鎧",
@@ -23815,7 +23844,7 @@
         "弓兵"
       ],
       "optionLabel": "龍紋緑袍鎧｜SSR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 165,
+      "sortKey": 166,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -23829,7 +23858,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/314939"
     },
     {
-      "id": "equipments:166:翡翠玉笛",
+      "id": "equipments:167:翡翠玉笛",
       "category": "equipments",
       "name": "翡翠玉笛",
       "rawName": "【三國志 覇道】翡翠玉笛",
@@ -23844,7 +23873,7 @@
         "弓兵"
       ],
       "optionLabel": "翡翠玉笛｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 166,
+      "sortKey": 167,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23858,7 +23887,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/314940"
     },
     {
-      "id": "equipments:167:黄武勢剣",
+      "id": "equipments:168:黄武勢剣",
       "category": "equipments",
       "name": "黄武勢剣",
       "rawName": "【三國志 覇道】黄武勢剣",
@@ -23871,7 +23900,7 @@
         "弓兵"
       ],
       "optionLabel": "黄武勢剣｜UR / 武器 / 弓兵",
-      "sortKey": 167,
+      "sortKey": 168,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23883,7 +23912,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/314941"
     },
     {
-      "id": "equipments:168:武弁大冠",
+      "id": "equipments:169:武弁大冠",
       "category": "equipments",
       "name": "武弁大冠",
       "rawName": "【三國志 覇道】武弁大冠",
@@ -23898,7 +23927,7 @@
         "弓兵"
       ],
       "optionLabel": "武弁大冠｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 168,
+      "sortKey": 169,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23912,7 +23941,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/311618"
     },
     {
-      "id": "equipments:169:太師黄金爵",
+      "id": "equipments:170:太師黄金爵",
       "category": "equipments",
       "name": "太師黄金爵",
       "rawName": "【三國志 覇道】太師黄金爵",
@@ -23927,7 +23956,7 @@
         "弓兵"
       ],
       "optionLabel": "太師黄金爵｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 169,
+      "sortKey": 170,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23941,7 +23970,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/311619"
     },
     {
-      "id": "equipments:170:紫藤紗錦披帛",
+      "id": "equipments:171:紫藤紗錦披帛",
       "category": "equipments",
       "name": "紫藤紗錦披帛",
       "rawName": "【三國志 覇道】紫藤紗錦披帛",
@@ -23956,7 +23985,7 @@
         "弓兵"
       ],
       "optionLabel": "紫藤紗錦披帛｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 170,
+      "sortKey": 171,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23970,7 +23999,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/305425"
     },
     {
-      "id": "equipments:171:黒紗金飾冠",
+      "id": "equipments:172:黒紗金飾冠",
       "category": "equipments",
       "name": "黒紗金飾冠",
       "rawName": "【三國志 覇道】黒紗金飾冠",
@@ -23985,7 +24014,7 @@
         "弓兵"
       ],
       "optionLabel": "黒紗金飾冠｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 171,
+      "sortKey": 172,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -23999,7 +24028,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/305426"
     },
     {
-      "id": "equipments:172:だんだら羽織",
+      "id": "equipments:173:だんだら羽織",
       "category": "equipments",
       "name": "だんだら羽織",
       "rawName": "【三國志 覇道】だんだら羽織",
@@ -24014,7 +24043,7 @@
         "弓兵"
       ],
       "optionLabel": "だんだら羽織｜SSR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 172,
+      "sortKey": 173,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -24028,7 +24057,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/298329"
     },
     {
-      "id": "equipments:173:和泉守兼定",
+      "id": "equipments:174:和泉守兼定",
       "category": "equipments",
       "name": "和泉守兼定",
       "rawName": "【三國志 覇道】和泉守兼定",
@@ -24043,7 +24072,7 @@
         "弓兵"
       ],
       "optionLabel": "和泉守兼定｜SSR / 武器 / 騎兵 歩兵 弓兵",
-      "sortKey": 173,
+      "sortKey": 174,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -24057,7 +24086,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/298312"
     },
     {
-      "id": "equipments:174:三叉束髪紫金冠",
+      "id": "equipments:175:三叉束髪紫金冠",
       "category": "equipments",
       "name": "三叉束髪紫金冠",
       "rawName": "【三國志 覇道】三叉束髪紫金冠",
@@ -24072,7 +24101,7 @@
         "弓兵"
       ],
       "optionLabel": "三叉束髪紫金冠｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 174,
+      "sortKey": 175,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24086,23 +24115,23 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/297529"
     },
     {
-      "id": "equipments:175:白羽扇",
+      "id": "equipments:176:白羽扇",
       "category": "equipments",
       "name": "白羽扇",
       "rawName": "【三國志 覇道】白羽扇",
       "title": "【三國志 覇道】白羽扇の能力と技能",
       "displayName": "白羽扇",
-      "subtitle": "SSR / 武器 / 歩兵",
+      "subtitle": "UR / 武器 / 歩兵",
       "badges": [
-        "SSR",
+        "UR",
         "武器",
         "歩兵"
       ],
-      "optionLabel": "白羽扇｜SSR / 武器 / 歩兵",
-      "sortKey": 175,
+      "optionLabel": "白羽扇｜UR / 武器 / 歩兵",
+      "sortKey": 176,
       "tagSummary": [
-        "レアリティ:SSR",
-        "最高レア:SSR",
+        "レアリティ:UR",
+        "最高レア:UR",
         "種類:武器",
         "兵科:歩兵"
       ],
@@ -24111,7 +24140,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/297530"
     },
     {
-      "id": "equipments:176:羌毛領披風・黒革披風",
+      "id": "equipments:177:羌毛領披風・黒革披風",
       "category": "equipments",
       "name": "羌毛領披風・黒革披風",
       "rawName": "【三國志 覇道】羌毛領披風・黒革披風",
@@ -24126,7 +24155,7 @@
         "弓兵"
       ],
       "optionLabel": "羌毛領披風・黒革披風｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 176,
+      "sortKey": 177,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24140,7 +24169,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/294134"
     },
     {
-      "id": "equipments:177:烏桓貂毛兜・黒羊兜",
+      "id": "equipments:178:烏桓貂毛兜・黒羊兜",
       "category": "equipments",
       "name": "烏桓貂毛兜・黒羊兜",
       "rawName": "【三國志 覇道】烏桓貂毛兜・黒羊兜",
@@ -24155,7 +24184,7 @@
         "弓兵"
       ],
       "optionLabel": "烏桓貂毛兜・黒羊兜｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 177,
+      "sortKey": 178,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24169,7 +24198,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/294135"
     },
     {
-      "id": "equipments:178:南蛮獣牙首飾・洞主首飾",
+      "id": "equipments:179:南蛮獣牙首飾・洞主首飾",
       "category": "equipments",
       "name": "南蛮獣牙首飾・洞主首飾",
       "rawName": "【三國志 覇道】南蛮獣牙首飾・洞主首飾",
@@ -24184,7 +24213,7 @@
         "弓兵"
       ],
       "optionLabel": "南蛮獣牙首飾・洞主首飾｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 178,
+      "sortKey": 179,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24198,7 +24227,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/294136"
     },
     {
-      "id": "equipments:179:麟角槍",
+      "id": "equipments:180:麟角槍",
       "category": "equipments",
       "name": "麟角槍",
       "rawName": "【三國志 覇道】麟角槍",
@@ -24211,7 +24240,7 @@
         "歩兵"
       ],
       "optionLabel": "麟角槍｜UR / 武器 / 歩兵",
-      "sortKey": 179,
+      "sortKey": 180,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24223,7 +24252,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/293694"
     },
     {
-      "id": "equipments:180:射透弓",
+      "id": "equipments:181:射透弓",
       "category": "equipments",
       "name": "射透弓",
       "rawName": "【三國志 覇道】射透弓",
@@ -24236,7 +24265,7 @@
         "弓兵"
       ],
       "optionLabel": "射透弓｜UR / 武器 / 弓兵",
-      "sortKey": 180,
+      "sortKey": 181,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24248,7 +24277,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/293695"
     },
     {
-      "id": "equipments:181:狐白裘・狐裘",
+      "id": "equipments:182:狐白裘・狐裘",
       "category": "equipments",
       "name": "狐白裘・狐裘",
       "rawName": "【三國志 覇道】狐白裘・狐裘",
@@ -24263,7 +24292,7 @@
         "弓兵"
       ],
       "optionLabel": "狐白裘・狐裘｜SSR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 181,
+      "sortKey": 182,
       "tagSummary": [
         "レアリティ:SSR",
         "最高レア:SSR",
@@ -24277,7 +24306,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/293023"
     },
     {
-      "id": "equipments:182:太平要術の書・経国要術",
+      "id": "equipments:183:太平要術の書・経国要術",
       "category": "equipments",
       "name": "太平要術の書・経国要術",
       "rawName": "【三國志 覇道】太平要術の書・経国要術",
@@ -24292,7 +24321,7 @@
         "弓兵"
       ],
       "optionLabel": "太平要術の書・経国要術｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 182,
+      "sortKey": 183,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24306,7 +24335,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/292111"
     },
     {
-      "id": "equipments:183:虎皮披風",
+      "id": "equipments:184:虎皮披風",
       "category": "equipments",
       "name": "虎皮披風",
       "rawName": "【三國志 覇道】虎皮披風",
@@ -24321,7 +24350,7 @@
         "弓兵"
       ],
       "optionLabel": "虎皮披風｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 183,
+      "sortKey": 184,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24335,7 +24364,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/291171"
     },
     {
-      "id": "equipments:184:青釭の剣",
+      "id": "equipments:185:青釭の剣",
       "category": "equipments",
       "name": "青釭の剣",
       "rawName": "【三國志 覇道】青釭の剣",
@@ -24348,7 +24377,7 @@
         "騎兵"
       ],
       "optionLabel": "青釭の剣｜UR / 武器 / 騎兵",
-      "sortKey": 184,
+      "sortKey": 185,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24360,7 +24389,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/291172"
     },
     {
-      "id": "equipments:185:山越鋸歯刀・山越刀",
+      "id": "equipments:186:山越鋸歯刀・山越刀",
       "category": "equipments",
       "name": "山越鋸歯刀・山越刀",
       "rawName": "【三國志 覇道】山越鋸歯刀・山越刀",
@@ -24373,7 +24402,7 @@
         "歩兵"
       ],
       "optionLabel": "山越鋸歯刀・山越刀｜UR / 武器 / 歩兵",
-      "sortKey": 185,
+      "sortKey": 186,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24385,7 +24414,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/288526"
     },
     {
-      "id": "equipments:186:五渓狼牙棒・狼牙棒",
+      "id": "equipments:187:五渓狼牙棒・狼牙棒",
       "category": "equipments",
       "name": "五渓狼牙棒・狼牙棒",
       "rawName": "【三國志 覇道】五渓狼牙棒・狼牙棒",
@@ -24398,7 +24427,7 @@
         "歩兵"
       ],
       "optionLabel": "五渓狼牙棒・狼牙棒｜UR / 武器 / 歩兵",
-      "sortKey": 186,
+      "sortKey": 187,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24410,7 +24439,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/288527"
     },
     {
-      "id": "equipments:187:鮮卑角端弓・角弓",
+      "id": "equipments:188:鮮卑角端弓・角弓",
       "category": "equipments",
       "name": "鮮卑角端弓・角弓",
       "rawName": "【三國志 覇道】鮮卑角端弓・角弓",
@@ -24423,7 +24452,7 @@
         "騎兵"
       ],
       "optionLabel": "鮮卑角端弓・角弓｜UR / 武器 / 騎兵",
-      "sortKey": 187,
+      "sortKey": 188,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24435,7 +24464,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/288528"
     },
     {
-      "id": "equipments:188:虎臣瓢箪",
+      "id": "equipments:189:虎臣瓢箪",
       "category": "equipments",
       "name": "虎臣瓢箪",
       "rawName": "【三國志 覇道】虎臣瓢箪",
@@ -24450,7 +24479,7 @@
         "弓兵"
       ],
       "optionLabel": "虎臣瓢箪｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 188,
+      "sortKey": 189,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24464,7 +24493,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/287104"
     },
     {
-      "id": "equipments:189:太尉冠",
+      "id": "equipments:190:太尉冠",
       "category": "equipments",
       "name": "太尉冠",
       "rawName": "【三國志 覇道】太尉冠",
@@ -24479,7 +24508,7 @@
         "弓兵"
       ],
       "optionLabel": "太尉冠｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 189,
+      "sortKey": 190,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24493,7 +24522,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/287105"
     },
     {
-      "id": "equipments:190:周郎琵琶",
+      "id": "equipments:191:周郎琵琶",
       "category": "equipments",
       "name": "周郎琵琶",
       "rawName": "【三國志 覇道】周郎琵琶",
@@ -24508,7 +24537,7 @@
         "弓兵"
       ],
       "optionLabel": "周郎琵琶｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 190,
+      "sortKey": 191,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24522,7 +24551,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/283369"
     },
     {
-      "id": "equipments:191:鳴鈴双短戟",
+      "id": "equipments:192:鳴鈴双短戟",
       "category": "equipments",
       "name": "鳴鈴双短戟",
       "rawName": "【三國志 覇道】鳴鈴双短戟",
@@ -24535,7 +24564,7 @@
         "弓兵"
       ],
       "optionLabel": "鳴鈴双短戟｜UR / 武器 / 弓兵",
-      "sortKey": 191,
+      "sortKey": 192,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24547,7 +24576,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/283370"
     },
     {
-      "id": "equipments:192:郭子兵略",
+      "id": "equipments:193:郭子兵略",
       "category": "equipments",
       "name": "郭子兵略",
       "rawName": "【三國志 覇道】郭子兵略",
@@ -24562,7 +24591,7 @@
         "弓兵"
       ],
       "optionLabel": "郭子兵略｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 192,
+      "sortKey": 193,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24576,7 +24605,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/279217"
     },
     {
-      "id": "equipments:193:召虎兜",
+      "id": "equipments:194:召虎兜",
       "category": "equipments",
       "name": "召虎兜",
       "rawName": "【三國志 覇道】召虎兜",
@@ -24591,7 +24620,7 @@
         "弓兵"
       ],
       "optionLabel": "召虎兜｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 193,
+      "sortKey": 194,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24605,7 +24634,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/279218"
     },
     {
-      "id": "equipments:194:雌雄一対の剣",
+      "id": "equipments:195:雌雄一対の剣",
       "category": "equipments",
       "name": "雌雄一対の剣",
       "rawName": "【三國志 覇道】雌雄一対の剣",
@@ -24618,7 +24647,7 @@
         "歩兵"
       ],
       "optionLabel": "雌雄一対の剣｜UR / 武器 / 歩兵",
-      "sortKey": 194,
+      "sortKey": 195,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24630,7 +24659,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/269129"
     },
     {
-      "id": "equipments:195:方天画戟",
+      "id": "equipments:196:方天画戟",
       "category": "equipments",
       "name": "方天画戟",
       "rawName": "【三國志 覇道】方天画戟",
@@ -24643,7 +24672,7 @@
         "騎兵"
       ],
       "optionLabel": "方天画戟｜UR / 武器 / 騎兵",
-      "sortKey": 195,
+      "sortKey": 196,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24655,7 +24684,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/263286"
     },
     {
-      "id": "equipments:196:孫子の兵法書",
+      "id": "equipments:197:孫子の兵法書",
       "category": "equipments",
       "name": "孫子の兵法書",
       "rawName": "【三國志 覇道】孫子の兵法書",
@@ -24670,7 +24699,7 @@
         "弓兵"
       ],
       "optionLabel": "孫子の兵法書｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 196,
+      "sortKey": 197,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24684,7 +24713,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/257642"
     },
     {
-      "id": "equipments:197:七星宝刀",
+      "id": "equipments:198:七星宝刀",
       "category": "equipments",
       "name": "七星宝刀",
       "rawName": "【三國志 覇道】七星宝刀",
@@ -24699,7 +24728,7 @@
         "弓兵"
       ],
       "optionLabel": "七星宝刀｜UR / 武器 / 騎兵 歩兵 弓兵",
-      "sortKey": 197,
+      "sortKey": 198,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24713,7 +24742,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/253536"
     },
     {
-      "id": "equipments:198:元戎弩",
+      "id": "equipments:199:元戎弩",
       "category": "equipments",
       "name": "元戎弩",
       "rawName": "【三國志 覇道】元戎弩",
@@ -24726,7 +24755,7 @@
         "弓兵"
       ],
       "optionLabel": "元戎弩｜UR / 武器 / 弓兵",
-      "sortKey": 198,
+      "sortKey": 199,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24738,7 +24767,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/252065"
     },
     {
-      "id": "equipments:199:青龍偃月刀",
+      "id": "equipments:200:青龍偃月刀",
       "category": "equipments",
       "name": "青龍偃月刀",
       "rawName": "【三國志 覇道】青龍偃月刀",
@@ -24751,7 +24780,7 @@
         "騎兵"
       ],
       "optionLabel": "青龍偃月刀｜UR / 武器 / 騎兵",
-      "sortKey": 199,
+      "sortKey": 200,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24763,7 +24792,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/249464"
     },
     {
-      "id": "equipments:200:蛇矛",
+      "id": "equipments:201:蛇矛",
       "category": "equipments",
       "name": "蛇矛",
       "rawName": "【三國志 覇道】蛇矛",
@@ -24776,7 +24805,7 @@
         "歩兵"
       ],
       "optionLabel": "蛇矛｜UR / 武器 / 歩兵",
-      "sortKey": 200,
+      "sortKey": 201,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24788,7 +24817,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/249465"
     },
     {
-      "id": "equipments:201:呂氏鏡・羽人獣文鏡",
+      "id": "equipments:202:呂氏鏡・羽人獣文鏡",
       "category": "equipments",
       "name": "呂氏鏡・羽人獣文鏡",
       "rawName": "【三國志 覇道】呂氏鏡・羽人獣文鏡",
@@ -24803,7 +24832,7 @@
         "弓兵"
       ],
       "optionLabel": "呂氏鏡・羽人獣文鏡｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 201,
+      "sortKey": 202,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24817,7 +24846,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248320"
     },
     {
-      "id": "equipments:202:戦国策・名家史書",
+      "id": "equipments:203:戦国策・名家史書",
       "category": "equipments",
       "name": "戦国策・名家史書",
       "rawName": "【三國志 覇道】戦国策・名家史書",
@@ -24832,7 +24861,7 @@
         "弓兵"
       ],
       "optionLabel": "戦国策・名家史書｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 202,
+      "sortKey": 203,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24846,7 +24875,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248322"
     },
     {
-      "id": "equipments:203:易経・名家経書",
+      "id": "equipments:204:易経・名家経書",
       "category": "equipments",
       "name": "易経・名家経書",
       "rawName": "【三國志 覇道】易経・名家経書",
@@ -24861,7 +24890,7 @@
         "弓兵"
       ],
       "optionLabel": "易経・名家経書｜UR / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 203,
+      "sortKey": 204,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -24875,7 +24904,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248323"
     },
     {
-      "id": "equipments:204:桐琴",
+      "id": "equipments:205:桐琴",
       "category": "equipments",
       "name": "桐琴",
       "rawName": "【三國志 覇道】桐琴",
@@ -24891,7 +24920,7 @@
         "弓兵"
       ],
       "optionLabel": "桐琴｜SR+ / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 204,
+      "sortKey": 205,
       "tagSummary": [
         "レアリティ:SR",
         "最高レア:SR+",
@@ -24905,7 +24934,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248324"
     },
     {
-      "id": "equipments:205:史学伝書",
+      "id": "equipments:206:史学伝書",
       "category": "equipments",
       "name": "史学伝書",
       "rawName": "【三國志 覇道】史学伝書",
@@ -24921,7 +24950,7 @@
         "弓兵"
       ],
       "optionLabel": "史学伝書｜SR+ / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 205,
+      "sortKey": 206,
       "tagSummary": [
         "レアリティ:SR",
         "最高レア:SR+",
@@ -24935,7 +24964,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248326"
     },
     {
-      "id": "equipments:206:瑪瑙",
+      "id": "equipments:207:瑪瑙",
       "category": "equipments",
       "name": "瑪瑙",
       "rawName": "【三國志 覇道】瑪瑙",
@@ -24951,7 +24980,7 @@
         "弓兵"
       ],
       "optionLabel": "瑪瑙｜SR+ / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 206,
+      "sortKey": 207,
       "tagSummary": [
         "レアリティ:SR",
         "最高レア:SR+",
@@ -24965,7 +24994,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248328"
     },
     {
-      "id": "equipments:207:銅鏡",
+      "id": "equipments:208:銅鏡",
       "category": "equipments",
       "name": "銅鏡",
       "rawName": "【三國志 覇道】銅鏡",
@@ -24981,7 +25010,7 @@
         "弓兵"
       ],
       "optionLabel": "銅鏡｜R+ / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 207,
+      "sortKey": 208,
       "tagSummary": [
         "レアリティ:R",
         "最高レア:R+",
@@ -24995,7 +25024,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248331"
     },
     {
-      "id": "equipments:208:史書抄本",
+      "id": "equipments:209:史書抄本",
       "category": "equipments",
       "name": "史書抄本",
       "rawName": "【三國志 覇道】史書抄本",
@@ -25011,7 +25040,7 @@
         "弓兵"
       ],
       "optionLabel": "史書抄本｜R+ / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 208,
+      "sortKey": 209,
       "tagSummary": [
         "レアリティ:R",
         "最高レア:R+",
@@ -25025,7 +25054,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248333"
     },
     {
-      "id": "equipments:209:経書抄本",
+      "id": "equipments:210:経書抄本",
       "category": "equipments",
       "name": "経書抄本",
       "rawName": "【三國志 覇道】経書抄本",
@@ -25041,7 +25070,7 @@
         "弓兵"
       ],
       "optionLabel": "経書抄本｜R+ / 文物 / 騎兵 歩兵 弓兵",
-      "sortKey": 209,
+      "sortKey": 210,
       "tagSummary": [
         "レアリティ:R",
         "最高レア:R+",
@@ -25055,7 +25084,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248335"
     },
     {
-      "id": "equipments:210:委貌冠・小冠",
+      "id": "equipments:211:委貌冠・小冠",
       "category": "equipments",
       "name": "委貌冠・小冠",
       "rawName": "【三國志 覇道】委貌冠・小冠",
@@ -25070,7 +25099,7 @@
         "弓兵"
       ],
       "optionLabel": "委貌冠・小冠｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 210,
+      "sortKey": 211,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -25084,7 +25113,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248337"
     },
     {
-      "id": "equipments:211:黒光鎧・黒鉄鎧",
+      "id": "equipments:212:黒光鎧・黒鉄鎧",
       "category": "equipments",
       "name": "黒光鎧・黒鉄鎧",
       "rawName": "【三國志 覇道】黒光鎧・黒鉄鎧",
@@ -25099,7 +25128,7 @@
         "弓兵"
       ],
       "optionLabel": "黒光鎧・黒鉄鎧｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 211,
+      "sortKey": 212,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -25113,7 +25142,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248339"
     },
     {
-      "id": "equipments:212:明光鎧・明鉄鎧",
+      "id": "equipments:213:明光鎧・明鉄鎧",
       "category": "equipments",
       "name": "明光鎧・明鉄鎧",
       "rawName": "【三國志 覇道】明光鎧・明鉄鎧",
@@ -25128,7 +25157,7 @@
         "弓兵"
       ],
       "optionLabel": "明光鎧・明鉄鎧｜UR / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 212,
+      "sortKey": 213,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -25142,7 +25171,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248341"
     },
     {
-      "id": "equipments:213:鉄牌",
+      "id": "equipments:214:鉄牌",
       "category": "equipments",
       "name": "鉄牌",
       "rawName": "【三國志 覇道】鉄牌",
@@ -25158,7 +25187,7 @@
         "弓兵"
       ],
       "optionLabel": "鉄牌｜SR+ / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 213,
+      "sortKey": 214,
       "tagSummary": [
         "レアリティ:SR",
         "最高レア:SR+",
@@ -25172,7 +25201,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248344"
     },
     {
-      "id": "equipments:214:鉄兜",
+      "id": "equipments:215:鉄兜",
       "category": "equipments",
       "name": "鉄兜",
       "rawName": "【三國志 覇道】鉄兜",
@@ -25188,7 +25217,7 @@
         "弓兵"
       ],
       "optionLabel": "鉄兜｜SR+ / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 214,
+      "sortKey": 215,
       "tagSummary": [
         "レアリティ:SR",
         "最高レア:SR+",
@@ -25202,7 +25231,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248346"
     },
     {
-      "id": "equipments:215:筒袖鎧",
+      "id": "equipments:216:筒袖鎧",
       "category": "equipments",
       "name": "筒袖鎧",
       "rawName": "【三國志 覇道】筒袖鎧",
@@ -25218,7 +25247,7 @@
         "弓兵"
       ],
       "optionLabel": "筒袖鎧｜SR+ / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 215,
+      "sortKey": 216,
       "tagSummary": [
         "レアリティ:SR",
         "最高レア:SR+",
@@ -25232,7 +25261,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248347"
     },
     {
-      "id": "equipments:216:銅牌",
+      "id": "equipments:217:銅牌",
       "category": "equipments",
       "name": "銅牌",
       "rawName": "【三國志 覇道】銅牌",
@@ -25248,7 +25277,7 @@
         "弓兵"
       ],
       "optionLabel": "銅牌｜R+ / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 216,
+      "sortKey": 217,
       "tagSummary": [
         "レアリティ:R",
         "最高レア:R+",
@@ -25262,7 +25291,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248348"
     },
     {
-      "id": "equipments:217:銅兜",
+      "id": "equipments:218:銅兜",
       "category": "equipments",
       "name": "銅兜",
       "rawName": "【三國志 覇道】銅兜",
@@ -25278,7 +25307,7 @@
         "弓兵"
       ],
       "optionLabel": "銅兜｜R+ / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 217,
+      "sortKey": 218,
       "tagSummary": [
         "レアリティ:R",
         "最高レア:R+",
@@ -25292,7 +25321,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248352"
     },
     {
-      "id": "equipments:218:銅鎧",
+      "id": "equipments:219:銅鎧",
       "category": "equipments",
       "name": "銅鎧",
       "rawName": "【三國志 覇道】銅鎧",
@@ -25308,7 +25337,7 @@
         "弓兵"
       ],
       "optionLabel": "銅鎧｜R+ / 防具 / 騎兵 歩兵 弓兵",
-      "sortKey": 218,
+      "sortKey": 219,
       "tagSummary": [
         "レアリティ:R",
         "最高レア:R+",
@@ -25322,7 +25351,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248354"
     },
     {
-      "id": "equipments:219:蛇戟・鉄戟",
+      "id": "equipments:220:蛇戟・鉄戟",
       "category": "equipments",
       "name": "蛇戟・鉄戟",
       "rawName": "【三國志 覇道】蛇戟・鉄戟",
@@ -25335,7 +25364,7 @@
         "騎兵"
       ],
       "optionLabel": "蛇戟・鉄戟｜UR / 武器 / 騎兵",
-      "sortKey": 219,
+      "sortKey": 220,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -25347,7 +25376,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248356"
     },
     {
-      "id": "equipments:220:象鼻刀・大桿刀",
+      "id": "equipments:221:象鼻刀・大桿刀",
       "category": "equipments",
       "name": "象鼻刀・大桿刀",
       "rawName": "【三國志 覇道】象鼻刀・大桿刀",
@@ -25360,7 +25389,7 @@
         "騎兵"
       ],
       "optionLabel": "象鼻刀・大桿刀｜UR / 武器 / 騎兵",
-      "sortKey": 220,
+      "sortKey": 221,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -25372,7 +25401,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248357"
     },
     {
-      "id": "equipments:221:鉄槍",
+      "id": "equipments:222:鉄槍",
       "category": "equipments",
       "name": "鉄槍",
       "rawName": "【三國志 覇道】鉄槍",
@@ -25386,7 +25415,7 @@
         "騎兵"
       ],
       "optionLabel": "鉄槍｜SR+ / 武器 / 騎兵",
-      "sortKey": 221,
+      "sortKey": 222,
       "tagSummary": [
         "レアリティ:SR",
         "最高レア:SR+",
@@ -25398,7 +25427,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248359"
     },
     {
-      "id": "equipments:222:眉尖刀",
+      "id": "equipments:223:眉尖刀",
       "category": "equipments",
       "name": "眉尖刀",
       "rawName": "【三國志 覇道】眉尖刀",
@@ -25412,7 +25441,7 @@
         "騎兵"
       ],
       "optionLabel": "眉尖刀｜SR+ / 武器 / 騎兵",
-      "sortKey": 222,
+      "sortKey": 223,
       "tagSummary": [
         "レアリティ:SR",
         "最高レア:SR+",
@@ -25424,7 +25453,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248361"
     },
     {
-      "id": "equipments:223:銅槍",
+      "id": "equipments:224:銅槍",
       "category": "equipments",
       "name": "銅槍",
       "rawName": "【三國志 覇道】銅槍",
@@ -25438,7 +25467,7 @@
         "騎兵"
       ],
       "optionLabel": "銅槍｜R+ / 武器 / 騎兵",
-      "sortKey": 223,
+      "sortKey": 224,
       "tagSummary": [
         "レアリティ:R",
         "最高レア:R+",
@@ -25450,7 +25479,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248363"
     },
     {
-      "id": "equipments:224:銅大刀",
+      "id": "equipments:225:銅大刀",
       "category": "equipments",
       "name": "銅大刀",
       "rawName": "【三國志 覇道】銅大刀",
@@ -25464,7 +25493,7 @@
         "騎兵"
       ],
       "optionLabel": "銅大刀｜R+ / 武器 / 騎兵",
-      "sortKey": 224,
+      "sortKey": 225,
       "tagSummary": [
         "レアリティ:R",
         "最高レア:R+",
@@ -25476,7 +25505,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248365"
     },
     {
-      "id": "equipments:225:宝雕弓・檀弓",
+      "id": "equipments:226:宝雕弓・檀弓",
       "category": "equipments",
       "name": "宝雕弓・檀弓",
       "rawName": "【三國志 覇道】宝雕弓・檀弓",
@@ -25489,7 +25518,7 @@
         "弓兵"
       ],
       "optionLabel": "宝雕弓・檀弓｜UR / 武器 / 弓兵",
-      "sortKey": 225,
+      "sortKey": 226,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -25501,7 +25530,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248367"
     },
     {
-      "id": "equipments:226:宝剣・鉄剣",
+      "id": "equipments:227:宝剣・鉄剣",
       "category": "equipments",
       "name": "宝剣・鉄剣",
       "rawName": "【三國志 覇道】宝剣・鉄剣",
@@ -25514,7 +25543,7 @@
         "弓兵"
       ],
       "optionLabel": "宝剣・鉄剣｜UR / 武器 / 弓兵",
-      "sortKey": 226,
+      "sortKey": 227,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -25526,7 +25555,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248369"
     },
     {
-      "id": "equipments:227:鉄弓",
+      "id": "equipments:228:鉄弓",
       "category": "equipments",
       "name": "鉄弓",
       "rawName": "【三國志 覇道】鉄弓",
@@ -25540,7 +25569,7 @@
         "弓兵"
       ],
       "optionLabel": "鉄弓｜SR+ / 武器 / 弓兵",
-      "sortKey": 227,
+      "sortKey": 228,
       "tagSummary": [
         "レアリティ:SR",
         "最高レア:SR+",
@@ -25552,7 +25581,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248372"
     },
     {
-      "id": "equipments:228:鉄弩",
+      "id": "equipments:229:鉄弩",
       "category": "equipments",
       "name": "鉄弩",
       "rawName": "【三國志 覇道】鉄弩",
@@ -25566,7 +25595,7 @@
         "弓兵"
       ],
       "optionLabel": "鉄弩｜SR+ / 武器 / 弓兵",
-      "sortKey": 228,
+      "sortKey": 229,
       "tagSummary": [
         "レアリティ:SR",
         "最高レア:SR+",
@@ -25578,7 +25607,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248373"
     },
     {
-      "id": "equipments:229:短弓",
+      "id": "equipments:230:短弓",
       "category": "equipments",
       "name": "短弓",
       "rawName": "【三國志 覇道】短弓",
@@ -25592,7 +25621,7 @@
         "弓兵"
       ],
       "optionLabel": "短弓｜R+ / 武器 / 弓兵",
-      "sortKey": 229,
+      "sortKey": 230,
       "tagSummary": [
         "レアリティ:R",
         "最高レア:R+",
@@ -25604,7 +25633,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248374"
     },
     {
-      "id": "equipments:230:銅剣",
+      "id": "equipments:231:銅剣",
       "category": "equipments",
       "name": "銅剣",
       "rawName": "【三國志 覇道】銅剣",
@@ -25618,7 +25647,7 @@
         "弓兵"
       ],
       "optionLabel": "銅剣｜R+ / 武器 / 弓兵",
-      "sortKey": 230,
+      "sortKey": 231,
       "tagSummary": [
         "レアリティ:R",
         "最高レア:R+",
@@ -25630,7 +25659,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248378"
     },
     {
-      "id": "equipments:231:宝双剣・鉄双剣",
+      "id": "equipments:232:宝双剣・鉄双剣",
       "category": "equipments",
       "name": "宝双剣・鉄双剣",
       "rawName": "【三國志 覇道】宝双剣・鉄双剣",
@@ -25643,7 +25672,7 @@
         "歩兵"
       ],
       "optionLabel": "宝双剣・鉄双剣｜UR / 武器 / 歩兵",
-      "sortKey": 231,
+      "sortKey": 232,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -25655,7 +25684,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248380"
     },
     {
-      "id": "equipments:232:神刀・鉄刀",
+      "id": "equipments:233:神刀・鉄刀",
       "category": "equipments",
       "name": "神刀・鉄刀",
       "rawName": "【三國志 覇道】神刀・鉄刀",
@@ -25668,7 +25697,7 @@
         "歩兵"
       ],
       "optionLabel": "神刀・鉄刀｜UR / 武器 / 歩兵",
-      "sortKey": 232,
+      "sortKey": 233,
       "tagSummary": [
         "レアリティ:UR",
         "最高レア:UR",
@@ -25680,7 +25709,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248382"
     },
     {
-      "id": "equipments:233:鉄矛",
+      "id": "equipments:234:鉄矛",
       "category": "equipments",
       "name": "鉄矛",
       "rawName": "【三國志 覇道】鉄矛",
@@ -25694,7 +25723,7 @@
         "歩兵"
       ],
       "optionLabel": "鉄矛｜SR+ / 武器 / 歩兵",
-      "sortKey": 233,
+      "sortKey": 234,
       "tagSummary": [
         "レアリティ:SR",
         "最高レア:SR+",
@@ -25706,7 +25735,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248385"
     },
     {
-      "id": "equipments:234:呉鉤",
+      "id": "equipments:235:呉鉤",
       "category": "equipments",
       "name": "呉鉤",
       "rawName": "【三國志 覇道】呉鉤",
@@ -25720,7 +25749,7 @@
         "歩兵"
       ],
       "optionLabel": "呉鉤｜SR+ / 武器 / 歩兵",
-      "sortKey": 234,
+      "sortKey": 235,
       "tagSummary": [
         "レアリティ:SR",
         "最高レア:SR+",
@@ -25732,7 +25761,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248388"
     },
     {
-      "id": "equipments:235:銅矛",
+      "id": "equipments:236:銅矛",
       "category": "equipments",
       "name": "銅矛",
       "rawName": "【三國志 覇道】銅矛",
@@ -25746,7 +25775,7 @@
         "歩兵"
       ],
       "optionLabel": "銅矛｜R+ / 武器 / 歩兵",
-      "sortKey": 235,
+      "sortKey": 236,
       "tagSummary": [
         "レアリティ:R",
         "最高レア:R+",
@@ -25758,7 +25787,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248390"
     },
     {
-      "id": "equipments:236:銅刀",
+      "id": "equipments:237:銅刀",
       "category": "equipments",
       "name": "銅刀",
       "rawName": "【三國志 覇道】銅刀",
@@ -25772,7 +25801,7 @@
         "歩兵"
       ],
       "optionLabel": "銅刀｜R+ / 武器 / 歩兵",
-      "sortKey": 236,
+      "sortKey": 237,
       "tagSummary": [
         "レアリティ:R",
         "最高レア:R+",

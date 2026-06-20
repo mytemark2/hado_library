@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-06-07T06:04:52.977Z",
-  "dataSetId": "2026-06-07T04:23:26.720Z",
+  "generatedAt": "2026-06-14T06:09:45.870Z",
+  "dataSetId": "2026-06-07T06:04:52.951Z",
   "crawlerVersion": "1.1.0.0",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -35,7 +35,7 @@
   "sourceCounts": {
     "generals": 476,
     "tactics": 455,
-    "equipments": 237,
+    "equipments": 238,
     "skills": 620,
     "statusEffects": 200,
     "siegeWeapons": 6,
@@ -49,7 +49,7 @@
   "sourceHashes": {
     "generals": "4c9aa0cb",
     "tactics": "a9afed3e",
-    "equipments": "4e60d216",
+    "equipments": "5960e367",
     "skills": "bee67c33",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
@@ -63,7 +63,7 @@
   "sourceSha256": {
     "generals": "4c9aa0cb",
     "tactics": "a9afed3e",
-    "equipments": "4e60d216",
+    "equipments": "5960e367",
     "skills": "bee67c33",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
@@ -76,7 +76,7 @@
   },
   "kind": "parameter_summary_index",
   "qualityAudit": {
-    "rejectedCount": 41649,
+    "rejectedCount": 41794,
     "rejectedSamples": [
       {
         "parameter": "攻撃",
@@ -479,7 +479,7 @@
         "matchedText": "攻撃11%"
       }
     ],
-    "acceptedCount": 41704
+    "acceptedCount": 41827
   },
   "items": [
     {
@@ -10458,6 +10458,13 @@
       "title": "【三國志 覇道】LR張角（ちょうかく）の戦法と技能",
       "effects": [
         {
+          "parameter": "通常攻撃威力",
+          "direction": "increase",
+          "value": "+30%",
+          "targetSide": "self_or_ally",
+          "matchedText": "通常攻撃威力+30%"
+        },
+        {
           "parameter": "攻撃速度",
           "direction": "increase",
           "value": "+10%",
@@ -10493,11 +10500,39 @@
           "matchedText": "攻撃速度+25％"
         },
         {
+          "parameter": "攻撃速度",
+          "direction": "increase",
+          "value": "+100%",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃速度+100%"
+        },
+        {
           "parameter": "会心発生",
           "direction": "increase",
           "value": "50％",
           "targetSide": "self_or_ally",
           "matchedText": "会心発生率が半減するさらに会心発生率の上限が50％"
+        },
+        {
+          "parameter": "会心発生",
+          "direction": "increase",
+          "value": "50％",
+          "targetSide": "self_or_ally",
+          "matchedText": "会心発生率を50％"
+        },
+        {
+          "parameter": "会心発生",
+          "direction": "increase",
+          "value": "100％",
+          "targetSide": "self_or_ally",
+          "matchedText": "会心発生率を100％"
+        },
+        {
+          "parameter": "会心威力",
+          "direction": "increase",
+          "value": "23",
+          "targetSide": "self_or_ally",
+          "matchedText": "会心威力が上昇\"]]} {\"index\":23"
         },
         {
           "parameter": "与ダメージ",
@@ -10509,23 +10544,23 @@
         {
           "parameter": "与ダメージ",
           "direction": "increase",
-          "value": "1",
+          "value": "+50％",
           "targetSide": "self_or_ally",
-          "matchedText": "与ダメージが上昇太平賢良黄金冠防具専用武将UR張角技能1"
-        },
-        {
-          "parameter": "与ダメージ",
-          "direction": "increase",
-          "value": "+5%",
-          "targetSide": "self_or_ally",
-          "matchedText": "与ダメージ+5%"
+          "matchedText": "与ダメージ+50％"
         },
         {
           "parameter": "被ダメージ",
           "direction": "decrease",
-          "value": "23",
+          "value": "-30%",
           "targetSide": "self_or_ally",
-          "matchedText": "被ダメージを軽減\"]]} {\"index\":23"
+          "matchedText": "被ダメージ-30%"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "500",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージを軽減（知力500"
         },
         {
           "parameter": "知力",
@@ -10607,6 +10642,27 @@
         {
           "parameter": "知力",
           "direction": "increase",
+          "value": "25％",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力を条件とした発生率/効果時間の変動効果などに適用される）Ⅲ■常に ●自身の魅力の25％"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "1",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力を条件とした発生率/効果時間の変動効果などに適用される） ●自身1"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+4%",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+4%"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
           "value": "15",
           "targetSide": "enemy",
           "matchedText": "知力が上昇する\"],[\"会心率半減\",\"敵 / 広\",\"15"
@@ -10635,12 +10691,12 @@
         {
           "parameter": "兵力",
           "direction": "increase",
-          "value": "50%",
+          "value": "+15％",
           "targetSide": "self_or_ally",
-          "matchedText": "兵力が50%"
+          "matchedText": "兵力+15％"
         }
       ],
-      "effectCount": 26
+      "effectCount": 34
     },
     {
       "category": "generals",
@@ -45701,6 +45757,13 @@
           "matchedText": "被ダメージ-5%"
         },
         {
+          "parameter": "被ダメージ",
+          "direction": "increase",
+          "value": "1.5%",
+          "targetSide": "enemy",
+          "matchedText": "被ダメージを、敵部隊に発生している弱化効果の数×1.5%"
+        },
+        {
           "parameter": "兵科相性",
           "direction": "decrease",
           "value": "-20%",
@@ -45776,6 +45839,13 @@
           "value": "+7%",
           "targetSide": "self_or_ally",
           "matchedText": "知力にする ●部隊の知力+7%"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+4%",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+4%"
         },
         {
           "parameter": "知力",
@@ -45855,7 +45925,7 @@
           "matchedText": "兵力を決定\"]]} {\"index\":8"
         }
       ],
-      "effectCount": 35
+      "effectCount": 37
     },
     {
       "category": "generals",
@@ -46355,9 +46425,9 @@
         {
           "parameter": "与ダメージ",
           "direction": "increase",
-          "value": "+10%",
+          "value": "+30%",
           "targetSide": "self_or_ally",
-          "matchedText": "与ダメージ+10%"
+          "matchedText": "与ダメージ+30%"
         },
         {
           "parameter": "与ダメージ",
@@ -46365,6 +46435,13 @@
           "value": "+5%",
           "targetSide": "self_or_ally",
           "matchedText": "与ダメージ+5%"
+        },
+        {
+          "parameter": "与ダメージ",
+          "direction": "increase",
+          "value": "+10%",
+          "targetSide": "self_or_ally",
+          "matchedText": "与ダメージ+10%"
         },
         {
           "parameter": "被ダメージ",
@@ -46425,12 +46502,26 @@
         {
           "parameter": "知力",
           "direction": "increase",
+          "value": "+3%",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+3%"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+30%",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+30%"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
           "value": "+7%",
           "targetSide": "self_or_ally",
           "matchedText": "知力+7%"
         }
       ],
-      "effectCount": 16
+      "effectCount": 19
     },
     {
       "category": "generals",
@@ -90698,6 +90789,241 @@
     },
     {
       "category": "equipments",
+      "name": "太平辟邪霊符",
+      "rawName": "【三國志 覇道】太平辟邪霊符",
+      "title": "【三國志 覇道】太平辟邪霊符の能力と技能",
+      "effects": [
+        {
+          "parameter": "通常攻撃威力",
+          "direction": "increase",
+          "value": "+30%",
+          "targetSide": "self_or_ally",
+          "matchedText": "通常攻撃威力+30%"
+        },
+        {
+          "parameter": "通常攻撃威力",
+          "direction": "increase",
+          "value": "25％",
+          "targetSide": "self_or_ally",
+          "matchedText": "通常攻撃威力と戦法威力を25％"
+        },
+        {
+          "parameter": "戦法威力",
+          "direction": "increase",
+          "value": "25％",
+          "targetSide": "self_or_ally",
+          "matchedText": "戦法威力を25％"
+        },
+        {
+          "parameter": "攻撃速度",
+          "direction": "increase",
+          "value": "7",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃速度が上昇・「敦睦」で魅力の一部を攻撃、防御、知力に加算する・将星★7"
+        },
+        {
+          "parameter": "会心威力",
+          "direction": "increase",
+          "value": "+1",
+          "targetSide": "self_or_ally",
+          "matchedText": "会心威力が上昇SSR時の最大技能天黄才気■常に ●部隊の「天雷」の技能Lv+1"
+        },
+        {
+          "parameter": "会心威力",
+          "direction": "increase",
+          "value": "+1",
+          "targetSide": "self_or_ally",
+          "matchedText": "会心威力が上昇 SSR時の最大技能 天黄才気■常に ●部隊の「天雷」の技能Lv+1"
+        },
+        {
+          "parameter": "会心威力",
+          "direction": "increase",
+          "value": "3",
+          "targetSide": "self_or_ally",
+          "matchedText": "会心威力が上昇\"]]} {\"index\":3"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "500",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージを軽減（知力500"
+        },
+        {
+          "parameter": "防御",
+          "direction": "increase",
+          "value": "2500",
+          "targetSide": "self_or_ally",
+          "matchedText": "防御が2500"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+4%",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+4%"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+1%",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+1%"
+        },
+        {
+          "parameter": "知力",
+          "direction": "decrease",
+          "value": "7",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力を低下・「遁仙」で魅力の一部を防御に加算 └被ダメージを確率で無効化・将星★7"
+        },
+        {
+          "parameter": "命中",
+          "direction": "increase",
+          "value": "30％",
+          "targetSide": "self_or_ally",
+          "matchedText": "命中を30％"
+        }
+      ],
+      "effectCount": 13
+    },
+    {
+      "category": "equipments",
+      "name": "蜀科",
+      "rawName": "【三國志 覇道】蜀科",
+      "title": "【三國志 覇道】蜀科の能力と技能",
+      "effects": [
+        {
+          "parameter": "通常攻撃威力",
+          "direction": "decrease",
+          "value": "₋20%",
+          "targetSide": "self_or_ally",
+          "matchedText": "通常攻撃威力₋20%"
+        },
+        {
+          "parameter": "戦法威力",
+          "direction": "increase",
+          "value": "50％",
+          "targetSide": "self_or_ally",
+          "matchedText": "戦法威力を50％"
+        },
+        {
+          "parameter": "攻撃速度",
+          "direction": "increase",
+          "value": "100％",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃速度を100％"
+        },
+        {
+          "parameter": "攻撃速度",
+          "direction": "increase",
+          "value": "150％",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃速度を150％"
+        },
+        {
+          "parameter": "対物特効",
+          "direction": "increase",
+          "value": "100％",
+          "targetSide": "self_or_ally",
+          "matchedText": "対物特効を100％"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "₋15%",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージ₋15%"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "₋10%",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージ₋10%"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "₋5%",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージ₋5%"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "3",
+          "targetSide": "enemy",
+          "matchedText": "被ダメージを軽減・「白苗族」で敵への弱化効果を延長 └主将戦法発動時、敵3"
+        },
+        {
+          "parameter": "攻撃",
+          "direction": "decrease",
+          "value": "₋25%",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃₋25%"
+        },
+        {
+          "parameter": "防御",
+          "direction": "increase",
+          "value": "+4%",
+          "targetSide": "self_or_ally",
+          "matchedText": "防御+4%"
+        },
+        {
+          "parameter": "防御",
+          "direction": "increase",
+          "value": "+1%",
+          "targetSide": "self_or_ally",
+          "matchedText": "防御+1%"
+        },
+        {
+          "parameter": "防御",
+          "direction": "increase",
+          "value": "2500",
+          "targetSide": "self_or_ally",
+          "matchedText": "防御が2500"
+        },
+        {
+          "parameter": "防御",
+          "direction": "decrease",
+          "value": "7",
+          "targetSide": "self_or_ally",
+          "matchedText": "防御を低下・将星★7"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "7",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力が上昇 └交戦開始時、自部隊に打開を付与・将星★7"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "150％",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力を150％"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "200％",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力を200％"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "7",
+          "targetSide": "enemy",
+          "matchedText": "知力を上昇 └通常攻撃で敵のバフ時間を短縮 └出陣時に戦法ゲージを上昇・将星★7"
+        }
+      ],
+      "effectCount": 18
+    },
+    {
+      "category": "equipments",
       "name": "稜花朱塗拂塵",
       "rawName": "【三國志 覇道】稜花朱塗拂塵",
       "title": "【三國志 覇道】稜花朱塗拂塵の能力と技能",
@@ -90858,141 +91184,6 @@
         }
       ],
       "effectCount": 22
-    },
-    {
-      "category": "equipments",
-      "name": "蜀科",
-      "rawName": "【三國志 覇道】蜀科",
-      "title": "【三國志 覇道】蜀科の能力と技能",
-      "effects": [
-        {
-          "parameter": "通常攻撃威力",
-          "direction": "decrease",
-          "value": "₋20%",
-          "targetSide": "self_or_ally",
-          "matchedText": "通常攻撃威力₋20%"
-        },
-        {
-          "parameter": "戦法威力",
-          "direction": "increase",
-          "value": "50％",
-          "targetSide": "self_or_ally",
-          "matchedText": "戦法威力を50％"
-        },
-        {
-          "parameter": "攻撃速度",
-          "direction": "increase",
-          "value": "100％",
-          "targetSide": "self_or_ally",
-          "matchedText": "攻撃速度を100％"
-        },
-        {
-          "parameter": "攻撃速度",
-          "direction": "increase",
-          "value": "150％",
-          "targetSide": "self_or_ally",
-          "matchedText": "攻撃速度を150％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "100％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を100％"
-        },
-        {
-          "parameter": "被ダメージ",
-          "direction": "decrease",
-          "value": "₋15%",
-          "targetSide": "self_or_ally",
-          "matchedText": "被ダメージ₋15%"
-        },
-        {
-          "parameter": "被ダメージ",
-          "direction": "decrease",
-          "value": "₋10%",
-          "targetSide": "self_or_ally",
-          "matchedText": "被ダメージ₋10%"
-        },
-        {
-          "parameter": "被ダメージ",
-          "direction": "decrease",
-          "value": "₋5%",
-          "targetSide": "self_or_ally",
-          "matchedText": "被ダメージ₋5%"
-        },
-        {
-          "parameter": "被ダメージ",
-          "direction": "decrease",
-          "value": "3",
-          "targetSide": "enemy",
-          "matchedText": "被ダメージを軽減・「白苗族」で敵への弱化効果を延長 └主将戦法発動時、敵3"
-        },
-        {
-          "parameter": "攻撃",
-          "direction": "decrease",
-          "value": "₋25%",
-          "targetSide": "self_or_ally",
-          "matchedText": "攻撃₋25%"
-        },
-        {
-          "parameter": "防御",
-          "direction": "increase",
-          "value": "+4%",
-          "targetSide": "self_or_ally",
-          "matchedText": "防御+4%"
-        },
-        {
-          "parameter": "防御",
-          "direction": "increase",
-          "value": "+1%",
-          "targetSide": "self_or_ally",
-          "matchedText": "防御+1%"
-        },
-        {
-          "parameter": "防御",
-          "direction": "increase",
-          "value": "2500",
-          "targetSide": "self_or_ally",
-          "matchedText": "防御が2500"
-        },
-        {
-          "parameter": "防御",
-          "direction": "decrease",
-          "value": "7",
-          "targetSide": "self_or_ally",
-          "matchedText": "防御を低下・将星★7"
-        },
-        {
-          "parameter": "知力",
-          "direction": "increase",
-          "value": "7",
-          "targetSide": "self_or_ally",
-          "matchedText": "知力が上昇 └交戦開始時、自部隊に打開を付与・将星★7"
-        },
-        {
-          "parameter": "知力",
-          "direction": "increase",
-          "value": "150％",
-          "targetSide": "self_or_ally",
-          "matchedText": "知力を150％"
-        },
-        {
-          "parameter": "知力",
-          "direction": "increase",
-          "value": "200％",
-          "targetSide": "self_or_ally",
-          "matchedText": "知力を200％"
-        },
-        {
-          "parameter": "知力",
-          "direction": "increase",
-          "value": "7",
-          "targetSide": "enemy",
-          "matchedText": "知力を上昇 └通常攻撃で敵のバフ時間を短縮 └出陣時に戦法ゲージを上昇・将星★7"
-        }
-      ],
-      "effectCount": 18
     },
     {
       "category": "equipments",
@@ -105212,23 +105403,9 @@
         {
           "parameter": "戦法威力",
           "direction": "increase",
-          "value": "25%",
-          "targetSide": "self_or_ally",
-          "matchedText": "戦法威力を25%"
-        },
-        {
-          "parameter": "戦法威力",
-          "direction": "increase",
-          "value": "50%",
-          "targetSide": "self_or_ally",
-          "matchedText": "戦法威力を50%"
-        },
-        {
-          "parameter": "戦法威力",
-          "direction": "increase",
-          "value": "7",
-          "targetSide": "self_or_ally",
-          "matchedText": "戦法威力を上昇 └主将か副将なら、好相性武将数に応じて出陣時に戦法ゲージを上昇・将星★7"
+          "value": "4",
+          "targetSide": "enemy",
+          "matchedText": "戦法威力を上昇・敵4"
         },
         {
           "parameter": "戦法速度",
@@ -105245,11 +105422,18 @@
           "matchedText": "戦法速度を50%"
         },
         {
-          "parameter": "戦法速度",
+          "parameter": "対物特効",
           "direction": "increase",
-          "value": "3",
+          "value": "100％",
           "targetSide": "self_or_ally",
-          "matchedText": "戦法速度が上昇 └壊滅時に味方3"
+          "matchedText": "対物特効を100％"
+        },
+        {
+          "parameter": "対物特効",
+          "direction": "increase",
+          "value": "+2",
+          "targetSide": "self_or_ally",
+          "matchedText": "対物特効を上昇（補佐も好相性なら対象数+2"
         },
         {
           "parameter": "与ダメージ",
@@ -105259,11 +105443,11 @@
           "matchedText": "与ダメージに加算する・味方3"
         },
         {
-          "parameter": "与ダメージ",
+          "parameter": "被ダメージ",
           "direction": "increase",
-          "value": "3",
-          "targetSide": "self_or_ally",
-          "matchedText": "与ダメージが増加・「鳳雛」で戦法速度が上昇 └壊滅時に味方3"
+          "value": "1.5%",
+          "targetSide": "enemy",
+          "matchedText": "被ダメージを、敵部隊に発生している弱化効果の数×1.5%"
         },
         {
           "parameter": "被ダメージ",
@@ -105273,11 +105457,11 @@
           "matchedText": "被ダメージを軽減・将星★7"
         },
         {
-          "parameter": "防御",
+          "parameter": "知力",
           "direction": "increase",
-          "value": "7",
+          "value": "+4%",
           "targetSide": "self_or_ally",
-          "matchedText": "防御が上昇・将星★7"
+          "matchedText": "知力+4%"
         },
         {
           "parameter": "知力",
@@ -105296,9 +105480,9 @@
         {
           "parameter": "知力",
           "direction": "increase",
-          "value": "2500",
+          "value": "7",
           "targetSide": "self_or_ally",
-          "matchedText": "知力が2500"
+          "matchedText": "知力を上昇させて判定を行う └出陣時の戦法ゲージを増加・将星★7"
         },
         {
           "parameter": "機動",
@@ -105308,7 +105492,7 @@
           "matchedText": "機動が135"
         }
       ],
-      "effectCount": 14
+      "effectCount": 13
     },
     {
       "category": "equipments",
@@ -118211,11 +118395,11 @@
           "matchedText": "戦法威力を25%"
         },
         {
-          "parameter": "戦法威力",
+          "parameter": "攻撃速度",
           "direction": "increase",
-          "value": "50%",
+          "value": "50％",
           "targetSide": "self_or_ally",
-          "matchedText": "戦法威力を50%"
+          "matchedText": "攻撃速度を50％"
         },
         {
           "parameter": "戦法速度",
@@ -118225,11 +118409,32 @@
           "matchedText": "戦法速度が上昇 └壊滅時に味方3"
         },
         {
+          "parameter": "撃心発生",
+          "direction": "increase",
+          "value": "7",
+          "targetSide": "self_or_ally",
+          "matchedText": "撃心発生を上昇・将星★7"
+        },
+        {
+          "parameter": "撃心威力",
+          "direction": "increase",
+          "value": "+75%",
+          "targetSide": "self_or_ally",
+          "matchedText": "撃心威力+75%"
+        },
+        {
           "parameter": "対物特効",
           "direction": "increase",
-          "value": "100%",
+          "value": "75％",
           "targetSide": "self_or_ally",
-          "matchedText": "対物特効を100%"
+          "matchedText": "対物特効を75％"
+        },
+        {
+          "parameter": "与ダメージ",
+          "direction": "increase",
+          "value": "+30%",
+          "targetSide": "self_or_ally",
+          "matchedText": "与ダメージ+30%"
         },
         {
           "parameter": "与ダメージ",
@@ -118253,11 +118458,39 @@
           "matchedText": "与ダメージが増加・「鳳雛」で戦法速度が上昇 └壊滅時に味方3"
         },
         {
-          "parameter": "攻撃",
+          "parameter": "与ダメージ",
           "direction": "increase",
           "value": "7",
           "targetSide": "self_or_ally",
-          "matchedText": "攻撃を受けた際の負傷兵数が増加・将星★7"
+          "matchedText": "与ダメージが増加・将星★7"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "7",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージを軽減 └自身の戦法発動時に撃心発生を上昇・将星★7"
+        },
+        {
+          "parameter": "防御",
+          "direction": "increase",
+          "value": "+200%",
+          "targetSide": "self_or_ally",
+          "matchedText": "防御+200%"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+3%",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+3%"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+30%",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+30%"
         },
         {
           "parameter": "知力",
@@ -118297,33 +118530,26 @@
         {
           "parameter": "知力",
           "direction": "increase",
-          "value": "50%",
+          "value": "150％",
           "targetSide": "self_or_ally",
-          "matchedText": "知力を50%"
+          "matchedText": "知力を150％"
         },
         {
           "parameter": "知力",
           "direction": "increase",
-          "value": "100%",
+          "value": "30％",
           "targetSide": "self_or_ally",
-          "matchedText": "知力を100%"
+          "matchedText": "知力を30％"
         },
         {
           "parameter": "知力",
           "direction": "increase",
-          "value": "7",
+          "value": "+200%",
           "targetSide": "self_or_ally",
-          "matchedText": "知力が上昇・将星★7"
-        },
-        {
-          "parameter": "兵力",
-          "direction": "increase",
-          "value": "50%",
-          "targetSide": "self_or_ally",
-          "matchedText": "兵力が50%"
+          "matchedText": "知力+200%"
         }
       ],
-      "effectCount": 18
+      "effectCount": 24
     },
     {
       "category": "equipments",
@@ -127684,6 +127910,13 @@
       "title": "【三國志 覇道】黄老の効果と所持武将・強化する装備品",
       "effects": [
         {
+          "parameter": "攻撃速度",
+          "direction": "increase",
+          "value": "+100%",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃速度+100%"
+        },
+        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "+30%",
@@ -127691,14 +127924,49 @@
           "matchedText": "与ダメージ+30%"
         },
         {
+          "parameter": "与ダメージ",
+          "direction": "increase",
+          "value": "+50％",
+          "targetSide": "self_or_ally",
+          "matchedText": "与ダメージ+50％"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "₋30%",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージ₋30%"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "500",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージを軽減（知力500"
+        },
+        {
           "parameter": "知力",
           "direction": "increase",
           "value": "+15%",
           "targetSide": "self_or_ally",
           "matchedText": "知力+15%"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+1%",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+1%"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "+15％",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵力+15％"
         }
       ],
-      "effectCount": 2
+      "effectCount": 8
     },
     {
       "category": "skills",
@@ -127707,11 +127975,53 @@
       "title": "【三國志 覇道】天雷の効果と所持武将・強化する装備品",
       "effects": [
         {
+          "parameter": "会心発生",
+          "direction": "increase",
+          "value": "50％",
+          "targetSide": "self_or_ally",
+          "matchedText": "会心発生率を50％"
+        },
+        {
+          "parameter": "会心発生",
+          "direction": "increase",
+          "value": "100％",
+          "targetSide": "self_or_ally",
+          "matchedText": "会心発生率を100％"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "500",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージを軽減（知力500"
+        },
+        {
           "parameter": "知力",
           "direction": "increase",
           "value": "200％",
           "targetSide": "self_or_ally",
           "matchedText": "知力を200％"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "25％",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力を条件とした発生率/効果時間の変動効果などに適用される）Ⅲ■常に ●自身の魅力の25％"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "1",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力を条件とした発生率/効果時間の変動効果などに適用される） ●自身1"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+1%",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+1%"
         },
         {
           "parameter": "兵力",
@@ -127728,7 +128038,7 @@
           "matchedText": "兵力を決定 ●通常攻撃の効果系統を知力にする ●通常攻撃時、対象を含む敵2"
         }
       ],
-      "effectCount": 3
+      "effectCount": 9
     },
     {
       "category": "skills",
