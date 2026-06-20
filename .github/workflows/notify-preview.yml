@@ -88,7 +88,7 @@ jobs:
               ! -name '.git' \
               ! -name '.github' \
               -exec rm -rf {} +
-            rsync -a index.html hado_*.js hado_styles.css hadou_*.json "${PREVIEW_DIR}/"
+            rsync -a index.html HADO_DEV_INFO.json hado_*.js hado_styles.css hadou_*.json "${PREVIEW_DIR}/"
 
             touch "${PREVIEW_DIR}/.nojekyll"
             printf '%s\n' "${GITHUB_SHA}" > "${PREVIEW_DIR}/PREVIEW_SOURCE_COMMIT.txt"
@@ -97,6 +97,8 @@ jobs:
 
             test -s "${PREVIEW_DIR}/hado_formation.js"
             test -s "${PREVIEW_DIR}/hado_styles.css"
+            test -s "${PREVIEW_DIR}/HADO_DEV_INFO.json"
+            cmp -s HADO_DEV_INFO.json "${PREVIEW_DIR}/HADO_DEV_INFO.json"
             test -s "${PREVIEW_DIR}/PREVIEW_SOURCE_COMMIT.txt"
             grep -q 'formation-score-metric-chip' "${PREVIEW_DIR}/hado_formation.js"
             grep -q 'data-formation-score-detail-index' "${PREVIEW_DIR}/hado_formation.js"
