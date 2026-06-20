@@ -2,7 +2,7 @@
 
 ## 正本
 - `main`: 正式公開済みソース。直接Pushしない。
-- `feature/app-3.0.0.0`: 現在のアプリ開発中正本。
+- `future/app-3.0.0.0`: 現在のアプリ開発中正本。
 - `mytemark2/hado_library-preview`: ブラウザ動作確認専用。修正元にしない。
 
 ## 作業開始時
