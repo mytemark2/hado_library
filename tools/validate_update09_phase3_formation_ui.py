@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 FORMATION = ROOT / "hado_formation.js"
@@ -62,6 +63,17 @@ REQUIRED_JS = (
     "renderFormationWarhorseSlotsHtml",
     "formation-warhorse-slots-body",
 )
+
+REQUIRED_FUNCTION_DEFINITIONS = (
+    "renderFormationScoreSummaryHtml",
+    "renderFormationScoreMetricChipsHtml",
+    "renderFormationScoreEvidencePanelHtml",
+    "normalizeFormationScoreDisplayRows",
+    "normalizeFormationScoreEvidenceRows",
+    "setFormationScoreDetailIndex",
+    "toggleFormationScoreDetailMore",
+)
+
 FORBIDDEN_JS = (
     "scoreRows:generalRows.map",
     "window.HadoTypeScore.score(formationTypeScoreEntity",
@@ -134,6 +146,7 @@ def main() -> int:
     css = CSS.read_text(encoding="utf-8")
     html_text = HTML.read_text(encoding="utf-8")
     missing_js = [snippet for snippet in REQUIRED_JS if snippet not in js]
+    missing_function_defs = [name for name in REQUIRED_FUNCTION_DEFINITIONS if not re.search(r"function\s+" + re.escape(name) + r"\s*\(", js)]
     forbidden_js = [snippet for snippet in FORBIDDEN_JS if snippet in js]
     missing_type = [snippet for snippet in REQUIRED_TYPE_CANDIDATES if snippet not in type_js]
     forbidden_type = [snippet for snippet in FORBIDDEN_TYPE_CANDIDATES if snippet in type_js]
@@ -141,6 +154,8 @@ def main() -> int:
     forbidden_css = [snippet for snippet in FORBIDDEN_CSS if snippet in css]
     if missing_js:
         raise SystemExit("Update09 Phase3 formation UI missing JS: " + ", ".join(missing_js))
+    if missing_function_defs:
+        raise SystemExit("Update09 Phase3 formation UI missing function definitions: " + ", ".join(missing_function_defs))
     if forbidden_js:
         raise SystemExit("Update09 Phase3 formation UI still contains removed controls: " + ", ".join(forbidden_js))
     if missing_type:
@@ -154,7 +169,7 @@ def main() -> int:
     forbidden_html = [s for s in ("※部隊編成の合算技能は配置・好相性・兵科などの条件を判定して反映します。", "<h2>部隊編成") if s in html_text]
     if forbidden_html:
         raise SystemExit("Update09 Phase3 formation UI still contains obsolete HTML: " + ", ".join(forbidden_html))
-    print("Update09 Phase3 formation UI contract ok: score card, group management, type notes, warhorse layout")
+    print("Update09 Phase3 formation UI contract ok: score card function definitions, group management, type notes, warhorse layout")
     return 0
 
 

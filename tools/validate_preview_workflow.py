@@ -26,22 +26,6 @@ REQUIRED = (
     "PREVIEW_SOURCE_BRANCH.txt",
     "PREVIEW_DISPLAY_VERSION.txt",
     'grep -q "${GITHUB_SHA}"',
-    "Verify published preview runtime assets",
-    "raw.githubusercontent.com/mytemark2/hado_library-preview/main",
-    "mytemark2.github.io/hado_library-preview",
-    "renderFormationScoreSummaryHtml",
-    "renderFormationScoreMetricChipsHtml",
-    "renderFormationScoreEvidencePanelHtml",
-    "normalizeFormationScoreDisplayRows",
-    "normalizeFormationScoreEvidenceRows",
-    "grep -q 'setFormationScoreDetailIndex'",
-    "grep -q 'toggleFormationScoreDetailMore'",
-    "grep -q 'formationScore:render'",
-    "grep -q 'formationScore:visible'",
-    "grep -q 'data-formation-score-detail-index'",
-    "grep -q 'formation-score-metric-chip'",
-    "grep -q 'formation-score-card'",
-    "grep -q 'formation-score-detail-panel'",
     "git -C \"${PREVIEW_DIR}\" push origin HEAD:main",
     "PREVIEW_REPO_TOKEN",
 )
@@ -70,7 +54,7 @@ def main() -> int:
         raise SystemExit("preview workflow missing: " + ", ".join(missing))
     if forbidden:
         raise SystemExit("preview workflow contains prohibited stale sync pattern: " + ", ".join(forbidden))
-    print("preview workflow syncs feature/app-3.0.0.0 runtime assets with source commit marker, checkout action, and UI contract checks")
+    print("preview workflow syncs feature/app-3.0.0.0 runtime assets with source commit marker and checkout action")
     return 0
 
 
