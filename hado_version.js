@@ -3,11 +3,11 @@
   'use strict';
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.0.0.0',
-    updateNo: '09.3.25',
-    revision: 58,
+    updateNo: '09.3.26',
+    revision: 59,
     baseAppVersion: '2.9.6.5',
-    summary: 'Update09.3.25: update formation score detail panels in-place and show empty evidence reasons.',
-    updatedAt: '2026-06-20T16:30:00+09:00'
+    summary: 'Update09.3.26: show calculated formation score evidence point breakdowns.',
+    updatedAt: '2026-06-20T17:30:00+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;
 })();
