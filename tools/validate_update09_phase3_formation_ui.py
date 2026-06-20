@@ -49,7 +49,7 @@ REQUIRED_JS = (
     "formation-work-tabs-title",
     "formation-score-chip",
     "formation-group-head",
-    "renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)",
+    "renderFormationTeamBoardSelectableHtml(f,quickSummaryHtml)",
     "formation-mobile-score-result-placement",
     "${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}",
     "renderFormationGroupNameDialogHtml",
@@ -78,6 +78,7 @@ REQUIRED_FUNCTION_DEFINITIONS = (
 )
 
 FORBIDDEN_JS = (
+    "renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)",
     "scoreRows:generalRows.map",
     "window.HadoTypeScore.score(formationTypeScoreEntity",
     "保存データの軍馬を最大3枠まで部隊へ反映",
@@ -161,6 +162,11 @@ def main() -> int:
         raise SystemExit("Update09 Phase3 formation UI missing function definitions: " + ", ".join(missing_function_defs))
     if forbidden_js:
         raise SystemExit("Update09 Phase3 formation UI still contains removed controls: " + ", ".join(forbidden_js))
+
+    if js.count("${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}") != 1:
+        raise SystemExit("Update09 Phase3 formation UI must render exactly one score card in formation-selected-stack")
+    if "renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)" in js:
+        raise SystemExit("Update09 Phase3 formation UI must not pass scoreCardHtml into renderFormationTeamBoardSelectableHtml")
     if missing_type:
         raise SystemExit("Update09 Phase3 type candidate UI missing JS: " + ", ".join(missing_type))
     if forbidden_type:

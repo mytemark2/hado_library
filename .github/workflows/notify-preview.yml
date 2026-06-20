@@ -33,6 +33,10 @@ jobs:
             echo "Source branch name could not be resolved." >&2
             exit 1
           fi
+          if [[ "${GITHUB_REF:-}" == refs/heads/codex/* ]]; then
+            echo "Refusing preview sync from Codex work branch ${GITHUB_REF}; only ${ALLOWED_PREVIEW_SOURCE_BRANCH} may update mytemark2/hado_library-preview." >&2
+            exit 1
+          fi
           if [ "${APP_REF}" != "${ALLOWED_PREVIEW_SOURCE_BRANCH}" ]; then
             echo "Refusing preview sync from ${APP_REF}; only ${ALLOWED_PREVIEW_SOURCE_BRANCH} may update mytemark2/hado_library-preview." >&2
             exit 1
