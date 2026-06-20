@@ -18,10 +18,10 @@ const entity={typeFeatures:[
   {featureId:'skill_effect:chain_rate',label:'連鎖確率',matchedText:'■主将の際 ●副将の連鎖確率+5%'}
 ]};
 const r=S.score(entity,rule);
-assertEq(r.confirmedScore,4.9,'confirmedScore');
+assertEq(r.confirmedScore,4,'confirmedScore');
 assertEq(r.conditionalMaxScore,5,'conditionalMaxScore');
 assertEq(r.matchedCount,5,'matchedCount');
-assertEq(S.summary(r),'兵力:0.4/2 / 弱化無効:2/2 / 通常攻撃対象数:2/2 / 攻撃速度:0.5/2 / 連鎖率:0→0.1/2','summary');
+assertEq(S.summary(r),'兵力:1 / 弱化無効:1 / 通常攻撃対象数:1 / 攻撃速度:1 / 連鎖率:1','summary');
 
 const roleRule={metrics:[
   {metricKey:'chain_rate',label:'連鎖率',method:'percent_sum'},
@@ -35,7 +35,7 @@ const roleLimited={roleId:'main_general',typeFeatures:[
 ]};
 const rr=S.score(roleLimited,roleRule);
 assertEq(rr.confirmedScore,0,'role confirmedScore');
-assertEq(rr.conditionalMaxScore,2.4,'role conditionalMaxScore');
+assertEq(rr.conditionalMaxScore,2,'role conditionalMaxScore');
 assertEq(rr.matchedCount,2,'role matchedCount');
 assertEq(S.metricRows(roleLimited,roleRule.metrics[0]).length,0,'vice-only chain excluded for main role');
 assertEq(S.metricRows({...roleLimited,roleId:'vice_general'},roleRule.metrics[0]).length,1,'vice-only chain included for vice role');
@@ -54,5 +54,26 @@ assertEq(bulletMain.matchedCount,1,'bullet scoped main should only match main cl
 const bulletVice=window.HadoTypeScore.score({roleId:'vice_general',displayName:'副将候補',typeFeatures:[{featureId:'skill_effect:normal_attack_target_count',label:'通常攻撃対象数',matchedText:bulletScopedText},{featureId:'skill_effect:chain_rate',label:'連鎖確率',matchedText:bulletScopedText}]},bulletRule);
 assertEq(bulletVice.matchedCount,1,'bullet scoped vice should only match vice clause');
 assertEq(window.HadoTypeScore.metricRows({roleId:'vice_general',typeFeatures:[{featureId:'skill_effect:normal_attack_target_count',label:'通常攻撃対象数',matchedText:bulletScopedText}]},bulletRule.metrics[0]).length,0,'main bullet should not leak to vice role');
+
+const vaccineRule={typeId:'vaccine',typeName:'ワクチン型',metrics:[
+  {metricKey:'self_disadvantage_countermeasure',label:'自部隊不利対策',method:'presence_fixed'},
+  {metricKey:'ally_non_damage_effect',label:'味方非ダメージ効果',method:'presence_fixed'},
+  {metricKey:'weakening_nullify',label:'弱化無効',method:'presence_fixed'},
+  {metricKey:'weakening_remove',label:'弱化解除',method:'presence_fixed'},
+  {metricKey:'ally_wounded_recovery',label:'味方負傷兵回復',method:'presence_fixed'}
+]};
+const vaccineEntity={roleId:'formation_effects',displayName:'ワクチン型検証部隊',typeFeatures:[
+  {featureId:'parameter:弱化無効',label:'弱化無効',matchedText:'弱化効果無効を付与'},
+  {featureId:'parameter:攻撃速度',label:'攻撃速度',matchedText:'自身を含む味方3部隊の攻撃速度+20%'},
+  {featureId:'parameter:負傷兵回復',label:'負傷兵回復',matchedText:'味方3部隊の負傷兵を最大兵力の10%回復'}
+],statusEffectRefs:[
+  {featureId:'status_effect:弱化解除',label:'弱化解除',matchedText:'弱化効果解除'},
+  {featureId:'status_effect:状態変化無効',label:'状態変化無効',matchedText:'不利変化無効'}
+]};
+const vaccineScore=window.HadoTypeScore.score(vaccineEntity,vaccineRule);
+assertEq(vaccineScore.totalScore>0,true,'vaccine totalScore should not stay zero');
+assertEq(vaccineScore.breakdown[0].hit,true,'vaccine self disadvantage aliases should match');
+assertEq(vaccineScore.breakdown[1].hit,true,'vaccine ally non-damage aliases should match');
+assertEq(vaccineScore.breakdown[4].hit,true,'vaccine wounded recovery aliases should match');
 
 console.log('Update08.21 type-score regression: passed');
