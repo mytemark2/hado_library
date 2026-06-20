@@ -172,7 +172,10 @@ const positiveRow = (typeScore?.candidateScores || [])
   .find(row => Number(row.score || 0) > 0 && ((row.matchedEffects || []).length || (row.matchedParameters || []).length));
 
 assert(html.includes('トータルスコア'), 'score summary HTML must render total score label');
+assert((html.match(/formation-score-metric-chip/g)||[]).length >= 5, 'evaluation score chips must render metric chip classes');
 assert((html.match(/data-formation-score-detail-index/g)||[]).length === 5, 'evaluation score chips must render five button controls');
+assert(html.includes('data-formation-score-detail-label='), 'score chips must carry row labels for click diagnostics');
+assert(html.includes('data-formation-score-detail-evidence-count='), 'score chips must carry evidence counts for click diagnostics');
 assert(html.includes('formation-score-detail-panel'), 'selected evaluation score must render a detail panel');
 assert(html.includes('+1点'), 'score detail rows must show point contribution');
 assert(!html.includes('>効果<') && !html.includes('>変化率<'), 'normal UI must not expose debug bucket headings');
@@ -196,8 +199,13 @@ assert.strictEqual(typeScore.emptyReason, '', 'successful scoring must not repor
 assert(typeSearch && typeSearch.mode === 'formation-score', 'typeSearch diagnostic must mirror formation score execution');
 assert(typeSearchCache && Number(typeSearchCache.stats?.store || 0) > 0, 'formation score path must populate typeSearchCache stats');
 assert(debugEvents.some(event => event.name === 'typeScore'), 'copy-debug-log source must receive typeScore debug event');
-assert(fs.readFileSync('hado_formation.js','utf8').includes('formationScoreDetail:bind'), 'formation detail bind diagnostics must exist');
-assert(fs.readFileSync('hado_formation.js','utf8').includes('formationScoreDetail:click'), 'formation detail click diagnostics must exist');
+const formationSource = fs.readFileSync('hado_formation.js','utf8');
+assert(formationSource.includes('formationScoreDetail:bind'), 'formation detail bind diagnostics must exist');
+assert(formationSource.includes('chipCount:scoreDetailButtons.length'), 'formation detail bind diagnostics must report chip count even when zero');
+assert(formationSource.includes('detailPanelRendered:!!detailPanel'), 'formation detail bind diagnostics must report detail panel presence');
+assert(formationSource.includes('formationScoreDetail:click'), 'formation detail click diagnostics must exist');
+assert(formationSource.includes('rowLabel:btn.dataset.formationScoreDetailLabel'), 'formation detail click diagnostics must include row label');
+assert(formationSource.includes('evidenceCount:Number(btn.dataset.formationScoreDetailEvidenceCount)'), 'formation detail click diagnostics must include evidence count');
 
 const proof = {
   htmlIncludesTotalScore: html.includes('トータルスコア'),
