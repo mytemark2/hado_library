@@ -212,9 +212,14 @@ assert(formationSource.includes('formationScoreDetail:bind'), 'legacy formation 
 assert(formationSource.includes('chipCount:scoreDetailButtons.length'), 'formation detail bind diagnostics must report chip count even when zero');
 assert(formationSource.includes('detailPanelRendered:!!detailPanel'), 'formation detail bind diagnostics must report detail panel presence');
 assert(formationSource.includes('formationScore:detail-click'), 'formation detail click diagnostics must exist');
+assert(formationSource.includes('handleFormationScoreDetailClick'), 'formation score detail clicks should use a shared guarded handler');
+assert(formationSource.includes('event.preventDefault();event.stopPropagation();'), 'formation score detail clicks should not bubble into parent formation controls');
+assert(formationSource.includes('formationScore:detail-delegate'), 'formation score detail delegated click diagnostics must exist');
+assert(formationSource.includes('renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)'), 'mobile score card should render between warhorse and result summary');
+assert(formationSource.includes('${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}'), 'PC score card should render between warhorse and result summary');
 assert(formationSource.includes('formationScoreDetail:click'), 'legacy formation detail click diagnostics must still exist');
-assert(formationSource.includes('rowLabel:btn.dataset.formationScoreDetailLabel'), 'formation detail click diagnostics must include row label');
-assert(formationSource.includes('evidenceCount:Number(btn.dataset.formationScoreDetailEvidenceCount)'), 'formation detail click diagnostics must include evidence count');
+assert(formationSource.includes('rowLabel:btn?.dataset?.formationScoreDetailLabel'), 'formation detail click diagnostics must include row label');
+assert(formationSource.includes('evidenceCount:Number(btn?.dataset?.formationScoreDetailEvidenceCount)'), 'formation detail click diagnostics must include evidence count');
 
 const proof = {
   htmlIncludesTotalScore: html.includes('トータルスコア'),
