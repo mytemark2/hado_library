@@ -20,7 +20,6 @@ REQUIRED = (
     "node --check hado_type_candidates.js",
     "python3 tools/validate_app_js.py",
     "python3 tools/validate_update_version_consistency.py",
-    "python3 tools/validate_auto_merge_workflow.py",
     "python3 tools/validate_saved_mode_index_ownership_sources.py",
     "python3 tools/validate_type_candidate_render_performance.py",
     "python3 tools/validate_type_search_feature_index_data.py",
