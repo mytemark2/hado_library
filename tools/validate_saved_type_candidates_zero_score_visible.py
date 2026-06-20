@@ -11,7 +11,6 @@ REQUIRED = (
     "function candidateVisibleByScore(v)",
     "return v._s.matchedCount>0",
     "owned=scored.filter(savedCandidateAllowed),visible=owned.filter(candidateVisibleByScore)",
-    "適合する候補だけを選択可能として表示",
 )
 FORBIDDEN = (
     "v._s.matchedCount>0||(savedModeActive()&&savedOwnershipRole(v.roleId))",
@@ -27,7 +26,7 @@ def main() -> int:
         raise SystemExit("saved selectable candidate score filtering missing: " + ", ".join(missing))
     if forbidden:
         raise SystemExit("saved candidate list still exposes owned zero-score rows as selectable: " + ", ".join(forbidden))
-    print("saved-mode type candidates expose scored selectable rows only and diagnostics use the saved UI path")
+    print("saved-mode type candidates expose scored selectable rows only")
     return 0
 
 
