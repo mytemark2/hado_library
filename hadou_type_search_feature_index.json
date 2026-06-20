@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-06-07T06:04:52.977Z",
-  "dataSetId": "2026-06-07T04:23:26.720Z",
+  "generatedAt": "2026-06-14T06:09:45.870Z",
+  "dataSetId": "2026-06-07T06:04:52.951Z",
   "crawlerVersion": "1.1.0.0",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -35,7 +35,7 @@
   "sourceCounts": {
     "generals": 476,
     "tactics": 455,
-    "equipments": 237,
+    "equipments": 238,
     "skills": 620,
     "statusEffects": 200,
     "siegeWeapons": 6,
@@ -49,7 +49,7 @@
   "sourceHashes": {
     "generals": "4c9aa0cb",
     "tactics": "a9afed3e",
-    "equipments": "4e60d216",
+    "equipments": "5960e367",
     "skills": "bee67c33",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
@@ -63,7 +63,7 @@
   "sourceSha256": {
     "generals": "4c9aa0cb",
     "tactics": "a9afed3e",
-    "equipments": "4e60d216",
+    "equipments": "5960e367",
     "skills": "bee67c33",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
@@ -305,37 +305,37 @@
   ],
   "qualityAudit": {
     "ok": true,
-    "itemCount": 746,
+    "itemCount": 747,
     "categoryCounts": {
       "generals": 476,
-      "equipments": 237,
+      "equipments": 238,
       "siegeWeapons": 6,
       "warhorseSkills": 27
     },
-    "itemsWithAnyFeature": 667,
-    "statusEffectReferenceCount": 2972,
-    "typeFeatureReferenceCount": 3231,
+    "itemsWithAnyFeature": 668,
+    "statusEffectReferenceCount": 2983,
+    "typeFeatureReferenceCount": 3237,
     "featureCounts": {
       "parameter:critical_rate": 108,
       "skill_effect:chain_rate": 161,
       "skill_effect:chain_nullify": 8,
       "skill_effect:status_effect_rate": 9,
-      "skill_effect:enemy_debuff_multi": 196,
-      "skill_effect:effect_duration": 144,
+      "skill_effect:enemy_debuff_multi": 197,
+      "skill_effect:effect_duration": 145,
       "skill_effect:enemy_target_count": 268,
       "parameter:tactic_speed": 103,
       "parameter:tactic_power": 108,
-      "skill_effect:weakening_remove": 66,
-      "skill_effect:self_disadvantage_countermeasure": 109,
+      "skill_effect:weakening_remove": 65,
+      "skill_effect:self_disadvantage_countermeasure": 110,
       "skill_effect:annihilation_avoidance": 55,
       "skill_effect:remaining_troops": 36,
       "skill_effect:wounded_recovery": 61,
-      "parameter:normal_attack_power": 29,
+      "parameter:normal_attack_power": 30,
       "skill_effect:healing": 61,
-      "skill_effect:damage_reduction": 213,
+      "skill_effect:damage_reduction": 215,
       "skill_effect:normal_attack_target_count": 61,
       "parameter:attack_speed": 197,
-      "parameter:critical_power": 103,
+      "parameter:critical_power": 104,
       "skill_effect:initial_tactic_gauge": 16,
       "skill_effect:ally_buff_multi": 244,
       "skill_effect:ally_target_count": 295,
@@ -13626,6 +13626,18 @@
           "matchedText": "攻撃速度+10%"
         },
         {
+          "featureId": "status_effect:会心発生変化(強化)",
+          "label": "会心発生変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "会心発生変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "会心発生率を50％"
+        },
+        {
           "featureId": "status_effect:与ダメージ変化(強化)",
           "label": "与ダメージ変化(強化)",
           "featureType": "statusEffect",
@@ -13636,6 +13648,18 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-parameter",
           "matchedText": "与ダメージ+30%"
+        },
+        {
+          "featureId": "status_effect:被ダメージ変化(強化)",
+          "label": "被ダメージ変化(強化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "被ダメージ変化(強化)",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "被ダメージ-30%"
         },
         {
           "featureId": "status_effect:知力変化(強化)",
@@ -13684,6 +13708,54 @@
           "source": "hadou_related_link_index.json",
           "sourcePartType": "semantic-owner-status-grant",
           "matchedText": "感電"
+        },
+        {
+          "featureId": "status_effect:知力低下回避[天雷]",
+          "label": "知力低下回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "知力低下回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける"
+        },
+        {
+          "featureId": "status_effect:攻撃速度低下回避[天雷]",
+          "label": "攻撃速度低下回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "攻撃速度低下回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける"
+        },
+        {
+          "featureId": "status_effect:会心率半減回避[天雷]",
+          "label": "会心率半減回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "会心率半減回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と一部の不利変化（会心率半減/通常攻撃縮小）を避ける"
+        },
+        {
+          "featureId": "status_effect:通常攻撃縮小回避[天雷]",
+          "label": "通常攻撃縮小回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "通常攻撃縮小回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と一部の不利変化（会心率半減/通常攻撃縮小）を避ける"
         },
         {
           "featureId": "status_effect:疑心回避[大賢]",
@@ -13785,7 +13857,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数₋3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
         },
         {
           "featureId": "parameter:attack_speed",
@@ -13802,14 +13874,6 @@
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 広25％遅い革令天成の追加効果追加効果対象範囲継続取込味方 / 広10秒確率で受けた攻撃を無効化して、負傷兵を攻撃の威力に応じて回復する知力変化味方 / 広10秒部隊の知力が上昇する会心率半減敵 / 広15秒効果時間中、会心発生率が半減するさらに会心発生率の上限が50％になる萎縮敵 / 広15秒通常攻…"
-        },
-        {
-          "featureId": "skill_effect:weakening_remove",
-          "label": "弱化解除",
-          "featureType": "skillEffect",
-          "source": "effect-text",
-          "sourcePartType": "conservative-pattern",
-          "matchedText": "感電の効果時間中は通常攻撃と戦法発動ができなくなるので、弱化解除をされない限り敵部隊を完全に封じ込められる"
         },
         {
           "featureId": "skill_effect:healing",
@@ -13833,7 +13897,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数₋3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
         },
         {
           "featureId": "skill_effect:enemy_debuff_multi",
@@ -13841,7 +13905,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "通常攻撃で付与する感電が強力 技能「天雷」により、通常攻撃の際に敵2部隊へ感電を付与する"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
         },
         {
           "featureId": "skill_effect:effect_duration",
@@ -13849,7 +13913,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "感電の効果時間中は通常攻撃と戦法発動ができなくなるので、弱化解除をされない限り敵部隊を完全に封じ込められる"
+          "matchedText": "最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 広25％遅い革令天成の追加効果追加効果対象範囲継続取込味方 / 広10秒確率で受けた攻撃を無効化して、負傷兵を攻撃の威力に応じて回復する知力変化味方 / 広10秒部隊の知力が上昇する会心率半減敵 / 広15秒効果時間中、会心発生率が半減するさらに会心発生率の上限が50％になる萎縮敵 / 広15秒通常攻…"
         },
         {
           "featureId": "skill_effect:enemy_target_count",
@@ -13857,7 +13921,7 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "通常攻撃で付与する感電が強力 技能「天雷」により、通常攻撃の際に敵2部隊へ感電を付与する"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
         },
         {
           "featureId": "skill_effect:ally_target_count",
@@ -13865,10 +13929,18 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
-          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数₋3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
+          "matchedText": "LR張角の戦法 革令天成兵科効果系統攻撃属性なし知力なし効果自身を含む味方4部隊に取込を付与して知力を150％上昇対象を含む敵4部隊に会心率半減と萎縮を付与して、通常攻撃の対象部隊数-3さらに400％の攻撃（自部隊の「反逆」の技能Lv×20%、威力が上昇"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける"
         }
       ],
-      "statusEffectRefCount": 15,
+      "statusEffectRefCount": 21,
       "typeFeatureCount": 12
     },
     {
@@ -45023,6 +45095,18 @@
           "matchedText": "被ダメージ-20%"
         },
         {
+          "featureId": "status_effect:被ダメージ変化(弱化)",
+          "label": "被ダメージ変化(弱化)",
+          "featureType": "statusEffect",
+          "statusEffectName": "被ダメージ変化(弱化)",
+          "groupKey": "enemyAbilityDebuff",
+          "groupLabel": "敵部隊能力低下",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "semantic-owner-parameter",
+          "matchedText": "被ダメージを、敵部隊に発生している弱化効果の数×1.5%"
+        },
+        {
           "featureId": "status_effect:攻撃変化(弱化)",
           "label": "攻撃変化(弱化)",
           "featureType": "statusEffect",
@@ -45177,7 +45261,7 @@
           "matchedText": "UR司馬懿の戦法 詭謀無比兵科効果系統攻撃属性なし知力なし効果自身を含む味方3部隊に2回の弱化無効を付与対象を含む敵3部隊を全ての兵科と物体に対して不利にして攻撃、知力、対物特効を30%低下さらに250%の攻撃発動間隔対象範囲発動率連鎖順20秒敵 / 中25%普通詭謀無比の追加効果追加効果対象範囲継続弱化無効味方 / 中15秒効果回数分、受けた弱化効果を無効…"
         }
       ],
-      "statusEffectRefCount": 11,
+      "statusEffectRefCount": 12,
       "typeFeatureCount": 10
     },
     {
@@ -59905,6 +59989,123 @@
     {
       "category": "equipments",
       "categoryLabel": "装備",
+      "name": "太平辟邪霊符",
+      "statusEffectRefs": [
+        {
+          "featureId": "status_effect:知力低下回避[天雷]",
+          "label": "知力低下回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "知力低下回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける"
+        },
+        {
+          "featureId": "status_effect:攻撃速度低下回避[天雷]",
+          "label": "攻撃速度低下回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "攻撃速度低下回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）を避ける"
+        },
+        {
+          "featureId": "status_effect:会心率半減回避[天雷]",
+          "label": "会心率半減回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "会心率半減回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と一部の不利変化（会心率半減/通常攻撃縮小）を避ける"
+        },
+        {
+          "featureId": "status_effect:通常攻撃縮小回避[天雷]",
+          "label": "通常攻撃縮小回避[天雷]",
+          "featureType": "statusEffect",
+          "statusEffectName": "通常攻撃縮小回避[天雷]",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "functional-summary",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "self-countermeasure-skill",
+          "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と一部の不利変化（会心率半減/通常攻撃縮小）を避ける"
+        }
+      ],
+      "typeFeatures": [
+        {
+          "featureId": "parameter:critical_power",
+          "label": "会心威力",
+          "featureType": "parameter",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "部隊の「反逆」のLv×4%、部隊の会心威力が上昇SSR時の最大技能天黄才気"
+        },
+        {
+          "featureId": "parameter:normal_attack_power",
+          "label": "通常攻撃威力",
+          "featureType": "parameter",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身1部隊の通常攻撃威力+30%（15秒）雷光逆乱"
+        },
+        {
+          "featureId": "skill_effect:damage_reduction",
+          "label": "被ダメージ軽減",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "出陣時の自部隊の知力に応じて、通常攻撃による被ダメージを軽減（知力500につき4％軽減"
+        }
+      ],
+      "statusEffectRefCount": 4,
+      "typeFeatureCount": 3
+    },
+    {
+      "category": "equipments",
+      "categoryLabel": "装備",
+      "name": "蜀科",
+      "statusEffectRefs": [],
+      "typeFeatures": [
+        {
+          "featureId": "skill_effect:annihilation_avoidance",
+          "label": "壊滅回避",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "戦法のダメージを受けて壊滅しなかった時"
+        },
+        {
+          "featureId": "parameter:normal_attack_power",
+          "label": "通常攻撃威力",
+          "featureType": "parameter",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "攻撃対象を含む敵3部隊の通常攻撃威力₋20%（10秒）英計抑敵"
+        },
+        {
+          "featureId": "skill_effect:enemy_target_count",
+          "label": "敵対象部隊数",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "攻撃部隊を含む敵3部隊の強化効果を2つ打ち消す"
+        }
+      ],
+      "statusEffectRefCount": 0,
+      "typeFeatureCount": 3
+    },
+    {
+      "category": "equipments",
+      "categoryLabel": "装備",
       "name": "稜花朱塗拂塵",
       "statusEffectRefs": [],
       "typeFeatures": [
@@ -59943,40 +60144,6 @@
       ],
       "statusEffectRefCount": 0,
       "typeFeatureCount": 4
-    },
-    {
-      "category": "equipments",
-      "categoryLabel": "装備",
-      "name": "蜀科",
-      "statusEffectRefs": [],
-      "typeFeatures": [
-        {
-          "featureId": "skill_effect:annihilation_avoidance",
-          "label": "壊滅回避",
-          "featureType": "skillEffect",
-          "source": "effect-text",
-          "sourcePartType": "conservative-pattern",
-          "matchedText": "戦法のダメージを受けて壊滅しなかった時"
-        },
-        {
-          "featureId": "parameter:normal_attack_power",
-          "label": "通常攻撃威力",
-          "featureType": "parameter",
-          "source": "effect-text",
-          "sourcePartType": "conservative-pattern",
-          "matchedText": "攻撃対象を含む敵3部隊の通常攻撃威力₋20%（10秒）英計抑敵"
-        },
-        {
-          "featureId": "skill_effect:enemy_target_count",
-          "label": "敵対象部隊数",
-          "featureType": "skillEffect",
-          "source": "effect-text",
-          "sourcePartType": "conservative-pattern",
-          "matchedText": "攻撃部隊を含む敵3部隊の強化効果を2つ打ち消す"
-        }
-      ],
-      "statusEffectRefCount": 0,
-      "typeFeatureCount": 3
     },
     {
       "category": "equipments",
@@ -64449,12 +64616,36 @@
       "statusEffectRefs": [],
       "typeFeatures": [
         {
+          "featureId": "skill_effect:damage_reduction",
+          "label": "被ダメージ軽減",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "敵部隊からの通常攻撃・戦法による被ダメージを、敵部隊に発生している弱化効果の数×1.5%軽減（最大15％）SSR時の最大技能後顧鬼想"
+        },
+        {
           "featureId": "skill_effect:ally_buff_multi",
           "label": "味方バフ配布",
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "conservative-pattern",
           "matchedText": "自身を含む味方3部隊に25%の知力耐性を付与（10秒） →駐屯/防衛中は効果量が2倍（50%）"
+        },
+        {
+          "featureId": "skill_effect:enemy_debuff_multi",
+          "label": "敵デバフ配布",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "敵部隊からの通常攻撃・戦法による被ダメージを、敵部隊に発生している弱化効果の数×1.5%軽減（最大15％）SSR時の最大技能後顧鬼想"
+        },
+        {
+          "featureId": "skill_effect:effect_duration",
+          "label": "効果時間",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "conservative-pattern",
+          "matchedText": "自身を含む味方3部隊に取込を付与（10秒） →駐屯/防衛中は効果時間が2倍（20秒）弱仇妙衛"
         },
         {
           "featureId": "skill_effect:ally_target_count",
@@ -64474,7 +64665,7 @@
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 3
+      "typeFeatureCount": 6
     },
     {
       "category": "equipments",
