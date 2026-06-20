@@ -9,7 +9,7 @@ on:
       - ready_for_review
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 
 jobs:
@@ -97,5 +97,5 @@ jobs:
               await github.graphql(mutation, { pullRequestId: pullRequest.id });
               core.info(`Auto-merge enabled for PR #${pr.number}.`);
             } catch (error) {
-              core.setFailed(`Auto-merge could not be enabled automatically: ${error.message}\nConfirm the actual GraphQL failure reason first. Then check repository settings: Allow auto-merge, branch protection required checks include App Validation / app-validation, merge queue setting if required, and this workflow has Pull requests write permission.`);
+              core.setFailed(`Auto-merge could not be enabled automatically: ${error.message}\nConfirm the actual GraphQL failure reason first. Then check repository settings: Allow auto-merge, branch protection required checks include App Validation / app-validation, merge queue setting if required, and this workflow has Contents write and Pull requests write permissions.`);
             }
