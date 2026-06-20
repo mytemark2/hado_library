@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-06-07T06:04:52.977Z",
-  "dataSetId": "2026-06-07T04:23:26.720Z",
+  "generatedAt": "2026-06-14T06:09:45.870Z",
+  "dataSetId": "2026-06-07T06:04:52.951Z",
   "crawlerVersion": "1.1.0.0",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -35,7 +35,7 @@
   "sourceCounts": {
     "generals": 476,
     "tactics": 455,
-    "equipments": 237,
+    "equipments": 238,
     "skills": 620,
     "statusEffects": 200,
     "siegeWeapons": 6,
@@ -49,7 +49,7 @@
   "sourceHashes": {
     "generals": "4c9aa0cb",
     "tactics": "a9afed3e",
-    "equipments": "4e60d216",
+    "equipments": "5960e367",
     "skills": "bee67c33",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
@@ -63,7 +63,7 @@
   "sourceSha256": {
     "generals": "4c9aa0cb",
     "tactics": "a9afed3e",
-    "equipments": "4e60d216",
+    "equipments": "5960e367",
     "skills": "bee67c33",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
@@ -86,7 +86,7 @@
       "敵部隊能力低下": 45
     },
     "relationTypeCounts": {
-      "direct_grant": 2719
+      "direct_grant": 2734
     },
     "policy": "1.0.5.6: 状態変化詳細の逆引きは直接付与だけを正本化。全文一致・注記・条件参照・対策・効果調整を混ぜない。"
   },
@@ -2203,6 +2203,20 @@
         ],
         "equipments": [
           {
+            "name": "太平辟邪霊符",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "結束",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfStateBuff",
+            "groupLabel": "自部隊状態強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "稜花朱塗拂塵",
             "ownerType": "equipment",
             "category": "equipments",
@@ -2512,20 +2526,6 @@
           },
           {
             "name": "九華扇",
-            "ownerType": "equipment",
-            "category": "equipments",
-            "matchedText": "結束",
-            "source": "semantic-owner-status-grant",
-            "sourcePartType": "semantic-owner-status-grant",
-            "relationType": "direct_grant",
-            "directGrantVerified": true,
-            "groupKey": "selfStateBuff",
-            "groupLabel": "自部隊状態強化",
-            "targetSide": "self",
-            "direction": "buff"
-          },
-          {
-            "name": "司馬氏兵記",
             "ownerType": "equipment",
             "category": "equipments",
             "matchedText": "結束",
@@ -2991,6 +2991,13 @@
         },
         {
           "type": "equipments",
+          "name": "太平辟邪霊符",
+          "matchedText": "結束",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
           "name": "稜花朱塗拂塵",
           "matchedText": "結束",
           "sourcePartType": "semantic-owner-status-grant",
@@ -3146,13 +3153,6 @@
         {
           "type": "equipments",
           "name": "九華扇",
-          "matchedText": "結束",
-          "sourcePartType": "semantic-owner-status-grant",
-          "relationType": "direct_grant"
-        },
-        {
-          "type": "equipments",
-          "name": "司馬氏兵記",
           "matchedText": "結束",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -5694,6 +5694,20 @@
             "direction": "buff"
           },
           {
+            "name": "司馬氏兵記",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "取込",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "藍田玉軍令牌",
             "ownerType": "equipment",
             "category": "equipments",
@@ -5821,20 +5835,6 @@
           },
           {
             "name": "紫藤紗錦披帛",
-            "ownerType": "equipment",
-            "category": "equipments",
-            "matchedText": "取込",
-            "source": "semantic-owner-status-grant",
-            "sourcePartType": "semantic-owner-status-grant",
-            "relationType": "direct_grant",
-            "directGrantVerified": true,
-            "groupKey": "selfResistanceBuff",
-            "groupLabel": "自部隊不利対策",
-            "targetSide": "self",
-            "direction": "buff"
-          },
-          {
-            "name": "白羽扇",
             "ownerType": "equipment",
             "category": "equipments",
             "matchedText": "取込",
@@ -6118,6 +6118,13 @@
         },
         {
           "type": "equipments",
+          "name": "司馬氏兵記",
+          "matchedText": "取込",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
           "name": "藍田玉軍令牌",
           "matchedText": "取込",
           "sourcePartType": "semantic-owner-status-grant",
@@ -6182,13 +6189,6 @@
         {
           "type": "equipments",
           "name": "紫藤紗錦披帛",
-          "matchedText": "取込",
-          "sourcePartType": "semantic-owner-status-grant",
-          "relationType": "direct_grant"
-        },
-        {
-          "type": "equipments",
-          "name": "白羽扇",
           "matchedText": "取込",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -8199,7 +8199,7 @@
         ],
         "equipments": [
           {
-            "name": "稜花朱塗拂塵",
+            "name": "蜀科",
             "ownerType": "equipment",
             "category": "equipments",
             "matchedText": "弱化無効",
@@ -8213,7 +8213,7 @@
             "direction": "buff"
           },
           {
-            "name": "蜀科",
+            "name": "稜花朱塗拂塵",
             "ownerType": "equipment",
             "category": "equipments",
             "matchedText": "弱化無効",
@@ -9071,14 +9071,14 @@
         },
         {
           "type": "equipments",
-          "name": "稜花朱塗拂塵",
+          "name": "蜀科",
           "matchedText": "弱化無効",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
         },
         {
           "type": "equipments",
-          "name": "蜀科",
+          "name": "稜花朱塗拂塵",
           "matchedText": "弱化無効",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -10288,6 +10288,20 @@
             "direction": "buff"
           },
           {
+            "name": "司馬氏兵記",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "有利激攻",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "奮勇燕尾牌",
             "ownerType": "equipment",
             "category": "equipments",
@@ -10569,6 +10583,20 @@
           },
           {
             "name": "獅子頭の兜",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "有利激攻",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
+            "name": "白羽扇",
             "ownerType": "equipment",
             "category": "equipments",
             "matchedText": "有利激攻",
@@ -11083,6 +11111,13 @@
         },
         {
           "type": "equipments",
+          "name": "司馬氏兵記",
+          "matchedText": "有利激攻",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
           "name": "奮勇燕尾牌",
           "matchedText": "有利激攻",
           "sourcePartType": "semantic-owner-status-grant",
@@ -11224,6 +11259,13 @@
         {
           "type": "equipments",
           "name": "獅子頭の兜",
+          "matchedText": "有利激攻",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
+          "name": "白羽扇",
           "matchedText": "有利激攻",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -11465,20 +11507,6 @@
             "groupLabel": "自部隊不利対策",
             "targetSide": "self",
             "direction": "buff"
-          },
-          {
-            "name": "白羽扇",
-            "ownerType": "equipment",
-            "category": "equipments",
-            "matchedText": "会心耐性",
-            "source": "semantic-owner-status-grant",
-            "sourcePartType": "semantic-owner-status-grant",
-            "relationType": "direct_grant",
-            "directGrantVerified": true,
-            "groupKey": "selfResistanceBuff",
-            "groupLabel": "自部隊不利対策",
-            "targetSide": "self",
-            "direction": "buff"
           }
         ]
       },
@@ -11577,13 +11605,6 @@
         {
           "type": "equipments",
           "name": "緑絹金花抹額",
-          "matchedText": "会心耐性",
-          "sourcePartType": "semantic-owner-status-grant",
-          "relationType": "direct_grant"
-        },
-        {
-          "type": "equipments",
-          "name": "白羽扇",
           "matchedText": "会心耐性",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -13748,6 +13769,20 @@
             "direction": "buff"
           },
           {
+            "name": "白羽扇",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "知力耐性",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "羌毛領披風・黒革披風",
             "ownerType": "equipment",
             "category": "equipments",
@@ -14131,6 +14166,13 @@
         {
           "type": "equipments",
           "name": "冕冠",
+          "matchedText": "知力耐性",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
+          "name": "白羽扇",
           "matchedText": "知力耐性",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -15259,6 +15301,20 @@
             "direction": "buff"
           },
           {
+            "name": "白羽扇",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "絶縁",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "郭子兵略",
             "ownerType": "equipment",
             "category": "equipments",
@@ -15677,6 +15733,13 @@
         {
           "type": "equipments",
           "name": "黄武勢剣",
+          "matchedText": "絶縁",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
+          "name": "白羽扇",
           "matchedText": "絶縁",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -20670,6 +20733,20 @@
             "direction": "buff"
           },
           {
+            "name": "司馬氏兵記",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "有利巧守",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "山越鋸歯刀・山越刀",
             "ownerType": "equipment",
             "category": "equipments",
@@ -20857,6 +20934,13 @@
         {
           "type": "equipments",
           "name": "碧緑双翼兜",
+          "matchedText": "有利巧守",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
+          "name": "司馬氏兵記",
           "matchedText": "有利巧守",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -22911,6 +22995,20 @@
         ],
         "equipments": [
           {
+            "name": "太平辟邪霊符",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "弱化反射",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "西方の銀杯",
             "ownerType": "equipment",
             "category": "equipments",
@@ -23350,6 +23448,13 @@
         {
           "type": "skills",
           "name": "反計",
+          "matchedText": "弱化反射",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
+          "name": "太平辟邪霊符",
           "matchedText": "弱化反射",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -29829,6 +29934,20 @@
             "groupLabel": "自部隊能力強化",
             "targetSide": "self",
             "direction": "buff"
+          },
+          {
+            "name": "白羽扇",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "巧知",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
           }
         ]
       },
@@ -29983,6 +30102,13 @@
         {
           "type": "equipments",
           "name": "古錠刀",
+          "matchedText": "巧知",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
+          "name": "白羽扇",
           "matchedText": "巧知",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -34270,6 +34396,20 @@
         ],
         "equipments": [
           {
+            "name": "太平辟邪霊符",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "泰然",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "披荊斬棘戈",
             "ownerType": "equipment",
             "category": "equipments",
@@ -34541,6 +34681,13 @@
         {
           "type": "skills",
           "name": "迫撃",
+          "matchedText": "泰然",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
+          "name": "太平辟邪霊符",
           "matchedText": "泰然",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -34847,6 +34994,20 @@
         ],
         "equipments": [
           {
+            "name": "太平辟邪霊符",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "憤怒",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "孫尚香の乾坤圏",
             "ownerType": "equipment",
             "category": "equipments",
@@ -35097,6 +35258,13 @@
         {
           "type": "skills",
           "name": "苛烈",
+          "matchedText": "憤怒",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
+          "name": "太平辟邪霊符",
           "matchedText": "憤怒",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -36541,6 +36709,20 @@
             "groupLabel": "自部隊能力強化",
             "targetSide": "self",
             "direction": "buff"
+          },
+          {
+            "name": "白羽扇",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "賢壁",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
           }
         ]
       },
@@ -36646,6 +36828,13 @@
         {
           "type": "equipments",
           "name": "太平九節杖",
+          "matchedText": "賢壁",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
+          "name": "白羽扇",
           "matchedText": "賢壁",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -38945,9 +39134,51 @@
             "groupLabel": "自部隊能力強化",
             "targetSide": "self",
             "direction": "buff"
+          },
+          {
+            "name": "黄老",
+            "ownerType": "skill",
+            "category": "skills",
+            "matchedText": "威槍",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
+            "name": "天雷",
+            "ownerType": "skill",
+            "category": "skills",
+            "matchedText": "威槍",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
           }
         ],
         "equipments": [
+          {
+            "name": "太平辟邪霊符",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "威槍",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
           {
             "name": "堅壁獣面兜",
             "ownerType": "equipment",
@@ -39038,6 +39269,27 @@
         {
           "type": "skills",
           "name": "壮威",
+          "matchedText": "威槍",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "skills",
+          "name": "黄老",
+          "matchedText": "威槍",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "skills",
+          "name": "天雷",
+          "matchedText": "威槍",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
+          "name": "太平辟邪霊符",
           "matchedText": "威槍",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -39384,7 +39636,7 @@
         "skills": [],
         "equipments": [
           {
-            "name": "稜花朱塗拂塵",
+            "name": "蜀科",
             "ownerType": "equipment",
             "category": "equipments",
             "matchedText": "慧叡",
@@ -39398,7 +39650,7 @@
             "direction": "buff"
           },
           {
-            "name": "蜀科",
+            "name": "稜花朱塗拂塵",
             "ownerType": "equipment",
             "category": "equipments",
             "matchedText": "慧叡",
@@ -39500,14 +39752,14 @@
         },
         {
           "type": "equipments",
-          "name": "稜花朱塗拂塵",
+          "name": "蜀科",
           "matchedText": "慧叡",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
         },
         {
           "type": "equipments",
-          "name": "蜀科",
+          "name": "稜花朱塗拂塵",
           "matchedText": "慧叡",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -41457,20 +41709,6 @@
             "groupLabel": "敵部隊状態弱化",
             "targetSide": "enemy",
             "direction": "debuff"
-          },
-          {
-            "name": "白羽扇",
-            "ownerType": "equipment",
-            "category": "equipments",
-            "matchedText": "混乱",
-            "source": "semantic-owner-status-grant",
-            "sourcePartType": "semantic-owner-status-grant",
-            "relationType": "direct_grant",
-            "directGrantVerified": true,
-            "groupKey": "enemyStateDebuff",
-            "groupLabel": "敵部隊状態弱化",
-            "targetSide": "enemy",
-            "direction": "debuff"
           }
         ]
       },
@@ -41688,13 +41926,6 @@
         {
           "type": "equipments",
           "name": "白旄乾坤旗",
-          "matchedText": "混乱",
-          "sourcePartType": "semantic-owner-status-grant",
-          "relationType": "direct_grant"
-        },
-        {
-          "type": "equipments",
-          "name": "白羽扇",
           "matchedText": "混乱",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -42113,20 +42344,6 @@
             "direction": "debuff"
           },
           {
-            "name": "司馬氏兵記",
-            "ownerType": "equipment",
-            "category": "equipments",
-            "matchedText": "同討",
-            "source": "semantic-owner-status-grant",
-            "sourcePartType": "semantic-owner-status-grant",
-            "relationType": "direct_grant",
-            "directGrantVerified": true,
-            "groupKey": "enemyStateDebuff",
-            "groupLabel": "敵部隊状態弱化",
-            "targetSide": "enemy",
-            "direction": "debuff"
-          },
-          {
             "name": "道論",
             "ownerType": "equipment",
             "category": "equipments",
@@ -42481,13 +42698,6 @@
         },
         {
           "type": "equipments",
-          "name": "司馬氏兵記",
-          "matchedText": "同討",
-          "sourcePartType": "semantic-owner-status-grant",
-          "relationType": "direct_grant"
-        },
-        {
-          "type": "equipments",
           "name": "道論",
           "matchedText": "同討",
           "sourcePartType": "semantic-owner-status-grant",
@@ -42822,6 +43032,20 @@
           }
         ],
         "equipments": [
+          {
+            "name": "太平辟邪霊符",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "疑心",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyStateDebuff",
+            "groupLabel": "敵部隊状態弱化",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          },
           {
             "name": "西方の銀杯",
             "ownerType": "equipment",
@@ -43262,6 +43486,13 @@
         {
           "type": "skills",
           "name": "連縛",
+          "matchedText": "疑心",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
+          "name": "太平辟邪霊符",
           "matchedText": "疑心",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -43770,6 +44001,20 @@
           }
         ],
         "equipments": [
+          {
+            "name": "太平辟邪霊符",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "強化無効",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyStateDebuff",
+            "groupLabel": "敵部隊状態弱化",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          },
           {
             "name": "西方の銀杯",
             "ownerType": "equipment",
@@ -44314,6 +44559,13 @@
         },
         {
           "type": "equipments",
+          "name": "太平辟邪霊符",
+          "matchedText": "強化無効",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
           "name": "西方の銀杯",
           "matchedText": "強化無効",
           "sourcePartType": "semantic-owner-status-grant",
@@ -44789,6 +45041,20 @@
         ],
         "equipments": [
           {
+            "name": "太平辟邪霊符",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "弱化残存",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyStateDebuff",
+            "groupLabel": "敵部隊状態弱化",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          },
+          {
             "name": "西方の銀杯",
             "ownerType": "equipment",
             "category": "equipments",
@@ -44860,20 +45126,6 @@
           },
           {
             "name": "焦尾琴",
-            "ownerType": "equipment",
-            "category": "equipments",
-            "matchedText": "弱化残存",
-            "source": "semantic-owner-status-grant",
-            "sourcePartType": "semantic-owner-status-grant",
-            "relationType": "direct_grant",
-            "directGrantVerified": true,
-            "groupKey": "enemyStateDebuff",
-            "groupLabel": "敵部隊状態弱化",
-            "targetSide": "enemy",
-            "direction": "debuff"
-          },
-          {
-            "name": "司馬氏兵記",
             "ownerType": "equipment",
             "category": "equipments",
             "matchedText": "弱化残存",
@@ -45178,6 +45430,13 @@
         },
         {
           "type": "equipments",
+          "name": "太平辟邪霊符",
+          "matchedText": "弱化残存",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
           "name": "西方の銀杯",
           "matchedText": "弱化残存",
           "sourcePartType": "semantic-owner-status-grant",
@@ -45214,13 +45473,6 @@
         {
           "type": "equipments",
           "name": "焦尾琴",
-          "matchedText": "弱化残存",
-          "sourcePartType": "semantic-owner-status-grant",
-          "relationType": "direct_grant"
-        },
-        {
-          "type": "equipments",
-          "name": "司馬氏兵記",
           "matchedText": "弱化残存",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -46438,6 +46690,20 @@
         ],
         "equipments": [
           {
+            "name": "太平辟邪霊符",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "挑発",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyStateDebuff",
+            "groupLabel": "敵部隊状態弱化",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          },
+          {
             "name": "西方の銀杯",
             "ownerType": "equipment",
             "category": "equipments",
@@ -46631,6 +46897,13 @@
         },
         {
           "type": "equipments",
+          "name": "太平辟邪霊符",
+          "matchedText": "挑発",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
           "name": "西方の銀杯",
           "matchedText": "挑発",
           "sourcePartType": "semantic-owner-status-grant",
@@ -46747,6 +47020,20 @@
           }
         ],
         "equipments": [
+          {
+            "name": "太平辟邪霊符",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "戦法範囲縮小",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyStateDebuff",
+            "groupLabel": "敵部隊状態弱化",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          },
           {
             "name": "西方の銀杯",
             "ownerType": "equipment",
@@ -46914,6 +47201,13 @@
         {
           "type": "skills",
           "name": "鑽堅",
+          "matchedText": "戦法範囲縮小",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
+          "name": "太平辟邪霊符",
           "matchedText": "戦法範囲縮小",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -48531,6 +48825,20 @@
             "direction": "debuff"
           },
           {
+            "name": "司馬氏兵記",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "会心率半減",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyAbilityDebuff",
+            "groupLabel": "敵部隊能力低下",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          },
+          {
             "name": "太平賢良黄金冠",
             "ownerType": "equipment",
             "category": "equipments",
@@ -48662,6 +48970,13 @@
         {
           "type": "equipments",
           "name": "厳毅典麗宝剣",
+          "matchedText": "会心率半減",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
+          "name": "司馬氏兵記",
           "matchedText": "会心率半減",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -50140,6 +50455,20 @@
             "direction": "debuff"
           },
           {
+            "name": "司馬氏兵記",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "連鎖無効",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyStateDebuff",
+            "groupLabel": "敵部隊状態弱化",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          },
+          {
             "name": "鋼胆鉄心槍",
             "ownerType": "equipment",
             "category": "equipments",
@@ -50253,20 +50582,6 @@
           },
           {
             "name": "金系帯紫錦披風",
-            "ownerType": "equipment",
-            "category": "equipments",
-            "matchedText": "連鎖無効",
-            "source": "semantic-owner-status-grant",
-            "sourcePartType": "semantic-owner-status-grant",
-            "relationType": "direct_grant",
-            "directGrantVerified": true,
-            "groupKey": "enemyStateDebuff",
-            "groupLabel": "敵部隊状態弱化",
-            "targetSide": "enemy",
-            "direction": "debuff"
-          },
-          {
-            "name": "白羽扇",
             "ownerType": "equipment",
             "category": "equipments",
             "matchedText": "連鎖無効",
@@ -50466,6 +50781,13 @@
         },
         {
           "type": "equipments",
+          "name": "司馬氏兵記",
+          "matchedText": "連鎖無効",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
           "name": "鋼胆鉄心槍",
           "matchedText": "連鎖無効",
           "sourcePartType": "semantic-owner-status-grant",
@@ -50523,13 +50845,6 @@
         {
           "type": "equipments",
           "name": "金系帯紫錦披風",
-          "matchedText": "連鎖無効",
-          "sourcePartType": "semantic-owner-status-grant",
-          "relationType": "direct_grant"
-        },
-        {
-          "type": "equipments",
-          "name": "白羽扇",
           "matchedText": "連鎖無効",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -51301,6 +51616,20 @@
         ],
         "equipments": [
           {
+            "name": "太平辟邪霊符",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "幻惑",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyAbilityDebuff",
+            "groupLabel": "敵部隊能力低下",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          },
+          {
             "name": "西方の銀杯",
             "ownerType": "equipment",
             "category": "equipments",
@@ -51628,6 +51957,13 @@
         {
           "type": "skills",
           "name": "眩乱",
+          "matchedText": "幻惑",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
+          "name": "太平辟邪霊符",
           "matchedText": "幻惑",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -52159,20 +52495,6 @@
             "direction": "debuff"
           },
           {
-            "name": "司馬氏兵記",
-            "ownerType": "equipment",
-            "category": "equipments",
-            "matchedText": "分断",
-            "source": "semantic-owner-status-grant",
-            "sourcePartType": "semantic-owner-status-grant",
-            "relationType": "direct_grant",
-            "directGrantVerified": true,
-            "groupKey": "enemyStateDebuff",
-            "groupLabel": "敵部隊状態弱化",
-            "targetSide": "enemy",
-            "direction": "debuff"
-          },
-          {
             "name": "藍田玉軍令牌",
             "ownerType": "equipment",
             "category": "equipments",
@@ -52493,13 +52815,6 @@
         {
           "type": "equipments",
           "name": "奉天銀灰冠",
-          "matchedText": "分断",
-          "sourcePartType": "semantic-owner-status-grant",
-          "relationType": "direct_grant"
-        },
-        {
-          "type": "equipments",
-          "name": "司馬氏兵記",
           "matchedText": "分断",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -53704,20 +54019,6 @@
             "direction": "debuff"
           },
           {
-            "name": "司馬氏兵記",
-            "ownerType": "equipment",
-            "category": "equipments",
-            "matchedText": "不利消沈",
-            "source": "semantic-owner-status-grant",
-            "sourcePartType": "semantic-owner-status-grant",
-            "relationType": "direct_grant",
-            "directGrantVerified": true,
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff"
-          },
-          {
             "name": "錦帆鈴飾",
             "ownerType": "equipment",
             "category": "equipments",
@@ -53849,13 +54150,6 @@
         {
           "type": "equipments",
           "name": "弘雅守信冠",
-          "matchedText": "不利消沈",
-          "sourcePartType": "semantic-owner-status-grant",
-          "relationType": "direct_grant"
-        },
-        {
-          "type": "equipments",
-          "name": "司馬氏兵記",
           "matchedText": "不利消沈",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -56869,6 +57163,20 @@
         ],
         "equipments": [
           {
+            "name": "太平辟邪霊符",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "乱炎",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyAbilityDebuff",
+            "groupLabel": "敵部隊能力低下",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          },
+          {
             "name": "紫金白羽炎冠",
             "ownerType": "equipment",
             "category": "equipments",
@@ -57042,6 +57350,13 @@
         {
           "type": "skills",
           "name": "吹響",
+          "matchedText": "乱炎",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
+          "name": "太平辟邪霊符",
           "matchedText": "乱炎",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -57489,7 +57804,7 @@
         "skills": [],
         "equipments": [
           {
-            "name": "稜花朱塗拂塵",
+            "name": "蜀科",
             "ownerType": "equipment",
             "category": "equipments",
             "matchedText": "毒﨧",
@@ -57503,7 +57818,7 @@
             "direction": "debuff"
           },
           {
-            "name": "蜀科",
+            "name": "稜花朱塗拂塵",
             "ownerType": "equipment",
             "category": "equipments",
             "matchedText": "毒﨧",
@@ -57563,14 +57878,14 @@
         },
         {
           "type": "equipments",
-          "name": "稜花朱塗拂塵",
+          "name": "蜀科",
           "matchedText": "毒﨧",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
         },
         {
           "type": "equipments",
-          "name": "蜀科",
+          "name": "稜花朱塗拂塵",
           "matchedText": "毒﨧",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -57638,7 +57953,7 @@
         "skills": [],
         "equipments": [
           {
-            "name": "稜花朱塗拂塵",
+            "name": "蜀科",
             "ownerType": "equipment",
             "category": "equipments",
             "matchedText": "奪魂",
@@ -57652,7 +57967,7 @@
             "direction": "debuff"
           },
           {
-            "name": "蜀科",
+            "name": "稜花朱塗拂塵",
             "ownerType": "equipment",
             "category": "equipments",
             "matchedText": "奪魂",
@@ -57712,14 +58027,14 @@
         },
         {
           "type": "equipments",
-          "name": "稜花朱塗拂塵",
+          "name": "蜀科",
           "matchedText": "奪魂",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
         },
         {
           "type": "equipments",
-          "name": "蜀科",
+          "name": "稜花朱塗拂塵",
           "matchedText": "奪魂",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -58778,7 +59093,7 @@
         ],
         "equipments": [
           {
-            "name": "稜花朱塗拂塵",
+            "name": "蜀科",
             "ownerType": "equipment",
             "category": "equipments",
             "matchedText": "歩兵戦法抑圧",
@@ -58792,7 +59107,7 @@
             "direction": "debuff"
           },
           {
-            "name": "蜀科",
+            "name": "稜花朱塗拂塵",
             "ownerType": "equipment",
             "category": "equipments",
             "matchedText": "歩兵戦法抑圧",
@@ -58873,14 +59188,14 @@
         },
         {
           "type": "equipments",
-          "name": "稜花朱塗拂塵",
+          "name": "蜀科",
           "matchedText": "歩兵戦法抑圧",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
         },
         {
           "type": "equipments",
-          "name": "蜀科",
+          "name": "稜花朱塗拂塵",
           "matchedText": "歩兵戦法抑圧",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
