@@ -222,6 +222,28 @@ assert(!html.includes('>効果<') && !html.includes('>変化率<'), 'normal UI m
 assert(html.includes('検証耐性技能') || html.includes('検証支援技能') || html.includes('検証回復技能'), 'score detail HTML must include matched source labels');
 assert(html.includes('+1') || html.includes('+20%') || html.includes('+10%'), 'score detail HTML must include matched values as supplemental text');
 assert(html.includes('条件：常に'), 'score detail HTML must show user-facing default condition');
+
+const syntheticDisadvantageRow = {
+  label: '自部隊不利対策',
+  score: 20,
+  scoreDetails: Array.from({ length: 20 }, (_, index) => ({
+    label: ['弱化無効','弱化解除','弱化反射','状態変化無効','不利変化無効'][index % 5],
+    point: 1,
+    source: `検証根拠${index + 1}`,
+    condition: '常に',
+    value: '+1',
+    matchedText: `不利対策検証${index + 1}`,
+    rawText: `弱化無効 弱化解除 弱化反射 状態変化無効 不利変化無効 ${index + 1}`,
+    evidenceType: index % 2 ? 'effect' : 'parameter',
+    reason: 'matched_item_count: 自部隊不利対策 に一致したため +1点'
+  }))
+};
+const syntheticHtml = context.renderFormationScoreEvidencePanelHtml(syntheticDisadvantageRow);
+assert(syntheticHtml.includes('自部隊不利対策の内訳'), '20-point disadvantage row must render the selected heading');
+assert(syntheticHtml.includes('20点 / 根拠20件 / 内訳合計20点'), '20-point disadvantage row must show score, evidence count, and matching detail total');
+assert(syntheticHtml.includes('弱化無効') && syntheticHtml.includes('弱化解除') && syntheticHtml.includes('弱化反射') && syntheticHtml.includes('状態変化無効') && syntheticHtml.includes('不利変化無効'), 'disadvantage details must expose matched disadvantage countermeasure labels');
+assert(!syntheticHtml.includes('一致根拠なし'), '20-point disadvantage row must not show the empty-evidence message');
+
 assert(typeScore && typeof typeScore === 'object', 'typeScore diagnostic must exist');
 assert.strictEqual(typeScore.calculationInvoked, true, 'formation render must invoke type-score calculation');
 assert.strictEqual(typeScore.formationId, formation.id, 'diagnostic must include formation id');
@@ -234,6 +256,12 @@ assert(Number(typeScore.effectSourceCount || 0) > 0, 'effect sources must feed s
 assert((typeScore.candidateScores || []).length > 0, 'candidate scores must be emitted');
 assert(maxTotalScore > 0, 'at least one candidate total score must be non-zero');
 assert(positiveRow, 'at least one evaluation row must include matched effect or parameter evidence');
+const detailRow = (typeScore.candidateScores[0].rows || []).find(row => row.label === '自部隊不利対策') || typeScore.candidateScores[0].rows[0];
+const detailTotal = (detailRow.scoreDetails || []).reduce((sum, item) => sum + Number(item.point || 0), 0);
+assert(Array.isArray(detailRow.scoreDetails) && detailRow.scoreDetails.length > 0, 'score calculation must emit scoreDetails for the evaluation row');
+assert.strictEqual(detailTotal, Number(detailRow.score || 0), 'scoreDetails point total must match row.score');
+assert(detailRow.scoreDetails.every(item => item.label && Number(item.point || 0) > 0 && item.reason && item.evidenceType), 'each score detail must include label, positive point, reason, and evidenceType');
+
 assert.strictEqual(typeScore.rendered, true, 'diagnostic must mark score UI as rendered');
 assert.strictEqual(typeScore.emptyReason, '', 'successful scoring must not report empty reason');
 assert(typeSearch && typeSearch.mode === 'formation-score', 'typeSearch diagnostic must mirror formation score execution');
