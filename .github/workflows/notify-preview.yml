@@ -100,9 +100,19 @@ jobs:
             test -s "${PREVIEW_DIR}/HADO_DEV_INFO.json"
             cmp -s HADO_DEV_INFO.json "${PREVIEW_DIR}/HADO_DEV_INFO.json"
             test -s "${PREVIEW_DIR}/PREVIEW_SOURCE_COMMIT.txt"
+            grep -q 'renderFormationScoreSummaryHtml' "${PREVIEW_DIR}/hado_formation.js"
+            grep -q 'renderFormationScoreMetricChipsHtml' "${PREVIEW_DIR}/hado_formation.js"
+            grep -q 'renderFormationScoreEvidencePanelHtml' "${PREVIEW_DIR}/hado_formation.js"
+            grep -q 'normalizeFormationScoreDisplayRows' "${PREVIEW_DIR}/hado_formation.js"
+            grep -q 'normalizeFormationScoreEvidenceRows' "${PREVIEW_DIR}/hado_formation.js"
             grep -q 'formation-score-metric-chip' "${PREVIEW_DIR}/hado_formation.js"
             grep -q 'data-formation-score-detail-index' "${PREVIEW_DIR}/hado_formation.js"
             grep -q 'setFormationScoreDetailIndex' "${PREVIEW_DIR}/hado_formation.js"
+            grep -q 'toggleFormationScoreDetailMore' "${PREVIEW_DIR}/hado_formation.js"
+            grep -q 'formationScore:render' "${PREVIEW_DIR}/hado_formation.js"
+            grep -q 'formationScore:visible' "${PREVIEW_DIR}/hado_formation.js"
+            grep -q 'formation-score-card' "${PREVIEW_DIR}/hado_styles.css"
+            grep -q 'formation-score-detail-panel' "${PREVIEW_DIR}/hado_styles.css"
             grep -q "${GITHUB_SHA}" "${PREVIEW_DIR}/PREVIEW_SOURCE_COMMIT.txt"
 
             git -C "${PREVIEW_DIR}" config user.name "github-actions[bot]"
@@ -132,3 +142,42 @@ jobs:
             sleep $((attempt * 5))
           done
           echo "Preview repository content is synchronized from ${APP_REF} (${GITHUB_SHA}); changed=${changed}."
+
+      - name: Verify published preview runtime assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          RAW_BASE="https://raw.githubusercontent.com/mytemark2/hado_library-preview/main"
+          PAGES_BASE="https://mytemark2.github.io/hado_library-preview"
+          for attempt in 1 2 3 4 5 6 7 8 9 10 11 12; do
+            echo "Preview runtime verification attempt ${attempt}/12"
+            curl -fsSL "${RAW_BASE}/PREVIEW_SOURCE_COMMIT.txt" -o /tmp/preview_source_commit.txt
+            curl -fsSL "${RAW_BASE}/hado_formation.js" -o /tmp/preview_hado_formation.raw.js
+            curl -fsSL "${RAW_BASE}/hado_styles.css" -o /tmp/preview_hado_styles.raw.css
+            if grep -q "${GITHUB_SHA}" /tmp/preview_source_commit.txt \
+              && grep -q 'renderFormationScoreSummaryHtml' /tmp/preview_hado_formation.raw.js \
+              && grep -q 'renderFormationScoreMetricChipsHtml' /tmp/preview_hado_formation.raw.js \
+              && grep -q 'renderFormationScoreEvidencePanelHtml' /tmp/preview_hado_formation.raw.js \
+              && grep -q 'normalizeFormationScoreDisplayRows' /tmp/preview_hado_formation.raw.js \
+              && grep -q 'normalizeFormationScoreEvidenceRows' /tmp/preview_hado_formation.raw.js \
+              && grep -q 'formation-score-metric-chip' /tmp/preview_hado_formation.raw.js \
+              && grep -q 'data-formation-score-detail-index' /tmp/preview_hado_formation.raw.js \
+              && grep -q 'setFormationScoreDetailIndex' /tmp/preview_hado_formation.raw.js \
+              && grep -q 'toggleFormationScoreDetailMore' /tmp/preview_hado_formation.raw.js \
+              && grep -q 'formationScore:render' /tmp/preview_hado_formation.raw.js \
+              && grep -q 'formationScore:visible' /tmp/preview_hado_formation.raw.js \
+              && grep -q 'formation-score-card' /tmp/preview_hado_styles.raw.css \
+              && grep -q 'formation-score-detail-panel' /tmp/preview_hado_styles.raw.css; then
+              curl -fsSL "${PAGES_BASE}/hado_formation.js" -o /tmp/preview_hado_formation.pages.js
+              curl -fsSL "${PAGES_BASE}/hado_styles.css" -o /tmp/preview_hado_styles.pages.css
+              grep -q 'renderFormationScoreSummaryHtml' /tmp/preview_hado_formation.pages.js
+              grep -q 'normalizeFormationScoreDisplayRows' /tmp/preview_hado_formation.pages.js
+              grep -q 'formation-score-metric-chip' /tmp/preview_hado_formation.pages.js
+              grep -q 'formation-score-card' /tmp/preview_hado_styles.pages.css
+              echo "Preview raw and Pages runtime assets contain the formation score UI functions and CSS."
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "Preview runtime assets did not expose the expected formation score UI functions/CSS for ${GITHUB_SHA}." >&2
+          exit 1
