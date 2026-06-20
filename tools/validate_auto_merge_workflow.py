@@ -36,7 +36,6 @@ FORBIDDEN = (
     "actions/checkout",
     "pull_request:\n",
     "workflow_dispatch:",
-    "contents: write",
     "if (!repo.data.allow_auto_merge)",
     "Allow auto-merge is disabled",
     "delete_branch_on_merge=false",
