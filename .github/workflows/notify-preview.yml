@@ -15,11 +15,11 @@ concurrency:
 
 jobs:
   notify-preview:
-    if: ${{ github.event.deleted == false }}
+    if: ${{ github.event.deleted == false && github.ref == 'refs/heads/feature/app-3.0.0.0' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Resolve app branch
         id: source
