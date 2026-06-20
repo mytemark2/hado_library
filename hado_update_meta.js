@@ -31,6 +31,8 @@
       const title = `覇道ライブラリ ${display}`;
       if (document.title !== title) document.title = title;
       setText(document.querySelector('#appTitlePanel h1'), title);
+      setText(document.getElementById('uxHomeVersionBadge'), `${display} 操作ガイド`);
+      setText(document.getElementById('diagnosticAppVersion'), `覇道ライブラリ｜${display}`);
 
       document.querySelectorAll('#hadoTypeEntryModal .hte-sub').forEach((node) => {
         const text = node.textContent || '';

@@ -1,40 +1,44 @@
 #!/usr/bin/env python3
-"""Validate preview notification workflow directly syncs and verifies preview assets."""
+"""Validate preview notification workflow uses the minimal canonical-branch runtime sync."""
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github" / "workflows" / "notify-preview.yml"
+CHECKOUT_ACTION_RE = re.compile(r"uses:\s*actions/checkout@v[45]\b")
 REQUIRED = (
-    "uses: actions/checkout@v4",
-    "branches:\n      - '**'",
-    "Validate source preview assets before sync",
-    "hado_styles.css is unexpectedly small",
+    "branches:\n      - feature/app-3.0.0.0",
+    "ALLOWED_PREVIEW_SOURCE_BRANCH: feature/app-3.0.0.0",
+    "github.ref == 'refs/heads/feature/app-3.0.0.0'",
+    "if [ \"${APP_REF}\" != \"${ALLOWED_PREVIEW_SOURCE_BRANCH}\" ]; then",
+    "Refusing preview sync from ${APP_REF}; only ${ALLOWED_PREVIEW_SOURCE_BRANCH} may update mytemark2/hado_library-preview.",
+    "SOURCE_COMMIT=\"$(git rev-parse HEAD)\"",
+    "Checked-out source commit ${SOURCE_COMMIT} does not match GITHUB_SHA ${GITHUB_SHA}.",
+    "concurrency:",
+    "group: hado-library-preview-sync",
+    "for attempt in 1 2 3",
+    "Preview repository main changed during push; retrying with a fresh clone.",
+    "Preview repository push failed after ${attempt} attempts",
     "Sync preview repository contents",
     "git clone --depth 1",
     "mytemark2/hado_library-preview.git",
-    "rsync -a --delete",
+    "find \"${PREVIEW_DIR}\" -mindepth 1 -maxdepth 1",
+    "rsync -a index.html HADO_DEV_INFO.json hado_*.js hado_styles.css hadou_*.json",
+    "HADO_DEV_INFO.json",
+    "cmp -s HADO_DEV_INFO.json",
     "PREVIEW_SOURCE_COMMIT.txt",
     "PREVIEW_SOURCE_BRANCH.txt",
     "PREVIEW_DISPLAY_VERSION.txt",
-    "Synced preview assets validated",
-    "Synced hado_styles.css is unexpectedly small",
+    "PREVIEW_SOURCE_FILES.txt",
+    "sha256sum index.html hado_formation.js hado_styles.css hado_version.js HADO_DEV_INFO.json",
+    "test \"$(cat \"${PREVIEW_DIR}/PREVIEW_SOURCE_BRANCH.txt\")\" = \"${ALLOWED_PREVIEW_SOURCE_BRANCH}\"",
+    "test \"$(cat \"${PREVIEW_DIR}/PREVIEW_SOURCE_COMMIT.txt\")\" = \"${SOURCE_COMMIT}\"",
+    "test \"$(cat \"${PREVIEW_DIR}/PREVIEW_DISPLAY_VERSION.txt\")\" = \"${DISPLAY_VERSION}\"",
+    "(cd \"${PREVIEW_DIR}\" && sha256sum -c PREVIEW_SOURCE_FILES.txt)",
     "git -C \"${PREVIEW_DIR}\" push origin HEAD:main",
-    "Verify preview Pages deployment workflow exists",
-    "Dispatch preview Pages deployment workflow",
-    "actions/workflows/jekyll-gh-pages.yml/dispatches",
-    "Verify preview reflects source commit and version assets",
-    "https://mytemark2.github.io/hado_library-preview/",
-    "EXPECTED_DISPLAY_VERSION",
-    "EXPECTED_SOURCE_SHA",
-    "EXPECTED_SOURCE_BRANCH",
-    "hado_version.js",
-    "hado_styles.css",
-    "./hado_styles.css",
-    "len(css_text) >= 100000",
-    "actions/deploy-pages",
-    "actions/jekyll-build-pages",
+    "sync preview from ${APP_REF}: ${SOURCE_COMMIT}",
     "PREVIEW_REPO_TOKEN",
 )
 FORBIDDEN = (
@@ -43,19 +47,28 @@ FORBIDDEN = (
     "sync_app_preview",
     "repository_dispatch",
     "branches-ignore:",
+    "branches:\n      - '**'",
+    "codex/",
+    "identify-and-propose-ui",
     "git clone --depth 1 --branch feature/app-3.0.0.0",
+    "rsync -a --delete",
+    "Verify preview reflects source commit and version assets",
+    "actions/workflows/jekyll-gh-pages.yml/dispatches",
 )
 
 
 def main() -> int:
     text = WORKFLOW.read_text(encoding="utf-8")
-    missing = [snippet for snippet in REQUIRED if snippet not in text]
+    missing = []
+    if not CHECKOUT_ACTION_RE.search(text):
+        missing.append("uses: actions/checkout@v4 or actions/checkout@v5")
+    missing.extend(snippet for snippet in REQUIRED if snippet not in text)
     forbidden = [snippet for snippet in FORBIDDEN if snippet in text]
     if missing:
         raise SystemExit("preview workflow missing: " + ", ".join(missing))
     if forbidden:
         raise SystemExit("preview workflow contains prohibited stale sync pattern: " + ", ".join(forbidden))
-    print("preview workflow directly syncs current source branch assets and verifies deployed css/version/commit")
+    print("preview workflow syncs only feature/app-3.0.0.0 runtime assets with source commit, branch, version, and file-hash markers")
     return 0
 
 
