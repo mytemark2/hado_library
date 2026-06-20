@@ -9,7 +9,7 @@ WORKFLOW = ROOT / ".github" / "workflows" / "auto-merge-codex-pr.yml"
 REQUIRED = (
     "name: Auto-merge Internal PR",
     "pull_request_target:",
-    "contents: read",
+    "contents: write",
     "pull-requests: write",
     "github.event.pull_request.head.repo.full_name == github.repository",
     "github.event.pull_request.draft == false",
