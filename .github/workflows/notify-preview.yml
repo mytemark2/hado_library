@@ -8,13 +8,16 @@ on:
 permissions:
   contents: read
 
+env:
+  ALLOWED_PREVIEW_SOURCE_BRANCH: feature/app-3.0.0.0
+
 concurrency:
   group: hado-library-preview-sync
   cancel-in-progress: false
 
 jobs:
   notify-preview:
-    if: ${{ github.event.deleted == false }}
+    if: ${{ github.event.deleted == false && github.ref == 'refs/heads/feature/app-3.0.0.0' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
@@ -30,9 +33,19 @@ jobs:
             echo "Source branch name could not be resolved." >&2
             exit 1
           fi
+          if [ "${APP_REF}" != "${ALLOWED_PREVIEW_SOURCE_BRANCH}" ]; then
+            echo "Refusing preview sync from ${APP_REF}; only ${ALLOWED_PREVIEW_SOURCE_BRANCH} may update mytemark2/hado_library-preview." >&2
+            exit 1
+          fi
+          SOURCE_COMMIT="$(git rev-parse HEAD)"
+          if [ "${SOURCE_COMMIT}" != "${GITHUB_SHA}" ]; then
+            echo "Checked-out source commit ${SOURCE_COMMIT} does not match GITHUB_SHA ${GITHUB_SHA}." >&2
+            exit 1
+          fi
           echo "app_ref=${APP_REF}" >> "${GITHUB_OUTPUT}"
+          echo "source_commit=${SOURCE_COMMIT}" >> "${GITHUB_OUTPUT}"
           echo "Preview source branch: ${APP_REF}"
-          echo "Preview source commit: ${GITHUB_SHA}"
+          echo "Preview source commit: ${SOURCE_COMMIT}"
 
       - name: Read source display version
         id: meta
@@ -75,6 +88,7 @@ jobs:
         env:
           PREVIEW_REPO_TOKEN: ${{ secrets.PREVIEW_REPO_TOKEN }}
           APP_REF: ${{ steps.source.outputs.app_ref }}
+          SOURCE_COMMIT: ${{ steps.source.outputs.source_commit }}
           DISPLAY_VERSION: ${{ steps.meta.outputs.display_version }}
         run: |
           set -euo pipefail
@@ -91,9 +105,10 @@ jobs:
             rsync -a index.html HADO_DEV_INFO.json hado_*.js hado_styles.css hadou_*.json "${PREVIEW_DIR}/"
 
             touch "${PREVIEW_DIR}/.nojekyll"
-            printf '%s\n' "${GITHUB_SHA}" > "${PREVIEW_DIR}/PREVIEW_SOURCE_COMMIT.txt"
+            printf '%s\n' "${SOURCE_COMMIT}" > "${PREVIEW_DIR}/PREVIEW_SOURCE_COMMIT.txt"
             printf '%s\n' "${APP_REF}" > "${PREVIEW_DIR}/PREVIEW_SOURCE_BRANCH.txt"
             printf '%s\n' "${DISPLAY_VERSION}" > "${PREVIEW_DIR}/PREVIEW_DISPLAY_VERSION.txt"
+            sha256sum index.html hado_formation.js hado_styles.css hado_version.js HADO_DEV_INFO.json > "${PREVIEW_DIR}/PREVIEW_SOURCE_FILES.txt"
 
             test -s "${PREVIEW_DIR}/hado_formation.js"
             test -s "${PREVIEW_DIR}/hado_styles.css"
@@ -102,7 +117,11 @@ jobs:
             test -s "${PREVIEW_DIR}/PREVIEW_SOURCE_COMMIT.txt"
             test -s "${PREVIEW_DIR}/PREVIEW_SOURCE_BRANCH.txt"
             test -s "${PREVIEW_DIR}/PREVIEW_DISPLAY_VERSION.txt"
-            grep -q "${GITHUB_SHA}" "${PREVIEW_DIR}/PREVIEW_SOURCE_COMMIT.txt"
+            test -s "${PREVIEW_DIR}/PREVIEW_SOURCE_FILES.txt"
+            test "$(cat "${PREVIEW_DIR}/PREVIEW_SOURCE_BRANCH.txt")" = "${ALLOWED_PREVIEW_SOURCE_BRANCH}"
+            test "$(cat "${PREVIEW_DIR}/PREVIEW_SOURCE_COMMIT.txt")" = "${SOURCE_COMMIT}"
+            test "$(cat "${PREVIEW_DIR}/PREVIEW_DISPLAY_VERSION.txt")" = "${DISPLAY_VERSION}"
+            (cd "${PREVIEW_DIR}" && sha256sum -c PREVIEW_SOURCE_FILES.txt)
 
             git -C "${PREVIEW_DIR}" config user.name "github-actions[bot]"
             git -C "${PREVIEW_DIR}" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -114,7 +133,7 @@ jobs:
               break
             fi
 
-            git -C "${PREVIEW_DIR}" commit -m "sync preview from ${APP_REF}: ${GITHUB_SHA}"
+            git -C "${PREVIEW_DIR}" commit -m "sync preview from ${APP_REF}: ${SOURCE_COMMIT}"
             if git -C "${PREVIEW_DIR}" push origin HEAD:main; then
               changed=true
               rm -rf "${PREVIEW_DIR}"
@@ -130,4 +149,4 @@ jobs:
             echo "Preview repository main changed during push; retrying with a fresh clone." >&2
             sleep $((attempt * 5))
           done
-          echo "Preview repository content is synchronized from ${APP_REF} (${GITHUB_SHA}); changed=${changed}."
+          echo "Preview repository content is synchronized from ${APP_REF} (${SOURCE_COMMIT}); changed=${changed}."

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate preview notification workflow uses the minimal runtime-file sync."""
+"""Validate preview notification workflow uses the minimal canonical-branch runtime sync."""
 from __future__ import annotations
 
 import re
@@ -10,6 +10,12 @@ WORKFLOW = ROOT / ".github" / "workflows" / "notify-preview.yml"
 CHECKOUT_ACTION_RE = re.compile(r"uses:\s*actions/checkout@v[45]\b")
 REQUIRED = (
     "branches:\n      - feature/app-3.0.0.0",
+    "ALLOWED_PREVIEW_SOURCE_BRANCH: feature/app-3.0.0.0",
+    "github.ref == 'refs/heads/feature/app-3.0.0.0'",
+    "if [ \"${APP_REF}\" != \"${ALLOWED_PREVIEW_SOURCE_BRANCH}\" ]; then",
+    "Refusing preview sync from ${APP_REF}; only ${ALLOWED_PREVIEW_SOURCE_BRANCH} may update mytemark2/hado_library-preview.",
+    "SOURCE_COMMIT=\"$(git rev-parse HEAD)\"",
+    "Checked-out source commit ${SOURCE_COMMIT} does not match GITHUB_SHA ${GITHUB_SHA}.",
     "concurrency:",
     "group: hado-library-preview-sync",
     "for attempt in 1 2 3",
@@ -25,8 +31,14 @@ REQUIRED = (
     "PREVIEW_SOURCE_COMMIT.txt",
     "PREVIEW_SOURCE_BRANCH.txt",
     "PREVIEW_DISPLAY_VERSION.txt",
-    'grep -q "${GITHUB_SHA}"',
+    "PREVIEW_SOURCE_FILES.txt",
+    "sha256sum index.html hado_formation.js hado_styles.css hado_version.js HADO_DEV_INFO.json",
+    "test \"$(cat \"${PREVIEW_DIR}/PREVIEW_SOURCE_BRANCH.txt\")\" = \"${ALLOWED_PREVIEW_SOURCE_BRANCH}\"",
+    "test \"$(cat \"${PREVIEW_DIR}/PREVIEW_SOURCE_COMMIT.txt\")\" = \"${SOURCE_COMMIT}\"",
+    "test \"$(cat \"${PREVIEW_DIR}/PREVIEW_DISPLAY_VERSION.txt\")\" = \"${DISPLAY_VERSION}\"",
+    "(cd \"${PREVIEW_DIR}\" && sha256sum -c PREVIEW_SOURCE_FILES.txt)",
     "git -C \"${PREVIEW_DIR}\" push origin HEAD:main",
+    "sync preview from ${APP_REF}: ${SOURCE_COMMIT}",
     "PREVIEW_REPO_TOKEN",
 )
 FORBIDDEN = (
@@ -36,6 +48,8 @@ FORBIDDEN = (
     "repository_dispatch",
     "branches-ignore:",
     "branches:\n      - '**'",
+    "codex/",
+    "identify-and-propose-ui",
     "git clone --depth 1 --branch feature/app-3.0.0.0",
     "rsync -a --delete",
     "Verify preview reflects source commit and version assets",
@@ -54,7 +68,7 @@ def main() -> int:
         raise SystemExit("preview workflow missing: " + ", ".join(missing))
     if forbidden:
         raise SystemExit("preview workflow contains prohibited stale sync pattern: " + ", ".join(forbidden))
-    print("preview workflow syncs feature/app-3.0.0.0 runtime assets with source commit marker and checkout action")
+    print("preview workflow syncs only feature/app-3.0.0.0 runtime assets with source commit, branch, version, and file-hash markers")
     return 0
 
 
