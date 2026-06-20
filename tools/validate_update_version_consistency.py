@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 VERSION_JS = ROOT / "hado_version.js"
-HTML_FILES = ("index.html", "hado_library_3.0.0.0.html")
+HTML_FILES = ("index.html",)
 DERIVED_KEYS = {"releaseVersion", "updateNo", "displayVersion", "revision"}
 
 
@@ -49,6 +49,9 @@ def main() -> int:
         raise SystemExit("hado_update_meta.js must not define runtime version constants")
     if "window.HADO_VERSION" not in update_meta_js:
         raise SystemExit("hado_update_meta.js must read window.HADO_VERSION")
+    for required in ("uxHomeVersionBadge", "diagnosticAppVersion"):
+        if required not in update_meta_js:
+            raise SystemExit(f"hado_update_meta.js must update {required} from hado_version.js metadata")
 
     workflow = (ROOT / ".github" / "workflows" / "notify-preview.yml").read_text(encoding="utf-8")
     if "hado_version.js" not in workflow:
@@ -56,8 +59,18 @@ def main() -> int:
     if "with open('HADO_DEV_INFO.json'" in workflow:
         raise SystemExit("preview workflow must not read displayVersion from HADO_DEV_INFO.json")
 
+    forbidden_html_literals = ("2.9.6 操作ガイド", "覇道ライブラリ｜v2.9.2.0", "Update08")
     for html_name in HTML_FILES:
-        sources = script_sources((ROOT / html_name).read_text(encoding="utf-8"))
+        html_text = (ROOT / html_name).read_text(encoding="utf-8")
+        stale_literals = [literal for literal in forbidden_html_literals if literal in html_text]
+        if stale_literals:
+            raise SystemExit(f"{html_name} contains stale fixed version text: " + ", ".join(stale_literals))
+        if re.search(r"v2\.\d", html_text):
+            raise SystemExit(f"{html_name} contains stale v2.x fixed version text")
+        for required_id in ("uxHomeVersionBadge", "diagnosticAppVersion"):
+            if required_id not in html_text:
+                raise SystemExit(f"{html_name} missing dynamic version target {required_id}")
+        sources = script_sources(html_text)
         for required in ("hado_version.js", "hado_update_meta.js"):
             if required not in sources:
                 raise SystemExit(f"{html_name} does not load {required}")
