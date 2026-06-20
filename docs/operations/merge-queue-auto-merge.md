@@ -31,7 +31,7 @@ A repository administrator should configure the application repository (`mytemar
 1. Open **Settings → General → Pull Requests**.
 2. Enable **Allow auto-merge**.
 3. Open **Settings → Rules → Rulesets** or **Settings → Branches → Branch protection rules**.
-4. Add or edit the rule for the default development branch, currently `feature/app-3.0.0.0`.
+4. Add or edit the rule for the default development branch, currently `future/app-3.0.0.0`.
 5. Enable **Require a pull request before merging**.
 6. Enable **Require status checks to pass**.
 7. Add required status check: `app-validation` from workflow `App Validation`.
