@@ -17,7 +17,7 @@ Related repositories:
 - Preview repository: `mytemark2/hado_library-preview`
 
 Default development branch at the time this file was created:
-- Application: `feature/app-3.0.0.0`
+- Application: `future/app-3.0.0.0`
 
 Do not assume that this branch remains current forever. Before editing, confirm the target branch from the user's task, the latest Roadmap, and the current repository state. Do not silently switch to `main`.
 
