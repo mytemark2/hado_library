@@ -15,7 +15,16 @@ REQUIRED = (
     "github.event.pull_request.draft == false",
     "uses: actions/github-script@v7",
     "Diagnose repository auto-merge settings",
-    "allow_auto_merge",
+    "allow_auto_merge_raw",
+    "allow_auto_merge_interpreted",
+    "delete_branch_on_merge_raw",
+    "allowAutoMergeRaw === false",
+    "allowAutoMergeRaw === undefined",
+    "continuing to GraphQL enablePullRequestAutoMerge",
+    "repository=${context.repo.owner}/${context.repo.repo}",
+    "base_branch=${pr.base.ref}",
+    "mergeable=${pullRequest.mergeable}",
+    "autoMergeRequest=${pullRequest.autoMergeRequest ? 'present' : 'absent'}",
     "getBranch",
     "enablePullRequestAutoMerge",
     "mergeMethod:MERGE",
@@ -28,6 +37,9 @@ FORBIDDEN = (
     "pull_request:\n",
     "workflow_dispatch:",
     "contents: write",
+    "if (!repo.data.allow_auto_merge)",
+    "Allow auto-merge is disabled",
+    "delete_branch_on_merge=false",
 )
 
 
