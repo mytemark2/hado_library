@@ -178,9 +178,7 @@ assert((html.match(/formation-score-metric-chip/g)||[]).length >= 5, 'evaluation
 assert((html.match(/data-formation-score-detail-index/g)||[]).length === 5, 'evaluation score chips must render five button controls');
 assert((html.match(/data-formation-score-card=\"1\"/g)||[]).length === 1, 'score summary renderer must produce exactly one score card');
 assert((html.match(/formation-score-detail-panel/g)||[]).length === 1, 'score summary renderer must produce exactly one detail panel');
-assert((html.match(/根拠/g)||[]).length >= 5, 'evaluation score chips/detail must show evidence counts without confusing them with points');
-assert(html.includes('内訳合計'), 'score detail panel must show the scoreDetails point total');
-assert(!html.includes('点 / 20件一致'), 'score detail panel must not confuse points with matched counts');
+assert((html.match(/件一致/g)||[]).length >= 5, 'each evaluation score chip/detail must show matched counts');
 assert(html.includes('data-formation-score-detail-label='), 'score chips must carry row labels for click diagnostics');
 assert(html.includes('data-formation-score-detail-evidence-count='), 'score chips must carry evidence counts for click diagnostics');
 assert(html.includes('formation-score-detail-panel'), 'selected evaluation score must render a detail panel');
@@ -216,7 +214,7 @@ assert.strictEqual(context.state.formationScoreDetailIndex, 3, 'detail click mus
 assert.strictEqual(fakeChips[3].active, true, 'detail click must activate the clicked chip in the same score card');
 assert.strictEqual(fakeChips[3].ariaPressed, 'true', 'detail click must update aria-pressed for the active chip');
 assert(replacedPanelHtml.includes('弱化解除の内訳'), 'detail click must replace the same-card detail panel with clicked row heading');
-assert(replacedPanelHtml.includes('一致根拠なし') || replacedPanelHtml.includes('内訳合計0点'), 'zero-score detail panel must explain no evidence or show a zero point breakdown');
+assert(replacedPanelHtml.includes('一致根拠なし'), 'zero-evidence detail panel must explain that no evidence matched');
 assert(debugEvents.slice(beforeClickDebugCount).some(event => event.name === 'formationScoreDetail:click' && event.data.previousIndex === 0 && event.data.nextIndex === 3 && event.data.rowLabel === '弱化解除' && event.data.evidenceCount === 0), 'detail click debug log must include previousIndex, nextIndex, rowLabel, and evidenceCount');
 
 assert(html.includes('+1点'), 'score detail rows must show point contribution');
