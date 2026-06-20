@@ -10,6 +10,7 @@ FORMATION = ROOT / "hado_formation.js"
 TYPE_CANDIDATES = ROOT / "hado_type_candidates.js"
 CSS = ROOT / "hado_styles.css"
 HTML = ROOT / "index.html"
+UPDATE_META = ROOT / "hado_update_meta.js"
 
 REQUIRED_JS = (
     "formationEvaluationTypeDisplayName",
@@ -49,7 +50,7 @@ REQUIRED_JS = (
     "formation-work-tabs-title",
     "formation-score-chip",
     "formation-group-head",
-    "renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)",
+    "renderFormationTeamBoardSelectableHtml(f,quickSummaryHtml)",
     "formation-mobile-score-result-placement",
     "${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}",
     "renderFormationGroupNameDialogHtml",
@@ -78,6 +79,7 @@ REQUIRED_FUNCTION_DEFINITIONS = (
 )
 
 FORBIDDEN_JS = (
+    "renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)",
     "scoreRows:generalRows.map",
     "window.HadoTypeScore.score(formationTypeScoreEntity",
     "保存データの軍馬を最大3枠まで部隊へ反映",
@@ -148,6 +150,7 @@ def main() -> int:
     type_js = TYPE_CANDIDATES.read_text(encoding="utf-8")
     css = CSS.read_text(encoding="utf-8")
     html_text = HTML.read_text(encoding="utf-8")
+    update_meta = UPDATE_META.read_text(encoding="utf-8")
     missing_js = [snippet for snippet in REQUIRED_JS if snippet not in js]
     missing_function_defs = [name for name in REQUIRED_FUNCTION_DEFINITIONS if not re.search(r"function\s+" + re.escape(name) + r"\s*\(", js)]
     forbidden_js = [snippet for snippet in FORBIDDEN_JS if snippet in js]
@@ -161,6 +164,11 @@ def main() -> int:
         raise SystemExit("Update09 Phase3 formation UI missing function definitions: " + ", ".join(missing_function_defs))
     if forbidden_js:
         raise SystemExit("Update09 Phase3 formation UI still contains removed controls: " + ", ".join(forbidden_js))
+
+    if js.count("${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}") != 1:
+        raise SystemExit("Update09 Phase3 formation UI must render exactly one score card in formation-selected-stack")
+    if "renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)" in js:
+        raise SystemExit("Update09 Phase3 formation UI must not pass scoreCardHtml into renderFormationTeamBoardSelectableHtml")
     if missing_type:
         raise SystemExit("Update09 Phase3 type candidate UI missing JS: " + ", ".join(missing_type))
     if forbidden_type:
@@ -172,6 +180,9 @@ def main() -> int:
     forbidden_html = [s for s in ("※部隊編成の合算技能は配置・好相性・兵科などの条件を判定して反映します。", "<h2>部隊編成") if s in html_text]
     if forbidden_html:
         raise SystemExit("Update09 Phase3 formation UI still contains obsolete HTML: " + ", ".join(forbidden_html))
+
+    if "renderFormationScoreSummaryHtml=function" in update_meta or "const wrappedSummary=function" in update_meta:
+        raise SystemExit("hado_update_meta.js must not override renderFormationScoreSummaryHtml; hado_formation.js owns the interactive score detail UI")
     print("Update09 Phase3 formation UI contract ok: score card function definitions, group management, type notes, warhorse layout")
     return 0
 

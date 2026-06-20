@@ -176,10 +176,47 @@ assert(html.includes('<section class="formation-selected-card formation-score-ca
 assert(!html.includes('<details class="formation-score-summary'), 'score card must not hide the score body in details');
 assert((html.match(/formation-score-metric-chip/g)||[]).length >= 5, 'evaluation score chips must render metric chip classes');
 assert((html.match(/data-formation-score-detail-index/g)||[]).length === 5, 'evaluation score chips must render five button controls');
+assert((html.match(/data-formation-score-card=\"1\"/g)||[]).length === 1, 'score summary renderer must produce exactly one score card');
+assert((html.match(/formation-score-detail-panel/g)||[]).length === 1, 'score summary renderer must produce exactly one detail panel');
 assert((html.match(/件一致/g)||[]).length >= 5, 'each evaluation score chip/detail must show matched counts');
 assert(html.includes('data-formation-score-detail-label='), 'score chips must carry row labels for click diagnostics');
 assert(html.includes('data-formation-score-detail-evidence-count='), 'score chips must carry evidence counts for click diagnostics');
 assert(html.includes('formation-score-detail-panel'), 'selected evaluation score must render a detail panel');
+
+const fakeChips = Array.from({ length: 5 }, (_, index) => ({
+  dataset: { formationScoreDetailIndex: String(index) },
+  active: false,
+  ariaPressed: '',
+  classList: { toggle(name, active) { if (name === 'is-active') this.owner.active = active; } },
+  setAttribute(name, value) { if (name === 'aria-pressed') this.ariaPressed = value; }
+}));
+fakeChips.forEach(chip => { chip.classList.owner = chip; });
+let replacedPanelHtml = '';
+const fakePanel = { set outerHTML(value) { replacedPanelHtml = value; } };
+const fakeCard = {
+  querySelectorAll(selector) { return selector === '[data-formation-score-detail-index]' ? fakeChips : []; },
+  querySelector(selector) { return selector === '.formation-score-detail-panel' ? fakePanel : null; }
+};
+const fakeBtn = {
+  dataset: {
+    formationScoreDetailIndex: '3',
+    formationScoreDetailLabel: '弱化解除',
+    formationScoreDetailScore: '0',
+    formationScoreDetailEvidenceCount: '0'
+  },
+  closest(selector) { return selector === '.formation-score-card' ? fakeCard : null; }
+};
+context.state.formationScoreDetailRows = context.normalizeFormationScoreDisplayRows(typeScore.candidateScores[0].rows || []);
+context.state.formationScoreDetailIndex = 0;
+const beforeClickDebugCount = debugEvents.length;
+context.handleFormationScoreDetailClick(fakeBtn, { preventDefault() {}, stopPropagation() {} });
+assert.strictEqual(context.state.formationScoreDetailIndex, 3, 'detail click must update state.formationScoreDetailIndex without full render');
+assert.strictEqual(fakeChips[3].active, true, 'detail click must activate the clicked chip in the same score card');
+assert.strictEqual(fakeChips[3].ariaPressed, 'true', 'detail click must update aria-pressed for the active chip');
+assert(replacedPanelHtml.includes('弱化解除の内訳'), 'detail click must replace the same-card detail panel with clicked row heading');
+assert(replacedPanelHtml.includes('一致根拠なし'), 'zero-evidence detail panel must explain that no evidence matched');
+assert(debugEvents.slice(beforeClickDebugCount).some(event => event.name === 'formationScoreDetail:click' && event.data.previousIndex === 0 && event.data.nextIndex === 3 && event.data.rowLabel === '弱化解除' && event.data.evidenceCount === 0), 'detail click debug log must include previousIndex, nextIndex, rowLabel, and evidenceCount');
+
 assert(html.includes('+1点'), 'score detail rows must show point contribution');
 assert(!html.includes('>効果<') && !html.includes('>変化率<'), 'normal UI must not expose debug bucket headings');
 assert(html.includes('検証耐性技能') || html.includes('検証支援技能') || html.includes('検証回復技能'), 'score detail HTML must include matched source labels');
@@ -204,6 +241,8 @@ assert(typeSearchCache && Number(typeSearchCache.stats?.store || 0) > 0, 'format
 assert(debugEvents.some(event => event.name === 'typeScore'), 'copy-debug-log source must receive typeScore debug event');
 assert(debugEvents.some(event => event.name === 'formationScore:render'), 'copy-debug-log source must receive formationScore:render debug event');
 const formationSource = fs.readFileSync('hado_formation.js','utf8');
+const updateMetaSource = fs.readFileSync('hado_update_meta.js','utf8');
+assert(!updateMetaSource.includes('renderFormationScoreSummaryHtml=function') && !updateMetaSource.includes('const wrappedSummary=function'), 'hado_update_meta.js must not override the interactive formation score summary renderer');
 assert(formationSource.includes('formationScore:render'), 'formation score render diagnostics must exist');
 assert(formationSource.includes('formationScore:visible'), 'formation score visible diagnostics must exist');
 assert(formationSource.includes('formationScore:empty'), 'formation score empty diagnostics must exist');
@@ -215,11 +254,15 @@ assert(formationSource.includes('formationScore:detail-click'), 'formation detai
 assert(formationSource.includes('handleFormationScoreDetailClick'), 'formation score detail clicks should use a shared guarded handler');
 assert(formationSource.includes('event.preventDefault();event.stopPropagation();'), 'formation score detail clicks should not bubble into parent formation controls');
 assert(formationSource.includes('formationScore:detail-delegate'), 'formation score detail delegated click diagnostics must exist');
-assert(formationSource.includes('renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)'), 'mobile score card should render between warhorse and result summary');
+assert(formationSource.includes('renderFormationTeamBoardSelectableHtml(f,quickSummaryHtml)'), 'mobile board should receive only the quick result summary to avoid duplicate score cards');
+assert(!formationSource.includes('renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)'), 'team board must not receive scoreCardHtml because it duplicates the score detail panel');
 assert(formationSource.includes('${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}'), 'PC score card should render between warhorse and result summary');
 assert(formationSource.includes('formationScoreDetail:click'), 'legacy formation detail click diagnostics must still exist');
-assert(formationSource.includes('rowLabel:btn?.dataset?.formationScoreDetailLabel'), 'formation detail click diagnostics must include row label');
-assert(formationSource.includes('evidenceCount:Number(btn?.dataset?.formationScoreDetailEvidenceCount)'), 'formation detail click diagnostics must include evidence count');
+assert(formationSource.includes("rowLabel:btn?.dataset?.formationScoreDetailLabel"), 'formation detail click diagnostics must include row label');
+assert(formationSource.includes('formationScoreDetailPayload'), 'formation detail diagnostics should share one payload builder');
+assert(formationSource.includes("evidenceCount:Number(btn?.dataset?.formationScoreDetailEvidenceCount)"), 'formation detail click diagnostics must include evidence count');
+assert(formationSource.includes("scoreCard.addEventListener('click',delegateScoreDetail,true)"), 'formation detail click delegate should run before per-button handlers');
+assert(formationSource.includes("scoreCard.addEventListener('keydown',delegateScoreDetail)"), 'formation detail delegate should support keyboard activation');
 
 const proof = {
   htmlIncludesTotalScore: html.includes('トータルスコア'),
