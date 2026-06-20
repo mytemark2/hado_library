@@ -39,7 +39,7 @@ try {
   Step 'CURRENT BRANCH'
   $branch = (git branch --show-current).Trim()
   Write-Host $branch
-  Equal $branch 'feature/app-3.0.0.0' '作業ブランチ'
+  Equal $branch 'future/app-3.0.0.0' '作業ブランチ'
 
   Step 'PRE-IMPORT STATUS'
   $dirty = @(git status --porcelain)
@@ -191,7 +191,7 @@ try {
     Write-Host 'git status -sb'
     Write-Host 'git add *.json HADO_DEV_INFO.json report/HADO_APP_3.0.0.0_UPDATE02.2_JSON_IMPORT_AUDIT.json'
     Write-Host "git commit -m 'data: import crawler 1.1.0.0 JSON set for app Update02.2'"
-    Write-Host 'git push origin feature/app-3.0.0.0'
+    Write-Host 'git push origin future/app-3.0.0.0'
   }
   finally {
     if (Test-Path $temp) { Remove-Item -LiteralPath $temp -Recurse -Force }
