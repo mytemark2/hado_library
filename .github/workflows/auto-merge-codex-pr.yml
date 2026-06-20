@@ -9,7 +9,7 @@ on:
       - ready_for_review
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 
 jobs:
@@ -21,17 +21,25 @@ jobs:
       github.event.pull_request.head.repo.full_name == github.repository
     steps:
       - name: Diagnose repository auto-merge settings
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const pr = context.payload.pull_request;
             const repo = await github.rest.repos.get({ owner: context.repo.owner, repo: context.repo.repo });
-            core.info(`allow_auto_merge=${repo.data.allow_auto_merge}`);
-            core.info(`delete_branch_on_merge=${repo.data.delete_branch_on_merge}`);
+            const allowAutoMergeRaw = repo.data.allow_auto_merge;
+            const deleteBranchOnMergeRaw = repo.data.delete_branch_on_merge;
+            const allowAutoMergeInterpreted = allowAutoMergeRaw === false ? 'disabled' : (allowAutoMergeRaw === true ? 'enabled' : 'unknown');
+            core.info(`repository=${context.repo.owner}/${context.repo.repo}`);
             core.info(`base_branch=${pr.base.ref}`);
-            if (!repo.data.allow_auto_merge) {
-              core.setFailed('Repository setting Allow auto-merge is disabled. Enable Settings > General > Pull Requests > Allow auto-merge.');
+            core.info(`allow_auto_merge_raw=${String(allowAutoMergeRaw)}`);
+            core.info(`allow_auto_merge_interpreted=${allowAutoMergeInterpreted}`);
+            core.info(`delete_branch_on_merge_raw=${String(deleteBranchOnMergeRaw)}`);
+            if (allowAutoMergeRaw === false) {
+              core.setFailed('Repository setting Allow auto-merge is explicitly disabled.\nEnable Settings > General > Pull Requests > Allow auto-merge.');
               return;
+            }
+            if (allowAutoMergeRaw === undefined || allowAutoMergeRaw === null) {
+              core.warning('allow_auto_merge was not returned by repos.get.\nDo not treat this as disabled; continue and let the GraphQL enablePullRequestAutoMerge mutation be the source of truth.');
             }
             try {
               const branch = await github.rest.repos.getBranch({ owner: context.repo.owner, repo: context.repo.repo, branch: pr.base.ref });
@@ -44,7 +52,7 @@ jobs:
             }
 
       - name: Enable auto-merge for same-repository PR
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const pr = context.payload.pull_request;
@@ -74,11 +82,12 @@ jobs:
               core.info('Skip: pull request is not from this repository.');
               return;
             }
+            core.info(`mergeable=${pullRequest.mergeable}`);
+            core.info(`autoMergeRequest=${pullRequest.autoMergeRequest ? 'enabled' : 'not_enabled'}`);
             if (pullRequest.autoMergeRequest) {
               core.info('Auto-merge is already enabled.');
               return;
             }
-            core.info(`mergeable=${pullRequest.mergeable}`);
             const mutation = `mutation($pullRequestId:ID!) {
               enablePullRequestAutoMerge(input:{pullRequestId:$pullRequestId, mergeMethod:MERGE}) {
                 pullRequest { number }
@@ -88,5 +97,5 @@ jobs:
               await github.graphql(mutation, { pullRequestId: pullRequest.id });
               core.info(`Auto-merge enabled for PR #${pr.number}.`);
             } catch (error) {
-              core.setFailed(`Auto-merge could not be enabled automatically: ${error.message}\nConfirm repository settings: Allow auto-merge, branch protection required checks include App Validation / app-validation, merge queue setting if required, and this workflow has Pull requests write permission.`);
+              core.setFailed(`Auto-merge could not be enabled automatically: ${error.message}\nConfirm the actual GraphQL failure reason first. Then check repository settings: Allow auto-merge, branch protection required checks include App Validation / app-validation, merge queue setting if required, and this workflow has Contents write and Pull requests write permissions.`);
             }
