@@ -198,7 +198,7 @@
 
   function detailFromRow(row,kind,index,label){
     const dbg=asDebug(row,kind);
-    return {label:dbg.label||dbg.key||label,point:1,source:dbg.sourceLabel||(kind==='parameter'?'変化率集計':'スコア根拠'),condition:dbg.condition||'常に',value:dbg.value||'',matchedText:dbg.matchedText||'',rawText:dbg.rawText||dbg.matchedText||'',evidenceType:kind,reason:`formation-vaccine-effect-keyword-match: ${label} に一致したため +1点`,featureId:dbg.featureId||'',key:dbg.key||'',index};
+    return {label:dbg.label||dbg.key||label,point:1,source:dbg.sourceLabel||(kind==='parameter'?'変化率集計':'スコア根拠'),condition:dbg.condition||'常に',value:dbg.value||'',matchedText:dbg.matchedText||'',rawText:dbg.rawText||dbg.matchedText||'',evidenceType:kind,reason:`formation-vaccine-effect-keyword-match: ${label} に一致した根拠`,featureId:dbg.featureId||'',key:dbg.key||'',index};
   }
 
   function positiveSupport(t,k){
@@ -232,7 +232,7 @@
     scores.totalScore=total;
     scores.evaluationScore=total;
     scores.breakdown=scores.breakdown||{};
-    scores.breakdown.scoreRows=rows.map(r=>({label:r.label,score:r.score,unit:'点',scoreDetails:r.scoreDetails,evidenceRows:r.evidenceRows,matchedParameters:r.matchedParameters,matchedEffects:r.matchedEffects}));
+    scores.breakdown.scoreRows=rows.map(r=>({label:r.label,score:r.score,unit:'',scoreDetails:r.scoreDetails,evidenceRows:r.evidenceRows,matchedParameters:r.matchedParameters,matchedEffects:r.matchedEffects}));
     scores.breakdown.candidateScores=[candidate];
     scores.breakdown.parameterCount=eRows(input).length||pRows(input).length;
     scores.breakdown.emptyReason=total?'':'ワクチン型に一致する効果がありません';

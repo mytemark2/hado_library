@@ -179,8 +179,8 @@ assert((html.match(/data-formation-score-detail-index/g)||[]).length === 5, 'eva
 assert((html.match(/data-formation-score-card=\"1\"/g)||[]).length === 1, 'score summary renderer must produce exactly one score card');
 assert((html.match(/formation-score-detail-panel/g)||[]).length === 1, 'score summary renderer must produce exactly one detail panel');
 assert((html.match(/根拠/g)||[]).length >= 5, 'evaluation score chips/detail must show evidence counts without confusing them with points');
-assert(html.includes('内訳合計'), 'score detail panel must show the scoreDetails point total');
-assert(!html.includes('点 / 20件一致'), 'score detail panel must not confuse points with matched counts');
+assert(!html.includes('点'), 'score card UI must not display point wording');
+assert(!html.includes('内訳合計'), 'score detail panel must not display redundant numeric point totals');
 assert(html.includes('data-formation-score-detail-label='), 'score chips must carry row labels for click diagnostics');
 assert(html.includes('data-formation-score-detail-evidence-count='), 'score chips must carry evidence counts for click diagnostics');
 assert(html.includes('formation-score-detail-panel'), 'selected evaluation score must render a detail panel');
@@ -216,10 +216,11 @@ assert.strictEqual(context.state.formationScoreDetailIndex, 3, 'detail click mus
 assert.strictEqual(fakeChips[3].active, true, 'detail click must activate the clicked chip in the same score card');
 assert.strictEqual(fakeChips[3].ariaPressed, 'true', 'detail click must update aria-pressed for the active chip');
 assert(replacedPanelHtml.includes('弱化解除の内訳'), 'detail click must replace the same-card detail panel with clicked row heading');
-assert(replacedPanelHtml.includes('一致根拠なし') || replacedPanelHtml.includes('内訳合計0点'), 'zero-score detail panel must explain no evidence or show a zero point breakdown');
+assert(replacedPanelHtml.includes('一致根拠なし'), 'zero-score detail panel must explain no evidence');
+assert(!replacedPanelHtml.includes('点'), 'zero-score detail panel must not display point wording');
 assert(debugEvents.slice(beforeClickDebugCount).some(event => event.name === 'formationScoreDetail:click' && event.data.previousIndex === 0 && event.data.nextIndex === 3 && event.data.rowLabel === '弱化解除' && event.data.evidenceCount === 0), 'detail click debug log must include previousIndex, nextIndex, rowLabel, and evidenceCount');
 
-assert(html.includes('+1点'), 'score detail rows must show point contribution');
+assert(!html.includes('+1点'), 'score detail rows must not show redundant point contribution');
 assert(!html.includes('>効果<') && !html.includes('>変化率<'), 'normal UI must not expose debug bucket headings');
 assert(html.includes('検証耐性技能') || html.includes('検証支援技能') || html.includes('検証回復技能'), 'score detail HTML must include matched source labels');
 assert(html.includes('+1') || html.includes('+20%') || html.includes('+10%'), 'score detail HTML must include matched values as supplemental text');
@@ -237,14 +238,15 @@ const syntheticDisadvantageRow = {
     matchedText: `不利対策検証${index + 1}`,
     rawText: `弱化無効 弱化解除 弱化反射 状態変化無効 不利変化無効 ${index + 1}`,
     evidenceType: index % 2 ? 'effect' : 'parameter',
-    reason: 'matched_item_count: 自部隊不利対策 に一致したため +1点'
+    reason: 'matched_item_count: 自部隊不利対策 に一致した根拠'
   }))
 };
 const syntheticHtml = context.renderFormationScoreEvidencePanelHtml(syntheticDisadvantageRow);
-assert(syntheticHtml.includes('自部隊不利対策の内訳'), '20-point disadvantage row must render the selected heading');
-assert(syntheticHtml.includes('20点 / 根拠20件 / 内訳合計20点'), '20-point disadvantage row must show score, evidence count, and matching detail total');
+assert(syntheticHtml.includes('自部隊不利対策の内訳'), '20-evidence disadvantage row must render the selected heading');
+assert(syntheticHtml.includes('評価20 / 根拠20件'), '20-evidence disadvantage row must show score value and evidence count without point wording');
+assert(!syntheticHtml.includes('点'), '20-evidence disadvantage row must not display point wording');
 assert(syntheticHtml.includes('弱化無効') && syntheticHtml.includes('弱化解除') && syntheticHtml.includes('弱化反射') && syntheticHtml.includes('状態変化無効') && syntheticHtml.includes('不利変化無効'), 'disadvantage details must expose matched disadvantage countermeasure labels');
-assert(!syntheticHtml.includes('一致根拠なし'), '20-point disadvantage row must not show the empty-evidence message');
+assert(!syntheticHtml.includes('一致根拠なし'), '20-evidence disadvantage row must not show the empty-evidence message');
 
 assert(typeScore && typeof typeScore === 'object', 'typeScore diagnostic must exist');
 assert.strictEqual(typeScore.calculationInvoked, true, 'formation render must invoke type-score calculation');
