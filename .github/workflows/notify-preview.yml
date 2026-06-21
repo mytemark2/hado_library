@@ -86,6 +86,66 @@ jobs:
             exit 1
           fi
 
+      - name: Preflight preview token permissions
+        shell: bash
+        env:
+          PREVIEW_REPO_TOKEN: ${{ secrets.PREVIEW_REPO_TOKEN }}
+        run: |
+          set -euo pipefail
+          api_root="https://api.github.com/repos/mytemark2/hado_library-preview"
+          workflow_file="jekyll-gh-pages.yml"
+          auth_header="Authorization: Bearer ${PREVIEW_REPO_TOKEN}"
+          accept_header="Accept: application/vnd.github+json"
+          version_header="X-GitHub-Api-Version: 2022-11-28"
+
+          require_status() {
+            local expected="$1"
+            local label="$2"
+            shift 2
+            local response_file headers_file http_code
+            response_file="$(mktemp)"
+            headers_file="$(mktemp)"
+            http_code="$(curl -sS -o "${response_file}" -D "${headers_file}" -w "%{http_code}" "$@" || true)"
+            if [ "${http_code}" != "${expected}" ]; then
+              echo "PREVIEW_REPO_TOKEN preflight failed during ${label}; expected HTTP ${expected}, got ${http_code}." >&2
+              echo "The token must be scoped to mytemark2/hado_library-preview with Contents: Read and write and Actions: Read and write before preview files are pushed." >&2
+              echo "Response body:" >&2
+              cat "${response_file}" >&2 || true
+              rm -f "${response_file}" "${headers_file}"
+              exit 1
+            fi
+            local scopes
+            scopes="$(awk 'BEGIN{IGNORECASE=1} /^x-oauth-scopes:/ {sub(/^[^:]*:[[:space:]]*/, ""); print}' "${headers_file}" | tr -d '\r' | tail -n 1)"
+            if [ -n "${scopes}" ] && [[ ",${scopes// /}," != *",workflow,"* ]] && [[ ",${scopes// /}," != *",repo,"* ]]; then
+              echo "PREVIEW_REPO_TOKEN appears to be a classic PAT without repo/workflow scope: ${scopes}" >&2
+              echo "Use a fine-grained token with Contents: Read and write and Actions: Read and write, or a classic token with repo/workflow scopes." >&2
+              rm -f "${response_file}" "${headers_file}"
+              exit 1
+            fi
+            rm -f "${response_file}" "${headers_file}"
+          }
+
+          require_status 200 "repository access check" \
+            -H "${auth_header}" \
+            -H "${accept_header}" \
+            -H "${version_header}" \
+            "${api_root}"
+
+          require_status 200 "Pages workflow visibility check" \
+            -H "${auth_header}" \
+            -H "${accept_header}" \
+            -H "${version_header}" \
+            "${api_root}/actions/workflows/${workflow_file}"
+
+          require_status 204 "Actions write permission check" \
+            -X PUT \
+            -H "${auth_header}" \
+            -H "${accept_header}" \
+            -H "${version_header}" \
+            "${api_root}/actions/workflows/${workflow_file}/enable"
+
+          echo "PREVIEW_REPO_TOKEN preflight passed before preview repository push: repository access, workflow visibility, and Actions write permission are available."
+
       - name: Sync preview repository contents
         id: sync
         shell: bash
