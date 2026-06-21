@@ -13,6 +13,8 @@ REQUIRED = (
     "ALLOWED_PREVIEW_SOURCE_BRANCH: feature/app-3.0.0.0",
     "github.ref == 'refs/heads/feature/app-3.0.0.0'",
     "if [ \"${APP_REF}\" != \"${ALLOWED_PREVIEW_SOURCE_BRANCH}\" ]; then",
+    "if [[ \"${GITHUB_REF:-}\" == refs/heads/codex/* ]]; then",
+    "Refusing preview sync from Codex work branch ${GITHUB_REF}; only ${ALLOWED_PREVIEW_SOURCE_BRANCH} may update mytemark2/hado_library-preview.",
     "Refusing preview sync from ${APP_REF}; only ${ALLOWED_PREVIEW_SOURCE_BRANCH} may update mytemark2/hado_library-preview.",
     "SOURCE_COMMIT=\"$(git rev-parse HEAD)\"",
     "Checked-out source commit ${SOURCE_COMMIT} does not match GITHUB_SHA ${GITHUB_SHA}.",
@@ -39,6 +41,14 @@ REQUIRED = (
     "(cd \"${PREVIEW_DIR}\" && sha256sum -c PREVIEW_SOURCE_FILES.txt)",
     "git -C \"${PREVIEW_DIR}\" push origin HEAD:main",
     "sync preview from ${APP_REF}: ${SOURCE_COMMIT}",
+    "Actions: Read and write is required because this workflow dispatches the preview repository Pages workflow",
+    "Dispatch and wait for preview Pages deployment",
+    "actions/workflows/${workflow_file}/dispatches",
+    "${api_root}/actions/runs/${run_id}",
+    "https://mytemark2.github.io/hado_library-preview/PREVIEW_SOURCE_COMMIT.txt",
+    "https://mytemark2.github.io/hado_library-preview/PREVIEW_DISPLAY_VERSION.txt",
+    "[ \"${public_source}\" = \"${SOURCE_COMMIT}\" ]",
+    "[ \"${public_version}\" = \"${DISPLAY_VERSION}\" ]",
     "PREVIEW_REPO_TOKEN",
 )
 FORBIDDEN = (
@@ -48,12 +58,10 @@ FORBIDDEN = (
     "repository_dispatch",
     "branches-ignore:",
     "branches:\n      - '**'",
-    "codex/",
     "identify-and-propose-ui",
     "git clone --depth 1 --branch feature/app-3.0.0.0",
     "rsync -a --delete",
     "Verify preview reflects source commit and version assets",
-    "actions/workflows/jekyll-gh-pages.yml/dispatches",
 )
 
 
