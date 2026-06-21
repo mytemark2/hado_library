@@ -33,6 +33,10 @@ jobs:
             echo "Source branch name could not be resolved." >&2
             exit 1
           fi
+          if [[ "${GITHUB_REF:-}" == refs/heads/codex/* ]]; then
+            echo "Refusing preview sync from Codex work branch ${GITHUB_REF}; only ${ALLOWED_PREVIEW_SOURCE_BRANCH} may update mytemark2/hado_library-preview." >&2
+            exit 1
+          fi
           if [ "${APP_REF}" != "${ALLOWED_PREVIEW_SOURCE_BRANCH}" ]; then
             echo "Refusing preview sync from ${APP_REF}; only ${ALLOWED_PREVIEW_SOURCE_BRANCH} may update mytemark2/hado_library-preview." >&2
             exit 1
@@ -78,9 +82,62 @@ jobs:
           set -euo pipefail
           if [ -z "${PREVIEW_REPO_TOKEN}" ]; then
             echo "Repository secret PREVIEW_REPO_TOKEN is missing." >&2
-            echo "Create a fine-grained token with access to mytemark2/hado_library-preview and permission Contents: Read and write, then register it as PREVIEW_REPO_TOKEN in mytemark2/hado_library. The preview repository push triggers deployment; Actions: Read and write is not required." >&2
+            echo "Create a fine-grained token with access to mytemark2/hado_library-preview and permissions Contents: Read and write and Actions: Read, then register it as PREVIEW_REPO_TOKEN in mytemark2/hado_library. Actions: Read is required because this workflow polls the preview repository Pages workflow run after pushing runtime assets." >&2
             exit 1
           fi
+
+      - name: Preflight preview token permissions
+        shell: bash
+        env:
+          PREVIEW_REPO_TOKEN: ${{ secrets.PREVIEW_REPO_TOKEN }}
+        run: |
+          set -euo pipefail
+          api_root="https://api.github.com/repos/mytemark2/hado_library-preview"
+          workflow_file="jekyll-gh-pages.yml"
+          auth_header="Authorization: Bearer ${PREVIEW_REPO_TOKEN}"
+          accept_header="Accept: application/vnd.github+json"
+          version_header="X-GitHub-Api-Version: 2022-11-28"
+
+          require_status() {
+            local expected="$1"
+            local label="$2"
+            shift 2
+            local response_file headers_file http_code
+            response_file="$(mktemp)"
+            headers_file="$(mktemp)"
+            http_code="$(curl -sS -o "${response_file}" -D "${headers_file}" -w "%{http_code}" "$@" || true)"
+            if [ "${http_code}" != "${expected}" ]; then
+              echo "PREVIEW_REPO_TOKEN preflight failed during ${label}; expected HTTP ${expected}, got ${http_code}." >&2
+              echo "The token must be scoped to mytemark2/hado_library-preview with Contents: Read and write and Actions: Read before preview files are pushed." >&2
+              echo "Response body:" >&2
+              cat "${response_file}" >&2 || true
+              rm -f "${response_file}" "${headers_file}"
+              exit 1
+            fi
+            local scopes
+            scopes="$(awk 'BEGIN{IGNORECASE=1} /^x-oauth-scopes:/ {sub(/^[^:]*:[[:space:]]*/, ""); print}' "${headers_file}" | tr -d '\r' | tail -n 1)"
+            if [ -n "${scopes}" ] && [[ ",${scopes// /}," != *",workflow,"* ]] && [[ ",${scopes// /}," != *",repo,"* ]]; then
+              echo "PREVIEW_REPO_TOKEN appears to be a classic PAT without repo/workflow scope: ${scopes}" >&2
+              echo "Use a fine-grained token with Contents: Read and write and Actions: Read, or a classic token with repo scope." >&2
+              rm -f "${response_file}" "${headers_file}"
+              exit 1
+            fi
+            rm -f "${response_file}" "${headers_file}"
+          }
+
+          require_status 200 "repository access check" \
+            -H "${auth_header}" \
+            -H "${accept_header}" \
+            -H "${version_header}" \
+            "${api_root}"
+
+          require_status 200 "Pages workflow visibility check" \
+            -H "${auth_header}" \
+            -H "${accept_header}" \
+            -H "${version_header}" \
+            "${api_root}/actions/workflows/${workflow_file}"
+
+          echo "PREVIEW_REPO_TOKEN preflight passed before preview repository push: repository access and Pages workflow visibility are available."
 
       - name: Sync preview repository contents
         id: sync
@@ -93,6 +150,7 @@ jobs:
         run: |
           set -euo pipefail
           changed=false
+          preview_commit=""
           for attempt in 1 2 3; do
             PREVIEW_DIR="$(mktemp -d)"
             echo "Preview sync attempt ${attempt}/3"
@@ -128,16 +186,20 @@ jobs:
             git -C "${PREVIEW_DIR}" add -A
             if git -C "${PREVIEW_DIR}" diff --cached --quiet; then
               echo "No preview repository changes."
+              preview_commit="$(git -C "${PREVIEW_DIR}" rev-parse HEAD)"
               rm -rf "${PREVIEW_DIR}"
               echo "changed=false" >> "${GITHUB_OUTPUT}"
+              echo "preview_commit=${preview_commit}" >> "${GITHUB_OUTPUT}"
               break
             fi
 
             git -C "${PREVIEW_DIR}" commit -m "sync preview from ${APP_REF}: ${SOURCE_COMMIT}"
+            preview_commit="$(git -C "${PREVIEW_DIR}" rev-parse HEAD)"
             if git -C "${PREVIEW_DIR}" push origin HEAD:main; then
               changed=true
               rm -rf "${PREVIEW_DIR}"
               echo "changed=true" >> "${GITHUB_OUTPUT}"
+              echo "preview_commit=${preview_commit}" >> "${GITHUB_OUTPUT}"
               break
             fi
 
@@ -149,4 +211,107 @@ jobs:
             echo "Preview repository main changed during push; retrying with a fresh clone." >&2
             sleep $((attempt * 5))
           done
-          echo "Preview repository content is synchronized from ${APP_REF} (${SOURCE_COMMIT}); changed=${changed}."
+          if [ -z "${preview_commit}" ]; then
+            echo "Preview repository commit could not be resolved." >&2
+            exit 1
+          fi
+          echo "Preview repository content is synchronized from ${APP_REF} (${SOURCE_COMMIT}); changed=${changed}; preview_commit=${preview_commit}."
+
+
+      - name: Wait for preview Pages deployment
+        shell: bash
+        env:
+          PREVIEW_REPO_TOKEN: ${{ secrets.PREVIEW_REPO_TOKEN }}
+          SOURCE_COMMIT: ${{ steps.source.outputs.source_commit }}
+          DISPLAY_VERSION: ${{ steps.meta.outputs.display_version }}
+          PREVIEW_COMMIT: ${{ steps.sync.outputs.preview_commit }}
+        run: |
+          set -euo pipefail
+          api_root="https://api.github.com/repos/mytemark2/hado_library-preview"
+          workflow_file="jekyll-gh-pages.yml"
+          auth_header="Authorization: Bearer ${PREVIEW_REPO_TOKEN}"
+          accept_header="Accept: application/vnd.github+json"
+          version_header="X-GitHub-Api-Version: 2022-11-28"
+          if [ -z "${PREVIEW_COMMIT}" ]; then
+            echo "Preview repository commit output is missing; cannot wait for Pages deployment." >&2
+            exit 1
+          fi
+
+          echo "Waiting for preview Pages workflow ${workflow_file} on main for preview commit ${PREVIEW_COMMIT}."
+          run_id=""
+          for attempt in $(seq 1 30); do
+            runs_json="$(curl --fail-with-body -sS \
+              -H "${auth_header}" \
+              -H "${accept_header}" \
+              -H "${version_header}" \
+              "${api_root}/actions/workflows/${workflow_file}/runs?branch=main&event=push&per_page=20")"
+            run_id="$(RUNS_JSON="${runs_json}" PREVIEW_COMMIT="${PREVIEW_COMMIT}" python - <<'PY'
+          import json
+          import os
+          data = json.loads(os.environ['RUNS_JSON'])
+          preview_commit = os.environ['PREVIEW_COMMIT']
+          for run in data.get('workflow_runs', []):
+              if str(run.get('head_sha', '')) == preview_commit:
+                  print(run.get('id', ''))
+                  break
+          PY
+          )"
+            if [ -n "${run_id}" ]; then
+              echo "Preview Pages workflow run id: ${run_id}"
+              break
+            fi
+            echo "Preview Pages workflow push run for ${PREVIEW_COMMIT} not visible yet; retrying (${attempt}/30)."
+            sleep 5
+          done
+          if [ -z "${run_id}" ]; then
+            echo "Preview Pages workflow push event did not produce a visible run for preview commit ${PREVIEW_COMMIT}." >&2
+            echo "Confirm mytemark2/hado_library-preview/.github/workflows/${workflow_file} has on.push.branches including main and that repository Actions are enabled." >&2
+            exit 1
+          fi
+
+          for attempt in $(seq 1 120); do
+            run_json="$(curl --fail-with-body -sS \
+              -H "${auth_header}" \
+              -H "${accept_header}" \
+              -H "${version_header}" \
+              "${api_root}/actions/runs/${run_id}")"
+            status="$(RUN_JSON="${run_json}" python - <<'PY'
+          import json, os
+          print(json.loads(os.environ['RUN_JSON']).get('status', ''))
+          PY
+          )"
+            conclusion="$(RUN_JSON="${run_json}" python - <<'PY'
+          import json, os
+          print(json.loads(os.environ['RUN_JSON']).get('conclusion') or '')
+          PY
+          )"
+            echo "Preview Pages workflow run ${run_id}: status=${status} conclusion=${conclusion:-pending}"
+            if [ "${status}" = "completed" ]; then
+              if [ "${conclusion}" = "success" ]; then
+                break
+              fi
+              echo "Preview Pages workflow run ${run_id} completed with conclusion=${conclusion}." >&2
+              exit 1
+            fi
+            sleep 10
+          done
+          if [ "${status}" != "completed" ] || [ "${conclusion}" != "success" ]; then
+            echo "Preview Pages workflow run ${run_id} did not complete successfully in time." >&2
+            exit 1
+          fi
+
+          source_url="https://mytemark2.github.io/hado_library-preview/PREVIEW_SOURCE_COMMIT.txt"
+          version_url="https://mytemark2.github.io/hado_library-preview/PREVIEW_DISPLAY_VERSION.txt"
+          for attempt in $(seq 1 60); do
+            public_source="$(curl --fail -sS --max-time 15 "${source_url}" | tr -d '\r\n' || true)"
+            public_version="$(curl --fail -sS --max-time 15 "${version_url}" | tr -d '\r\n' || true)"
+            echo "Public preview markers (${attempt}/60): source=${public_source:-missing} version=${public_version:-missing}"
+            if [ "${public_source}" = "${SOURCE_COMMIT}" ] && [ "${public_version}" = "${DISPLAY_VERSION}" ]; then
+              echo "Public preview matches source commit ${SOURCE_COMMIT} and display version ${DISPLAY_VERSION}."
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "Public preview markers did not match expected source commit/version after Pages deployment." >&2
+          echo "Expected source=${SOURCE_COMMIT}; expected version=${DISPLAY_VERSION}." >&2
+          exit 1
