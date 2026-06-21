@@ -3,11 +3,11 @@
   'use strict';
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.0.0.0',
-    updateNo: '09.3.28',
-    revision: 61,
+    updateNo: '09.3.29',
+    revision: 62,
     baseAppVersion: '2.9.6.5',
-    summary: 'Update09.3.28: show type navigation and candidates as tags without score wording.',
-    updatedAt: '2026-06-21T21:00:00+09:00'
+    summary: 'Update09.3.29: restore formation evaluation score behavior while keeping type candidates tag-based.',
+    updatedAt: '2026-06-22T00:30:00+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;
 })();

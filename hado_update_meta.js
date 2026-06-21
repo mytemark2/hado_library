@@ -146,8 +146,6 @@
       window.renderFormationListHtml=wrappedList;
     }
 
-
-
     try{if(typeof renderFormationScreen==='function'&&window.state?.mainTab==='formation')renderFormationScreen();}catch(_){}
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',patch,{once:true});else patch();
@@ -252,7 +250,6 @@
       window.calculateFormationAutoScores=wrapped;
       try{calculateFormationAutoScores=wrapped;}catch(_){}
     }
-
     try{if(typeof renderFormationScreen==='function'&&window.state?.mainTab==='formation')renderFormationScreen();}catch(_){}
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',patch,{once:true});else patch();
