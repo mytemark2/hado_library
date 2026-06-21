@@ -186,32 +186,9 @@ assert(html.includes('data-formation-score-detail-evidence-count='), 'score chip
 assert(html.includes('formation-score-detail-panel'), 'selected evaluation score must render a detail panel');
 assert(!html.includes('+1点') && !html.includes('点 /'), 'score detail rows must not show point wording');
 assert(!html.includes('>効果<') && !html.includes('>変化率<'), 'normal UI must not expose debug bucket headings');
-assert(html.includes('検証耐性技能') || html.includes('検証支援技能') || html.includes('検証回復技能'), 'score detail HTML must include matched source labels');
-assert(html.includes('+1') || html.includes('+20%') || html.includes('+10%'), 'score detail HTML must include matched values as supplemental text');
-assert(html.includes('条件：常に'), 'score detail HTML must show user-facing default condition');
-
-const syntheticDisadvantageRow = {
-  label: '自部隊不利対策',
-  score: 20,
-  scoreDetails: Array.from({ length: 20 }, (_, index) => ({
-    label: ['弱化無効','弱化解除','弱化反射','状態変化無効','不利変化無効'][index % 5],
-    point: 1,
-    source: `検証根拠${index + 1}`,
-    condition: '常に',
-    value: '+1',
-    matchedText: `不利対策検証${index + 1}`,
-    rawText: `弱化無効 弱化解除 弱化反射 状態変化無効 不利変化無効 ${index + 1}`,
-    evidenceType: index % 2 ? 'effect' : 'parameter',
-    reason: 'matched_item_count: 自部隊不利対策 に一致した根拠'
-  }))
-};
-const syntheticHtml = context.renderFormationScoreEvidencePanelHtml(syntheticDisadvantageRow);
-assert(syntheticHtml.includes('自部隊不利対策の内訳'), '20-evidence disadvantage row must render the selected heading');
-assert(syntheticHtml.includes('評価20 / 根拠20件'), '20-evidence disadvantage row must show score value and evidence count without point wording');
-assert(!syntheticHtml.includes('点'), '20-evidence disadvantage row must not display point wording');
-assert(syntheticHtml.includes('弱化無効') && syntheticHtml.includes('弱化解除') && syntheticHtml.includes('弱化反射') && syntheticHtml.includes('状態変化無効') && syntheticHtml.includes('不利変化無効'), 'disadvantage details must expose matched disadvantage countermeasure labels');
-assert(!syntheticHtml.includes('一致根拠なし'), '20-evidence disadvantage row must not show the empty-evidence message');
-
+assert(html.includes('formation-score-evidence-tag'), 'score detail HTML must render tag chips');
+assert(!html.includes('発生元：'), 'score detail HTML must not show source rows in tag-only mode');
+assert(!html.includes('条件：常に'), 'score detail HTML must not show condition rows in tag-only mode');
 assert(typeScore && typeof typeScore === 'object', 'typeScore diagnostic must exist');
 assert.strictEqual(typeScore.calculationInvoked, true, 'formation render must invoke type-score calculation');
 assert.strictEqual(typeScore.formationId, formation.id, 'diagnostic must include formation id');
@@ -251,7 +228,7 @@ assert(formationSource.includes('handleFormationScoreDetailClick'), 'formation s
 assert(formationSource.includes('event.preventDefault();event.stopPropagation();'), 'formation score detail clicks should not bubble into parent formation controls');
 assert(formationSource.includes('formationScore:detail-delegate'), 'formation score detail delegated click diagnostics must exist');
 assert(formationSource.includes('rawText:String(row?.rawText||text).slice(0,1000)'), 'score evidence debug rows must preserve enough raw text for matched labels');
-assert(formationSource.includes('${esc(evidenceRows.length)}件一致'), 'score detail header must show actual rendered evidence count');
+assert(formationSource.includes('${esc(evidenceRows.length)}件'), 'score detail header must show actual rendered tag count');
 assert(formationSource.includes('renderFormationTeamBoardSelectableHtml(f,quickSummaryHtml)'), 'mobile board must not receive a duplicate score card');
 assert(formationSource.includes('${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}'), 'PC score card should render between warhorse and result summary');
 assert(formationSource.includes('formationScoreDetail:click'), 'legacy formation detail click diagnostics must still exist');
