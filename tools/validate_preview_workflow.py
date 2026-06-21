@@ -52,6 +52,11 @@ REQUIRED = (
     "PREVIEW_COMMIT: ${{ steps.sync.outputs.preview_commit }}",
     "preview_commit=",
     "runs?branch=main&event=push&per_page=20",
+    "runs_file=\"$(mktemp)\"",
+    "printf '%s' \"${runs_json}\" > \"${runs_file}\"",
+    "RUNS_FILE=\"${runs_file}\" PREVIEW_COMMIT=\"${PREVIEW_COMMIT}\" python - <<'PY'",
+    "with open(os.environ['RUNS_FILE'], encoding='utf-8') as fh:",
+    "rm -f \"${runs_file}\"",
     "Preview Pages workflow push event did not produce a visible run for preview commit ${PREVIEW_COMMIT}.",
     "${api_root}/actions/runs/${run_id}",
     "https://mytemark2.github.io/hado_library-preview/PREVIEW_SOURCE_COMMIT.txt",
@@ -74,6 +79,8 @@ FORBIDDEN = (
     "actions/workflows/${workflow_file}/dispatches",
     "actions/workflows/${workflow_file}/enable",
     "Actions write permission check",
+    "RUNS_JSON=\"${runs_json}\"",
+    "json.load(sys.stdin)",
 )
 
 
