@@ -8,6 +8,7 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 FORMATION = ROOT / "hado_formation.js"
 TYPE_CANDIDATES = ROOT / "hado_type_candidates.js"
+TYPE_ENTRY = ROOT / "hado_type_entry.js"
 CSS = ROOT / "hado_styles.css"
 HTML = ROOT / "index.html"
 UPDATE_META = ROOT / "hado_update_meta.js"
@@ -105,7 +106,8 @@ REQUIRED_TYPE_CANDIDATES = (
     "typeCandidateViewModeLabel",
     "全データ表示",
     "window.HADO_TYPE_SCORE_RULES=st.data.types",
-    "評価項目別スコア: ${esc(window.HadoTypeScore.summary(v._s))}",
+    "renderTagChips(v)",
+    "tagRank(b)-tagRank(a)||Number(a.sourceIndex||0)-Number(b.sourceIndex||0)",
     "保存データ表示",
     "選択中の型: ${esc(type()?.typeName||'未選択')} / 目的: ${esc(purpose()?.purposeName||'指定なし')} / ${esc(typeCandidateViewModeLabel())}",
 )
@@ -115,6 +117,13 @@ FORBIDDEN_TYPE_CANDIDATES = (
     "${esc(displayVersion())} / 選択中の型",
     "トータルスコア: <strong>${esc(v._s?.totalScore||0)}件</strong>",
     "適合スコア: <strong>${esc(window.HadoTypeScore.label(v._s))}</strong> / 評価スコア",
+    "適合スコア",
+    "主将適合スコア",
+    "評価項目別スコア",
+    "件数ベース適合スコア",
+    "HadoTypeScore.label(v._s)",
+    "HadoTypeScore.summary(v._s)",
+    "htc-score",
 )
 REQUIRED_CSS = (
     ".formation-group-controls",
@@ -152,6 +161,7 @@ FORBIDDEN_CSS = (
 def main() -> int:
     js = FORMATION.read_text(encoding="utf-8")
     type_js = TYPE_CANDIDATES.read_text(encoding="utf-8")
+    type_entry_js = TYPE_ENTRY.read_text(encoding="utf-8")
     css = CSS.read_text(encoding="utf-8")
     html_text = HTML.read_text(encoding="utf-8")
     update_meta = UPDATE_META.read_text(encoding="utf-8")
@@ -160,6 +170,7 @@ def main() -> int:
     forbidden_js = [snippet for snippet in FORBIDDEN_JS if snippet in js]
     missing_type = [snippet for snippet in REQUIRED_TYPE_CANDIDATES if snippet not in type_js]
     forbidden_type = [snippet for snippet in FORBIDDEN_TYPE_CANDIDATES if snippet in type_js]
+    forbidden_type_entry = [snippet for snippet in FORBIDDEN_TYPE_CANDIDATES if snippet in type_entry_js]
     missing_css = [snippet for snippet in REQUIRED_CSS if snippet not in css]
     forbidden_css = [snippet for snippet in FORBIDDEN_CSS if snippet in css]
     if missing_js:
@@ -177,6 +188,8 @@ def main() -> int:
         raise SystemExit("Update09 Phase3 type candidate UI missing JS: " + ", ".join(missing_type))
     if forbidden_type:
         raise SystemExit("Update09 Phase3 type candidate UI still contains removed notes: " + ", ".join(forbidden_type))
+    if forbidden_type_entry:
+        raise SystemExit("Update09 Phase3 type entry UI still contains removed score wording: " + ", ".join(forbidden_type_entry))
     if missing_css:
         raise SystemExit("Update09 Phase3 formation UI missing CSS: " + ", ".join(missing_css))
     if forbidden_css:
