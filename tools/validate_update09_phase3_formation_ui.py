@@ -8,8 +8,10 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 FORMATION = ROOT / "hado_formation.js"
 TYPE_CANDIDATES = ROOT / "hado_type_candidates.js"
+TYPE_ENTRY = ROOT / "hado_type_entry.js"
 CSS = ROOT / "hado_styles.css"
 HTML = ROOT / "index.html"
+UPDATE_META = ROOT / "hado_update_meta.js"
 
 REQUIRED_JS = (
     "formationEvaluationTypeDisplayName",
@@ -49,7 +51,7 @@ REQUIRED_JS = (
     "formation-work-tabs-title",
     "formation-score-chip",
     "formation-group-head",
-    "renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)",
+    "renderFormationTeamBoardSelectableHtml(f,quickSummaryHtml)",
     "formation-mobile-score-result-placement",
     "${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}",
     "renderFormationGroupNameDialogHtml",
@@ -78,6 +80,7 @@ REQUIRED_FUNCTION_DEFINITIONS = (
 )
 
 FORBIDDEN_JS = (
+    "renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)",
     "scoreRows:generalRows.map",
     "window.HadoTypeScore.score(formationTypeScoreEntity",
     "保存データの軍馬を最大3枠まで部隊へ反映",
@@ -90,6 +93,10 @@ FORBIDDEN_JS = (
     "formationEvaluationSaveBtn",
     "履歴へ保存",
     "<details class=\"formation-score-summary",
+    "formation-score-evidence-point",
+    "+${esc(item.point)}点",
+    "内訳合計",
+    "unit:'点'",
     "評価型ID",
     "編集はポップアップで行います",
     "data-formation-warhorse-edit",
@@ -99,7 +106,8 @@ REQUIRED_TYPE_CANDIDATES = (
     "typeCandidateViewModeLabel",
     "全データ表示",
     "window.HADO_TYPE_SCORE_RULES=st.data.types",
-    "評価項目別スコア: ${esc(window.HadoTypeScore.summary(v._s))}",
+    "renderTagChips(v)",
+    "tagRank(b)-tagRank(a)||Number(a.sourceIndex||0)-Number(b.sourceIndex||0)",
     "保存データ表示",
     "選択中の型: ${esc(type()?.typeName||'未選択')} / 目的: ${esc(purpose()?.purposeName||'指定なし')} / ${esc(typeCandidateViewModeLabel())}",
 )
@@ -109,6 +117,13 @@ FORBIDDEN_TYPE_CANDIDATES = (
     "${esc(displayVersion())} / 選択中の型",
     "トータルスコア: <strong>${esc(v._s?.totalScore||0)}件</strong>",
     "適合スコア: <strong>${esc(window.HadoTypeScore.label(v._s))}</strong> / 評価スコア",
+    "適合スコア",
+    "主将適合スコア",
+    "評価項目別スコア",
+    "件数ベース適合スコア",
+    "HadoTypeScore.label(v._s)",
+    "HadoTypeScore.summary(v._s)",
+    "htc-score",
 )
 REQUIRED_CSS = (
     ".formation-group-controls",
@@ -146,13 +161,16 @@ FORBIDDEN_CSS = (
 def main() -> int:
     js = FORMATION.read_text(encoding="utf-8")
     type_js = TYPE_CANDIDATES.read_text(encoding="utf-8")
+    type_entry_js = TYPE_ENTRY.read_text(encoding="utf-8")
     css = CSS.read_text(encoding="utf-8")
     html_text = HTML.read_text(encoding="utf-8")
+    update_meta = UPDATE_META.read_text(encoding="utf-8")
     missing_js = [snippet for snippet in REQUIRED_JS if snippet not in js]
     missing_function_defs = [name for name in REQUIRED_FUNCTION_DEFINITIONS if not re.search(r"function\s+" + re.escape(name) + r"\s*\(", js)]
     forbidden_js = [snippet for snippet in FORBIDDEN_JS if snippet in js]
     missing_type = [snippet for snippet in REQUIRED_TYPE_CANDIDATES if snippet not in type_js]
     forbidden_type = [snippet for snippet in FORBIDDEN_TYPE_CANDIDATES if snippet in type_js]
+    forbidden_type_entry = [snippet for snippet in FORBIDDEN_TYPE_CANDIDATES if snippet in type_entry_js]
     missing_css = [snippet for snippet in REQUIRED_CSS if snippet not in css]
     forbidden_css = [snippet for snippet in FORBIDDEN_CSS if snippet in css]
     if missing_js:
@@ -161,10 +179,17 @@ def main() -> int:
         raise SystemExit("Update09 Phase3 formation UI missing function definitions: " + ", ".join(missing_function_defs))
     if forbidden_js:
         raise SystemExit("Update09 Phase3 formation UI still contains removed controls: " + ", ".join(forbidden_js))
+
+    if js.count("${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}") != 1:
+        raise SystemExit("Update09 Phase3 formation UI must render exactly one score card in formation-selected-stack")
+    if "renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)" in js:
+        raise SystemExit("Update09 Phase3 formation UI must not pass scoreCardHtml into renderFormationTeamBoardSelectableHtml")
     if missing_type:
         raise SystemExit("Update09 Phase3 type candidate UI missing JS: " + ", ".join(missing_type))
     if forbidden_type:
         raise SystemExit("Update09 Phase3 type candidate UI still contains removed notes: " + ", ".join(forbidden_type))
+    if forbidden_type_entry:
+        raise SystemExit("Update09 Phase3 type entry UI still contains removed score wording: " + ", ".join(forbidden_type_entry))
     if missing_css:
         raise SystemExit("Update09 Phase3 formation UI missing CSS: " + ", ".join(missing_css))
     if forbidden_css:
@@ -172,6 +197,9 @@ def main() -> int:
     forbidden_html = [s for s in ("※部隊編成の合算技能は配置・好相性・兵科などの条件を判定して反映します。", "<h2>部隊編成") if s in html_text]
     if forbidden_html:
         raise SystemExit("Update09 Phase3 formation UI still contains obsolete HTML: " + ", ".join(forbidden_html))
+
+    if "renderFormationScoreSummaryHtml=function" in update_meta or "const wrappedSummary=function" in update_meta:
+        raise SystemExit("hado_update_meta.js must not override renderFormationScoreSummaryHtml; hado_formation.js owns the interactive score detail UI")
     print("Update09 Phase3 formation UI contract ok: score card function definitions, group management, type notes, warhorse layout")
     return 0
 
