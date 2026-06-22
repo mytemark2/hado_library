@@ -15,7 +15,7 @@ REQUIRED = (
     "'自部隊不利対策':['弱化無効'",
     "function formationScoreEvidenceTitle(src,row)",
     "const text=`${src?.matchedText||''} ${src?.rawText||''}`",
-    "return aliases.length?'':fallback",
+    "return hit||fallback",
     "function renderFormationScoreEvidencePanelHtml(row)",
     "formation-score-evidence-tags",
     "formation-score-evidence-tag",
