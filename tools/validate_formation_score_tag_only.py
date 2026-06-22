@@ -20,12 +20,14 @@ REQUIRED = (
     "function renderFormationScoreEvidencePanelHtml(row)",
     "formation-score-evidence-tags",
     "formation-score-evidence-tag",
-    "<b>${esc(item.kindLabel||'型要素')}</b>${esc(item.title)}",
+    "<b>${esc(item.kindLabel||'型要素')}</b>${esc(item.displayTitle||item.title)}",
     "kindLabel:'型要素'",
     "kindLabel:'状態変化'",
     "function formationScoreEvidenceKind(type)",
+    "function formationScoreEvidenceSourceTag(src)",
+    "displayTitle:counts[item.title]>1",
     "${esc(row.label)}のタグ",
-    "${esc(evidenceRows.length)}件",
+    "${esc(evidenceRows.length)}タグ",
     "rawText:String(row?.rawText||text).slice(0,1000)",
 )
 
@@ -38,6 +40,7 @@ FORBIDDEN = (
     "条件：${esc(item.condition",
     "${esc(score)} / ${esc(evidenceRows.length)}件一致",
     "${esc(score)} / ${esc(score)}件一致",
+    "<small>${esc(evidenceCount)}件一致</small>",
 )
 
 missing = [snippet for snippet in REQUIRED if snippet not in SOURCE]

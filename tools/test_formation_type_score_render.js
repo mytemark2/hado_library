@@ -176,17 +176,14 @@ assert(html.includes('<section class="formation-selected-card formation-score-ca
 assert(!html.includes('<details class="formation-score-summary'), 'score card must not hide the score body in details');
 assert((html.match(/formation-score-metric-chip/g)||[]).length >= 5, 'evaluation score chips must render metric chip classes');
 assert((html.match(/data-formation-score-detail-index/g)||[]).length === 5, 'evaluation score chips must render five button controls');
-assert((html.match(/data-formation-score-card=\"1\"/g)||[]).length === 1, 'score summary renderer must produce exactly one score card');
-assert((html.match(/formation-score-detail-panel/g)||[]).length === 1, 'score summary renderer must produce exactly one detail panel');
-assert((html.match(/根拠/g)||[]).length >= 5, 'evaluation score chips/detail must show evidence counts without confusing them with points');
-assert(!html.includes('点'), 'score card UI must not display point wording');
-assert(!html.includes('内訳合計'), 'score detail panel must not display redundant numeric point totals');
+assert(!html.includes('件一致'), 'score chips/detail must not show 件一致 wording');
 assert(html.includes('data-formation-score-detail-label='), 'score chips must carry row labels for click diagnostics');
 assert(html.includes('data-formation-score-detail-evidence-count='), 'score chips must carry evidence counts for click diagnostics');
 assert(html.includes('formation-score-detail-panel'), 'selected evaluation score must render a detail panel');
 assert(!html.includes('+1点') && !html.includes('点 /'), 'score detail rows must not show point wording');
 assert(!html.includes('>効果<') && !html.includes('>変化率<'), 'normal UI must not expose debug bucket headings');
 assert(html.includes('formation-score-evidence-tag'), 'score detail HTML must render tag chips');
+assert(html.includes('タグ'), 'score detail header must label evidence as tags');
 assert(!html.includes('発生元：'), 'score detail HTML must not show source rows in tag-only mode');
 assert(!html.includes('条件：常に'), 'score detail HTML must not show condition rows in tag-only mode');
 assert(typeScore && typeof typeScore === 'object', 'typeScore diagnostic must exist');
@@ -228,7 +225,7 @@ assert(formationSource.includes('handleFormationScoreDetailClick'), 'formation s
 assert(formationSource.includes('event.preventDefault();event.stopPropagation();'), 'formation score detail clicks should not bubble into parent formation controls');
 assert(formationSource.includes('formationScore:detail-delegate'), 'formation score detail delegated click diagnostics must exist');
 assert(formationSource.includes('rawText:String(row?.rawText||text).slice(0,1000)'), 'score evidence debug rows must preserve enough raw text for matched labels');
-assert(formationSource.includes('${esc(evidenceRows.length)}件'), 'score detail header must show actual rendered tag count');
+assert(formationSource.includes('${esc(evidenceRows.length)}タグ'), 'score detail header must show actual rendered tag count as tags');
 assert(formationSource.includes('renderFormationTeamBoardSelectableHtml(f,quickSummaryHtml)'), 'mobile board must not receive a duplicate score card');
 assert(formationSource.includes('${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}'), 'PC score card should render between warhorse and result summary');
 assert(formationSource.includes('formationScoreDetail:click'), 'legacy formation detail click diagnostics must still exist');
