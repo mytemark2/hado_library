@@ -193,6 +193,12 @@
     const matchedEffects=eRows(data).filter(r=>predicate(rowText(r),keyText(r),r,'effect')).map(r=>asDebug(r,'effect'));
     return {matchedParameters:unique(matchedParameters).slice(0,40),matchedEffects:unique(matchedEffects).slice(0,40)};
   }
+
+  function detailFromRow(row,kind,index,label){
+    const dbg=asDebug(row,kind);
+    return {label:dbg.label||dbg.key||label,point:1,source:dbg.sourceLabel||(kind==='parameter'?'変化率集計':'スコア根拠'),condition:dbg.condition||'常に',value:dbg.value||'',matchedText:dbg.matchedText||'',rawText:dbg.rawText||dbg.matchedText||'',evidenceType:kind,reason:`formation-vaccine-effect-keyword-match: ${label} に一致した根拠`,featureId:dbg.featureId||'',key:dbg.key||'',index};
+  }
+
   function positiveSupport(t,k){
     if(/敵|低下|奪取|解除|弱化|デバフ/.test(t))return false;
     if(/-[0-9]/.test(t)&&!/被ダメージ|獲得物喪失/.test(t))return false;
@@ -218,13 +224,13 @@
       ['weakening_remove','弱化解除'],
       ['ally_wounded_recovery','味方負傷兵回復']
     ];
-    const rows=metricDefs.map(([key,label])=>{const hit=collect(input,PREDICATES[key]);return {label,score:hit.matchedParameters.length+hit.matchedEffects.length,matchedParameters:hit.matchedParameters,matchedEffects:hit.matchedEffects};});
+    const rows=metricDefs.map(([key,label])=>{const rawParams=pRows(input).filter(r=>PREDICATES[key](rowText(r),keyText(r),r,'parameter'));const rawEffects=eRows(input).filter(r=>PREDICATES[key](rowText(r),keyText(r),r,'effect'));const hit=collect(input,PREDICATES[key]);const scoreDetails=[...rawParams.map((r,i)=>detailFromRow(r,'parameter',i,label)),...rawEffects.map((r,i)=>detailFromRow(r,'effect',rawParams.length+i,label))];return {label,score:scoreDetails.length,scoreDetails,evidenceRows:scoreDetails,matchedParameters:hit.matchedParameters,matchedEffects:hit.matchedEffects};});
     const total=rows.reduce((sum,row)=>sum+Number(row.score||0),0);
     const candidate={typeId:'vaccine',typeName:'ワクチン型',totalScore:total,rows};
     scores.totalScore=total;
     scores.evaluationScore=total;
     scores.breakdown=scores.breakdown||{};
-    scores.breakdown.scoreRows=rows.map(r=>({label:r.label,score:r.score,unit:'件'}));
+    scores.breakdown.scoreRows=rows.map(r=>({label:r.label,score:r.score,unit:'',scoreDetails:r.scoreDetails,evidenceRows:r.evidenceRows,matchedParameters:r.matchedParameters,matchedEffects:r.matchedEffects}));
     scores.breakdown.candidateScores=[candidate];
     scores.breakdown.parameterCount=eRows(input).length||pRows(input).length;
     scores.breakdown.emptyReason=total?'':'ワクチン型に一致する効果がありません';
