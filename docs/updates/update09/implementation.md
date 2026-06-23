@@ -590,3 +590,13 @@
 - Passed score-row `matchedEffects` / `matchedParameters` through `calculateFormationAutoScores()` into score summary rendering.
 - Added clickable details markup for evaluation score chips so users can expand a row and see matched source labels/values.
 - Added CSS for compact evidence rows and extended the formation render proof test to require the expandable detail markup.
+
+## 2026-06-23 Update09.3.40 Phase 3 completion
+
+- Phase 3 status: completed and accepted. The user confirmed the preview display is acceptable on 2026-06-23.
+- Final Phase 3 visible version: `3.0.0.0 Update09.3.40` / revision `73`.
+- Completed scope: formation layout cleanup, change dialog flow, group/name/memo display cleanup, type candidate/tag presentation, candidate tray flow, and formation evaluation-score tag detail behavior.
+- Final score UI contract: the total score is the sum of the five visible evaluation scores, each evaluation score reflects the rendered tag count, and the detail area remains tag-only.
+- Validation recorded for the final Phase 3 state: `python3 tools/run_app_validation.py` completed with `app validation self-check passed: 64 commands`; focused validators for Phase 3 UI, formation score tags, and version consistency also passed.
+- Preview/user acceptance: public preview was checked by the user and accepted; no remaining Phase 3 defects are recorded.
+- HTML size / externalization: this completion record is documentation-only; no HTML or runtime source was changed in this record.
