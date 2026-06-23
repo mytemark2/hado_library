@@ -134,5 +134,29 @@ function score(entity,rule){
 function label(result){return `${fmt((result?.fitScore??result?.conditionalMaxScore)||0)}`}
 function metricLabel(metric){return `${metric?.label||metric?.metricKey}:${fmt((metric?.itemCount??metric?.conditionalMaxValue)||0)}`}
 function summary(result){return (result?.breakdown||[]).map(metricLabel).join(' / ')}
+function tagKind(index){return index<2?'core':index<4?'recommended':'support'}
+function tagKindLabel(kind){return kind==='core'?'中核':kind==='recommended'?'推奨':'補助'}
+function rowTagLabel(row){return String(row?.label||row?.statusEffectName||row?.key||row?.featureId||'').trim()}
+function tagList(entity,rule,result=null){
+  const resolved=result||score(entity,rule),out=[],seen=new Set();
+  (resolved?.breakdown||[]).forEach((metric,index)=>{
+    const rows=Array.isArray(metric?.rows)?metric.rows:[];
+    if(!rows.length)return;
+    const kind=tagKind(index);
+    const metricLabel=String(metric?.label||metric?.metricKey||'型要素').trim();
+    const key=`${kind}:${metricLabel}`;
+    if(!seen.has(key)){seen.add(key);out.push({kind,kindLabel:tagKindLabel(kind),label:metricLabel,source:'metric'});}
+    rows.slice(0,4).forEach(row=>{
+      const label=rowTagLabel(row);
+      if(!label)return;
+      const rowKind=String(row?.sourceKind||'').includes('effect')?'status':'type';
+      const rowKey=`${rowKind}:${label}`;
+      if(!seen.has(rowKey)){seen.add(rowKey);out.push({kind:rowKind,kindLabel:rowKind==='status'?'状態変化':'型要素',label,source:'row'});}
+    });
+  });
+  return out.slice(0,18);
+}
+function tagSummary(entity,rule,result=null){return tagList(entity,rule,result).map(t=>`${t.kindLabel}:${t.label}`).join(' / ')}
 window.HadoTypeScore={METRIC_ALIASES,metricRows,metricValue,score,label,metricLabel,summary,roleCompatibleText,roleAllowedSet};
+window.HadoTypeTags={tagList,tagSummary,tagKindLabel};
 })();
