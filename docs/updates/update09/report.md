@@ -593,3 +593,15 @@
 - Implementation change: formation score rows now carry `matchedEffects` and `matchedParameters` from the scoring diagnostic into `renderFormationScoreSummaryHtml()`. Rows with evidence render as clickable `<details>` chips that expand to show matched effect and parameter sources, while rows without evidence remain compact chips.
 - Regression proof: `tools/test_formation_type_score_render.js` now asserts the score summary HTML contains expandable score detail markup and matched evidence labels in addition to the existing non-zero vaccine score diagnostics.
 - HTML size change: none. The behavior is implemented in external JavaScript and CSS.
+
+## 2026-06-23 Phase 3 completion report
+
+- Summary: Update09 Phase 3 is complete. The final accepted runtime version is `3.0.0.0 Update09.3.40` / revision `73`.
+- Bug classification and root cause: the final Phase 3 fixes addressed formation score display mismatches where the total score and evaluation score headers could diverge from the visible tag evidence. The root cause was using a prior aggregate score source for display instead of deriving the displayed total from the five rendered evaluation rows and their normalized evidence tags.
+- Impact scope checked: formation score summary, evaluation score chips, tag-only detail panel, show-more behavior, type candidate/tag UI, candidate tray related display paths, PC layout, and supporting validators.
+- Files changed in the completion record: `docs/updates/update09/roadmap.md`, `docs/updates/roadmap.md`, `docs/updates/update09/implementation.md`, and `docs/updates/update09/report.md`.
+- HTML size and externalization decision: no HTML or runtime JavaScript/CSS was changed for this completion record. Phase 3 runtime changes remain externalized in JavaScript/CSS from the preceding implementation commits.
+- Validation commands recorded for the accepted Phase 3 state: `python3 tools/run_app_validation.py` passed with `app validation self-check passed: 64 commands`; `python3 tools/validate_update09_phase3_formation_ui.py`, `python3 tools/validate_formation_score_tag_only.py`, and `python3 tools/validate_update_version_consistency.py` passed.
+- Preview confirmation: the user confirmed the public preview display is correct and accepted Phase 3 on 2026-06-23.
+- Minimum user acceptance operation: open the preview 部隊編成 screen, confirm the five evaluation scores sum to the displayed total, open an evaluation score detail, confirm tag-only evidence display and `さらに表示` behavior. This was accepted by the user.
+- Remaining issues: none for Phase 3. Phase 4 remains the next planned phase for guide/help/wording and operation-flow cleanup, not a Phase 3 residual defect.
