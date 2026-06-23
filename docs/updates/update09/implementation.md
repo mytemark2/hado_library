@@ -600,3 +600,12 @@
 - Validation recorded for the final Phase 3 state: `python3 tools/run_app_validation.py` completed with `app validation self-check passed: 64 commands`; focused validators for Phase 3 UI, formation score tags, and version consistency also passed.
 - Preview/user acceptance: public preview was checked by the user and accepted; no remaining Phase 3 defects are recorded.
 - HTML size / externalization: this completion record is documentation-only; no HTML or runtime source was changed in this record.
+
+## 2026-06-23 Update09.4.1 Phase 4 guide wording start
+- Started Update09 Phase 4 as the guide/help/flow cleanup phase.
+- Visible version updated to `3.0.0.0 Update09.4.1` / revision `74` so preview users can distinguish Phase 4 work from accepted Phase 3.
+- Refreshed the start guide badge and quick-flow wording to explain Update09.4.1 and the `型編成ナビ → 型候補一覧 → 候補トレイ → 部隊編成` flow.
+- Updated guided-tour copy for intro/search/formation so users understand the difference between 全データ表示 and 保存データ表示, and when to move from 型検索 to 部隊編成.
+- Added a collapsible `次の操作` explanation to 型候補一覧 instead of increasing always-visible header text.
+- Added `tools/validate_update09_phase4_guides.py` and included it in `tools/run_app_validation.py` as a recurrence-prevention check for Phase 4 guide wording and version display.
+- HTML size change: `index.html` text-only guide wording changed; no large inline script was added. Externalization decision: behavior/validation changes remain in external JavaScript/Python files.

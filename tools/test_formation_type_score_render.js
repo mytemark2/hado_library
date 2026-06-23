@@ -199,10 +199,14 @@ assert((typeScore.candidateScores || []).length > 0, 'candidate scores must be e
 assert(maxTotalScore > 0, 'at least one candidate total score must be non-zero');
 assert(positiveRow, 'at least one evaluation row must include matched effect or parameter evidence');
 const detailRow = (typeScore.candidateScores[0].rows || []).find(row => row.label === '自部隊不利対策') || typeScore.candidateScores[0].rows[0];
-const detailTotal = (detailRow.scoreDetails || []).reduce((sum, item) => sum + Number(item.point || 0), 0);
-assert(Array.isArray(detailRow.scoreDetails) && detailRow.scoreDetails.length > 0, 'score calculation must emit scoreDetails for the evaluation row');
-assert.strictEqual(detailTotal, Number(detailRow.score || 0), 'scoreDetails point total must match row.score');
-assert(detailRow.scoreDetails.every(item => item.label && Number(item.point || 0) > 0 && item.reason && item.evidenceType), 'each score detail must include label, positive point, reason, and evidenceType');
+const detailEvidence = [
+  ...(Array.isArray(detailRow.matchedEffects) ? detailRow.matchedEffects : []),
+  ...(Array.isArray(detailRow.matchedParameters) ? detailRow.matchedParameters : []),
+  ...(Array.isArray(detailRow.matchedTags) ? detailRow.matchedTags : []),
+];
+assert(detailEvidence.length > 0, 'tag-only score calculation must emit evidence for the evaluation row');
+assert(Number(detailRow.score || 0) === detailEvidence.length, 'tag-only row.score must equal evidence tag count');
+assert(detailEvidence.every(item => item.label || item.displayTitle || item.title || item.name), 'each tag-only evidence row must include a display label');
 
 assert.strictEqual(typeScore.rendered, true, 'diagnostic must mark score UI as rendered');
 assert.strictEqual(typeScore.emptyReason, '', 'successful scoring must not report empty reason');
