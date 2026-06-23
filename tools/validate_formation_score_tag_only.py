@@ -28,6 +28,8 @@ REQUIRED = (
     "function formationScoreEvidenceSourceTag(src)",
     "displayTitle:item.sourceTag?",
     "const totalScore=scoreRows.reduce",
+    "const displayTotalScore=rows.reduce",
+    "<strong>${esc(displayTotalScore)}</strong>",
     "${esc(row.label)}のタグ",
     "${esc(evidenceRows.length)}タグ",
     "<strong>${esc(evidenceCount)}</strong>",

@@ -229,6 +229,8 @@ assert(formationSource.includes('function sumFormationScoreDetails(details)'), '
 assert(formationSource.includes('<strong>${esc(evidenceCount)}</strong>'), 'metric chip value must match rendered tag count');
 assert(formationSource.includes('formationScore:detail-more-delegate'), 'show-more button must have delegated click handling');
 assert(formationSource.includes('const totalScore=scoreRows.reduce'), 'total score must be the sum of displayed evaluation score rows');
+assert(formationSource.includes('const displayTotalScore=rows.reduce'), 'rendered total score must be recalculated from visible evaluation rows');
+assert(formationSource.includes('<strong>${esc(displayTotalScore)}</strong>'), 'score card header must render the recalculated visible total');
 assert(formationSource.includes('displayTitle:item.sourceTag?'), 'every evidence tag with a source must render a parenthesized source label');
 assert(formationSource.includes('${esc(evidenceRows.length)}タグ'), 'score detail header must show actual rendered tag count as tags');
 assert(formationSource.includes('renderFormationTeamBoardSelectableHtml(f,quickSummaryHtml)'), 'mobile board must not receive a duplicate score card');
