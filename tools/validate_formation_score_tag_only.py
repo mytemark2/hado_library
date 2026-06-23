@@ -24,6 +24,7 @@ REQUIRED = (
     "kindLabel:'型要素'",
     "kindLabel:'状態変化'",
     "function formationScoreEvidenceKind(type)",
+    "function sumFormationScoreDetails(details)",
     "function formationScoreEvidenceSourceTag(src)",
     "displayTitle:counts[item.title]>1",
     "${esc(row.label)}のタグ",

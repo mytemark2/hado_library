@@ -3,11 +3,11 @@
   'use strict';
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.0.0.0',
-    updateNo: '09.3.36',
-    revision: 69,
+    updateNo: '09.3.37',
+    revision: 70,
     baseAppVersion: '2.9.6.5',
-    summary: 'Update09.3.36: align formation score numbers with visible tags and clarify duplicate tags.',
-    updatedAt: '2026-06-22T04:10:00+09:00'
+    summary: 'Update09.3.37: keep legacy formation score detail total helper available.',
+    updatedAt: '2026-06-23T09:00:00+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;
 })();
