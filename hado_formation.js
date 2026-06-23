@@ -620,7 +620,7 @@ function handleFormationScoreDetailClick(btn,event){if(event){event.preventDefau
 function renderFormationScoreCandidateRowsHtml(candidates){if(!candidates||candidates.length<=1)return '';return `<div class="formation-score-breakdown formation-score-candidates">${candidates.map(c=>`<span class="formation-score-chip"><span class="formation-score-label">${esc(c.typeName||c.typeId||'型候補')}</span><span class="value">${esc(c.totalScore)}</span></span>`).join('')}</div>`;}
 function renderFormationScoreSummaryHtml(f,data){
   const scores=calculateFormationAutoScores(f,data);f.totalScore=scores.totalScore;f.evaluationScore=scores.evaluationScore;
-  const rows=normalizeFormationScoreDisplayRows(scores.breakdown.scoreRows||[]);
+  const rows=normalizeFormationScoreDisplayRows(scores.breakdown.scoreRows||[]);state.formationScoreDetailRows=rows;
   const selectedIndex=Math.max(0,Math.min(rows.length-1,Number.isInteger(state.formationScoreDetailIndex)?state.formationScoreDetailIndex:0));state.formationScoreDetailIndex=selectedIndex;
   const matchedCount=rows.reduce((sum,row)=>sum+Number(row.score||0),0);
   const evidenceCount=rows.reduce((sum,row)=>sum+normalizeFormationScoreEvidenceRows(row).length,0);
