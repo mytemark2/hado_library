@@ -226,6 +226,8 @@ assert(formationSource.includes('event.preventDefault();event.stopPropagation();
 assert(formationSource.includes('formationScore:detail-delegate'), 'formation score detail delegated click diagnostics must exist');
 assert(formationSource.includes('rawText:String(row?.rawText||text).slice(0,1000)'), 'score evidence debug rows must preserve enough raw text for matched labels');
 assert(formationSource.includes('function sumFormationScoreDetails(details)'), 'legacy score-detail total helper must remain defined to prevent render-time ReferenceError');
+assert(formationSource.includes('<strong>${esc(evidenceCount)}</strong>'), 'metric chip value must match rendered tag count');
+assert(formationSource.includes('formationScore:detail-more-delegate'), 'show-more button must have delegated click handling');
 assert(formationSource.includes('${esc(evidenceRows.length)}タグ'), 'score detail header must show actual rendered tag count as tags');
 assert(formationSource.includes('renderFormationTeamBoardSelectableHtml(f,quickSummaryHtml)'), 'mobile board must not receive a duplicate score card');
 assert(formationSource.includes('${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}'), 'PC score card should render between warhorse and result summary');

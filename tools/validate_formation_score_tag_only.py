@@ -29,6 +29,8 @@ REQUIRED = (
     "displayTitle:counts[item.title]>1",
     "${esc(row.label)}のタグ",
     "${esc(evidenceRows.length)}タグ",
+    "<strong>${esc(evidenceCount)}</strong>",
+    "formationScore:detail-more-delegate",
     "rawText:String(row?.rawText||text).slice(0,1000)",
 )
 
