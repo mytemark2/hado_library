@@ -807,7 +807,7 @@ function updateUxHomePanel(context=''){
   let actionValue=IS_WEB_DEPLOYMENT?'自動読込':'データ読込';
   let actionNote=IS_WEB_DEPLOYMENT?'公開JSONを自動取得しています。完了後に検索を利用できます。':'最初にJSONを読み込んでください。';
   if(loaded&&!current){actionValue='保存データ準備';actionNote='全データ検索は利用できます。保存データ運用する場合は新規作成またはImportしてください。';}
-  if(loaded&&current){actionValue='検索または部隊編成';actionNote='検索条件を指定するか、部隊編成タブで編成を確認してください。';}
+  if(loaded&&current){actionValue='型編成ナビ→部隊編成';actionNote='型検索から型編成ナビ、型候補一覧、候補トレイへ進み、最後に部隊編成で配置を確認してください。';}
   setUxText('uxNextActionValue',actionValue);
   setUxText('uxNextActionNote',actionNote);
   debugLog('uxHome:update',{context,total,saveCount,currentSaveName:current?.name||'',formationCount,historyCount,mainTab:state.mainTab});
@@ -850,14 +850,14 @@ function getGuidedTourDefinitions(){
       {title:'通常検索・型検索：タグ',target:'#tagSearchWrap',tab:'search',searchMode:'normal',expandSearchPanel:true,body:'タグは属性の絞り込みに使います。\n同じタググループ内はOR、異なるタググループ間はANDです。例：兵科:騎兵 OR 兵科:弓兵 AND 性別:女。'},
       {title:'カテゴリを選択',target:'#categoryBar',tab:'search',searchMode:'normal',expandSearchPanel:true,body:'検索対象カテゴリを複数選択できます。\n型検索では、武将・装備・兵器・軍馬技能の4カテゴリに限定されます。'},
       {title:'状態変化検索',target:'#searchPresetBar',tab:'search',searchMode:'status',expandSearchPanel:true,body:'状態変化検索では、6分類から目的を選び、状態変化を1件選択します。\n自部隊能力強化、自部隊状態強化、自部隊不利対策、敵部隊能力低下、敵部隊状態弱化、敵部隊有利対策を逆引きできます。'},
-      {title:'型検索',target:'#typeSearchPanel',tab:'search',searchMode:'type',expandSearchPanel:true,body:'型検索では、攻撃速度型、通常攻撃拡張型、撃心型、ゾンビ型などのプリセットを選択できます。\n状態変化と型要素はOR条件で検索され、タグは属性絞り込みとしてANDで適用されます。条件は追加・削除できます。'},
-      {title:'検索結果とコピー',target:'.result-copy-actions',tab:'search',searchMode:'type',expandSearchPanel:true,body:'検索結果は自動更新されます。\n一覧コピー、検索パラコピー、全パラコピーを用途に応じて使います。型検索では一致理由と重要度を確認できます。'},
+      {title:'型検索',target:'#typeSearchPanel',tab:'search',searchMode:'type',expandSearchPanel:true,body:'型検索では、攻撃速度型、通常攻撃拡張型、撃心型、ゾンビ型などのプリセットを選択できます。\n型編成ナビで目的と型を選び、型候補一覧で9役割の候補を確認して候補トレイへ送ります。全データ表示は理論候補、保存データ表示は所有データ前提です。'},
+      {title:'検索結果とコピー',target:'.result-copy-actions',tab:'search',searchMode:'type',expandSearchPanel:true,body:'検索結果は自動更新されます。\n型検索では一致理由と重要度を確認し、型候補一覧から候補トレイへ入れてから部隊編成で組み合わせを検討します。'},
       {title:'検索結果から詳細を確認',target:'#results,#resultSelect',tab:'search',body:'PCでは一覧、スマホではドロップダウンから結果を選択します。\n選択すると、右側または下部の内容詳細へ表示されます。'},
       {title:'内容詳細と履歴操作',target:'#detail',tab:'search',body:'内容詳細では、関連リンク、状態変化率、パラメータ、コピー用テキストを確認できます。\n戻る/進む、検索結果の前後移動も利用できます。'}
     ],
     formation:[
-      {title:'部隊編成ガイドを開始します',target:'#formationScreen',body:'部隊編成では、武将・装備・侍従・参軍・兵器・武装・軍馬を配置し、合算結果を確認します。まずは画面全体の構成を確認します。',tab:'formation'},
-      {title:'部隊の選択と基本設定',target:'.formation-list-panel,#formationMobileSelect',body:'編成対象の部隊を選び、部隊名・陣形・攻城/防衛などの基本条件を確認します。スマホでは部隊選択ドロップダウンを使います。',tab:'formation'},
+      {title:'部隊編成ガイドを開始します',target:'#formationScreen',body:'部隊編成では、候補トレイから選んだ武将・装備・侍従・参軍・兵器・武装・軍馬を配置し、合算結果を確認します。型編成ナビ→型候補一覧→候補トレイの後に最終調整する画面です。',tab:'formation'},
+      {title:'部隊の選択と基本設定',target:'.formation-list-panel,#formationMobileSelect',body:'編成対象の部隊を選び、部隊名・陣形・攻城/防衛などの基本条件を確認します。部隊のグループはグループリストで切り替え、「変更」から作成・名前変更・削除できます。スマホでは部隊選択ドロップダウンを使います。',tab:'formation'},
       {title:'部隊編成内のタブ',target:'.formation-work-tabs',body:'部隊編成内には、配置を行う「編成」、戦法攻撃を確認する「戦法」、状態変化率を見る「変化率」、合算技能などを見る「詳細」があります。',tab:'formation'},
       {title:'配置パネルで枠を選択',target:'.formation-board-card,.formation-team-grid-selectable',body:'主将・副将・補佐・侍従などの枠を選択します。枠を選ぶと、右側またはダイアログで配置する武将を選べます。',tab:'formation',formationInnerTab:'edit'},
       {title:'武将編集画面で装備や条件を設定',target:'.formation-selected-editor-main,.formation-selected-card:not(.formation-warhorse-assignment-card)',body:'選択した武将には、武器・防具・文物、技能条件、侍従などを設定します。保存データ表示では、お気に入り登録済みの所持データを前提に選びます。',tab:'formation',formationInnerTab:'edit'},

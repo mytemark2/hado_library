@@ -600,3 +600,19 @@
 - Validation recorded for the final Phase 3 state: `python3 tools/run_app_validation.py` completed with `app validation self-check passed: 64 commands`; focused validators for Phase 3 UI, formation score tags, and version consistency also passed.
 - Preview/user acceptance: public preview was checked by the user and accepted; no remaining Phase 3 defects are recorded.
 - HTML size / externalization: this completion record is documentation-only; no HTML or runtime source was changed in this record.
+
+## 2026-06-24 Update09.4.1 Phase 4 ガイド/導線整理開始
+
+### 目的
+- Phase 3で部隊編成のレイアウト/スコア表示/グループ操作を受け入れ完了したため、Phase 4としてユーザー向けガイドと操作導線の文言整理を開始する。
+- 競合を避けるため、先行してマージ済みの部隊編成ランタイム修正とは分け、表示バージョン・スタートガイド・ツアー文言・validator・記録更新に限定する。
+
+### 実装内容
+- 可視バージョンを `3.0.0.0 Update09.4.1` / revision `74` へ更新した。
+- スタートガイドのバッジと簡易説明を、`型編成ナビ → 型候補一覧 → 候補トレイ → 部隊編成` の流れが分かる説明へ更新した。
+- 検索/部隊編成ツアーの説明に、全データ表示と保存データ表示の違い、候補トレイ経由、部隊グループの切り替え/変更操作を追記した。
+- Phase 4ガイド文言と表示バージョンを検証する `tools/validate_update09_phase4_guides.py` を追加し、セルフチェックに組み込む。
+
+### 外部化判断
+- HTMLには文言差し替えのみを行い、大型ロジックは追加しない。
+- ガイドツアー文言は既存責務の `hado_app.js` に統合し、新規ランタイムJSは作成しない。

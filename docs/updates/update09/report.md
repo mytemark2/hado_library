@@ -605,3 +605,32 @@
 - Preview confirmation: the user confirmed the public preview display is correct and accepted Phase 3 on 2026-06-23.
 - Minimum user acceptance operation: open the preview 部隊編成 screen, confirm the five evaluation scores sum to the displayed total, open an evaluation score detail, confirm tag-only evidence display and `さらに表示` behavior. This was accepted by the user.
 - Remaining issues: none for Phase 3. Phase 4 remains the next planned phase for guide/help/wording and operation-flow cleanup, not a Phase 3 residual defect.
+
+## 2026-06-24 Update09.4.1 Phase 4 ガイド/導線整理レポート
+
+### Summary
+- Update09 Phase 4を開始し、表示バージョンを `3.0.0.0 Update09.4.1` / revision `74` に更新した。
+- スタートガイドと検索/部隊編成ガイドに、`型編成ナビ → 型候補一覧 → 候補トレイ → 部隊編成` の操作順を明記した。
+- 全データ表示は理論候補、保存データ表示は所有データ前提であることをガイド文言へ追加した。
+- 部隊編成ガイドに、部隊グループはグループリストで切り替え、「変更」から作成・名前変更・削除できることを追加した。
+
+### 変更ファイル
+- `hado_version.js`: 可視バージョンとrevisionを更新。
+- `HADO_DEV_INFO.json`: 開発概要と更新日時を更新。
+- `index.html`: スタートガイドのバッジと簡易説明を更新。
+- `hado_app.js`: ガイドツアーと次操作文言を更新。
+- `docs/updates/roadmap.md`, `docs/updates/update09/roadmap.md`, `docs/updates/update09/implementation.md`, `docs/updates/update09/report.md`: Phase 4開始を記録。
+- `tools/validate_update09_phase4_guides.py`, `tools/run_app_validation.py`: Phase 4ガイド/表示契約の回帰防止を追加。
+
+### 確認ポイント
+1. 画面上部または診断表示で `3.0.0.0 Update09.4.1` と表示されること。
+2. スタートガイドのバッジが `Update09.4.1 操作ガイド` になっていること。
+3. 簡易使い方説明で `型編成ナビ → 型候補一覧 → 候補トレイ → 部隊編成` の流れが分かること。
+4. 検索ガイドで全データ表示/保存データ表示の違いと候補トレイ経由が説明されること。
+5. 部隊編成ガイドで部隊グループのグループリスト/変更操作が説明されること。
+
+### Validation
+- `python3 tools/run_app_validation.py`: PASS（65 commands、Phase 4ガイドvalidatorを含む）。
+
+### Remaining issues
+- Preview同期と公開Pages確認は、PRマージ/Push後に実施する。
