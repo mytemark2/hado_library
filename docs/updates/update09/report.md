@@ -605,3 +605,33 @@
 - Preview confirmation: the user confirmed the public preview display is correct and accepted Phase 3 on 2026-06-23.
 - Minimum user acceptance operation: open the preview 部隊編成 screen, confirm the five evaluation scores sum to the displayed total, open an evaluation score detail, confirm tag-only evidence display and `さらに表示` behavior. This was accepted by the user.
 - Remaining issues: none for Phase 3. Phase 4 remains the next planned phase for guide/help/wording and operation-flow cleanup, not a Phase 3 residual defect.
+
+## 2026-06-23 Update09.4.1 Phase 4 guide wording start
+- Summary: Began Phase 4 by updating user-facing guide copy and flow labels to `3.0.0.0 Update09.4.1`.
+- Bug classification: UI/UX guide-generation gap, not a runtime defect. Phase 3 had completed layout/scoring work, but the start guide and guided tours still did not clearly explain the Phase 4 target flow from 型編成ナビ to 型候補一覧 to 部隊編成.
+- Root cause: Guide text had been added incrementally across older updates, while Update09 Phase 3 changed formation layout and score placement. The explanation layer was not guarded by an Update09 Phase 4-specific validation contract.
+- Impact scope checked: start guide badge and quick steps, intro/search/formation guided-tour copy, 型候補一覧 header/help, runtime version metadata, and app validation command list.
+- Permanent countermeasure: Added `tools/validate_update09_phase4_guides.py` and wired it into `tools/run_app_validation.py` so the Phase 4 guide/version wording cannot silently regress.
+- Minimum user acceptance operation: Open the app, confirm the title/version shows `3.0.0.0 Update09.4.1`, click `ガイド開始`, read the intro/search/formation guide wording, open 部隊編成 → 型編成ナビ → 型候補一覧, and confirm the `次の操作` details explains the next button/action.
+- Preview result: not preview-complete in this local handoff; push-triggered preview synchronization and public Pages confirmation still require remote workflow visibility after PR/merge.
+- Remaining issues: Phase 4 has more planned cleanup items for additional long supplemental explanations and operation-flow density.
+
+
+## 2026-06-23 Update09.4.2 formation group controls and guide fix
+- Summary: Fixed the formation group list/selector/Change control layout and the Change button dialog regression, then added a group explanation step to the formation guided tour.
+- Bug classification: formation screen UI regression and event-binding bug.
+- Root cause: mobile and desktop group controls rendered duplicate element ids, while setup used `getElementById`, so only the first matching control received the handler; the visible desktop Change button could be left unbound.
+- Impact scope checked: desktop and mobile group controls, group selection, group management dialog open path, formation guided tour, Phase 4 validation, and app version metadata.
+- Permanent countermeasure: group controls now expose data attributes and event setup binds every rendered control; Phase 4 validation checks the data bindings, CSS contract, guide step, and version.
+- Minimum user acceptance operation: open 部隊編成, confirm the group panel is readable, change the group list, press `変更`, confirm the group dialog opens, then start the formation guide and confirm the group step appears.
+- Preview result: not preview-complete in this local handoff; remote workflow and public Pages confirmation are still required after PR/merge.
+
+## 2026-06-23 Update09.4.3 mobile formation total score visibility fix
+
+- Bug classification: smartphone-only formation layout regression.
+- Root cause: the mobile board placement received only `quickSummaryHtml`, while the total score card stayed in `.formation-selected-stack`; smartphone CSS makes the board-side `.formation-mobile-score-result-placement` the intended visible location, so the total score panel was absent in smartphone layout.
+- Impact scope checked: formation edit tab, total score card placement, result summary placement, duplicate score suppression on smartphone, PC selected-stack score placement, Phase 3/Phase 4 validators, version metadata.
+- Permanent countermeasure: require the mobile board call `renderFormationTeamBoardSelectableHtml(f, scoreCardHtml + quickSummaryHtml)` in validation and require smartphone CSS to hide only the duplicate selected-stack score card.
+- Minimum user acceptance operation: open 部隊編成 on a smartphone-width viewport, confirm the total score panel appears below the board/warhorse area, tap score chips, then confirm PC width still shows the score card in the right-side selected stack.
+- Validation: `python3 tools/run_app_validation.py` must pass before completion.
+- Preview: not verified in this workspace because no Git remote/Actions/Pages verification context is configured.
