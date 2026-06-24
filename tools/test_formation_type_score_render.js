@@ -199,10 +199,14 @@ assert((typeScore.candidateScores || []).length > 0, 'candidate scores must be e
 assert(maxTotalScore > 0, 'at least one candidate total score must be non-zero');
 assert(positiveRow, 'at least one evaluation row must include matched effect or parameter evidence');
 const detailRow = (typeScore.candidateScores[0].rows || []).find(row => row.label === '自部隊不利対策') || typeScore.candidateScores[0].rows[0];
-const detailTotal = (detailRow.scoreDetails || []).reduce((sum, item) => sum + Number(item.point || 0), 0);
-assert(Array.isArray(detailRow.scoreDetails) && detailRow.scoreDetails.length > 0, 'score calculation must emit scoreDetails for the evaluation row');
-assert.strictEqual(detailTotal, Number(detailRow.score || 0), 'scoreDetails point total must match row.score');
-assert(detailRow.scoreDetails.every(item => item.label && Number(item.point || 0) > 0 && item.reason && item.evidenceType), 'each score detail must include label, positive point, reason, and evidenceType');
+const detailEvidence = [
+  ...(Array.isArray(detailRow.matchedEffects) ? detailRow.matchedEffects : []),
+  ...(Array.isArray(detailRow.matchedParameters) ? detailRow.matchedParameters : []),
+  ...(Array.isArray(detailRow.matchedTags) ? detailRow.matchedTags : []),
+];
+assert(detailEvidence.length > 0, 'tag-only score calculation must emit evidence for the evaluation row');
+assert(Number(detailRow.score || 0) === detailEvidence.length, 'tag-only row.score must equal evidence tag count');
+assert(detailEvidence.every(item => item.label || item.displayTitle || item.title || item.name), 'each tag-only evidence row must include a display label');
 
 assert.strictEqual(typeScore.rendered, true, 'diagnostic must mark score UI as rendered');
 assert.strictEqual(typeScore.emptyReason, '', 'successful scoring must not report empty reason');
@@ -211,6 +215,7 @@ assert(typeSearchCache && Number(typeSearchCache.stats?.store || 0) > 0, 'format
 assert(debugEvents.some(event => event.name === 'typeScore'), 'copy-debug-log source must receive typeScore debug event');
 assert(debugEvents.some(event => event.name === 'formationScore:render'), 'copy-debug-log source must receive formationScore:render debug event');
 const formationSource = fs.readFileSync('hado_formation.js','utf8');
+const styleSource = fs.readFileSync('hado_styles.css','utf8');
 const updateMetaSource = fs.readFileSync('hado_update_meta.js','utf8');
 assert(!updateMetaSource.includes('renderFormationScoreSummaryHtml=function') && !updateMetaSource.includes('const wrappedSummary=function'), 'hado_update_meta.js must not override the interactive formation score summary renderer');
 assert(formationSource.includes('formationScore:render'), 'formation score render diagnostics must exist');
@@ -233,8 +238,9 @@ assert(formationSource.includes('const displayTotalScore=rows.reduce'), 'rendere
 assert(formationSource.includes('<strong>${esc(displayTotalScore)}</strong>'), 'score card header must render the recalculated visible total');
 assert(formationSource.includes('displayTitle:item.sourceTag?'), 'every evidence tag with a source must render a parenthesized source label');
 assert(formationSource.includes('${esc(evidenceRows.length)}タグ'), 'score detail header must show actual rendered tag count as tags');
-assert(formationSource.includes('renderFormationTeamBoardSelectableHtml(f,quickSummaryHtml)'), 'mobile board must not receive a duplicate score card');
+assert(formationSource.includes('renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)'), 'mobile board must receive the score card so total score remains visible on smartphone layout');
 assert(formationSource.includes('${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}'), 'PC score card should render between warhorse and result summary');
+assert(styleSource.includes('formation-selected-stack>.formation-selected-card.formation-score-card:not(.is-dialog)'), 'mobile CSS must hide the duplicate selected-stack score card while showing mobile placement');
 assert(formationSource.includes('formationScoreDetail:click'), 'legacy formation detail click diagnostics must still exist');
 assert(formationSource.includes("rowLabel:btn?.dataset?.formationScoreDetailLabel"), 'formation detail click diagnostics must include row label');
 assert(formationSource.includes('formationScoreDetailPayload'), 'formation detail diagnostics should share one payload builder');

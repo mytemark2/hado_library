@@ -835,11 +835,11 @@ function getGuidedTourElements(){
 function getGuidedTourDefinitions(){
   return {
     intro:[
-      {title:'覇道ライブラリへようこそ',target:'#appTitlePanel',body:'初回は、準備と基本操作だけを案内します。\n検索・部隊編成・軍馬編成の各タブでは、上部の「ガイド開始」から専用ガイドを確認できます。'},
+      {title:'覇道ライブラリへようこそ',target:'#appTitlePanel',body:'Update09.4.1では、型候補確認、候補トレイ、部隊編成結果確認までを順番に案内します。\n検索・部隊編成・軍馬編成の各タブでは、上部の「ガイド開始」から専用ガイドを確認できます。'},
       {title:'現在のデータ状態を確認',target:'#dataContextSummary',body:'上部のデータバーで、全データ/保存データ、保存名、武将状態、装備状態を確認できます。\nこの欄を押すと、データ管理を開けます。'},
       (IS_WEB_DEPLOYMENT?{title:'公開JSONは自動で読み込まれます',target:'#dataContextSummary',body:'ウェブ版では、公開サイトに格納されたJSON一式を起動時に自動取得します。\nJSONフォルダやJSONファイルを手動で選択する必要はありません。'}:{title:'JSONデータを読み込みます',target:'#dataManagementSheet .data-file-pane',openDataSheet:true,body:'PCは「JSONフォルダ再読込」、スマホは「JSONファイル読込」を使います。\n最新クローラーで生成したJSON一式を読み込んでください。'}),
       {title:'保存データを準備します',target:'#dataSavedOptions',openDataSheet:true,dataMode:'saved',body:'保存データでは、お気に入り登録した武将・装備、部隊編成、軍馬を管理できます。\n既存データはImport、新規利用は「新規」から作成します。'},
-      {title:'お気に入り登録',target:'#results,#resultSelect',closeDataSheet:true,body:'検索結果や内容詳細で武将・装備を★登録すると、現在選択中の保存データに反映されます。\n保存データ表示では、登録済みの武将・装備を前提に候補を絞り込みます。'},
+      {title:'全データ表示と保存データ表示',target:'#results,#resultSelect',closeDataSheet:true,body:'全データ表示は未所持を含む理論値確認、保存データ表示は★登録済みの武将・装備を中心に候補を絞る確認に使います。\n型検索で方針を決めたら、部隊編成タブの型編成ナビと型候補一覧へ進みます。'},
       {title:'3つのタブで操作します',target:'#mainTabPanel',body:'検索、部隊編成、軍馬編成の3つのタブがあります。\nタブを切り替えた後に「ガイド開始」を押すと、そのタブ専用の案内が始まります。'},
       {title:'タブ別ガイドを使ってください',target:'#uxHomeOpenBtn',body:'初回ガイドはここまでです。\n検索機能は大幅に増えているため、最初に検索タブで「ガイド開始」を押してください。\n初回ガイドをもう一度見たい時は、上部の「？」から再表示できます。'}
     ],
@@ -856,7 +856,7 @@ function getGuidedTourDefinitions(){
       {title:'内容詳細と履歴操作',target:'#detail',tab:'search',body:'内容詳細では、関連リンク、状態変化率、パラメータ、コピー用テキストを確認できます。\n戻る/進む、検索結果の前後移動も利用できます。'}
     ],
     formation:[
-      {title:'部隊編成ガイドを開始します',target:'#formationScreen',body:'部隊編成では、武将・装備・侍従・参軍・兵器・武装・軍馬を配置し、合算結果を確認します。まずは画面全体の構成を確認します。',tab:'formation'},
+      {title:'部隊編成ガイドを開始します',target:'#formationScreen',body:'部隊編成では、型編成ナビ→型候補一覧→候補トレイ→部隊編成の順に進めると、型候補から配置先へつなげやすくなります。配置後は軍馬直下のトータルスコア、変化率、詳細タブで結果を確認します。',tab:'formation'},
       {title:'部隊の選択と基本設定',target:'.formation-list-panel,#formationMobileSelect',body:'編成対象の部隊を選び、部隊名・陣形・攻城/防衛などの基本条件を確認します。スマホでは部隊選択ドロップダウンを使います。',tab:'formation'},
       {title:'部隊編成内のタブ',target:'.formation-work-tabs',body:'部隊編成内には、配置を行う「編成」、戦法攻撃を確認する「戦法」、状態変化率を見る「変化率」、合算技能などを見る「詳細」があります。',tab:'formation'},
       {title:'配置パネルで枠を選択',target:'.formation-board-card,.formation-team-grid-selectable',body:'主将・副将・補佐・侍従などの枠を選択します。枠を選ぶと、右側またはダイアログで配置する武将を選べます。',tab:'formation',formationInnerTab:'edit'},

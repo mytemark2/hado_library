@@ -605,3 +605,14 @@
 - Preview confirmation: the user confirmed the public preview display is correct and accepted Phase 3 on 2026-06-23.
 - Minimum user acceptance operation: open the preview 部隊編成 screen, confirm the five evaluation scores sum to the displayed total, open an evaluation score detail, confirm tag-only evidence display and `さらに表示` behavior. This was accepted by the user.
 - Remaining issues: none for Phase 3. Phase 4 remains the next planned phase for guide/help/wording and operation-flow cleanup, not a Phase 3 residual defect.
+
+
+## 2026-06-24 Update09.4.1 Phase 4 guide and flow restart
+
+- Summary: restarted Update09 Phase 4 with a small guide/version/documentation PR after the merge-priority formation UI fixes were separated.
+- Bug classification: process/merge-scope correction. The previous combined Phase 4 PR mixed runtime fixes with high-churn docs/version/guide files and became difficult to merge.
+- Root cause: guide/version/docs changes were bundled with runtime formation UI fixes, increasing conflict risk.
+- Permanent countermeasure: reapply the Phase 4 guide/version work as a smaller PR and add a focused validator for the guide/version contract.
+- Impact scope checked: visible version, start guide badge/quick flow, guided-tour copy, roadmap status, implementation/report records, and app validation command list.
+- Minimum user acceptance operation: open the app, confirm `3.0.0.0 Update09.4.1`, open the start guide, and confirm it explains `型編成ナビ→型候補一覧→候補トレイ→部隊編成` and the 全データ/保存データ difference.
+- Preview: pending after push/merge; this workspace cannot verify public Pages deployment.
