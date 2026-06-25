@@ -80,7 +80,7 @@ jobs:
           set -euo pipefail
           if [ -z "${PREVIEW_REPO_TOKEN}" ]; then
             echo "Repository secret PREVIEW_REPO_TOKEN is missing." >&2
-            echo "Create a fine-grained token with access to mytemark2/hado_library-preview and permissions Contents: Read and write and Actions: Read and write, then register it as PREVIEW_REPO_TOKEN in mytemark2/hado_library. Actions: Read and write is required because this workflow dispatches the preview repository Pages workflow after pushing runtime assets." >&2
+            echo "Create a fine-grained token with access to mytemark2/hado_library-preview and permissions Contents: Read and write and Actions: Read, then register it as PREVIEW_REPO_TOKEN in mytemark2/hado_library. Actions: Read is required because this workflow polls the preview repository Pages workflow run after pushing runtime assets." >&2
             exit 1
           fi
 
@@ -232,15 +232,20 @@ PREVIEW_PY
             echo "Preview repository main changed during push; retrying with a fresh clone." >&2
             sleep $((attempt * 5))
           done
-          echo "Preview repository content is synchronized from ${APP_REF} (${SOURCE_COMMIT}); changed=${changed}."
+          if [ -z "${preview_commit}" ]; then
+            echo "Preview repository commit could not be resolved." >&2
+            exit 1
+          fi
+          echo "Preview repository content is synchronized from ${APP_REF} (${SOURCE_COMMIT}); changed=${changed}; preview_commit=${preview_commit}."
 
 
-      - name: Dispatch and wait for preview Pages deployment
+      - name: Wait for preview Pages deployment
         shell: bash
         env:
           PREVIEW_REPO_TOKEN: ${{ secrets.PREVIEW_REPO_TOKEN }}
           SOURCE_COMMIT: ${{ steps.source.outputs.source_commit }}
           DISPLAY_VERSION: ${{ steps.meta.outputs.display_version }}
+          PREVIEW_COMMIT: ${{ steps.sync.outputs.preview_commit }}
         run: |
           set -euo pipefail
           api_root="https://api.github.com/repos/mytemark2/hado_library-preview"
@@ -248,45 +253,44 @@ PREVIEW_PY
           auth_header="Authorization: Bearer ${PREVIEW_REPO_TOKEN}"
           accept_header="Accept: application/vnd.github+json"
           version_header="X-GitHub-Api-Version: 2022-11-28"
-          dispatched_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          if [ -z "${PREVIEW_COMMIT}" ]; then
+            echo "Preview repository commit output is missing; cannot wait for Pages deployment." >&2
+            exit 1
+          fi
 
-          echo "Dispatching preview Pages workflow ${workflow_file} on main at ${dispatched_at}."
-          curl --fail-with-body -sS -X POST \
-            -H "${auth_header}" \
-            -H "${accept_header}" \
-            -H "${version_header}" \
-            "${api_root}/actions/workflows/${workflow_file}/dispatches" \
-            -d '{"ref":"main"}'
-
+          echo "Waiting for preview Pages workflow ${workflow_file} on main for preview commit ${PREVIEW_COMMIT}."
           run_id=""
           for attempt in $(seq 1 30); do
             runs_json="$(curl --fail-with-body -sS \
               -H "${auth_header}" \
               -H "${accept_header}" \
               -H "${version_header}" \
-              "${api_root}/actions/workflows/${workflow_file}/runs?branch=main&event=workflow_dispatch&per_page=10")"
-            run_id="$(RUNS_JSON="${runs_json}" DISPATCHED_AT="${dispatched_at}" python - <<'PY'
+              "${api_root}/actions/workflows/${workflow_file}/runs?branch=main&event=push&per_page=20")"
+            runs_file="$(mktemp)"
+            printf '%s' "${runs_json}" > "${runs_file}"
+            run_id="$(RUNS_FILE="${runs_file}" PREVIEW_COMMIT="${PREVIEW_COMMIT}" python - <<'PY'
           import json
           import os
-          from datetime import datetime, timezone
-          data = json.loads(os.environ['RUNS_JSON'])
-          dispatched_at = datetime.fromisoformat(os.environ['DISPATCHED_AT'].replace('Z', '+00:00'))
+          with open(os.environ['RUNS_FILE'], encoding='utf-8') as fh:
+              data = json.load(fh)
+          preview_commit = os.environ['PREVIEW_COMMIT']
           for run in data.get('workflow_runs', []):
-              created = datetime.fromisoformat(str(run.get('created_at', '')).replace('Z', '+00:00'))
-              if created >= dispatched_at:
+              if str(run.get('head_sha', '')) == preview_commit:
                   print(run.get('id', ''))
                   break
           PY
           )"
+            rm -f "${runs_file}"
             if [ -n "${run_id}" ]; then
               echo "Preview Pages workflow run id: ${run_id}"
               break
             fi
-            echo "Preview Pages workflow run not visible yet; retrying (${attempt}/30)."
+            echo "Preview Pages workflow push run for ${PREVIEW_COMMIT} not visible yet; retrying (${attempt}/30)."
             sleep 5
           done
           if [ -z "${run_id}" ]; then
-            echo "Preview Pages workflow dispatch did not produce a visible run." >&2
+            echo "Preview Pages workflow push event did not produce a visible run for preview commit ${PREVIEW_COMMIT}." >&2
+            echo "Confirm mytemark2/hado_library-preview/.github/workflows/${workflow_file} has on.push.branches including main and that repository Actions are enabled." >&2
             exit 1
           fi
 
