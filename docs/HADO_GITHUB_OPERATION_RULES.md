@@ -21,6 +21,26 @@ Repo、Branch、最新Commit SHA、`main`との差分、版数情報、Push済�
 - 定期巡回・schedule前提の同期
 - 手動Workflow実行を通常運用に含めること
 
+
+## Pull Request前のマージ可能性確認
+CodexはPRを作成する前に、必ず最新の開発正本ブランチに対するマージ可能性を自分で確認する。ユーザーにGitHubのConflict画面を見て判断させない。
+
+標準チェック:
+
+```bash
+python3 tools/check_pr_merge_readiness.py --base feature/app-3.0.0.0
+```
+
+このチェックはGitHubから最新の `feature/app-3.0.0.0` を取得し、一時worktreeで `git merge --no-commit --no-ff` を実行して、PRのHEADが正本ブランチへ競合なく取り込めることを確認する。
+
+- チェックが成功した場合のみPRを作成する。
+- `origin` が存在しない場合は標準URLを登録してから取得を試みる。
+- fetch、認証、ネットワーク、またはmergeで失敗した場合はPRを作成しない。
+- 失敗時は、取得できなかったremote/base、HEAD SHA、失敗コマンド、次に必要な安全手順を報告する。
+- PR本文には、確認したbase branch、base SHA、head SHA、実行コマンド、競合0件の結果を記録する。
+
+この確認を通していないPRは、レビュー可能でも「マージ可能性未確認」として扱う。
+
 ## Update記録
 各Updateは `docs/updates/<update>/roadmap.md`、`implementation.md`、`report.md` に記録する。`docs/updates/README.md` も原則としてコードと同じCommitで更新する。旧形式資料は削除せず、新形式文書から参照する。
 
