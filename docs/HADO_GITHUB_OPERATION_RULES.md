@@ -50,5 +50,7 @@ python3 tools/check_pr_merge_readiness.py --base feature/app-3.0.0.0
 ## HTML肥大化防止
 HTMLへ大規模JavaScriptを直接追記しない。独立責務は外部JSを新設し、既存責務と一致する場合のみ既存JSへ追記する。HTML側はDOM骨格、最小限の初期化、`<script src="...">` 読込に留める。外部JS追加時は読込順、依存関係、`file://`、`https://`、プレビュー同期対象を確認する。HTMLサイズ制限に近づいた場合は既存インラインJSの外部化を優先する。
 
+`hado_app.js` は現在の `index.html` から読み込まれない legacy monolithic artifact として扱う。通常の機能修正・Phase更新・ガイド文言更新では `hado_app.js` を編集せず、実際に読み込まれる `hado_core.js`、`hado_formation.js`、`hado_search.js` などの分割済み外部JSを編集する。`hado_app.js` の削除・移動・再分割は、通常更新と混ぜず専用PRで行う。
+
 ## 配布
 SHA-256は単体HTMLとZIP内HTML、版数付きHTMLと`index.html`、派生JSONの`sourceSha256`整合に使う。正式公開はPull Request経由で`main`へMergeする。
