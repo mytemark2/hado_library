@@ -590,3 +590,22 @@
 - Passed score-row `matchedEffects` / `matchedParameters` through `calculateFormationAutoScores()` into score summary rendering.
 - Added clickable details markup for evaluation score chips so users can expand a row and see matched source labels/values.
 - Added CSS for compact evidence rows and extended the formation render proof test to require the expandable detail markup.
+
+## 2026-06-23 Update09.3.40 Phase 3 completion
+
+- Phase 3 status: completed and accepted. The user confirmed the preview display is acceptable on 2026-06-23.
+- Final Phase 3 visible version: `3.0.0.0 Update09.3.40` / revision `73`.
+- Completed scope: formation layout cleanup, change dialog flow, group/name/memo display cleanup, type candidate/tag presentation, candidate tray flow, and formation evaluation-score tag detail behavior.
+- Final score UI contract: the total score is the sum of the five visible evaluation scores, each evaluation score reflects the rendered tag count, and the detail area remains tag-only.
+- Validation recorded for the final Phase 3 state: `python3 tools/run_app_validation.py` completed with `app validation self-check passed: 64 commands`; focused validators for Phase 3 UI, formation score tags, and version consistency also passed.
+- Preview/user acceptance: public preview was checked by the user and accepted; no remaining Phase 3 defects are recorded.
+- HTML size / externalization: this completion record is documentation-only; no HTML or runtime source was changed in this record.
+
+## 2026-06-23 Update09.4.1 Phase 4 guide wording start
+- Started Update09 Phase 4 as the guide/help/flow cleanup phase.
+- Visible version updated to `3.0.0.0 Update09.4.1` / revision `74` so preview users can distinguish Phase 4 work from accepted Phase 3.
+- Refreshed the start guide badge and quick-flow wording to explain Update09.4.1 and the `型編成ナビ → 型候補一覧 → 候補トレイ → 部隊編成` flow.
+- Updated guided-tour copy for intro/search/formation so users understand the difference between 全データ表示 and 保存データ表示, and when to move from 型検索 to 部隊編成.
+- Added a collapsible `次の操作` explanation to 型候補一覧 instead of increasing always-visible header text.
+- Added `tools/validate_update09_phase4_guides.py` and included it in `tools/run_app_validation.py` as a recurrence-prevention check for Phase 4 guide wording and version display.
+- HTML size change: `index.html` text-only guide wording changed; no large inline script was added. Externalization decision: behavior/validation changes remain in external JavaScript/Python files.

@@ -289,6 +289,7 @@ assert(formationSource.includes('formationScore:detail-delegate'), 'formation sc
 assert(formationSource.includes('renderFormationTeamBoardSelectableHtml(f,quickSummaryHtml)'), 'mobile board should receive only the quick result summary to avoid duplicate score cards');
 assert(!formationSource.includes('renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)'), 'team board must not receive scoreCardHtml because it duplicates the score detail panel');
 assert(formationSource.includes('${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}'), 'PC score card should render between warhorse and result summary');
+assert(styleSource.includes('formation-selected-stack>.formation-selected-card.formation-score-card:not(.is-dialog)'), 'mobile CSS must hide the duplicate selected-stack score card while showing mobile placement');
 assert(formationSource.includes('formationScoreDetail:click'), 'legacy formation detail click diagnostics must still exist');
 assert(formationSource.includes("rowLabel:btn?.dataset?.formationScoreDetailLabel"), 'formation detail click diagnostics must include row label');
 assert(formationSource.includes('formationScoreDetailPayload'), 'formation detail diagnostics should share one payload builder');
