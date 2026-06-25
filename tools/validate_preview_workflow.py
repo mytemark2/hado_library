@@ -9,9 +9,9 @@ ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github" / "workflows" / "notify-preview.yml"
 CHECKOUT_ACTION_RE = re.compile(r"uses:\s*actions/checkout@v[45]\b")
 REQUIRED = (
-    "branches:\n      - feature/app-3.0.0.0",
     "ALLOWED_PREVIEW_SOURCE_BRANCH: feature/app-3.0.0.0",
-    "github.ref == 'refs/heads/feature/app-3.0.0.0'",
+    "case \"${APP_REF}\" in",
+    "Refusing preview sync from prohibited Codex/PR branch ${APP_REF}; only ${ALLOWED_PREVIEW_SOURCE_BRANCH} may update mytemark2/hado_library-preview.",
     "if [ \"${APP_REF}\" != \"${ALLOWED_PREVIEW_SOURCE_BRANCH}\" ]; then",
     "if [[ \"${GITHUB_REF:-}\" == refs/heads/codex/* ]]; then",
     "Refusing preview sync from Codex work branch ${GITHUB_REF}; only ${ALLOWED_PREVIEW_SOURCE_BRANCH} may update mytemark2/hado_library-preview.",
@@ -20,6 +20,7 @@ REQUIRED = (
     "Checked-out source commit ${SOURCE_COMMIT} does not match GITHUB_SHA ${GITHUB_SHA}.",
     "concurrency:",
     "group: hado-library-preview-sync",
+    "cancel-in-progress: true",
     "for attempt in 1 2 3",
     "Preview repository main changed during push; retrying with a fresh clone.",
     "Preview repository push failed after ${attempt} attempts",
@@ -64,6 +65,14 @@ REQUIRED = (
     "[ \"${public_source}\" = \"${SOURCE_COMMIT}\" ]",
     "[ \"${public_version}\" = \"${DISPLAY_VERSION}\" ]",
     "PREVIEW_REPO_TOKEN",
+    "Preview Pages workflow .github/workflows/jekyll-gh-pages.yml was not found",
+    "PREVIEW_PAGES_WORKFLOW",
+    "cancel-in-progress: true",
+    "Verify public preview deployment",
+    "https://mytemark2.github.io/hado_library-preview",
+    "PREVIEW_SOURCE_COMMIT.txt?cb=",
+    "PREVIEW_DISPLAY_VERSION.txt?cb=",
+    "Public preview matches ${SOURCE_COMMIT} / ${DISPLAY_VERSION}",
 )
 FORBIDDEN = (
     "workflow_dispatch:",
@@ -95,7 +104,7 @@ def main() -> int:
         raise SystemExit("preview workflow missing: " + ", ".join(missing))
     if forbidden:
         raise SystemExit("preview workflow contains prohibited stale sync pattern: " + ", ".join(forbidden))
-    print("preview workflow syncs only feature/app-3.0.0.0 runtime assets with source commit, branch, version, and file-hash markers")
+    print("preview workflow rejects non-canonical branches, patches preview Pages concurrency, syncs runtime assets, and verifies public deployment markers")
     return 0
 
 
