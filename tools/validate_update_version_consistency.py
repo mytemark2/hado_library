@@ -53,6 +53,34 @@ def main() -> int:
         if required not in update_meta_js:
             raise SystemExit(f"hado_update_meta.js must update {required} from hado_version.js metadata")
 
+
+    stale_runtime_literals = (
+        "v2.9.2.0",
+        "2.9.6 操作ガイド",
+        "Update08",
+        "Update07",
+        "3.0.0.0 Update08",
+    )
+    runtime_files = (
+        "index.html",
+        "hado_version.js",
+        "hado_update_meta.js",
+        ".github/workflows/notify-preview.yml",
+    )
+    allowed_current_version_literals = {display_version, update_no}
+    for relative_name in runtime_files:
+        runtime_text = (ROOT / relative_name).read_text(encoding="utf-8")
+        stale_literals = [
+            literal
+            for literal in stale_runtime_literals
+            if literal in runtime_text and literal not in allowed_current_version_literals
+        ]
+        if stale_literals:
+            raise SystemExit(
+                f"{relative_name} contains stale runtime/public preview version text: "
+                + ", ".join(stale_literals)
+            )
+
     workflow = (ROOT / ".github" / "workflows" / "notify-preview.yml").read_text(encoding="utf-8")
     if "hado_version.js" not in workflow:
         raise SystemExit("preview workflow must read hado_version.js")

@@ -90,7 +90,6 @@
     addCss();
     try{if(typeof renderFormationGroupControlsHtml==='function')renderFormationGroupControlsHtml=function(){const groups=sanitizeFormationGroups(state.formationGroups||[]),current=getCurrentFormationGroup();return `<div class="formation-group-controls"><div class="formation-group-head"><span class="formation-group-title">グループ</span></div><div class="formation-group-list-row"><label class="formation-group-select-label"><span class="note">グループリスト</span><select id="formationGroupSelect" class="formation-select">${groups.map(g=>`<option value="${esc0(g.id)}" ${g.id===current.id?'selected':''}>${esc0(g.name)}</option>`).join('')}</select></label><button type="button" id="formationGroupRenameBtn" class="formation-group-manage-btn">変更</button></div></div>`;};}catch(_){ }
     try{if(typeof renderFormationComposeBarHtml==='function')renderFormationComposeBarHtml=function(f,data){const siege=f?.siegeWeapon||createFormationSiegeWeaponSelection(),arm=f?.ethnicArmament||createFormationEthnicArmamentSelection();const sd=normalizeSaveItemName(siege.name)?'':' disabled',ad=normalizeSaveItemName(arm.name)?'':' disabled',egd=normalizeSaveItemName(arm.name)?'':' disabled';const memoText=norm(f?.memo||'')||'未記入';return `<div class="formation-compose-toolbar"><div class="formation-compose-toolbar-head"><div class="formation-compose-title">編成バー</div><div class="formation-compose-meta"><span class="formation-badge">部隊兵科：${esc0(data.formationContext?.troopType||'未設定')}</span><span class="formation-badge">型：${esc0(formationEvaluationTypeDisplayName(f))}</span><span class="formation-save-dirty">${state.formationDirty?'未保存':''}</span></div></div><div class="formation-compose-bar-grid"><label><span class="note">部隊名</span><input id="formationNameInput" type="text" value="${esc0(f.name)}"></label><label><span class="note">陣形</span><select id="formationMasterSelect" class="formation-select">${buildFormationMasterSelectOptions(f?.formationName)}</select></label><label><span class="note">編制種類</span><select id="formationDeploymentTypeSelect" class="formation-select">${buildFormationDeploymentTypeOptions(f?.deploymentType)}</select></label><label><span class="note">武装</span><select id="formationEthnicArmamentSelect" class="formation-select">${buildFormationExtensionSelectOptions('ethnicArmament',arm.name)}</select></label><label><span class="note">武装Lv</span><select id="formationEthnicArmamentLevelSelect" class="formation-select"${ad}>${buildFormationExtensionLevelOptions('ethnicArmament',arm)}</select></label><label><span class="note">異民族武将</span><select id="formationEthnicGeneralSelect" class="formation-select"${egd}>${buildFormationEthnicGeneralSelectOptions(arm)}</select></label><label><span class="note">兵器</span><select id="formationSiegeWeaponSelect" class="formation-select">${buildFormationExtensionSelectOptions('siegeWeapon',siege.name)}</select></label><label><span class="note">兵器Lv</span><select id="formationSiegeWeaponLevelSelect" class="formation-select"${sd}>${buildFormationExtensionLevelOptions('siegeWeapon',siege)}</select></label><div class="formation-memo-inline formation-memo-under-siege"><span class="note">マイメモ</span><span class="formation-memo-text" title="${esc0(memoText)}">${esc0(memoText)}</span><button type="button" id="formationMemoEditBtn">編集</button></div></div></div>`;};}catch(_){ }
-    try{if(typeof renderFormationScoreSummaryHtml==='function')renderFormationScoreSummaryHtml=function(f,data){const scores=calculateFormationAutoScores(f,data);f.totalScore=scores.totalScore;f.evaluationScore=scores.evaluationScore;const rows=(scores.breakdown?.scoreRows||[]).slice(0,5);while(rows.length<5)rows.push({label:`評価${rows.length+1}`,score:0});return `<div class="formation-score-summary" aria-label="自動計算スコア"><div class="formation-score-summary-head"><div class="formation-score-total"><span>トータルスコア</span><strong>${esc0(scores.totalScore)}</strong></div><span class="formation-score-toggle-note">評価スコア5項目</span></div><div class="formation-score-breakdown formation-score-generals formation-score-evaluation-inline">${rows.map(r=>`<span class="formation-score-chip"><span class="formation-score-label">${esc0(r.label||'')}</span><span class="value">${esc0(r.score||0)}</span></span>`).join('')}</div></div>`;};}catch(_){ }
     try{if(typeof renderFormationScreen==='function'&&typeof state!=='undefined'&&state?.mainTab==='formation')renderFormationScreen();}catch(_){ }
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',patch,{once:true});else patch();
@@ -147,21 +146,6 @@
       window.renderFormationListHtml=wrappedList;
     }
 
-    if(typeof renderFormationScoreSummaryHtml==='function'&&!renderFormationScoreSummaryHtml.__u09321){
-      const wrappedSummary=function(f,data){
-        const input=hasScoreInput(data)?data:(diagnosticFormationData(f)||data||{});
-        const scores=calculateFormationAutoScores(f,input);
-        f.totalScore=scores.totalScore;f.evaluationScore=scores.evaluationScore;
-        const rows=(scores.breakdown?.scoreRows||[]).slice(0,5);
-        while(rows.length<5)rows.push({label:`評価${rows.length+1}`,score:0});
-        const empty=scores.breakdown?.emptyReason?`<div class="formation-note">${esc1(scores.breakdown.emptyReason)}</div>`:'';
-        return `<div class="formation-score-summary" aria-label="自動計算スコア"><div class="formation-score-summary-head"><div class="formation-score-total"><span>トータルスコア</span><strong>${esc1(scores.totalScore)}</strong></div><span class="formation-score-toggle-note">評価スコア5項目</span></div><div class="formation-score-breakdown formation-score-generals formation-score-evaluation-inline">${rows.map(r=>`<span class="formation-score-chip"><span class="formation-score-label">${esc1(r.label||'')}</span><span class="value">${esc1(r.score||0)}</span></span>`).join('')}</div>${empty}</div>`;
-      };
-      wrappedSummary.__u09321=true;
-      renderFormationScoreSummaryHtml=wrappedSummary;
-      window.renderFormationScoreSummaryHtml=wrappedSummary;
-    }
-
     try{if(typeof renderFormationScreen==='function'&&window.state?.mainTab==='formation')renderFormationScreen();}catch(_){}
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',patch,{once:true});else patch();
@@ -209,6 +193,12 @@
     const matchedEffects=eRows(data).filter(r=>predicate(rowText(r),keyText(r),r,'effect')).map(r=>asDebug(r,'effect'));
     return {matchedParameters:unique(matchedParameters).slice(0,40),matchedEffects:unique(matchedEffects).slice(0,40)};
   }
+
+  function detailFromRow(row,kind,index,label){
+    const dbg=asDebug(row,kind);
+    return {label:dbg.label||dbg.key||label,point:1,source:dbg.sourceLabel||(kind==='parameter'?'変化率集計':'スコア根拠'),condition:dbg.condition||'常に',value:dbg.value||'',matchedText:dbg.matchedText||'',rawText:dbg.rawText||dbg.matchedText||'',evidenceType:kind,reason:`formation-vaccine-effect-keyword-match: ${label} に一致した根拠`,featureId:dbg.featureId||'',key:dbg.key||'',index};
+  }
+
   function positiveSupport(t,k){
     if(/敵|低下|奪取|解除|弱化|デバフ/.test(t))return false;
     if(/-[0-9]/.test(t)&&!/被ダメージ|獲得物喪失/.test(t))return false;
@@ -234,13 +224,13 @@
       ['weakening_remove','弱化解除'],
       ['ally_wounded_recovery','味方負傷兵回復']
     ];
-    const rows=metricDefs.map(([key,label])=>{const hit=collect(input,PREDICATES[key]);return {label,score:hit.matchedParameters.length+hit.matchedEffects.length,matchedParameters:hit.matchedParameters,matchedEffects:hit.matchedEffects};});
+    const rows=metricDefs.map(([key,label])=>{const rawParams=pRows(input).filter(r=>PREDICATES[key](rowText(r),keyText(r),r,'parameter'));const rawEffects=eRows(input).filter(r=>PREDICATES[key](rowText(r),keyText(r),r,'effect'));const hit=collect(input,PREDICATES[key]);const scoreDetails=[...rawParams.map((r,i)=>detailFromRow(r,'parameter',i,label)),...rawEffects.map((r,i)=>detailFromRow(r,'effect',rawParams.length+i,label))];return {label,score:scoreDetails.length,scoreDetails,evidenceRows:scoreDetails,matchedParameters:hit.matchedParameters,matchedEffects:hit.matchedEffects};});
     const total=rows.reduce((sum,row)=>sum+Number(row.score||0),0);
     const candidate={typeId:'vaccine',typeName:'ワクチン型',totalScore:total,rows};
     scores.totalScore=total;
     scores.evaluationScore=total;
     scores.breakdown=scores.breakdown||{};
-    scores.breakdown.scoreRows=rows.map(r=>({label:r.label,score:r.score,unit:'件'}));
+    scores.breakdown.scoreRows=rows.map(r=>({label:r.label,score:r.score,unit:'',scoreDetails:r.scoreDetails,evidenceRows:r.evidenceRows,matchedParameters:r.matchedParameters,matchedEffects:r.matchedEffects}));
     scores.breakdown.candidateScores=[candidate];
     scores.breakdown.parameterCount=eRows(input).length||pRows(input).length;
     scores.breakdown.emptyReason=total?'':'ワクチン型に一致する効果がありません';
@@ -259,19 +249,6 @@
       wrapped.__vaccineMatch=true;
       window.calculateFormationAutoScores=wrapped;
       try{calculateFormationAutoScores=wrapped;}catch(_){}
-    }
-    if(typeof renderFormationScoreSummaryHtml==='function'&&!renderFormationScoreSummaryHtml.__vaccineMatch){
-      const wrappedSummary=function(f,data){
-        const scores=calculateFormationAutoScores(f,data||{});
-        f.totalScore=scores.totalScore;f.evaluationScore=scores.evaluationScore;
-        const rows=(scores.breakdown?.scoreRows||[]).slice(0,5);
-        while(rows.length<5)rows.push({label:`評価${rows.length+1}`,score:0});
-        const empty=scores.breakdown?.emptyReason?`<div class="formation-note">${esc2(scores.breakdown.emptyReason)}</div>`:'';
-        return `<div class="formation-score-summary" aria-label="自動計算スコア"><div class="formation-score-summary-head"><div class="formation-score-total"><span>トータルスコア</span><strong>${esc2(scores.totalScore)}</strong></div><span class="formation-score-toggle-note">評価スコア5項目</span></div><div class="formation-score-breakdown formation-score-generals formation-score-evaluation-inline">${rows.map(r=>`<span class="formation-score-chip"><span class="formation-score-label">${esc2(r.label||'')}</span><span class="value">${esc2(r.score||0)}</span></span>`).join('')}</div>${empty}</div>`;
-      };
-      wrappedSummary.__vaccineMatch=true;
-      renderFormationScoreSummaryHtml=wrappedSummary;
-      window.renderFormationScoreSummaryHtml=wrappedSummary;
     }
     try{if(typeof renderFormationScreen==='function'&&window.state?.mainTab==='formation')renderFormationScreen();}catch(_){}
   }
