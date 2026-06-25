@@ -51,7 +51,7 @@ REQUIRED_JS = (
     "formation-work-tabs-title",
     "formation-score-chip",
     "formation-group-head",
-    "renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)",
+    "renderFormationTeamBoardSelectableHtml(f,quickSummaryHtml)",
     "formation-mobile-score-result-placement",
     "${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}",
     "renderFormationGroupNameDialogHtml",
@@ -80,6 +80,7 @@ REQUIRED_FUNCTION_DEFINITIONS = (
 )
 
 FORBIDDEN_JS = (
+    "renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)",
     "scoreRows:generalRows.map",
     "window.HadoTypeScore.score(formationTypeScoreEntity",
     "保存データの軍馬を最大3枠まで部隊へ反映",
@@ -182,8 +183,8 @@ def main() -> int:
 
     if js.count("${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}") != 1:
         raise SystemExit("Update09 Phase3 formation UI must render exactly one score card in formation-selected-stack")
-    if "renderFormationTeamBoardSelectableHtml(f,quickSummaryHtml)" in js:
-        raise SystemExit("Update09 Phase3 formation UI must pass scoreCardHtml into mobile board placement so the mobile total score panel remains visible")
+    if "renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)" in js:
+        raise SystemExit("Update09 Phase3 formation UI must not pass scoreCardHtml into renderFormationTeamBoardSelectableHtml")
     if missing_type:
         raise SystemExit("Update09 Phase3 type candidate UI missing JS: " + ", ".join(missing_type))
     if forbidden_type:
@@ -200,7 +201,7 @@ def main() -> int:
 
     if "renderFormationScoreSummaryHtml=function" in update_meta or "const wrappedSummary=function" in update_meta:
         raise SystemExit("hado_update_meta.js must not override renderFormationScoreSummaryHtml; hado_formation.js owns the interactive score detail UI")
-    print("Update09 Phase3 formation UI contract ok: score card function definitions, mobile score placement, group management, type notes, warhorse layout")
+    print("Update09 Phase3 formation UI contract ok: score card function definitions, group management, type notes, warhorse layout")
     return 0
 
 
