@@ -2,8 +2,6 @@ name: Notify Hado Library Preview
 
 on:
   push:
-    branches:
-      - feature/app-3.0.0.0
 
 permissions:
   contents: read
@@ -13,7 +11,7 @@ env:
 
 concurrency:
   group: hado-library-preview-sync
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   notify-preview:
@@ -155,6 +153,29 @@ jobs:
             PREVIEW_DIR="$(mktemp -d)"
             echo "Preview sync attempt ${attempt}/3"
             git clone --depth 1 "https://x-access-token:${PREVIEW_REPO_TOKEN}@github.com/mytemark2/hado_library-preview.git" "${PREVIEW_DIR}"
+
+            preview_pages_workflow="${PREVIEW_DIR}/.github/workflows/jekyll-gh-pages.yml"
+            if [ -f "${preview_pages_workflow}" ]; then
+              PREVIEW_PAGES_WORKFLOW="${preview_pages_workflow}" python - <<'PREVIEW_PY'
+import os
+import re
+from pathlib import Path
+path = Path(os.environ['PREVIEW_PAGES_WORKFLOW'])
+text = path.read_text(encoding='utf-8')
+if 'cancel-in-progress:' in text:
+    text = re.sub(r'(?m)^(\s*cancel-in-progress:\s*).+$', r'\1true', text, count=1)
+elif re.search(r'(?m)^concurrency:\s*$', text):
+    text = re.sub(r'(?m)^concurrency:\s*$', 'concurrency:\n  cancel-in-progress: true', text, count=1)
+else:
+    text = re.sub(r'(?m)^jobs:\s*$', 'concurrency:\n  group: hado-library-preview-pages\n  cancel-in-progress: true\n\njobs:', text, count=1)
+if 'cancel-in-progress: true' not in text:
+    raise SystemExit('failed to enforce preview Pages cancel-in-progress: true')
+path.write_text(text, encoding='utf-8')
+PREVIEW_PY
+            else
+              echo "Preview Pages workflow .github/workflows/jekyll-gh-pages.yml was not found; public deployment concurrency could not be patched." >&2
+              exit 1
+            fi
 
             find "${PREVIEW_DIR}" -mindepth 1 -maxdepth 1 \
               ! -name '.git' \
