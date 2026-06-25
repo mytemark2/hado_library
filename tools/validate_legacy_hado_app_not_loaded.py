@@ -1,0 +1,53 @@
+#!/usr/bin/env python3
+"""Validate that hado_app.js remains a legacy monolithic artifact, not active runtime.
+
+The active app is assembled from split scripts in index.html. This guard exists
+so Phase/update work does not accidentally edit the large legacy bundle and then
+assume the change is visible in the running app.
+"""
+from __future__ import annotations
+
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+INDEX = ROOT / "index.html"
+LEGACY = ROOT / "hado_app.js"
+CORE = ROOT / "hado_core.js"
+RULES = ROOT / "docs" / "HADO_GITHUB_OPERATION_RULES.md"
+
+REQUIRED_ACTIVE_SCRIPTS = (
+    "hado_core.js",
+    "hado_formation.js",
+    "hado_search.js",
+    "hado_bootstrap.js",
+    "hado_type_entry.js",
+    "hado_type_candidates.js",
+    "hado_candidate_tray.js",
+)
+
+
+def require(condition: bool, message: str) -> None:
+    if not condition:
+        raise SystemExit(message)
+
+
+def main() -> int:
+    index_text = INDEX.read_text(encoding="utf-8")
+    legacy_text = LEGACY.read_text(encoding="utf-8") if LEGACY.exists() else ""
+    core_text = CORE.read_text(encoding="utf-8")
+    rules_text = RULES.read_text(encoding="utf-8")
+
+    require(LEGACY.exists(), "hado_app.js is missing; remove or archive it only in a dedicated legacy-bundle cleanup PR")
+    require("hado_app.js" not in index_text, "index.html must not load legacy hado_app.js")
+    for script in REQUIRED_ACTIVE_SCRIPTS:
+        require(script in index_text, f"index.html is missing active runtime script: {script}")
+    require("function getGuidedTourDefinitions" in core_text, "guided tour definitions must live in active hado_core.js")
+    require("function getGuidedTourDefinitions" in legacy_text, "legacy hado_app.js no longer mirrors guided tour definitions; verify before cleanup")
+    require("hado_app.js" in rules_text and "legacy" in rules_text.lower(), "operation rules must document hado_app.js as a legacy artifact")
+
+    print("legacy hado_app.js guard ok: not loaded by index.html; active runtime uses split scripts")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
