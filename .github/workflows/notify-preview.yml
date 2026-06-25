@@ -2,8 +2,6 @@ name: Notify Hado Library Preview
 
 on:
   push:
-    branches:
-      - feature/app-3.0.0.0
 
 permissions:
   contents: read
@@ -13,7 +11,7 @@ env:
 
 concurrency:
   group: hado-library-preview-sync
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   notify-preview:
@@ -33,10 +31,12 @@ jobs:
             echo "Source branch name could not be resolved." >&2
             exit 1
           fi
-          if [[ "${GITHUB_REF:-}" == refs/heads/codex/* ]]; then
-            echo "Refusing preview sync from Codex work branch ${GITHUB_REF}; only ${ALLOWED_PREVIEW_SOURCE_BRANCH} may update mytemark2/hado_library-preview." >&2
-            exit 1
-          fi
+          case "${APP_REF}" in
+            codex/*|*/codex/*|codex*|*identify-and-propose-ui*)
+              echo "Refusing preview sync from prohibited Codex/PR branch ${APP_REF}; only ${ALLOWED_PREVIEW_SOURCE_BRANCH} may update mytemark2/hado_library-preview." >&2
+              exit 1
+              ;;
+          esac
           if [ "${APP_REF}" != "${ALLOWED_PREVIEW_SOURCE_BRANCH}" ]; then
             echo "Refusing preview sync from ${APP_REF}; only ${ALLOWED_PREVIEW_SOURCE_BRANCH} may update mytemark2/hado_library-preview." >&2
             exit 1
@@ -156,6 +156,29 @@ jobs:
             echo "Preview sync attempt ${attempt}/3"
             git clone --depth 1 "https://x-access-token:${PREVIEW_REPO_TOKEN}@github.com/mytemark2/hado_library-preview.git" "${PREVIEW_DIR}"
 
+            preview_pages_workflow="${PREVIEW_DIR}/.github/workflows/jekyll-gh-pages.yml"
+            if [ -f "${preview_pages_workflow}" ]; then
+              PREVIEW_PAGES_WORKFLOW="${preview_pages_workflow}" python - <<'PREVIEW_PY'
+import os
+import re
+from pathlib import Path
+path = Path(os.environ['PREVIEW_PAGES_WORKFLOW'])
+text = path.read_text(encoding='utf-8')
+if 'cancel-in-progress:' in text:
+    text = re.sub(r'(?m)^(\s*cancel-in-progress:\s*).+$', r'\1true', text, count=1)
+elif re.search(r'(?m)^concurrency:\s*$', text):
+    text = re.sub(r'(?m)^concurrency:\s*$', 'concurrency:\n  cancel-in-progress: true', text, count=1)
+else:
+    text = re.sub(r'(?m)^jobs:\s*$', 'concurrency:\n  group: hado-library-preview-pages\n  cancel-in-progress: true\n\njobs:', text, count=1)
+if 'cancel-in-progress: true' not in text:
+    raise SystemExit('failed to enforce preview Pages cancel-in-progress: true')
+path.write_text(text, encoding='utf-8')
+PREVIEW_PY
+            else
+              echo "Preview Pages workflow .github/workflows/jekyll-gh-pages.yml was not found; public deployment concurrency could not be patched." >&2
+              exit 1
+            fi
+
             find "${PREVIEW_DIR}" -mindepth 1 -maxdepth 1 \
               ! -name '.git' \
               ! -name '.github' \
@@ -211,133 +234,38 @@ jobs:
             echo "Preview repository main changed during push; retrying with a fresh clone." >&2
             sleep $((attempt * 5))
           done
-          if [ -z "${preview_commit}" ]; then
-            echo "Preview repository commit could not be resolved." >&2
-            exit 1
-          fi
-          echo "Preview repository content is synchronized from ${APP_REF} (${SOURCE_COMMIT}); changed=${changed}; preview_commit=${preview_commit}."
+          echo "Preview repository content is synchronized from ${APP_REF} (${SOURCE_COMMIT}); changed=${changed}."
 
-
-      - name: Wait for preview Pages deployment
+      - name: Verify public preview deployment
         shell: bash
         env:
-          PREVIEW_REPO_TOKEN: ${{ secrets.PREVIEW_REPO_TOKEN }}
           SOURCE_COMMIT: ${{ steps.source.outputs.source_commit }}
           DISPLAY_VERSION: ${{ steps.meta.outputs.display_version }}
-          PREVIEW_COMMIT: ${{ steps.sync.outputs.preview_commit }}
         run: |
           set -euo pipefail
-          api_root="https://api.github.com/repos/mytemark2/hado_library-preview"
-          workflow_file="jekyll-gh-pages.yml"
-          auth_header="Authorization: Bearer ${PREVIEW_REPO_TOKEN}"
-          accept_header="Accept: application/vnd.github+json"
-          version_header="X-GitHub-Api-Version: 2022-11-28"
-          if [ -z "${PREVIEW_COMMIT}" ]; then
-            echo "Preview repository commit output is missing; cannot wait for Pages deployment." >&2
-            exit 1
-          fi
-
-          github_api_json() {
-            local label="$1"
-            local url="$2"
-            local response_file http_code attempt
-            response_file="$(mktemp)"
-            for attempt in $(seq 1 6); do
-              http_code="$(curl -sS -o "${response_file}" -w "%{http_code}"                 -H "${auth_header}"                 -H "${accept_header}"                 -H "${version_header}"                 "${url}" || true)"
-              if [ "${http_code}" = "200" ]; then
-                cat "${response_file}"
-                rm -f "${response_file}"
-                return 0
-              fi
-              if [ "${http_code}" = "401" ] || [ "${http_code}" = "403" ] || [[ "${http_code}" == 5* ]]; then
-                echo "GitHub API ${label} returned HTTP ${http_code}; retrying (${attempt}/6)." >&2
-                sleep $((attempt * 5))
-                continue
-              fi
-              echo "GitHub API ${label} failed with HTTP ${http_code}." >&2
-              echo "Response body:" >&2
-              cat "${response_file}" >&2 || true
-              rm -f "${response_file}"
-              exit 1
-            done
-            echo "GitHub API ${label} did not return HTTP 200 after retries." >&2
-            echo "Last response body:" >&2
-            cat "${response_file}" >&2 || true
-            rm -f "${response_file}"
-            exit 1
-          }
-
-          echo "Waiting for preview Pages workflow ${workflow_file} on main for preview commit ${PREVIEW_COMMIT}."
-          run_id=""
+          base_url="https://mytemark2.github.io/hado_library-preview"
+          stale_patterns=('2.9.6 操作ガイド' '覇道ライブラリ｜v2.9.2.0' 'Update08')
           for attempt in $(seq 1 30); do
-            runs_json="$(github_api_json "list preview Pages workflow runs" "${api_root}/actions/workflows/${workflow_file}/runs?branch=main&event=push&per_page=20")"
-            runs_file="$(mktemp)"
-            printf '%s' "${runs_json}" > "${runs_file}"
-            run_id="$(RUNS_FILE="${runs_file}" PREVIEW_COMMIT="${PREVIEW_COMMIT}" python - <<'PY'
-          import json
-          import os
-          with open(os.environ['RUNS_FILE'], encoding='utf-8') as fh:
-              data = json.load(fh)
-          preview_commit = os.environ['PREVIEW_COMMIT']
-          for run in data.get('workflow_runs', []):
-              if str(run.get('head_sha', '')) == preview_commit:
-                  print(run.get('id', ''))
-                  break
-          PY
-          )"
-            rm -f "${runs_file}"
-            if [ -n "${run_id}" ]; then
-              echo "Preview Pages workflow run id: ${run_id}"
-              break
-            fi
-            echo "Preview Pages workflow push run for ${PREVIEW_COMMIT} not visible yet; retrying (${attempt}/30)."
-            sleep 5
-          done
-          if [ -z "${run_id}" ]; then
-            echo "Preview Pages workflow push event did not produce a visible run for preview commit ${PREVIEW_COMMIT}." >&2
-            echo "Confirm mytemark2/hado_library-preview/.github/workflows/${workflow_file} has on.push.branches including main and that repository Actions are enabled." >&2
-            exit 1
-          fi
-
-          for attempt in $(seq 1 120); do
-            run_json="$(github_api_json "get preview Pages workflow run ${run_id}" "${api_root}/actions/runs/${run_id}")"
-            status="$(RUN_JSON="${run_json}" python - <<'PY'
-          import json, os
-          print(json.loads(os.environ['RUN_JSON']).get('status', ''))
-          PY
-          )"
-            conclusion="$(RUN_JSON="${run_json}" python - <<'PY'
-          import json, os
-          print(json.loads(os.environ['RUN_JSON']).get('conclusion') or '')
-          PY
-          )"
-            echo "Preview Pages workflow run ${run_id}: status=${status} conclusion=${conclusion:-pending}"
-            if [ "${status}" = "completed" ]; then
-              if [ "${conclusion}" = "success" ]; then
-                break
+            cache_bust="${SOURCE_COMMIT}-${attempt}-$(date +%s)"
+            commit_text="$(curl -fsSL "${base_url}/PREVIEW_SOURCE_COMMIT.txt?cb=${cache_bust}" || true)"
+            display_text="$(curl -fsSL "${base_url}/PREVIEW_DISPLAY_VERSION.txt?cb=${cache_bust}" || true)"
+            index_html="$(curl -fsSL "${base_url}/?cb=${cache_bust}" || true)"
+            version_js="$(curl -fsSL "${base_url}/hado_version.js?cb=${cache_bust}" || true)"
+            if [ "${commit_text}" = "${SOURCE_COMMIT}" ] && [ "${display_text}" = "${DISPLAY_VERSION}" ] && printf '%s' "${version_js}" | grep -q "updateNo:"; then
+              stale_found=false
+              for pattern in "${stale_patterns[@]}"; do
+                if printf '%s' "${index_html}" | grep -Fq "${pattern}"; then
+                  echo "Public preview still contains stale fixed version text: ${pattern}" >&2
+                  stale_found=true
+                fi
+              done
+              if [ "${stale_found}" = false ]; then
+                echo "Public preview matches ${SOURCE_COMMIT} / ${DISPLAY_VERSION} and contains no stale fixed version strings."
+                exit 0
               fi
-              echo "Preview Pages workflow run ${run_id} completed with conclusion=${conclusion}." >&2
-              exit 1
             fi
+            echo "Waiting for public preview deployment (${attempt}/30): commit='${commit_text}' display='${display_text}' expected='${SOURCE_COMMIT}'/'${DISPLAY_VERSION}'"
             sleep 10
           done
-          if [ "${status}" != "completed" ] || [ "${conclusion}" != "success" ]; then
-            echo "Preview Pages workflow run ${run_id} did not complete successfully in time." >&2
-            exit 1
-          fi
-
-          source_url="https://mytemark2.github.io/hado_library-preview/PREVIEW_SOURCE_COMMIT.txt"
-          version_url="https://mytemark2.github.io/hado_library-preview/PREVIEW_DISPLAY_VERSION.txt"
-          for attempt in $(seq 1 60); do
-            public_source="$(curl --fail -sS --max-time 15 "${source_url}" | tr -d '\r\n' || true)"
-            public_version="$(curl --fail -sS --max-time 15 "${version_url}" | tr -d '\r\n' || true)"
-            echo "Public preview markers (${attempt}/60): source=${public_source:-missing} version=${public_version:-missing}"
-            if [ "${public_source}" = "${SOURCE_COMMIT}" ] && [ "${public_version}" = "${DISPLAY_VERSION}" ]; then
-              echo "Public preview matches source commit ${SOURCE_COMMIT} and display version ${DISPLAY_VERSION}."
-              exit 0
-            fi
-            sleep 10
-          done
-          echo "Public preview markers did not match expected source commit/version after Pages deployment." >&2
-          echo "Expected source=${SOURCE_COMMIT}; expected version=${DISPLAY_VERSION}." >&2
+          echo "Public preview did not deploy ${SOURCE_COMMIT} / ${DISPLAY_VERSION}, or stale fixed version text remained." >&2
           exit 1
