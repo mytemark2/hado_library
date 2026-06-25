@@ -45,12 +45,15 @@ If the repository state, branch, or authoritative source is ambiguous, inspect t
 
 For application changes, treat `feature/app-3.0.0.0` as the canonical development branch unless a newer repository document or explicit user instruction supersedes it. Do not base new work on `main`, `hado-2.9.6.5`, stale `codex/...` branches, old pull request heads, or generated preview artifacts.
 
-Before opening a pull request, confirm and report:
+Before opening a pull request, run `python3 tools/check_pr_merge_readiness.py --base feature/app-3.0.0.0` and confirm/report:
 - canonical branch name and the commit SHA inspected before editing;
 - pull request base branch is `feature/app-3.0.0.0`;
 - head branch is the single Codex work branch for the current task;
 - no old branch, old pull request diff, or unrelated generated artifact is mixed into the final diff;
+- the merge-readiness command, fetched base SHA, head SHA, and conflict-free result;
 - whether any conflict occurred, and if so, the cause and the content-aware resolution.
+
+If the merge-readiness check cannot fetch the canonical branch or cannot complete the local merge dry run, do not open a pull request. Stop and report the blocker instead of asking the user to inspect GitHub's conflict screen.
 
 If an existing unmerged pull request already covers the same files or defect, update that pull request branch when possible instead of creating a parallel duplicate pull request. Never resolve conflicts by mechanically choosing one side wholesale; reconcile the latest canonical branch with the requested change and rerun validation.
 
