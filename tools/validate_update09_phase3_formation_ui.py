@@ -213,7 +213,16 @@ def main() -> int:
 
     if "renderFormationScoreSummaryHtml=function" in update_meta or "const wrappedSummary=function" in update_meta:
         raise SystemExit("hado_update_meta.js must not override renderFormationScoreSummaryHtml; hado_formation.js owns the interactive score detail UI")
-    print("Update09 Phase3 formation UI contract ok: score card function definitions, mobile score placement, group management, type notes, warhorse layout")
+    stale_group_override = [snippet for snippet in (
+        "renderFormationGroupControlsHtml=function",
+        "formation-group-list-row",
+        "formation-group-title",
+        "formation-group-select-label",
+        "<span class=\"note\">グループリスト</span>",
+    ) if snippet in update_meta]
+    if stale_group_override:
+        raise SystemExit("hado_update_meta.js must not override formation group controls: " + ", ".join(stale_group_override))
+    print("Update09 Phase3 formation UI contract ok: score card function definitions, group management, type notes, warhorse layout")
     return 0
 
 

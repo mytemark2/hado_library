@@ -27,6 +27,7 @@ def main() -> int:
     core_js = read("hado_core.js")
     candidates_js = read("hado_type_candidates.js")
     tray_js = read("hado_candidate_tray.js")
+    update_meta_js = read("hado_update_meta.js")
 
     formation_js = read("hado_formation.js")
     styles_css = read("hado_styles.css")
@@ -34,19 +35,19 @@ def main() -> int:
     implementation = read("docs/updates/update09/implementation.md")
     report = read("docs/updates/update09/report.md")
 
-    require(version_js, "updateNo: '09.4.6'", "Update09.4.6 update number")
-    require(version_js, "revision: 79", "Update09.4.6 revision")
-    require(version_js, "Update09.4.6", "visible Phase 4 version summary")
+    require(version_js, "updateNo: '09.4.7'", "Update09.4.7 update number")
+    require(version_js, "revision: 80", "Update09.4.7 revision")
+    require(version_js, "Update09.4.7", "visible Phase 4 version summary")
 
     for needle in [
-        "Update09.4.6 操作ガイド",
+        "Update09.4.7 操作ガイド",
         "型編成ナビ",
         "型候補一覧",
         "候補トレイ",
         "部隊編成",
         "全データ表示",
         "保存データ表示",
-        "グループリスト",
+        "グループ選択欄",
         "変更",
     ]:
         require(index_html, needle, f"start guide text {needle}")
@@ -56,7 +57,7 @@ def main() -> int:
         "全データ表示は未所持を含む理論候補",
         "保存データ表示は登録済み所持データ中心の候補",
         "部隊のグループは、攻城・防衛・イベントなど用途別に部隊を整理する単位です",
-        "グループリストで表示対象を切り替え",
+        "グループ選択欄で表示対象を切り替え",
         "「変更」ボタンでグループの追加・名前変更・削除",
         "候補一覧では「次の操作」を開く",
     ]:
@@ -111,10 +112,13 @@ def main() -> int:
         "formation-group-current-name",
         "formation-group-count",
         "formation-group-select-label",
+        "formation-group-list-row",
+        "renderFormationGroupControlsHtml=function",
         "<span class=\"note\">切替</span>",
         "<span class=\"note\">グループリスト</span>",
     ]:
         forbid(formation_js, needle, f"obsolete formation group label/layout {needle}")
+        forbid(update_meta_js, needle, f"obsolete update-meta group override {needle}")
 
     require(index_html, "hado_core.js", "active core script load")
     forbid(index_html, "hado_app.js", "legacy hado_app.js script load")
@@ -124,7 +128,7 @@ def main() -> int:
         ("implementation", implementation),
         ("report", report),
     ]:
-        require(doc, "Update09.4.6", f"{doc_name} Phase 4 record")
+        require(doc, "Update09.4.7", f"{doc_name} Phase 4 record")
         require(doc, "Phase 4", f"{doc_name} Phase 4 label")
 
     print("Update09 Phase 4 guide/version validation OK")

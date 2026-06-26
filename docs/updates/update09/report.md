@@ -677,3 +677,14 @@
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.6` / revision `79`.
 - Minimum user acceptance operation: open 部隊編成 and confirm the group controls show one wide listbox and one `変更` button on the same row; click `変更` and confirm the dialog still opens.
 - Remaining issues: Phase 4 is not complete. Continue reducing long always-visible explanations and verify PC/smartphone text density in the next slice.
+
+
+## 2026-06-26 Update09.4.7 stale update-meta group override report
+
+- Summary: removed the stale Update09.3 group-control override from `hado_update_meta.js` so the compact one-line group selector actually appears at runtime. Phase 4 remains ongoing.
+- Bug classification and root cause: runtime override regression. `hado_formation.js` had the intended compact markup, but `hado_update_meta.js` ran after it and overwrote `renderFormationGroupControlsHtml()` with old `グループ` / `グループリスト` markup.
+- Implementation change: deleted the stale override and injected `.formation-group-list-row` CSS, leaving the active split runtime to render the wide listbox + `変更` button.
+- Permanent countermeasure: Phase 3/4 validators now inspect `hado_update_meta.js` and fail if obsolete group-control override snippets return.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.7` / revision `80`.
+- Minimum user acceptance operation: hard reload the preview, open 部隊編成, confirm the left group area no longer shows `グループ` / `グループリスト`, and confirm the wide listbox plus `変更` button is on one row.
+- Remaining issues: Phase 4 is not complete. Continue PC/smartphone density checks after this runtime override correction is verified.

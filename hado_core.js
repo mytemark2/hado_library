@@ -857,7 +857,7 @@ function getGuidedTourDefinitions(){
     ],
     formation:[
       {title:'部隊編成ガイドを開始します',target:'#formationScreen',body:'部隊編成では、武将・装備・侍従・参軍・兵器・武装・軍馬を配置し、合算結果を確認します。まずは画面全体の構成を確認します。',tab:'formation'},
-      {title:'部隊グループと基本設定',target:'.formation-list-panel,#formationMobileSelect',body:'部隊のグループは、攻城・防衛・イベントなど用途別に部隊を整理する単位です。グループリストで表示対象を切り替え、「変更」ボタンでグループの追加・名前変更・削除を行います。部隊を選んだら部隊名・陣形・攻城/防衛などの基本条件を確認します。スマホでは部隊選択ドロップダウンを使います。',tab:'formation'},
+      {title:'部隊グループと基本設定',target:'.formation-list-panel,#formationMobileSelect',body:'部隊のグループは、攻城・防衛・イベントなど用途別に部隊を整理する単位です。グループ選択欄で表示対象を切り替え、「変更」ボタンでグループの追加・名前変更・削除を行います。部隊を選んだら部隊名・陣形・攻城/防衛などの基本条件を確認します。スマホでは部隊選択ドロップダウンを使います。',tab:'formation'},
       {title:'部隊編成内のタブ',target:'.formation-work-tabs',body:'部隊編成内には、配置を行う「編成」、戦法攻撃を確認する「戦法」、状態変化率を見る「変化率」、合算技能などを見る「詳細」があります。',tab:'formation'},
       {title:'配置パネルで枠を選択',target:'.formation-board-card,.formation-team-grid-selectable',body:'主将・副将・補佐・侍従などの枠を選択します。枠を選ぶと、右側またはダイアログで配置する武将を選べます。',tab:'formation',formationInnerTab:'edit'},
       {title:'武将編集画面で装備や条件を設定',target:'.formation-selected-editor-main,.formation-selected-card:not(.formation-warhorse-assignment-card)',body:'選択した武将には、武器・防具・文物、技能条件、侍従などを設定します。保存データ表示では、お気に入り登録済みの所持データを前提に選びます。',tab:'formation',formationInnerTab:'edit'},

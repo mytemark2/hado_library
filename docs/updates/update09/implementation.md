@@ -661,3 +661,12 @@
 - Layout change: `.formation-group-controls` now uses `minmax(0,1fr) auto` so the listbox gets maximum width and the button keeps its compact fixed width.
 - Recurrence prevention: updated Phase 3/4 validators to require `.formation-group-select` and forbid the removed label/current-name/count layout snippets in active formation controls.
 - HTML size / externalization: only the start-guide badge version changed in HTML. Runtime behavior remains in `hado_formation.js` and styling in `hado_styles.css`.
+
+
+## 2026-06-26 Update09.4.7 stale update-meta group override removal
+
+- Root cause: `hado_update_meta.js` still had an Update09.3 compatibility override for `renderFormationGroupControlsHtml()`, so it replaced the corrected active `hado_formation.js` markup after load.
+- Implementation change: removed the stale group-controls override and its `.formation-group-list-row` injected CSS from `hado_update_meta.js`; the active `hado_formation.js` one-line listbox + `変更` button now owns the runtime DOM.
+- Recurrence prevention: extended Phase 3/4 validators to fail if `hado_update_meta.js` reintroduces `renderFormationGroupControlsHtml=function`, `formation-group-list-row`, `formation-group-title`, or `formation-group-select-label`.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.7` / revision `80`.
+- HTML size / externalization: only the start-guide badge version changed in HTML. Runtime behavior remains in external JavaScript.

@@ -3,11 +3,11 @@
   'use strict';
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.0.0.0',
-    updateNo: '09.4.6',
-    revision: 79,
+    updateNo: '09.4.7',
+    revision: 80,
     baseAppVersion: '2.9.6.5',
-    summary: 'Update09.4.6: compact formation group selector row.',
-    updatedAt: '2026-06-26T21:00:00+09:00'
+    summary: 'Update09.4.7: remove stale group selector override.',
+    updatedAt: '2026-06-26T21:30:00+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;
 })();
