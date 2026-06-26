@@ -605,3 +605,15 @@
 - Preview confirmation: the user confirmed the public preview display is correct and accepted Phase 3 on 2026-06-23.
 - Minimum user acceptance operation: open the preview 部隊編成 screen, confirm the five evaluation scores sum to the displayed total, open an evaluation score detail, confirm tag-only evidence display and `さらに表示` behavior. This was accepted by the user.
 - Remaining issues: none for Phase 3. Phase 4 remains the next planned phase for guide/help/wording and operation-flow cleanup, not a Phase 3 residual defect.
+
+
+## 2026-06-25 Update09.4.1 Phase 4 start report
+
+- Summary: Phase 4 is not complete yet; this change starts Phase 4 by updating visible version metadata and the first layer of in-app guide/flow wording.
+- Bug classification and root cause: this is a planned UX/guide update, not a runtime defect fix. The root UX gap was that Phase 3 changed formation/group/score behavior, but the start guide and guided tours still described the older generic search-to-detail flow.
+- Implementation change: active guide copy in `hado_core.js` now explains the 型検索/型編成ナビ → 型候補一覧 → 候補トレイ → 部隊編成 flow, clarifies 全データ表示 vs 保存データ表示, and adds a 部隊グループ/グループリスト/「変更」 button explanation to the formation guide.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.1` / revision `74`; `HADO_DEV_INFO.json` records Phase 4 guide/flow cleanup while keeping version constants centralized in `hado_version.js`.
+- Recurrence prevention: `tools/validate_update09_phase4_guides.py` checks the version, active guide text, start guide text, documentation status, and confirms the legacy `hado_app.js` bundle is not referenced by `index.html`.
+- HTML size and externalization decision: the HTML change is limited to the compact start-guide text/badge. No large inline JavaScript was added; active behavior remains in external JavaScript.
+- Minimum user acceptance operation: open the start guide and confirm Update09.4.1 is visible; open Search guide and confirm 型検索/型編成ナビ → 型候補一覧 → 候補トレイ → 部隊編成 wording; open Formation guide and confirm 部隊グループ, グループリスト, and 「変更」 button explanation appears.
+- Remaining issues: Phase 4 is ongoing. Next work should move longer supplemental explanations into details/help/modal blocks and continue reducing always-visible text density.

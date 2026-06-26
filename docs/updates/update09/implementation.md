@@ -600,3 +600,14 @@
 - Validation recorded for the final Phase 3 state: `python3 tools/run_app_validation.py` completed with `app validation self-check passed: 64 commands`; focused validators for Phase 3 UI, formation score tags, and version consistency also passed.
 - Preview/user acceptance: public preview was checked by the user and accepted; no remaining Phase 3 defects are recorded.
 - HTML size / externalization: this completion record is documentation-only; no HTML or runtime source was changed in this record.
+
+
+## 2026-06-25 Update09.4.1 Phase 4 guide and flow wording start
+
+- Phase 4 status: started after Phase 3 acceptance. The visible runtime version is `3.0.0.0 Update09.4.1` / revision `74`.
+- Updated the active guided-tour definitions in `hado_core.js` instead of the legacy `hado_app.js` bundle, so the runtime copy follows the split-script architecture.
+- Start guide wording now describes the main Phase 4 operation flow: 型検索/型編成ナビ → 型候補一覧 → 候補トレイ → 部隊編成.
+- Search guide wording now distinguishes 全データ表示 and 保存データ表示 before users move candidates into the candidate tray.
+- Formation guide wording now explains 部隊グループ, the グループリスト, and the 「変更」 button so users understand where group add/rename/delete operations are located.
+- Added `tools/validate_update09_phase4_guides.py` and wired it into `tools/run_app_validation.py` to prevent future guide/version wording regressions.
+- HTML size / externalization: only compact static guide text in `index.html` was changed; runtime guide behavior remains externalized in `hado_core.js`.
