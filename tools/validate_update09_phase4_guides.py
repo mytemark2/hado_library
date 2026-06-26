@@ -31,12 +31,12 @@ def main() -> int:
     implementation = read("docs/updates/update09/implementation.md")
     report = read("docs/updates/update09/report.md")
 
-    require(version_js, "updateNo: '09.4.2'", "Update09.4.2 update number")
-    require(version_js, "revision: 75", "Update09.4.2 revision")
-    require(version_js, "Update09.4.2", "visible Phase 4 version summary")
+    require(version_js, "updateNo: '09.4.3'", "Update09.4.3 update number")
+    require(version_js, "revision: 76", "Update09.4.3 revision")
+    require(version_js, "Update09.4.3", "visible Phase 4 version summary")
 
     for needle in [
-        "Update09.4.2 操作ガイド",
+        "Update09.4.3 操作ガイド",
         "型編成ナビ",
         "型候補一覧",
         "候補トレイ",
@@ -87,7 +87,7 @@ def main() -> int:
         ("implementation", implementation),
         ("report", report),
     ]:
-        require(doc, "Update09.4.2", f"{doc_name} Phase 4 record")
+        require(doc, "Update09.4.3", f"{doc_name} Phase 4 record")
         require(doc, "Phase 4", f"{doc_name} Phase 4 label")
 
     print("Update09 Phase 4 guide/version validation OK")

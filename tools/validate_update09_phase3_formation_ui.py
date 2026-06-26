@@ -30,7 +30,7 @@ REQUIRED_JS = (
     "formation-score-candidates",
     "ensureFormationTypeScoreRulesLoaded",
     "getFormationTypeScoreRule",
-    "<strong>${esc(displayTotalScore)}</strong>",
+    "<strong>${esc(visibleTotalScore)}</strong>",
     "renderFormationScoreSummaryHtml",
     "calculateFormationMemberScoreRows",
     "formation:type-score-member-resolve",

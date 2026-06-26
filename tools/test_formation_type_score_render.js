@@ -292,8 +292,8 @@ assert(formationSource.includes('function sumFormationScoreDetails(details)'), '
 assert(formationSource.includes('<strong>${esc(evidenceCount)}</strong>'), 'metric chip value must match rendered tag count');
 assert(formationSource.includes('formationScore:detail-more-delegate'), 'show-more button must have delegated click handling');
 assert(formationSource.includes('const totalScore=scoreRows.reduce'), 'total score must be the sum of displayed evaluation score rows');
-assert(formationSource.includes('const displayTotalScore=rows.reduce'), 'rendered total score must be recalculated from visible evaluation rows');
-assert(formationSource.includes('<strong>${esc(displayTotalScore)}</strong>'), 'score card header must render the recalculated visible total');
+assert(formationSource.includes('function calculateFormationDisplayedTotalScore(rows)'), 'rendered total score must use a scoped visible-total helper');
+assert(formationSource.includes('<strong>${esc(visibleTotalScore)}</strong>'), 'score card header must render the recalculated visible total');
 assert(formationSource.includes('displayTitle:item.sourceTag?'), 'every evidence tag with a source must render a parenthesized source label');
 assert(formationSource.includes('${esc(evidenceRows.length)}タグ'), 'score detail header must show actual rendered tag count as tags');
 assert(formationSource.includes('renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)'), 'mobile board must receive the score card so total score remains visible on smartphone layout');

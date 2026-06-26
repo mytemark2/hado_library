@@ -621,3 +621,13 @@
 - Updated the 候補トレイ modal in `hado_candidate_tray.js` so its always-visible guidance is a short action label instead of a longer explanatory paragraph.
 - Updated active guided-tour wording in `hado_core.js` to point users to the 型候補一覧 `次の操作` help instead of expanding the tour text further.
 - HTML size / externalization: no large inline JavaScript was added. The runtime behavior remains in external JavaScript; the HTML change is limited to the visible guide badge version.
+
+
+## 2026-06-26 Update09.4.3 formation score visible-total scope hardening
+
+- Phase 4 regression response: investigated the reported formation render error `displayTotalScore is not defined`.
+- Root cause class: formation score rendering used a locally scoped total variable name directly in several UI/diagnostic template positions, while validation only checked for text snippets and did not forbid stale identifier drift.
+- Implementation change: replaced the fragile `displayTotalScore` identifier with a dedicated `calculateFormationDisplayedTotalScore(rows)` helper and a local `visibleTotalScore` variable in `renderFormationScoreSummaryHtml()`.
+- Similar regression countermeasure: added `tools/validate_formation_score_total_scope.py`, which forbids `displayTotalScore` in `hado_formation.js`, requires the helper and all visible-total uses, and confirms `hado_update_meta.js` does not override the score renderer.
+- Validation integration: wired the new guard into `tools/run_app_validation.py` and updated existing formation score tests/validators to assert the new helper contract.
+- HTML size / externalization: only the compact start-guide badge version changed in HTML. The runtime fix is externalized in `hado_formation.js`; no large inline JavaScript was added.

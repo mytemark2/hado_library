@@ -629,3 +629,16 @@
 - HTML size and externalization decision: only the compact start-guide badge version changed in HTML. The guide behavior is implemented in external JavaScript.
 - Minimum user acceptance operation: open 型候補一覧, expand `次の操作`, confirm the data-mode explanation and 3-step path; open 候補トレイ and confirm the short next-action line; proceed to 部隊編成 using `配置先を選ぶ`.
 - Remaining issues: Phase 4 is not complete. Next work should continue moving other long supplemental explanations into details/help/modal blocks and review PC/smartphone text density.
+
+
+## 2026-06-26 Update09.4.3 formation score render error fix report
+
+- Summary: fixed and guarded the reported 部隊編成 render error `displayTotalScore is not defined`. Phase 4 remains ongoing.
+- Bug classification: runtime rendering regression / stale local identifier reference risk in the formation score summary path.
+- Root cause: the score summary renderer depended on the local identifier `displayTotalScore` in multiple rendered/diagnostic positions, and previous self-checks asserted only that the string existed instead of proving that stale references could not remain.
+- Impact scope checked: `renderFormationScoreSummaryHtml()`, total score header rendering, score render diagnostics, tag-only score details, `hado_update_meta.js` renderer override prevention, and the standard formation score render test.
+- Implementation change: introduced `calculateFormationDisplayedTotalScore(rows)` and changed the render path to use the locally defined `visibleTotalScore` consistently for `f.totalScore`, `f.evaluationScore`, diagnostics, matched/evidence counts, and the visible header.
+- Permanent countermeasure: added `tools/validate_formation_score_total_scope.py` to forbid `displayTotalScore` in `hado_formation.js`, require the helper contract, and keep the guard in `tools/run_app_validation.py`.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.3` / revision `76`.
+- Minimum user acceptance operation: open 部隊編成, confirm no render error appears, confirm トータルスコア is visible, and click an evaluation score chip to confirm tag-only details still open.
+- Remaining issues: Phase 4 is not complete. Continue the planned guide/help density cleanup after this regression fix is accepted.
