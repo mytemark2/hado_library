@@ -605,3 +605,108 @@
 - Preview confirmation: the user confirmed the public preview display is correct and accepted Phase 3 on 2026-06-23.
 - Minimum user acceptance operation: open the preview 部隊編成 screen, confirm the five evaluation scores sum to the displayed total, open an evaluation score detail, confirm tag-only evidence display and `さらに表示` behavior. This was accepted by the user.
 - Remaining issues: none for Phase 3. Phase 4 remains the next planned phase for guide/help/wording and operation-flow cleanup, not a Phase 3 residual defect.
+
+
+## 2026-06-25 Update09.4.1 Phase 4 start report
+
+- Summary: Phase 4 is not complete yet; this change starts Phase 4 by updating visible version metadata and the first layer of in-app guide/flow wording.
+- Bug classification and root cause: this is a planned UX/guide update, not a runtime defect fix. The root UX gap was that Phase 3 changed formation/group/score behavior, but the start guide and guided tours still described the older generic search-to-detail flow.
+- Implementation change: active guide copy in `hado_core.js` now explains the 型検索/型編成ナビ → 型候補一覧 → 候補トレイ → 部隊編成 flow, clarifies 全データ表示 vs 保存データ表示, and adds a 部隊グループ/グループリスト/「変更」 button explanation to the formation guide.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.1` / revision `74`; `HADO_DEV_INFO.json` records Phase 4 guide/flow cleanup while keeping version constants centralized in `hado_version.js`.
+- Recurrence prevention: `tools/validate_update09_phase4_guides.py` checks the version, active guide text, start guide text, documentation status, and confirms the legacy `hado_app.js` bundle is not referenced by `index.html`.
+- HTML size and externalization decision: the HTML change is limited to the compact start-guide text/badge. No large inline JavaScript was added; active behavior remains in external JavaScript.
+- Minimum user acceptance operation: open the start guide and confirm Update09.4.1 is visible; open Search guide and confirm 型検索/型編成ナビ → 型候補一覧 → 候補トレイ → 部隊編成 wording; open Formation guide and confirm 部隊グループ, グループリスト, and 「変更」 button explanation appears.
+- Remaining issues: Phase 4 is ongoing. Next work should move longer supplemental explanations into details/help/modal blocks and continue reducing always-visible text density.
+
+
+## 2026-06-26 Update09.4.2 Phase 4 next-step help report
+
+- Summary: Phase 4 remains ongoing. This change completes the next slice by adding compact next-step guidance to 型候補一覧 and 候補トレイ.
+- Bug classification and root cause: planned UX/guide cleanup. The root UX issue was that users could identify a type and see candidates, but the immediate next action was still split across modal text, floating tray UI, and formation screen knowledge.
+- Implementation change: `hado_type_candidates.js` now renders a collapsible `次の操作` block that states the current data mode, explains 全データ表示 vs 保存データ表示, and lists the candidate-to-tray-to-formation path. `hado_candidate_tray.js` now uses a shorter action-oriented guide line.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.2` / revision `75`.
+- Recurrence prevention: `tools/validate_update09_phase4_guides.py` now checks Update09.4.2, the 型候補一覧 `次の操作` block, the 候補トレイ short guidance, and the active guide wording.
+- HTML size and externalization decision: only the compact start-guide badge version changed in HTML. The guide behavior is implemented in external JavaScript.
+- Minimum user acceptance operation: open 型候補一覧, expand `次の操作`, confirm the data-mode explanation and 3-step path; open 候補トレイ and confirm the short next-action line; proceed to 部隊編成 using `配置先を選ぶ`.
+- Remaining issues: Phase 4 is not complete. Next work should continue moving other long supplemental explanations into details/help/modal blocks and review PC/smartphone text density.
+
+
+## 2026-06-26 Update09.4.3 formation score render error fix report
+
+- Summary: fixed and guarded the reported 部隊編成 render error `displayTotalScore is not defined`. Phase 4 remains ongoing.
+- Bug classification: runtime rendering regression / stale local identifier reference risk in the formation score summary path.
+- Root cause: the score summary renderer depended on the local identifier `displayTotalScore` in multiple rendered/diagnostic positions, and previous self-checks asserted only that the string existed instead of proving that stale references could not remain.
+- Impact scope checked: `renderFormationScoreSummaryHtml()`, total score header rendering, score render diagnostics, tag-only score details, `hado_update_meta.js` renderer override prevention, and the standard formation score render test.
+- Implementation change: introduced `calculateFormationDisplayedTotalScore(rows)` and changed the render path to use the locally defined `visibleTotalScore` consistently for `f.totalScore`, `f.evaluationScore`, diagnostics, matched/evidence counts, and the visible header.
+- Permanent countermeasure: added `tools/validate_formation_score_total_scope.py` to forbid `displayTotalScore` in `hado_formation.js`, require the helper contract, and keep the guard in `tools/run_app_validation.py`.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.3` / revision `76`.
+- Minimum user acceptance operation: open 部隊編成, confirm no render error appears, confirm トータルスコア is visible, and click an evaluation score chip to confirm tag-only details still open.
+- Remaining issues: Phase 4 is not complete. Continue the planned guide/help density cleanup after this regression fix is accepted.
+
+
+## 2026-06-26 Update09.4.4 formation next-step help report
+
+- Summary: continued Phase 4 by adding a compact in-screen `次の操作` guide to 部隊編成. Phase 4 remains ongoing.
+- Bug classification and root cause: planned UX/guide cleanup. The UX gap was that the formation guided tour explained groups, but the normal screen did not provide a persistent compact reminder of the group-list → change → slot placement → score/save sequence.
+- Implementation change: `hado_formation.js` now renders `renderFormationNextStepHelpHtml()` inside the group controls area, and `hado_styles.css` styles it as a compact collapsible block.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.4` / revision `77`.
+- Recurrence prevention: `tools/validate_update09_phase4_guides.py` now checks the active formation runtime and CSS for the new `次の操作` guide contract.
+- HTML size and externalization decision: only the guide badge version changed in HTML. The guide itself is externalized in JavaScript/CSS.
+- Minimum user acceptance operation: open 部隊編成, expand `次の操作`, confirm the four-step explanation, switch the グループリスト, open `変更`, select a slot, confirm score tags, and save.
+- Remaining issues: Phase 4 is not complete. Continue reducing long always-visible explanations and verify PC/smartphone text density in the next slice.
+
+
+## 2026-06-26 Update09.4.5 formation group control fix report
+
+- Summary: fixed the 部隊編成 group controls so the visible current group name is shown and every rendered `変更` button opens the group dialog. Phase 4 remains ongoing.
+- Bug classification: runtime UI event-binding regression / duplicate-ID binding risk in the formation group controls.
+- Root cause: the group controls can appear in multiple rendered areas, but handlers were attached with single `document.getElementById()` calls. If the visible control was not the first matching ID, clicking `変更` produced no dialog and no debug log.
+- Implementation change: added stable `data-formation-group-manage` / `data-formation-group-select` hooks, changed binding to `els.formationRoot.querySelectorAll(...)`, added debug logs, and changed the visible label from `グループリスト` to a current group-name chip plus `切替`.
+- Permanent countermeasure: extended `tools/validate_update09_phase3_formation_ui.py` and `tools/validate_update09_phase4_guides.py` to require data-hook group binding and debug-log snippets.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.5` / revision `78`.
+- Minimum user acceptance operation: open 部隊編成, confirm the current group name is visible, click `変更`, confirm the group dialog opens and Debug Log records `formationGroup:manage-click` / `formationGroup:dialog-open`, then switch groups via `切替`.
+- Remaining issues: Phase 4 is not complete. Continue reducing long always-visible explanations and verify PC/smartphone text density in the next slice.
+
+
+## 2026-06-26 Update09.4.6 formation group selector compact row report
+
+- Summary: changed the 部隊編成 group controls to a one-line wide listbox plus `変更` button layout. Phase 4 remains ongoing.
+- Bug classification and root cause: UX/layout correction. The prior fix made the group name visible, but it introduced extra labels and reduced the effective listbox width on compact layouts.
+- Implementation change: removed visible `グループ` / `グループリスト` / `切替` labels from the normal controls, kept the selected group visible inside the listbox, and kept the `変更` button in the same row.
+- Permanent countermeasure: validators now require the `.formation-group-select` hook and forbid the obsolete label/current-name/count snippets in `hado_formation.js`.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.6` / revision `79`.
+- Minimum user acceptance operation: open 部隊編成 and confirm the group controls show one wide listbox and one `変更` button on the same row; click `変更` and confirm the dialog still opens.
+- Remaining issues: Phase 4 is not complete. Continue reducing long always-visible explanations and verify PC/smartphone text density in the next slice.
+
+
+## 2026-06-26 Update09.4.7 stale update-meta group override report
+
+- Summary: removed the stale Update09.3 group-control override from `hado_update_meta.js` so the compact one-line group selector actually appears at runtime. Phase 4 remains ongoing.
+- Bug classification and root cause: runtime override regression. `hado_formation.js` had the intended compact markup, but `hado_update_meta.js` ran after it and overwrote `renderFormationGroupControlsHtml()` with old `グループ` / `グループリスト` markup.
+- Implementation change: deleted the stale override and injected `.formation-group-list-row` CSS, leaving the active split runtime to render the wide listbox + `変更` button.
+- Permanent countermeasure: Phase 3/4 validators now inspect `hado_update_meta.js` and fail if obsolete group-control override snippets return.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.7` / revision `80`.
+- Minimum user acceptance operation: hard reload the preview, open 部隊編成, confirm the left group area no longer shows `グループ` / `グループリスト`, and confirm the wide listbox plus `変更` button is on one row.
+- Remaining issues: Phase 4 is not complete. Continue PC/smartphone density checks after this runtime override correction is verified.
+
+
+## 2026-06-26 Update09.4.8 remove unrequested formation group help report
+
+- Summary: removed the unrequested `次の操作` block from directly under the 部隊編成 group selector. Phase 4 remains ongoing.
+- Bug classification and root cause: UX over-implementation. The group selector is a simple control, but Phase 4 guidance was inserted directly under it, increasing visual noise and implying the control was more complex than it is.
+- Implementation change: deleted the formation-only next-step helper function, removed it from `renderFormationGroupControlsHtml()`, and removed the corresponding CSS. The group area now contains only the wide listbox and `変更` button.
+- Permanent countermeasure: validators now forbid `renderFormationNextStepHelpHtml`, `.formation-next-step-help`, and `.formation-next-step-body` in the formation runtime/styles.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.8` / revision `81`.
+- Minimum user acceptance operation: hard reload the preview, open 部隊編成, confirm the group area contains only the listbox and `変更` button, and confirm no `次の操作` block appears under it.
+- Remaining issues: Phase 4 is not complete. Continue only with requested Phase 4 guide refinements and avoid adding extra controls to simple UI areas.
+
+
+## 2026-06-26 Update09.4.9 PC formation list panel scrollbar report
+
+- Summary: restored a visible vertical scroll path for the PC left-side group/formation selection panel. Phase 4 remains ongoing.
+- Bug classification and root cause: PC layout regression. Fixed-position panel rules hid overflow on `.formation-list-panel`, so the panel could lose an obvious vertical scroll path when content was taller than the viewport.
+- Implementation change: added a PC-only CSS override to make `.formation-list-panel` and `.formation-list` vertically scrollable with stable scrollbar gutter.
+- Permanent countermeasure: Phase 3/4 validators require the scrollbar fix marker and stable scrollbar CSS.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.9` / revision `82`.
+- Minimum user acceptance operation: in PC width, open 部隊編成 and confirm the left-side group/部隊一覧 panel has a vertical scrollbar when the panel content exceeds the visible height.
+- Remaining issues: Phase 4 is not complete. Keep subsequent slices smaller to reduce conflict surface.
