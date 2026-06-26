@@ -50,8 +50,8 @@ REQUIRED_JS = (
     "<section class=\"formation-selected-card formation-score-card",
     "formation-work-tabs-title",
     "formation-score-chip",
-    "formation-group-head",
-    "renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)",
+    "formation-group-select",
+    "renderFormationTeamBoardSelectableHtml(f,quickSummaryHtml)",
     "formation-mobile-score-result-placement",
     "${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}",
     "renderFormationGroupNameDialogHtml",
@@ -95,6 +95,10 @@ FORBIDDEN_JS = (
     "評価:${esc(scores.evaluationScore)}点",
     "formationEvaluationScoreInput",
     "formationEvaluationSaveBtn",
+    "formation-group-title",
+    "formation-group-current-name",
+    "formation-group-count",
+    "formation-group-select-label",
     "履歴へ保存",
     "<details class=\"formation-score-summary",
     "formation-score-evidence-point",
@@ -131,7 +135,7 @@ FORBIDDEN_TYPE_CANDIDATES = (
 )
 REQUIRED_CSS = (
     ".formation-group-controls",
-    ".formation-group-title",
+    ".formation-group-select",
     ".formation-score-card",
     ".formation-score-summary",
     ".formation-score-breakdown",
@@ -149,7 +153,7 @@ REQUIRED_CSS = (
     "formation-quick-summary-strip",
     ".formation-warhorse-slots-body",
     ".formation-memo-inline",
-    ".formation-group-head",
+    ".formation-group-select",
     "body.formation-tab .formation-compose-bar-grid .formation-memo-inline",
     "body.formation-tab .formation-score-meta{grid-template-columns:repeat(3",
     ".formation-dialog-actions",
@@ -160,6 +164,10 @@ REQUIRED_CSS = (
 FORBIDDEN_CSS = (
     ".formation-score-field",
     ".formation-selected-popup-prompt",
+    ".formation-group-title",
+    ".formation-group-current-name",
+    ".formation-group-count",
+    ".formation-group-select-label",
 )
 
 

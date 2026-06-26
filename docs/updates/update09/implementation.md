@@ -652,3 +652,12 @@
 - Diagnostics: added `formationGroup:manage-click`, `formationGroup:dialog-open`, `formationGroup:dialog-close`, and `formationGroup:select-change` debug events.
 - Recurrence prevention: extended Update09 Phase 3/4 validators to require the data-hook bindings, debug logs, and visible group-name CSS hook.
 - HTML size / externalization: only the start-guide badge version changed in HTML. Runtime behavior remains in `hado_formation.js` and styling in `hado_styles.css`.
+
+
+## 2026-06-26 Update09.4.6 formation group selector compact row
+
+- Phase 4 UI cleanup: removed the visible `グループ` / `グループリスト` / `切替` labels from the normal formation group controls.
+- Implementation change: `renderFormationGroupControlsHtml()` now renders only a wide group listbox and the `変更` button on the first row, with the existing collapsible `次の操作` help below it.
+- Layout change: `.formation-group-controls` now uses `minmax(0,1fr) auto` so the listbox gets maximum width and the button keeps its compact fixed width.
+- Recurrence prevention: updated Phase 3/4 validators to require `.formation-group-select` and forbid the removed label/current-name/count layout snippets in active formation controls.
+- HTML size / externalization: only the start-guide badge version changed in HTML. Runtime behavior remains in `hado_formation.js` and styling in `hado_styles.css`.

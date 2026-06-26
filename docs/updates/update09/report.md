@@ -666,3 +666,14 @@
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.5` / revision `78`.
 - Minimum user acceptance operation: open 部隊編成, confirm the current group name is visible, click `変更`, confirm the group dialog opens and Debug Log records `formationGroup:manage-click` / `formationGroup:dialog-open`, then switch groups via `切替`.
 - Remaining issues: Phase 4 is not complete. Continue reducing long always-visible explanations and verify PC/smartphone text density in the next slice.
+
+
+## 2026-06-26 Update09.4.6 formation group selector compact row report
+
+- Summary: changed the 部隊編成 group controls to a one-line wide listbox plus `変更` button layout. Phase 4 remains ongoing.
+- Bug classification and root cause: UX/layout correction. The prior fix made the group name visible, but it introduced extra labels and reduced the effective listbox width on compact layouts.
+- Implementation change: removed visible `グループ` / `グループリスト` / `切替` labels from the normal controls, kept the selected group visible inside the listbox, and kept the `変更` button in the same row.
+- Permanent countermeasure: validators now require the `.formation-group-select` hook and forbid the obsolete label/current-name/count snippets in `hado_formation.js`.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.6` / revision `79`.
+- Minimum user acceptance operation: open 部隊編成 and confirm the group controls show one wide listbox and one `変更` button on the same row; click `変更` and confirm the dialog still opens.
+- Remaining issues: Phase 4 is not complete. Continue reducing long always-visible explanations and verify PC/smartphone text density in the next slice.

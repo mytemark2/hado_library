@@ -34,12 +34,12 @@ def main() -> int:
     implementation = read("docs/updates/update09/implementation.md")
     report = read("docs/updates/update09/report.md")
 
-    require(version_js, "updateNo: '09.4.5'", "Update09.4.5 update number")
-    require(version_js, "revision: 78", "Update09.4.5 revision")
-    require(version_js, "Update09.4.5", "visible Phase 4 version summary")
+    require(version_js, "updateNo: '09.4.6'", "Update09.4.6 update number")
+    require(version_js, "revision: 79", "Update09.4.6 revision")
+    require(version_js, "Update09.4.6", "visible Phase 4 version summary")
 
     for needle in [
-        "Update09.4.5 操作ガイド",
+        "Update09.4.6 操作ガイド",
         "型編成ナビ",
         "型候補一覧",
         "候補トレイ",
@@ -90,8 +90,7 @@ def main() -> int:
         "「変更」から追加・名前変更・削除",
         "候補トレイや検索結果から配置",
         "トータルスコアと評価タグ",
-        "formation-group-count",
-        "formation-group-current-name",
+        "formation-group-select",
         "data-formation-group-manage",
         "data-formation-group-select",
         "formationGroup:manage-click",
@@ -102,10 +101,20 @@ def main() -> int:
     for needle in [
         ".formation-next-step-help",
         ".formation-next-step-body",
-        ".formation-group-count",
-        ".formation-group-current-name",
+        ".formation-group-select",
     ]:
         require(styles_css, needle, f"formation next-step help style {needle}")
+
+
+    for needle in [
+        "formation-group-title",
+        "formation-group-current-name",
+        "formation-group-count",
+        "formation-group-select-label",
+        "<span class=\"note\">切替</span>",
+        "<span class=\"note\">グループリスト</span>",
+    ]:
+        forbid(formation_js, needle, f"obsolete formation group label/layout {needle}")
 
     require(index_html, "hado_core.js", "active core script load")
     forbid(index_html, "hado_app.js", "legacy hado_app.js script load")
@@ -115,7 +124,7 @@ def main() -> int:
         ("implementation", implementation),
         ("report", report),
     ]:
-        require(doc, "Update09.4.5", f"{doc_name} Phase 4 record")
+        require(doc, "Update09.4.6", f"{doc_name} Phase 4 record")
         require(doc, "Phase 4", f"{doc_name} Phase 4 label")
 
     print("Update09 Phase 4 guide/version validation OK")
