@@ -99,6 +99,8 @@ FORBIDDEN_JS = (
     "formation-group-current-name",
     "formation-group-count",
     "formation-group-select-label",
+    "renderFormationNextStepHelpHtml",
+    "formation-next-step-help",
     "履歴へ保存",
     "<details class=\"formation-score-summary",
     "formation-score-evidence-point",
@@ -168,6 +170,8 @@ FORBIDDEN_CSS = (
     ".formation-group-current-name",
     ".formation-group-count",
     ".formation-group-select-label",
+    ".formation-next-step-help",
+    ".formation-next-step-body",
 )
 
 
@@ -219,6 +223,8 @@ def main() -> int:
         "formation-group-title",
         "formation-group-select-label",
         "<span class=\"note\">グループリスト</span>",
+        "formation-next-step-help",
+        "renderFormationNextStepHelpHtml",
     ) if snippet in update_meta]
     if stale_group_override:
         raise SystemExit("hado_update_meta.js must not override formation group controls: " + ", ".join(stale_group_override))

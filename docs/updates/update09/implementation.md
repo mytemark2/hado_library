@@ -670,3 +670,13 @@
 - Recurrence prevention: extended Phase 3/4 validators to fail if `hado_update_meta.js` reintroduces `renderFormationGroupControlsHtml=function`, `formation-group-list-row`, `formation-group-title`, or `formation-group-select-label`.
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.7` / revision `80`.
 - HTML size / externalization: only the start-guide badge version changed in HTML. Runtime behavior remains in external JavaScript.
+
+
+## 2026-06-26 Update09.4.8 remove unrequested formation group help
+
+- Root cause: Phase 4 guidance work added a collapsible `次の操作` block directly below the formation group selector, but this was not requested for the simple group-selection control and made the left panel noisier than necessary.
+- Implementation change: removed `renderFormationNextStepHelpHtml()` and removed the call from `renderFormationGroupControlsHtml()`, so the group area renders only the wide listbox and `変更` button.
+- Styling change: removed `.formation-next-step-help` and `.formation-next-step-body` CSS from the formation layout block.
+- Recurrence prevention: updated Phase 3/4 validators to forbid formation next-step helper markup/styles in the group-control area while keeping next-step guidance in type candidates / candidate tray.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.8` / revision `81`.
+- HTML size / externalization: only the start-guide badge version changed in HTML. Runtime behavior remains in external JavaScript and CSS.

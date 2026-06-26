@@ -688,3 +688,14 @@
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.7` / revision `80`.
 - Minimum user acceptance operation: hard reload the preview, open 部隊編成, confirm the left group area no longer shows `グループ` / `グループリスト`, and confirm the wide listbox plus `変更` button is on one row.
 - Remaining issues: Phase 4 is not complete. Continue PC/smartphone density checks after this runtime override correction is verified.
+
+
+## 2026-06-26 Update09.4.8 remove unrequested formation group help report
+
+- Summary: removed the unrequested `次の操作` block from directly under the 部隊編成 group selector. Phase 4 remains ongoing.
+- Bug classification and root cause: UX over-implementation. The group selector is a simple control, but Phase 4 guidance was inserted directly under it, increasing visual noise and implying the control was more complex than it is.
+- Implementation change: deleted the formation-only next-step helper function, removed it from `renderFormationGroupControlsHtml()`, and removed the corresponding CSS. The group area now contains only the wide listbox and `変更` button.
+- Permanent countermeasure: validators now forbid `renderFormationNextStepHelpHtml`, `.formation-next-step-help`, and `.formation-next-step-body` in the formation runtime/styles.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.8` / revision `81`.
+- Minimum user acceptance operation: hard reload the preview, open 部隊編成, confirm the group area contains only the listbox and `変更` button, and confirm no `次の操作` block appears under it.
+- Remaining issues: Phase 4 is not complete. Continue only with requested Phase 4 guide refinements and avoid adding extra controls to simple UI areas.

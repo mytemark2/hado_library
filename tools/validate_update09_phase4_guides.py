@@ -35,12 +35,12 @@ def main() -> int:
     implementation = read("docs/updates/update09/implementation.md")
     report = read("docs/updates/update09/report.md")
 
-    require(version_js, "updateNo: '09.4.7'", "Update09.4.7 update number")
-    require(version_js, "revision: 80", "Update09.4.7 revision")
-    require(version_js, "Update09.4.7", "visible Phase 4 version summary")
+    require(version_js, "updateNo: '09.4.8'", "Update09.4.8 update number")
+    require(version_js, "revision: 81", "Update09.4.8 revision")
+    require(version_js, "Update09.4.8", "visible Phase 4 version summary")
 
     for needle in [
-        "Update09.4.7 操作ガイド",
+        "Update09.4.8 操作ガイド",
         "型編成ナビ",
         "型候補一覧",
         "候補トレイ",
@@ -85,26 +85,15 @@ def main() -> int:
 
 
     for needle in [
-        "function renderFormationNextStepHelpHtml()",
-        "<summary>次の操作</summary>",
-        "グループ切替で攻城・防衛・イベント",
-        "「変更」から追加・名前変更・削除",
-        "候補トレイや検索結果から配置",
-        "トータルスコアと評価タグ",
         "formation-group-select",
         "data-formation-group-manage",
         "data-formation-group-select",
         "formationGroup:manage-click",
         "formationGroup:dialog-open",
     ]:
-        require(formation_js, needle, f"formation next-step help {needle}")
+        require(formation_js, needle, f"formation group controls {needle}")
 
-    for needle in [
-        ".formation-next-step-help",
-        ".formation-next-step-body",
-        ".formation-group-select",
-    ]:
-        require(styles_css, needle, f"formation next-step help style {needle}")
+    require(styles_css, ".formation-group-select", "formation group select style")
 
 
     for needle in [
@@ -114,6 +103,9 @@ def main() -> int:
         "formation-group-select-label",
         "formation-group-list-row",
         "renderFormationGroupControlsHtml=function",
+        "function renderFormationNextStepHelpHtml()",
+        "formation-next-step-help",
+        "formation-next-step-body",
         "<span class=\"note\">切替</span>",
         "<span class=\"note\">グループリスト</span>",
     ]:
@@ -128,7 +120,7 @@ def main() -> int:
         ("implementation", implementation),
         ("report", report),
     ]:
-        require(doc, "Update09.4.7", f"{doc_name} Phase 4 record")
+        require(doc, "Update09.4.8", f"{doc_name} Phase 4 record")
         require(doc, "Phase 4", f"{doc_name} Phase 4 label")
 
     print("Update09 Phase 4 guide/version validation OK")
