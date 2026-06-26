@@ -617,3 +617,15 @@
 - HTML size and externalization decision: the HTML change is limited to the compact start-guide text/badge. No large inline JavaScript was added; active behavior remains in external JavaScript.
 - Minimum user acceptance operation: open the start guide and confirm Update09.4.1 is visible; open Search guide and confirm 型検索/型編成ナビ → 型候補一覧 → 候補トレイ → 部隊編成 wording; open Formation guide and confirm 部隊グループ, グループリスト, and 「変更」 button explanation appears.
 - Remaining issues: Phase 4 is ongoing. Next work should move longer supplemental explanations into details/help/modal blocks and continue reducing always-visible text density.
+
+
+## 2026-06-26 Update09.4.2 Phase 4 next-step help report
+
+- Summary: Phase 4 remains ongoing. This change completes the next slice by adding compact next-step guidance to 型候補一覧 and 候補トレイ.
+- Bug classification and root cause: planned UX/guide cleanup. The root UX issue was that users could identify a type and see candidates, but the immediate next action was still split across modal text, floating tray UI, and formation screen knowledge.
+- Implementation change: `hado_type_candidates.js` now renders a collapsible `次の操作` block that states the current data mode, explains 全データ表示 vs 保存データ表示, and lists the candidate-to-tray-to-formation path. `hado_candidate_tray.js` now uses a shorter action-oriented guide line.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.2` / revision `75`.
+- Recurrence prevention: `tools/validate_update09_phase4_guides.py` now checks Update09.4.2, the 型候補一覧 `次の操作` block, the 候補トレイ short guidance, and the active guide wording.
+- HTML size and externalization decision: only the compact start-guide badge version changed in HTML. The guide behavior is implemented in external JavaScript.
+- Minimum user acceptance operation: open 型候補一覧, expand `次の操作`, confirm the data-mode explanation and 3-step path; open 候補トレイ and confirm the short next-action line; proceed to 部隊編成 using `配置先を選ぶ`.
+- Remaining issues: Phase 4 is not complete. Next work should continue moving other long supplemental explanations into details/help/modal blocks and review PC/smartphone text density.

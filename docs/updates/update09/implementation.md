@@ -611,3 +611,13 @@
 - Formation guide wording now explains 部隊グループ, the グループリスト, and the 「変更」 button so users understand where group add/rename/delete operations are located.
 - Added `tools/validate_update09_phase4_guides.py` and wired it into `tools/run_app_validation.py` to prevent future guide/version wording regressions.
 - HTML size / externalization: only compact static guide text in `index.html` was changed; runtime guide behavior remains externalized in `hado_core.js`.
+
+
+## 2026-06-26 Update09.4.2 type-candidate and tray next-step help
+
+- Phase 4 status: in progress. The visible runtime version is `3.0.0.0 Update09.4.2` / revision `75`.
+- Added a compact collapsible `次の操作` help block to the active 型候補一覧 modal in `hado_type_candidates.js`.
+- The 型候補一覧 help now states whether the user is in 全データ表示 or 保存データ表示, explains the mode difference in one line, and lists the next steps: select a candidate, add it to 候補トレイ, then open 部隊編成.
+- Updated the 候補トレイ modal in `hado_candidate_tray.js` so its always-visible guidance is a short action label instead of a longer explanatory paragraph.
+- Updated active guided-tour wording in `hado_core.js` to point users to the 型候補一覧 `次の操作` help instead of expanding the tour text further.
+- HTML size / externalization: no large inline JavaScript was added. The runtime behavior remains in external JavaScript; the HTML change is limited to the visible guide badge version.

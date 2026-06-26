@@ -851,7 +851,7 @@ function getGuidedTourDefinitions(){
       {title:'カテゴリを選択',target:'#categoryBar',tab:'search',searchMode:'normal',expandSearchPanel:true,body:'検索対象カテゴリを複数選択できます。\n型検索では、武将・装備・兵器・軍馬技能の4カテゴリに限定されます。'},
       {title:'状態変化検索',target:'#searchPresetBar',tab:'search',searchMode:'status',expandSearchPanel:true,body:'状態変化検索では、6分類から目的を選び、状態変化を1件選択します。\n自部隊能力強化、自部隊状態強化、自部隊不利対策、敵部隊能力低下、敵部隊状態弱化、敵部隊有利対策を逆引きできます。'},
       {title:'型検索',target:'#typeSearchPanel',tab:'search',searchMode:'type',expandSearchPanel:true,body:'型検索では、攻撃速度型、通常攻撃拡張型、撃心型、ゾンビ型などのプリセットを選択できます。\n全データ表示は未所持を含む理論候補、保存データ表示は登録済み所持データ中心の候補です。型編成ナビで型を選んだ後は型候補一覧から候補トレイへ追加します。'},
-      {title:'型候補一覧から候補トレイへ',target:'.result-copy-actions',tab:'search',searchMode:'type',expandSearchPanel:true,body:'検索結果と型候補一覧は自動更新されます。\n一致理由と重要度を確認し、使う候補を候補トレイへ追加してから部隊編成へ進みます。コピー系ボタンは共有や検証に使います。'},
+      {title:'型候補一覧から候補トレイへ',target:'.result-copy-actions',tab:'search',searchMode:'type',expandSearchPanel:true,body:'検索結果と型候補一覧は自動更新されます。\n候補一覧では「次の操作」を開くと、全データ表示/保存データ表示の違い、候補トレイ追加、部隊編成への進み方を確認できます。コピー系ボタンは共有や検証に使います。'},
       {title:'検索結果から詳細を確認',target:'#results,#resultSelect',tab:'search',body:'PCでは一覧、スマホではドロップダウンから結果を選択します。\n選択すると、右側または下部の内容詳細へ表示されます。'},
       {title:'内容詳細と履歴操作',target:'#detail',tab:'search',body:'内容詳細では、関連リンク、状態変化率、パラメータ、コピー用テキストを確認できます。\n戻る/進む、検索結果の前後移動も利用できます。'}
     ],
