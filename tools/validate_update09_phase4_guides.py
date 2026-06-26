@@ -27,16 +27,19 @@ def main() -> int:
     core_js = read("hado_core.js")
     candidates_js = read("hado_type_candidates.js")
     tray_js = read("hado_candidate_tray.js")
+
+    formation_js = read("hado_formation.js")
+    styles_css = read("hado_styles.css")
     roadmap = read("docs/updates/update09/roadmap.md")
     implementation = read("docs/updates/update09/implementation.md")
     report = read("docs/updates/update09/report.md")
 
-    require(version_js, "updateNo: '09.4.3'", "Update09.4.3 update number")
-    require(version_js, "revision: 76", "Update09.4.3 revision")
-    require(version_js, "Update09.4.3", "visible Phase 4 version summary")
+    require(version_js, "updateNo: '09.4.5'", "Update09.4.5 update number")
+    require(version_js, "revision: 78", "Update09.4.5 revision")
+    require(version_js, "Update09.4.5", "visible Phase 4 version summary")
 
     for needle in [
-        "Update09.4.3 操作ガイド",
+        "Update09.4.5 操作ガイド",
         "型編成ナビ",
         "型候補一覧",
         "候補トレイ",
@@ -79,6 +82,31 @@ def main() -> int:
     ]:
         require(tray_js, needle, f"candidate tray next-step help {needle}")
 
+
+    for needle in [
+        "function renderFormationNextStepHelpHtml()",
+        "<summary>次の操作</summary>",
+        "グループ切替で攻城・防衛・イベント",
+        "「変更」から追加・名前変更・削除",
+        "候補トレイや検索結果から配置",
+        "トータルスコアと評価タグ",
+        "formation-group-count",
+        "formation-group-current-name",
+        "data-formation-group-manage",
+        "data-formation-group-select",
+        "formationGroup:manage-click",
+        "formationGroup:dialog-open",
+    ]:
+        require(formation_js, needle, f"formation next-step help {needle}")
+
+    for needle in [
+        ".formation-next-step-help",
+        ".formation-next-step-body",
+        ".formation-group-count",
+        ".formation-group-current-name",
+    ]:
+        require(styles_css, needle, f"formation next-step help style {needle}")
+
     require(index_html, "hado_core.js", "active core script load")
     forbid(index_html, "hado_app.js", "legacy hado_app.js script load")
 
@@ -87,7 +115,7 @@ def main() -> int:
         ("implementation", implementation),
         ("report", report),
     ]:
-        require(doc, "Update09.4.3", f"{doc_name} Phase 4 record")
+        require(doc, "Update09.4.5", f"{doc_name} Phase 4 record")
         require(doc, "Phase 4", f"{doc_name} Phase 4 label")
 
     print("Update09 Phase 4 guide/version validation OK")

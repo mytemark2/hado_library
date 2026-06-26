@@ -642,3 +642,27 @@
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.3` / revision `76`.
 - Minimum user acceptance operation: open 部隊編成, confirm no render error appears, confirm トータルスコア is visible, and click an evaluation score chip to confirm tag-only details still open.
 - Remaining issues: Phase 4 is not complete. Continue the planned guide/help density cleanup after this regression fix is accepted.
+
+
+## 2026-06-26 Update09.4.4 formation next-step help report
+
+- Summary: continued Phase 4 by adding a compact in-screen `次の操作` guide to 部隊編成. Phase 4 remains ongoing.
+- Bug classification and root cause: planned UX/guide cleanup. The UX gap was that the formation guided tour explained groups, but the normal screen did not provide a persistent compact reminder of the group-list → change → slot placement → score/save sequence.
+- Implementation change: `hado_formation.js` now renders `renderFormationNextStepHelpHtml()` inside the group controls area, and `hado_styles.css` styles it as a compact collapsible block.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.4` / revision `77`.
+- Recurrence prevention: `tools/validate_update09_phase4_guides.py` now checks the active formation runtime and CSS for the new `次の操作` guide contract.
+- HTML size and externalization decision: only the guide badge version changed in HTML. The guide itself is externalized in JavaScript/CSS.
+- Minimum user acceptance operation: open 部隊編成, expand `次の操作`, confirm the four-step explanation, switch the グループリスト, open `変更`, select a slot, confirm score tags, and save.
+- Remaining issues: Phase 4 is not complete. Continue reducing long always-visible explanations and verify PC/smartphone text density in the next slice.
+
+
+## 2026-06-26 Update09.4.5 formation group control fix report
+
+- Summary: fixed the 部隊編成 group controls so the visible current group name is shown and every rendered `変更` button opens the group dialog. Phase 4 remains ongoing.
+- Bug classification: runtime UI event-binding regression / duplicate-ID binding risk in the formation group controls.
+- Root cause: the group controls can appear in multiple rendered areas, but handlers were attached with single `document.getElementById()` calls. If the visible control was not the first matching ID, clicking `変更` produced no dialog and no debug log.
+- Implementation change: added stable `data-formation-group-manage` / `data-formation-group-select` hooks, changed binding to `els.formationRoot.querySelectorAll(...)`, added debug logs, and changed the visible label from `グループリスト` to a current group-name chip plus `切替`.
+- Permanent countermeasure: extended `tools/validate_update09_phase3_formation_ui.py` and `tools/validate_update09_phase4_guides.py` to require data-hook group binding and debug-log snippets.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.5` / revision `78`.
+- Minimum user acceptance operation: open 部隊編成, confirm the current group name is visible, click `変更`, confirm the group dialog opens and Debug Log records `formationGroup:manage-click` / `formationGroup:dialog-open`, then switch groups via `切替`.
+- Remaining issues: Phase 4 is not complete. Continue reducing long always-visible explanations and verify PC/smartphone text density in the next slice.

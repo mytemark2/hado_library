@@ -631,3 +631,24 @@
 - Similar regression countermeasure: added `tools/validate_formation_score_total_scope.py`, which forbids `displayTotalScore` in `hado_formation.js`, requires the helper and all visible-total uses, and confirms `hado_update_meta.js` does not override the score renderer.
 - Validation integration: wired the new guard into `tools/run_app_validation.py` and updated existing formation score tests/validators to assert the new helper contract.
 - HTML size / externalization: only the compact start-guide badge version changed in HTML. The runtime fix is externalized in `hado_formation.js`; no large inline JavaScript was added.
+
+
+## 2026-06-26 Update09.4.4 formation next-step help
+
+- Phase 4 status: in progress. The visible runtime version is `3.0.0.0 Update09.4.4` / revision `77`.
+- Added `renderFormationNextStepHelpHtml()` to the active formation runtime so the formation screen has a compact collapsible `次の操作` guide.
+- The guide explains the order: switch the グループリスト, use `変更` for group management, choose a formation and slot, place from 候補トレイ/search results, then check トータルスコア and save.
+- Added compact styles for `.formation-next-step-help`, `.formation-next-step-body`, and `.formation-group-count` in the external CSS.
+- Recurrence prevention: extended `tools/validate_update09_phase4_guides.py` to require the formation next-step guide and its CSS hooks in active split runtime files.
+- HTML size / externalization: only the start-guide badge version changed in HTML. Runtime behavior remains externalized in `hado_formation.js` and styling in `hado_styles.css`.
+
+
+## 2026-06-26 Update09.4.5 formation group control fix
+
+- Phase 4 regression response: investigated the reported 部隊編成 group control issue where `変更` did not open the group dialog and the current group name was not visible enough.
+- Root cause class: group controls can be rendered in more than one formation container, but event binding used single `document.getElementById()` lookups, so only one duplicate-ID instance received the click/change handlers.
+- Implementation change: added `data-formation-group-manage` and `data-formation-group-select` hooks and bound all matching controls under `els.formationRoot`.
+- UI change: removed the visible `グループリスト` label from the formation controls, added an explicit current group name chip, changed the selector label to `切替`, and kept the dialog label as `対象グループ`.
+- Diagnostics: added `formationGroup:manage-click`, `formationGroup:dialog-open`, `formationGroup:dialog-close`, and `formationGroup:select-change` debug events.
+- Recurrence prevention: extended Update09 Phase 3/4 validators to require the data-hook bindings, debug logs, and visible group-name CSS hook.
+- HTML size / externalization: only the start-guide badge version changed in HTML. Runtime behavior remains in `hado_formation.js` and styling in `hado_styles.css`.
