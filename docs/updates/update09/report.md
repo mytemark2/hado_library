@@ -710,3 +710,14 @@
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.9` / revision `82`.
 - Minimum user acceptance operation: in PC width, open 部隊編成 and confirm the left-side group/部隊一覧 panel has a vertical scrollbar when the panel content exceeds the visible height.
 - Remaining issues: Phase 4 is not complete. Keep subsequent slices smaller to reduce conflict surface.
+
+
+## 2026-06-26 Update09.4.10 PC formation list scroll area constraint report
+
+- Summary: adjusted the PC left formation panel so the group selector/actions stay fixed and only the 部隊一覧 list area scrolls. Phase 4 remains ongoing.
+- Bug classification and root cause: PC layout regression from the prior scrollbar fix. Scrolling the whole fixed panel could hide the top group/header area, matching the reported screenshot.
+- Implementation change: restored hidden overflow on `.formation-list-panel` and moved vertical scrolling to `.formation-list` with stable scrollbar gutter.
+- Permanent countermeasure: validators require the new marker plus fixed-panel and scrollable-list snippets.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.10` / revision `83`.
+- Minimum user acceptance operation: in PC width, open 部隊編成 and confirm the group selector/header/actions stay visible while the 部隊一覧 cards scroll inside the list area.
+- Remaining issues: Phase 4 is not complete. Continue keeping future corrections narrow to reduce conflict surface.

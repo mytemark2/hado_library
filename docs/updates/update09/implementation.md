@@ -689,3 +689,12 @@
 - Recurrence prevention: Phase 3/4 validators now require the `Update09.4.9-PC-FORMATION-LIST-SCROLL` CSS marker and `scrollbar-gutter:stable`.
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.9` / revision `82`.
 - HTML size / externalization: only the start-guide badge version changed in HTML. Runtime behavior remains in external CSS.
+
+
+## 2026-06-26 Update09.4.10 PC formation list scroll area constraint
+
+- Root cause: Update09.4.9 made the entire fixed `.formation-list-panel` scrollable, which could leave the panel scrolled mid-way and hide the group selector/header at the top.
+- Implementation change: changed the PC override so `.formation-list-panel` keeps `overflow:hidden!important` while only the `.formation-list` child scrolls vertically with `overflow-y:auto!important` and `scrollbar-gutter:stable`.
+- Recurrence prevention: Phase 3/4 validators now require the `Update09.4.10-PC-FORMATION-LIST-SCROLL` marker, fixed panel overflow, and scrollable list-area snippets.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.10` / revision `83`.
+- HTML size / externalization: only the start-guide badge version changed in HTML. Runtime behavior remains in external CSS.
