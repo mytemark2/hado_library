@@ -162,6 +162,8 @@ REQUIRED_CSS = (
     "Update09.3.19-PC-FORMATION-SCORE-VISIBLE",
     "@media (min-width:981px)",
     ".formation-selected-stack>.formation-selected-card.formation-score-card:not(.is-dialog)",
+    "Update09.4.9-PC-FORMATION-LIST-SCROLL",
+    "scrollbar-gutter:stable",
 )
 FORBIDDEN_CSS = (
     ".formation-score-field",

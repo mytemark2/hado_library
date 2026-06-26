@@ -699,3 +699,14 @@
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.8` / revision `81`.
 - Minimum user acceptance operation: hard reload the preview, open 部隊編成, confirm the group area contains only the listbox and `変更` button, and confirm no `次の操作` block appears under it.
 - Remaining issues: Phase 4 is not complete. Continue only with requested Phase 4 guide refinements and avoid adding extra controls to simple UI areas.
+
+
+## 2026-06-26 Update09.4.9 PC formation list panel scrollbar report
+
+- Summary: restored a visible vertical scroll path for the PC left-side group/formation selection panel. Phase 4 remains ongoing.
+- Bug classification and root cause: PC layout regression. Fixed-position panel rules hid overflow on `.formation-list-panel`, so the panel could lose an obvious vertical scroll path when content was taller than the viewport.
+- Implementation change: added a PC-only CSS override to make `.formation-list-panel` and `.formation-list` vertically scrollable with stable scrollbar gutter.
+- Permanent countermeasure: Phase 3/4 validators require the scrollbar fix marker and stable scrollbar CSS.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.9` / revision `82`.
+- Minimum user acceptance operation: in PC width, open 部隊編成 and confirm the left-side group/部隊一覧 panel has a vertical scrollbar when the panel content exceeds the visible height.
+- Remaining issues: Phase 4 is not complete. Keep subsequent slices smaller to reduce conflict surface.

@@ -680,3 +680,12 @@
 - Recurrence prevention: updated Phase 3/4 validators to forbid formation next-step helper markup/styles in the group-control area while keeping next-step guidance in type candidates / candidate tray.
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.8` / revision `81`.
 - HTML size / externalization: only the start-guide badge version changed in HTML. Runtime behavior remains in external JavaScript and CSS.
+
+
+## 2026-06-26 Update09.4.9 PC formation list panel scrollbar
+
+- Root cause: earlier PC fixed-panel rules used `overflow:hidden!important` on `.formation-list-panel`, so the group/formation selection panel itself did not expose a vertical scrollbar even when the fixed panel content exceeded the viewport.
+- Implementation change: added a later PC-only CSS override for `.formation-list-panel` and its `.formation-list` child with `overflow-y:auto!important`, `overflow-x:hidden!important`, and `scrollbar-gutter:stable`.
+- Recurrence prevention: Phase 3/4 validators now require the `Update09.4.9-PC-FORMATION-LIST-SCROLL` CSS marker and `scrollbar-gutter:stable`.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.9` / revision `82`.
+- HTML size / externalization: only the start-guide badge version changed in HTML. Runtime behavior remains in external CSS.
