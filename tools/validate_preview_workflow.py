@@ -27,7 +27,7 @@ REQUIRED = (
     "Sync preview repository contents",
     "git clone --depth 1",
     "mytemark2/hado_library-preview.git",
-    "find \"${PREVIEW_DIR}\" -mindepth 1 -maxdepth 1",
+    "find \"${PREVIEW_DIR}\" -mindepth 1 -maxdepth 1 -not -name '.git' -not -name '.github' -exec rm -rf {} +",
     "rsync -a index.html HADO_DEV_INFO.json hado_*.js hado_styles.css hadou_*.json",
     "HADO_DEV_INFO.json",
     "cmp -s HADO_DEV_INFO.json",
@@ -95,6 +95,8 @@ FORBIDDEN = (
     "Actions write permission check",
     "RUNS_JSON=\"${runs_json}\"",
     "json.load(sys.stdin)",
+    "\n              ! -name",
+    "\n              -not -name",
 )
 
 

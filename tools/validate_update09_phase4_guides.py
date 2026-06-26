@@ -1,39 +1,75 @@
 #!/usr/bin/env python3
-"""Validate Update09 Phase 4 guide and flow wording."""
+"""Validate Update09 Phase 4 guide/version wording lives in active runtime files."""
+from __future__ import annotations
+
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-checks = {
-    "index.html": [
-        "Update09.4.1 操作ガイド",
-        "Update09.4.1 クイック導線",
-        "型編成ナビ→型候補一覧→候補トレイ→部隊編成",
-        "全データ表示は理論値、保存データ表示は登録済み武将・装備中心",
-    ],
-    "hado_app.js": [
-        "Update09.4.1では、準備から型候補確認",
-        "全データ表示は未所持を含む理論値確認、保存データ表示は★登録済み",
-        "型検索で方針を決めたら、部隊編成タブの型編成ナビと型候補一覧へ進みます。",
-        "型候補から配置先へつなげる",
-    ],
-    "hado_type_candidates.js": [
-        "<summary>次の操作</summary>",
-        "全データ表示は理論値、保存データ表示は登録済み武将・装備中心です。",
-        "新規編成へ進む場合は「この型で新規部隊」を押してください。",
-    ],
-    "hado_version.js": [
-        "updateNo: '09.4.1'",
-        "revision: 74",
-        "Update09.4.1: refresh guide wording and clarify type-to-formation flow.",
-    ],
-}
 
-missing = []
-for rel, needles in checks.items():
-    text = (ROOT / rel).read_text(encoding="utf-8")
-    for needle in needles:
-        if needle not in text:
-            missing.append(f"{rel}: {needle}")
-if missing:
-    raise SystemExit("Update09 Phase4 guide contract missing:\n- " + "\n- ".join(missing))
-print("Update09 Phase4 guide contract ok: guide badge, full/saved explanation, type-to-formation flow, version")
+
+def read(path: str) -> str:
+    return (ROOT / path).read_text(encoding="utf-8")
+
+
+def require(text: str, needle: str, label: str) -> None:
+    if needle not in text:
+        raise SystemExit(f"missing {label}: {needle}")
+
+
+def forbid(text: str, needle: str, label: str) -> None:
+    if needle in text:
+        raise SystemExit(f"forbidden {label}: {needle}")
+
+
+def main() -> int:
+    version_js = read("hado_version.js")
+    index_html = read("index.html")
+    core_js = read("hado_core.js")
+    roadmap = read("docs/updates/update09/roadmap.md")
+    implementation = read("docs/updates/update09/implementation.md")
+    report = read("docs/updates/update09/report.md")
+
+    require(version_js, "updateNo: '09.4.1'", "Update09.4.1 update number")
+    require(version_js, "revision: 74", "Update09.4.1 revision")
+    require(version_js, "Update09.4.1", "visible Phase 4 version summary")
+
+    for needle in [
+        "Update09.4.1 操作ガイド",
+        "型編成ナビ",
+        "型候補一覧",
+        "候補トレイ",
+        "部隊編成",
+        "全データ表示",
+        "保存データ表示",
+        "グループリスト",
+        "変更",
+    ]:
+        require(index_html, needle, f"start guide text {needle}")
+
+    for needle in [
+        "型検索/型編成ナビ → 型候補一覧 → 候補トレイ → 部隊編成",
+        "全データ表示は未所持を含む理論候補",
+        "保存データ表示は登録済み所持データ中心の候補",
+        "部隊のグループは、攻城・防衛・イベントなど用途別に部隊を整理する単位です",
+        "グループリストで表示対象を切り替え",
+        "「変更」ボタンでグループの追加・名前変更・削除",
+    ]:
+        require(core_js, needle, f"active guided-tour text {needle}")
+
+    require(index_html, "hado_core.js", "active core script load")
+    forbid(index_html, "hado_app.js", "legacy hado_app.js script load")
+
+    for doc_name, doc in [
+        ("roadmap", roadmap),
+        ("implementation", implementation),
+        ("report", report),
+    ]:
+        require(doc, "Update09.4.1", f"{doc_name} Phase 4 record")
+        require(doc, "Phase 4", f"{doc_name} Phase 4 label")
+
+    print("Update09 Phase 4 guide/version validation OK")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

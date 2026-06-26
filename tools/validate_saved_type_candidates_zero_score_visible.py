@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate saved-mode type candidates show selectable scored/tagged rows, not unqualified owned rows."""
+"""Validate saved-mode type candidates show selectable tag-qualified rows, not all owned zero-score rows."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -14,6 +14,7 @@ REQUIRED = (
 )
 FORBIDDEN = (
     "v._s.matchedCount>0||(savedModeActive()&&savedOwnershipRole(v.roleId))",
+    "return v._s.matchedCount>0",
     "適合0点でも表示",
     ".filter(v=>v._s.matchedCount>0).filter(savedCandidateAllowed)",
 )
@@ -26,7 +27,7 @@ def main() -> int:
         raise SystemExit("saved selectable candidate score filtering missing: " + ", ".join(missing))
     if forbidden:
         raise SystemExit("saved candidate list still exposes owned zero-score rows as selectable: " + ", ".join(forbidden))
-    print("saved-mode type candidates expose scored or tag-qualified selectable rows only")
+    print("saved-mode type candidates expose tag-qualified selectable rows only")
     return 0
 
 
