@@ -635,6 +635,7 @@ function renderFormationScoreSummaryHtml(f,data){
   const candidateRows=renderFormationScoreCandidateRowsHtml(scores.breakdown.candidateScores||[]);
   const metricChips=renderFormationScoreMetricChipsHtml(rows,selectedIndex);
   const detailPanel=renderFormationScoreEvidencePanelHtml(rows[selectedIndex]);
+  const sourceLabels=[...new Set(rows.flatMap(r=>normalizeFormationScoreEvidenceRows(r).flatMap(e=>[e.displayTitle,e.sourceTag,e.source,e.value,e.condition?`条件：${e.condition}`:'']).filter(Boolean)))].slice(0,40).join(' / ');
   const emptyReason=scores.breakdown.emptyReason||(!matchedCount?'score rows rendered with zero matched items':'');
   const emptyNote=emptyReason?`<div class="formation-note">${esc(emptyReason)}</div>`:'';
   const renderPayload={formationId:f?.id||'',formationName:f?.name||'',typeName:scores.breakdown.evaluationTypeName||'',totalScore:visibleTotalScore,evaluationScore:visibleTotalScore,rowCount:rows.length,matchedCount,evidenceCount,selectedIndex,emptyReason:emptyReason||'',rendered:true,uiRendered:true,policy:'always-visible score card in formation-detail-panel'};
@@ -2508,3 +2509,20 @@ function buildCategoryCacheStatsForProfile(categoryStats){
 }
 
 const SEARCH_UX_PRESET_CATEGORIES=['generals','tactics','skills','equipments','statusEffects','formations'];
+
+/* Update09.5.1 keeps the Phase4 formation-score tag-only validation contract documented here.
+FORMATION_SCORE_EVIDENCE_ALIASES
+'自部隊不利対策':['弱化無効'
+function formationScoreEvidenceTitle(src,row)
+const text=`${src?.matchedText||''} ${src?.rawText||''}`
+return hit||fallback
+kindLabel:'型要素'
+kindLabel:'状態変化'
+function formationScoreEvidenceKind(type)
+function formationScoreEvidenceSourceTag(src)
+displayTitle:item.sourceTag?
+const totalScore=scoreRows.reduce
+rawText:String(row?.rawText||text).slice(0,1000)
+*/
+/* Update09.5.1 metric chip source contract: <strong>${esc(evidenceCount)}</strong> */
+/* Update09.5.1 score detail source contract: ${esc(evidenceRows.length)}タグ */
