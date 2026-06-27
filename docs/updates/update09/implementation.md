@@ -847,3 +847,9 @@
 - `さらに表示` 押下時の inline 展開をやめ、結果サマリーと同じ `formation-mobile-dialog-overlay` 系の別ダイアログで根拠を全件表示するようにした。
 - 通常の評価スコア内訳は1行 collapsed のまま維持し、ダイアログ内だけ `formation-quick-summary-chip` を使った結果サマリー風の一覧を表示する。
 - 回帰防止として、dialog open state、dialog list、全件 chip 数、close/backdrop イベントを test / validator の対象に追加した。
+
+
+### Update09.5.8 implementation — 評価スコア詳細切替の全 score card 同期
+- `handleFormationScoreDetailClick()` を部分 DOM 置換から state 更新 + `renderFormationScreen()` に変更し、duplicated score card の表示差分をなくした。
+- `setupFormationEvents()` は `querySelectorAll('.formation-score-card')` で全 score card に delegated click/key handler を設定する。
+- `tools/test_formation_type_score_render.js` と `tools/validate_formation_score_tag_only.py` で全 score card binding と再描画契約を必須化した。

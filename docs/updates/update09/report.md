@@ -901,3 +901,10 @@
 - 原因: 「結果サマリーと同じように」を chip/grid の見た目として解釈し、既存の結果サマリーの拡大ダイアログ動作まで接続していなかった。
 - 対応: `さらに表示` は `formationScoreEvidenceDialogOpen` を立てて再描画し、専用 dialog で選択中評価項目の根拠を全件表示する。
 - 再発防止: test / validator で dialog 出力、全件 chip 表示、dialog close/backdrop イベントを検証する。
+
+
+### Update09.5.8 完了報告 — 評価スコアクリック時の詳細切替復旧
+- 事象: 評価スコア chip をクリックしても、表示中の詳細が確実に切り替わらなかった。
+- 原因: score card が responsive layout 用に複数描画される一方、イベント委譲が最初の `.formation-score-card` に偏り、さらにクリック処理が同一 card だけを部分更新していたため、実際に見ている側の詳細 panel が更新されない経路があった。
+- 対応: 全ての `.formation-score-card` に delegated click/key handler を束ね、クリック後は部分 DOM 置換ではなく `state.formationScoreDetailIndex` 更新後に `renderFormationScreen()` で全 score card を同じ状態へ再描画する。
+- 再発防止: test / validator で全 score card binding と、クリック時に全体再描画へ進む契約を検証する。

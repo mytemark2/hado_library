@@ -38,6 +38,8 @@ REQUIRED = (
     "評価${esc(evidenceRows.length)} / 根拠${esc(evidenceRows.length)}件",
     "<strong aria-label=\"根拠 ${esc(evidenceCount)}件\">${esc(evidenceCount)}</strong>",
     "formationScore:detail-more-delegate",
+    "querySelectorAll('.formation-score-card')",
+    "scoreCards.forEach(card=>",
     "rawText:String(row?.rawText||row?.matchedText||'').slice(0,500)",
 )
 

@@ -245,14 +245,13 @@ const fakeBtn = {
 };
 context.state.formationScoreDetailRows = context.normalizeFormationScoreDisplayRows(typeScore.candidateScores[0].rows || []);
 context.state.formationScoreDetailIndex = 0;
+renderCalled = false;
 const beforeClickDebugCount = debugEvents.length;
 context.handleFormationScoreDetailClick(fakeBtn, { preventDefault() {}, stopPropagation() {} });
-assert.strictEqual(context.state.formationScoreDetailIndex, 3, 'detail click must update state.formationScoreDetailIndex without full render');
-assert.strictEqual(fakeChips[3].active, true, 'detail click must activate the clicked chip in the same score card');
-assert.strictEqual(fakeChips[3].ariaPressed, 'true', 'detail click must update aria-pressed for the active chip');
-assert(replacedPanelHtml.includes('弱化解除の内訳'), 'detail click must replace the same-card detail panel with clicked row heading');
-assert(replacedPanelHtml.includes('一致根拠なし'), 'zero-score detail panel must explain no evidence');
-assert(!replacedPanelHtml.includes('点'), 'zero-score detail panel must not display point wording');
+assert.strictEqual(context.state.formationScoreDetailIndex, 3, 'detail click must update state.formationScoreDetailIndex');
+assert.strictEqual(renderCalled, true, 'detail click must rerender all duplicated score cards so the visible panel switches reliably');
+assert.strictEqual(fakeChips[3].active, false, 'detail click must not rely on same-card partial DOM mutation only');
+assert.strictEqual(replacedPanelHtml, '', 'detail click must not replace only one duplicated score-card panel');
 assert(debugEvents.slice(beforeClickDebugCount).some(event => event.name === 'formationScoreDetail:click' && event.data.previousIndex === 0 && event.data.nextIndex === 3 && event.data.rowLabel === '弱化解除' && event.data.evidenceCount === 0), 'detail click debug log must include previousIndex, nextIndex, rowLabel, and evidenceCount');
 
 assert(!html.includes('+1点'), 'score detail rows must not show redundant point contribution');
@@ -329,6 +328,8 @@ assert(formationSource.includes('formationScore:detail-click'), 'formation detai
 assert(formationSource.includes('handleFormationScoreDetailClick'), 'formation score detail clicks should use a shared guarded handler');
 assert(formationSource.includes('event.preventDefault();event.stopPropagation();'), 'formation score detail clicks should not bubble into parent formation controls');
 assert(formationSource.includes('formationScore:detail-delegate'), 'formation score detail delegated click diagnostics must exist');
+assert(formationSource.includes("querySelectorAll('.formation-score-card')"), 'formation score detail binding must cover every duplicated score card');
+assert(formationSource.includes('scoreCards.forEach(card=>'), 'formation score detail delegated events must be attached to every score card');
 assert(formationSource.includes("rawText:String(row?.rawText||row?.matchedText||'').slice(0,500)"), 'score evidence debug rows must preserve enough raw text for matched labels');
 assert(formationSource.includes('function sumFormationScoreDetails(details)'), 'legacy score-detail total helper must remain defined to prevent render-time ReferenceError');
 assert(formationSource.includes('<strong aria-label="根拠 ${esc(evidenceCount)}件">${esc(evidenceCount)}</strong>'), 'metric chip value must match rendered tag count');
