@@ -35,24 +35,30 @@ def main() -> int:
     implementation = read("docs/updates/update09/implementation.md")
     report = read("docs/updates/update09/report.md")
 
-    require(version_js, "updateNo: '09.4.20'", "Update09.4.20 update number")
-    require(version_js, "revision: 93", "Update09.4.20 revision")
-    require(version_js, "Update09.4.20", "visible Phase 4 version summary")
+    require(version_js, "updateNo: '09.4.21'", "Update09.4.21 update number")
+    require(version_js, "revision: 94", "Update09.4.21 revision")
+    require(version_js, "Update09.4.21", "visible Phase 4 version summary")
 
     for needle in [
-        "Update09.4.20 操作ガイド",
+        "Update09.4.21 操作ガイド",
         "型編成ナビ",
         "型候補一覧",
         "候補トレイ",
         "部隊編成",
-        "./hado_styles.css?v=09.4.20",
-        "./hado_formation.js?v=09.4.20",
+        "./hado_styles.css?v=09.4.21",
+        "./hado_formation.js?v=09.4.21",
         "全データ表示",
         "保存データ表示",
         "グループ選択欄",
         "変更",
     ]:
         require(index_html, needle, f"start guide text {needle}")
+
+    require(core_js, "target:'.formation-list-fixed-head,#formationMobileSelect'", "formation guide 2/8 fixed-head target")
+    require(core_js, "title:'武将・装備枠を確認'", "formation guide 5/8 current title")
+    require(core_js, "target:'.formation-board-card,.formation-team-grid-selectable'", "formation guide 5/8 visible board target")
+    forbid(core_js, "target:'.formation-list-panel,#formationMobileSelect'", "obsolete formation guide 2/8 whole-panel target")
+    forbid(core_js, "target:'.formation-selected-editor-main,.formation-selected-card:not(.formation-warhorse-assignment-card)'", "obsolete formation guide 5/8 missing editor target")
 
     for needle in [
         "型検索/型編成ナビ → 型候補一覧 → 候補トレイ → 部隊編成",
@@ -118,16 +124,16 @@ def main() -> int:
         require(formation_js, needle, f"formation group controls {needle}")
 
     require(styles_css, ".formation-group-select", "formation group select style")
-    require(styles_css, "Update09.4.20-PC-FORMATION-LIST-SCROLL", "PC formation list scrollbar fix marker")
-    require(styles_css, "Update09.4.20-PC-FORMATION-LIST-FIXED-HEAD", "PC formation list fixed head marker")
-    require(styles_css, "Update09.4.20-PC-FORMATION-PANEL-ACTUAL-TAB-OFFSET", "PC formation measured top marker")
+    require(styles_css, "Update09.4.21-PC-FORMATION-LIST-SCROLL", "PC formation list scrollbar fix marker")
+    require(styles_css, "Update09.4.21-PC-FORMATION-LIST-FIXED-HEAD", "PC formation list fixed head marker")
+    require(styles_css, "Update09.4.21-PC-FORMATION-PANEL-ACTUAL-TAB-OFFSET", "PC formation measured top marker")
     require(styles_css, ".formation-list-fixed-head{position:relative!important;top:auto!important", "PC formation fixed head style")
     require(styles_css, "body.formation-tab .formation-list-panel{overflow:clip!important;overscroll-behavior:contain!important}", "PC formation panel fixed controls")
     require(styles_css, "body.formation-tab .formation-list-panel .formation-list{flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important", "PC formation list scroll area")
     require(styles_css, "--formation-left-panel-top", "PC formation measured top CSS var")
     require(styles_css, "overflow-y:scroll!important", "PC formation forced visible scrollbar")
-    require(styles_css, "Update09.4.20-PC-FORMATION-ACTIONS-ONE-ROW", "PC formation action row marker")
-    require(styles_css, "Update09.4.20-MOBILE-SCORE-BETWEEN-WARHORSE-SUMMARY", "mobile score placement marker")
+    require(styles_css, "Update09.4.21-PC-FORMATION-ACTIONS-ONE-ROW", "PC formation action row marker")
+    require(styles_css, "Update09.4.21-MOBILE-SCORE-BETWEEN-WARHORSE-SUMMARY", "mobile score placement marker")
     require(styles_css, "formation-mobile-score-result-placement .formation-score-card", "mobile score card placement style")
     require(styles_css, "grid-template-columns:repeat(4,minmax(0,1fr))", "PC formation four action columns")
     require(styles_css, "scrollbar-gutter:stable", "PC formation list stable scrollbar")
@@ -157,7 +163,7 @@ def main() -> int:
         ("implementation", implementation),
         ("report", report),
     ]:
-        require(doc, "Update09.4.20", f"{doc_name} Phase 4 record")
+        require(doc, "Update09.4.21", f"{doc_name} Phase 4 record")
         require(doc, "Phase 4", f"{doc_name} Phase 4 label")
 
     print("Update09 Phase 4 guide/version validation OK")

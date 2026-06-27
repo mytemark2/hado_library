@@ -783,3 +783,13 @@
 - Recurrence prevention: wired the new validator into `tools/run_app_validation.py` so the full validation run fails if any of the converged PC/mobile formation contracts drift.
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.20` / revision `93`.
 - HTML size / externalization: only asset query strings and guide badge changed in HTML. The new countermeasure is an external Python validator; runtime behavior remains in external JavaScript/CSS.
+
+
+## 2026-06-27 Update09.4.21 Phase 4 guide frame finalization
+
+- Root cause: formation guide step 2/8 targeted the whole fixed left panel, so the spotlight covered the scrollable list instead of the group/action header. Step 5/8 targeted `.formation-selected-editor-main`, which is not present in the current PC formation layout unless a mobile dialog path is open, causing fallback/incorrect spotlight placement.
+- Implementation change: retargeted step 2/8 to `.formation-list-fixed-head` and step 5/8 to the visible formation board, without changing formation runtime behavior or layout.
+- Recurrence prevention: Phase 4 validation now requires the corrected 2/8 and 5/8 selectors and forbids the obsolete whole-panel/missing-editor selectors.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.21` / revision `94`.
+- Phase status: Phase 4 is complete after this guide-frame correction.
+- HTML size / externalization: only asset query strings and guide badge changed in HTML. Runtime behavior remains in external JavaScript/CSS.

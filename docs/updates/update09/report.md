@@ -826,3 +826,14 @@
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.20` / revision `93`.
 - Minimum user acceptance operation: open 部隊編成 on PC and smartphone width; confirm the PC left panel keeps 部隊一覧/group/actions visible with the list scrollbar, and smartphone width shows トータルスコア between 軍馬 and 結果サマリー.
 - Remaining issues: Phase 4 is still in progress; no known residual issue for the converged PC/mobile formation layout contract.
+
+
+## 2026-06-27 Update09.4.21 Phase 4 completion report
+
+- Summary: corrected the misplaced formation guide spotlight targets for steps 2/8 and 5/8 and closed Phase 4.
+- Bug classification and root cause: guided-tour target mismatch. Step 2/8 used the full fixed left panel instead of the fixed group/action header; step 5/8 used a selector that is absent in the current PC formation layout, so the spotlight could fall back to an unrelated area.
+- Implementation change: changed only the guide definitions in `hado_core.js` and validation/version/docs. No formation layout, scoring, data, or save behavior was changed.
+- Permanent countermeasure: `tools/validate_update09_phase4_guides.py` now requires the corrected guide targets and forbids the old selectors.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.21` / revision `94`.
+- Minimum user acceptance operation: open 部隊編成ガイド and confirm 2/8 highlights the left panel fixed head/group/action area, and 5/8 highlights the visible formation board instead of the app title.
+- Remaining issues: none for Phase 4; Phase 4 is complete.

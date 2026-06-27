@@ -42,7 +42,7 @@ def main() -> int:
         require(formation_js, needle, f"mobile score placement runtime {needle}")
 
     for needle in [
-        "Update09.4.20-MOBILE-SCORE-BETWEEN-WARHORSE-SUMMARY",
+        "Update09.4.21-MOBILE-SCORE-BETWEEN-WARHORSE-SUMMARY",
         ".formation-mobile-score-result-placement{display:grid!important",
         ".formation-mobile-score-result-placement .formation-score-card{display:block!important",
         ".formation-selected-stack>.formation-selected-card.formation-score-card:not(.is-dialog){display:none!important",
@@ -71,10 +71,10 @@ def main() -> int:
         require(formation_js, needle, f"PC formation panel runtime {needle}")
 
     for needle in [
-        "Update09.4.20-PC-FORMATION-LIST-SCROLL",
-        "Update09.4.20-PC-FORMATION-LIST-FIXED-HEAD",
-        "Update09.4.20-PC-FORMATION-PANEL-ACTUAL-TAB-OFFSET",
-        "Update09.4.20-PC-FORMATION-ACTIONS-ONE-ROW",
+        "Update09.4.21-PC-FORMATION-LIST-SCROLL",
+        "Update09.4.21-PC-FORMATION-LIST-FIXED-HEAD",
+        "Update09.4.21-PC-FORMATION-PANEL-ACTUAL-TAB-OFFSET",
+        "Update09.4.21-PC-FORMATION-ACTIONS-ONE-ROW",
         "top:var(--formation-left-panel-top,var(--mobile-fixed-stack-space,128px))!important",
         "body.formation-tab .formation-list-panel{overflow:clip!important;overscroll-behavior:contain!important}",
         "body.formation-tab .formation-list-panel .formation-list{flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important",
@@ -92,8 +92,8 @@ def main() -> int:
         (phase3_validator, "Phase 3 formation validator"),
         (phase4_validator, "Phase 4 guide validator"),
     ]:
-        require(text, "Update09.4.20-MOBILE-SCORE-BETWEEN-WARHORSE-SUMMARY", f"{source} mobile score marker")
-        require(text, "Update09.4.20-PC-FORMATION-ACTIONS-ONE-ROW", f"{source} PC action marker")
+        require(text, "Update09.4.21-MOBILE-SCORE-BETWEEN-WARHORSE-SUMMARY", f"{source} mobile score marker")
+        require(text, "Update09.4.21-PC-FORMATION-ACTIONS-ONE-ROW", f"{source} PC action marker")
 
     require(phase3_validator, "renderFormationTeamBoardSelectableHtml(f,quickSummaryHtml)", "Phase 3 validator stale mobile placement guard")
 
