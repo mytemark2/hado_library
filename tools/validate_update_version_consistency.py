@@ -87,12 +87,14 @@ def main() -> int:
     if "with open('HADO_DEV_INFO.json'" in workflow:
         raise SystemExit("preview workflow must not read displayVersion from HADO_DEV_INFO.json")
 
-    forbidden_html_literals = ("2.9.6 操作ガイド", "覇道ライブラリ｜v2.9.2.0")
+    forbidden_html_literals = ("2.9.6 操作ガイド", "覇道ライブラリ｜v2.9.2.0", "Update08")
     for html_name in HTML_FILES:
         html_text = (ROOT / html_name).read_text(encoding="utf-8")
         stale_literals = [literal for literal in forbidden_html_literals if literal in html_text]
         if stale_literals:
             raise SystemExit(f"{html_name} contains stale fixed version text: " + ", ".join(stale_literals))
+        if re.search(r"v2\.\d", html_text):
+            raise SystemExit(f"{html_name} contains stale v2.x fixed version text")
         for required_id in ("uxHomeVersionBadge", "diagnosticAppVersion"):
             if required_id not in html_text:
                 raise SystemExit(f"{html_name} missing dynamic version target {required_id}")

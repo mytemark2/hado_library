@@ -1457,6 +1457,7 @@ body.formation-tab .formation-result-focus .formation-table{max-width:100%;overf
 @media (max-width:980px),(pointer:coarse){
   body.formation-tab .formation-mobile-score-result-placement{display:grid!important;gap:6px;margin-top:6px;min-width:0}
   body.formation-tab .formation-mobile-score-result-placement .formation-selected-card.formation-score-card{display:block!important;position:relative!important;z-index:1!important;clear:both!important;margin:0!important;min-height:0!important}
+  body.formation-tab .formation-selected-stack>.formation-selected-card.formation-score-card:not(.is-dialog){display:none!important}
   body.formation-tab .formation-selected-stack>.formation-quick-summary-strip{display:none!important}
   body.formation-tab .formation-warhorse-mobile-placement{margin-top:4px!important}
   body.formation-tab .formation-warhorse-slots{display:grid;gap:4px}
