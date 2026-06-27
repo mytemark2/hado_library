@@ -767,3 +767,11 @@
 - Recurrence prevention: Phase 4 validation now requires the compact one-row action CSS marker.
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.18` / revision `91`.
 - HTML size / externalization: only asset query strings and guide badge changed in HTML. Runtime behavior remains in external JavaScript/CSS.
+
+## 2026-06-27 Update09.4.19 mobile total score placement
+
+- Root cause: mobile board rendering received only the result summary HTML, so the score card remained in the desktop selected stack path and did not appear between the mobile warhorse block and result summary.
+- Implementation change: pass `${scoreCardHtml}${quickSummaryHtml}` to the mobile board placement, and hide the duplicate selected-stack score card only on mobile.
+- Recurrence prevention: Phase 3/4 validators and the formation render test now require the mobile board to receive the score card before the result summary.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.19` / revision `92`.
+- HTML size / externalization: only asset query strings and guide badge changed in HTML. Runtime behavior remains in external JavaScript/CSS.

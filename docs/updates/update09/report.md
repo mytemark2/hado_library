@@ -806,3 +806,13 @@
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.18` / revision `91`.
 - Minimum user acceptance operation: open 部隊編成 in PC width and confirm the four action buttons appear on one row above the scrollable部隊 list.
 - Remaining issues: Phase 4 is not complete.
+
+## 2026-06-27 Update09.4.19 mobile total score placement report
+
+- Summary: restored the mobile total score panel between the warhorse block and result summary.
+- Bug classification and root cause: mobile placement regression. The mobile board placement received only the result summary, not the score card.
+- Implementation change: mobile board placement now receives `scoreCardHtml` before `quickSummaryHtml`; mobile CSS hides only the duplicate selected-stack score card.
+- Permanent countermeasure: validators and render tests require the score-card mobile placement contract.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.19` / revision `92`.
+- Minimum user acceptance operation: open 部隊編成 on smartphone width and confirm トータルスコア appears between 軍馬 and 結果サマリー.
+- Remaining issues: Phase 4 is not complete.

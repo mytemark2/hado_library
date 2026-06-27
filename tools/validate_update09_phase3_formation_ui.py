@@ -51,7 +51,6 @@ REQUIRED_JS = (
     "formation-work-tabs-title",
     "formation-score-chip",
     "formation-group-select",
-    "renderFormationTeamBoardSelectableHtml(f,quickSummaryHtml)",
     "formation-mobile-score-result-placement",
     "${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}",
     "renderFormationGroupNameDialogHtml",
@@ -173,15 +172,17 @@ REQUIRED_CSS = (
     "Update09.3.19-PC-FORMATION-SCORE-VISIBLE",
     "@media (min-width:981px)",
     ".formation-selected-stack>.formation-selected-card.formation-score-card:not(.is-dialog)",
-    "Update09.4.18-PC-FORMATION-LIST-SCROLL",
-    "Update09.4.18-PC-FORMATION-LIST-FIXED-HEAD",
-    "Update09.4.18-PC-FORMATION-PANEL-ACTUAL-TAB-OFFSET",
+    "Update09.4.19-PC-FORMATION-LIST-SCROLL",
+    "Update09.4.19-PC-FORMATION-LIST-FIXED-HEAD",
+    "Update09.4.19-PC-FORMATION-PANEL-ACTUAL-TAB-OFFSET",
     ".formation-list-fixed-head{position:relative!important;top:auto!important",
     "body.formation-tab .formation-list-panel{overflow:clip!important;overscroll-behavior:contain!important}",
     "body.formation-tab .formation-list-panel .formation-list{flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important",
     "scrollbar-gutter:stable",
     "overflow-y:scroll!important",
-    "Update09.4.18-PC-FORMATION-ACTIONS-ONE-ROW",
+    "Update09.4.19-PC-FORMATION-ACTIONS-ONE-ROW",
+    "Update09.4.19-MOBILE-SCORE-BETWEEN-WARHORSE-SUMMARY",
+    "formation-mobile-score-result-placement .formation-score-card",
     "grid-template-columns:repeat(4,minmax(0,1fr))",
 )
 FORBIDDEN_CSS = (
@@ -221,7 +222,7 @@ def main() -> int:
     if js.count("${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}") != 1:
         raise SystemExit("Update09 Phase3 formation UI must render exactly one score card in formation-selected-stack")
     if "renderFormationTeamBoardSelectableHtml(f,quickSummaryHtml)" in js:
-        raise SystemExit("Update09 Phase3 formation UI must pass scoreCardHtml into mobile board placement so the mobile total score panel remains visible")
+        raise SystemExit("Update09 Phase3 formation UI must pass scoreCardHtml before quickSummaryHtml for mobile placement")
     if missing_type:
         raise SystemExit("Update09 Phase3 type candidate UI missing JS: " + ", ".join(missing_type))
     if forbidden_type:
