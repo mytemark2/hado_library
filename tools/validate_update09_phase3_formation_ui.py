@@ -30,7 +30,7 @@ REQUIRED_JS = (
     "formation-score-candidates",
     "ensureFormationTypeScoreRulesLoaded",
     "getFormationTypeScoreRule",
-    "<strong>${esc(displayTotalScore)}</strong>",
+    "<strong>${esc(visibleTotalScore)}</strong>",
     "renderFormationScoreSummaryHtml",
     "calculateFormationMemberScoreRows",
     "formation:type-score-member-resolve",
@@ -50,8 +50,7 @@ REQUIRED_JS = (
     "<section class=\"formation-selected-card formation-score-card",
     "formation-work-tabs-title",
     "formation-score-chip",
-    "formation-group-head",
-    "renderFormationTeamBoardSelectableHtml(f,quickSummaryHtml)",
+    "formation-group-select",
     "formation-mobile-score-result-placement",
     "${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}",
     "renderFormationGroupNameDialogHtml",
@@ -60,6 +59,22 @@ REQUIRED_JS = (
     "formationGroupDeleteBtn",
     "renderFormationMemoDialogHtml",
     "formationGroupRenameBtn",
+    "data-formation-group-manage",
+    "data-formation-group-select",
+    "formationGroup:manage-click",
+    "formationGroup:dialog-open",
+    'id="formationNewBtn" class="btn-select-all">新規</button>',
+    "querySelectorAll('[data-formation-group-manage],#formationGroupRenameBtn')",
+    "function resetFormationListPanelScroll()",
+    "formationListPanel:viewport-sync",
+    "--formation-left-panel-top",
+    "function calculateFormationFixedPanelTop()",
+    "panel.scrollTop=0",
+    "requestAnimationFrame(resetFormationListPanelScroll)",
+    "setTimeout(resetFormationListPanelScroll,80)",
+        "setTimeout(resetFormationListPanelScroll,250)",
+        "setTimeout(resetFormationListPanelScroll,600)",
+        "panel.scrollTo({top:0,left:0,behavior:'auto'})",
     "formationMemoEditBtn",
     "Update09 Phase3 uses popup editing for PC and mobile",
     "state.formationSlotDialogOpen=true",
@@ -80,7 +95,6 @@ REQUIRED_FUNCTION_DEFINITIONS = (
 )
 
 FORBIDDEN_JS = (
-    "renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)",
     "scoreRows:generalRows.map",
     "window.HadoTypeScore.score(formationTypeScoreEntity",
     "保存データの軍馬を最大3枠まで部隊へ反映",
@@ -91,6 +105,12 @@ FORBIDDEN_JS = (
     "評価:${esc(scores.evaluationScore)}点",
     "formationEvaluationScoreInput",
     "formationEvaluationSaveBtn",
+    "formation-group-title",
+    "formation-group-current-name",
+    "formation-group-count",
+    "formation-group-select-label",
+    "renderFormationNextStepHelpHtml",
+    "formation-next-step-help",
     "履歴へ保存",
     "<details class=\"formation-score-summary",
     "formation-score-evidence-point",
@@ -127,7 +147,7 @@ FORBIDDEN_TYPE_CANDIDATES = (
 )
 REQUIRED_CSS = (
     ".formation-group-controls",
-    ".formation-group-title",
+    ".formation-group-select",
     ".formation-score-card",
     ".formation-score-summary",
     ".formation-score-breakdown",
@@ -144,17 +164,35 @@ REQUIRED_CSS = (
     "formation-quick-summary-strip",
     ".formation-warhorse-slots-body",
     ".formation-memo-inline",
-    ".formation-group-head",
+    ".formation-group-select",
     "body.formation-tab .formation-compose-bar-grid .formation-memo-inline",
     "body.formation-tab .formation-score-meta{grid-template-columns:repeat(3",
     ".formation-dialog-actions",
     "Update09.3.19-PC-FORMATION-SCORE-VISIBLE",
     "@media (min-width:981px)",
     ".formation-selected-stack>.formation-selected-card.formation-score-card:not(.is-dialog)",
+    "Update09.4.20-PC-FORMATION-LIST-SCROLL",
+    "Update09.4.20-PC-FORMATION-LIST-FIXED-HEAD",
+    "Update09.4.20-PC-FORMATION-PANEL-ACTUAL-TAB-OFFSET",
+    ".formation-list-fixed-head{position:relative!important;top:auto!important",
+    "body.formation-tab .formation-list-panel{overflow:clip!important;overscroll-behavior:contain!important}",
+    "body.formation-tab .formation-list-panel .formation-list{flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important",
+    "scrollbar-gutter:stable",
+    "overflow-y:scroll!important",
+    "Update09.4.20-PC-FORMATION-ACTIONS-ONE-ROW",
+    "Update09.4.20-MOBILE-SCORE-BETWEEN-WARHORSE-SUMMARY",
+    "formation-mobile-score-result-placement .formation-score-card",
+    "grid-template-columns:repeat(4,minmax(0,1fr))",
 )
 FORBIDDEN_CSS = (
     ".formation-score-field",
     ".formation-selected-popup-prompt",
+    ".formation-group-title",
+    ".formation-group-current-name",
+    ".formation-group-count",
+    ".formation-group-select-label",
+    ".formation-next-step-help",
+    ".formation-next-step-body",
 )
 
 
@@ -182,8 +220,8 @@ def main() -> int:
 
     if js.count("${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}") != 1:
         raise SystemExit("Update09 Phase3 formation UI must render exactly one score card in formation-selected-stack")
-    if "renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)" in js:
-        raise SystemExit("Update09 Phase3 formation UI must not pass scoreCardHtml into renderFormationTeamBoardSelectableHtml")
+    if "renderFormationTeamBoardSelectableHtml(f,quickSummaryHtml)" in js:
+        raise SystemExit("Update09 Phase3 formation UI must pass scoreCardHtml before quickSummaryHtml for mobile placement")
     if missing_type:
         raise SystemExit("Update09 Phase3 type candidate UI missing JS: " + ", ".join(missing_type))
     if forbidden_type:
@@ -200,6 +238,17 @@ def main() -> int:
 
     if "renderFormationScoreSummaryHtml=function" in update_meta or "const wrappedSummary=function" in update_meta:
         raise SystemExit("hado_update_meta.js must not override renderFormationScoreSummaryHtml; hado_formation.js owns the interactive score detail UI")
+    stale_group_override = [snippet for snippet in (
+        "renderFormationGroupControlsHtml=function",
+        "formation-group-list-row",
+        "formation-group-title",
+        "formation-group-select-label",
+        "<span class=\"note\">グループリスト</span>",
+        "formation-next-step-help",
+        "renderFormationNextStepHelpHtml",
+    ) if snippet in update_meta]
+    if stale_group_override:
+        raise SystemExit("hado_update_meta.js must not override formation group controls: " + ", ".join(stale_group_override))
     print("Update09 Phase3 formation UI contract ok: score card function definitions, group management, type notes, warhorse layout")
     return 0
 
