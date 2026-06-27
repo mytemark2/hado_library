@@ -35,18 +35,33 @@ def main() -> int:
     implementation = read("docs/updates/update09/implementation.md")
     report = read("docs/updates/update09/report.md")
 
-    require(version_js, "updateNo: '09.4.21'", "Update09.4.21 update number")
-    require(version_js, "revision: 94", "Update09.4.21 revision")
-    require(version_js, "Update09.4.21", "visible Phase 4 version summary")
+    if "updateNo: '09.4.21'" in version_js:
+        require(version_js, "revision: 94", "Update09.4.21 revision")
+        require(version_js, "Update09.4.21", "visible Phase 4 version summary")
+    else:
+
+        if "updateNo: '09.5.4'" in version_js:
+            require(version_js, "revision: 98", "Update09.5.4 revision after completed Phase 4")
+            require(version_js, "Update09.5.4", "visible Phase 5 version summary")
+        elif "updateNo: '09.5.3'" in version_js:
+            require(version_js, "revision: 97", "Update09.5.3 revision after completed Phase 4")
+            require(version_js, "Update09.5.3", "visible Phase 5 version summary")
+        elif "updateNo: '09.5.2'" in version_js:
+            require(version_js, "revision: 96", "Update09.5.2 revision after completed Phase 4")
+            require(version_js, "Update09.5.2", "visible Phase 5 version summary")
+        else:
+            require(version_js, "updateNo: '09.5.1'", "Update09.5.1 Phase 5 update number after completed Phase 4")
+            require(version_js, "revision: 95", "Update09.5.1 revision after completed Phase 4")
+            require(version_js, "Update09.5.1", "visible Phase 5 version summary")
 
     for needle in [
-        "Update09.4.21 操作ガイド",
+        "Update09.5.4 操作ガイド",
         "型編成ナビ",
         "型候補一覧",
         "候補トレイ",
         "部隊編成",
-        "./hado_styles.css?v=09.4.21",
-        "./hado_formation.js?v=09.4.21",
+        "./hado_styles.css?v=09.5.4",
+        "./hado_formation.js?v=09.5.4",
         "全データ表示",
         "保存データ表示",
         "グループ選択欄",

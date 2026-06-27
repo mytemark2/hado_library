@@ -77,3 +77,16 @@ Update08までに実装した型編成ナビ、候補トレイ、保存データ
 - Update09.4.15: `--mobile-fixed-stack-space` が初期計測0pxで小さく設定され、PC左パネルがヘッダー背面に潜る可能性を修正。下限118pxと計測ログを追加。
 
 - Update09.4.16: 左パネルの見出し・グループ選択・操作ボタンを `formation-list-fixed-head` に分離し、部隊カード一覧だけをスクロール領域に固定。
+
+## 2026-06-27 Update09.5.1 Phase 5
+
+- Scope: type search profiling, type candidate role-count performance, type entry/candidate/tray handoff, and current formation candidateTray persistence.
+- Status: implementation and local validation added; preview synchronization is blocked in this workspace because no git remote is configured.
+- Follow-up: collect browser `typeSearch:profile` logs after deployment and compare `measuredKnownMs`/`unmeasuredMs` against the previous `totalMs=269.8ms` observation.
+
+## 2026-06-27 Update09.5.2
+
+- Formation score panel now owns direct type selection for the current formation; preview verification remains pending until remote access is available.
+
+
+- Update09.5.4: 部隊編成の評価スコア詳細タグで、根拠名の直後に発生元を括弧付き表示する回帰を修正。
