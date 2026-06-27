@@ -169,7 +169,7 @@ REQUIRED_CSS = (
     "Update09.3.19-PC-FORMATION-SCORE-VISIBLE",
     "@media (min-width:981px)",
     ".formation-selected-stack>.formation-selected-card.formation-score-card:not(.is-dialog)",
-    "Update09.4.13-PC-FORMATION-LIST-SCROLL",
+    "Update09.4.14-PC-FORMATION-LIST-SCROLL",
     "body.formation-tab .formation-list-panel{overflow:clip!important;overscroll-behavior:contain!important}",
     "body.formation-tab .formation-list-panel .formation-list{flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important",
     "scrollbar-gutter:stable",

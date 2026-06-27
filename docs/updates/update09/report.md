@@ -754,3 +754,14 @@
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.13` / revision `86`.
 - Minimum user acceptance operation: hard reload, open 部隊編成 in PC width, and confirm the 部隊一覧 header/group selector/action buttons are always visible; only the card list scrolls.
 - Remaining issues: Phase 4 is not complete. Continue future corrections in narrow PRs.
+
+
+## 2026-06-27 Update09.4.14 PC formation asset cache-bust report
+
+- Summary: added cache-bust query strings for the active formation CSS/JS assets so the deployed preview cannot keep using older panel-scroll code while showing the new version.
+- Bug classification and root cause: stale asset cache / deployment visibility mismatch. Version metadata could update independently from cached CSS/JS.
+- Implementation change: `index.html` now loads `hado_styles.css?v=09.4.14` and `hado_formation.js?v=09.4.14`.
+- Permanent countermeasure: validators require the cache-busted asset references.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.14` / revision `87`.
+- Minimum user acceptance operation: hard reload or open preview in a fresh tab, then confirm 部隊一覧/group/action controls are visible and only the card list scrolls.
+- Remaining issues: Phase 4 is not complete.

@@ -725,3 +725,12 @@
 - Recurrence prevention: Phase 3/4 validators now require the non-scrollable panel shell, `scrollTo`, and the expanded reset sequence.
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.13` / revision `86`.
 - HTML size / externalization: only the start-guide badge version changed in HTML. Runtime behavior remains in external JavaScript/CSS.
+
+
+## 2026-06-27 Update09.4.14 PC formation asset cache-bust
+
+- Root cause: the preview could show the new visible version while the browser or Pages cache still served older `hado_styles.css` / `hado_formation.js`, so the PC left panel fix was not guaranteed to execute even after version metadata changed.
+- Implementation change: added `?v=09.4.14` cache-bust query strings to the active `hado_styles.css` and `hado_formation.js` references in `index.html`.
+- Recurrence prevention: Phase 4 validation now requires the cache-busted CSS/formation-runtime references for this fix.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.14` / revision `87`.
+- HTML size / externalization: only asset URLs and the guide badge changed in HTML. Runtime behavior remains in external JavaScript/CSS.
