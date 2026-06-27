@@ -775,3 +775,11 @@
 - Recurrence prevention: Phase 3/4 validators and the formation render test now require the mobile board to receive the score card before the result summary.
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.19` / revision `92`.
 - HTML size / externalization: only asset query strings and guide badge changed in HTML. Runtime behavior remains in external JavaScript/CSS.
+
+## 2026-06-27 Update09.4.20 formation responsive layout regression guard
+
+- Root cause / process weakness: PC left-panel clipping and smartphone score placement regressed repeatedly because the acceptance contract was split across several narrow checks; a future edit could satisfy one validator while breaking the combined PC/mobile layout requirement.
+- Implementation change: added `tools/validate_formation_responsive_layout_contract.py` to validate the consolidated responsive contract: measured PC left-panel offset, fixed group/action header, one-row action buttons, scrollable formation list, and smartphone score-card placement between the warhorse block and result summary.
+- Recurrence prevention: wired the new validator into `tools/run_app_validation.py` so the full validation run fails if any of the converged PC/mobile formation contracts drift.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.20` / revision `93`.
+- HTML size / externalization: only asset query strings and guide badge changed in HTML. The new countermeasure is an external Python validator; runtime behavior remains in external JavaScript/CSS.

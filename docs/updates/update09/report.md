@@ -816,3 +816,13 @@
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.19` / revision `92`.
 - Minimum user acceptance operation: open 部隊編成 on smartphone width and confirm トータルスコア appears between 軍馬 and 結果サマリー.
 - Remaining issues: Phase 4 is not complete.
+
+## 2026-06-27 Update09.4.20 formation responsive layout regression guard report
+
+- Summary: added a dedicated regression guard for the converged PC and smartphone formation layout defects before continuing Phase 4.
+- Bug classification and root cause: recurrence-prevention gap. The PC formation left-panel and smartphone score placement contracts were validated in fragments, which made repeated regressions possible during Phase 4 UI changes.
+- Implementation change: introduced `tools/validate_formation_responsive_layout_contract.py` and wired it into the standard validation runner.
+- Permanent countermeasure: the validation suite now checks the combined responsive contract for measured PC top offset, fixed group/action header, one-row action buttons, scrollable formation list, and smartphone score placement between 軍馬 and 結果サマリー.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.20` / revision `93`.
+- Minimum user acceptance operation: open 部隊編成 on PC and smartphone width; confirm the PC left panel keeps 部隊一覧/group/actions visible with the list scrollbar, and smartphone width shows トータルスコア between 軍馬 and 結果サマリー.
+- Remaining issues: Phase 4 is still in progress; no known residual issue for the converged PC/mobile formation layout contract.

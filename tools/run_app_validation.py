@@ -46,6 +46,7 @@ COMMANDS.extend(
         ["python3", "tools/validate_update09_phase4_guides.py"],
         ["python3", "tools/validate_formation_score_tag_only.py"],
         ["python3", "tools/validate_formation_score_total_scope.py"],
+        ["python3", "tools/validate_formation_responsive_layout_contract.py"],
         ["node", "tools/test_type_score.js"],
         ["node", "tools/test_formation_type_score_render.js"],
         ["node", "tools/test_saved_type_candidate_filter.js"],
