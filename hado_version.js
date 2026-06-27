@@ -3,10 +3,10 @@
   'use strict';
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.0.0.0',
-    updateNo: '09.4.17',
-    revision: 90,
+    updateNo: '09.4.18',
+    revision: 91,
     baseAppVersion: '2.9.6.5',
-    summary: 'Update09.4.17: measure PC formation left-panel top from fixed tabs.',
+    summary: 'Update09.4.18: compact PC formation action buttons.',
     updatedAt: '2026-06-27T00:00:00+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;

@@ -760,3 +760,10 @@
 - Recurrence prevention: Phase 4 validators now require the measured-offset helper, viewport sync debug log, and CSS marker.
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.17` / revision `90`.
 - HTML size / externalization: only asset query strings and guide badge changed in HTML. Runtime behavior remains in external JavaScript/CSS.
+
+## 2026-06-27 Update09.4.18 PC formation action buttons compact row
+
+- Implementation change: changed the PC left-panel formation action label from `新規作成` to `新規` and forced `新規 / 複製 / 削除 / 保存` into a single four-column row.
+- Recurrence prevention: Phase 4 validation now requires the compact one-row action CSS marker.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.18` / revision `91`.
+- HTML size / externalization: only asset query strings and guide badge changed in HTML. Runtime behavior remains in external JavaScript/CSS.

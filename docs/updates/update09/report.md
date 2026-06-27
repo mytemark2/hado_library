@@ -797,3 +797,12 @@
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.17` / revision `90`.
 - Minimum user acceptance operation: open 部隊編成 in PC width and confirm the left panel starts below the top tabs, shows the group selector/actions, and the部隊 card list shows a scrollbar.
 - Remaining issues: Phase 4 is not complete. If this still fails, collect `formationListPanel:viewport-sync` logs and computed styles for `.formation-list-panel` and `.formation-list` before further UI changes.
+
+## 2026-06-27 Update09.4.18 PC formation action buttons compact row report
+
+- Summary: changed the PC left-panel formation actions from four stacked buttons to one row: `新規 / 複製 / 削除 / 保存`.
+- Implementation change: shortened the new-formation button label and added a PC CSS override for a four-column action row.
+- Permanent countermeasure: validators require the compact action CSS marker.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.18` / revision `91`.
+- Minimum user acceptance operation: open 部隊編成 in PC width and confirm the four action buttons appear on one row above the scrollable部隊 list.
+- Remaining issues: Phase 4 is not complete.
