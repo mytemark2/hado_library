@@ -3,10 +3,10 @@
   'use strict';
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.0.0.0',
-    updateNo: '09.4.14',
-    revision: 87,
+    updateNo: '09.4.15',
+    revision: 88,
     baseAppVersion: '2.9.6.5',
-    summary: 'Update09.4.14: cache-bust PC formation panel runtime assets.',
+    summary: 'Update09.4.15: clamp fixed header stack offset for PC formation panel.',
     updatedAt: '2026-06-27T00:00:00+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;

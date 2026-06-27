@@ -765,3 +765,14 @@
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.14` / revision `87`.
 - Minimum user acceptance operation: hard reload or open preview in a fresh tab, then confirm 部隊一覧/group/action controls are visible and only the card list scrolls.
 - Remaining issues: Phase 4 is not complete.
+
+
+## 2026-06-27 Update09.4.15 PC formation fixed-header offset clamp report
+
+- Summary: fixed the likely actual PC clipping cause by preventing `--mobile-fixed-stack-space` from being set below the header stack height.
+- Bug classification and root cause: fixed-position offset calculation race. Early zero-height measurement could set the shared header offset variable too small, placing the fixed formation panel behind the header.
+- Implementation change: clamp stack space to 118px minimum and log raw/calculated values in `mobileStickyHeader:offset`.
+- Permanent countermeasure: validators require the stack-space clamp and raw offset diagnostics.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.15` / revision `88`.
+- Minimum user acceptance operation: hard reload, open 部隊編成 in PC width, and confirm 部隊一覧/group/action controls are visible above the list. If not, copy `mobileStickyHeader:offset` and `formationListPanel:scroll-reset` logs.
+- Remaining issues: Phase 4 is not complete.

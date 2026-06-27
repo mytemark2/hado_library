@@ -734,3 +734,12 @@
 - Recurrence prevention: Phase 4 validation now requires the cache-busted CSS/formation-runtime references for this fix.
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.14` / revision `87`.
 - HTML size / externalization: only asset URLs and the guide badge changed in HTML. Runtime behavior remains in external JavaScript/CSS.
+
+
+## 2026-06-27 Update09.4.15 PC formation fixed-header offset clamp
+
+- Root cause: `updateMobileStickyHeaderOffsets()` runs for PC as well as mobile, and if header/tab height is measured as 0 during early layout it can set `--mobile-fixed-stack-space` to about 10px. That overrides the CSS fallback 118px and lets the fixed PC formation panel start behind the top header, clipping 部隊一覧/group/actions.
+- Implementation change: clamp the computed stack space to at least 118px, keep raw measured values in `mobileStickyHeader:offset` debug logs, and keep cache-busted CSS/formation JS references at `?v=09.4.15`.
+- Recurrence prevention: Phase 4 validation now requires the stack-space clamp and raw offset diagnostics.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.15` / revision `88`.
+- HTML size / externalization: only asset query strings and guide badge changed in HTML. Runtime behavior remains in external JavaScript/CSS.

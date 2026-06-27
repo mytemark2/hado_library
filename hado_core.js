@@ -1343,13 +1343,16 @@ function updateMobileStickyHeaderOffsets(mobile,context='') {
     const tabHeight=Math.ceil(tabs.getBoundingClientRect().height||0);
     const gap=0;
     const stackGap=10;
-    const tabTop=headerHeight+gap;
-    const stackSpace=headerHeight+gap+tabHeight+stackGap;
+    const minStackSpace=118;
+    const rawTabTop=headerHeight+gap;
+    const rawStackSpace=headerHeight+gap+tabHeight+stackGap;
+    const tabTop=Math.max(rawTabTop, headerHeight>0?rawTabTop:58);
+    const stackSpace=Math.max(rawStackSpace,minStackSpace);
     root.style.setProperty('--mobile-main-tab-sticky-top', `${tabTop}px`);
     root.style.setProperty('--mobile-main-tab-fixed-top', `${tabTop}px`);
     root.style.setProperty('--mobile-fixed-stack-space', `${stackSpace}px`);
     tabs.setAttribute('data-mobile-sticky-tabs','1');
-    debugLog('mobileStickyHeader:offset',{context,headerHeight,tabHeight,gap,tabTop,stackSpace,mode:'fixed',mobile});
+    debugLog('mobileStickyHeader:offset',{context,headerHeight,tabHeight,gap,rawTabTop,rawStackSpace,tabTop,stackSpace,minStackSpace,mode:'fixed',mobile});
   }else{
     root.style.removeProperty('--mobile-main-tab-sticky-top');
     root.style.removeProperty('--mobile-main-tab-fixed-top');
