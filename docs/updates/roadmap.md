@@ -126,3 +126,19 @@
 - 実装時は本ロードマップとの差分を `implementation.md` に記載する。
 - 完了時は確認済み、未確認、未解決、次Update候補、プレビュー反映結果を `report.md` に記載する。
 - 新規JS作成時は責務名を使用し、Update番号、一時作業名、枝番をファイル名に含めない。
+
+## 2026-06-27 Update09.5.1
+
+- Phase 5 starts from completed Phase 4 (`Update09.4.21` / revision `94`) and focuses on type search/candidate/tray speed and handoff fixes.
+- Implemented lazy type-candidate role counts, explicit candidate-tray add flow, current-formation candidateTray persistence/deduplication, and type-search unmeasured-time diagnostics.
+- Preview verification remains pending until the committed branch can be pushed from an environment with configured remotes.
+
+## 2026-06-27 Update09.5.2
+
+- Added direct current-formation type selection to the total score panel and immediate recalculation/persistence for `evaluationTypeId` / `evaluationTypeName`.
+
+
+- Update09.5.4: 部隊編成の評価スコア詳細タグで、根拠名の直後に発生元を括弧付き表示する回帰を修正。
+
+
+- Update09.5.5: 評価スコア詳細で未定義 `sr-only` に依存した根拠集約テキストが露出する回帰を修正し、再発防止 validator を追加。

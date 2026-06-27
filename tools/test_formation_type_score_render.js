@@ -172,6 +172,11 @@ const positiveRow = (typeScore?.candidateScores || [])
   .find(row => Number(row.score || 0) > 0 && ((row.matchedEffects || []).length || (row.matchedParameters || []).length));
 
 assert(html.includes('トータルスコア'), 'score summary HTML must render total score label');
+assert(html.includes('id="formationEvaluationTypeSelect"'), 'score summary must render formationEvaluationTypeSelect in the total score panel');
+assert(html.includes('data-formation-evaluation-type-select="1"'), 'score summary must mark every duplicated score-panel type select for delegated binding');
+assert(html.includes('<option value="vaccine" selected>ワクチン型</option>'), 'formationEvaluationTypeSelect must select the current formation evaluationTypeId');
+assert(html.includes('型未設定'), 'formationEvaluationTypeSelect must include an unset option');
+assert(!html.includes('評価型ID') && !html.includes('formationEvaluationTypeInput'), 'score summary must not restore forbidden evaluation type UI');
 assert(html.includes('<section class="formation-selected-card formation-score-card'), 'score card must be a constant visible section');
 assert(!html.includes('<details class="formation-score-summary'), 'score card must not hide the score body in details');
 assert((html.match(/formation-score-metric-chip/g)||[]).length >= 5, 'evaluation score chips must render metric chip classes');
@@ -184,6 +189,34 @@ assert(!html.includes('内訳合計'), 'score detail panel must not display redu
 assert(html.includes('data-formation-score-detail-label='), 'score chips must carry row labels for click diagnostics');
 assert(html.includes('data-formation-score-detail-evidence-count='), 'score chips must carry evidence counts for click diagnostics');
 assert(html.includes('formation-score-detail-panel'), 'selected evaluation score must render a detail panel');
+
+
+const changeFormation = JSON.parse(JSON.stringify(formation));
+changeFormation.evaluationTypeId = 'vaccine';
+changeFormation.evaluationTypeName = 'ワクチン型';
+context.state.formations = [changeFormation];
+context.state.currentFormationId = changeFormation.id;
+let saveContext = '';
+let renderCalled = false;
+let toastMessage = '';
+context.saveFormationDataToStorage = (ctx) => { saveContext = ctx; return true; };
+context.renderFormationScreen = () => { renderCalled = true; };
+context.showFormationToast = (message) => { toastMessage = message; };
+context.buildFormationParameterData = () => ({ effects: [], skills: [] });
+let recalculatedTypeId = '';
+context.calculateFormationAutoScores = (f) => { recalculatedTypeId = f.evaluationTypeId; return { totalScore: 7, evaluationScore: 7 }; };
+const nextRule = rules.find(rule => rule.typeId && rule.typeId !== 'vaccine');
+assert(nextRule, 'test fixture must provide another type rule');
+const changed = context.setFormationEvaluationType(nextRule.typeId);
+assert.strictEqual(changed, true, 'setFormationEvaluationType must accept a valid typeId');
+assert.strictEqual(changeFormation.evaluationTypeId, nextRule.typeId, 'setFormationEvaluationType must update evaluationTypeId');
+assert.strictEqual(changeFormation.evaluationTypeName, nextRule.typeName, 'setFormationEvaluationType must update evaluationTypeName');
+assert.strictEqual(saveContext, 'setFormationEvaluationType', 'setFormationEvaluationType must persist with the expected save context');
+assert.strictEqual(renderCalled, true, 'setFormationEvaluationType must rerender immediately');
+assert.strictEqual(toastMessage, '型を変更しました', 'setFormationEvaluationType must show the user-facing toast');
+assert.strictEqual(recalculatedTypeId, nextRule.typeId, 'setFormationEvaluationType must recalculate using the changed typeId');
+assert.strictEqual(changeFormation.totalScore, 7, 'setFormationEvaluationType must store recalculated totalScore');
+assert.strictEqual(changeFormation.evaluationScore, 7, 'setFormationEvaluationType must store recalculated evaluationScore');
 
 const fakeChips = Array.from({ length: 5 }, (_, index) => ({
   dataset: { formationScoreDetailIndex: String(index) },
@@ -222,9 +255,10 @@ assert(debugEvents.slice(beforeClickDebugCount).some(event => event.name === 'fo
 
 assert(!html.includes('+1点'), 'score detail rows must not show redundant point contribution');
 assert(!html.includes('>効果<') && !html.includes('>変化率<'), 'normal UI must not expose debug bucket headings');
-assert(html.includes('検証耐性技能') || html.includes('検証支援技能') || html.includes('検証回復技能'), 'score detail HTML must include matched source labels');
-assert(html.includes('+1') || html.includes('+20%') || html.includes('+10%'), 'score detail HTML must include matched values as supplemental text');
-assert(html.includes('条件：常に'), 'score detail HTML must show user-facing default condition');
+assert(html.includes('弱化無効(検証耐性技能)') || html.includes('攻撃速度(検証支援技能)') || html.includes('負傷兵回復(検証回復技能)'), 'score detail HTML must include matched source labels in parentheses next to the evidence label');
+assert(!html.includes('class="sr-only"'), 'score detail HTML must not expose aggregate evidence labels through an undefined sr-only helper');
+assert(!html.includes(' / 条件：常に') && !html.includes('検証耐性技能 / 検証支援技能'), 'score detail HTML must not render a slash-delimited aggregate source label dump');
+assert(!html.includes('条件：常に'), 'score detail HTML must not expose aggregate default condition text outside evidence tags');
 
 const syntheticDisadvantageRow = {
   label: '自部隊不利対策',
@@ -287,17 +321,21 @@ assert(formationSource.includes('formationScore:detail-click'), 'formation detai
 assert(formationSource.includes('handleFormationScoreDetailClick'), 'formation score detail clicks should use a shared guarded handler');
 assert(formationSource.includes('event.preventDefault();event.stopPropagation();'), 'formation score detail clicks should not bubble into parent formation controls');
 assert(formationSource.includes('formationScore:detail-delegate'), 'formation score detail delegated click diagnostics must exist');
-assert(formationSource.includes('rawText:String(row?.rawText||text).slice(0,1000)'), 'score evidence debug rows must preserve enough raw text for matched labels');
+assert(formationSource.includes("rawText:String(row?.rawText||row?.matchedText||'').slice(0,500)"), 'score evidence debug rows must preserve enough raw text for matched labels');
 assert(formationSource.includes('function sumFormationScoreDetails(details)'), 'legacy score-detail total helper must remain defined to prevent render-time ReferenceError');
-assert(formationSource.includes('<strong>${esc(evidenceCount)}</strong>'), 'metric chip value must match rendered tag count');
+assert(formationSource.includes('<strong aria-label="根拠 ${esc(evidenceCount)}件">${esc(evidenceCount)}</strong>'), 'metric chip value must match rendered tag count');
 assert(formationSource.includes('formationScore:detail-more-delegate'), 'show-more button must have delegated click handling');
-assert(formationSource.includes('const totalScore=scoreRows.reduce'), 'total score must be the sum of displayed evaluation score rows');
+assert(formationSource.includes('function calculateFormationDisplayedTotalScore(rows){return (Array.isArray(rows)?rows:[]).reduce'), 'total score must be the sum of displayed evaluation score rows');
 assert(formationSource.includes('function calculateFormationDisplayedTotalScore(rows)'), 'rendered total score must use a scoped visible-total helper');
 assert(formationSource.includes('<strong>${esc(visibleTotalScore)}</strong>'), 'score card header must render the recalculated visible total');
-assert(formationSource.includes('displayTitle:item.sourceTag?'), 'every evidence tag with a source must render a parenthesized source label');
-assert(formationSource.includes('${esc(evidenceRows.length)}タグ'), 'score detail header must show actual rendered tag count as tags');
+assert(formationSource.includes('function formationScoreEvidenceDisplayTitle(title,source)'), 'formation evidence labels must use a shared parenthesized source formatter');
+assert(formationSource.includes('displayTitle:formationScoreEvidenceDisplayTitle'), 'every evidence tag with a source must render a parenthesized source label');
+assert(!formationSource.includes('const sourceLabels='), 'formation score renderer must not build an aggregate sourceLabels dump');
+assert(!formationSource.includes('class="sr-only"'), 'formation score renderer must not rely on an undefined sr-only class to hide aggregate labels');
+assert(formationSource.includes('評価${esc(evidenceRows.length)} / 根拠${esc(evidenceRows.length)}件'), 'score detail header must show actual rendered evidence count');
 assert(formationSource.includes('renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)'), 'mobile board must receive score card before summary');
 assert(formationSource.includes('${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}'), 'PC score card remains in selected stack');
+assert(formationSource.includes("querySelectorAll('#formationEvaluationTypeSelect,[data-formation-evaluation-type-select]'"), 'all score-panel type selects must be bound, including duplicated mobile/PC score cards');
 assert(formationSource.includes('formationScoreDetail:click'), 'legacy formation detail click diagnostics must still exist');
 assert(formationSource.includes("rowLabel:btn?.dataset?.formationScoreDetailLabel"), 'formation detail click diagnostics must include row label');
 assert(formationSource.includes("evidenceCount:Number(btn?.dataset?.formationScoreDetailEvidenceCount)"), 'formation detail click diagnostics must include evidence count');

@@ -793,3 +793,45 @@
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.21` / revision `94`.
 - Phase status: Phase 4 is complete after this guide-frame correction.
 - HTML size / externalization: only asset query strings and guide badge changed in HTML. Runtime behavior remains in external JavaScript/CSS.
+
+## 2026-06-27 Update09.5.1 Phase 5 type search/candidate/tray flow
+
+- Phase 5 status: started after Phase 4 completion (`Update09.4.21` / revision `94`). The visible runtime version is now `3.0.0.0 Update09.5.1` / revision `95`.
+- Speed instrumentation: `hado_search.js` now logs type-search candidate row construction, importance aggregation, condition chip rendering, result select rendering, results DOM rendering, diagnostic snapshot, responsive snapshot, renderDetail execution flag/time, cache lookup/store/invalidation reason, `measuredKnownMs`, `unmeasuredMs`, and `unmeasuredMsWarning`. Warning policy is `totalMs > 200` or `unmeasuredMs > 50`.
+- Speed implementation: `hado_type_candidates.js` no longer calls `safeRoleRows(id).length` for every role during tab rendering. The active role is calculated first; unopened role counts display `…` until that role is opened or an idle callback fills the count.
+- Flow implementation: the type entry primary confirmation action changed from `選択を保存` to `型候補一覧へ`; after saving localStorage and dispatching `hado:type-search-entry-selected`, the dialog closes and opens the type candidate list through `window.HadoTypeCandidates.open({source:'type-entry-save'})` or `hado:type-candidates-open-request` fallback.
+- Candidate tray implementation: type candidates now include the ordered actions `候補トレイへ` / `この型で新規部隊` / `閉じる`, require an explicit selected card, dispatch `hado:formation-candidate-tray-add`, close the candidate list, and open the candidate tray.
+- Formation persistence: `hado_formation.js` listens for candidate tray add/snapshot/remove/clear/place events, writes to the current formation `candidateTray`, deduplicates by `roleId + normalized name + typeId`, saves with `candidate-tray-add`, and refreshes tray snapshots. Placement uses the existing formation add popover for supported 武将/装備 candidates and does not bypass formation validity checks; unsupported roles remain saved-only.
+- Recurrence prevention: added `tools/validate_update09_phase5_type_candidate_flow.py` and wired it into `tools/run_app_validation.py` to guard the button wording, dialog handoff, lazy role counts, tray add dispatch/open APIs, formation persistence, and candidateTray compatibility.
+- HTML size change: no `index.html` logic was added; behavior remains externalized in JavaScript.
+- Validation status: local validation commands are recorded in the report. Preview synchronization is not complete in this workspace because no `origin` remote is configured and the branch cannot be pushed from here.
+- Remaining issues: real preview repository/Pages verification must be performed after pushing the committed branch in an environment with the application and preview remotes configured.
+
+## 2026-06-27 Update09.5.2 formation score type selector
+
+- Phase 5 follow-up: visible runtime version advanced to `3.0.0.0 Update09.5.2` / revision `96`.
+- Added a `型` select box to the left side of the total score panel in `renderFormationScoreSummaryHtml` using the existing formation type-score rule sources (`getFormationTypeScoreCandidateRules`).
+- Added `setFormationEvaluationType(typeId)` so changing the select updates the current formation `evaluationTypeId` / `evaluationTypeName`, recalculates scores immediately with `buildFormationParameterData(f)` and `calculateFormationAutoScores(f, data)`, saves with `setFormationEvaluationType`, rerenders, and shows `型を変更しました`.
+- Added responsive CSS for `.formation-score-type-select-wrap` and `.formation-score-type-select`; no inline HTML logic was added.
+- Regression coverage: `tools/test_formation_type_score_render.js` now asserts the select renders, options include the active type and unset state, the forbidden old `formationEvaluationTypeInput`/`評価型ID` UI is absent, and `setFormationEvaluationType` persists and recalculates immediately.
+- Remaining issues: preview verification remains blocked in this workspace until remote fetch/push access is available.
+
+## 2026-06-27 Update09.5.3 formation type selector binding fix
+
+- Phase 5 correction: visible runtime version advanced to `3.0.0.0 Update09.5.3` / revision `97`.
+- Root cause: the same score-card HTML is rendered in both the mobile board placement and the PC selected stack, so binding only `document.getElementById('formationEvaluationTypeSelect')` could attach the change handler to just one duplicated select. A user could change the unbound visible select and see no immediate recalculation.
+- Fix: mark the select with `data-formation-evaluation-type-select="1"` and bind all matching score-panel type selects through `els.formationRoot.querySelectorAll(...)` in `setupFormationEvents`.
+- Regression coverage: `tools/test_formation_type_score_render.js` now requires the data marker and the all-select binding source contract.
+
+
+### Update09.5.4 — 評価スコア根拠タグの発生元表示復旧
+- 部隊編成の評価スコア詳細で、`状態変化 与ダメージ(発生元)` のように根拠タグ名の直後へ発生元を括弧付き表示する経路を復旧した。
+- `scoreDetails` / `evidenceRows` と `matchedEffects` / `matchedParameters` の双方で `sourceTag` を保持し、表示専用の `formationScoreEvidenceDisplayTitle()` でラベルと発生元を合成する。
+- 回帰防止として `tools/test_formation_type_score_render.js` と `tools/validate_formation_score_tag_only.py` を更新し、括弧付き発生元表示と既存の「点」「内訳合計」「評価型ID」禁止を同時に検証する。
+- HTML大型ロジック追加なし。修正は外部 JavaScript と検証スクリプト、バージョン記録のみ。
+
+
+### Update09.5.5 — 評価スコア根拠タグの集約テキスト露出防止
+- `sourceLabels` 集約テキストと未定義 `sr-only` 依存を削除し、評価スコア詳細に表示される根拠はタグ内の `ラベル(発生元)` のみに限定した。
+- 回帰防止として、HTML に `class="sr-only"` や `/` 区切りの根拠集約ダンプが出ないことを `tools/test_formation_type_score_render.js` で検証する。
+- `tools/validate_formation_score_tag_only.py` に `const sourceLabels=` と未定義 `sr-only` 依存の禁止を追加し、同種の「隠したつもりの補助テキスト露出」を静的に止める。
