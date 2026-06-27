@@ -2,8 +2,6 @@ name: Notify Hado Library Preview
 
 on:
   push:
-    branches:
-      - feature/app-3.0.0.0
 
 permissions:
   contents: read
@@ -13,7 +11,7 @@ env:
 
 concurrency:
   group: hado-library-preview-sync
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   notify-preview:
@@ -234,14 +232,40 @@ jobs:
             exit 1
           fi
 
+          github_api_json() {
+            local label="$1"
+            local url="$2"
+            local response_file http_code attempt
+            response_file="$(mktemp)"
+            for attempt in $(seq 1 6); do
+              http_code="$(curl -sS -o "${response_file}" -w "%{http_code}"                 -H "${auth_header}"                 -H "${accept_header}"                 -H "${version_header}"                 "${url}" || true)"
+              if [ "${http_code}" = "200" ]; then
+                cat "${response_file}"
+                rm -f "${response_file}"
+                return 0
+              fi
+              if [ "${http_code}" = "401" ] || [ "${http_code}" = "403" ] || [[ "${http_code}" == 5* ]]; then
+                echo "GitHub API ${label} returned HTTP ${http_code}; retrying (${attempt}/6)." >&2
+                sleep $((attempt * 5))
+                continue
+              fi
+              echo "GitHub API ${label} failed with HTTP ${http_code}." >&2
+              echo "Response body:" >&2
+              cat "${response_file}" >&2 || true
+              rm -f "${response_file}"
+              exit 1
+            done
+            echo "GitHub API ${label} did not return HTTP 200 after retries." >&2
+            echo "Last response body:" >&2
+            cat "${response_file}" >&2 || true
+            rm -f "${response_file}"
+            exit 1
+          }
+
           echo "Waiting for preview Pages workflow ${workflow_file} on main for preview commit ${PREVIEW_COMMIT}."
           run_id=""
           for attempt in $(seq 1 30); do
-            runs_json="$(curl --fail-with-body -sS \
-              -H "${auth_header}" \
-              -H "${accept_header}" \
-              -H "${version_header}" \
-              "${api_root}/actions/workflows/${workflow_file}/runs?branch=main&event=push&per_page=20")"
+            runs_json="$(github_api_json "list preview Pages workflow runs" "${api_root}/actions/workflows/${workflow_file}/runs?branch=main&event=push&per_page=20")"
             runs_file="$(mktemp)"
             printf '%s' "${runs_json}" > "${runs_file}"
             run_id="$(RUNS_FILE="${runs_file}" PREVIEW_COMMIT="${PREVIEW_COMMIT}" python - <<'PY'
@@ -271,11 +295,7 @@ jobs:
           fi
 
           for attempt in $(seq 1 120); do
-            run_json="$(curl --fail-with-body -sS \
-              -H "${auth_header}" \
-              -H "${accept_header}" \
-              -H "${version_header}" \
-              "${api_root}/actions/runs/${run_id}")"
+            run_json="$(github_api_json "get preview Pages workflow run ${run_id}" "${api_root}/actions/runs/${run_id}")"
             status="$(RUN_JSON="${run_json}" python - <<'PY'
           import json, os
           print(json.loads(os.environ['RUN_JSON']).get('status', ''))
