@@ -160,6 +160,7 @@ REQUIRED_CSS = (
     ".formation-quick-summary-list{display:grid!important",
     "formation-selected-card.formation-score-card:not(.is-dialog)",
     ".formation-mobile-score-result-placement",
+    "formation-selected-stack>.formation-selected-card.formation-score-card:not(.is-dialog)",
     "formation-selected-stack>.formation-quick-summary-strip",
     "formation-quick-summary-strip",
     ".formation-warhorse-slots-body",
