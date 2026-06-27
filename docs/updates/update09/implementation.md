@@ -743,3 +743,12 @@
 - Recurrence prevention: Phase 4 validation now requires the stack-space clamp and raw offset diagnostics.
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.15` / revision `88`.
 - HTML size / externalization: only asset query strings and guide badge changed in HTML. Runtime behavior remains in external JavaScript/CSS.
+
+
+## 2026-06-27 Update09.4.16 PC formation list fixed head
+
+- Root cause: repeated offset/scroll resets still left the header/group/actions dependent on the same panel scroll state as the card list. If the shell retained any offset, those controls could be clipped.
+- Implementation change: separated the left-panel header, group selector, and action buttons into `.formation-list-fixed-head` and made it sticky at the top; only `.formation-list` remains the scrollable card list.
+- Recurrence prevention: Phase 3/4 validators now require the fixed-head wrapper and sticky CSS marker.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.16` / revision `89`.
+- HTML size / externalization: only asset query strings and guide badge changed in HTML. Runtime behavior remains in external JavaScript/CSS.

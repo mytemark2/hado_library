@@ -776,3 +776,14 @@
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.15` / revision `88`.
 - Minimum user acceptance operation: hard reload, open 部隊編成 in PC width, and confirm 部隊一覧/group/action controls are visible above the list. If not, copy `mobileStickyHeader:offset` and `formationListPanel:scroll-reset` logs.
 - Remaining issues: Phase 4 is not complete.
+
+
+## 2026-06-27 Update09.4.16 PC formation list fixed head report
+
+- Summary: separated and pinned the PC left-panel header/group/actions so they remain visible independently of the card list scroll state.
+- Bug classification and root cause: shared-scroll-shell layout regression. Header/group/actions were still in the same scrollable/clipped shell flow as the card list.
+- Implementation change: introduced `.formation-list-fixed-head` around 部隊一覧, group selector, and action buttons, with sticky top CSS.
+- Permanent countermeasure: validators require the fixed-head wrapper and sticky CSS marker.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.16` / revision `89`.
+- Minimum user acceptance operation: open 部隊編成 in PC width and confirm 部隊一覧/group/action controls are visible; scroll only the card list.
+- Remaining issues: Phase 4 is not complete. If this still fails, collect DOM/computed-style logs before further UI changes.
