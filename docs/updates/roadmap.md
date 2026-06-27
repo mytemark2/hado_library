@@ -132,3 +132,7 @@
 - Phase 5 starts from completed Phase 4 (`Update09.4.21` / revision `94`) and focuses on type search/candidate/tray speed and handoff fixes.
 - Implemented lazy type-candidate role counts, explicit candidate-tray add flow, current-formation candidateTray persistence/deduplication, and type-search unmeasured-time diagnostics.
 - Preview verification remains pending until the committed branch can be pushed from an environment with configured remotes.
+
+## 2026-06-27 Update09.5.2
+
+- Added direct current-formation type selection to the total score panel and immediate recalculation/persistence for `evaluationTypeId` / `evaluationTypeName`.

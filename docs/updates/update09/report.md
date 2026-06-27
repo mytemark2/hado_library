@@ -852,3 +852,15 @@
 - Preview result: not preview-complete in this workspace because no `origin` remote is configured, so the application branch cannot be pushed and the preview repository/Pages markers cannot be verified here.
 - Minimum user acceptance operation: open 部隊編成, open 型編成ナビ, choose a type, press `型候補一覧へ`, select a candidate card, press `候補トレイへ`, confirm the tray opens with that candidate, repeat add to confirm no duplicate, then use `配置先を選ぶ` for a supported 武将/装備 candidate and verify the existing formation placement popover appears.
 - Remaining issues: preview synchronization and public Pages verification remain blocked until a remote-enabled environment pushes the committed branch.
+
+## 2026-06-27 Update09.5.2 formation score type selector report
+
+- Summary: added an editable `型` list box to the total score panel so the current formation type can be changed directly from 部隊編成.
+- Bug classification and root cause: missing edit affordance. Formation records already persisted `evaluationTypeId` / `evaluationTypeName`, but the score panel only displayed the active type and no UI path updated those fields for the current formation.
+- Implementation change: `renderFormationScoreSummaryHtml` renders `formationEvaluationTypeSelect` before `トータルスコア`; `setFormationEvaluationType(typeId)` updates the current formation, recalculates `totalScore` / `evaluationScore`, saves with `setFormationEvaluationType`, rerenders, and shows a toast.
+- Impact scope checked: formation score rendering, type option rendering, selected option state, immediate recalculation/persistence, existing score chips/detail panel, candidate tray behavior, and forbidden old labels/IDs.
+- HTML size change and externalization decision: no large inline HTML logic was added; behavior is in `hado_formation.js` and styling is in `hado_styles.css`.
+- Validation commands: `node tools/test_formation_type_score_render.js`, `python3 tools/run_app_validation.py`.
+- Preview result: not preview-complete in this workspace because remote fetch/push is blocked.
+- Minimum user acceptance operation: open 部隊編成, use the `型` select at the left of the total score panel, confirm the score/chips/tags redraw immediately, reload, and confirm the selected type persists.
+- Remaining issues: preview synchronization and public Pages verification remain blocked until a remote-enabled environment pushes the branch.

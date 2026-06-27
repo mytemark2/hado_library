@@ -806,3 +806,12 @@
 - HTML size change: no `index.html` logic was added; behavior remains externalized in JavaScript.
 - Validation status: local validation commands are recorded in the report. Preview synchronization is not complete in this workspace because no `origin` remote is configured and the branch cannot be pushed from here.
 - Remaining issues: real preview repository/Pages verification must be performed after pushing the committed branch in an environment with the application and preview remotes configured.
+
+## 2026-06-27 Update09.5.2 formation score type selector
+
+- Phase 5 follow-up: visible runtime version advanced to `3.0.0.0 Update09.5.2` / revision `96`.
+- Added a `型` select box to the left side of the total score panel in `renderFormationScoreSummaryHtml` using the existing formation type-score rule sources (`getFormationTypeScoreCandidateRules`).
+- Added `setFormationEvaluationType(typeId)` so changing the select updates the current formation `evaluationTypeId` / `evaluationTypeName`, recalculates scores immediately with `buildFormationParameterData(f)` and `calculateFormationAutoScores(f, data)`, saves with `setFormationEvaluationType`, rerenders, and shows `型を変更しました`.
+- Added responsive CSS for `.formation-score-type-select-wrap` and `.formation-score-type-select`; no inline HTML logic was added.
+- Regression coverage: `tools/test_formation_type_score_render.js` now asserts the select renders, options include the active type and unset state, the forbidden old `formationEvaluationTypeInput`/`評価型ID` UI is absent, and `setFormationEvaluationType` persists and recalculates immediately.
+- Remaining issues: preview verification remains blocked in this workspace until remote fetch/push access is available.

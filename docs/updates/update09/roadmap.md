@@ -83,3 +83,7 @@ Update08までに実装した型編成ナビ、候補トレイ、保存データ
 - Scope: type search profiling, type candidate role-count performance, type entry/candidate/tray handoff, and current formation candidateTray persistence.
 - Status: implementation and local validation added; preview synchronization is blocked in this workspace because no git remote is configured.
 - Follow-up: collect browser `typeSearch:profile` logs after deployment and compare `measuredKnownMs`/`unmeasuredMs` against the previous `totalMs=269.8ms` observation.
+
+## 2026-06-27 Update09.5.2
+
+- Formation score panel now owns direct type selection for the current formation; preview verification remains pending until remote access is available.
