@@ -183,6 +183,8 @@ assert((html.match(/formation-score-metric-chip/g)||[]).length >= 5, 'evaluation
 assert((html.match(/data-formation-score-detail-index/g)||[]).length === 5, 'evaluation score chips must render five button controls');
 assert((html.match(/data-formation-score-card=\"1\"/g)||[]).length === 1, 'score summary renderer must produce exactly one score card');
 assert((html.match(/formation-score-detail-panel/g)||[]).length === 1, 'score summary renderer must produce exactly one detail panel');
+assert(html.includes('formation-score-detail-panel is-collapsed'), 'score detail panel must default to collapsed one-line mode');
+assert(html.includes('formation-score-evidence-tags is-collapsed'), 'collapsed score evidence tags must be marked for one-line overflow-safe rendering');
 assert((html.match(/根拠/g)||[]).length >= 5, 'evaluation score chips/detail must show evidence counts without confusing them with points');
 assert(!html.includes('点'), 'score card UI must not display point wording');
 assert(!html.includes('内訳合計'), 'score detail panel must not display redundant numeric point totals');
@@ -276,11 +278,16 @@ const syntheticDisadvantageRow = {
   }))
 };
 const syntheticHtml = context.renderFormationScoreEvidencePanelHtml(syntheticDisadvantageRow);
+context.state.formationScoreDetailExpanded = true;
+const syntheticExpandedHtml = context.renderFormationScoreEvidencePanelHtml(syntheticDisadvantageRow);
+context.state.formationScoreDetailExpanded = false;
 assert(syntheticHtml.includes('自部隊不利対策の内訳'), '20-evidence disadvantage row must render the selected heading');
 assert(syntheticHtml.includes('評価20 / 根拠20件'), '20-evidence disadvantage row must show score value and evidence count without point wording');
 assert(!syntheticHtml.includes('点'), '20-evidence disadvantage row must not display point wording');
 assert(syntheticHtml.includes('弱化無効') && syntheticHtml.includes('弱化解除') && syntheticHtml.includes('弱化反射') && syntheticHtml.includes('状態変化無効') && syntheticHtml.includes('不利変化無効'), 'disadvantage details must expose matched disadvantage countermeasure labels');
 assert(!syntheticHtml.includes('一致根拠なし'), '20-evidence disadvantage row must not show the empty-evidence message');
+assert(syntheticExpandedHtml.includes('formation-score-detail-panel is-expanded') && syntheticExpandedHtml.includes('formation-score-evidence-tags is-expanded'), 'show-more expanded score evidence must use result-summary-like expanded grid classes');
+assert(syntheticExpandedHtml.includes('formation-quick-summary-chip'), 'expanded score evidence must reuse result-summary chip styling');
 
 assert(typeScore && typeof typeScore === 'object', 'typeScore diagnostic must exist');
 assert.strictEqual(typeScore.calculationInvoked, true, 'formation render must invoke type-score calculation');
@@ -332,6 +339,8 @@ assert(formationSource.includes('function formationScoreEvidenceDisplayTitle(tit
 assert(formationSource.includes('displayTitle:formationScoreEvidenceDisplayTitle'), 'every evidence tag with a source must render a parenthesized source label');
 assert(!formationSource.includes('const sourceLabels='), 'formation score renderer must not build an aggregate sourceLabels dump');
 assert(!formationSource.includes('class="sr-only"'), 'formation score renderer must not rely on an undefined sr-only class to hide aggregate labels');
+assert(formationSource.includes('formation-score-evidence-tags ${expanded?'), 'score evidence tag list must switch collapsed/expanded classes');
+assert(formationSource.includes('formation-quick-summary-chip'), 'expanded score evidence must share result-summary chip styling');
 assert(formationSource.includes('評価${esc(evidenceRows.length)} / 根拠${esc(evidenceRows.length)}件'), 'score detail header must show actual rendered evidence count');
 assert(formationSource.includes('renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)'), 'mobile board must receive score card before summary');
 assert(formationSource.includes('${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}'), 'PC score card remains in selected stack');

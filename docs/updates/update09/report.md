@@ -887,3 +887,10 @@
 - 原因: 括弧付き発生元の存在チェックに偏り、余計な補助テキストが画面に出ないことと `sr-only` 定義の有無を検証していなかった。
 - 対応: 集約テキスト生成と `sr-only` span 出力を削除し、表示対象をタグ内の括弧付き発生元だけにした。
 - 再発防止: テストと validator で `sourceLabels` / 未定義 `sr-only` 依存 / `/` 区切り根拠ダンプの再混入を禁止した。
+
+
+### Update09.5.6 完了報告 — 評価スコア内訳の欄外表示防止
+- 事象: 評価スコア内訳の根拠タグが複数行に広がり、スコアカード内の結果サマリー領域と干渉して欄外表示に見える状態だった。
+- 原因: collapsed/expanded の表示状態を CSS クラスで分けず、通常時も `flex-wrap` で複数行表示していたため、長い根拠名がカード内の余白を押し広げていた。
+- 対応: 通常時は1行 `nowrap + overflow hidden`、さらに表示時は結果サマリー風のグリッド chip 表示へ切り替えるようにした。
+- 再発防止: test / validator で collapsed/expanded クラスと overflow-safe CSS、`formation-quick-summary-chip` 共有を検証する。

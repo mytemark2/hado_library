@@ -835,3 +835,9 @@
 - `sourceLabels` 集約テキストと未定義 `sr-only` 依存を削除し、評価スコア詳細に表示される根拠はタグ内の `ラベル(発生元)` のみに限定した。
 - 回帰防止として、HTML に `class="sr-only"` や `/` 区切りの根拠集約ダンプが出ないことを `tools/test_formation_type_score_render.js` で検証する。
 - `tools/validate_formation_score_tag_only.py` に `const sourceLabels=` と未定義 `sr-only` 依存の禁止を追加し、同種の「隠したつもりの補助テキスト露出」を静的に止める。
+
+
+### Update09.5.6 — 評価スコア内訳の欄外表示防止
+- 評価スコア内訳の通常表示を `is-collapsed` の1行表示にし、根拠タグがスコアカード外へ回り込まないようにした。
+- `さらに表示` 押下時は `is-expanded` に切り替え、結果サマリーと同系統の `formation-quick-summary-chip` スタイルを使うグリッド表示へ変更した。
+- 回帰防止として、collapsed/expanded のクラス、結果サマリー風 chip 共有、CSS の overflow/grid 制御を test / validator に追加した。

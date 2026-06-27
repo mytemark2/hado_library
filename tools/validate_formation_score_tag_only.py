@@ -20,8 +20,11 @@ REQUIRED = (
     "sourceTag:src.sourceTag||src.sourceLabel||source||''",
     "function renderFormationScoreEvidencePanelHtml(row)",
     "formation-score-evidence-tags",
+    "formation-score-evidence-tags ${expanded?",
+    "formation-quick-summary-chip",
+    "formation-score-evidence-label",
     "formation-score-evidence-tag",
-    "<b>${esc(item.kindLabel||'型要素')}</b>${esc(item.displayTitle||item.title)}",
+    "<b>${esc(item.kindLabel||'型要素')}</b><span class=\"formation-score-evidence-label\">${esc(item.displayTitle||item.title)}</span>",
     "kindLabel:item?.kindLabel||(item?.evidenceType==='effect'?'状態変化':'型要素')",
     "kindLabel:type==='effect'?'状態変化':'型要素'",
     "function sumFormationScoreDetails(details)",
@@ -60,6 +63,9 @@ print("formation score tag-only detail contract ok")
 
 CSS_REQUIRED = (
     ".formation-score-evidence-tags{display:flex;flex-wrap:wrap;gap:4px}",
+    ".formation-score-evidence-tags.is-collapsed{display:flex;flex-wrap:nowrap",
+    ".formation-score-evidence-tags.is-expanded{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr))",
+    ".formation-score-evidence-label{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}",
     ".formation-score-evidence-tag{display:inline-flex",
     ".formation-score-evidence-tag b{font-size:10px",
     ".formation-score-evidence-tag.is-status",
