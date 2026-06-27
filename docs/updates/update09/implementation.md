@@ -815,3 +815,10 @@
 - Added responsive CSS for `.formation-score-type-select-wrap` and `.formation-score-type-select`; no inline HTML logic was added.
 - Regression coverage: `tools/test_formation_type_score_render.js` now asserts the select renders, options include the active type and unset state, the forbidden old `formationEvaluationTypeInput`/`評価型ID` UI is absent, and `setFormationEvaluationType` persists and recalculates immediately.
 - Remaining issues: preview verification remains blocked in this workspace until remote fetch/push access is available.
+
+## 2026-06-27 Update09.5.3 formation type selector binding fix
+
+- Phase 5 correction: visible runtime version advanced to `3.0.0.0 Update09.5.3` / revision `97`.
+- Root cause: the same score-card HTML is rendered in both the mobile board placement and the PC selected stack, so binding only `document.getElementById('formationEvaluationTypeSelect')` could attach the change handler to just one duplicated select. A user could change the unbound visible select and see no immediate recalculation.
+- Fix: mark the select with `data-formation-evaluation-type-select="1"` and bind all matching score-panel type selects through `els.formationRoot.querySelectorAll(...)` in `setupFormationEvents`.
+- Regression coverage: `tools/test_formation_type_score_render.js` now requires the data marker and the all-select binding source contract.

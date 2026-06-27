@@ -864,3 +864,11 @@
 - Preview result: not preview-complete in this workspace because remote fetch/push is blocked.
 - Minimum user acceptance operation: open 部隊編成, use the `型` select at the left of the total score panel, confirm the score/chips/tags redraw immediately, reload, and confirm the selected type persists.
 - Remaining issues: preview synchronization and public Pages verification remain blocked until a remote-enabled environment pushes the branch.
+
+## 2026-06-27 Update09.5.3 formation type selector binding fix report
+
+- Summary: fixed the issue where changing the visible `型` list box did not always update the current formation or recalculate score immediately.
+- Bug classification and root cause: duplicated DOM binding defect. The score card is rendered in two placements for responsive layout, but the prior code bound only a single `getElementById('formationEvaluationTypeSelect')` result.
+- Implementation change: every rendered score-panel type select is marked with `data-formation-evaluation-type-select="1"`, and `setupFormationEvents` binds all matching selects to `setFormationEvaluationType`.
+- Validation: `node tools/test_formation_type_score_render.js` and `python3 tools/run_app_validation.py`.
+- Remaining issues: preview synchronization and public Pages verification remain blocked until remote access is available.

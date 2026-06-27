@@ -173,6 +173,7 @@ const positiveRow = (typeScore?.candidateScores || [])
 
 assert(html.includes('トータルスコア'), 'score summary HTML must render total score label');
 assert(html.includes('id="formationEvaluationTypeSelect"'), 'score summary must render formationEvaluationTypeSelect in the total score panel');
+assert(html.includes('data-formation-evaluation-type-select="1"'), 'score summary must mark every duplicated score-panel type select for delegated binding');
 assert(html.includes('<option value="vaccine" selected>ワクチン型</option>'), 'formationEvaluationTypeSelect must select the current formation evaluationTypeId');
 assert(html.includes('型未設定'), 'formationEvaluationTypeSelect must include an unset option');
 assert(!html.includes('評価型ID') && !html.includes('formationEvaluationTypeInput'), 'score summary must not restore forbidden evaluation type UI');
@@ -330,6 +331,7 @@ assert(formationSource.includes('displayTitle:item.sourceTag?'), 'every evidence
 assert(formationSource.includes('${esc(evidenceRows.length)}タグ'), 'score detail header must show actual rendered tag count as tags');
 assert(formationSource.includes('renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)'), 'mobile board must receive score card before summary');
 assert(formationSource.includes('${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}'), 'PC score card remains in selected stack');
+assert(formationSource.includes("querySelectorAll('#formationEvaluationTypeSelect,[data-formation-evaluation-type-select]'"), 'all score-panel type selects must be bound, including duplicated mobile/PC score cards');
 assert(formationSource.includes('formationScoreDetail:click'), 'legacy formation detail click diagnostics must still exist');
 assert(formationSource.includes("rowLabel:btn?.dataset?.formationScoreDetailLabel"), 'formation detail click diagnostics must include row label');
 assert(formationSource.includes("evidenceCount:Number(btn?.dataset?.formationScoreDetailEvidenceCount)"), 'formation detail click diagnostics must include evidence count');
