@@ -732,3 +732,14 @@
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.11` / revision `84`.
 - Minimum user acceptance operation: in PC width, hard reload, open 部隊編成, and confirm 部隊一覧 header, group selector, and buttons are visible before the list cards; only the list cards scroll.
 - Remaining issues: Phase 4 is not complete. Continue keeping future corrections narrow to reduce conflict surface.
+
+
+## 2026-06-27 Update09.4.12 delayed PC formation panel scroll reset report
+
+- Summary: strengthened the PC left formation panel reset so the 部隊一覧 header, group selector, and action buttons are restored after layout settles. Phase 4 remains ongoing.
+- Bug classification and root cause: PC layout state regression. The immediate reset could be too early if layout/browser scroll restoration adjusted the panel after DOM insertion.
+- Implementation change: added immediate, `requestAnimationFrame`, and timeout reset calls for `.formation-list-panel.scrollTop`.
+- Permanent countermeasure: validators require the reset helper and delayed reset calls.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.12` / revision `85`.
+- Minimum user acceptance operation: hard reload, open 部隊編成 in PC width, and confirm the 部隊一覧 header/group selector/action buttons are visible above the scrollable card list.
+- Remaining issues: Phase 4 is not complete. Continue keeping future corrections narrow and avoid unrelated files.

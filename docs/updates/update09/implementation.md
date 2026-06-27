@@ -707,3 +707,12 @@
 - Recurrence prevention: Phase 3/4 validators now require the `formationListPanel.scrollTop=0` render guard in active formation runtime.
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.11` / revision `84`.
 - HTML size / externalization: only the start-guide badge version changed in HTML. Runtime behavior remains in external JavaScript/CSS.
+
+
+## 2026-06-27 Update09.4.12 delayed PC formation panel scroll reset
+
+- Root cause: a single immediate `scrollTop=0` reset could run before browser/layout scroll restoration or later rendering work, allowing the fixed PC left panel to remain offset and hide the header/group controls.
+- Implementation change: added `resetFormationListPanelScroll()` and call it immediately, on `requestAnimationFrame`, and after a short timeout so the panel body is forced back to the top after layout settles.
+- Recurrence prevention: Phase 3/4 validators now require the reset helper plus immediate, RAF, and timeout reset calls.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.12` / revision `85`.
+- HTML size / externalization: only the start-guide badge version changed in HTML. Runtime behavior remains in external JavaScript/CSS.
