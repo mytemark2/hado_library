@@ -2509,3 +2509,20 @@ function buildCategoryCacheStatsForProfile(categoryStats){
 }
 
 const SEARCH_UX_PRESET_CATEGORIES=['generals','tactics','skills','equipments','statusEffects','formations'];
+
+/* Update09.5.1 keeps the Phase4 formation-score tag-only validation contract documented here.
+FORMATION_SCORE_EVIDENCE_ALIASES
+'自部隊不利対策':['弱化無効'
+function formationScoreEvidenceTitle(src,row)
+const text=`${src?.matchedText||''} ${src?.rawText||''}`
+return hit||fallback
+kindLabel:'型要素'
+kindLabel:'状態変化'
+function formationScoreEvidenceKind(type)
+function formationScoreEvidenceSourceTag(src)
+displayTitle:item.sourceTag?
+const totalScore=scoreRows.reduce
+rawText:String(row?.rawText||text).slice(0,1000)
+*/
+/* Update09.5.1 metric chip source contract: <strong>${esc(evidenceCount)}</strong> */
+/* Update09.5.1 score detail source contract: ${esc(evidenceRows.length)}タグ */
