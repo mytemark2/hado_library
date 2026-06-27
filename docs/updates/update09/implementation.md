@@ -822,3 +822,10 @@
 - Root cause: the same score-card HTML is rendered in both the mobile board placement and the PC selected stack, so binding only `document.getElementById('formationEvaluationTypeSelect')` could attach the change handler to just one duplicated select. A user could change the unbound visible select and see no immediate recalculation.
 - Fix: mark the select with `data-formation-evaluation-type-select="1"` and bind all matching score-panel type selects through `els.formationRoot.querySelectorAll(...)` in `setupFormationEvents`.
 - Regression coverage: `tools/test_formation_type_score_render.js` now requires the data marker and the all-select binding source contract.
+
+
+### Update09.5.4 — 評価スコア根拠タグの発生元表示復旧
+- 部隊編成の評価スコア詳細で、`状態変化 与ダメージ(発生元)` のように根拠タグ名の直後へ発生元を括弧付き表示する経路を復旧した。
+- `scoreDetails` / `evidenceRows` と `matchedEffects` / `matchedParameters` の双方で `sourceTag` を保持し、表示専用の `formationScoreEvidenceDisplayTitle()` でラベルと発生元を合成する。
+- 回帰防止として `tools/test_formation_type_score_render.js` と `tools/validate_formation_score_tag_only.py` を更新し、括弧付き発生元表示と既存の「点」「内訳合計」「評価型ID」禁止を同時に検証する。
+- HTML大型ロジック追加なし。修正は外部 JavaScript と検証スクリプト、バージョン記録のみ。

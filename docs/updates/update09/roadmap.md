@@ -87,3 +87,6 @@ Update08までに実装した型編成ナビ、候補トレイ、保存データ
 ## 2026-06-27 Update09.5.2
 
 - Formation score panel now owns direct type selection for the current formation; preview verification remains pending until remote access is available.
+
+
+- Update09.5.4: 部隊編成の評価スコア詳細タグで、根拠名の直後に発生元を括弧付き表示する回帰を修正。

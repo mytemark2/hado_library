@@ -872,3 +872,11 @@
 - Implementation change: every rendered score-panel type select is marked with `data-formation-evaluation-type-select="1"`, and `setupFormationEvents` binds all matching selects to `setFormationEvaluationType`.
 - Validation: `node tools/test_formation_type_score_render.js` and `python3 tools/run_app_validation.py`.
 - Remaining issues: preview synchronization and public Pages verification remain blocked until remote access is available.
+
+
+### Update09.5.4 完了報告 — 評価スコア根拠タグの発生元表示復旧
+- 事象: 型変更の即時再計算修正後、評価スコア詳細タグから `弱化無効(技能名)` のような発生元表示が欠落していた。
+- 原因: 詳細タグをタグ専用 UI に戻した際、`source` / `sourceLabel` をタグ本文へ合成する処理がなく、補助情報側にしか残らない経路があった。
+- 対応: `formationScoreEvidenceDisplayTitle()` を追加し、提供済み詳細行・フォールバック根拠行の両方で `sourceTag` を保持して括弧付き表示へ反映した。
+- 回帰防止: `tools/test_formation_type_score_render.js` で `弱化無効(検証耐性技能)` 形式を検証し、`tools/validate_formation_score_tag_only.py` でも共有フォーマッタと実レンダー断片を必須化した。
+- 残課題: ローカル静的/機能検証は実施対象。プレビュー同期はリモート接続・認証状態に依存するため、この環境で完了可否を別途報告する。

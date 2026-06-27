@@ -255,7 +255,7 @@ assert(debugEvents.slice(beforeClickDebugCount).some(event => event.name === 'fo
 
 assert(!html.includes('+1点'), 'score detail rows must not show redundant point contribution');
 assert(!html.includes('>効果<') && !html.includes('>変化率<'), 'normal UI must not expose debug bucket headings');
-assert(html.includes('検証耐性技能') || html.includes('検証支援技能') || html.includes('検証回復技能'), 'score detail HTML must include matched source labels');
+assert(html.includes('弱化無効(検証耐性技能)') || html.includes('攻撃速度(検証支援技能)') || html.includes('負傷兵回復(検証回復技能)'), 'score detail HTML must include matched source labels in parentheses next to the evidence label');
 assert(html.includes('+1') || html.includes('+20%') || html.includes('+10%'), 'score detail HTML must include matched values as supplemental text');
 assert(html.includes('条件：常に'), 'score detail HTML must show user-facing default condition');
 
@@ -320,15 +320,16 @@ assert(formationSource.includes('formationScore:detail-click'), 'formation detai
 assert(formationSource.includes('handleFormationScoreDetailClick'), 'formation score detail clicks should use a shared guarded handler');
 assert(formationSource.includes('event.preventDefault();event.stopPropagation();'), 'formation score detail clicks should not bubble into parent formation controls');
 assert(formationSource.includes('formationScore:detail-delegate'), 'formation score detail delegated click diagnostics must exist');
-assert(formationSource.includes('rawText:String(row?.rawText||text).slice(0,1000)'), 'score evidence debug rows must preserve enough raw text for matched labels');
+assert(formationSource.includes("rawText:String(row?.rawText||row?.matchedText||'').slice(0,500)"), 'score evidence debug rows must preserve enough raw text for matched labels');
 assert(formationSource.includes('function sumFormationScoreDetails(details)'), 'legacy score-detail total helper must remain defined to prevent render-time ReferenceError');
-assert(formationSource.includes('<strong>${esc(evidenceCount)}</strong>'), 'metric chip value must match rendered tag count');
+assert(formationSource.includes('<strong aria-label="根拠 ${esc(evidenceCount)}件">${esc(evidenceCount)}</strong>'), 'metric chip value must match rendered tag count');
 assert(formationSource.includes('formationScore:detail-more-delegate'), 'show-more button must have delegated click handling');
-assert(formationSource.includes('const totalScore=scoreRows.reduce'), 'total score must be the sum of displayed evaluation score rows');
+assert(formationSource.includes('function calculateFormationDisplayedTotalScore(rows){return (Array.isArray(rows)?rows:[]).reduce'), 'total score must be the sum of displayed evaluation score rows');
 assert(formationSource.includes('function calculateFormationDisplayedTotalScore(rows)'), 'rendered total score must use a scoped visible-total helper');
 assert(formationSource.includes('<strong>${esc(visibleTotalScore)}</strong>'), 'score card header must render the recalculated visible total');
-assert(formationSource.includes('displayTitle:item.sourceTag?'), 'every evidence tag with a source must render a parenthesized source label');
-assert(formationSource.includes('${esc(evidenceRows.length)}タグ'), 'score detail header must show actual rendered tag count as tags');
+assert(formationSource.includes('function formationScoreEvidenceDisplayTitle(title,source)'), 'formation evidence labels must use a shared parenthesized source formatter');
+assert(formationSource.includes('displayTitle:formationScoreEvidenceDisplayTitle'), 'every evidence tag with a source must render a parenthesized source label');
+assert(formationSource.includes('評価${esc(evidenceRows.length)} / 根拠${esc(evidenceRows.length)}件'), 'score detail header must show actual rendered evidence count');
 assert(formationSource.includes('renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)'), 'mobile board must receive score card before summary');
 assert(formationSource.includes('${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}'), 'PC score card remains in selected stack');
 assert(formationSource.includes("querySelectorAll('#formationEvaluationTypeSelect,[data-formation-evaluation-type-select]'"), 'all score-panel type selects must be bound, including duplicated mobile/PC score cards');

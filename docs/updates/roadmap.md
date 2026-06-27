@@ -136,3 +136,6 @@
 ## 2026-06-27 Update09.5.2
 
 - Added direct current-formation type selection to the total score panel and immediate recalculation/persistence for `evaluationTypeId` / `evaluationTypeName`.
+
+
+- Update09.5.4: 部隊編成の評価スコア詳細タグで、根拠名の直後に発生元を括弧付き表示する回帰を修正。
