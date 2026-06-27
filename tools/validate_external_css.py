@@ -7,7 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 HTML_FILES = ("index.html",)
 CSS_FILE = "hado_styles.css"
-LINK = f'<link href="./{CSS_FILE}" rel="stylesheet"/>'
+LINK_NEEDLES = (f'<link href="./{CSS_FILE}" rel="stylesheet"/>', f'<link href="./{CSS_FILE}?v=')
 
 
 def main() -> int:
@@ -21,7 +21,7 @@ def main() -> int:
             errors.append(f"{name} still contains a <style> block")
         if "style=" in text:
             errors.append(f"{name} still contains inline style attributes")
-        if LINK not in text:
+        if not any(needle in text for needle in LINK_NEEDLES):
             errors.append(f"{name} does not reference {CSS_FILE}")
     if errors:
         raise SystemExit("\n".join(errors))
