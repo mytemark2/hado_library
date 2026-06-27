@@ -3,10 +3,10 @@
   'use strict';
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.0.0.0',
-    updateNo: '09.4.21',
-    revision: 94,
+    updateNo: '09.5.2',
+    revision: 96,
     baseAppVersion: '2.9.6.5',
-    summary: 'Update09.4.21: finalize Phase 4 formation guide frame targets.',
+    summary: 'Update09.5.2: add editable formation type selector to the total score panel.',
     updatedAt: '2026-06-27T00:00:00+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;

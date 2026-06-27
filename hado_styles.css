@@ -1519,3 +1519,9 @@ body.formation-tab #formationScreen>h2,body.formation-tab #formationScreen>.note
 
 /* FIX[Update09.4.21-MOBILE-SCORE-BETWEEN-WARHORSE-SUMMARY]: show total score between warhorse and result summary on mobile */
 @media (max-width:980px),(pointer:coarse){body.formation-tab .formation-mobile-score-result-placement{display:grid!important;gap:4px!important;margin-top:4px!important}body.formation-tab .formation-mobile-score-result-placement .formation-score-card{display:block!important;visibility:visible!important}body.formation-tab .formation-selected-stack>.formation-selected-card.formation-score-card:not(.is-dialog){display:none!important}}
+/* Update09.5.2: formation score panel type selector */
+.formation-score-summary-head{display:flex;align-items:center;justify-content:flex-start;gap:10px;flex-wrap:wrap}
+.formation-score-type-select-wrap{display:flex;align-items:center;gap:6px;min-width:180px;max-width:100%}
+.formation-score-type-select-wrap span{font-size:12px;font-weight:900;color:#475569;white-space:nowrap}
+.formation-score-type-select{min-width:140px;max-width:240px;width:100%;border:1px solid #bfdbfe;border-radius:10px;background:#fff;color:#0f172a;padding:7px 10px;font-weight:800}
+@media (max-width:980px),(pointer:coarse){.formation-score-summary-head{align-items:flex-start}.formation-score-type-select-wrap{flex:1 1 180px}.formation-score-type-select{max-width:none}.formation-score-total{flex:1 1 160px}}
