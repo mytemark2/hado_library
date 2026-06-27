@@ -716,3 +716,12 @@
 - Recurrence prevention: Phase 3/4 validators now require the reset helper plus immediate, RAF, and timeout reset calls.
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.12` / revision `85`.
 - HTML size / externalization: only the start-guide badge version changed in HTML. Runtime behavior remains in external JavaScript/CSS.
+
+
+## 2026-06-27 Update09.4.13 PC formation panel shell non-scrollable fix
+
+- Root cause: the fixed PC left panel itself was still a scrollable ancestor, so browser focus/scroll restoration could reapply a non-zero panel scroll after the earlier reset and clip the header/group/actions area.
+- Implementation change: changed the PC `.formation-list-panel` shell to `overflow:clip` with contained overscroll, kept only `.formation-list` scrollable, and strengthened the reset helper with `scrollTo()` plus 80/250/600ms delayed resets.
+- Recurrence prevention: Phase 3/4 validators now require the non-scrollable panel shell, `scrollTo`, and the expanded reset sequence.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.13` / revision `86`.
+- HTML size / externalization: only the start-guide badge version changed in HTML. Runtime behavior remains in external JavaScript/CSS.

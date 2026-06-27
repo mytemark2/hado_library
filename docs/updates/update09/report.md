@@ -743,3 +743,14 @@
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.12` / revision `85`.
 - Minimum user acceptance operation: hard reload, open 部隊編成 in PC width, and confirm the 部隊一覧 header/group selector/action buttons are visible above the scrollable card list.
 - Remaining issues: Phase 4 is not complete. Continue keeping future corrections narrow and avoid unrelated files.
+
+
+## 2026-06-27 Update09.4.13 PC formation panel shell non-scrollable report
+
+- Summary: stopped the PC left formation panel shell from being a scroll container so 部隊一覧, group selector, and action buttons cannot be hidden by retained panel scroll offset.
+- Bug classification and root cause: PC fixed-panel scroll ancestor regression. The panel itself could still receive focus/restore scrolling after render even though only the list child should scroll.
+- Implementation change: use `overflow:clip` on `.formation-list-panel`, keep `.formation-list` as the only scroll area, and expand reset timing with `scrollTo` and longer delayed resets.
+- Permanent countermeasure: validators require the non-scrollable panel shell and expanded reset calls.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.13` / revision `86`.
+- Minimum user acceptance operation: hard reload, open 部隊編成 in PC width, and confirm the 部隊一覧 header/group selector/action buttons are always visible; only the card list scrolls.
+- Remaining issues: Phase 4 is not complete. Continue future corrections in narrow PRs.

@@ -35,12 +35,12 @@ def main() -> int:
     implementation = read("docs/updates/update09/implementation.md")
     report = read("docs/updates/update09/report.md")
 
-    require(version_js, "updateNo: '09.4.12'", "Update09.4.12 update number")
-    require(version_js, "revision: 85", "Update09.4.12 revision")
-    require(version_js, "Update09.4.12", "visible Phase 4 version summary")
+    require(version_js, "updateNo: '09.4.13'", "Update09.4.13 update number")
+    require(version_js, "revision: 86", "Update09.4.13 revision")
+    require(version_js, "Update09.4.13", "visible Phase 4 version summary")
 
     for needle in [
-        "Update09.4.12 操作ガイド",
+        "Update09.4.13 操作ガイド",
         "型編成ナビ",
         "型候補一覧",
         "候補トレイ",
@@ -94,12 +94,15 @@ def main() -> int:
         "panel.scrollTop=0",
         "requestAnimationFrame(resetFormationListPanelScroll)",
         "setTimeout(resetFormationListPanelScroll,80)",
+        "setTimeout(resetFormationListPanelScroll,250)",
+        "setTimeout(resetFormationListPanelScroll,600)",
+        "panel.scrollTo({top:0,left:0,behavior:'auto'})",
     ]:
         require(formation_js, needle, f"formation group controls {needle}")
 
     require(styles_css, ".formation-group-select", "formation group select style")
-    require(styles_css, "Update09.4.12-PC-FORMATION-LIST-SCROLL", "PC formation list scrollbar fix marker")
-    require(styles_css, "body.formation-tab .formation-list-panel{overflow:hidden!important}", "PC formation panel fixed controls")
+    require(styles_css, "Update09.4.13-PC-FORMATION-LIST-SCROLL", "PC formation list scrollbar fix marker")
+    require(styles_css, "body.formation-tab .formation-list-panel{overflow:clip!important;overscroll-behavior:contain!important}", "PC formation panel fixed controls")
     require(styles_css, "body.formation-tab .formation-list-panel .formation-list{flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important", "PC formation list scroll area")
     require(styles_css, "scrollbar-gutter:stable", "PC formation list stable scrollbar")
 
@@ -128,7 +131,7 @@ def main() -> int:
         ("implementation", implementation),
         ("report", report),
     ]:
-        require(doc, "Update09.4.12", f"{doc_name} Phase 4 record")
+        require(doc, "Update09.4.13", f"{doc_name} Phase 4 record")
         require(doc, "Phase 4", f"{doc_name} Phase 4 label")
 
     print("Update09 Phase 4 guide/version validation OK")
