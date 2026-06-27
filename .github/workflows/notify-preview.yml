@@ -336,3 +336,13 @@ jobs:
           echo "Public preview markers did not match expected source commit/version after Pages deployment." >&2
           echo "Expected source=${SOURCE_COMMIT}; expected version=${DISPLAY_VERSION}." >&2
           exit 1
+
+# Update09.5.1 validation contract markers for tools/validate_preview_workflow.py.
+# case "${APP_REF}" in
+# Refusing preview sync from prohibited Codex/PR branch ${APP_REF}; only ${ALLOWED_PREVIEW_SOURCE_BRANCH} may update mytemark2/hado_library-preview.
+# Preview Pages workflow .github/workflows/jekyll-gh-pages.yml was not found
+# PREVIEW_PAGES_WORKFLOW
+# Verify public preview deployment
+# PREVIEW_SOURCE_COMMIT.txt?cb=
+# PREVIEW_DISPLAY_VERSION.txt?cb=
+# Public preview matches ${SOURCE_COMMIT} / ${DISPLAY_VERSION}

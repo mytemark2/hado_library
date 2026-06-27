@@ -30,7 +30,7 @@ REQUIRED = (
     "const totalScore=scoreRows.reduce",
     "function calculateFormationDisplayedTotalScore(rows)",
     "<strong>${esc(visibleTotalScore)}</strong>",
-    "${esc(row.label)}のタグ",
+    "${esc(row.label)}の内訳",
     "${esc(evidenceRows.length)}タグ",
     "<strong>${esc(evidenceCount)}</strong>",
     "formationScore:detail-more-delegate",

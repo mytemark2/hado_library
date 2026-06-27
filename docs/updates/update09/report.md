@@ -837,3 +837,38 @@
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.21` / revision `94`.
 - Minimum user acceptance operation: open 部隊編成ガイド and confirm 2/8 highlights the left panel fixed head/group/action area, and 5/8 highlights the visible formation board instead of the app title.
 - Remaining issues: none for Phase 4; Phase 4 is complete.
+
+## 2026-06-27 Update09.5.1 Phase 5 type search/candidate/tray report
+
+- Summary: Update09 Phase 5 fixes the type-entry → type-candidate → candidate-tray handoff and adds profiling for the previously unmeasured type-search time.
+- Bug classification and root cause: UI flow defect and persistence gap. Type candidate card selection only updated local modal state (`st.picked`), and no event connected that state to the current formation `candidateTray`; the entry dialog also saved selection without navigating to the candidate list.
+- Impact scope checked: type search profiling, type candidate role tabs/counts, candidate card selection, candidate tray add/open/remove/clear/place events, current formation persistence, candidateTray sanitize compatibility, and validation wiring.
+- Files changed: `hado_search.js`, `hado_type_entry.js`, `hado_type_candidates.js`, `hado_candidate_tray.js`, `hado_formation.js`, `hado_version.js`, `HADO_DEV_INFO.json`, `tools/run_app_validation.py`, and `tools/validate_update09_phase5_type_candidate_flow.py`.
+- HTML size change and externalization decision: `index.html` was not changed; all runtime behavior was implemented in external JavaScript modules.
+- Speed measurement result: the earlier observed `totalMs=269.8ms` with about `22ms` of measured phases is now diagnosable through `measuredKnownMs`, `unmeasuredMs`, `unmeasuredMsWarning`, row-build, importance, chips, diagnostic, responsive, detail, and cache timings. New runtime measurements must be collected in browser after deployment.
+- Validation commands: `node --check` for the changed JavaScript files, `python3 tools/validate_update09_phase5_type_candidate_flow.py`, and `python3 tools/run_app_validation.py`.
+- Validation results: recorded in the final agent report for this change.
+- GitHub Actions result: not available in this local workspace before push.
+- Preview result: not preview-complete in this workspace because no `origin` remote is configured, so the application branch cannot be pushed and the preview repository/Pages markers cannot be verified here.
+- Minimum user acceptance operation: open 部隊編成, open 型編成ナビ, choose a type, press `型候補一覧へ`, select a candidate card, press `候補トレイへ`, confirm the tray opens with that candidate, repeat add to confirm no duplicate, then use `配置先を選ぶ` for a supported 武将/装備 candidate and verify the existing formation placement popover appears.
+- Remaining issues: preview synchronization and public Pages verification remain blocked until a remote-enabled environment pushes the committed branch.
+
+## 2026-06-27 Update09.5.2 formation score type selector report
+
+- Summary: added an editable `型` list box to the total score panel so the current formation type can be changed directly from 部隊編成.
+- Bug classification and root cause: missing edit affordance. Formation records already persisted `evaluationTypeId` / `evaluationTypeName`, but the score panel only displayed the active type and no UI path updated those fields for the current formation.
+- Implementation change: `renderFormationScoreSummaryHtml` renders `formationEvaluationTypeSelect` before `トータルスコア`; `setFormationEvaluationType(typeId)` updates the current formation, recalculates `totalScore` / `evaluationScore`, saves with `setFormationEvaluationType`, rerenders, and shows a toast.
+- Impact scope checked: formation score rendering, type option rendering, selected option state, immediate recalculation/persistence, existing score chips/detail panel, candidate tray behavior, and forbidden old labels/IDs.
+- HTML size change and externalization decision: no large inline HTML logic was added; behavior is in `hado_formation.js` and styling is in `hado_styles.css`.
+- Validation commands: `node tools/test_formation_type_score_render.js`, `python3 tools/run_app_validation.py`.
+- Preview result: not preview-complete in this workspace because remote fetch/push is blocked.
+- Minimum user acceptance operation: open 部隊編成, use the `型` select at the left of the total score panel, confirm the score/chips/tags redraw immediately, reload, and confirm the selected type persists.
+- Remaining issues: preview synchronization and public Pages verification remain blocked until a remote-enabled environment pushes the branch.
+
+## 2026-06-27 Update09.5.3 formation type selector binding fix report
+
+- Summary: fixed the issue where changing the visible `型` list box did not always update the current formation or recalculate score immediately.
+- Bug classification and root cause: duplicated DOM binding defect. The score card is rendered in two placements for responsive layout, but the prior code bound only a single `getElementById('formationEvaluationTypeSelect')` result.
+- Implementation change: every rendered score-panel type select is marked with `data-formation-evaluation-type-select="1"`, and `setupFormationEvents` binds all matching selects to `setFormationEvaluationType`.
+- Validation: `node tools/test_formation_type_score_render.js` and `python3 tools/run_app_validation.py`.
+- Remaining issues: preview synchronization and public Pages verification remain blocked until remote access is available.

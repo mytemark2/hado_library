@@ -172,6 +172,11 @@ const positiveRow = (typeScore?.candidateScores || [])
   .find(row => Number(row.score || 0) > 0 && ((row.matchedEffects || []).length || (row.matchedParameters || []).length));
 
 assert(html.includes('トータルスコア'), 'score summary HTML must render total score label');
+assert(html.includes('id="formationEvaluationTypeSelect"'), 'score summary must render formationEvaluationTypeSelect in the total score panel');
+assert(html.includes('data-formation-evaluation-type-select="1"'), 'score summary must mark every duplicated score-panel type select for delegated binding');
+assert(html.includes('<option value="vaccine" selected>ワクチン型</option>'), 'formationEvaluationTypeSelect must select the current formation evaluationTypeId');
+assert(html.includes('型未設定'), 'formationEvaluationTypeSelect must include an unset option');
+assert(!html.includes('評価型ID') && !html.includes('formationEvaluationTypeInput'), 'score summary must not restore forbidden evaluation type UI');
 assert(html.includes('<section class="formation-selected-card formation-score-card'), 'score card must be a constant visible section');
 assert(!html.includes('<details class="formation-score-summary'), 'score card must not hide the score body in details');
 assert((html.match(/formation-score-metric-chip/g)||[]).length >= 5, 'evaluation score chips must render metric chip classes');
@@ -184,6 +189,34 @@ assert(!html.includes('内訳合計'), 'score detail panel must not display redu
 assert(html.includes('data-formation-score-detail-label='), 'score chips must carry row labels for click diagnostics');
 assert(html.includes('data-formation-score-detail-evidence-count='), 'score chips must carry evidence counts for click diagnostics');
 assert(html.includes('formation-score-detail-panel'), 'selected evaluation score must render a detail panel');
+
+
+const changeFormation = JSON.parse(JSON.stringify(formation));
+changeFormation.evaluationTypeId = 'vaccine';
+changeFormation.evaluationTypeName = 'ワクチン型';
+context.state.formations = [changeFormation];
+context.state.currentFormationId = changeFormation.id;
+let saveContext = '';
+let renderCalled = false;
+let toastMessage = '';
+context.saveFormationDataToStorage = (ctx) => { saveContext = ctx; return true; };
+context.renderFormationScreen = () => { renderCalled = true; };
+context.showFormationToast = (message) => { toastMessage = message; };
+context.buildFormationParameterData = () => ({ effects: [], skills: [] });
+let recalculatedTypeId = '';
+context.calculateFormationAutoScores = (f) => { recalculatedTypeId = f.evaluationTypeId; return { totalScore: 7, evaluationScore: 7 }; };
+const nextRule = rules.find(rule => rule.typeId && rule.typeId !== 'vaccine');
+assert(nextRule, 'test fixture must provide another type rule');
+const changed = context.setFormationEvaluationType(nextRule.typeId);
+assert.strictEqual(changed, true, 'setFormationEvaluationType must accept a valid typeId');
+assert.strictEqual(changeFormation.evaluationTypeId, nextRule.typeId, 'setFormationEvaluationType must update evaluationTypeId');
+assert.strictEqual(changeFormation.evaluationTypeName, nextRule.typeName, 'setFormationEvaluationType must update evaluationTypeName');
+assert.strictEqual(saveContext, 'setFormationEvaluationType', 'setFormationEvaluationType must persist with the expected save context');
+assert.strictEqual(renderCalled, true, 'setFormationEvaluationType must rerender immediately');
+assert.strictEqual(toastMessage, '型を変更しました', 'setFormationEvaluationType must show the user-facing toast');
+assert.strictEqual(recalculatedTypeId, nextRule.typeId, 'setFormationEvaluationType must recalculate using the changed typeId');
+assert.strictEqual(changeFormation.totalScore, 7, 'setFormationEvaluationType must store recalculated totalScore');
+assert.strictEqual(changeFormation.evaluationScore, 7, 'setFormationEvaluationType must store recalculated evaluationScore');
 
 const fakeChips = Array.from({ length: 5 }, (_, index) => ({
   dataset: { formationScoreDetailIndex: String(index) },
@@ -298,6 +331,7 @@ assert(formationSource.includes('displayTitle:item.sourceTag?'), 'every evidence
 assert(formationSource.includes('${esc(evidenceRows.length)}タグ'), 'score detail header must show actual rendered tag count as tags');
 assert(formationSource.includes('renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)'), 'mobile board must receive score card before summary');
 assert(formationSource.includes('${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}'), 'PC score card remains in selected stack');
+assert(formationSource.includes("querySelectorAll('#formationEvaluationTypeSelect,[data-formation-evaluation-type-select]'"), 'all score-panel type selects must be bound, including duplicated mobile/PC score cards');
 assert(formationSource.includes('formationScoreDetail:click'), 'legacy formation detail click diagnostics must still exist');
 assert(formationSource.includes("rowLabel:btn?.dataset?.formationScoreDetailLabel"), 'formation detail click diagnostics must include row label');
 assert(formationSource.includes("evidenceCount:Number(btn?.dataset?.formationScoreDetailEvidenceCount)"), 'formation detail click diagnostics must include evidence count');
