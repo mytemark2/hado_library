@@ -829,3 +829,9 @@
 - `scoreDetails` / `evidenceRows` と `matchedEffects` / `matchedParameters` の双方で `sourceTag` を保持し、表示専用の `formationScoreEvidenceDisplayTitle()` でラベルと発生元を合成する。
 - 回帰防止として `tools/test_formation_type_score_render.js` と `tools/validate_formation_score_tag_only.py` を更新し、括弧付き発生元表示と既存の「点」「内訳合計」「評価型ID」禁止を同時に検証する。
 - HTML大型ロジック追加なし。修正は外部 JavaScript と検証スクリプト、バージョン記録のみ。
+
+
+### Update09.5.5 — 評価スコア根拠タグの集約テキスト露出防止
+- `sourceLabels` 集約テキストと未定義 `sr-only` 依存を削除し、評価スコア詳細に表示される根拠はタグ内の `ラベル(発生元)` のみに限定した。
+- 回帰防止として、HTML に `class="sr-only"` や `/` 区切りの根拠集約ダンプが出ないことを `tools/test_formation_type_score_render.js` で検証する。
+- `tools/validate_formation_score_tag_only.py` に `const sourceLabels=` と未定義 `sr-only` 依存の禁止を追加し、同種の「隠したつもりの補助テキスト露出」を静的に止める。

@@ -256,8 +256,9 @@ assert(debugEvents.slice(beforeClickDebugCount).some(event => event.name === 'fo
 assert(!html.includes('+1点'), 'score detail rows must not show redundant point contribution');
 assert(!html.includes('>効果<') && !html.includes('>変化率<'), 'normal UI must not expose debug bucket headings');
 assert(html.includes('弱化無効(検証耐性技能)') || html.includes('攻撃速度(検証支援技能)') || html.includes('負傷兵回復(検証回復技能)'), 'score detail HTML must include matched source labels in parentheses next to the evidence label');
-assert(html.includes('+1') || html.includes('+20%') || html.includes('+10%'), 'score detail HTML must include matched values as supplemental text');
-assert(html.includes('条件：常に'), 'score detail HTML must show user-facing default condition');
+assert(!html.includes('class="sr-only"'), 'score detail HTML must not expose aggregate evidence labels through an undefined sr-only helper');
+assert(!html.includes(' / 条件：常に') && !html.includes('検証耐性技能 / 検証支援技能'), 'score detail HTML must not render a slash-delimited aggregate source label dump');
+assert(!html.includes('条件：常に'), 'score detail HTML must not expose aggregate default condition text outside evidence tags');
 
 const syntheticDisadvantageRow = {
   label: '自部隊不利対策',
@@ -329,6 +330,8 @@ assert(formationSource.includes('function calculateFormationDisplayedTotalScore(
 assert(formationSource.includes('<strong>${esc(visibleTotalScore)}</strong>'), 'score card header must render the recalculated visible total');
 assert(formationSource.includes('function formationScoreEvidenceDisplayTitle(title,source)'), 'formation evidence labels must use a shared parenthesized source formatter');
 assert(formationSource.includes('displayTitle:formationScoreEvidenceDisplayTitle'), 'every evidence tag with a source must render a parenthesized source label');
+assert(!formationSource.includes('const sourceLabels='), 'formation score renderer must not build an aggregate sourceLabels dump');
+assert(!formationSource.includes('class="sr-only"'), 'formation score renderer must not rely on an undefined sr-only class to hide aggregate labels');
 assert(formationSource.includes('評価${esc(evidenceRows.length)} / 根拠${esc(evidenceRows.length)}件'), 'score detail header must show actual rendered evidence count');
 assert(formationSource.includes('renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)'), 'mobile board must receive score card before summary');
 assert(formationSource.includes('${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}'), 'PC score card remains in selected stack');

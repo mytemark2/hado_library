@@ -44,6 +44,8 @@ FORBIDDEN = (
     "${esc(score)} / ${esc(evidenceRows.length)}件一致",
     "${esc(score)} / ${esc(score)}件一致",
     "<small>${esc(evidenceCount)}件一致</small>",
+    "const sourceLabels=",
+    "class=\"sr-only\"",
 )
 
 missing = [snippet for snippet in REQUIRED if snippet not in SOURCE]

@@ -880,3 +880,10 @@
 - 対応: `formationScoreEvidenceDisplayTitle()` を追加し、提供済み詳細行・フォールバック根拠行の両方で `sourceTag` を保持して括弧付き表示へ反映した。
 - 回帰防止: `tools/test_formation_type_score_render.js` で `弱化無効(検証耐性技能)` 形式を検証し、`tools/validate_formation_score_tag_only.py` でも共有フォーマッタと実レンダー断片を必須化した。
 - 残課題: ローカル静的/機能検証は実施対象。プレビュー同期はリモート接続・認証状態に依存するため、この環境で完了可否を別途報告する。
+
+
+### Update09.5.5 完了報告 — 評価スコア根拠タグの集約テキスト露出防止
+- 事象: `class="sr-only"` として出した根拠集約 `sourceLabels` が、CSS 未定義のため通常本文として露出した。
+- 原因: 括弧付き発生元の存在チェックに偏り、余計な補助テキストが画面に出ないことと `sr-only` 定義の有無を検証していなかった。
+- 対応: 集約テキスト生成と `sr-only` span 出力を削除し、表示対象をタグ内の括弧付き発生元だけにした。
+- 再発防止: テストと validator で `sourceLabels` / 未定義 `sr-only` 依存 / `/` 区切り根拠ダンプの再混入を禁止した。
