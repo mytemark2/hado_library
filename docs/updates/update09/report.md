@@ -787,3 +787,13 @@
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.16` / revision `89`.
 - Minimum user acceptance operation: open 部隊編成 in PC width and confirm 部隊一覧/group/action controls are visible; scroll only the card list.
 - Remaining issues: Phase 4 is not complete. If this still fails, collect DOM/computed-style logs before further UI changes.
+
+## 2026-06-27 Update09.4.17 PC formation panel measured tab offset report
+
+- Summary: corrected the PC left formation panel position by measuring the actual fixed data/header and main-tab bottom instead of relying on fallback offsets.
+- Bug classification and root cause: fixed-header overlap/layout calculation defect. The fixed `検索 / 部隊編成 / 軍馬` tab area was not used as the source of truth for left-panel top positioning.
+- Implementation change: added measured panel top synchronization and forced the card list child to show a vertical scrollbar when overflowing.
+- Permanent countermeasure: validators require the measured-offset helper and CSS marker.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.17` / revision `90`.
+- Minimum user acceptance operation: open 部隊編成 in PC width and confirm the left panel starts below the top tabs, shows the group selector/actions, and the部隊 card list shows a scrollbar.
+- Remaining issues: Phase 4 is not complete. If this still fails, collect `formationListPanel:viewport-sync` logs and computed styles for `.formation-list-panel` and `.formation-list` before further UI changes.

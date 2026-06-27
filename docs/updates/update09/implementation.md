@@ -752,3 +752,11 @@
 - Recurrence prevention: Phase 3/4 validators now require the fixed-head wrapper and sticky CSS marker.
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.16` / revision `89`.
 - HTML size / externalization: only asset query strings and guide badge changed in HTML. Runtime behavior remains in external JavaScript/CSS.
+
+## 2026-06-27 Update09.4.17 PC formation panel measured tab offset
+
+- Root cause correction: the previous fix still depended on a fixed fallback offset and did not use the actual bottom position of the fixed top tab bar (`検索 / 部隊編成 / 軍馬`). When the tab bar occupied more vertical space than the fallback, the left formation panel could start underneath it and hide the group/header controls.
+- Implementation change: `hado_formation.js` now measures `#appTitlePanel` and `#mainTabPanel` with `getBoundingClientRect().bottom`, writes `--formation-left-panel-top`, and applies the measured top/height directly to `.formation-list-panel`. The list child is forced to `overflow-y: scroll` so the scrollbar remains visible when the card list overflows.
+- Recurrence prevention: Phase 4 validators now require the measured-offset helper, viewport sync debug log, and CSS marker.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.17` / revision `90`.
+- HTML size / externalization: only asset query strings and guide badge changed in HTML. Runtime behavior remains in external JavaScript/CSS.

@@ -35,18 +35,18 @@ def main() -> int:
     implementation = read("docs/updates/update09/implementation.md")
     report = read("docs/updates/update09/report.md")
 
-    require(version_js, "updateNo: '09.4.16'", "Update09.4.16 update number")
-    require(version_js, "revision: 89", "Update09.4.16 revision")
-    require(version_js, "Update09.4.16", "visible Phase 4 version summary")
+    require(version_js, "updateNo: '09.4.17'", "Update09.4.17 update number")
+    require(version_js, "revision: 90", "Update09.4.17 revision")
+    require(version_js, "Update09.4.17", "visible Phase 4 version summary")
 
     for needle in [
-        "Update09.4.16 操作ガイド",
+        "Update09.4.17 操作ガイド",
         "型編成ナビ",
         "型候補一覧",
         "候補トレイ",
         "部隊編成",
-        "./hado_styles.css?v=09.4.16",
-        "./hado_formation.js?v=09.4.16",
+        "./hado_styles.css?v=09.4.17",
+        "./hado_formation.js?v=09.4.17",
         "全データ表示",
         "保存データ表示",
         "グループ選択欄",
@@ -107,15 +107,23 @@ def main() -> int:
         "setTimeout(resetFormationListPanelScroll,250)",
         "setTimeout(resetFormationListPanelScroll,600)",
         "panel.scrollTo({top:0,left:0,behavior:'auto'})",
+        "function calculateFormationFixedPanelTop()",
+        "getBoundingClientRect().bottom",
+        "--formation-left-panel-top",
+        "formationListPanel:viewport-sync",
+        "overflow-y','scroll'",
     ]:
         require(formation_js, needle, f"formation group controls {needle}")
 
     require(styles_css, ".formation-group-select", "formation group select style")
-    require(styles_css, "Update09.4.16-PC-FORMATION-LIST-SCROLL", "PC formation list scrollbar fix marker")
-    require(styles_css, "Update09.4.16-PC-FORMATION-LIST-FIXED-HEAD", "PC formation list fixed head marker")
-    require(styles_css, ".formation-list-fixed-head{position:sticky!important;top:0!important", "PC formation fixed head style")
+    require(styles_css, "Update09.4.17-PC-FORMATION-LIST-SCROLL", "PC formation list scrollbar fix marker")
+    require(styles_css, "Update09.4.17-PC-FORMATION-LIST-FIXED-HEAD", "PC formation list fixed head marker")
+    require(styles_css, "Update09.4.17-PC-FORMATION-PANEL-ACTUAL-TAB-OFFSET", "PC formation measured top marker")
+    require(styles_css, ".formation-list-fixed-head{position:relative!important;top:auto!important", "PC formation fixed head style")
     require(styles_css, "body.formation-tab .formation-list-panel{overflow:clip!important;overscroll-behavior:contain!important}", "PC formation panel fixed controls")
     require(styles_css, "body.formation-tab .formation-list-panel .formation-list{flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important", "PC formation list scroll area")
+    require(styles_css, "--formation-left-panel-top", "PC formation measured top CSS var")
+    require(styles_css, "overflow-y:scroll!important", "PC formation forced visible scrollbar")
     require(styles_css, "scrollbar-gutter:stable", "PC formation list stable scrollbar")
 
 
@@ -143,7 +151,7 @@ def main() -> int:
         ("implementation", implementation),
         ("report", report),
     ]:
-        require(doc, "Update09.4.16", f"{doc_name} Phase 4 record")
+        require(doc, "Update09.4.17", f"{doc_name} Phase 4 record")
         require(doc, "Phase 4", f"{doc_name} Phase 4 label")
 
     print("Update09 Phase 4 guide/version validation OK")
