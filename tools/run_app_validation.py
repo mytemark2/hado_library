@@ -43,6 +43,7 @@ COMMANDS.extend(
         ["python3", "tools/validate_type_search_feature_index_data.py"],
         ["python3", "tools/validate_formation_link_helpers.py"],
         ["python3", "tools/validate_update09_phase3_formation_ui.py"],
+        ["python3", "tools/validate_update09_phase4_guides.py"],
         ["python3", "tools/validate_formation_score_tag_only.py"],
         ["python3", "tools/validate_formation_score_total_scope.py"],
         ["python3", "tools/validate_formation_responsive_layout_contract.py"],
