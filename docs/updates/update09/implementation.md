@@ -695,6 +695,15 @@
 
 - Root cause: Update09.4.9 made the entire fixed `.formation-list-panel` scrollable, which could leave the panel scrolled mid-way and hide the group selector/header at the top.
 - Implementation change: changed the PC override so `.formation-list-panel` keeps `overflow:hidden!important` while only the `.formation-list` child scrolls vertically with `overflow-y:auto!important` and `scrollbar-gutter:stable`.
-- Recurrence prevention: Phase 3/4 validators now require the `Update09.4.10-PC-FORMATION-LIST-SCROLL` marker, fixed panel overflow, and scrollable list-area snippets.
+- Recurrence prevention: Phase 3/4 validators now require the `Update09.4.11-PC-FORMATION-LIST-SCROLL` marker, fixed panel overflow, and scrollable list-area snippets.
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.10` / revision `83`.
 - HTML size / externalization: only the start-guide badge version changed in HTML. Runtime behavior remains in external CSS.
+
+
+## 2026-06-26 Update09.4.11 PC formation panel scroll reset
+
+- Root cause: after the panel had once been scrollable, the fixed `.formation-list-panel` could retain a non-zero `scrollTop`, leaving the header/group selector area clipped even after moving scrolling to the list child.
+- Implementation change: after rendering the formation screen, reset `.formation-list-panel.scrollTop` to `0` so the panel always opens at the header/group selector/actions area while the `.formation-list` child owns list scrolling.
+- Recurrence prevention: Phase 3/4 validators now require the `formationListPanel.scrollTop=0` render guard in active formation runtime.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.11` / revision `84`.
+- HTML size / externalization: only the start-guide badge version changed in HTML. Runtime behavior remains in external JavaScript/CSS.

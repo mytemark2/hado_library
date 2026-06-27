@@ -721,3 +721,14 @@
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.10` / revision `83`.
 - Minimum user acceptance operation: in PC width, open 部隊編成 and confirm the group selector/header/actions stay visible while the 部隊一覧 cards scroll inside the list area.
 - Remaining issues: Phase 4 is not complete. Continue keeping future corrections narrow to reduce conflict surface.
+
+
+## 2026-06-26 Update09.4.11 PC formation panel scroll reset report
+
+- Summary: reset the PC left formation panel scroll position after render so the 部隊一覧 header, group selector, and action buttons are visible at initial display. Phase 4 remains ongoing.
+- Bug classification and root cause: PC layout state regression. The prior whole-panel scroll path could leave a retained non-zero `scrollTop`, so the top controls remained clipped even after restricting list scrolling.
+- Implementation change: set `.formation-list-panel.scrollTop = 0` immediately after rendering the formation DOM.
+- Permanent countermeasure: validators require the render-time scroll reset guard.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.11` / revision `84`.
+- Minimum user acceptance operation: in PC width, hard reload, open 部隊編成, and confirm 部隊一覧 header, group selector, and buttons are visible before the list cards; only the list cards scroll.
+- Remaining issues: Phase 4 is not complete. Continue keeping future corrections narrow to reduce conflict surface.
