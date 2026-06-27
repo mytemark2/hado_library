@@ -894,3 +894,10 @@
 - 原因: collapsed/expanded の表示状態を CSS クラスで分けず、通常時も `flex-wrap` で複数行表示していたため、長い根拠名がカード内の余白を押し広げていた。
 - 対応: 通常時は1行 `nowrap + overflow hidden`、さらに表示時は結果サマリー風のグリッド chip 表示へ切り替えるようにした。
 - 再発防止: test / validator で collapsed/expanded クラスと overflow-safe CSS、`formation-quick-summary-chip` 共有を検証する。
+
+
+### Update09.5.7 完了報告 — 評価スコア内訳の全件ダイアログ化
+- 事象: `さらに表示` が inline 展開であり、結果サマリーと同じ別ダイアログ表示・全件表示になっていなかった。
+- 原因: 「結果サマリーと同じように」を chip/grid の見た目として解釈し、既存の結果サマリーの拡大ダイアログ動作まで接続していなかった。
+- 対応: `さらに表示` は `formationScoreEvidenceDialogOpen` を立てて再描画し、専用 dialog で選択中評価項目の根拠を全件表示する。
+- 再発防止: test / validator で dialog 出力、全件 chip 表示、dialog close/backdrop イベントを検証する。

@@ -278,16 +278,17 @@ const syntheticDisadvantageRow = {
   }))
 };
 const syntheticHtml = context.renderFormationScoreEvidencePanelHtml(syntheticDisadvantageRow);
-context.state.formationScoreDetailExpanded = true;
-const syntheticExpandedHtml = context.renderFormationScoreEvidencePanelHtml(syntheticDisadvantageRow);
-context.state.formationScoreDetailExpanded = false;
+context.state.formationScoreEvidenceDialogOpen = true;
+const syntheticDialogHtml = context.renderFormationScoreEvidenceDialogHtml(syntheticDisadvantageRow);
+context.state.formationScoreEvidenceDialogOpen = false;
 assert(syntheticHtml.includes('自部隊不利対策の内訳'), '20-evidence disadvantage row must render the selected heading');
 assert(syntheticHtml.includes('評価20 / 根拠20件'), '20-evidence disadvantage row must show score value and evidence count without point wording');
 assert(!syntheticHtml.includes('点'), '20-evidence disadvantage row must not display point wording');
 assert(syntheticHtml.includes('弱化無効') && syntheticHtml.includes('弱化解除') && syntheticHtml.includes('弱化反射') && syntheticHtml.includes('状態変化無効') && syntheticHtml.includes('不利変化無効'), 'disadvantage details must expose matched disadvantage countermeasure labels');
 assert(!syntheticHtml.includes('一致根拠なし'), '20-evidence disadvantage row must not show the empty-evidence message');
-assert(syntheticExpandedHtml.includes('formation-score-detail-panel is-expanded') && syntheticExpandedHtml.includes('formation-score-evidence-tags is-expanded'), 'show-more expanded score evidence must use result-summary-like expanded grid classes');
-assert(syntheticExpandedHtml.includes('formation-quick-summary-chip'), 'expanded score evidence must reuse result-summary chip styling');
+assert(syntheticDialogHtml.includes('formation-score-evidence-dialog-overlay') && syntheticDialogHtml.includes('role="dialog"'), 'show-more score evidence must open a dialog like result summary');
+assert(syntheticDialogHtml.includes('全件表示') && syntheticDialogHtml.includes('formation-score-evidence-dialog-list'), 'score evidence dialog must display all evidence in a dedicated list');
+assert((syntheticDialogHtml.match(/formation-quick-summary-chip/g)||[]).length === 20, 'score evidence dialog must render every evidence item as a result-summary-like chip');
 
 assert(typeScore && typeof typeScore === 'object', 'typeScore diagnostic must exist');
 assert.strictEqual(typeScore.calculationInvoked, true, 'formation render must invoke type-score calculation');
@@ -339,8 +340,10 @@ assert(formationSource.includes('function formationScoreEvidenceDisplayTitle(tit
 assert(formationSource.includes('displayTitle:formationScoreEvidenceDisplayTitle'), 'every evidence tag with a source must render a parenthesized source label');
 assert(!formationSource.includes('const sourceLabels='), 'formation score renderer must not build an aggregate sourceLabels dump');
 assert(!formationSource.includes('class="sr-only"'), 'formation score renderer must not rely on an undefined sr-only class to hide aggregate labels');
-assert(formationSource.includes('formation-score-evidence-tags ${expanded?'), 'score evidence tag list must switch collapsed/expanded classes');
-assert(formationSource.includes('formation-quick-summary-chip'), 'expanded score evidence must share result-summary chip styling');
+assert(formationSource.includes('function renderFormationScoreEvidenceDialogHtml(row)'), 'score evidence show-more must render a dedicated dialog');
+assert(formationSource.includes('formation-score-evidence-dialog-list'), 'score evidence dialog must contain an all-item evidence list');
+assert(formationSource.includes('state.formationScoreEvidenceDialogOpen=true'), 'show-more must open the evidence dialog instead of inline expansion');
+assert(formationSource.includes('formation-quick-summary-chip'), 'score evidence dialog must share result-summary chip styling');
 assert(formationSource.includes('評価${esc(evidenceRows.length)} / 根拠${esc(evidenceRows.length)}件'), 'score detail header must show actual rendered evidence count');
 assert(formationSource.includes('renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)'), 'mobile board must receive score card before summary');
 assert(formationSource.includes('${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}'), 'PC score card remains in selected stack');

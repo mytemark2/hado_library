@@ -841,3 +841,9 @@
 - 評価スコア内訳の通常表示を `is-collapsed` の1行表示にし、根拠タグがスコアカード外へ回り込まないようにした。
 - `さらに表示` 押下時は `is-expanded` に切り替え、結果サマリーと同系統の `formation-quick-summary-chip` スタイルを使うグリッド表示へ変更した。
 - 回帰防止として、collapsed/expanded のクラス、結果サマリー風 chip 共有、CSS の overflow/grid 制御を test / validator に追加した。
+
+
+### Update09.5.7 — 評価スコア内訳の全件ダイアログ化
+- `さらに表示` 押下時の inline 展開をやめ、結果サマリーと同じ `formation-mobile-dialog-overlay` 系の別ダイアログで根拠を全件表示するようにした。
+- 通常の評価スコア内訳は1行 collapsed のまま維持し、ダイアログ内だけ `formation-quick-summary-chip` を使った結果サマリー風の一覧を表示する。
+- 回帰防止として、dialog open state、dialog list、全件 chip 数、close/backdrop イベントを test / validator の対象に追加した。
