@@ -96,7 +96,6 @@ REQUIRED_FUNCTION_DEFINITIONS = (
 )
 
 FORBIDDEN_JS = (
-    "renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)",
     "scoreRows:generalRows.map",
     "window.HadoTypeScore.score(formationTypeScoreEntity",
     "保存データの軍馬を最大3枠まで部隊へ反映",
@@ -162,6 +161,7 @@ REQUIRED_CSS = (
     ".formation-quick-summary-list{display:grid!important",
     "formation-selected-card.formation-score-card:not(.is-dialog)",
     ".formation-mobile-score-result-placement",
+    "formation-selected-stack>.formation-selected-card.formation-score-card:not(.is-dialog)",
     "formation-selected-stack>.formation-quick-summary-strip",
     "formation-quick-summary-strip",
     ".formation-warhorse-slots-body",
@@ -220,8 +220,8 @@ def main() -> int:
 
     if js.count("${formationWarhorseEditorHtml}${scoreCardHtml}${quickSummaryHtml}") != 1:
         raise SystemExit("Update09 Phase3 formation UI must render exactly one score card in formation-selected-stack")
-    if "renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)" in js:
-        raise SystemExit("Update09 Phase3 formation UI must not pass scoreCardHtml into renderFormationTeamBoardSelectableHtml")
+    if "renderFormationTeamBoardSelectableHtml(f,quickSummaryHtml)" in js:
+        raise SystemExit("Update09 Phase3 formation UI must pass scoreCardHtml into mobile board placement so the mobile total score panel remains visible")
     if missing_type:
         raise SystemExit("Update09 Phase3 type candidate UI missing JS: " + ", ".join(missing_type))
     if forbidden_type:
