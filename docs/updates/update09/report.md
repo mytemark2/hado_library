@@ -837,3 +837,115 @@
 - Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.21` / revision `94`.
 - Minimum user acceptance operation: open 部隊編成ガイド and confirm 2/8 highlights the left panel fixed head/group/action area, and 5/8 highlights the visible formation board instead of the app title.
 - Remaining issues: none for Phase 4; Phase 4 is complete.
+
+## 2026-06-27 Update09.5.1 Phase 5 type search/candidate/tray report
+
+- Summary: Update09 Phase 5 fixes the type-entry → type-candidate → candidate-tray handoff and adds profiling for the previously unmeasured type-search time.
+- Bug classification and root cause: UI flow defect and persistence gap. Type candidate card selection only updated local modal state (`st.picked`), and no event connected that state to the current formation `candidateTray`; the entry dialog also saved selection without navigating to the candidate list.
+- Impact scope checked: type search profiling, type candidate role tabs/counts, candidate card selection, candidate tray add/open/remove/clear/place events, current formation persistence, candidateTray sanitize compatibility, and validation wiring.
+- Files changed: `hado_search.js`, `hado_type_entry.js`, `hado_type_candidates.js`, `hado_candidate_tray.js`, `hado_formation.js`, `hado_version.js`, `HADO_DEV_INFO.json`, `tools/run_app_validation.py`, and `tools/validate_update09_phase5_type_candidate_flow.py`.
+- HTML size change and externalization decision: `index.html` was not changed; all runtime behavior was implemented in external JavaScript modules.
+- Speed measurement result: the earlier observed `totalMs=269.8ms` with about `22ms` of measured phases is now diagnosable through `measuredKnownMs`, `unmeasuredMs`, `unmeasuredMsWarning`, row-build, importance, chips, diagnostic, responsive, detail, and cache timings. New runtime measurements must be collected in browser after deployment.
+- Validation commands: `node --check` for the changed JavaScript files, `python3 tools/validate_update09_phase5_type_candidate_flow.py`, and `python3 tools/run_app_validation.py`.
+- Validation results: recorded in the final agent report for this change.
+- GitHub Actions result: not available in this local workspace before push.
+- Preview result: not preview-complete in this workspace because no `origin` remote is configured, so the application branch cannot be pushed and the preview repository/Pages markers cannot be verified here.
+- Minimum user acceptance operation: open 部隊編成, open 型編成ナビ, choose a type, press `型候補一覧へ`, select a candidate card, press `候補トレイへ`, confirm the tray opens with that candidate, repeat add to confirm no duplicate, then use `配置先を選ぶ` for a supported 武将/装備 candidate and verify the existing formation placement popover appears.
+- Remaining issues: preview synchronization and public Pages verification remain blocked until a remote-enabled environment pushes the committed branch.
+
+## 2026-06-27 Update09.5.2 formation score type selector report
+
+- Summary: added an editable `型` list box to the total score panel so the current formation type can be changed directly from 部隊編成.
+- Bug classification and root cause: missing edit affordance. Formation records already persisted `evaluationTypeId` / `evaluationTypeName`, but the score panel only displayed the active type and no UI path updated those fields for the current formation.
+- Implementation change: `renderFormationScoreSummaryHtml` renders `formationEvaluationTypeSelect` before `トータルスコア`; `setFormationEvaluationType(typeId)` updates the current formation, recalculates `totalScore` / `evaluationScore`, saves with `setFormationEvaluationType`, rerenders, and shows a toast.
+- Impact scope checked: formation score rendering, type option rendering, selected option state, immediate recalculation/persistence, existing score chips/detail panel, candidate tray behavior, and forbidden old labels/IDs.
+- HTML size change and externalization decision: no large inline HTML logic was added; behavior is in `hado_formation.js` and styling is in `hado_styles.css`.
+- Validation commands: `node tools/test_formation_type_score_render.js`, `python3 tools/run_app_validation.py`.
+- Preview result: not preview-complete in this workspace because remote fetch/push is blocked.
+- Minimum user acceptance operation: open 部隊編成, use the `型` select at the left of the total score panel, confirm the score/chips/tags redraw immediately, reload, and confirm the selected type persists.
+- Remaining issues: preview synchronization and public Pages verification remain blocked until a remote-enabled environment pushes the branch.
+
+## 2026-06-27 Update09.5.3 formation type selector binding fix report
+
+- Summary: fixed the issue where changing the visible `型` list box did not always update the current formation or recalculate score immediately.
+- Bug classification and root cause: duplicated DOM binding defect. The score card is rendered in two placements for responsive layout, but the prior code bound only a single `getElementById('formationEvaluationTypeSelect')` result.
+- Implementation change: every rendered score-panel type select is marked with `data-formation-evaluation-type-select="1"`, and `setupFormationEvents` binds all matching selects to `setFormationEvaluationType`.
+- Validation: `node tools/test_formation_type_score_render.js` and `python3 tools/run_app_validation.py`.
+- Remaining issues: preview synchronization and public Pages verification remain blocked until remote access is available.
+
+
+### Update09.5.4 完了報告 — 評価スコア根拠タグの発生元表示復旧
+- 事象: 型変更の即時再計算修正後、評価スコア詳細タグから `弱化無効(技能名)` のような発生元表示が欠落していた。
+- 原因: 詳細タグをタグ専用 UI に戻した際、`source` / `sourceLabel` をタグ本文へ合成する処理がなく、補助情報側にしか残らない経路があった。
+- 対応: `formationScoreEvidenceDisplayTitle()` を追加し、提供済み詳細行・フォールバック根拠行の両方で `sourceTag` を保持して括弧付き表示へ反映した。
+- 回帰防止: `tools/test_formation_type_score_render.js` で `弱化無効(検証耐性技能)` 形式を検証し、`tools/validate_formation_score_tag_only.py` でも共有フォーマッタと実レンダー断片を必須化した。
+- 残課題: ローカル静的/機能検証は実施対象。プレビュー同期はリモート接続・認証状態に依存するため、この環境で完了可否を別途報告する。
+
+
+### Update09.5.5 完了報告 — 評価スコア根拠タグの集約テキスト露出防止
+- 事象: `class="sr-only"` として出した根拠集約 `sourceLabels` が、CSS 未定義のため通常本文として露出した。
+- 原因: 括弧付き発生元の存在チェックに偏り、余計な補助テキストが画面に出ないことと `sr-only` 定義の有無を検証していなかった。
+- 対応: 集約テキスト生成と `sr-only` span 出力を削除し、表示対象をタグ内の括弧付き発生元だけにした。
+- 再発防止: テストと validator で `sourceLabels` / 未定義 `sr-only` 依存 / `/` 区切り根拠ダンプの再混入を禁止した。
+
+
+### Update09.5.6 完了報告 — 評価スコア内訳の欄外表示防止
+- 事象: 評価スコア内訳の根拠タグが複数行に広がり、スコアカード内の結果サマリー領域と干渉して欄外表示に見える状態だった。
+- 原因: collapsed/expanded の表示状態を CSS クラスで分けず、通常時も `flex-wrap` で複数行表示していたため、長い根拠名がカード内の余白を押し広げていた。
+- 対応: 通常時は1行 `nowrap + overflow hidden`、さらに表示時は結果サマリー風のグリッド chip 表示へ切り替えるようにした。
+- 再発防止: test / validator で collapsed/expanded クラスと overflow-safe CSS、`formation-quick-summary-chip` 共有を検証する。
+
+
+### Update09.5.7 完了報告 — 評価スコア内訳の全件ダイアログ化
+- 事象: `さらに表示` が inline 展開であり、結果サマリーと同じ別ダイアログ表示・全件表示になっていなかった。
+- 原因: 「結果サマリーと同じように」を chip/grid の見た目として解釈し、既存の結果サマリーの拡大ダイアログ動作まで接続していなかった。
+- 対応: `さらに表示` は `formationScoreEvidenceDialogOpen` を立てて再描画し、専用 dialog で選択中評価項目の根拠を全件表示する。
+- 再発防止: test / validator で dialog 出力、全件 chip 表示、dialog close/backdrop イベントを検証する。
+
+
+### Update09.5.8 完了報告 — 評価スコアクリック時の詳細切替復旧
+- 事象: 評価スコア chip をクリックしても、表示中の詳細が確実に切り替わらなかった。
+- 原因: score card が responsive layout 用に複数描画される一方、イベント委譲が最初の `.formation-score-card` に偏り、さらにクリック処理が同一 card だけを部分更新していたため、実際に見ている側の詳細 panel が更新されない経路があった。
+- 対応: 全ての `.formation-score-card` に delegated click/key handler を束ね、クリック後は部分 DOM 置換ではなく `state.formationScoreDetailIndex` 更新後に `renderFormationScreen()` で全 score card を同じ状態へ再描画する。
+- 再発防止: test / validator で全 score card binding と、クリック時に全体再描画へ進む契約を検証する。
+
+
+### Update09.5.9 完了報告 — 評価スコア targetScope 判定の根本修正
+- 事象: `METRIC_ALIASES` の語句一致だけで評価していたため、味方非ダメージ効果に攻撃速度・戦法速度・戦法ゲージ・通常攻撃対象数などが混入し、対象不明の語句一致でも ally/self/enemy 系項目へ加点される問題があった。
+- 原因: 評価項目ごとに効果対象を確認する構造がなく、alias 一致結果をそのまま件数スコアへ使っていた。
+- 対応: `targetScope` を導入し、ally/self/enemy/any/unknown の対象判定、`includeAliases` / `excludeAliases`、`requiresTarget`、`displayBucket`、同一根拠行の単一加点化を実装した。
+- 非ダメージ: 火力・速度・ゲージ・機動・射程・連鎖・通常攻撃対象数を除外し、知力上昇は targetScope 不問で含める。
+- 自部隊不利対策: 自部隊対象なら弱化対策・状態変化対策・被火力対策・生存対策・バフ維持へ分類する。
+- 味方負傷兵回復: 味方対象を必須とし、自部隊のみ・自身のみ・対象不明の回復は加点しない。
+- 再発防止: `tools/test_update09_phase5_score_target_scope.js` と `tools/validate_update09_phase5_score_target_scope.py` を追加し、full validation に組み込んだ。
+
+### Update09.5.10 完了報告 — 評価スコア旧ランタイムパッチ撤去
+
+- 問題分類: 旧 hotfix の残存による実ロジック上書き。`hado_type_score.js` 側で targetScope 判定を導入しても、後段で `hado_update_meta.js` の旧ワクチン型キーワード一致パッチが `calculateFormationAutoScores` を差し替え、`攻撃速度` / `戦法速度` / `戦法ゲージ` / `通常攻撃対象数` などを `ally_non_damage_effect` に再分類していた。
+- 根本原因: Update 用メタ同期ファイルに一時的なランタイム修正を積み重ね、正規ソースへ移管後に削除・検証する仕組みが不足していた。
+- 恒久対策: `hado_update_meta.js` をメタデータ同期専用に戻し、スコア計算・描画差し替え・CSS 注入・旧キーワード一致を validator と Node テストで禁止した。
+- 実装: 部隊一覧は空データスコア計算を呼ばず保存済みスコアを表示し、編成バーのメモ欄レイアウトは通常 CSS に移管した。
+- 検証: `python3 tools/run_app_validation.py` で追加 validator / Node テストを含むローカル検証を実行する。
+- 残課題: preview 同期と Pages 実機確認は、リモート fetch/push が可能な環境で実施する。
+
+### Update09.5.11 完了報告 — 可視バージョン固定記載の撤去
+
+- 問題分類: バージョン単一ソース規約違反。`hado_version.js` を単一ソースとしているにもかかわらず、`index.html`、asset query、score trace の固定文字列、validator の固定列挙にも同じ Update 番号を持たせていた。
+- 根本原因: cache busting / 初期プレースホルダ / テスト期待値を「現在の Update 番号」で直接更新しており、`hado_update_meta.js` の同期機構を信頼する設計に寄せ切れていなかった。
+- 恒久対策: runtime 側の固定 Update09.5.x を撤去し、trace は `window.HADO_VERSION` から組み立て、validator は `index.html` へ固定バージョンが戻ると失敗するようにした。
+- 検証: `python3 tools/run_app_validation.py` で、version consistency、Phase4 guide validator、targetScope validator、Node render tests を含む全ローカル検証を実行する。
+- 残課題: preview 同期と Pages 実機確認は、リモート fetch/push が可能な環境で実施する。
+
+### Update09.5.12 完了報告 — 評価スコア内訳クリックで詳細表示
+
+- 変更内容: 評価スコア内訳の `さらに表示` ボタンを廃止し、内訳パネル全体をクリック可能にした。ヘッダー右側には `クリックで詳細表示` を出し、クリック時は既存の根拠付き詳細ダイアログを表示する。
+- 簡略表示: 内訳パネル上のタグは `知力上昇` などの簡略名だけにし、同一簡略名は重複表示しない。
+- 詳細表示: ダイアログは従来通り、根拠や発生元を含む詳細表示を維持した。
+- 検証: `node tools/test_formation_type_score_render.js` と `python3 tools/validate_formation_score_tag_only.py` の期待値を更新し、`python3 tools/run_app_validation.py` で全体検証する。
+- 残課題: preview 同期と Pages 実機確認は、リモート fetch/push が可能な環境で実施する。
+### Update09.5.13 完了報告 — 評価スコア詳細タグ全文表示
+
+- 変更内容: 評価スコア詳細ダイアログ内の各タグについて、ラベルの `overflow:hidden` / `text-overflow:ellipsis` / `white-space:nowrap` をダイアログ内だけ解除し、根拠内容を全文表示するようにした。
+- 影響範囲: 通常の評価スコア内訳パネルは、従来通り簡略タグ・重複排除・1行表示を維持する。
+- 検証: `node tools/test_formation_type_score_render.js`、`python3 tools/validate_formation_score_tag_only.py`、`python3 tools/run_app_validation.py` で全文表示 CSS 契約を確認する。
+- 残課題: preview 同期と Pages 実機確認は、リモート fetch/push が可能な環境で実施する。

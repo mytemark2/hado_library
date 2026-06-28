@@ -77,3 +77,33 @@ Update08までに実装した型編成ナビ、候補トレイ、保存データ
 - Update09.4.15: `--mobile-fixed-stack-space` が初期計測0pxで小さく設定され、PC左パネルがヘッダー背面に潜る可能性を修正。下限118pxと計測ログを追加。
 
 - Update09.4.16: 左パネルの見出し・グループ選択・操作ボタンを `formation-list-fixed-head` に分離し、部隊カード一覧だけをスクロール領域に固定。
+
+## 2026-06-27 Update09.5.1 Phase 5
+
+- Scope: type search profiling, type candidate role-count performance, type entry/candidate/tray handoff, and current formation candidateTray persistence.
+- Status: implementation and local validation added; preview synchronization is blocked in this workspace because no git remote is configured.
+- Follow-up: collect browser `typeSearch:profile` logs after deployment and compare `measuredKnownMs`/`unmeasuredMs` against the previous `totalMs=269.8ms` observation.
+
+## 2026-06-27 Update09.5.2
+
+- Formation score panel now owns direct type selection for the current formation; preview verification remains pending until remote access is available.
+
+
+- Update09.5.4: 部隊編成の評価スコア詳細タグで、根拠名の直後に発生元を括弧付き表示する回帰を修正。
+
+
+- Update09.5.5: 評価スコア詳細で未定義 `sr-only` に依存した根拠集約テキストが露出する回帰を修正し、再発防止 validator を追加。
+
+
+- Update09.5.6: 評価スコア内訳を通常時1行、さらに表示時は結果サマリー風グリッドにし、欄外表示を防止。
+
+
+- Update09.5.7: 評価スコア内訳の `さらに表示` を結果サマリーと同じ別ダイアログ表示にし、根拠を全件表示。
+
+- Update09.5.8: 評価スコア chip クリックで詳細が切り替わらない duplicated score card binding 不具合を修正。
+
+- Update09.5.9: 評価スコア判定を targetScope aware に変更し、非ダメージ/自部隊不利対策/味方回復の対象判定と二重加点防止を追加。
+- Update09.5.10: `hado_update_meta.js` に残っていた旧評価スコア hotfix を撤去し、targetScope 判定が旧キーワード一致で上書きされないよう validator / Node テストを追加。
+- Update09.5.11: `hado_version.js` 以外の runtime 固定 Update09.5.x 文字列を撤去し、index / trace / validator を単一バージョンソース運用へ戻した。
+- Update09.5.12: 評価スコア内訳の「さらに表示」を廃止し、内訳パネルクリックで詳細ダイアログを開く UI に変更。簡略タグは重複排除。
+- Update09.5.13: 評価スコア詳細ダイアログ内の根拠タグを省略せず全文表示するように変更。
