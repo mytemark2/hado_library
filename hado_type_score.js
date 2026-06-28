@@ -61,7 +61,7 @@ const NON_DAMAGE_BUCKETS=[
   {bucket:'戦法支援',kind:'tactic_support',aliases:['戦法ゲージ','出陣時戦法ゲージ','交戦開始時戦法ゲージ','戦法速度'],scope:'ally'},
   {bucket:'連鎖支援',kind:'chain_support',aliases:['連鎖率','連鎖確率'],scope:'ally'},
   {bucket:'速度支援',kind:'firepower',aliases:['攻撃速度'],scope:'ally'},
-  {bucket:'火力支援',kind:'firepower',aliases:['攻撃上昇','攻撃','知力上昇','知力','部隊の知力','戦法威力','会心威力','会心発生','与ダメージ'],scope:'ally'},
+  {bucket:'火力支援',kind:'firepower',aliases:['攻撃上昇','攻撃','知力上昇','知力','部隊の知力','戦法威力','会心威力','会心発生'],scope:'ally'},
   {bucket:'耐久支援',kind:'defense',aliases:['防御上昇','防御','被ダメージ軽減','被ダメージを軽減','対物防御'],scope:'ally'},
   {bucket:'生存支援',kind:'recovery',aliases:['兵力回復','兵力を回復','負傷兵回復','負傷兵を最大兵力','負傷兵を回復','治癒','継続回復'],scope:'ally'},
   {bucket:'不利対策',kind:'weakening',aliases:['弱化解除','弱化効果解除','弱化効果を解除','弱化無効','弱化回避','弱化効果解除','弱化効果無効','弱化効果回避','状態異常解除','状態異常無効','不利変化無効','状態変化無効'],scope:'ally'}
@@ -152,13 +152,16 @@ function scoreEvidenceOrigin(row){
   return {eligible:true,sourceType:source==='effect-text'||featureType==='skillEffect'||featureType==='parameter'?'primary':'primary',reason:''};
 }
 function scoreEligibleEvidence(row,metricKey){return scoreEvidenceOrigin(row)}
+function hasDirectDamageEffect(text){return hasAny(text,['与ダメージ','与えるダメージ','戦法ダメージ','通常攻撃ダメージ','ダメージを与える','攻撃を行う'])}
 function metricCategoryGate(metricKey,text,bucket,intelligence=false){
   if(metricKey==='self_disadvantage_countermeasure'){
     if(!bucket||!['weakening','status_guard','control_guard'].includes(bucket.kind))return {ok:false,reason:'categoryGate: 自部隊不利対策は弱化/状態変化/制御対策のみ'};
     for(const [kind,aliases] of Object.entries(CATEGORY_DENY_ALIASES)){if(hasAny(text,aliases))return {ok:false,reason:`categoryDeny:${kind}`};}
   }
   if(metricKey==='ally_non_damage_effect'){
-    if(hasAny(text,['敵部隊','敵の','相手','ダメージを与える','攻撃を行う']))return {ok:false,reason:'categoryDeny:enemy_or_damage'};
+    if(!bucket)return {ok:false,reason:'categoryGate: 味方非ダメージ効果は支援サブカテゴリ一致のみ'};
+    if(hasAny(text,['敵部隊','敵の','相手']))return {ok:false,reason:'categoryDeny:enemy'};
+    if(hasDirectDamageEffect(text))return {ok:false,reason:'categoryDeny:direct_damage'};
   }
   if(metricKey==='ally_wounded_recovery'&&hasAny(text,['自部隊の','自身の','自分の']))return {ok:false,reason:'categoryDeny:self_recovery'};
   return {ok:true,reason:''};
@@ -193,6 +196,18 @@ function metricRows(entity,metric){
     return Object.assign({},row,classified,{matchedText:row?.matchedText||rowText(row),targetScope:classified.targetScope,targetScopeMatched:classified.targetScope,displayBucket:classified.displayBucket,effectKind:classified.effectKind,evidenceKey:rowEvidenceKey(row,metric?.metricKey||'',classified),scoreEligible:true,metricKey:metric?.metricKey||''});
   }).filter(Boolean);
 }
+function supportBucketKey(row){return norm(row?.displayBucket||row?.effectKind||row?.label||row?.statusEffectName||'')}
+function compactMetricRows(metricKey,rows){
+  if(metricKey!=='ally_non_damage_effect')return rows;
+  const seen=new Set(),out=[];
+  rows.forEach(row=>{
+    const key=supportBucketKey(row);
+    if(!key||seen.has(key))return;
+    seen.add(key);
+    out.push(Object.assign({},row,{representativePolicy:'one-row-per-support-bucket'}));
+  });
+  return out;
+}
 function relevantText(row,metric,roleId){
   const text=cleanMinus(roleCompatibleText(row,roleId)||row?.matchedText||rowText(row));
   const spec=metricSpec(metric),as=uniq([...(aliases(metric)||[]),...(spec.includeAliases||[])]).map(cleanMinus);
@@ -205,10 +220,10 @@ function percents(text){return [...cleanMinus(text).matchAll(/([+\-]?\d+(?:\.\d+
 function numbers(text){return [...cleanMinus(text).matchAll(/[+\-]\s*\d+(?:\.\d+)?|\d+(?:\.\d+)?(?=\s*(?:部隊|回|個|人|枠|対象|$))/g)].map(m=>Number(String(m[0]).replace(/\s+/g,''))).filter(Number.isFinite)}
 function isConditional(text){return /(際|時|場合|条件|主将|副将|補佐|侍従|好相性|出陣|交戦|駐屯|都市|弱化効果が|有利変化が)/.test(String(text||''))}
 function metricValue(entity,metric){
-  const roleId=String(entity?.roleId||''),rows=metricRows(entity,metric),method='target_scope_matched_item_count';
+  const roleId=String(entity?.roleId||''),rawRows=metricRows(entity,metric),rows=compactMetricRows(metric?.metricKey||'',rawRows),method='target_scope_matched_item_count';
   const confirmedRows=rows.filter(row=>!isConditional(relevantText(row,metric,roleId)));
   const itemCount=rows.length,confirmedCount=confirmedRows.length;
-  return {metricKey:metric?.metricKey,label:metric?.label,method,targetScope:metricSpec(metric).targetScope,requiresTarget:metricSpec(metric).requiresTarget,rows,confirmedRows,confirmedValue:confirmedCount,conditionalMaxValue:itemCount,itemCount,confirmedItemCount:confirmedCount,hit:itemCount>0};
+  return {metricKey:metric?.metricKey,label:metric?.label,method,targetScope:metricSpec(metric).targetScope,requiresTarget:metricSpec(metric).requiresTarget,rows,confirmedRows,confirmedValue:confirmedCount,conditionalMaxValue:itemCount,itemCount,confirmedItemCount:confirmedCount,hit:itemCount>0,rawEvidenceCount:rawRows.length,representativePolicy:metric?.metricKey==='ally_non_damage_effect'?'one-row-per-support-bucket':''};
 }
 function dedupeBreakdownRows(breakdown){
   const owners=new Map();
@@ -222,7 +237,7 @@ function formationMemberScore(entity,rule){
   return members.reduce((sum,member)=>sum+score(member,rule).fitScore,0);
 }
 function typeScoreAlgorithmVersion(){const v=window.HADO_VERSION||{},display=window.HADO_APP_DISPLAY_VERSION||v.displayVersion||((v.releaseVersion&&v.updateNo)?`${v.releaseVersion} Update${v.updateNo}`:'runtime-version');return `${display}/type-score-target-scope-v1`;}
-function recordTrace(entity,rule,result){if(window.HADO_TYPE_SCORE_TRACE_SUSPENDED)return;try{const previous=state.diagnostics.typeScore||{},recent=Array.isArray(previous.recent)?previous.recent:[],trace={timestamp:new Date().toISOString(),algorithmVersion:typeScoreAlgorithmVersion(),entityName:String(entity?.displayName||entity?.name||entity?.id||''),roleId:String(entity?.roleId||''),typeId:String(rule?.typeId||''),typeName:String(rule?.typeName||''),score:result.score,confirmedScore:result.confirmedScore,conditionalMaxScore:result.conditionalMaxScore,matchedMetricCount:result.matchedCount,contributionSummary:summary(result),breakdown:result.breakdown};recent.push({timestamp:trace.timestamp,entityName:trace.entityName,roleId:trace.roleId,typeId:trace.typeId,typeName:trace.typeName,confirmedScore:trace.confirmedScore,conditionalMaxScore:trace.conditionalMaxScore,matchedMetricCount:trace.matchedMetricCount,contributionSummary:trace.contributionSummary});if(recent.length>60)recent.splice(0,recent.length-60);state.diagnostics.typeScore={timestamp:trace.timestamp,algorithmVersion:trace.algorithmVersion,evaluationCount:Number(previous.evaluationCount||0)+1,last:trace,recent};}catch(_){}}
+function recordTrace(entity,rule,result){if(window.HADO_TYPE_SCORE_TRACE_SUSPENDED)return;try{const previous=state.diagnostics.typeScore||{},recent=Array.isArray(previous.recent)?previous.recent:[],trace={timestamp:new Date().toISOString(),algorithmVersion:typeScoreAlgorithmVersion(),entityName:String(entity?.displayName||entity?.name||entity?.id||''),roleId:String(entity?.roleId||''),typeId:String(rule?.typeId||''),typeName:String(rule?.typeName||''),score:result.score,confirmedScore:result.confirmedScore,conditionalMaxScore:result.conditionalMaxScore,matchedMetricCount:result.matchedCount,contributionSummary:summary(result),breakdown:result.breakdown};recent.push({timestamp:trace.timestamp,entityName:trace.entityName,roleId:trace.roleId,typeId:trace.typeId,typeName:trace.typeName,confirmedScore:trace.confirmedScore,conditionalMaxScore:trace.conditionalMaxScore,matchedMetricCount:trace.matchedMetricCount,contributionSummary:trace.contributionSummary});if(recent.length>60)recent.splice(0,recent.length-60);state.diagnostics.typeScore={timestamp:trace.timestamp,algorithmVersion:trace.algorithmVersion,evaluationCount:Number(previous.evaluationCount||0)+1,last:trace,recent};}catch(_){} }
 function score(entity,rule){
   const metrics=Array.isArray(rule?.metrics)?rule.metrics.slice(0,5):[];
   const breakdown=dedupeBreakdownRows(metrics.map(m=>metricValue(entity,m)));
