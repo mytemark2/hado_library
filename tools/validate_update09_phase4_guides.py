@@ -35,18 +35,35 @@ def main() -> int:
     implementation = read("docs/updates/update09/implementation.md")
     report = read("docs/updates/update09/report.md")
 
-    require(version_js, "updateNo: '09.4.21'", "Update09.4.21 update number")
-    require(version_js, "revision: 94", "Update09.4.21 revision")
-    require(version_js, "Update09.4.21", "visible Phase 4 version summary")
+    import re
+    update_match = re.search(r"updateNo:\s*'([^']+)'", version_js)
+    revision_match = re.search(r"revision:\s*(\d+)", version_js)
+    if not update_match or not revision_match:
+        raise SystemExit("hado_version.js must define updateNo and revision")
+    update_no = update_match.group(1)
+    revision = int(revision_match.group(1))
+    if update_no == "09.4.21":
+        if revision != 94:
+            raise SystemExit("Update09.4.21 must keep revision 94")
+    elif update_no.startswith("09.5."):
+        if revision < 95:
+            raise SystemExit("Update09 Phase 5 revisions must be >= 95")
+        require(version_js, f"Update{update_no}", "visible Phase 5 version summary in hado_version.js")
+    else:
+        raise SystemExit(f"unexpected Update09 runtime version: {update_no}")
 
+    if re.search(r"Update09\.5\.\d+", index_html):
+        raise SystemExit("index.html must not hard-code the visible Update09.5.x string; hado_update_meta.js syncs it from hado_version.js")
+    if re.search(r"hado_(?:styles|formation)\.\w+\?v=09\.5\.\d+", index_html):
+        raise SystemExit("index.html asset URLs must not duplicate the visible Update09.5.x version")
     for needle in [
-        "Update09.4.21 操作ガイド",
+        "id=\"uxHomeVersionBadge\"",
         "型編成ナビ",
         "型候補一覧",
         "候補トレイ",
         "部隊編成",
-        "./hado_styles.css?v=09.4.21",
-        "./hado_formation.js?v=09.4.21",
+        "./hado_styles.css",
+        "./hado_formation.js",
         "全データ表示",
         "保存データ表示",
         "グループ選択欄",
