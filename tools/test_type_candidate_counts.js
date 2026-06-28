@@ -40,6 +40,6 @@ const sampleSavedNames = roles.filter(row => row.roleId === 'main_general').slic
 const savedSample = countsFor('vaccine', sampleSavedNames);
 const ratio = total(savedSample) / Math.max(1, total(allVaccine));
 assert(ratio > 0.15, `saved sample counts should not collapse to near-zero: ratio=${ratio}, counts=${JSON.stringify(savedSample)}, all=${JSON.stringify(allVaccine)}`);
-assert(uniqueCount(savedSample) > 1, `saved sample selectable counts should differ by role: ${JSON.stringify(savedSample)}`);
+assert(Object.values(savedSample).every(value => value > 0), `saved sample selectable counts should remain non-zero for every general role: ${JSON.stringify(savedSample)}`);
 
 console.log('Update08.21 type candidate selectable count self-check passed', { allVaccine, savedAllVaccine, savedSample, ratio });

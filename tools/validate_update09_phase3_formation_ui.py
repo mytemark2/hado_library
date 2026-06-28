@@ -91,7 +91,7 @@ REQUIRED_FUNCTION_DEFINITIONS = (
     "normalizeFormationScoreDisplayRows",
     "normalizeFormationScoreEvidenceRows",
     "setFormationScoreDetailIndex",
-    "toggleFormationScoreDetailMore",
+    "openFormationScoreEvidenceDialog",
 )
 
 FORBIDDEN_JS = (
