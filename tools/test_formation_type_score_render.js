@@ -120,7 +120,7 @@ const formationData = {
     normal: {
       '能力': {
         '弱化無効': { sign: '+', maxTotal: 1, unit: '' },
-        '攻撃速度': { sign: '+', maxTotal: 20, unit: '%' },
+        '知力': { sign: '+', maxTotal: 20, unit: '%' },
         '負傷兵回復': { sign: '+', maxTotal: 10, unit: '%' }
       }
     }
@@ -134,18 +134,18 @@ const formationData = {
       sign: '+',
       unit: '',
       sourceLabel: '検証耐性技能',
-      rawText: '弱化効果無効を付与',
+      rawText: '自部隊の弱化効果を無効',
       condition: ''
     },
     {
-      key: '攻撃速度',
+      key: '知力',
       group: '能力',
       timing: 'normal',
       value: 20,
       sign: '+',
       unit: '%',
-      sourceLabel: '検証支援技能',
-      rawText: '自身を含む味方3部隊の攻撃速度+20%',
+      sourceLabel: '検証知力技能',
+      rawText: '知力を上昇',
       condition: ''
     },
     {
@@ -256,9 +256,9 @@ assert(debugEvents.slice(beforeClickDebugCount).some(event => event.name === 'fo
 
 assert(!html.includes('+1点'), 'score detail rows must not show redundant point contribution');
 assert(!html.includes('>効果<') && !html.includes('>変化率<'), 'normal UI must not expose debug bucket headings');
-assert(html.includes('弱化無効(検証耐性技能)') || html.includes('攻撃速度(検証支援技能)') || html.includes('負傷兵回復(検証回復技能)'), 'score detail HTML must include matched source labels in parentheses next to the evidence label');
+assert(html.includes('弱化無効(検証耐性技能)') || html.includes('知力(検証知力技能)') || html.includes('負傷兵回復(検証回復技能)'), 'score detail HTML must include matched source labels in parentheses next to the evidence label');
 assert(!html.includes('class="sr-only"'), 'score detail HTML must not expose aggregate evidence labels through an undefined sr-only helper');
-assert(!html.includes(' / 条件：常に') && !html.includes('検証耐性技能 / 検証支援技能'), 'score detail HTML must not render a slash-delimited aggregate source label dump');
+assert(!html.includes(' / 条件：常に') && !html.includes('検証耐性技能 / 検証知力技能'), 'score detail HTML must not render a slash-delimited aggregate source label dump');
 assert(!html.includes('条件：常に'), 'score detail HTML must not expose aggregate default condition text outside evidence tags');
 
 const syntheticDisadvantageRow = {

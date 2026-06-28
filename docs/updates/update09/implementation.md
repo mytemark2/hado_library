@@ -853,3 +853,13 @@
 - `handleFormationScoreDetailClick()` を部分 DOM 置換から state 更新 + `renderFormationScreen()` に変更し、duplicated score card の表示差分をなくした。
 - `setupFormationEvents()` は `querySelectorAll('.formation-score-card')` で全 score card に delegated click/key handler を設定する。
 - `tools/test_formation_type_score_render.js` と `tools/validate_formation_score_tag_only.py` で全 score card binding と再描画契約を必須化した。
+
+
+### Update09.5.9 implementation — 評価スコア targetScope 判定の根本見直し
+- `hado_type_score.js` に `targetScope` / `effectKind` / `includeAliases` / `excludeAliases` / `requiresTarget` / `displayBucket` を持つ `METRIC_MATCH_SPECS` を追加し、単純 alias 一致から対象判定付きの評価へ変更した。
+- `ally_non_damage_effect` は火力・速度・ゲージ・機動・射程・連鎖・通常攻撃対象数を `excludeAliases` で除外し、知力上昇だけは targetScope に関係なく非ダメージ評価へ含める。
+- `self_disadvantage_countermeasure` は自部隊または自身を含む味方を対象に、弱化対策・状態変化対策・被火力対策・生存対策・バフ維持の下位 `displayBucket` で分類する。
+- `ally_wounded_recovery` は味方対象を必須とし、自部隊のみ・自身のみ・対象不明の回復を除外する。
+- `dedupeBreakdownRows()` で同一根拠行の二重加点を禁止し、`weakening_nullify` は `self_disadvantage_countermeasure` への統合候補として低優先度にした。
+- 評価スコア内訳は `targetScopeLabel` / `effectKindLabel` / `displayBucket` / 根拠テキストを保持して表示できるようにした。
+- `tools/test_update09_phase5_score_target_scope.js` と `tools/validate_update09_phase5_score_target_scope.py` を追加し、`run_app_validation.py` に組み込んだ。

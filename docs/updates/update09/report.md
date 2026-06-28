@@ -908,3 +908,13 @@
 - 原因: score card が responsive layout 用に複数描画される一方、イベント委譲が最初の `.formation-score-card` に偏り、さらにクリック処理が同一 card だけを部分更新していたため、実際に見ている側の詳細 panel が更新されない経路があった。
 - 対応: 全ての `.formation-score-card` に delegated click/key handler を束ね、クリック後は部分 DOM 置換ではなく `state.formationScoreDetailIndex` 更新後に `renderFormationScreen()` で全 score card を同じ状態へ再描画する。
 - 再発防止: test / validator で全 score card binding と、クリック時に全体再描画へ進む契約を検証する。
+
+
+### Update09.5.9 完了報告 — 評価スコア targetScope 判定の根本修正
+- 事象: `METRIC_ALIASES` の語句一致だけで評価していたため、味方非ダメージ効果に攻撃速度・戦法速度・戦法ゲージ・通常攻撃対象数などが混入し、対象不明の語句一致でも ally/self/enemy 系項目へ加点される問題があった。
+- 原因: 評価項目ごとに効果対象を確認する構造がなく、alias 一致結果をそのまま件数スコアへ使っていた。
+- 対応: `targetScope` を導入し、ally/self/enemy/any/unknown の対象判定、`includeAliases` / `excludeAliases`、`requiresTarget`、`displayBucket`、同一根拠行の単一加点化を実装した。
+- 非ダメージ: 火力・速度・ゲージ・機動・射程・連鎖・通常攻撃対象数を除外し、知力上昇は targetScope 不問で含める。
+- 自部隊不利対策: 自部隊対象なら弱化対策・状態変化対策・被火力対策・生存対策・バフ維持へ分類する。
+- 味方負傷兵回復: 味方対象を必須とし、自部隊のみ・自身のみ・対象不明の回復は加点しない。
+- 再発防止: `tools/test_update09_phase5_score_target_scope.js` と `tools/validate_update09_phase5_score_target_scope.py` を追加し、full validation に組み込んだ。
