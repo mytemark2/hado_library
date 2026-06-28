@@ -1,6 +1,6 @@
 /* Update09 Phase5 target/effect/category gate regression tests */
 global.window={};
-require('../hado_type_score.js');
+require('./hado_type_score.js');
 const S=window.HadoTypeScore;
 function assert(cond,msg){if(!cond)throw new Error(msg)}
 function assertEq(actual,expected,msg){if(actual!==expected)throw new Error(`${msg}: expected ${expected}, actual ${actual}`)}
@@ -13,11 +13,13 @@ const nonDamageCases=[
   ['味方の戦法ゲージを上昇','戦法ゲージ',1,'戦法支援'],
   ['味方の連鎖率を上昇','連鎖率',1,'連鎖支援'],
   ['味方の知力を上昇','知力',1,'火力支援'],
-  ['自部隊の知力を上昇','知力',1,'火力支援'],
+  ['自部隊の知力を上昇','知力',0,''],
   ['味方の防御を上昇','防御',1,'耐久支援'],
   ['味方の弱化効果を解除','弱化解除',1,'不利対策'],
   ['味方の兵力を回復','兵力回復',1,'生存支援'],
-  ['知力を上昇','知力',0,'']
+  ['知力を上昇','知力',0,''],
+  ['味方の与ダメージを上昇','ダメージ',0,''],
+  ['味方が敵にダメージを与える','ダメージ',0,'']
 ];
 nonDamageCases.forEach(([text,label,expected,bucket])=>{
   const row=scoreOne('ally_non_damage_effect',label,text);
@@ -32,6 +34,16 @@ nonDamageCases.forEach(([text,label,expected,bucket])=>{
   ['部隊の知力(変化率集計)','知力',{sourceLabel:'変化率集計',featureType:'parameter',source:'parameter_summary'}],
   ['部隊の防御(変化率集計)','防御',{sourceLabel:'変化率集計',featureType:'parameter',source:'parameter_summary'}]
 ].forEach(([text,label,extra])=>assertEq(scoreOne('ally_non_damage_effect',label,text,extra).itemCount,0,`ally_non_damage excludes non-primary/unknown/aggregate: ${text}`));
+[
+  ['自部隊の戦法ゲージを増加','戦法ゲージ'],
+  ['自部隊の通常攻撃対象数を増加','通常攻撃対象数'],
+  ['自部隊の攻撃速度を上昇','攻撃速度'],
+  ['自部隊の防御を上昇 [UR時の最大能力]','防御'],
+  ['自部隊の負傷兵として生存する兵数を増加','負傷兵として生存する兵数'],
+  ['味方の通常攻撃対象数を増加','通常攻撃対象数'],
+  ['味方の防御を上昇 [UR時の最大能力]','防御']
+].forEach(([text,label])=>assertEq(scoreOne('ally_non_damage_effect',label,text).itemCount,0,`ally_non_damage excludes screenshot/regression case: ${text}`));
+assertEq(scoreOne('ally_non_damage_effect','負傷兵として生存する兵数','味方の負傷兵として生存する兵数を増加').rows[0].displayBucket,'生存支援','wounded survival is survival support, not chain support');
 [
   ['被火力対策 > 自部隊 > 防御 自部隊の防御を上昇','防御'],
   ['被火力対策 > 自部隊 > 対物防御 自部隊の対物防御を上昇','対物防御'],
@@ -81,6 +93,19 @@ assertEq(result.breakdown[0].itemCount,1,'weakening duplicate evidence belongs t
 assertEq(result.breakdown[2].itemCount,0,'weakening_nullify does not double score after self_disadvantage');
 assertEq(result.breakdown[1].itemCount,0,'wounded recovery does not double score as generic non-damage when specific metric exists');
 assertEq(result.breakdown[4].itemCount,1,'ally wounded recovery keeps the specific recovery score');
+const nonDamageBulkEntity={roleId:'formation_effects',typeFeatures:[
+  {featureId:'skill_effect:ally_non_damage_effect',label:'知力',matchedText:'味方の知力を上昇',sourceLabel:'技能A'},
+  {featureId:'skill_effect:ally_non_damage_effect',label:'攻撃',matchedText:'味方の攻撃を上昇',sourceLabel:'技能B'},
+  {featureId:'skill_effect:ally_non_damage_effect',label:'戦法威力',matchedText:'味方の戦法威力を上昇',sourceLabel:'技能C'},
+  {featureId:'skill_effect:ally_non_damage_effect',label:'会心発生',matchedText:'味方の会心発生を上昇',sourceLabel:'技能D'},
+  {featureId:'skill_effect:ally_non_damage_effect',label:'攻撃速度',matchedText:'味方の攻撃速度を上昇',sourceLabel:'技能E'},
+  {featureId:'skill_effect:ally_non_damage_effect',label:'防御',matchedText:'味方の防御を上昇',sourceLabel:'技能F'},
+  {featureId:'skill_effect:ally_non_damage_effect',label:'兵力回復',matchedText:'味方の兵力を回復',sourceLabel:'技能G'}
+]};
+const bulkScore=S.score(nonDamageBulkEntity,{metrics:[{metricKey:'ally_non_damage_effect',label:'味方非ダメージ効果'}]}).breakdown[0];
+assertEq(bulkScore.rawEvidenceCount,7,'ally_non_damage raw evidence count keeps diagnostic total');
+assertEq(bulkScore.itemCount,4,'ally_non_damage is represented once per support bucket, not per fragmented effect');
+assert(bulkScore.rows.every(row=>row.representativePolicy==='one-row-per-support-bucket'),'ally_non_damage rows expose representative policy');
 const categories=[
   ['damage_reduction','被ダメージ軽減','味方の負傷兵を回復',0,'defense category excludes recovery'],
   ['wounded_recovery','負傷兵回復','自部隊の防御を上昇',0,'survival/recovery category excludes defense-only'],
