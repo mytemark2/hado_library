@@ -256,7 +256,8 @@ assert(debugEvents.slice(beforeClickDebugCount).some(event => event.name === 'fo
 
 assert(!html.includes('+1点'), 'score detail rows must not show redundant point contribution');
 assert(!html.includes('>効果<') && !html.includes('>変化率<'), 'normal UI must not expose debug bucket headings');
-assert(html.includes('弱化無効(検証耐性技能)') || html.includes('知力(検証知力技能)') || html.includes('負傷兵回復(検証回復技能)'), 'score detail HTML must include matched source labels in parentheses next to the evidence label');
+assert(html.includes('クリックで詳細表示'), 'score detail panel must advertise that clicking opens full details');
+assert(!html.includes('弱化無効(検証耐性技能)') && !html.includes('知力(検証知力技能)') && !html.includes('負傷兵回復(検証回復技能)'), 'collapsed score detail panel must use simplified labels without source text');
 assert(!html.includes('class="sr-only"'), 'score detail HTML must not expose aggregate evidence labels through an undefined sr-only helper');
 assert(!html.includes(' / 条件：常に') && !html.includes('検証耐性技能 / 検証知力技能'), 'score detail HTML must not render a slash-delimited aggregate source label dump');
 assert(!html.includes('条件：常に'), 'score detail HTML must not expose aggregate default condition text outside evidence tags');
@@ -281,11 +282,12 @@ context.state.formationScoreEvidenceDialogOpen = true;
 const syntheticDialogHtml = context.renderFormationScoreEvidenceDialogHtml(syntheticDisadvantageRow);
 context.state.formationScoreEvidenceDialogOpen = false;
 assert(syntheticHtml.includes('自部隊不利対策の内訳'), '20-evidence disadvantage row must render the selected heading');
-assert(syntheticHtml.includes('評価20 / 根拠20件'), '20-evidence disadvantage row must show score value and evidence count without point wording');
+assert(syntheticHtml.includes('クリックで詳細表示'), '20-evidence disadvantage row must show click-to-open detail guidance');
 assert(!syntheticHtml.includes('点'), '20-evidence disadvantage row must not display point wording');
-assert(syntheticHtml.includes('弱化無効') && syntheticHtml.includes('弱化解除') && syntheticHtml.includes('弱化反射') && syntheticHtml.includes('状態変化無効') && syntheticHtml.includes('不利変化無効'), 'disadvantage details must expose matched disadvantage countermeasure labels');
+assert(syntheticHtml.includes('弱化無効') && syntheticHtml.includes('弱化解除') && syntheticHtml.includes('弱化反射') && syntheticHtml.includes('状態変化無効') && syntheticHtml.includes('不利変化無効'), 'collapsed disadvantage details must expose simplified matched labels');
+assert((syntheticHtml.match(/弱化無効/g)||[]).length === 1, 'collapsed disadvantage details must dedupe repeated labels');
 assert(!syntheticHtml.includes('一致根拠なし'), '20-evidence disadvantage row must not show the empty-evidence message');
-assert(syntheticDialogHtml.includes('formation-score-evidence-dialog-overlay') && syntheticDialogHtml.includes('role="dialog"'), 'show-more score evidence must open a dialog like result summary');
+assert(syntheticDialogHtml.includes('formation-score-evidence-dialog-overlay') && syntheticDialogHtml.includes('role="dialog"'), 'score evidence panel click must open a dialog like result summary');
 assert(syntheticDialogHtml.includes('全件表示') && syntheticDialogHtml.includes('formation-score-evidence-dialog-list'), 'score evidence dialog must display all evidence in a dedicated list');
 assert((syntheticDialogHtml.match(/formation-quick-summary-chip/g)||[]).length === 20, 'score evidence dialog must render every evidence item as a result-summary-like chip');
 
@@ -338,7 +340,8 @@ assert(formationSource.includes('scoreCards.forEach(card=>'), 'formation score d
 assert(formationSource.includes("rawText:String(row?.rawText||row?.matchedText||'').slice(0,500)"), 'score evidence debug rows must preserve enough raw text for matched labels');
 assert(formationSource.includes('function sumFormationScoreDetails(details)'), 'legacy score-detail total helper must remain defined to prevent render-time ReferenceError');
 assert(formationSource.includes('<strong aria-label="根拠 ${esc(evidenceCount)}件">${esc(evidenceCount)}</strong>'), 'metric chip value must match rendered tag count');
-assert(formationSource.includes('formationScore:detail-more-delegate'), 'show-more button must have delegated click handling');
+assert(formationSource.includes('formationScore:detail-open-delegate'), 'detail panel click must have delegated dialog opening');
+assert(!formationSource.includes('data-formation-score-show-more'), 'score evidence UI must not render a show-more button');
 assert(formationSource.includes('function calculateFormationDisplayedTotalScore(rows){return (Array.isArray(rows)?rows:[]).reduce'), 'total score must be the sum of displayed evaluation score rows');
 assert(formationSource.includes('function calculateFormationDisplayedTotalScore(rows)'), 'rendered total score must use a scoped visible-total helper');
 assert(formationSource.includes('<strong>${esc(visibleTotalScore)}</strong>'), 'score card header must render the recalculated visible total');
@@ -346,9 +349,9 @@ assert(formationSource.includes('function formationScoreEvidenceDisplayTitle(tit
 assert(formationSource.includes('displayTitle:formationScoreEvidenceDisplayTitle'), 'every evidence tag with a source must render a parenthesized source label');
 assert(!formationSource.includes('const sourceLabels='), 'formation score renderer must not build an aggregate sourceLabels dump');
 assert(!formationSource.includes('class="sr-only"'), 'formation score renderer must not rely on an undefined sr-only class to hide aggregate labels');
-assert(formationSource.includes('function renderFormationScoreEvidenceDialogHtml(row)'), 'score evidence show-more must render a dedicated dialog');
+assert(formationSource.includes('function renderFormationScoreEvidenceDialogHtml(row)'), 'score evidence detail click must render a dedicated dialog');
 assert(formationSource.includes('formation-score-evidence-dialog-list'), 'score evidence dialog must contain an all-item evidence list');
-assert(formationSource.includes('state.formationScoreEvidenceDialogOpen=true'), 'show-more must open the evidence dialog instead of inline expansion');
+assert(formationSource.includes('state.formationScoreEvidenceDialogOpen=true'), 'detail panel click must open the evidence dialog instead of inline expansion');
 assert(formationSource.includes('formation-quick-summary-chip'), 'score evidence dialog must share result-summary chip styling');
 assert(formationSource.includes('評価${esc(evidenceRows.length)} / 根拠${esc(evidenceRows.length)}件'), 'score detail header must show actual rendered evidence count');
 assert(formationSource.includes('renderFormationTeamBoardSelectableHtml(f,`${scoreCardHtml}${quickSummaryHtml}`)'), 'mobile board must receive score card before summary');

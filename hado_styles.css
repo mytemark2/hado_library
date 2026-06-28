@@ -1542,3 +1542,8 @@ body.formation-tab #formationScreen>h2,body.formation-tab #formationScreen>.note
 
 /* Source-owned compose memo layout; prevents legacy runtime CSS injection. */
 body.formation-tab .formation-compose-bar-grid .formation-memo-under-siege{grid-column:1/-1}
+
+/* Formation score detail panel opens the full evidence dialog directly. */
+.formation-score-detail-panel.is-clickable{cursor:pointer}
+.formation-score-detail-panel.is-clickable:focus-visible{outline:2px solid #2563eb;outline-offset:2px}
+.formation-score-evidence-tag.is-summary b{display:none}

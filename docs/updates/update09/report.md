@@ -935,3 +935,11 @@
 - 恒久対策: runtime 側の固定 Update09.5.x を撤去し、trace は `window.HADO_VERSION` から組み立て、validator は `index.html` へ固定バージョンが戻ると失敗するようにした。
 - 検証: `python3 tools/run_app_validation.py` で、version consistency、Phase4 guide validator、targetScope validator、Node render tests を含む全ローカル検証を実行する。
 - 残課題: preview 同期と Pages 実機確認は、リモート fetch/push が可能な環境で実施する。
+
+### Update09.5.12 完了報告 — 評価スコア内訳クリックで詳細表示
+
+- 変更内容: 評価スコア内訳の `さらに表示` ボタンを廃止し、内訳パネル全体をクリック可能にした。ヘッダー右側には `クリックで詳細表示` を出し、クリック時は既存の根拠付き詳細ダイアログを表示する。
+- 簡略表示: 内訳パネル上のタグは `知力上昇` などの簡略名だけにし、同一簡略名は重複表示しない。
+- 詳細表示: ダイアログは従来通り、根拠や発生元を含む詳細表示を維持した。
+- 検証: `node tools/test_formation_type_score_render.js` と `python3 tools/validate_formation_score_tag_only.py` の期待値を更新し、`python3 tools/run_app_validation.py` で全体検証する。
+- 残課題: preview 同期と Pages 実機確認は、リモート fetch/push が可能な環境で実施する。

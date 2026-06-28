@@ -878,3 +878,11 @@
 - `hado_type_score.js` の trace `algorithmVersion` は固定文字列ではなく `window.HADO_VERSION` / `window.HADO_APP_DISPLAY_VERSION` から動的に組み立てるようにした。
 - `validate_update09_phase4_guides.py` は現行 Update 番号を固定列挙せず `hado_version.js` から `updateNo` / `revision` を読み、`index.html` に Update09.5.x の固定文字列や version query が戻った場合に失敗するようにした。
 - 可視バージョンを `3.0.0.0 Update09.5.11` / revision `105` へ更新した。
+
+### Update09.5.12 実装 — 評価スコア内訳の「さらに表示」撤去
+
+- 評価スコア内訳パネルから「さらに表示」ボタンを撤去し、内訳パネル自体をクリック / Enter / Space で詳細ダイアログを開く操作へ変更した。
+- `〇〇の内訳` ヘッダー右側には `クリックで詳細表示` を表示し、既存の詳細ダイアログをそのまま再利用する。
+- 折りたたみ内訳のタグは `displayBucket` / label ベースの簡略名だけを表示し、同じ簡略名は重複表示しない。
+- 詳細ダイアログ側は従来通り、根拠元を含む詳細チップ表示を維持した。
+- 可視バージョンを `3.0.0.0 Update09.5.12` / revision `106` へ更新した。
