@@ -12,7 +12,7 @@ const rule={metrics:[
 ]};
 const entity={typeFeatures:[
   {featureId:'parameter:troops',label:'兵力',matchedText:'●部隊の兵力+20%'},
-  {featureId:'skill_effect:weakening_nullify',label:'弱化無効',matchedText:'●弱化無効'},
+  {featureId:'skill_effect:weakening_nullify',label:'弱化無効',matchedText:'●自部隊の弱化効果を無効'},
   {featureId:'skill_effect:normal_attack_target_count',label:'通常攻撃対象数',matchedText:'●通常攻撃対象部隊数+1'},
   {featureId:'parameter:attack_speed',label:'攻撃速度',matchedText:'●攻撃速度+25%'},
   {featureId:'skill_effect:chain_rate',label:'連鎖確率',matchedText:'■主将の際 ●副将の連鎖確率+5%'}
@@ -63,12 +63,12 @@ const vaccineRule={typeId:'vaccine',typeName:'ワクチン型',metrics:[
   {metricKey:'ally_wounded_recovery',label:'味方負傷兵回復',method:'presence_fixed'}
 ]};
 const vaccineEntity={roleId:'formation_effects',displayName:'ワクチン型検証部隊',typeFeatures:[
-  {featureId:'parameter:弱化無効',label:'弱化無効',matchedText:'弱化効果無効を付与'},
-  {featureId:'parameter:攻撃速度',label:'攻撃速度',matchedText:'自身を含む味方3部隊の攻撃速度+20%'},
+  {featureId:'parameter:弱化無効',label:'弱化無効',matchedText:'自部隊の弱化効果を無効'},
+  {featureId:'parameter:知力',label:'知力',matchedText:'知力を上昇'},
   {featureId:'parameter:負傷兵回復',label:'負傷兵回復',matchedText:'味方3部隊の負傷兵を最大兵力の10%回復'}
 ],statusEffectRefs:[
-  {featureId:'status_effect:弱化解除',label:'弱化解除',matchedText:'弱化効果解除'},
-  {featureId:'status_effect:状態変化無効',label:'状態変化無効',matchedText:'不利変化無効'}
+  {featureId:'status_effect:弱化解除',label:'弱化解除',matchedText:'自部隊の弱化効果を解除'},
+  {featureId:'status_effect:状態変化無効',label:'状態変化無効',matchedText:'自部隊の不利変化無効'}
 ]};
 const vaccineScore=window.HadoTypeScore.score(vaccineEntity,vaccineRule);
 assertEq(vaccineScore.totalScore>0,true,'vaccine totalScore should not stay zero');
