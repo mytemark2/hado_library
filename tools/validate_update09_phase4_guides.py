@@ -35,42 +35,35 @@ def main() -> int:
     implementation = read("docs/updates/update09/implementation.md")
     report = read("docs/updates/update09/report.md")
 
-    if "updateNo: '09.4.21'" in version_js:
-        require(version_js, "revision: 94", "Update09.4.21 revision")
-        require(version_js, "Update09.4.21", "visible Phase 4 version summary")
+    import re
+    update_match = re.search(r"updateNo:\s*'([^']+)'", version_js)
+    revision_match = re.search(r"revision:\s*(\d+)", version_js)
+    if not update_match or not revision_match:
+        raise SystemExit("hado_version.js must define updateNo and revision")
+    update_no = update_match.group(1)
+    revision = int(revision_match.group(1))
+    if update_no == "09.4.21":
+        if revision != 94:
+            raise SystemExit("Update09.4.21 must keep revision 94")
+    elif update_no.startswith("09.5."):
+        if revision < 95:
+            raise SystemExit("Update09 Phase 5 revisions must be >= 95")
+        require(version_js, f"Update{update_no}", "visible Phase 5 version summary in hado_version.js")
     else:
+        raise SystemExit(f"unexpected Update09 runtime version: {update_no}")
 
-        if "updateNo: '09.5.10'" in version_js:
-            require(version_js, "revision: 104", "Update09.5.10 revision after completed Phase 4")
-            require(version_js, "Update09.5.10", "visible Phase 5 version summary")
-        elif "updateNo: '09.5.6'" in version_js:
-            require(version_js, "revision: 100", "Update09.5.6 revision after completed Phase 4")
-            require(version_js, "Update09.5.6", "visible Phase 5 version summary")
-        elif "updateNo: '09.5.5'" in version_js:
-            require(version_js, "revision: 99", "Update09.5.5 revision after completed Phase 4")
-            require(version_js, "Update09.5.5", "visible Phase 5 version summary")
-        elif "updateNo: '09.5.4'" in version_js:
-            require(version_js, "revision: 98", "Update09.5.4 revision after completed Phase 4")
-            require(version_js, "Update09.5.4", "visible Phase 5 version summary")
-        elif "updateNo: '09.5.3'" in version_js:
-            require(version_js, "revision: 97", "Update09.5.3 revision after completed Phase 4")
-            require(version_js, "Update09.5.3", "visible Phase 5 version summary")
-        elif "updateNo: '09.5.2'" in version_js:
-            require(version_js, "revision: 96", "Update09.5.2 revision after completed Phase 4")
-            require(version_js, "Update09.5.2", "visible Phase 5 version summary")
-        else:
-            require(version_js, "updateNo: '09.5.1'", "Update09.5.1 Phase 5 update number after completed Phase 4")
-            require(version_js, "revision: 95", "Update09.5.1 revision after completed Phase 4")
-            require(version_js, "Update09.5.1", "visible Phase 5 version summary")
-
+    if re.search(r"Update09\.5\.\d+", index_html):
+        raise SystemExit("index.html must not hard-code the visible Update09.5.x string; hado_update_meta.js syncs it from hado_version.js")
+    if re.search(r"hado_(?:styles|formation)\.\w+\?v=09\.5\.\d+", index_html):
+        raise SystemExit("index.html asset URLs must not duplicate the visible Update09.5.x version")
     for needle in [
-        "Update09.5.10 操作ガイド",
+        "id=\"uxHomeVersionBadge\"",
         "型編成ナビ",
         "型候補一覧",
         "候補トレイ",
         "部隊編成",
-        "./hado_styles.css?v=09.5.10",
-        "./hado_formation.js?v=09.5.10",
+        "./hado_styles.css",
+        "./hado_formation.js",
         "全データ表示",
         "保存データ表示",
         "グループ選択欄",

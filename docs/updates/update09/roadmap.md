@@ -104,3 +104,4 @@ Update08までに実装した型編成ナビ、候補トレイ、保存データ
 
 - Update09.5.9: 評価スコア判定を targetScope aware に変更し、非ダメージ/自部隊不利対策/味方回復の対象判定と二重加点防止を追加。
 - Update09.5.10: `hado_update_meta.js` に残っていた旧評価スコア hotfix を撤去し、targetScope 判定が旧キーワード一致で上書きされないよう validator / Node テストを追加。
+- Update09.5.11: `hado_version.js` 以外の runtime 固定 Update09.5.x 文字列を撤去し、index / trace / validator を単一バージョンソース運用へ戻した。

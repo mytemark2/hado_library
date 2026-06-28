@@ -927,3 +927,11 @@
 - 実装: 部隊一覧は空データスコア計算を呼ばず保存済みスコアを表示し、編成バーのメモ欄レイアウトは通常 CSS に移管した。
 - 検証: `python3 tools/run_app_validation.py` で追加 validator / Node テストを含むローカル検証を実行する。
 - 残課題: preview 同期と Pages 実機確認は、リモート fetch/push が可能な環境で実施する。
+
+### Update09.5.11 完了報告 — 可視バージョン固定記載の撤去
+
+- 問題分類: バージョン単一ソース規約違反。`hado_version.js` を単一ソースとしているにもかかわらず、`index.html`、asset query、score trace の固定文字列、validator の固定列挙にも同じ Update 番号を持たせていた。
+- 根本原因: cache busting / 初期プレースホルダ / テスト期待値を「現在の Update 番号」で直接更新しており、`hado_update_meta.js` の同期機構を信頼する設計に寄せ切れていなかった。
+- 恒久対策: runtime 側の固定 Update09.5.x を撤去し、trace は `window.HADO_VERSION` から組み立て、validator は `index.html` へ固定バージョンが戻ると失敗するようにした。
+- 検証: `python3 tools/run_app_validation.py` で、version consistency、Phase4 guide validator、targetScope validator、Node render tests を含む全ローカル検証を実行する。
+- 残課題: preview 同期と Pages 実機確認は、リモート fetch/push が可能な環境で実施する。
