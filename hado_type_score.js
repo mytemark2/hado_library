@@ -39,7 +39,12 @@ const METRIC_ALIASES={
   ally_defense_buff:['味方防御上昇','防御上昇','防御'],
   combat_start_tactic_gauge:['交戦開始時戦法ゲージ'],
   self_disadvantage_countermeasure:['自部隊不利対策','弱化無効','弱化効果無効','弱化効果を無効','弱化解除','弱化効果解除','弱化効果を解除','弱化回避','弱化効果回避','弱化反射','弱化効果反射','弱化効果を反射','状態変化無効','状態異常無効','状態異常解除','不利変化無効','不利状態','不利状態解除','不利状態無効','分断','分断対策','絶縁','絶縁対策','連鎖無効','連鎖無効対策','恐怖','恐怖対策','混乱','混乱対策','畏怖','畏怖対策','同討','同討対策','轟然','轟然対策','疑心','疑心対策','耐性','効果時間短縮'],
-  ally_non_damage_effect:['味方非ダメージ効果','知力','知力上昇','知力を上昇','部隊の知力','攻撃上昇','攻撃を上昇','攻撃が上昇','戦法威力','会心威力','会心発生','攻撃速度','連鎖率','連鎖確率','戦法ゲージ','防御上昇','防御を上昇','防御','被ダメージ軽減','兵力回復','兵力を回復','負傷兵回復','負傷兵として生存する兵数','負傷兵生存','残存兵力','壊滅回避','弱化解除','弱化効果解除','弱化効果を解除','弱化無効','弱化回避','状態異常解除','状態異常無効','不利変化無効','強化解除回避','強化奪取回避']
+  ally_non_damage_effect:['味方非ダメージ効果','知力','知力上昇','知力を上昇','部隊の知力','攻撃上昇','攻撃を上昇','攻撃が上昇','戦法威力','会心威力','会心発生','攻撃速度','連鎖率','連鎖確率','戦法ゲージ','防御上昇','防御を上昇','防御','被ダメージ軽減','兵力回復','兵力を回復','負傷兵回復','負傷兵として生存する兵数','負傷兵生存','残存兵力','壊滅回避','弱化解除','弱化効果解除','弱化効果を解除','弱化無効','弱化回避','状態異常解除','状態異常無効','不利変化無効','強化解除回避','強化奪取回避'],
+  vaccine_weakening_guard:['弱化無効・回避','弱化無効','弱化効果無効','弱化効果を無効','弱化回避','弱化効果回避','弱化反射','弱化効果反射','弱化効果を反射'],
+  vaccine_weakening_remove:['弱化解除','弱化効果解除','弱化効果を解除','弱化回復'],
+  vaccine_status_guard:['状態異常・制御対策','状態変化無効','状態異常無効','状態異常解除','不利変化無効','不利状態解除','不利状態無効','分断','絶縁','連鎖無効','恐怖','混乱','畏怖','同討','轟然','疑心','発生抑制','効果時間短縮'],
+  vaccine_buff_protection:['強化維持','強化解除回避','強化奪取回避','強化解除を回避','強化奪取を回避','バフ維持'],
+  vaccine_protective_support:['保護支援','防御上昇','防御を上昇','防御','被ダメージ軽減','被ダメージを軽減','対物防御','兵科耐性','兵力回復','兵力を回復','負傷兵回復','負傷兵を最大兵力','負傷兵を回復','負傷兵として生存する兵数','負傷兵生存','残存兵力','壊滅回避','治癒','継続回復']
 };
 const FEATURE_ID_ALIASES={wounded_recovery:['skill_effect:healing'],chain_rate:['skill_effect:chain_rate'],troops:['parameter:troops']};
 const GENERAL_ROLES=new Set(['main_general','vice_general','support_general','attendant']);
@@ -62,8 +67,30 @@ const NON_DAMAGE_BUCKETS=[
   {bucket:'生存支援',kind:'recovery',aliases:['負傷兵として生存する兵数','生存する兵数','残存兵力','壊滅回避','兵力回復','兵力を回復','負傷兵回復','負傷兵を最大兵力','負傷兵を回復','治癒','継続回復'],scope:'ally'},
   {bucket:'不利対策',kind:'weakening',aliases:['弱化解除','弱化効果解除','弱化効果を解除','弱化無効','弱化回避','弱化効果無効','弱化効果回避','状態異常解除','状態異常無効','不利変化無効','状態変化無効'],scope:'ally'}
 ];
+const VACCINE_BUCKETS={
+  vaccine_weakening_guard:[{bucket:'弱化無効・回避',kind:'weakening',aliases:['弱化無効','弱化効果無効','弱化効果を無効','弱化回避','弱化効果回避','弱化反射','弱化効果反射','弱化効果を反射']}],
+  vaccine_weakening_remove:[{bucket:'弱化解除',kind:'weakening',aliases:['弱化解除','弱化効果解除','弱化効果を解除','弱化回復']}],
+  vaccine_status_guard:[{bucket:'状態異常・制御対策',kind:'status_guard',aliases:['状態変化無効','状態異常無効','状態異常解除','不利変化無効','不利状態解除','不利状態無効','分断','絶縁','連鎖無効','恐怖','混乱','畏怖','同討','轟然','疑心','発生抑制','効果時間短縮']}],
+  vaccine_buff_protection:[{bucket:'強化維持',kind:'buff_keep',aliases:['強化解除回避','強化奪取回避','強化解除を回避','強化奪取を回避','バフ維持']}],
+  vaccine_protective_support:[
+    {bucket:'耐久支援',kind:'defense',aliases:['防御上昇','防御を上昇','防御','被ダメージ軽減','被ダメージを軽減','対物防御','兵科耐性']},
+    {bucket:'生存支援',kind:'recovery',aliases:['負傷兵として生存する兵数','生存する兵数','残存兵力','壊滅回避','兵力回復','兵力を回復','負傷兵回復','負傷兵を最大兵力','負傷兵を回復','治癒','継続回復']}
+  ]
+};
+const CANONICAL_VACCINE_METRICS=[
+  {metricKey:'vaccine_weakening_guard',label:'弱化無効・回避',method:'presence_fixed',basis:100},
+  {metricKey:'vaccine_weakening_remove',label:'弱化解除',method:'presence_fixed',basis:100},
+  {metricKey:'vaccine_status_guard',label:'状態異常・制御対策',method:'presence_fixed',basis:100},
+  {metricKey:'vaccine_buff_protection',label:'強化維持',method:'presence_fixed',basis:100},
+  {metricKey:'vaccine_protective_support',label:'保護支援',method:'presence_fixed',basis:100}
+];
 const METRIC_MATCH_SPECS={
   ally_non_damage_effect:{targetScope:'ally',requiresTarget:true,includeAliases:METRIC_ALIASES.ally_non_damage_effect,excludeAliases:[],effectKind:'non_damage',displayBucket:'非ダメージ'},
+  vaccine_weakening_guard:{targetScope:'self',requiresTarget:true,includeAliases:METRIC_ALIASES.vaccine_weakening_guard,excludeAliases:['敵部隊','敵の','相手の'],effectKind:'weakening',displayBucket:'弱化無効・回避'},
+  vaccine_weakening_remove:{targetScope:'self',requiresTarget:true,includeAliases:METRIC_ALIASES.vaccine_weakening_remove,excludeAliases:['敵部隊','敵の','相手の'],effectKind:'weakening',displayBucket:'弱化解除'},
+  vaccine_status_guard:{targetScope:'self',requiresTarget:true,includeAliases:METRIC_ALIASES.vaccine_status_guard,excludeAliases:['敵部隊','敵の','相手の','攻撃低下','防御低下','戦法遅延'],effectKind:'status_guard',displayBucket:'状態異常・制御対策'},
+  vaccine_buff_protection:{targetScope:'self',requiresTarget:true,includeAliases:METRIC_ALIASES.vaccine_buff_protection,excludeAliases:['敵部隊','敵の','相手の'],effectKind:'buff_keep',displayBucket:'強化維持'},
+  vaccine_protective_support:{targetScope:'self',requiresTarget:true,includeAliases:METRIC_ALIASES.vaccine_protective_support,excludeAliases:['敵部隊','敵の','相手の','攻撃速度','戦法ゲージ','連鎖率','連鎖確率','通常攻撃対象数','通常攻撃対象部隊数','戦法威力','会心','攻撃上昇','知力上昇'],effectKind:'defense',displayBucket:'保護支援'},
   self_disadvantage_countermeasure:{targetScope:'self',requiresTarget:true,includeAliases:METRIC_ALIASES.self_disadvantage_countermeasure,excludeAliases:['敵部隊','敵の','相手の','戦法遅延','攻撃低下','防御低下'],effectKind:'weakening',displayBucket:'自部隊不利対策'},
   ally_wounded_recovery:{targetScope:'ally',requiresTarget:true,includeAliases:METRIC_ALIASES.ally_wounded_recovery,excludeAliases:[],effectKind:'recovery',displayBucket:'味方負傷兵回復'},
   weakening_nullify:{targetScope:'self',requiresTarget:true,includeAliases:METRIC_ALIASES.weakening_nullify,excludeAliases:[],effectKind:'weakening',displayBucket:'弱化対策',deprecatedInto:'self_disadvantage_countermeasure'},
@@ -74,11 +101,11 @@ const METRIC_MATCH_SPECS={
   enemy_target_count:{targetScope:'enemy',requiresTarget:true,includeAliases:METRIC_ALIASES.enemy_target_count,excludeAliases:[],effectKind:'enemy_debuff',displayBucket:'敵対象数'},
   enemy_anti_object_debuff:{targetScope:'enemy',requiresTarget:true,includeAliases:METRIC_ALIASES.enemy_anti_object_debuff,excludeAliases:[],effectKind:'enemy_debuff',displayBucket:'敵対物低下'}
 };
-const METRIC_PRIORITY={ally_wounded_recovery:120,self_disadvantage_countermeasure:110,ally_non_damage_effect:80,weakening_nullify:20,weakening_remove:60};
+const METRIC_PRIORITY={vaccine_weakening_guard:150,vaccine_weakening_remove:150,vaccine_status_guard:145,vaccine_buff_protection:140,self_disadvantage_countermeasure:130,ally_wounded_recovery:120,vaccine_protective_support:90,ally_non_damage_effect:80,weakening_nullify:20,weakening_remove:60};
 function aliases(metric){return uniq([metric?.label,...(METRIC_ALIASES[metric?.metricKey]||[])]).map(norm).filter(Boolean)}
 function expectedIds(metric){const k=metric?.metricKey||'';return uniq([`parameter:${k}`,`skill_effect:${k}`,...(FEATURE_ID_ALIASES[k]||[])])}
 function featureRows(entity){return [...(entity?.typeFeatures||[]),...(entity?.statusEffectRefs||[])].filter(Boolean)}
-function rowText(row){return flat([row?.label,row?.statusEffectName,row?.featureId,row?.matchedText])}
+function rowText(row){return flat([row?.label,row?.statusEffectName,row?.key,row?.featureId,row?.sourceLabel,row?.matchedText,row?.rawText,row?.condition])}
 function splitClauses(text){return String(text||'').split(/(?<=[。．.!?！？])|[\n\r]+|(?=■|▼|●)/).map(v=>v.trim()).filter(Boolean)}
 function roleAllowedSet(text){
   const raw=String(text||''),n=norm(raw),allowed=new Set();
@@ -152,10 +179,21 @@ function hasDirectDamageEffect(text){return hasAny(text,['与ダメージ','与�
 function hasStaticAbilityEvidence(text){return hasAny(text,['変化率集計','parameter_summary','結果サマリー','パラメータサマリー','能力値補正','基礎能力','能力補正'])}
 function hasNormalAttackExpansion(text){return hasAny(text,['通常攻撃対象数','通常攻撃対象部隊数'])}
 function hasSelfOnlySupportTarget(text){return inferTargetScopeForMetric(text,'ally')==='self'}
+function isVaccineMetric(metricKey){return Object.prototype.hasOwnProperty.call(VACCINE_BUCKETS,metricKey)}
 function metricCategoryGate(metricKey,text,bucket,intelligence=false,targetScope='unknown'){
   if(metricKey==='self_disadvantage_countermeasure'){
     if(!bucket||!['weakening','status_guard','control_guard'].includes(bucket.kind))return {ok:false,reason:'categoryGate: 自部隊不利対策は弱化/状態変化/制御対策のみ'};
     for(const [kind,aliases] of Object.entries(CATEGORY_DENY_ALIASES)){if(hasAny(text,aliases))return {ok:false,reason:`categoryDeny:${kind}`};}
+  }
+  if(isVaccineMetric(metricKey)){
+    if(!bucket)return {ok:false,reason:'categoryGate: vaccine metric bucket mismatch'};
+    if(hasStaticAbilityEvidence(text)&&metricKey!=='vaccine_protective_support')return {ok:false,reason:'categoryDeny:static_ability'};
+    if(hasDirectDamageEffect(text))return {ok:false,reason:'categoryDeny:direct_damage'};
+    if(hasAny(text,['敵部隊','敵の','相手']))return {ok:false,reason:'categoryDeny:enemy'};
+    if(metricKey==='vaccine_protective_support'){
+      if(hasNormalAttackExpansion(text))return {ok:false,reason:'categoryDeny:normal_attack_expansion'};
+      if(hasAny(text,['攻撃速度','戦法ゲージ','連鎖率','連鎖確率','戦法威力','通常攻撃威力','会心発生','会心威力','攻撃上昇','知力上昇','与ダメージ','対物特効']))return {ok:false,reason:'categoryDeny:offensive_or_tempo_support'};
+    }
   }
   if(metricKey==='ally_non_damage_effect'){
     if(hasStaticAbilityEvidence(text))return {ok:false,reason:'categoryDeny:static_ability'};
@@ -177,6 +215,7 @@ function classifyMetricRow(row,metric,scopedText){
   let bucket=null;
   if(metricKey==='self_disadvantage_countermeasure')bucket=firstBucket(text,SELF_DISADVANTAGE_BUCKETS);
   else if(metricKey==='ally_non_damage_effect')bucket=firstBucket(text,NON_DAMAGE_BUCKETS);
+  else if(isVaccineMetric(metricKey))bucket=firstBucket(text,VACCINE_BUCKETS[metricKey]||[]);
   const category=metricCategoryGate(metricKey,text,bucket,intelligence,targetScope);
   const origin=scoreEligibleEvidence(row,metricKey);
   const displayBucket=bucket?.bucket||spec.displayBucket||metric?.label||metricKey;
@@ -199,7 +238,7 @@ function metricRows(entity,metric){
 }
 function supportBucketKey(row){return norm(row?.displayBucket||row?.effectKind||row?.label||row?.statusEffectName||'')}
 function compactMetricRows(metricKey,rows){
-  if(metricKey!=='ally_non_damage_effect')return rows;
+  if(!['ally_non_damage_effect','vaccine_protective_support'].includes(metricKey))return rows;
   const seen=new Set(),out=[];
   rows.forEach(row=>{
     const key=supportBucketKey(row);
@@ -224,7 +263,7 @@ function metricValue(entity,metric){
   const roleId=String(entity?.roleId||''),rawRows=metricRows(entity,metric),rows=compactMetricRows(metric?.metricKey||'',rawRows),method='target_scope_matched_item_count';
   const confirmedRows=rows.filter(row=>!isConditional(relevantText(row,metric,roleId)));
   const itemCount=rows.length,confirmedCount=confirmedRows.length;
-  return {metricKey:metric?.metricKey,label:metric?.label,method,targetScope:metricSpec(metric).targetScope,requiresTarget:metricSpec(metric).requiresTarget,rows,confirmedRows,confirmedValue:confirmedCount,conditionalMaxValue:itemCount,itemCount,confirmedItemCount:confirmedCount,hit:itemCount>0,rawEvidenceCount:rawRows.length,representativePolicy:metric?.metricKey==='ally_non_damage_effect'?'one-row-per-support-bucket':''};
+  return {metricKey:metric?.metricKey,label:metric?.label,method,targetScope:metricSpec(metric).targetScope,requiresTarget:metricSpec(metric).requiresTarget,rows,confirmedRows,confirmedValue:confirmedCount,conditionalMaxValue:itemCount,itemCount,confirmedItemCount:confirmedCount,hit:itemCount>0,rawEvidenceCount:rawRows.length,representativePolicy:['ally_non_damage_effect','vaccine_protective_support'].includes(metric?.metricKey)?'one-row-per-support-bucket':''};
 }
 function dedupeBreakdownRows(breakdown){
   const owners=new Map();
@@ -237,10 +276,14 @@ function formationMemberScore(entity,rule){
   const members=Array.isArray(entity?.members)?entity.members:Array.isArray(entity?.formationMembers)?entity.formationMembers:[];
   return members.reduce((sum,member)=>sum+score(member,rule).fitScore,0);
 }
-function typeScoreAlgorithmVersion(){const v=window.HADO_VERSION||{},display=window.HADO_APP_DISPLAY_VERSION||v.displayVersion||((v.releaseVersion&&v.updateNo)?`${v.releaseVersion} Update${v.updateNo}`:'runtime-version');return `${display}/type-score-target-scope-v2`;}
+function typeScoreAlgorithmVersion(){const v=window.HADO_VERSION||{},display=window.HADO_APP_DISPLAY_VERSION||v.displayVersion||((v.releaseVersion&&v.updateNo)?`${v.releaseVersion} Update${v.updateNo}`:'runtime-version');return `${display}/type-score-target-scope-v3`;}
 function recordTrace(entity,rule,result){if(window.HADO_TYPE_SCORE_TRACE_SUSPENDED)return;try{const previous=state.diagnostics.typeScore||{},recent=Array.isArray(previous.recent)?previous.recent:[],trace={timestamp:new Date().toISOString(),algorithmVersion:typeScoreAlgorithmVersion(),entityName:String(entity?.displayName||entity?.name||entity?.id||''),roleId:String(entity?.roleId||''),typeId:String(rule?.typeId||''),typeName:String(rule?.typeName||''),score:result.score,confirmedScore:result.confirmedScore,conditionalMaxScore:result.conditionalMaxScore,matchedMetricCount:result.matchedCount,contributionSummary:summary(result),breakdown:result.breakdown};recent.push({timestamp:trace.timestamp,entityName:trace.entityName,roleId:trace.roleId,typeId:trace.typeId,typeName:trace.typeName,confirmedScore:trace.confirmedScore,conditionalMaxScore:trace.conditionalMaxScore,matchedMetricCount:trace.matchedMetricCount,contributionSummary:trace.contributionSummary});if(recent.length>60)recent.splice(0,recent.length-60);state.diagnostics.typeScore={timestamp:trace.timestamp,algorithmVersion:trace.algorithmVersion,evaluationCount:Number(previous.evaluationCount||0)+1,last:trace,recent};}catch(_){} }
+function normalizedRuleMetrics(rule){
+  if(String(rule?.typeId||'')==='vaccine')return CANONICAL_VACCINE_METRICS.slice(0,5);
+  return Array.isArray(rule?.metrics)?rule.metrics.slice(0,5):[];
+}
 function score(entity,rule){
-  const metrics=Array.isArray(rule?.metrics)?rule.metrics.slice(0,5):[];
+  const metrics=normalizedRuleMetrics(rule);
   const breakdown=dedupeBreakdownRows(metrics.map(m=>metricValue(entity,m)));
   const confirmedScore=breakdown.reduce((s,m)=>s+Number(m.confirmedValue||0),0);
   const conditionalMaxScore=breakdown.reduce((s,m)=>s+Number(m.conditionalMaxValue||0),0);
@@ -279,6 +322,6 @@ function tagList(entity,rule,result=null){
   return out.slice(0,18);
 }
 function tagSummary(entity,rule,result=null){return tagList(entity,rule,result).map(t=>`${t.kindLabel}:${t.label}`).join(' / ')}
-window.HadoTypeScore={METRIC_ALIASES,METRIC_MATCH_SPECS,TARGET_SCOPE_LABELS,inferTargetScope,inferTargetScopeForMetric,targetMatches,scoreEvidenceOrigin,scoreEligibleEvidence,metricRows,metricValue,score,label,metricLabel,summary,roleCompatibleText,roleAllowedSet};
+window.HadoTypeScore={METRIC_ALIASES,METRIC_MATCH_SPECS,TARGET_SCOPE_LABELS,inferTargetScope,inferTargetScopeForMetric,targetMatches,normalizedRuleMetrics,scoreEvidenceOrigin,scoreEligibleEvidence,metricRows,metricValue,score,label,metricLabel,summary,roleCompatibleText,roleAllowedSet};
 window.HadoTypeTags={tagList,tagSummary,tagKindLabel};
 })();
