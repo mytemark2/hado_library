@@ -106,3 +106,4 @@ Update08までに実装した型編成ナビ、候補トレイ、保存データ
 - Update09.5.10: `hado_update_meta.js` に残っていた旧評価スコア hotfix を撤去し、targetScope 判定が旧キーワード一致で上書きされないよう validator / Node テストを追加。
 - Update09.5.11: `hado_version.js` 以外の runtime 固定 Update09.5.x 文字列を撤去し、index / trace / validator を単一バージョンソース運用へ戻した。
 - Update09.5.12: 評価スコア内訳の「さらに表示」を廃止し、内訳パネルクリックで詳細ダイアログを開く UI に変更。簡略タグは重複排除。
+- Update09.5.13: 評価スコア詳細ダイアログ内の根拠タグを省略せず全文表示するように変更。

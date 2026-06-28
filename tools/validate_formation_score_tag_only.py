@@ -76,6 +76,8 @@ CSS_REQUIRED = (
     ".formation-score-evidence-tags.is-expanded{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr))",
     ".formation-score-evidence-label{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}",
     ".formation-score-evidence-dialog-list{max-height:min(58vh,520px);overflow:auto!important",
+    ".formation-score-evidence-dialog-list .formation-score-evidence-label{overflow:visible!important;text-overflow:clip!important;white-space:normal!important",
+    ".formation-score-evidence-dialog-list .formation-score-evidence-tag.formation-quick-summary-chip{align-items:flex-start",
     ".formation-score-evidence-tag{display:inline-flex",
     ".formation-score-evidence-tag b{font-size:10px",
     ".formation-score-evidence-tag.is-status",

@@ -943,3 +943,9 @@
 - 詳細表示: ダイアログは従来通り、根拠や発生元を含む詳細表示を維持した。
 - 検証: `node tools/test_formation_type_score_render.js` と `python3 tools/validate_formation_score_tag_only.py` の期待値を更新し、`python3 tools/run_app_validation.py` で全体検証する。
 - 残課題: preview 同期と Pages 実機確認は、リモート fetch/push が可能な環境で実施する。
+### Update09.5.13 完了報告 — 評価スコア詳細タグ全文表示
+
+- 変更内容: 評価スコア詳細ダイアログ内の各タグについて、ラベルの `overflow:hidden` / `text-overflow:ellipsis` / `white-space:nowrap` をダイアログ内だけ解除し、根拠内容を全文表示するようにした。
+- 影響範囲: 通常の評価スコア内訳パネルは、従来通り簡略タグ・重複排除・1行表示を維持する。
+- 検証: `node tools/test_formation_type_score_render.js`、`python3 tools/validate_formation_score_tag_only.py`、`python3 tools/run_app_validation.py` で全文表示 CSS 契約を確認する。
+- 残課題: preview 同期と Pages 実機確認は、リモート fetch/push が可能な環境で実施する。

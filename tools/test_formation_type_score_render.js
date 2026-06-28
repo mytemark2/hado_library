@@ -289,6 +289,8 @@ assert((syntheticHtml.match(/弱化無効/g)||[]).length === 1, 'collapsed disad
 assert(!syntheticHtml.includes('一致根拠なし'), '20-evidence disadvantage row must not show the empty-evidence message');
 assert(syntheticDialogHtml.includes('formation-score-evidence-dialog-overlay') && syntheticDialogHtml.includes('role="dialog"'), 'score evidence panel click must open a dialog like result summary');
 assert(syntheticDialogHtml.includes('全件表示') && syntheticDialogHtml.includes('formation-score-evidence-dialog-list'), 'score evidence dialog must display all evidence in a dedicated list');
+assert(fs.readFileSync('hado_styles.css','utf8').includes('.formation-score-evidence-dialog-list .formation-score-evidence-label{overflow:visible!important;text-overflow:clip!important;white-space:normal!important'), 'score evidence dialog labels must show full content without ellipsis');
+assert(fs.readFileSync('hado_styles.css','utf8').includes('.formation-score-evidence-dialog-list .formation-score-evidence-tag.formation-quick-summary-chip{align-items:flex-start'), 'score evidence dialog chips must allow full multi-line content');
 assert((syntheticDialogHtml.match(/formation-quick-summary-chip/g)||[]).length === 20, 'score evidence dialog must render every evidence item as a result-summary-like chip');
 
 assert(typeScore && typeof typeScore === 'object', 'typeScore diagnostic must exist');
