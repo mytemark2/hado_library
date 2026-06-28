@@ -38,13 +38,12 @@ nonDamageCases.forEach(([text,label,expected,bucket])=>{
   ['自部隊の戦法ゲージを増加','戦法ゲージ'],
   ['自部隊の通常攻撃対象数を増加','通常攻撃対象数'],
   ['自部隊の攻撃速度を上昇','攻撃速度'],
-  ['自部隊の防御を上昇 [UR時の最大能力]','防御'],
-  ['自部隊の負傷兵として生存する兵数を増加','負傷兵として生存する兵数'],
-  ['味方の通常攻撃対象数を増加','通常攻撃対象数'],
-  ['味方の防御を上昇 [UR時の最大能力]','防御']
-].forEach(([text,label])=>assertEq(scoreOne('ally_non_damage_effect',label,text).itemCount,0,`ally_non_damage excludes screenshot/regression case: ${text}`));
+  ['味方の通常攻撃対象数を増加','通常攻撃対象数']
+].forEach(([text,label])=>assertEq(scoreOne('ally_non_damage_effect',label,text).itemCount,0,`ally_non_damage excludes offensive/tempo screenshot case: ${text}`));
 assertEq(scoreOne('ally_non_damage_effect','攻撃速度','状態変化 速度支援 > 味方 > 攻撃速度(LR貂蝉（ちょうせん）: 技能:合唱Ⅰ)').itemCount,0,'ally_non_damage excludes screenshot ally attack-speed support; it belongs to speed/firepower, not vaccine support');
-
+assertEq(scoreOne('ally_non_damage_effect','防御','自部隊の防御を上昇 [UR時の最大能力]').rows[0].displayBucket,'耐久支援','protective self defense remains as vaccine protective support');
+assertEq(scoreOne('ally_non_damage_effect','防御','味方の防御を上昇 [UR時の最大能力]').rows[0].displayBucket,'耐久支援','protective ally defense remains as vaccine protective support');
+assertEq(scoreOne('ally_non_damage_effect','負傷兵として生存する兵数','自部隊の負傷兵として生存する兵数を増加').rows[0].displayBucket,'生存支援','self wounded survival is survival support for vaccine');
 assertEq(scoreOne('ally_non_damage_effect','負傷兵として生存する兵数','味方の負傷兵として生存する兵数を増加').rows[0].displayBucket,'生存支援','wounded survival is survival support, not chain support');
 [
   ['被火力対策 > 自部隊 > 防御 自部隊の防御を上昇','防御'],
@@ -108,6 +107,18 @@ const bulkScore=S.score(nonDamageBulkEntity,{metrics:[{metricKey:'ally_non_damag
 assertEq(bulkScore.rawEvidenceCount,2,'ally_non_damage excludes firepower/tempo support before representative scoring');
 assertEq(bulkScore.itemCount,2,'ally_non_damage keeps only defensive/survival/protective support buckets, not firepower or tempo support');
 assert(bulkScore.rows.every(row=>row.representativePolicy==='one-row-per-support-bucket'),'ally_non_damage rows expose representative policy');
+
+const vaccineRegressionEntity={roleId:'formation_effects',typeFeatures:[
+  {featureId:'skill_effect:ally_non_damage_effect',label:'防御',matchedText:'●自身を含む味方4部隊の防御+40%（40秒）',sourceLabel:'三國志40周年の盾:技能:四旬慶輝［UR時の最大能力］'},
+  {featureId:'skill_effect:ally_non_damage_effect',label:'攻撃速度',matchedText:'●自身を含む味方3部隊の攻撃速度+100%（10秒）',sourceLabel:'合囲Ⅰ'},
+  {featureId:'skill_effect:ally_non_damage_effect',label:'負傷兵として生存する兵数',matchedText:'常に、攻撃を受けた際、負傷兵として生存する兵数+10%',sourceLabel:'絶影くん:絶影Ⅰ'}
+]};
+const vaccineRegressionScore=S.score(vaccineRegressionEntity,{metrics:[{metricKey:'ally_non_damage_effect',label:'味方非ダメージ効果'}]}).breakdown[0];
+assertEq(vaccineRegressionScore.itemCount,2,'realistic vaccine protective evidence does not collapse to zero after excluding attack-speed');
+assert(vaccineRegressionScore.rows.some(row=>row.displayBucket==='耐久支援'),'vaccine regression keeps defensive support');
+assert(vaccineRegressionScore.rows.some(row=>row.displayBucket==='生存支援'),'vaccine regression keeps survival support');
+assert(!vaccineRegressionScore.rows.some(row=>row.displayBucket==='速度支援'),'vaccine regression excludes speed support from ally non-damage');
+
 const categories=[
   ['damage_reduction','被ダメージ軽減','味方の負傷兵を回復',0,'defense category excludes recovery'],
   ['wounded_recovery','負傷兵回復','自部隊の防御を上昇',0,'survival/recovery category excludes defense-only'],
