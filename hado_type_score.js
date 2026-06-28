@@ -58,13 +58,9 @@ const SELF_DISADVANTAGE_BUCKETS=[
   {bucket:'制御対策',kind:'control_guard',aliases:['分断','絶縁','連鎖無効','恐怖','混乱','畏怖','同討','轟然','疑心','発生抑制','効果時間短縮','耐性']}
 ];
 const NON_DAMAGE_BUCKETS=[
-  {bucket:'戦法支援',kind:'tactic_support',aliases:['戦法ゲージ','出陣時戦法ゲージ','交戦開始時戦法ゲージ','戦法速度'],scope:'ally'},
-  {bucket:'生存支援',kind:'recovery',aliases:['兵力回復','兵力を回復','負傷兵回復','負傷兵を最大兵力','負傷兵を回復','負傷兵として生存','生存する兵数','残存兵力','壊滅回避','治癒','継続回復'],scope:'ally'},
-  {bucket:'連鎖支援',kind:'chain_support',aliases:['連鎖率','連鎖確率'],scope:'ally'},
-  {bucket:'速度支援',kind:'firepower',aliases:['攻撃速度'],scope:'ally'},
-  {bucket:'火力支援',kind:'firepower',aliases:['攻撃上昇','攻撃を上昇','攻撃が上昇','知力上昇','知力を上昇','知力','部隊の知力','戦法威力','会心威力','会心発生'],scope:'ally'},
-  {bucket:'耐久支援',kind:'defense',aliases:['防御上昇','防御','被ダメージ軽減','被ダメージを軽減','対物防御'],scope:'ally'},
-  {bucket:'不利対策',kind:'weakening',aliases:['弱化解除','弱化効果解除','弱化効果を解除','弱化無効','弱化回避','弱化効果解除','弱化効果無効','弱化効果回避','状態異常解除','状態異常無効','不利変化無効','状態変化無効'],scope:'ally'}
+  {bucket:'耐久支援',kind:'defense',aliases:['防御上昇','防御を上昇','被ダメージ軽減','被ダメージを軽減','対物防御','兵科耐性'],scope:'ally'},
+  {bucket:'生存支援',kind:'recovery',aliases:['負傷兵として生存する兵数','生存する兵数','残存兵力','壊滅回避','兵力回復','兵力を回復','負傷兵回復','負傷兵を最大兵力','負傷兵を回復','治癒','継続回復'],scope:'ally'},
+  {bucket:'不利対策',kind:'weakening',aliases:['弱化解除','弱化効果解除','弱化効果を解除','弱化無効','弱化回避','弱化効果無効','弱化効果回避','状態異常解除','状態異常無効','不利変化無効','状態変化無効'],scope:'ally'}
 ];
 const METRIC_MATCH_SPECS={
   ally_non_damage_effect:{targetScope:'ally',requiresTarget:true,includeAliases:METRIC_ALIASES.ally_non_damage_effect,excludeAliases:[],effectKind:'non_damage',displayBucket:'非ダメージ'},
@@ -156,7 +152,7 @@ function hasDirectDamageEffect(text){return hasAny(text,['与ダメージ','与�
 function hasStaticAbilityEvidence(text){return hasAny(text,['UR時の最大能力','SSR時の最大能力','最大能力','能力値補正','基礎能力','能力補正'])}
 function hasNormalAttackExpansion(text){return hasAny(text,['通常攻撃対象数','通常攻撃対象部隊数'])}
 function hasSelfOnlySupportTarget(text){return inferTargetScopeForMetric(text,'ally')==='self'}
-function metricCategoryGate(metricKey,text,bucket,intelligence=false){
+function metricCategoryGate(metricKey,text,bucket,intelligence=false,targetScope='unknown'){
   if(metricKey==='self_disadvantage_countermeasure'){
     if(!bucket||!['weakening','status_guard','control_guard'].includes(bucket.kind))return {ok:false,reason:'categoryGate: 自部隊不利対策は弱化/状態変化/制御対策のみ'};
     for(const [kind,aliases] of Object.entries(CATEGORY_DENY_ALIASES)){if(hasAny(text,aliases))return {ok:false,reason:`categoryDeny:${kind}`};}
@@ -182,7 +178,7 @@ function classifyMetricRow(row,metric,scopedText){
   let bucket=null;
   if(metricKey==='self_disadvantage_countermeasure')bucket=firstBucket(text,SELF_DISADVANTAGE_BUCKETS);
   else if(metricKey==='ally_non_damage_effect')bucket=firstBucket(text,NON_DAMAGE_BUCKETS);
-  const category=metricCategoryGate(metricKey,text,bucket,intelligence);
+  const category=metricCategoryGate(metricKey,text,bucket,intelligence,targetScope);
   const origin=scoreEligibleEvidence(row,metricKey);
   const displayBucket=bucket?.bucket||spec.displayBucket||metric?.label||metricKey;
   const effectKind=bucket?.kind||spec.effectKind||'generic';
