@@ -39,7 +39,7 @@ const METRIC_ALIASES={
   ally_defense_buff:['味方防御上昇','防御上昇','防御'],
   combat_start_tactic_gauge:['交戦開始時戦法ゲージ'],
   self_disadvantage_countermeasure:['自部隊不利対策','弱化無効','弱化効果無効','弱化効果を無効','弱化解除','弱化効果解除','弱化効果を解除','弱化回避','弱化効果回避','弱化反射','弱化効果反射','弱化効果を反射','状態変化無効','状態異常無効','状態異常解除','不利変化無効','不利状態','不利状態解除','不利状態無効','分断','分断対策','絶縁','絶縁対策','連鎖無効','連鎖無効対策','恐怖','恐怖対策','混乱','混乱対策','畏怖','畏怖対策','同討','同討対策','轟然','轟然対策','疑心','疑心対策','耐性','効果時間短縮'],
-  ally_non_damage_effect:['味方非ダメージ効果','知力','知力上昇','知力を上昇','部隊の知力','攻撃上昇','攻撃を上昇','攻撃が上昇','戦法威力','会心威力','会心発生','攻撃速度','連鎖率','連鎖確率','戦法ゲージ','防御上昇','防御を上昇','防御','被ダメージ軽減','兵力回復','兵力を回復','負傷兵回復','壊滅回避','弱化解除','弱化効果解除','弱化効果を解除','弱化無効','弱化回避','状態異常解除','状態異常無効','不利変化無効','強化解除回避','強化奪取回避']
+  ally_non_damage_effect:['味方非ダメージ効果','知力','知力上昇','知力を上昇','部隊の知力','攻撃上昇','攻撃を上昇','攻撃が上昇','戦法威力','会心威力','会心発生','攻撃速度','連鎖率','連鎖確率','戦法ゲージ','防御上昇','防御を上昇','防御','被ダメージ軽減','兵力回復','兵力を回復','負傷兵回復','負傷兵として生存する兵数','負傷兵生存','残存兵力','壊滅回避','弱化解除','弱化効果解除','弱化効果を解除','弱化無効','弱化回避','状態異常解除','状態異常無効','不利変化無効','強化解除回避','強化奪取回避']
 };
 const FEATURE_ID_ALIASES={wounded_recovery:['skill_effect:healing'],chain_rate:['skill_effect:chain_rate'],troops:['parameter:troops']};
 const GENERAL_ROLES=new Set(['main_general','vice_general','support_general','attendant']);
@@ -58,7 +58,7 @@ const SELF_DISADVANTAGE_BUCKETS=[
   {bucket:'制御対策',kind:'control_guard',aliases:['分断','絶縁','連鎖無効','恐怖','混乱','畏怖','同討','轟然','疑心','発生抑制','効果時間短縮','耐性']}
 ];
 const NON_DAMAGE_BUCKETS=[
-  {bucket:'耐久支援',kind:'defense',aliases:['防御上昇','防御を上昇','被ダメージ軽減','被ダメージを軽減','対物防御','兵科耐性'],scope:'ally'},
+  {bucket:'耐久支援',kind:'defense',aliases:['防御上昇','防御を上昇','防御','被ダメージ軽減','被ダメージを軽減','対物防御','兵科耐性'],scope:'ally'},
   {bucket:'生存支援',kind:'recovery',aliases:['負傷兵として生存する兵数','生存する兵数','残存兵力','壊滅回避','兵力回復','兵力を回復','負傷兵回復','負傷兵を最大兵力','負傷兵を回復','治癒','継続回復'],scope:'ally'},
   {bucket:'不利対策',kind:'weakening',aliases:['弱化解除','弱化効果解除','弱化効果を解除','弱化無効','弱化回避','弱化効果無効','弱化効果回避','状態異常解除','状態異常無効','不利変化無効','状態変化無効'],scope:'ally'}
 ];
@@ -112,7 +112,7 @@ function inferTargetScope(text){
   const raw=String(text||''),n=norm(raw);
   const hasEnemy=/(敵部隊|敵の|敵3部隊|敵2部隊|敵4部隊|相手|対象部隊に|攻撃対象)/.test(raw)||/(敵|相手)/.test(n);
   const hasAlly=/(自身を含む味方|味方部隊|味方[0-9一二三四五六七八九十]*部隊|味方の|味方全体|味方)/.test(raw)||/自身を含む味方|味方/.test(n);
-  const hasSelf=/(自部隊|自身|自分|この武将|装備者|自軍)/.test(raw)||/(自部隊|自身|自分|装備者)/.test(n);
+  const hasSelf=/(自部隊|自身|自分|この武将|装備者|自軍|負傷兵として生存する兵数|負傷兵生存)/.test(raw)||/(自部隊|自身|自分|装備者|負傷兵として生存する兵数|負傷兵生存)/.test(n);
   if(hasAlly)return 'ally';
   if(hasSelf)return 'self';
   if(hasEnemy)return 'enemy';
@@ -149,7 +149,7 @@ function scoreEvidenceOrigin(row){
 }
 function scoreEligibleEvidence(row,metricKey){return scoreEvidenceOrigin(row)}
 function hasDirectDamageEffect(text){return hasAny(text,['与ダメージ','与えるダメージ','戦法ダメージ','通常攻撃ダメージ','ダメージを与える','攻撃を行う'])}
-function hasStaticAbilityEvidence(text){return hasAny(text,['UR時の最大能力','SSR時の最大能力','最大能力','能力値補正','基礎能力','能力補正'])}
+function hasStaticAbilityEvidence(text){return hasAny(text,['変化率集計','parameter_summary','結果サマリー','パラメータサマリー','能力値補正','基礎能力','能力補正'])}
 function hasNormalAttackExpansion(text){return hasAny(text,['通常攻撃対象数','通常攻撃対象部隊数'])}
 function hasSelfOnlySupportTarget(text){return inferTargetScopeForMetric(text,'ally')==='self'}
 function metricCategoryGate(metricKey,text,bucket,intelligence=false,targetScope='unknown'){
@@ -158,7 +158,6 @@ function metricCategoryGate(metricKey,text,bucket,intelligence=false,targetScope
     for(const [kind,aliases] of Object.entries(CATEGORY_DENY_ALIASES)){if(hasAny(text,aliases))return {ok:false,reason:`categoryDeny:${kind}`};}
   }
   if(metricKey==='ally_non_damage_effect'){
-    if(hasSelfOnlySupportTarget(text))return {ok:false,reason:'categoryDeny:self_only_not_ally_support'};
     if(hasStaticAbilityEvidence(text))return {ok:false,reason:'categoryDeny:static_ability'};
     if(hasNormalAttackExpansion(text))return {ok:false,reason:'categoryDeny:normal_attack_expansion'};
     if(!bucket)return {ok:false,reason:'categoryGate: 味方非ダメージ効果は支援サブカテゴリ一致のみ'};
@@ -238,7 +237,7 @@ function formationMemberScore(entity,rule){
   const members=Array.isArray(entity?.members)?entity.members:Array.isArray(entity?.formationMembers)?entity.formationMembers:[];
   return members.reduce((sum,member)=>sum+score(member,rule).fitScore,0);
 }
-function typeScoreAlgorithmVersion(){const v=window.HADO_VERSION||{},display=window.HADO_APP_DISPLAY_VERSION||v.displayVersion||((v.releaseVersion&&v.updateNo)?`${v.releaseVersion} Update${v.updateNo}`:'runtime-version');return `${display}/type-score-target-scope-v1`;}
+function typeScoreAlgorithmVersion(){const v=window.HADO_VERSION||{},display=window.HADO_APP_DISPLAY_VERSION||v.displayVersion||((v.releaseVersion&&v.updateNo)?`${v.releaseVersion} Update${v.updateNo}`:'runtime-version');return `${display}/type-score-target-scope-v2`;}
 function recordTrace(entity,rule,result){if(window.HADO_TYPE_SCORE_TRACE_SUSPENDED)return;try{const previous=state.diagnostics.typeScore||{},recent=Array.isArray(previous.recent)?previous.recent:[],trace={timestamp:new Date().toISOString(),algorithmVersion:typeScoreAlgorithmVersion(),entityName:String(entity?.displayName||entity?.name||entity?.id||''),roleId:String(entity?.roleId||''),typeId:String(rule?.typeId||''),typeName:String(rule?.typeName||''),score:result.score,confirmedScore:result.confirmedScore,conditionalMaxScore:result.conditionalMaxScore,matchedMetricCount:result.matchedCount,contributionSummary:summary(result),breakdown:result.breakdown};recent.push({timestamp:trace.timestamp,entityName:trace.entityName,roleId:trace.roleId,typeId:trace.typeId,typeName:trace.typeName,confirmedScore:trace.confirmedScore,conditionalMaxScore:trace.conditionalMaxScore,matchedMetricCount:trace.matchedMetricCount,contributionSummary:trace.contributionSummary});if(recent.length>60)recent.splice(0,recent.length-60);state.diagnostics.typeScore={timestamp:trace.timestamp,algorithmVersion:trace.algorithmVersion,evaluationCount:Number(previous.evaluationCount||0)+1,last:trace,recent};}catch(_){} }
 function score(entity,rule){
   const metrics=Array.isArray(rule?.metrics)?rule.metrics.slice(0,5):[];
