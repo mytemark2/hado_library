@@ -863,3 +863,11 @@
 - `dedupeBreakdownRows()` で同一根拠行の二重加点を禁止し、`weakening_nullify` は `self_disadvantage_countermeasure` への統合候補として低優先度にした。
 - 評価スコア内訳は `targetScopeLabel` / `effectKindLabel` / `displayBucket` / 根拠テキストを保持して表示できるようにした。
 - `tools/test_update09_phase5_score_target_scope.js` と `tools/validate_update09_phase5_score_target_scope.py` を追加し、`run_app_validation.py` に組み込んだ。
+
+### Update09.5.10 実装 — 評価スコア旧ランタイムパッチ撤去
+
+- `hado_update_meta.js` に残っていた Update09.3.x 系のランタイム hotfix（`calculateFormationAutoScores` の上書き、ワクチン型の旧キーワード一致、描画関数の差し替え、CSS 注入）を撤去し、同ファイルを可視バージョン同期だけに限定した。
+- 部隊一覧のスコア表示は空データで `calculateFormationAutoScores(f,{})` を呼ばず、保存済み `totalScore` / `evaluationScore` を表示するソース実装へ変更した。これにより、一覧描画が評価スコア診断を空入力で上書きする副作用を防ぐ。
+- 編成バーのメモ欄レイアウトはランタイム CSS 注入ではなく `hado_formation.js` と `hado_styles.css` の通常ソースに移管した。
+- `validate_update09_phase5_score_target_scope.py` と `test_formation_type_score_render.js` に、`hado_update_meta.js` からスコア計算・描画差し替え・旧ワクチンキーワード一致を再導入できない検証を追加した。
+- 可視バージョンを `3.0.0.0 Update09.5.10` / revision `104` へ更新した。

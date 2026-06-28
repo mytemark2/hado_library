@@ -1539,3 +1539,6 @@ body.formation-tab #formationScreen>h2,body.formation-tab #formationScreen>.note
 .formation-score-evidence-dialog-list{max-height:min(58vh,520px);overflow:auto!important;padding-right:2px}
 .formation-score-evidence-dialog-list.formation-score-evidence-tags.is-expanded{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
 @media (max-width:980px),(pointer:coarse){.formation-score-evidence-dialog-list.formation-score-evidence-tags.is-expanded{grid-template-columns:repeat(2,minmax(0,1fr));max-height:58vh}}
+
+/* Update09.5.10: source-owned compose memo layout; prevents legacy runtime CSS injection. */
+body.formation-tab .formation-compose-bar-grid .formation-memo-under-siege{grid-column:1/-1}

@@ -918,3 +918,12 @@
 - 自部隊不利対策: 自部隊対象なら弱化対策・状態変化対策・被火力対策・生存対策・バフ維持へ分類する。
 - 味方負傷兵回復: 味方対象を必須とし、自部隊のみ・自身のみ・対象不明の回復は加点しない。
 - 再発防止: `tools/test_update09_phase5_score_target_scope.js` と `tools/validate_update09_phase5_score_target_scope.py` を追加し、full validation に組み込んだ。
+
+### Update09.5.10 完了報告 — 評価スコア旧ランタイムパッチ撤去
+
+- 問題分類: 旧 hotfix の残存による実ロジック上書き。`hado_type_score.js` 側で targetScope 判定を導入しても、後段で `hado_update_meta.js` の旧ワクチン型キーワード一致パッチが `calculateFormationAutoScores` を差し替え、`攻撃速度` / `戦法速度` / `戦法ゲージ` / `通常攻撃対象数` などを `ally_non_damage_effect` に再分類していた。
+- 根本原因: Update 用メタ同期ファイルに一時的なランタイム修正を積み重ね、正規ソースへ移管後に削除・検証する仕組みが不足していた。
+- 恒久対策: `hado_update_meta.js` をメタデータ同期専用に戻し、スコア計算・描画差し替え・CSS 注入・旧キーワード一致を validator と Node テストで禁止した。
+- 実装: 部隊一覧は空データスコア計算を呼ばず保存済みスコアを表示し、編成バーのメモ欄レイアウトは通常 CSS に移管した。
+- 検証: `python3 tools/run_app_validation.py` で追加 validator / Node テストを含むローカル検証を実行する。
+- 残課題: preview 同期と Pages 実機確認は、リモート fetch/push が可能な環境で実施する。

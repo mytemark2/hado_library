@@ -3,11 +3,11 @@
   'use strict';
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.0.0.0',
-    updateNo: '09.5.9',
-    revision: 103,
+    updateNo: '09.5.10',
+    revision: 104,
     baseAppVersion: '2.9.6.5',
-    summary: 'Update09.5.9: target-scope aware formation score matching and dedupe.',
-    updatedAt: '2026-06-27T00:00:00+09:00'
+    summary: 'Update09.5.10: remove legacy score monkey patches and keep target-scope scoring source-owned.',
+    updatedAt: '2026-06-28T00:00:00+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;
 })();

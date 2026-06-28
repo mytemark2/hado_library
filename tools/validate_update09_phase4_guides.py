@@ -40,9 +40,9 @@ def main() -> int:
         require(version_js, "Update09.4.21", "visible Phase 4 version summary")
     else:
 
-        if "updateNo: '09.5.9'" in version_js:
-            require(version_js, "revision: 103", "Update09.5.9 revision after completed Phase 4")
-            require(version_js, "Update09.5.9", "visible Phase 5 version summary")
+        if "updateNo: '09.5.10'" in version_js:
+            require(version_js, "revision: 104", "Update09.5.10 revision after completed Phase 4")
+            require(version_js, "Update09.5.10", "visible Phase 5 version summary")
         elif "updateNo: '09.5.6'" in version_js:
             require(version_js, "revision: 100", "Update09.5.6 revision after completed Phase 4")
             require(version_js, "Update09.5.6", "visible Phase 5 version summary")
@@ -64,13 +64,13 @@ def main() -> int:
             require(version_js, "Update09.5.1", "visible Phase 5 version summary")
 
     for needle in [
-        "Update09.5.9 操作ガイド",
+        "Update09.5.10 操作ガイド",
         "型編成ナビ",
         "型候補一覧",
         "候補トレイ",
         "部隊編成",
-        "./hado_styles.css?v=09.5.9",
-        "./hado_formation.js?v=09.5.9",
+        "./hado_styles.css?v=09.5.10",
+        "./hado_formation.js?v=09.5.10",
         "全データ表示",
         "保存データ表示",
         "グループ選択欄",

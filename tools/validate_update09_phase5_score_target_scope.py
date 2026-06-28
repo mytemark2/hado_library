@@ -42,6 +42,30 @@ formation_required = [
 missing = [s for s in formation_required if s not in formation]
 if missing:
     raise SystemExit('target-scope score validator missing formation detail snippets: ' + ', '.join(missing))
+
+meta = (ROOT / 'hado_update_meta.js').read_text(encoding='utf-8')
+for forbidden in [
+    'patchVaccine',
+    'formation-vaccine-effect-keyword-match',
+    'positiveSupport',
+    'PREDICATES=',
+    '__vaccineMatch',
+    '__u09321',
+    'window.calculateFormationAutoScores=',
+    'calculateFormationAutoScores=wrapped',
+    'renderFormationComposeBarHtml=function',
+    'renderFormationListHtml=function',
+    "document.createElement('style')",
+]:
+    if forbidden in meta:
+        raise SystemExit('hado_update_meta.js must stay metadata-only; forbidden legacy runtime override remains: ' + forbidden)
+if 'HADO_APP_VERSION_META' not in meta or 'loadMeta' not in meta or 'syncVisibleVersion' not in meta:
+    raise SystemExit('hado_update_meta.js must keep only version metadata synchronization behavior')
+if 'formation-vaccine-effect-keyword-match' in score:
+    raise SystemExit('legacy vaccine keyword score policy must not remain in score source')
+if 'calculateFormationAutoScores(f,{})' in formation:
+    raise SystemExit('formation list rendering must not call calculateFormationAutoScores with empty data')
+
 run = (ROOT / 'tools' / 'run_app_validation.py').read_text(encoding='utf-8')
 if 'tools/validate_update09_phase5_score_target_scope.py' not in run:
     raise SystemExit('run_app_validation.py must include validate_update09_phase5_score_target_scope.py')
