@@ -38,7 +38,7 @@ const METRIC_ALIASES={
   ally_wounded_recovery:['味方負傷兵回復','負傷兵回復','兵力回復','兵力を回復','負傷兵を最大兵力','負傷兵を回復'],
   ally_defense_buff:['味方防御上昇','防御上昇','防御'],
   combat_start_tactic_gauge:['交戦開始時戦法ゲージ'],
-  self_disadvantage_countermeasure:['自部隊不利対策','弱化無効','弱化効果無効','弱化効果を無効','弱化解除','弱化効果解除','弱化効果を解除','弱化回避','弱化効果回避','弱化反射','弱化効果反射','弱化効果を反射','状態変化無効','不利変化無効','会心無効','会心を無効','撃心無効','撃心を無効','被ダメージ軽減','被ダメージを軽減','防御上昇','防御','壊滅回避','壊滅を回避','兵力回復','兵力を回復','負傷兵回復','強化解除回避','強化奪取回避'],
+  self_disadvantage_countermeasure:['自部隊不利対策','弱化無効','弱化効果無効','弱化効果を無効','弱化解除','弱化効果解除','弱化効果を解除','弱化回避','弱化効果回避','弱化反射','弱化効果反射','弱化効果を反射','状態変化無効','状態異常無効','状態異常解除','不利変化無効','不利状態','不利状態解除','不利状態無効','分断','分断対策','絶縁','絶縁対策','連鎖無効','連鎖無効対策','恐怖','恐怖対策','混乱','混乱対策','畏怖','畏怖対策','同討','同討対策','轟然','轟然対策','疑心','疑心対策','耐性','効果時間短縮'],
   ally_non_damage_effect:['味方非ダメージ効果','知力','知力上昇','部隊の知力','防御上昇','防御','被ダメージ軽減','兵力回復','兵力を回復','負傷兵回復','壊滅回避','弱化解除','弱化無効','弱化回避','不利変化無効','強化解除回避','強化奪取回避']
 };
 const FEATURE_ID_ALIASES={wounded_recovery:['skill_effect:healing'],chain_rate:['skill_effect:chain_rate'],troops:['parameter:troops']};
@@ -49,15 +49,13 @@ const uniq=a=>[...new Set(a.filter(Boolean))];
 const cleanMinus=s=>String(s??'').replace(/[−₋－―ー]/g,'-').replace(/＋/g,'+').replace(/％/g,'%');
 const hasAny=(text,terms)=>terms.some(term=>norm(text).includes(norm(term)));
 const TARGET_SCOPE_LABELS={self:'自部隊',ally:'味方',enemy:'敵部隊',any:'対象不問',unknown:'対象不明'};
-const EFFECT_KIND_LABELS={non_damage:'非ダメージ',firepower:'火力/速度',recovery:'回復',defense:'防御/軽減',weakening:'弱化対策',status_guard:'状態変化対策',survival:'生存対策',buff_keep:'バフ維持',enemy_debuff:'敵妨害',generic:'効果'};
+const EFFECT_KIND_LABELS={non_damage:'非ダメージ',firepower:'火力/速度',recovery:'回復',defense:'防御/軽減',weakening:'弱化対策',status_guard:'状態変化対策',control_guard:'制御対策',survival:'生存対策',buff_keep:'バフ維持',enemy_debuff:'敵妨害',tactic_support:'戦法支援',chain_support:'連鎖支援',generic:'効果'};
 const FIREPOWER_ALIASES=['攻撃','攻撃上昇','攻撃速度','戦法速度','戦法ゲージ','出陣時戦法ゲージ','交戦開始時戦法ゲージ','会心発生','会心威力','撃心発生','撃心威力','通常攻撃対象数','通常攻撃対象部隊数','射程','機動','連鎖率','連鎖確率','対物特効','戦法威力','通常攻撃威力'];
 const INTELLIGENCE_ALIASES=['知力','知力上昇','部隊の知力','自部隊の知力','味方の知力'];
 const SELF_DISADVANTAGE_BUCKETS=[
   {bucket:'弱化対策',kind:'weakening',aliases:['弱化無効','弱化効果無効','弱化効果を無効','弱化解除','弱化効果解除','弱化効果を解除','弱化回避','弱化効果回避','弱化反射','弱化効果反射','弱化効果を反射']},
-  {bucket:'状態変化対策',kind:'status_guard',aliases:['状態変化無効','不利変化無効']},
-  {bucket:'被火力対策',kind:'defense',aliases:['会心無効','会心を無効','撃心無効','撃心を無効','被ダメージ軽減','被ダメージを軽減','防御上昇','防御']},
-  {bucket:'生存対策',kind:'survival',aliases:['壊滅回避','壊滅を回避','兵力回復','兵力を回復','負傷兵回復']},
-  {bucket:'バフ維持',kind:'buff_keep',aliases:['強化解除回避','強化奪取回避']}
+  {bucket:'状態変化対策',kind:'status_guard',aliases:['状態変化無効','状態異常無効','状態異常解除','不利変化無効','不利状態','不利状態解除','不利状態無効']},
+  {bucket:'制御対策',kind:'control_guard',aliases:['分断','絶縁','連鎖無効','恐怖','混乱','畏怖','同討','轟然','疑心','発生抑制','効果時間短縮','耐性']}
 ];
 const NON_DAMAGE_BUCKETS=[
   {bucket:'知力上昇',kind:'non_damage',aliases:INTELLIGENCE_ALIASES,scope:'any'},
@@ -71,7 +69,7 @@ const NON_DAMAGE_BUCKETS=[
 ];
 const METRIC_MATCH_SPECS={
   ally_non_damage_effect:{targetScope:'ally',requiresTarget:true,includeAliases:METRIC_ALIASES.ally_non_damage_effect,excludeAliases:FIREPOWER_ALIASES,effectKind:'non_damage',displayBucket:'非ダメージ'},
-  self_disadvantage_countermeasure:{targetScope:'self',requiresTarget:true,includeAliases:METRIC_ALIASES.self_disadvantage_countermeasure,excludeAliases:['敵部隊','敵の','相手の','戦法遅延','連鎖無効','攻撃低下','防御低下'],effectKind:'weakening',displayBucket:'自部隊不利対策'},
+  self_disadvantage_countermeasure:{targetScope:'self',requiresTarget:true,includeAliases:METRIC_ALIASES.self_disadvantage_countermeasure,excludeAliases:['敵部隊','敵の','相手の','戦法遅延','攻撃低下','防御低下'],effectKind:'weakening',displayBucket:'自部隊不利対策'},
   ally_wounded_recovery:{targetScope:'ally',requiresTarget:true,includeAliases:METRIC_ALIASES.ally_wounded_recovery,excludeAliases:[],effectKind:'recovery',displayBucket:'味方負傷兵回復'},
   weakening_nullify:{targetScope:'self',requiresTarget:true,includeAliases:METRIC_ALIASES.weakening_nullify,excludeAliases:[],effectKind:'weakening',displayBucket:'弱化対策',deprecatedInto:'self_disadvantage_countermeasure'},
   weakening_remove:{targetScope:'self',requiresTarget:true,includeAliases:METRIC_ALIASES.weakening_remove,excludeAliases:[],effectKind:'weakening',displayBucket:'弱化対策'},
@@ -136,8 +134,26 @@ function inferTargetScopeForMetric(text,required='any'){const scope=inferTargetS
 function targetScopeLabel(scope){return TARGET_SCOPE_LABELS[scope]||TARGET_SCOPE_LABELS.unknown}
 function effectKindLabel(kind){return EFFECT_KIND_LABELS[kind]||EFFECT_KIND_LABELS.generic}
 function firstBucket(text,buckets){return buckets.find(bucket=>hasAny(text,bucket.aliases))||null}
+const CATEGORY_DENY_ALIASES={
+  defense:['防御上昇','対物防御','被ダメージ軽減','被ダメージを軽減','兵科耐性','耐性上昇'],
+  survival:['兵力回復','兵力を回復','負傷兵回復','負傷兵を回復','負傷兵を最大兵力','壊滅回避','壊滅を回避','治癒','継続回復'],
+  firepower:['攻撃','攻撃上昇','戦法威力','通常攻撃威力','会心発生','会心威力','撃心発生','撃心威力','対物特効'],
+  speedGauge:['攻撃速度','戦法速度','戦法ゲージ','出陣時戦法ゲージ','交戦開始時戦法ゲージ'],
+  chainRange:['連鎖率','連鎖確率','通常攻撃対象数','通常攻撃対象部隊数','射程','機動']
+};
 function metricSpec(metric){return METRIC_MATCH_SPECS[metric?.metricKey||'']||{targetScope:'any',requiresTarget:false,includeAliases:METRIC_ALIASES[metric?.metricKey]||[],excludeAliases:[],effectKind:'generic',displayBucket:metric?.label||metric?.metricKey||'型要素'}}
-function rowEvidenceKey(row){return [row?.featureId||'',row?.sourceKind||'',row?.sourceLabel||'',row?.key||row?.label||row?.statusEffectName||'',row?.matchedText||rowText(row)].map(norm).join('|')}
+function metricCategoryGate(metricKey,text,bucket,intelligence=false){
+  if(metricKey==='self_disadvantage_countermeasure'){
+    if(!bucket||!['weakening','status_guard','control_guard'].includes(bucket.kind))return {ok:false,reason:'categoryGate: 自部隊不利対策は弱化/状態変化/制御対策のみ'};
+    for(const [kind,aliases] of Object.entries(CATEGORY_DENY_ALIASES)){if(hasAny(text,aliases))return {ok:false,reason:`categoryDeny:${kind}`};}
+  }
+  if(metricKey==='ally_non_damage_effect'&&!intelligence){
+    if(hasAny(text,[...CATEGORY_DENY_ALIASES.firepower,...CATEGORY_DENY_ALIASES.speedGauge,...CATEGORY_DENY_ALIASES.chainRange]))return {ok:false,reason:'categoryDeny:firepower_or_action'};
+  }
+  if(metricKey==='ally_wounded_recovery'&&hasAny(text,['自部隊の','自身の','自分の']))return {ok:false,reason:'categoryDeny:self_recovery'};
+  return {ok:true,reason:''};
+}
+function rowEvidenceKey(row,metricKey='',classified=null){const source=String(row?.sourceLabel||row?.source||'').trim();const raw=String(row?.rawText||row?.matchedText||rowText(row)).trim();const effect=String(classified?.effectKind||row?.effectKind||classified?.displayBucket||row?.displayBucket||row?.key||row?.label||row?.statusEffectName||'').trim();const scope=String(classified?.targetScope||row?.targetScope||'').trim();return [source,raw,effect,scope].map(norm).join('|')}
 function classifyMetricRow(row,metric,scopedText){
   const spec=metricSpec(metric),metricKey=metric?.metricKey||'',text=String(scopedText||''),targetScope=inferTargetScopeForMetric(text,spec.targetScope),include=uniq([metric?.label,...(spec.includeAliases||[])]),exclude=spec.excludeAliases||[];
   const intelligence=metricKey==='ally_non_damage_effect'&&hasAny(text,INTELLIGENCE_ALIASES);
@@ -147,10 +163,11 @@ function classifyMetricRow(row,metric,scopedText){
   let bucket=null;
   if(metricKey==='self_disadvantage_countermeasure')bucket=firstBucket(text,SELF_DISADVANTAGE_BUCKETS);
   else if(metricKey==='ally_non_damage_effect')bucket=firstBucket(text,NON_DAMAGE_BUCKETS);
+  const category=metricCategoryGate(metricKey,text,bucket,intelligence);
   const displayBucket=bucket?.bucket||spec.displayBucket||metric?.label||metricKey;
   const effectKind=bucket?.kind||spec.effectKind||'generic';
-  const excludeReason=!included?'includeAliases未一致':(excluded?'excludeAliases一致':(!targetOk?`targetScope ${targetScope} does not satisfy ${spec.targetScope}`:''));
-  return {included:!!included&&!excluded&&targetOk,excludeReason,targetScope,targetScopeLabel:targetScopeLabel(targetScope),requiredTargetScope:spec.targetScope||'any',requiresTarget:!!spec.requiresTarget,effectKind,effectKindLabel:effectKindLabel(effectKind),displayBucket,intelligenceException:!!intelligence,deprecatedInto:spec.deprecatedInto||'',matchedAlias:include.find(term=>hasAny(text,[term]))||''};
+  const excludeReason=!included?'includeAliases未一致':(excluded?'excludeAliases一致':(!targetOk?`targetScope ${targetScope} does not satisfy ${spec.targetScope}`:(!category.ok?category.reason:'')));
+  return {included:!!included&&!excluded&&targetOk&&category.ok,excludeReason,targetScope,targetScopeLabel:targetScopeLabel(targetScope),requiredTargetScope:spec.targetScope||'any',requiresTarget:!!spec.requiresTarget,effectKind,effectKindLabel:effectKindLabel(effectKind),displayBucket,intelligenceException:!!intelligence,deprecatedInto:spec.deprecatedInto||'',matchedAlias:include.find(term=>hasAny(text,[term]))||'',categoryGate:category.ok?'matched':'excluded'};
 }
 function metricRows(entity,metric){
   const ids=expectedIds(metric),as=aliases(metric),roleId=String(entity?.roleId||''),spec=metricSpec(metric);
@@ -162,7 +179,7 @@ function metricRows(entity,metric){
     const classified=classifyMetricRow(row,metric,scopedText);
     if(!aliasMatched&&!classified.included)return null;
     if(!classified.included)return null;
-    return Object.assign({},row,classified,{matchedText:row?.matchedText||rowText(row),targetScope:classified.targetScope,targetScopeMatched:classified.targetScope,displayBucket:classified.displayBucket,effectKind:classified.effectKind,evidenceKey:rowEvidenceKey(row),scoreEligible:true,metricKey:metric?.metricKey||''});
+    return Object.assign({},row,classified,{matchedText:row?.matchedText||rowText(row),targetScope:classified.targetScope,targetScopeMatched:classified.targetScope,displayBucket:classified.displayBucket,effectKind:classified.effectKind,evidenceKey:rowEvidenceKey(row,metric?.metricKey||'',classified),scoreEligible:true,metricKey:metric?.metricKey||''});
   }).filter(Boolean);
 }
 function relevantText(row,metric,roleId){
@@ -184,8 +201,8 @@ function metricValue(entity,metric){
 }
 function dedupeBreakdownRows(breakdown){
   const owners=new Map();
-  breakdown.forEach((metric,metricIndex)=>{(metric.rows||[]).forEach(row=>{const key=row.evidenceKey||rowEvidenceKey(row),priority=METRIC_PRIORITY[metric.metricKey]??50,current=owners.get(key);if(!current||priority>current.priority||(priority===current.priority&&metricIndex<current.metricIndex))owners.set(key,{metricKey:metric.metricKey,priority,metricIndex});});});
-  return breakdown.map(metric=>{const rows=(metric.rows||[]).filter(row=>owners.get(row.evidenceKey||rowEvidenceKey(row))?.metricKey===metric.metricKey);const confirmedRows=(metric.confirmedRows||[]).filter(row=>owners.get(row.evidenceKey||rowEvidenceKey(row))?.metricKey===metric.metricKey);const itemCount=rows.length,confirmedCount=confirmedRows.length;return Object.assign({},metric,{rows,confirmedRows,itemCount,conditionalMaxValue:itemCount,confirmedValue:confirmedCount,confirmedItemCount:confirmedCount,hit:itemCount>0,dedupePolicy:'single-score-per-evidence-row',dedupedFromMetricCount:(metric.rows||[]).length-itemCount});});
+  breakdown.forEach((metric,metricIndex)=>{(metric.rows||[]).forEach(row=>{const key=row.evidenceKey||rowEvidenceKey(row,metric.metricKey),priority=METRIC_PRIORITY[metric.metricKey]??50,current=owners.get(key);if(!current||priority>current.priority||(priority===current.priority&&metricIndex<current.metricIndex))owners.set(key,{metricKey:metric.metricKey,priority,metricIndex});});});
+  return breakdown.map(metric=>{const seenRows=new Set();const rows=(metric.rows||[]).filter(row=>{const key=row.evidenceKey||rowEvidenceKey(row,metric.metricKey);if(owners.get(key)?.metricKey!==metric.metricKey||seenRows.has(key))return false;seenRows.add(key);return true;});const seenConfirmed=new Set();const confirmedRows=(metric.confirmedRows||[]).filter(row=>{const key=row.evidenceKey||rowEvidenceKey(row,metric.metricKey);if(owners.get(key)?.metricKey!==metric.metricKey||seenConfirmed.has(key))return false;seenConfirmed.add(key);return true;});const itemCount=rows.length,confirmedCount=confirmedRows.length;return Object.assign({},metric,{rows,confirmedRows,itemCount,conditionalMaxValue:itemCount,confirmedValue:confirmedCount,confirmedItemCount:confirmedCount,hit:itemCount>0,dedupePolicy:'single-score-per-evidence-row',dedupedFromMetricCount:(metric.rows||[]).length-itemCount});});
 }
 const round1=n=>Math.round((Number(n)||0)*10)/10;
 const fmt=n=>String(round1(n)).replace(/\.0$/,'');

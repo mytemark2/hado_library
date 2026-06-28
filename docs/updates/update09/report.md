@@ -949,3 +949,11 @@
 - 影響範囲: 通常の評価スコア内訳パネルは、従来通り簡略タグ・重複排除・1行表示を維持する。
 - 検証: `node tools/test_formation_type_score_render.js`、`python3 tools/validate_formation_score_tag_only.py`、`python3 tools/run_app_validation.py` で全文表示 CSS 契約を確認する。
 - 残課題: preview 同期と Pages 実機確認は、リモート fetch/push が可能な環境で実施する。
+### Update09.5.14 完了報告 — 評価スコアカテゴリゲート修正
+
+- 問題分類: 評価スコア根拠抽出ロジック不具合。対象が自部隊/味方であることだけを強く見すぎ、防御・回復など別カテゴリの効果が自部隊不利対策に混入していた。
+- 修正内容: 自部隊不利対策は `弱化対策` / `状態変化対策` / `制御対策` のみを許可し、`防御` / `対物防御` / `被ダメージ軽減` / `兵力回復` / `負傷兵回復` / `攻撃` / `会心` / `戦法ゲージ` などを category deny で除外する。
+- 類似カテゴリ監査: 被火力対策に回復、回復/生存に防御、火力支援に防御、敵部隊妨害に味方バフ、戦法支援に防御、連鎖支援に戦法ゲージが入らない回帰ケースを追加した。
+- 重複排除: 代表根拠キーを source / rawText / effectKind / targetScope に寄せ、`弱化効果無効[弱化無効]` と `弱化無効` など同一根拠由来の派生タグを二重加点しない。
+- 検証: `node tools/test_update09_phase5_score_target_scope.js`、`python3 tools/validate_update09_phase5_score_target_scope.py`、`python3 tools/run_app_validation.py` で再発防止を確認する。
+- 残課題: preview 同期と Pages 実機確認は、リモート fetch/push が可能な環境で実施する。

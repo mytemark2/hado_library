@@ -32,6 +32,13 @@ if missing:
 for forbidden in ["'攻撃速度','戦法速度','戦法ゲージ','会心発生','会心威力','連鎖確率','連鎖率','通常攻撃対象数','通常攻撃対象部隊数','射程'"]:
     if "ally_non_damage_effect:['味方非ダメージ効果'" in score and forbidden in score.split("ally_non_damage_effect:['味方非ダメージ効果'",1)[1].split(']',1)[0]:
         raise SystemExit('ally_non_damage_effect still contains broad firepower aliases: ' + forbidden)
+self_alias_block = score.split("self_disadvantage_countermeasure:['自部隊不利対策'",1)[1].split(']',1)[0]
+for forbidden in ['防御上昇','被ダメージ軽減','兵力回復','負傷兵回復','会心無効','撃心無効','攻撃上昇','戦法ゲージ']:
+    if forbidden in self_alias_block:
+        raise SystemExit('self_disadvantage_countermeasure aliases still contain non-disadvantage category: ' + forbidden)
+for required_case in ['被火力対策 > 自部隊 > 防御', '生存対策 > 自部隊 > 負傷兵回復', '状態変化無効[分断]', 'weakening duplicate evidence belongs to self_disadvantage once']:
+    if required_case not in (ROOT / 'tools' / 'test_update09_phase5_score_target_scope.js').read_text(encoding='utf-8'):
+        raise SystemExit('target-scope regression test missing case: ' + required_case)
 formation_required = [
     'targetScopeLabel',
     'effectKindLabel',
