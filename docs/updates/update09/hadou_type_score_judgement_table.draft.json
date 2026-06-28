@@ -1,0 +1,803 @@
+{
+  "schemaVersion": "draft-2026-06-28",
+  "kind": "type_score_evidence_normalization_spec",
+  "principles": [
+    "評価スコアはタグ一致ではなく、現在部隊で発生する一次効果を正規化した scoreEvidence を入力にする。",
+    "型要素、検索タグ、関連リンクタグ、変化率集計、結果サマリー、パラメータ集計は直接加点しない。",
+    "targetScope は必要条件であり十分条件ではない。必ず effectFamily / effectKind / sourceOrigin / dependency と組み合わせる。",
+    "primary が0なら support だけで高得点にしない。",
+    "同一起源の効果は evidenceGroupKey で代表化し、派生タグや集計値で二重加点しない。"
+  ],
+  "scoreEvidenceFields": {
+    "evidenceId": "stable unique id",
+    "sourceType": [
+      "general",
+      "tactic",
+      "skill",
+      "equipment",
+      "formation",
+      "siegeWeapon",
+      "ethnicArmament",
+      "ethnicResearchSkill",
+      "fiveElement",
+      "warhorse",
+      "warhorseSkill"
+    ],
+    "sourceId": "source master id/name",
+    "sourceLabel": "display source label",
+    "sourceSlot": [
+      "main",
+      "vice1",
+      "vice2",
+      "support1",
+      "support2",
+      "attendant",
+      "equipment",
+      "formation",
+      "fiveElement",
+      "warhorse"
+    ],
+    "timing": [
+      "always",
+      "tactic_activated",
+      "combat_start",
+      "on_attack",
+      "on_damaged",
+      "on_chain",
+      "on_garrison",
+      "conditional"
+    ],
+    "conditionText": "raw condition",
+    "targetScope": [
+      "self",
+      "ally",
+      "enemy",
+      "unknown"
+    ],
+    "targetCount": "number or null",
+    "effectKind": [
+      "buff",
+      "debuff",
+      "recovery",
+      "defense",
+      "disadvantage_counter",
+      "gauge",
+      "chain",
+      "range",
+      "damage",
+      "anti_object",
+      "survival",
+      "buff_protection",
+      "utility"
+    ],
+    "effectFamily": "canonical family such as attack_up, weakening_remove, tactic_speed",
+    "value": "number or null",
+    "unit": [
+      "%",
+      "count",
+      "second",
+      "presence",
+      "unknown"
+    ],
+    "duration": "seconds or null",
+    "isPrimaryEffect": "true only for real effect from source text/structured source",
+    "isDerivedTag": "true for search/type/status derived tags",
+    "isAggregateMetric": "true for parameter summary / rate summary / result summary",
+    "evidenceGroupKey": "sourceType|sourceId|sourceSlot|timing|targetScope|effectFamily|conditionText",
+    "rawText": "original effect text"
+  },
+  "effectFamilyCatalog": {
+    "buff": [
+      "attack_up",
+      "defense_up",
+      "intelligence_up",
+      "tactic_power_up",
+      "normal_attack_power_up",
+      "attack_speed_up",
+      "critical_rate_up",
+      "critical_power_up",
+      "critical_tactic_rate_up",
+      "critical_tactic_power_up",
+      "normal_attack_target_count_up",
+      "range_up",
+      "anti_object_up"
+    ],
+    "debuff": [
+      "enemy_attack_down",
+      "enemy_defense_down",
+      "enemy_anti_object_down",
+      "tactic_delay",
+      "chain_nullify_to_enemy",
+      "confuse",
+      "fear",
+      "severance",
+      "isolation"
+    ],
+    "disadvantageCounter": [
+      "weakening_nullify",
+      "weakening_remove",
+      "weakening_avoid",
+      "status_nullify",
+      "status_remove",
+      "severance_counter",
+      "isolation_counter",
+      "chain_nullify_counter",
+      "control_counter"
+    ],
+    "survival": [
+      "troops_up",
+      "wounded_recovery",
+      "wounded_survival",
+      "annihilation_avoidance",
+      "damage_reduction",
+      "attribute_resistance",
+      "healing",
+      "continuous_healing"
+    ],
+    "tempo": [
+      "tactic_speed",
+      "tactic_reduction",
+      "initial_tactic_gauge",
+      "combat_start_tactic_gauge",
+      "chain_rate"
+    ]
+  },
+  "exclusionRules": [
+    {
+      "id": "exclude_aggregate",
+      "condition": "isAggregateMetric == true",
+      "reason": "集計値は結果であり根拠ではない"
+    },
+    {
+      "id": "exclude_derived",
+      "condition": "isDerivedTag == true && isPrimaryEffect != true",
+      "reason": "派生タグは直接加点しない"
+    },
+    {
+      "id": "exclude_unknown_target",
+      "condition": "targetScope == unknown for target-dependent metrics",
+      "reason": "対象不明は対象依存評価では加点しない"
+    },
+    {
+      "id": "exclude_enemy_for_ally",
+      "condition": "targetScope == enemy for ally/self metrics",
+      "reason": "敵対象は味方/自部隊評価から除外"
+    },
+    {
+      "id": "exclude_plain_buff_for_vaccine",
+      "condition": "typeId == vaccine && effectFamily in plain buff/survival/tempo/attributeResistance",
+      "reason": "ワクチン型は弱化/状態異常/制御対策のみ"
+    },
+    {
+      "id": "exclude_support_without_primary",
+      "condition": "all primaryMetrics score 0",
+      "reason": "補助項目だけで型成立としない"
+    }
+  ],
+  "typeJudgementTable": [
+    {
+      "typeId": "calm",
+      "typeName": "鎮静型",
+      "purpose": "弱化無効・解除・強化維持で敵妨害に崩されにくくする。",
+      "primaryMetrics": [
+        "weakening_guard",
+        "weakening_remove",
+        "buff_protection"
+      ],
+      "supportMetrics": [
+        "troops"
+      ],
+      "denyFamilies": [
+        "plainDefenseOnly",
+        "plainRecoveryOnly",
+        "firepowerOnly",
+        "tempoOnly",
+        "aggregateMetric",
+        "derivedTag"
+      ],
+      "targetPolicy": {
+        "self": "full",
+        "ally": "full_if_affects_own_or_allies",
+        "enemy": "deny",
+        "unknown": "deny"
+      },
+      "dependencyRules": [
+        "troopsは補助。weakening_guard/weakening_remove/buff_protectionが全て0なら型成立スコアを高くしない。",
+        "weakening_guardとweakening_removeは同一起源なら代表化し、親カテゴリとの二重加点を禁止。"
+      ],
+      "expectedEvidence": [
+        "弱化無効",
+        "弱化解除",
+        "弱化回避",
+        "強化解除回避",
+        "強化奪取回避"
+      ]
+    },
+    {
+      "typeId": "zombie",
+      "typeName": "ゾンビ型",
+      "purpose": "壊滅回避・残存兵力・回復・被ダメ軽減で長時間耐える。",
+      "primaryMetrics": [
+        "annihilation_avoidance",
+        "remaining_troops",
+        "wounded_recovery"
+      ],
+      "supportMetrics": [
+        "damage_reduction",
+        "troops"
+      ],
+      "denyFamilies": [
+        "firepowerOnly",
+        "tempoOnly",
+        "debuffOnly",
+        "aggregateMetric",
+        "derivedTag"
+      ],
+      "targetPolicy": {
+        "self": "full",
+        "ally": "partial_or_full_if_support_type",
+        "enemy": "deny",
+        "unknown": "deny"
+      },
+      "dependencyRules": [
+        "damage_reductionとtroopsだけで高得点にしない。回復/壊滅回避/残存兵力のいずれかをprimaryとして要求。",
+        "負傷兵生存・治癒・継続回復は生存支援として評価する。"
+      ],
+      "expectedEvidence": [
+        "壊滅回避",
+        "残存兵力",
+        "負傷兵回復",
+        "兵力回復",
+        "負傷兵として生存する兵数",
+        "被ダメージ軽減"
+      ]
+    },
+    {
+      "typeId": "bomb",
+      "typeName": "爆弾型",
+      "purpose": "対物特効と撃心戦法で城壁・要所に一撃の大ダメージを出す。",
+      "primaryMetrics": [
+        "anti_object",
+        "critical_tactic_power",
+        "tactic_power"
+      ],
+      "supportMetrics": [
+        "critical_tactic_rate",
+        "tactic_speed"
+      ],
+      "denyFamilies": [
+        "plainDefenseOnly",
+        "plainRecoveryOnly",
+        "allyBuffOnly",
+        "aggregateMetric",
+        "derivedTag"
+      ],
+      "targetPolicy": {
+        "self": "full",
+        "ally": "partial_if_buff_to_self_or_ally_attack",
+        "enemy": "deny_unless_enemy_debuff_boosts_damage",
+        "unknown": "deny"
+      },
+      "dependencyRules": [
+        "tactic_speedは補助。anti_object/tactic_power/critical_tacticが0なら高得点にしない。",
+        "対物特効低下など敵デバフは別型へ寄せ、爆弾型では直接火力への寄与が明確な場合のみ補助。"
+      ],
+      "expectedEvidence": [
+        "対物特効",
+        "撃心威力",
+        "撃心発生",
+        "戦法威力",
+        "戦法速度"
+      ]
+    },
+    {
+      "typeId": "critical_tactic",
+      "typeName": "撃心型",
+      "purpose": "撃心発生・撃心威力・戦法威力で戦法攻撃の上振れを狙う。",
+      "primaryMetrics": [
+        "critical_tactic_rate",
+        "critical_tactic_power",
+        "tactic_power"
+      ],
+      "supportMetrics": [
+        "tactic_speed",
+        "troops"
+      ],
+      "denyFamilies": [
+        "normalAttackOnly",
+        "plainDefenseOnly",
+        "plainRecoveryOnly",
+        "aggregateMetric",
+        "derivedTag"
+      ],
+      "targetPolicy": {
+        "self": "full",
+        "ally": "partial_if_buff",
+        "enemy": "deny",
+        "unknown": "deny"
+      },
+      "dependencyRules": [
+        "撃心発生または撃心威力が0なら、戦法速度/兵力だけで撃心型高得点にしない。",
+        "会心と撃心は別family。混同禁止。"
+      ],
+      "expectedEvidence": [
+        "撃心発生",
+        "撃心威力",
+        "戦法威力",
+        "戦法速度"
+      ]
+    },
+    {
+      "typeId": "critical_normal",
+      "typeName": "会心型",
+      "purpose": "会心発生・会心威力・通常攻撃威力で通常攻撃火力を伸ばす。",
+      "primaryMetrics": [
+        "critical_rate",
+        "critical_power",
+        "normal_attack_power"
+      ],
+      "supportMetrics": [
+        "attack_speed",
+        "normal_attack_target_count"
+      ],
+      "denyFamilies": [
+        "tacticOnly",
+        "plainDefenseOnly",
+        "plainRecoveryOnly",
+        "aggregateMetric",
+        "derivedTag"
+      ],
+      "targetPolicy": {
+        "self": "full",
+        "ally": "partial_if_buff",
+        "enemy": "deny",
+        "unknown": "deny"
+      },
+      "dependencyRules": [
+        "attack_speed/target_countは補助。会心または通常攻撃威力が0なら高得点にしない。",
+        "撃心系を会心型へ混入させない。"
+      ],
+      "expectedEvidence": [
+        "会心発生",
+        "会心威力",
+        "通常攻撃威力",
+        "攻撃速度",
+        "通常攻撃対象数"
+      ]
+    },
+    {
+      "typeId": "tactic_speed",
+      "typeName": "戦法速度型",
+      "purpose": "初回/継続戦法を早める。",
+      "primaryMetrics": [
+        "tactic_speed",
+        "tactic_reduction",
+        "initial_tactic_gauge"
+      ],
+      "supportMetrics": [
+        "chain_rate",
+        "troops"
+      ],
+      "denyFamilies": [
+        "normalAttackOnly",
+        "plainDefenseOnly",
+        "plainRecoveryOnly",
+        "aggregateMetric",
+        "derivedTag"
+      ],
+      "targetPolicy": {
+        "self": "full",
+        "ally": "partial_if_support",
+        "enemy": "deny",
+        "unknown": "deny"
+      },
+      "dependencyRules": [
+        "戦法速度/短縮/初期ゲージのいずれかをprimaryとして要求。",
+        "chain_rateとtroopsだけでは戦法速度型を成立させない。"
+      ],
+      "expectedEvidence": [
+        "戦法速度",
+        "戦法短縮",
+        "出陣時戦法ゲージ",
+        "交戦開始時戦法ゲージ",
+        "連鎖率"
+      ]
+    },
+    {
+      "typeId": "attack_speed",
+      "typeName": "攻撃速度型",
+      "purpose": "攻撃速度を中心に通常攻撃回数を増やす。",
+      "primaryMetrics": [
+        "attack_speed"
+      ],
+      "supportMetrics": [
+        "normal_attack_target_count",
+        "normal_attack_power",
+        "critical_rate",
+        "range"
+      ],
+      "denyFamilies": [
+        "tacticOnly",
+        "plainDefenseOnly",
+        "plainRecoveryOnly",
+        "aggregateMetric",
+        "derivedTag"
+      ],
+      "targetPolicy": {
+        "self": "full",
+        "ally": "partial_if_buff",
+        "enemy": "deny",
+        "unknown": "deny"
+      },
+      "dependencyRules": [
+        "attack_speedをprimaryとして要求。通常攻撃対象数だけで攻撃速度型高得点にしない。",
+        "戦法速度と攻撃速度を混同しない。"
+      ],
+      "expectedEvidence": [
+        "攻撃速度",
+        "通常攻撃対象数",
+        "通常攻撃威力",
+        "会心発生",
+        "射程"
+      ]
+    },
+    {
+      "typeId": "normal_attack",
+      "typeName": "通常攻撃拡張型",
+      "purpose": "通常攻撃対象数と射程を伸ばし、多数の敵部隊へ通常攻撃する。",
+      "primaryMetrics": [
+        "normal_attack_target_count",
+        "range"
+      ],
+      "supportMetrics": [
+        "normal_attack_power",
+        "attack_speed",
+        "troops"
+      ],
+      "denyFamilies": [
+        "tacticOnly",
+        "plainDefenseOnly",
+        "plainRecoveryOnly",
+        "aggregateMetric",
+        "derivedTag"
+      ],
+      "targetPolicy": {
+        "self": "full",
+        "ally": "partial_if_buff",
+        "enemy": "deny",
+        "unknown": "deny"
+      },
+      "dependencyRules": [
+        "target_count/rangeのいずれかをprimaryとして要求。",
+        "attack_speedだけで通常攻撃拡張型を高得点にしない。"
+      ],
+      "expectedEvidence": [
+        "通常攻撃対象数",
+        "射程",
+        "通常攻撃威力",
+        "攻撃速度"
+      ]
+    },
+    {
+      "typeId": "debuff",
+      "typeName": "デバフ型（基礎）",
+      "purpose": "敵への状態変化・戦法遅延・連鎖阻害・攻防低下を確認する基礎型。",
+      "primaryMetrics": [
+        "enemy_debuff",
+        "status_effect_rate",
+        "tactic_delay",
+        "chain_nullify"
+      ],
+      "supportMetrics": [
+        "enemy_attack_debuff",
+        "enemy_defense_debuff"
+      ],
+      "denyFamilies": [
+        "allyBuffOnly",
+        "selfBuffOnly",
+        "plainRecoveryOnly",
+        "aggregateMetric",
+        "derivedTag"
+      ],
+      "targetPolicy": {
+        "self": "deny",
+        "ally": "deny",
+        "enemy": "full",
+        "unknown": "deny"
+      },
+      "dependencyRules": [
+        "敵対象であることを必須にする。",
+        "状態変化発生率だけではなく、敵へ付与する実デバフ本体との紐付きを優先。"
+      ],
+      "expectedEvidence": [
+        "状態変化発生率",
+        "戦法遅延",
+        "連鎖無効",
+        "敵部隊攻撃低下",
+        "敵部隊防御低下"
+      ]
+    },
+    {
+      "typeId": "anti_object",
+      "typeName": "対物型",
+      "purpose": "対物特効を中心に城壁・要所へのダメージを伸ばす。",
+      "primaryMetrics": [
+        "anti_object"
+      ],
+      "supportMetrics": [
+        "tactic_power",
+        "normal_attack_power",
+        "attack_speed",
+        "troops"
+      ],
+      "denyFamilies": [
+        "plainDefenseOnly",
+        "plainRecoveryOnly",
+        "allyNonDamageOnly",
+        "aggregateMetric",
+        "derivedTag"
+      ],
+      "targetPolicy": {
+        "self": "full",
+        "ally": "partial_if_buff",
+        "enemy": "partial_if_enemy_anti_object_debuff",
+        "unknown": "deny"
+      },
+      "dependencyRules": [
+        "anti_objectをprimaryとして要求。戦法威力や攻撃速度だけで対物型高得点にしない。",
+        "対物体攻撃/対物特効は同familyとして代表化。"
+      ],
+      "expectedEvidence": [
+        "対物特効",
+        "対物体攻撃",
+        "戦法威力",
+        "通常攻撃威力",
+        "攻撃速度"
+      ]
+    },
+    {
+      "typeId": "annihilation",
+      "typeName": "汎用火力型",
+      "purpose": "戦法・撃心・会心・速度を横断する参考火力型。主軸選定では過大評価しない。",
+      "primaryMetrics": [
+        "tactic_power",
+        "critical_tactic_power",
+        "critical_power"
+      ],
+      "supportMetrics": [
+        "attack_speed",
+        "troops"
+      ],
+      "denyFamilies": [
+        "plainDefenseOnly",
+        "plainRecoveryOnly",
+        "pureSupportOnly",
+        "aggregateMetric",
+        "derivedTag"
+      ],
+      "targetPolicy": {
+        "self": "full",
+        "ally": "partial_if_buff",
+        "enemy": "deny_unless_damage_debuff",
+        "unknown": "deny"
+      },
+      "dependencyRules": [
+        "参考型のため、複数火力familyの代表化を必須にし、同じ攻撃上昇の派生タグで過大評価しない。",
+        "troopsは補助。火力primaryが0なら高得点にしない。"
+      ],
+      "expectedEvidence": [
+        "戦法威力",
+        "撃心威力",
+        "会心威力",
+        "攻撃速度",
+        "兵力"
+      ]
+    },
+    {
+      "typeId": "buff_support",
+      "typeName": "バフ支援型",
+      "purpose": "味方または自部隊へ、早く・多く・長く有益バフを配る。",
+      "primaryMetrics": [
+        "ally_buff_distribution"
+      ],
+      "supportMetrics": [
+        "ally_target_count",
+        "effect_duration",
+        "initial_tactic_gauge",
+        "tactic_speed"
+      ],
+      "denyFamilies": [
+        "enemyDebuffOnly",
+        "directDamageOnly",
+        "plainRecoveryOnlyUnlessBuffSupport",
+        "aggregateMetric",
+        "derivedTag"
+      ],
+      "targetPolicy": {
+        "self": "partial",
+        "ally": "full",
+        "enemy": "deny",
+        "unknown": "deny"
+      },
+      "dependencyRules": [
+        "ally_buff_distributionが0の場合、target_count/duration/tactic_speedだけで高得点にしない。",
+        "自部隊のみのバフは自己バフとして部分点。自身を含む味方/味方複数部隊は配布として高評価。",
+        "target_countとdurationは、buff本体と同じevidenceGroupに紐づく場合のみ加点。",
+        "攻撃/防御/知力/戦法威力/通常攻撃威力/攻撃速度/会心/通常攻撃対象数などの有益強化をbuffとして拾う。"
+      ],
+      "expectedEvidence": [
+        "攻撃上昇",
+        "防御上昇",
+        "知力上昇",
+        "戦法威力上昇",
+        "通常攻撃威力上昇",
+        "攻撃速度上昇",
+        "会心発生",
+        "会心威力",
+        "通常攻撃対象数"
+      ]
+    },
+    {
+      "typeId": "debuff_interference",
+      "typeName": "デバフ妨害型",
+      "purpose": "敵へ早く・多く・長くデバフを配る。",
+      "primaryMetrics": [
+        "enemy_debuff_distribution"
+      ],
+      "supportMetrics": [
+        "enemy_target_count",
+        "effect_duration",
+        "status_effect_rate",
+        "tactic_speed"
+      ],
+      "denyFamilies": [
+        "allyBuffOnly",
+        "selfBuffOnly",
+        "plainRecoveryOnly",
+        "aggregateMetric",
+        "derivedTag"
+      ],
+      "targetPolicy": {
+        "self": "deny",
+        "ally": "deny",
+        "enemy": "full",
+        "unknown": "deny"
+      },
+      "dependencyRules": [
+        "enemy_debuff_distributionが0の場合、status_effect_rate/tactic_speedだけで高得点にしない。",
+        "target_countとdurationは敵デバフ本体に紐づく場合のみ加点。"
+      ],
+      "expectedEvidence": [
+        "敵弱化",
+        "敵攻撃低下",
+        "敵防御低下",
+        "戦法遅延",
+        "連鎖無効",
+        "混乱",
+        "恐怖",
+        "分断",
+        "絶縁"
+      ]
+    },
+    {
+      "typeId": "wall_defense",
+      "typeName": "城壁防衛型",
+      "purpose": "城壁前で敵対物低下・多対象攻撃・回復・被ダメ軽減により防衛する。",
+      "primaryMetrics": [
+        "enemy_anti_object_debuff",
+        "damage_reduction",
+        "wounded_recovery"
+      ],
+      "supportMetrics": [
+        "normal_attack_target_count",
+        "attack_speed"
+      ],
+      "denyFamilies": [
+        "pureFirepowerToEnemyOnly",
+        "allyBuffOnlyUnlessDefense",
+        "aggregateMetric",
+        "derivedTag"
+      ],
+      "targetPolicy": {
+        "self": "full_for_defense_recovery",
+        "ally": "partial_if_defense_support",
+        "enemy": "full_for_anti_object_debuff",
+        "unknown": "deny"
+      },
+      "dependencyRules": [
+        "敵対物低下/防御回復系のprimaryが0なら、攻撃速度/対象数だけで防衛型高得点にしない。",
+        "通常攻撃対象数は防衛で複数妨害する補助として扱う。"
+      ],
+      "expectedEvidence": [
+        "敵部隊対物特効低下",
+        "通常攻撃対象数",
+        "攻撃速度",
+        "負傷兵回復",
+        "被ダメージ軽減"
+      ]
+    },
+    {
+      "typeId": "garrison_support",
+      "typeName": "駐屯支援型",
+      "purpose": "駐屯で敵対物低下・味方回復・防御強化・初動/回転補助により味方を支える。",
+      "primaryMetrics": [
+        "enemy_anti_object_debuff",
+        "ally_wounded_recovery",
+        "ally_defense_buff"
+      ],
+      "supportMetrics": [
+        "combat_start_tactic_gauge",
+        "tactic_speed"
+      ],
+      "denyFamilies": [
+        "pureFirepowerOnly",
+        "selfOnlyAttackBuff",
+        "aggregateMetric",
+        "derivedTag"
+      ],
+      "targetPolicy": {
+        "self": "partial",
+        "ally": "full",
+        "enemy": "full_for_anti_object_debuff",
+        "unknown": "deny"
+      },
+      "dependencyRules": [
+        "enemy_anti_object_debuff/ally_recovery/ally_defenseのどれかをprimaryとして要求。",
+        "combat_start_tactic_gauge/tactic_speedは補助。primaryが0なら高得点にしない。"
+      ],
+      "expectedEvidence": [
+        "敵部隊対物特効低下",
+        "味方負傷兵回復",
+        "味方防御上昇",
+        "交戦開始時戦法ゲージ",
+        "戦法速度"
+      ]
+    },
+    {
+      "typeId": "vaccine",
+      "typeName": "ワクチン型",
+      "purpose": "弱化・状態異常・制御への対策で不利状態を受けにくく、受けても戻せる。",
+      "primaryMetrics": [
+        "weakening_guard",
+        "weakening_remove",
+        "status_guard",
+        "control_guard"
+      ],
+      "supportMetrics": [
+        "buff_protection",
+        "ally_scope"
+      ],
+      "denyFamilies": [
+        "plainDefenseOnly",
+        "plainRecoveryOnly",
+        "firepowerOnly",
+        "tempoOnly",
+        "attributeResistanceOnly",
+        "aggregateMetric",
+        "derivedTag"
+      ],
+      "targetPolicy": {
+        "self": "full",
+        "ally": "full_if_countermeasure",
+        "enemy": "deny",
+        "unknown": "deny"
+      },
+      "dependencyRules": [
+        "防御/回復/負傷兵生存/属性耐性だけではワクチン型に加点しない。",
+        "火行の火属性ダメージ軽減はワクチン型ではなく被火力/属性耐性。土行の弱化効果打ち消しは弱化解除。",
+        "weakening_guard/remove/status/controlのいずれも0なら、ワクチン型は0または低評価で正しい。"
+      ],
+      "expectedEvidence": [
+        "弱化無効",
+        "弱化解除",
+        "弱化回避",
+        "状態変化無効",
+        "状態異常解除",
+        "分断対策",
+        "絶縁対策",
+        "連鎖無効対策",
+        "強化解除回避"
+      ]
+    }
+  ]
+}
