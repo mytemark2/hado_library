@@ -957,3 +957,12 @@
 - 重複排除: 代表根拠キーを source / rawText / effectKind / targetScope に寄せ、`弱化効果無効[弱化無効]` と `弱化無効` など同一根拠由来の派生タグを二重加点しない。
 - 検証: `node tools/test_update09_phase5_score_target_scope.js`、`python3 tools/validate_update09_phase5_score_target_scope.py`、`python3 tools/run_app_validation.py` で再発防止を確認する。
 - 残課題: preview 同期と Pages 実機確認は、リモート fetch/push が可能な環境で実施する。
+
+## 2026-06-28 Update09.5.15 score evidence primary-effect gate report
+- Summary: 評価スコアの根拠抽出で、一次効果・派生タグ・型要素・変化率集計・対象不明を分離し、`型要素 知力上昇` や `部隊の知力(変化率集計)` が味方非ダメージ効果へ加点される欠陥を修正した。
+- Root cause: targetScope と alias 一致の後に、根拠が一次効果か、派生/集計値かを判定していなかったため、検索/分類用タグや集計結果が評価根拠として再投入されていた。
+- Implementation: `scoreEvidenceOrigin()` / `scoreEligibleEvidence()` を追加し、aggregate / derived / primary を分類。評価カテゴリゲートは primary evidence のみ通し、対象不明は対象依存カテゴリに加点しない。
+- Ally non-damage: 自部隊/味方対象の一次効果のみ許可し、火力支援・耐久支援・生存支援・不利対策・戦法支援・連鎖支援へ内訳分類する。型要素、変化率集計、敵対象、ダメージ、敵妨害、対象不明は除外する。
+- Self disadvantage: 防御、被ダメージ軽減、兵力回復、負傷兵回復、攻撃/会心/戦法ゲージ/連鎖率は自部隊不利対策の加点対象から除外されたまま、弱化無効・弱化解除・状態変化無効など本来の不利対策は維持する。
+- Validation: `tools/test_update09_phase5_score_target_scope.js` と `tools/validate_update09_phase5_score_target_scope.py` に、変化率集計・型要素・対象不明タグ除外と一次効果の代表加点を確認するケースを追加した。
+- Remaining items: preview deployment verification is not complete in this local workspace until GitHub fetch/push/Pages verification is available.

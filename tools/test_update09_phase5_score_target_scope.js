@@ -8,22 +8,30 @@ function scoreOne(metricKey,label,matchedText,extra={}){
   return S.score({roleId:'formation_effects',typeFeatures:[{featureId:`skill_effect:${metricKey}`,label,matchedText,...extra}]},{typeId:'scope-test',typeName:'scope-test',metrics:[{metricKey,label,method:'presence_fixed'}]}).breakdown[0];
 }
 const nonDamageCases=[
-  ['味方の攻撃を上昇','攻撃',0],
-  ['味方の攻撃速度を上昇','攻撃速度',0],
-  ['味方の戦法速度を上昇','戦法速度',0],
-  ['味方の戦法ゲージを上昇','戦法ゲージ',0],
-  ['味方の機動を上昇','機動',0],
-  ['味方の射程を上昇','射程',0],
-  ['味方の連鎖率を上昇','連鎖率',0],
-  ['味方の知力を上昇','知力',1],
-  ['自部隊の知力を上昇','知力',1],
-  ['知力を上昇','知力',1]
+  ['味方の攻撃を上昇','攻撃',1,'火力支援'],
+  ['味方の攻撃速度を上昇','攻撃速度',1,'速度支援'],
+  ['味方の戦法ゲージを上昇','戦法ゲージ',1,'戦法支援'],
+  ['味方の連鎖率を上昇','連鎖率',1,'連鎖支援'],
+  ['味方の知力を上昇','知力',1,'火力支援'],
+  ['自部隊の知力を上昇','知力',1,'火力支援'],
+  ['味方の防御を上昇','防御',1,'耐久支援'],
+  ['味方の弱化効果を解除','弱化解除',1,'不利対策'],
+  ['味方の兵力を回復','兵力回復',1,'生存支援'],
+  ['知力を上昇','知力',0,'']
 ];
-nonDamageCases.forEach(([text,label,expected])=>{
+nonDamageCases.forEach(([text,label,expected,bucket])=>{
   const row=scoreOne('ally_non_damage_effect',label,text);
   assertEq(row.itemCount,expected,`ally_non_damage_effect ${text}`);
-  if(expected)assert(row.rows[0].displayBucket==='知力上昇','知力は非ダメージの下位ラベルで表示される');
+  if(expected)assertEq(row.rows[0].displayBucket,bucket,`ally_non_damage bucket ${text}`);
 });
+[
+  ['型要素 知力上昇 > 対象不明 > 部隊の知力(変化率集計)','知力',{sourceLabel:'変化率集計',featureType:'parameter',source:'parameter_summary'}],
+  ['型要素 知力上昇 > 自部隊 > 部隊の知力(変化率集計)','知力',{sourceLabel:'変化率集計',featureType:'parameter',source:'parameter_summary'}],
+  ['状態変化 知力上昇 > 対象不明 > 知力','知力',{featureType:'statusEffect',source:'hadou_related_link_index.json',sourcePartType:'semantic-owner-parameter'}],
+  ['状態変化 防御上昇 > 対象不明 > 防御','防御',{featureType:'statusEffect',source:'hadou_related_link_index.json',sourcePartType:'semantic-owner-parameter'}],
+  ['部隊の知力(変化率集計)','知力',{sourceLabel:'変化率集計',featureType:'parameter',source:'parameter_summary'}],
+  ['部隊の防御(変化率集計)','防御',{sourceLabel:'変化率集計',featureType:'parameter',source:'parameter_summary'}]
+].forEach(([text,label,extra])=>assertEq(scoreOne('ally_non_damage_effect',label,text,extra).itemCount,0,`ally_non_damage excludes non-primary/unknown/aggregate: ${text}`));
 [
   ['被火力対策 > 自部隊 > 防御 自部隊の防御を上昇','防御'],
   ['被火力対策 > 自部隊 > 対物防御 自部隊の対物防御を上昇','対物防御'],

@@ -898,3 +898,11 @@
 - 同一根拠の代表キーを source / rawText / effectKind / targetScope ベースへ変更し、同一技能・同一効果が派生タグや親子カテゴリで二重加点されないようにした。
 - 類似カテゴリ監査として、被火力対策・生存対策・火力支援・敵部隊妨害・戦法支援・連鎖支援へ別カテゴリ根拠が混入しない Node 回帰ケースを追加した。
 - 可視バージョンを `3.0.0.0 Update09.5.14` / revision `108` へ更新した。
+
+### Update09.5.15 実装 — 評価スコア一次効果/派生値分離
+- `hado_type_score.js` に score evidence origin 判定を追加し、一次効果ではない `型要素`、検索/関連リンク由来の派生タグ、`部隊の知力(変化率集計)` などの集計値を評価スコア根拠から除外した。
+- `scoreEligibleEvidence()` で `aggregate` / `derived` / `primary` を明示し、対象依存カテゴリは targetScope が自部隊/味方/敵として成立しない場合に加点しない。例外的な対象不明加点は追加していない。
+- `ally_non_damage_effect` は、一次効果かつ自部隊/味方対象の有益効果だけを対象にし、火力支援・耐久支援・生存支援・不利対策・戦法支援・連鎖支援へ displayBucket を分ける。派生タグ・変化率集計・対象不明・敵対象・ダメージ/妨害は除外する。
+- `self_disadvantage_countermeasure` のカテゴリゲートは維持し、防御・被ダメージ軽減・兵力/負傷兵回復・攻撃/会心/戦法ゲージ/連鎖率など通常の耐久/生存/火力支援は不利対策へ横流ししない。
+- `tools/test_update09_phase5_score_target_scope.js` と `tools/validate_update09_phase5_score_target_scope.py` に、型要素・変化率集計・対象不明状態変化の除外、一次効果の味方非ダメージ分類、同一根拠の重複排除の検証を追加した。
+- 可視バージョンを `3.0.0.0 Update09.5.15` / revision `109` へ更新した。runtime visible version remains centralized in `hado_version.js` only.
