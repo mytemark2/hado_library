@@ -39,7 +39,7 @@ const METRIC_ALIASES={
   ally_defense_buff:['味方防御上昇','防御上昇','防御'],
   combat_start_tactic_gauge:['交戦開始時戦法ゲージ'],
   self_disadvantage_countermeasure:['自部隊不利対策','弱化無効','弱化効果無効','弱化効果を無効','弱化解除','弱化効果解除','弱化効果を解除','弱化回避','弱化効果回避','弱化反射','弱化効果反射','弱化効果を反射','状態変化無効','状態異常無効','状態異常解除','不利変化無効','不利状態','不利状態解除','不利状態無効','分断','分断対策','絶縁','絶縁対策','連鎖無効','連鎖無効対策','恐怖','恐怖対策','混乱','混乱対策','畏怖','畏怖対策','同討','同討対策','轟然','轟然対策','疑心','疑心対策','耐性','効果時間短縮'],
-  ally_non_damage_effect:['味方非ダメージ効果','知力','知力上昇','部隊の知力','攻撃','攻撃上昇','戦法威力','会心威力','会心発生','攻撃速度','連鎖率','連鎖確率','戦法ゲージ','防御上昇','防御','被ダメージ軽減','兵力回復','兵力を回復','負傷兵回復','壊滅回避','弱化解除','弱化効果解除','弱化効果を解除','弱化無効','弱化回避','状態異常解除','状態異常無効','不利変化無効','強化解除回避','強化奪取回避']
+  ally_non_damage_effect:['味方非ダメージ効果','知力','知力上昇','知力を上昇','部隊の知力','攻撃上昇','攻撃を上昇','攻撃が上昇','戦法威力','会心威力','会心発生','攻撃速度','連鎖率','連鎖確率','戦法ゲージ','防御上昇','防御を上昇','防御','被ダメージ軽減','兵力回復','兵力を回復','負傷兵回復','壊滅回避','弱化解除','弱化効果解除','弱化効果を解除','弱化無効','弱化回避','状態異常解除','状態異常無効','不利変化無効','強化解除回避','強化奪取回避']
 };
 const FEATURE_ID_ALIASES={wounded_recovery:['skill_effect:healing'],chain_rate:['skill_effect:chain_rate'],troops:['parameter:troops']};
 const GENERAL_ROLES=new Set(['main_general','vice_general','support_general','attendant']);
@@ -59,11 +59,11 @@ const SELF_DISADVANTAGE_BUCKETS=[
 ];
 const NON_DAMAGE_BUCKETS=[
   {bucket:'戦法支援',kind:'tactic_support',aliases:['戦法ゲージ','出陣時戦法ゲージ','交戦開始時戦法ゲージ','戦法速度'],scope:'ally'},
+  {bucket:'生存支援',kind:'recovery',aliases:['兵力回復','兵力を回復','負傷兵回復','負傷兵を最大兵力','負傷兵を回復','負傷兵として生存','生存する兵数','残存兵力','壊滅回避','治癒','継続回復'],scope:'ally'},
   {bucket:'連鎖支援',kind:'chain_support',aliases:['連鎖率','連鎖確率'],scope:'ally'},
   {bucket:'速度支援',kind:'firepower',aliases:['攻撃速度'],scope:'ally'},
-  {bucket:'火力支援',kind:'firepower',aliases:['攻撃上昇','攻撃','知力上昇','知力','部隊の知力','戦法威力','会心威力','会心発生'],scope:'ally'},
+  {bucket:'火力支援',kind:'firepower',aliases:['攻撃上昇','攻撃を上昇','攻撃が上昇','知力上昇','知力を上昇','知力','部隊の知力','戦法威力','会心威力','会心発生'],scope:'ally'},
   {bucket:'耐久支援',kind:'defense',aliases:['防御上昇','防御','被ダメージ軽減','被ダメージを軽減','対物防御'],scope:'ally'},
-  {bucket:'生存支援',kind:'recovery',aliases:['兵力回復','兵力を回復','負傷兵回復','負傷兵を最大兵力','負傷兵を回復','治癒','継続回復'],scope:'ally'},
   {bucket:'不利対策',kind:'weakening',aliases:['弱化解除','弱化効果解除','弱化効果を解除','弱化無効','弱化回避','弱化効果解除','弱化効果無効','弱化効果回避','状態異常解除','状態異常無効','不利変化無効','状態変化無効'],scope:'ally'}
 ];
 const METRIC_MATCH_SPECS={
@@ -153,12 +153,18 @@ function scoreEvidenceOrigin(row){
 }
 function scoreEligibleEvidence(row,metricKey){return scoreEvidenceOrigin(row)}
 function hasDirectDamageEffect(text){return hasAny(text,['与ダメージ','与えるダメージ','戦法ダメージ','通常攻撃ダメージ','ダメージを与える','攻撃を行う'])}
+function hasStaticAbilityEvidence(text){return hasAny(text,['UR時の最大能力','SSR時の最大能力','最大能力','能力値補正','基礎能力','能力補正'])}
+function hasNormalAttackExpansion(text){return hasAny(text,['通常攻撃対象数','通常攻撃対象部隊数'])}
+function hasSelfOnlySupportTarget(text){return inferTargetScopeForMetric(text,'ally')==='self'}
 function metricCategoryGate(metricKey,text,bucket,intelligence=false){
   if(metricKey==='self_disadvantage_countermeasure'){
     if(!bucket||!['weakening','status_guard','control_guard'].includes(bucket.kind))return {ok:false,reason:'categoryGate: 自部隊不利対策は弱化/状態変化/制御対策のみ'};
     for(const [kind,aliases] of Object.entries(CATEGORY_DENY_ALIASES)){if(hasAny(text,aliases))return {ok:false,reason:`categoryDeny:${kind}`};}
   }
   if(metricKey==='ally_non_damage_effect'){
+    if(hasSelfOnlySupportTarget(text))return {ok:false,reason:'categoryDeny:self_only_not_ally_support'};
+    if(hasStaticAbilityEvidence(text))return {ok:false,reason:'categoryDeny:static_ability'};
+    if(hasNormalAttackExpansion(text))return {ok:false,reason:'categoryDeny:normal_attack_expansion'};
     if(!bucket)return {ok:false,reason:'categoryGate: 味方非ダメージ効果は支援サブカテゴリ一致のみ'};
     if(hasAny(text,['敵部隊','敵の','相手']))return {ok:false,reason:'categoryDeny:enemy'};
     if(hasDirectDamageEffect(text))return {ok:false,reason:'categoryDeny:direct_damage'};
