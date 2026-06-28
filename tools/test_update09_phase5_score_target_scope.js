@@ -1,6 +1,6 @@
 /* Update09 Phase5 target/effect/category gate regression tests */
 global.window={};
-require('./hado_type_score.js');
+require('../hado_type_score.js');
 const S=window.HadoTypeScore;
 function assert(cond,msg){if(!cond)throw new Error(msg)}
 function assertEq(actual,expected,msg){if(actual!==expected)throw new Error(`${msg}: expected ${expected}, actual ${actual}`)}
@@ -8,11 +8,11 @@ function scoreOne(metricKey,label,matchedText,extra={}){
   return S.score({roleId:'formation_effects',typeFeatures:[{featureId:`skill_effect:${metricKey}`,label,matchedText,...extra}]},{typeId:'scope-test',typeName:'scope-test',metrics:[{metricKey,label,method:'presence_fixed'}]}).breakdown[0];
 }
 const nonDamageCases=[
-  ['味方の攻撃を上昇','攻撃',1,'火力支援'],
-  ['味方の攻撃速度を上昇','攻撃速度',1,'速度支援'],
-  ['味方の戦法ゲージを上昇','戦法ゲージ',1,'戦法支援'],
-  ['味方の連鎖率を上昇','連鎖率',1,'連鎖支援'],
-  ['味方の知力を上昇','知力',1,'火力支援'],
+  ['味方の攻撃を上昇','攻撃',0,''],
+  ['味方の攻撃速度を上昇','攻撃速度',0,''],
+  ['味方の戦法ゲージを上昇','戦法ゲージ',0,''],
+  ['味方の連鎖率を上昇','連鎖率',0,''],
+  ['味方の知力を上昇','知力',0,''],
   ['自部隊の知力を上昇','知力',0,''],
   ['味方の防御を上昇','防御',1,'耐久支援'],
   ['味方の弱化効果を解除','弱化解除',1,'不利対策'],
@@ -43,6 +43,8 @@ nonDamageCases.forEach(([text,label,expected,bucket])=>{
   ['味方の通常攻撃対象数を増加','通常攻撃対象数'],
   ['味方の防御を上昇 [UR時の最大能力]','防御']
 ].forEach(([text,label])=>assertEq(scoreOne('ally_non_damage_effect',label,text).itemCount,0,`ally_non_damage excludes screenshot/regression case: ${text}`));
+assertEq(scoreOne('ally_non_damage_effect','攻撃速度','状態変化 速度支援 > 味方 > 攻撃速度(LR貂蝉（ちょうせん）: 技能:合唱Ⅰ)').itemCount,0,'ally_non_damage excludes screenshot ally attack-speed support; it belongs to speed/firepower, not vaccine support');
+
 assertEq(scoreOne('ally_non_damage_effect','負傷兵として生存する兵数','味方の負傷兵として生存する兵数を増加').rows[0].displayBucket,'生存支援','wounded survival is survival support, not chain support');
 [
   ['被火力対策 > 自部隊 > 防御 自部隊の防御を上昇','防御'],
@@ -103,8 +105,8 @@ const nonDamageBulkEntity={roleId:'formation_effects',typeFeatures:[
   {featureId:'skill_effect:ally_non_damage_effect',label:'兵力回復',matchedText:'味方の兵力を回復',sourceLabel:'技能G'}
 ]};
 const bulkScore=S.score(nonDamageBulkEntity,{metrics:[{metricKey:'ally_non_damage_effect',label:'味方非ダメージ効果'}]}).breakdown[0];
-assertEq(bulkScore.rawEvidenceCount,7,'ally_non_damage raw evidence count keeps diagnostic total');
-assertEq(bulkScore.itemCount,4,'ally_non_damage is represented once per support bucket, not per fragmented effect');
+assertEq(bulkScore.rawEvidenceCount,2,'ally_non_damage excludes firepower/tempo support before representative scoring');
+assertEq(bulkScore.itemCount,2,'ally_non_damage keeps only defensive/survival/protective support buckets, not firepower or tempo support');
 assert(bulkScore.rows.every(row=>row.representativePolicy==='one-row-per-support-bucket'),'ally_non_damage rows expose representative policy');
 const categories=[
   ['damage_reduction','被ダメージ軽減','味方の負傷兵を回復',0,'defense category excludes recovery'],
