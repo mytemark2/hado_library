@@ -6,6 +6,7 @@ const SNAPSHOT='hado:formation-candidate-tray-snapshot';
 const REMOVE='hado:formation-candidate-tray-remove';
 const CLEAR='hado:formation-candidate-tray-clear';
 const PLACE='hado:formation-candidate-tray-place';
+const OPEN_REQUEST='hado:formation-candidate-tray-open-request';
 const ROLE_LABELS={main_general:'主将',vice_general:'副将',support_general:'補佐',attendant:'侍従',equipment:'装備',formation:'陣形',siege_weapon:'兵器',warhorse:'名馬',warhorse_skill:'軍馬技能'};
 const DIRECT_HANDOFF_ROLES=new Set(Object.keys(ROLE_LABELS));
 let snapshot={formationId:'',formationName:'',evaluationTypeId:'',items:[]};
@@ -22,5 +23,7 @@ function isFormationTab(){return typeof window.state==='object'?window.state.mai
 function syncVisibility(){const b=document.getElementById('hct-open');const visible=!!isFormationTab();if(b)b.hidden=!visible;if(!visible)close()}
 function mount(){if(document.getElementById('hct-open'))return;style();const b=document.createElement('button');b.id='hct-open';b.type='button';b.innerHTML='候補トレイ <span id="hct-count">0</span>';b.onclick=open;document.body.appendChild(b);requestSnapshot('mount');syncVisibility();new MutationObserver(syncVisibility).observe(document.documentElement,{attributes:true,subtree:true,attributeFilter:['class']});setInterval(syncVisibility,400)}
 addEventListener(SNAPSHOT,e=>{snapshot=e.detail||{formationId:'',formationName:'',evaluationTypeId:'',items:[]};refreshButton();render()});
+addEventListener(OPEN_REQUEST,e=>open(e.detail||{}));
+window.HadoCandidateTray={open,close,requestSnapshot};
 if(document.readyState==='loading')addEventListener('DOMContentLoaded',mount);else mount();
 })();
