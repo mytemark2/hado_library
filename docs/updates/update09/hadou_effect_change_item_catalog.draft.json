@@ -1,0 +1,639 @@
+{
+  "schemaVersion": "draft-2026-06-30",
+  "kind": "effect_change_item_catalog",
+  "items": [
+    {
+      "changeItemId": "attack_up",
+      "label": "攻撃上昇",
+      "category": "buff",
+      "effectFamilies": [
+        "attack_up"
+      ],
+      "aliases": [
+        "攻撃上昇",
+        "攻撃を上昇",
+        "部隊の攻撃"
+      ],
+      "displayNormalizeTo": "攻撃上昇",
+      "dedupeGroup": "attack_up"
+    },
+    {
+      "changeItemId": "defense_up",
+      "label": "防御上昇",
+      "category": "buff",
+      "effectFamilies": [
+        "defense_up"
+      ],
+      "aliases": [
+        "防御上昇",
+        "防御を上昇",
+        "部隊の防御"
+      ],
+      "displayNormalizeTo": "防御上昇",
+      "dedupeGroup": "defense_up"
+    },
+    {
+      "changeItemId": "intelligence_up",
+      "label": "知力上昇",
+      "category": "buff",
+      "effectFamilies": [
+        "intelligence_up"
+      ],
+      "aliases": [
+        "知力上昇",
+        "知力を上昇",
+        "部隊の知力"
+      ],
+      "displayNormalizeTo": "知力上昇",
+      "dedupeGroup": "intelligence_up"
+    },
+    {
+      "changeItemId": "tactic_power_up",
+      "label": "戦法威力上昇",
+      "category": "buff",
+      "effectFamilies": [
+        "tactic_power_up"
+      ],
+      "aliases": [
+        "戦法威力",
+        "戦法威力上昇"
+      ],
+      "displayNormalizeTo": "戦法威力上昇",
+      "dedupeGroup": "tactic_power_up"
+    },
+    {
+      "changeItemId": "normal_attack_power_up",
+      "label": "通常攻撃威力上昇",
+      "category": "buff",
+      "effectFamilies": [
+        "normal_attack_power_up"
+      ],
+      "aliases": [
+        "通常攻撃威力",
+        "通常攻撃威力上昇"
+      ],
+      "displayNormalizeTo": "通常攻撃威力上昇",
+      "dedupeGroup": "normal_attack_power_up"
+    },
+    {
+      "changeItemId": "anti_object_up",
+      "label": "対物特効上昇",
+      "category": "buff",
+      "effectFamilies": [
+        "anti_object_up"
+      ],
+      "aliases": [
+        "対物特効",
+        "対物特効上昇"
+      ],
+      "displayNormalizeTo": "対物特効上昇",
+      "dedupeGroup": "anti_object_up"
+    },
+    {
+      "changeItemId": "critical_rate_up",
+      "label": "会心発生上昇",
+      "category": "buff",
+      "effectFamilies": [
+        "critical_rate_up"
+      ],
+      "aliases": [
+        "会心発生",
+        "会心発生率"
+      ],
+      "displayNormalizeTo": "会心発生上昇",
+      "dedupeGroup": "critical_rate_up"
+    },
+    {
+      "changeItemId": "critical_power_up",
+      "label": "会心威力上昇",
+      "category": "buff",
+      "effectFamilies": [
+        "critical_power_up"
+      ],
+      "aliases": [
+        "会心威力"
+      ],
+      "displayNormalizeTo": "会心威力上昇",
+      "dedupeGroup": "critical_power_up"
+    },
+    {
+      "changeItemId": "critical_tactic_rate_up",
+      "label": "撃心発生上昇",
+      "category": "buff",
+      "effectFamilies": [
+        "critical_tactic_rate_up"
+      ],
+      "aliases": [
+        "撃心発生",
+        "撃心発生率"
+      ],
+      "displayNormalizeTo": "撃心発生上昇",
+      "dedupeGroup": "critical_tactic_rate_up"
+    },
+    {
+      "changeItemId": "critical_tactic_power_up",
+      "label": "撃心威力上昇",
+      "category": "buff",
+      "effectFamilies": [
+        "critical_tactic_power_up"
+      ],
+      "aliases": [
+        "撃心威力"
+      ],
+      "displayNormalizeTo": "撃心威力上昇",
+      "dedupeGroup": "critical_tactic_power_up"
+    },
+    {
+      "changeItemId": "attack_speed_up",
+      "label": "攻撃速度上昇",
+      "category": "tempo",
+      "effectFamilies": [
+        "attack_speed_up"
+      ],
+      "aliases": [
+        "攻撃速度",
+        "攻撃速度上昇"
+      ],
+      "displayNormalizeTo": "攻撃速度上昇",
+      "dedupeGroup": "attack_speed_up"
+    },
+    {
+      "changeItemId": "normal_attack_target_count_up",
+      "label": "通常攻撃対象数増加",
+      "category": "buff",
+      "effectFamilies": [
+        "normal_attack_target_count_up"
+      ],
+      "aliases": [
+        "通常攻撃対象数",
+        "通常攻撃対象部隊数"
+      ],
+      "displayNormalizeTo": "通常攻撃対象数増加",
+      "dedupeGroup": "normal_attack_target_count_up"
+    },
+    {
+      "changeItemId": "range_up",
+      "label": "射程上昇",
+      "category": "range",
+      "effectFamilies": [
+        "range_up"
+      ],
+      "aliases": [
+        "射程",
+        "射程上昇"
+      ],
+      "displayNormalizeTo": "射程上昇",
+      "dedupeGroup": "range_up"
+    },
+    {
+      "changeItemId": "tactic_speed",
+      "label": "戦法速度上昇",
+      "category": "tempo",
+      "effectFamilies": [
+        "tactic_speed"
+      ],
+      "aliases": [
+        "戦法速度"
+      ],
+      "displayNormalizeTo": "戦法速度上昇",
+      "dedupeGroup": "tactic_speed"
+    },
+    {
+      "changeItemId": "tactic_reduction",
+      "label": "戦法短縮",
+      "category": "tempo",
+      "effectFamilies": [
+        "tactic_reduction"
+      ],
+      "aliases": [
+        "戦法短縮"
+      ],
+      "displayNormalizeTo": "戦法短縮",
+      "dedupeGroup": "tactic_reduction"
+    },
+    {
+      "changeItemId": "initial_tactic_gauge",
+      "label": "出陣時戦法ゲージ",
+      "category": "gauge",
+      "effectFamilies": [
+        "initial_tactic_gauge"
+      ],
+      "aliases": [
+        "出陣時戦法ゲージ",
+        "初回戦法ゲージ"
+      ],
+      "displayNormalizeTo": "出陣時戦法ゲージ",
+      "dedupeGroup": "initial_tactic_gauge"
+    },
+    {
+      "changeItemId": "combat_start_tactic_gauge",
+      "label": "交戦開始時戦法ゲージ",
+      "category": "gauge",
+      "effectFamilies": [
+        "combat_start_tactic_gauge"
+      ],
+      "aliases": [
+        "交戦開始時戦法ゲージ"
+      ],
+      "displayNormalizeTo": "交戦開始時戦法ゲージ",
+      "dedupeGroup": "combat_start_tactic_gauge"
+    },
+    {
+      "changeItemId": "tactic_gauge",
+      "label": "戦法ゲージ増加",
+      "category": "gauge",
+      "effectFamilies": [
+        "tactic_gauge"
+      ],
+      "aliases": [
+        "戦法ゲージ",
+        "戦法ゲージ増加"
+      ],
+      "displayNormalizeTo": "戦法ゲージ増加",
+      "dedupeGroup": "tactic_gauge"
+    },
+    {
+      "changeItemId": "chain_rate",
+      "label": "連鎖率上昇",
+      "category": "chain",
+      "effectFamilies": [
+        "chain_rate"
+      ],
+      "aliases": [
+        "連鎖率",
+        "連鎖確率"
+      ],
+      "displayNormalizeTo": "連鎖率上昇",
+      "dedupeGroup": "chain_rate"
+    },
+    {
+      "changeItemId": "damage_reduction",
+      "label": "被ダメージ軽減",
+      "category": "defense",
+      "effectFamilies": [
+        "damage_reduction"
+      ],
+      "aliases": [
+        "被ダメージ軽減",
+        "被ダメージを軽減"
+      ],
+      "displayNormalizeTo": "被ダメージ軽減",
+      "dedupeGroup": "damage_reduction"
+    },
+    {
+      "changeItemId": "attribute_resistance",
+      "label": "属性耐性",
+      "category": "defense",
+      "effectFamilies": [
+        "attribute_resistance"
+      ],
+      "aliases": [
+        "属性耐性",
+        "属性のダメージ"
+      ],
+      "displayNormalizeTo": "属性耐性",
+      "dedupeGroup": "attribute_resistance"
+    },
+    {
+      "changeItemId": "healing",
+      "label": "兵力回復",
+      "category": "recovery",
+      "effectFamilies": [
+        "healing"
+      ],
+      "aliases": [
+        "兵力回復",
+        "兵力を回復",
+        "治癒"
+      ],
+      "displayNormalizeTo": "兵力回復",
+      "dedupeGroup": "healing"
+    },
+    {
+      "changeItemId": "wounded_recovery",
+      "label": "負傷兵回復",
+      "category": "recovery",
+      "effectFamilies": [
+        "wounded_recovery"
+      ],
+      "aliases": [
+        "負傷兵回復",
+        "負傷兵を回復"
+      ],
+      "displayNormalizeTo": "負傷兵回復",
+      "dedupeGroup": "wounded_recovery"
+    },
+    {
+      "changeItemId": "wounded_survival",
+      "label": "負傷兵生存",
+      "category": "survival",
+      "effectFamilies": [
+        "wounded_survival"
+      ],
+      "aliases": [
+        "負傷兵として生存する兵数",
+        "負傷兵生存"
+      ],
+      "displayNormalizeTo": "負傷兵生存",
+      "dedupeGroup": "wounded_survival"
+    },
+    {
+      "changeItemId": "annihilation_avoidance",
+      "label": "壊滅回避",
+      "category": "survival",
+      "effectFamilies": [
+        "annihilation_avoidance"
+      ],
+      "aliases": [
+        "壊滅回避",
+        "壊滅を回避"
+      ],
+      "displayNormalizeTo": "壊滅回避",
+      "dedupeGroup": "annihilation_avoidance"
+    },
+    {
+      "changeItemId": "remaining_troops",
+      "label": "残存兵力",
+      "category": "survival",
+      "effectFamilies": [
+        "remaining_troops"
+      ],
+      "aliases": [
+        "残存兵力"
+      ],
+      "displayNormalizeTo": "残存兵力",
+      "dedupeGroup": "remaining_troops"
+    },
+    {
+      "changeItemId": "weakening_nullify",
+      "label": "弱化無効",
+      "category": "disadvantage_counter",
+      "effectFamilies": [
+        "weakening_nullify"
+      ],
+      "aliases": [
+        "弱化無効",
+        "弱化効果無効"
+      ],
+      "displayNormalizeTo": "弱化無効",
+      "dedupeGroup": "weakening_nullify"
+    },
+    {
+      "changeItemId": "weakening_remove",
+      "label": "弱化解除",
+      "category": "disadvantage_counter",
+      "effectFamilies": [
+        "weakening_remove"
+      ],
+      "aliases": [
+        "弱化解除",
+        "弱化効果解除",
+        "弱化効果を打ち消す"
+      ],
+      "displayNormalizeTo": "弱化解除",
+      "dedupeGroup": "weakening_remove"
+    },
+    {
+      "changeItemId": "weakening_avoid",
+      "label": "弱化回避",
+      "category": "disadvantage_counter",
+      "effectFamilies": [
+        "weakening_avoid"
+      ],
+      "aliases": [
+        "弱化回避",
+        "弱化効果回避",
+        "弱化反射"
+      ],
+      "displayNormalizeTo": "弱化回避",
+      "dedupeGroup": "weakening_avoid"
+    },
+    {
+      "changeItemId": "status_nullify",
+      "label": "状態変化無効",
+      "category": "disadvantage_counter",
+      "effectFamilies": [
+        "status_nullify"
+      ],
+      "aliases": [
+        "状態変化無効",
+        "状態異常無効",
+        "不利状態無効"
+      ],
+      "displayNormalizeTo": "状態変化無効",
+      "dedupeGroup": "status_nullify"
+    },
+    {
+      "changeItemId": "status_remove",
+      "label": "状態変化解除",
+      "category": "disadvantage_counter",
+      "effectFamilies": [
+        "status_remove"
+      ],
+      "aliases": [
+        "状態異常解除",
+        "不利状態解除",
+        "状態変化を解除"
+      ],
+      "displayNormalizeTo": "状態変化解除",
+      "dedupeGroup": "status_remove"
+    },
+    {
+      "changeItemId": "severance_counter",
+      "label": "分断対策",
+      "category": "disadvantage_counter",
+      "effectFamilies": [
+        "severance_counter"
+      ],
+      "aliases": [
+        "分断対策",
+        "分断を無効",
+        "分断を解除"
+      ],
+      "displayNormalizeTo": "分断対策",
+      "dedupeGroup": "severance_counter"
+    },
+    {
+      "changeItemId": "isolation_counter",
+      "label": "絶縁対策",
+      "category": "disadvantage_counter",
+      "effectFamilies": [
+        "isolation_counter"
+      ],
+      "aliases": [
+        "絶縁対策",
+        "絶縁を無効",
+        "絶縁を解除"
+      ],
+      "displayNormalizeTo": "絶縁対策",
+      "dedupeGroup": "isolation_counter"
+    },
+    {
+      "changeItemId": "chain_nullify_counter",
+      "label": "連鎖無効対策",
+      "category": "disadvantage_counter",
+      "effectFamilies": [
+        "chain_nullify_counter"
+      ],
+      "aliases": [
+        "連鎖無効対策",
+        "連鎖無効を無効"
+      ],
+      "displayNormalizeTo": "連鎖無効対策",
+      "dedupeGroup": "chain_nullify_counter"
+    },
+    {
+      "changeItemId": "control_counter",
+      "label": "制御対策",
+      "category": "disadvantage_counter",
+      "effectFamilies": [
+        "control_counter"
+      ],
+      "aliases": [
+        "同討対策",
+        "畏怖対策",
+        "轟然対策",
+        "疑心対策",
+        "制御対策"
+      ],
+      "displayNormalizeTo": "制御対策",
+      "dedupeGroup": "control_counter"
+    },
+    {
+      "changeItemId": "buff_protection",
+      "label": "バフ維持",
+      "category": "buff_protection",
+      "effectFamilies": [
+        "buff_protection"
+      ],
+      "aliases": [
+        "強化解除回避",
+        "強化奪取回避",
+        "バフ維持"
+      ],
+      "displayNormalizeTo": "バフ維持",
+      "dedupeGroup": "buff_protection"
+    },
+    {
+      "changeItemId": "enemy_attack_down",
+      "label": "敵攻撃低下",
+      "category": "debuff",
+      "effectFamilies": [
+        "enemy_attack_down"
+      ],
+      "aliases": [
+        "敵部隊攻撃低下",
+        "攻撃低下"
+      ],
+      "displayNormalizeTo": "敵攻撃低下",
+      "dedupeGroup": "enemy_attack_down"
+    },
+    {
+      "changeItemId": "enemy_defense_down",
+      "label": "敵防御低下",
+      "category": "debuff",
+      "effectFamilies": [
+        "enemy_defense_down"
+      ],
+      "aliases": [
+        "敵部隊防御低下",
+        "防御低下"
+      ],
+      "displayNormalizeTo": "敵防御低下",
+      "dedupeGroup": "enemy_defense_down"
+    },
+    {
+      "changeItemId": "enemy_anti_object_down",
+      "label": "敵対物特効低下",
+      "category": "debuff",
+      "effectFamilies": [
+        "enemy_anti_object_down"
+      ],
+      "aliases": [
+        "敵部隊対物特効低下",
+        "対物特効低下"
+      ],
+      "displayNormalizeTo": "敵対物特効低下",
+      "dedupeGroup": "enemy_anti_object_down"
+    },
+    {
+      "changeItemId": "tactic_delay",
+      "label": "戦法遅延",
+      "category": "debuff",
+      "effectFamilies": [
+        "tactic_delay"
+      ],
+      "aliases": [
+        "戦法遅延",
+        "戦法ゲージを減少"
+      ],
+      "displayNormalizeTo": "戦法遅延",
+      "dedupeGroup": "tactic_delay"
+    },
+    {
+      "changeItemId": "chain_nullify_to_enemy",
+      "label": "敵連鎖無効",
+      "category": "debuff",
+      "effectFamilies": [
+        "chain_nullify_to_enemy"
+      ],
+      "aliases": [
+        "連鎖無効を付与"
+      ],
+      "displayNormalizeTo": "敵連鎖無効",
+      "dedupeGroup": "chain_nullify_to_enemy"
+    },
+    {
+      "changeItemId": "confuse",
+      "label": "混乱",
+      "category": "debuff",
+      "effectFamilies": [
+        "confuse"
+      ],
+      "aliases": [
+        "混乱"
+      ],
+      "displayNormalizeTo": "混乱",
+      "dedupeGroup": "confuse"
+    },
+    {
+      "changeItemId": "fear",
+      "label": "恐怖",
+      "category": "debuff",
+      "effectFamilies": [
+        "fear"
+      ],
+      "aliases": [
+        "恐怖"
+      ],
+      "displayNormalizeTo": "恐怖",
+      "dedupeGroup": "fear"
+    },
+    {
+      "changeItemId": "severance",
+      "label": "分断",
+      "category": "debuff",
+      "effectFamilies": [
+        "severance"
+      ],
+      "aliases": [
+        "分断"
+      ],
+      "displayNormalizeTo": "分断",
+      "dedupeGroup": "severance"
+    },
+    {
+      "changeItemId": "isolation",
+      "label": "絶縁",
+      "category": "debuff",
+      "effectFamilies": [
+        "isolation"
+      ],
+      "aliases": [
+        "絶縁"
+      ],
+      "displayNormalizeTo": "絶縁",
+      "dedupeGroup": "isolation"
+    }
+  ]
+}
