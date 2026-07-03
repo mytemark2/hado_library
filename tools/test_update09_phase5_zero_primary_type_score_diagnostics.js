@@ -65,27 +65,32 @@ assert.strictEqual(diag.bridgeMatchedEvidenceCount, 0, 'diagnostics must show ze
 assert(diag.bridgeExcludedEvidenceCount > 0, 'diagnostics must include excluded evidence');
 assert.strictEqual(selected.totalScore, 0, 'zero-primary vaccine totalScore must remain 0');
 assert.strictEqual(diag.bridgeZeroPrimaryReason, 'no_primary_match_with_excluded_evidence', 'diagnostics must expose zero-primary reason code');
-assert(String(diag.bridgeZeroPrimaryMessage || '').includes('評価対象Primaryなし'), 'diagnostics must expose Japanese zero-primary message');
+assert(String(diag.bridgeZeroPrimaryMessage || '').includes('加点対象なし'), 'diagnostics must expose Japanese zero-primary message');
 assert((diag.bridgeExcludedReasons || {}).deny_change_item > 0, 'diagnostics must count deny_change_item exclusions');
 assert(Array.isArray(diag.bridgeExcludedRowsSample) && diag.bridgeExcludedRowsSample.length > 0, 'diagnostics must expose excludedRows sample');
 assert(html.includes('formation-score-zero-primary'), 'UI must render zero-primary diagnostic panel');
 const summaryPanel = html.slice(html.indexOf('formation-score-zero-primary'), html.indexOf('formation-score-meta'));
-assert(summaryPanel.includes('評価対象Primaryなし'), 'UI must explain that no Primary evidence matched');
-assert(summaryPanel.includes('ワクチン型の評価対象外'), 'summary UI must explain excluded evidence in user-facing Japanese');
-for (const token of ['deny_change_item', 'tactic_speed', 'tactic_gauge', 'normal_attack_target_count_up', 'attack_speed_up', ' self', ' ally', ' enemy', ' unknown']) {
+for (const fallback of ['評価2', '評価3', '評価4', '評価5']) {
+  assert(!html.includes(`>${fallback}<`), `summary UI must not render fallback label: ${fallback}`);
+}
+assert(summaryPanel.includes('ワクチン型の加点対象なし') || summaryPanel.includes('不利対策が見つかりません'), 'UI must explain that no scoring evidence matched');
+assert(!summaryPanel.includes('除外'), 'summary UI must not focus on excluded evidence');
+for (const token of ['Primary', 'Support', 'Deny', 'deny_change_item', 'scoreRole', 'changeItemId', 'targetScope', 'tactic_speed', 'tactic_gauge', 'normal_attack_target_count_up', 'attack_speed_up', ' self', ' ally', ' enemy', ' unknown']) {
   assert(!summaryPanel.includes(token), `summary UI must not expose technical token: ${token}`);
 }
 assert(!summaryPanel.includes('<ul><li>'), 'summary UI must not render raw excluded evidence lists');
+assert(html.includes('評価スコアは、選択した型に対して現在の部隊がどれだけ適合しているか'), 'score card must explain what the score means');
 assert(!(html.includes('formation-score-empty') && !html.includes('formation-score-zero-primary')), 'UI must not end with only 該当タグなし');
 context.state.formationScoreEvidenceDialogOpen = true;
 const detailHtml = context.renderFormationScoreSummaryHtml(formation, data);
 const detailPanel = detailHtml.slice(detailHtml.indexOf('formation-score-zero-primary is-detail'), detailHtml.indexOf('formation-note">結果サマリー'));
-assert(detailPanel.includes('除外された根拠'), 'detail UI must include categorized excluded evidence heading');
-for (const label of ['戦法速度', '戦法ゲージ', '攻撃速度', '防御']) {
-  assert(detailPanel.includes(label), `detail UI must use Japanese label: ${label}`);
+assert(detailPanel.includes('加点対象なし'), 'detail UI must show no scoring evidence message');
+assert(detailPanel.includes('評価される例'), 'detail UI must show examples of accepted scoring evidence');
+for (const label of ['弱化無効', '弱化解除', '状態変化無効', '分断対策']) {
+  assert(detailPanel.includes(label), `detail UI must use accepted-evidence example label: ${label}`);
 }
-for (const token of ['deny_change_item', 'tactic_speed', 'tactic_gauge', 'attack_speed_up', ' self', ' ally', ' enemy', ' unknown']) {
-  assert(!detailPanel.includes(token), `detail UI must not lead with technical token: ${token}`);
+for (const token of ['除外された根拠', 'deny_change_item', 'tactic_speed', 'tactic_gauge', 'attack_speed_up', ' self', ' ally', ' enemy', ' unknown', '除外防御', '除外戦法速度']) {
+  assert(!detailPanel.includes(token), `detail UI must not expose rejected evidence token: ${token}`);
 }
 const scoredIds = selected.rows.flatMap(row => row.evidenceRows || []).map(row => row.changeItemId || row.effectFamily);
 for (const id of denyIds) {

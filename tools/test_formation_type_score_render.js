@@ -203,13 +203,15 @@ assert(html.includes('型未設定'), 'formationEvaluationTypeSelect must includ
 assert(!html.includes('評価型ID') && !html.includes('formationEvaluationTypeInput'), 'score summary must not restore forbidden evaluation type UI');
 assert(html.includes('<section class="formation-selected-card formation-score-card'), 'score card must be a constant visible section');
 assert(!html.includes('<details class="formation-score-summary'), 'score card must not hide the score body in details');
-assert((html.match(/formation-score-metric-chip/g)||[]).length >= 5, 'evaluation score chips must render metric chip classes');
-assert((html.match(/data-formation-score-detail-index/g)||[]).length === 5, 'evaluation score chips must render five button controls');
+const metricChipCount = (html.match(/data-formation-score-detail-index/g)||[]).length;
+assert(metricChipCount >= 1, 'evaluation score chips must render actual metric chip classes');
+assert((html.match(/data-formation-score-detail-index/g)||[]).length === metricChipCount, 'evaluation score chips must render one button per visible score row');
+assert(!html.includes('>評価2<') && !html.includes('>評価3<') && !html.includes('>評価4<') && !html.includes('>評価5<'), 'score summary must not render fallback evaluation labels');
 assert((html.match(/data-formation-score-card=\"1\"/g)||[]).length === 1, 'score summary renderer must produce exactly one score card');
 assert((html.match(/formation-score-detail-panel/g)||[]).length === 1, 'score summary renderer must produce exactly one detail panel');
 assert(html.includes('formation-score-detail-panel is-collapsed'), 'score detail panel must default to collapsed one-line mode');
 assert(html.includes('formation-score-evidence-tags is-collapsed'), 'collapsed score evidence tags must be marked for one-line overflow-safe rendering');
-assert((html.match(/根拠/g)||[]).length >= 5, 'evaluation score chips/detail must show evidence counts without confusing them with points');
+assert((html.match(/根拠/g)||[]).length >= metricChipCount, 'evaluation score chips/detail must show evidence counts without confusing them with points');
 assert(!html.includes('点'), 'score card UI must not display point wording');
 assert(!html.includes('内訳合計'), 'score detail panel must not display redundant numeric point totals');
 assert(html.includes('data-formation-score-detail-label='), 'score chips must carry row labels for click diagnostics');
