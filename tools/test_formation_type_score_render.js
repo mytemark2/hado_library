@@ -204,7 +204,10 @@ assert(!html.includes('評価型ID') && !html.includes('formationEvaluationTypeI
 assert(html.includes('<section class="formation-selected-card formation-score-card'), 'score card must be a constant visible section');
 assert(!html.includes('<details class="formation-score-summary'), 'score card must not hide the score body in details');
 const metricChipCount = (html.match(/data-formation-score-detail-index/g)||[]).length;
-assert(metricChipCount >= 1, 'evaluation score chips must render actual metric chip classes');
+assert(metricChipCount === 5, 'vaccine score UI must render exactly five metric chips');
+assert(html.includes('ワクチン型 / 5項目'), 'score summary must show ワクチン型 / 5項目');
+assert(!html.includes('ワクチン型 / 1項目'), 'score summary must not show ワクチン型 / 1項目');
+['弱化予防','弱化解除','状態異常対策','連鎖阻害対策','強化保護'].forEach(label => assert(html.includes(label), `vaccine metric label missing: ${label}`));
 assert((html.match(/data-formation-score-detail-index/g)||[]).length === metricChipCount, 'evaluation score chips must render one button per visible score row');
 assert(!html.includes('>評価2<') && !html.includes('>評価3<') && !html.includes('>評価4<') && !html.includes('>評価5<'), 'score summary must not render fallback evaluation labels');
 assert((html.match(/data-formation-score-card=\"1\"/g)||[]).length === 1, 'score summary renderer must produce exactly one score card');

@@ -20,10 +20,10 @@ function main(){
   array(sample.items, 'trigger sample items must be an array');
   const changeFields = ['changeItemId','label','category','effectFamilies','aliases','displayNormalizeTo','dedupeGroup'];
   change.items.forEach((item,i)=>{ hasFields(item, changeFields, `change.items[${i}]`); array(item.effectFamilies, `change.items[${i}].effectFamilies`); array(item.aliases, `change.items[${i}].aliases`); });
-  const tableFields = ['typeId','typeName','scoreMetricId','scoreMetricLabel','scoreRole','changeItems','allowedTargets','allowedSourceTypes','allowedTiming','dependency','denyChangeItems','dedupePolicy','note'];
-  table.items.forEach((item,i)=>{ hasFields(item, tableFields, `table.items[${i}]`); array(item.changeItems, `table.items[${i}].changeItems`); array(item.allowedTargets, `table.items[${i}].allowedTargets`); array(item.allowedSourceTypes, `table.items[${i}].allowedSourceTypes`); array(item.allowedTiming, `table.items[${i}].allowedTiming`); array(item.denyChangeItems, `table.items[${i}].denyChangeItems`); assert(['P','S','X'].includes(item.scoreRole), `table.items[${i}].scoreRole must be P/S/X`); });
+  const tableFields = ['typeId','typeName','scoreMetricId','scoreMetricLabel','displayOrder','scoreRole','changeItems','allowedTargets','allowedSourceTypes','allowedTiming','dependency','denyChangeItems','dedupePolicy','note'];
+  table.items.forEach((item,i)=>{ hasFields(item, tableFields, `table.items[${i}]`); array(item.changeItems, `table.items[${i}].changeItems`); array(item.allowedTargets, `table.items[${i}].allowedTargets`); array(item.allowedSourceTypes, `table.items[${i}].allowedSourceTypes`); array(item.allowedTiming, `table.items[${i}].allowedTiming`); array(item.denyChangeItems, `table.items[${i}].denyChangeItems`); assert(Number.isInteger(item.displayOrder) && item.displayOrder >= 1 && item.displayOrder <= 5, `table.items[${i}].displayOrder must be 1..5`); assert(['P','S','X'].includes(item.scoreRole), `table.items[${i}].scoreRole must be P/S/X`); });
   assert(sample.items.length <= 50, 'sample must be 50 rows or fewer');
-  sample.items.forEach((item,i)=>hasFields(item, ['typeId','typeName','scoreMetricId','scoreMetricLabel','scoreRole','changeItemId','changeItemLabel','effectFamily','aliases','allowedTargets','allowedSourceTypes','allowedTiming','dedupePolicy'], `sample.items[${i}]`));
+  sample.items.forEach((item,i)=>hasFields(item, ['typeId','typeName','scoreMetricId','scoreMetricLabel','displayOrder','scoreRole','changeItemId','changeItemLabel','effectFamily','aliases','allowedTargets','allowedSourceTypes','allowedTiming','dedupePolicy'], `sample.items[${i}]`));
   console.log('type score catalog schema validation passed');
 }
 main();

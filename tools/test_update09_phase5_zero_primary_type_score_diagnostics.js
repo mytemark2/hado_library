@@ -69,6 +69,9 @@ assert(String(diag.bridgeZeroPrimaryMessage || '').includes('加点対象なし'
 assert((diag.bridgeExcludedReasons || {}).deny_change_item > 0, 'diagnostics must count deny_change_item exclusions');
 assert(Array.isArray(diag.bridgeExcludedRowsSample) && diag.bridgeExcludedRowsSample.length > 0, 'diagnostics must expose excludedRows sample');
 assert(html.includes('formation-score-zero-primary'), 'UI must render zero-primary diagnostic panel');
+assert(html.includes('ワクチン型 / 5項目'), 'zero-primary UI must show ワクチン型 / 5項目');
+assert(!html.includes('ワクチン型 / 1項目'), 'zero-primary UI must not show ワクチン型 / 1項目');
+['弱化予防','弱化解除','状態異常対策','連鎖阻害対策','強化保護'].forEach(label => assert(html.includes(label), `zero-primary UI must render vaccine metric label: ${label}`));
 const summaryPanel = html.slice(html.indexOf('formation-score-zero-primary'), html.indexOf('formation-score-meta'));
 for (const fallback of ['評価2', '評価3', '評価4', '評価5']) {
   assert(!html.includes(`>${fallback}<`), `summary UI must not render fallback label: ${fallback}`);

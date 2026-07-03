@@ -4,21 +4,21 @@
   "maxRows": 50,
   "summary": {
     "schemaVersion": "trigger-catalog-summary-2026-06-30",
-    "rowCount": 123,
+    "rowCount": 161,
     "typeCount": 16,
     "changeItemCount": 47,
     "roleCounts": {
-      "P": 69,
-      "S": 33,
-      "X": 21
+      "P": 151,
+      "S": 10
     }
   },
   "items": [
     {
       "typeId": "calm",
       "typeName": "鎮静型",
-      "scoreMetricId": "disadvantage_counter",
-      "scoreMetricLabel": "弱化・不利対策",
+      "scoreMetricId": "calm_1",
+      "scoreMetricLabel": "弱化予防",
+      "displayOrder": 1,
       "scoreRole": "P",
       "changeItemId": "weakening_nullify",
       "changeItemLabel": "弱化無効",
@@ -56,48 +56,9 @@
     {
       "typeId": "calm",
       "typeName": "鎮静型",
-      "scoreMetricId": "disadvantage_counter",
-      "scoreMetricLabel": "弱化・不利対策",
-      "scoreRole": "P",
-      "changeItemId": "weakening_remove",
-      "changeItemLabel": "弱化解除",
-      "effectFamily": "weakening_remove",
-      "aliases": [
-        "弱化解除",
-        "弱化効果解除",
-        "弱化効果を打ち消す"
-      ],
-      "allowedTargets": [
-        "self",
-        "ally"
-      ],
-      "allowedSourceTypes": [
-        "tactic",
-        "skill",
-        "statusEffect",
-        "equipment",
-        "formation",
-        "fiveElement",
-        "warhorseSkill",
-        "ethnicResearchSkill"
-      ],
-      "allowedTiming": [
-        "always",
-        "tactic_activated",
-        "combat_start",
-        "on_attack",
-        "on_damaged",
-        "on_chain",
-        "on_garrison",
-        "conditional"
-      ],
-      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
-    },
-    {
-      "typeId": "calm",
-      "typeName": "鎮静型",
-      "scoreMetricId": "disadvantage_counter",
-      "scoreMetricLabel": "弱化・不利対策",
+      "scoreMetricId": "calm_1",
+      "scoreMetricLabel": "弱化予防",
+      "displayOrder": 1,
       "scoreRole": "P",
       "changeItemId": "weakening_avoid",
       "changeItemLabel": "弱化回避",
@@ -136,8 +97,175 @@
     {
       "typeId": "calm",
       "typeName": "鎮静型",
-      "scoreMetricId": "disadvantage_counter",
-      "scoreMetricLabel": "弱化・不利対策",
+      "scoreMetricId": "calm_2",
+      "scoreMetricLabel": "弱化解除",
+      "displayOrder": 2,
+      "scoreRole": "P",
+      "changeItemId": "weakening_remove",
+      "changeItemLabel": "弱化解除",
+      "effectFamily": "weakening_remove",
+      "aliases": [
+        "弱化解除",
+        "弱化効果解除",
+        "弱化効果を打ち消す"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
+    },
+    {
+      "typeId": "calm",
+      "typeName": "鎮静型",
+      "scoreMetricId": "calm_3",
+      "scoreMetricLabel": "状態異常対策",
+      "displayOrder": 3,
+      "scoreRole": "P",
+      "changeItemId": "status_nullify",
+      "changeItemLabel": "状態変化無効",
+      "effectFamily": "status_nullify",
+      "aliases": [
+        "状態変化無効",
+        "状態異常無効",
+        "不利状態無効"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
+    },
+    {
+      "typeId": "calm",
+      "typeName": "鎮静型",
+      "scoreMetricId": "calm_3",
+      "scoreMetricLabel": "状態異常対策",
+      "displayOrder": 3,
+      "scoreRole": "P",
+      "changeItemId": "status_remove",
+      "changeItemLabel": "状態変化解除",
+      "effectFamily": "status_remove",
+      "aliases": [
+        "状態異常解除",
+        "不利状態解除",
+        "状態変化を解除"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
+    },
+    {
+      "typeId": "calm",
+      "typeName": "鎮静型",
+      "scoreMetricId": "calm_3",
+      "scoreMetricLabel": "状態異常対策",
+      "displayOrder": 3,
+      "scoreRole": "P",
+      "changeItemId": "control_counter",
+      "changeItemLabel": "制御対策",
+      "effectFamily": "control_counter",
+      "aliases": [
+        "同討対策",
+        "畏怖対策",
+        "轟然対策",
+        "疑心対策",
+        "制御対策"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
+    },
+    {
+      "typeId": "calm",
+      "typeName": "鎮静型",
+      "scoreMetricId": "calm_4",
+      "scoreMetricLabel": "強化保護",
+      "displayOrder": 4,
       "scoreRole": "P",
       "changeItemId": "buff_protection",
       "changeItemLabel": "バフ維持",
@@ -176,9 +304,10 @@
     {
       "typeId": "calm",
       "typeName": "鎮静型",
-      "scoreMetricId": "survival_support",
-      "scoreMetricLabel": "耐久補助",
-      "scoreRole": "S",
+      "scoreMetricId": "calm_5",
+      "scoreMetricLabel": "戦線維持",
+      "displayOrder": 5,
+      "scoreRole": "P",
       "changeItemId": "remaining_troops",
       "changeItemLabel": "残存兵力",
       "effectFamily": "remaining_troops",
@@ -212,10 +341,51 @@
       "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
     },
     {
+      "typeId": "calm",
+      "typeName": "鎮静型",
+      "scoreMetricId": "calm_5",
+      "scoreMetricLabel": "戦線維持",
+      "displayOrder": 5,
+      "scoreRole": "P",
+      "changeItemId": "damage_reduction",
+      "changeItemLabel": "被ダメージ軽減",
+      "effectFamily": "damage_reduction",
+      "aliases": [
+        "被ダメージ軽減",
+        "被ダメージを軽減"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
+    },
+    {
       "typeId": "zombie",
       "typeName": "ゾンビ型",
-      "scoreMetricId": "survival",
-      "scoreMetricLabel": "生存・回復",
+      "scoreMetricId": "zombie_1",
+      "scoreMetricLabel": "負傷兵回復",
+      "displayOrder": 1,
       "scoreRole": "P",
       "changeItemId": "wounded_recovery",
       "changeItemLabel": "負傷兵回復",
@@ -253,8 +423,9 @@
     {
       "typeId": "zombie",
       "typeName": "ゾンビ型",
-      "scoreMetricId": "survival",
-      "scoreMetricLabel": "生存・回復",
+      "scoreMetricId": "zombie_2",
+      "scoreMetricLabel": "負傷兵生存",
+      "displayOrder": 2,
       "scoreRole": "P",
       "changeItemId": "wounded_survival",
       "changeItemLabel": "負傷兵生存",
@@ -292,8 +463,9 @@
     {
       "typeId": "zombie",
       "typeName": "ゾンビ型",
-      "scoreMetricId": "survival",
-      "scoreMetricLabel": "生存・回復",
+      "scoreMetricId": "zombie_3",
+      "scoreMetricLabel": "壊滅回避",
+      "displayOrder": 3,
       "scoreRole": "P",
       "changeItemId": "annihilation_avoidance",
       "changeItemLabel": "壊滅回避",
@@ -331,8 +503,9 @@
     {
       "typeId": "zombie",
       "typeName": "ゾンビ型",
-      "scoreMetricId": "survival",
-      "scoreMetricLabel": "生存・回復",
+      "scoreMetricId": "zombie_3",
+      "scoreMetricLabel": "壊滅回避",
+      "displayOrder": 3,
       "scoreRole": "P",
       "changeItemId": "remaining_troops",
       "changeItemLabel": "残存兵力",
@@ -369,8 +542,9 @@
     {
       "typeId": "zombie",
       "typeName": "ゾンビ型",
-      "scoreMetricId": "survival",
-      "scoreMetricLabel": "生存・回復",
+      "scoreMetricId": "zombie_4",
+      "scoreMetricLabel": "兵力回復",
+      "displayOrder": 4,
       "scoreRole": "P",
       "changeItemId": "healing",
       "changeItemLabel": "兵力回復",
@@ -409,9 +583,10 @@
     {
       "typeId": "zombie",
       "typeName": "ゾンビ型",
-      "scoreMetricId": "defense_support",
-      "scoreMetricLabel": "防御補助",
-      "scoreRole": "S",
+      "scoreMetricId": "zombie_5",
+      "scoreMetricLabel": "耐久補助",
+      "displayOrder": 5,
+      "scoreRole": "P",
       "changeItemId": "damage_reduction",
       "changeItemLabel": "被ダメージ軽減",
       "effectFamily": "damage_reduction",
@@ -448,9 +623,10 @@
     {
       "typeId": "zombie",
       "typeName": "ゾンビ型",
-      "scoreMetricId": "defense_support",
-      "scoreMetricLabel": "防御補助",
-      "scoreRole": "S",
+      "scoreMetricId": "zombie_5",
+      "scoreMetricLabel": "耐久補助",
+      "displayOrder": 5,
+      "scoreRole": "P",
       "changeItemId": "defense_up",
       "changeItemLabel": "防御上昇",
       "effectFamily": "defense_up",
@@ -486,17 +662,18 @@
       "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
     },
     {
-      "typeId": "bomb",
-      "typeName": "爆弾型",
-      "scoreMetricId": "tactic_firepower",
-      "scoreMetricLabel": "戦法火力",
+      "typeId": "zombie",
+      "typeName": "ゾンビ型",
+      "scoreMetricId": "zombie_5",
+      "scoreMetricLabel": "耐久補助",
+      "displayOrder": 5,
       "scoreRole": "P",
-      "changeItemId": "critical_tactic_rate_up",
-      "changeItemLabel": "撃心発生上昇",
-      "effectFamily": "critical_tactic_rate_up",
+      "changeItemId": "attribute_resistance",
+      "changeItemLabel": "属性耐性",
+      "effectFamily": "attribute_resistance",
       "aliases": [
-        "撃心発生",
-        "撃心発生率"
+        "属性耐性",
+        "属性のダメージ"
       ],
       "allowedTargets": [
         "self",
@@ -527,46 +704,9 @@
     {
       "typeId": "bomb",
       "typeName": "爆弾型",
-      "scoreMetricId": "tactic_firepower",
-      "scoreMetricLabel": "戦法火力",
-      "scoreRole": "P",
-      "changeItemId": "critical_tactic_power_up",
-      "changeItemLabel": "撃心威力上昇",
-      "effectFamily": "critical_tactic_power_up",
-      "aliases": [
-        "撃心威力"
-      ],
-      "allowedTargets": [
-        "self",
-        "ally"
-      ],
-      "allowedSourceTypes": [
-        "tactic",
-        "skill",
-        "statusEffect",
-        "equipment",
-        "formation",
-        "fiveElement",
-        "warhorseSkill",
-        "ethnicResearchSkill"
-      ],
-      "allowedTiming": [
-        "always",
-        "tactic_activated",
-        "combat_start",
-        "on_attack",
-        "on_damaged",
-        "on_chain",
-        "on_garrison",
-        "conditional"
-      ],
-      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
-    },
-    {
-      "typeId": "bomb",
-      "typeName": "爆弾型",
-      "scoreMetricId": "tactic_firepower",
-      "scoreMetricLabel": "戦法火力",
+      "scoreMetricId": "bomb_1",
+      "scoreMetricLabel": "戦法威力",
+      "displayOrder": 1,
       "scoreRole": "P",
       "changeItemId": "tactic_power_up",
       "changeItemLabel": "戦法威力上昇",
@@ -604,9 +744,89 @@
     {
       "typeId": "bomb",
       "typeName": "爆弾型",
-      "scoreMetricId": "tempo_support",
-      "scoreMetricLabel": "戦法速度補助",
-      "scoreRole": "S",
+      "scoreMetricId": "bomb_2",
+      "scoreMetricLabel": "撃心発生",
+      "displayOrder": 2,
+      "scoreRole": "P",
+      "changeItemId": "critical_tactic_rate_up",
+      "changeItemLabel": "撃心発生上昇",
+      "effectFamily": "critical_tactic_rate_up",
+      "aliases": [
+        "撃心発生",
+        "撃心発生率"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
+    },
+    {
+      "typeId": "bomb",
+      "typeName": "爆弾型",
+      "scoreMetricId": "bomb_3",
+      "scoreMetricLabel": "撃心威力",
+      "displayOrder": 3,
+      "scoreRole": "P",
+      "changeItemId": "critical_tactic_power_up",
+      "changeItemLabel": "撃心威力上昇",
+      "effectFamily": "critical_tactic_power_up",
+      "aliases": [
+        "撃心威力"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
+    },
+    {
+      "typeId": "bomb",
+      "typeName": "爆弾型",
+      "scoreMetricId": "bomb_4",
+      "scoreMetricLabel": "戦法初動・回転",
+      "displayOrder": 4,
+      "scoreRole": "P",
       "changeItemId": "tactic_speed",
       "changeItemLabel": "戦法速度上昇",
       "effectFamily": "tactic_speed",
@@ -642,9 +862,168 @@
     {
       "typeId": "bomb",
       "typeName": "爆弾型",
-      "scoreMetricId": "tempo_support",
-      "scoreMetricLabel": "戦法速度補助",
-      "scoreRole": "S",
+      "scoreMetricId": "bomb_4",
+      "scoreMetricLabel": "戦法初動・回転",
+      "displayOrder": 4,
+      "scoreRole": "P",
+      "changeItemId": "tactic_reduction",
+      "changeItemLabel": "戦法短縮",
+      "effectFamily": "tactic_reduction",
+      "aliases": [
+        "戦法短縮"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
+    },
+    {
+      "typeId": "bomb",
+      "typeName": "爆弾型",
+      "scoreMetricId": "bomb_4",
+      "scoreMetricLabel": "戦法初動・回転",
+      "displayOrder": 4,
+      "scoreRole": "P",
+      "changeItemId": "initial_tactic_gauge",
+      "changeItemLabel": "出陣時戦法ゲージ",
+      "effectFamily": "initial_tactic_gauge",
+      "aliases": [
+        "出陣時戦法ゲージ",
+        "初回戦法ゲージ"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
+    },
+    {
+      "typeId": "bomb",
+      "typeName": "爆弾型",
+      "scoreMetricId": "bomb_4",
+      "scoreMetricLabel": "戦法初動・回転",
+      "displayOrder": 4,
+      "scoreRole": "P",
+      "changeItemId": "combat_start_tactic_gauge",
+      "changeItemLabel": "交戦開始時戦法ゲージ",
+      "effectFamily": "combat_start_tactic_gauge",
+      "aliases": [
+        "交戦開始時戦法ゲージ"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
+    },
+    {
+      "typeId": "bomb",
+      "typeName": "爆弾型",
+      "scoreMetricId": "bomb_4",
+      "scoreMetricLabel": "戦法初動・回転",
+      "displayOrder": 4,
+      "scoreRole": "P",
+      "changeItemId": "tactic_gauge",
+      "changeItemLabel": "戦法ゲージ増加",
+      "effectFamily": "tactic_gauge",
+      "aliases": [
+        "戦法ゲージ",
+        "戦法ゲージ増加"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
+    },
+    {
+      "typeId": "bomb",
+      "typeName": "爆弾型",
+      "scoreMetricId": "bomb_5",
+      "scoreMetricLabel": "火力補助",
+      "displayOrder": 5,
+      "scoreRole": "P",
       "changeItemId": "anti_object_up",
       "changeItemLabel": "対物特効上昇",
       "effectFamily": "anti_object_up",
@@ -681,61 +1060,20 @@
     {
       "typeId": "bomb",
       "typeName": "爆弾型",
-      "scoreMetricId": "deny",
-      "scoreMetricLabel": "混入禁止",
-      "scoreRole": "X",
-      "changeItemId": "critical_rate_up",
-      "changeItemLabel": "会心発生上昇",
-      "effectFamily": "critical_rate_up",
+      "scoreMetricId": "bomb_5",
+      "scoreMetricLabel": "火力補助",
+      "displayOrder": 5,
+      "scoreRole": "P",
+      "changeItemId": "chain_rate",
+      "changeItemLabel": "連鎖率上昇",
+      "effectFamily": "chain_rate",
       "aliases": [
-        "会心発生",
-        "会心発生率"
+        "連鎖率",
+        "連鎖確率"
       ],
       "allowedTargets": [
         "self",
-        "ally",
-        "enemy",
-        "unknown"
-      ],
-      "allowedSourceTypes": [
-        "tactic",
-        "skill",
-        "statusEffect",
-        "equipment",
-        "formation",
-        "fiveElement",
-        "warhorseSkill",
-        "ethnicResearchSkill"
-      ],
-      "allowedTiming": [
-        "always",
-        "tactic_activated",
-        "combat_start",
-        "on_attack",
-        "on_damaged",
-        "on_chain",
-        "on_garrison",
-        "conditional"
-      ],
-      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
-    },
-    {
-      "typeId": "bomb",
-      "typeName": "爆弾型",
-      "scoreMetricId": "deny",
-      "scoreMetricLabel": "混入禁止",
-      "scoreRole": "X",
-      "changeItemId": "critical_power_up",
-      "changeItemLabel": "会心威力上昇",
-      "effectFamily": "critical_power_up",
-      "aliases": [
-        "会心威力"
-      ],
-      "allowedTargets": [
-        "self",
-        "ally",
-        "enemy",
-        "unknown"
+        "ally"
       ],
       "allowedSourceTypes": [
         "tactic",
@@ -762,8 +1100,9 @@
     {
       "typeId": "critical_tactic",
       "typeName": "撃心型",
-      "scoreMetricId": "critical_tactic",
-      "scoreMetricLabel": "撃心",
+      "scoreMetricId": "critical_tactic_1",
+      "scoreMetricLabel": "撃心発生",
+      "displayOrder": 1,
       "scoreRole": "P",
       "changeItemId": "critical_tactic_rate_up",
       "changeItemLabel": "撃心発生上昇",
@@ -801,8 +1140,9 @@
     {
       "typeId": "critical_tactic",
       "typeName": "撃心型",
-      "scoreMetricId": "critical_tactic",
-      "scoreMetricLabel": "撃心",
+      "scoreMetricId": "critical_tactic_2",
+      "scoreMetricLabel": "撃心威力",
+      "displayOrder": 2,
       "scoreRole": "P",
       "changeItemId": "critical_tactic_power_up",
       "changeItemLabel": "撃心威力上昇",
@@ -839,9 +1179,10 @@
     {
       "typeId": "critical_tactic",
       "typeName": "撃心型",
-      "scoreMetricId": "tactic_support",
-      "scoreMetricLabel": "戦法威力・速度",
-      "scoreRole": "S",
+      "scoreMetricId": "critical_tactic_3",
+      "scoreMetricLabel": "戦法威力",
+      "displayOrder": 3,
+      "scoreRole": "P",
       "changeItemId": "tactic_power_up",
       "changeItemLabel": "戦法威力上昇",
       "effectFamily": "tactic_power_up",
@@ -878,9 +1219,10 @@
     {
       "typeId": "critical_tactic",
       "typeName": "撃心型",
-      "scoreMetricId": "tactic_support",
-      "scoreMetricLabel": "戦法威力・速度",
-      "scoreRole": "S",
+      "scoreMetricId": "critical_tactic_4",
+      "scoreMetricLabel": "戦法回転",
+      "displayOrder": 4,
+      "scoreRole": "P",
       "changeItemId": "tactic_speed",
       "changeItemLabel": "戦法速度上昇",
       "effectFamily": "tactic_speed",
@@ -916,21 +1258,19 @@
     {
       "typeId": "critical_tactic",
       "typeName": "撃心型",
-      "scoreMetricId": "deny",
-      "scoreMetricLabel": "混入禁止",
-      "scoreRole": "X",
-      "changeItemId": "critical_rate_up",
-      "changeItemLabel": "会心発生上昇",
-      "effectFamily": "critical_rate_up",
+      "scoreMetricId": "critical_tactic_4",
+      "scoreMetricLabel": "戦法回転",
+      "displayOrder": 4,
+      "scoreRole": "P",
+      "changeItemId": "tactic_reduction",
+      "changeItemLabel": "戦法短縮",
+      "effectFamily": "tactic_reduction",
       "aliases": [
-        "会心発生",
-        "会心発生率"
+        "戦法短縮"
       ],
       "allowedTargets": [
         "self",
-        "ally",
-        "enemy",
-        "unknown"
+        "ally"
       ],
       "allowedSourceTypes": [
         "tactic",
@@ -957,20 +1297,20 @@
     {
       "typeId": "critical_tactic",
       "typeName": "撃心型",
-      "scoreMetricId": "deny",
-      "scoreMetricLabel": "混入禁止",
-      "scoreRole": "X",
-      "changeItemId": "critical_power_up",
-      "changeItemLabel": "会心威力上昇",
-      "effectFamily": "critical_power_up",
+      "scoreMetricId": "critical_tactic_4",
+      "scoreMetricLabel": "戦法回転",
+      "displayOrder": 4,
+      "scoreRole": "P",
+      "changeItemId": "tactic_gauge",
+      "changeItemLabel": "戦法ゲージ増加",
+      "effectFamily": "tactic_gauge",
       "aliases": [
-        "会心威力"
+        "戦法ゲージ",
+        "戦法ゲージ増加"
       ],
       "allowedTargets": [
         "self",
-        "ally",
-        "enemy",
-        "unknown"
+        "ally"
       ],
       "allowedSourceTypes": [
         "tactic",
@@ -997,21 +1337,99 @@
     {
       "typeId": "critical_tactic",
       "typeName": "撃心型",
-      "scoreMetricId": "deny",
-      "scoreMetricLabel": "混入禁止",
-      "scoreRole": "X",
-      "changeItemId": "normal_attack_power_up",
-      "changeItemLabel": "通常攻撃威力上昇",
-      "effectFamily": "normal_attack_power_up",
+      "scoreMetricId": "critical_tactic_4",
+      "scoreMetricLabel": "戦法回転",
+      "displayOrder": 4,
+      "scoreRole": "P",
+      "changeItemId": "initial_tactic_gauge",
+      "changeItemLabel": "出陣時戦法ゲージ",
+      "effectFamily": "initial_tactic_gauge",
       "aliases": [
-        "通常攻撃威力",
-        "通常攻撃威力上昇"
+        "出陣時戦法ゲージ",
+        "初回戦法ゲージ"
       ],
       "allowedTargets": [
         "self",
-        "ally",
-        "enemy",
-        "unknown"
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
+    },
+    {
+      "typeId": "critical_tactic",
+      "typeName": "撃心型",
+      "scoreMetricId": "critical_tactic_4",
+      "scoreMetricLabel": "戦法回転",
+      "displayOrder": 4,
+      "scoreRole": "P",
+      "changeItemId": "combat_start_tactic_gauge",
+      "changeItemLabel": "交戦開始時戦法ゲージ",
+      "effectFamily": "combat_start_tactic_gauge",
+      "aliases": [
+        "交戦開始時戦法ゲージ"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
+    },
+    {
+      "typeId": "critical_tactic",
+      "typeName": "撃心型",
+      "scoreMetricId": "critical_tactic_5",
+      "scoreMetricLabel": "連鎖補助",
+      "displayOrder": 5,
+      "scoreRole": "P",
+      "changeItemId": "chain_rate",
+      "changeItemLabel": "連鎖率上昇",
+      "effectFamily": "chain_rate",
+      "aliases": [
+        "連鎖率",
+        "連鎖確率"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
       ],
       "allowedSourceTypes": [
         "tactic",
@@ -1038,8 +1456,9 @@
     {
       "typeId": "critical_normal",
       "typeName": "会心型",
-      "scoreMetricId": "critical_normal",
-      "scoreMetricLabel": "会心",
+      "scoreMetricId": "critical_normal_1",
+      "scoreMetricLabel": "会心発生",
+      "displayOrder": 1,
       "scoreRole": "P",
       "changeItemId": "critical_rate_up",
       "changeItemLabel": "会心発生上昇",
@@ -1077,8 +1496,9 @@
     {
       "typeId": "critical_normal",
       "typeName": "会心型",
-      "scoreMetricId": "critical_normal",
-      "scoreMetricLabel": "会心",
+      "scoreMetricId": "critical_normal_2",
+      "scoreMetricLabel": "会心威力",
+      "displayOrder": 2,
       "scoreRole": "P",
       "changeItemId": "critical_power_up",
       "changeItemLabel": "会心威力上昇",
@@ -1115,9 +1535,10 @@
     {
       "typeId": "critical_normal",
       "typeName": "会心型",
-      "scoreMetricId": "normal_support",
-      "scoreMetricLabel": "通常攻撃補助",
-      "scoreRole": "S",
+      "scoreMetricId": "critical_normal_3",
+      "scoreMetricLabel": "通常攻撃威力",
+      "displayOrder": 3,
+      "scoreRole": "P",
       "changeItemId": "normal_attack_power_up",
       "changeItemLabel": "通常攻撃威力上昇",
       "effectFamily": "normal_attack_power_up",
@@ -1154,9 +1575,10 @@
     {
       "typeId": "critical_normal",
       "typeName": "会心型",
-      "scoreMetricId": "normal_support",
-      "scoreMetricLabel": "通常攻撃補助",
-      "scoreRole": "S",
+      "scoreMetricId": "critical_normal_4",
+      "scoreMetricLabel": "攻撃速度",
+      "displayOrder": 4,
+      "scoreRole": "P",
       "changeItemId": "attack_speed_up",
       "changeItemLabel": "攻撃速度上昇",
       "effectFamily": "attack_speed_up",
@@ -1193,9 +1615,10 @@
     {
       "typeId": "critical_normal",
       "typeName": "会心型",
-      "scoreMetricId": "normal_support",
-      "scoreMetricLabel": "通常攻撃補助",
-      "scoreRole": "S",
+      "scoreMetricId": "critical_normal_5",
+      "scoreMetricLabel": "攻撃対象数",
+      "displayOrder": 5,
+      "scoreRole": "P",
       "changeItemId": "normal_attack_target_count_up",
       "changeItemLabel": "通常攻撃対象数増加",
       "effectFamily": "normal_attack_target_count_up",
@@ -1232,102 +1655,20 @@
     {
       "typeId": "critical_normal",
       "typeName": "会心型",
-      "scoreMetricId": "deny",
-      "scoreMetricLabel": "混入禁止",
-      "scoreRole": "X",
-      "changeItemId": "critical_tactic_rate_up",
-      "changeItemLabel": "撃心発生上昇",
-      "effectFamily": "critical_tactic_rate_up",
+      "scoreMetricId": "critical_normal_5",
+      "scoreMetricLabel": "攻撃対象数",
+      "displayOrder": 5,
+      "scoreRole": "P",
+      "changeItemId": "range_up",
+      "changeItemLabel": "射程上昇",
+      "effectFamily": "range_up",
       "aliases": [
-        "撃心発生",
-        "撃心発生率"
+        "射程",
+        "射程上昇"
       ],
       "allowedTargets": [
         "self",
-        "ally",
-        "enemy",
-        "unknown"
-      ],
-      "allowedSourceTypes": [
-        "tactic",
-        "skill",
-        "statusEffect",
-        "equipment",
-        "formation",
-        "fiveElement",
-        "warhorseSkill",
-        "ethnicResearchSkill"
-      ],
-      "allowedTiming": [
-        "always",
-        "tactic_activated",
-        "combat_start",
-        "on_attack",
-        "on_damaged",
-        "on_chain",
-        "on_garrison",
-        "conditional"
-      ],
-      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
-    },
-    {
-      "typeId": "critical_normal",
-      "typeName": "会心型",
-      "scoreMetricId": "deny",
-      "scoreMetricLabel": "混入禁止",
-      "scoreRole": "X",
-      "changeItemId": "critical_tactic_power_up",
-      "changeItemLabel": "撃心威力上昇",
-      "effectFamily": "critical_tactic_power_up",
-      "aliases": [
-        "撃心威力"
-      ],
-      "allowedTargets": [
-        "self",
-        "ally",
-        "enemy",
-        "unknown"
-      ],
-      "allowedSourceTypes": [
-        "tactic",
-        "skill",
-        "statusEffect",
-        "equipment",
-        "formation",
-        "fiveElement",
-        "warhorseSkill",
-        "ethnicResearchSkill"
-      ],
-      "allowedTiming": [
-        "always",
-        "tactic_activated",
-        "combat_start",
-        "on_attack",
-        "on_damaged",
-        "on_chain",
-        "on_garrison",
-        "conditional"
-      ],
-      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
-    },
-    {
-      "typeId": "critical_normal",
-      "typeName": "会心型",
-      "scoreMetricId": "deny",
-      "scoreMetricLabel": "混入禁止",
-      "scoreRole": "X",
-      "changeItemId": "tactic_power_up",
-      "changeItemLabel": "戦法威力上昇",
-      "effectFamily": "tactic_power_up",
-      "aliases": [
-        "戦法威力",
-        "戦法威力上昇"
-      ],
-      "allowedTargets": [
-        "self",
-        "ally",
-        "enemy",
-        "unknown"
+        "ally"
       ],
       "allowedSourceTypes": [
         "tactic",
@@ -1354,8 +1695,9 @@
     {
       "typeId": "tactic_speed",
       "typeName": "戦法速度型",
-      "scoreMetricId": "tactic_speed",
+      "scoreMetricId": "tactic_speed_1",
       "scoreMetricLabel": "戦法速度",
+      "displayOrder": 1,
       "scoreRole": "P",
       "changeItemId": "tactic_speed",
       "changeItemLabel": "戦法速度上昇",
@@ -1392,8 +1734,9 @@
     {
       "typeId": "tactic_speed",
       "typeName": "戦法速度型",
-      "scoreMetricId": "tactic_speed",
-      "scoreMetricLabel": "戦法速度",
+      "scoreMetricId": "tactic_speed_2",
+      "scoreMetricLabel": "戦法短縮",
+      "displayOrder": 2,
       "scoreRole": "P",
       "changeItemId": "tactic_reduction",
       "changeItemLabel": "戦法短縮",
@@ -1430,8 +1773,9 @@
     {
       "typeId": "tactic_speed",
       "typeName": "戦法速度型",
-      "scoreMetricId": "tactic_speed",
-      "scoreMetricLabel": "戦法速度",
+      "scoreMetricId": "tactic_speed_3",
+      "scoreMetricLabel": "初回ゲージ",
+      "displayOrder": 3,
       "scoreRole": "P",
       "changeItemId": "initial_tactic_gauge",
       "changeItemLabel": "出陣時戦法ゲージ",
@@ -1469,8 +1813,9 @@
     {
       "typeId": "tactic_speed",
       "typeName": "戦法速度型",
-      "scoreMetricId": "tactic_speed",
-      "scoreMetricLabel": "戦法速度",
+      "scoreMetricId": "tactic_speed_4",
+      "scoreMetricLabel": "交戦開始ゲージ",
+      "displayOrder": 4,
       "scoreRole": "P",
       "changeItemId": "combat_start_tactic_gauge",
       "changeItemLabel": "交戦開始時戦法ゲージ",
@@ -1507,8 +1852,9 @@
     {
       "typeId": "tactic_speed",
       "typeName": "戦法速度型",
-      "scoreMetricId": "tactic_speed",
-      "scoreMetricLabel": "戦法速度",
+      "scoreMetricId": "tactic_speed_4",
+      "scoreMetricLabel": "交戦開始ゲージ",
+      "displayOrder": 4,
       "scoreRole": "P",
       "changeItemId": "tactic_gauge",
       "changeItemLabel": "戦法ゲージ増加",
@@ -1546,9 +1892,10 @@
     {
       "typeId": "tactic_speed",
       "typeName": "戦法速度型",
-      "scoreMetricId": "chain_support",
-      "scoreMetricLabel": "連鎖補助",
-      "scoreRole": "S",
+      "scoreMetricId": "tactic_speed_5",
+      "scoreMetricLabel": "連鎖・回転補助",
+      "displayOrder": 5,
+      "scoreRole": "P",
       "changeItemId": "chain_rate",
       "changeItemLabel": "連鎖率上昇",
       "effectFamily": "chain_rate",
@@ -1583,51 +1930,11 @@
       "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
     },
     {
-      "typeId": "tactic_speed",
-      "typeName": "戦法速度型",
-      "scoreMetricId": "deny",
-      "scoreMetricLabel": "混入禁止",
-      "scoreRole": "X",
-      "changeItemId": "attack_speed_up",
-      "changeItemLabel": "攻撃速度上昇",
-      "effectFamily": "attack_speed_up",
-      "aliases": [
-        "攻撃速度",
-        "攻撃速度上昇"
-      ],
-      "allowedTargets": [
-        "self",
-        "ally",
-        "enemy",
-        "unknown"
-      ],
-      "allowedSourceTypes": [
-        "tactic",
-        "skill",
-        "statusEffect",
-        "equipment",
-        "formation",
-        "fiveElement",
-        "warhorseSkill",
-        "ethnicResearchSkill"
-      ],
-      "allowedTiming": [
-        "always",
-        "tactic_activated",
-        "combat_start",
-        "on_attack",
-        "on_damaged",
-        "on_chain",
-        "on_garrison",
-        "conditional"
-      ],
-      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
-    },
-    {
       "typeId": "attack_speed",
       "typeName": "攻撃速度型",
-      "scoreMetricId": "attack_speed",
+      "scoreMetricId": "attack_speed_1",
       "scoreMetricLabel": "攻撃速度",
+      "displayOrder": 1,
       "scoreRole": "P",
       "changeItemId": "attack_speed_up",
       "changeItemLabel": "攻撃速度上昇",
@@ -1665,244 +1972,9 @@
     {
       "typeId": "attack_speed",
       "typeName": "攻撃速度型",
-      "scoreMetricId": "normal_support",
-      "scoreMetricLabel": "通常攻撃補助",
-      "scoreRole": "S",
-      "changeItemId": "normal_attack_power_up",
-      "changeItemLabel": "通常攻撃威力上昇",
-      "effectFamily": "normal_attack_power_up",
-      "aliases": [
-        "通常攻撃威力",
-        "通常攻撃威力上昇"
-      ],
-      "allowedTargets": [
-        "self",
-        "ally"
-      ],
-      "allowedSourceTypes": [
-        "tactic",
-        "skill",
-        "statusEffect",
-        "equipment",
-        "formation",
-        "fiveElement",
-        "warhorseSkill",
-        "ethnicResearchSkill"
-      ],
-      "allowedTiming": [
-        "always",
-        "tactic_activated",
-        "combat_start",
-        "on_attack",
-        "on_damaged",
-        "on_chain",
-        "on_garrison",
-        "conditional"
-      ],
-      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
-    },
-    {
-      "typeId": "attack_speed",
-      "typeName": "攻撃速度型",
-      "scoreMetricId": "normal_support",
-      "scoreMetricLabel": "通常攻撃補助",
-      "scoreRole": "S",
-      "changeItemId": "normal_attack_target_count_up",
-      "changeItemLabel": "通常攻撃対象数増加",
-      "effectFamily": "normal_attack_target_count_up",
-      "aliases": [
-        "通常攻撃対象数",
-        "通常攻撃対象部隊数"
-      ],
-      "allowedTargets": [
-        "self",
-        "ally"
-      ],
-      "allowedSourceTypes": [
-        "tactic",
-        "skill",
-        "statusEffect",
-        "equipment",
-        "formation",
-        "fiveElement",
-        "warhorseSkill",
-        "ethnicResearchSkill"
-      ],
-      "allowedTiming": [
-        "always",
-        "tactic_activated",
-        "combat_start",
-        "on_attack",
-        "on_damaged",
-        "on_chain",
-        "on_garrison",
-        "conditional"
-      ],
-      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
-    },
-    {
-      "typeId": "attack_speed",
-      "typeName": "攻撃速度型",
-      "scoreMetricId": "normal_support",
-      "scoreMetricLabel": "通常攻撃補助",
-      "scoreRole": "S",
-      "changeItemId": "range_up",
-      "changeItemLabel": "射程上昇",
-      "effectFamily": "range_up",
-      "aliases": [
-        "射程",
-        "射程上昇"
-      ],
-      "allowedTargets": [
-        "self",
-        "ally"
-      ],
-      "allowedSourceTypes": [
-        "tactic",
-        "skill",
-        "statusEffect",
-        "equipment",
-        "formation",
-        "fiveElement",
-        "warhorseSkill",
-        "ethnicResearchSkill"
-      ],
-      "allowedTiming": [
-        "always",
-        "tactic_activated",
-        "combat_start",
-        "on_attack",
-        "on_damaged",
-        "on_chain",
-        "on_garrison",
-        "conditional"
-      ],
-      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
-    },
-    {
-      "typeId": "attack_speed",
-      "typeName": "攻撃速度型",
-      "scoreMetricId": "deny",
-      "scoreMetricLabel": "混入禁止",
-      "scoreRole": "X",
-      "changeItemId": "tactic_speed",
-      "changeItemLabel": "戦法速度上昇",
-      "effectFamily": "tactic_speed",
-      "aliases": [
-        "戦法速度"
-      ],
-      "allowedTargets": [
-        "self",
-        "ally",
-        "enemy",
-        "unknown"
-      ],
-      "allowedSourceTypes": [
-        "tactic",
-        "skill",
-        "statusEffect",
-        "equipment",
-        "formation",
-        "fiveElement",
-        "warhorseSkill",
-        "ethnicResearchSkill"
-      ],
-      "allowedTiming": [
-        "always",
-        "tactic_activated",
-        "combat_start",
-        "on_attack",
-        "on_damaged",
-        "on_chain",
-        "on_garrison",
-        "conditional"
-      ],
-      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
-    },
-    {
-      "typeId": "attack_speed",
-      "typeName": "攻撃速度型",
-      "scoreMetricId": "deny",
-      "scoreMetricLabel": "混入禁止",
-      "scoreRole": "X",
-      "changeItemId": "tactic_reduction",
-      "changeItemLabel": "戦法短縮",
-      "effectFamily": "tactic_reduction",
-      "aliases": [
-        "戦法短縮"
-      ],
-      "allowedTargets": [
-        "self",
-        "ally",
-        "enemy",
-        "unknown"
-      ],
-      "allowedSourceTypes": [
-        "tactic",
-        "skill",
-        "statusEffect",
-        "equipment",
-        "formation",
-        "fiveElement",
-        "warhorseSkill",
-        "ethnicResearchSkill"
-      ],
-      "allowedTiming": [
-        "always",
-        "tactic_activated",
-        "combat_start",
-        "on_attack",
-        "on_damaged",
-        "on_chain",
-        "on_garrison",
-        "conditional"
-      ],
-      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
-    },
-    {
-      "typeId": "normal_attack",
-      "typeName": "通常攻撃拡張型",
-      "scoreMetricId": "normal_attack",
-      "scoreMetricLabel": "通常攻撃強化",
-      "scoreRole": "P",
-      "changeItemId": "normal_attack_target_count_up",
-      "changeItemLabel": "通常攻撃対象数増加",
-      "effectFamily": "normal_attack_target_count_up",
-      "aliases": [
-        "通常攻撃対象数",
-        "通常攻撃対象部隊数"
-      ],
-      "allowedTargets": [
-        "self",
-        "ally"
-      ],
-      "allowedSourceTypes": [
-        "tactic",
-        "skill",
-        "statusEffect",
-        "equipment",
-        "formation",
-        "fiveElement",
-        "warhorseSkill",
-        "ethnicResearchSkill"
-      ],
-      "allowedTiming": [
-        "always",
-        "tactic_activated",
-        "combat_start",
-        "on_attack",
-        "on_damaged",
-        "on_chain",
-        "on_garrison",
-        "conditional"
-      ],
-      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
-    },
-    {
-      "typeId": "normal_attack",
-      "typeName": "通常攻撃拡張型",
-      "scoreMetricId": "normal_attack",
-      "scoreMetricLabel": "通常攻撃強化",
+      "scoreMetricId": "attack_speed_2",
+      "scoreMetricLabel": "通常攻撃威力",
+      "displayOrder": 2,
       "scoreRole": "P",
       "changeItemId": "normal_attack_power_up",
       "changeItemLabel": "通常攻撃威力上昇",
@@ -1910,45 +1982,6 @@
       "aliases": [
         "通常攻撃威力",
         "通常攻撃威力上昇"
-      ],
-      "allowedTargets": [
-        "self",
-        "ally"
-      ],
-      "allowedSourceTypes": [
-        "tactic",
-        "skill",
-        "statusEffect",
-        "equipment",
-        "formation",
-        "fiveElement",
-        "warhorseSkill",
-        "ethnicResearchSkill"
-      ],
-      "allowedTiming": [
-        "always",
-        "tactic_activated",
-        "combat_start",
-        "on_attack",
-        "on_damaged",
-        "on_chain",
-        "on_garrison",
-        "conditional"
-      ],
-      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。"
-    },
-    {
-      "typeId": "normal_attack",
-      "typeName": "通常攻撃拡張型",
-      "scoreMetricId": "attack_speed_support",
-      "scoreMetricLabel": "攻撃速度・射程",
-      "scoreRole": "S",
-      "changeItemId": "attack_speed_up",
-      "changeItemLabel": "攻撃速度上昇",
-      "effectFamily": "attack_speed_up",
-      "aliases": [
-        "攻撃速度",
-        "攻撃速度上昇"
       ],
       "allowedTargets": [
         "self",

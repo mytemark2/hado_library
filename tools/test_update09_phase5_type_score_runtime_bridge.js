@@ -29,6 +29,11 @@ let result = S.score({ scoreEvidence: [
 ]}, vaccineRule);
 assert(result.runtimeBridge && result.runtimeBridge.typeId === 'vaccine', 'vaccine uses runtime bridge');
 ['weakening_nullify','weakening_remove','status_nullify','severance_counter','isolation_counter','chain_nullify_counter'].forEach(id => assert(primaryRows(result).some(r => r.changeItemId === id), `vaccine primary ${id}`));
+const vaccineBuckets = new Map(result.breakdown.map(row => [row.label, row]));
+assert(vaccineBuckets.get('弱化予防').rows.some(r => r.changeItemId === 'weakening_nullify'), 'weakening_nullify must score in 弱化予防');
+assert(vaccineBuckets.get('弱化解除').rows.some(r => r.changeItemId === 'weakening_remove'), 'weakening_remove must score in 弱化解除');
+assert(vaccineBuckets.get('状態異常対策').rows.some(r => r.changeItemId === 'status_nullify'), 'status_nullify must score in 状態異常対策');
+assert(vaccineBuckets.get('連鎖阻害対策').rows.some(r => r.changeItemId === 'severance_counter'), 'severance_counter must score in 連鎖阻害対策');
 result = S.score({ scoreEvidence: [
   ev('defense_up','self'), ev('healing','self'), ev('wounded_recovery','ally'), ev('wounded_survival','self'), ev('attribute_resistance','self'), ev('tactic_gauge','self'), ev('tactic_speed','self'), ev('attack_speed_up','self'), ev('tactic_power_up','self'), ev('normal_attack_target_count_up','self'), ev('weakening_nullify','enemy'), ev('weakening_remove','unknown')
 ]}, vaccineRule);
@@ -65,9 +70,9 @@ result = S.score({ scoreEvidence: [ev('attack_speed_up','ally'), ev('tactic_spee
 assert(primaryRows(result).some(r => r.changeItemId === 'attack_speed_up'), 'attack_speed_up primary');
 assert(!primaryRows(result).some(r => r.changeItemId === 'tactic_speed'), 'tactic_speed not confused with attack_speed_up');
 assert(primaryRows(result).some(r => r.changeItemId === 'critical_rate_up'), 'critical_rate_up primary');
-assert(!primaryRows(result).some(r => r.changeItemId === 'critical_tactic_rate_up'), 'critical_tactic_rate_up not confused with critical_rate_up');
+assert(primaryRows(result).some(r => r.changeItemId === 'critical_tactic_rate_up'), 'critical_tactic_rate_up is scored in buff_support撃心支援');
 assert(primaryRows(result).some(r => r.changeItemId === 'critical_power_up'), 'critical_power_up primary');
-assert(!primaryRows(result).some(r => r.changeItemId === 'critical_tactic_power_up'), 'critical_tactic_power_up not confused with critical_power_up');
+assert(primaryRows(result).some(r => r.changeItemId === 'critical_tactic_power_up'), 'critical_tactic_power_up is scored in buff_support撃心支援');
 const legacy = S.score({ typeFeatures: [{ featureId: 'skill_effect:attack_speed', label: '攻撃速度', matchedText: '自部隊の攻撃速度+25%' }] }, legacyRule);
 assert(!legacy.runtimeBridge, 'non-target type keeps existing logic');
 assertEq(legacy.matchedCount, 1, 'legacy type still scores');

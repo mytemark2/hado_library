@@ -23,6 +23,7 @@ function buildRows(){
           typeName: rule.typeName,
           scoreMetricId: rule.scoreMetricId,
           scoreMetricLabel: rule.scoreMetricLabel,
+          displayOrder: rule.displayOrder,
           scoreRole: rule.scoreRole,
           changeItemId,
           changeItemLabel: item.label,
