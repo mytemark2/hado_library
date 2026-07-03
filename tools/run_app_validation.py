@@ -45,6 +45,7 @@ COMMANDS.extend(
         ["node", "--check", "tools/test_update09_phase5_type_score_runtime_bridge.js"],
         ["node", "tools/test_update09_phase5_type_score_runtime_bridge.js"],
         ["node", "tools/test_update09_phase5_formation_score_evidence_bridge.js"],
+        ["node", "tools/test_update09_phase5_zero_primary_type_score_diagnostics.js"],
         ["python3", "tools/validate_type_candidate_saved_name_matching.py"],
         ["python3", "tools/validate_saved_mode_index_ownership_sources.py"],
         ["python3", "tools/validate_saved_type_candidates_zero_score_visible.py"],
