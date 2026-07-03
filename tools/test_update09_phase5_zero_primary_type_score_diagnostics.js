@@ -69,10 +69,24 @@ assert(String(diag.bridgeZeroPrimaryMessage || '').includes('評価対象Primary
 assert((diag.bridgeExcludedReasons || {}).deny_change_item > 0, 'diagnostics must count deny_change_item exclusions');
 assert(Array.isArray(diag.bridgeExcludedRowsSample) && diag.bridgeExcludedRowsSample.length > 0, 'diagnostics must expose excludedRows sample');
 assert(html.includes('formation-score-zero-primary'), 'UI must render zero-primary diagnostic panel');
-assert(html.includes('評価対象Primaryなし'), 'UI must explain that no Primary evidence matched');
-assert(html.includes('除外件数'), 'UI must show excluded row count');
-assert(html.includes('deny_change_item'), 'UI must show deny_change_item count');
+const summaryPanel = html.slice(html.indexOf('formation-score-zero-primary'), html.indexOf('formation-score-meta'));
+assert(summaryPanel.includes('評価対象Primaryなし'), 'UI must explain that no Primary evidence matched');
+assert(summaryPanel.includes('ワクチン型の評価対象外'), 'summary UI must explain excluded evidence in user-facing Japanese');
+for (const token of ['deny_change_item', 'tactic_speed', 'tactic_gauge', 'normal_attack_target_count_up', 'attack_speed_up', ' self', ' ally', ' enemy', ' unknown']) {
+  assert(!summaryPanel.includes(token), `summary UI must not expose technical token: ${token}`);
+}
+assert(!summaryPanel.includes('<ul><li>'), 'summary UI must not render raw excluded evidence lists');
 assert(!(html.includes('formation-score-empty') && !html.includes('formation-score-zero-primary')), 'UI must not end with only 該当タグなし');
+context.state.formationScoreEvidenceDialogOpen = true;
+const detailHtml = context.renderFormationScoreSummaryHtml(formation, data);
+const detailPanel = detailHtml.slice(detailHtml.indexOf('formation-score-zero-primary is-detail'), detailHtml.indexOf('formation-note">結果サマリー'));
+assert(detailPanel.includes('除外された根拠'), 'detail UI must include categorized excluded evidence heading');
+for (const label of ['戦法速度', '戦法ゲージ', '攻撃速度', '防御']) {
+  assert(detailPanel.includes(label), `detail UI must use Japanese label: ${label}`);
+}
+for (const token of ['deny_change_item', 'tactic_speed', 'tactic_gauge', 'attack_speed_up', ' self', ' ally', ' enemy', ' unknown']) {
+  assert(!detailPanel.includes(token), `detail UI must not lead with technical token: ${token}`);
+}
 const scoredIds = selected.rows.flatMap(row => row.evidenceRows || []).map(row => row.changeItemId || row.effectFamily);
 for (const id of denyIds) {
   assert(!scoredIds.includes(id), `${id} must not be scored for vaccine`);

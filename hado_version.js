@@ -3,10 +3,10 @@
   'use strict';
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.0.0.0',
-    updateNo: '09.5.23',
-    revision: 114,
+    updateNo: '09.5.24',
+    revision: 115,
     baseAppVersion: '2.9.6.5',
-    summary: 'Update09.5.23: clarify vaccine zero-primary diagnostics when judgement-table evidence is excluded only.',
+    summary: 'Update09.5.24: improve vaccine zero-primary score UI with user-facing summaries and grouped excluded evidence.',
     updatedAt: '2026-07-03T00:00:00+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;
