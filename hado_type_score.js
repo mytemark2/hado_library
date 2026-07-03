@@ -272,6 +272,87 @@ function dedupeBreakdownRows(breakdown){
 }
 const round1=n=>Math.round((Number(n)||0)*10)/10;
 const fmt=n=>String(round1(n)).replace(/\.0$/,'');
+
+const TABLE_BRIDGE_TYPE_IDS=new Set(['vaccine','buff_support']);
+const TABLE_BRIDGE_CHANGE_ITEMS={
+  attack_up:{label:'攻撃上昇',effectFamilies:['attack_up'],aliases:['攻撃上昇','攻撃を上昇','部隊の攻撃']},
+  defense_up:{label:'防御上昇',effectFamilies:['defense_up'],aliases:['防御上昇','防御を上昇','部隊の防御']},
+  intelligence_up:{label:'知力上昇',effectFamilies:['intelligence_up'],aliases:['知力上昇','知力を上昇','部隊の知力']},
+  tactic_power_up:{label:'戦法威力上昇',effectFamilies:['tactic_power_up'],aliases:['戦法威力','戦法威力上昇']},
+  normal_attack_power_up:{label:'通常攻撃威力上昇',effectFamilies:['normal_attack_power_up'],aliases:['通常攻撃威力','通常攻撃威力上昇']},
+  attack_speed_up:{label:'攻撃速度上昇',effectFamilies:['attack_speed_up'],aliases:['攻撃速度','攻撃速度上昇']},
+  critical_rate_up:{label:'会心発生上昇',effectFamilies:['critical_rate_up'],aliases:['会心発生','会心発生率']},
+  critical_power_up:{label:'会心威力上昇',effectFamilies:['critical_power_up'],aliases:['会心威力']},
+  normal_attack_target_count_up:{label:'通常攻撃対象数増加',effectFamilies:['normal_attack_target_count_up'],aliases:['通常攻撃対象数','通常攻撃対象部隊数']},
+  weakening_nullify:{label:'弱化無効',effectFamilies:['weakening_nullify'],aliases:['弱化無効','弱化効果無効','弱化効果を無効']},
+  weakening_remove:{label:'弱化解除',effectFamilies:['weakening_remove'],aliases:['弱化解除','弱化効果解除','弱化効果を解除','弱化効果を打ち消す']},
+  weakening_avoid:{label:'弱化回避',effectFamilies:['weakening_avoid'],aliases:['弱化回避','弱化効果回避','弱化反射']},
+  status_nullify:{label:'状態変化無効',effectFamilies:['status_nullify'],aliases:['状態変化無効','状態異常無効','不利状態無効']},
+  status_remove:{label:'状態変化解除',effectFamilies:['status_remove'],aliases:['状態異常解除','不利状態解除','状態変化を解除']},
+  severance_counter:{label:'分断対策',effectFamilies:['severance_counter'],aliases:['分断対策','分断を無効','分断を解除']},
+  isolation_counter:{label:'絶縁対策',effectFamilies:['isolation_counter'],aliases:['絶縁対策','絶縁を無効','絶縁を解除']},
+  chain_nullify_counter:{label:'連鎖無効対策',effectFamilies:['chain_nullify_counter'],aliases:['連鎖無効対策','連鎖無効を無効','連鎖無効を解除']},
+  control_counter:{label:'制御対策',effectFamilies:['control_counter'],aliases:['同討対策','畏怖対策','轟然対策','疑心対策','制御対策']},
+  buff_protection:{label:'バフ維持',effectFamilies:['buff_protection'],aliases:['強化解除回避','強化奪取回避','バフ維持']},
+  healing:{label:'兵力回復',effectFamilies:['healing'],aliases:['兵力回復','兵力を回復','治癒']},
+  wounded_recovery:{label:'負傷兵回復',effectFamilies:['wounded_recovery'],aliases:['負傷兵回復','負傷兵を回復']},
+  wounded_survival:{label:'負傷兵生存',effectFamilies:['wounded_survival'],aliases:['負傷兵として生存する兵数','負傷兵生存']},
+  attribute_resistance:{label:'属性耐性',effectFamilies:['attribute_resistance'],aliases:['属性耐性','属性のダメージ']},
+  tactic_gauge:{label:'戦法ゲージ増加',effectFamilies:['tactic_gauge'],aliases:['戦法ゲージ','戦法ゲージ増加']},
+  tactic_speed:{label:'戦法速度上昇',effectFamilies:['tactic_speed'],aliases:['戦法速度']},
+  initial_tactic_gauge:{label:'出陣時戦法ゲージ',effectFamilies:['initial_tactic_gauge'],aliases:['出陣時戦法ゲージ','初回戦法ゲージ']},
+  combat_start_tactic_gauge:{label:'交戦開始時戦法ゲージ',effectFamilies:['combat_start_tactic_gauge'],aliases:['交戦開始時戦法ゲージ']},
+  effect_duration:{label:'効果時間',effectFamilies:['effect_duration'],aliases:['効果時間','秒延長','効果時間延長']},
+  ally_target_count:{label:'味方対象部隊数',effectFamilies:['ally_target_count'],aliases:['味方対象部隊数','味方部隊数','味方3部隊','味方4部隊']}
+};
+const TABLE_BRIDGE_ROWS=[
+  {typeId:'vaccine',typeName:'ワクチン型',scoreMetricId:'vaccine_counter',scoreMetricLabel:'不利対策',scoreRole:'P',changeItems:['weakening_nullify','weakening_remove','weakening_avoid','status_nullify','status_remove','severance_counter','isolation_counter','chain_nullify_counter','control_counter','buff_protection'],allowedTargets:['self','ally'],allowedSourceTypes:['tactic','skill','statusEffect','equipment','formation','fiveElement','warhorseSkill','ethnicResearchSkill'],allowedTiming:['always','tactic_activated','combat_start','on_attack','on_damaged','on_chain','on_garrison','conditional'],dependency:'Primaryが0ならSupportだけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。',denyChangeItems:['defense_up','healing','wounded_recovery','wounded_survival','attribute_resistance','tactic_gauge','tactic_speed','attack_speed_up','tactic_power_up','normal_attack_target_count_up'],dedupePolicy:'evidenceGroupKey'},
+  {typeId:'vaccine',typeName:'ワクチン型',scoreMetricId:'deny',scoreMetricLabel:'混入禁止',scoreRole:'X',changeItems:['defense_up','healing','wounded_recovery','wounded_survival','attribute_resistance','tactic_gauge','tactic_speed','attack_speed_up','tactic_power_up','normal_attack_target_count_up'],allowedTargets:['self','ally','enemy','unknown'],allowedSourceTypes:['tactic','skill','statusEffect','equipment','formation','fiveElement','warhorseSkill','ethnicResearchSkill'],allowedTiming:['always','tactic_activated','combat_start','on_attack','on_damaged','on_chain','on_garrison','conditional'],dependency:'Xは混入禁止。',denyChangeItems:['defense_up','healing','wounded_recovery','wounded_survival','attribute_resistance','tactic_gauge','tactic_speed','attack_speed_up','tactic_power_up','normal_attack_target_count_up'],dedupePolicy:'evidenceGroupKey'},
+  {typeId:'buff_support',typeName:'バフ支援型',scoreMetricId:'ally_buff_multi',scoreMetricLabel:'味方強化',scoreRole:'P',changeItems:['attack_up','defense_up','intelligence_up','tactic_power_up','normal_attack_power_up','attack_speed_up','critical_rate_up','critical_power_up','normal_attack_target_count_up'],allowedTargets:['self','ally'],allowedSourceTypes:['tactic','skill','statusEffect','equipment','formation','fiveElement','warhorseSkill','ethnicResearchSkill'],allowedTiming:['always','tactic_activated','combat_start','on_attack','on_damaged','on_chain','on_garrison','conditional'],dependency:'味方/自部隊へのPrimary強化が0ならSupportだけで高評価にしない。selfは許可するが味方複数配布より低く扱う。enemy対象とunknown対象は採点対象外。',denyChangeItems:[],dedupePolicy:'evidenceGroupKey'},
+  {typeId:'buff_support',typeName:'バフ支援型',scoreMetricId:'buff_support',scoreMetricLabel:'支援補助',scoreRole:'S',changeItems:['tactic_speed','initial_tactic_gauge','combat_start_tactic_gauge','effect_duration','ally_target_count','buff_protection'],allowedTargets:['self','ally'],allowedSourceTypes:['tactic','skill','statusEffect','equipment','formation','fiveElement','warhorseSkill','ethnicResearchSkill'],allowedTiming:['always','tactic_activated','combat_start','on_attack','on_damaged','on_chain','on_garrison','conditional'],dependency:'Primary強化が0ならSupportだけで高評価にせずsupport_without_primaryとして扱う。戦法速度・初回ゲージ・対象数だけで高評価にしない。',denyChangeItems:[],dedupePolicy:'evidenceGroupKey'}
+];
+const TABLE_BRIDGE_FAMILY_TO_CHANGE=Object.entries(TABLE_BRIDGE_CHANGE_ITEMS).reduce((map,[id,item])=>{(item.effectFamilies||[]).forEach(f=>{map[norm(f)]=id});return map;},{});
+function bridgeChangeItemForEvidence(ev){const family=String(ev?.effectFamily||'');if(TABLE_BRIDGE_FAMILY_TO_CHANGE[norm(family)])return TABLE_BRIDGE_FAMILY_TO_CHANGE[norm(family)];const text=flat([ev?.rawText,ev?.matchedText,ev?.label,ev?.statusEffectName,ev?.key]);for(const [id,item] of Object.entries(TABLE_BRIDGE_CHANGE_ITEMS)){if(hasAny(text,item.aliases||[]))return id;}return '';}
+function bridgeEvidenceRows(entity){const direct=[...(entity?.scoreEvidence||[]),...(entity?.evidence||[])].filter(Boolean);if(direct.length)return direct;if(window.HadoTypeScoreEvidence&&typeof window.HadoTypeScoreEvidence.buildFormationScoreEvidence==='function')return window.HadoTypeScoreEvidence.buildFormationScoreEvidence(entity||{},{});return featureRows(entity).map((row,i)=>{const text=roleCompatibleText(row,String(entity?.roleId||''))||row?.matchedText||row?.rawText||rowText(row);if(!String(text||'').trim())return null;const changeItemId=bridgeChangeItemForEvidence(Object.assign({},row,{rawText:text}));return {evidenceId:String(row?.featureId||i),sourceType:row?.sourceType||'skill',sourceId:row?.sourceId||row?.featureId||row?.sourceLabel||'',sourceLabel:row?.sourceLabel||row?.label||'',timing:row?.timing==='normal'?'always':(row?.timing||'conditional'),targetScope:row?.targetScope||inferTargetScope(text),effectFamily:changeItemId,rawText:text,matchedText:text,isPrimaryEffect:row?.isPrimaryEffect!==false,isDerivedTag:!!row?.isDerivedTag,isAggregateMetric:!!row?.isAggregateMetric,evidenceGroupKey:row?.evidenceGroupKey||''};}).filter(Boolean);}
+function bridgeEvidenceKey(ev,changeItemId){const primary=String(ev?.evidenceGroupKey||'').trim();if(primary)return primary;const sourceType=String(ev?.sourceType||'');const sourceId=String(ev?.sourceId||ev?.sourceLabel||'');const raw=String(ev?.rawText||ev?.matchedText||'');const withRaw=[sourceType,sourceId,raw,changeItemId].map(norm).join('|');if(raw.trim())return withRaw;return [sourceType,sourceId,changeItemId].map(norm).join('|');}
+function bridgeOriginExcluded(ev){return !!(ev?.isAggregateMetric||ev?.isDerivedTag||ev?.isPrimaryEffect===false);}
+function bridgeAllowed(value,allowed){return Array.isArray(allowed)&&allowed.includes(String(value||''));}
+function bridgePoint(typeId,ev){if(typeId==='buff_support'&&String(ev?.targetScope)==='self')return 0.5;return 1;}
+function tableBridgeScore(entity,rule){
+  const typeId=String(rule?.typeId||'');if(!TABLE_BRIDGE_TYPE_IDS.has(typeId))return null;
+  const hasDirectBridgeEvidence=Array.isArray(entity?.scoreEvidence)&&entity.scoreEvidence.length||Array.isArray(entity?.evidence)&&entity.evidence.length;
+  const roleId=String(entity?.roleId||'');
+  if(!hasDirectBridgeEvidence&&GENERAL_ROLES.has(roleId))return null;
+  const tableRows=TABLE_BRIDGE_ROWS.filter(r=>r.typeId===typeId),positiveRows=tableRows.filter(r=>r.scoreRole!=='X'),excluded=[];
+  const buckets=positiveRows.map(r=>({metricKey:r.scoreMetricId,label:r.scoreMetricLabel,scoreRole:r.scoreRole,method:'judgement_table_bridge',targetScope:r.allowedTargets.join('|'),requiresTarget:true,rows:[],confirmedRows:[],excludedRows:[],confirmedValue:0,conditionalMaxValue:0,itemCount:0,confirmedItemCount:0,hit:false,dependency:r.dependency,dedupePolicy:r.dedupePolicy}));
+  const bucketByMetric=new Map(buckets.map(b=>[b.metricKey,b]));
+  const seen=new Set();
+  for(const ev of bridgeEvidenceRows(entity)){
+    const changeItemId=bridgeChangeItemForEvidence(ev);if(!changeItemId)continue;
+    const sourceType=String(ev?.sourceType||'unknown'),timing=String(ev?.timing||'conditional'),targetScope=String(ev?.targetScope||'unknown');
+    const denyRow=tableRows.find(r=>r.scoreRole==='X'&&(r.changeItems||[]).includes(changeItemId));
+    const matchRow=positiveRows.find(r=>(r.changeItems||[]).includes(changeItemId));
+    let reason='';
+    if(bridgeOriginExcluded(ev))reason='aggregate_or_derived_origin';
+    else if(denyRow)reason='deny_change_item';
+    else if(!matchRow)continue;
+    else if(targetScope==='unknown')reason='unknown_target_for_target_dependent_type';
+    else if(!bridgeAllowed(targetScope,matchRow.allowedTargets))reason='target_not_allowed';
+    else if(!bridgeAllowed(sourceType,matchRow.allowedSourceTypes))reason='source_type_not_allowed';
+    else if(!bridgeAllowed(timing,matchRow.allowedTiming))reason='timing_not_allowed';
+    const key=bridgeEvidenceKey(ev,changeItemId);
+    if(!reason&&seen.has(key))reason='duplicate_evidence';
+    const item=TABLE_BRIDGE_CHANGE_ITEMS[changeItemId]||{};
+    const row=Object.assign({},ev,{changeItemId,changeItemLabel:item.label||changeItemId,label:item.label||ev?.label||changeItemId,scoreRole:denyRow?'X':matchRow?.scoreRole,targetScope,targetScopeLabel:targetScopeLabel(targetScope),effectKind:ev?.effectKind||item.category||'generic',effectKindLabel:effectKindLabel(ev?.effectKind),displayBucket:matchRow?.scoreMetricLabel||denyRow?.scoreMetricLabel||item.label||changeItemId,evidenceKey:key,excluded:!!reason,excludeReason:reason,bridgeReason:reason||'matched_judgement_table',point:reason?0:bridgePoint(typeId,ev),sourceKind:ev?.sourceKind||'effect',source:ev?.source||'effect-text',matchedText:ev?.matchedText||ev?.rawText||'',rawText:ev?.rawText||ev?.matchedText||'',sourceLabel:ev?.sourceLabel||''});
+    if(reason){excluded.push(row);if(matchRow&&bucketByMetric.has(matchRow.scoreMetricId))bucketByMetric.get(matchRow.scoreMetricId).excludedRows.push(row);continue;}
+    seen.add(key);const bucket=bucketByMetric.get(matchRow.scoreMetricId);bucket.rows.push(row);bucket.confirmedRows.push(row);
+  }
+  let primaryCount=0; buckets.forEach(b=>{const points=b.rows.reduce((s,r)=>s+Number(r.point||1),0);b.itemCount=b.rows.length;b.confirmedItemCount=b.rows.length;b.confirmedValue=points;b.conditionalMaxValue=points;b.hit=b.rows.length>0;if(b.scoreRole==='P')primaryCount+=b.rows.length;});
+  if(primaryCount===0){buckets.forEach(b=>{if(b.scoreRole==='S'&&b.rows.length){b.excludedRows.push(...b.rows.map(r=>Object.assign({},r,{excluded:true,excludeReason:'support_without_primary',bridgeReason:'support_without_primary',point:0})));excluded.push(...b.excludedRows.filter(r=>r.excludeReason==='support_without_primary'));b.rows=[];b.confirmedRows=[];b.itemCount=0;b.confirmedItemCount=0;b.confirmedValue=0;b.conditionalMaxValue=0;b.hit=false;}});}
+  const confirmedScore=buckets.reduce((s,m)=>s+Number(m.confirmedValue||0),0),conditionalMaxScore=buckets.reduce((s,m)=>s+Number(m.conditionalMaxValue||0),0),matched=buckets.filter(m=>m.hit);
+  return {score:conditionalMaxScore,fitScore:conditionalMaxScore,evaluationScore:conditionalMaxScore,totalScore:conditionalMaxScore,confirmedScore,conditionalMaxScore,matched,total:5,matchedCount:matched.length,breakdown:buckets,excludedRows:excluded,targetScopeScoring:true,dedupePolicy:'judgement-table-evidenceGroupKey',runtimeBridge:{enabled:true,typeId,source:'scoreEvidence -> changeItem -> judgementTable',dependencyApplied:primaryCount===0?'support_without_primary':'primary_present',bridgedTypeIds:[...TABLE_BRIDGE_TYPE_IDS]}};
+}
+
 function formationMemberScore(entity,rule){
   const members=Array.isArray(entity?.members)?entity.members:Array.isArray(entity?.formationMembers)?entity.formationMembers:[];
   return members.reduce((sum,member)=>sum+score(member,rule).fitScore,0);
@@ -283,6 +364,8 @@ function normalizedRuleMetrics(rule){
   return Array.isArray(rule?.metrics)?rule.metrics.slice(0,5):[];
 }
 function score(entity,rule){
+  const bridged=tableBridgeScore(entity,rule);
+  if(bridged){recordTrace(entity,rule,bridged);return bridged;}
   const metrics=normalizedRuleMetrics(rule);
   const breakdown=dedupeBreakdownRows(metrics.map(m=>metricValue(entity,m)));
   const confirmedScore=breakdown.reduce((s,m)=>s+Number(m.confirmedValue||0),0);
@@ -322,6 +405,6 @@ function tagList(entity,rule,result=null){
   return out.slice(0,18);
 }
 function tagSummary(entity,rule,result=null){return tagList(entity,rule,result).map(t=>`${t.kindLabel}:${t.label}`).join(' / ')}
-window.HadoTypeScore={METRIC_ALIASES,METRIC_MATCH_SPECS,TARGET_SCOPE_LABELS,inferTargetScope,inferTargetScopeForMetric,targetMatches,normalizedRuleMetrics,scoreEvidenceOrigin,scoreEligibleEvidence,metricRows,metricValue,score,label,metricLabel,summary,roleCompatibleText,roleAllowedSet};
+window.HadoTypeScore={METRIC_ALIASES,METRIC_MATCH_SPECS,TARGET_SCOPE_LABELS,inferTargetScope,inferTargetScopeForMetric,targetMatches,normalizedRuleMetrics,scoreEvidenceOrigin,scoreEligibleEvidence,metricRows,metricValue,tableBridgeScore,score,label,metricLabel,summary,roleCompatibleText,roleAllowedSet};
 window.HadoTypeTags={tagList,tagSummary,tagKindLabel};
 })();

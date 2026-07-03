@@ -72,8 +72,8 @@ const vaccineEntity={roleId:'formation_effects',displayName:'ワクチン型検�
 ]};
 const vaccineScore=window.HadoTypeScore.score(vaccineEntity,vaccineRule);
 assertEq(vaccineScore.totalScore>0,true,'vaccine totalScore should not stay zero');
-assertEq(vaccineScore.breakdown[0].hit,true,'vaccine self disadvantage aliases should match');
-assertEq(vaccineScore.breakdown[1].hit,true,'vaccine ally non-damage aliases should match');
-assertEq(vaccineScore.breakdown[4].hit,true,'vaccine wounded recovery aliases should match');
+assertEq(!!vaccineScore.runtimeBridge,true,'vaccine uses Update09 Phase5 runtime bridge');
+assertEq(vaccineScore.breakdown[0].hit,true,'vaccine judgement-table primary aliases should match');
+assertEq(vaccineScore.excludedRows.some(row=>row.changeItemId==='wounded_recovery'&&row.excludeReason==='deny_change_item'),true,'vaccine bridge denies wounded recovery');
 
 console.log('Update08.21 type-score regression: passed');
