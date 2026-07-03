@@ -1135,8 +1135,6 @@
         "attack_speed_up",
         "critical_rate_up",
         "critical_power_up",
-        "critical_tactic_rate_up",
-        "critical_tactic_power_up",
         "normal_attack_target_count_up"
       ],
       "allowedTargets": [
@@ -1163,7 +1161,7 @@
         "on_garrison",
         "conditional"
       ],
-      "dependency": "味方/自部隊へのPrimary強化が0ならSupportだけで高評価にしない。enemy対象とunknown対象は採点対象外。",
+      "dependency": "味方/自部隊へのPrimary強化が0ならSupportだけで高評価にしない。selfは許可するが味方複数配布より低く扱う。enemy対象とunknown対象は採点対象外。",
       "denyChangeItems": [],
       "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
       "note": "Primary"
@@ -1177,7 +1175,10 @@
       "changeItems": [
         "tactic_speed",
         "initial_tactic_gauge",
-        "chain_rate"
+        "combat_start_tactic_gauge",
+        "effect_duration",
+        "ally_target_count",
+        "buff_protection"
       ],
       "allowedTargets": [
         "self",
@@ -1203,7 +1204,7 @@
         "on_garrison",
         "conditional"
       ],
-      "dependency": "Primaryが0ならSupportだけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "dependency": "Primary強化が0ならSupportだけで高評価にせずsupport_without_primaryとして扱う。戦法速度・初回ゲージ・対象数だけで高評価にしない。",
       "denyChangeItems": [],
       "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
       "note": "Support only is capped by dependency"

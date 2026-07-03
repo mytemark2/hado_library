@@ -42,6 +42,8 @@ COMMANDS.extend(
         ["node", "tools/build_type_score_trigger_catalog.js", "--check"],
         ["node", "tools/build_type_score_trigger_catalog.js", "--sample"],
         ["node", "tools/test_update09_phase5_type_score_catalogs.js"],
+        ["node", "--check", "tools/test_update09_phase5_type_score_runtime_bridge.js"],
+        ["node", "tools/test_update09_phase5_type_score_runtime_bridge.js"],
         ["python3", "tools/validate_type_candidate_saved_name_matching.py"],
         ["python3", "tools/validate_saved_mode_index_ownership_sources.py"],
         ["python3", "tools/validate_saved_type_candidates_zero_score_visible.py"],

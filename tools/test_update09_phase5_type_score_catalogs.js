@@ -18,7 +18,7 @@ types.forEach(typeId => { const rows = byType.get(typeId); assert(rows.length > 
 const vaccine = byType.get('vaccine');
 ['defense_up','healing','wounded_recovery','wounded_survival','attribute_resistance','tactic_gauge','tactic_speed','attack_speed_up','tactic_power_up','normal_attack_target_count_up'].forEach(id => assert(vaccine.some(r => r.denyChangeItems.includes(id)), `vaccine missing deny item: ${id}`));
 const buffPrimary = byType.get('buff_support').find(r => r.scoreRole === 'P');
-['attack_up','defense_up','intelligence_up','tactic_power_up','normal_attack_power_up','attack_speed_up','critical_rate_up','critical_power_up','critical_tactic_rate_up','critical_tactic_power_up','normal_attack_target_count_up'].forEach(id => assert(buffPrimary.changeItems.includes(id), `buff_support primary missing ${id}`));
+['attack_up','defense_up','intelligence_up','tactic_power_up','normal_attack_power_up','attack_speed_up','critical_rate_up','critical_power_up','normal_attack_target_count_up'].forEach(id => assert(buffPrimary.changeItems.includes(id), `buff_support primary missing ${id}`));
 assert(buffPrimary.dependency.includes('Supportだけで高評価にしない'), 'buff_support missing support cap dependency');
 const debuffPrimary = byType.get('debuff_interference').find(r => r.scoreRole === 'P');
 assert(debuffPrimary.allowedTargets.includes('enemy'), 'debuff_interference primary must target enemy');

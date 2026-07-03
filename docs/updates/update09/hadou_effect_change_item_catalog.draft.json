@@ -634,6 +634,37 @@
       ],
       "displayNormalizeTo": "絶縁",
       "dedupeGroup": "isolation"
+    },
+    {
+      "changeItemId": "effect_duration",
+      "label": "効果時間",
+      "category": "support",
+      "effectFamilies": [
+        "effect_duration"
+      ],
+      "aliases": [
+        "効果時間",
+        "秒延長",
+        "効果時間延長"
+      ],
+      "displayNormalizeTo": "効果時間",
+      "dedupeGroup": "effect_duration"
+    },
+    {
+      "changeItemId": "ally_target_count",
+      "label": "味方対象部隊数",
+      "category": "support",
+      "effectFamilies": [
+        "ally_target_count"
+      ],
+      "aliases": [
+        "味方対象部隊数",
+        "味方部隊数",
+        "味方3部隊",
+        "味方4部隊"
+      ],
+      "displayNormalizeTo": "味方対象部隊数",
+      "dedupeGroup": "ally_target_count"
     }
   ]
 }
