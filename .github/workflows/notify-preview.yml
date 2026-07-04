@@ -80,7 +80,7 @@ jobs:
           set -euo pipefail
           if [ -z "${PREVIEW_REPO_TOKEN}" ]; then
             echo "Repository secret PREVIEW_REPO_TOKEN is missing." >&2
-            echo "Create a fine-grained token with access to mytemark2/hado_library-preview and permissions Contents: Read and write and Actions: Read and write, then register it as PREVIEW_REPO_TOKEN in mytemark2/hado_library. Actions: Read and write is required because this workflow polls the preview repository Pages workflow run and reruns failed preview jobs after pushing runtime assets." >&2
+            echo "Create a fine-grained token with access to mytemark2/hado_library-preview and permissions Contents: Read and write, plus enough Actions read access to view preview workflow runs, then register it as PREVIEW_REPO_TOKEN in mytemark2/hado_library. The app sync does not rerun preview workflow jobs automatically." >&2
             exit 1
           fi
 
@@ -106,7 +106,7 @@ jobs:
             http_code="$(curl -sS -o "${response_file}" -D "${headers_file}" -w "%{http_code}" "$@" || true)"
             if [ "${http_code}" != "${expected}" ]; then
               echo "PREVIEW_REPO_TOKEN preflight failed during ${label}; expected HTTP ${expected}, got ${http_code}." >&2
-              echo "The token must be scoped to mytemark2/hado_library-preview with Contents: Read and write and Actions: Read and write before preview files are pushed." >&2
+              echo "The token must be scoped to mytemark2/hado_library-preview with Contents: Read and write and enough Actions read access to view preview workflow runs before preview files are pushed." >&2
               echo "Response body:" >&2
               cat "${response_file}" >&2 || true
               rm -f "${response_file}" "${headers_file}"
@@ -114,9 +114,9 @@ jobs:
             fi
             local scopes
             scopes="$(awk 'BEGIN{IGNORECASE=1} /^x-oauth-scopes:/ {sub(/^[^:]*:[[:space:]]*/, ""); print}' "${headers_file}" | tr -d '\r' | tail -n 1)"
-            if [ -n "${scopes}" ] && [[ ",${scopes// /}," != *",workflow,"* ]] && [[ ",${scopes// /}," != *",repo,"* ]]; then
+            if [ -n "${scopes}" ] && [[ ",${scopes// /}," != *",repo,"* ]]; then
               echo "PREVIEW_REPO_TOKEN appears to be a classic PAT without repo scope: ${scopes}" >&2
-              echo "Use a fine-grained token with Contents: Read and write and Actions: Read and write, or a classic token with repo scope." >&2
+              echo "Use a fine-grained token with Contents: Read and write, or a classic token with repo scope." >&2
               rm -f "${response_file}" "${headers_file}"
               exit 1
             fi
@@ -435,24 +435,18 @@ jobs:
               if [ "${conclusion}" = "success" ]; then
                 break
               fi
-              if [ "${rerun_failed_jobs_requested}" = "false" ]; then
-                jobs_json="$(github_api_json "list preview Pages workflow jobs for failed run ${run_id}" "${api_root}/actions/runs/${run_id}/jobs?filter=latest&per_page=100")"
-                JOBS_JSON="${jobs_json}" python - <<'PY'
+              jobs_json="$(github_api_json "list preview Pages workflow jobs for failed run ${run_id}" "${api_root}/actions/runs/${run_id}/jobs?filter=latest&per_page=100")"
+              failed_jobs="$(JOBS_JSON="${jobs_json}" python - <<'PY'
           import json, os
           jobs = json.loads(os.environ['JOBS_JSON']).get('jobs', [])
           failed = [job.get('name', '') for job in jobs if job.get('conclusion') and job.get('conclusion') != 'success']
-          if failed:
-              print('Failed preview jobs to rerun: ' + ', '.join(failed))
-          else:
-              print('Preview run failed without failed jobs listed; requesting failed-job rerun anyway.')
+          print(', '.join(failed) if failed else 'unknown')
           PY
-                echo "Preview Pages workflow run ${run_id} completed with conclusion=${conclusion}; rerunning failed jobs once before failing the app sync."
-                github_api_post_empty "rerun failed preview Pages workflow jobs ${run_id}" "${api_root}/actions/runs/${run_id}/rerun-failed-jobs"
-                rerun_failed_jobs_requested=true
-                sleep 20
-                continue
-              fi
-              echo "Preview Pages workflow run ${run_id} completed with conclusion=${conclusion} after failed-job rerun." >&2
+          )"
+              echo "Preview Pages workflow run ${run_id} completed with conclusion=${conclusion}." >&2
+              echo "Failed preview jobs: ${failed_jobs}" >&2
+              echo "Do not auto-rerun failed preview jobs from app sync because PREVIEW_REPO_TOKEN may not have Actions write rerun permission." >&2
+              echo "Rerun mytemark2/hado_library-preview/.github/workflows/${workflow_file} manually, or inspect the preview deploy job logs." >&2
               exit 1
             fi
             sleep 10

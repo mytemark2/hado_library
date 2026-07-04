@@ -16,6 +16,25 @@ function sectionBetween(startMarker, endMarker) {
 
 const syncStep = sectionBetween('- name: Sync preview repository contents', '- name: Wait for preview Pages deployment');
 
+
+for (const forbidden of [
+  'rerun-failed-jobs',
+  'github_api_post_empty',
+  'rerun_failed_jobs_requested',
+  'rerunning failed jobs',
+  'Failed preview jobs to rerun:',
+  'requesting failed-job rerun',
+  'Actions: Read and write is required',
+]) {
+  assert(!workflow.includes(forbidden), `workflow must not contain automatic rerun pattern ${forbidden}`);
+}
+
+const waitStep = sectionBetween('- name: Wait for preview Pages deployment', '# Verify public preview deployment');
+assert(waitStep.includes('Failed preview jobs:'), 'wait step must report failed preview job names');
+assert(waitStep.includes('Do not auto-rerun failed preview jobs from app sync'), 'wait step must explain that app sync does not auto-rerun preview jobs');
+assert(waitStep.includes('Rerun mytemark2/hado_library-preview/.github/workflows/${workflow_file} manually'), 'wait step must point operators to manual preview workflow rerun');
+assert(!waitStep.includes('curl -sS -X POST'), 'wait step must not POST to rerun preview workflow jobs');
+
 for (const forbidden of [
   'PREVIEW_PAGES_WORKFLOW',
   'preview_workflow=',
@@ -54,4 +73,4 @@ const ownConcurrencyCount = (workflow.match(/cancel-in-progress: true/g) || []).
 assert(ownConcurrencyCount >= 1, 'notify-preview workflow should keep its own concurrency cancellation');
 assert(!syncStep.includes('cancel-in-progress: true'), 'sync step must not write cancel-in-progress into the preview clone');
 
-console.log('notify-preview workflow does not edit preview workflow files and guards staged paths');
+console.log('notify-preview workflow does not edit preview workflow files, guards staged paths, and avoids automatic preview job reruns');

@@ -54,8 +54,6 @@ REQUIRED = (
     "Preview staged files:",
     "preview sync must never stage .github files",
     "sync preview from ${APP_REF}: ${SOURCE_COMMIT}",
-    "Actions: Read and write is required because this workflow polls the preview repository Pages workflow run and reruns failed preview jobs after pushing runtime assets.",
-    "Actions: Read and write before preview files are pushed.",
     "Preflight preview token permissions",
     "PREVIEW_REPO_TOKEN preflight failed during ${label}; expected HTTP ${expected}, got ${http_code}.",
     "before preview files are pushed",
@@ -63,6 +61,10 @@ REQUIRED = (
     "Pages workflow visibility check",
     "PREVIEW_REPO_TOKEN preflight passed before preview repository push: repository access, Pages workflow visibility, and rerun permissions are expected to be available.",
     "Wait for preview Pages deployment",
+    "Preview Pages workflow run ${run_id} completed with conclusion=${conclusion}.",
+    "Failed preview jobs: ${failed_jobs}",
+    "Do not auto-rerun failed preview jobs from app sync because PREVIEW_REPO_TOKEN may not have Actions write rerun permission.",
+    "Rerun mytemark2/hado_library-preview/.github/workflows/${workflow_file} manually, or inspect the preview deploy job logs.",
     "github_api_json()",
     "github_api_post_empty()",
     "rerun-failed-jobs",
@@ -97,6 +99,15 @@ REQUIRED = (
     "Public preview matches ${SOURCE_COMMIT} / ${DISPLAY_VERSION}",
 )
 FORBIDDEN = (
+    'requesting failed-job rerun',
+    'Failed preview jobs to rerun:',
+    'rerun permissions are expected',
+    'Actions: Read and write is required',
+    'after failed-job rerun',
+    'rerunning failed jobs',
+    'rerun_failed_jobs_requested',
+    'rerun-failed-jobs',
+    'github_api_post_empty()',
     "workflow_dispatch:",
     "schedule:",
     "sync_app_preview",
@@ -132,7 +143,7 @@ def main() -> int:
         raise SystemExit("preview workflow missing: " + ", ".join(missing))
     if forbidden:
         raise SystemExit("preview workflow contains prohibited stale sync pattern: " + ", ".join(forbidden))
-    print("preview workflow rejects non-canonical branches, syncs runtime assets without editing preview .github files, reruns failed Pages jobs, and verifies public deployment markers")
+    print("preview workflow rejects non-canonical branches, syncs runtime assets without editing preview .github files, fails preview deploy failures without auto-rerun, and verifies public deployment markers")
     return 0
 
 
