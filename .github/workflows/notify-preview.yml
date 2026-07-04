@@ -213,7 +213,49 @@ jobs:
 
             git -C "${PREVIEW_DIR}" config user.name "github-actions[bot]"
             git -C "${PREVIEW_DIR}" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git -C "${PREVIEW_DIR}" add -A
+            # The app preview sync must never edit hado_library-preview/.github files.
+            # Preview workflow settings such as cancel-in-progress must be changed separately with workflow-scoped permission.
+            (
+              cd "${PREVIEW_DIR}"
+              shopt -s nullglob
+              sync_paths=(
+                index.html
+                HADO_DEV_INFO.json
+                hado_*.js
+                hado_styles.css
+                hadou_*.json
+                .nojekyll
+                PREVIEW_SOURCE_COMMIT.txt
+                PREVIEW_SOURCE_BRANCH.txt
+                PREVIEW_DISPLAY_VERSION.txt
+                PREVIEW_SOURCE_FILES.txt
+              )
+              if [ "${#sync_paths[@]}" -gt 0 ]; then
+                git add -- "${sync_paths[@]}"
+              fi
+              git add -u -- \
+                index.html \
+                HADO_DEV_INFO.json \
+                'hado_*.js' \
+                hado_styles.css \
+                'hadou_*.json' \
+                .nojekyll \
+                PREVIEW_SOURCE_COMMIT.txt \
+                PREVIEW_SOURCE_BRANCH.txt \
+                PREVIEW_DISPLAY_VERSION.txt \
+                PREVIEW_SOURCE_FILES.txt
+              staged_files="$(git diff --cached --name-only)"
+              echo "Preview staged files:"
+              printf '%s\n' "${staged_files}"
+              while IFS= read -r staged_file; do
+                case "${staged_file}" in
+                  .github/*)
+                    echo "preview sync must never stage .github files: ${staged_file}" >&2
+                    exit 1
+                    ;;
+                esac
+              done <<< "${staged_files}"
+            )
             if git -C "${PREVIEW_DIR}" diff --cached --quiet; then
               echo "No preview repository changes."
               preview_commit="$(git -C "${PREVIEW_DIR}" rev-parse HEAD)"
@@ -236,8 +278,14 @@ jobs:
             fi
             cat "${push_output}" >&2 || true
             if grep -qiE 'without[^[:cntrl:]]*workflow scope|workflow scope|refusing to allow[^[:cntrl:]]*workflow' "${push_output}"; then
-              echo "Preview repository push was rejected because the token lacks workflow scope while workflow files would be modified." >&2
-              echo "The app preview sync must not edit mytemark2/hado_library-preview/.github/workflows/jekyll-gh-pages.yml; fix that workflow separately and rerun after the preview repository no longer has pending workflow-file changes." >&2
+              echo "Preview repository push failed: workflow file was staged or preview token lacks workflow scope." >&2
+              echo "The app preview sync must not edit mytemark2/hado_library-preview/.github/workflows/jekyll-gh-pages.yml; fix preview workflow settings separately with workflow-scoped permission." >&2
+              rm -f "${push_output}"
+              rm -rf "${PREVIEW_DIR}"
+              exit 1
+            fi
+            if ! grep -qiE 'fetch first|non-fast-forward|stale info|failed to push some refs' "${push_output}"; then
+              echo "Preview repository push failed for a non-retryable reason." >&2
               rm -f "${push_output}"
               rm -rf "${PREVIEW_DIR}"
               exit 1
@@ -246,7 +294,7 @@ jobs:
 
             rm -rf "${PREVIEW_DIR}"
             if [ "${attempt}" = "3" ]; then
-              echo "Preview repository push failed after ${attempt} attempts; another run may be updating main continuously." >&2
+              echo "Preview repository push failed after ${attempt} attempts due to repeated non-fast-forward updates." >&2
               exit 1
             fi
             echo "Preview repository main changed during push; retrying with a fresh clone." >&2

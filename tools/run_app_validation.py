@@ -33,6 +33,7 @@ COMMANDS.extend(
         ["python3", "tools/validate_app_js.py"],
         ["python3", "tools/validate_external_css.py"],
         ["python3", "tools/validate_preview_workflow.py"],
+        ["node", "tools/test_notify_preview_workflow_no_preview_workflow_edit.js"],
         ["python3", "tools/validate_legacy_hado_app_not_loaded.py"],
         ["python3", "tools/validate_update_version_consistency.py"],
         ["python3", "tools/validate_update09_phase4_guides.py"],
