@@ -41,8 +41,19 @@ REQUIRED = (
     "test \"$(cat \"${PREVIEW_DIR}/PREVIEW_DISPLAY_VERSION.txt\")\" = \"${DISPLAY_VERSION}\"",
     "(cd \"${PREVIEW_DIR}\" && sha256sum -c PREVIEW_SOURCE_FILES.txt)",
     "git -C \"${PREVIEW_DIR}\" push origin HEAD:main",
+    "push_output=\"$(mktemp)\"",
+    "without[^[:cntrl:]]*workflow scope",
+    "Preview repository push failed: workflow file was staged or preview token lacks workflow scope.",
+    "The app preview sync must not edit mytemark2/hado_library-preview/.github/workflows/jekyll-gh-pages.yml",
+    "The app preview sync must never edit hado_library-preview/.github files.",
+    "Preview workflow settings such as cancel-in-progress must be changed separately with workflow-scoped permission.",
+    "sync_paths=(",
+    "git add -- \"${sync_paths[@]}\"",
+    "git add -u --",
+    "staged_files=\"$(git diff --cached --name-only)\"",
+    "Preview staged files:",
+    "preview sync must never stage .github files",
     "sync preview from ${APP_REF}: ${SOURCE_COMMIT}",
-    "Actions: Read is required because this workflow polls the preview repository Pages workflow run after pushing runtime assets.",
     "Preflight preview token permissions",
     "PREVIEW_REPO_TOKEN preflight failed during ${label}; expected HTTP ${expected}, got ${http_code}.",
     "before preview files are pushed",
@@ -50,6 +61,10 @@ REQUIRED = (
     "Pages workflow visibility check",
     "PREVIEW_REPO_TOKEN preflight passed before preview repository push: repository access and Pages workflow visibility are available.",
     "Wait for preview Pages deployment",
+    "Preview Pages workflow run ${run_id} completed with conclusion=${conclusion}.",
+    "Failed preview jobs: ${failed_jobs}",
+    "Do not auto-rerun failed preview jobs from app sync because PREVIEW_REPO_TOKEN may not have Actions write rerun permission.",
+    "Rerun mytemark2/hado_library-preview/.github/workflows/${workflow_file} manually, or inspect the preview deploy job logs.",
     "github_api_json()",
     "GitHub API ${label} returned HTTP ${http_code}; retrying (${attempt}/6).",
     "GitHub API ${label} did not return HTTP 200 after retries.",
@@ -70,8 +85,6 @@ REQUIRED = (
     "[ \"${public_source}\" = \"${SOURCE_COMMIT}\" ]",
     "[ \"${public_version}\" = \"${DISPLAY_VERSION}\" ]",
     "PREVIEW_REPO_TOKEN",
-    "Preview Pages workflow .github/workflows/jekyll-gh-pages.yml was not found",
-    "PREVIEW_PAGES_WORKFLOW",
     "cancel-in-progress: true",
     "Verify public preview deployment",
     "https://mytemark2.github.io/hado_library-preview",
@@ -80,6 +93,15 @@ REQUIRED = (
     "Public preview matches ${SOURCE_COMMIT} / ${DISPLAY_VERSION}",
 )
 FORBIDDEN = (
+    'requesting failed-job rerun',
+    'Failed preview jobs to rerun:',
+    'rerun permissions are expected',
+    'Actions: Read and write is required',
+    'after failed-job rerun',
+    'rerunning failed jobs',
+    'rerun_failed_jobs_requested',
+    'rerun-failed-jobs',
+    'github_api_post_empty()',
     "workflow_dispatch:",
     "schedule:",
     "sync_app_preview",
@@ -91,6 +113,10 @@ FORBIDDEN = (
     "rsync -a --delete",
     "Verify preview reflects source commit and version assets",
     "actions/workflows/${workflow_file}/dispatches",
+    "PREVIEW_PAGES_WORKFLOW",
+    "preview_workflow=",
+    "PYPREVIEW",
+    "git add -A",
     "actions/workflows/${workflow_file}/enable",
     "Actions write permission check",
     "RUNS_JSON=\"${runs_json}\"",
@@ -111,7 +137,7 @@ def main() -> int:
         raise SystemExit("preview workflow missing: " + ", ".join(missing))
     if forbidden:
         raise SystemExit("preview workflow contains prohibited stale sync pattern: " + ", ".join(forbidden))
-    print("preview workflow rejects non-canonical branches, patches preview Pages concurrency, syncs runtime assets, and verifies public deployment markers")
+    print("preview workflow rejects non-canonical branches, syncs runtime assets without editing preview .github files, fails preview deploy failures without auto-rerun, and verifies public deployment markers")
     return 0
 
 
