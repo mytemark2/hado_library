@@ -41,6 +41,10 @@ REQUIRED = (
     "test \"$(cat \"${PREVIEW_DIR}/PREVIEW_DISPLAY_VERSION.txt\")\" = \"${DISPLAY_VERSION}\"",
     "(cd \"${PREVIEW_DIR}\" && sha256sum -c PREVIEW_SOURCE_FILES.txt)",
     "git -C \"${PREVIEW_DIR}\" push origin HEAD:main",
+    "push_output=\"$(mktemp)\"",
+    "without[^[:cntrl:]]*workflow scope",
+    "Preview repository push was rejected because the token lacks workflow scope while workflow files would be modified.",
+    "The app preview sync must not edit mytemark2/hado_library-preview/.github/workflows/jekyll-gh-pages.yml",
     "sync preview from ${APP_REF}: ${SOURCE_COMMIT}",
     "Actions: Read and write is required because this workflow polls the preview repository Pages workflow run and reruns failed preview jobs after pushing runtime assets.",
     "Actions: Read and write before preview files are pushed.",
@@ -77,10 +81,6 @@ REQUIRED = (
     "[ \"${public_source}\" = \"${SOURCE_COMMIT}\" ]",
     "[ \"${public_version}\" = \"${DISPLAY_VERSION}\" ]",
     "PREVIEW_REPO_TOKEN",
-    "Preview Pages workflow .github/workflows/jekyll-gh-pages.yml was not found",
-    "PREVIEW_PAGES_WORKFLOW",
-    "preview_workflow=\"${PREVIEW_DIR}/.github/workflows/jekyll-gh-pages.yml\"",
-    "group: pages",
     "cancel-in-progress: true",
     "Verify public preview deployment",
     "https://mytemark2.github.io/hado_library-preview",
@@ -100,6 +100,8 @@ FORBIDDEN = (
     "rsync -a --delete",
     "Verify preview reflects source commit and version assets",
     "actions/workflows/${workflow_file}/dispatches",
+    "PREVIEW_PAGES_WORKFLOW",
+    "preview_workflow=",
     "actions/workflows/${workflow_file}/enable",
     "Actions write permission check",
     "RUNS_JSON=\"${runs_json}\"",
@@ -120,7 +122,7 @@ def main() -> int:
         raise SystemExit("preview workflow missing: " + ", ".join(missing))
     if forbidden:
         raise SystemExit("preview workflow contains prohibited stale sync pattern: " + ", ".join(forbidden))
-    print("preview workflow rejects non-canonical branches, patches preview Pages concurrency, syncs runtime assets, and verifies public deployment markers")
+    print("preview workflow rejects non-canonical branches, syncs runtime assets without editing preview .github files, reruns failed Pages jobs, and verifies public deployment markers")
     return 0
 
 
