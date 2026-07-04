@@ -366,7 +366,7 @@
     },
     {
       "changeItemId": "weakening_nullify",
-      "label": "弱化無効",
+      "label": "弱化効果無効",
       "category": "disadvantage_counter",
       "effectFamilies": [
         "weakening_nullify"
@@ -375,12 +375,12 @@
         "弱化無効",
         "弱化効果無効"
       ],
-      "displayNormalizeTo": "弱化無効",
+      "displayNormalizeTo": "弱化効果無効",
       "dedupeGroup": "weakening_nullify"
     },
     {
       "changeItemId": "weakening_remove",
-      "label": "弱化解除",
+      "label": "弱化効果解除",
       "category": "disadvantage_counter",
       "effectFamilies": [
         "weakening_remove"
@@ -390,12 +390,12 @@
         "弱化効果解除",
         "弱化効果を打ち消す"
       ],
-      "displayNormalizeTo": "弱化解除",
+      "displayNormalizeTo": "弱化効果解除",
       "dedupeGroup": "weakening_remove"
     },
     {
       "changeItemId": "weakening_avoid",
-      "label": "弱化回避",
+      "label": "弱化効果回避",
       "category": "disadvantage_counter",
       "effectFamilies": [
         "weakening_avoid"
@@ -410,7 +410,7 @@
         "弱化効果を確率で避ける",
         "弱化効果を○%の確率で避ける"
       ],
-      "displayNormalizeTo": "弱化回避",
+      "displayNormalizeTo": "弱化効果回避",
       "dedupeGroup": "weakening_avoid"
     },
     {
@@ -506,7 +506,7 @@
     },
     {
       "changeItemId": "buff_protection",
-      "label": "バフ維持",
+      "label": "強化解除・奪取対策",
       "category": "buff_protection",
       "effectFamilies": [
         "buff_protection"
@@ -516,7 +516,7 @@
         "強化奪取回避",
         "バフ維持"
       ],
-      "displayNormalizeTo": "バフ維持",
+      "displayNormalizeTo": "強化解除・奪取対策",
       "dedupeGroup": "buff_protection"
     },
     {

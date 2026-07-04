@@ -36,6 +36,8 @@ COMMANDS.extend(
         ["node", "tools/test_notify_preview_workflow_no_preview_workflow_edit.js"],
         ["node", "--check", "tools/test_update09_5_28_public_json_load_regression.js"],
         ["node", "tools/test_update09_5_28_public_json_load_regression.js"],
+        ["node", "--check", "tools/test_update09_5_29_disadvantage_display_labels.js"],
+        ["node", "tools/test_update09_5_29_disadvantage_display_labels.js"],
         ["python3", "tools/validate_legacy_hado_app_not_loaded.py"],
         ["python3", "tools/validate_update_version_consistency.py"],
         ["python3", "tools/validate_update09_phase4_guides.py"],
