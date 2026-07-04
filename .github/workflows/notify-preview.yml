@@ -80,7 +80,7 @@ jobs:
           set -euo pipefail
           if [ -z "${PREVIEW_REPO_TOKEN}" ]; then
             echo "Repository secret PREVIEW_REPO_TOKEN is missing." >&2
-            echo "Create a fine-grained token with access to mytemark2/hado_library-preview and permissions Contents: Read and write and Actions: Read, then register it as PREVIEW_REPO_TOKEN in mytemark2/hado_library. Actions: Read is required because this workflow polls the preview repository Pages workflow run after pushing runtime assets." >&2
+            echo "Create a fine-grained token with access to mytemark2/hado_library-preview and permissions Contents: Read and write, plus enough Actions read access to view preview workflow runs, then register it as PREVIEW_REPO_TOKEN in mytemark2/hado_library. The app sync does not rerun preview workflow jobs automatically." >&2
             exit 1
           fi
 
@@ -106,7 +106,7 @@ jobs:
             http_code="$(curl -sS -o "${response_file}" -D "${headers_file}" -w "%{http_code}" "$@" || true)"
             if [ "${http_code}" != "${expected}" ]; then
               echo "PREVIEW_REPO_TOKEN preflight failed during ${label}; expected HTTP ${expected}, got ${http_code}." >&2
-              echo "The token must be scoped to mytemark2/hado_library-preview with Contents: Read and write and Actions: Read before preview files are pushed." >&2
+              echo "The token must be scoped to mytemark2/hado_library-preview with Contents: Read and write and enough Actions read access to view preview workflow runs before preview files are pushed." >&2
               echo "Response body:" >&2
               cat "${response_file}" >&2 || true
               rm -f "${response_file}" "${headers_file}"
@@ -114,9 +114,9 @@ jobs:
             fi
             local scopes
             scopes="$(awk 'BEGIN{IGNORECASE=1} /^x-oauth-scopes:/ {sub(/^[^:]*:[[:space:]]*/, ""); print}' "${headers_file}" | tr -d '\r' | tail -n 1)"
-            if [ -n "${scopes}" ] && [[ ",${scopes// /}," != *",workflow,"* ]] && [[ ",${scopes// /}," != *",repo,"* ]]; then
-              echo "PREVIEW_REPO_TOKEN appears to be a classic PAT without repo/workflow scope: ${scopes}" >&2
-              echo "Use a fine-grained token with Contents: Read and write and Actions: Read, or a classic token with repo scope." >&2
+            if [ -n "${scopes}" ] && [[ ",${scopes// /}," != *",repo,"* ]]; then
+              echo "PREVIEW_REPO_TOKEN appears to be a classic PAT without repo scope: ${scopes}" >&2
+              echo "Use a fine-grained token with Contents: Read and write, or a classic token with repo scope." >&2
               rm -f "${response_file}" "${headers_file}"
               exit 1
             fi
@@ -178,7 +178,49 @@ jobs:
 
             git -C "${PREVIEW_DIR}" config user.name "github-actions[bot]"
             git -C "${PREVIEW_DIR}" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git -C "${PREVIEW_DIR}" add -A
+            # The app preview sync must never edit hado_library-preview/.github files.
+            # Preview workflow settings such as cancel-in-progress must be changed separately with workflow-scoped permission.
+            (
+              cd "${PREVIEW_DIR}"
+              shopt -s nullglob
+              sync_paths=(
+                index.html
+                HADO_DEV_INFO.json
+                hado_*.js
+                hado_styles.css
+                hadou_*.json
+                .nojekyll
+                PREVIEW_SOURCE_COMMIT.txt
+                PREVIEW_SOURCE_BRANCH.txt
+                PREVIEW_DISPLAY_VERSION.txt
+                PREVIEW_SOURCE_FILES.txt
+              )
+              if [ "${#sync_paths[@]}" -gt 0 ]; then
+                git add -- "${sync_paths[@]}"
+              fi
+              git add -u -- \
+                index.html \
+                HADO_DEV_INFO.json \
+                'hado_*.js' \
+                hado_styles.css \
+                'hadou_*.json' \
+                .nojekyll \
+                PREVIEW_SOURCE_COMMIT.txt \
+                PREVIEW_SOURCE_BRANCH.txt \
+                PREVIEW_DISPLAY_VERSION.txt \
+                PREVIEW_SOURCE_FILES.txt
+              staged_files="$(git diff --cached --name-only)"
+              echo "Preview staged files:"
+              printf '%s\n' "${staged_files}"
+              while IFS= read -r staged_file; do
+                case "${staged_file}" in
+                  .github/*)
+                    echo "preview sync must never stage .github files: ${staged_file}" >&2
+                    exit 1
+                    ;;
+                esac
+              done <<< "${staged_files}"
+            )
             if git -C "${PREVIEW_DIR}" diff --cached --quiet; then
               echo "No preview repository changes."
               preview_commit="$(git -C "${PREVIEW_DIR}" rev-parse HEAD)"
@@ -190,17 +232,34 @@ jobs:
 
             git -C "${PREVIEW_DIR}" commit -m "sync preview from ${APP_REF}: ${SOURCE_COMMIT}"
             preview_commit="$(git -C "${PREVIEW_DIR}" rev-parse HEAD)"
-            if git -C "${PREVIEW_DIR}" push origin HEAD:main; then
+            push_output="$(mktemp)"
+            if git -C "${PREVIEW_DIR}" push origin HEAD:main >"${push_output}" 2>&1; then
               changed=true
+              rm -f "${push_output}"
               rm -rf "${PREVIEW_DIR}"
               echo "changed=true" >> "${GITHUB_OUTPUT}"
               echo "preview_commit=${preview_commit}" >> "${GITHUB_OUTPUT}"
               break
             fi
+            cat "${push_output}" >&2 || true
+            if grep -qiE 'without[^[:cntrl:]]*workflow scope|workflow scope|refusing to allow[^[:cntrl:]]*workflow' "${push_output}"; then
+              echo "Preview repository push failed: workflow file was staged or preview token lacks workflow scope." >&2
+              echo "The app preview sync must not edit mytemark2/hado_library-preview/.github/workflows/jekyll-gh-pages.yml; fix preview workflow settings separately with workflow-scoped permission." >&2
+              rm -f "${push_output}"
+              rm -rf "${PREVIEW_DIR}"
+              exit 1
+            fi
+            if ! grep -qiE 'fetch first|non-fast-forward|stale info|failed to push some refs' "${push_output}"; then
+              echo "Preview repository push failed for a non-retryable reason." >&2
+              rm -f "${push_output}"
+              rm -rf "${PREVIEW_DIR}"
+              exit 1
+            fi
+            rm -f "${push_output}"
 
             rm -rf "${PREVIEW_DIR}"
             if [ "${attempt}" = "3" ]; then
-              echo "Preview repository push failed after ${attempt} attempts; another run may be updating main continuously." >&2
+              echo "Preview repository push failed after ${attempt} attempts due to repeated non-fast-forward updates." >&2
               exit 1
             fi
             echo "Preview repository main changed during push; retrying with a fresh clone." >&2
@@ -311,7 +370,18 @@ jobs:
               if [ "${conclusion}" = "success" ]; then
                 break
               fi
+              jobs_json="$(github_api_json "list preview Pages workflow jobs for failed run ${run_id}" "${api_root}/actions/runs/${run_id}/jobs?filter=latest&per_page=100")"
+              failed_jobs="$(JOBS_JSON="${jobs_json}" python - <<'PY'
+          import json, os
+          jobs = json.loads(os.environ['JOBS_JSON']).get('jobs', [])
+          failed = [job.get('name', '') for job in jobs if job.get('conclusion') and job.get('conclusion') != 'success']
+          print(', '.join(failed) if failed else 'unknown')
+          PY
+          )"
               echo "Preview Pages workflow run ${run_id} completed with conclusion=${conclusion}." >&2
+              echo "Failed preview jobs: ${failed_jobs}" >&2
+              echo "Do not auto-rerun failed preview jobs from app sync because PREVIEW_REPO_TOKEN may not have Actions write rerun permission." >&2
+              echo "Rerun mytemark2/hado_library-preview/.github/workflows/${workflow_file} manually, or inspect the preview deploy job logs." >&2
               exit 1
             fi
             sleep 10
@@ -340,8 +410,8 @@ jobs:
 # Update09.5.1 validation contract markers for tools/validate_preview_workflow.py.
 # case "${APP_REF}" in
 # Refusing preview sync from prohibited Codex/PR branch ${APP_REF}; only ${ALLOWED_PREVIEW_SOURCE_BRANCH} may update mytemark2/hado_library-preview.
-# Preview Pages workflow .github/workflows/jekyll-gh-pages.yml was not found
-# PREVIEW_PAGES_WORKFLOW
+# Preview repository push was rejected because the token lacks workflow scope while workflow files would be modified.
+# The app preview sync must not edit mytemark2/hado_library-preview/.github/workflows/jekyll-gh-pages.yml
 # Verify public preview deployment
 # PREVIEW_SOURCE_COMMIT.txt?cb=
 # PREVIEW_DISPLAY_VERSION.txt?cb=
