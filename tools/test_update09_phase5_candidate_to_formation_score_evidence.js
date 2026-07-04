@@ -37,7 +37,10 @@ vm.runInContext(fs.readFileSync('hado_type_score.js','utf8'), context, { filenam
 vm.runInContext(fs.readFileSync('hado_formation.js','utf8'), context, { filename: 'hado_formation.js' });
 const formation = { id: 'huatuo-calm', name: '新規部隊3', evaluationTypeId: 'calm', evaluationTypeName: '鎮静型', slots: { main: {}, deputy1: {}, deputy2: {}, support1: { general: '華佗' }, support2: { general: '不成立武将' } }, advisorSlots: {} };
 const built = context.buildFormationScoreEvidence(formation, { effects: [], parameterCalculation: { rows: [] } });
-assert(built.scoreEvidence.some(row => row.effectFamily === 'weakening_avoid' && row.sourceLabel.includes('鎮静')), '華佗・鎮静の一次根拠からweakening_avoid evidenceを作る');
+const seiseiEvidence = built.scoreEvidence.find(row => row.effectFamily === 'weakening_avoid' && row.sourceLabel.includes('鎮静'));
+assert(seiseiEvidence, '華佗・鎮静の一次根拠からweakening_avoid evidenceを作る');
+assert.strictEqual(seiseiEvidence.sourceType, 'skill', '華佗・鎮静のsourceTypeはskill');
+assert.strictEqual(seiseiEvidence.sourceKind, 'skill', '華佗・鎮静のsourceKindはskill');
 assert(!built.scoreEvidence.some(row => row.sourceLabel.includes('未配置武将')), '未配置候補はscoreEvidenceに入れない');
 assert(!built.scoreEvidence.some(row => row.sourceLabel.includes('不成立武将')), '配置済みでも不成立の候補判定はscoreEvidenceに入れない');
 assert(built.candidateToScoreMismatches.some(row => row.mismatchReason === '候補判定あり・一次根拠不足'), 'タグのみ候補は直接加点せずmismatch診断に残す');
@@ -47,6 +50,7 @@ assert(weakGuard && (Number(weakGuard.score || weakGuard.confirmedValue || 0) >=
 assert(score.totalScore >= 1, 'totalScoreは少なくとも1');
 assert(score.runtimeBridge && score.runtimeBridge.usedFallback === false, '旧rule.metrics fallbackに戻さない');
 assert(Number(score.matchedCount || 0) >= 1, 'bridgeMatchedEvidenceCount相当が1以上');
+assert(!score.excludedRows.some(row => row.sourceLabel && row.sourceLabel.includes('鎮静') && row.excludeReason === 'source_type_not_allowed'), '華佗・鎮静はsource_type_not_allowedで除外されない');
 context.calculateFormationTypeScore(formation, { effects: [], parameterCalculation: { rows: [] } });
 const diag = context.state.diagnostics.typeScore;
 assert(diag.formationCandidateEvidenceCount >= 1, 'formationCandidateEvidenceCountを診断に出す');
