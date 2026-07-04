@@ -7,7 +7,8 @@ function assert(cond, msg){ if(!cond) throw new Error(msg); }
 function assertEq(actual, expected, msg){ if(actual !== expected) throw new Error(`${msg}: expected ${expected}, actual ${actual}`); }
 const vaccineRule = { typeId: 'vaccine', typeName: 'ワクチン型', metrics: [{ metricKey: 'legacy', label: 'legacy' }] };
 const buffRule = { typeId: 'buff_support', typeName: 'バフ支援型', metrics: [{ metricKey: 'legacy', label: 'legacy' }] };
-const legacyRule = { typeId: 'attack_speed', typeName: '攻撃速度型', metrics: [{ metricKey: 'attack_speed', label: '攻撃速度' }] };
+const attackSpeedRule = { typeId: 'attack_speed', typeName: '攻撃速度型', metrics: [{ metricKey: 'attack_speed', label: '攻撃速度' }] };
+const unknownRule = { typeId: 'unknown_custom', typeName: '未知型', metrics: [{ metricKey: 'attack_speed', label: '攻撃速度' }] };
 const ev = (effectFamily, targetScope, extra = {}) => Object.assign({
   evidenceId: `${effectFamily}:${targetScope}:${extra.sourceId || 'src'}`,
   sourceType: 'skill',
@@ -73,7 +74,10 @@ assert(primaryRows(result).some(r => r.changeItemId === 'critical_rate_up'), 'cr
 assert(primaryRows(result).some(r => r.changeItemId === 'critical_tactic_rate_up'), 'critical_tactic_rate_up is scored in buff_support撃心支援');
 assert(primaryRows(result).some(r => r.changeItemId === 'critical_power_up'), 'critical_power_up primary');
 assert(primaryRows(result).some(r => r.changeItemId === 'critical_tactic_power_up'), 'critical_tactic_power_up is scored in buff_support撃心支援');
-const legacy = S.score({ typeFeatures: [{ featureId: 'skill_effect:attack_speed', label: '攻撃速度', matchedText: '自部隊の攻撃速度+25%' }] }, legacyRule);
-assert(!legacy.runtimeBridge, 'non-target type keeps existing logic');
-assertEq(legacy.matchedCount, 1, 'legacy type still scores');
+const attackSpeed = S.score({ scoreEvidence: [ev('attack_speed_up','self')] }, attackSpeedRule);
+assert(attackSpeed.runtimeBridge && attackSpeed.runtimeBridge.typeId === 'attack_speed', 'official attack_speed type uses runtime bridge');
+assertEq(attackSpeed.breakdown.length, 5, 'official attack_speed bridge returns five rows');
+const legacy = S.score({ typeFeatures: [{ featureId: 'skill_effect:attack_speed', label: '攻撃速度', matchedText: '自部隊の攻撃速度+25%' }] }, unknownRule);
+assert(!legacy.runtimeBridge, 'unknown type keeps legacy fallback');
+assertEq(legacy.matchedCount, 1, 'unknown legacy fallback still scores');
 console.log('Update09 Phase5 type score runtime bridge tests passed');

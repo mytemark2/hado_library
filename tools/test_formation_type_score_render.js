@@ -31,6 +31,7 @@ const context = {
   clearTimeout,
   fetch: undefined,
   window: null,
+  HADO_TYPE_SCORE_RULES: rules,
   state: {
     derivedData: {
       typeSearchPresets: { items: presets },
@@ -233,6 +234,8 @@ let toastMessage = '';
 context.saveFormationDataToStorage = (ctx) => { saveContext = ctx; return true; };
 context.renderFormationScreen = () => { renderCalled = true; };
 context.showFormationToast = (message) => { toastMessage = message; };
+const originalBuildFormationParameterData = context.buildFormationParameterData;
+const originalCalculateFormationAutoScores = context.calculateFormationAutoScores;
 context.buildFormationParameterData = () => ({ effects: [], skills: [] });
 let recalculatedTypeId = '';
 context.calculateFormationAutoScores = (f) => { recalculatedTypeId = f.evaluationTypeId; return { totalScore: 7, evaluationScore: 7 }; };
@@ -380,6 +383,31 @@ assert(formationSource.includes('function formationScoreEvidenceDisplayTitle(tit
 assert(formationSource.includes('displayTitle:formationScoreEvidenceDisplayTitle'), 'every evidence tag with a source must render a parenthesized source label');
 assert(!formationSource.includes('const sourceLabels='), 'formation score renderer must not build an aggregate sourceLabels dump');
 assert(!formationSource.includes('class="sr-only"'), 'formation score renderer must not rely on an undefined sr-only class to hide aggregate labels');
+
+context.buildFormationParameterData = originalBuildFormationParameterData;
+context.calculateFormationAutoScores = originalCalculateFormationAutoScores;
+const judgementTable = JSON.parse(fs.readFileSync('docs/updates/update09/hadou_type_score_judgement_table.v2.draft.json', 'utf8')).items;
+const typeNames = new Map(judgementTable.map(row => [row.typeId, row.typeName]));
+for (const [typeId, typeName] of typeNames) {
+  const testFormation = JSON.parse(JSON.stringify(formation));
+  testFormation.evaluationTypeId = typeId;
+  testFormation.evaluationTypeName = typeName;
+  context.state.formations = [testFormation];
+  context.state.currentFormationId = testFormation.id;
+  context.state.formationScoreDetailIndex = 0;
+  context.state.formationScoreEvidenceDialogOpen = true;
+  let typeHtml;
+  try { typeHtml = context.renderFormationScoreSummaryHtml(testFormation, formationData); } catch (err) { throw new Error(`${typeId} render failed: ${err.message}`); }
+  assert(typeHtml.includes('/ 5項目'), `${typeId} score UI must render 型名 / 5項目`);
+  assert(!typeHtml.includes('/ 1項目') && !typeHtml.includes('/ 2項目'), `${typeId} score UI must not render reduced metric count`);
+  for (const label of judgementTable.filter(row => row.typeId === typeId).map(row => row.scoreMetricLabel)) {
+    assert(typeHtml.includes(label), `${typeId} score UI must render metric label: ${label}`);
+  }
+  for (const token of ['>評価2<','>評価3<','>評価4<','>評価5<','Primary','Support','Deny','deny_change_item','changeItemId','scoreRole',' self',' ally',' enemy',' unknown','除外された根拠']) {
+    assert(!typeHtml.includes(token), `${typeId} score UI must not expose technical token: ${token}`);
+  }
+}
+
 assert(formationSource.includes('function renderFormationScoreEvidenceDialogHtml(row)'), 'score evidence detail click must render a dedicated dialog');
 assert(formationSource.includes('formation-score-evidence-dialog-list'), 'score evidence dialog must contain an all-item evidence list');
 assert(formationSource.includes('state.formationScoreEvidenceDialogOpen=true'), 'detail panel click must open the evidence dialog instead of inline expansion');
