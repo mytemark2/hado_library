@@ -31,6 +31,7 @@ const context = {
   clearTimeout,
   fetch: undefined,
   window: null,
+  HADO_TYPE_SCORE_RULES: rules,
   state: {
     derivedData: {
       typeSearchPresets: { items: presets },
@@ -121,7 +122,8 @@ const formationData = {
       '能力': {
         '弱化無効': { sign: '+', maxTotal: 1, unit: '' },
         '知力': { sign: '+', maxTotal: 20, unit: '%' },
-        '負傷兵回復': { sign: '+', maxTotal: 10, unit: '%' }
+        '負傷兵回復': { sign: '+', maxTotal: 10, unit: '%' },
+        '防御': { sign: '+', maxTotal: 20, unit: '%' }
       }
     }
   },
@@ -158,6 +160,17 @@ const formationData = {
       sourceLabel: '検証回復技能',
       rawText: '味方3部隊の負傷兵を最大兵力の10%回復',
       condition: ''
+    },
+    {
+      key: '防御',
+      group: '能力',
+      timing: 'normal',
+      value: 20,
+      sign: '+',
+      unit: '%',
+      sourceLabel: '検証防御技能',
+      rawText: '味方3部隊の防御を上昇',
+      condition: ''
     }
   ]
 };
@@ -171,6 +184,18 @@ const positiveRow = (typeScore?.candidateScores || [])
   .flatMap(candidate => candidate.rows || [])
   .find(row => Number(row.score || 0) > 0 && ((row.matchedEffects || []).length || (row.matchedParameters || []).length));
 
+assert(maxTotalScore > 0, `vaccine score must not remain zero when effect sources exist: ${maxTotalScore}`);
+assert(positiveRow, 'positive score row with evidence must exist');
+assert(((positiveRow?.matchedEffects || []).length || (positiveRow?.evidenceRows || []).length) > 0, 'positive score row must include matched effects or evidence rows');
+assert((positiveRow.evidenceRows || []).some(row => row.label === '弱化無効' || row.changeItemId === 'weakening_nullify'), 'vaccine must score weakening_nullify as Primary evidence');
+const vaccineRows = (typeScore?.candidateScores?.[0]?.rows || []);
+const excludedRows = [...(typeScore?.candidateScores?.[0]?.excludedRows || []), ...vaccineRows.flatMap(row => row.excludedRows || [])];
+assert(excludedRows.some(row => row.changeItemId === 'wounded_recovery' && row.excludeReason === 'deny_change_item'), 'vaccine must keep wounded_recovery as Deny/Excluded evidence');
+assert(excludedRows.some(row => row.changeItemId === 'defense_up' && row.excludeReason === 'deny_change_item'), 'vaccine must keep defense_up as Deny/Excluded evidence');
+assert(Number(typeScore?.bridgeInputEvidenceCount || 0) > 0, 'diagnostics must expose bridgeInputEvidenceCount');
+assert(Number(typeScore?.bridgeMatchedEvidenceCount || 0) > 0, 'diagnostics must expose bridgeMatchedEvidenceCount');
+assert(Number(typeScore?.bridgeExcludedEvidenceCount || 0) > 0, 'diagnostics must expose bridgeExcludedEvidenceCount');
+assert(typeScore?.scoreEvidenceBuildSource, 'diagnostics must expose scoreEvidenceBuildSource');
 assert(html.includes('トータルスコア'), 'score summary HTML must render total score label');
 assert(html.includes('id="formationEvaluationTypeSelect"'), 'score summary must render formationEvaluationTypeSelect in the total score panel');
 assert(html.includes('data-formation-evaluation-type-select="1"'), 'score summary must mark every duplicated score-panel type select for delegated binding');
@@ -179,13 +204,18 @@ assert(html.includes('型未設定'), 'formationEvaluationTypeSelect must includ
 assert(!html.includes('評価型ID') && !html.includes('formationEvaluationTypeInput'), 'score summary must not restore forbidden evaluation type UI');
 assert(html.includes('<section class="formation-selected-card formation-score-card'), 'score card must be a constant visible section');
 assert(!html.includes('<details class="formation-score-summary'), 'score card must not hide the score body in details');
-assert((html.match(/formation-score-metric-chip/g)||[]).length >= 5, 'evaluation score chips must render metric chip classes');
-assert((html.match(/data-formation-score-detail-index/g)||[]).length === 5, 'evaluation score chips must render five button controls');
+const metricChipCount = (html.match(/data-formation-score-detail-index/g)||[]).length;
+assert(metricChipCount === 5, 'vaccine score UI must render exactly five metric chips');
+assert(html.includes('ワクチン型 / 5項目'), 'score summary must show ワクチン型 / 5項目');
+assert(!html.includes('ワクチン型 / 1項目'), 'score summary must not show ワクチン型 / 1項目');
+['弱化予防','弱化解除','状態異常対策','連鎖阻害対策','強化保護'].forEach(label => assert(html.includes(label), `vaccine metric label missing: ${label}`));
+assert((html.match(/data-formation-score-detail-index/g)||[]).length === metricChipCount, 'evaluation score chips must render one button per visible score row');
+assert(!html.includes('>評価2<') && !html.includes('>評価3<') && !html.includes('>評価4<') && !html.includes('>評価5<'), 'score summary must not render fallback evaluation labels');
 assert((html.match(/data-formation-score-card=\"1\"/g)||[]).length === 1, 'score summary renderer must produce exactly one score card');
 assert((html.match(/formation-score-detail-panel/g)||[]).length === 1, 'score summary renderer must produce exactly one detail panel');
 assert(html.includes('formation-score-detail-panel is-collapsed'), 'score detail panel must default to collapsed one-line mode');
 assert(html.includes('formation-score-evidence-tags is-collapsed'), 'collapsed score evidence tags must be marked for one-line overflow-safe rendering');
-assert((html.match(/根拠/g)||[]).length >= 5, 'evaluation score chips/detail must show evidence counts without confusing them with points');
+assert((html.match(/根拠/g)||[]).length >= metricChipCount, 'evaluation score chips/detail must show evidence counts without confusing them with points');
 assert(!html.includes('点'), 'score card UI must not display point wording');
 assert(!html.includes('内訳合計'), 'score detail panel must not display redundant numeric point totals');
 assert(html.includes('data-formation-score-detail-label='), 'score chips must carry row labels for click diagnostics');
@@ -204,6 +234,8 @@ let toastMessage = '';
 context.saveFormationDataToStorage = (ctx) => { saveContext = ctx; return true; };
 context.renderFormationScreen = () => { renderCalled = true; };
 context.showFormationToast = (message) => { toastMessage = message; };
+const originalBuildFormationParameterData = context.buildFormationParameterData;
+const originalCalculateFormationAutoScores = context.calculateFormationAutoScores;
 context.buildFormationParameterData = () => ({ effects: [], skills: [] });
 let recalculatedTypeId = '';
 context.calculateFormationAutoScores = (f) => { recalculatedTypeId = f.evaluationTypeId; return { totalScore: 7, evaluationScore: 7 }; };
@@ -272,7 +304,7 @@ const syntheticDisadvantageRow = {
     condition: '常に',
     value: '+1',
     matchedText: `不利対策検証${index + 1}`,
-    rawText: `弱化無効 弱化解除 弱化反射 状態変化無効 不利変化無効 ${index + 1}`,
+    rawText: index === 0 ? 'LR関羽の戦法本文: 自身1部隊にかかる一部の不利変化を避け、効果回数分、受けた弱化効果を無効化する長文検証テキスト' : `弱化無効 弱化解除 弱化反射 状態変化無効 不利変化無効 ${index + 1}`,
     evidenceType: index % 2 ? 'effect' : 'parameter',
     reason: 'matched_item_count: 自部隊不利対策 に一致した根拠'
   }))
@@ -290,8 +322,17 @@ assert(!syntheticHtml.includes('一致根拠なし'), '20-evidence disadvantage 
 assert(syntheticDialogHtml.includes('formation-score-evidence-dialog-overlay') && syntheticDialogHtml.includes('role="dialog"'), 'score evidence panel click must open a dialog like result summary');
 assert(syntheticDialogHtml.includes('全件表示') && syntheticDialogHtml.includes('formation-score-evidence-dialog-list'), 'score evidence dialog must display all evidence in a dedicated list');
 assert(fs.readFileSync('hado_styles.css','utf8').includes('.formation-score-evidence-dialog-list .formation-score-evidence-label{overflow:visible!important;text-overflow:clip!important;white-space:normal!important'), 'score evidence dialog labels must show full content without ellipsis');
-assert(fs.readFileSync('hado_styles.css','utf8').includes('.formation-score-evidence-dialog-list .formation-score-evidence-tag.formation-quick-summary-chip{align-items:flex-start'), 'score evidence dialog chips must allow full multi-line content');
-assert((syntheticDialogHtml.match(/formation-quick-summary-chip/g)||[]).length === 20, 'score evidence dialog must render every evidence item as a result-summary-like chip');
+const scoreEvidenceCss = fs.readFileSync('hado_styles.css','utf8');
+assert(scoreEvidenceCss.includes('.formation-score-evidence-dialog-list{display:flex!important;flex-direction:column!important'), 'score evidence dialog list must force vertical stacking');
+assert(scoreEvidenceCss.includes('.formation-score-evidence-row{width:100%;display:block'), 'score evidence rows must be full-width vertical blocks');
+assert(scoreEvidenceCss.includes('width:min(960px,calc(100vw - 48px))'), 'score evidence dialog must provide enough PC width for long raw text');
+assert(!scoreEvidenceCss.includes('.formation-score-evidence-dialog-list.formation-score-evidence-tags.is-expanded{grid-template-columns:repeat(auto-fit'), 'score evidence dialog must not keep auto-fit horizontal card columns');
+assert((syntheticDialogHtml.match(/class="formation-score-evidence-row /g)||[]).length === 20, 'score evidence dialog must render every evidence item as a vertical row');
+assert(!syntheticDialogHtml.includes('formation-score-evidence-detail-card'), 'score evidence dialog must not render horizontal detail cards');
+assert(!syntheticDialogHtml.includes('型要素'), 'score evidence dialog must not expose 型要素 as a main detail label');
+assert(syntheticDialogHtml.includes('formation-score-evidence-index'), 'score evidence dialog must show row numbers for a readable list');
+assert(syntheticDialogHtml.includes('LR関羽の戦法本文') && syntheticDialogHtml.includes('一部の不利変化を避け'), 'score evidence dialog must preserve readable long raw text excerpts');
+assert(syntheticDialogHtml.includes('<dt>対象</dt>') && syntheticDialogHtml.includes('<dt>根拠</dt>') && syntheticDialogHtml.includes('formation-score-evidence-raw-label'), 'score evidence dialog must separate target, source, and raw text labels');
 
 assert(typeScore && typeof typeScore === 'object', 'typeScore diagnostic must exist');
 assert.strictEqual(typeScore.calculationInvoked, true, 'formation render must invoke type-score calculation');
@@ -351,6 +392,31 @@ assert(formationSource.includes('function formationScoreEvidenceDisplayTitle(tit
 assert(formationSource.includes('displayTitle:formationScoreEvidenceDisplayTitle'), 'every evidence tag with a source must render a parenthesized source label');
 assert(!formationSource.includes('const sourceLabels='), 'formation score renderer must not build an aggregate sourceLabels dump');
 assert(!formationSource.includes('class="sr-only"'), 'formation score renderer must not rely on an undefined sr-only class to hide aggregate labels');
+
+context.buildFormationParameterData = originalBuildFormationParameterData;
+context.calculateFormationAutoScores = originalCalculateFormationAutoScores;
+const judgementTable = JSON.parse(fs.readFileSync('docs/updates/update09/hadou_type_score_judgement_table.v2.draft.json', 'utf8')).items;
+const typeNames = new Map(judgementTable.map(row => [row.typeId, row.typeName]));
+for (const [typeId, typeName] of typeNames) {
+  const testFormation = JSON.parse(JSON.stringify(formation));
+  testFormation.evaluationTypeId = typeId;
+  testFormation.evaluationTypeName = typeName;
+  context.state.formations = [testFormation];
+  context.state.currentFormationId = testFormation.id;
+  context.state.formationScoreDetailIndex = 0;
+  context.state.formationScoreEvidenceDialogOpen = true;
+  let typeHtml;
+  try { typeHtml = context.renderFormationScoreSummaryHtml(testFormation, formationData); } catch (err) { throw new Error(`${typeId} render failed: ${err.message}`); }
+  assert(typeHtml.includes('/ 5項目'), `${typeId} score UI must render 型名 / 5項目`);
+  assert(!typeHtml.includes('/ 1項目') && !typeHtml.includes('/ 2項目'), `${typeId} score UI must not render reduced metric count`);
+  for (const label of judgementTable.filter(row => row.typeId === typeId).map(row => row.scoreMetricLabel)) {
+    assert(typeHtml.includes(label), `${typeId} score UI must render metric label: ${label}`);
+  }
+  for (const token of ['>評価2<','>評価3<','>評価4<','>評価5<','Primary','Support','Deny','deny_change_item','changeItemId','scoreRole',' self',' ally',' enemy',' unknown','除外された根拠']) {
+    assert(!typeHtml.includes(token), `${typeId} score UI must not expose technical token: ${token}`);
+  }
+}
+
 assert(formationSource.includes('function renderFormationScoreEvidenceDialogHtml(row)'), 'score evidence detail click must render a dedicated dialog');
 assert(formationSource.includes('formation-score-evidence-dialog-list'), 'score evidence dialog must contain an all-item evidence list');
 assert(formationSource.includes('state.formationScoreEvidenceDialogOpen=true'), 'detail panel click must open the evidence dialog instead of inline expansion');
