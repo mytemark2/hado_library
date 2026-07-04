@@ -80,7 +80,7 @@ jobs:
           set -euo pipefail
           if [ -z "${PREVIEW_REPO_TOKEN}" ]; then
             echo "Repository secret PREVIEW_REPO_TOKEN is missing." >&2
-            echo "Create a fine-grained token with access to mytemark2/hado_library-preview and permissions Contents: Read and write and Actions: Read, then register it as PREVIEW_REPO_TOKEN in mytemark2/hado_library. Actions: Read is required because this workflow polls the preview repository Pages workflow run after pushing runtime assets." >&2
+            echo "Create a fine-grained token with access to mytemark2/hado_library-preview and permissions Contents: Read and write and Actions: Read and write, then register it as PREVIEW_REPO_TOKEN in mytemark2/hado_library. Actions: Read and write is required because this workflow polls the preview repository Pages workflow run and reruns failed preview jobs after pushing runtime assets." >&2
             exit 1
           fi
 
@@ -106,7 +106,7 @@ jobs:
             http_code="$(curl -sS -o "${response_file}" -D "${headers_file}" -w "%{http_code}" "$@" || true)"
             if [ "${http_code}" != "${expected}" ]; then
               echo "PREVIEW_REPO_TOKEN preflight failed during ${label}; expected HTTP ${expected}, got ${http_code}." >&2
-              echo "The token must be scoped to mytemark2/hado_library-preview with Contents: Read and write and Actions: Read before preview files are pushed." >&2
+              echo "The token must be scoped to mytemark2/hado_library-preview with Contents: Read and write and Actions: Read and write before preview files are pushed." >&2
               echo "Response body:" >&2
               cat "${response_file}" >&2 || true
               rm -f "${response_file}" "${headers_file}"
@@ -116,7 +116,7 @@ jobs:
             scopes="$(awk 'BEGIN{IGNORECASE=1} /^x-oauth-scopes:/ {sub(/^[^:]*:[[:space:]]*/, ""); print}' "${headers_file}" | tr -d '\r' | tail -n 1)"
             if [ -n "${scopes}" ] && [[ ",${scopes// /}," != *",workflow,"* ]] && [[ ",${scopes// /}," != *",repo,"* ]]; then
               echo "PREVIEW_REPO_TOKEN appears to be a classic PAT without repo/workflow scope: ${scopes}" >&2
-              echo "Use a fine-grained token with Contents: Read and write and Actions: Read, or a classic token with repo scope." >&2
+              echo "Use a fine-grained token with Contents: Read and write and Actions: Read and write, or a classic token with repo/workflow scope." >&2
               rm -f "${response_file}" "${headers_file}"
               exit 1
             fi
@@ -135,7 +135,7 @@ jobs:
             -H "${version_header}" \
             "${api_root}/actions/workflows/${workflow_file}"
 
-          echo "PREVIEW_REPO_TOKEN preflight passed before preview repository push: repository access and Pages workflow visibility are available."
+          echo "PREVIEW_REPO_TOKEN preflight passed before preview repository push: repository access, Pages workflow visibility, and rerun permissions are expected to be available."
 
       - name: Sync preview repository contents
         id: sync
@@ -153,6 +153,41 @@ jobs:
             PREVIEW_DIR="$(mktemp -d)"
             echo "Preview sync attempt ${attempt}/3"
             git clone --depth 1 "https://x-access-token:${PREVIEW_REPO_TOKEN}@github.com/mytemark2/hado_library-preview.git" "${PREVIEW_DIR}"
+
+            preview_workflow="${PREVIEW_DIR}/.github/workflows/jekyll-gh-pages.yml"
+            if [ ! -f "${preview_workflow}" ]; then
+              echo "Preview Pages workflow .github/workflows/jekyll-gh-pages.yml was not found in mytemark2/hado_library-preview." >&2
+              exit 1
+            fi
+            PREVIEW_PAGES_WORKFLOW="${preview_workflow}" python - <<'PYPREVIEW'
+          import os
+          from pathlib import Path
+          path = Path(os.environ['PREVIEW_PAGES_WORKFLOW'])
+          text = path.read_text(encoding='utf-8')
+          block = "concurrency:\n  group: pages\n  cancel-in-progress: true\n"
+          if "cancel-in-progress: true" not in text:
+              if "concurrency:" in text:
+                  lines = text.splitlines()
+                  out = []
+                  i = 0
+                  while i < len(lines):
+                      if lines[i].strip() == "concurrency:" and not lines[i].startswith((" ", "\t")):
+                          out.extend(block.rstrip("\n").splitlines())
+                          i += 1
+                          while i < len(lines) and (not lines[i] or lines[i].startswith((" ", "\t"))):
+                              i += 1
+                          continue
+                      out.append(lines[i])
+                      i += 1
+                  text = "\n".join(out) + "\n"
+              else:
+                  marker = "permissions:"
+                  if marker in text:
+                      text = text.replace(marker, block + "\n" + marker, 1)
+                  else:
+                      text = block + "\n" + text
+              path.write_text(text, encoding='utf-8')
+          PYPREVIEW
 
             find "${PREVIEW_DIR}" -mindepth 1 -maxdepth 1 -not -name '.git' -not -name '.github' -exec rm -rf {} +
             rsync -a index.html HADO_DEV_INFO.json hado_*.js hado_styles.css hadou_*.json "${PREVIEW_DIR}/"
@@ -262,6 +297,35 @@ jobs:
             exit 1
           }
 
+          github_api_post_empty() {
+            local label="$1"
+            local url="$2"
+            local response_file http_code attempt
+            response_file="$(mktemp)"
+            for attempt in $(seq 1 6); do
+              http_code="$(curl -sS -X POST -o "${response_file}" -w "%{http_code}"                 -H "${auth_header}"                 -H "${accept_header}"                 -H "${version_header}"                 "${url}" || true)"
+              if [ "${http_code}" = "201" ] || [ "${http_code}" = "202" ] || [ "${http_code}" = "204" ]; then
+                rm -f "${response_file}"
+                return 0
+              fi
+              if [ "${http_code}" = "401" ] || [ "${http_code}" = "403" ] || [[ "${http_code}" == 5* ]]; then
+                echo "GitHub API ${label} returned HTTP ${http_code}; retrying (${attempt}/6)." >&2
+                sleep $((attempt * 5))
+                continue
+              fi
+              echo "GitHub API ${label} failed with HTTP ${http_code}." >&2
+              echo "Response body:" >&2
+              cat "${response_file}" >&2 || true
+              rm -f "${response_file}"
+              exit 1
+            done
+            echo "GitHub API ${label} did not accept the request after retries." >&2
+            echo "Last response body:" >&2
+            cat "${response_file}" >&2 || true
+            rm -f "${response_file}"
+            exit 1
+          }
+
           echo "Waiting for preview Pages workflow ${workflow_file} on main for preview commit ${PREVIEW_COMMIT}."
           run_id=""
           for attempt in $(seq 1 30); do
@@ -294,6 +358,7 @@ jobs:
             exit 1
           fi
 
+          rerun_failed_jobs_requested=false
           for attempt in $(seq 1 120); do
             run_json="$(github_api_json "get preview Pages workflow run ${run_id}" "${api_root}/actions/runs/${run_id}")"
             status="$(RUN_JSON="${run_json}" python - <<'PY'
@@ -311,7 +376,24 @@ jobs:
               if [ "${conclusion}" = "success" ]; then
                 break
               fi
-              echo "Preview Pages workflow run ${run_id} completed with conclusion=${conclusion}." >&2
+              if [ "${rerun_failed_jobs_requested}" = "false" ]; then
+                jobs_json="$(github_api_json "list preview Pages workflow jobs for failed run ${run_id}" "${api_root}/actions/runs/${run_id}/jobs?filter=latest&per_page=100")"
+                JOBS_JSON="${jobs_json}" python - <<'PY'
+          import json, os
+          jobs = json.loads(os.environ['JOBS_JSON']).get('jobs', [])
+          failed = [job.get('name', '') for job in jobs if job.get('conclusion') and job.get('conclusion') != 'success']
+          if failed:
+              print('Failed preview jobs to rerun: ' + ', '.join(failed))
+          else:
+              print('Preview run failed without failed jobs listed; requesting failed-job rerun anyway.')
+          PY
+                echo "Preview Pages workflow run ${run_id} completed with conclusion=${conclusion}; rerunning failed jobs once before failing the app sync."
+                github_api_post_empty "rerun failed preview Pages workflow jobs ${run_id}" "${api_root}/actions/runs/${run_id}/rerun-failed-jobs"
+                rerun_failed_jobs_requested=true
+                sleep 20
+                continue
+              fi
+              echo "Preview Pages workflow run ${run_id} completed with conclusion=${conclusion} after failed-job rerun." >&2
               exit 1
             fi
             sleep 10
