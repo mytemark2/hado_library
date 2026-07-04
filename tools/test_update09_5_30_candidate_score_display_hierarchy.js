@@ -48,10 +48,10 @@ assert(calm1.confirmedValue >= 1, 'calm_1 / 弱化予防のスコアを維持す
 assert.strictEqual(score.runtimeBridge.usedFallback, false, '判定表ブリッジを維持する');
 assert.strictEqual(calm1.rows[0].changeItemId, 'weakening_avoid', '内部changeItemIdを維持する');
 const formationSource = fs.readFileSync('hado_formation.js','utf8');
-assert(formationSource.includes('formation-score-evidence-detail-card'), '評価スコア詳細はチップ詰め込みではなく詳細カードを使う');
-assert(formationSource.includes('<b>標準効果:</b>') && formationSource.includes('<b>対象:</b>') && formationSource.includes('<b>根拠:</b>'), '評価項目・標準効果・対象・根拠・原文を分離する');
+assert(formationSource.includes('formation-score-evidence-row'), '評価スコア詳細はチップ詰め込みではなく縦リスト行を使う');
+assert(formationSource.includes('formation-score-evidence-effect') && formationSource.includes('<dt>対象</dt>') && formationSource.includes('<dt>根拠</dt>') && formationSource.includes('formation-score-evidence-raw-label'), '評価項目・標準効果・対象・根拠・原文を分離する');
 assert(!formationSource.includes("<b>${esc(item.kindLabel||'型要素')}</b>"), '評価スコア詳細に型要素ラベルを出さない');
 const css = fs.readFileSync('hado_styles.css','utf8');
-assert(css.includes('.formation-score-evidence-detail-card') && css.includes('min-width:min(280px,100%)'), '詳細カードの極端な細幅化を防ぐCSSを持つ');
-assert(css.includes('overflow-wrap:anywhere') && css.includes('white-space:normal'), '長文原文を折り返して読めるCSSを持つ');
+assert(css.includes('.formation-score-evidence-dialog-list{display:flex!important;flex-direction:column!important') && css.includes('.formation-score-evidence-row{width:100%;display:block'), '詳細モーダルを横並びカードではなく縦リストにするCSSを持つ');
+assert(css.includes('overflow-wrap:break-word') && css.includes('white-space:normal'), '長文原文を折り返して読めるCSSを持つ');
 console.log('Update09.5.30 candidate and score display hierarchy tests passed');

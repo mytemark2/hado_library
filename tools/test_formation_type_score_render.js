@@ -304,7 +304,7 @@ const syntheticDisadvantageRow = {
     condition: '常に',
     value: '+1',
     matchedText: `不利対策検証${index + 1}`,
-    rawText: `弱化無効 弱化解除 弱化反射 状態変化無効 不利変化無効 ${index + 1}`,
+    rawText: index === 0 ? 'LR関羽の戦法本文: 自身1部隊にかかる一部の不利変化を避け、効果回数分、受けた弱化効果を無効化する長文検証テキスト' : `弱化無効 弱化解除 弱化反射 状態変化無効 不利変化無効 ${index + 1}`,
     evidenceType: index % 2 ? 'effect' : 'parameter',
     reason: 'matched_item_count: 自部隊不利対策 に一致した根拠'
   }))
@@ -322,10 +322,17 @@ assert(!syntheticHtml.includes('一致根拠なし'), '20-evidence disadvantage 
 assert(syntheticDialogHtml.includes('formation-score-evidence-dialog-overlay') && syntheticDialogHtml.includes('role="dialog"'), 'score evidence panel click must open a dialog like result summary');
 assert(syntheticDialogHtml.includes('全件表示') && syntheticDialogHtml.includes('formation-score-evidence-dialog-list'), 'score evidence dialog must display all evidence in a dedicated list');
 assert(fs.readFileSync('hado_styles.css','utf8').includes('.formation-score-evidence-dialog-list .formation-score-evidence-label{overflow:visible!important;text-overflow:clip!important;white-space:normal!important'), 'score evidence dialog labels must show full content without ellipsis');
-assert(fs.readFileSync('hado_styles.css','utf8').includes('.formation-score-evidence-detail-card{display:grid'), 'score evidence dialog details must use readable detail cards');
-assert(fs.readFileSync('hado_styles.css','utf8').includes('min-width:min(280px,100%)'), 'score evidence detail cards must avoid extremely narrow vertical text');
-assert((syntheticDialogHtml.match(/formation-score-evidence-detail-card/g)||[]).length === 20, 'score evidence dialog must render every evidence item as a readable detail card');
+const scoreEvidenceCss = fs.readFileSync('hado_styles.css','utf8');
+assert(scoreEvidenceCss.includes('.formation-score-evidence-dialog-list{display:flex!important;flex-direction:column!important'), 'score evidence dialog list must force vertical stacking');
+assert(scoreEvidenceCss.includes('.formation-score-evidence-row{width:100%;display:block'), 'score evidence rows must be full-width vertical blocks');
+assert(scoreEvidenceCss.includes('width:min(960px,calc(100vw - 48px))'), 'score evidence dialog must provide enough PC width for long raw text');
+assert(!scoreEvidenceCss.includes('.formation-score-evidence-dialog-list.formation-score-evidence-tags.is-expanded{grid-template-columns:repeat(auto-fit'), 'score evidence dialog must not keep auto-fit horizontal card columns');
+assert((syntheticDialogHtml.match(/class="formation-score-evidence-row /g)||[]).length === 20, 'score evidence dialog must render every evidence item as a vertical row');
+assert(!syntheticDialogHtml.includes('formation-score-evidence-detail-card'), 'score evidence dialog must not render horizontal detail cards');
 assert(!syntheticDialogHtml.includes('型要素'), 'score evidence dialog must not expose 型要素 as a main detail label');
+assert(syntheticDialogHtml.includes('formation-score-evidence-index'), 'score evidence dialog must show row numbers for a readable list');
+assert(syntheticDialogHtml.includes('LR関羽の戦法本文') && syntheticDialogHtml.includes('一部の不利変化を避け'), 'score evidence dialog must preserve readable long raw text excerpts');
+assert(syntheticDialogHtml.includes('<dt>対象</dt>') && syntheticDialogHtml.includes('<dt>根拠</dt>') && syntheticDialogHtml.includes('formation-score-evidence-raw-label'), 'score evidence dialog must separate target, source, and raw text labels');
 
 assert(typeScore && typeof typeScore === 'object', 'typeScore diagnostic must exist');
 assert.strictEqual(typeScore.calculationInvoked, true, 'formation render must invoke type-score calculation');
