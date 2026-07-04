@@ -50,9 +50,9 @@ const summaryHtml = context.renderFormationScoreEvidencePanelHtml(displayRows[0]
 assert(summaryHtml.includes('弱化効果回避［鎮静］'), '評価スコア詳細の簡略表示に標準効果名を出す');
 assert(!summaryHtml.includes('弱化回避'), '短縮表示「弱化回避」は出さない');
 const dialogHtml = context.renderFormationScoreEvidenceDialogHtml(displayRows[0]);
-assert(dialogHtml.includes('<dt>対象</dt><dd>自部隊</dd>'), '詳細には対象を出す');
-assert(dialogHtml.includes('<dt>根拠</dt><dd>華佗 / 技能</dd>'), '詳細には誰の何かを出す');
-assert(dialogHtml.includes('formation-score-evidence-raw-label') && dialogHtml.includes('弱化効果を5%の確率で避ける'), '詳細には原文根拠を出す');
+assert(dialogHtml.includes('対象: 自部隊'), '詳細1行目には対象を出す');
+assert(dialogHtml.includes('根拠: 華佗 / 技能'), '詳細1行目には誰の何かを出す');
+assert(dialogHtml.includes('formation-score-evidence-line-raw') && dialogHtml.includes('原文:') && dialogHtml.includes('弱化効果を5%の確率で避ける'), '詳細2行目には原文根拠を出す');
 const relatedSource = fs.readFileSync('hado_status_effects.js','utf8');
 assert(relatedSource.includes('countermeasureRelatedDisplayCategory'), '関連リンクにも評価カテゴリ表示関数を持つ');
 assert(relatedSource.includes('弱化予防') && relatedSource.includes('弱化効果回避'), '関連リンク表示も弱化予防: 弱化効果回避へ正規化できる');
