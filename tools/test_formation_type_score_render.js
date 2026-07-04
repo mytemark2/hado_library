@@ -322,8 +322,10 @@ assert(!syntheticHtml.includes('一致根拠なし'), '20-evidence disadvantage 
 assert(syntheticDialogHtml.includes('formation-score-evidence-dialog-overlay') && syntheticDialogHtml.includes('role="dialog"'), 'score evidence panel click must open a dialog like result summary');
 assert(syntheticDialogHtml.includes('全件表示') && syntheticDialogHtml.includes('formation-score-evidence-dialog-list'), 'score evidence dialog must display all evidence in a dedicated list');
 assert(fs.readFileSync('hado_styles.css','utf8').includes('.formation-score-evidence-dialog-list .formation-score-evidence-label{overflow:visible!important;text-overflow:clip!important;white-space:normal!important'), 'score evidence dialog labels must show full content without ellipsis');
-assert(fs.readFileSync('hado_styles.css','utf8').includes('.formation-score-evidence-dialog-list .formation-score-evidence-tag.formation-quick-summary-chip{align-items:flex-start'), 'score evidence dialog chips must allow full multi-line content');
-assert((syntheticDialogHtml.match(/formation-quick-summary-chip/g)||[]).length === 20, 'score evidence dialog must render every evidence item as a result-summary-like chip');
+assert(fs.readFileSync('hado_styles.css','utf8').includes('.formation-score-evidence-detail-card{display:grid'), 'score evidence dialog details must use readable detail cards');
+assert(fs.readFileSync('hado_styles.css','utf8').includes('min-width:min(280px,100%)'), 'score evidence detail cards must avoid extremely narrow vertical text');
+assert((syntheticDialogHtml.match(/formation-score-evidence-detail-card/g)||[]).length === 20, 'score evidence dialog must render every evidence item as a readable detail card');
+assert(!syntheticDialogHtml.includes('型要素'), 'score evidence dialog must not expose 型要素 as a main detail label');
 
 assert(typeScore && typeof typeScore === 'object', 'typeScore diagnostic must exist');
 assert.strictEqual(typeScore.calculationInvoked, true, 'formation render must invoke type-score calculation');

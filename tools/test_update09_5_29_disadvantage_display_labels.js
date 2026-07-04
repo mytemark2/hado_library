@@ -50,8 +50,8 @@ const summaryHtml = context.renderFormationScoreEvidencePanelHtml(displayRows[0]
 assert(summaryHtml.includes('弱化効果回避［鎮静］'), '評価スコア詳細の簡略表示に標準効果名を出す');
 assert(!summaryHtml.includes('弱化回避'), '短縮表示「弱化回避」は出さない');
 const dialogHtml = context.renderFormationScoreEvidenceDialogHtml(displayRows[0]);
-assert(dialogHtml.includes('対象: 自部隊'), '詳細には対象を出す');
-assert(dialogHtml.includes('根拠: 華佗 / 技能'), '詳細には誰の何かを出す');
+assert(dialogHtml.includes('<b>対象:</b><span>自部隊</span>'), '詳細には対象を出す');
+assert(dialogHtml.includes('<b>根拠:</b><span>華佗 / 技能</span>'), '詳細には誰の何かを出す');
 assert(dialogHtml.includes('原文: 弱化効果を5%の確率で避ける'), '詳細には原文根拠を出す');
 const relatedSource = fs.readFileSync('hado_status_effects.js','utf8');
 assert(relatedSource.includes('countermeasureRelatedDisplayCategory'), '関連リンクにも評価カテゴリ表示関数を持つ');
