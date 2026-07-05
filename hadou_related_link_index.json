@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-07-05T05:41:47.755Z",
+  "generatedAt": "2026-07-05T06:36:32.910Z",
   "dataSetId": "2026-07-05T05:00:27.984Z",
-  "crawlerVersion": "1.0.5.26",
+  "crawlerVersion": "1.0.5.27",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
     "hadou_generals.json",
@@ -77,7 +77,7 @@
   "kind": "related_link_index",
   "qualityAudit": {
     "itemCount": 2805,
-    "totalRelatedCount": 25807,
+    "totalRelatedCount": 25713,
     "categoryCounts": {
       "generals": 481,
       "tactics": 460,
@@ -107,6 +107,15 @@
     "equipmentStatusTextScanRemoved": 0,
     "equipmentStatusGroupRemoved": 0,
     "equipmentNoiseRemaining": 0,
+    "sourcePruneAudit": {
+      "removedStatusEffectCount": 47,
+      "removedSourceRefCount": 47,
+      "removedBySource": {
+        "semantic-owner-parameter": 36,
+        "semantic-owner-status-grant": 11
+      },
+      "removedByNonPrimaryText": 47
+    },
     "sourceRisk": {
       "parameterSummaryStatusCount": 0,
       "textScanStatusCount": 0,
@@ -127,12 +136,12 @@
     },
     "displayRoleAudit": {
       "ok": true,
-      "version": "1.0.5.26",
+      "version": "1.0.5.27",
       "functionalSummaryCount": 995,
-      "grantedStatusCount": 267,
-      "directStatusCount": 4939,
+      "grantedStatusCount": 265,
+      "directStatusCount": 4894,
       "coveredGrantedStatusCount": 95,
-      "uncoveredGrantedStatusCount": 172,
+      "uncoveredGrantedStatusCount": 170,
       "samples": [
         {
           "category": "generals",
@@ -646,12 +655,12 @@
     },
     "appSupplementMigration": {
       "ok": true,
-      "version": "1.0.5.26",
+      "version": "1.0.5.27",
       "policy": "アプリ側で補完していた自部隊不利対策はself_countermeasure_indexとしてrelated_link_indexへ生成済み。アプリは表示のみ担当し、異常検知は診断で可視化する。"
     },
     "selfCountermeasureFullAudit": {
       "ok": true,
-      "version": "1.0.5.26",
+      "version": "1.0.5.27",
       "skillCount": 91,
       "grantingSkillCount": 21,
       "grantOnlySkillCount": 20,
@@ -1615,20 +1624,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "被ダメージ変化(弱化)",
-            "source": "parameter_summary_index",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "被ダメージを計算する▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方4",
-            "parameter": "被ダメージ",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "防御変化(強化)",
             "source": "parameter_summary_index",
             "groupKey": "selfAbilityBuff",
@@ -1918,22 +1913,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "被ダメージ変化(弱化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "被ダメージ変化(弱化)",
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "被ダメージを計算する▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方4",
-              "parameter": "被ダメージ"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "防御変化(強化)",
             "source": "parameter_summary_index",
             "detail": {
@@ -2063,7 +2042,7 @@
         "tactics": 1,
         "skills": 5,
         "equipments": 0,
-        "statusEffects": 13,
+        "statusEffects": 12,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -2072,9 +2051,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 19
+        "sourceRefs": 18
       },
-      "totalRelatedCount": 38
+      "totalRelatedCount": 36
     },
     {
       "category": "generals",
@@ -3716,20 +3695,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "知力変化(弱化)",
-            "source": "parameter_summary_index",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "知力が上昇 尊立を持つ武将UR袁術 栄勢 Ⅰ■常に ●通常攻撃・戦法による被ダメージ-10%",
-            "parameter": "知力",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "猛奮",
             "source": "semantic_owner_status",
             "groupKey": "selfAbilityBuff",
@@ -4101,22 +4066,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "知力変化(弱化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "知力変化(弱化)",
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "知力が上昇 尊立を持つ武将UR袁術 栄勢 Ⅰ■常に ●通常攻撃・戦法による被ダメージ-10%",
-              "parameter": "知力"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "猛奮",
             "source": "semantic_owner_status",
             "detail": {
@@ -4291,7 +4240,7 @@
         "tactics": 1,
         "skills": 4,
         "equipments": 0,
-        "statusEffects": 17,
+        "statusEffects": 16,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -4300,9 +4249,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 22
+        "sourceRefs": 21
       },
-      "totalRelatedCount": 44
+      "totalRelatedCount": 42
     },
     {
       "category": "generals",
@@ -44951,20 +44900,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "防御変化(強化)",
-            "source": "parameter_summary_index",
-            "groupKey": "selfAbilityBuff",
-            "groupLabel": "自部隊能力強化",
-            "targetSide": "self",
-            "direction": "buff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "防御が上昇▼この技能を持つ武将が戦法を発動した時 ●自身1",
-            "parameter": "防御",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "恐怖",
             "source": "semantic_owner_status",
             "groupKey": "enemyStateDebuff",
@@ -45135,22 +45070,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "防御変化(強化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "防御変化(強化)",
-              "groupKey": "selfAbilityBuff",
-              "groupLabel": "自部隊能力強化",
-              "targetSide": "self",
-              "direction": "buff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "防御が上昇▼この技能を持つ武将が戦法を発動した時 ●自身1",
-              "parameter": "防御"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "恐怖",
             "source": "semantic_owner_status",
             "detail": {
@@ -45172,7 +45091,7 @@
         "tactics": 1,
         "skills": 4,
         "equipments": 0,
-        "statusEffects": 7,
+        "statusEffects": 6,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -45181,9 +45100,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 12
+        "sourceRefs": 11
       },
-      "totalRelatedCount": 24
+      "totalRelatedCount": 22
     },
     {
       "category": "generals",
@@ -45666,36 +45585,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "強化無効",
-            "source": "semantic_owner_status",
-            "groupKey": "enemyStateDebuff",
-            "groupLabel": "敵部隊状態弱化",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "sourcePartType": "semantic-owner-status-grant",
-            "matchedText": "強化無効",
-            "sourceText": "兵科効果系統攻撃属性なしなしなし効果自身1部隊の知力を100％上昇対象を含む敵3部隊の強化効果を3つ打ち消して3回の強化無効を付与さらに知力を30％低下させて5％の乱炎を付与（この技能を持つ武将の将星ランクに応じて、知力上昇と知力低下の効果量が5％ずつ増加）発動間隔対象範囲発動率連鎖順25秒- / -25％早い 明月清麗の追加効果 追加効果対象範囲継続知力変化自分 / 単10秒部隊の知力が上昇する強化解除敵 / 中-対象に発生している強化効果を打ち消す強化無効敵 / 中15秒効果回数分、受けた強化効果を無効化する知力変化敵 / 中15秒部隊の知力が低下する乱炎敵 / 中30秒火属性の通常攻撃・戦法でダメージを受ける度に攻撃、知力、戦法威力がそれぞれ累積して低下する 朗吟",
-            "directGrantVerified": true,
-            "directGrantEvidence": "強化無効を付与",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
-            "name": "乱炎",
-            "source": "semantic_owner_status",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "sourcePartType": "semantic-owner-status-grant",
-            "matchedText": "乱炎",
-            "sourceText": "兵科効果系統攻撃属性なしなしなし効果自身1部隊の知力を100％上昇対象を含む敵3部隊の強化効果を3つ打ち消して3回の強化無効を付与さらに知力を30％低下させて5％の乱炎を付与（この技能を持つ武将の将星ランクに応じて、知力上昇と知力低下の効果量が5％ずつ増加）発動間隔対象範囲発動率連鎖順25秒- / -25％早い 明月清麗の追加効果 追加効果対象範囲継続知力変化自分 / 単10秒部隊の知力が上昇する強化解除敵 / 中-対象に発生している強化効果を打ち消す強化無効敵 / 中15秒効果回数分、受けた強化効果を無効化する知力変化敵 / 中15秒部隊の知力が低下する乱炎敵 / 中30秒火属性の通常攻撃・戦法でダメージを受ける度に攻撃、知力、戦法威力がそれぞれ累積して低下する 朗吟",
-            "directGrantVerified": true,
-            "directGrantEvidence": "乱炎を付与",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "弱化効果回避[鎮静]",
             "source": "self_countermeasure_index",
             "groupKey": "selfResistanceBuff",
@@ -45876,38 +45765,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "強化無効",
-            "source": "semantic_owner_status",
-            "detail": {
-              "groupKey": "enemyStateDebuff",
-              "groupLabel": "敵部隊状態弱化",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "sourcePartType": "semantic-owner-status-grant",
-              "matchedText": "強化無効",
-              "sourceText": "兵科効果系統攻撃属性なしなしなし効果自身1部隊の知力を100％上昇対象を含む敵3部隊の強化効果を3つ打ち消して3回の強化無効を付与さらに知力を30％低下させて5％の乱炎を付与（この技能を持つ武将の将星ランクに応じて、知力上昇と知力低下の効果量が5％ずつ増加）発動間隔対象範囲発動率連鎖順25秒- / -25％早い 明月清麗の追加効果 追加効果対象範囲継続知力変化自分 / 単10秒部隊の知力が上昇する強化解除敵 / 中-対象に発生している強化効果を打ち消す強化無効敵 / 中15秒効果回数分、受けた強化効果を無効化する知力変化敵 / 中15秒部隊の知力が低下する乱炎敵 / 中30秒火属性の通常攻撃・戦法でダメージを受ける度に攻撃、知力、戦法威力がそれぞれ累積して低下する 朗吟",
-              "directGrantVerified": true,
-              "directGrantEvidence": "強化無効を付与"
-            }
-          },
-          {
-            "category": "statusEffects",
-            "name": "乱炎",
-            "source": "semantic_owner_status",
-            "detail": {
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "sourcePartType": "semantic-owner-status-grant",
-              "matchedText": "乱炎",
-              "sourceText": "兵科効果系統攻撃属性なしなしなし効果自身1部隊の知力を100％上昇対象を含む敵3部隊の強化効果を3つ打ち消して3回の強化無効を付与さらに知力を30％低下させて5％の乱炎を付与（この技能を持つ武将の将星ランクに応じて、知力上昇と知力低下の効果量が5％ずつ増加）発動間隔対象範囲発動率連鎖順25秒- / -25％早い 明月清麗の追加効果 追加効果対象範囲継続知力変化自分 / 単10秒部隊の知力が上昇する強化解除敵 / 中-対象に発生している強化効果を打ち消す強化無効敵 / 中15秒効果回数分、受けた強化効果を無効化する知力変化敵 / 中15秒部隊の知力が低下する乱炎敵 / 中30秒火属性の通常攻撃・戦法でダメージを受ける度に攻撃、知力、戦法威力がそれぞれ累積して低下する 朗吟",
-              "directGrantVerified": true,
-              "directGrantEvidence": "乱炎を付与"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "弱化効果回避[鎮静]",
             "source": "self_countermeasure_index",
             "detail": {
@@ -45940,7 +45797,7 @@
         "tactics": 1,
         "skills": 5,
         "equipments": 0,
-        "statusEffects": 7,
+        "statusEffects": 5,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -45949,9 +45806,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 13
+        "sourceRefs": 11
       },
-      "totalRelatedCount": 26
+      "totalRelatedCount": 22
     },
     {
       "category": "generals",
@@ -54990,54 +54847,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "会心耐性",
-            "source": "semantic_owner_status",
-            "groupKey": "selfResistanceBuff",
-            "groupLabel": "自部隊不利対策",
-            "targetSide": "self",
-            "direction": "buff",
-            "sourcePartType": "semantic-owner-status-grant",
-            "matchedText": "会心耐性",
-            "sourceText": "兵科効果系統攻撃属性なし回復なし効果自身を含む味方3部隊に15%の会心耐性を付与（この技能を持つ武将の将星ランクに応じて、会心耐性の効果量が5%ずつ上昇）対象を含む敵3部隊の攻撃を50%低下させて、15%の不利脆弱と不利消沈を付与自身1部隊の負傷兵を最大兵力の10%回復発動間隔対象範囲発動率連鎖順20秒自分 / 単25%早い 狂直尽言の追加効果 追加効果対象範囲継続会心耐性味方 / 中15秒会心攻撃による被ダメージを軽減する攻撃変化敵 / 中15秒部隊の攻撃が低下する不利脆弱敵 / 中15秒兵科相性が不利な敵からの被ダメージが上昇する不利消沈敵 / 中15秒兵科相性が不利な敵に対する与ダメージが減少する 三政",
-            "directGrantVerified": true,
-            "directGrantEvidence": "会心耐性を付与",
-            "displayRole": "granted-status",
-            "sourceKind": "statusEffect",
-            "sourceName": "会心耐性",
-            "coveredByFunctionalSummary": false
-          },
-          {
-            "category": "statusEffects",
-            "name": "不利脆弱",
-            "source": "semantic_owner_status",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "sourcePartType": "semantic-owner-status-grant",
-            "matchedText": "不利脆弱",
-            "sourceText": "兵科効果系統攻撃属性なし回復なし効果自身を含む味方3部隊に15%の会心耐性を付与（この技能を持つ武将の将星ランクに応じて、会心耐性の効果量が5%ずつ上昇）対象を含む敵3部隊の攻撃を50%低下させて、15%の不利脆弱と不利消沈を付与自身1部隊の負傷兵を最大兵力の10%回復発動間隔対象範囲発動率連鎖順20秒自分 / 単25%早い 狂直尽言の追加効果 追加効果対象範囲継続会心耐性味方 / 中15秒会心攻撃による被ダメージを軽減する攻撃変化敵 / 中15秒部隊の攻撃が低下する不利脆弱敵 / 中15秒兵科相性が不利な敵からの被ダメージが上昇する不利消沈敵 / 中15秒兵科相性が不利な敵に対する与ダメージが減少する 三政",
-            "directGrantVerified": true,
-            "directGrantEvidence": "不利脆弱と不利消沈を付与",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
-            "name": "不利消沈",
-            "source": "semantic_owner_status",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "sourcePartType": "semantic-owner-status-grant",
-            "matchedText": "不利消沈",
-            "sourceText": "兵科効果系統攻撃属性なし回復なし効果自身を含む味方3部隊に15%の会心耐性を付与（この技能を持つ武将の将星ランクに応じて、会心耐性の効果量が5%ずつ上昇）対象を含む敵3部隊の攻撃を50%低下させて、15%の不利脆弱と不利消沈を付与自身1部隊の負傷兵を最大兵力の10%回復発動間隔対象範囲発動率連鎖順20秒自分 / 単25%早い 狂直尽言の追加効果 追加効果対象範囲継続会心耐性味方 / 中15秒会心攻撃による被ダメージを軽減する攻撃変化敵 / 中15秒部隊の攻撃が低下する不利脆弱敵 / 中15秒兵科相性が不利な敵からの被ダメージが上昇する不利消沈敵 / 中15秒兵科相性が不利な敵に対する与ダメージが減少する 三政",
-            "directGrantVerified": true,
-            "directGrantEvidence": "不利消沈を付与",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "強化奪取回避[看透]",
             "source": "self_countermeasure_index",
             "groupKey": "selfResistanceBuff",
@@ -55300,54 +55109,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "会心耐性",
-            "source": "semantic_owner_status",
-            "detail": {
-              "groupKey": "selfResistanceBuff",
-              "groupLabel": "自部隊不利対策",
-              "targetSide": "self",
-              "direction": "buff",
-              "sourcePartType": "semantic-owner-status-grant",
-              "matchedText": "会心耐性",
-              "sourceText": "兵科効果系統攻撃属性なし回復なし効果自身を含む味方3部隊に15%の会心耐性を付与（この技能を持つ武将の将星ランクに応じて、会心耐性の効果量が5%ずつ上昇）対象を含む敵3部隊の攻撃を50%低下させて、15%の不利脆弱と不利消沈を付与自身1部隊の負傷兵を最大兵力の10%回復発動間隔対象範囲発動率連鎖順20秒自分 / 単25%早い 狂直尽言の追加効果 追加効果対象範囲継続会心耐性味方 / 中15秒会心攻撃による被ダメージを軽減する攻撃変化敵 / 中15秒部隊の攻撃が低下する不利脆弱敵 / 中15秒兵科相性が不利な敵からの被ダメージが上昇する不利消沈敵 / 中15秒兵科相性が不利な敵に対する与ダメージが減少する 三政",
-              "directGrantVerified": true,
-              "directGrantEvidence": "会心耐性を付与"
-            }
-          },
-          {
-            "category": "statusEffects",
-            "name": "不利脆弱",
-            "source": "semantic_owner_status",
-            "detail": {
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "sourcePartType": "semantic-owner-status-grant",
-              "matchedText": "不利脆弱",
-              "sourceText": "兵科効果系統攻撃属性なし回復なし効果自身を含む味方3部隊に15%の会心耐性を付与（この技能を持つ武将の将星ランクに応じて、会心耐性の効果量が5%ずつ上昇）対象を含む敵3部隊の攻撃を50%低下させて、15%の不利脆弱と不利消沈を付与自身1部隊の負傷兵を最大兵力の10%回復発動間隔対象範囲発動率連鎖順20秒自分 / 単25%早い 狂直尽言の追加効果 追加効果対象範囲継続会心耐性味方 / 中15秒会心攻撃による被ダメージを軽減する攻撃変化敵 / 中15秒部隊の攻撃が低下する不利脆弱敵 / 中15秒兵科相性が不利な敵からの被ダメージが上昇する不利消沈敵 / 中15秒兵科相性が不利な敵に対する与ダメージが減少する 三政",
-              "directGrantVerified": true,
-              "directGrantEvidence": "不利脆弱と不利消沈を付与"
-            }
-          },
-          {
-            "category": "statusEffects",
-            "name": "不利消沈",
-            "source": "semantic_owner_status",
-            "detail": {
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "sourcePartType": "semantic-owner-status-grant",
-              "matchedText": "不利消沈",
-              "sourceText": "兵科効果系統攻撃属性なし回復なし効果自身を含む味方3部隊に15%の会心耐性を付与（この技能を持つ武将の将星ランクに応じて、会心耐性の効果量が5%ずつ上昇）対象を含む敵3部隊の攻撃を50%低下させて、15%の不利脆弱と不利消沈を付与自身1部隊の負傷兵を最大兵力の10%回復発動間隔対象範囲発動率連鎖順20秒自分 / 単25%早い 狂直尽言の追加効果 追加効果対象範囲継続会心耐性味方 / 中15秒会心攻撃による被ダメージを軽減する攻撃変化敵 / 中15秒部隊の攻撃が低下する不利脆弱敵 / 中15秒兵科相性が不利な敵からの被ダメージが上昇する不利消沈敵 / 中15秒兵科相性が不利な敵に対する与ダメージが減少する 三政",
-              "directGrantVerified": true,
-              "directGrantEvidence": "不利消沈を付与"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "強化奪取回避[看透]",
             "source": "self_countermeasure_index",
             "detail": {
@@ -55428,7 +55189,7 @@
         "tactics": 1,
         "skills": 4,
         "equipments": 0,
-        "statusEffects": 13,
+        "statusEffects": 10,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -55437,9 +55198,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 18
+        "sourceRefs": 15
       },
-      "totalRelatedCount": 36
+      "totalRelatedCount": 30
     },
     {
       "category": "generals",
@@ -91970,20 +91731,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "与ダメージ変化(弱化)",
-            "source": "parameter_summary_index",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "与ダメージが上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 遠撃を持つ武将麹義 増兵 Ⅰ■参軍の際 ●部隊の兵力+2%",
-            "parameter": "与ダメージ",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "被ダメージ変化(強化)",
             "source": "parameter_summary_index",
             "groupKey": "selfAbilityBuff",
@@ -92218,22 +91965,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "与ダメージ変化(弱化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "与ダメージ変化(弱化)",
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "与ダメージが上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 遠撃を持つ武将麹義 増兵 Ⅰ■参軍の際 ●部隊の兵力+2%",
-              "parameter": "与ダメージ"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "被ダメージ変化(強化)",
             "source": "parameter_summary_index",
             "detail": {
@@ -92331,7 +92062,7 @@
         "tactics": 1,
         "skills": 5,
         "equipments": 0,
-        "statusEffects": 11,
+        "statusEffects": 10,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -92340,9 +92071,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 17
+        "sourceRefs": 16
       },
-      "totalRelatedCount": 34
+      "totalRelatedCount": 32
     },
     {
       "category": "generals",
@@ -107406,20 +107137,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "撃心威力変化(弱化)",
-            "source": "parameter_summary_index",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "撃心威力が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 老鋭を持つ武将覚醒厳顔 激励 Ⅰ■参軍の際 ●部隊の防御+2%",
-            "parameter": "撃心威力",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "攻撃変化(強化)",
             "source": "parameter_summary_index",
             "groupKey": "selfAbilityBuff",
@@ -107663,22 +107380,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "撃心威力変化(弱化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "撃心威力変化(弱化)",
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "撃心威力が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 老鋭を持つ武将覚醒厳顔 激励 Ⅰ■参軍の際 ●部隊の防御+2%",
-              "parameter": "撃心威力"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "攻撃変化(強化)",
             "source": "parameter_summary_index",
             "detail": {
@@ -107764,7 +107465,7 @@
         "tactics": 1,
         "skills": 5,
         "equipments": 0,
-        "statusEffects": 11,
+        "statusEffects": 10,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -107773,9 +107474,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 17
+        "sourceRefs": 16
       },
-      "totalRelatedCount": 34
+      "totalRelatedCount": 32
     },
     {
       "category": "generals",
@@ -108773,20 +108474,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "与ダメージ変化(弱化)",
-            "source": "parameter_summary_index",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "与ダメージが上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 添花を持つ武将鮑三娘 督戦 Ⅰ■参軍の際 ●部隊の攻撃+2%",
-            "parameter": "与ダメージ",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "攻撃変化(強化)",
             "source": "parameter_summary_index",
             "groupKey": "selfAbilityBuff",
@@ -108938,22 +108625,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "与ダメージ変化(弱化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "与ダメージ変化(弱化)",
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "与ダメージが上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 添花を持つ武将鮑三娘 督戦 Ⅰ■参軍の際 ●部隊の攻撃+2%",
-              "parameter": "与ダメージ"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "攻撃変化(強化)",
             "source": "parameter_summary_index",
             "detail": {
@@ -108975,7 +108646,7 @@
         "tactics": 1,
         "skills": 5,
         "equipments": 0,
-        "statusEffects": 5,
+        "statusEffects": 4,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -108984,9 +108655,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 11
+        "sourceRefs": 10
       },
-      "totalRelatedCount": 22
+      "totalRelatedCount": 20
     },
     {
       "category": "generals",
@@ -114275,20 +113946,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "会心威力変化(強化)",
-            "source": "parameter_summary_index",
-            "groupKey": "selfAbilityBuff",
-            "groupLabel": "自部隊能力強化",
-            "targetSide": "self",
-            "direction": "buff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "会心威力を強化できる武将 杜濩は味方3",
-            "parameter": "会心威力",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "攻撃変化(強化)",
             "source": "parameter_summary_index",
             "groupKey": "selfAbilityBuff",
@@ -114381,22 +114038,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "会心威力変化(強化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "会心威力変化(強化)",
-              "groupKey": "selfAbilityBuff",
-              "groupLabel": "自部隊能力強化",
-              "targetSide": "self",
-              "direction": "buff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "会心威力を強化できる武将 杜濩は味方3",
-              "parameter": "会心威力"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "攻撃変化(強化)",
             "source": "parameter_summary_index",
             "detail": {
@@ -114434,7 +114075,7 @@
         "tactics": 1,
         "skills": 2,
         "equipments": 0,
-        "statusEffects": 4,
+        "statusEffects": 3,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -114443,9 +114084,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 7
+        "sourceRefs": 6
       },
-      "totalRelatedCount": 14
+      "totalRelatedCount": 12
     },
     {
       "category": "generals",
@@ -116129,20 +115770,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "兵器速度変化(強化)",
-            "source": "parameter_summary_index",
-            "groupKey": "selfAbilityBuff",
-            "groupLabel": "自部隊能力強化",
-            "targetSide": "self",
-            "direction": "buff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "兵器速度デバフを付与できる武将 尤突は戦法で敵3",
-            "parameter": "兵器速度",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "防御変化(強化)",
             "source": "parameter_summary_index",
             "groupKey": "selfAbilityBuff",
@@ -116263,22 +115890,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "兵器速度変化(強化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "兵器速度変化(強化)",
-              "groupKey": "selfAbilityBuff",
-              "groupLabel": "自部隊能力強化",
-              "targetSide": "self",
-              "direction": "buff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "兵器速度デバフを付与できる武将 尤突は戦法で敵3",
-              "parameter": "兵器速度"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "防御変化(強化)",
             "source": "parameter_summary_index",
             "detail": {
@@ -116332,7 +115943,7 @@
         "tactics": 1,
         "skills": 3,
         "equipments": 0,
-        "statusEffects": 5,
+        "statusEffects": 4,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -116341,9 +115952,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 9
+        "sourceRefs": 8
       },
-      "totalRelatedCount": 18
+      "totalRelatedCount": 16
     },
     {
       "category": "generals",
@@ -128313,20 +127924,6 @@
             "matchedText": "攻撃が上昇する 覚醒関索の技能 発破1",
             "parameter": "攻撃",
             "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
-            "name": "攻撃変化(弱化)",
-            "source": "parameter_summary_index",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "攻撃が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 剛華を持つ武将覚醒関索 督戦 Ⅰ■参軍の際 ●部隊の攻撃+2%",
-            "parameter": "攻撃",
-            "displayRole": "direct-status"
           }
         ],
         "formations": [],
@@ -128448,22 +128045,6 @@
               "matchedText": "攻撃が上昇する 覚醒関索の技能 発破1",
               "parameter": "攻撃"
             }
-          },
-          {
-            "category": "statusEffects",
-            "name": "攻撃変化(弱化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "攻撃変化(弱化)",
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "攻撃が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 剛華を持つ武将覚醒関索 督戦 Ⅰ■参軍の際 ●部隊の攻撃+2%",
-              "parameter": "攻撃"
-            }
           }
         ]
       },
@@ -128472,7 +128053,7 @@
         "tactics": 1,
         "skills": 5,
         "equipments": 0,
-        "statusEffects": 3,
+        "statusEffects": 2,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -128481,9 +128062,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 9
+        "sourceRefs": 8
       },
-      "totalRelatedCount": 18
+      "totalRelatedCount": 16
     },
     {
       "category": "generals",
@@ -131230,20 +130811,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "攻撃変化(弱化)",
-            "source": "parameter_summary_index",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "攻撃が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 討滅を持つ武将皇甫嵩 増兵 Ⅰ■参軍の際 ●部隊の兵力+2%",
-            "parameter": "攻撃",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "高揚",
             "source": "semantic_owner_status",
             "groupKey": "selfAbilityBuff",
@@ -131396,22 +130963,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "攻撃変化(弱化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "攻撃変化(弱化)",
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "攻撃が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 討滅を持つ武将皇甫嵩 増兵 Ⅰ■参軍の際 ●部隊の兵力+2%",
-              "parameter": "攻撃"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "高揚",
             "source": "semantic_owner_status",
             "detail": {
@@ -131433,7 +130984,7 @@
         "tactics": 1,
         "skills": 5,
         "equipments": 0,
-        "statusEffects": 5,
+        "statusEffects": 4,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -131442,9 +130993,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 11
+        "sourceRefs": 10
       },
-      "totalRelatedCount": 22
+      "totalRelatedCount": 20
     },
     {
       "category": "generals",
@@ -131577,20 +131128,6 @@
             "relationType": "",
             "sourcePartType": "semantic-owner-parameter",
             "matchedText": "攻撃が上昇する会心発生変化自分 / 単10",
-            "parameter": "攻撃",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
-            "name": "攻撃変化(弱化)",
-            "source": "parameter_summary_index",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "攻撃が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 崩突を持つ武将覚醒曹彰 督戦 Ⅰ■参軍の際 ●部隊の攻撃+2%",
             "parameter": "攻撃",
             "displayRole": "direct-status"
           },
@@ -131764,22 +131301,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "攻撃変化(弱化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "攻撃変化(弱化)",
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "攻撃が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 崩突を持つ武将覚醒曹彰 督戦 Ⅰ■参軍の際 ●部隊の攻撃+2%",
-              "parameter": "攻撃"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "混乱",
             "source": "semantic_owner_status",
             "detail": {
@@ -131801,7 +131322,7 @@
         "tactics": 1,
         "skills": 5,
         "equipments": 0,
-        "statusEffects": 6,
+        "statusEffects": 5,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -131810,9 +131331,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 12
+        "sourceRefs": 11
       },
-      "totalRelatedCount": 24
+      "totalRelatedCount": 22
     },
     {
       "category": "generals",
@@ -133226,20 +132747,6 @@
             "matchedText": "防御が上昇する 西涼鉄騎 兵科効果系統攻撃属性なしなしなし効果自身を含む味方3",
             "parameter": "防御",
             "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
-            "name": "防御変化(弱化)",
-            "source": "parameter_summary_index",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "防御が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 騎突を持つ武将馬騰 増兵 Ⅰ■参軍の際 ●部隊の兵力+2%",
-            "parameter": "防御",
-            "displayRole": "direct-status"
           }
         ],
         "formations": [],
@@ -133361,22 +132868,6 @@
               "matchedText": "防御が上昇する 西涼鉄騎 兵科効果系統攻撃属性なしなしなし効果自身を含む味方3",
               "parameter": "防御"
             }
-          },
-          {
-            "category": "statusEffects",
-            "name": "防御変化(弱化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "防御変化(弱化)",
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "防御が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 騎突を持つ武将馬騰 増兵 Ⅰ■参軍の際 ●部隊の兵力+2%",
-              "parameter": "防御"
-            }
           }
         ]
       },
@@ -133385,7 +132876,7 @@
         "tactics": 1,
         "skills": 5,
         "equipments": 0,
-        "statusEffects": 3,
+        "statusEffects": 2,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -133394,9 +132885,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 9
+        "sourceRefs": 8
       },
-      "totalRelatedCount": 18
+      "totalRelatedCount": 16
     },
     {
       "category": "generals",
@@ -134126,20 +133617,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "与ダメージ変化(弱化)",
-            "source": "parameter_summary_index",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "与ダメージが上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 猛斧を持つ武将徐晃 先導 Ⅰ■参軍の際 ●部隊の機動+2%",
-            "parameter": "与ダメージ",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "攻撃変化(強化)",
             "source": "parameter_summary_index",
             "groupKey": "selfAbilityBuff",
@@ -134332,22 +133809,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "与ダメージ変化(弱化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "与ダメージ変化(弱化)",
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "与ダメージが上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 猛斧を持つ武将徐晃 先導 Ⅰ■参軍の際 ●部隊の機動+2%",
-              "parameter": "与ダメージ"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "攻撃変化(強化)",
             "source": "parameter_summary_index",
             "detail": {
@@ -134416,7 +133877,7 @@
         "tactics": 1,
         "skills": 5,
         "equipments": 0,
-        "statusEffects": 8,
+        "statusEffects": 7,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -134425,9 +133886,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 14
+        "sourceRefs": 13
       },
-      "totalRelatedCount": 28
+      "totalRelatedCount": 26
     },
     {
       "category": "generals",
@@ -136826,20 +136287,6 @@
             "matchedText": "攻撃が上昇督戦1",
             "parameter": "攻撃",
             "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
-            "name": "攻撃変化(弱化)",
-            "source": "parameter_summary_index",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "攻撃が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 驕恣を持つ武将董卓 督戦 Ⅰ■参軍の際 ●部隊の攻撃+2%",
-            "parameter": "攻撃",
-            "displayRole": "direct-status"
           }
         ],
         "formations": [],
@@ -136993,22 +136440,6 @@
               "matchedText": "攻撃が上昇督戦1",
               "parameter": "攻撃"
             }
-          },
-          {
-            "category": "statusEffects",
-            "name": "攻撃変化(弱化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "攻撃変化(弱化)",
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "攻撃が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 驕恣を持つ武将董卓 督戦 Ⅰ■参軍の際 ●部隊の攻撃+2%",
-              "parameter": "攻撃"
-            }
           }
         ]
       },
@@ -137017,7 +136448,7 @@
         "tactics": 1,
         "skills": 5,
         "equipments": 0,
-        "statusEffects": 5,
+        "statusEffects": 4,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -137026,9 +136457,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 11
+        "sourceRefs": 10
       },
-      "totalRelatedCount": 22
+      "totalRelatedCount": 20
     },
     {
       "category": "generals",
@@ -139264,20 +138695,6 @@
             "matchedText": "戦法速度+2%",
             "parameter": "戦法速度",
             "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
-            "name": "知力変化(強化)",
-            "source": "parameter_summary_index",
-            "groupKey": "selfAbilityBuff",
-            "groupLabel": "自部隊能力強化",
-            "targetSide": "self",
-            "direction": "buff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "知力を強化できる武将 曹植は味方3",
-            "parameter": "知力",
-            "displayRole": "direct-status"
           }
         ],
         "formations": [],
@@ -139341,22 +138758,6 @@
               "matchedText": "戦法速度+2%",
               "parameter": "戦法速度"
             }
-          },
-          {
-            "category": "statusEffects",
-            "name": "知力変化(強化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "知力変化(強化)",
-              "groupKey": "selfAbilityBuff",
-              "groupLabel": "自部隊能力強化",
-              "targetSide": "self",
-              "direction": "buff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "知力を強化できる武将 曹植は味方3",
-              "parameter": "知力"
-            }
           }
         ]
       },
@@ -139365,7 +138766,7 @@
         "tactics": 1,
         "skills": 2,
         "equipments": 0,
-        "statusEffects": 2,
+        "statusEffects": 1,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -139374,9 +138775,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 5
+        "sourceRefs": 4
       },
-      "totalRelatedCount": 10
+      "totalRelatedCount": 8
     },
     {
       "category": "generals",
@@ -141526,20 +140927,6 @@
             "matchedText": "防御が上昇する知力変化味方 / 狭10",
             "parameter": "防御",
             "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
-            "name": "知力変化(強化)",
-            "source": "parameter_summary_index",
-            "groupKey": "selfAbilityBuff",
-            "groupLabel": "自部隊能力強化",
-            "targetSide": "self",
-            "direction": "buff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "知力を強化できる武将 韓遂は味方2",
-            "parameter": "知力",
-            "displayRole": "direct-status"
           }
         ],
         "formations": [],
@@ -141603,22 +140990,6 @@
               "matchedText": "防御が上昇する知力変化味方 / 狭10",
               "parameter": "防御"
             }
-          },
-          {
-            "category": "statusEffects",
-            "name": "知力変化(強化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "知力変化(強化)",
-              "groupKey": "selfAbilityBuff",
-              "groupLabel": "自部隊能力強化",
-              "targetSide": "self",
-              "direction": "buff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "知力を強化できる武将 韓遂は味方2",
-              "parameter": "知力"
-            }
           }
         ]
       },
@@ -141627,7 +140998,7 @@
         "tactics": 1,
         "skills": 2,
         "equipments": 0,
-        "statusEffects": 2,
+        "statusEffects": 1,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -141636,9 +141007,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 5
+        "sourceRefs": 4
       },
-      "totalRelatedCount": 10
+      "totalRelatedCount": 8
     },
     {
       "category": "generals",
@@ -143784,20 +143155,6 @@
         "statusEffects": [
           {
             "category": "statusEffects",
-            "name": "攻撃速度変化(強化)",
-            "source": "parameter_summary_index",
-            "groupKey": "selfAbilityBuff",
-            "groupLabel": "自部隊能力強化",
-            "targetSide": "self",
-            "direction": "buff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "攻撃速度の強化ができる武将 文醜は戦法でダメージを与えつつ、味方騎兵の攻撃速度を100%",
-            "parameter": "攻撃速度",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "会心発生変化(強化)",
             "source": "parameter_summary_index",
             "groupKey": "selfAbilityBuff",
@@ -143929,22 +143286,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "攻撃速度変化(強化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "攻撃速度変化(強化)",
-              "groupKey": "selfAbilityBuff",
-              "groupLabel": "自部隊能力強化",
-              "targetSide": "self",
-              "direction": "buff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "攻撃速度の強化ができる武将 文醜は戦法でダメージを与えつつ、味方騎兵の攻撃速度を100%",
-              "parameter": "攻撃速度"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "会心発生変化(強化)",
             "source": "parameter_summary_index",
             "detail": {
@@ -143998,7 +143339,7 @@
         "tactics": 1,
         "skills": 5,
         "equipments": 0,
-        "statusEffects": 4,
+        "statusEffects": 3,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -144007,9 +143348,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 10
+        "sourceRefs": 9
       },
-      "totalRelatedCount": 20
+      "totalRelatedCount": 18
     },
     {
       "category": "generals",
@@ -144382,20 +143723,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "与ダメージ変化(弱化)",
-            "source": "parameter_summary_index",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "与ダメージが上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 献策を持つ武将荀彧 激励 Ⅰ■参軍の際 ●部隊の防御+2%",
-            "parameter": "与ダメージ",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "防御変化(強化)",
             "source": "parameter_summary_index",
             "groupKey": "selfAbilityBuff",
@@ -144558,22 +143885,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "与ダメージ変化(弱化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "与ダメージ変化(弱化)",
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "与ダメージが上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 献策を持つ武将荀彧 激励 Ⅰ■参軍の際 ●部隊の防御+2%",
-              "parameter": "与ダメージ"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "防御変化(強化)",
             "source": "parameter_summary_index",
             "detail": {
@@ -144643,7 +143954,7 @@
         "tactics": 1,
         "skills": 5,
         "equipments": 0,
-        "statusEffects": 6,
+        "statusEffects": 5,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -144652,9 +143963,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 12
+        "sourceRefs": 11
       },
-      "totalRelatedCount": 24
+      "totalRelatedCount": 22
     },
     {
       "category": "generals",
@@ -144759,20 +144070,6 @@
             "relationType": "",
             "sourcePartType": "semantic-owner-parameter",
             "matchedText": "防御が上昇する知力変化自分 / 単10",
-            "parameter": "防御",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
-            "name": "防御変化(弱化)",
-            "source": "parameter_summary_index",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "防御が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 連剛を持つ武将魏延 激励 Ⅰ■参軍の際 ●部隊の防御+2%",
             "parameter": "防御",
             "displayRole": "direct-status"
           },
@@ -144926,22 +144223,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "防御変化(弱化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "防御変化(弱化)",
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "防御が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 連剛を持つ武将魏延 激励 Ⅰ■参軍の際 ●部隊の防御+2%",
-              "parameter": "防御"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "知力変化(弱化)",
             "source": "parameter_summary_index",
             "detail": {
@@ -144978,7 +144259,7 @@
         "tactics": 1,
         "skills": 5,
         "equipments": 0,
-        "statusEffects": 5,
+        "statusEffects": 4,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -144987,9 +144268,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 11
+        "sourceRefs": 10
       },
-      "totalRelatedCount": 22
+      "totalRelatedCount": 20
     },
     {
       "category": "generals",
@@ -145956,20 +145237,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "防御変化(弱化)",
-            "source": "parameter_summary_index",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "防御が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 励策を持つ武将王元姫 助言 Ⅰ■参軍の際 ●部隊の知力+2%",
-            "parameter": "防御",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "知力変化(強化)",
             "source": "parameter_summary_index",
             "groupKey": "selfAbilityBuff",
@@ -146121,22 +145388,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "防御変化(弱化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "防御変化(弱化)",
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "防御が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 励策を持つ武将王元姫 助言 Ⅰ■参軍の際 ●部隊の知力+2%",
-              "parameter": "防御"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "知力変化(強化)",
             "source": "parameter_summary_index",
             "detail": {
@@ -146158,7 +145409,7 @@
         "tactics": 1,
         "skills": 5,
         "equipments": 0,
-        "statusEffects": 5,
+        "statusEffects": 4,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -146167,9 +145418,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 11
+        "sourceRefs": 10
       },
-      "totalRelatedCount": 22
+      "totalRelatedCount": 20
     },
     {
       "category": "generals",
@@ -165452,20 +164703,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "会心発生変化(弱化)",
-            "source": "parameter_summary_index",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "会心発生が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 徳義を持つ武将劉備 激励 Ⅰ■参軍の際 ●部隊の防御+2%",
-            "parameter": "会心発生",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "攻撃変化(強化)",
             "source": "parameter_summary_index",
             "groupKey": "selfAbilityBuff",
@@ -165615,22 +164852,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "会心発生変化(弱化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "会心発生変化(弱化)",
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "会心発生が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 徳義を持つ武将劉備 激励 Ⅰ■参軍の際 ●部隊の防御+2%",
-              "parameter": "会心発生"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "攻撃変化(強化)",
             "source": "parameter_summary_index",
             "detail": {
@@ -165668,7 +164889,7 @@
         "tactics": 1,
         "skills": 5,
         "equipments": 0,
-        "statusEffects": 5,
+        "statusEffects": 4,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -165677,9 +164898,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 11
+        "sourceRefs": 10
       },
-      "totalRelatedCount": 22
+      "totalRelatedCount": 20
     },
     {
       "category": "generals",
@@ -170859,20 +170080,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "攻撃速度変化(弱化)",
-            "source": "parameter_summary_index",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "攻撃速度が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 奔突を持つ武将姜維 助言 Ⅰ■参軍の際 ●部隊の知力+2%",
-            "parameter": "攻撃速度",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "攻撃変化(強化)",
             "source": "parameter_summary_index",
             "groupKey": "selfAbilityBuff",
@@ -171006,22 +170213,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "攻撃速度変化(弱化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "攻撃速度変化(弱化)",
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "攻撃速度が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 奔突を持つ武将姜維 助言 Ⅰ■参軍の際 ●部隊の知力+2%",
-              "parameter": "攻撃速度"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "攻撃変化(強化)",
             "source": "parameter_summary_index",
             "detail": {
@@ -171059,7 +170250,7 @@
         "tactics": 1,
         "skills": 5,
         "equipments": 0,
-        "statusEffects": 4,
+        "statusEffects": 3,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -171068,9 +170259,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 10
+        "sourceRefs": 9
       },
-      "totalRelatedCount": 20
+      "totalRelatedCount": 18
     },
     {
       "category": "generals",
@@ -189669,36 +188860,6 @@
             "matchedText": "知力が低下する乱炎敵 / 中30",
             "parameter": "知力",
             "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
-            "name": "強化無効",
-            "source": "semantic_owner_status",
-            "groupKey": "enemyStateDebuff",
-            "groupLabel": "敵部隊状態弱化",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "sourcePartType": "semantic-owner-status-grant",
-            "matchedText": "強化無効",
-            "sourceText": "兵科効果系統攻撃属性なしなしなし効果自身1部隊の知力を100％上昇対象を含む敵3部隊の強化効果を3つ打ち消して3回の強化無効を付与さらに知力を30％低下させて5％の乱炎を付与（この技能を持つ武将の将星ランクに応じて、知力上昇と知力低下の効果量が5％ずつ増加）発動間隔対象範囲発動率連鎖順25秒- / -25％早い 明月清麗の追加効果 追加効果対象範囲継続知力変化自分 / 単10秒部隊の知力が上昇する強化解除敵 / 中-対象に発生している強化効果を打ち消す強化無効敵 / 中15秒効果回数分、受けた強化効果を無効化する知力変化敵 / 中15秒部隊の知力が低下する乱炎敵 / 中30秒火属性の通常攻撃・戦法でダメージを受ける度に攻撃、知力、戦法威力がそれぞれ累積して低下する",
-            "directGrantVerified": true,
-            "directGrantEvidence": "強化無効を付与",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
-            "name": "乱炎",
-            "source": "semantic_owner_status",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "sourcePartType": "semantic-owner-status-grant",
-            "matchedText": "乱炎",
-            "sourceText": "兵科効果系統攻撃属性なしなしなし効果自身1部隊の知力を100％上昇対象を含む敵3部隊の強化効果を3つ打ち消して3回の強化無効を付与さらに知力を30％低下させて5％の乱炎を付与（この技能を持つ武将の将星ランクに応じて、知力上昇と知力低下の効果量が5％ずつ増加）発動間隔対象範囲発動率連鎖順25秒- / -25％早い 明月清麗の追加効果 追加効果対象範囲継続知力変化自分 / 単10秒部隊の知力が上昇する強化解除敵 / 中-対象に発生している強化効果を打ち消す強化無効敵 / 中15秒効果回数分、受けた強化効果を無効化する知力変化敵 / 中15秒部隊の知力が低下する乱炎敵 / 中30秒火属性の通常攻撃・戦法でダメージを受ける度に攻撃、知力、戦法威力がそれぞれ累積して低下する",
-            "directGrantVerified": true,
-            "directGrantEvidence": "乱炎を付与",
-            "displayRole": "direct-status"
           }
         ],
         "formations": [],
@@ -189734,38 +188895,6 @@
               "matchedText": "知力が低下する乱炎敵 / 中30",
               "parameter": "知力"
             }
-          },
-          {
-            "category": "statusEffects",
-            "name": "強化無効",
-            "source": "semantic_owner_status",
-            "detail": {
-              "groupKey": "enemyStateDebuff",
-              "groupLabel": "敵部隊状態弱化",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "sourcePartType": "semantic-owner-status-grant",
-              "matchedText": "強化無効",
-              "sourceText": "兵科効果系統攻撃属性なしなしなし効果自身1部隊の知力を100％上昇対象を含む敵3部隊の強化効果を3つ打ち消して3回の強化無効を付与さらに知力を30％低下させて5％の乱炎を付与（この技能を持つ武将の将星ランクに応じて、知力上昇と知力低下の効果量が5％ずつ増加）発動間隔対象範囲発動率連鎖順25秒- / -25％早い 明月清麗の追加効果 追加効果対象範囲継続知力変化自分 / 単10秒部隊の知力が上昇する強化解除敵 / 中-対象に発生している強化効果を打ち消す強化無効敵 / 中15秒効果回数分、受けた強化効果を無効化する知力変化敵 / 中15秒部隊の知力が低下する乱炎敵 / 中30秒火属性の通常攻撃・戦法でダメージを受ける度に攻撃、知力、戦法威力がそれぞれ累積して低下する",
-              "directGrantVerified": true,
-              "directGrantEvidence": "強化無効を付与"
-            }
-          },
-          {
-            "category": "statusEffects",
-            "name": "乱炎",
-            "source": "semantic_owner_status",
-            "detail": {
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "sourcePartType": "semantic-owner-status-grant",
-              "matchedText": "乱炎",
-              "sourceText": "兵科効果系統攻撃属性なしなしなし効果自身1部隊の知力を100％上昇対象を含む敵3部隊の強化効果を3つ打ち消して3回の強化無効を付与さらに知力を30％低下させて5％の乱炎を付与（この技能を持つ武将の将星ランクに応じて、知力上昇と知力低下の効果量が5％ずつ増加）発動間隔対象範囲発動率連鎖順25秒- / -25％早い 明月清麗の追加効果 追加効果対象範囲継続知力変化自分 / 単10秒部隊の知力が上昇する強化解除敵 / 中-対象に発生している強化効果を打ち消す強化無効敵 / 中15秒効果回数分、受けた強化効果を無効化する知力変化敵 / 中15秒部隊の知力が低下する乱炎敵 / 中30秒火属性の通常攻撃・戦法でダメージを受ける度に攻撃、知力、戦法威力がそれぞれ累積して低下する",
-              "directGrantVerified": true,
-              "directGrantEvidence": "乱炎を付与"
-            }
           }
         ]
       },
@@ -189774,7 +188903,7 @@
         "tactics": 0,
         "skills": 0,
         "equipments": 0,
-        "statusEffects": 3,
+        "statusEffects": 1,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -189783,9 +188912,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 4
+        "sourceRefs": 2
       },
-      "totalRelatedCount": 8
+      "totalRelatedCount": 4
     },
     {
       "category": "tactics",
@@ -193922,54 +193051,6 @@
             "matchedText": "攻撃が低下する不利脆弱敵 / 中15",
             "parameter": "攻撃",
             "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
-            "name": "会心耐性",
-            "source": "semantic_owner_status",
-            "groupKey": "selfResistanceBuff",
-            "groupLabel": "自部隊不利対策",
-            "targetSide": "self",
-            "direction": "buff",
-            "sourcePartType": "semantic-owner-status-grant",
-            "matchedText": "会心耐性",
-            "sourceText": "兵科効果系統攻撃属性なし回復なし効果自身を含む味方3部隊に15%の会心耐性を付与（この技能を持つ武将の将星ランクに応じて、会心耐性の効果量が5%ずつ上昇）対象を含む敵3部隊の攻撃を50%低下させて、15%の不利脆弱と不利消沈を付与自身1部隊の負傷兵を最大兵力の10%回復発動間隔対象範囲発動率連鎖順20秒自分 / 単25%早い 狂直尽言の追加効果 追加効果対象範囲継続会心耐性味方 / 中15秒会心攻撃による被ダメージを軽減する攻撃変化敵 / 中15秒部隊の攻撃が低下する不利脆弱敵 / 中15秒兵科相性が不利な敵からの被ダメージが上昇する不利消沈敵 / 中15秒兵科相性が不利な敵に対する与ダメージが減少する",
-            "directGrantVerified": true,
-            "directGrantEvidence": "会心耐性を付与",
-            "displayRole": "granted-status",
-            "sourceKind": "statusEffect",
-            "sourceName": "会心耐性",
-            "coveredByFunctionalSummary": false
-          },
-          {
-            "category": "statusEffects",
-            "name": "不利脆弱",
-            "source": "semantic_owner_status",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "sourcePartType": "semantic-owner-status-grant",
-            "matchedText": "不利脆弱",
-            "sourceText": "兵科効果系統攻撃属性なし回復なし効果自身を含む味方3部隊に15%の会心耐性を付与（この技能を持つ武将の将星ランクに応じて、会心耐性の効果量が5%ずつ上昇）対象を含む敵3部隊の攻撃を50%低下させて、15%の不利脆弱と不利消沈を付与自身1部隊の負傷兵を最大兵力の10%回復発動間隔対象範囲発動率連鎖順20秒自分 / 単25%早い 狂直尽言の追加効果 追加効果対象範囲継続会心耐性味方 / 中15秒会心攻撃による被ダメージを軽減する攻撃変化敵 / 中15秒部隊の攻撃が低下する不利脆弱敵 / 中15秒兵科相性が不利な敵からの被ダメージが上昇する不利消沈敵 / 中15秒兵科相性が不利な敵に対する与ダメージが減少する",
-            "directGrantVerified": true,
-            "directGrantEvidence": "不利脆弱と不利消沈を付与",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
-            "name": "不利消沈",
-            "source": "semantic_owner_status",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "sourcePartType": "semantic-owner-status-grant",
-            "matchedText": "不利消沈",
-            "sourceText": "兵科効果系統攻撃属性なし回復なし効果自身を含む味方3部隊に15%の会心耐性を付与（この技能を持つ武将の将星ランクに応じて、会心耐性の効果量が5%ずつ上昇）対象を含む敵3部隊の攻撃を50%低下させて、15%の不利脆弱と不利消沈を付与自身1部隊の負傷兵を最大兵力の10%回復発動間隔対象範囲発動率連鎖順20秒自分 / 単25%早い 狂直尽言の追加効果 追加効果対象範囲継続会心耐性味方 / 中15秒会心攻撃による被ダメージを軽減する攻撃変化敵 / 中15秒部隊の攻撃が低下する不利脆弱敵 / 中15秒兵科相性が不利な敵からの被ダメージが上昇する不利消沈敵 / 中15秒兵科相性が不利な敵に対する与ダメージが減少する",
-            "directGrantVerified": true,
-            "directGrantEvidence": "不利消沈を付与",
-            "displayRole": "direct-status"
           }
         ],
         "formations": [],
@@ -194037,54 +193118,6 @@
               "matchedText": "攻撃が低下する不利脆弱敵 / 中15",
               "parameter": "攻撃"
             }
-          },
-          {
-            "category": "statusEffects",
-            "name": "会心耐性",
-            "source": "semantic_owner_status",
-            "detail": {
-              "groupKey": "selfResistanceBuff",
-              "groupLabel": "自部隊不利対策",
-              "targetSide": "self",
-              "direction": "buff",
-              "sourcePartType": "semantic-owner-status-grant",
-              "matchedText": "会心耐性",
-              "sourceText": "兵科効果系統攻撃属性なし回復なし効果自身を含む味方3部隊に15%の会心耐性を付与（この技能を持つ武将の将星ランクに応じて、会心耐性の効果量が5%ずつ上昇）対象を含む敵3部隊の攻撃を50%低下させて、15%の不利脆弱と不利消沈を付与自身1部隊の負傷兵を最大兵力の10%回復発動間隔対象範囲発動率連鎖順20秒自分 / 単25%早い 狂直尽言の追加効果 追加効果対象範囲継続会心耐性味方 / 中15秒会心攻撃による被ダメージを軽減する攻撃変化敵 / 中15秒部隊の攻撃が低下する不利脆弱敵 / 中15秒兵科相性が不利な敵からの被ダメージが上昇する不利消沈敵 / 中15秒兵科相性が不利な敵に対する与ダメージが減少する",
-              "directGrantVerified": true,
-              "directGrantEvidence": "会心耐性を付与"
-            }
-          },
-          {
-            "category": "statusEffects",
-            "name": "不利脆弱",
-            "source": "semantic_owner_status",
-            "detail": {
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "sourcePartType": "semantic-owner-status-grant",
-              "matchedText": "不利脆弱",
-              "sourceText": "兵科効果系統攻撃属性なし回復なし効果自身を含む味方3部隊に15%の会心耐性を付与（この技能を持つ武将の将星ランクに応じて、会心耐性の効果量が5%ずつ上昇）対象を含む敵3部隊の攻撃を50%低下させて、15%の不利脆弱と不利消沈を付与自身1部隊の負傷兵を最大兵力の10%回復発動間隔対象範囲発動率連鎖順20秒自分 / 単25%早い 狂直尽言の追加効果 追加効果対象範囲継続会心耐性味方 / 中15秒会心攻撃による被ダメージを軽減する攻撃変化敵 / 中15秒部隊の攻撃が低下する不利脆弱敵 / 中15秒兵科相性が不利な敵からの被ダメージが上昇する不利消沈敵 / 中15秒兵科相性が不利な敵に対する与ダメージが減少する",
-              "directGrantVerified": true,
-              "directGrantEvidence": "不利脆弱と不利消沈を付与"
-            }
-          },
-          {
-            "category": "statusEffects",
-            "name": "不利消沈",
-            "source": "semantic_owner_status",
-            "detail": {
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "sourcePartType": "semantic-owner-status-grant",
-              "matchedText": "不利消沈",
-              "sourceText": "兵科効果系統攻撃属性なし回復なし効果自身を含む味方3部隊に15%の会心耐性を付与（この技能を持つ武将の将星ランクに応じて、会心耐性の効果量が5%ずつ上昇）対象を含む敵3部隊の攻撃を50%低下させて、15%の不利脆弱と不利消沈を付与自身1部隊の負傷兵を最大兵力の10%回復発動間隔対象範囲発動率連鎖順20秒自分 / 単25%早い 狂直尽言の追加効果 追加効果対象範囲継続会心耐性味方 / 中15秒会心攻撃による被ダメージを軽減する攻撃変化敵 / 中15秒部隊の攻撃が低下する不利脆弱敵 / 中15秒兵科相性が不利な敵からの被ダメージが上昇する不利消沈敵 / 中15秒兵科相性が不利な敵に対する与ダメージが減少する",
-              "directGrantVerified": true,
-              "directGrantEvidence": "不利消沈を付与"
-            }
           }
         ]
       },
@@ -194093,7 +193126,7 @@
         "tactics": 0,
         "skills": 0,
         "equipments": 0,
-        "statusEffects": 6,
+        "statusEffects": 3,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -194102,9 +193135,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 7
+        "sourceRefs": 4
       },
-      "totalRelatedCount": 14
+      "totalRelatedCount": 8
     },
     {
       "category": "tactics",
@@ -285083,20 +284116,6 @@
         "statusEffects": [
           {
             "category": "statusEffects",
-            "name": "被ダメージ変化(弱化)",
-            "source": "parameter_summary_index",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "被ダメージを計算する▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方4",
-            "parameter": "被ダメージ",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "有利激攻",
             "source": "semantic_owner_status",
             "groupKey": "selfAbilityBuff",
@@ -285149,22 +284168,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "被ダメージ変化(弱化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "被ダメージ変化(弱化)",
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "被ダメージを計算する▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方4",
-              "parameter": "被ダメージ"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "有利激攻",
             "source": "semantic_owner_status",
             "detail": {
@@ -285202,7 +284205,7 @@
         "tactics": 0,
         "skills": 0,
         "equipments": 0,
-        "statusEffects": 3,
+        "statusEffects": 2,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -285211,9 +284214,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 4
+        "sourceRefs": 3
       },
-      "totalRelatedCount": 8
+      "totalRelatedCount": 6
     },
     {
       "category": "skills",
@@ -285993,20 +284996,6 @@
             "matchedText": "防御が上昇 ●自部隊の侍従に配置されている武将の人数×2%",
             "parameter": "防御",
             "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
-            "name": "知力変化(弱化)",
-            "source": "parameter_summary_index",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "知力が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 尊立を持つ武将 武将特徴 / 所持技能UR袁術天賦1000",
-            "parameter": "知力",
-            "displayRole": "direct-status"
           }
         ],
         "formations": [],
@@ -286061,22 +285050,6 @@
               "matchedText": "防御が上昇 ●自部隊の侍従に配置されている武将の人数×2%",
               "parameter": "防御"
             }
-          },
-          {
-            "category": "statusEffects",
-            "name": "知力変化(弱化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "知力変化(弱化)",
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "知力が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 尊立を持つ武将 武将特徴 / 所持技能UR袁術天賦1000",
-              "parameter": "知力"
-            }
           }
         ]
       },
@@ -286085,7 +285058,7 @@
         "tactics": 0,
         "skills": 0,
         "equipments": 0,
-        "statusEffects": 3,
+        "statusEffects": 2,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -286094,9 +285067,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 4
+        "sourceRefs": 3
       },
-      "totalRelatedCount": 8
+      "totalRelatedCount": 6
     },
     {
       "category": "skills",
@@ -289395,21 +288368,6 @@
             "matchedText": "防御+5%",
             "parameter": "防御",
             "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
-            "name": "護厳",
-            "source": "semantic_owner_status",
-            "groupKey": "selfAbilityBuff",
-            "groupLabel": "自部隊能力強化",
-            "targetSide": "self",
-            "direction": "buff",
-            "sourcePartType": "semantic-owner-status-grant",
-            "matchedText": "護厳",
-            "sourceText": "自身に護厳が発生していない場合、自身1部隊に3％の護厳を20秒付与（この技能を持つ武将の将星ランクに応じて、効果量が1％ずつ上昇）",
-            "directGrantVerified": true,
-            "directGrantEvidence": "護厳を20秒付与",
-            "displayRole": "direct-status"
           }
         ],
         "formations": [],
@@ -289524,22 +288482,6 @@
               "matchedText": "防御+5%",
               "parameter": "防御"
             }
-          },
-          {
-            "category": "statusEffects",
-            "name": "護厳",
-            "source": "semantic_owner_status",
-            "detail": {
-              "groupKey": "selfAbilityBuff",
-              "groupLabel": "自部隊能力強化",
-              "targetSide": "self",
-              "direction": "buff",
-              "sourcePartType": "semantic-owner-status-grant",
-              "matchedText": "護厳",
-              "sourceText": "自身に護厳が発生していない場合、自身1部隊に3％の護厳を20秒付与（この技能を持つ武将の将星ランクに応じて、効果量が1％ずつ上昇）",
-              "directGrantVerified": true,
-              "directGrantEvidence": "護厳を20秒付与"
-            }
           }
         ]
       },
@@ -289548,7 +288490,7 @@
         "tactics": 0,
         "skills": 0,
         "equipments": 1,
-        "statusEffects": 6,
+        "statusEffects": 5,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -289557,9 +288499,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 8
+        "sourceRefs": 7
       },
-      "totalRelatedCount": 16
+      "totalRelatedCount": 14
     },
     {
       "category": "skills",
@@ -290870,20 +289812,6 @@
         "statusEffects": [
           {
             "category": "statusEffects",
-            "name": "攻撃変化(弱化)",
-            "source": "parameter_summary_index",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "攻撃が上昇Ⅳ-Ⅴ- 象破を持つ武将 武将特徴 / 所持技能UR祝融天賦1200",
-            "parameter": "攻撃",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "攻撃変化(強化)",
             "source": "parameter_summary_index",
             "groupKey": "selfAbilityBuff",
@@ -290960,22 +289888,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "攻撃変化(弱化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "攻撃変化(弱化)",
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "攻撃が上昇Ⅳ-Ⅴ- 象破を持つ武将 武将特徴 / 所持技能UR祝融天賦1200",
-              "parameter": "攻撃"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "攻撃変化(強化)",
             "source": "parameter_summary_index",
             "detail": {
@@ -291029,7 +289941,7 @@
         "tactics": 0,
         "skills": 0,
         "equipments": 1,
-        "statusEffects": 4,
+        "statusEffects": 3,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -291038,9 +289950,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 6
+        "sourceRefs": 5
       },
-      "totalRelatedCount": 12
+      "totalRelatedCount": 10
     },
     {
       "category": "skills",
@@ -292346,20 +291258,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "防御変化(強化)",
-            "source": "parameter_summary_index",
-            "groupKey": "selfAbilityBuff",
-            "groupLabel": "自部隊能力強化",
-            "targetSide": "self",
-            "direction": "buff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "防御が上昇▼この技能を持つ武将が戦法を発動後 ●自身1",
-            "parameter": "防御",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "機動変化(強化)",
             "source": "parameter_summary_index",
             "groupKey": "selfAbilityBuff",
@@ -292440,22 +291338,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "防御変化(強化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "防御変化(強化)",
-              "groupKey": "selfAbilityBuff",
-              "groupLabel": "自部隊能力強化",
-              "targetSide": "self",
-              "direction": "buff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "防御が上昇▼この技能を持つ武将が戦法を発動後 ●自身1",
-              "parameter": "防御"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "機動変化(強化)",
             "source": "parameter_summary_index",
             "detail": {
@@ -292477,7 +291359,7 @@
         "tactics": 0,
         "skills": 0,
         "equipments": 1,
-        "statusEffects": 4,
+        "statusEffects": 3,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -292486,9 +291368,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 6
+        "sourceRefs": 5
       },
-      "totalRelatedCount": 12
+      "totalRelatedCount": 10
     },
     {
       "category": "skills",
@@ -309291,20 +308173,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "被ダメージ変化(強化)",
-            "source": "parameter_summary_index",
-            "groupKey": "selfAbilityBuff",
-            "groupLabel": "自部隊能力強化",
-            "targetSide": "self",
-            "direction": "buff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "被ダメージを軽減 ●この技能を持つ武将の戦法によって発生する強化解除の個数+2",
-            "parameter": "被ダメージ",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "攻撃変化(強化)",
             "source": "parameter_summary_index",
             "groupKey": "selfAbilityBuff",
@@ -309400,22 +308268,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "被ダメージ変化(強化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "被ダメージ変化(強化)",
-              "groupKey": "selfAbilityBuff",
-              "groupLabel": "自部隊能力強化",
-              "targetSide": "self",
-              "direction": "buff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "被ダメージを軽減 ●この技能を持つ武将の戦法によって発生する強化解除の個数+2",
-              "parameter": "被ダメージ"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "攻撃変化(強化)",
             "source": "parameter_summary_index",
             "detail": {
@@ -309453,7 +308305,7 @@
         "tactics": 0,
         "skills": 0,
         "equipments": 1,
-        "statusEffects": 5,
+        "statusEffects": 4,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -309462,9 +308314,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 7
+        "sourceRefs": 6
       },
-      "totalRelatedCount": 14
+      "totalRelatedCount": 12
     },
     {
       "category": "skills",
@@ -311721,20 +310573,6 @@
         "statusEffects": [
           {
             "category": "statusEffects",
-            "name": "戦法威力変化(強化)",
-            "source": "parameter_summary_index",
-            "groupKey": "selfAbilityBuff",
-            "groupLabel": "自部隊能力強化",
-            "targetSide": "self",
-            "direction": "buff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "戦法威力）を避ける ●この技能を持つ武将の戦法の基礎威力+50%",
-            "parameter": "戦法威力",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "被ダメージ変化(強化)",
             "source": "parameter_summary_index",
             "groupKey": "selfAbilityBuff",
@@ -311839,22 +310677,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "戦法威力変化(強化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "戦法威力変化(強化)",
-              "groupKey": "selfAbilityBuff",
-              "groupLabel": "自部隊能力強化",
-              "targetSide": "self",
-              "direction": "buff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "戦法威力）を避ける ●この技能を持つ武将の戦法の基礎威力+50%",
-              "parameter": "戦法威力"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "被ダメージ変化(強化)",
             "source": "parameter_summary_index",
             "detail": {
@@ -311934,7 +310756,7 @@
         "tactics": 0,
         "skills": 0,
         "equipments": 1,
-        "statusEffects": 5,
+        "statusEffects": 4,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -311943,9 +310765,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 7
+        "sourceRefs": 6
       },
-      "totalRelatedCount": 14
+      "totalRelatedCount": 12
     },
     {
       "category": "skills",
@@ -321769,20 +320591,6 @@
         "statusEffects": [
           {
             "category": "statusEffects",
-            "name": "対物特効変化(弱化)",
-            "source": "parameter_summary_index",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "対物特効）を避けるⅡ-Ⅲ-Ⅳ-Ⅴ- 活爛を持つ武将 武将特徴 / 所持技能UR董白天賦1000",
-            "parameter": "対物特効",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "攻撃低下回避[活爛]",
             "source": "self_countermeasure_index",
             "groupKey": "selfResistanceBuff",
@@ -321868,22 +320676,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "対物特効変化(弱化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "対物特効変化(弱化)",
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "対物特効）を避けるⅡ-Ⅲ-Ⅳ-Ⅴ- 活爛を持つ武将 武将特徴 / 所持技能UR董白天賦1000",
-              "parameter": "対物特効"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "攻撃低下回避[活爛]",
             "source": "self_countermeasure_index",
             "detail": {
@@ -321952,7 +320744,7 @@
         "tactics": 0,
         "skills": 0,
         "equipments": 0,
-        "statusEffects": 4,
+        "statusEffects": 3,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -321961,9 +320753,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 5
+        "sourceRefs": 4
       },
-      "totalRelatedCount": 10
+      "totalRelatedCount": 8
     },
     {
       "category": "skills",
@@ -345390,20 +344182,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "攻撃変化(弱化)",
-            "source": "parameter_summary_index",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "攻撃を行うⅡ-Ⅲ-Ⅳ-Ⅴ- 義志を持つ武将 武将特徴 / 所持技能LR趙雲天賦1400",
-            "parameter": "攻撃",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "防御変化(強化)",
             "source": "parameter_summary_index",
             "groupKey": "selfAbilityBuff",
@@ -345472,22 +344250,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "攻撃変化(弱化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "攻撃変化(弱化)",
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "攻撃を行うⅡ-Ⅲ-Ⅳ-Ⅴ- 義志を持つ武将 武将特徴 / 所持技能LR趙雲天賦1400",
-              "parameter": "攻撃"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "防御変化(強化)",
             "source": "parameter_summary_index",
             "detail": {
@@ -345509,7 +344271,7 @@
         "tactics": 0,
         "skills": 0,
         "equipments": 0,
-        "statusEffects": 4,
+        "statusEffects": 3,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -345518,9 +344280,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 5
+        "sourceRefs": 4
       },
-      "totalRelatedCount": 10
+      "totalRelatedCount": 8
     },
     {
       "category": "skills",
@@ -357678,20 +356440,6 @@
         "statusEffects": [
           {
             "category": "statusEffects",
-            "name": "被ダメージ変化(強化)",
-            "source": "parameter_summary_index",
-            "groupKey": "selfAbilityBuff",
-            "groupLabel": "自部隊能力強化",
-            "targetSide": "self",
-            "direction": "buff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "被ダメージを計算するⅡ-Ⅲ-Ⅳ-Ⅴ- 鋼胆を持つ武将 武将特徴 / 所持技能LR張飛天賦1300",
-            "parameter": "被ダメージ",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "防御変化(強化)",
             "source": "parameter_summary_index",
             "groupKey": "selfAbilityBuff",
@@ -357770,22 +356518,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "被ダメージ変化(強化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "被ダメージ変化(強化)",
-              "groupKey": "selfAbilityBuff",
-              "groupLabel": "自部隊能力強化",
-              "targetSide": "self",
-              "direction": "buff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "被ダメージを計算するⅡ-Ⅲ-Ⅳ-Ⅴ- 鋼胆を持つ武将 武将特徴 / 所持技能LR張飛天賦1300",
-              "parameter": "被ダメージ"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "防御変化(強化)",
             "source": "parameter_summary_index",
             "detail": {
@@ -357849,7 +356581,7 @@
         "tactics": 0,
         "skills": 0,
         "equipments": 0,
-        "statusEffects": 4,
+        "statusEffects": 3,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -357858,9 +356590,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 5
+        "sourceRefs": 4
       },
-      "totalRelatedCount": 10
+      "totalRelatedCount": 8
     },
     {
       "category": "skills",
@@ -358716,20 +357448,6 @@
             "matchedText": "会心威力が上昇 ●部隊内（主将/副将/補佐）の自身と好相性の武将数×3%",
             "parameter": "会心威力",
             "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
-            "name": "被ダメージ変化(強化)",
-            "source": "parameter_summary_index",
-            "groupKey": "selfAbilityBuff",
-            "groupLabel": "自部隊能力強化",
-            "targetSide": "self",
-            "direction": "buff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "被ダメージを軽減Ⅳ-Ⅴ- 玲瓏を持つ武将 武将特徴 / 所持技能UR馬雲騄天賦1000",
-            "parameter": "被ダメージ",
-            "displayRole": "direct-status"
           }
         ],
         "formations": [],
@@ -358796,22 +357514,6 @@
               "matchedText": "会心威力が上昇 ●部隊内（主将/副将/補佐）の自身と好相性の武将数×3%",
               "parameter": "会心威力"
             }
-          },
-          {
-            "category": "statusEffects",
-            "name": "被ダメージ変化(強化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "被ダメージ変化(強化)",
-              "groupKey": "selfAbilityBuff",
-              "groupLabel": "自部隊能力強化",
-              "targetSide": "self",
-              "direction": "buff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "被ダメージを軽減Ⅳ-Ⅴ- 玲瓏を持つ武将 武将特徴 / 所持技能UR馬雲騄天賦1000",
-              "parameter": "被ダメージ"
-            }
           }
         ]
       },
@@ -358820,7 +357522,7 @@
         "tactics": 0,
         "skills": 0,
         "equipments": 1,
-        "statusEffects": 3,
+        "statusEffects": 2,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -358829,9 +357531,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 5
+        "sourceRefs": 4
       },
-      "totalRelatedCount": 10
+      "totalRelatedCount": 8
     },
     {
       "category": "skills",
@@ -362938,20 +361640,6 @@
             "matchedText": "防御が上昇Ⅱ■常に ●部隊内（主将/副将/補佐）の騎兵武将の人数×2%",
             "parameter": "防御",
             "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
-            "name": "防御変化(弱化)",
-            "source": "parameter_summary_index",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "防御が上昇Ⅴ- 梟騎を持つ武将 武将特徴 / 所持技能UR馬騰天賦1000",
-            "parameter": "防御",
-            "displayRole": "direct-status"
           }
         ],
         "formations": [],
@@ -363030,22 +361718,6 @@
               "matchedText": "防御が上昇Ⅱ■常に ●部隊内（主将/副将/補佐）の騎兵武将の人数×2%",
               "parameter": "防御"
             }
-          },
-          {
-            "category": "statusEffects",
-            "name": "防御変化(弱化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "防御変化(弱化)",
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "防御が上昇Ⅴ- 梟騎を持つ武将 武将特徴 / 所持技能UR馬騰天賦1000",
-              "parameter": "防御"
-            }
           }
         ]
       },
@@ -363054,7 +361726,7 @@
         "tactics": 0,
         "skills": 0,
         "equipments": 1,
-        "statusEffects": 3,
+        "statusEffects": 2,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -363063,9 +361735,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 6
+        "sourceRefs": 5
       },
-      "totalRelatedCount": 12
+      "totalRelatedCount": 10
     },
     {
       "category": "skills",
@@ -368462,20 +367134,6 @@
             "matchedText": "知力が上昇Ⅱ■常に ●部隊内（主将/副将/補佐）の自身と好相性の武将数×2%",
             "parameter": "知力",
             "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
-            "name": "知力変化(弱化)",
-            "source": "parameter_summary_index",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "知力が上昇Ⅳ-Ⅴ- 団結を持つ武将 武将特徴 / 所持技能UR孫権天賦1000",
-            "parameter": "知力",
-            "displayRole": "direct-status"
           }
         ],
         "formations": [],
@@ -368542,22 +367200,6 @@
               "matchedText": "知力が上昇Ⅱ■常に ●部隊内（主将/副将/補佐）の自身と好相性の武将数×2%",
               "parameter": "知力"
             }
-          },
-          {
-            "category": "statusEffects",
-            "name": "知力変化(弱化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "知力変化(弱化)",
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "知力が上昇Ⅳ-Ⅴ- 団結を持つ武将 武将特徴 / 所持技能UR孫権天賦1000",
-              "parameter": "知力"
-            }
           }
         ]
       },
@@ -368566,7 +367208,7 @@
         "tactics": 0,
         "skills": 0,
         "equipments": 1,
-        "statusEffects": 3,
+        "statusEffects": 2,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -368575,9 +367217,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 5
+        "sourceRefs": 4
       },
-      "totalRelatedCount": 10
+      "totalRelatedCount": 8
     },
     {
       "category": "skills",
@@ -377308,20 +375950,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "攻撃変化(弱化)",
-            "source": "parameter_summary_index",
-            "groupKey": "enemyAbilityDebuff",
-            "groupLabel": "敵部隊能力低下",
-            "targetSide": "enemy",
-            "direction": "debuff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "攻撃を行うⅤ- 雄略を持つ武将 武将特徴 / 所持技能UR孫策天賦1100",
-            "parameter": "攻撃",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "防御変化(強化)",
             "source": "parameter_summary_index",
             "groupKey": "selfAbilityBuff",
@@ -377430,22 +376058,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "攻撃変化(弱化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "攻撃変化(弱化)",
-              "groupKey": "enemyAbilityDebuff",
-              "groupLabel": "敵部隊能力低下",
-              "targetSide": "enemy",
-              "direction": "debuff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "攻撃を行うⅤ- 雄略を持つ武将 武将特徴 / 所持技能UR孫策天賦1100",
-              "parameter": "攻撃"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "防御変化(強化)",
             "source": "parameter_summary_index",
             "detail": {
@@ -377467,7 +376079,7 @@
         "tactics": 0,
         "skills": 0,
         "equipments": 2,
-        "statusEffects": 5,
+        "statusEffects": 4,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -377476,9 +376088,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 8
+        "sourceRefs": 7
       },
-      "totalRelatedCount": 16
+      "totalRelatedCount": 14
     },
     {
       "category": "skills",
@@ -408946,20 +407558,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "攻撃変化(強化)",
-            "source": "parameter_summary_index",
-            "groupKey": "selfAbilityBuff",
-            "groupLabel": "自部隊能力強化",
-            "targetSide": "self",
-            "direction": "buff",
-            "relationType": "",
-            "sourcePartType": "semantic-owner-parameter",
-            "matchedText": "攻撃が上昇▼この技能を持つ武将が戦法を発動した時 ●自身1",
-            "parameter": "攻撃",
-            "displayRole": "direct-status"
-          },
-          {
-            "category": "statusEffects",
             "name": "防御変化(強化)",
             "source": "parameter_summary_index",
             "groupKey": "selfAbilityBuff",
@@ -409200,22 +407798,6 @@
           },
           {
             "category": "statusEffects",
-            "name": "攻撃変化(強化)",
-            "source": "parameter_summary_index",
-            "detail": {
-              "name": "攻撃変化(強化)",
-              "groupKey": "selfAbilityBuff",
-              "groupLabel": "自部隊能力強化",
-              "targetSide": "self",
-              "direction": "buff",
-              "relationType": "",
-              "sourcePartType": "semantic-owner-parameter",
-              "matchedText": "攻撃が上昇▼この技能を持つ武将が戦法を発動した時 ●自身1",
-              "parameter": "攻撃"
-            }
-          },
-          {
-            "category": "statusEffects",
             "name": "防御変化(強化)",
             "source": "parameter_summary_index",
             "detail": {
@@ -409237,7 +407819,7 @@
         "tactics": 0,
         "skills": 0,
         "equipments": 6,
-        "statusEffects": 5,
+        "statusEffects": 4,
         "formations": 0,
         "warhorses": 0,
         "warhorseSkills": 0,
@@ -409246,9 +407828,9 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "sourceRefs": 19
+        "sourceRefs": 18
       },
-      "totalRelatedCount": 38
+      "totalRelatedCount": 36
     },
     {
       "category": "skills",

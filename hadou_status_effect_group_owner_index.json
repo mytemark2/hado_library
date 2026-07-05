@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-07-05T05:41:47.755Z",
+  "generatedAt": "2026-07-05T06:36:32.910Z",
   "dataSetId": "2026-07-05T05:00:27.984Z",
-  "crawlerVersion": "1.0.5.26",
+  "crawlerVersion": "1.0.5.27",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
     "hadou_generals.json",
@@ -77,9 +77,9 @@
   "kind": "status_effect_group_owner_index",
   "qualityAudit": {
     "groupCount": 6,
-    "totalOwnerCount": 6171,
-    "ownerRelationCount": 6171,
-    "distinctOwnerCount": 2464,
+    "totalOwnerCount": 6124,
+    "ownerRelationCount": 6124,
+    "distinctOwnerCount": 2444,
     "countRecalculatedAfterRelatedLinkRebuild": true,
     "relatedLinkOwnerEnriched": true,
     "rebuildFromRelatedLinkIndex": true,
@@ -6674,15 +6674,6 @@
           },
           {
             "category": "generals",
-            "name": "UR高長恭（こうちょうきょう）",
-            "displayName": "UR高長恭（こうちょうきょう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "防御変化(強化)",
-            "matchedText": "防御が上昇▼この技能を持つ武将が戦法を発動した時 ●自身1"
-          },
-          {
-            "category": "generals",
             "name": "UR司馬徽（しばき）",
             "displayName": "UR司馬徽（しばき）",
             "source": "related_link_index",
@@ -11822,15 +11813,6 @@
           },
           {
             "category": "generals",
-            "name": "韓遂（かんすい）",
-            "displayName": "韓遂（かんすい）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "知力変化(強化)",
-            "matchedText": "知力を強化できる武将 韓遂は味方2"
-          },
-          {
-            "category": "generals",
             "name": "韓当（かんとう）",
             "displayName": "韓当（かんとう）",
             "source": "related_link_index",
@@ -12848,15 +12830,6 @@
           },
           {
             "category": "generals",
-            "name": "曹植（そうしょく）",
-            "displayName": "曹植（そうしょく）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "知力変化(強化)",
-            "matchedText": "知力を強化できる武将 曹植は味方3"
-          },
-          {
-            "category": "generals",
             "name": "曹真（そうしん）",
             "displayName": "曹真（そうしん）",
             "source": "related_link_index",
@@ -13824,15 +13797,6 @@
             "displayName": "杜濩（とこ）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "会心威力変化(強化)",
-            "matchedText": "会心威力を強化できる武将 杜濩は味方3"
-          },
-          {
-            "category": "generals",
-            "name": "杜濩（とこ）",
-            "displayName": "杜濩（とこ）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃変化(強化)",
             "matchedText": "攻撃が上昇する会心威力変化味方 / 中10"
           },
@@ -14076,15 +14040,6 @@
             "displayName": "文醜（ぶんしゅう）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "攻撃速度変化(強化)",
-            "matchedText": "攻撃速度の強化ができる武将 文醜は戦法でダメージを与えつつ、味方騎兵の攻撃速度を100%"
-          },
-          {
-            "category": "generals",
-            "name": "文醜（ぶんしゅう）",
-            "displayName": "文醜（ぶんしゅう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "会心発生変化(強化)",
             "matchedText": "会心発生+10%"
           },
@@ -14321,15 +14276,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃変化(強化)",
             "matchedText": "攻撃+7%"
-          },
-          {
-            "category": "generals",
-            "name": "尤突（ゆうとつ）",
-            "displayName": "尤突（ゆうとつ）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "兵器速度変化(強化)",
-            "matchedText": "兵器速度デバフを付与できる武将 尤突は戦法で敵3"
           },
           {
             "category": "generals",
@@ -24421,15 +24367,6 @@
             "displayName": "威風",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "攻撃変化(強化)",
-            "matchedText": "攻撃が上昇▼この技能を持つ武将が戦法を発動した時 ●自身1"
-          },
-          {
-            "category": "skills",
-            "name": "威風",
-            "displayName": "威風",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "防御変化(強化)",
             "matchedText": "防御+3%"
           },
@@ -24657,15 +24594,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "防御変化(強化)",
             "matchedText": "防御+5%"
-          },
-          {
-            "category": "skills",
-            "name": "英毅",
-            "displayName": "英毅",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-status-grant",
-            "statusEffectName": "護厳",
-            "matchedText": "護厳"
           },
           {
             "category": "skills",
@@ -27247,15 +27175,6 @@
             "displayName": "鋼胆",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージを計算するⅡ-Ⅲ-Ⅳ-Ⅴ- 鋼胆を持つ武将 武将特徴 / 所持技能LR張飛天賦1300"
-          },
-          {
-            "category": "skills",
-            "name": "鋼胆",
-            "displayName": "鋼胆",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "防御変化(強化)",
             "matchedText": "防御+10%"
           },
@@ -28599,15 +28518,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "与ダメージ変化(強化)",
             "matchedText": "与ダメージ+20%"
-          },
-          {
-            "category": "skills",
-            "name": "象突",
-            "displayName": "象突",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "防御変化(強化)",
-            "matchedText": "防御が上昇▼この技能を持つ武将が戦法を発動後 ●自身1"
           },
           {
             "category": "skills",
@@ -31972,15 +31882,6 @@
             "displayName": "夢蛇",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "戦法威力変化(強化)",
-            "matchedText": "戦法威力）を避ける ●この技能を持つ武将の戦法の基礎威力+50%"
-          },
-          {
-            "category": "skills",
-            "name": "夢蛇",
-            "displayName": "夢蛇",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
             "matchedText": "被ダメージを軽減（知力500"
           },
@@ -32926,15 +32827,6 @@
             "displayName": "涼騎",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージを軽減 ●この技能を持つ武将の戦法によって発生する強化解除の個数+2"
-          },
-          {
-            "category": "skills",
-            "name": "涼騎",
-            "displayName": "涼騎",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃変化(強化)",
             "matchedText": "攻撃+15%"
           },
@@ -32991,15 +32883,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "会心威力変化(強化)",
             "matchedText": "会心威力が上昇 ●部隊内（主将/副将/補佐）の自身と好相性の武将数×3%"
-          },
-          {
-            "category": "skills",
-            "name": "玲瓏",
-            "displayName": "玲瓏",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージを軽減Ⅳ-Ⅴ- 玲瓏を持つ武将 武将特徴 / 所持技能UR馬雲騄天賦1000"
           },
           {
             "category": "skills",
@@ -34106,15 +33989,15 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 1696,
+        "generals": 1690,
         "tactics": 983,
-        "skills": 1091,
+        "skills": 1084,
         "equipments": 8,
         "statusEffects": 0
       },
-      "totalOwnerCount": 3778,
+      "totalOwnerCount": 3765,
       "source": "related_link_index",
-      "ownerRelationCount": 3778,
+      "ownerRelationCount": 3765,
       "distinctOwnerCount": 1269
     },
     {
@@ -38504,15 +38387,6 @@
             "name": "UR虞翻（ぐほん）",
             "displayName": "UR虞翻（ぐほん）",
             "source": "related_link_index",
-            "sourcePartType": "semantic-owner-status-grant",
-            "statusEffectName": "会心耐性",
-            "matchedText": "会心耐性"
-          },
-          {
-            "category": "generals",
-            "name": "UR虞翻（ぐほん）",
-            "displayName": "UR虞翻（ぐほん）",
-            "source": "related_link_index",
             "sourcePartType": "self-countermeasure-skill",
             "statusEffectName": "強化奪取回避[看透]",
             "matchedText": "自身1部隊にかかる強化奪取を避ける"
@@ -40039,15 +39913,6 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "攻撃無効",
             "matchedText": "攻撃無効"
-          },
-          {
-            "category": "tactics",
-            "name": "狂直尽言",
-            "displayName": "狂直尽言",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-status-grant",
-            "statusEffectName": "会心耐性",
-            "matchedText": "会心耐性"
           },
           {
             "category": "tactics",
@@ -46529,16 +46394,16 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 515,
-        "tactics": 150,
+        "generals": 514,
+        "tactics": 149,
         "skills": 402,
         "equipments": 195,
         "statusEffects": 0
       },
-      "totalOwnerCount": 1262,
+      "totalOwnerCount": 1260,
       "source": "related_link_index",
-      "ownerRelationCount": 1262,
-      "distinctOwnerCount": 432
+      "ownerRelationCount": 1260,
+      "distinctOwnerCount": 431
     },
     {
       "groupKey": "enemyAbilityDebuff",
@@ -46717,15 +46582,6 @@
             "sourcePartType": "direct-ability-variation-row",
             "statusEffectName": "攻撃速度変化(弱化)",
             "matchedText": "攻撃速度変化 / 敵 / 中 15秒"
-          },
-          {
-            "category": "generals",
-            "name": "LR夏侯淵・盾兵（かこうえん）",
-            "displayName": "LR夏侯淵・盾兵（かこうえん）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "被ダメージ変化(弱化)",
-            "matchedText": "被ダメージを計算する▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方4"
           },
           {
             "category": "generals",
@@ -46987,15 +46843,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "知力変化(弱化)",
             "matchedText": "知力が低下する乱炎敵 / 中30"
-          },
-          {
-            "category": "generals",
-            "name": "LR小喬（しょうきょう）",
-            "displayName": "LR小喬（しょうきょう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-status-grant",
-            "statusEffectName": "乱炎",
-            "matchedText": "乱炎"
           },
           {
             "category": "generals",
@@ -47953,24 +47800,6 @@
           },
           {
             "category": "generals",
-            "name": "UR虞翻（ぐほん）",
-            "displayName": "UR虞翻（ぐほん）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-status-grant",
-            "statusEffectName": "不利脆弱",
-            "matchedText": "不利脆弱"
-          },
-          {
-            "category": "generals",
-            "name": "UR虞翻（ぐほん）",
-            "displayName": "UR虞翻（ぐほん）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-status-grant",
-            "statusEffectName": "不利消沈",
-            "matchedText": "不利消沈"
-          },
-          {
-            "category": "generals",
             "name": "UR厳顔（げんがん）",
             "displayName": "UR厳顔（げんがん）",
             "source": "related_link_index",
@@ -48793,15 +48622,6 @@
             "name": "UR袁術（えんじゅつ）",
             "displayName": "UR袁術（えんじゅつ）",
             "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "知力変化(弱化)",
-            "matchedText": "知力が上昇 尊立を持つ武将UR袁術 栄勢 Ⅰ■常に ●通常攻撃・戦法による被ダメージ-10%"
-          },
-          {
-            "category": "generals",
-            "name": "UR袁術（えんじゅつ）",
-            "displayName": "UR袁術（えんじゅつ）",
-            "source": "related_link_index",
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "異心",
             "matchedText": "異心"
@@ -49015,15 +48835,6 @@
           },
           {
             "category": "generals",
-            "name": "王元姫（おうげんき）",
-            "displayName": "王元姫（おうげんき）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "防御変化(弱化)",
-            "matchedText": "防御が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 励策を持つ武将王元姫 助言 Ⅰ■参軍の際 ●部隊の知力+2%"
-          },
-          {
-            "category": "generals",
             "name": "黄蓋（こうがい）",
             "displayName": "黄蓋（こうがい）",
             "source": "related_link_index",
@@ -49168,30 +48979,12 @@
           },
           {
             "category": "generals",
-            "name": "覚醒関索（かんさく）",
-            "displayName": "覚醒関索（かんさく）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "攻撃変化(弱化)",
-            "matchedText": "攻撃が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 剛華を持つ武将覚醒関索 督戦 Ⅰ■参軍の際 ●部隊の攻撃+2%"
-          },
-          {
-            "category": "generals",
             "name": "覚醒関平（かんぺい）",
             "displayName": "覚醒関平（かんぺい）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "会心威力変化(弱化)",
             "matchedText": "会心威力が上昇\"],[\"Ⅳ\",\"-\"],[\"Ⅴ\",\"-\"]]} {\"index\":20"
-          },
-          {
-            "category": "generals",
-            "name": "覚醒厳顔（げんがん）",
-            "displayName": "覚醒厳顔（げんがん）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "撃心威力変化(弱化)",
-            "matchedText": "撃心威力が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 老鋭を持つ武将覚醒厳顔 激励 Ⅰ■参軍の際 ●部隊の防御+2%"
           },
           {
             "category": "generals",
@@ -49282,15 +49075,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "防御変化(弱化)",
             "matchedText": "防御-9％"
-          },
-          {
-            "category": "generals",
-            "name": "覚醒曹彰（そうしょう）",
-            "displayName": "覚醒曹彰（そうしょう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "攻撃変化(弱化)",
-            "matchedText": "攻撃が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 崩突を持つ武将覚醒曹彰 督戦 Ⅰ■参軍の際 ●部隊の攻撃+2%"
           },
           {
             "category": "generals",
@@ -49564,24 +49348,6 @@
           },
           {
             "category": "generals",
-            "name": "皇甫嵩（こうほすう）",
-            "displayName": "皇甫嵩（こうほすう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "攻撃変化(弱化)",
-            "matchedText": "攻撃が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 討滅を持つ武将皇甫嵩 増兵 Ⅰ■参軍の際 ●部隊の兵力+2%"
-          },
-          {
-            "category": "generals",
-            "name": "麹義（きくぎ）",
-            "displayName": "麹義（きくぎ）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "与ダメージ変化(弱化)",
-            "matchedText": "与ダメージが上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 遠撃を持つ武将麹義 増兵 Ⅰ■参軍の際 ●部隊の兵力+2%"
-          },
-          {
-            "category": "generals",
             "name": "麹義（きくぎ）",
             "displayName": "麹義（きくぎ）",
             "source": "related_link_index",
@@ -49714,15 +49480,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "防御変化(弱化)",
             "matchedText": "防御-9％"
-          },
-          {
-            "category": "generals",
-            "name": "徐晃（じょこう）",
-            "displayName": "徐晃（じょこう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "与ダメージ変化(弱化)",
-            "matchedText": "与ダメージが上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 猛斧を持つ武将徐晃 先導 Ⅰ■参軍の際 ●部隊の機動+2%"
           },
           {
             "category": "generals",
@@ -50086,15 +49843,6 @@
           },
           {
             "category": "generals",
-            "name": "董卓（とうたく）",
-            "displayName": "董卓（とうたく）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "攻撃変化(弱化)",
-            "matchedText": "攻撃が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 驕恣を持つ武将董卓 督戦 Ⅰ■参軍の際 ●部隊の攻撃+2%"
-          },
-          {
-            "category": "generals",
             "name": "董白（とうはく）",
             "displayName": "董白（とうはく）",
             "source": "related_link_index",
@@ -50110,15 +49858,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "防御変化(弱化)",
             "matchedText": "防御が低下する 勇猛絢爛 兵科効果系統攻撃属性なしなしなし効果自身1"
-          },
-          {
-            "category": "generals",
-            "name": "馬騰（ばとう）",
-            "displayName": "馬騰（ばとう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "防御変化(弱化)",
-            "matchedText": "防御が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 騎突を持つ武将馬騰 増兵 Ⅰ■参軍の際 ●部隊の兵力+2%"
           },
           {
             "category": "generals",
@@ -50311,15 +50050,6 @@
           },
           {
             "category": "generals",
-            "name": "劉備（りゅうび）",
-            "displayName": "劉備（りゅうび）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "会心発生変化(弱化)",
-            "matchedText": "会心発生が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 徳義を持つ武将劉備 激励 Ⅰ■参軍の際 ●部隊の防御+2%"
-          },
-          {
-            "category": "generals",
             "name": "劉冑（りゅうちゅう）",
             "displayName": "劉冑（りゅうちゅう）",
             "source": "related_link_index",
@@ -50407,15 +50137,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃変化(弱化)",
             "matchedText": "攻撃が低下する 奚泥の技能 南蛮1"
-          },
-          {
-            "category": "generals",
-            "name": "姜維（きょうい）",
-            "displayName": "姜維（きょうい）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "攻撃速度変化(弱化)",
-            "matchedText": "攻撃速度が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 奔突を持つ武将姜維 助言 Ⅰ■参軍の際 ●部隊の知力+2%"
           },
           {
             "category": "generals",
@@ -50531,15 +50252,6 @@
             "displayName": "荀彧（じゅんいく）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "与ダメージ変化(弱化)",
-            "matchedText": "与ダメージが上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 献策を持つ武将荀彧 激励 Ⅰ■参軍の際 ●部隊の防御+2%"
-          },
-          {
-            "category": "generals",
-            "name": "荀彧（じゅんいく）",
-            "displayName": "荀彧（じゅんいく）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "防御変化(弱化)",
             "matchedText": "防御-9％"
           },
@@ -50612,26 +50324,8 @@
             "displayName": "魏延（ぎえん）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "防御変化(弱化)",
-            "matchedText": "防御が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 連剛を持つ武将魏延 激励 Ⅰ■参軍の際 ●部隊の防御+2%"
-          },
-          {
-            "category": "generals",
-            "name": "魏延（ぎえん）",
-            "displayName": "魏延（ぎえん）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "知力変化(弱化)",
             "matchedText": "知力が低下する 反骨の蛮勇 兵科効果系統攻撃属性歩兵物理なし効果自身1"
-          },
-          {
-            "category": "generals",
-            "name": "鮑三娘（ほうさんじょう）",
-            "displayName": "鮑三娘（ほうさんじょう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "与ダメージ変化(弱化)",
-            "matchedText": "与ダメージが上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 添花を持つ武将鮑三娘 督戦 Ⅰ■参軍の際 ●部隊の攻撃+2%"
           },
           {
             "category": "generals",
@@ -50931,24 +50625,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃変化(弱化)",
             "matchedText": "攻撃が低下する不利脆弱敵 / 中15"
-          },
-          {
-            "category": "tactics",
-            "name": "狂直尽言",
-            "displayName": "狂直尽言",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-status-grant",
-            "statusEffectName": "不利脆弱",
-            "matchedText": "不利脆弱"
-          },
-          {
-            "category": "tactics",
-            "name": "狂直尽言",
-            "displayName": "狂直尽言",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-status-grant",
-            "statusEffectName": "不利消沈",
-            "matchedText": "不利消沈"
           },
           {
             "category": "tactics",
@@ -51717,15 +51393,6 @@
           },
           {
             "category": "tactics",
-            "name": "明月清麗",
-            "displayName": "明月清麗",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-status-grant",
-            "statusEffectName": "乱炎",
-            "matchedText": "乱炎"
-          },
-          {
-            "category": "tactics",
             "name": "明察天断",
             "displayName": "明察天断",
             "source": "related_link_index",
@@ -52133,15 +51800,6 @@
           },
           {
             "category": "skills",
-            "name": "活爛",
-            "displayName": "活爛",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(弱化)",
-            "matchedText": "対物特効）を避けるⅡ-Ⅲ-Ⅳ-Ⅴ- 活爛を持つ武将 武将特徴 / 所持技能UR董白天賦1000"
-          },
-          {
-            "category": "skills",
             "name": "堪耐",
             "displayName": "堪耐",
             "source": "related_link_index",
@@ -52256,15 +51914,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(弱化)",
             "matchedText": "被ダメージを計算する ●出陣後最初の通常攻撃時、対象を含む敵2"
-          },
-          {
-            "category": "skills",
-            "name": "義志",
-            "displayName": "義志",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "攻撃変化(弱化)",
-            "matchedText": "攻撃を行うⅡ-Ⅲ-Ⅳ-Ⅴ- 義志を持つ武将 武将特徴 / 所持技能LR趙雲天賦1400"
           },
           {
             "category": "skills",
@@ -52538,15 +52187,6 @@
           },
           {
             "category": "skills",
-            "name": "象破",
-            "displayName": "象破",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "攻撃変化(弱化)",
-            "matchedText": "攻撃が上昇Ⅳ-Ⅴ- 象破を持つ武将 武将特徴 / 所持技能UR祝融天賦1200"
-          },
-          {
-            "category": "skills",
             "name": "深謀",
             "displayName": "深謀",
             "source": "related_link_index",
@@ -52607,15 +52247,6 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "乱炎",
             "matchedText": "乱炎"
-          },
-          {
-            "category": "skills",
-            "name": "征定",
-            "displayName": "征定",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "被ダメージ変化(弱化)",
-            "matchedText": "被ダメージを計算する▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方4"
           },
           {
             "category": "skills",
@@ -52745,15 +52376,6 @@
           },
           {
             "category": "skills",
-            "name": "尊立",
-            "displayName": "尊立",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "知力変化(弱化)",
-            "matchedText": "知力が上昇Ⅱ-Ⅲ-Ⅳ-Ⅴ- 尊立を持つ武将 武将特徴 / 所持技能UR袁術天賦1000"
-          },
-          {
-            "category": "skills",
             "name": "太公望",
             "displayName": "太公望",
             "source": "related_link_index",
@@ -52787,15 +52409,6 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "潜影",
             "matchedText": "潜影"
-          },
-          {
-            "category": "skills",
-            "name": "団結",
-            "displayName": "団結",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "知力変化(弱化)",
-            "matchedText": "知力が上昇Ⅳ-Ⅴ- 団結を持つ武将 武将特徴 / 所持技能UR孫権天賦1000"
           },
           {
             "category": "skills",
@@ -53042,15 +52655,6 @@
           },
           {
             "category": "skills",
-            "name": "雄略",
-            "displayName": "雄略",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "攻撃変化(弱化)",
-            "matchedText": "攻撃を行うⅤ- 雄略を持つ武将 武将特徴 / 所持技能UR孫策天賦1100"
-          },
-          {
-            "category": "skills",
             "name": "洛神",
             "displayName": "洛神",
             "source": "related_link_index",
@@ -53240,15 +52844,6 @@
           },
           {
             "category": "skills",
-            "name": "梟騎",
-            "displayName": "梟騎",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "防御変化(弱化)",
-            "matchedText": "防御が上昇Ⅴ- 梟騎を持つ武将 武将特徴 / 所持技能UR馬騰天賦1000"
-          },
-          {
-            "category": "skills",
             "name": "眩乱",
             "displayName": "眩乱",
             "source": "related_link_index",
@@ -53307,16 +52902,16 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 457,
-        "tactics": 145,
-        "skills": 148,
+        "generals": 438,
+        "tactics": 142,
+        "skills": 140,
         "equipments": 0,
         "statusEffects": 0
       },
-      "totalOwnerCount": 750,
+      "totalOwnerCount": 720,
       "source": "related_link_index",
-      "ownerRelationCount": 750,
-      "distinctOwnerCount": 436
+      "ownerRelationCount": 720,
+      "distinctOwnerCount": 419
     },
     {
       "groupKey": "enemyStateDebuff",
@@ -53531,15 +53126,6 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "正転",
             "matchedText": "正転"
-          },
-          {
-            "category": "generals",
-            "name": "LR小喬（しょうきょう）",
-            "displayName": "LR小喬（しょうきょう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-status-grant",
-            "statusEffectName": "強化無効",
-            "matchedText": "強化無効"
           },
           {
             "category": "generals",
@@ -54967,15 +54553,6 @@
           },
           {
             "category": "tactics",
-            "name": "明月清麗",
-            "displayName": "明月清麗",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-status-grant",
-            "statusEffectName": "強化無効",
-            "matchedText": "強化無効"
-          },
-          {
-            "category": "tactics",
             "name": "猛攻",
             "displayName": "猛攻",
             "source": "related_link_index",
@@ -55594,16 +55171,16 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 117,
-        "tactics": 80,
+        "generals": 116,
+        "tactics": 79,
         "skills": 54,
         "equipments": 0,
         "statusEffects": 0
       },
-      "totalOwnerCount": 251,
+      "totalOwnerCount": 249,
       "source": "related_link_index",
-      "ownerRelationCount": 251,
-      "distinctOwnerCount": 203
+      "ownerRelationCount": 249,
+      "distinctOwnerCount": 201
     },
     {
       "groupKey": "enemyResistanceDebuff",
