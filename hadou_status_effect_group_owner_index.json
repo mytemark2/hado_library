@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-07-05T05:00:28.021Z",
-  "dataSetId": "2026-06-14T06:09:45.844Z",
-  "crawlerVersion": "1.0.5.25",
+  "generatedAt": "2026-07-05T05:41:47.755Z",
+  "dataSetId": "2026-07-05T05:00:27.984Z",
+  "crawlerVersion": "1.0.5.26",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
     "hadou_generals.json",
@@ -77,9 +77,9 @@
   "kind": "status_effect_group_owner_index",
   "qualityAudit": {
     "groupCount": 6,
-    "totalOwnerCount": 6232,
-    "ownerRelationCount": 6232,
-    "distinctOwnerCount": 2476,
+    "totalOwnerCount": 6171,
+    "ownerRelationCount": 6171,
+    "distinctOwnerCount": 2464,
     "countRecalculatedAfterRelatedLinkRebuild": true,
     "relatedLinkOwnerEnriched": true,
     "rebuildFromRelatedLinkIndex": true,
@@ -93,15 +93,6 @@
       "direction": "buff",
       "owners": {
         "generals": [
-          {
-            "category": "generals",
-            "name": "LRヤン（）",
-            "displayName": "LRヤン（）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を60%"
-          },
           {
             "category": "generals",
             "name": "LRヤン（）",
@@ -416,15 +407,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "兵器速度変化(強化)",
             "matchedText": "兵器速度が200％"
-          },
-          {
-            "category": "generals",
-            "name": "LR黄月英（こうげつえい）",
-            "displayName": "LR黄月英（こうげつえい）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を100％"
           },
           {
             "category": "generals",
@@ -1458,15 +1440,6 @@
             "displayName": "LR皇甫嵩（こうほすう）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効、火属性威力を100％"
-          },
-          {
-            "category": "generals",
-            "name": "LR皇甫嵩（こうほすう）",
-            "displayName": "LR皇甫嵩（こうほすう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃変化(強化)",
             "matchedText": "攻撃+5%"
           },
@@ -1604,15 +1577,6 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "憤怒",
             "matchedText": "憤怒"
-          },
-          {
-            "category": "generals",
-            "name": "LR高順（こうじゅん）",
-            "displayName": "LR高順（こうじゅん）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効+350%"
           },
           {
             "category": "generals",
@@ -1946,15 +1910,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "戦法速度変化(強化)",
             "matchedText": "戦法速度+15%"
-          },
-          {
-            "category": "generals",
-            "name": "LR周瑜（しゅうゆ）",
-            "displayName": "LR周瑜（しゅうゆ）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を150％"
           },
           {
             "category": "generals",
@@ -2423,15 +2378,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃速度変化(強化)",
             "matchedText": "攻撃速度+100％"
-          },
-          {
-            "category": "generals",
-            "name": "LR孫堅・盾兵（そんけん）",
-            "displayName": "LR孫堅・盾兵（そんけん）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を200％"
           },
           {
             "category": "generals",
@@ -3438,15 +3384,6 @@
             "displayName": "LR董卓（とうたく）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を200％"
-          },
-          {
-            "category": "generals",
-            "name": "LR董卓（とうたく）",
-            "displayName": "LR董卓（とうたく）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
             "matchedText": "被ダメージ-35％"
           },
@@ -3600,15 +3537,6 @@
             "displayName": "LR馬騰（ばとう）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を150％"
-          },
-          {
-            "category": "generals",
-            "name": "LR馬騰（ばとう）",
-            "displayName": "LR馬騰（ばとう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "与ダメージ変化(強化)",
             "matchedText": "与ダメージ+50%"
           },
@@ -3656,15 +3584,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "撃心威力変化(強化)",
             "matchedText": "撃心威力+25%"
-          },
-          {
-            "category": "generals",
-            "name": "LR白起（はくき）",
-            "displayName": "LR白起（はくき）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を150％"
           },
           {
             "category": "generals",
@@ -3899,15 +3818,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "戦法威力変化(強化)",
             "matchedText": "戦法威力+25%"
-          },
-          {
-            "category": "generals",
-            "name": "LR羊祜（ようこ）",
-            "displayName": "LR羊祜（ようこ）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を100％"
           },
           {
             "category": "generals",
@@ -4194,15 +4104,6 @@
             "displayName": "LR陸遜（りくそん）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を50%"
-          },
-          {
-            "category": "generals",
-            "name": "LR陸遜（りくそん）",
-            "displayName": "LR陸遜（りくそん）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
             "matchedText": "被ダメージ-20%"
           },
@@ -4410,15 +4311,6 @@
             "displayName": "LR呂尚（りょしょう）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効変化味方 / 中10"
-          },
-          {
-            "category": "generals",
-            "name": "LR呂尚（りょしょう）",
-            "displayName": "LR呂尚（りょしょう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
             "matchedText": "被ダメージ-2%"
           },
@@ -4475,15 +4367,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃速度変化(強化)",
             "matchedText": "攻撃速度+75%"
-          },
-          {
-            "category": "generals",
-            "name": "LR呂布（りょふ）",
-            "displayName": "LR呂布（りょふ）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を50%"
           },
           {
             "category": "generals",
@@ -5051,15 +4934,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "知力変化(強化)",
             "matchedText": "知力を150％"
-          },
-          {
-            "category": "generals",
-            "name": "LR藺相如（りんしょうじょ）",
-            "displayName": "LR藺相如（りんしょうじょ）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を150%"
           },
           {
             "category": "generals",
@@ -6674,15 +6548,6 @@
           },
           {
             "category": "generals",
-            "name": "UR呉国太（ごこくたい）",
-            "displayName": "UR呉国太（ごこくたい）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効と攻撃速度を50％"
-          },
-          {
-            "category": "generals",
             "name": "UR公孫瓚（こうそんさん）",
             "displayName": "UR公孫瓚（こうそんさん）",
             "source": "related_link_index",
@@ -6876,15 +6741,6 @@
             "displayName": "UR司馬懿（しばい）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効変化敵 / 中10"
-          },
-          {
-            "category": "generals",
-            "name": "UR司馬懿（しばい）",
-            "displayName": "UR司馬懿（しばい）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
             "matchedText": "被ダメージ-20%"
           },
@@ -6950,15 +6806,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "会心威力変化(強化)",
             "matchedText": "会心威力、対物特効を75%"
-          },
-          {
-            "category": "generals",
-            "name": "UR周倉（しゅうそう）",
-            "displayName": "UR周倉（しゅうそう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を75%"
           },
           {
             "category": "generals",
@@ -8226,15 +8073,6 @@
             "displayName": "UR張遼（ちょうりょう）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を50％"
-          },
-          {
-            "category": "generals",
-            "name": "UR張遼（ちょうりょう）",
-            "displayName": "UR張遼（ちょうりょう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃変化(強化)",
             "matchedText": "攻撃+3%"
           },
@@ -8532,15 +8370,6 @@
             "displayName": "UR鄭成功（ていせいこう）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効+50%"
-          },
-          {
-            "category": "generals",
-            "name": "UR鄭成功（ていせいこう）",
-            "displayName": "UR鄭成功（ていせいこう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃変化(強化)",
             "matchedText": "攻撃が上昇する防御変化味方 / 中10"
           },
@@ -8615,15 +8444,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "戦法威力変化(強化)",
             "matchedText": "戦法威力を30％"
-          },
-          {
-            "category": "generals",
-            "name": "UR董白（とうはく）",
-            "displayName": "UR董白（とうはく）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効上昇のうちランダムに1"
           },
           {
             "category": "generals",
@@ -9056,15 +8876,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "戦法威力変化(強化)",
             "matchedText": "戦法威力を50%"
-          },
-          {
-            "category": "generals",
-            "name": "UR李典（りてん）",
-            "displayName": "UR李典（りてん）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を50%"
           },
           {
             "category": "generals",
@@ -9599,15 +9410,6 @@
           },
           {
             "category": "generals",
-            "name": "UR甄氏（しんし）",
-            "displayName": "UR甄氏（しんし）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効と戦法威力を50％"
-          },
-          {
-            "category": "generals",
             "name": "UR荀攸（じゅんゆう）",
             "displayName": "UR荀攸（じゅんゆう）",
             "source": "related_link_index",
@@ -9783,15 +9585,6 @@
             "displayName": "UR袁紹（えんしょう）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効、攻撃速度を50%"
-          },
-          {
-            "category": "generals",
-            "name": "UR袁紹（えんしょう）",
-            "displayName": "UR袁紹（えんしょう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
             "matchedText": "被ダメージ-15%"
           },
@@ -9911,15 +9704,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "戦法威力変化(強化)",
             "matchedText": "戦法威力を30％"
-          },
-          {
-            "category": "generals",
-            "name": "UR軻比能（かひのう）",
-            "displayName": "UR軻比能（かひのう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を50％"
           },
           {
             "category": "generals",
@@ -10109,15 +9893,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃速度変化(強化)",
             "matchedText": "攻撃速度を50％"
-          },
-          {
-            "category": "generals",
-            "name": "UR郝昭（かくしょう）",
-            "displayName": "UR郝昭（かくしょう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効と攻撃速度を50％"
           },
           {
             "category": "generals",
@@ -10946,15 +10721,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "知力変化(強化)",
             "matchedText": "知力を100％"
-          },
-          {
-            "category": "generals",
-            "name": "覚醒呉懿（ごい）",
-            "displayName": "覚醒呉懿（ごい）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効変化敵 / 中15"
           },
           {
             "category": "generals",
@@ -12717,15 +12483,6 @@
             "displayName": "周瑜（しゅうゆ）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を300%"
-          },
-          {
-            "category": "generals",
-            "name": "周瑜（しゅうゆ）",
-            "displayName": "周瑜（しゅうゆ）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃変化(強化)",
             "matchedText": "攻撃+4%"
           },
@@ -13599,15 +13356,6 @@
             "displayName": "張松（ちょうしょう）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を50％"
-          },
-          {
-            "category": "generals",
-            "name": "張松（ちょうしょう）",
-            "displayName": "張松（ちょうしょう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "防御変化(強化)",
             "matchedText": "防御が上昇する対物特効変化自分 / 単15"
           },
@@ -14411,15 +14159,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "機動変化(強化)",
             "matchedText": "機動+3%"
-          },
-          {
-            "category": "generals",
-            "name": "歩度根（ほどこん）",
-            "displayName": "歩度根（ほどこん）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を200%"
           },
           {
             "category": "generals",
@@ -15489,15 +15228,6 @@
             "displayName": "郝昭（かくしょう）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を50％"
-          },
-          {
-            "category": "generals",
-            "name": "郝昭（かくしょう）",
-            "displayName": "郝昭（かくしょう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "防御変化(強化)",
             "matchedText": "防御を200％"
           },
@@ -15727,15 +15457,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "知力変化(強化)",
             "matchedText": "知力が上昇する対物特効変化自分 / 単10"
-          },
-          {
-            "category": "tactics",
-            "name": "威烈内鎮",
-            "displayName": "威烈内鎮",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を200%"
           },
           {
             "category": "tactics",
@@ -16184,15 +15905,6 @@
             "displayName": "王師訓導",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を100%"
-          },
-          {
-            "category": "tactics",
-            "name": "王師訓導",
-            "displayName": "王師訓導",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "知力変化(強化)",
             "matchedText": "知力が上昇する対物特効変化味方 / 中10"
           },
@@ -16420,15 +16132,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "戦法威力変化(強化)",
             "matchedText": "戦法威力を50%"
-          },
-          {
-            "category": "tactics",
-            "name": "慨然合力",
-            "displayName": "慨然合力",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を50%"
           },
           {
             "category": "tactics",
@@ -16825,15 +16528,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "知力変化(強化)",
             "matchedText": "知力を150%"
-          },
-          {
-            "category": "tactics",
-            "name": "機略謀攻",
-            "displayName": "機略謀攻",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を50％"
           },
           {
             "category": "tactics",
@@ -17494,15 +17188,6 @@
           },
           {
             "category": "tactics",
-            "name": "恵愛励翼",
-            "displayName": "恵愛励翼",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効と攻撃速度を50％"
-          },
-          {
-            "category": "tactics",
             "name": "軽進双攻",
             "displayName": "軽進双攻",
             "source": "related_link_index",
@@ -17527,15 +17212,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "撃心威力変化(強化)",
             "matchedText": "撃心威力を効果量分上昇攻撃変化自分 / 単10"
-          },
-          {
-            "category": "tactics",
-            "name": "撃鼓烈炎",
-            "displayName": "撃鼓烈炎",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を100％"
           },
           {
             "category": "tactics",
@@ -17705,26 +17381,8 @@
             "displayName": "堅固鉄壁",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を50％"
-          },
-          {
-            "category": "tactics",
-            "name": "堅固鉄壁",
-            "displayName": "堅固鉄壁",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "防御変化(強化)",
             "matchedText": "防御を200％"
-          },
-          {
-            "category": "tactics",
-            "name": "堅固鉄壁・改",
-            "displayName": "堅固鉄壁・改",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を50%"
           },
           {
             "category": "tactics",
@@ -18029,15 +17687,6 @@
             "displayName": "固守堅壁",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効と攻撃速度を50％"
-          },
-          {
-            "category": "tactics",
-            "name": "固守堅壁",
-            "displayName": "固守堅壁",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
             "matchedText": "被ダメージを軽減する堅固味方 / 中10"
           },
@@ -18335,15 +17984,6 @@
             "displayName": "甲騎騰躍",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を150％"
-          },
-          {
-            "category": "tactics",
-            "name": "甲騎騰躍",
-            "displayName": "甲騎騰躍",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃変化(強化)",
             "matchedText": "攻撃が上昇する対物特効変化自分 / 単10"
           },
@@ -18364,15 +18004,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "防御変化(強化)",
             "matchedText": "防御を150％"
-          },
-          {
-            "category": "tactics",
-            "name": "硬骨の守り・改",
-            "displayName": "硬骨の守り・改",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を30％"
           },
           {
             "category": "tactics",
@@ -18931,15 +18562,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "知力変化(強化)",
             "matchedText": "知力を100%"
-          },
-          {
-            "category": "tactics",
-            "name": "砕堅陥陣",
-            "displayName": "砕堅陥陣",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を350％"
           },
           {
             "category": "tactics",
@@ -19757,15 +19379,6 @@
             "displayName": "俊烈轟火",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を150%"
-          },
-          {
-            "category": "tactics",
-            "name": "俊烈轟火",
-            "displayName": "俊烈轟火",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "防御変化(強化)",
             "matchedText": "防御が上昇する知力変化味方 / 中10"
           },
@@ -20239,15 +19852,6 @@
           },
           {
             "category": "tactics",
-            "name": "星火燎原",
-            "displayName": "星火燎原",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を50％"
-          },
-          {
-            "category": "tactics",
             "name": "精練策数",
             "displayName": "精練策数",
             "source": "related_link_index",
@@ -20443,15 +20047,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "戦法威力変化(強化)",
             "matchedText": "戦法威力を30％"
-          },
-          {
-            "category": "tactics",
-            "name": "壮健滅砕",
-            "displayName": "壮健滅砕",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を150％"
           },
           {
             "category": "tactics",
@@ -20977,15 +20572,6 @@
           },
           {
             "category": "tactics",
-            "name": "沈深果断",
-            "displayName": "沈深果断",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を25%"
-          },
-          {
-            "category": "tactics",
             "name": "貞亮謀幹",
             "displayName": "貞亮謀幹",
             "source": "related_link_index",
@@ -21121,15 +20707,6 @@
           },
           {
             "category": "tactics",
-            "name": "天姿国色",
-            "displayName": "天姿国色",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効と戦法威力を50％"
-          },
-          {
-            "category": "tactics",
             "name": "天地通察",
             "displayName": "天地通察",
             "source": "related_link_index",
@@ -21181,15 +20758,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "対物特効変化(強化)",
             "matchedText": "対物特効を100％"
-          },
-          {
-            "category": "tactics",
-            "name": "怒髪衝天",
-            "displayName": "怒髪衝天",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を150%"
           },
           {
             "category": "tactics",
@@ -21271,15 +20839,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "戦法威力変化(強化)",
             "matchedText": "戦法威力を30%"
-          },
-          {
-            "category": "tactics",
-            "name": "徳威大振",
-            "displayName": "徳威大振",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を100％"
           },
           {
             "category": "tactics",
@@ -23092,24 +22651,6 @@
           },
           {
             "category": "tactics",
-            "name": "明察天断",
-            "displayName": "明察天断",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効、戦法速度を15%"
-          },
-          {
-            "category": "tactics",
-            "name": "明目張胆",
-            "displayName": "明目張胆",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を50%"
-          },
-          {
-            "category": "tactics",
             "name": "明目張胆",
             "displayName": "明目張胆",
             "source": "related_link_index",
@@ -23395,15 +22936,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "会心威力変化(強化)",
             "matchedText": "会心威力を50%"
-          },
-          {
-            "category": "tactics",
-            "name": "勇烈弘毅",
-            "displayName": "勇烈弘毅",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効、会心威力を50%"
           },
           {
             "category": "tactics",
@@ -23719,15 +23251,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃速度変化(強化)",
             "matchedText": "攻撃速度、対物特効を50%"
-          },
-          {
-            "category": "tactics",
-            "name": "遼来遼来",
-            "displayName": "遼来遼来",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を50%"
           },
           {
             "category": "tactics",
@@ -24394,15 +23917,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "防御変化(強化)",
             "matchedText": "防御を100%"
-          },
-          {
-            "category": "tactics",
-            "name": "詭謀無比",
-            "displayName": "詭謀無比",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効を30%"
           },
           {
             "category": "tactics",
@@ -25521,15 +25035,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "戦法威力変化(強化)",
             "matchedText": "戦法威力+25%"
-          },
-          {
-            "category": "skills",
-            "name": "恩信",
-            "displayName": "恩信",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効+50%"
           },
           {
             "category": "skills",
@@ -34601,16 +34106,16 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 1726,
-        "tactics": 1007,
-        "skills": 1092,
+        "generals": 1696,
+        "tactics": 983,
+        "skills": 1091,
         "equipments": 8,
         "statusEffects": 0
       },
-      "totalOwnerCount": 3833,
+      "totalOwnerCount": 3778,
       "source": "related_link_index",
-      "ownerRelationCount": 3833,
-      "distinctOwnerCount": 1275
+      "ownerRelationCount": 3778,
+      "distinctOwnerCount": 1269
     },
     {
       "groupKey": "selfStateBuff",
@@ -40139,15 +39644,6 @@
           },
           {
             "category": "generals",
-            "name": "諸葛亮（しょかつりょう）",
-            "displayName": "諸葛亮（しょかつりょう）",
-            "source": "related_link_index",
-            "sourcePartType": "self-countermeasure-skill",
-            "statusEffectName": "同討回避[妙算(参)]",
-            "matchedText": "自身1部隊にかかる同討、恐怖を50%の確率で避ける（他技能と合算）Ⅱ-Ⅲ-Ⅳ-Ⅴ- 妙算を持つ武将諸葛亮"
-          },
-          {
-            "category": "generals",
             "name": "素利（そり）",
             "displayName": "素利（そり）",
             "source": "related_link_index",
@@ -40172,15 +39668,6 @@
             "sourcePartType": "self-countermeasure-granted-status",
             "statusEffectName": "弱化効果無効[弱化無効]",
             "matchedText": "効果回数分、受けた弱化効果を無効化する"
-          },
-          {
-            "category": "generals",
-            "name": "孫権（そんけん）",
-            "displayName": "孫権（そんけん）",
-            "source": "related_link_index",
-            "sourcePartType": "self-countermeasure-skill",
-            "statusEffectName": "弱化効果回避[奇英(参)]",
-            "matchedText": "自部隊に配置されている参軍の人数×2%の確率で能力弱化効果を避ける（他技能と合算）Ⅱ-Ⅲ-Ⅳ-Ⅴ- 奇英を持つ武将孫権"
           },
           {
             "category": "generals",
@@ -40244,15 +39731,6 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "堅固",
             "matchedText": "堅固"
-          },
-          {
-            "category": "generals",
-            "name": "呂蒙（りょもう）",
-            "displayName": "呂蒙（りょもう）",
-            "source": "related_link_index",
-            "sourcePartType": "self-countermeasure-skill",
-            "statusEffectName": "知力低下回避[啓蒙(参)]",
-            "matchedText": "知力の弱化効果を50%の確率で避ける（他技能と合算）Ⅱ-Ⅲ-Ⅳ-Ⅴ- 啓蒙を持つ武将呂蒙"
           },
           {
             "category": "generals",
@@ -42303,15 +41781,6 @@
           },
           {
             "category": "skills",
-            "name": "奇英",
-            "displayName": "奇英",
-            "source": "related_link_index",
-            "sourcePartType": "self-countermeasure-skill",
-            "statusEffectName": "弱化効果回避[奇英]",
-            "matchedText": "自部隊に配置されている参軍の人数×2%の確率で能力弱化効果を避ける（他技能と合算）Ⅱ-Ⅲ-Ⅳ-Ⅴ- 奇英を持つ武将孫権"
-          },
-          {
-            "category": "skills",
             "name": "奇弁",
             "displayName": "奇弁",
             "source": "related_link_index",
@@ -42552,15 +42021,6 @@
             "sourcePartType": "self-countermeasure-skill",
             "statusEffectName": "強化解除回避[九江王]",
             "matchedText": "自部隊より低攻撃の部隊から受ける強化解除を避けるⅡ-Ⅲ-Ⅳ-Ⅴ-"
-          },
-          {
-            "category": "skills",
-            "name": "啓蒙",
-            "displayName": "啓蒙",
-            "source": "related_link_index",
-            "sourcePartType": "self-countermeasure-skill",
-            "statusEffectName": "知力低下回避[啓蒙]",
-            "matchedText": "知力の弱化効果を50%の確率で避ける（他技能と合算）Ⅱ-Ⅲ-Ⅳ-Ⅴ- 啓蒙を持つ武将呂蒙"
           },
           {
             "category": "skills",
@@ -44649,15 +44109,6 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "瞬影",
             "matchedText": "瞬影"
-          },
-          {
-            "category": "skills",
-            "name": "妙算",
-            "displayName": "妙算",
-            "source": "related_link_index",
-            "sourcePartType": "self-countermeasure-skill",
-            "statusEffectName": "同討回避[妙算]",
-            "matchedText": "自身1部隊にかかる同討、恐怖を50%の確率で避ける（他技能と合算）Ⅱ-Ⅲ-Ⅳ-Ⅴ- 妙算を持つ武将諸葛亮"
           },
           {
             "category": "skills",
@@ -47078,16 +46529,16 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 518,
+        "generals": 515,
         "tactics": 150,
-        "skills": 405,
+        "skills": 402,
         "equipments": 195,
         "statusEffects": 0
       },
-      "totalOwnerCount": 1268,
+      "totalOwnerCount": 1262,
       "source": "related_link_index",
-      "ownerRelationCount": 1268,
-      "distinctOwnerCount": 438
+      "ownerRelationCount": 1262,
+      "distinctOwnerCount": 432
     },
     {
       "groupKey": "enemyAbilityDebuff",

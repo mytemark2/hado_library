@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-07-05T05:00:28.021Z",
-  "dataSetId": "2026-06-14T06:09:45.844Z",
-  "crawlerVersion": "1.0.5.25",
+  "generatedAt": "2026-07-05T05:41:47.755Z",
+  "dataSetId": "2026-07-05T05:00:27.984Z",
+  "crawlerVersion": "1.0.5.26",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
     "hadou_generals.json",
@@ -503,27 +503,6 @@
           "matchedText": "攻撃速度+100％"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "200％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を200％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化自分 / 単10"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化\",\"自分 / 単\",\"10"
-        },
-        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "10",
@@ -720,7 +699,7 @@
           "matchedText": "兵力+5%"
         }
       ],
-      "effectCount": 33
+      "effectCount": 30
     },
     {
       "category": "generals",
@@ -2860,41 +2839,6 @@
           "matchedText": "戦法威力変化\",\"味方 / 中\",\"15"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を50％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "150％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を150％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化味方 / 中15"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "100％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を100％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化\",\"味方 / 中\",\"15"
-        },
-        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "+15％",
@@ -3000,7 +2944,7 @@
           "matchedText": "兵力+30%"
         }
       ],
-      "effectCount": 23
+      "effectCount": 18
     },
     {
       "category": "generals",
@@ -5487,27 +5431,6 @@
           "matchedText": "撃心威力+25%"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "150％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を150％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化自分 / 単10"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化\",\"自分 / 単\",\"10"
-        },
-        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "1",
@@ -5620,7 +5543,7 @@
           "matchedText": "兵力を決定 ●全ての兵科と物体に対して有利になる▼出陣時 ●戦法ゲージ+30%"
         }
       ],
-      "effectCount": 21
+      "effectCount": 18
     },
     {
       "category": "generals",
@@ -5641,27 +5564,6 @@
           "value": "200％",
           "targetSide": "self_or_ally",
           "matchedText": "兵器速度が200％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "100％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を100％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化自分 / 単15"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化\",\"自分 / 単\",\"15"
         },
         {
           "parameter": "与ダメージ",
@@ -5755,7 +5657,7 @@
           "matchedText": "知力が上昇する\"],[\"火属性強化\",\"味方 / 中\",\"15"
         }
       ],
-      "effectCount": 18
+      "effectCount": 15
     },
     {
       "category": "generals",
@@ -6772,27 +6674,6 @@
       "title": "【三國志 覇道】LR馬騰（ばとう）の戦法と技能",
       "effects": [
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "150％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を150％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化自分 / 単10"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化\",\"自分 / 単\",\"10"
-        },
-        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "+50%",
@@ -6863,7 +6744,7 @@
           "matchedText": "兵力+5%"
         }
       ],
-      "effectCount": 13
+      "effectCount": 10
     },
     {
       "category": "generals",
@@ -10307,34 +10188,6 @@
           "matchedText": "戦法威力+25%"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "100％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を100％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化味方 / 中10"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "+50%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効+50%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化\",\"味方 / 中\",\"10"
-        },
-        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "+30%",
@@ -10475,7 +10328,7 @@
           "matchedText": "知力が上昇する\"],[\"対物特効変化\",\"味方 / 中\",\"10"
         }
       ],
-      "effectCount": 25
+      "effectCount": 21
     },
     {
       "category": "generals",
@@ -11015,34 +10868,6 @@
           "matchedText": "会心威力が上昇（将星ランク1"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効と攻撃速度を50％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "1.5",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効、攻撃速度の上昇効果が1.5"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化味方 / 広10"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化\",\"味方 / 広\",\"10"
-        },
-        {
           "parameter": "攻撃",
           "direction": "decrease",
           "value": "-6％",
@@ -11071,7 +10896,7 @@
           "matchedText": "防御-3%"
         }
       ],
-      "effectCount": 17
+      "effectCount": 13
     },
     {
       "category": "generals",
@@ -13344,41 +13169,6 @@
           "matchedText": "戦法威力変化\",\"自分 / 単\",\"10"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "1",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効上昇のうちランダムに1"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "+200%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効+200%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化自分 / 単10"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "20％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効の能力強化効果を受ける際、効果量の20％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化\",\"自分 / 単\",\"10"
-        },
-        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "10％",
@@ -13582,7 +13372,7 @@
           "matchedText": "兵力+3%"
         }
       ],
-      "effectCount": 38
+      "effectCount": 33
     },
     {
       "category": "generals",
@@ -13652,34 +13442,6 @@
           "value": "10",
           "targetSide": "self_or_ally",
           "matchedText": "撃心威力変化\",\"自分 / 単\",\"10"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "750％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を上昇させてから、最大750％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "200％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を200％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化自分 / 単10"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化\",\"自分 / 単\",\"10"
         },
         {
           "parameter": "被ダメージ",
@@ -13836,7 +13598,7 @@
           "matchedText": "兵力+5％"
         }
       ],
-      "effectCount": 35
+      "effectCount": 31
     },
     {
       "category": "generals",
@@ -14155,20 +13917,6 @@
           "matchedText": "戦法速度+15%"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "+50%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効+50%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "+25%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効+25%"
-        },
-        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "+10%",
@@ -14295,7 +14043,7 @@
           "matchedText": "兵力が50％"
         }
       ],
-      "effectCount": 32
+      "effectCount": 30
     },
     {
       "category": "generals",
@@ -14574,27 +14322,6 @@
           "matchedText": "戦法威力+30%"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "100％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効、火属性威力を100％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化自分 / 単10"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化\",\"自分 / 単\",\"10"
-        },
-        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "+10%",
@@ -14637,7 +14364,7 @@
           "matchedText": "知力が上昇する\"],[\"対物特効変化\",\"自分 / 単\",\"10"
         }
       ],
-      "effectCount": 10
+      "effectCount": 7
     },
     {
       "category": "generals",
@@ -15221,27 +14948,6 @@
           "matchedText": "攻撃速度変化\",\"敵 / 中\",\"10"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効と攻撃速度を50％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化敵 / 中10"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化\",\"敵 / 中\",\"10"
-        },
-        {
           "parameter": "被ダメージ",
           "direction": "decrease",
           "value": "10",
@@ -15368,7 +15074,7 @@
           "matchedText": "防御が上昇する\"],[\"対物特効変化\",\"敵 / 中\",\"10"
         }
       ],
-      "effectCount": 24
+      "effectCount": 21
     },
     {
       "category": "generals",
@@ -17233,20 +16939,6 @@
       "title": "【三國志 覇道】LR高順（こうじゅん）の戦法と技能",
       "effects": [
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "+350%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効+350%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "350％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を350％"
-        },
-        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "+50%",
@@ -17373,7 +17065,7 @@
           "matchedText": "防御が上昇する\"]]} {\"index\":7"
         }
       ],
-      "effectCount": 20
+      "effectCount": 18
     },
     {
       "category": "generals",
@@ -18486,41 +18178,6 @@
       "title": "【三國志 覇道】LR藺相如（りんしょうじょ）の戦法と技能",
       "effects": [
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "150%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を150%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "2",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効上昇の効果量が2"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化自分 / 単10"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "+50%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効+50%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化\",\"自分 / 単\",\"10"
-        },
-        {
           "parameter": "被ダメージ",
           "direction": "decrease",
           "value": "-2%",
@@ -18570,7 +18227,7 @@
           "matchedText": "兵科相性変化\",\"自分 / 単\",\"10"
         }
       ],
-      "effectCount": 12
+      "effectCount": 7
     },
     {
       "category": "generals",
@@ -18721,27 +18378,6 @@
           "matchedText": "戦法威力変化\",\"自分 / 単\",\"10"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を50%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化敵 / 中15"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化\",\"敵 / 中\",\"15"
-        },
-        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "+15%",
@@ -18812,7 +18448,7 @@
           "matchedText": "防御が上昇する\"],[\"戦法威力変化\",\"自分 / 単\",\"10"
         }
       ],
-      "effectCount": 16
+      "effectCount": 13
     },
     {
       "category": "generals",
@@ -20752,34 +20388,6 @@
           "matchedText": "戦法速度-25%"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "60%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を60%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を50%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "75%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を75%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "100%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を100%"
-        },
-        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "+5%",
@@ -21032,7 +20640,7 @@
           "matchedText": "命中-25%"
         }
       ],
-      "effectCount": 42
+      "effectCount": 38
     },
     {
       "category": "generals",
@@ -21549,13 +21157,6 @@
           "matchedText": "戦法威力変化\",\"敵 / 中\",\"15"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "+25%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効+25%"
-        },
-        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "+7%",
@@ -21759,7 +21360,7 @@
           "matchedText": "知力が低下する\"],[\"戦法威力変化\",\"敵 / 中\",\"15"
         }
       ],
-      "effectCount": 35
+      "effectCount": 34
     },
     {
       "category": "generals",
@@ -21910,41 +21511,6 @@
           "matchedText": "戦法威力+20%"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "125％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を最大125％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を50%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化味方 / 中10"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "+25%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効上昇の効果量+25%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化\",\"味方 / 中\",\"10"
-        },
-        {
           "parameter": "被ダメージ",
           "direction": "decrease",
           "value": "-20%",
@@ -22029,7 +21595,7 @@
           "matchedText": "知力が上昇する\"],[\"対物特効変化\",\"味方 / 中\",\"10"
         }
       ],
-      "effectCount": 18
+      "effectCount": 13
     },
     {
       "category": "generals",
@@ -25087,62 +24653,6 @@
           "matchedText": "会心威力が上昇\"]]} {\"index\":21"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "125％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を最大125％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "75%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を75%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化自分 / 単15"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "+1",
-          "targetSide": "enemy",
-          "matchedText": "対物特効）を避ける ●この技能を持つ武将の戦法の敵対象部隊数+1"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "+3%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効）を避けるⅡ■常に ●部隊の機動+3%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "+2",
-          "targetSide": "enemy",
-          "matchedText": "対物特効）を避ける ●この技能を持つ武将の戦法の敵対象部隊数+2"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化\",\"自分 / 単\",\"15"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "+3%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効）を避ける\"],[\"Ⅱ\",\"■常に ●部隊の機動+3%"
-        },
-        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "+5％",
@@ -25199,7 +24709,7 @@
           "matchedText": "機動/対物特効）を避ける\"],[\"Ⅱ\",\"■常に ●部隊の機動+3%"
         }
       ],
-      "effectCount": 34
+      "effectCount": 26
     },
     {
       "category": "generals",
@@ -26482,20 +25992,6 @@
           "matchedText": "攻撃速度が上昇\"]]} {\"index\":24"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を50%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "150%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を150%"
-        },
-        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "+2%",
@@ -26685,7 +26181,7 @@
           "matchedText": "兵力を決定\"],[\"巡見2"
         }
       ],
-      "effectCount": 32
+      "effectCount": 30
     },
     {
       "category": "generals",
@@ -27763,34 +27259,6 @@
           "matchedText": "戦法速度+15%"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "150％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を150％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "150%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を150%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化自分 / 単10"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化\",\"自分 / 単\",\"10"
-        },
-        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "+2%",
@@ -27973,7 +27441,7 @@
           "matchedText": "知力が上昇する\"],[\"対物特効変化\",\"自分 / 単\",\"10"
         }
       ],
-      "effectCount": 34
+      "effectCount": 30
     },
     {
       "category": "generals",
@@ -28568,31 +28036,10 @@
         },
         {
           "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化味方 / 中10"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "+25%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効上昇の効果量+25%"
-        },
-        {
-          "parameter": "対物特効",
           "direction": "decrease",
           "value": "-50%",
           "targetSide": "enemy",
           "matchedText": "対物特効）と分断を避ける ●兵科相性が有利な敵からの知力系統の被ダメージ-50%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化\",\"味方 / 中\",\"10"
         },
         {
           "parameter": "被ダメージ",
@@ -28707,7 +28154,7 @@
           "matchedText": "兵力+7%"
         }
       ],
-      "effectCount": 21
+      "effectCount": 18
     },
     {
       "category": "generals",
@@ -33142,34 +32589,6 @@
           "matchedText": "攻撃速度変化\",\"味方 / 広\",\"10"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効、攻撃速度を50%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "2",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効、攻撃速度、戦法威力の効果量が2"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化味方 / 広10"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化\",\"味方 / 広\",\"10"
-        },
-        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "+15%",
@@ -33394,7 +32813,7 @@
           "matchedText": "兵力+15%"
         }
       ],
-      "effectCount": 46
+      "effectCount": 42
     },
     {
       "category": "generals",
@@ -34186,27 +33605,6 @@
           "matchedText": "戦法威力変化\",\"敵 / 中\",\"10"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効と戦法威力を50％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化敵 / 中10"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化\",\"敵 / 中\",\"10"
-        },
-        {
           "parameter": "攻撃",
           "direction": "decrease",
           "value": "-25%",
@@ -34235,7 +33633,7 @@
           "matchedText": "知力-25%"
         }
       ],
-      "effectCount": 10
+      "effectCount": 7
     },
     {
       "category": "generals",
@@ -37144,27 +36542,6 @@
           "matchedText": "戦法速度+15%"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を50％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化自分 / 単15"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化\",\"自分 / 単\",\"15"
-        },
-        {
           "parameter": "防御",
           "direction": "increase",
           "value": "15",
@@ -37263,7 +36640,7 @@
           "matchedText": "知力が上昇する\"],[\"防御変化\",\"自分 / 単\",\"15"
         }
       ],
-      "effectCount": 22
+      "effectCount": 19
     },
     {
       "category": "generals",
@@ -37273,24 +36650,10 @@
       "effects": [
         {
           "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化敵 / 中15"
-        },
-        {
-          "parameter": "対物特効",
           "direction": "decrease",
           "value": "-5%",
           "targetSide": "self_or_ally",
           "matchedText": "対物特効-5%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化\",\"敵 / 中\",\"15"
         },
         {
           "parameter": "攻撃",
@@ -37496,7 +36859,7 @@
           "matchedText": "知力が低下する\"],[\"対物特効変化\",\"敵 / 中\",\"15"
         }
       ],
-      "effectCount": 32
+      "effectCount": 30
     },
     {
       "category": "generals",
@@ -44940,13 +44303,6 @@
       "title": "【三國志 覇道】歩度根（ほどこん）の戦法と技能",
       "effects": [
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "200%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を200%"
-        },
-        {
           "parameter": "攻撃",
           "direction": "increase",
           "value": "+4%",
@@ -45010,7 +44366,7 @@
           "matchedText": "防御-6％"
         }
       ],
-      "effectCount": 10
+      "effectCount": 9
     },
     {
       "category": "generals",
@@ -47294,24 +46650,10 @@
         },
         {
           "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化敵 / 中10"
-        },
-        {
-          "parameter": "対物特効",
           "direction": "decrease",
           "value": "+20%",
           "targetSide": "self_or_ally",
           "matchedText": "対物特効低下の効果量+20%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化\",\"敵 / 中\",\"10"
         },
         {
           "parameter": "与ダメージ",
@@ -47510,7 +46852,7 @@
           "matchedText": "兵力を決定\"]]} {\"index\":8"
         }
       ],
-      "effectCount": 37
+      "effectCount": 35
     },
     {
       "category": "generals",
@@ -53857,34 +53199,6 @@
           "matchedText": "会心威力+20%"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を50％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を50%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化敵 / 中15"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化\",\"敵 / 中\",\"15"
-        },
-        {
           "parameter": "被ダメージ",
           "direction": "increase",
           "value": "30%",
@@ -53955,7 +53269,7 @@
           "matchedText": "兵力が50%"
         }
       ],
-      "effectCount": 28
+      "effectCount": 24
     },
     {
       "category": "generals",
@@ -55073,13 +54387,6 @@
           "matchedText": "会心威力+30%"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "200%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を200%"
-        },
-        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "+5%",
@@ -55199,7 +54506,7 @@
           "matchedText": "兵力が90%"
         }
       ],
-      "effectCount": 36
+      "effectCount": 35
     },
     {
       "category": "generals",
@@ -67354,27 +66661,6 @@
       "title": "【三國志 覇道】郝昭（かくしょう）の戦法と技能",
       "effects": [
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を50％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化敵 / 単15"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化\",\"敵 / 単\",\"15"
-        },
-        {
           "parameter": "防御",
           "direction": "increase",
           "value": "200％",
@@ -67501,7 +66787,7 @@
           "matchedText": "防御が上昇する\"],[\"対物特効変化\",\"敵 / 単\",\"15"
         }
       ],
-      "effectCount": 21
+      "effectCount": 18
     },
     {
       "category": "generals",
@@ -76118,20 +75404,6 @@
       "title": "【三國志 覇道】周瑜（しゅうゆ）の戦法と技能",
       "effects": [
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "300%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効の戦法が高火力 周瑜は複数部隊に300%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "300%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を300%"
-        },
-        {
           "parameter": "攻撃",
           "direction": "increase",
           "value": "+4%",
@@ -76265,7 +75537,7 @@
           "matchedText": "兵力+35%"
         }
       ],
-      "effectCount": 21
+      "effectCount": 19
     },
     {
       "category": "generals",
@@ -77482,27 +76754,6 @@
           "matchedText": "戦法威力変化味方 / 中15"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "150％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を150％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を50％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化味方 / 中15"
-        },
-        {
           "parameter": "被ダメージ",
           "direction": "decrease",
           "value": "15",
@@ -77510,7 +76761,7 @@
           "matchedText": "被ダメージを効果量分軽減対物特効変化味方 / 中15"
         }
       ],
-      "effectCount": 6
+      "effectCount": 3
     },
     {
       "category": "tactics",
@@ -78552,20 +77803,6 @@
       "title": "甲騎騰躍",
       "effects": [
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "150％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を150％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化自分 / 単10"
-        },
-        {
           "parameter": "攻撃",
           "direction": "increase",
           "value": "10",
@@ -78580,7 +77817,7 @@
           "matchedText": "兵力が50％"
         }
       ],
-      "effectCount": 4
+      "effectCount": 2
     },
     {
       "category": "tactics",
@@ -79071,20 +78308,6 @@
           "matchedText": "撃心威力を効果量分上昇攻撃変化自分 / 単10"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "100％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を100％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化自分 / 単10"
-        },
-        {
           "parameter": "攻撃",
           "direction": "increase",
           "value": "10",
@@ -79106,7 +78329,7 @@
           "matchedText": "防御が上昇する対物特効変化自分 / 単10"
         }
       ],
-      "effectCount": 7
+      "effectCount": 5
     },
     {
       "category": "tactics",
@@ -79546,20 +78769,6 @@
       "title": "徳威大振",
       "effects": [
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "100％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を100％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化味方 / 中10"
-        },
-        {
           "parameter": "防御",
           "direction": "increase",
           "value": "10",
@@ -79574,7 +78783,7 @@
           "matchedText": "知力が上昇する対物特効変化味方 / 中10"
         }
       ],
-      "effectCount": 4
+      "effectCount": 2
     },
     {
       "category": "tactics",
@@ -79727,30 +78936,9 @@
           "value": "10",
           "targetSide": "self_or_ally",
           "matchedText": "会心発生変化味方 / 広10"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効と攻撃速度を50％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "1.5",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効、攻撃速度の上昇効果が1.5"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化味方 / 広10"
         }
       ],
-      "effectCount": 9
+      "effectCount": 6
     },
     {
       "category": "tactics",
@@ -80799,20 +79987,6 @@
           "matchedText": "攻撃速度変化敵 / 中10"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効と攻撃速度を50％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化敵 / 中10"
-        },
-        {
           "parameter": "被ダメージ",
           "direction": "decrease",
           "value": "10",
@@ -80834,7 +80008,7 @@
           "matchedText": "防御が上昇する対物特効変化敵 / 中10"
         }
       ],
-      "effectCount": 7
+      "effectCount": 5
     },
     {
       "category": "tactics",
@@ -81299,13 +80473,6 @@
       "title": "砕堅陥陣",
       "effects": [
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "350％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を350％"
-        },
-        {
           "parameter": "攻撃",
           "direction": "increase",
           "value": "10",
@@ -81320,7 +80487,7 @@
           "matchedText": "防御を200％"
         }
       ],
-      "effectCount": 3
+      "effectCount": 2
     },
     {
       "category": "tactics",
@@ -81591,27 +80758,6 @@
       "title": "怒髪衝天",
       "effects": [
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "150%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を150%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "2",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効上昇の効果量が2"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化自分 / 単10"
-        },
-        {
           "parameter": "兵科相性",
           "direction": "increase",
           "value": "10",
@@ -81619,7 +80765,7 @@
           "matchedText": "兵科相性変化自分 / 単10"
         }
       ],
-      "effectCount": 4
+      "effectCount": 1
     },
     {
       "category": "tactics",
@@ -81679,20 +80825,6 @@
           "matchedText": "戦法威力変化自分 / 単10"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を50%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化敵 / 中15"
-        },
-        {
           "parameter": "攻撃",
           "direction": "increase",
           "value": "10",
@@ -81714,7 +80846,7 @@
           "matchedText": "防御が上昇する戦法威力変化自分 / 単10"
         }
       ],
-      "effectCount": 7
+      "effectCount": 5
     },
     {
       "category": "tactics",
@@ -82963,24 +82095,10 @@
         },
         {
           "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効、戦法速度を15%"
-        },
-        {
-          "parameter": "対物特効",
           "direction": "decrease",
           "value": "5%",
           "targetSide": "self_or_ally",
           "matchedText": "対物特効、戦法速度低下の効果量が5%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化敵 / 中10"
         },
         {
           "parameter": "知力",
@@ -82990,7 +82108,7 @@
           "matchedText": "知力が低下する対物特効変化敵 / 中10"
         }
       ],
-      "effectCount": 6
+      "effectCount": 4
     },
     {
       "category": "tactics",
@@ -83805,20 +82923,6 @@
       "title": "俊烈轟火",
       "effects": [
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "150%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を150%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化自分 / 単10"
-        },
-        {
           "parameter": "防御",
           "direction": "increase",
           "value": "10",
@@ -83840,7 +82944,7 @@
           "matchedText": "知力が上昇する対物特効変化自分 / 単10"
         }
       ],
-      "effectCount": 5
+      "effectCount": 3
     },
     {
       "category": "tactics",
@@ -83916,20 +83020,6 @@
       "title": "王師訓導",
       "effects": [
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "100%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を100%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化味方 / 中10"
-        },
-        {
           "parameter": "知力",
           "direction": "increase",
           "value": "10",
@@ -83944,7 +83034,7 @@
           "matchedText": "知力が低下する連鎖無効敵 / 中15"
         }
       ],
-      "effectCount": 4
+      "effectCount": 2
     },
     {
       "category": "tactics",
@@ -85186,23 +84276,9 @@
           "value": "10",
           "targetSide": "enemy",
           "matchedText": "戦法威力変化敵 / 中10"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効と戦法威力を50％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化敵 / 中10"
         }
       ],
-      "effectCount": 4
+      "effectCount": 2
     },
     {
       "category": "tactics",
@@ -85551,20 +84627,6 @@
       "title": "明目張胆",
       "effects": [
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を50%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化敵 / 中10"
-        },
-        {
           "parameter": "攻撃",
           "direction": "increase",
           "value": "10",
@@ -85586,7 +84648,7 @@
           "matchedText": "防御が低下する対物特効変化敵 / 中10"
         }
       ],
-      "effectCount": 5
+      "effectCount": 3
     },
     {
       "category": "tactics",
@@ -85866,20 +84928,6 @@
       "title": "硬骨の守り・改",
       "effects": [
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "30％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を30％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化敵 / 中15"
-        },
-        {
           "parameter": "攻撃",
           "direction": "decrease",
           "value": "15",
@@ -85908,7 +84956,7 @@
           "matchedText": "知力が低下する対物特効変化敵 / 中15"
         }
       ],
-      "effectCount": 6
+      "effectCount": 4
     },
     {
       "category": "tactics",
@@ -86296,20 +85344,6 @@
       "title": "堅固鉄壁・改",
       "effects": [
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を50%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化敵 / 中15"
-        },
-        {
           "parameter": "防御",
           "direction": "increase",
           "value": "200%",
@@ -86324,7 +85358,7 @@
           "matchedText": "防御が上昇する対物特効変化敵 / 中15"
         }
       ],
-      "effectCount": 4
+      "effectCount": 2
     },
     {
       "category": "tactics",
@@ -87593,16 +86627,8 @@
       "name": "威烈内鎮",
       "rawName": "威烈内鎮",
       "title": "威烈内鎮",
-      "effects": [
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "200%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を200%"
-        }
-      ],
-      "effectCount": 1
+      "effects": [],
+      "effectCount": 0
     },
     {
       "category": "tactics",
@@ -87981,20 +87007,6 @@
           "matchedText": "会心威力変化味方 / 中10"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効、会心威力を50%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効変化味方 / 中10"
-        },
-        {
           "parameter": "攻撃",
           "direction": "decrease",
           "value": "10",
@@ -88009,7 +87021,7 @@
           "matchedText": "防御が上昇する対物特効変化味方 / 中10"
         }
       ],
-      "effectCount": 6
+      "effectCount": 4
     },
     {
       "category": "tactics",
@@ -88210,20 +87222,6 @@
       "title": "詭謀無比",
       "effects": [
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "30%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を30%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化敵 / 中10"
-        },
-        {
           "parameter": "攻撃",
           "direction": "decrease",
           "value": "10",
@@ -88238,7 +87236,7 @@
           "matchedText": "知力が低下する対物特効変化敵 / 中10"
         }
       ],
-      "effectCount": 4
+      "effectCount": 2
     },
     {
       "category": "tactics",
@@ -88642,20 +87640,6 @@
       "title": "沈深果断",
       "effects": [
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "25%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を25%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "10",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化敵 / 中10"
-        },
-        {
           "parameter": "兵科相性",
           "direction": "increase",
           "value": "10",
@@ -88670,7 +87654,7 @@
           "matchedText": "知力が低下する対物特効変化敵 / 中10"
         }
       ],
-      "effectCount": 4
+      "effectCount": 2
     },
     {
       "category": "tactics",
@@ -89221,20 +88205,6 @@
           "matchedText": "攻撃速度変化敵 / 中15"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を50%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化敵 / 中15"
-        },
-        {
           "parameter": "兵科相性",
           "direction": "increase",
           "value": "15",
@@ -89242,7 +88212,7 @@
           "matchedText": "兵科相性変化敵 / 中15"
         }
       ],
-      "effectCount": 5
+      "effectCount": 3
     },
     {
       "category": "tactics",
@@ -90901,20 +89871,6 @@
       "title": "堅固鉄壁",
       "effects": [
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を50％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化敵 / 単15"
-        },
-        {
           "parameter": "防御",
           "direction": "increase",
           "value": "200％",
@@ -90929,7 +89885,7 @@
           "matchedText": "防御が上昇する対物特効変化敵 / 単15"
         }
       ],
-      "effectCount": 4
+      "effectCount": 2
     },
     {
       "category": "tactics",
@@ -91860,23 +90816,8 @@
       "name": "星火燎原",
       "rawName": "星火燎原",
       "title": "星火燎原",
-      "effects": [
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を50％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化敵 / 中15"
-        }
-      ],
-      "effectCount": 2
+      "effects": [],
+      "effectCount": 0
     },
     {
       "category": "tactics",
@@ -92060,20 +91001,6 @@
       "title": "機略謀攻",
       "effects": [
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を50％"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "15",
-          "targetSide": "enemy",
-          "matchedText": "対物特効変化敵 / 中15"
-        },
-        {
           "parameter": "攻撃",
           "direction": "decrease",
           "value": "15",
@@ -92081,7 +91008,7 @@
           "matchedText": "攻撃が低下する対物特効変化敵 / 中15"
         }
       ],
-      "effectCount": 3
+      "effectCount": 1
     },
     {
       "category": "tactics",
@@ -94531,13 +93458,6 @@
           "matchedText": "攻撃速度が上昇・「天雷」で自身の魅力の15％"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "100%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を100%"
-        },
-        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "3%",
@@ -94629,7 +93549,7 @@
           "matchedText": "兵力が上昇・将星★7"
         }
       ],
-      "effectCount": 17
+      "effectCount": 16
     },
     {
       "category": "equipments",
@@ -95695,13 +94615,6 @@
           "matchedText": "撃心発生と会心発生が上昇・将星★7"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "100％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を100％"
-        },
-        {
           "parameter": "被ダメージ",
           "direction": "decrease",
           "value": "₋4%",
@@ -95786,7 +94699,7 @@
           "matchedText": "兵力が50％"
         }
       ],
-      "effectCount": 19
+      "effectCount": 18
     },
     {
       "category": "equipments",
@@ -103596,13 +102509,6 @@
           "matchedText": "対物特効を75%"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "7",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効のデバフを避ける・将星★7"
-        },
-        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "+4%",
@@ -103743,7 +102649,7 @@
           "matchedText": "兵力低下時に戦法ゲージを増加・将星★7"
         }
       ],
-      "effectCount": 29
+      "effectCount": 28
     },
     {
       "category": "equipments",
@@ -109797,13 +108703,6 @@
           "matchedText": "会心威力と戦法の与ダメージが上昇・将星★7"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "100%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を100%"
-        },
-        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "7",
@@ -109888,7 +108787,7 @@
           "matchedText": "兵力が上昇 └さらに交戦開始時に憤怒を付与・将星★7"
         }
       ],
-      "effectCount": 23
+      "effectCount": 22
     },
     {
       "category": "equipments",
@@ -115932,27 +114831,6 @@
           "matchedText": "攻撃速度が上昇、出陣時に戦法ゲージを上昇する └さらに通常攻撃を知力系統で行う・味方3"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を50%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "100%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を100%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "100％",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効、火属性威力を100％"
-        },
-        {
           "parameter": "与ダメージ",
           "direction": "decrease",
           "value": "7",
@@ -116065,7 +114943,7 @@
           "matchedText": "兵力が上昇・「厳圧」により自身の統率の10％"
         }
       ],
-      "effectCount": 22
+      "effectCount": 19
     },
     {
       "category": "equipments",
@@ -118195,13 +117073,6 @@
         {
           "parameter": "対物特効",
           "direction": "increase",
-          "value": "7",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効のデバフを避ける・将星★7"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
           "value": "50%",
           "targetSide": "self_or_ally",
           "matchedText": "対物特効を50%"
@@ -118326,7 +117197,7 @@
           "matchedText": "兵力を計算する └さらに副将全員と好相性なら出陣時に戦法ゲージを上昇・味方4"
         }
       ],
-      "effectCount": 25
+      "effectCount": 24
     },
     {
       "category": "equipments",
@@ -120770,13 +119641,6 @@
           "matchedText": "会心威力を100％"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を50%"
-        },
-        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "+25%",
@@ -120903,7 +119767,7 @@
           "matchedText": "兵力が上昇・将星★7"
         }
       ],
-      "effectCount": 21
+      "effectCount": 20
     },
     {
       "category": "equipments",
@@ -121131,20 +119995,6 @@
           "matchedText": "会心威力が上昇・将星★7"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "50%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効と戦法威力を50%"
-        },
-        {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "20%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を20%"
-        },
-        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "7",
@@ -121187,7 +120037,7 @@
           "matchedText": "兵力が多いほど威力が上昇・「圧倒」で与ダメージが増加・将星★7"
         }
       ],
-      "effectCount": 14
+      "effectCount": 12
     },
     {
       "category": "equipments",
@@ -123641,13 +122491,6 @@
           "matchedText": "戦法速度を50%"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "100%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効を100%"
-        },
-        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "+10%",
@@ -123746,7 +122589,7 @@
           "matchedText": "兵力が50%"
         }
       ],
-      "effectCount": 18
+      "effectCount": 17
     },
     {
       "category": "equipments",
@@ -130897,13 +129740,6 @@
           "matchedText": "戦法威力+25%"
         },
         {
-          "parameter": "対物特効",
-          "direction": "increase",
-          "value": "+50%",
-          "targetSide": "self_or_ally",
-          "matchedText": "対物特効+50%"
-        },
-        {
           "parameter": "攻撃",
           "direction": "increase",
           "value": "+10%",
@@ -130918,7 +129754,7 @@
           "matchedText": "攻撃を受けた際、負傷兵として生存する兵数+15％"
         }
       ],
-      "effectCount": 4
+      "effectCount": 3
     },
     {
       "category": "skills",
