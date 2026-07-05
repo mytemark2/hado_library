@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-06-14T06:09:45.870Z",
-  "dataSetId": "2026-06-07T06:04:52.951Z",
-  "crawlerVersion": "1.1.0.0",
+  "generatedAt": "2026-07-05T05:00:28.021Z",
+  "dataSetId": "2026-06-14T06:09:45.844Z",
+  "crawlerVersion": "1.0.5.25",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
     "hadou_generals.json",
@@ -33,10 +33,10 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 476,
-    "tactics": 455,
-    "equipments": 238,
-    "skills": 620,
+    "generals": 481,
+    "tactics": 460,
+    "equipments": 245,
+    "skills": 640,
     "statusEffects": 200,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
@@ -47,10 +47,10 @@
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "4c9aa0cb",
-    "tactics": "a9afed3e",
-    "equipments": "5960e367",
-    "skills": "bee67c33",
+    "generals": "d1a6ab1d",
+    "tactics": "14b2d446",
+    "equipments": "4c4f85cf",
+    "skills": "caeb0c45",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
@@ -61,10 +61,10 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "4c9aa0cb",
-    "tactics": "a9afed3e",
-    "equipments": "5960e367",
-    "skills": "bee67c33",
+    "generals": "d1a6ab1d",
+    "tactics": "14b2d446",
+    "equipments": "4c4f85cf",
+    "skills": "caeb0c45",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
@@ -76,9 +76,9 @@
   },
   "kind": "equipment_skill_stage_index",
   "qualityAudit": {
-    "itemCount": 238,
-    "withSkills": 208,
-    "stageParameterEffectCount": 1111,
+    "itemCount": 245,
+    "withSkills": 214,
+    "stageParameterEffectCount": 1156,
     "suspiciousSkillNameCount": 0,
     "suspiciousSkillNameSamples": [],
     "suspiciousParameterEffectCount": 0,
@@ -88,7 +88,911 @@
   },
   "items": [
     {
-      "id": "equipments:0:太平辟邪霊符",
+      "id": "equipments:0:孫氏玄朱令旗",
+      "category": "equipments",
+      "name": "孫氏玄朱令旗",
+      "displayName": "孫氏玄朱令旗",
+      "rawName": "【三國志 覇道】孫氏玄朱令旗",
+      "highestRarity": "UR",
+      "slot": "武器",
+      "troopType": "盾兵",
+      "stages": {
+        "initial": {
+          "label": "初期",
+          "skills": [
+            {
+              "skillName": "克導強撃",
+              "text": "■常に ●部隊の「克破」の技能Lv+1（上限3） ●部隊の攻撃+5％"
+            },
+            {
+              "skillName": "声威烈撃",
+              "text": "■常に ●部隊の兵力+1% ●通常攻撃・戦法による与ダメージ+5% →自身が主将の際は効果が2倍（+10%）■主将の際 ●部隊の機動+10"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+5%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+5%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+5％",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+5％",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "機動",
+              "direction": "increase",
+              "value": "+10",
+              "targetSide": "self_or_ally",
+              "matchedText": "機動+10",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "兵力",
+              "direction": "increase",
+              "value": "+1%",
+              "targetSide": "self_or_ally",
+              "matchedText": "兵力+1%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "ssrMax": {
+          "label": "SSR最大",
+          "skills": [
+            {
+              "skillName": "克導強撃",
+              "text": "■常に ●部隊の「克破」の技能Lv+1（上限3） ●部隊の「主導」の技能Lv+1（上限5） ●部隊の攻撃+6％"
+            },
+            {
+              "skillName": "声威烈撃",
+              "text": "■常に ●部隊の兵力+4% ●通常攻撃・戦法による与ダメージ+10% →自身が主将の際は効果が2倍（+20%）■主将の際 ●部隊の機動+10"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+10%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+10%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+6％",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+6％",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "機動",
+              "direction": "increase",
+              "value": "+10",
+              "targetSide": "self_or_ally",
+              "matchedText": "機動+10",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "兵力",
+              "direction": "increase",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "兵力+4%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "urMax": {
+          "label": "UR最大",
+          "skills": [
+            {
+              "skillName": "克導強撃",
+              "text": "■常に ●部隊の「克破」の技能Lv+1（上限3） ●部隊の「主導」の技能Lv+1（上限5） ●部隊の攻撃+7％"
+            },
+            {
+              "skillName": "声威烈撃",
+              "text": "■常に ●部隊の兵力+5% ●通常攻撃・戦法による与ダメージ+15% →自身が主将の際は効果が2倍（+30%）▼この技能を持つ武将が戦法を発動した時 ●自身1部隊に穿撃を付与（10秒）■主将の際 ●部隊の機動+10"
+            },
+            {
+              "skillName": "連繋猛勢",
+              "text": "■常に ●副将の連鎖確率+2% →自身が主将の際は効果が2倍（+4％）"
+            }
+          ],
+          "skillCount": 3,
+          "parameterEffects": [
+            {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+15%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+15%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+7％",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+7％",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "機動",
+              "direction": "increase",
+              "value": "+10",
+              "targetSide": "self_or_ally",
+              "matchedText": "機動+10",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "兵力",
+              "direction": "increase",
+              "value": "+5%",
+              "targetSide": "self_or_ally",
+              "matchedText": "兵力+5%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        }
+      },
+      "stageCandidates": [
+        {
+          "tableIndex": 2,
+          "skillCount": 3,
+          "skillNames": [
+            "克導強撃",
+            "声威烈撃",
+            "連繋猛勢"
+          ]
+        },
+        {
+          "tableIndex": 3,
+          "skillCount": 2,
+          "skillNames": [
+            "克導強撃",
+            "声威烈撃"
+          ]
+        },
+        {
+          "tableIndex": 4,
+          "skillCount": 2,
+          "skillNames": [
+            "克導強撃",
+            "声威烈撃"
+          ]
+        }
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/565578"
+    },
+    {
+      "id": "equipments:1:尚武丹紅披風",
+      "category": "equipments",
+      "name": "尚武丹紅披風",
+      "displayName": "尚武丹紅披風",
+      "rawName": "【三國志 覇道】尚武丹紅披風",
+      "highestRarity": "UR",
+      "slot": "防具",
+      "troopType": "騎兵 歩兵 弓兵 盾兵",
+      "stages": {
+        "initial": {
+          "label": "初期",
+          "skills": [
+            {
+              "skillName": "克導堅守",
+              "text": "■常に ●部隊の「克破」の技能Lv+1（上限3） ●部隊の防御+5％"
+            },
+            {
+              "skillName": "砕壁盤石",
+              "text": "■常に ●部隊の対物体攻撃+2% ●通常攻撃・戦法による被ダメージ-5% →自身が主将の際は効果が2倍（-10%）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "被ダメージ",
+              "direction": "decrease",
+              "value": "-5%",
+              "targetSide": "self_or_ally",
+              "matchedText": "被ダメージ-5%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "攻撃",
+              "direction": "decrease",
+              "value": "+2%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+2%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "防御",
+              "direction": "increase",
+              "value": "+5％",
+              "targetSide": "self_or_ally",
+              "matchedText": "防御+5％",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "ssrMax": {
+          "label": "SSR最大",
+          "skills": [
+            {
+              "skillName": "克導堅守",
+              "text": "■常に ●部隊の「克破」の技能Lv+1（上限3） ●部隊の「主導」の技能Lv+1（上限5） ●部隊の防御+6％"
+            },
+            {
+              "skillName": "砕壁盤石",
+              "text": "■常に ●部隊の対物体攻撃+8% ●通常攻撃・戦法による被ダメージ-10% →自身が主将の際は効果が2倍（-20%）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "被ダメージ",
+              "direction": "decrease",
+              "value": "-10%",
+              "targetSide": "self_or_ally",
+              "matchedText": "被ダメージ-10%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "攻撃",
+              "direction": "decrease",
+              "value": "+8%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+8%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "防御",
+              "direction": "increase",
+              "value": "+6％",
+              "targetSide": "self_or_ally",
+              "matchedText": "防御+6％",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "urMax": {
+          "label": "UR最大",
+          "skills": [
+            {
+              "skillName": "克導堅守",
+              "text": "■常に ●部隊の「克破」の技能Lv+1（上限3） ●部隊の「主導」の技能Lv+1（上限5） ●部隊の防御+7％"
+            },
+            {
+              "skillName": "砕壁盤石",
+              "text": "■常に ●部隊の対物体攻撃+10% ●通常攻撃・戦法による被ダメージ-15% →自身が主将の際は効果が2倍（-30%）▼この技能を持つ武将が戦法を発動した時 ●自身1部隊に30％の闘気を付与（10秒）"
+            },
+            {
+              "skillName": "強撃猛勢",
+              "text": "■常に ●部隊の攻撃+4% →自身が主将の際は効果が2倍（+8％）"
+            }
+          ],
+          "skillCount": 3,
+          "parameterEffects": [
+            {
+              "parameter": "被ダメージ",
+              "direction": "decrease",
+              "value": "-15%",
+              "targetSide": "self_or_ally",
+              "matchedText": "被ダメージ-15%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "攻撃",
+              "direction": "decrease",
+              "value": "+10%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+10%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+4%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "防御",
+              "direction": "increase",
+              "value": "+7％",
+              "targetSide": "self_or_ally",
+              "matchedText": "防御+7％",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        }
+      },
+      "stageCandidates": [
+        {
+          "tableIndex": 2,
+          "skillCount": 3,
+          "skillNames": [
+            "克導堅守",
+            "砕壁盤石",
+            "強撃猛勢"
+          ]
+        },
+        {
+          "tableIndex": 3,
+          "skillCount": 2,
+          "skillNames": [
+            "克導堅守",
+            "砕壁盤石"
+          ]
+        },
+        {
+          "tableIndex": 4,
+          "skillCount": 2,
+          "skillNames": [
+            "克導堅守",
+            "砕壁盤石"
+          ]
+        }
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/565579"
+    },
+    {
+      "id": "equipments:2:精鋼湾刀・鉄湾刀",
+      "category": "equipments",
+      "name": "精鋼湾刀・鉄湾刀",
+      "displayName": "精鋼湾刀・鉄湾刀",
+      "rawName": "【三國志 覇道】精鋼湾刀・鉄湾刀",
+      "highestRarity": "UR",
+      "slot": "武器",
+      "troopType": "盾兵",
+      "stages": {
+        "initial": {
+          "label": "初期",
+          "skills": [
+            {
+              "skillName": "戦撃怒涛",
+              "text": "■常に ●戦法による与ダメージ+2%"
+            }
+          ],
+          "skillCount": 1,
+          "parameterEffects": [
+            {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+2%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+2%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "ssrMax": {
+          "label": "SSR最大",
+          "skills": [
+            {
+              "skillName": "戦撃怒涛",
+              "text": "■常に ●戦法による与ダメージ+2%"
+            }
+          ],
+          "skillCount": 1,
+          "parameterEffects": [
+            {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+2%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+2%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "urMax": {
+          "label": "UR最大",
+          "skills": [
+            {
+              "skillName": "戦撃怒涛",
+              "text": "■常に ●戦法による与ダメージ+4%"
+            }
+          ],
+          "skillCount": 1,
+          "parameterEffects": [
+            {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+4%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        }
+      },
+      "stageCandidates": [
+        {
+          "tableIndex": 2,
+          "skillCount": 1,
+          "skillNames": [
+            "戦撃怒涛"
+          ]
+        },
+        {
+          "tableIndex": 3,
+          "skillCount": 1,
+          "skillNames": [
+            "戦撃怒涛"
+          ]
+        }
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/564690"
+    },
+    {
+      "id": "equipments:3:精鋼短矛・鉄短矛",
+      "category": "equipments",
+      "name": "精鋼短矛・鉄短矛",
+      "displayName": "精鋼短矛・鉄短矛",
+      "rawName": "【三國志 覇道】精鋼短矛・鉄短矛",
+      "highestRarity": "UR",
+      "slot": "武器",
+      "troopType": "盾兵",
+      "stages": {
+        "initial": {
+          "label": "初期",
+          "skills": [],
+          "skillCount": 0,
+          "parameterEffects": []
+        },
+        "ssrMax": {
+          "label": "SSR最大",
+          "skills": [],
+          "skillCount": 0,
+          "parameterEffects": []
+        },
+        "urMax": {
+          "label": "UR最大",
+          "skills": [],
+          "skillCount": 0,
+          "parameterEffects": []
+        }
+      },
+      "stageCandidates": [],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/564689"
+    },
+    {
+      "id": "equipments:4:乾象暦注",
+      "category": "equipments",
+      "name": "乾象暦注",
+      "displayName": "乾象暦注",
+      "rawName": "【三國志 覇道】乾象暦注",
+      "highestRarity": "SSR",
+      "slot": "文物",
+      "troopType": "騎兵 歩兵 弓兵",
+      "stages": {
+        "initial": {
+          "label": "初期",
+          "skills": [
+            {
+              "skillName": "盤累才気",
+              "text": "■常に ●部隊の「盤互」の技能Lv+1（上限3） ●部隊の知力+5%"
+            },
+            {
+              "skillName": "励宰重栄",
+              "text": "■常に ●自部隊に発生している強化効果の数×1%、戦法による与ダメージが上昇（最大10％） ●自部隊に発生している強化効果の数×1%、戦法による被ダメージを軽減（最大10％）▼主将戦法発動時 ●自身1部隊の撃心威力+10%（10秒）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "撃心威力",
+              "direction": "increase",
+              "value": "+10%",
+              "targetSide": "self_or_ally",
+              "matchedText": "撃心威力+10%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+5%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+5%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "ssrMax": {
+          "label": "SSR最大",
+          "skills": [
+            {
+              "skillName": "盤累才気",
+              "text": "■常に ●部隊の「盤互」の技能Lv+1（上限3） ●部隊の知力+5%"
+            },
+            {
+              "skillName": "励宰重栄",
+              "text": "■常に ●部隊の「発奮」の技能Lv+1（上限5） ●部隊の「宰守」の技能Lv+1（上限2） ●自部隊に発生している強化効果の数×3%、戦法による与ダメージが上昇（最大30％） ●自部隊に発生している強化効果の数×3%、戦法による被ダメージを軽減（最大30％）▼主将戦法発動時 ●自身1部隊の撃心威力+25%（10秒） ●自身1部隊に3回の弱化反射を15秒付与"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "撃心威力",
+              "direction": "increase",
+              "value": "+25%",
+              "targetSide": "self_or_ally",
+              "matchedText": "撃心威力+25%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+5%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+5%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "urMax": {
+          "label": "UR最大",
+          "skills": [
+            {
+              "skillName": "盤累才気",
+              "text": "■常に ●部隊の「盤互」の技能Lv+1（上限3） ●部隊の知力+5%"
+            },
+            {
+              "skillName": "励宰重栄",
+              "text": "■常に ●部隊の「発奮」の技能Lv+1（上限5） ●部隊の「宰守」の技能Lv+1（上限2） ●自部隊に発生している強化効果の数×3%、戦法による与ダメージが上昇（最大30％） ●自部隊に発生している強化効果の数×3%、戦法による被ダメージを軽減（最大30％）▼主将戦法発動時 ●自身1部隊の撃心威力+25%（10秒） ●自身1部隊に3回の弱化反射を15秒付与"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "撃心威力",
+              "direction": "increase",
+              "value": "+25%",
+              "targetSide": "self_or_ally",
+              "matchedText": "撃心威力+25%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+5%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+5%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        }
+      },
+      "stageCandidates": [
+        {
+          "tableIndex": 2,
+          "skillCount": 2,
+          "skillNames": [
+            "盤累才気",
+            "励宰重栄"
+          ]
+        },
+        {
+          "tableIndex": 3,
+          "skillCount": 2,
+          "skillNames": [
+            "盤累才気",
+            "励宰重栄"
+          ]
+        }
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/564671"
+    },
+    {
+      "id": "equipments:5:克己光復剣",
+      "category": "equipments",
+      "name": "克己光復剣",
+      "displayName": "克己光復剣",
+      "rawName": "【三國志 覇道】克己光復剣",
+      "highestRarity": "UR",
+      "slot": "武器",
+      "troopType": "盾兵",
+      "stages": {
+        "initial": {
+          "label": "初期",
+          "skills": [
+            {
+              "skillName": "勇略双撃",
+              "text": "■常に ●部隊の「勇博」の技能Lv+1（上限2） ●自部隊より知力の低い敵部隊に対する通常攻撃・戦法による与ダメージ+3% ●自部隊より攻撃の低い敵部隊に対する通常攻撃・戦法による与ダメージ+3%"
+            },
+            {
+              "skillName": "深化断衝",
+              "text": "■常に ●この技能を持つ武将の戦法で発生する攻撃上昇・知力上昇の効果量+8%▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵4部隊の通常攻撃威力-5%（15秒） →対象が騎兵の場合、効果が2倍（-10%） ●対象を含む敵4部隊の戦法威力-5%（15秒） →対象が騎兵の場合、効果が2倍（-10%）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "通常攻撃威力",
+              "direction": "decrease",
+              "value": "-5%",
+              "targetSide": "enemy",
+              "matchedText": "通常攻撃威力-5%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "戦法威力",
+              "direction": "decrease",
+              "value": "-5%",
+              "targetSide": "enemy",
+              "matchedText": "戦法威力-5%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+3%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+3%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "ssrMax": {
+          "label": "SSR最大",
+          "skills": [
+            {
+              "skillName": "勇略双撃",
+              "text": "■常に ●部隊の「勇博」の技能Lv+1（上限2） ●自部隊より知力の低い敵部隊に対する通常攻撃・戦法による与ダメージ+3% ●自部隊より攻撃の低い敵部隊に対する通常攻撃・戦法による与ダメージ+3%"
+            },
+            {
+              "skillName": "深化断衝",
+              "text": "■常に ●この技能を持つ武将の戦法で発生する攻撃上昇・知力上昇の効果量+15%▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵4部隊の通常攻撃威力-15%（15秒） →対象が騎兵の場合、効果が2倍（-30%） ●対象を含む敵4部隊の戦法威力-15%（15秒） →対象が騎兵の場合、効果が2倍（-30%）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "通常攻撃威力",
+              "direction": "decrease",
+              "value": "-15%",
+              "targetSide": "enemy",
+              "matchedText": "通常攻撃威力-15%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "戦法威力",
+              "direction": "decrease",
+              "value": "-15%",
+              "targetSide": "enemy",
+              "matchedText": "戦法威力-15%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+3%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+3%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "urMax": {
+          "label": "UR最大",
+          "skills": [
+            {
+              "skillName": "勇略双撃",
+              "text": "■常に ●部隊の「勇博」の技能Lv+1（上限2） ●部隊の「機略」の技能Lv+1（上限5） ●自部隊より知力の低い敵部隊に対する通常攻撃・戦法による与ダメージ+7% ●自部隊より攻撃の低い敵部隊に対する通常攻撃・戦法による与ダメージ+7%"
+            },
+            {
+              "skillName": "深化断衝",
+              "text": "■常に ●この技能を持つ武将の戦法で発生する攻撃上昇・知力上昇の効果量+20%▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵4部隊の通常攻撃威力-30%（15秒） ●対象を含む敵4部隊の戦法威力-30%（15秒） ●対象を含む敵4部隊に連鎖不能を15秒付与"
+            },
+            {
+              "skillName": "武慧研鑽",
+              "text": "■常に ●部隊の攻撃+3% →自身が主将か副将の際は効果が2倍（+6%） ●部隊の知力+3% →自身が主将か副将の際は効果が2倍（+6%）"
+            }
+          ],
+          "skillCount": 3,
+          "parameterEffects": [
+            {
+              "parameter": "通常攻撃威力",
+              "direction": "decrease",
+              "value": "-30%",
+              "targetSide": "enemy",
+              "matchedText": "通常攻撃威力-30%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "戦法威力",
+              "direction": "decrease",
+              "value": "-30%",
+              "targetSide": "enemy",
+              "matchedText": "戦法威力-30%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+7%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+7%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+3%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+3%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+3%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+3%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        }
+      },
+      "stageCandidates": [
+        {
+          "tableIndex": 2,
+          "skillCount": 3,
+          "skillNames": [
+            "勇略双撃",
+            "深化断衝",
+            "武慧研鑽"
+          ]
+        },
+        {
+          "tableIndex": 3,
+          "skillCount": 2,
+          "skillNames": [
+            "勇略双撃",
+            "深化断衝"
+          ]
+        },
+        {
+          "tableIndex": 4,
+          "skillCount": 2,
+          "skillNames": [
+            "勇略双撃",
+            "深化断衝"
+          ]
+        }
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/564670"
+    },
+    {
+      "id": "equipments:6:疾風玄鉄刀",
+      "category": "equipments",
+      "name": "疾風玄鉄刀",
+      "displayName": "疾風玄鉄刀",
+      "rawName": "【三國志 覇道】疾風玄鉄刀",
+      "highestRarity": "UR",
+      "slot": "武器",
+      "troopType": "盾兵",
+      "stages": {
+        "initial": {
+          "label": "初期",
+          "skills": [
+            {
+              "skillName": "護威強撃",
+              "text": "■常に ●部隊の「迅護」の技能Lv+1（上限2） ●部隊の攻撃+2%"
+            },
+            {
+              "skillName": "怒涛駿昂",
+              "text": "■常に ●出陣時の自部隊の攻撃に応じて、戦法による与ダメージが上昇（攻撃500につき1％上昇。最大10％） →敵部隊の機動が自部隊より低い場合は効果が2倍（攻撃500につき2%上昇。最大20％）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+2%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+2%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "ssrMax": {
+          "label": "SSR最大",
+          "skills": [
+            {
+              "skillName": "護威強撃",
+              "text": "■常に ●部隊の「迅護」の技能Lv+1（上限2） ●部隊の攻撃+2%"
+            },
+            {
+              "skillName": "怒涛駿昂",
+              "text": "■常に ●出陣時の自部隊の攻撃に応じて、戦法による与ダメージが上昇（攻撃500につき2％上昇。最大20％） →敵部隊の機動が自部隊より低い場合は効果が2倍（攻撃500につき4%上昇。最大40％）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+2%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+2%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "urMax": {
+          "label": "UR最大",
+          "skills": [
+            {
+              "skillName": "護威強撃",
+              "text": "■常に ●部隊の「迅護」の技能Lv+1（上限2） ●部隊の「威風」の技能Lv+1（上限5） ●部隊の攻撃+4%"
+            },
+            {
+              "skillName": "怒涛駿昂",
+              "text": "■常に ●出陣時の自部隊の攻撃に応じて、戦法による与ダメージが上昇（攻撃500につき2％上昇。最大20％） →敵部隊の機動が自部隊より低い場合は効果が2倍（攻撃500につき4%上昇。最大40％）▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方4部隊に15％の強兵を10秒付与"
+            },
+            {
+              "skillName": "威武勇撃",
+              "text": "■常に▼この技能を持つ武将が戦法を発動した時 ●部隊の「威風」のLv×5%、自身を含む味方4部隊の攻撃が上昇（10秒）"
+            }
+          ],
+          "skillCount": 3,
+          "parameterEffects": [
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+4%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        }
+      },
+      "stageCandidates": [
+        {
+          "tableIndex": 2,
+          "skillCount": 3,
+          "skillNames": [
+            "護威強撃",
+            "怒涛駿昂",
+            "威武勇撃"
+          ]
+        },
+        {
+          "tableIndex": 3,
+          "skillCount": 2,
+          "skillNames": [
+            "護威強撃",
+            "怒涛駿昂"
+          ]
+        },
+        {
+          "tableIndex": 4,
+          "skillCount": 2,
+          "skillNames": [
+            "護威強撃",
+            "怒涛駿昂"
+          ]
+        }
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/564669"
+    },
+    {
+      "id": "equipments:7:太平辟邪霊符",
       "category": "equipments",
       "name": "太平辟邪霊符",
       "displayName": "太平辟邪霊符",
@@ -212,7 +1116,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/563061"
     },
     {
-      "id": "equipments:1:蜀科",
+      "id": "equipments:8:蜀科",
       "category": "equipments",
       "name": "蜀科",
       "displayName": "蜀科",
@@ -384,7 +1288,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/562241"
     },
     {
-      "id": "equipments:2:稜花朱塗拂塵",
+      "id": "equipments:9:稜花朱塗拂塵",
       "category": "equipments",
       "name": "稜花朱塗拂塵",
       "displayName": "稜花朱塗拂塵",
@@ -556,7 +1460,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/562240"
     },
     {
-      "id": "equipments:3:堅壁獣面兜",
+      "id": "equipments:10:堅壁獣面兜",
       "category": "equipments",
       "name": "堅壁獣面兜",
       "displayName": "堅壁獣面兜",
@@ -680,7 +1584,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/555369"
     },
     {
-      "id": "equipments:4:披荊斬棘戈",
+      "id": "equipments:11:披荊斬棘戈",
       "category": "equipments",
       "name": "披荊斬棘戈",
       "displayName": "披荊斬棘戈",
@@ -804,7 +1708,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/555368"
     },
     {
-      "id": "equipments:5:踞虎峻厳兜",
+      "id": "equipments:12:踞虎峻厳兜",
       "category": "equipments",
       "name": "踞虎峻厳兜",
       "displayName": "踞虎峻厳兜",
@@ -971,7 +1875,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/549850"
     },
     {
-      "id": "equipments:6:紫金白羽炎冠",
+      "id": "equipments:13:紫金白羽炎冠",
       "category": "equipments",
       "name": "紫金白羽炎冠",
       "displayName": "紫金白羽炎冠",
@@ -1111,7 +2015,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/547820"
     },
     {
-      "id": "equipments:7:魁元月牙湾刀",
+      "id": "equipments:14:魁元月牙湾刀",
       "category": "equipments",
       "name": "魁元月牙湾刀",
       "displayName": "魁元月牙湾刀",
@@ -1251,7 +2155,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/547819"
     },
     {
-      "id": "equipments:8:黄天頭巾",
+      "id": "equipments:15:黄天頭巾",
       "category": "equipments",
       "name": "黄天頭巾",
       "displayName": "黄天頭巾",
@@ -1354,7 +2258,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/546211"
     },
     {
-      "id": "equipments:9:西方の銀杯",
+      "id": "equipments:16:西方の銀杯",
       "category": "equipments",
       "name": "西方の銀杯",
       "displayName": "西方の銀杯",
@@ -1481,7 +2385,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/544475"
     },
     {
-      "id": "equipments:10:武略冠世兜",
+      "id": "equipments:17:武略冠世兜",
       "category": "equipments",
       "name": "武略冠世兜",
       "displayName": "武略冠世兜",
@@ -1597,7 +2501,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/541903"
     },
     {
-      "id": "equipments:11:大志冠世剣",
+      "id": "equipments:18:大志冠世剣",
       "category": "equipments",
       "name": "大志冠世剣",
       "displayName": "大志冠世剣",
@@ -1721,7 +2625,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/541902"
     },
     {
-      "id": "equipments:12:龍紋護臂甲",
+      "id": "equipments:19:龍紋護臂甲",
       "category": "equipments",
       "name": "龍紋護臂甲",
       "displayName": "龍紋護臂甲",
@@ -1893,7 +2797,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/537943"
     },
     {
-      "id": "equipments:13:冷艶鋸",
+      "id": "equipments:20:冷艶鋸",
       "category": "equipments",
       "name": "冷艶鋸",
       "displayName": "冷艶鋸",
@@ -2009,7 +2913,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/537942"
     },
     {
-      "id": "equipments:14:遁甲天書",
+      "id": "equipments:21:遁甲天書",
       "category": "equipments",
       "name": "遁甲天書",
       "displayName": "遁甲天書",
@@ -2085,7 +2989,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/536572"
     },
     {
-      "id": "equipments:15:三國志40周年の書",
+      "id": "equipments:22:三國志40周年の書",
       "category": "equipments",
       "name": "三國志40周年の書",
       "displayName": "三國志40周年の書",
@@ -2249,7 +3153,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/533665"
     },
     {
-      "id": "equipments:16:三國志40周年の盾",
+      "id": "equipments:23:三國志40周年の盾",
       "category": "equipments",
       "name": "三國志40周年の盾",
       "displayName": "三國志40周年の盾",
@@ -2421,7 +3325,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/533664"
     },
     {
-      "id": "equipments:17:三國志40周年の旗",
+      "id": "equipments:24:三國志40周年の旗",
       "category": "equipments",
       "name": "三國志40周年の旗",
       "displayName": "三國志40周年の旗",
@@ -2545,7 +3449,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/533663"
     },
     {
-      "id": "equipments:18:呂氏春秋",
+      "id": "equipments:25:呂氏春秋",
       "category": "equipments",
       "name": "呂氏春秋",
       "displayName": "呂氏春秋",
@@ -2717,7 +3621,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/533604"
     },
     {
-      "id": "equipments:19:万機相輔冠",
+      "id": "equipments:26:万機相輔冠",
       "category": "equipments",
       "name": "万機相輔冠",
       "displayName": "万機相輔冠",
@@ -2865,7 +3769,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/533603"
     },
     {
-      "id": "equipments:20:孫尚香の乾坤圏",
+      "id": "equipments:27:孫尚香の乾坤圏",
       "category": "equipments",
       "name": "孫尚香の乾坤圏",
       "displayName": "孫尚香の乾坤圏",
@@ -3021,7 +3925,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/530733"
     },
     {
-      "id": "equipments:21:夏侯惇の眼帯",
+      "id": "equipments:28:夏侯惇の眼帯",
       "category": "equipments",
       "name": "夏侯惇の眼帯",
       "displayName": "夏侯惇の眼帯",
@@ -3185,7 +4089,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/530732"
     },
     {
-      "id": "equipments:22:張飛の頭巾",
+      "id": "equipments:29:張飛の頭巾",
       "category": "equipments",
       "name": "張飛の頭巾",
       "displayName": "張飛の頭巾",
@@ -3341,7 +4245,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/530731"
     },
     {
-      "id": "equipments:23:飛鳥装束",
+      "id": "equipments:30:飛鳥装束",
       "category": "equipments",
       "name": "飛鳥装束",
       "displayName": "飛鳥装束",
@@ -3454,7 +4358,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/530730"
     },
     {
-      "id": "equipments:24:猛鋭黒革帯",
+      "id": "equipments:31:猛鋭黒革帯",
       "category": "equipments",
       "name": "猛鋭黒革帯",
       "displayName": "猛鋭黒革帯",
@@ -3634,7 +4538,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/525201"
     },
     {
-      "id": "equipments:25:緋紅尖晶石首飾",
+      "id": "equipments:32:緋紅尖晶石首飾",
       "category": "equipments",
       "name": "緋紅尖晶石首飾",
       "displayName": "緋紅尖晶石首飾",
@@ -3785,7 +4689,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/519388"
     },
     {
-      "id": "equipments:26:武衛虎侯頭巾",
+      "id": "equipments:33:武衛虎侯頭巾",
       "category": "equipments",
       "name": "武衛虎侯頭巾",
       "displayName": "武衛虎侯頭巾",
@@ -3925,7 +4829,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/516255"
     },
     {
-      "id": "equipments:27:武衛虎士刀",
+      "id": "equipments:34:武衛虎士刀",
       "category": "equipments",
       "name": "武衛虎士刀",
       "displayName": "武衛虎士刀",
@@ -4065,7 +4969,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/516254"
     },
     {
-      "id": "equipments:28:麒龍志継鎧",
+      "id": "equipments:35:麒龍志継鎧",
       "category": "equipments",
       "name": "麒龍志継鎧",
       "displayName": "麒龍志継鎧",
@@ -4189,7 +5093,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/513868"
     },
     {
-      "id": "equipments:29:蜀山武功秘籍",
+      "id": "equipments:36:蜀山武功秘籍",
       "category": "equipments",
       "name": "蜀山武功秘籍",
       "displayName": "蜀山武功秘籍",
@@ -4295,7 +5199,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/508393"
     },
     {
-      "id": "equipments:30:雄俊光錦袍鎧",
+      "id": "equipments:37:雄俊光錦袍鎧",
       "category": "equipments",
       "name": "雄俊光錦袍鎧",
       "displayName": "雄俊光錦袍鎧",
@@ -4467,7 +5371,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/505421"
     },
     {
-      "id": "equipments:31:雄俊羽毛扇",
+      "id": "equipments:38:雄俊羽毛扇",
       "category": "equipments",
       "name": "雄俊羽毛扇",
       "displayName": "雄俊羽毛扇",
@@ -4615,7 +5519,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/505420"
     },
     {
-      "id": "equipments:32:岱斗帽沿兜",
+      "id": "equipments:39:岱斗帽沿兜",
       "category": "equipments",
       "name": "岱斗帽沿兜",
       "displayName": "岱斗帽沿兜",
@@ -4709,7 +5613,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/503958"
     },
     {
-      "id": "equipments:33:驍武凶悍大刀",
+      "id": "equipments:40:驍武凶悍大刀",
       "category": "equipments",
       "name": "驍武凶悍大刀",
       "displayName": "驍武凶悍大刀",
@@ -4849,7 +5753,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/503957"
     },
     {
-      "id": "equipments:34:煉蠱皿",
+      "id": "equipments:41:煉蠱皿",
       "category": "equipments",
       "name": "煉蠱皿",
       "displayName": "煉蠱皿",
@@ -5021,7 +5925,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/507436"
     },
     {
-      "id": "equipments:35:金蛇鞭",
+      "id": "equipments:42:金蛇鞭",
       "category": "equipments",
       "name": "金蛇鞭",
       "displayName": "金蛇鞭",
@@ -5145,7 +6049,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/507435"
     },
     {
-      "id": "equipments:36:聖霊披風",
+      "id": "equipments:43:聖霊披風",
       "category": "equipments",
       "name": "聖霊披風",
       "displayName": "聖霊披風",
@@ -5243,7 +6147,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/507434"
     },
     {
-      "id": "equipments:37:無塵剣",
+      "id": "equipments:44:無塵剣",
       "category": "equipments",
       "name": "無塵剣",
       "displayName": "無塵剣",
@@ -5455,7 +6359,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/507433"
     },
     {
-      "id": "equipments:38:龍淵剣",
+      "id": "equipments:45:龍淵剣",
       "category": "equipments",
       "name": "龍淵剣",
       "displayName": "龍淵剣",
@@ -5614,7 +6518,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/498628"
     },
     {
-      "id": "equipments:39:五色線",
+      "id": "equipments:46:五色線",
       "category": "equipments",
       "name": "五色線",
       "displayName": "五色線",
@@ -5696,7 +6600,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/498627"
     },
     {
-      "id": "equipments:40:孫臏兵法",
+      "id": "equipments:47:孫臏兵法",
       "category": "equipments",
       "name": "孫臏兵法",
       "displayName": "孫臏兵法",
@@ -5844,7 +6748,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/496769"
     },
     {
-      "id": "equipments:41:報讐克勝冠",
+      "id": "equipments:48:報讐克勝冠",
       "category": "equipments",
       "name": "報讐克勝冠",
       "displayName": "報讐克勝冠",
@@ -5992,7 +6896,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/496768"
     },
     {
-      "id": "equipments:42:劉家伝来の宝剣",
+      "id": "equipments:49:劉家伝来の宝剣",
       "category": "equipments",
       "name": "劉家伝来の宝剣",
       "displayName": "劉家伝来の宝剣",
@@ -6191,7 +7095,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/490428"
     },
     {
-      "id": "equipments:43:躬先越嶺笠兜",
+      "id": "equipments:50:躬先越嶺笠兜",
       "category": "equipments",
       "name": "躬先越嶺笠兜",
       "displayName": "躬先越嶺笠兜",
@@ -6267,7 +7171,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/490375"
     },
     {
-      "id": "equipments:44:果勇金銅鎧",
+      "id": "equipments:51:果勇金銅鎧",
       "category": "equipments",
       "name": "果勇金銅鎧",
       "displayName": "果勇金銅鎧",
@@ -6391,7 +7295,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/485969"
     },
     {
-      "id": "equipments:45:白旄乾坤旗",
+      "id": "equipments:52:白旄乾坤旗",
       "category": "equipments",
       "name": "白旄乾坤旗",
       "displayName": "白旄乾坤旗",
@@ -6523,7 +7427,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/485968"
     },
     {
-      "id": "equipments:46:紅纓帥兜",
+      "id": "equipments:53:紅纓帥兜",
       "category": "equipments",
       "name": "紅纓帥兜",
       "displayName": "紅纓帥兜",
@@ -6671,7 +7575,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/483832"
     },
     {
-      "id": "equipments:47:瀝泉槍",
+      "id": "equipments:54:瀝泉槍",
       "category": "equipments",
       "name": "瀝泉槍",
       "displayName": "瀝泉槍",
@@ -6803,7 +7707,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/483831"
     },
     {
-      "id": "equipments:48:大紅柘榴石首飾",
+      "id": "equipments:55:大紅柘榴石首飾",
       "category": "equipments",
       "name": "大紅柘榴石首飾",
       "displayName": "大紅柘榴石首飾",
@@ -6901,7 +7805,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/481849"
     },
     {
-      "id": "equipments:49:黄天大道旗槍",
+      "id": "equipments:56:黄天大道旗槍",
       "category": "equipments",
       "name": "黄天大道旗槍",
       "displayName": "黄天大道旗槍",
@@ -7049,7 +7953,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/480404"
     },
     {
-      "id": "equipments:50:獠牙鬼面",
+      "id": "equipments:57:獠牙鬼面",
       "category": "equipments",
       "name": "獠牙鬼面",
       "displayName": "獠牙鬼面",
@@ -7213,7 +8117,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/479493"
     },
     {
-      "id": "equipments:51:百保鮮卑重甲",
+      "id": "equipments:58:百保鮮卑重甲",
       "category": "equipments",
       "name": "百保鮮卑重甲",
       "displayName": "百保鮮卑重甲",
@@ -7369,7 +8273,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/479492"
     },
     {
-      "id": "equipments:52:六尺斬馬刀",
+      "id": "equipments:59:六尺斬馬刀",
       "category": "equipments",
       "name": "六尺斬馬刀",
       "displayName": "六尺斬馬刀",
@@ -7496,7 +8400,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/479491"
     },
     {
-      "id": "equipments:53:龍紋鉄甲",
+      "id": "equipments:60:龍紋鉄甲",
       "category": "equipments",
       "name": "龍紋鉄甲",
       "displayName": "龍紋鉄甲",
@@ -7585,7 +8489,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/479490"
     },
     {
-      "id": "equipments:54:二兎観月扇",
+      "id": "equipments:61:二兎観月扇",
       "category": "equipments",
       "name": "二兎観月扇",
       "displayName": "二兎観月扇",
@@ -7712,7 +8616,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/479489"
     },
     {
-      "id": "equipments:55:迅風衝決剣",
+      "id": "equipments:62:迅風衝決剣",
       "category": "equipments",
       "name": "迅風衝決剣",
       "displayName": "迅風衝決剣",
@@ -7836,7 +8740,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/479488"
     },
     {
-      "id": "equipments:56:勢焔雷紋兜",
+      "id": "equipments:63:勢焔雷紋兜",
       "category": "equipments",
       "name": "勢焔雷紋兜",
       "displayName": "勢焔雷紋兜",
@@ -7976,7 +8880,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/477513"
     },
     {
-      "id": "equipments:57:彩漆鳳龍紋盾",
+      "id": "equipments:64:彩漆鳳龍紋盾",
       "category": "equipments",
       "name": "彩漆鳳龍紋盾",
       "displayName": "彩漆鳳龍紋盾",
@@ -8082,7 +8986,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/471309"
     },
     {
-      "id": "equipments:58:玄漆紫玉金冠",
+      "id": "equipments:65:玄漆紫玉金冠",
       "category": "equipments",
       "name": "玄漆紫玉金冠",
       "displayName": "玄漆紫玉金冠",
@@ -8222,7 +9126,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/466171"
     },
     {
-      "id": "equipments:59:虎豹元帥兜",
+      "id": "equipments:66:虎豹元帥兜",
       "category": "equipments",
       "name": "虎豹元帥兜",
       "displayName": "虎豹元帥兜",
@@ -8373,7 +9277,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/463701"
     },
     {
-      "id": "equipments:60:弘雅守信冠",
+      "id": "equipments:67:弘雅守信冠",
       "category": "equipments",
       "name": "弘雅守信冠",
       "displayName": "弘雅守信冠",
@@ -8553,7 +9457,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/462356"
     },
     {
-      "id": "equipments:61:厳毅典麗宝剣",
+      "id": "equipments:68:厳毅典麗宝剣",
       "category": "equipments",
       "name": "厳毅典麗宝剣",
       "displayName": "厳毅典麗宝剣",
@@ -8717,7 +9621,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/458825"
     },
     {
-      "id": "equipments:62:赤心硬殻兜",
+      "id": "equipments:69:赤心硬殻兜",
       "category": "equipments",
       "name": "赤心硬殻兜",
       "displayName": "赤心硬殻兜",
@@ -8889,7 +9793,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/458195"
     },
     {
-      "id": "equipments:63:虎筋弦神弓",
+      "id": "equipments:70:虎筋弦神弓",
       "category": "equipments",
       "name": "虎筋弦神弓",
       "displayName": "虎筋弦神弓",
@@ -8995,7 +9899,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/457314"
     },
     {
-      "id": "equipments:64:鉄脊蛇矛",
+      "id": "equipments:71:鉄脊蛇矛",
       "category": "equipments",
       "name": "鉄脊蛇矛",
       "displayName": "鉄脊蛇矛",
@@ -9143,7 +10047,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/456268"
     },
     {
-      "id": "equipments:65:黄焔柳緑披風",
+      "id": "equipments:72:黄焔柳緑披風",
       "category": "equipments",
       "name": "黄焔柳緑披風",
       "displayName": "黄焔柳緑披風",
@@ -9270,7 +10174,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/453622"
     },
     {
-      "id": "equipments:66:貞烈弓籠手",
+      "id": "equipments:73:貞烈弓籠手",
       "category": "equipments",
       "name": "貞烈弓籠手",
       "displayName": "貞烈弓籠手",
@@ -9418,7 +10322,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/452658"
     },
     {
-      "id": "equipments:67:春秋左氏伝",
+      "id": "equipments:74:春秋左氏伝",
       "category": "equipments",
       "name": "春秋左氏伝",
       "displayName": "春秋左氏伝",
@@ -9550,7 +10454,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/450469"
     },
     {
-      "id": "equipments:68:緑絹金花抹額",
+      "id": "equipments:75:緑絹金花抹額",
       "category": "equipments",
       "name": "緑絹金花抹額",
       "displayName": "緑絹金花抹額",
@@ -9682,7 +10586,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/449511"
     },
     {
-      "id": "equipments:69:炎帝神農茶譜",
+      "id": "equipments:76:炎帝神農茶譜",
       "category": "equipments",
       "name": "炎帝神農茶譜",
       "displayName": "炎帝神農茶譜",
@@ -9830,7 +10734,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/447687"
     },
     {
-      "id": "equipments:70:賢佐治道笏",
+      "id": "equipments:77:賢佐治道笏",
       "category": "equipments",
       "name": "賢佐治道笏",
       "displayName": "賢佐治道笏",
@@ -9969,7 +10873,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/444329"
     },
     {
-      "id": "equipments:71:魔術師の帽子",
+      "id": "equipments:78:魔術師の帽子",
       "category": "equipments",
       "name": "魔術師の帽子",
       "displayName": "魔術師の帽子",
@@ -10124,7 +11028,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/440944"
     },
     {
-      "id": "equipments:72:星間航路図",
+      "id": "equipments:79:星間航路図",
       "category": "equipments",
       "name": "星間航路図",
       "displayName": "星間航路図",
@@ -10304,7 +11208,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/440928"
     },
     {
-      "id": "equipments:73:金色のロケット",
+      "id": "equipments:80:金色のロケット",
       "category": "equipments",
       "name": "金色のロケット",
       "displayName": "金色のロケット",
@@ -10500,7 +11404,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/440929"
     },
     {
-      "id": "equipments:74:励志方正冠",
+      "id": "equipments:81:励志方正冠",
       "category": "equipments",
       "name": "励志方正冠",
       "displayName": "励志方正冠",
@@ -10603,7 +11507,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/440903"
     },
     {
-      "id": "equipments:75:鋭師飛鵠兜",
+      "id": "equipments:82:鋭師飛鵠兜",
       "category": "equipments",
       "name": "鋭師飛鵠兜",
       "displayName": "鋭師飛鵠兜",
@@ -10717,7 +11621,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/439591"
     },
     {
-      "id": "equipments:76:鳳鳴双飛金冠",
+      "id": "equipments:83:鳳鳴双飛金冠",
       "category": "equipments",
       "name": "鳳鳴双飛金冠",
       "displayName": "鳳鳴双飛金冠",
@@ -10865,7 +11769,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/437134"
     },
     {
-      "id": "equipments:77:朝陽仁恵玉冠",
+      "id": "equipments:84:朝陽仁恵玉冠",
       "category": "equipments",
       "name": "朝陽仁恵玉冠",
       "displayName": "朝陽仁恵玉冠",
@@ -10963,7 +11867,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/437133"
     },
     {
-      "id": "equipments:78:碧緑双翼兜",
+      "id": "equipments:85:碧緑双翼兜",
       "category": "equipments",
       "name": "碧緑双翼兜",
       "displayName": "碧緑双翼兜",
@@ -11119,7 +12023,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/435964"
     },
     {
-      "id": "equipments:79:焦尾琴",
+      "id": "equipments:86:焦尾琴",
       "category": "equipments",
       "name": "焦尾琴",
       "displayName": "焦尾琴",
@@ -11225,7 +12129,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/432216"
     },
     {
-      "id": "equipments:80:西方の紅帽",
+      "id": "equipments:87:西方の紅帽",
       "category": "equipments",
       "name": "西方の紅帽",
       "displayName": "西方の紅帽",
@@ -11421,7 +12325,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/430131"
     },
     {
-      "id": "equipments:81:奉天銀灰冠",
+      "id": "equipments:88:奉天銀灰冠",
       "category": "equipments",
       "name": "奉天銀灰冠",
       "displayName": "奉天銀灰冠",
@@ -11540,7 +12444,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/430025"
     },
     {
-      "id": "equipments:82:先登承志頭巾",
+      "id": "equipments:89:先登承志頭巾",
       "category": "equipments",
       "name": "先登承志頭巾",
       "displayName": "先登承志頭巾",
@@ -11672,7 +12576,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/428594"
     },
     {
-      "id": "equipments:83:飛刀",
+      "id": "equipments:90:飛刀",
       "category": "equipments",
       "name": "飛刀",
       "displayName": "飛刀",
@@ -11836,7 +12740,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/426693"
     },
     {
-      "id": "equipments:84:南天羽飾兜",
+      "id": "equipments:91:南天羽飾兜",
       "category": "equipments",
       "name": "南天羽飾兜",
       "displayName": "南天羽飾兜",
@@ -11992,7 +12896,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/426692"
     },
     {
-      "id": "equipments:85:威福笠兜",
+      "id": "equipments:92:威福笠兜",
       "category": "equipments",
       "name": "威福笠兜",
       "displayName": "威福笠兜",
@@ -12140,7 +13044,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/424279"
     },
     {
-      "id": "equipments:86:諸葛巾",
+      "id": "equipments:93:諸葛巾",
       "category": "equipments",
       "name": "諸葛巾",
       "displayName": "諸葛巾",
@@ -12304,7 +13208,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/422731"
     },
     {
-      "id": "equipments:87:壮気直躬剣",
+      "id": "equipments:94:壮気直躬剣",
       "category": "equipments",
       "name": "壮気直躬剣",
       "displayName": "壮気直躬剣",
@@ -12508,7 +13412,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/420676"
     },
     {
-      "id": "equipments:88:九華扇",
+      "id": "equipments:95:九華扇",
       "category": "equipments",
       "name": "九華扇",
       "displayName": "九華扇",
@@ -12672,7 +13576,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/417800"
     },
     {
-      "id": "equipments:89:興起嵩峻兜",
+      "id": "equipments:96:興起嵩峻兜",
       "category": "equipments",
       "name": "興起嵩峻兜",
       "displayName": "興起嵩峻兜",
@@ -12823,7 +13727,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/417593"
     },
     {
-      "id": "equipments:90:司馬氏兵記",
+      "id": "equipments:97:司馬氏兵記",
       "category": "equipments",
       "name": "司馬氏兵記",
       "displayName": "司馬氏兵記",
@@ -12921,7 +13825,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/415881"
     },
     {
-      "id": "equipments:91:奮勇燕尾牌",
+      "id": "equipments:98:奮勇燕尾牌",
       "category": "equipments",
       "name": "奮勇燕尾牌",
       "displayName": "奮勇燕尾牌",
@@ -13077,7 +13981,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/415882"
     },
     {
-      "id": "equipments:92:羊の遊泳圏",
+      "id": "equipments:99:羊の遊泳圏",
       "category": "equipments",
       "name": "羊の遊泳圏",
       "displayName": "羊の遊泳圏",
@@ -13196,7 +14100,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/412321"
     },
     {
-      "id": "equipments:93:龍の水槍",
+      "id": "equipments:100:龍の水槍",
       "category": "equipments",
       "name": "龍の水槍",
       "displayName": "龍の水槍",
@@ -13278,7 +14182,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/411533"
     },
     {
-      "id": "equipments:94:断江倒海鞭",
+      "id": "equipments:101:断江倒海鞭",
       "category": "equipments",
       "name": "断江倒海鞭",
       "displayName": "断江倒海鞭",
@@ -13384,7 +14288,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/410935"
     },
     {
-      "id": "equipments:95:燦金赤纓兜",
+      "id": "equipments:102:燦金赤纓兜",
       "category": "equipments",
       "name": "燦金赤纓兜",
       "displayName": "燦金赤纓兜",
@@ -13524,7 +14428,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/410936"
     },
     {
-      "id": "equipments:96:雄豪肩呑鎧",
+      "id": "equipments:103:雄豪肩呑鎧",
       "category": "equipments",
       "name": "雄豪肩呑鎧",
       "displayName": "雄豪肩呑鎧",
@@ -13638,7 +14542,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/408742"
     },
     {
-      "id": "equipments:97:富春孫氏家伝",
+      "id": "equipments:104:富春孫氏家伝",
       "category": "equipments",
       "name": "富春孫氏家伝",
       "displayName": "富春孫氏家伝",
@@ -13818,7 +14722,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/408743"
     },
     {
-      "id": "equipments:98:奔走の算盤",
+      "id": "equipments:105:奔走の算盤",
       "category": "equipments",
       "name": "奔走の算盤",
       "displayName": "奔走の算盤",
@@ -13894,7 +14798,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/405582"
     },
     {
-      "id": "equipments:99:亢龍鋼鞭",
+      "id": "equipments:106:亢龍鋼鞭",
       "category": "equipments",
       "name": "亢龍鋼鞭",
       "displayName": "亢龍鋼鞭",
@@ -14037,7 +14941,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/405123"
     },
     {
-      "id": "equipments:100:思紹",
+      "id": "equipments:107:思紹",
       "category": "equipments",
       "name": "思紹",
       "displayName": "思紹",
@@ -14151,7 +15055,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/402668"
     },
     {
-      "id": "equipments:101:鋼胆鉄心槍",
+      "id": "equipments:108:鋼胆鉄心槍",
       "category": "equipments",
       "name": "鋼胆鉄心槍",
       "displayName": "鋼胆鉄心槍",
@@ -14331,7 +15235,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/402281"
     },
     {
-      "id": "equipments:102:銀山雪海鎧",
+      "id": "equipments:109:銀山雪海鎧",
       "category": "equipments",
       "name": "銀山雪海鎧",
       "displayName": "銀山雪海鎧",
@@ -14471,7 +15375,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/402282"
     },
     {
-      "id": "equipments:103:雲矩紋玉具宝剣",
+      "id": "equipments:110:雲矩紋玉具宝剣",
       "category": "equipments",
       "name": "雲矩紋玉具宝剣",
       "displayName": "雲矩紋玉具宝剣",
@@ -14619,7 +15523,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/397296"
     },
     {
-      "id": "equipments:104:藍田玉軍令牌",
+      "id": "equipments:111:藍田玉軍令牌",
       "category": "equipments",
       "name": "藍田玉軍令牌",
       "displayName": "藍田玉軍令牌",
@@ -14751,7 +15655,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/397295"
     },
     {
-      "id": "equipments:105:狼毛紫纓兜",
+      "id": "equipments:112:狼毛紫纓兜",
       "category": "equipments",
       "name": "狼毛紫纓兜",
       "displayName": "狼毛紫纓兜",
@@ -14827,7 +15731,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/396756"
     },
     {
-      "id": "equipments:106:疾風護臂甲",
+      "id": "equipments:113:疾風護臂甲",
       "category": "equipments",
       "name": "疾風護臂甲",
       "displayName": "疾風護臂甲",
@@ -14967,7 +15871,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/396757"
     },
     {
-      "id": "equipments:107:登極龍紋金觚",
+      "id": "equipments:114:登極龍紋金觚",
       "category": "equipments",
       "name": "登極龍紋金觚",
       "displayName": "登極龍紋金觚",
@@ -15131,7 +16035,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/394781"
     },
     {
-      "id": "equipments:108:木牛試作模型",
+      "id": "equipments:115:木牛試作模型",
       "category": "equipments",
       "name": "木牛試作模型",
       "displayName": "木牛試作模型",
@@ -15263,7 +16167,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/394780"
     },
     {
-      "id": "equipments:109:白銀龍胆鎧",
+      "id": "equipments:116:白銀龍胆鎧",
       "category": "equipments",
       "name": "白銀龍胆鎧",
       "displayName": "白銀龍胆鎧",
@@ -15443,7 +16347,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/392438"
     },
     {
-      "id": "equipments:110:錦帆鈴飾",
+      "id": "equipments:117:錦帆鈴飾",
       "category": "equipments",
       "name": "錦帆鈴飾",
       "displayName": "錦帆鈴飾",
@@ -15591,7 +16495,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/392439"
     },
     {
-      "id": "equipments:111:明道方略冠",
+      "id": "equipments:118:明道方略冠",
       "category": "equipments",
       "name": "明道方略冠",
       "displayName": "明道方略冠",
@@ -15734,7 +16638,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/392383"
     },
     {
-      "id": "equipments:112:平蜀地理図",
+      "id": "equipments:119:平蜀地理図",
       "category": "equipments",
       "name": "平蜀地理図",
       "displayName": "平蜀地理図",
@@ -15874,7 +16778,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/390395"
     },
     {
-      "id": "equipments:113:道論",
+      "id": "equipments:120:道論",
       "category": "equipments",
       "name": "道論",
       "displayName": "道論",
@@ -16014,7 +16918,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/390396"
     },
     {
-      "id": "equipments:114:真鋼鎮定剣",
+      "id": "equipments:121:真鋼鎮定剣",
       "category": "equipments",
       "name": "真鋼鎮定剣",
       "displayName": "真鋼鎮定剣",
@@ -16146,7 +17050,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/388070"
     },
     {
-      "id": "equipments:115:召虎鉤鎌刀",
+      "id": "equipments:122:召虎鉤鎌刀",
       "category": "equipments",
       "name": "召虎鉤鎌刀",
       "displayName": "召虎鉤鎌刀",
@@ -16302,7 +17206,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/388071"
     },
     {
-      "id": "equipments:116:西方の鞭",
+      "id": "equipments:123:西方の鞭",
       "category": "equipments",
       "name": "西方の鞭",
       "displayName": "西方の鞭",
@@ -16461,7 +17365,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/387162"
     },
     {
-      "id": "equipments:117:西方の盾",
+      "id": "equipments:124:西方の盾",
       "category": "equipments",
       "name": "西方の盾",
       "displayName": "西方の盾",
@@ -16543,7 +17447,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/387163"
     },
     {
-      "id": "equipments:118:天禄一角兜",
+      "id": "equipments:125:天禄一角兜",
       "category": "equipments",
       "name": "天禄一角兜",
       "displayName": "天禄一角兜",
@@ -16675,7 +17579,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/386391"
     },
     {
-      "id": "equipments:119:天柱鉄大刀",
+      "id": "equipments:126:天柱鉄大刀",
       "category": "equipments",
       "name": "天柱鉄大刀",
       "displayName": "天柱鉄大刀",
@@ -16799,7 +17703,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/386392"
     },
     {
-      "id": "equipments:120:純和青金石首飾",
+      "id": "equipments:127:純和青金石首飾",
       "category": "equipments",
       "name": "純和青金石首飾",
       "displayName": "純和青金石首飾",
@@ -16923,7 +17827,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/385627"
     },
     {
-      "id": "equipments:121:瑠璃珠金花冠",
+      "id": "equipments:128:瑠璃珠金花冠",
       "category": "equipments",
       "name": "瑠璃珠金花冠",
       "displayName": "瑠璃珠金花冠",
@@ -17055,7 +17959,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/384332"
     },
     {
-      "id": "equipments:122:驍悍傲骨鎧",
+      "id": "equipments:129:驍悍傲骨鎧",
       "category": "equipments",
       "name": "驍悍傲骨鎧",
       "displayName": "驍悍傲骨鎧",
@@ -17219,7 +18123,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/384333"
     },
     {
-      "id": "equipments:123:鷹揚玄冥兜",
+      "id": "equipments:130:鷹揚玄冥兜",
       "category": "equipments",
       "name": "鷹揚玄冥兜",
       "displayName": "鷹揚玄冥兜",
@@ -17333,7 +18237,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/381755"
     },
     {
-      "id": "equipments:124:青嚢書・名家医書",
+      "id": "equipments:131:青嚢書・名家医書",
       "category": "equipments",
       "name": "青嚢書・名家医書",
       "displayName": "青嚢書・名家医書",
@@ -17409,7 +18313,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/381628"
     },
     {
-      "id": "equipments:125:太平賢良黄金冠",
+      "id": "equipments:132:太平賢良黄金冠",
       "category": "equipments",
       "name": "太平賢良黄金冠",
       "displayName": "太平賢良黄金冠",
@@ -17525,7 +18429,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/380542"
     },
     {
-      "id": "equipments:126:黄幡豹尾",
+      "id": "equipments:133:黄幡豹尾",
       "category": "equipments",
       "name": "黄幡豹尾",
       "displayName": "黄幡豹尾",
@@ -17652,7 +18556,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/379087"
     },
     {
-      "id": "equipments:127:玄熊毛銀黄兜",
+      "id": "equipments:134:玄熊毛銀黄兜",
       "category": "equipments",
       "name": "玄熊毛銀黄兜",
       "displayName": "玄熊毛銀黄兜",
@@ -17766,7 +18670,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/378225"
     },
     {
-      "id": "equipments:128:金繍緑錦披風",
+      "id": "equipments:135:金繍緑錦披風",
       "category": "equipments",
       "name": "金繍緑錦披風",
       "displayName": "金繍緑錦披風",
@@ -17890,7 +18794,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/378226"
     },
     {
-      "id": "equipments:129:神獣面白纓兜",
+      "id": "equipments:136:神獣面白纓兜",
       "category": "equipments",
       "name": "神獣面白纓兜",
       "displayName": "神獣面白纓兜",
@@ -18038,7 +18942,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/372045"
     },
     {
-      "id": "equipments:130:白狐毛皮披風",
+      "id": "equipments:137:白狐毛皮披風",
       "category": "equipments",
       "name": "白狐毛皮披風",
       "displayName": "白狐毛皮披風",
@@ -18162,7 +19066,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/372046"
     },
     {
-      "id": "equipments:131:大喬琵琶",
+      "id": "equipments:138:大喬琵琶",
       "category": "equipments",
       "name": "大喬琵琶",
       "displayName": "大喬琵琶",
@@ -18251,7 +19155,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/370324"
     },
     {
-      "id": "equipments:132:与韓将軍書",
+      "id": "equipments:139:与韓将軍書",
       "category": "equipments",
       "name": "与韓将軍書",
       "displayName": "与韓将軍書",
@@ -18391,7 +19295,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/370325"
     },
     {
-      "id": "equipments:133:南瓜の灯燈",
+      "id": "equipments:140:南瓜の灯燈",
       "category": "equipments",
       "name": "南瓜の灯燈",
       "displayName": "南瓜の灯燈",
@@ -18493,7 +19397,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/370111"
     },
     {
-      "id": "equipments:134:蝙蝠披風",
+      "id": "equipments:141:蝙蝠披風",
       "category": "equipments",
       "name": "蝙蝠披風",
       "displayName": "蝙蝠披風",
@@ -18625,7 +19529,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/369589"
     },
     {
-      "id": "equipments:135:西方の杖",
+      "id": "equipments:142:西方の杖",
       "category": "equipments",
       "name": "西方の杖",
       "displayName": "西方の杖",
@@ -18736,7 +19640,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/369590"
     },
     {
-      "id": "equipments:136:双鉄戟",
+      "id": "equipments:143:双鉄戟",
       "category": "equipments",
       "name": "双鉄戟",
       "displayName": "双鉄戟",
@@ -18850,7 +19754,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/366805"
     },
     {
-      "id": "equipments:137:朱襟白絹半臂",
+      "id": "equipments:144:朱襟白絹半臂",
       "category": "equipments",
       "name": "朱襟白絹半臂",
       "displayName": "朱襟白絹半臂",
@@ -18990,7 +19894,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/366806"
     },
     {
-      "id": "equipments:138:孔明の木像",
+      "id": "equipments:145:孔明の木像",
       "category": "equipments",
       "name": "孔明の木像",
       "displayName": "孔明の木像",
@@ -19109,7 +20013,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/363472"
     },
     {
-      "id": "equipments:139:紅玉珍珠金耳墜",
+      "id": "equipments:146:紅玉珍珠金耳墜",
       "category": "equipments",
       "name": "紅玉珍珠金耳墜",
       "displayName": "紅玉珍珠金耳墜",
@@ -19241,7 +20145,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/361962"
     },
     {
-      "id": "equipments:140:剛断戦斧",
+      "id": "equipments:147:剛断戦斧",
       "category": "equipments",
       "name": "剛断戦斧",
       "displayName": "剛断戦斧",
@@ -19347,7 +20251,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/361963"
     },
     {
-      "id": "equipments:141:孟徳新書",
+      "id": "equipments:148:孟徳新書",
       "category": "equipments",
       "name": "孟徳新書",
       "displayName": "孟徳新書",
@@ -19463,7 +20367,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/361680"
     },
     {
-      "id": "equipments:142:烈志蒼驥鎧",
+      "id": "equipments:149:烈志蒼驥鎧",
       "category": "equipments",
       "name": "烈志蒼驥鎧",
       "displayName": "烈志蒼驥鎧",
@@ -19603,7 +20507,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/361681"
     },
     {
-      "id": "equipments:143:倚天の剣",
+      "id": "equipments:150:倚天の剣",
       "category": "equipments",
       "name": "倚天の剣",
       "displayName": "倚天の剣",
@@ -19743,7 +20647,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/361682"
     },
     {
-      "id": "equipments:144:羅綺香嚢",
+      "id": "equipments:151:羅綺香嚢",
       "category": "equipments",
       "name": "羅綺香嚢",
       "displayName": "羅綺香嚢",
@@ -19894,7 +20798,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/359566"
     },
     {
-      "id": "equipments:145:荀氏春秋要論",
+      "id": "equipments:152:荀氏春秋要論",
       "category": "equipments",
       "name": "荀氏春秋要論",
       "displayName": "荀氏春秋要論",
@@ -20042,7 +20946,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/354254"
     },
     {
-      "id": "equipments:146:克敵機謀剣",
+      "id": "equipments:153:克敵機謀剣",
       "category": "equipments",
       "name": "克敵機謀剣",
       "displayName": "克敵機謀剣",
@@ -20190,7 +21094,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/354255"
     },
     {
-      "id": "equipments:147:千創玄英鎧",
+      "id": "equipments:154:千創玄英鎧",
       "category": "equipments",
       "name": "千創玄英鎧",
       "displayName": "千創玄英鎧",
@@ -20322,7 +21226,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/351113"
     },
     {
-      "id": "equipments:148:克己猟龍兜",
+      "id": "equipments:155:克己猟龍兜",
       "category": "equipments",
       "name": "克己猟龍兜",
       "displayName": "克己猟龍兜",
@@ -20470,7 +21374,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/351114"
     },
     {
-      "id": "equipments:149:太平九節杖",
+      "id": "equipments:156:太平九節杖",
       "category": "equipments",
       "name": "太平九節杖",
       "displayName": "太平九節杖",
@@ -20559,7 +21463,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/347554"
     },
     {
-      "id": "equipments:150:青嚢書・名家医書",
+      "id": "equipments:157:青嚢書・名家医書",
       "category": "equipments",
       "name": "青嚢書・名家医書",
       "displayName": "青嚢書・名家医書",
@@ -20665,7 +21569,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/346228"
     },
     {
-      "id": "equipments:151:金系帯紫錦披風",
+      "id": "equipments:158:金系帯紫錦披風",
       "category": "equipments",
       "name": "金系帯紫錦披風",
       "displayName": "金系帯紫錦披風",
@@ -20813,7 +21717,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/346229"
     },
     {
-      "id": "equipments:152:玲瓏獅蛮帯",
+      "id": "equipments:159:玲瓏獅蛮帯",
       "category": "equipments",
       "name": "玲瓏獅蛮帯",
       "displayName": "玲瓏獅蛮帯",
@@ -20953,7 +21857,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/346230"
     },
     {
-      "id": "equipments:153:金繍紅錦半臂",
+      "id": "equipments:160:金繍紅錦半臂",
       "category": "equipments",
       "name": "金繍紅錦半臂",
       "displayName": "金繍紅錦半臂",
@@ -21093,7 +21997,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/343324"
     },
     {
-      "id": "equipments:154:克定鋭刀",
+      "id": "equipments:161:克定鋭刀",
       "category": "equipments",
       "name": "克定鋭刀",
       "displayName": "克定鋭刀",
@@ -21215,7 +22119,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/343325"
     },
     {
-      "id": "equipments:155:古錠刀",
+      "id": "equipments:162:古錠刀",
       "category": "equipments",
       "name": "古錠刀",
       "displayName": "古錠刀",
@@ -21363,7 +22267,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/331326"
     },
     {
-      "id": "equipments:156:孤月独明剣",
+      "id": "equipments:163:孤月独明剣",
       "category": "equipments",
       "name": "孤月独明剣",
       "displayName": "孤月独明剣",
@@ -21487,7 +22391,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/327124"
     },
     {
-      "id": "equipments:157:獅子頭の兜",
+      "id": "equipments:164:獅子頭の兜",
       "category": "equipments",
       "name": "獅子頭の兜",
       "displayName": "獅子頭の兜",
@@ -21619,7 +22523,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/327125"
     },
     {
-      "id": "equipments:158:商君書",
+      "id": "equipments:165:商君書",
       "category": "equipments",
       "name": "商君書",
       "displayName": "商君書",
@@ -21695,7 +22599,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/324401"
     },
     {
-      "id": "equipments:159:才捷弓",
+      "id": "equipments:166:才捷弓",
       "category": "equipments",
       "name": "才捷弓",
       "displayName": "才捷弓",
@@ -21784,7 +22688,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/324402"
     },
     {
-      "id": "equipments:160:二石之弓",
+      "id": "equipments:167:二石之弓",
       "category": "equipments",
       "name": "二石之弓",
       "displayName": "二石之弓",
@@ -21908,7 +22812,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/323140"
     },
     {
-      "id": "equipments:161:立義鋼刀",
+      "id": "equipments:168:立義鋼刀",
       "category": "equipments",
       "name": "立義鋼刀",
       "displayName": "立義鋼刀",
@@ -22022,7 +22926,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/323141"
     },
     {
-      "id": "equipments:162:玉帯",
+      "id": "equipments:169:玉帯",
       "category": "equipments",
       "name": "玉帯",
       "displayName": "玉帯",
@@ -22084,7 +22988,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/321658"
     },
     {
-      "id": "equipments:163:冕冠",
+      "id": "equipments:170:冕冠",
       "category": "equipments",
       "name": "冕冠",
       "displayName": "冕冠",
@@ -22160,7 +23064,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/321659"
     },
     {
-      "id": "equipments:164:軍師錦羅袍",
+      "id": "equipments:171:軍師錦羅袍",
       "category": "equipments",
       "name": "軍師錦羅袍",
       "displayName": "軍師錦羅袍",
@@ -22292,7 +23196,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/318381"
     },
     {
-      "id": "equipments:165:疾風剛弓",
+      "id": "equipments:172:疾風剛弓",
       "category": "equipments",
       "name": "疾風剛弓",
       "displayName": "疾風剛弓",
@@ -22416,7 +23320,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/318382"
     },
     {
-      "id": "equipments:166:龍紋緑袍鎧",
+      "id": "equipments:173:龍紋緑袍鎧",
       "category": "equipments",
       "name": "龍紋緑袍鎧",
       "displayName": "龍紋緑袍鎧",
@@ -22519,7 +23423,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/314939"
     },
     {
-      "id": "equipments:167:翡翠玉笛",
+      "id": "equipments:174:翡翠玉笛",
       "category": "equipments",
       "name": "翡翠玉笛",
       "displayName": "翡翠玉笛",
@@ -22617,7 +23521,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/314940"
     },
     {
-      "id": "equipments:168:黄武勢剣",
+      "id": "equipments:175:黄武勢剣",
       "category": "equipments",
       "name": "黄武勢剣",
       "displayName": "黄武勢剣",
@@ -22749,7 +23653,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/314941"
     },
     {
-      "id": "equipments:169:武弁大冠",
+      "id": "equipments:176:武弁大冠",
       "category": "equipments",
       "name": "武弁大冠",
       "displayName": "武弁大冠",
@@ -22855,7 +23759,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/311618"
     },
     {
-      "id": "equipments:170:太師黄金爵",
+      "id": "equipments:177:太師黄金爵",
       "category": "equipments",
       "name": "太師黄金爵",
       "displayName": "太師黄金爵",
@@ -22979,7 +23883,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/311619"
     },
     {
-      "id": "equipments:171:紫藤紗錦披帛",
+      "id": "equipments:178:紫藤紗錦披帛",
       "category": "equipments",
       "name": "紫藤紗錦披帛",
       "displayName": "紫藤紗錦披帛",
@@ -23119,7 +24023,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/305425"
     },
     {
-      "id": "equipments:172:黒紗金飾冠",
+      "id": "equipments:179:黒紗金飾冠",
       "category": "equipments",
       "name": "黒紗金飾冠",
       "displayName": "黒紗金飾冠",
@@ -23225,7 +24129,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/305426"
     },
     {
-      "id": "equipments:173:だんだら羽織",
+      "id": "equipments:180:だんだら羽織",
       "category": "equipments",
       "name": "だんだら羽織",
       "displayName": "だんだら羽織",
@@ -23352,7 +24256,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/298329"
     },
     {
-      "id": "equipments:174:和泉守兼定",
+      "id": "equipments:181:和泉守兼定",
       "category": "equipments",
       "name": "和泉守兼定",
       "displayName": "和泉守兼定",
@@ -23479,7 +24383,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/298312"
     },
     {
-      "id": "equipments:175:三叉束髪紫金冠",
+      "id": "equipments:182:三叉束髪紫金冠",
       "category": "equipments",
       "name": "三叉束髪紫金冠",
       "displayName": "三叉束髪紫金冠",
@@ -23609,7 +24513,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/297529"
     },
     {
-      "id": "equipments:176:白羽扇",
+      "id": "equipments:183:白羽扇",
       "category": "equipments",
       "name": "白羽扇",
       "displayName": "白羽扇",
@@ -23741,7 +24645,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/297530"
     },
     {
-      "id": "equipments:177:羌毛領披風・黒革披風",
+      "id": "equipments:184:羌毛領披風・黒革披風",
       "category": "equipments",
       "name": "羌毛領披風・黒革披風",
       "displayName": "羌毛領披風・黒革披風",
@@ -23839,7 +24743,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/294134"
     },
     {
-      "id": "equipments:178:烏桓貂毛兜・黒羊兜",
+      "id": "equipments:185:烏桓貂毛兜・黒羊兜",
       "category": "equipments",
       "name": "烏桓貂毛兜・黒羊兜",
       "displayName": "烏桓貂毛兜・黒羊兜",
@@ -23971,7 +24875,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/294135"
     },
     {
-      "id": "equipments:179:南蛮獣牙首飾・洞主首飾",
+      "id": "equipments:186:南蛮獣牙首飾・洞主首飾",
       "category": "equipments",
       "name": "南蛮獣牙首飾・洞主首飾",
       "displayName": "南蛮獣牙首飾・洞主首飾",
@@ -24111,7 +25015,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/294136"
     },
     {
-      "id": "equipments:180:麟角槍",
+      "id": "equipments:187:麟角槍",
       "category": "equipments",
       "name": "麟角槍",
       "displayName": "麟角槍",
@@ -24267,7 +25171,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/293694"
     },
     {
-      "id": "equipments:181:射透弓",
+      "id": "equipments:188:射透弓",
       "category": "equipments",
       "name": "射透弓",
       "displayName": "射透弓",
@@ -24423,7 +25327,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/293695"
     },
     {
-      "id": "equipments:182:狐白裘・狐裘",
+      "id": "equipments:189:狐白裘・狐裘",
       "category": "equipments",
       "name": "狐白裘・狐裘",
       "displayName": "狐白裘・狐裘",
@@ -24499,7 +25403,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/293023"
     },
     {
-      "id": "equipments:183:太平要術の書・経国要術",
+      "id": "equipments:190:太平要術の書・経国要術",
       "category": "equipments",
       "name": "太平要術の書・経国要術",
       "displayName": "太平要術の書・経国要術",
@@ -24597,7 +25501,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/292111"
     },
     {
-      "id": "equipments:184:虎皮披風",
+      "id": "equipments:191:虎皮披風",
       "category": "equipments",
       "name": "虎皮披風",
       "displayName": "虎皮披風",
@@ -24729,7 +25633,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/291171"
     },
     {
-      "id": "equipments:185:青釭の剣",
+      "id": "equipments:192:青釭の剣",
       "category": "equipments",
       "name": "青釭の剣",
       "displayName": "青釭の剣",
@@ -24861,7 +25765,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/291172"
     },
     {
-      "id": "equipments:186:山越鋸歯刀・山越刀",
+      "id": "equipments:193:山越鋸歯刀・山越刀",
       "category": "equipments",
       "name": "山越鋸歯刀・山越刀",
       "displayName": "山越鋸歯刀・山越刀",
@@ -25017,7 +25921,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/288526"
     },
     {
-      "id": "equipments:187:五渓狼牙棒・狼牙棒",
+      "id": "equipments:194:五渓狼牙棒・狼牙棒",
       "category": "equipments",
       "name": "五渓狼牙棒・狼牙棒",
       "displayName": "五渓狼牙棒・狼牙棒",
@@ -25149,7 +26053,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/288527"
     },
     {
-      "id": "equipments:188:鮮卑角端弓・角弓",
+      "id": "equipments:195:鮮卑角端弓・角弓",
       "category": "equipments",
       "name": "鮮卑角端弓・角弓",
       "displayName": "鮮卑角端弓・角弓",
@@ -25281,7 +26185,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/288528"
     },
     {
-      "id": "equipments:189:虎臣瓢箪",
+      "id": "equipments:196:虎臣瓢箪",
       "category": "equipments",
       "name": "虎臣瓢箪",
       "displayName": "虎臣瓢箪",
@@ -25421,7 +26325,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/287104"
     },
     {
-      "id": "equipments:190:太尉冠",
+      "id": "equipments:197:太尉冠",
       "category": "equipments",
       "name": "太尉冠",
       "displayName": "太尉冠",
@@ -25510,7 +26414,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/287105"
     },
     {
-      "id": "equipments:191:周郎琵琶",
+      "id": "equipments:198:周郎琵琶",
       "category": "equipments",
       "name": "周郎琵琶",
       "displayName": "周郎琵琶",
@@ -25608,7 +26512,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/283369"
     },
     {
-      "id": "equipments:192:鳴鈴双短戟",
+      "id": "equipments:199:鳴鈴双短戟",
       "category": "equipments",
       "name": "鳴鈴双短戟",
       "displayName": "鳴鈴双短戟",
@@ -25740,7 +26644,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/283370"
     },
     {
-      "id": "equipments:193:郭子兵略",
+      "id": "equipments:200:郭子兵略",
       "category": "equipments",
       "name": "郭子兵略",
       "displayName": "郭子兵略",
@@ -25872,7 +26776,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/279217"
     },
     {
-      "id": "equipments:194:召虎兜",
+      "id": "equipments:201:召虎兜",
       "category": "equipments",
       "name": "召虎兜",
       "displayName": "召虎兜",
@@ -25970,7 +26874,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/279218"
     },
     {
-      "id": "equipments:195:雌雄一対の剣",
+      "id": "equipments:202:雌雄一対の剣",
       "category": "equipments",
       "name": "雌雄一対の剣",
       "displayName": "雌雄一対の剣",
@@ -26102,7 +27006,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/269129"
     },
     {
-      "id": "equipments:196:方天画戟",
+      "id": "equipments:203:方天画戟",
       "category": "equipments",
       "name": "方天画戟",
       "displayName": "方天画戟",
@@ -26200,7 +27104,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/263286"
     },
     {
-      "id": "equipments:197:孫子の兵法書",
+      "id": "equipments:204:孫子の兵法書",
       "category": "equipments",
       "name": "孫子の兵法書",
       "displayName": "孫子の兵法書",
@@ -26316,7 +27220,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/257642"
     },
     {
-      "id": "equipments:198:七星宝刀",
+      "id": "equipments:205:七星宝刀",
       "category": "equipments",
       "name": "七星宝刀",
       "displayName": "七星宝刀",
@@ -26456,7 +27360,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/253536"
     },
     {
-      "id": "equipments:199:元戎弩",
+      "id": "equipments:206:元戎弩",
       "category": "equipments",
       "name": "元戎弩",
       "displayName": "元戎弩",
@@ -26596,7 +27500,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/252065"
     },
     {
-      "id": "equipments:200:青龍偃月刀",
+      "id": "equipments:207:青龍偃月刀",
       "category": "equipments",
       "name": "青龍偃月刀",
       "displayName": "青龍偃月刀",
@@ -26685,7 +27589,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/249464"
     },
     {
-      "id": "equipments:201:蛇矛",
+      "id": "equipments:208:蛇矛",
       "category": "equipments",
       "name": "蛇矛",
       "displayName": "蛇矛",
@@ -26825,7 +27729,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/249465"
     },
     {
-      "id": "equipments:202:呂氏鏡・羽人獣文鏡",
+      "id": "equipments:209:呂氏鏡・羽人獣文鏡",
       "category": "equipments",
       "name": "呂氏鏡・羽人獣文鏡",
       "displayName": "呂氏鏡・羽人獣文鏡",
@@ -26887,7 +27791,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248320"
     },
     {
-      "id": "equipments:203:戦国策・名家史書",
+      "id": "equipments:210:戦国策・名家史書",
       "category": "equipments",
       "name": "戦国策・名家史書",
       "displayName": "戦国策・名家史書",
@@ -26949,7 +27853,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248322"
     },
     {
-      "id": "equipments:204:易経・名家経書",
+      "id": "equipments:211:易経・名家経書",
       "category": "equipments",
       "name": "易経・名家経書",
       "displayName": "易経・名家経書",
@@ -26981,7 +27885,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248323"
     },
     {
-      "id": "equipments:205:桐琴",
+      "id": "equipments:212:桐琴",
       "category": "equipments",
       "name": "桐琴",
       "displayName": "桐琴",
@@ -27013,7 +27917,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248324"
     },
     {
-      "id": "equipments:206:史学伝書",
+      "id": "equipments:213:史学伝書",
       "category": "equipments",
       "name": "史学伝書",
       "displayName": "史学伝書",
@@ -27045,7 +27949,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248326"
     },
     {
-      "id": "equipments:207:瑪瑙",
+      "id": "equipments:214:瑪瑙",
       "category": "equipments",
       "name": "瑪瑙",
       "displayName": "瑪瑙",
@@ -27077,7 +27981,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248328"
     },
     {
-      "id": "equipments:208:銅鏡",
+      "id": "equipments:215:銅鏡",
       "category": "equipments",
       "name": "銅鏡",
       "displayName": "銅鏡",
@@ -27109,7 +28013,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248331"
     },
     {
-      "id": "equipments:209:史書抄本",
+      "id": "equipments:216:史書抄本",
       "category": "equipments",
       "name": "史書抄本",
       "displayName": "史書抄本",
@@ -27141,7 +28045,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248333"
     },
     {
-      "id": "equipments:210:経書抄本",
+      "id": "equipments:217:経書抄本",
       "category": "equipments",
       "name": "経書抄本",
       "displayName": "経書抄本",
@@ -27173,7 +28077,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248335"
     },
     {
-      "id": "equipments:211:委貌冠・小冠",
+      "id": "equipments:218:委貌冠・小冠",
       "category": "equipments",
       "name": "委貌冠・小冠",
       "displayName": "委貌冠・小冠",
@@ -27205,7 +28109,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248337"
     },
     {
-      "id": "equipments:212:黒光鎧・黒鉄鎧",
+      "id": "equipments:219:黒光鎧・黒鉄鎧",
       "category": "equipments",
       "name": "黒光鎧・黒鉄鎧",
       "displayName": "黒光鎧・黒鉄鎧",
@@ -27237,7 +28141,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248339"
     },
     {
-      "id": "equipments:213:明光鎧・明鉄鎧",
+      "id": "equipments:220:明光鎧・明鉄鎧",
       "category": "equipments",
       "name": "明光鎧・明鉄鎧",
       "displayName": "明光鎧・明鉄鎧",
@@ -27308,7 +28212,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248341"
     },
     {
-      "id": "equipments:214:鉄牌",
+      "id": "equipments:221:鉄牌",
       "category": "equipments",
       "name": "鉄牌",
       "displayName": "鉄牌",
@@ -27340,7 +28244,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248344"
     },
     {
-      "id": "equipments:215:鉄兜",
+      "id": "equipments:222:鉄兜",
       "category": "equipments",
       "name": "鉄兜",
       "displayName": "鉄兜",
@@ -27372,7 +28276,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248346"
     },
     {
-      "id": "equipments:216:筒袖鎧",
+      "id": "equipments:223:筒袖鎧",
       "category": "equipments",
       "name": "筒袖鎧",
       "displayName": "筒袖鎧",
@@ -27404,7 +28308,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248347"
     },
     {
-      "id": "equipments:217:銅牌",
+      "id": "equipments:224:銅牌",
       "category": "equipments",
       "name": "銅牌",
       "displayName": "銅牌",
@@ -27436,7 +28340,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248348"
     },
     {
-      "id": "equipments:218:銅兜",
+      "id": "equipments:225:銅兜",
       "category": "equipments",
       "name": "銅兜",
       "displayName": "銅兜",
@@ -27468,7 +28372,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248352"
     },
     {
-      "id": "equipments:219:銅鎧",
+      "id": "equipments:226:銅鎧",
       "category": "equipments",
       "name": "銅鎧",
       "displayName": "銅鎧",
@@ -27500,7 +28404,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248354"
     },
     {
-      "id": "equipments:220:蛇戟・鉄戟",
+      "id": "equipments:227:蛇戟・鉄戟",
       "category": "equipments",
       "name": "蛇戟・鉄戟",
       "displayName": "蛇戟・鉄戟",
@@ -27589,7 +28493,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248356"
     },
     {
-      "id": "equipments:221:象鼻刀・大桿刀",
+      "id": "equipments:228:象鼻刀・大桿刀",
       "category": "equipments",
       "name": "象鼻刀・大桿刀",
       "displayName": "象鼻刀・大桿刀",
@@ -27621,7 +28525,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248357"
     },
     {
-      "id": "equipments:222:鉄槍",
+      "id": "equipments:229:鉄槍",
       "category": "equipments",
       "name": "鉄槍",
       "displayName": "鉄槍",
@@ -27653,7 +28557,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248359"
     },
     {
-      "id": "equipments:223:眉尖刀",
+      "id": "equipments:230:眉尖刀",
       "category": "equipments",
       "name": "眉尖刀",
       "displayName": "眉尖刀",
@@ -27685,7 +28589,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248361"
     },
     {
-      "id": "equipments:224:銅槍",
+      "id": "equipments:231:銅槍",
       "category": "equipments",
       "name": "銅槍",
       "displayName": "銅槍",
@@ -27717,7 +28621,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248363"
     },
     {
-      "id": "equipments:225:銅大刀",
+      "id": "equipments:232:銅大刀",
       "category": "equipments",
       "name": "銅大刀",
       "displayName": "銅大刀",
@@ -27749,7 +28653,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248365"
     },
     {
-      "id": "equipments:226:宝雕弓・檀弓",
+      "id": "equipments:233:宝雕弓・檀弓",
       "category": "equipments",
       "name": "宝雕弓・檀弓",
       "displayName": "宝雕弓・檀弓",
@@ -27838,7 +28742,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248367"
     },
     {
-      "id": "equipments:227:宝剣・鉄剣",
+      "id": "equipments:234:宝剣・鉄剣",
       "category": "equipments",
       "name": "宝剣・鉄剣",
       "displayName": "宝剣・鉄剣",
@@ -27870,7 +28774,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248369"
     },
     {
-      "id": "equipments:228:鉄弓",
+      "id": "equipments:235:鉄弓",
       "category": "equipments",
       "name": "鉄弓",
       "displayName": "鉄弓",
@@ -27902,7 +28806,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248372"
     },
     {
-      "id": "equipments:229:鉄弩",
+      "id": "equipments:236:鉄弩",
       "category": "equipments",
       "name": "鉄弩",
       "displayName": "鉄弩",
@@ -27934,7 +28838,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248373"
     },
     {
-      "id": "equipments:230:短弓",
+      "id": "equipments:237:短弓",
       "category": "equipments",
       "name": "短弓",
       "displayName": "短弓",
@@ -27966,7 +28870,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248374"
     },
     {
-      "id": "equipments:231:銅剣",
+      "id": "equipments:238:銅剣",
       "category": "equipments",
       "name": "銅剣",
       "displayName": "銅剣",
@@ -27998,7 +28902,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248378"
     },
     {
-      "id": "equipments:232:宝双剣・鉄双剣",
+      "id": "equipments:239:宝双剣・鉄双剣",
       "category": "equipments",
       "name": "宝双剣・鉄双剣",
       "displayName": "宝双剣・鉄双剣",
@@ -28087,7 +28991,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248380"
     },
     {
-      "id": "equipments:233:神刀・鉄刀",
+      "id": "equipments:240:神刀・鉄刀",
       "category": "equipments",
       "name": "神刀・鉄刀",
       "displayName": "神刀・鉄刀",
@@ -28119,7 +29023,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248382"
     },
     {
-      "id": "equipments:234:鉄矛",
+      "id": "equipments:241:鉄矛",
       "category": "equipments",
       "name": "鉄矛",
       "displayName": "鉄矛",
@@ -28151,7 +29055,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248385"
     },
     {
-      "id": "equipments:235:呉鉤",
+      "id": "equipments:242:呉鉤",
       "category": "equipments",
       "name": "呉鉤",
       "displayName": "呉鉤",
@@ -28183,7 +29087,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248388"
     },
     {
-      "id": "equipments:236:銅矛",
+      "id": "equipments:243:銅矛",
       "category": "equipments",
       "name": "銅矛",
       "displayName": "銅矛",
@@ -28215,7 +29119,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248390"
     },
     {
-      "id": "equipments:237:銅刀",
+      "id": "equipments:244:銅刀",
       "category": "equipments",
       "name": "銅刀",
       "displayName": "銅刀",
