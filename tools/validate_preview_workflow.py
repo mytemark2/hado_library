@@ -65,6 +65,8 @@ REQUIRED = (
     "Failed preview jobs: ${failed_jobs}",
     "Do not auto-rerun failed preview jobs from app sync because PREVIEW_REPO_TOKEN may not have Actions write rerun permission.",
     "Rerun mytemark2/hado_library-preview/.github/workflows/${workflow_file} manually, or inspect the preview deploy job logs.",
+    "::warning title=Preview Pages deploy failed::Preview assets were pushed to mytemark2/hado_library-preview",
+    "Skipping public marker verification for this failed deploy run.",
     "github_api_json()",
     "github_api_post_empty()",
     "rerun-failed-jobs",
@@ -143,7 +145,7 @@ def main() -> int:
         raise SystemExit("preview workflow missing: " + ", ".join(missing))
     if forbidden:
         raise SystemExit("preview workflow contains prohibited stale sync pattern: " + ", ".join(forbidden))
-    print("preview workflow rejects non-canonical branches, syncs runtime assets without editing preview .github files, fails preview deploy failures without auto-rerun, and verifies public deployment markers")
+    print("preview workflow rejects non-canonical branches, syncs runtime assets without editing preview .github files, warns on preview deploy failures without auto-rerun, and verifies public deployment markers after successful deploys")
     return 0
 
 

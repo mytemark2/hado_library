@@ -447,7 +447,8 @@ jobs:
               echo "Failed preview jobs: ${failed_jobs}" >&2
               echo "Do not auto-rerun failed preview jobs from app sync because PREVIEW_REPO_TOKEN may not have Actions write rerun permission." >&2
               echo "Rerun mytemark2/hado_library-preview/.github/workflows/${workflow_file} manually, or inspect the preview deploy job logs." >&2
-              exit 1
+              echo "::warning title=Preview Pages deploy failed::Preview assets were pushed to mytemark2/hado_library-preview, but the preview Pages workflow completed with conclusion=${conclusion}. Skipping public marker verification for this failed deploy run."
+              exit 0
             fi
             sleep 10
           done

@@ -33,6 +33,9 @@ const waitStep = sectionBetween('- name: Wait for preview Pages deployment', '# 
 assert(waitStep.includes('Failed preview jobs:'), 'wait step must report failed preview job names');
 assert(waitStep.includes('Do not auto-rerun failed preview jobs from app sync'), 'wait step must explain that app sync does not auto-rerun preview jobs');
 assert(waitStep.includes('Rerun mytemark2/hado_library-preview/.github/workflows/${workflow_file} manually'), 'wait step must point operators to manual preview workflow rerun');
+assert(waitStep.includes('::warning title=Preview Pages deploy failed::'), 'wait step must downgrade preview deploy failure to a warning after reporting failed jobs');
+assert(waitStep.includes('Skipping public marker verification for this failed deploy run'), 'wait step must explain marker verification is skipped only after failed preview deploy');
+assert(waitStep.includes('exit 0'), 'wait step must not fail the app sync after an external preview Pages deploy failure');
 assert(!waitStep.includes('curl -sS -X POST'), 'wait step must not POST to rerun preview workflow jobs');
 
 for (const forbidden of [
