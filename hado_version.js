@@ -3,11 +3,11 @@
   'use strict';
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.0.0.0',
-    updateNo: '09.5.36',
-    revision: 126,
+    updateNo: '09.5.37',
+    revision: 127,
     baseAppVersion: '2.9.6.5',
-    summary: 'Update09.5.36: restore derived metadata for type-search presets.',
-    updatedAt: '2026-07-05T21:25:00+09:00'
+    summary: 'Update09.5.37: gate tactic evidence to active tactic slots and normalize source labels.',
+    updatedAt: '2026-07-05T22:05:00+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;
 })();
