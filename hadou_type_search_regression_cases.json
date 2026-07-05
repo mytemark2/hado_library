@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-07-05T07:30:38.181Z",
+  "generatedAt": "2026-07-05T11:44:39.632Z",
   "dataSetId": "2026-07-05T05:00:27.984Z",
-  "crawlerVersion": "1.0.5.27",
+  "crawlerVersion": "1.0.5.31",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
     "hadou_generals.json",
@@ -74,16 +74,13 @@
     "warhorses": "c5edd890",
     "warhorseSkills": "fac49238"
   },
+  "hotfixVersion": "1.0.5.31",
   "kind": "type_search_regression_cases",
   "qualityAudit": {
-    "ok": false,
+    "ok": true,
     "caseCount": 13,
-    "failedCount": 3,
-    "failedCaseIds": [
-      "lr-dongzhuo-bomb-foundation",
-      "lr-simayi-no-false-anti-object-buff",
-      "preset-condition-resolvable"
-    ],
+    "failedCount": 0,
+    "failedCaseIds": [],
     "policy": "1.0.5.24: 型検索基盤、既存関連リンク回帰、プリセット重要度スキーマ、条件解決、順位付け、LR司馬懿誤判定防止、攻撃速度型、通常攻撃拡張型を同時に監査する。名前表記差は正規化し、否定文脈は句単位で遮断する。"
   },
   "items": [
@@ -94,8 +91,8 @@
       "detail": [
         {
           "groupKey": "selfAbilityBuff",
-          "ownerRelationCount": 3765,
-          "distinctOwnerCount": 1269
+          "ownerRelationCount": 3885,
+          "distinctOwnerCount": 1278
         },
         {
           "groupKey": "selfStateBuff",
@@ -104,8 +101,8 @@
         },
         {
           "groupKey": "selfResistanceBuff",
-          "ownerRelationCount": 1260,
-          "distinctOwnerCount": 431
+          "ownerRelationCount": 1262,
+          "distinctOwnerCount": 433
         },
         {
           "groupKey": "enemyAbilityDebuff",
@@ -152,7 +149,7 @@
     {
       "caseId": "lr-dongzhuo-bomb-foundation",
       "description": "LR董卓に爆弾型の基礎要素を保持する",
-      "ok": false,
+      "ok": true,
       "detail": {}
     },
     {
@@ -170,11 +167,11 @@
     {
       "caseId": "lr-simayi-no-false-anti-object-buff",
       "description": "LR司馬懿の困憊・深恐を維持し、自部隊対物特効上昇と対物型加点を生成しない",
-      "ok": false,
+      "ok": true,
       "detail": {
         "resolvedName": "LR司馬懿（しばい）",
-        "hasKonpai": false,
-        "hasShinkyou": false,
+        "hasKonpai": true,
+        "hasShinkyou": true,
         "hasFalseAntiObjectBuff": false,
         "hasFalseAntiObjectFeature": false
       }
@@ -244,148 +241,12 @@
     {
       "caseId": "preset-condition-resolvable",
       "description": "型プリセット条件が状態変化索引または補助型要素索引で解決可能である",
-      "ok": false,
+      "ok": true,
       "detail": {
         "presetCount": 11,
         "rawConditionCount": 71,
         "canonicalConditionCount": 52,
-        "unresolved": [
-          {
-            "typeId": "calm",
-            "featureId": "status_effect:弱化無効",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "calm",
-            "featureId": "status_effect:快気",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "calm",
-            "featureId": "status_effect:絶縁",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "zombie",
-            "featureId": "status_effect:活身",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "zombie",
-            "featureId": "status_effect:快気",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "zombie",
-            "featureId": "status_effect:義奮",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "zombie",
-            "featureId": "status_effect:攻撃無効",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "zombie",
-            "featureId": "status_effect:有利巧守",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "bomb",
-            "featureId": "status_effect:暴乱",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "bomb",
-            "featureId": "status_effect:撃心発生変化(強化)",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "bomb",
-            "featureId": "status_effect:撃心威力変化(強化)",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "critical_tactic",
-            "featureId": "status_effect:撃心発生変化(強化)",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "critical_tactic",
-            "featureId": "status_effect:撃心威力変化(強化)",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "critical_normal",
-            "featureId": "status_effect:会心発生変化(強化)",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "critical_normal",
-            "featureId": "status_effect:攻撃速度変化(強化)",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "tactic_speed",
-            "featureId": "status_effect:戦法速度変化(強化)",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "attack_speed",
-            "featureId": "status_effect:攻撃速度変化(強化)",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "attack_speed",
-            "featureId": "status_effect:通常攻撃拡張",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "attack_speed",
-            "featureId": "status_effect:通常攻撃威力変化(強化)",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "normal_attack",
-            "featureId": "status_effect:通常攻撃拡張",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "normal_attack",
-            "featureId": "status_effect:通常攻撃威力変化(強化)",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "normal_attack",
-            "featureId": "status_effect:攻撃速度変化(強化)",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "debuff",
-            "featureId": "status_effect:疑心",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "debuff",
-            "featureId": "status_effect:戦慄",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "debuff",
-            "featureId": "status_effect:同討",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "debuff",
-            "featureId": "status_effect:戦法遅延",
-            "conditionType": "statusEffect"
-          },
-          {
-            "typeId": "debuff",
-            "featureId": "status_effect:連鎖無効",
-            "conditionType": "statusEffect"
-          }
-        ]
+        "unresolved": []
       }
     },
     {

@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-07-05T07:30:38.181Z",
+  "generatedAt": "2026-07-05T11:44:39.632Z",
   "dataSetId": "2026-07-05T05:00:27.984Z",
-  "crawlerVersion": "1.0.5.27",
+  "crawlerVersion": "1.0.5.31",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
     "hadou_generals.json",
@@ -74,6 +74,7 @@
     "warhorses": "c5edd890",
     "warhorseSkills": "fac49238"
   },
+  "hotfixVersion": "1.0.5.31",
   "kind": "parameter_summary_index",
   "qualityAudit": {
     "rejectedCount": 43596,
@@ -503,6 +504,27 @@
           "matchedText": "攻撃速度+100％"
         },
         {
+          "parameter": "対物特効",
+          "direction": "increase",
+          "value": "200％",
+          "targetSide": "self_or_ally",
+          "matchedText": "対物特効を200％"
+        },
+        {
+          "parameter": "対物特効",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "対物特効変化自分 / 単10"
+        },
+        {
+          "parameter": "対物特効",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "対物特効変化\",\"自分 / 単\",\"10"
+        },
+        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "10",
@@ -699,7 +721,7 @@
           "matchedText": "兵力+5%"
         }
       ],
-      "effectCount": 30
+      "effectCount": 33
     },
     {
       "category": "generals",
@@ -32589,6 +32611,34 @@
           "matchedText": "攻撃速度変化\",\"味方 / 広\",\"10"
         },
         {
+          "parameter": "対物特効",
+          "direction": "increase",
+          "value": "50%",
+          "targetSide": "self_or_ally",
+          "matchedText": "対物特効、攻撃速度を50%"
+        },
+        {
+          "parameter": "対物特効",
+          "direction": "increase",
+          "value": "2",
+          "targetSide": "self_or_ally",
+          "matchedText": "対物特効、攻撃速度、戦法威力の効果量が2"
+        },
+        {
+          "parameter": "対物特効",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "対物特効変化味方 / 広10"
+        },
+        {
+          "parameter": "対物特効",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "対物特効変化\",\"味方 / 広\",\"10"
+        },
+        {
           "parameter": "与ダメージ",
           "direction": "increase",
           "value": "+15%",
@@ -32813,7 +32863,7 @@
           "matchedText": "兵力+15%"
         }
       ],
-      "effectCount": 42
+      "effectCount": 46
     },
     {
       "category": "generals",
@@ -75404,6 +75454,20 @@
       "title": "【三國志 覇道】周瑜（しゅうゆ）の戦法と技能",
       "effects": [
         {
+          "parameter": "対物特効",
+          "direction": "increase",
+          "value": "300%",
+          "targetSide": "self_or_ally",
+          "matchedText": "対物特効の戦法が高火力 周瑜は複数部隊に300%"
+        },
+        {
+          "parameter": "対物特効",
+          "direction": "increase",
+          "value": "300%",
+          "targetSide": "self_or_ally",
+          "matchedText": "対物特効を300%"
+        },
+        {
           "parameter": "攻撃",
           "direction": "increase",
           "value": "+4%",
@@ -75537,7 +75601,7 @@
           "matchedText": "兵力+35%"
         }
       ],
-      "effectCount": 19
+      "effectCount": 21
     },
     {
       "category": "generals",
