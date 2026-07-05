@@ -40,6 +40,8 @@ COMMANDS.extend(
         ["node", "tools/test_update09_5_29_disadvantage_display_labels.js"],
         ["node", "--check", "tools/test_update09_5_30_candidate_score_display_hierarchy.js"],
         ["node", "tools/test_update09_5_30_candidate_score_display_hierarchy.js"],
+    ["node", "--check", "tools/test_update09_5_34_score_evidence_dedup.js"],
+    ["node", "tools/test_update09_5_34_score_evidence_dedup.js"],
         ["python3", "tools/validate_legacy_hado_app_not_loaded.py"],
         ["python3", "tools/validate_update_version_consistency.py"],
         ["python3", "tools/validate_update09_phase4_guides.py"],
