@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-06-14T06:09:45.870Z",
-  "dataSetId": "2026-06-07T06:04:52.951Z",
-  "crawlerVersion": "1.1.0.0",
+  "generatedAt": "2026-07-05T11:44:39.632Z",
+  "dataSetId": "2026-07-05T05:00:27.984Z",
+  "crawlerVersion": "1.0.5.31",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
     "hadou_generals.json",
@@ -33,10 +33,10 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 476,
-    "tactics": 455,
-    "equipments": 238,
-    "skills": 620,
+    "generals": 481,
+    "tactics": 460,
+    "equipments": 245,
+    "skills": 640,
     "statusEffects": 200,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
@@ -47,10 +47,10 @@
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "4c9aa0cb",
-    "tactics": "a9afed3e",
-    "equipments": "5960e367",
-    "skills": "bee67c33",
+    "generals": "d1a6ab1d",
+    "tactics": "14b2d446",
+    "equipments": "4c4f85cf",
+    "skills": "caeb0c45",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
@@ -61,10 +61,10 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "4c9aa0cb",
-    "tactics": "a9afed3e",
-    "equipments": "5960e367",
-    "skills": "bee67c33",
+    "generals": "d1a6ab1d",
+    "tactics": "14b2d446",
+    "equipments": "4c4f85cf",
+    "skills": "caeb0c45",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
@@ -74,13 +74,14 @@
     "warhorses": "c5edd890",
     "warhorseSkills": "fac49238"
   },
+  "hotfixVersion": "1.0.5.31",
   "kind": "type_search_regression_cases",
   "qualityAudit": {
     "ok": true,
     "caseCount": 13,
     "failedCount": 0,
     "failedCaseIds": [],
-    "policy": "1.0.5.23: 型検索基盤、既存関連リンク回帰、プリセット重要度スキーマ、条件解決、順位付け、LR司馬懿誤判定防止、攻撃速度型、通常攻撃拡張型を同時に監査する。名前表記差は正規化し、否定文脈は句単位で遮断する。"
+    "policy": "1.0.5.24: 型検索基盤、既存関連リンク回帰、プリセット重要度スキーマ、条件解決、順位付け、LR司馬懿誤判定防止、攻撃速度型、通常攻撃拡張型を同時に監査する。名前表記差は正規化し、否定文脈は句単位で遮断する。"
   },
   "items": [
     {
@@ -90,27 +91,27 @@
       "detail": [
         {
           "groupKey": "selfAbilityBuff",
-          "ownerRelationCount": 3728,
-          "distinctOwnerCount": 1250
+          "ownerRelationCount": 3885,
+          "distinctOwnerCount": 1278
         },
         {
           "groupKey": "selfStateBuff",
-          "ownerRelationCount": 110,
-          "distinctOwnerCount": 105
+          "ownerRelationCount": 112,
+          "distinctOwnerCount": 106
         },
         {
           "groupKey": "selfResistanceBuff",
-          "ownerRelationCount": 1227,
-          "distinctOwnerCount": 420
+          "ownerRelationCount": 1262,
+          "distinctOwnerCount": 433
         },
         {
           "groupKey": "enemyAbilityDebuff",
-          "ownerRelationCount": 712,
-          "distinctOwnerCount": 418
+          "ownerRelationCount": 720,
+          "distinctOwnerCount": 419
         },
         {
           "groupKey": "enemyStateDebuff",
-          "ownerRelationCount": 247,
+          "ownerRelationCount": 249,
           "distinctOwnerCount": 201
         },
         {
@@ -125,8 +126,8 @@
       "description": "型検索補助索引が4カテゴリを全件収録する",
       "ok": true,
       "detail": {
-        "generals": 476,
-        "equipments": 238,
+        "generals": 481,
+        "equipments": 245,
         "siegeWeapons": 6,
         "warhorseSkills": 27
       }
@@ -234,31 +235,6 @@
           "core": 2,
           "recommended": 2,
           "support": 1
-        },
-        "buff_support": {
-          "core": 1,
-          "recommended": 2,
-          "support": 2
-        },
-        "debuff_interference": {
-          "core": 1,
-          "recommended": 3,
-          "support": 1
-        },
-        "wall_defense": {
-          "core": 2,
-          "recommended": 2,
-          "support": 1
-        },
-        "garrison_support": {
-          "core": 2,
-          "recommended": 2,
-          "support": 1
-        },
-        "vaccine": {
-          "core": 2,
-          "recommended": 2,
-          "support": 1
         }
       }
     },
@@ -267,9 +243,9 @@
       "description": "型プリセット条件が状態変化索引または補助型要素索引で解決可能である",
       "ok": true,
       "detail": {
-        "presetCount": 16,
-        "rawConditionCount": 96,
-        "canonicalConditionCount": 77,
+        "presetCount": 11,
+        "rawConditionCount": 71,
+        "canonicalConditionCount": 52,
         "unresolved": []
       }
     },

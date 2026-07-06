@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-06-14T06:09:45.870Z",
-  "dataSetId": "2026-06-07T06:04:52.951Z",
-  "crawlerVersion": "1.1.0.0",
+  "generatedAt": "2026-07-05T11:44:39.632Z",
+  "dataSetId": "2026-07-05T05:00:27.984Z",
+  "crawlerVersion": "1.0.5.31",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
     "hadou_generals.json",
@@ -33,10 +33,10 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 476,
-    "tactics": 455,
-    "equipments": 238,
-    "skills": 620,
+    "generals": 481,
+    "tactics": 460,
+    "equipments": 245,
+    "skills": 640,
     "statusEffects": 200,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
@@ -47,10 +47,10 @@
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "4c9aa0cb",
-    "tactics": "a9afed3e",
-    "equipments": "5960e367",
-    "skills": "bee67c33",
+    "generals": "d1a6ab1d",
+    "tactics": "14b2d446",
+    "equipments": "4c4f85cf",
+    "skills": "caeb0c45",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
@@ -61,10 +61,10 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "4c9aa0cb",
-    "tactics": "a9afed3e",
-    "equipments": "5960e367",
-    "skills": "bee67c33",
+    "generals": "d1a6ab1d",
+    "tactics": "14b2d446",
+    "equipments": "4c4f85cf",
+    "skills": "caeb0c45",
     "statusEffects": "dcfa0de6",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
@@ -74,14 +74,15 @@
     "warhorses": "c5edd890",
     "warhorseSkills": "fac49238"
   },
+  "hotfixVersion": "1.0.5.31",
   "kind": "skill_owner_index",
   "qualityAudit": {
     "advisorSkillOwnerAudit": {
       "ok": true,
-      "advisorGeneralCount": 150,
-      "expectedOwnerCount": 270,
-      "actualOwnerCount": 270,
-      "advisorSkillCount": 81,
+      "advisorGeneralCount": 157,
+      "expectedOwnerCount": 284,
+      "actualOwnerCount": 284,
+      "advisorSkillCount": 88,
       "missingAdvisorOwnerKeys": [],
       "unexpectedAdvisorOwnerKeys": [],
       "displaySuffix": "(参)",
@@ -1169,6 +1170,321 @@
         }
       ],
       "ownerCount": 5
+    },
+    {
+      "skillName": "自若",
+      "owners": [
+        {
+          "name": "LR孫堅・盾兵（そんけん）",
+          "displayName": "LR孫堅・盾兵（そんけん）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "身先",
+      "owners": [
+        {
+          "name": "LR孫堅・盾兵（そんけん）",
+          "displayName": "LR孫堅・盾兵（そんけん）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "武節",
+      "owners": [
+        {
+          "name": "LR孫堅・盾兵（そんけん）",
+          "displayName": "LR孫堅・盾兵（そんけん）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "冠軍",
+      "owners": [
+        {
+          "name": "LR孫堅・盾兵（そんけん）",
+          "displayName": "LR孫堅・盾兵（そんけん）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "克破",
+      "owners": [
+        {
+          "name": "孫氏玄朱令旗",
+          "displayName": "孫氏玄朱令旗",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        },
+        {
+          "name": "尚武丹紅披風",
+          "displayName": "尚武丹紅披風",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        }
+      ],
+      "ownerCount": 2
+    },
+    {
+      "skillName": "済報",
+      "owners": [
+        {
+          "name": "UR郭淮（かくわい）",
+          "displayName": "UR郭淮（かくわい）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "鋼耐",
+      "owners": [
+        {
+          "name": "UR郭淮（かくわい）",
+          "displayName": "UR郭淮（かくわい）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "盾威",
+      "owners": [
+        {
+          "name": "UR郭淮（かくわい）",
+          "displayName": "UR郭淮（かくわい）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "宰守",
+      "owners": [
+        {
+          "name": "LR闞沢（かんたく）",
+          "displayName": "LR闞沢（かんたく）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        },
+        {
+          "name": "乾象暦注",
+          "displayName": "乾象暦注",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        }
+      ],
+      "ownerCount": 2
+    },
+    {
+      "skillName": "盤互",
+      "owners": [
+        {
+          "name": "LR闞沢（かんたく）",
+          "displayName": "LR闞沢（かんたく）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        },
+        {
+          "name": "乾象暦注",
+          "displayName": "乾象暦注",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        }
+      ],
+      "ownerCount": 2
+    },
+    {
+      "skillName": "完撃",
+      "owners": [
+        {
+          "name": "LR闞沢（かんたく）",
+          "displayName": "LR闞沢（かんたく）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "治要",
+      "owners": [
+        {
+          "name": "LR闞沢（かんたく）",
+          "displayName": "LR闞沢（かんたく）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "抑奪",
+      "owners": [
+        {
+          "name": "LR呂蒙・盾兵（りょもう）",
+          "displayName": "LR呂蒙・盾兵（りょもう）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "封騎",
+      "owners": [
+        {
+          "name": "LR呂蒙・盾兵（りょもう）",
+          "displayName": "LR呂蒙・盾兵（りょもう）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "励博",
+      "owners": [
+        {
+          "name": "LR呂蒙・盾兵（りょもう）",
+          "displayName": "LR呂蒙・盾兵（りょもう）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "勇博",
+      "owners": [
+        {
+          "name": "克己光復剣",
+          "displayName": "克己光復剣",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "妙襲",
+      "owners": [
+        {
+          "name": "LR夏侯淵・盾兵（かこうえん）",
+          "displayName": "LR夏侯淵・盾兵（かこうえん）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "征定",
+      "owners": [
+        {
+          "name": "LR夏侯淵・盾兵（かこうえん）",
+          "displayName": "LR夏侯淵・盾兵（かこうえん）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "迅風",
+      "owners": [
+        {
+          "name": "LR夏侯淵・盾兵（かこうえん）",
+          "displayName": "LR夏侯淵・盾兵（かこうえん）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "迅護",
+      "owners": [
+        {
+          "name": "疾風玄鉄刀",
+          "displayName": "疾風玄鉄刀",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        }
+      ],
+      "ownerCount": 1
     },
     {
       "skillName": "栄光",
@@ -3253,6 +3569,15 @@
       "skillName": "耐勢",
       "owners": [
         {
+          "name": "LR夏侯淵・盾兵（かこうえん）",
+          "displayName": "LR夏侯淵・盾兵（かこうえん）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        },
+        {
           "name": "LR于禁（うきん）",
           "displayName": "LR于禁（うきん）",
           "ownerType": "general",
@@ -3271,7 +3596,7 @@
           "usage": "normal"
         }
       ],
-      "ownerCount": 2
+      "ownerCount": 3
     },
     {
       "skillName": "驃壮",
@@ -5002,6 +5327,15 @@
       "skillName": "排撃",
       "owners": [
         {
+          "name": "LR呂蒙・盾兵（りょもう）",
+          "displayName": "LR呂蒙・盾兵（りょもう）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        },
+        {
           "name": "LR鍾会（しょうかい）",
           "displayName": "LR鍾会（しょうかい）",
           "ownerType": "general",
@@ -5020,7 +5354,7 @@
           "usage": "normal"
         }
       ],
-      "ownerCount": 2
+      "ownerCount": 3
     },
     {
       "skillName": "古稀",
@@ -6038,8 +6372,8 @@
       "skillName": "鑽堅",
       "owners": [
         {
-          "name": "LR呂蒙（りょもう）",
-          "displayName": "LR呂蒙（りょもう）",
+          "name": "LR呂蒙・歩兵（りょもう）",
+          "displayName": "LR呂蒙・歩兵（りょもう）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -6053,8 +6387,8 @@
       "skillName": "至明",
       "owners": [
         {
-          "name": "LR呂蒙（りょもう）",
-          "displayName": "LR呂蒙（りょもう）",
+          "name": "LR呂蒙・歩兵（りょもう）",
+          "displayName": "LR呂蒙・歩兵（りょもう）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -6068,8 +6402,8 @@
       "skillName": "凌計",
       "owners": [
         {
-          "name": "LR呂蒙（りょもう）",
-          "displayName": "LR呂蒙（りょもう）",
+          "name": "LR呂蒙・歩兵（りょもう）",
+          "displayName": "LR呂蒙・歩兵（りょもう）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -6355,8 +6689,8 @@
       "skillName": "明眸",
       "owners": [
         {
-          "name": "URフレデリカ",
-          "displayName": "URフレデリカ",
+          "name": "URフレデリカ（）",
+          "displayName": "URフレデリカ（）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -6370,8 +6704,8 @@
       "skillName": "比翼",
       "owners": [
         {
-          "name": "URフレデリカ",
-          "displayName": "URフレデリカ",
+          "name": "URフレデリカ（）",
+          "displayName": "URフレデリカ（）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -6385,8 +6719,8 @@
       "skillName": "一途",
       "owners": [
         {
-          "name": "URフレデリカ",
-          "displayName": "URフレデリカ",
+          "name": "URフレデリカ（）",
+          "displayName": "URフレデリカ（）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -6400,8 +6734,8 @@
       "skillName": "英邁",
       "owners": [
         {
-          "name": "URキルヒアイス",
-          "displayName": "URキルヒアイス",
+          "name": "URキルヒアイス（）",
+          "displayName": "URキルヒアイス（）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -6415,8 +6749,8 @@
       "skillName": "賭命",
       "owners": [
         {
-          "name": "URキルヒアイス",
-          "displayName": "URキルヒアイス",
+          "name": "URキルヒアイス（）",
+          "displayName": "URキルヒアイス（）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -6430,8 +6764,8 @@
       "skillName": "輔翼",
       "owners": [
         {
-          "name": "URキルヒアイス",
-          "displayName": "URキルヒアイス",
+          "name": "URキルヒアイス（）",
+          "displayName": "URキルヒアイス（）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -6445,8 +6779,8 @@
       "skillName": "奇計",
       "owners": [
         {
-          "name": "LRヤン",
-          "displayName": "LRヤン",
+          "name": "LRヤン（）",
+          "displayName": "LRヤン（）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -6467,8 +6801,8 @@
       "skillName": "妙手",
       "owners": [
         {
-          "name": "LRヤン",
-          "displayName": "LRヤン",
+          "name": "LRヤン（）",
+          "displayName": "LRヤン（）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -6489,8 +6823,8 @@
       "skillName": "沈着",
       "owners": [
         {
-          "name": "LRヤン",
-          "displayName": "LRヤン",
+          "name": "LRヤン（）",
+          "displayName": "LRヤン（）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -6504,8 +6838,8 @@
       "skillName": "不敗",
       "owners": [
         {
-          "name": "LRヤン",
-          "displayName": "LRヤン",
+          "name": "LRヤン（）",
+          "displayName": "LRヤン（）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -6519,8 +6853,8 @@
       "skillName": "宣揚",
       "owners": [
         {
-          "name": "LRラインハルト",
-          "displayName": "LRラインハルト",
+          "name": "LRラインハルト（）",
+          "displayName": "LRラインハルト（）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -6541,8 +6875,8 @@
       "skillName": "威信",
       "owners": [
         {
-          "name": "LRラインハルト",
-          "displayName": "LRラインハルト",
+          "name": "LRラインハルト（）",
+          "displayName": "LRラインハルト（）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -6572,8 +6906,8 @@
           "usage": "normal"
         },
         {
-          "name": "LRラインハルト",
-          "displayName": "LRラインハルト",
+          "name": "LRラインハルト（）",
+          "displayName": "LRラインハルト（）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -6587,8 +6921,8 @@
       "skillName": "常勝",
       "owners": [
         {
-          "name": "LRラインハルト",
-          "displayName": "LRラインハルト",
+          "name": "LRラインハルト（）",
+          "displayName": "LRラインハルト（）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -7549,8 +7883,8 @@
       "skillName": "克捷",
       "owners": [
         {
-          "name": "LR孫堅（そんけん）",
-          "displayName": "LR孫堅（そんけん）",
+          "name": "LR孫堅・騎兵（そんけん）",
+          "displayName": "LR孫堅・騎兵（そんけん）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -7564,8 +7898,8 @@
       "skillName": "虎将",
       "owners": [
         {
-          "name": "LR孫堅（そんけん）",
-          "displayName": "LR孫堅（そんけん）",
+          "name": "LR孫堅・騎兵（そんけん）",
+          "displayName": "LR孫堅・騎兵（そんけん）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -7613,8 +7947,8 @@
           "usage": "normal"
         },
         {
-          "name": "LR孫堅（そんけん）",
-          "displayName": "LR孫堅（そんけん）",
+          "name": "LR孫堅・騎兵（そんけん）",
+          "displayName": "LR孫堅・騎兵（そんけん）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -7628,8 +7962,8 @@
       "skillName": "統軍",
       "owners": [
         {
-          "name": "LR孫堅（そんけん）",
-          "displayName": "LR孫堅（そんけん）",
+          "name": "LR孫堅・騎兵（そんけん）",
+          "displayName": "LR孫堅・騎兵（そんけん）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -8321,8 +8655,8 @@
       "skillName": "翻弄",
       "owners": [
         {
-          "name": "LR夏侯淵（かこうえん）",
-          "displayName": "LR夏侯淵（かこうえん）",
+          "name": "LR夏侯淵・弓兵（かこうえん）",
+          "displayName": "LR夏侯淵・弓兵（かこうえん）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -8336,8 +8670,8 @@
       "skillName": "急風",
       "owners": [
         {
-          "name": "LR夏侯淵（かこうえん）",
-          "displayName": "LR夏侯淵（かこうえん）",
+          "name": "LR夏侯淵・弓兵（かこうえん）",
+          "displayName": "LR夏侯淵・弓兵（かこうえん）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -8351,8 +8685,8 @@
       "skillName": "迅速",
       "owners": [
         {
-          "name": "LR夏侯淵（かこうえん）",
-          "displayName": "LR夏侯淵（かこうえん）",
+          "name": "LR夏侯淵・弓兵（かこうえん）",
+          "displayName": "LR夏侯淵・弓兵（かこうえん）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -8561,8 +8895,8 @@
       "skillName": "軍導",
       "owners": [
         {
-          "name": "LR呂蒙（りょもう）",
-          "displayName": "LR呂蒙（りょもう）",
+          "name": "LR呂蒙・歩兵（りょもう）",
+          "displayName": "LR呂蒙・歩兵（りょもう）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -8624,8 +8958,8 @@
       "skillName": "闘魂",
       "owners": [
         {
-          "name": "LR夏侯淵（かこうえん）",
-          "displayName": "LR夏侯淵（かこうえん）",
+          "name": "LR夏侯淵・弓兵（かこうえん）",
+          "displayName": "LR夏侯淵・弓兵（かこうえん）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -9175,7 +9509,7 @@
           "displayName": "精巧猛進",
           "ownerType": "warhorseSkill",
           "category": "warhorse_skills",
-          "source": "text-scan"
+          "source": "warhorse-skill-definition"
         }
       ],
       "ownerCount": 4
@@ -9555,6 +9889,15 @@
       "skillName": "統制",
       "owners": [
         {
+          "name": "LR孫堅・盾兵（そんけん）",
+          "displayName": "LR孫堅・盾兵（そんけん）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        },
+        {
           "name": "LR于禁（うきん）",
           "displayName": "LR于禁（うきん）",
           "ownerType": "general",
@@ -9672,8 +10015,8 @@
           "usage": "normal"
         },
         {
-          "name": "LRラインハルト",
-          "displayName": "LRラインハルト",
+          "name": "LRラインハルト（）",
+          "displayName": "LRラインハルト（）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -9699,8 +10042,8 @@
           "usage": "normal"
         },
         {
-          "name": "LR孫堅（そんけん）",
-          "displayName": "LR孫堅（そんけん）",
+          "name": "LR孫堅・騎兵（そんけん）",
+          "displayName": "LR孫堅・騎兵（そんけん）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -9816,7 +10159,7 @@
           "usage": "normal"
         }
       ],
-      "ownerCount": 29
+      "ownerCount": 30
     },
     {
       "skillName": "猛追",
@@ -10954,35 +11297,35 @@
           "displayName": "山越呼応",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "山越剛力",
           "displayName": "山越剛力",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "山越堅実",
           "displayName": "山越堅実",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "山越堅装",
           "displayName": "山越堅装",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "山越防護",
           "displayName": "山越防護",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         }
       ],
       "ownerCount": 12
@@ -11056,42 +11399,42 @@
           "displayName": "鮮卑呼応",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "鮮卑剛力",
           "displayName": "鮮卑剛力",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "鮮卑攻城",
           "displayName": "鮮卑攻城",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "鮮卑堅装",
           "displayName": "鮮卑堅装",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "鮮卑勢砕",
           "displayName": "鮮卑勢砕",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "鮮卑展装",
           "displayName": "鮮卑展装",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         }
       ],
       "ownerCount": 13
@@ -11174,42 +11517,42 @@
           "displayName": "烏桓呼応",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "烏桓剛力",
           "displayName": "烏桓剛力",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "烏桓神速",
           "displayName": "烏桓神速",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "烏桓堅装",
           "displayName": "烏桓堅装",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "烏桓先迅",
           "displayName": "烏桓先迅",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "烏桓展装",
           "displayName": "烏桓展装",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         }
       ],
       "ownerCount": 14
@@ -11551,6 +11894,15 @@
       "skillName": "探究",
       "owners": [
         {
+          "name": "LR夏侯淵・盾兵（かこうえん）",
+          "displayName": "LR夏侯淵・盾兵（かこうえん）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        },
+        {
           "name": "UR軻比能（かひのう）",
           "displayName": "UR軻比能（かひのう）",
           "ownerType": "general",
@@ -11596,8 +11948,8 @@
           "usage": "normal"
         },
         {
-          "name": "LR夏侯淵（かこうえん）",
-          "displayName": "LR夏侯淵（かこうえん）",
+          "name": "LR夏侯淵・弓兵（かこうえん）",
+          "displayName": "LR夏侯淵・弓兵（かこうえん）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -11713,7 +12065,7 @@
           "usage": "normal"
         }
       ],
-      "ownerCount": 18
+      "ownerCount": 19
     },
     {
       "skillName": "南蛮",
@@ -11875,35 +12227,35 @@
           "displayName": "南蛮呼応",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "南蛮剛力",
           "displayName": "南蛮剛力",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "南蛮不屈",
           "displayName": "南蛮不屈",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "南蛮堅装",
           "displayName": "南蛮堅装",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "南蛮堅忍",
           "displayName": "南蛮堅忍",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         }
       ],
       "ownerCount": 23
@@ -12334,9 +12686,16 @@
           "source": "general-skill-table",
           "isAdvisorSkill": false,
           "usage": "normal"
+        },
+        {
+          "name": "乾象暦注",
+          "displayName": "乾象暦注",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
         }
       ],
-      "ownerCount": 4
+      "ownerCount": 5
     },
     {
       "skillName": "深謀",
@@ -12890,8 +13249,8 @@
           "usage": "normal"
         },
         {
-          "name": "URキルヒアイス",
-          "displayName": "URキルヒアイス",
+          "name": "URキルヒアイス（）",
+          "displayName": "URキルヒアイス（）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -13680,8 +14039,8 @@
       "skillName": "冶金",
       "owners": [
         {
-          "name": "LR司馬師（しばし）",
-          "displayName": "LR司馬師（しばし）",
+          "name": "LR司馬昭（しばしょう）",
+          "displayName": "LR司馬昭（しばしょう）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -13689,8 +14048,8 @@
           "usage": "normal"
         },
         {
-          "name": "LR司馬昭（しばしょう）",
-          "displayName": "LR司馬昭（しばしょう）",
+          "name": "LR司馬師（しばし）",
+          "displayName": "LR司馬師（しばし）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -14802,7 +15161,7 @@
           "displayName": "羌敏活",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         }
       ],
       "ownerCount": 40
@@ -16048,6 +16407,15 @@
       "skillName": "石工",
       "owners": [
         {
+          "name": "UR郭淮（かくわい）",
+          "displayName": "UR郭淮（かくわい）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        },
+        {
           "name": "LR田豊（でんぽう）",
           "displayName": "LR田豊（でんぽう）",
           "ownerType": "general",
@@ -16255,7 +16623,7 @@
           "usage": "normal"
         }
       ],
-      "ownerCount": 23
+      "ownerCount": 24
     },
     {
       "skillName": "人脈",
@@ -16836,7 +17204,7 @@
           "displayName": "烏桓神速",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         }
       ],
       "ownerCount": 14
@@ -17613,6 +17981,20 @@
           "usage": "normal"
         },
         {
+          "name": "孫氏玄朱令旗",
+          "displayName": "孫氏玄朱令旗",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        },
+        {
+          "name": "尚武丹紅披風",
+          "displayName": "尚武丹紅披風",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        },
+        {
           "name": "九華扇",
           "displayName": "九華扇",
           "ownerType": "equipment",
@@ -17662,7 +18044,7 @@
           "source": "equipment-skill-table"
         }
       ],
-      "ownerCount": 18
+      "ownerCount": 20
     },
     {
       "skillName": "指導",
@@ -18329,42 +18711,42 @@
           "displayName": "羌剛力",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "鮮卑剛力",
           "displayName": "鮮卑剛力",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "烏桓剛力",
           "displayName": "烏桓剛力",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "南蛮剛力",
           "displayName": "南蛮剛力",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "五渓剛力",
           "displayName": "五渓剛力",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "山越剛力",
           "displayName": "山越剛力",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         }
       ],
       "ownerCount": 36
@@ -18705,7 +19087,7 @@
           "displayName": "鮮卑攻城",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         }
       ],
       "ownerCount": 28
@@ -18713,6 +19095,15 @@
     {
       "skillName": "耕作",
       "owners": [
+        {
+          "name": "LR闞沢（かんたく）",
+          "displayName": "LR闞沢（かんたく）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        },
         {
           "name": "LR管夷吾（かんいご）",
           "displayName": "LR管夷吾（かんいご）",
@@ -18849,7 +19240,7 @@
           "usage": "normal"
         }
       ],
-      "ownerCount": 15
+      "ownerCount": 16
     },
     {
       "skillName": "豪傑",
@@ -19100,28 +19491,28 @@
           "displayName": "五渓豪傑",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "騎・豪傑",
           "displayName": "騎・豪傑",
           "ownerType": "warhorseSkill",
           "category": "warhorse_skills",
-          "source": "text-scan"
+          "source": "warhorse-skill-definition"
         },
         {
           "name": "歩・豪傑",
           "displayName": "歩・豪傑",
           "ownerType": "warhorseSkill",
           "category": "warhorse_skills",
-          "source": "text-scan"
+          "source": "warhorse-skill-definition"
         },
         {
           "name": "弓・豪傑",
           "displayName": "弓・豪傑",
           "ownerType": "warhorseSkill",
           "category": "warhorse_skills",
-          "source": "text-scan"
+          "source": "warhorse-skill-definition"
         }
       ],
       "ownerCount": 33
@@ -19376,7 +19767,7 @@
           "displayName": "山越堅実",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         }
       ],
       "ownerCount": 10
@@ -19419,6 +19810,13 @@
           "source": "general-skill-table",
           "isAdvisorSkill": false,
           "usage": "normal"
+        },
+        {
+          "name": "乾象暦注",
+          "displayName": "乾象暦注",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
         },
         {
           "name": "太平辟邪霊符",
@@ -19530,14 +19928,30 @@
           "displayName": "巻撃軽減",
           "ownerType": "warhorseSkill",
           "category": "warhorse_skills",
-          "source": "text-scan"
+          "source": "warhorse-skill-definition"
+        },
+        {
+          "name": "精巧猛進",
+          "displayName": "精巧猛進",
+          "ownerType": "warhorseSkill",
+          "category": "warhorse_skills",
+          "source": "warhorse-skill-definition"
         }
       ],
-      "ownerCount": 20
+      "ownerCount": 22
     },
     {
       "skillName": "警戒",
       "owners": [
+        {
+          "name": "LR呂蒙・盾兵（りょもう）",
+          "displayName": "LR呂蒙・盾兵（りょもう）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal"
+        },
         {
           "name": "LR荀攸（じゅんゆう）",
           "displayName": "LR荀攸（じゅんゆう）",
@@ -19602,8 +20016,8 @@
           "usage": "normal"
         },
         {
-          "name": "LR呂蒙（りょもう）",
-          "displayName": "LR呂蒙（りょもう）",
+          "name": "LR呂蒙・歩兵（りょもう）",
+          "displayName": "LR呂蒙・歩兵（りょもう）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -19611,8 +20025,8 @@
           "usage": "normal"
         },
         {
-          "name": "LRヤン",
-          "displayName": "LRヤン",
+          "name": "LRヤン（）",
+          "displayName": "LRヤン（）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -19917,7 +20331,7 @@
           "usage": "normal"
         }
       ],
-      "ownerCount": 42
+      "ownerCount": 43
     },
     {
       "skillName": "機略",
@@ -20076,6 +20490,13 @@
           "usage": "normal"
         },
         {
+          "name": "克己光復剣",
+          "displayName": "克己光復剣",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        },
+        {
           "name": "稜花朱塗拂塵",
           "displayName": "稜花朱塗拂塵",
           "ownerType": "equipment",
@@ -20139,7 +20560,7 @@
           "source": "equipment-skill-table"
         }
       ],
-      "ownerCount": 26
+      "ownerCount": 27
     },
     {
       "skillName": "監督",
@@ -20190,8 +20611,8 @@
           "usage": "normal"
         },
         {
-          "name": "URフレデリカ",
-          "displayName": "URフレデリカ",
+          "name": "URフレデリカ（）",
+          "displayName": "URフレデリカ（）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-skill-table",
@@ -20834,6 +21255,13 @@
           "usage": "normal"
         },
         {
+          "name": "疾風玄鉄刀",
+          "displayName": "疾風玄鉄刀",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        },
+        {
           "name": "夏侯惇の眼帯",
           "displayName": "夏侯惇の眼帯",
           "ownerType": "equipment",
@@ -20869,7 +21297,7 @@
           "source": "equipment-skill-table"
         }
       ],
-      "ownerCount": 13
+      "ownerCount": 14
     },
     {
       "skillName": "暗転",
@@ -20955,35 +21383,35 @@
           "displayName": "羌呼応",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "羌剛力",
           "displayName": "羌剛力",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "羌敏活",
           "displayName": "羌敏活",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "羌堅装",
           "displayName": "羌堅装",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         },
         {
           "name": "羌連進",
           "displayName": "羌連進",
           "ownerType": "ethnicResearchSkill",
           "category": "ethnic_research_skills",
-          "source": "text-scan"
+          "source": "skill-definition"
         }
       ],
       "ownerCount": 11
@@ -21165,6 +21593,16 @@
         {
           "name": "覚醒高順（こうじゅん）",
           "displayName": "覚醒高順（こうじゅん）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "増兵(参)"
+        },
+        {
+          "name": "覚醒満寵（まんちょう）",
+          "displayName": "覚醒満寵（まんちょう）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-advisor-skill-section",
@@ -21503,7 +21941,7 @@
           "skillDisplayName": "増兵(参)"
         }
       ],
-      "ownerCount": 39
+      "ownerCount": 40
     },
     {
       "skillName": "助言",
@@ -21511,6 +21949,16 @@
         {
           "name": "覚醒盧植（ろしょく）",
           "displayName": "覚醒盧植（ろしょく）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "助言(参)"
+        },
+        {
+          "name": "劉曄（りゅうよう）",
+          "displayName": "劉曄（りゅうよう）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-advisor-skill-section",
@@ -21579,8 +22027,38 @@
           "skillDisplayName": "助言(参)"
         },
         {
+          "name": "覚醒顧雍（こよう）",
+          "displayName": "覚醒顧雍（こよう）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "助言(参)"
+        },
+        {
           "name": "費禕（ひい）",
           "displayName": "費禕（ひい）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "助言(参)"
+        },
+        {
+          "name": "覚醒李厳（りげん）",
+          "displayName": "覚醒李厳（りげん）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "助言(参)"
+        },
+        {
+          "name": "覚醒李儒（りじゅ）",
+          "displayName": "覚醒李儒（りじゅ）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-advisor-skill-section",
@@ -21899,7 +22377,7 @@
           "skillDisplayName": "助言(参)"
         }
       ],
-      "ownerCount": 39
+      "ownerCount": 43
     },
     {
       "skillName": "不屈",
@@ -22051,6 +22529,16 @@
         {
           "name": "覚醒諸葛瑾（しょかつきん）",
           "displayName": "覚醒諸葛瑾（しょかつきん）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "激励(参)"
+        },
+        {
+          "name": "覚醒厳顔（げんがん）",
+          "displayName": "覚醒厳顔（げんがん）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-advisor-skill-section",
@@ -22349,7 +22837,23 @@
           "skillDisplayName": "激励(参)"
         }
       ],
-      "ownerCount": 35
+      "ownerCount": 36
+    },
+    {
+      "skillName": "器才",
+      "owners": [
+        {
+          "name": "劉曄（りゅうよう）",
+          "displayName": "劉曄（りゅうよう）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "器才(参)"
+        }
+      ],
+      "ownerCount": 1
     },
     {
       "skillName": "扶帝",
@@ -22393,6 +22897,16 @@
         {
           "name": "覚醒曹植（そうしょく）",
           "displayName": "覚醒曹植（そうしょく）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "先導(参)"
+        },
+        {
+          "name": "覚醒夏侯覇（かこうは）",
+          "displayName": "覚醒夏侯覇（かこうは）",
           "ownerType": "general",
           "category": "generals",
           "source": "general-advisor-skill-section",
@@ -22711,7 +23225,7 @@
           "skillDisplayName": "先導(参)"
         }
       ],
-      "ownerCount": 34
+      "ownerCount": 35
     },
     {
       "skillName": "督戦",
@@ -23188,6 +23702,22 @@
       "ownerCount": 1
     },
     {
+      "skillName": "阻截",
+      "owners": [
+        {
+          "name": "覚醒満寵（まんちょう）",
+          "displayName": "覚醒満寵（まんちょう）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "阻截(参)"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
       "skillName": "封昂",
       "owners": [
         {
@@ -23231,6 +23761,22 @@
           "isAdvisorSkill": true,
           "usage": "advisor",
           "skillDisplayName": "収諫(参)"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "鎮丞",
+      "owners": [
+        {
+          "name": "覚醒顧雍（こよう）",
+          "displayName": "覚醒顧雍（こよう）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "鎮丞(参)"
         }
       ],
       "ownerCount": 1
@@ -23300,6 +23846,38 @@
       "ownerCount": 1
     },
     {
+      "skillName": "老鋭",
+      "owners": [
+        {
+          "name": "覚醒厳顔（げんがん）",
+          "displayName": "覚醒厳顔（げんがん）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "老鋭(参)"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "軍扶",
+      "owners": [
+        {
+          "name": "覚醒夏侯覇（かこうは）",
+          "displayName": "覚醒夏侯覇（かこうは）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "軍扶(参)"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
       "skillName": "添花",
       "owners": [
         {
@@ -23311,6 +23889,22 @@
           "isAdvisorSkill": true,
           "usage": "advisor",
           "skillDisplayName": "添花(参)"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "総護",
+      "owners": [
+        {
+          "name": "覚醒李厳（りげん）",
+          "displayName": "覚醒李厳（りげん）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "総護(参)"
         }
       ],
       "ownerCount": 1
@@ -23343,6 +23937,22 @@
           "isAdvisorSkill": true,
           "usage": "advisor",
           "skillDisplayName": "佐命(参)"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "流毒",
+      "owners": [
+        {
+          "name": "覚醒李儒（りじゅ）",
+          "displayName": "覚醒李儒（りじゅ）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "流毒(参)"
         }
       ],
       "ownerCount": 1
@@ -24385,6 +24995,201 @@
           "isAdvisorSkill": true,
           "usage": "advisor",
           "skillDisplayName": "武神(参)"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "克導強撃",
+      "owners": [
+        {
+          "name": "孫氏玄朱令旗",
+          "displayName": "孫氏玄朱令旗",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "声威烈撃",
+      "owners": [
+        {
+          "name": "孫氏玄朱令旗",
+          "displayName": "孫氏玄朱令旗",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "連繋猛勢",
+      "owners": [
+        {
+          "name": "孫氏玄朱令旗",
+          "displayName": "孫氏玄朱令旗",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "克導堅守",
+      "owners": [
+        {
+          "name": "尚武丹紅披風",
+          "displayName": "尚武丹紅披風",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "砕壁盤石",
+      "owners": [
+        {
+          "name": "尚武丹紅披風",
+          "displayName": "尚武丹紅披風",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "強撃猛勢",
+      "owners": [
+        {
+          "name": "尚武丹紅披風",
+          "displayName": "尚武丹紅披風",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "戦撃怒涛",
+      "owners": [
+        {
+          "name": "精鋼湾刀・鉄湾刀",
+          "displayName": "精鋼湾刀・鉄湾刀",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "盤累才気",
+      "owners": [
+        {
+          "name": "乾象暦注",
+          "displayName": "乾象暦注",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "励宰重栄",
+      "owners": [
+        {
+          "name": "乾象暦注",
+          "displayName": "乾象暦注",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "勇略双撃",
+      "owners": [
+        {
+          "name": "克己光復剣",
+          "displayName": "克己光復剣",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "深化断衝",
+      "owners": [
+        {
+          "name": "克己光復剣",
+          "displayName": "克己光復剣",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "武慧研鑽",
+      "owners": [
+        {
+          "name": "克己光復剣",
+          "displayName": "克己光復剣",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "護威強撃",
+      "owners": [
+        {
+          "name": "疾風玄鉄刀",
+          "displayName": "疾風玄鉄刀",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "怒涛駿昂",
+      "owners": [
+        {
+          "name": "疾風玄鉄刀",
+          "displayName": "疾風玄鉄刀",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
+        }
+      ],
+      "ownerCount": 1
+    },
+    {
+      "skillName": "威武勇撃",
+      "owners": [
+        {
+          "name": "疾風玄鉄刀",
+          "displayName": "疾風玄鉄刀",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table"
         }
       ],
       "ownerCount": 1
