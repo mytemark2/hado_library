@@ -1,0 +1,3314 @@
+{
+  "schemaVersion": "draft-v2-2026-06-30",
+  "kind": "type_score_judgement_table",
+  "rules": [
+    "各型は少なくとも1つのPを持つ。",
+    "Sだけで成立する型を作らない。",
+    "Xは混入禁止。",
+    "Primaryが0ならSupportだけで高評価にしない。",
+    "selfとallyを全型で機械的に相互許容しない。",
+    "enemy対象は味方/自部隊評価に混入させない。",
+    "unknown対象は対象依存型では採点対象外。",
+    "同一起源のaliasはevidenceGroupKeyでdedupeする。",
+    "attack_speedとtactic_speedを混同しない。",
+    "critical_normalとcritical_tacticを混同しない。"
+  ],
+  "items": [
+    {
+      "typeId": "calm",
+      "typeName": "鎮静型",
+      "scoreMetricId": "calm_1",
+      "scoreMetricLabel": "弱化予防",
+      "displayOrder": 1,
+      "scoreRole": "P",
+      "changeItems": [
+        "weakening_nullify",
+        "weakening_avoid"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "弱化を受ける前に防ぐ能力"
+    },
+    {
+      "typeId": "calm",
+      "typeName": "鎮静型",
+      "scoreMetricId": "calm_2",
+      "scoreMetricLabel": "弱化解除",
+      "displayOrder": 2,
+      "scoreRole": "P",
+      "changeItems": [
+        "weakening_remove"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "受けた弱化を解除する能力"
+    },
+    {
+      "typeId": "calm",
+      "typeName": "鎮静型",
+      "scoreMetricId": "calm_3",
+      "scoreMetricLabel": "状態異常対策",
+      "displayOrder": 3,
+      "scoreRole": "P",
+      "changeItems": [
+        "status_nullify",
+        "status_remove",
+        "control_counter"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "混乱・恐怖・畏怖・同討などの状態異常対策"
+    },
+    {
+      "typeId": "calm",
+      "typeName": "鎮静型",
+      "scoreMetricId": "calm_4",
+      "scoreMetricLabel": "強化保護",
+      "displayOrder": 4,
+      "scoreRole": "P",
+      "changeItems": [
+        "buff_protection"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "強化解除・強化奪取を避ける能力"
+    },
+    {
+      "typeId": "calm",
+      "typeName": "鎮静型",
+      "scoreMetricId": "calm_5",
+      "scoreMetricLabel": "戦線維持",
+      "displayOrder": 5,
+      "scoreRole": "P",
+      "changeItems": [
+        "remaining_troops",
+        "damage_reduction"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "鎮静型として継戦を補助する耐久要素"
+    },
+    {
+      "typeId": "zombie",
+      "typeName": "ゾンビ型",
+      "scoreMetricId": "zombie_1",
+      "scoreMetricLabel": "負傷兵回復",
+      "displayOrder": 1,
+      "scoreRole": "P",
+      "changeItems": [
+        "wounded_recovery"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "負傷兵を回復する能力"
+    },
+    {
+      "typeId": "zombie",
+      "typeName": "ゾンビ型",
+      "scoreMetricId": "zombie_2",
+      "scoreMetricLabel": "負傷兵生存",
+      "displayOrder": 2,
+      "scoreRole": "P",
+      "changeItems": [
+        "wounded_survival"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "攻撃を受けた兵を負傷兵として残す能力"
+    },
+    {
+      "typeId": "zombie",
+      "typeName": "ゾンビ型",
+      "scoreMetricId": "zombie_3",
+      "scoreMetricLabel": "壊滅回避",
+      "displayOrder": 3,
+      "scoreRole": "P",
+      "changeItems": [
+        "annihilation_avoidance",
+        "remaining_troops"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "壊滅を避ける、または残存兵力を保つ能力"
+    },
+    {
+      "typeId": "zombie",
+      "typeName": "ゾンビ型",
+      "scoreMetricId": "zombie_4",
+      "scoreMetricLabel": "兵力回復",
+      "displayOrder": 4,
+      "scoreRole": "P",
+      "changeItems": [
+        "healing"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "通常の兵力回復・継続回復"
+    },
+    {
+      "typeId": "zombie",
+      "typeName": "ゾンビ型",
+      "scoreMetricId": "zombie_5",
+      "scoreMetricLabel": "耐久補助",
+      "displayOrder": 5,
+      "scoreRole": "P",
+      "changeItems": [
+        "damage_reduction",
+        "defense_up",
+        "attribute_resistance"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "ゾンビ運用を支える被ダメ軽減・防御・耐性"
+    },
+    {
+      "typeId": "bomb",
+      "typeName": "爆弾型",
+      "scoreMetricId": "bomb_1",
+      "scoreMetricLabel": "戦法威力",
+      "displayOrder": 1,
+      "scoreRole": "P",
+      "changeItems": [
+        "tactic_power_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "戦法ダメージを高める能力"
+    },
+    {
+      "typeId": "bomb",
+      "typeName": "爆弾型",
+      "scoreMetricId": "bomb_2",
+      "scoreMetricLabel": "撃心発生",
+      "displayOrder": 2,
+      "scoreRole": "P",
+      "changeItems": [
+        "critical_tactic_rate_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "戦法撃心の発生率を上げる能力"
+    },
+    {
+      "typeId": "bomb",
+      "typeName": "爆弾型",
+      "scoreMetricId": "bomb_3",
+      "scoreMetricLabel": "撃心威力",
+      "displayOrder": 3,
+      "scoreRole": "P",
+      "changeItems": [
+        "critical_tactic_power_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "戦法撃心時の威力を高める能力"
+    },
+    {
+      "typeId": "bomb",
+      "typeName": "爆弾型",
+      "scoreMetricId": "bomb_4",
+      "scoreMetricLabel": "戦法初動・回転",
+      "displayOrder": 4,
+      "scoreRole": "P",
+      "changeItems": [
+        "tactic_speed",
+        "tactic_reduction",
+        "initial_tactic_gauge",
+        "combat_start_tactic_gauge",
+        "tactic_gauge"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "爆弾戦法を早く撃つ能力"
+    },
+    {
+      "typeId": "bomb",
+      "typeName": "爆弾型",
+      "scoreMetricId": "bomb_5",
+      "scoreMetricLabel": "火力補助",
+      "displayOrder": 5,
+      "scoreRole": "P",
+      "changeItems": [
+        "anti_object_up",
+        "chain_rate"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "爆弾運用を補助する対物・連鎖要素"
+    },
+    {
+      "typeId": "critical_tactic",
+      "typeName": "撃心型",
+      "scoreMetricId": "critical_tactic_1",
+      "scoreMetricLabel": "撃心発生",
+      "displayOrder": 1,
+      "scoreRole": "P",
+      "changeItems": [
+        "critical_tactic_rate_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "critical_rate_up",
+        "critical_power_up"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "戦法撃心の発生率"
+    },
+    {
+      "typeId": "critical_tactic",
+      "typeName": "撃心型",
+      "scoreMetricId": "critical_tactic_2",
+      "scoreMetricLabel": "撃心威力",
+      "displayOrder": 2,
+      "scoreRole": "P",
+      "changeItems": [
+        "critical_tactic_power_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "critical_rate_up",
+        "critical_power_up"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "戦法撃心の威力"
+    },
+    {
+      "typeId": "critical_tactic",
+      "typeName": "撃心型",
+      "scoreMetricId": "critical_tactic_3",
+      "scoreMetricLabel": "戦法威力",
+      "displayOrder": 3,
+      "scoreRole": "P",
+      "changeItems": [
+        "tactic_power_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "critical_rate_up",
+        "critical_power_up"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "戦法そのものの火力"
+    },
+    {
+      "typeId": "critical_tactic",
+      "typeName": "撃心型",
+      "scoreMetricId": "critical_tactic_4",
+      "scoreMetricLabel": "戦法回転",
+      "displayOrder": 4,
+      "scoreRole": "P",
+      "changeItems": [
+        "tactic_speed",
+        "tactic_reduction",
+        "tactic_gauge",
+        "initial_tactic_gauge",
+        "combat_start_tactic_gauge"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "critical_rate_up",
+        "critical_power_up"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "撃心戦法を回す速度"
+    },
+    {
+      "typeId": "critical_tactic",
+      "typeName": "撃心型",
+      "scoreMetricId": "critical_tactic_5",
+      "scoreMetricLabel": "連鎖補助",
+      "displayOrder": 5,
+      "scoreRole": "P",
+      "changeItems": [
+        "chain_rate"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "critical_rate_up",
+        "critical_power_up"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "撃心戦法の連鎖期待値を支える能力"
+    },
+    {
+      "typeId": "critical_normal",
+      "typeName": "会心型",
+      "scoreMetricId": "critical_normal_1",
+      "scoreMetricLabel": "会心発生",
+      "displayOrder": 1,
+      "scoreRole": "P",
+      "changeItems": [
+        "critical_rate_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "critical_tactic_rate_up",
+        "critical_tactic_power_up"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "通常攻撃会心の発生率"
+    },
+    {
+      "typeId": "critical_normal",
+      "typeName": "会心型",
+      "scoreMetricId": "critical_normal_2",
+      "scoreMetricLabel": "会心威力",
+      "displayOrder": 2,
+      "scoreRole": "P",
+      "changeItems": [
+        "critical_power_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "critical_tactic_rate_up",
+        "critical_tactic_power_up"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "通常攻撃会心の威力"
+    },
+    {
+      "typeId": "critical_normal",
+      "typeName": "会心型",
+      "scoreMetricId": "critical_normal_3",
+      "scoreMetricLabel": "通常攻撃威力",
+      "displayOrder": 3,
+      "scoreRole": "P",
+      "changeItems": [
+        "normal_attack_power_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "critical_tactic_rate_up",
+        "critical_tactic_power_up"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "通常攻撃そのものの威力"
+    },
+    {
+      "typeId": "critical_normal",
+      "typeName": "会心型",
+      "scoreMetricId": "critical_normal_4",
+      "scoreMetricLabel": "攻撃速度",
+      "displayOrder": 4,
+      "scoreRole": "P",
+      "changeItems": [
+        "attack_speed_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "critical_tactic_rate_up",
+        "critical_tactic_power_up"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "通常攻撃回数を増やす能力"
+    },
+    {
+      "typeId": "critical_normal",
+      "typeName": "会心型",
+      "scoreMetricId": "critical_normal_5",
+      "scoreMetricLabel": "攻撃対象数",
+      "displayOrder": 5,
+      "scoreRole": "P",
+      "changeItems": [
+        "normal_attack_target_count_up",
+        "range_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "critical_tactic_rate_up",
+        "critical_tactic_power_up"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "通常攻撃の対象数・射程拡張"
+    },
+    {
+      "typeId": "tactic_speed",
+      "typeName": "戦法速度型",
+      "scoreMetricId": "tactic_speed_1",
+      "scoreMetricLabel": "戦法速度",
+      "displayOrder": 1,
+      "scoreRole": "P",
+      "changeItems": [
+        "tactic_speed"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "attack_speed_up"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "戦法発動速度を上げる能力"
+    },
+    {
+      "typeId": "tactic_speed",
+      "typeName": "戦法速度型",
+      "scoreMetricId": "tactic_speed_2",
+      "scoreMetricLabel": "戦法短縮",
+      "displayOrder": 2,
+      "scoreRole": "P",
+      "changeItems": [
+        "tactic_reduction"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "attack_speed_up"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "戦法待ち時間を短縮する能力"
+    },
+    {
+      "typeId": "tactic_speed",
+      "typeName": "戦法速度型",
+      "scoreMetricId": "tactic_speed_3",
+      "scoreMetricLabel": "初回ゲージ",
+      "displayOrder": 3,
+      "scoreRole": "P",
+      "changeItems": [
+        "initial_tactic_gauge"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "attack_speed_up"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "出陣時・初回戦法ゲージを増やす能力"
+    },
+    {
+      "typeId": "tactic_speed",
+      "typeName": "戦法速度型",
+      "scoreMetricId": "tactic_speed_4",
+      "scoreMetricLabel": "交戦開始ゲージ",
+      "displayOrder": 4,
+      "scoreRole": "P",
+      "changeItems": [
+        "combat_start_tactic_gauge",
+        "tactic_gauge"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "attack_speed_up"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "交戦開始時や条件付きゲージ増加"
+    },
+    {
+      "typeId": "tactic_speed",
+      "typeName": "戦法速度型",
+      "scoreMetricId": "tactic_speed_5",
+      "scoreMetricLabel": "連鎖・回転補助",
+      "displayOrder": 5,
+      "scoreRole": "P",
+      "changeItems": [
+        "chain_rate"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "attack_speed_up"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "戦法回転を支える連鎖補助"
+    },
+    {
+      "typeId": "attack_speed",
+      "typeName": "攻撃速度型",
+      "scoreMetricId": "attack_speed_1",
+      "scoreMetricLabel": "攻撃速度",
+      "displayOrder": 1,
+      "scoreRole": "P",
+      "changeItems": [
+        "attack_speed_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "tactic_speed"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "通常攻撃速度を上げる能力"
+    },
+    {
+      "typeId": "attack_speed",
+      "typeName": "攻撃速度型",
+      "scoreMetricId": "attack_speed_2",
+      "scoreMetricLabel": "通常攻撃威力",
+      "displayOrder": 2,
+      "scoreRole": "P",
+      "changeItems": [
+        "normal_attack_power_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "tactic_speed"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "通常攻撃の火力"
+    },
+    {
+      "typeId": "attack_speed",
+      "typeName": "攻撃速度型",
+      "scoreMetricId": "attack_speed_3",
+      "scoreMetricLabel": "攻撃対象数",
+      "displayOrder": 3,
+      "scoreRole": "P",
+      "changeItems": [
+        "normal_attack_target_count_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "tactic_speed"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "通常攻撃対象数の拡張"
+    },
+    {
+      "typeId": "attack_speed",
+      "typeName": "攻撃速度型",
+      "scoreMetricId": "attack_speed_4",
+      "scoreMetricLabel": "会心補助",
+      "displayOrder": 4,
+      "scoreRole": "P",
+      "changeItems": [
+        "critical_rate_up",
+        "critical_power_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "tactic_speed"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "通常攻撃を会心で伸ばす能力"
+    },
+    {
+      "typeId": "attack_speed",
+      "typeName": "攻撃速度型",
+      "scoreMetricId": "attack_speed_5",
+      "scoreMetricLabel": "射程・継続補助",
+      "displayOrder": 5,
+      "scoreRole": "P",
+      "changeItems": [
+        "range_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "tactic_speed"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "通常攻撃を当てやすくする射程などの補助"
+    },
+    {
+      "typeId": "normal_attack",
+      "typeName": "通常攻撃拡張型",
+      "scoreMetricId": "normal_attack_1",
+      "scoreMetricLabel": "通常攻撃威力",
+      "displayOrder": 1,
+      "scoreRole": "P",
+      "changeItems": [
+        "normal_attack_power_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "通常攻撃火力"
+    },
+    {
+      "typeId": "normal_attack",
+      "typeName": "通常攻撃拡張型",
+      "scoreMetricId": "normal_attack_2",
+      "scoreMetricLabel": "攻撃対象数",
+      "displayOrder": 2,
+      "scoreRole": "P",
+      "changeItems": [
+        "normal_attack_target_count_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "通常攻撃の対象部隊数"
+    },
+    {
+      "typeId": "normal_attack",
+      "typeName": "通常攻撃拡張型",
+      "scoreMetricId": "normal_attack_3",
+      "scoreMetricLabel": "攻撃速度",
+      "displayOrder": 3,
+      "scoreRole": "P",
+      "changeItems": [
+        "attack_speed_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "通常攻撃回数"
+    },
+    {
+      "typeId": "normal_attack",
+      "typeName": "通常攻撃拡張型",
+      "scoreMetricId": "normal_attack_4",
+      "scoreMetricLabel": "会心性能",
+      "displayOrder": 4,
+      "scoreRole": "P",
+      "changeItems": [
+        "critical_rate_up",
+        "critical_power_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "通常攻撃会心"
+    },
+    {
+      "typeId": "normal_attack",
+      "typeName": "通常攻撃拡張型",
+      "scoreMetricId": "normal_attack_5",
+      "scoreMetricLabel": "射程・範囲補助",
+      "displayOrder": 5,
+      "scoreRole": "P",
+      "changeItems": [
+        "range_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "通常攻撃の届きやすさ"
+    },
+    {
+      "typeId": "debuff",
+      "typeName": "デバフ型",
+      "scoreMetricId": "debuff_1",
+      "scoreMetricLabel": "攻撃低下",
+      "displayOrder": 1,
+      "scoreRole": "P",
+      "changeItems": [
+        "enemy_attack_down"
+      ],
+      "allowedTargets": [
+        "enemy"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "敵の攻撃を下げる能力"
+    },
+    {
+      "typeId": "debuff",
+      "typeName": "デバフ型",
+      "scoreMetricId": "debuff_2",
+      "scoreMetricLabel": "防御低下",
+      "displayOrder": 2,
+      "scoreRole": "P",
+      "changeItems": [
+        "enemy_defense_down"
+      ],
+      "allowedTargets": [
+        "enemy"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "敵の防御を下げる能力"
+    },
+    {
+      "typeId": "debuff",
+      "typeName": "デバフ型",
+      "scoreMetricId": "debuff_3",
+      "scoreMetricLabel": "対物低下",
+      "displayOrder": 3,
+      "scoreRole": "P",
+      "changeItems": [
+        "enemy_anti_object_down"
+      ],
+      "allowedTargets": [
+        "enemy"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "敵の対物性能を下げる能力"
+    },
+    {
+      "typeId": "debuff",
+      "typeName": "デバフ型",
+      "scoreMetricId": "debuff_4",
+      "scoreMetricLabel": "戦法妨害",
+      "displayOrder": 4,
+      "scoreRole": "P",
+      "changeItems": [
+        "tactic_delay",
+        "chain_nullify_to_enemy"
+      ],
+      "allowedTargets": [
+        "enemy"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "敵の戦法・連鎖を妨害する能力"
+    },
+    {
+      "typeId": "debuff",
+      "typeName": "デバフ型",
+      "scoreMetricId": "debuff_5",
+      "scoreMetricLabel": "状態異常付与",
+      "displayOrder": 5,
+      "scoreRole": "P",
+      "changeItems": [
+        "confuse",
+        "fear",
+        "severance",
+        "isolation"
+      ],
+      "allowedTargets": [
+        "enemy"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "敵に状態異常・行動阻害を付与する能力"
+    },
+    {
+      "typeId": "anti_object",
+      "typeName": "対物型",
+      "scoreMetricId": "anti_object_1",
+      "scoreMetricLabel": "対物特効",
+      "displayOrder": 1,
+      "scoreRole": "P",
+      "changeItems": [
+        "anti_object_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "対物火力を直接上げる能力"
+    },
+    {
+      "typeId": "anti_object",
+      "typeName": "対物型",
+      "scoreMetricId": "anti_object_2",
+      "scoreMetricLabel": "戦法威力",
+      "displayOrder": 2,
+      "scoreRole": "P",
+      "changeItems": [
+        "tactic_power_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "対物戦法火力を支える能力"
+    },
+    {
+      "typeId": "anti_object",
+      "typeName": "対物型",
+      "scoreMetricId": "anti_object_3",
+      "scoreMetricLabel": "通常攻撃威力",
+      "displayOrder": 3,
+      "scoreRole": "P",
+      "changeItems": [
+        "normal_attack_power_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "通常攻撃による対物削り"
+    },
+    {
+      "typeId": "anti_object",
+      "typeName": "対物型",
+      "scoreMetricId": "anti_object_4",
+      "scoreMetricLabel": "攻撃速度・対象数",
+      "displayOrder": 4,
+      "scoreRole": "P",
+      "changeItems": [
+        "attack_speed_up",
+        "normal_attack_target_count_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "対物削りの手数・範囲"
+    },
+    {
+      "typeId": "anti_object",
+      "typeName": "対物型",
+      "scoreMetricId": "anti_object_5",
+      "scoreMetricLabel": "初動・回転補助",
+      "displayOrder": 5,
+      "scoreRole": "P",
+      "changeItems": [
+        "tactic_speed",
+        "tactic_reduction",
+        "tactic_gauge",
+        "initial_tactic_gauge",
+        "combat_start_tactic_gauge"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "対物火力を早く回す能力"
+    },
+    {
+      "typeId": "annihilation",
+      "typeName": "殲滅型",
+      "scoreMetricId": "annihilation_1",
+      "scoreMetricLabel": "基礎火力",
+      "displayOrder": 1,
+      "scoreRole": "P",
+      "changeItems": [
+        "attack_up",
+        "intelligence_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "攻撃・知力などの基本火力"
+    },
+    {
+      "typeId": "annihilation",
+      "typeName": "殲滅型",
+      "scoreMetricId": "annihilation_2",
+      "scoreMetricLabel": "戦法威力",
+      "displayOrder": 2,
+      "scoreRole": "P",
+      "changeItems": [
+        "tactic_power_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "戦法による殲滅力"
+    },
+    {
+      "typeId": "annihilation",
+      "typeName": "殲滅型",
+      "scoreMetricId": "annihilation_3",
+      "scoreMetricLabel": "会心・撃心",
+      "displayOrder": 3,
+      "scoreRole": "P",
+      "changeItems": [
+        "critical_rate_up",
+        "critical_power_up",
+        "critical_tactic_rate_up",
+        "critical_tactic_power_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "会心・撃心による上振れ火力"
+    },
+    {
+      "typeId": "annihilation",
+      "typeName": "殲滅型",
+      "scoreMetricId": "annihilation_4",
+      "scoreMetricLabel": "通常攻撃性能",
+      "displayOrder": 4,
+      "scoreRole": "P",
+      "changeItems": [
+        "attack_speed_up",
+        "normal_attack_power_up",
+        "normal_attack_target_count_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "通常攻撃での殲滅力"
+    },
+    {
+      "typeId": "annihilation",
+      "typeName": "殲滅型",
+      "scoreMetricId": "annihilation_5",
+      "scoreMetricLabel": "戦法回転・連鎖",
+      "displayOrder": 5,
+      "scoreRole": "P",
+      "changeItems": [
+        "tactic_speed",
+        "tactic_reduction",
+        "tactic_gauge",
+        "chain_rate"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "殲滅火力を回す能力"
+    },
+    {
+      "typeId": "buff_support",
+      "typeName": "バフ支援型",
+      "scoreMetricId": "buff_support_1",
+      "scoreMetricLabel": "能力バフ配布",
+      "displayOrder": 1,
+      "scoreRole": "P",
+      "changeItems": [
+        "attack_up",
+        "defense_up",
+        "intelligence_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象強化が0なら補助評価だけで高評価にせずsupport_without_primaryとして扱う。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "味方/自部隊への攻撃・防御・知力バフ"
+    },
+    {
+      "typeId": "buff_support",
+      "typeName": "バフ支援型",
+      "scoreMetricId": "buff_support_2",
+      "scoreMetricLabel": "火力バフ配布",
+      "displayOrder": 2,
+      "scoreRole": "P",
+      "changeItems": [
+        "tactic_power_up",
+        "normal_attack_power_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象強化が0なら補助評価だけで高評価にせずsupport_without_primaryとして扱う。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "戦法威力・通常攻撃威力の支援"
+    },
+    {
+      "typeId": "buff_support",
+      "typeName": "バフ支援型",
+      "scoreMetricId": "buff_support_3",
+      "scoreMetricLabel": "手数バフ配布",
+      "displayOrder": 3,
+      "scoreRole": "P",
+      "changeItems": [
+        "attack_speed_up",
+        "normal_attack_target_count_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象強化が0なら補助評価だけで高評価にせずsupport_without_primaryとして扱う。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "攻撃速度・通常攻撃対象数の支援"
+    },
+    {
+      "typeId": "buff_support",
+      "typeName": "バフ支援型",
+      "scoreMetricId": "buff_support_4",
+      "scoreMetricLabel": "会心・撃心支援",
+      "displayOrder": 4,
+      "scoreRole": "P",
+      "changeItems": [
+        "critical_rate_up",
+        "critical_power_up",
+        "critical_tactic_rate_up",
+        "critical_tactic_power_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象強化が0なら補助評価だけで高評価にせずsupport_without_primaryとして扱う。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "会心・撃心系の支援"
+    },
+    {
+      "typeId": "buff_support",
+      "typeName": "バフ支援型",
+      "scoreMetricId": "buff_support_5",
+      "scoreMetricLabel": "継続・保護補助",
+      "displayOrder": 5,
+      "scoreRole": "S",
+      "changeItems": [
+        "effect_duration",
+        "ally_target_count",
+        "buff_protection",
+        "initial_tactic_gauge",
+        "combat_start_tactic_gauge",
+        "tactic_speed"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象強化が0なら補助評価だけで高評価にせずsupport_without_primaryとして扱う。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "バフ対象数、効果時間、強化保護、支援回転"
+    },
+    {
+      "typeId": "debuff_interference",
+      "typeName": "デバフ妨害型",
+      "scoreMetricId": "debuff_interference_1",
+      "scoreMetricLabel": "能力低下",
+      "displayOrder": 1,
+      "scoreRole": "P",
+      "changeItems": [
+        "enemy_attack_down",
+        "enemy_defense_down",
+        "enemy_anti_object_down"
+      ],
+      "allowedTargets": [
+        "enemy"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "妨害本体が0なら補助評価だけで高評価にしない。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "敵能力を下げる妨害"
+    },
+    {
+      "typeId": "debuff_interference",
+      "typeName": "デバフ妨害型",
+      "scoreMetricId": "debuff_interference_2",
+      "scoreMetricLabel": "戦法妨害",
+      "displayOrder": 2,
+      "scoreRole": "P",
+      "changeItems": [
+        "tactic_delay"
+      ],
+      "allowedTargets": [
+        "enemy"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "妨害本体が0なら補助評価だけで高評価にしない。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "敵戦法を遅らせる能力"
+    },
+    {
+      "typeId": "debuff_interference",
+      "typeName": "デバフ妨害型",
+      "scoreMetricId": "debuff_interference_3",
+      "scoreMetricLabel": "状態異常妨害",
+      "displayOrder": 3,
+      "scoreRole": "P",
+      "changeItems": [
+        "confuse",
+        "fear"
+      ],
+      "allowedTargets": [
+        "enemy"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "妨害本体が0なら補助評価だけで高評価にしない。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "混乱・恐怖などの付与"
+    },
+    {
+      "typeId": "debuff_interference",
+      "typeName": "デバフ妨害型",
+      "scoreMetricId": "debuff_interference_4",
+      "scoreMetricLabel": "連鎖阻害",
+      "displayOrder": 4,
+      "scoreRole": "P",
+      "changeItems": [
+        "chain_nullify_to_enemy",
+        "severance",
+        "isolation"
+      ],
+      "allowedTargets": [
+        "enemy"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "妨害本体が0なら補助評価だけで高評価にしない。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "敵の連鎖・副将発動を止める能力"
+    },
+    {
+      "typeId": "debuff_interference",
+      "typeName": "デバフ妨害型",
+      "scoreMetricId": "debuff_interference_5",
+      "scoreMetricLabel": "妨害補助",
+      "displayOrder": 5,
+      "scoreRole": "S",
+      "changeItems": [
+        "ally_target_count",
+        "effect_duration",
+        "tactic_speed",
+        "chain_rate"
+      ],
+      "allowedTargets": [
+        "enemy"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "妨害本体が0なら補助評価だけで高評価にしない。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "妨害の対象数・持続・回転補助"
+    },
+    {
+      "typeId": "wall_defense",
+      "typeName": "城壁防衛型",
+      "scoreMetricId": "wall_defense_1",
+      "scoreMetricLabel": "被ダメ軽減",
+      "displayOrder": 1,
+      "scoreRole": "P",
+      "changeItems": [
+        "damage_reduction",
+        "defense_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "防衛時の被ダメージを抑える能力"
+    },
+    {
+      "typeId": "wall_defense",
+      "typeName": "城壁防衛型",
+      "scoreMetricId": "wall_defense_2",
+      "scoreMetricLabel": "対物防衛",
+      "displayOrder": 2,
+      "scoreRole": "P",
+      "changeItems": [
+        "enemy_anti_object_down",
+        "attribute_resistance"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "対物攻撃や属性ダメージを抑える能力"
+    },
+    {
+      "typeId": "wall_defense",
+      "typeName": "城壁防衛型",
+      "scoreMetricId": "wall_defense_3",
+      "scoreMetricLabel": "回復・生存",
+      "displayOrder": 3,
+      "scoreRole": "P",
+      "changeItems": [
+        "wounded_recovery",
+        "wounded_survival",
+        "healing",
+        "remaining_troops"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "防衛中の生存・回復"
+    },
+    {
+      "typeId": "wall_defense",
+      "typeName": "城壁防衛型",
+      "scoreMetricId": "wall_defense_4",
+      "scoreMetricLabel": "迎撃性能",
+      "displayOrder": 4,
+      "scoreRole": "P",
+      "changeItems": [
+        "attack_speed_up",
+        "normal_attack_target_count_up",
+        "range_up"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "防衛中の反撃手数・範囲"
+    },
+    {
+      "typeId": "wall_defense",
+      "typeName": "城壁防衛型",
+      "scoreMetricId": "wall_defense_5",
+      "scoreMetricLabel": "駐屯条件・初動",
+      "displayOrder": 5,
+      "scoreRole": "P",
+      "changeItems": [
+        "combat_start_tactic_gauge",
+        "tactic_gauge",
+        "tactic_speed"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "駐屯/防衛中の初動・戦法回転"
+    },
+    {
+      "typeId": "garrison_support",
+      "typeName": "駐屯支援型",
+      "scoreMetricId": "garrison_support_1",
+      "scoreMetricLabel": "駐屯防御",
+      "displayOrder": 1,
+      "scoreRole": "P",
+      "changeItems": [
+        "defense_up",
+        "damage_reduction"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "駐屯部隊の防御・軽減"
+    },
+    {
+      "typeId": "garrison_support",
+      "typeName": "駐屯支援型",
+      "scoreMetricId": "garrison_support_2",
+      "scoreMetricLabel": "駐屯回復・生存",
+      "displayOrder": 2,
+      "scoreRole": "P",
+      "changeItems": [
+        "wounded_recovery",
+        "wounded_survival",
+        "healing",
+        "remaining_troops"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "駐屯中の回復・生存"
+    },
+    {
+      "typeId": "garrison_support",
+      "typeName": "駐屯支援型",
+      "scoreMetricId": "garrison_support_3",
+      "scoreMetricLabel": "敵対物抑制",
+      "displayOrder": 3,
+      "scoreRole": "P",
+      "changeItems": [
+        "enemy_anti_object_down",
+        "enemy_attack_down"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "敵の攻撃・対物火力を下げる支援"
+    },
+    {
+      "typeId": "garrison_support",
+      "typeName": "駐屯支援型",
+      "scoreMetricId": "garrison_support_4",
+      "scoreMetricLabel": "駐屯初動",
+      "displayOrder": 4,
+      "scoreRole": "P",
+      "changeItems": [
+        "combat_start_tactic_gauge",
+        "tactic_gauge",
+        "tactic_speed"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "駐屯時の戦法初動・回転"
+    },
+    {
+      "typeId": "garrison_support",
+      "typeName": "駐屯支援型",
+      "scoreMetricId": "garrison_support_5",
+      "scoreMetricLabel": "味方支援範囲",
+      "displayOrder": 5,
+      "scoreRole": "P",
+      "changeItems": [
+        "ally_target_count",
+        "buff_protection",
+        "effect_duration"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "駐屯支援の対象数・継続・強化保護"
+    },
+    {
+      "typeId": "vaccine",
+      "typeName": "ワクチン型",
+      "scoreMetricId": "vaccine_1",
+      "scoreMetricLabel": "弱化予防",
+      "displayOrder": 1,
+      "scoreRole": "P",
+      "changeItems": [
+        "weakening_nullify",
+        "weakening_avoid"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "defense_up",
+        "healing",
+        "wounded_recovery",
+        "wounded_survival",
+        "attribute_resistance",
+        "tactic_gauge",
+        "tactic_speed",
+        "attack_speed_up",
+        "tactic_power_up",
+        "normal_attack_target_count_up"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "弱化無効・弱化効果無効・弱化回避"
+    },
+    {
+      "typeId": "vaccine",
+      "typeName": "ワクチン型",
+      "scoreMetricId": "vaccine_2",
+      "scoreMetricLabel": "弱化解除",
+      "displayOrder": 2,
+      "scoreRole": "P",
+      "changeItems": [
+        "weakening_remove"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "defense_up",
+        "healing",
+        "wounded_recovery",
+        "wounded_survival",
+        "attribute_resistance",
+        "tactic_gauge",
+        "tactic_speed",
+        "attack_speed_up",
+        "tactic_power_up",
+        "normal_attack_target_count_up"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "弱化解除・弱化効果解除"
+    },
+    {
+      "typeId": "vaccine",
+      "typeName": "ワクチン型",
+      "scoreMetricId": "vaccine_3",
+      "scoreMetricLabel": "状態異常対策",
+      "displayOrder": 3,
+      "scoreRole": "P",
+      "changeItems": [
+        "status_nullify",
+        "status_remove",
+        "control_counter"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "defense_up",
+        "healing",
+        "wounded_recovery",
+        "wounded_survival",
+        "attribute_resistance",
+        "tactic_gauge",
+        "tactic_speed",
+        "attack_speed_up",
+        "tactic_power_up",
+        "normal_attack_target_count_up"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "状態変化無効・状態異常無効・状態異常解除・恐怖/混乱/畏怖/同討などの対策"
+    },
+    {
+      "typeId": "vaccine",
+      "typeName": "ワクチン型",
+      "scoreMetricId": "vaccine_4",
+      "scoreMetricLabel": "連鎖阻害対策",
+      "displayOrder": 4,
+      "scoreRole": "P",
+      "changeItems": [
+        "severance_counter",
+        "isolation_counter",
+        "chain_nullify_counter"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "defense_up",
+        "healing",
+        "wounded_recovery",
+        "wounded_survival",
+        "attribute_resistance",
+        "tactic_gauge",
+        "tactic_speed",
+        "attack_speed_up",
+        "tactic_power_up",
+        "normal_attack_target_count_up"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "分断・絶縁・連鎖無効への対策"
+    },
+    {
+      "typeId": "vaccine",
+      "typeName": "ワクチン型",
+      "scoreMetricId": "vaccine_5",
+      "scoreMetricLabel": "強化保護",
+      "displayOrder": 5,
+      "scoreRole": "P",
+      "changeItems": [
+        "buff_protection"
+      ],
+      "allowedTargets": [
+        "self",
+        "ally"
+      ],
+      "allowedSourceTypes": [
+        "tactic",
+        "skill",
+        "statusEffect",
+        "equipment",
+        "formation",
+        "fiveElement",
+        "warhorseSkill",
+        "ethnicResearchSkill"
+      ],
+      "allowedTiming": [
+        "always",
+        "tactic_activated",
+        "combat_start",
+        "on_attack",
+        "on_damaged",
+        "on_chain",
+        "on_garrison",
+        "conditional"
+      ],
+      "dependency": "加点対象が0なら補助効果だけで高評価にしない。対象依存型ではunknown対象を採点対象外にする。",
+      "denyChangeItems": [
+        "defense_up",
+        "healing",
+        "wounded_recovery",
+        "wounded_survival",
+        "attribute_resistance",
+        "tactic_gauge",
+        "tactic_speed",
+        "attack_speed_up",
+        "tactic_power_up",
+        "normal_attack_target_count_up"
+      ],
+      "dedupePolicy": "同一起源のaliasはevidenceGroupKeyでdedupeし、派生タグ・集計値を二重加点しない。",
+      "note": "強化解除回避・強化奪取回避・バフ保護"
+    }
+  ]
+}
