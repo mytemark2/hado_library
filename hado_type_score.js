@@ -285,6 +285,7 @@ const TABLE_BRIDGE_FAMILY_TO_CHANGE=Object.entries(TABLE_BRIDGE_CHANGE_ITEMS).re
 function bridgeChangeItemForEvidence(ev){const family=String(ev?.effectFamily||'');if(TABLE_BRIDGE_FAMILY_TO_CHANGE[norm(family)])return TABLE_BRIDGE_FAMILY_TO_CHANGE[norm(family)];const text=flat([ev?.rawText,ev?.matchedText,ev?.label,ev?.statusEffectName,ev?.key]);for(const [id,item] of Object.entries(TABLE_BRIDGE_CHANGE_ITEMS)){if(hasAny(text,item.aliases||[]))return id;}return '';}
 function bridgeEvidenceRows(entity){const direct=[...(entity?.scoreEvidence||[]),...(entity?.evidence||[])].filter(Boolean);if(direct.length)return direct;if(window.HadoTypeScoreEvidence&&typeof window.HadoTypeScoreEvidence.buildFormationScoreEvidence==='function')return window.HadoTypeScoreEvidence.buildFormationScoreEvidence(entity||{},{});return featureRows(entity).map((row,i)=>{const text=roleCompatibleText(row,String(entity?.roleId||''))||row?.matchedText||row?.rawText||rowText(row);if(!String(text||'').trim())return null;const changeItemId=bridgeChangeItemForEvidence(Object.assign({},row,{rawText:text}));return {evidenceId:String(row?.featureId||i),sourceType:row?.sourceType||'skill',sourceId:row?.sourceId||row?.featureId||row?.sourceLabel||'',sourceLabel:row?.sourceLabel||row?.label||'',timing:row?.timing==='normal'?'always':(row?.timing||'conditional'),targetScope:row?.targetScope||inferTargetScope(text),effectFamily:changeItemId,rawText:text,matchedText:text,isPrimaryEffect:row?.isPrimaryEffect!==false,isDerivedTag:!!row?.isDerivedTag,isAggregateMetric:!!row?.isAggregateMetric,evidenceGroupKey:row?.evidenceGroupKey||''};}).filter(Boolean);}
 function bridgeEvidenceKey(ev,changeItemId){const primary=String(ev?.rootEvidenceKey||ev?.evidenceGroupKey||'').trim();if(primary)return primary;const sourceType=String(ev?.sourceType||'');const sourceId=String(ev?.sourceId||ev?.sourceLabel||'');const raw=String(ev?.rawText||ev?.matchedText||'');const withRaw=[sourceType,sourceId,raw,changeItemId].map(norm).join('|');if(raw.trim())return withRaw;return [sourceType,sourceId,changeItemId].map(norm).join('|');}
+function bridgeAggregateParameterOrigin(ev){const sourceKind=String(ev?.sourceKind||ev?.source||'').trim();const sourceLabel=String(ev?.sourceLabel||'').trim();const sourceType=String(ev?.sourceType||'').trim();return sourceKind==='parameter'||sourceLabel==='parameter'||(sourceType==='formation'&&(/parameter|パラメータ|変化率集計/.test(sourceKind)||sourceLabel==='parameter'));}
 function bridgeOriginExcluded(ev){return !!(ev?.isAggregateMetric||ev?.isDerivedTag||ev?.isPrimaryEffect===false);}
 function bridgeAllowed(value,allowed){return Array.isArray(allowed)&&allowed.includes(String(value||''));}
 function bridgePoint(typeId,ev){if(typeId==='buff_support'&&String(ev?.targetScope)==='self')return 0.5;return 1;}
@@ -300,7 +301,8 @@ function tableBridgeScore(entity,rule){
     const denyRow=tableRows.find(r=>((r.denyChangeItems||[]).includes(changeItemId))||(r.scoreRole==='X'&&(r.changeItems||[]).includes(changeItemId)));
     const matchRow=positiveRows.find(r=>(r.changeItems||[]).includes(changeItemId));
     let reason='';
-    if(bridgeOriginExcluded(ev))reason='aggregate_or_derived_origin';
+    if(bridgeAggregateParameterOrigin(ev))reason='aggregate_parameter_origin';
+    else if(bridgeOriginExcluded(ev))reason='aggregate_or_derived_origin';
     else if(denyRow)reason='deny_change_item';
     else if(!matchRow)continue;
     else if(targetScope==='unknown')reason='unknown_target_for_target_dependent_type';
