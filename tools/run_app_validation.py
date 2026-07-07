@@ -46,6 +46,8 @@ COMMANDS.extend(
         ["node", "tools/test_update09_5_39_score_evidence_parameter_tactic_labels.js"],
         ["node", "--check", "tools/test_update09_5_40_tactic_evidence_normalization.js"],
         ["node", "tools/test_update09_5_40_tactic_evidence_normalization.js"],
+        ["node", "--check", "tools/test_update09_5_40_revision_display.js"],
+        ["node", "tools/test_update09_5_40_revision_display.js"],
         ["python3", "tools/validate_legacy_hado_app_not_loaded.py"],
         ["python3", "tools/validate_update_version_consistency.py"],
         ["python3", "tools/validate_update09_phase4_guides.py"],

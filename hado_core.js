@@ -1268,7 +1268,7 @@ function syncDataManagementSheet(context=''){
 }
 function openDataManagementSheet(){updateDataContextBar('open-sheet');setSheetHidden('dataManagementSheet',false);}
 function closeDataManagementSheet(){setSheetHidden('dataManagementSheet',true);updateDataContextBar('close-sheet');}
-function updateDiagnosticAppVersion(){const el=document.getElementById('diagnosticAppVersion');if(el)el.textContent=`覇道ライブラリ｜v${HADO_BUILD_INFO.version}`;}
+function updateDiagnosticAppVersion(){const el=document.getElementById('diagnosticAppVersion');if(!el)return;const version=window.HADO_APP_DISPLAY_VERSION||(window.HADO_VERSION&&window.HADO_VERSION.updateNo?`${window.HADO_VERSION.releaseVersion||HADO_BUILD_INFO.version} Update${window.HADO_VERSION.updateNo}${window.HADO_VERSION.revision?` r${window.HADO_VERSION.revision}`:''}`:`v${HADO_BUILD_INFO.version}`);el.textContent=`覇道ライブラリ｜${version}`;}
 function openDiagnosticSheet(){updateDiagnosticAppVersion();setSheetHidden('diagnosticSheet',false);}
 function closeDiagnosticSheet(){setSheetHidden('diagnosticSheet',true);}
 function setupDataContextControls(){
