@@ -3566,15 +3566,12 @@ function renderCountermeasureRelatedBaseHtml(title){
   }
   return `<span>${esc(name)}</span>`;
 }
-
-function countermeasureRelatedStandardLabel(title){const t=norm(title||'');if(/弱化効果回避|弱化回避|弱化効果を避け/.test(t))return '弱化効果回避';if(/弱化効果無効|弱化無効|弱化効果を無効/.test(t))return '弱化効果無効';if(/弱化効果解除|弱化解除|弱化効果を解除|弱化効果を打ち消/.test(t))return '弱化効果解除';if(/状態変化無効|状態異常無効|不利変化無効|不利状態無効/.test(t))return '状態変化無効';if(/状態変化解除|状態異常解除|不利状態解除/.test(t))return '状態変化解除';if(/連鎖無効/.test(t))return '連鎖無効対策';if(/分断/.test(t))return '分断対策';if(/絶縁/.test(t))return '絶縁対策';if(/同討|畏怖|轟然|疑心|混乱|恐怖|病毒/.test(t))return t.replace(/回避$/,'対策');if(/強化解除|強化奪取|バフ維持/.test(t))return '強化解除・奪取対策';return t;}
-function countermeasureRelatedDisplayCategory(title){const label=countermeasureRelatedStandardLabel(title);if(/弱化効果無効|弱化効果回避/.test(label))return '弱化予防';if(/弱化効果解除/.test(label))return '弱化解除';if(/分断対策|絶縁対策|連鎖無効対策/.test(label))return '連鎖阻害対策';if(/強化解除・奪取対策/.test(label))return '強化保護';if(/状態変化|状態異常|制御|同討|畏怖|轟然|疑心|混乱|恐怖|病毒/.test(label))return '状態異常対策';return '';}
 function renderCountermeasureRelatedLabelHtml(label){
   const raw=norm(label||'');
   if(!raw)return '';
   const m=raw.match(/^([^\[]+)(?:\[([^\]]*)\])?$/);
   if(!m)return `<span class="countermeasure-label">${esc(raw)}</span>`;
-  const title=countermeasureRelatedStandardLabel(m[1]||'');
+  const title=norm(m[1]||'');
   const sources=norm(m[2]||'');
   const titleHtml=renderCountermeasureRelatedBaseHtml(title);
   if(!sources)return `<span class="countermeasure-label">${titleHtml}</span>`;
@@ -3634,7 +3631,7 @@ function normalizeRelatedLinkGroupsForDisplay(groups){
   }
   return merged;
 }
-function buildRelatedLinksHtmlFromGroups(groups){groups=normalizeRelatedLinkGroupsForDisplay(groups);if(!Array.isArray(groups)||!groups.length)return '';const blocks=groups.map(group=>{const isCountermeasure=isCountermeasureRelatedGroupTitle(group.title);const namesHtml=group.names.map(owner=>{if(isCountermeasure||isCountermeasureRelatedDisplayLabel(owner)){const category=countermeasureRelatedDisplayCategory(owner);const label=renderCountermeasureRelatedLabelHtml(owner);return category?`${esc(category)}: ${label}`:label;}const linkName=group.category==='statusEffects'?(resolveStatusEffectRelatedLinkTargetName(owner)||owner):(group.category==='skills'?relatedSkillTargetNameForDisplay(owner):owner);if(group.category==='statusEffects'&&isSuppressedStatusEffectDetailLinkName(linkName))return esc(owner);return `<a href="#" class="detail-entity-link" data-category="${esc(group.category)}" data-name="${esc(linkName)}">${esc(owner)}</a>`;}).join(' / ');return `<div style="margin-bottom:8px"><strong>${esc(group.title)}：</strong> ${namesHtml}</div>`;});return `<div class="general-card related-links-card no-detail-linkify" style="box-shadow:none"><div class="general-card-header">関連リンク</div><div class="general-card-body"><div class="general-text">${blocks.join('')}</div></div></div>`;}
+function buildRelatedLinksHtmlFromGroups(groups){groups=normalizeRelatedLinkGroupsForDisplay(groups);if(!Array.isArray(groups)||!groups.length)return '';const blocks=groups.map(group=>{const isCountermeasure=isCountermeasureRelatedGroupTitle(group.title);const namesHtml=group.names.map(owner=>{if(isCountermeasure||isCountermeasureRelatedDisplayLabel(owner))return renderCountermeasureRelatedLabelHtml(owner);const linkName=group.category==='statusEffects'?(resolveStatusEffectRelatedLinkTargetName(owner)||owner):(group.category==='skills'?relatedSkillTargetNameForDisplay(owner):owner);if(group.category==='statusEffects'&&isSuppressedStatusEffectDetailLinkName(linkName))return esc(owner);return `<a href="#" class="detail-entity-link" data-category="${esc(group.category)}" data-name="${esc(linkName)}">${esc(owner)}</a>`;}).join(' / ');return `<div style="margin-bottom:8px"><strong>${esc(group.title)}：</strong> ${namesHtml}</div>`;});return `<div class="general-card related-links-card no-detail-linkify" style="box-shadow:none"><div class="general-card-header">関連リンク</div><div class="general-card-body"><div class="general-text">${blocks.join('')}</div></div></div>`;}
 function buildRelatedLinksHtml(item){const groups=getRelatedLinkGroupsForItem(item);return buildRelatedLinksHtmlFromGroups(groups);}
 function isTrustedRelatedLinkIndexForItem(item){
   const bundle=getRelatedLinkIndexBundle();

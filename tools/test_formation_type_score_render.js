@@ -398,8 +398,8 @@ assert(!formationSource.includes('class="sr-only"'), 'formation score renderer m
 
 context.buildFormationParameterData = originalBuildFormationParameterData;
 context.calculateFormationAutoScores = originalCalculateFormationAutoScores;
-const judgementTable = JSON.parse(fs.readFileSync('docs/updates/update09/hadou_type_score_judgement_table.v2.draft.json', 'utf8')).items;
-const typeNames = new Map(judgementTable.map(row => [row.typeId, row.typeName]));
+const judgementTable = Array.isArray(context.window.HadoTypeScore?.BRIDGE_ROWS) ? context.window.HadoTypeScore.BRIDGE_ROWS : [];
+const typeNames = new Map(judgementTable.map(row => [row.typeId, row.typeName || row.typeId]));
 for (const [typeId, typeName] of typeNames) {
   const testFormation = JSON.parse(JSON.stringify(formation));
   testFormation.evaluationTypeId = typeId;

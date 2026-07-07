@@ -108,7 +108,7 @@ Do not silently build a brittle workaround.
 - When adding or changing external JavaScript, verify load order and dependencies.
 - Verify both `file://` local execution and `https://` preview execution when applicable.
 - Record changed JavaScript files, HTML size increase or decrease, and the externalization decision in the Update documentation.
-- The legacy monolithic `hado_app.js` artifact has been removed; do not recreate it for normal runtime, guide, or Phase update work. Edit the split runtime scripts that `index.html` actually loads.
+- Treat `hado_app.js` as a legacy monolithic artifact that is not loaded by the current `index.html`; do not edit it for normal runtime, guide, or Phase update work unless the task is a dedicated legacy-bundle cleanup.
 
 ### 6.2 Preserve compatibility
 
