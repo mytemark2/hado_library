@@ -40,6 +40,9 @@ assert(!failureBlock.includes('exit 0'), 'failed preview Pages deployment must n
 assert(!waitStep.includes('Rerun mytemark2/hado_library-preview/.github/workflows/${workflow_file} manually'), 'normal preview synchronization must not require a manual rerun');
 assert(waitStep.includes('PREVIEW_SOURCE_COMMIT.txt?cb=${SOURCE_COMMIT}'), 'public source marker verification must be cache-busted');
 assert(waitStep.includes('PREVIEW_DISPLAY_VERSION.txt?cb=${SOURCE_COMMIT}'), 'public version marker verification must be cache-busted');
+assert(waitStep.includes("str(run.get('status', '')) == 'completed'"), 'preview workflow selection must inspect run status');
+assert(waitStep.includes("{'cancelled', 'skipped'}"), 'preview workflow selection must ignore cancelled/skipped duplicate runs');
+assert(waitStep.includes("created_at"), 'preview workflow selection must choose the newest viable matching run');
 assert(!waitStep.includes('curl -sS -X POST'), 'wait step must not POST to rerun preview workflow jobs');
 
 for (const forbidden of [
