@@ -958,5 +958,11 @@
 - 公開Previewを実ブラウザ操作したところ、29/29・100%取得後も `JSON未読込` のまま停止した。全JSONを `Promise.all` で同時取得・parseし、生文字列とparse後オブジェクトを一括保持していたことが原因。
 - `loadExternalJsonBundleViaHttp()` を最大3ファイルのワーカーキューへ変更し、各JSONを順次 `out` へ格納して生文字列を解放する。各ファイル後に描画機会も返す。
 - HTMLサイズ差は0 byte。既存外部JavaScriptのみ変更。
+
+### Update09.5.45 — 公開bootstrapのキャッシュ更新
+
+- Pages更新後も固定URLの旧 `hado_bootstrap.js` がブラウザキャッシュから再利用され、09.5.44の読込修正が実行されない経路を確認した。
+- `index.html` のbootstrap参照へ版識別クエリを付与し、デプロイ後に必ず新ランタイムを取得させる。
+- HTMLサイズは版クエリ分のみ増加。JavaScript本体は引き続き外部化する。
 - in-app browserは実行環境が `C:\Users\mytem\AppData` の参照を拒否して起動不能だったため、PC/スマホの実操作は未確認として残す。
 - GitHub Actions、実preview repository、公開PagesはPR/merge後に確認し、未確認の間はpreview未完了とする。
