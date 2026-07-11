@@ -254,9 +254,11 @@ async function loadExternalJsonBundleViaHttp(){
 // PERF[HADO-2.9.6.5-WEB-JSON-PARALLEL]: GitHub Pages等のHTTP配信では公開JSONを並列取得し、直列待ちをなくす。
 const out={};const required=Object.entries(EXTERNAL_JSON_FILES);const optional=Object.entries(EXTERNAL_JSON_OPTIONAL_FILES||{});const total=required.length+optional.length;let completed=0;const startedAt=performance.now();
 const markLoaded=(file)=>{completed+=1;setLoadingState(true,{title:'公開JSONを読み込んでいます…',detail:`${file} を取得しました。`,current:completed,total});};
-const requiredRows=await Promise.all(required.map(async([key,file])=>{const text=await loadJsonTextByXhr(file);const value=await parseJsonText(text,file);markLoaded(file);return [key,value];}));
-const optionalRows=await Promise.all(optional.map(async([key,file])=>{try{const text=await loadJsonTextByXhr(file);const value=await parseJsonText(text,file);markLoaded(file);return [key,value];}catch(err){markLoaded(file);debugLog('optionalJson:missing-http',{key,file,message:err?.message||String(err)});return [key,emptyOptionalJsonBundle(key)];}}));
-for(const [key,value] of [...requiredRows,...optionalRows])out[key]=value;
+// PERF[HADO-3.0.0.0-UPDATE09.5.44-BOUNDED-JSON-LOAD]: 大容量JSONを全件Promise.allすると、
+// 生文字列とparse後オブジェクトが同時に滞留してブラウザが停止する。少数並列で順次outへ移し、ピークメモリを抑える。
+const queue=[...required.map(([key,file])=>({key,file,optional:false})),...optional.map(([key,file])=>({key,file,optional:true}))];
+let cursor=0;const worker=async()=>{while(cursor<queue.length){const row=queue[cursor++];const {key,file}=row;try{const text=await loadJsonTextByXhr(file);out[key]=await parseJsonText(text,file);}catch(err){if(!row.optional)throw err;out[key]=emptyOptionalJsonBundle(key);debugLog('optionalJson:missing-http',{key,file,message:err?.message||String(err)});}markLoaded(file);await nextFrame();}};
+await Promise.all(Array.from({length:Math.min(3,queue.length)},()=>worker()));
 debugLog('webJson:parallel-load',{total,completed,elapsedMs:Math.round(performance.now()-startedAt)});
 return out;}
 async function ensureDirectoryPermission(handle,mode='read'){if(!handle)return false;try{const q=await handle.queryPermission({mode});if(q==='granted')return true;const r=await handle.requestPermission({mode});return r==='granted';}catch{return false;}}

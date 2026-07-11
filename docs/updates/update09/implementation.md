@@ -952,5 +952,11 @@
 - `hado_search.js` は武将・装備マスターがともに空の場合、通常検索を実行せず「JSON未読込：検索できません」と表示し、JSON選択画面を再表示する。これによりすべての検索語・カテゴリで同じ誤認を防止する。
 - `tools/test_update09_5_43_search_requires_json.js` を追加し、`tools/run_app_validation.py` の常設検証へ組み込んだ。
 - HTMLは変更せず、既存の外部JavaScriptへ責務を追加したためHTMLサイズ差は0 byte。
+
+### Update09.5.44 — 公開JSON読込のピークメモリ抑制
+
+- 公開Previewを実ブラウザ操作したところ、29/29・100%取得後も `JSON未読込` のまま停止した。全JSONを `Promise.all` で同時取得・parseし、生文字列とparse後オブジェクトを一括保持していたことが原因。
+- `loadExternalJsonBundleViaHttp()` を最大3ファイルのワーカーキューへ変更し、各JSONを順次 `out` へ格納して生文字列を解放する。各ファイル後に描画機会も返す。
+- HTMLサイズ差は0 byte。既存外部JavaScriptのみ変更。
 - in-app browserは実行環境が `C:\Users\mytem\AppData` の参照を拒否して起動不能だったため、PC/スマホの実操作は未確認として残す。
 - GitHub Actions、実preview repository、公開PagesはPR/merge後に確認し、未確認の間はpreview未完了とする。
