@@ -877,6 +877,20 @@ function keepSearchProgressIndicatorPending(seq){
 }
 function renderSearchResults(){
   if(isTypeSearchMode())return renderTypeSearchResults();
+  const searchableMasterCount=(Array.isArray(state.generals)?state.generals.length:0)+(Array.isArray(state.equipments)?state.equipments.length:0);
+  if(searchableMasterCount===0){
+    cancelSearchProgressIndicator();
+    state.lastResultRows=[];
+    if(els.resultMeta)els.resultMeta.textContent='JSON未読込：検索できません';
+    if(els.results)els.results.innerHTML='<li class="search-data-required">検索するにはJSONデータの読み込みが必要です。</li>';
+    if(els.resultSelect)els.resultSelect.innerHTML='<option value="">JSONデータを読み込んでください</option>';
+    updateSearchDiagnosticSnapshot({keyword:currentKeyword(),effectiveKeyword:'',nameOnlySearch:isNameOnlySearch(),hasActive:Object.values(state.activeCategories||{}).some(Boolean),activeCategories:state.activeCategories,uiCategoryState:getCategoryUiState(),datasetStats:[],results:0,dataLoadRequired:true});
+    debugLog('renderSearchResults:data-load-required',{keyword:currentKeyword(),generals:Array.isArray(state.generals)?state.generals.length:0,equipments:Array.isArray(state.equipments)?state.equipments.length:0});
+    if(typeof renderStartupDataLoadScreen==='function'&&typeof makeStartupDataLoadError==='function'){
+      renderStartupDataLoadScreen(makeStartupDataLoadError('search-before-json-load',{message:'検索するにはJSONデータの読み込みが必要です。JSONフォルダまたはJSONファイルを選択してください。'}));
+    }
+    return;
+  }
   const searchProgressSeq=beginSearchProgressIndicator();
   debugTimeStart('renderSearchResults時間');
   const totalStart=performance.now();
