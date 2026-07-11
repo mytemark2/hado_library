@@ -1008,11 +1008,12 @@
 ### 7. Git commit and pull request
 
 - base: `feature/app-3.0.0.0` / `49a71accb3228c7a8a82b3988150186d15dd19e1`。
-- head: `codex/json-index-contract`。commit/PRはローカル最終検証後に作成する。
+- head: `codex/json-index-contract` / `16f66dc`。
+- draft PR: https://github.com/mytemark2/hado_library/pull/207（base `feature/app-3.0.0.0`）。
 
 ### 8. GitHub Actions result
 
-- 未確認。PR push後に `App Validation / app-validation` とmerge queue互換を確認する。
+- PRは作成済み。`App Validation / app-validation` のActions結果とmerge queue互換は確認待ち。
 
 ### 9. Preview confirmation
 
