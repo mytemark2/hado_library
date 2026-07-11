@@ -1008,7 +1008,7 @@
 ### 7. Git commit and pull request
 
 - base: `feature/app-3.0.0.0` / `49a71accb3228c7a8a82b3988150186d15dd19e1`。
-- head: `codex/json-index-contract` / `e08291d`（最終head）。
+- head: `codex/json-index-contract`（最終SHAはPR #207のGitHub headを正本とする）。
 - draft PR: https://github.com/mytemark2/hado_library/pull/207（base `feature/app-3.0.0.0`）。
 
 ### 8. GitHub Actions result
