@@ -1013,15 +1013,15 @@
 
 ### 8. GitHub Actions result
 
-- PRは作成済み。`App Validation / app-validation` のActions結果とmerge queue互換は確認待ち。
+- PRは作成済み。`App Validation / app-validation`: pass。preview通知はPRブランチではskip（canonical push限定）。
 
 ### 9. Preview confirmation
 
 - public URL: `https://mytemark2.github.io/hado_library-preview/`
-- displayed version: 期待値 `3.0.0.0 Update09.5.41 r131`、公開実体は未確認。
-- marker: `PREVIEW_SOURCE_COMMIT.txt` / `PREVIEW_SOURCE_BRANCH.txt` / `PREVIEW_DISPLAY_VERSION.txt` はmerge後に照合する。
+- displayed version: intended `3.0.0.0 Update09.5.41 r131`。現在の公開値は `3.0.0.0 Update09.5.41`（revisionなし）。
+- marker: 現在の `PREVIEW_SOURCE_COMMIT.txt=49a71accb3228c7a8a82b3988150186d15dd19e1`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.41`。意図した `d416d2bc9d37a14bc94749611f2f348ffe6abfe4` / `codex/json-index-contract` / `3.0.0.0 Update09.5.41 r131` と不一致。
 - preview repository commit、runtime asset、DOM、検索/詳細/部隊編成/Import/Export、PC/スマホ、debug log: 未確認。
-- status: **BLOCKED / not preview-complete**（PR未作成・未mergeのため）。
+- status: **BLOCKED / not preview-complete**（PRは作成済みだが未mergeのため）。
 
 ### 10. Minimum user acceptance operation
 
