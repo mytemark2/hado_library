@@ -937,13 +937,13 @@
 ### HTML・バージョン
 
 - `index.html` は未変更、サイズ差は0 bytes。新規ロジックは既存の外部JS責務へ統合した。
-- `hado_version.js` と `HADO_DEV_INFO.json` は未変更。表示は `3.0.0.0 Update09.5.41 r131` のまま。
+- `hado_version.js` を `3.0.0.0 Update09.5.42 r132` へ更新し、`HADO_DEV_INFO.json` の更新日時を同期した。可視版の変更理由は今回のJSON契約修正をpreview上で識別するため。
 
 ### 検証
 
 - `node tools/test_json_index_contract.js`: pass（20生成ファイル、8必須ケース、全一次根拠包含）。
 - `python tools/run_app_validation.py`: 101/101 pass（文書反映後の最終通し実行）。
 - preview workflow validatorとno-preview-workflow-edit回帰: pass。
-- ローカルHTTP: `index.html`、参照14資産、ルート34 JSONがHTTP 200かつJSON構文有効。表示版 `3.0.0.0 Update09.5.41 r131` を確認した。
+- ローカルHTTP: `index.html`、参照14資産、ルート34 JSONがHTTP 200かつJSON構文有効。表示版 `3.0.0.0 Update09.5.42 r132` を確認する。
 - in-app browserは実行環境が `C:\Users\mytem\AppData` の参照を拒否して起動不能だったため、PC/スマホの実操作は未確認として残す。
 - GitHub Actions、実preview repository、公開PagesはPR/merge後に確認し、未確認の間はpreview未完了とする。

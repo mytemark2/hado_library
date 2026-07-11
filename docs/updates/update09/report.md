@@ -995,14 +995,14 @@
 
 - `index.html`: 変更なし、0 bytes。
 - 外部化判断: HTMLへロジックを追加せず、既存の責務別runtime JSとcrawler contract moduleへ実装した。
-- `hado_version.js` / `HADO_DEV_INFO.json`: 変更なし。表示 `3.0.0.0 Update09.5.41 r131` を維持。
+- `hado_version.js`: `Update09.5.41/r131` → `Update09.5.42/r132`。`HADO_DEV_INFO.json` の更新日時も同期。
 
 ### 6. Validation commands and results
 
 - `node tools/test_json_index_contract.js`: pass。20ファイル、技能所有者640件、関連2,144 item/11,925 ref、parameter 16,403効果、feature 5,436根拠、role 2,228行、regression 21件を検査。
 - `python tools/run_app_validation.py`: 101/101 pass。
 - `git diff --check`: pass。
-- ローカルHTTP smoke: `index.html`、参照14資産、ルート34 JSONをHTTP 200で取得し、全JSONをparse。表示版 `.5.41/r131` を確認。
+- ローカルHTTP smoke: `index.html`、参照14資産、ルート34 JSONをHTTP 200で取得し、全JSONをparse。表示版 `.5.42/r132` を確認。
 - ブラウザー実操作: BLOCKED。browser runtime起動時に環境側の `C:\Users\mytem\AppData` 参照拒否（EPERM）が発生した。PC/スマホ、検索・詳細・Import/Exportの実操作はminimum UATとして残す。
 
 ### 7. Git commit and pull request
@@ -1018,17 +1018,19 @@
 ### 9. Preview confirmation
 
 - public URL: `https://mytemark2.github.io/hado_library-preview/`
-- displayed version: intended `3.0.0.0 Update09.5.41 r131`。現在の公開値は `3.0.0.0 Update09.5.41`（revisionなし）。
-- marker: 現在の `PREVIEW_SOURCE_COMMIT.txt=49a71accb3228c7a8a82b3988150186d15dd19e1`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.41`。意図した `d73041a492c69b6fede310d2cf3d5f2ea230d471` / `codex/json-index-contract` / `3.0.0.0 Update09.5.41 r131` と不一致。
+- displayed version: intended `3.0.0.0 Update09.5.42 r132`。現在の公開値は旧版 `3.0.0.0 Update09.5.41`（revisionなし）。
+- marker: 現在の `PREVIEW_SOURCE_COMMIT.txt=49a71accb3228c7a8a82b3988150186d15dd19e1`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.41`。意図した `codex/json-index-contract` / `3.0.0.0 Update09.5.42 r132` と不一致。
 - preview repository commit、runtime asset、DOM、検索/詳細/部隊編成/Import/Export、PC/スマホ、debug log: 未確認。
 - status: **BLOCKED / not preview-complete**（PRは作成済みだが未mergeのため）。
 
 ### 10. Minimum user acceptance operation
 
-- 公開previewをPCとスマホで開き、表示版を確認する。
-- 通常検索で武将を開いて詳細・関連リンクを確認する。
-- 型候補から主将/副将と補佐候補を選び、補佐戦法が候補説明に見えても評価スコアへ加点されないことを確認する。
-- 保存データをExport→Importし、既存部隊・候補トレイ・評価型が維持されることを確認する。
+- 公開previewをPCとスマホで開き、画面上に `3.0.0.0 Update09.5.42 r132` と表示されることを確認する。
+- 通常検索で「関羽」を入力し、検索結果から武将詳細・関連リンクを開く。
+- 型候補で主将・副将を選び、型スコアの根拠に `sourcePartType` が表示されることを確認する。
+- 補佐または侍従を配置し、戦法本文が候補説明に残っても型スコアへ加点されないことを確認する。
+- 部隊を保存し、Export→Import後に部隊、候補トレイ、評価型、スコアが維持されることを確認する。
+- PC幅とスマホ幅で、検索・詳細・型候補・部隊編成の主要ボタンが押せることを確認する。
 
 ### 11. Remaining issues
 
