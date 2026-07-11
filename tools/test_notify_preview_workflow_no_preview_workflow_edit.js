@@ -43,6 +43,7 @@ assert(waitStep.includes('PREVIEW_DISPLAY_VERSION.txt?cb=${SOURCE_COMMIT}'), 'pu
 assert(waitStep.includes("str(run.get('status', '')) == 'completed'"), 'preview workflow selection must inspect run status');
 assert(waitStep.includes("{'cancelled', 'skipped'}"), 'preview workflow selection must ignore cancelled/skipped duplicate runs');
 assert(waitStep.includes("created_at"), 'preview workflow selection must choose the newest viable matching run');
+assert(waitStep.includes('searching for another viable run for the same commit'), 'cancelled preview runs must trigger a retry for the same commit');
 assert(!waitStep.includes('curl -sS -X POST'), 'wait step must not POST to rerun preview workflow jobs');
 
 for (const forbidden of [
