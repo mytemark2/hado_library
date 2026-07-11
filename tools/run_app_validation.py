@@ -40,8 +40,13 @@ COMMANDS.extend(
         ["node", "tools/test_update09_5_29_disadvantage_display_labels.js"],
         ["node", "--check", "tools/test_update09_5_30_candidate_score_display_hierarchy.js"],
         ["node", "tools/test_update09_5_30_candidate_score_display_hierarchy.js"],
-    ["node", "--check", "tools/test_update09_5_34_score_evidence_dedup.js"],
-    ["node", "tools/test_update09_5_34_score_evidence_dedup.js"],
+        ["node", "--check", "tools/test_update09_5_34_score_evidence_dedup.js"],
+        ["node", "tools/test_update09_5_34_score_evidence_dedup.js"],
+        ["node", "tools/test_update09_5_39_score_evidence_parameter_tactic_labels.js"],
+        ["node", "tools/test_update09_5_40_revision_display.js"],
+        ["node", "tools/test_update09_5_40_tactic_evidence_normalization.js"],
+        ["node", "tools/test_update09_5_41_real_support_huangzhong_tactic_exclusion.js"],
+        ["node", "tools/test_json_index_contract.js"],
         ["python3", "tools/validate_legacy_hado_app_not_loaded.py"],
         ["python3", "tools/validate_update_version_consistency.py"],
         ["python3", "tools/validate_update09_phase4_guides.py"],
@@ -81,17 +86,23 @@ COMMANDS.extend(
         ["node", "tools/test_type_candidate_diagnostics.js"],
         ["node", "hado_status_effect_regression.js"],
         ["python3", "-c", "import pathlib,sys; sys.exit(1 if pathlib.Path('updates/queue').exists() else 0)"],
-        ["git", "diff", "--check"],
+        ["git", "-c", f"safe.directory={ROOT.as_posix()}", "diff", "--check"],
     ]
 )
 
 
 def main() -> int:
     for idx, cmd in enumerate(COMMANDS, 1):
-        print(f"[{idx}/{len(COMMANDS)}] $ {' '.join(cmd)}", flush=True)
-        result = subprocess.run(cmd, cwd=ROOT)
+        resolved_cmd = [sys.executable, *cmd[1:]] if cmd and cmd[0] == "python3" else cmd
+        print(f"[{idx}/{len(COMMANDS)}] $ {' '.join(resolved_cmd)}", flush=True)
+        quiet_json = len(cmd) >= 3 and cmd[1:3] == ["-m", "json.tool"]
+        result = subprocess.run(
+            resolved_cmd,
+            cwd=ROOT,
+            stdout=subprocess.DEVNULL if quiet_json else None,
+        )
         if result.returncode != 0:
-            print(f"app validation failed: {' '.join(cmd)}", file=sys.stderr)
+            print(f"app validation failed: {' '.join(resolved_cmd)}", file=sys.stderr)
             return result.returncode
     print(f"app validation self-check passed: {len(COMMANDS)} commands")
     return 0

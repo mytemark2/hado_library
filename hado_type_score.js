@@ -164,17 +164,27 @@ const CATEGORY_DENY_ALIASES={
   chainRange:['連鎖率','連鎖確率','通常攻撃対象数','通常攻撃対象部隊数','射程','機動']
 };
 function metricSpec(metric){return METRIC_MATCH_SPECS[metric?.metricKey||'']||{targetScope:'any',requiresTarget:false,includeAliases:METRIC_ALIASES[metric?.metricKey]||[],excludeAliases:[],effectKind:'generic',displayBucket:metric?.label||metric?.metricKey||'型要素'}}
-function scoreEvidenceOrigin(row){
+function scoreEvidenceOrigin(row,roleId=''){
   const source=String(row?.source||row?.sourceKind||'');
   const part=String(row?.sourcePartType||row?.displayRole||'');
   const featureType=String(row?.featureType||'');
   const labelText=flat([row?.label,row?.statusEffectName,row?.sourceLabel,row?.matchedText,row?.rawText,row?.featureId]);
+  const roleGate=row?.roleGate&&typeof row.roleGate==='object'?row.roleGate:null;
+  const allowedRoles=Array.isArray(roleGate?.allowedRoleIds)?roleGate.allowedRoleIds:[];
+  if(roleGate?.scoreEligible===false)return {eligible:false,sourceType:'contract',reason:'roleGateにより評価対象外'};
+  if(roleId&&allowedRoles.length&&!allowedRoles.includes(String(roleId)))return {eligible:false,sourceType:'contract',reason:`roleGateが${roleId}を許可していない`};
+  if(part==='article_text')return {eligible:false,sourceType:'article',reason:'攻略記事本文は検索補助専用'};
+  if(row?.sourceEntityKey&&row?.canonicalFeatureKey&&part){
+    const allowedParts=new Set(['skill_text','tactic_text','equipment_skill_text','warhorse_skill_text','formation_skill_text','status_master']);
+    if(!allowedParts.has(part))return {eligible:false,sourceType:'contract',reason:`sourcePartType ${part} は評価根拠対象外`};
+    return {eligible:true,sourceType:part,reason:''};
+  }
   if(/変化率集計|部隊の[^\s　]*(?:\(|（)?変化率集計|parameter_summary|結果サマリー|パラメータサマリー/.test(labelText))return {eligible:false,sourceType:'aggregate',reason:'集計値のため評価根拠にしない'};
   if(/hadou_related_link_index|semantic-owner|retreat-pseudo|direct-status|derived|search-index|type-feature/.test(`${source} ${part}`))return {eligible:false,sourceType:'derived',reason:'派生タグのため評価根拠にしない'};
   if(/^parameter:/.test(String(row?.featureId||''))&&source!=='effect-text')return {eligible:false,sourceType:'aggregate',reason:'一次効果ではないパラメータ'};
   return {eligible:true,sourceType:source==='effect-text'||featureType==='skillEffect'||featureType==='parameter'?'primary':'primary',reason:''};
 }
-function scoreEligibleEvidence(row,metricKey){return scoreEvidenceOrigin(row)}
+function scoreEligibleEvidence(row,metricKey,roleId=''){return scoreEvidenceOrigin(row,roleId)}
 function hasDirectDamageEffect(text){return hasAny(text,['与ダメージ','与えるダメージ','戦法ダメージ','通常攻撃ダメージ','ダメージを与える','攻撃を行う'])}
 function hasStaticAbilityEvidence(text){return hasAny(text,['変化率集計','parameter_summary','結果サマリー','パラメータサマリー','能力値補正','基礎能力','能力補正'])}
 function hasNormalAttackExpansion(text){return hasAny(text,['通常攻撃対象数','通常攻撃対象部隊数'])}
@@ -205,8 +215,8 @@ function metricCategoryGate(metricKey,text,bucket,intelligence=false,targetScope
   if(metricKey==='ally_wounded_recovery'&&hasAny(text,['自部隊の','自身の','自分の']))return {ok:false,reason:'categoryDeny:self_recovery'};
   return {ok:true,reason:''};
 }
-function rowEvidenceKey(row,metricKey='',classified=null){const source=String(row?.sourceLabel||row?.source||'').trim();const raw=String(row?.rawText||row?.matchedText||rowText(row)).trim();const effect=String(classified?.effectKind||row?.effectKind||classified?.displayBucket||row?.displayBucket||row?.key||row?.label||row?.statusEffectName||'').trim();const scope=String(classified?.targetScope||row?.targetScope||'').trim();return [source,raw,effect,scope].map(norm).join('|')}
-function classifyMetricRow(row,metric,scopedText){
+function rowEvidenceKey(row,metricKey='',classified=null){const source=String(row?.sourceLabel||row?.source||'').trim();const raw=String(row?.rawText||row?.matchedText||rowText(row)).trim();const effect=String(classified?.effectKind||row?.effectKind||classified?.displayBucket||row?.displayBucket||row?.key||row?.label||row?.statusEffectName||'').trim();const scope=String(classified?.targetScope||row?.targetScope||'').trim();if(row?.sourceEntityKey&&row?.canonicalFeatureKey)return [row.sourceEntityKey,row.sourcePartType,row.canonicalFeatureKey,row.evidencePath||'',effect,scope].map(norm).join('|');return [source,raw,effect,scope].map(norm).join('|')}
+function classifyMetricRow(row,metric,scopedText,roleId=''){
   const spec=metricSpec(metric),metricKey=metric?.metricKey||'',text=String(scopedText||''),targetScope=inferTargetScopeForMetric(text,spec.targetScope),include=uniq([metric?.label,...(spec.includeAliases||[])]),exclude=spec.excludeAliases||[];
   const intelligence=metricKey==='ally_non_damage_effect'&&hasAny(text,INTELLIGENCE_ALIASES);
   const included=intelligence||hasAny(text,include);
@@ -217,7 +227,7 @@ function classifyMetricRow(row,metric,scopedText){
   else if(metricKey==='ally_non_damage_effect')bucket=firstBucket(text,NON_DAMAGE_BUCKETS);
   else if(isVaccineMetric(metricKey))bucket=firstBucket(text,VACCINE_BUCKETS[metricKey]||[]);
   const category=metricCategoryGate(metricKey,text,bucket,intelligence,targetScope);
-  const origin=scoreEligibleEvidence(row,metricKey);
+  const origin=scoreEligibleEvidence(row,metricKey,roleId);
   const displayBucket=bucket?.bucket||spec.displayBucket||metric?.label||metricKey;
   const effectKind=bucket?.kind||spec.effectKind||'generic';
   const excludeReason=!included?'includeAliases未一致':(excluded?'excludeAliases一致':(!targetOk?`targetScope ${targetScope} does not satisfy ${spec.targetScope}`:(!category.ok?category.reason:(!origin.eligible?origin.reason:''))));
@@ -228,9 +238,9 @@ function metricRows(entity,metric){
   return featureRows(entity).map(row=>{
     const scopedText=roleCompatibleText(row,roleId);
     if(!scopedText.trim())return null;
-    const text=norm(scopedText),id=String(row?.featureId||'');
-    const aliasMatched=ids.includes(id)?(norm(scopedText)===norm(String(row?.matchedText||rowText(row)))||as.some(a=>text.includes(a))):as.some(a=>text.includes(a));
-    const classified=classifyMetricRow(row,metric,scopedText);
+    const text=norm(scopedText),id=String(row?.featureId||''),canonicalId=String(row?.canonicalFeatureKey||'');
+    const aliasMatched=(ids.includes(id)||ids.includes(canonicalId))?(norm(scopedText)===norm(String(row?.matchedText||rowText(row)))||as.some(a=>text.includes(a))):as.some(a=>text.includes(a));
+    const classified=classifyMetricRow(row,metric,scopedText,roleId);
     if(!aliasMatched&&!classified.included)return null;
     if(!classified.included)return null;
     return Object.assign({},row,classified,{matchedText:row?.matchedText||rowText(row),targetScope:classified.targetScope,targetScopeMatched:classified.targetScope,displayBucket:classified.displayBucket,effectKind:classified.effectKind,evidenceKey:rowEvidenceKey(row,metric?.metricKey||'',classified),scoreEligible:true,metricKey:metric?.metricKey||''});
@@ -283,14 +293,14 @@ function changeItemDisplayCategory(changeItemId,typeId='',scoreMetricId=''){cons
 function changeItemEvidenceLabel(row){const id=row?.changeItemId||row?.effectFamily||'';const base=changeItemDisplayLabel(id)||row?.label||row?.key||'';const raw=String(row?.key||row?.label||row?.statusEffectName||'');const m=raw.match(/[\[［]([^\]］]+)[\]］]/);return m&&base&&!base.includes('［')?`${base}［${m[1]}］`:base;}
 const TABLE_BRIDGE_FAMILY_TO_CHANGE=Object.entries(TABLE_BRIDGE_CHANGE_ITEMS).reduce((map,[id,item])=>{(item.effectFamilies||[]).forEach(f=>{map[norm(f)]=id});return map;},{});
 function bridgeChangeItemForEvidence(ev){const family=String(ev?.effectFamily||'');if(TABLE_BRIDGE_FAMILY_TO_CHANGE[norm(family)])return TABLE_BRIDGE_FAMILY_TO_CHANGE[norm(family)];const text=flat([ev?.rawText,ev?.matchedText,ev?.label,ev?.statusEffectName,ev?.key]);for(const [id,item] of Object.entries(TABLE_BRIDGE_CHANGE_ITEMS)){if(hasAny(text,item.aliases||[]))return id;}return '';}
-function bridgeEvidenceRows(entity){const direct=[...(entity?.scoreEvidence||[]),...(entity?.evidence||[])].filter(Boolean);if(direct.length)return direct;if(window.HadoTypeScoreEvidence&&typeof window.HadoTypeScoreEvidence.buildFormationScoreEvidence==='function')return window.HadoTypeScoreEvidence.buildFormationScoreEvidence(entity||{},{});return featureRows(entity).map((row,i)=>{const text=roleCompatibleText(row,String(entity?.roleId||''))||row?.matchedText||row?.rawText||rowText(row);if(!String(text||'').trim())return null;const changeItemId=bridgeChangeItemForEvidence(Object.assign({},row,{rawText:text}));return {evidenceId:String(row?.featureId||i),sourceType:row?.sourceType||'skill',sourceId:row?.sourceId||row?.featureId||row?.sourceLabel||'',sourceLabel:row?.sourceLabel||row?.label||'',timing:row?.timing==='normal'?'always':(row?.timing||'conditional'),targetScope:row?.targetScope||inferTargetScope(text),effectFamily:changeItemId,rawText:text,matchedText:text,isPrimaryEffect:row?.isPrimaryEffect!==false,isDerivedTag:!!row?.isDerivedTag,isAggregateMetric:!!row?.isAggregateMetric,evidenceGroupKey:row?.evidenceGroupKey||''};}).filter(Boolean);}
-function bridgeEvidenceKey(ev,changeItemId){const primary=String(ev?.rootEvidenceKey||ev?.evidenceGroupKey||'').trim();if(primary)return primary;const sourceType=String(ev?.sourceType||'');const sourceId=String(ev?.sourceId||ev?.sourceLabel||'');const raw=String(ev?.rawText||ev?.matchedText||'');const withRaw=[sourceType,sourceId,raw,changeItemId].map(norm).join('|');if(raw.trim())return withRaw;return [sourceType,sourceId,changeItemId].map(norm).join('|');}
-function bridgeAggregateParameterOrigin(ev){const sourceKind=String(ev?.sourceKind||ev?.source||'').trim();const sourceLabel=String(ev?.sourceLabel||'').trim();const sourceType=String(ev?.sourceType||'').trim();return sourceKind==='parameter'||sourceLabel==='parameter'||(sourceType==='formation'&&(/parameter|パラメータ|変化率集計/.test(sourceKind)||sourceLabel==='parameter'));}
+function bridgeEvidenceRows(entity){const direct=[...(entity?.scoreEvidence||[]),...(entity?.evidence||[])].filter(Boolean);if(direct.length)return direct;if(window.HadoTypeScoreEvidence&&typeof window.HadoTypeScoreEvidence.buildFormationScoreEvidence==='function')return window.HadoTypeScoreEvidence.buildFormationScoreEvidence(entity||{},{});const roleId=String(entity?.roleId||'');return featureRows(entity).map((row,i)=>{const text=roleCompatibleText(row,roleId)||row?.matchedText||row?.rawText||rowText(row);if(!String(text||'').trim())return null;const changeItemId=bridgeChangeItemForEvidence(Object.assign({},row,{rawText:text}));const roleGate=row?.roleGate&&typeof row.roleGate==='object'?Object.assign({},row.roleGate):null;if(roleGate&&Array.isArray(roleGate.allowedRoleIds)&&roleGate.allowedRoleIds.length&&!roleGate.allowedRoleIds.includes(roleId))roleGate.scoreEligible=false;return {evidenceId:String(row?.typeFeatureKey||row?.roleFeatureKey||row?.canonicalFeatureKey||row?.featureId||i),sourceType:row?.sourceType||'skill',sourceId:row?.sourceId||row?.sourceEntityKey||row?.canonicalFeatureKey||row?.featureId||row?.sourceLabel||'',sourceLabel:row?.sourceLabel||row?.label||'',sourceEntityKey:row?.sourceEntityKey||'',sourcePartType:row?.sourcePartType||'',canonicalFeatureKey:row?.canonicalFeatureKey||row?.featureId||'',evidencePath:row?.evidencePath||'',roleGate,timing:row?.timing==='normal'?'always':(row?.timing||'conditional'),targetScope:row?.targetScope||inferTargetScope(text),effectFamily:changeItemId,rawText:text,matchedText:text,isPrimaryEffect:row?.isPrimaryEffect!==false,isDerivedTag:!!row?.isDerivedTag,isAggregateMetric:!!row?.isAggregateMetric,evidenceGroupKey:row?.evidenceGroupKey||row?.typeFeatureKey||row?.roleFeatureKey||''};}).filter(Boolean);}
+function bridgeEvidenceKey(ev,changeItemId){const primary=String(ev?.rootEvidenceKey||ev?.evidenceGroupKey||'').trim();if(primary)return primary;if(ev?.sourceEntityKey&&ev?.canonicalFeatureKey)return [ev.sourceEntityKey,ev.sourcePartType,ev.canonicalFeatureKey,ev.evidencePath||'',changeItemId].map(norm).join('|');const sourceType=String(ev?.sourceType||'');const sourceId=String(ev?.sourceId||ev?.sourceLabel||'');const raw=String(ev?.rawText||ev?.matchedText||'');const withRaw=[sourceType,sourceId,raw,changeItemId].map(norm).join('|');if(raw.trim())return withRaw;return [sourceType,sourceId,changeItemId].map(norm).join('|');}
+function bridgeAggregateParameterOrigin(ev){const sourceKind=String(ev?.sourceKind||ev?.source||'').trim();const sourceLabel=String(ev?.sourceLabel||'').trim();const sourcePartType=String(ev?.sourcePartType||'').trim();if(sourcePartType==='parameter_summary'||sourceKind==='parameter'||sourceLabel==='parameter')return true;return /変化率集計|結果サマリー|パラメータサマリー|parameter_summary/i.test(`${sourceKind} ${sourceLabel}`);}
 const BRIDGE_ACTIVE_TACTIC_SOURCE_SLOTS=new Set(['main','deputy1','deputy2']);
-function bridgeTacticDerivedEvidence(ev){const sourceType=String(ev?.sourceType||'').trim();const part=String(ev?.sourcePartType||ev?.sourceKind||ev?.sourceItemCategory||'').trim();if(sourceType==='tactic'||part==='tactic')return true;const featureId=norm(ev?.featureId||ev?.sourceId||'');if(/^tactic[_:-]/.test(featureId)||featureId.includes('tactic_effect'))return true;const meta=[ev?.sourceOrigin,ev?.sourceLabel,ev?.sourceName,ev?.rootTacticName,ev?.sourcePartType,ev?.sourceKind,ev?.sourceItemCategory].filter(Boolean).join(' ');if(/:戦法:|tactic/.test(meta)||/tactic/.test(norm(meta)))return true;const text=String(ev?.sourceText||ev?.rawText||ev?.matchedText||'');if(/発動間隔/.test(text)&&/連鎖順/.test(text))return true;if(/兵科効果系統/.test(text)&&/対象範囲/.test(text)&&/発動率/.test(text))return true;return /戦法発動時|戦法威力|戦法速度|戦法ゲージ/.test(text)&&(/:戦法:|tactic/.test(meta)||/^tactic/.test(featureId));}
+function bridgeTacticDerivedEvidence(ev){const sourceType=String(ev?.sourceType||'').trim();const part=String(ev?.sourcePartType||ev?.sourceKind||ev?.sourceItemCategory||'').trim();if(sourceType==='tactic'||part==='tactic'||part==='tactic_text')return true;const featureId=norm(ev?.featureId||ev?.sourceId||'');if(/^tactic[_:-]/.test(featureId)||featureId.includes('tactic_effect'))return true;const meta=[ev?.sourceOrigin,ev?.sourceLabel,ev?.sourceName,ev?.rootTacticName,ev?.sourcePartType,ev?.sourceKind,ev?.sourceItemCategory].filter(Boolean).join(' ');if(/:戦法:|tactic/.test(meta)||/tactic/.test(norm(meta)))return true;const text=String(ev?.sourceText||ev?.rawText||ev?.matchedText||'');if(/発動間隔/.test(text)&&/連鎖順/.test(text))return true;if(/兵科効果系統/.test(text)&&/対象範囲/.test(text)&&/発動率/.test(text))return true;return /戦法発動時|戦法威力|戦法速度|戦法ゲージ/.test(text)&&(/:戦法:|tactic/.test(meta)||/^tactic/.test(featureId));}
 function bridgeTacticSourceSlotActive(ev){const slot=String(ev?.sourceSlot||ev?.sourceSlotKey||ev?.holderSlot||ev?.slotKey||'');const role=String(ev?.holderRole||ev?.sourceRole||ev?.sourceType||ev?.kind||'');return BRIDGE_ACTIVE_TACTIC_SOURCE_SLOTS.has(slot)&&!/attendant|侍従/.test(role);}
 function bridgeInactiveTacticOrigin(ev){const slot=String(ev?.sourceSlot||ev?.sourceSlotKey||ev?.holderSlot||ev?.slotKey||'');return !!slot&&bridgeTacticDerivedEvidence(ev)&&!bridgeTacticSourceSlotActive(ev);}
-function bridgeOriginExcluded(ev){return !!(ev?.isAggregateMetric||ev?.isDerivedTag||ev?.isPrimaryEffect===false);}
+function bridgeOriginExcluded(ev){return !!(ev?.isAggregateMetric||ev?.isDerivedTag||ev?.isPrimaryEffect===false||ev?.roleGate?.scoreEligible===false||ev?.sourcePartType==='article_text');}
 function bridgeAllowed(value,allowed){return Array.isArray(allowed)&&allowed.includes(String(value||''));}
 function bridgePoint(typeId,ev){if(typeId==='buff_support'&&String(ev?.targetScope)==='self')return 0.5;return 1;}
 function tableBridgeScore(entity,rule){
@@ -305,7 +315,9 @@ function tableBridgeScore(entity,rule){
     const denyRow=tableRows.find(r=>((r.denyChangeItems||[]).includes(changeItemId))||(r.scoreRole==='X'&&(r.changeItems||[]).includes(changeItemId)));
     const matchRow=positiveRows.find(r=>(r.changeItems||[]).includes(changeItemId));
     let reason='';
-    if(bridgeAggregateParameterOrigin(ev))reason='aggregate_parameter_origin';
+    if(ev?.roleGate?.scoreEligible===false)reason='role_gate_ineligible';
+    else if(ev?.sourcePartType==='article_text')reason='article_text_search_only';
+    else if(bridgeAggregateParameterOrigin(ev))reason='aggregate_parameter_origin';
     else if(bridgeInactiveTacticOrigin(ev))reason='tactic_source_inactive_slot';
     else if(bridgeOriginExcluded(ev))reason='aggregate_or_derived_origin';
     else if(denyRow)reason='deny_change_item';

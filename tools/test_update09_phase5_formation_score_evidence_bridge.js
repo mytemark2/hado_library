@@ -27,6 +27,7 @@ const data = {
   summary: { normal: { '能力': { '攻撃': { sign: '+', maxTotal: 30, unit: '%' }, '防御': { sign: '+', maxTotal: 40, unit: '%' }, '攻撃速度': { sign: '+', maxTotal: 20, unit: '%' } } } },
   parameterCalculation: { rows: [{ key: '攻撃', label: '攻撃', timing: 'normal', value: '+30%' }, { key: '防御', label: '防御', timing: 'normal', value: '+40%' }, { key: '攻撃速度', label: '攻撃速度', timing: 'normal', value: '+20%' }] },
   effects: [
+    { key: '攻撃', timing: 'normal', value: 30, sign: '+', unit: '%', sourceLabel: '検証技能:攻撃上昇', sourceType: 'skill', sourcePartType: 'skill_text', sourceSlot: 'main', rawText: '自部隊の攻撃を30%上昇', condition: '' },
     { key: '弱化無効', timing: 'normal', value: 1, sign: '+', unit: '', sourceLabel: '検証耐性', rawText: '自部隊の弱化効果を無効', condition: '' },
     { key: '負傷兵回復', timing: 'normal', value: 10, sign: '+', unit: '%', sourceLabel: '検証回復', rawText: '味方3部隊の負傷兵を最大兵力の10%回復', condition: '' },
     { key: '弱化無効', timing: 'normal', value: 1, sign: '+', unit: '', sourceLabel: '敵対象', rawText: '敵3部隊に弱化無効を付与', condition: '' },
@@ -47,7 +48,8 @@ assert(vaccineScore.excludedRows.some(row => row.targetScope === 'enemy' && row.
 assert(vaccineScore.excludedRows.some(row => row.targetScope === 'unknown' && row.excludeReason === 'unknown_target_for_target_dependent_type'), 'unknown evidence must be excluded for vaccine');
 const buffRule = rules.find(row => row.typeId === 'buff_support');
 const buffScore = context.window.HadoTypeScore.score({ roleId: 'formation_effects', scoreEvidence: built }, buffRule);
-assert(buffScore.breakdown.some(row => row.scoreRole === 'P' && row.rows.some(e => ['attack_up','defense_up','attack_speed_up'].includes(e.changeItemId))), 'buff_support must score self/ally buff Primary evidence');
+assert(buffScore.breakdown.some(row => row.scoreRole === 'P' && row.rows.some(e => e.changeItemId === 'attack_up' && e.sourceKind === 'effect')), 'buff_support must score primary skill evidence');
+assert(buffScore.excludedRows.some(row => row.sourceKind === 'parameter' && row.excludeReason === 'aggregate_parameter_origin'), 'parameter calculation aggregates must remain diagnostic-only evidence');
 context.renderFormationScoreSummaryHtml(formation, data);
 const diag = context.state.diagnostics.typeScore;
 assert(diag.candidateScores[0].totalScore > 0, 'renderFormationScoreSummaryHtml vaccine score must not stay zero');

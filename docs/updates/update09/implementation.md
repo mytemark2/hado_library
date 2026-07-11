@@ -906,3 +906,44 @@
 - `self_disadvantage_countermeasure` のカテゴリゲートは維持し、防御・被ダメージ軽減・兵力/負傷兵回復・攻撃/会心/戦法ゲージ/連鎖率など通常の耐久/生存/火力支援は不利対策へ横流ししない。
 - `tools/test_update09_phase5_score_target_scope.js` と `tools/validate_update09_phase5_score_target_scope.py` に、型要素・変化率集計・対象不明状態変化の除外、一次効果の味方非ダメージ分類、同一根拠の重複排除の検証を追加した。
 - 可視バージョンを `3.0.0.0 Update09.5.15` / revision `109` へ更新した。runtime visible version remains centralized in `hado_version.js` only.
+## 2026-07-11 JSONインデックス契約修正（表示バージョン据え置き）
+
+### 不具合分類・根本原因
+
+- 分類: 派生JSONの正規化契約不足、参照整合性不良、型評価根拠の混入。
+- 生成処理が表示名と平坦化した全文を識別子・検索語・根拠本文として兼用し、発生元のentity/part/pathを保持していなかった。
+- 状態変化に見える疑似語、一般技能以外の技能名、戦法本文parameter、記事本文、補佐/侍従の戦法が、表示名結合と推測だけで関連・検索・型評価へ流入していた。
+
+### 恒久対策と実装
+
+- クローラー側に単一のJSON index contract層と再生成CLIを追加し、入力JSONから20個の派生JSONを一括生成する。アプリ側で生成JSONを手修正しない。
+- `sourceEntityKey`、`sourcePartType`、`evidencePath`、`canonicalFeatureKey`、`featureDomain`、`roleGate` を型feature/roleの必須契約とした。parameterには `parameterKey` / `parameterFeatureKey`、疑似状態にはmechanic/qualifier、戦法攻撃には明示boolean、対象関係にはgameType/actorPolarityを持たせた。
+- 技能所有者は一般技能マスタだけを所有者正本にし、関連リンクは解決可能なcanonical参照だけを出力する。状態変化group/status IDは同じマスタを正本にする。
+- 戦法本文は `tactic_text`、技能本文は `skill_text`、装備技能は `equipment_skill_text`、状態変化マスタは `status_master` とする。`article_text` と `parameter_summary` は検索・診断用途に限定する。
+- 主将・副将1・副将2だけが戦法根拠を加点できる。補佐・侍従の戦法は候補説明には残せるが、`roleGate` と実配置slotの両方で加点を拒否する。
+- アプリ消費側は `hado_type_score.js`、`hado_type_score_evidence.js`、`hado_formation.js`、`hado_type_candidates.js`、`hado_search.js`、`hado_bootstrap.js` を契約対応した。長文かどうかではなく、一次ソース契約の完全性で評価可否を決める。
+- `notify-preview.yml` はpreview側workflowを編集せず、Pages失敗を成功扱いせず、commit付きcache-bust URLで公開markerを検証するよう修正した。
+
+### 再生成対象
+
+`hadou_effect_condition_blocks.json`、`hadou_equipment_skill_stage_index.json`、`hadou_formation_candidate_index.json`、`hadou_parameter_summary_index.json`、`hadou_related_link_index.json`、`hadou_result_card_index.json`、`hadou_search_index.json`、`hadou_skill_owner_index.json`、`hadou_status_effect_group_owner_index.json`、`hadou_status_effect_meta_index.json`、`hadou_status_effect_relations.json`、`hadou_tactic_attack_index.json`、`hadou_tag_index.json`、`hadou_type_purpose_rules.json`、`hadou_type_score_rules.json`、`hadou_type_search_feature_index.json`、`hadou_type_search_presets.json`、`hadou_type_search_regression_cases.json`、`hadou_type_search_role_index.json`、`hadou_type_search_role_rules.json`。
+
+### 再発防止
+
+- `tools/test_json_index_contract.js` で20ファイルのJSON構文、11,925関連参照、16,403 parameter効果、5,436 feature根拠、2,228 role行、全 `matchedText` の指定 `evidencePath` 内実在を検査する。
+- 起動時release assertionへ計画書の8ケース（疑似状態、戦法source part、role gate、技能所有者、関連参照、状態group、戦法攻撃、parameter断片）を追加した。
+- 旧形式の長文派生根拠は除外し、完全な一次根拠契約を持つ長文は文字数だけで除外しない回帰テストを追加した。
+
+### HTML・バージョン
+
+- `index.html` は未変更、サイズ差は0 bytes。新規ロジックは既存の外部JS責務へ統合した。
+- `hado_version.js` を `3.0.0.0 Update09.5.42 r132` へ更新し、`HADO_DEV_INFO.json` の更新日時を同期した。可視版の変更理由は今回のJSON契約修正をpreview上で識別するため。
+
+### 検証
+
+- `node tools/test_json_index_contract.js`: pass（20生成ファイル、8必須ケース、全一次根拠包含）。
+- `python tools/run_app_validation.py`: 101/101 pass（文書反映後の最終通し実行）。
+- preview workflow validatorとno-preview-workflow-edit回帰: pass。
+- ローカルHTTP: `index.html`、参照14資産、ルート34 JSONがHTTP 200かつJSON構文有効。表示版 `3.0.0.0 Update09.5.42 r132` を確認する。
+- in-app browserは実行環境が `C:\Users\mytem\AppData` の参照を拒否して起動不能だったため、PC/スマホの実操作は未確認として残す。
+- GitHub Actions、実preview repository、公開PagesはPR/merge後に確認し、未確認の間はpreview未完了とする。

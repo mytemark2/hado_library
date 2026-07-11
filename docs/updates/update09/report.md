@@ -966,3 +966,72 @@
 - Self disadvantage: 防御、被ダメージ軽減、兵力回復、負傷兵回復、攻撃/会心/戦法ゲージ/連鎖率は自部隊不利対策の加点対象から除外されたまま、弱化無効・弱化解除・状態変化無効など本来の不利対策は維持する。
 - Validation: `tools/test_update09_phase5_score_target_scope.js` と `tools/validate_update09_phase5_score_target_scope.py` に、変化率集計・型要素・対象不明タグ除外と一次効果の代表加点を確認するケースを追加した。
 - Remaining items: preview deployment verification is not complete in this local workspace until GitHub fetch/push/Pages verification is available.
+## 2026-07-11 JSONインデックス契約修正レポート（表示バージョン据え置き）
+
+### 1. Summary
+
+- クローラー生成元を修正し、20派生JSONを同一入力から再生成した。アプリは正規化済み契約を読み、手修正JSONへ依存しない。
+- 監査元9,390行で検出された9,378件（高6,248、中3,130）の問題クラスを、識別子・発生元・参照・role gateの契約として是正した。
+
+### 2. Bug classification and root cause
+
+- 分類: 派生索引の正規化/参照整合性/評価根拠汚染。
+- 根本原因: 表示名と全文断片を安定IDの代用にし、entity、source part、evidence path、canonical key、role可否を生成時に保持していなかった。
+- 恒久対策: クローラーの共通contract層、20ファイル一括再生成、アプリ消費側の契約ゲート、一次ソース包含検査、8必須回帰ケース。
+
+### 3. Impact scope checked
+
+- `parameter_summary`、type feature/role、related link、skill owner、status meta/group/relations、tactic attack、condition、equipment stage、formation candidate、search/result/tag、preset/rule/purposeを横断確認した。
+- 検索、詳細、型候補、部隊編成スコア、補佐/侍従の戦法除外、既存保存Import/Export互換を静的・Nodeテストで確認した。
+
+### 4. Files changed
+
+- 生成物: 実装記録に列挙した20個の `hadou_*.json`。
+- runtime: `hado_bootstrap.js`、`hado_formation.js`、`hado_search.js`、`hado_type_candidates.js`、`hado_type_score.js`、`hado_type_score_evidence.js`。
+- validation/workflow: `tools/test_json_index_contract.js`、関連回帰テスト、`tools/run_app_validation.py`、preview validator/test、`.github/workflows/notify-preview.yml`。
+- records: Update09 roadmap/implementation/report、全体roadmap、`AGENTS.md`。
+
+### 5. HTML size and externalization
+
+- `index.html`: 変更なし、0 bytes。
+- 外部化判断: HTMLへロジックを追加せず、既存の責務別runtime JSとcrawler contract moduleへ実装した。
+- `hado_version.js`: `Update09.5.41/r131` → `Update09.5.42/r132`。`HADO_DEV_INFO.json` の更新日時も同期。
+
+### 6. Validation commands and results
+
+- `node tools/test_json_index_contract.js`: pass。20ファイル、技能所有者640件、関連2,144 item/11,925 ref、parameter 16,403効果、feature 5,436根拠、role 2,228行、regression 21件を検査。
+- `python tools/run_app_validation.py`: 101/101 pass。
+- `git diff --check`: pass。
+- ローカルHTTP smoke: `index.html`、参照14資産、ルート34 JSONをHTTP 200で取得し、全JSONをparse。表示版 `.5.42/r132` を確認。
+- ブラウザー実操作: BLOCKED。browser runtime起動時に環境側の `C:\Users\mytem\AppData` 参照拒否（EPERM）が発生した。PC/スマホ、検索・詳細・Import/Exportの実操作はminimum UATとして残す。
+
+### 7. Git commit and pull request
+
+- base: `feature/app-3.0.0.0` / `49a71accb3228c7a8a82b3988150186d15dd19e1`。
+- head: `codex/json-index-contract`（最終SHAはPR #207のGitHub headを正本とする）。
+- draft PR: https://github.com/mytemark2/hado_library/pull/207（base `feature/app-3.0.0.0`）。
+
+### 8. GitHub Actions result
+
+- PRは作成済み。`App Validation / app-validation`: pass。preview通知はPRブランチではskip（canonical push限定）。
+
+### 9. Preview confirmation
+
+- public URL: `https://mytemark2.github.io/hado_library-preview/`
+- displayed version: intended `3.0.0.0 Update09.5.42 r132`。現在の公開値は旧版 `3.0.0.0 Update09.5.41`（revisionなし）。
+- marker: 現在の `PREVIEW_SOURCE_COMMIT.txt=49a71accb3228c7a8a82b3988150186d15dd19e1`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.41`。意図した `codex/json-index-contract` / `3.0.0.0 Update09.5.42 r132` と不一致。
+- preview repository commit、runtime asset、DOM、検索/詳細/部隊編成/Import/Export、PC/スマホ、debug log: 未確認。
+- status: **BLOCKED / not preview-complete**（PRは作成済みだが未mergeのため）。
+
+### 10. Minimum user acceptance operation
+
+- 公開previewをPCとスマホで開き、画面上に `3.0.0.0 Update09.5.42 r132` と表示されることを確認する。
+- 通常検索で「関羽」を入力し、検索結果から武将詳細・関連リンクを開く。
+- 型候補で主将・副将を選び、型スコアの根拠に `sourcePartType` が表示されることを確認する。
+- 補佐または侍従を配置し、戦法本文が候補説明に残っても型スコアへ加点されないことを確認する。
+- 部隊を保存し、Export→Import後に部隊、候補トレイ、評価型、スコアが維持されることを確認する。
+- PC幅とスマホ幅で、検索・詳細・型候補・部隊編成の主要ボタンが押せることを確認する。
+
+### 11. Remaining issues
+
+- PR、GitHub Actions、merge、イベント駆動preview同期、公開Pages実機確認が未実施。これらが完了するまで本作業はpreview-completeではない。
