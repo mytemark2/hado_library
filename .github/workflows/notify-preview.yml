@@ -328,49 +328,42 @@ jobs:
 
           echo "Waiting for preview Pages workflow ${workflow_file} on main for preview commit ${PREVIEW_COMMIT}."
           run_id=""
-          for attempt in $(seq 1 30); do
+          run_status=""
+          run_conclusion=""
+          for selection_attempt in $(seq 1 30); do
             runs_json="$(github_api_json "list preview Pages workflow runs" "${api_root}/actions/workflows/${workflow_file}/runs?branch=main&event=push&per_page=20")"
             runs_file="$(mktemp)"
             printf '%s' "${runs_json}" > "${runs_file}"
-          run_id="$(RUNS_FILE="${runs_file}" PREVIEW_COMMIT="${PREVIEW_COMMIT}" python - <<'PY'
+            run_id="$(RUNS_FILE="${runs_file}" PREVIEW_COMMIT="${PREVIEW_COMMIT}" python - <<'PY'
           import json
           import os
           with open(os.environ['RUNS_FILE'], encoding='utf-8') as fh:
               data = json.load(fh)
           preview_commit = os.environ['PREVIEW_COMMIT']
-          matches = [
+          candidates = [
               run for run in data.get('workflow_runs', [])
               if str(run.get('head_sha', '')) == preview_commit
-          ]
-          active = [
-              run for run in matches
-              if not (
+              and not (
                   str(run.get('status', '')) == 'completed'
                   and str(run.get('conclusion', '')) in {'cancelled', 'skipped'}
               )
           ]
-          candidates = active or matches
           candidates.sort(key=lambda run: str(run.get('created_at', '')), reverse=True)
           if candidates:
               print(candidates[0].get('id', ''))
           PY
           )"
             rm -f "${runs_file}"
-            if [ -n "${run_id}" ]; then
-              echo "Preview Pages workflow run id: ${run_id}"
-              break
+            if [ -z "${run_id}" ]; then
+              echo "No viable preview Pages run for ${PREVIEW_COMMIT} yet; retrying (${selection_attempt}/30)."
+              sleep 5
+              continue
             fi
-            echo "Preview Pages workflow push run for ${PREVIEW_COMMIT} not visible yet; retrying (${attempt}/30)."
-            sleep 5
-          done
-          if [ -z "${run_id}" ]; then
-            echo "Preview Pages workflow push event did not produce a visible run for preview commit ${PREVIEW_COMMIT}." >&2
-            echo "Confirm mytemark2/hado_library-preview/.github/workflows/${workflow_file} has on.push.branches including main and that repository Actions are enabled." >&2
-            exit 1
-          fi
-
-          for attempt in $(seq 1 120); do
-            run_json="$(github_api_json "get preview Pages workflow run ${run_id}" "${api_root}/actions/runs/${run_id}")"
+            echo "Preview Pages workflow run id: ${run_id}"
+            run_status=""
+            run_conclusion=""
+            for poll_attempt in $(seq 1 120); do
+              run_json="$(github_api_json "get preview Pages workflow run ${run_id}" "${api_root}/actions/runs/${run_id}")"
             status="$(RUN_JSON="${run_json}" python - <<'PY'
           import json, os
           print(json.loads(os.environ['RUN_JSON']).get('status', ''))
@@ -381,11 +374,18 @@ jobs:
           print(json.loads(os.environ['RUN_JSON']).get('conclusion') or '')
           PY
           )"
-            echo "Preview Pages workflow run ${run_id}: status=${status} conclusion=${conclusion:-pending}"
-            if [ "${status}" = "completed" ]; then
-              if [ "${conclusion}" = "success" ]; then
-                break
-              fi
+              echo "Preview Pages workflow run ${run_id}: status=${status} conclusion=${conclusion:-pending}"
+              if [ "${status}" = "completed" ]; then
+                if [ "${conclusion}" = "success" ]; then
+                  run_status="${status}"
+                  run_conclusion="${conclusion}"
+                  break
+                fi
+                if [ "${conclusion}" = "cancelled" ] || [ "${conclusion}" = "skipped" ]; then
+                  echo "Preview Pages workflow run ${run_id} was ${conclusion}; searching for another viable run for the same commit." >&2
+                  run_id=""
+                  break
+                fi
               jobs_json="$(github_api_json "list preview Pages workflow jobs for failed run ${run_id}" "${api_root}/actions/runs/${run_id}/jobs?filter=latest&per_page=100")"
               failed_jobs="$(JOBS_JSON="${jobs_json}" python - <<'PY'
           import json, os
@@ -398,11 +398,21 @@ jobs:
               echo "Failed preview jobs: ${failed_jobs}" >&2
               echo "Preview synchronization is incomplete until this Pages deployment succeeds." >&2
               exit 1
+              fi
+              sleep 10
+            done
+            if [ "${run_status}" = "completed" ] && [ "${run_conclusion}" = "success" ]; then
+              break
             fi
-            sleep 10
-          done
-          if [ "${status}" != "completed" ] || [ "${conclusion}" != "success" ]; then
+            if [ -z "${run_id}" ]; then
+              sleep 5
+              continue
+            fi
             echo "Preview Pages workflow run ${run_id} did not complete successfully in time." >&2
+            exit 1
+          done
+          if [ "${run_status}" != "completed" ] || [ "${run_conclusion}" != "success" ]; then
+            echo "Preview Pages workflow did not produce a successful run for preview commit ${PREVIEW_COMMIT}." >&2
             exit 1
           fi
 
