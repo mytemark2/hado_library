@@ -179,6 +179,8 @@ At minimum, perform all applicable checks:
 - version and metadata consistency
 - absence of prohibited queue-based source mutation mechanisms
 
+When a derived JSON contract or its runtime consumer changes, run `node tools/test_json_index_contract.js`. The 20 derived `hadou_*.json` files covered by that test must be regenerated from the crawler source and copied as one coherent output set; do not hand-edit individual generated JSON files.
+
 ### 9.2 Functional regression
 Check the areas affected by the change and the related shared paths. Unless the task is strictly documentation-only, include the applicable core paths:
 - application startup

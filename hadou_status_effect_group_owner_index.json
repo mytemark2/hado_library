@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-07-05T11:44:39.632Z",
-  "dataSetId": "2026-07-05T05:00:27.984Z",
+  "generatedAt": "2026-07-11T03:55:41.062Z",
+  "dataSetId": "2026-07-05T11:44:39.608Z",
   "crawlerVersion": "1.0.5.31",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -5442,6 +5442,51 @@
           },
           {
             "category": "generals",
+            "name": "LR龐統（ほうとう）",
+            "displayName": "LR龐統（ほうとう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "戦法威力変化(強化)",
+            "matchedText": "戦法威力を25%"
+          },
+          {
+            "category": "generals",
+            "name": "LR龐統（ほうとう）",
+            "displayName": "LR龐統（ほうとう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "戦法速度変化(強化)",
+            "matchedText": "戦法速度+4%"
+          },
+          {
+            "category": "generals",
+            "name": "LR龐統（ほうとう）",
+            "displayName": "LR龐統（ほうとう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージ+2%"
+          },
+          {
+            "category": "generals",
+            "name": "LR龐統（ほうとう）",
+            "displayName": "LR龐統（ほうとう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力が上昇する戦法威力変化味方 / 中10"
+          },
+          {
+            "category": "generals",
+            "name": "LR龐徳（ほうとく）",
+            "displayName": "LR龐徳（ほうとく）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃が上昇する弓兵特効敵 / 中10"
+          },
+          {
+            "category": "generals",
             "name": "LR鄧艾（とうがい）",
             "displayName": "LR鄧艾（とうがい）",
             "source": "related_link_index",
@@ -5565,51 +5610,6 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "恵守",
             "matchedText": "恵守"
-          },
-          {
-            "category": "generals",
-            "name": "LR龐統（ほうとう）",
-            "displayName": "LR龐統（ほうとう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "戦法威力変化(強化)",
-            "matchedText": "戦法威力を25%"
-          },
-          {
-            "category": "generals",
-            "name": "LR龐統（ほうとう）",
-            "displayName": "LR龐統（ほうとう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "戦法速度変化(強化)",
-            "matchedText": "戦法速度+4%"
-          },
-          {
-            "category": "generals",
-            "name": "LR龐統（ほうとう）",
-            "displayName": "LR龐統（ほうとう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "与ダメージ変化(強化)",
-            "matchedText": "与ダメージ+2%"
-          },
-          {
-            "category": "generals",
-            "name": "LR龐統（ほうとう）",
-            "displayName": "LR龐統（ほうとう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "知力変化(強化)",
-            "matchedText": "知力が上昇する戦法威力変化味方 / 中10"
-          },
-          {
-            "category": "generals",
-            "name": "LR龐徳（ほうとく）",
-            "displayName": "LR龐徳（ほうとく）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "攻撃変化(強化)",
-            "matchedText": "攻撃が上昇する弓兵特効敵 / 中10"
           },
           {
             "category": "generals",
@@ -10113,6 +10113,42 @@
           },
           {
             "category": "generals",
+            "name": "UR龐統（ほうとう）",
+            "displayName": "UR龐統（ほうとう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "戦法速度変化(強化)",
+            "matchedText": "戦法速度+4%"
+          },
+          {
+            "category": "generals",
+            "name": "UR龐統（ほうとう）",
+            "displayName": "UR龐統（ほうとう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力+7%"
+          },
+          {
+            "category": "generals",
+            "name": "UR龐統（ほうとう）",
+            "displayName": "UR龐統（ほうとう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "命中変化(強化)",
+            "matchedText": "命中を25%"
+          },
+          {
+            "category": "generals",
+            "name": "UR龐徳（ほうとく）",
+            "displayName": "UR龐徳（ほうとく）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃を200%"
+          },
+          {
+            "category": "generals",
             "name": "UR蹋頓（とうとん）",
             "displayName": "UR蹋頓（とうとん）",
             "source": "related_link_index",
@@ -10281,42 +10317,6 @@
             "sourcePartType": "semantic-owner-parameter-hotfix",
             "statusEffectName": "対物特効変化(強化)",
             "matchedText": "対物特効変化味方 / 中15秒物体に対して有利になる"
-          },
-          {
-            "category": "generals",
-            "name": "UR龐統（ほうとう）",
-            "displayName": "UR龐統（ほうとう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "戦法速度変化(強化)",
-            "matchedText": "戦法速度+4%"
-          },
-          {
-            "category": "generals",
-            "name": "UR龐統（ほうとう）",
-            "displayName": "UR龐統（ほうとう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "知力変化(強化)",
-            "matchedText": "知力+7%"
-          },
-          {
-            "category": "generals",
-            "name": "UR龐統（ほうとう）",
-            "displayName": "UR龐統（ほうとう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "命中変化(強化)",
-            "matchedText": "命中を25%"
-          },
-          {
-            "category": "generals",
-            "name": "UR龐徳（ほうとく）",
-            "displayName": "UR龐徳（ほうとく）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "攻撃変化(強化)",
-            "matchedText": "攻撃を200%"
           },
           {
             "category": "generals",
@@ -15657,6 +15657,60 @@
           },
           {
             "category": "generals",
+            "name": "龐統（ほうとう）",
+            "displayName": "龐統（ほうとう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "戦法速度変化(強化)",
+            "matchedText": "戦法速度を上昇させる歩兵武将 龐統は戦法で味方3"
+          },
+          {
+            "category": "generals",
+            "name": "龐統（ほうとう）",
+            "displayName": "龐統（ほうとう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力を50％"
+          },
+          {
+            "category": "generals",
+            "name": "龐徳（ほうとく）",
+            "displayName": "龐徳（ほうとく）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃速度変化(強化)",
+            "matchedText": "攻撃速度を100%"
+          },
+          {
+            "category": "generals",
+            "name": "龐徳（ほうとく）",
+            "displayName": "龐徳（ほうとく）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃+7%"
+          },
+          {
+            "category": "generals",
+            "name": "龐徳（ほうとく）",
+            "displayName": "龐徳（ほうとく）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(強化)",
+            "matchedText": "防御+2%"
+          },
+          {
+            "category": "generals",
+            "name": "龐徳（ほうとく）",
+            "displayName": "龐徳（ほうとく）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "機動変化(強化)",
+            "matchedText": "機動+2%"
+          },
+          {
+            "category": "generals",
             "name": "蹋頓（とうとん）",
             "displayName": "蹋頓（とうとん）",
             "source": "related_link_index",
@@ -15771,60 +15825,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "知力変化(強化)",
             "matchedText": "知力を100％"
-          },
-          {
-            "category": "generals",
-            "name": "龐統（ほうとう）",
-            "displayName": "龐統（ほうとう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "戦法速度変化(強化)",
-            "matchedText": "戦法速度を上昇させる歩兵武将 龐統は戦法で味方3"
-          },
-          {
-            "category": "generals",
-            "name": "龐統（ほうとう）",
-            "displayName": "龐統（ほうとう）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "知力変化(強化)",
-            "matchedText": "知力を50％"
-          },
-          {
-            "category": "generals",
-            "name": "龐徳（ほうとく）",
-            "displayName": "龐徳（ほうとく）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "攻撃速度変化(強化)",
-            "matchedText": "攻撃速度を100%"
-          },
-          {
-            "category": "generals",
-            "name": "龐徳（ほうとく）",
-            "displayName": "龐徳（ほうとく）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "攻撃変化(強化)",
-            "matchedText": "攻撃+7%"
-          },
-          {
-            "category": "generals",
-            "name": "龐徳（ほうとく）",
-            "displayName": "龐徳（ほうとく）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "防御変化(強化)",
-            "matchedText": "防御+2%"
-          },
-          {
-            "category": "generals",
-            "name": "龐徳（ほうとく）",
-            "displayName": "龐徳（ほうとく）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "機動変化(強化)",
-            "matchedText": "機動+2%"
           }
         ],
         "tactics": [
@@ -39225,24 +39225,6 @@
           },
           {
             "category": "generals",
-            "name": "LR闞沢（かんたく）",
-            "displayName": "LR闞沢（かんたく）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-status-grant",
-            "statusEffectName": "弱化解除",
-            "matchedText": "弱化解除"
-          },
-          {
-            "category": "generals",
-            "name": "LR闞沢（かんたく）",
-            "displayName": "LR闞沢（かんたく）",
-            "source": "related_link_index",
-            "sourcePartType": "self-countermeasure-granted-status",
-            "statusEffectName": "弱化効果解除[弱化解除]",
-            "matchedText": "対象に発生している弱化効果を打ち消す"
-          },
-          {
-            "category": "generals",
             "name": "LR龐統（ほうとう）",
             "displayName": "LR龐統（ほうとう）",
             "source": "related_link_index",
@@ -39276,6 +39258,24 @@
             "sourcePartType": "self-countermeasure-skill",
             "statusEffectName": "連鎖不能回避[連縛]",
             "matchedText": "自身1部隊にかかる知力の弱化効果と疑心、連鎖無効、連鎖不能を避ける"
+          },
+          {
+            "category": "generals",
+            "name": "LR闞沢（かんたく）",
+            "displayName": "LR闞沢（かんたく）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "弱化解除",
+            "matchedText": "弱化解除"
+          },
+          {
+            "category": "generals",
+            "name": "LR闞沢（かんたく）",
+            "displayName": "LR闞沢（かんたく）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-granted-status",
+            "statusEffectName": "弱化効果解除[弱化解除]",
+            "matchedText": "対象に発生している弱化効果を打ち消す"
           },
           {
             "category": "generals",
@@ -48596,24 +48596,6 @@
           },
           {
             "category": "generals",
-            "name": "LR闞沢（かんたく）",
-            "displayName": "LR闞沢（かんたく）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "攻撃変化(弱化)",
-            "matchedText": "攻撃-2%"
-          },
-          {
-            "category": "generals",
-            "name": "LR闞沢（かんたく）",
-            "displayName": "LR闞沢（かんたく）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "防御変化(弱化)",
-            "matchedText": "防御-2%"
-          },
-          {
-            "category": "generals",
             "name": "LR龐統（ほうとう）",
             "displayName": "LR龐統（ほうとう）",
             "source": "related_link_index",
@@ -48656,6 +48638,24 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "弱化積鈍",
             "matchedText": "弱化積鈍"
+          },
+          {
+            "category": "generals",
+            "name": "LR闞沢（かんたく）",
+            "displayName": "LR闞沢（かんたく）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(弱化)",
+            "matchedText": "攻撃-2%"
+          },
+          {
+            "category": "generals",
+            "name": "LR闞沢（かんたく）",
+            "displayName": "LR闞沢（かんたく）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(弱化)",
+            "matchedText": "防御-2%"
           },
           {
             "category": "generals",
@@ -49811,51 +49811,6 @@
           },
           {
             "category": "generals",
-            "name": "UR蹋頓（とうとん）",
-            "displayName": "UR蹋頓（とうとん）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "被ダメージ変化(弱化)",
-            "matchedText": "被ダメージを計算する巡見2"
-          },
-          {
-            "category": "generals",
-            "name": "UR蹋頓（とうとん）",
-            "displayName": "UR蹋頓（とうとん）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "機動変化(弱化)",
-            "matchedText": "機動が減少する 暴疾追伐 兵科効果系統攻撃属性騎兵物理なし効果自身1"
-          },
-          {
-            "category": "generals",
-            "name": "UR蹋頓（とうとん）",
-            "displayName": "UR蹋頓（とうとん）",
-            "source": "related_link_index",
-            "sourcePartType": "direct-ability-variation-row",
-            "statusEffectName": "戦法速度変化(弱化)",
-            "matchedText": "戦法速度変化 / 敵 / 中 15秒"
-          },
-          {
-            "category": "generals",
-            "name": "UR郝昭（かくしょう）",
-            "displayName": "UR郝昭（かくしょう）",
-            "source": "related_link_index",
-            "sourcePartType": "direct-ability-variation-row",
-            "statusEffectName": "対物特効変化(弱化)",
-            "matchedText": "対物特効変化 / 敵 / 中 10秒"
-          },
-          {
-            "category": "generals",
-            "name": "UR郝昭（かくしょう）",
-            "displayName": "UR郝昭（かくしょう）",
-            "source": "related_link_index",
-            "sourcePartType": "direct-ability-variation-row",
-            "statusEffectName": "攻撃速度変化(弱化)",
-            "matchedText": "攻撃速度変化 / 敵 / 中 10秒"
-          },
-          {
-            "category": "generals",
             "name": "UR龐統（ほうとう）",
             "displayName": "UR龐統（ほうとう）",
             "source": "related_link_index",
@@ -49898,6 +49853,51 @@
             "sourcePartType": "direct-ability-variation-row",
             "statusEffectName": "命中変化(弱化)",
             "matchedText": "命中変化 / 敵 / 広 10秒"
+          },
+          {
+            "category": "generals",
+            "name": "UR蹋頓（とうとん）",
+            "displayName": "UR蹋頓（とうとん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(弱化)",
+            "matchedText": "被ダメージを計算する巡見2"
+          },
+          {
+            "category": "generals",
+            "name": "UR蹋頓（とうとん）",
+            "displayName": "UR蹋頓（とうとん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "機動変化(弱化)",
+            "matchedText": "機動が減少する 暴疾追伐 兵科効果系統攻撃属性騎兵物理なし効果自身1"
+          },
+          {
+            "category": "generals",
+            "name": "UR蹋頓（とうとん）",
+            "displayName": "UR蹋頓（とうとん）",
+            "source": "related_link_index",
+            "sourcePartType": "direct-ability-variation-row",
+            "statusEffectName": "戦法速度変化(弱化)",
+            "matchedText": "戦法速度変化 / 敵 / 中 15秒"
+          },
+          {
+            "category": "generals",
+            "name": "UR郝昭（かくしょう）",
+            "displayName": "UR郝昭（かくしょう）",
+            "source": "related_link_index",
+            "sourcePartType": "direct-ability-variation-row",
+            "statusEffectName": "対物特効変化(弱化)",
+            "matchedText": "対物特効変化 / 敵 / 中 10秒"
+          },
+          {
+            "category": "generals",
+            "name": "UR郝昭（かくしょう）",
+            "displayName": "UR郝昭（かくしょう）",
+            "source": "related_link_index",
+            "sourcePartType": "direct-ability-variation-row",
+            "statusEffectName": "攻撃速度変化(弱化)",
+            "matchedText": "攻撃速度変化 / 敵 / 中 10秒"
           },
           {
             "category": "generals",

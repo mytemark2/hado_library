@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-07-05T11:44:39.632Z",
-  "dataSetId": "2026-07-05T05:00:27.984Z",
+  "generatedAt": "2026-07-11T03:55:41.062Z",
+  "dataSetId": "2026-07-05T11:44:39.608Z",
   "crawlerVersion": "1.0.5.31",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -78,10 +78,20 @@
   "kind": "type_search_regression_cases",
   "qualityAudit": {
     "ok": true,
-    "caseCount": 13,
+    "caseCount": 21,
     "failedCount": 0,
     "failedCaseIds": [],
-    "policy": "1.0.5.24: 型検索基盤、既存関連リンク回帰、プリセット重要度スキーマ、条件解決、順位付け、LR司馬懿誤判定防止、攻撃速度型、通常攻撃拡張型を同時に監査する。名前表記差は正規化し、否定文脈は句単位で遮断する。"
+    "policy": "1.0.5.24: 型検索基盤、既存関連リンク回帰、プリセット重要度スキーマ、条件解決、順位付け、LR司馬懿誤判定防止、攻撃速度型、通常攻撃拡張型を同時に監査する。名前表記差は正規化し、否定文脈は句単位で遮断する。",
+    "jsonIndexContractCaseIds": [
+      "type-feature-no-pseudo-status-key",
+      "type-feature-tactic-source-part",
+      "role-score-tactic-role-gate",
+      "skill-owner-domain-separation",
+      "related-link-no-unresolved-ref",
+      "status-meta-group-consistency",
+      "tactic-attack-block-consistency",
+      "parameter-summary-no-array-fragment"
+    ]
   },
   "items": [
     {
@@ -235,6 +245,31 @@
           "core": 2,
           "recommended": 2,
           "support": 1
+        },
+        "buff_support": {
+          "core": 1,
+          "recommended": 2,
+          "support": 2
+        },
+        "debuff_interference": {
+          "core": 1,
+          "recommended": 3,
+          "support": 1
+        },
+        "wall_defense": {
+          "core": 2,
+          "recommended": 2,
+          "support": 1
+        },
+        "garrison_support": {
+          "core": 2,
+          "recommended": 2,
+          "support": 1
+        },
+        "vaccine": {
+          "core": 2,
+          "recommended": 2,
+          "support": 1
         }
       }
     },
@@ -243,9 +278,9 @@
       "description": "型プリセット条件が状態変化索引または補助型要素索引で解決可能である",
       "ok": true,
       "detail": {
-        "presetCount": 11,
-        "rawConditionCount": 71,
-        "canonicalConditionCount": 52,
+        "presetCount": 16,
+        "rawConditionCount": 96,
+        "canonicalConditionCount": 77,
         "unresolved": []
       }
     },
@@ -369,6 +404,76 @@
           }
         ]
       }
+    },
+    {
+      "caseId": "type-feature-no-pseudo-status-key",
+      "description": "疑似状態をstatusEffectKeyとして出力しない",
+      "ok": true,
+      "detail": {
+        "unresolvedCount": 0
+      }
+    },
+    {
+      "caseId": "type-feature-tactic-source-part",
+      "description": "戦法本文由来parameterはtactic_textである",
+      "ok": true,
+      "detail": {
+        "rowCount": 2790
+      }
+    },
+    {
+      "caseId": "role-score-tactic-role-gate",
+      "description": "補佐・侍従の戦法本文をスコア加点しない",
+      "ok": true,
+      "detail": {
+        "forbiddenCount": 0
+      }
+    },
+    {
+      "caseId": "skill-owner-domain-separation",
+      "description": "skill_owner_indexをgeneralSkill正本に限定する",
+      "ok": true,
+      "detail": {
+        "unresolvedCount": 0
+      }
+    },
+    {
+      "caseId": "related-link-no-unresolved-ref",
+      "description": "relatedRefを解決可能なtargetKeyへ正規化する",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "unresolvedRefCount": 0,
+        "droppedSourceItemCount": 661,
+        "droppedTargetCount": 305,
+        "mechanicCount": 1584,
+        "policy": "Every relatedRef uses a resolvable targetDomain/targetKey; pseudo status labels are mechanics with an optional qualifierSkillKey."
+      }
+    },
+    {
+      "caseId": "status-meta-group-consistency",
+      "description": "feature/roleのgroupKeyはstatus meta正本と一致する",
+      "ok": true,
+      "detail": {
+        "inconsistentCount": 0
+      }
+    },
+    {
+      "caseId": "tactic-attack-block-consistency",
+      "description": "attackBlocksがある戦法はhasAnyAttackEffect=trueである",
+      "ok": true,
+      "detail": {
+        "inconsistentCount": 0
+      }
+    },
+    {
+      "caseId": "parameter-summary-no-array-fragment",
+      "description": "parameter keywordsへ配列断片を混入させない",
+      "ok": true,
+      "detail": {
+        "fragmentCount": 0
+      }
     }
-  ]
+  ],
+  "contractVersion": "1.0"
 }

@@ -33,6 +33,7 @@ context.window = context;
 vm.createContext(context);
 vm.runInContext(fs.readFileSync('hado_type_score.js','utf8'), context, { filename: 'hado_type_score.js' });
 vm.runInContext(fs.readFileSync('hado_formation.js','utf8'), context, { filename: 'hado_formation.js' });
+assert.strictEqual(context.formationCandidateDerivedNeedsPrimary({ featureId: 'tactic_effect:contract', sourceEntityKey: 'generals:lr_guan_yu', sourcePartType: 'tactic_text', canonicalFeatureKey: 'parameter:tactic_power', evidencePath: 'sections[0].content[0]', roleGate: { scoreEligible: true, allowedRoleIds: ['main','deputy1','deputy2'] } }, 'typeSearchFeatureIndex.typeFeatures', longTacticText), false, '完全な一次根拠契約を持つ長文戦法は文字数だけで派生扱いにしない');
 const formation = { id: 'dedup-calm', name: '新規部隊3', evaluationTypeId: 'calm', evaluationTypeName: '鎮静型', slots: { main: { general: 'LR関羽' }, deputy1: {}, deputy2: {}, support1: { general: '華佗' }, support2: {} }, advisorSlots: {} };
 const built = context.buildFormationScoreEvidence(formation, { effects: [], parameterCalculation: { rows: [] } });
 assert(built.dedupedRows.length >= 1, '名称行と説明行の重複をdedupedRowsへ残す');

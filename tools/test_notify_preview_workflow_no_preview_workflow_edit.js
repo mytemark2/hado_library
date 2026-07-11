@@ -29,13 +29,17 @@ for (const forbidden of [
   assert(!workflow.includes(forbidden), `workflow must not contain automatic rerun pattern ${forbidden}`);
 }
 
-const waitStep = sectionBetween('- name: Wait for preview Pages deployment', '# Verify public preview deployment');
+const waitStart = workflow.indexOf('- name: Wait for preview Pages deployment');
+assert(waitStart >= 0, 'missing preview wait step');
+const waitStep = workflow.slice(waitStart);
 assert(waitStep.includes('Failed preview jobs:'), 'wait step must report failed preview job names');
-assert(waitStep.includes('Do not auto-rerun failed preview jobs from app sync'), 'wait step must explain that app sync does not auto-rerun preview jobs');
-assert(waitStep.includes('Rerun mytemark2/hado_library-preview/.github/workflows/${workflow_file} manually'), 'wait step must point operators to manual preview workflow rerun');
-assert(waitStep.includes('::warning title=Preview Pages deploy failed::'), 'wait step must downgrade preview deploy failure to a warning after reporting failed jobs');
-assert(waitStep.includes('Skipping public marker verification for this failed deploy run'), 'wait step must explain marker verification is skipped only after failed preview deploy');
-assert(waitStep.includes('exit 0'), 'wait step must not fail the app sync after an external preview Pages deploy failure');
+assert(waitStep.includes('Preview synchronization is incomplete until this Pages deployment succeeds.'), 'wait step must classify a failed Pages deploy as incomplete');
+const failureBlock = waitStep.slice(waitStep.indexOf('Failed preview jobs:'), waitStep.indexOf('source_url='));
+assert(failureBlock.includes('exit 1'), 'failed preview Pages deployment must fail the app sync');
+assert(!failureBlock.includes('exit 0'), 'failed preview Pages deployment must not be downgraded to success');
+assert(!waitStep.includes('Rerun mytemark2/hado_library-preview/.github/workflows/${workflow_file} manually'), 'normal preview synchronization must not require a manual rerun');
+assert(waitStep.includes('PREVIEW_SOURCE_COMMIT.txt?cb=${SOURCE_COMMIT}'), 'public source marker verification must be cache-busted');
+assert(waitStep.includes('PREVIEW_DISPLAY_VERSION.txt?cb=${SOURCE_COMMIT}'), 'public version marker verification must be cache-busted');
 assert(!waitStep.includes('curl -sS -X POST'), 'wait step must not POST to rerun preview workflow jobs');
 
 for (const forbidden of [
@@ -76,4 +80,4 @@ const ownConcurrencyCount = (workflow.match(/cancel-in-progress: true/g) || []).
 assert(ownConcurrencyCount >= 1, 'notify-preview workflow should keep its own concurrency cancellation');
 assert(!syncStep.includes('cancel-in-progress: true'), 'sync step must not write cancel-in-progress into the preview clone');
 
-console.log('notify-preview workflow does not edit preview workflow files, guards staged paths, and avoids automatic preview job reruns');
+console.log('notify-preview workflow preserves preview workflows, guards staged paths, and fails hard when Pages deployment is incomplete');

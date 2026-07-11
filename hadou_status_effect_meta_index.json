@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-07-05T11:44:39.632Z",
-  "dataSetId": "2026-07-05T05:00:27.984Z",
+  "generatedAt": "2026-07-11T03:55:41.062Z",
+  "dataSetId": "2026-07-05T11:44:39.608Z",
   "crawlerVersion": "1.0.5.31",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -117,6 +117,27 @@
       "enemyResistanceDebuff": 8,
       "enemyStateDebuff": 38,
       "enemyAbilityDebuff": 45
+    },
+    "gameTypePolarityAudit": {
+      "ok": true,
+      "items": [
+        {
+          "name": "穿撃",
+          "gameType": "有利変化",
+          "actorPolarity": "selfPositive",
+          "groupKey": "enemyResistanceDebuff",
+          "direction": "buff",
+          "targetSide": "self"
+        },
+        {
+          "name": "轟炎",
+          "gameType": "有利変化",
+          "actorPolarity": "selfPositive",
+          "groupKey": "enemyResistanceDebuff",
+          "direction": "buff",
+          "targetSide": "self"
+        }
+      ]
     }
   },
   "items": [
@@ -137,7 +158,14 @@
       "aliases": [
         "治癒"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:1",
+      "statusEffectKey": "statusEffects:1",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:1:高揚",
@@ -156,7 +184,14 @@
       "aliases": [
         "高揚"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:2",
+      "statusEffectKey": "statusEffects:2",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:2:結束",
@@ -175,7 +210,14 @@
       "aliases": [
         "結束"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:3",
+      "statusEffectKey": "statusEffects:3",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:3:通常攻撃拡張",
@@ -194,7 +236,14 @@
       "aliases": [
         "通常攻撃拡張"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:4",
+      "statusEffectKey": "statusEffects:4",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:4:火属性強化",
@@ -213,7 +262,14 @@
       "aliases": [
         "火属性強化"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:5",
+      "statusEffectKey": "statusEffects:5",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:5:火属性付与",
@@ -232,7 +288,14 @@
       "aliases": [
         "火属性付与"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:6",
+      "statusEffectKey": "statusEffects:6",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:6:回避",
@@ -251,7 +314,14 @@
       "aliases": [
         "回避"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:7",
+      "statusEffectKey": "statusEffects:7",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:7:堅固",
@@ -270,7 +340,14 @@
       "aliases": [
         "堅固"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:8",
+      "statusEffectKey": "statusEffects:8",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:8:取込",
@@ -289,7 +366,14 @@
       "aliases": [
         "取込"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:9",
+      "statusEffectKey": "statusEffects:9",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:9:攻撃無効",
@@ -308,7 +392,14 @@
       "aliases": [
         "攻撃無効"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:10",
+      "statusEffectKey": "statusEffects:10",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:10:弱化無効",
@@ -327,7 +418,14 @@
       "aliases": [
         "弱化無効"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:11",
+      "statusEffectKey": "statusEffects:11",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:11:有利激攻",
@@ -346,7 +444,14 @@
       "aliases": [
         "有利激攻"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:12",
+      "statusEffectKey": "statusEffects:12",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:12:会心耐性",
@@ -365,7 +470,14 @@
       "aliases": [
         "会心耐性"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:13",
+      "statusEffectKey": "statusEffects:13",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:13:物理耐性",
@@ -384,7 +496,14 @@
       "aliases": [
         "物理耐性"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:14",
+      "statusEffectKey": "statusEffects:14",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:14:知力耐性",
@@ -403,7 +522,14 @@
       "aliases": [
         "知力耐性"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:15",
+      "statusEffectKey": "statusEffects:15",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:15:練心",
@@ -422,7 +548,14 @@
       "aliases": [
         "練心"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:16",
+      "statusEffectKey": "statusEffects:16",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:16:絶縁",
@@ -441,7 +574,14 @@
       "aliases": [
         "絶縁"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:17",
+      "statusEffectKey": "statusEffects:17",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:17:逆襲",
@@ -460,7 +600,14 @@
       "aliases": [
         "逆襲"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:18",
+      "statusEffectKey": "statusEffects:18",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:18:穿撃",
@@ -473,13 +620,20 @@
       "summaryKey": "穿撃",
       "groupKey": "enemyResistanceDebuff",
       "groupLabel": "敵部隊有利対策",
-      "targetSide": "enemy",
-      "direction": "debuff",
+      "targetSide": "self",
+      "direction": "buff",
       "classificationReason": "type:有利変化+敵耐性低下/強化無視",
       "aliases": [
         "穿撃"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:19",
+      "statusEffectKey": "statusEffects:19",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:19:物理戦法遮断",
@@ -498,7 +652,14 @@
       "aliases": [
         "物理戦法遮断"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:20",
+      "statusEffectKey": "statusEffects:20",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:20:知力戦法遮断",
@@ -517,7 +678,14 @@
       "aliases": [
         "知力戦法遮断"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:21",
+      "statusEffectKey": "statusEffects:21",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:21:不退",
@@ -536,7 +704,14 @@
       "aliases": [
         "不退"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:22",
+      "statusEffectKey": "statusEffects:22",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:22:呼応・一",
@@ -555,7 +730,14 @@
       "aliases": [
         "呼応・一"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:23",
+      "statusEffectKey": "statusEffects:23",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:23:呼応・二",
@@ -574,7 +756,14 @@
       "aliases": [
         "呼応・二"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:24",
+      "statusEffectKey": "statusEffects:24",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:24:戦法威力低下付与",
@@ -593,7 +782,14 @@
       "aliases": [
         "戦法威力低下付与"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:25",
+      "statusEffectKey": "statusEffects:25",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:25:盤石",
@@ -612,7 +808,14 @@
       "aliases": [
         "盤石"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:26",
+      "statusEffectKey": "statusEffects:26",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:26:有利巧守",
@@ -631,7 +834,14 @@
       "aliases": [
         "有利巧守"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:27",
+      "statusEffectKey": "statusEffects:27",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:27:奮心",
@@ -650,7 +860,14 @@
       "aliases": [
         "奮心"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:28",
+      "statusEffectKey": "statusEffects:28",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:28:憤撃",
@@ -669,7 +886,14 @@
       "aliases": [
         "憤撃"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:29",
+      "statusEffectKey": "statusEffects:29",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:29:闘気",
@@ -688,7 +912,14 @@
       "aliases": [
         "闘気"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:30",
+      "statusEffectKey": "statusEffects:30",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:30:轟炎",
@@ -701,13 +932,20 @@
       "summaryKey": "轟炎",
       "groupKey": "enemyResistanceDebuff",
       "groupLabel": "敵部隊有利対策",
-      "targetSide": "enemy",
-      "direction": "debuff",
+      "targetSide": "self",
+      "direction": "buff",
       "classificationReason": "type:有利変化+敵耐性低下/強化無視",
       "aliases": [
         "轟炎"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:31",
+      "statusEffectKey": "statusEffects:31",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:31:弱化反射",
@@ -726,7 +964,14 @@
       "aliases": [
         "弱化反射"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:32",
+      "statusEffectKey": "statusEffects:32",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:32:瞬影",
@@ -745,7 +990,14 @@
       "aliases": [
         "瞬影"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:33",
+      "statusEffectKey": "statusEffects:33",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:33:強化促進",
@@ -764,7 +1016,14 @@
       "aliases": [
         "強化促進"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:34",
+      "statusEffectKey": "statusEffects:34",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:34:強固",
@@ -783,7 +1042,14 @@
       "aliases": [
         "強固"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:35",
+      "statusEffectKey": "statusEffects:35",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:35:鬼迫",
@@ -802,7 +1068,14 @@
       "aliases": [
         "鬼迫"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:36",
+      "statusEffectKey": "statusEffects:36",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:36:借威",
@@ -821,7 +1094,14 @@
       "aliases": [
         "借威"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:37",
+      "statusEffectKey": "statusEffects:37",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:37:猛奮",
@@ -840,7 +1120,14 @@
       "aliases": [
         "猛奮"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:38",
+      "statusEffectKey": "statusEffects:38",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:38:練守",
@@ -859,7 +1146,14 @@
       "aliases": [
         "練守"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:39",
+      "statusEffectKey": "statusEffects:39",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:39:追討",
@@ -878,7 +1172,14 @@
       "aliases": [
         "追討"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:40",
+      "statusEffectKey": "statusEffects:40",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:40:龍鎧",
@@ -897,7 +1198,14 @@
       "aliases": [
         "龍鎧"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:41",
+      "statusEffectKey": "statusEffects:41",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:41:戦法速度低下付与",
@@ -916,7 +1224,14 @@
       "aliases": [
         "戦法速度低下付与"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:42",
+      "statusEffectKey": "statusEffects:42",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:42:雄然",
@@ -935,7 +1250,14 @@
       "aliases": [
         "雄然"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:43",
+      "statusEffectKey": "statusEffects:43",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:43:豪昇",
@@ -954,7 +1276,14 @@
       "aliases": [
         "豪昇"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:44",
+      "statusEffectKey": "statusEffects:44",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:44:他対象攻撃耐性",
@@ -973,7 +1302,14 @@
       "aliases": [
         "他対象攻撃耐性"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:45",
+      "statusEffectKey": "statusEffects:45",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:45:巧知",
@@ -992,7 +1328,14 @@
       "aliases": [
         "巧知"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:46",
+      "statusEffectKey": "statusEffects:46",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:46:閃襲",
@@ -1011,7 +1354,14 @@
       "aliases": [
         "閃襲"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:47",
+      "statusEffectKey": "statusEffects:47",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:47:閃護",
@@ -1030,7 +1380,14 @@
       "aliases": [
         "閃護"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:48",
+      "statusEffectKey": "statusEffects:48",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:48:恵守",
@@ -1049,7 +1406,14 @@
       "aliases": [
         "恵守"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:49",
+      "statusEffectKey": "statusEffects:49",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:49:完璧",
@@ -1068,7 +1432,14 @@
       "aliases": [
         "完璧"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:50",
+      "statusEffectKey": "statusEffects:50",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:50:烈風",
@@ -1087,7 +1458,14 @@
       "aliases": [
         "烈風"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:51",
+      "statusEffectKey": "statusEffects:51",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:51:廉潔",
@@ -1106,7 +1484,14 @@
       "aliases": [
         "廉潔"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:52",
+      "statusEffectKey": "statusEffects:52",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:52:焔風",
@@ -1125,7 +1510,14 @@
       "aliases": [
         "焔風"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:53",
+      "statusEffectKey": "statusEffects:53",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:53:不敵",
@@ -1144,7 +1536,14 @@
       "aliases": [
         "不敵"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:54",
+      "statusEffectKey": "statusEffects:54",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:54:窮策",
@@ -1163,7 +1562,14 @@
       "aliases": [
         "窮策"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:55",
+      "statusEffectKey": "statusEffects:55",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:55:駿撃",
@@ -1182,7 +1588,14 @@
       "aliases": [
         "駿撃"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:56",
+      "statusEffectKey": "statusEffects:56",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:56:泰然",
@@ -1201,7 +1614,14 @@
       "aliases": [
         "泰然"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:57",
+      "statusEffectKey": "statusEffects:57",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:57:憤怒",
@@ -1220,7 +1640,14 @@
       "aliases": [
         "憤怒"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:58",
+      "statusEffectKey": "statusEffects:58",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:58:暴乱",
@@ -1239,7 +1666,14 @@
       "aliases": [
         "暴乱"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:59",
+      "statusEffectKey": "statusEffects:59",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:59:威心・攻",
@@ -1258,7 +1692,14 @@
       "aliases": [
         "威心・攻"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:60",
+      "statusEffectKey": "statusEffects:60",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:60:覇弓",
@@ -1277,7 +1718,14 @@
       "aliases": [
         "覇弓"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:61",
+      "statusEffectKey": "statusEffects:61",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:61:攻防一体",
@@ -1296,7 +1744,14 @@
       "aliases": [
         "攻防一体"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:121",
+      "statusEffectKey": "statusEffects:121",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:62:飲血",
@@ -1315,7 +1770,14 @@
       "aliases": [
         "飲血"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:123",
+      "statusEffectKey": "statusEffects:123",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:63:不滅",
@@ -1334,7 +1796,14 @@
       "aliases": [
         "不滅"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:122",
+      "statusEffectKey": "statusEffects:122",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:64:闇盾",
@@ -1353,7 +1822,14 @@
       "aliases": [
         "闇盾"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:136",
+      "statusEffectKey": "statusEffects:136",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:65:火神降臨",
@@ -1372,7 +1848,14 @@
       "aliases": [
         "火神降臨"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:135",
+      "statusEffectKey": "statusEffects:135",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:66:火炮",
@@ -1391,7 +1874,14 @@
       "aliases": [
         "火炮"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:119",
+      "statusEffectKey": "statusEffects:119",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:67:御剣飛行",
@@ -1410,7 +1900,14 @@
       "aliases": [
         "御剣飛行"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:133",
+      "statusEffectKey": "statusEffects:133",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:68:快気",
@@ -1429,7 +1926,14 @@
       "aliases": [
         "快気"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:124",
+      "statusEffectKey": "statusEffects:124",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:69:賢壁",
@@ -1448,7 +1952,14 @@
       "aliases": [
         "賢壁"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:126",
+      "statusEffectKey": "statusEffects:126",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:70:撃迅",
@@ -1467,7 +1978,14 @@
       "aliases": [
         "撃迅"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:128",
+      "statusEffectKey": "statusEffects:128",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:71:義奮",
@@ -1486,7 +2004,14 @@
       "aliases": [
         "義奮"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:129",
+      "statusEffectKey": "statusEffects:129",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:72:剛憤",
@@ -1505,7 +2030,14 @@
       "aliases": [
         "剛憤"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:138",
+      "statusEffectKey": "statusEffects:138",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:73:強兵",
@@ -1524,7 +2056,14 @@
       "aliases": [
         "強兵"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:139",
+      "statusEffectKey": "statusEffects:139",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:74:撃炎",
@@ -1543,7 +2082,14 @@
       "aliases": [
         "撃炎"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:140",
+      "statusEffectKey": "statusEffects:140",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:75:打開",
@@ -1562,7 +2108,14 @@
       "aliases": [
         "打開"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:141",
+      "statusEffectKey": "statusEffects:141",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:76:魁威",
@@ -1581,7 +2134,14 @@
       "aliases": [
         "魁威"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:143",
+      "statusEffectKey": "statusEffects:143",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:77:活身",
@@ -1600,7 +2160,14 @@
       "aliases": [
         "活身"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:146",
+      "statusEffectKey": "statusEffects:146",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:78:威槍",
@@ -1619,7 +2186,14 @@
       "aliases": [
         "威槍"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:145",
+      "statusEffectKey": "statusEffects:145",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:79:操賢",
@@ -1638,7 +2212,14 @@
       "aliases": [
         "操賢"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:147",
+      "statusEffectKey": "statusEffects:147",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:80:龍吟",
@@ -1657,7 +2238,14 @@
       "aliases": [
         "龍吟"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:148",
+      "statusEffectKey": "statusEffects:148",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:81:慧叡",
@@ -1676,7 +2264,14 @@
       "aliases": [
         "慧叡"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:150",
+      "statusEffectKey": "statusEffects:150",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:82:護厳",
@@ -1695,7 +2290,14 @@
       "aliases": [
         "護厳"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:153",
+      "statusEffectKey": "statusEffects:153",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:83:献計",
@@ -1714,7 +2316,14 @@
       "aliases": [
         "献計"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:154",
+      "statusEffectKey": "statusEffects:154",
+      "gameType": "有利変化",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:84:病毒",
@@ -1733,7 +2342,14 @@
       "aliases": [
         "病毒"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:62",
+      "statusEffectKey": "statusEffects:62",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:85:火傷",
@@ -1752,7 +2368,14 @@
       "aliases": [
         "火傷"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:63",
+      "statusEffectKey": "statusEffects:63",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:86:凶兆",
@@ -1771,7 +2394,14 @@
       "aliases": [
         "凶兆"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:64",
+      "statusEffectKey": "statusEffects:64",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:87:恐怖",
@@ -1790,7 +2420,14 @@
       "aliases": [
         "恐怖"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:65",
+      "statusEffectKey": "statusEffects:65",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:88:混乱",
@@ -1809,7 +2446,14 @@
       "aliases": [
         "混乱"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:66",
+      "statusEffectKey": "statusEffects:66",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:89:同討",
@@ -1828,7 +2472,14 @@
       "aliases": [
         "同討"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:67",
+      "statusEffectKey": "statusEffects:67",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:90:疑心",
@@ -1847,7 +2498,14 @@
       "aliases": [
         "疑心"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:68",
+      "statusEffectKey": "statusEffects:68",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:91:強化無効",
@@ -1866,7 +2524,14 @@
       "aliases": [
         "強化無効"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:69",
+      "statusEffectKey": "statusEffects:69",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:92:弱化残存",
@@ -1885,7 +2550,14 @@
       "aliases": [
         "弱化残存"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:70",
+      "statusEffectKey": "statusEffects:70",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:93:畏怖",
@@ -1904,7 +2576,14 @@
       "aliases": [
         "畏怖"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:71",
+      "statusEffectKey": "statusEffects:71",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:94:異心",
@@ -1923,7 +2602,14 @@
       "aliases": [
         "異心"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:72",
+      "statusEffectKey": "statusEffects:72",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:95:強化抑制",
@@ -1942,7 +2628,14 @@
       "aliases": [
         "強化抑制"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:73",
+      "statusEffectKey": "statusEffects:73",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:96:挑発",
@@ -1961,7 +2654,14 @@
       "aliases": [
         "挑発"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:74",
+      "statusEffectKey": "statusEffects:74",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:97:戦法範囲縮小",
@@ -1980,7 +2680,14 @@
       "aliases": [
         "戦法範囲縮小"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:75",
+      "statusEffectKey": "statusEffects:75",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:98:禍兆",
@@ -1999,7 +2706,14 @@
       "aliases": [
         "禍兆"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:76",
+      "statusEffectKey": "statusEffects:76",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:99:戦法弱化",
@@ -2018,7 +2732,14 @@
       "aliases": [
         "戦法弱化"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:77",
+      "statusEffectKey": "statusEffects:77",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:100:連鎖不能",
@@ -2037,7 +2758,14 @@
       "aliases": [
         "連鎖不能"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:78",
+      "statusEffectKey": "statusEffects:78",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:101:会心率半減",
@@ -2056,7 +2784,14 @@
       "aliases": [
         "会心率半減"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:79",
+      "statusEffectKey": "statusEffects:79",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:102:萎縮",
@@ -2075,7 +2810,14 @@
       "aliases": [
         "萎縮"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:80",
+      "statusEffectKey": "statusEffects:80",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:103:連鎖無効",
@@ -2094,7 +2836,14 @@
       "aliases": [
         "連鎖無効"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:81",
+      "statusEffectKey": "statusEffects:81",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:104:怯心",
@@ -2113,7 +2862,14 @@
       "aliases": [
         "怯心"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:82",
+      "statusEffectKey": "statusEffects:82",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:105:幻惑",
@@ -2132,7 +2888,14 @@
       "aliases": [
         "幻惑"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:83",
+      "statusEffectKey": "statusEffects:83",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:106:通常攻撃縮小",
@@ -2151,7 +2914,14 @@
       "aliases": [
         "通常攻撃縮小"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:84",
+      "statusEffectKey": "statusEffects:84",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:107:分断",
@@ -2170,7 +2940,14 @@
       "aliases": [
         "分断"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:85",
+      "statusEffectKey": "statusEffects:85",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:108:不利脆弱",
@@ -2189,7 +2966,14 @@
       "aliases": [
         "不利脆弱"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:86",
+      "statusEffectKey": "statusEffects:86",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:109:強化反転",
@@ -2208,7 +2992,14 @@
       "aliases": [
         "強化反転"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:87",
+      "statusEffectKey": "statusEffects:87",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:110:潜影",
@@ -2227,7 +3018,14 @@
       "aliases": [
         "潜影"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:88",
+      "statusEffectKey": "statusEffects:88",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:111:不利消沈",
@@ -2246,7 +3044,14 @@
       "aliases": [
         "不利消沈"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:89",
+      "statusEffectKey": "statusEffects:89",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:112:騎兵戦法抑圧",
@@ -2265,7 +3070,14 @@
       "aliases": [
         "騎兵戦法抑圧"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:90",
+      "statusEffectKey": "statusEffects:90",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:113:弱化積鈍",
@@ -2284,7 +3096,14 @@
       "aliases": [
         "弱化積鈍"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:91",
+      "statusEffectKey": "statusEffects:91",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:114:断道",
@@ -2303,7 +3122,14 @@
       "aliases": [
         "断道"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:92",
+      "statusEffectKey": "statusEffects:92",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:115:物理戦法弱点",
@@ -2322,7 +3148,14 @@
       "aliases": [
         "物理戦法弱点"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:93",
+      "statusEffectKey": "statusEffects:93",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:116:戦慄",
@@ -2341,7 +3174,14 @@
       "aliases": [
         "戦慄"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:94",
+      "statusEffectKey": "statusEffects:94",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:117:深恐",
@@ -2360,7 +3200,14 @@
       "aliases": [
         "深恐"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:95",
+      "statusEffectKey": "statusEffects:95",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:118:困憊",
@@ -2379,7 +3226,14 @@
       "aliases": [
         "困憊"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:96",
+      "statusEffectKey": "statusEffects:96",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:119:闇動",
@@ -2398,7 +3252,14 @@
       "aliases": [
         "闇動"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:97",
+      "statusEffectKey": "statusEffects:97",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:120:封撃",
@@ -2417,7 +3278,14 @@
       "aliases": [
         "封撃"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:98",
+      "statusEffectKey": "statusEffects:98",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:121:乱炎",
@@ -2436,7 +3304,14 @@
       "aliases": [
         "乱炎"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:99",
+      "statusEffectKey": "statusEffects:99",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:122:連鎖累減",
@@ -2455,7 +3330,14 @@
       "aliases": [
         "連鎖累減"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:100",
+      "statusEffectKey": "statusEffects:100",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:123:暗影詛呪",
@@ -2474,7 +3356,14 @@
       "aliases": [
         "暗影詛呪"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:137",
+      "statusEffectKey": "statusEffects:137",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:124:氷呪",
@@ -2493,7 +3382,14 @@
       "aliases": [
         "氷呪"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:132",
+      "statusEffectKey": "statusEffects:132",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:125:沙縛",
@@ -2512,7 +3408,14 @@
       "aliases": [
         "沙縛"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:134",
+      "statusEffectKey": "statusEffects:134",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:126:毒﨧",
@@ -2531,7 +3434,14 @@
       "aliases": [
         "毒﨧"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:130",
+      "statusEffectKey": "statusEffects:130",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:127:奪魂",
@@ -2550,7 +3460,14 @@
       "aliases": [
         "奪魂"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:131",
+      "statusEffectKey": "statusEffects:131",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:128:反情",
@@ -2569,7 +3486,14 @@
       "aliases": [
         "反情"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:118",
+      "statusEffectKey": "statusEffects:118",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:129:砕心",
@@ -2588,7 +3512,14 @@
       "aliases": [
         "砕心"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:125",
+      "statusEffectKey": "statusEffects:125",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:130:感電",
@@ -2607,7 +3538,14 @@
       "aliases": [
         "感電"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:127",
+      "statusEffectKey": "statusEffects:127",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:131:鈍迷",
@@ -2626,7 +3564,14 @@
       "aliases": [
         "鈍迷"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:142",
+      "statusEffectKey": "statusEffects:142",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:132:歩兵戦法抑圧",
@@ -2645,7 +3590,14 @@
       "aliases": [
         "歩兵戦法抑圧"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:151",
+      "statusEffectKey": "statusEffects:151",
+      "gameType": "不利変化",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:133:攻撃短縮",
@@ -2664,7 +3616,14 @@
       "aliases": [
         "攻撃短縮"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:101",
+      "statusEffectKey": "statusEffects:101",
+      "gameType": "即時効果",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:134:戦法短縮",
@@ -2683,7 +3642,14 @@
       "aliases": [
         "戦法短縮"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:102",
+      "statusEffectKey": "statusEffects:102",
+      "gameType": "即時効果",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:135:兵器行動短縮",
@@ -2702,7 +3668,14 @@
       "aliases": [
         "兵器行動短縮"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:103",
+      "statusEffectKey": "statusEffects:103",
+      "gameType": "即時効果",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:136:負傷兵数変化",
@@ -2721,7 +3694,14 @@
       "aliases": [
         "負傷兵数変化"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:104",
+      "statusEffectKey": "statusEffects:104",
+      "gameType": "即時効果",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:137:強化解除",
@@ -2740,7 +3720,14 @@
       "aliases": [
         "強化解除"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:105",
+      "statusEffectKey": "statusEffects:105",
+      "gameType": "即時効果",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:138:強化奪取",
@@ -2759,7 +3746,14 @@
       "aliases": [
         "強化奪取"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:106",
+      "statusEffectKey": "statusEffects:106",
+      "gameType": "即時効果",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:139:強化延長",
@@ -2778,7 +3772,14 @@
       "aliases": [
         "強化延長"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:107",
+      "statusEffectKey": "statusEffects:107",
+      "gameType": "即時効果",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:140:反転",
@@ -2797,7 +3798,14 @@
       "aliases": [
         "反転"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:108",
+      "statusEffectKey": "statusEffects:108",
+      "gameType": "即時効果",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:141:弱化解除",
@@ -2816,7 +3824,14 @@
       "aliases": [
         "弱化解除"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:109",
+      "statusEffectKey": "statusEffects:109",
+      "gameType": "即時効果",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:142:弱化延長",
@@ -2835,7 +3850,14 @@
       "aliases": [
         "弱化延長"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:110",
+      "statusEffectKey": "statusEffects:110",
+      "gameType": "即時効果",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:143:戦法遅延",
@@ -2854,7 +3876,14 @@
       "aliases": [
         "戦法遅延"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:111",
+      "statusEffectKey": "statusEffects:111",
+      "gameType": "即時効果",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:144:正転",
@@ -2873,7 +3902,14 @@
       "aliases": [
         "正転"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:112",
+      "statusEffectKey": "statusEffects:112",
+      "gameType": "即時効果",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:145:士気奪取",
@@ -2892,7 +3928,14 @@
       "aliases": [
         "士気奪取"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:113",
+      "statusEffectKey": "statusEffects:113",
+      "gameType": "即時効果",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:146:即時回復",
@@ -2911,7 +3954,14 @@
       "aliases": [
         "即時回復"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:114",
+      "statusEffectKey": "statusEffects:114",
+      "gameType": "即時効果",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:147:強化増幅",
@@ -2930,7 +3980,14 @@
       "aliases": [
         "強化増幅"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:115",
+      "statusEffectKey": "statusEffects:115",
+      "gameType": "即時効果",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:148:武装破壊",
@@ -2949,7 +4006,14 @@
       "aliases": [
         "武装破壊"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:116",
+      "statusEffectKey": "statusEffects:116",
+      "gameType": "即時効果",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:149:強化時間短縮",
@@ -2968,7 +4032,14 @@
       "aliases": [
         "強化時間短縮"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:144",
+      "statusEffectKey": "statusEffects:144",
+      "gameType": "即時効果",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:150:畏武",
@@ -2987,7 +4058,14 @@
       "aliases": [
         "畏武"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:149",
+      "statusEffectKey": "statusEffects:149",
+      "gameType": "即時効果",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:151:震乱",
@@ -3006,7 +4084,14 @@
       "aliases": [
         "震乱"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:152",
+      "statusEffectKey": "statusEffects:152",
+      "gameType": "即時効果",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:152:兵科相性変化(強化)",
@@ -3026,7 +4111,14 @@
         "兵科相性変化(強化)",
         "兵科相性変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-152",
+      "statusEffectKey": "statusEffects:index-152",
+      "gameType": "能力変化(強化)",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:153:兵科相性変化(弱化)",
@@ -3046,7 +4138,14 @@
         "兵科相性変化(弱化)",
         "兵科相性変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-153",
+      "statusEffectKey": "statusEffects:index-153",
+      "gameType": "能力変化(弱化)",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:154:歩兵特効(強化)",
@@ -3066,7 +4165,14 @@
         "歩兵特効(強化)",
         "歩兵特効"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-154",
+      "statusEffectKey": "statusEffects:index-154",
+      "gameType": "能力変化(強化)",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:155:歩兵特効(弱化)",
@@ -3086,7 +4192,14 @@
         "歩兵特効(弱化)",
         "歩兵特効"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-155",
+      "statusEffectKey": "statusEffects:index-155",
+      "gameType": "能力変化(弱化)",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:156:弓兵特効(強化)",
@@ -3106,7 +4219,14 @@
         "弓兵特効(強化)",
         "弓兵特効"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-156",
+      "statusEffectKey": "statusEffects:index-156",
+      "gameType": "能力変化(強化)",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:157:弓兵特効(弱化)",
@@ -3126,7 +4246,14 @@
         "弓兵特効(弱化)",
         "弓兵特効"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-157",
+      "statusEffectKey": "statusEffects:index-157",
+      "gameType": "能力変化(弱化)",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:158:騎兵特効(強化)",
@@ -3146,7 +4273,14 @@
         "騎兵特効(強化)",
         "騎兵特効"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-158",
+      "statusEffectKey": "statusEffects:index-158",
+      "gameType": "能力変化(強化)",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:159:騎兵特効(弱化)",
@@ -3166,7 +4300,14 @@
         "騎兵特効(弱化)",
         "騎兵特効"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-159",
+      "statusEffectKey": "statusEffects:index-159",
+      "gameType": "能力変化(弱化)",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:160:対物特効変化(強化)",
@@ -3186,7 +4327,14 @@
         "対物特効変化(強化)",
         "対物特効変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-160",
+      "statusEffectKey": "statusEffects:index-160",
+      "gameType": "能力変化(強化)",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:161:対物特効変化(弱化)",
@@ -3206,7 +4354,14 @@
         "対物特効変化(弱化)",
         "対物特効変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-161",
+      "statusEffectKey": "statusEffects:index-161",
+      "gameType": "能力変化(弱化)",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:162:攻撃変化(強化)",
@@ -3226,7 +4381,14 @@
         "攻撃変化(強化)",
         "攻撃変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-162",
+      "statusEffectKey": "statusEffects:index-162",
+      "gameType": "能力変化(強化)",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:163:攻撃変化(弱化)",
@@ -3246,7 +4408,14 @@
         "攻撃変化(弱化)",
         "攻撃変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-163",
+      "statusEffectKey": "statusEffects:index-163",
+      "gameType": "能力変化(弱化)",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:164:防御変化(強化)",
@@ -3266,7 +4435,14 @@
         "防御変化(強化)",
         "防御変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-164",
+      "statusEffectKey": "statusEffects:index-164",
+      "gameType": "能力変化(強化)",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:165:防御変化(弱化)",
@@ -3286,7 +4462,14 @@
         "防御変化(弱化)",
         "防御変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-165",
+      "statusEffectKey": "statusEffects:index-165",
+      "gameType": "能力変化(弱化)",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:166:知力変化(強化)",
@@ -3306,7 +4489,14 @@
         "知力変化(強化)",
         "知力変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-166",
+      "statusEffectKey": "statusEffects:index-166",
+      "gameType": "能力変化(強化)",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:167:知力変化(弱化)",
@@ -3326,7 +4516,14 @@
         "知力変化(弱化)",
         "知力変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-167",
+      "statusEffectKey": "statusEffects:index-167",
+      "gameType": "能力変化(弱化)",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:168:機動変化(強化)",
@@ -3346,7 +4543,14 @@
         "機動変化(強化)",
         "機動変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-168",
+      "statusEffectKey": "statusEffects:index-168",
+      "gameType": "能力変化(強化)",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:169:機動変化(弱化)",
@@ -3366,7 +4570,14 @@
         "機動変化(弱化)",
         "機動変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-169",
+      "statusEffectKey": "statusEffects:index-169",
+      "gameType": "能力変化(弱化)",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:170:攻撃速度変化(強化)",
@@ -3386,7 +4597,14 @@
         "攻撃速度変化(強化)",
         "攻撃速度変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-170",
+      "statusEffectKey": "statusEffects:index-170",
+      "gameType": "能力変化(強化)",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:171:攻撃速度変化(弱化)",
@@ -3406,7 +4624,14 @@
         "攻撃速度変化(弱化)",
         "攻撃速度変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-171",
+      "statusEffectKey": "statusEffects:index-171",
+      "gameType": "能力変化(弱化)",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:172:戦法速度変化(強化)",
@@ -3426,7 +4651,14 @@
         "戦法速度変化(強化)",
         "戦法速度変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-172",
+      "statusEffectKey": "statusEffects:index-172",
+      "gameType": "能力変化(強化)",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:173:戦法速度変化(弱化)",
@@ -3446,7 +4678,14 @@
         "戦法速度変化(弱化)",
         "戦法速度変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-173",
+      "statusEffectKey": "statusEffects:index-173",
+      "gameType": "能力変化(弱化)",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:174:兵器速度変化(強化)",
@@ -3466,7 +4705,14 @@
         "兵器速度変化(強化)",
         "兵器速度変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-174",
+      "statusEffectKey": "statusEffects:index-174",
+      "gameType": "能力変化(強化)",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:175:兵器速度変化(弱化)",
@@ -3486,7 +4732,14 @@
         "兵器速度変化(弱化)",
         "兵器速度変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-175",
+      "statusEffectKey": "statusEffects:index-175",
+      "gameType": "能力変化(弱化)",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:176:会心発生変化(強化)",
@@ -3506,7 +4759,14 @@
         "会心発生変化(強化)",
         "会心発生変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-176",
+      "statusEffectKey": "statusEffects:index-176",
+      "gameType": "能力変化(強化)",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:177:会心発生変化(弱化)",
@@ -3526,7 +4786,14 @@
         "会心発生変化(弱化)",
         "会心発生変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-177",
+      "statusEffectKey": "statusEffects:index-177",
+      "gameType": "能力変化(弱化)",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:178:会心威力変化(強化)",
@@ -3546,7 +4813,14 @@
         "会心威力変化(強化)",
         "会心威力変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-178",
+      "statusEffectKey": "statusEffects:index-178",
+      "gameType": "能力変化(強化)",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:179:会心威力変化(弱化)",
@@ -3566,7 +4840,14 @@
         "会心威力変化(弱化)",
         "会心威力変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-179",
+      "statusEffectKey": "statusEffects:index-179",
+      "gameType": "能力変化(弱化)",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:180:撃心発生変化(強化)",
@@ -3586,7 +4867,14 @@
         "撃心発生変化(強化)",
         "撃心発生変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-180",
+      "statusEffectKey": "statusEffects:index-180",
+      "gameType": "能力変化(強化)",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:181:撃心発生変化(弱化)",
@@ -3606,7 +4894,14 @@
         "撃心発生変化(弱化)",
         "撃心発生変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-181",
+      "statusEffectKey": "statusEffects:index-181",
+      "gameType": "能力変化(弱化)",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:182:撃心威力変化(強化)",
@@ -3626,7 +4921,14 @@
         "撃心威力変化(強化)",
         "撃心威力変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-182",
+      "statusEffectKey": "statusEffects:index-182",
+      "gameType": "能力変化(強化)",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:183:撃心威力変化(弱化)",
@@ -3646,7 +4948,14 @@
         "撃心威力変化(弱化)",
         "撃心威力変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-183",
+      "statusEffectKey": "statusEffects:index-183",
+      "gameType": "能力変化(弱化)",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:184:戦法威力変化(強化)",
@@ -3666,7 +4975,14 @@
         "戦法威力変化(強化)",
         "戦法威力変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-184",
+      "statusEffectKey": "statusEffects:index-184",
+      "gameType": "能力変化(強化)",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:185:戦法威力変化(弱化)",
@@ -3686,7 +5002,14 @@
         "戦法威力変化(弱化)",
         "戦法威力変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-185",
+      "statusEffectKey": "statusEffects:index-185",
+      "gameType": "能力変化(弱化)",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:186:命中変化(強化)",
@@ -3706,7 +5029,14 @@
         "命中変化(強化)",
         "命中変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-186",
+      "statusEffectKey": "statusEffects:index-186",
+      "gameType": "能力変化(強化)",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:187:命中変化(弱化)",
@@ -3726,7 +5056,14 @@
         "命中変化(弱化)",
         "命中変化"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:117",
+      "statusEffectKey": "statusEffects:117",
+      "gameType": "能力変化(弱化)",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:188:火耐性変化(強化)",
@@ -3746,7 +5083,14 @@
         "火耐性変化(強化)",
         "火耐性変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-188",
+      "statusEffectKey": "statusEffects:index-188",
+      "gameType": "能力変化(強化)",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:189:火耐性変化(弱化)",
@@ -3766,7 +5110,14 @@
         "火耐性変化(弱化)",
         "火耐性変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-189",
+      "statusEffectKey": "statusEffects:index-189",
+      "gameType": "能力変化(弱化)",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:190:生存割合変化(強化)",
@@ -3786,7 +5137,14 @@
         "生存割合変化(強化)",
         "生存割合変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-190",
+      "statusEffectKey": "statusEffects:index-190",
+      "gameType": "能力変化(強化)",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:191:生存割合変化(弱化)",
@@ -3806,7 +5164,14 @@
         "生存割合変化(弱化)",
         "生存割合変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-191",
+      "statusEffectKey": "statusEffects:index-191",
+      "gameType": "能力変化(弱化)",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:192:与ダメージ変化(強化)",
@@ -3826,7 +5191,14 @@
         "与ダメージ変化(強化)",
         "与ダメージ変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-192",
+      "statusEffectKey": "statusEffects:index-192",
+      "gameType": "能力変化(強化)",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:193:与ダメージ変化(弱化)",
@@ -3846,7 +5218,14 @@
         "与ダメージ変化(弱化)",
         "与ダメージ変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-193",
+      "statusEffectKey": "statusEffects:index-193",
+      "gameType": "能力変化(弱化)",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:194:被ダメージ変化(強化)",
@@ -3866,7 +5245,14 @@
         "被ダメージ変化(強化)",
         "被ダメージ変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-194",
+      "statusEffectKey": "statusEffects:index-194",
+      "gameType": "能力変化(強化)",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:195:被ダメージ変化(弱化)",
@@ -3886,7 +5272,14 @@
         "被ダメージ変化(弱化)",
         "被ダメージ変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-195",
+      "statusEffectKey": "statusEffects:index-195",
+      "gameType": "能力変化(弱化)",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:196:通常攻撃威力変化(強化)",
@@ -3906,7 +5299,14 @@
         "通常攻撃威力変化(強化)",
         "通常攻撃威力変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-196",
+      "statusEffectKey": "statusEffects:index-196",
+      "gameType": "能力変化(強化)",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:197:通常攻撃威力変化(弱化)",
@@ -3926,7 +5326,14 @@
         "通常攻撃威力変化(弱化)",
         "通常攻撃威力変化"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-197",
+      "statusEffectKey": "statusEffects:index-197",
+      "gameType": "能力変化(弱化)",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:198:火属性戦法威力(強化)",
@@ -3946,7 +5353,14 @@
         "火属性戦法威力(強化)",
         "火属性戦法威力"
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163",
+      "sourceEntityKey": "statusEffects:120",
+      "statusEffectKey": "statusEffects:120",
+      "gameType": "能力変化(強化)",
+      "actorPolarity": "selfPositive",
+      "groupTargetSide": "self",
+      "groupDirection": "buff",
+      "sourcePartType": "status_master"
     },
     {
       "id": "status_effects:199:火属性戦法威力(弱化)",
@@ -3966,7 +5380,15 @@
         "火属性戦法威力(弱化)",
         "火属性戦法威力"
       ],
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "sourceEntityKey": "statusEffects:index-199",
+      "statusEffectKey": "statusEffects:index-199",
+      "gameType": "能力変化(弱化)",
+      "actorPolarity": "enemyNegative",
+      "groupTargetSide": "enemy",
+      "groupDirection": "debuff",
+      "sourcePartType": "status_master"
     }
-  ]
+  ],
+  "contractVersion": "1.0"
 }
