@@ -1008,7 +1008,7 @@
 ### 7. Git commit and pull request
 
 - base: `feature/app-3.0.0.0` / `49a71accb3228c7a8a82b3988150186d15dd19e1`。
-- head: `codex/json-index-contract` / `16f66dc`。
+- head: `codex/json-index-contract` / `d73041a`（最終head）。
 - draft PR: https://github.com/mytemark2/hado_library/pull/207（base `feature/app-3.0.0.0`）。
 
 ### 8. GitHub Actions result
@@ -1019,7 +1019,7 @@
 
 - public URL: `https://mytemark2.github.io/hado_library-preview/`
 - displayed version: intended `3.0.0.0 Update09.5.41 r131`。現在の公開値は `3.0.0.0 Update09.5.41`（revisionなし）。
-- marker: 現在の `PREVIEW_SOURCE_COMMIT.txt=49a71accb3228c7a8a82b3988150186d15dd19e1`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.41`。意図した `d416d2bc9d37a14bc94749611f2f348ffe6abfe4` / `codex/json-index-contract` / `3.0.0.0 Update09.5.41 r131` と不一致。
+- marker: 現在の `PREVIEW_SOURCE_COMMIT.txt=49a71accb3228c7a8a82b3988150186d15dd19e1`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.41`。意図した `d73041a492c69b6fede310d2cf3d5f2ea230d471` / `codex/json-index-contract` / `3.0.0.0 Update09.5.41 r131` と不一致。
 - preview repository commit、runtime asset、DOM、検索/詳細/部隊編成/Import/Export、PC/スマホ、debug log: 未確認。
 - status: **BLOCKED / not preview-complete**（PRは作成済みだが未mergeのため）。
 
