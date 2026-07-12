@@ -1096,3 +1096,12 @@
 - 影響範囲: 武将全文検索。他武将一覧だけを除外し、本人説明内の対戦相手・史実・技能効果に現れる武将名は維持する。
 - HTMLサイズ差: 0 bytes。ロジックは外部 `hado_status_effects.js` に維持する。
 - 最小受入操作: `関羽` でLR夏侯淵と所有者一覧だけが一致元の武将が表示されず、LR関羽と説明・列伝に実記載がある武将は残ることを確認する。
+
+### Update09.5.52 — Debug Log表示回帰の修正報告
+
+- 分類: UI表示状態とCSS初期非表示クラスの同期不備。
+- 根本原因: `renderDebugPanel()` はinline `display` とbodyクラスだけを更新し、HTML初期状態の `hidden-panel` を解除していなかったため、ログ生成成功後もパネルが非表示だった。
+- 恒久対策: `state.showRawJson` からパネルの `hidden-panel`、inline表示、bodyレイアウトを同時更新し、実行型Nodeテストを常設検証へ追加した。
+- 影響範囲: PC/スマホの診断メニューにある `ログ表示`。ログ生成・ログコピー、検索、詳細、編成、保存データ形式は変更しない。
+- HTMLサイズ差: +15 bytes（`hado_core.js` cache key追加分のみ）。ロジックは外部 `hado_core.js` に維持する。
+- 最小受入操作: 公開Previewの `？` → `ログ表示` をONにし、Debug Logパネルと `debugPanel:toggle` を含む要約が表示されることを確認する。

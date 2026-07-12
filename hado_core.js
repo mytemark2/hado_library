@@ -272,6 +272,7 @@ state._debugPanelItem=item||null;
 state._debugPanelExtraText=extraText||'';
 cancelDebugPanelRender();
 document.body.classList.toggle('debug-panel-visible',!!state.showRawJson);
+els.debugPanel.classList.toggle('hidden-panel',!state.showRawJson);
 if(typeof schedulePcSearchViewportLayout==='function')schedulePcSearchViewportLayout('debugPanel:visibility');
 if(!state.showRawJson){els.debugPanel.style.display='none';els.debugPanelContent.textContent='';setDebugCopyButtonEnabled(true);return;}
 els.debugPanel.style.display='';setDebugCopyButtonEnabled(false);
