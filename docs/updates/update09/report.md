@@ -1078,3 +1078,12 @@
 - 影響範囲: 武将全文検索のうち、五行適正・他武将一覧にだけ検索語が存在するケース。武将本人の名称・説明・戦法・技能・列伝は検索対象として維持する。
 - HTMLサイズ差: cache-bust queryの+15 bytes。処理は `hado_status_effects.js` に外部化したまま維持する。
 - 最小受入操作: 公開Previewで武将だけを選び `関羽` を検索し、LR夏侯淵・盾兵が結果に含まれないことを確認する。
+
+### Update09.5.50 — 公開表示版キャッシュ不整合の修正報告
+
+- 分類: Preview runtime asset cache不整合。
+- 根本原因: 検索runtimeだけにcache keyを付け、表示版の単一正本 `hado_version.js` は固定URLのままだった。
+- 恒久対策: 表示版と検索runtimeへ同一cache keyを要求する実行テストを常設する。
+- 影響範囲: 公開Previewの見出し・title・ガイド表示版。検索データと保存データ形式には変更なし。
+- HTMLサイズ差: +15 bytes。外部runtime参照のcache keyだけを変更し、ロジックは外部JavaScriptに維持する。
+- 最小受入操作: 公開Previewで `Update09.5.50 r140` を確認後、`関羽` 検索でLR夏侯淵が表示されないことを確認する。

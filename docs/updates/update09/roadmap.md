@@ -140,3 +140,8 @@ Update08までに実装した型編成ナビ、候補トレイ、保存データ
 
 - runtime正規化後も表の出典indexを保持し、他武将一覧を本人の検索文へ混入させない。
 - 完了条件は、LR夏侯淵の実JSON回帰、全アプリ検証、公開Previewでの `関羽` 実検索、Actions/marker一致とする。
+
+### Update09.5.50 公開runtime cache整合
+
+- `hado_version.js` と検索runtimeへ同一update/revision cache keyを設定する。
+- 完了条件は、公開見出し `Update09.5.50 r140`、一時バナー自動非表示、LR夏侯淵除外の実ブラウザ確認とする。

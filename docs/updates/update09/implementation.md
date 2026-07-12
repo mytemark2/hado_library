@@ -983,3 +983,10 @@
 - 専用テストを `tools/run_app_validation.py` の常設検証へ追加した。文字列の存在確認だけで合格していた旧テストは廃止した。
 - `hado_status_effects.js` の公開キャッシュ識別子を `09.5.49-r139` とし、可視版を `Update09.5.49 r139` へ更新した。
 - HTMLへのロジック追加はなく、既存外部JavaScriptへ実装した。`index.html` の差はcache-bust queryの+15 bytesのみ。
+
+### Update09.5.50 — 表示版と検索runtimeの同時キャッシュ更新
+
+- 公開Previewの実検索ではLR夏侯淵除外が成功した一方、`hado_version.js` だけが旧キャッシュから読み込まれ、画面見出しが `Update09.5.48 r138` のまま残る不整合を確認した。
+- `hado_version.js` と `hado_status_effects.js` の両方に同一の `09.5.50-r140` cache keyを付け、表示版と検索修正が同じデプロイ単位で取得されるようにする。
+- 回帰テストは `hado_version.js` のupdate/revisionから期待cache keyを生成し、両runtime参照が一致することを検証する。
+- 可視版を `Update09.5.50 r140` へ更新した。HTMLへのロジック追加はなく、`index.html` はversion cache keyの+15 bytesのみ。
