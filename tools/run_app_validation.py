@@ -50,6 +50,7 @@ COMMANDS.extend(
         ["node", "tools/test_update09_5_44_bounded_public_json_load.js"],
         ["node", "tools/test_update09_5_45_bootstrap_cache_bust.js"],
         ["node", "tools/test_update09_5_46_web_startup_light_gate.js"],
+        ["node", "tools/test_update09_5_47_general_search_roster_exclusion.js"],
         ["node", "tools/test_json_index_contract.js"],
         ["python3", "tools/validate_legacy_hado_app_not_loaded.py"],
         ["python3", "tools/validate_update_version_consistency.py"],

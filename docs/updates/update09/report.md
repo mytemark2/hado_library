@@ -1069,3 +1069,12 @@
 - 影響範囲: アプリ正本push後のPreview同期、Pages完了待機、公開marker確認。検索・詳細・編成・保存データ・JSON契約・runtimeには変更なし。
 - HTMLサイズ差: 0 byte。`hado_version.js` と `HADO_DEV_INFO.json` は変更しない。
 - 最小受入操作: 正本branchへのpush後、`Notify Hado Library Preview` とPreview側 `Deploy Hado Library Preview` が成功し、公開3 markerが正本commit/branch/versionと一致することを確認する。
+
+### Update09.5.49 — 武将検索デグレ修正報告
+
+- 分類: runtime正規化時の出典情報欠落と回帰テスト不足。
+- 根本原因: object表の `index` をrows配列へ変換する際に破棄し、実検索経路ではtable 20/21除外が成立しなかった。旧テストは実検索文を生成せず、常設検証にも未登録だった。
+- 恒久対策: 表の `_sourceIndex` を非列挙メタとして保持し、raw/normalized両方をJSON化前に同じ除外関数へ通す。LR夏侯淵の実データによるruntime検索文テストを常設化する。
+- 影響範囲: 武将全文検索のうち、五行適正・他武将一覧にだけ検索語が存在するケース。武将本人の名称・説明・戦法・技能・列伝は検索対象として維持する。
+- HTMLサイズ差: cache-bust queryの+15 bytes。処理は `hado_status_effects.js` に外部化したまま維持する。
+- 最小受入操作: 公開Previewで武将だけを選び `関羽` を検索し、LR夏侯淵・盾兵が結果に含まれないことを確認する。
