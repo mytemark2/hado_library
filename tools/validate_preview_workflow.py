@@ -19,6 +19,7 @@ REQUIRED = (
     "Preflight preview token permissions",
     "repository access check",
     "Pages workflow visibility check",
+    'workflow_file="deploy-preview.yml"',
     "Sync preview repository contents",
     "for attempt in 1 2 3",
     "Preview repository main changed during push; retrying with a fresh clone.",
@@ -58,6 +59,7 @@ FORBIDDEN = (
     "PYPREVIEW",
     "git add -A",
     "rsync -a --delete",
+    'workflow_file="jekyll-gh-pages.yml"',
 )
 
 

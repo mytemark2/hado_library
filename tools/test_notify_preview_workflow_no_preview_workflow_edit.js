@@ -6,6 +6,9 @@ const root = path.resolve(__dirname, '..');
 const workflowPath = path.join(root, '.github', 'workflows', 'notify-preview.yml');
 const workflow = fs.readFileSync(workflowPath, 'utf8');
 
+assert(workflow.includes('workflow_file="deploy-preview.yml"'), 'preview monitor must target the canonical deploy-preview workflow');
+assert(!workflow.includes('workflow_file="jekyll-gh-pages.yml"'), 'preview monitor must not target a retired duplicate Jekyll workflow');
+
 function sectionBetween(startMarker, endMarker) {
   const start = workflow.indexOf(startMarker);
   assert(start >= 0, `missing section start: ${startMarker}`);
