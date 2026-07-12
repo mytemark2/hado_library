@@ -1105,3 +1105,12 @@
 - 影響範囲: PC/スマホの診断メニューにある `ログ表示`。ログ生成・ログコピー、検索、詳細、編成、保存データ形式は変更しない。
 - HTMLサイズ差: +15 bytes（`hado_core.js` cache key追加分のみ）。ロジックは外部 `hado_core.js` に維持する。
 - 最小受入操作: 公開Previewの `？` → `ログ表示` をONにし、Debug Logパネルと `debugPanel:toggle` を含む要約が表示されることを確認する。
+- 検証: `python tools/run_app_validation.py` 107/107 pass。専用Debug Log runtimeテスト、`関羽`検索実fixture、20派生JSON契約、検索・詳細・編成・保存互換・レスポンシブ契約を含む。
+- Git: base `c2470dd4ca8b76e03956900864f50e274ea5fac5`、head `e601aa05083770580222029dd2e125361e631adf`、PR #221、merge `15b38a9f3d77b446479fd4884f25b8547801119a`。merge-readinessはmerge-base一致・競合なし。
+- Actions: PR `App Validation / app-validation` run 29195286043 success。正規push `Notify Hado Library Preview` run 29195315396 success。Preview `Deploy Hado Library Preview` run 29195328400 success。
+- Preview repository: `main` HEAD `ac26259361aa50aa751d8a1b7a2dfcca30467c0f`。`index.html`、`hado_formation.js`、`hado_styles.css`、`.nojekyll`、34 `hadou_*.json`、3 markerが存在する。
+- 公開marker: `PREVIEW_SOURCE_COMMIT.txt=15b38a9f3d77b446479fd4884f25b8547801119a`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.52`。cache-bust付き公開URLはいずれもHTTP 200。
+- 公開PC操作: `Update09.5.52 r142`、ロード中バナーは `position:relative`、ロード完了後は `hidden=true` / `aria-hidden=true` / `display:none`。`関羽`は108件、LR夏侯淵・盾兵0件、UR花鬘0件、LR関羽1件。
+- 公開Debug Log: `ログ表示` ONで `hidden-panel` が解除され `display:block`、2,407文字の要約と `debugPanel:toggle` を確認。ブラウザwarning/errorは0件。
+- 公開スマホ操作: 390x844で検索欄・108件表示・Debug Logパネルを確認。body 375/375px、パネル幅355pxで横あふれなし。
+- 残課題: なし。
