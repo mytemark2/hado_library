@@ -1004,3 +1004,4 @@
 - `renderDebugPanel()` が表示状態と同じ正本値 `state.showRawJson` から `hidden-panel` を付け外しし、既存のbodyレイアウトクラス・非同期ログ生成と同期するようにした。
 - `tools/test_update09_5_52_debug_panel_visibility.js` はOFF時の非表示とON時のクラス解除・本文生成を実行し、常設検証へ追加した。
 - 公開キャッシュ対策として `hado_core.js`、`hado_status_effects.js`、`hado_version.js` を同じ `09.5.52-r142` keyで取得する。HTMLへロジックは追加せず、`index.html` の正規化後サイズ差はcore cache key分の+15 bytes。
+- PR #221マージ後、公開Previewで初期バナーの通常配置、ロード後非表示、`関羽`検索、Debug Log表示、390px幅の横あふれなしを実操作確認した。
