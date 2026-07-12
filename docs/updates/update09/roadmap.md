@@ -135,3 +135,8 @@ Update08までに実装した型編成ナビ、候補トレイ、保存データ
 
 - `deploy-preview.yml` へPages公開を一本化し、アプリ側の完了待機と公開marker確認を同じ経路へ揃える。
 - 完了条件は、両リポジトリのworkflow検証、Preview側Pages成功、公開commit/branch/version marker一致とする。
+
+### Update09.5.49 武将検索表出典保持
+
+- runtime正規化後も表の出典indexを保持し、他武将一覧を本人の検索文へ混入させない。
+- 完了条件は、LR夏侯淵の実JSON回帰、全アプリ検証、公開Previewでの `関羽` 実検索、Actions/marker一致とする。

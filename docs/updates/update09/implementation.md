@@ -974,3 +974,12 @@
 - Preview成果物に `PREVIEW_SOURCE_COMMIT.txt`、`PREVIEW_SOURCE_BRANCH.txt`、`PREVIEW_DISPLAY_VERSION.txt` を生成し、表示版は単一正本 `hado_version.js` から解決してアプリ側の公開marker検証と一致させる。
 - 再発防止として、Previewデプロイ開始時にPagesデプロイworkflowが `deploy-preview.yml` の1本だけであることを検証する。
 - `index.html` とruntimeは未変更、HTMLサイズ差は0 byte。公開アプリの表示内容を変更しない運用修正のため、`Update09.5.48 r138` は据え置く。
+
+### Update09.5.49 — 武将検索の表出典保持
+
+- `hadou_generals.json` の表は `{index, rows}` 形式だが、runtime正規化で配列へ変換した際に `index` が失われ、五行適正の他武将一覧（table 20/21）を検索対象から除外できていなかった。
+- 正規化した表へ非列挙の `_sourceIndex` を保持し、再正規化後も出典indexを維持する。raw検索用コピーはJSON化する前に除外判定する。
+- LR夏侯淵・盾兵の実JSONを二重正規化して検索文を生成し、元データには `関羽` がある一方、runtime検索文には含まれないことを検証するNodeテストへ変更した。
+- 専用テストを `tools/run_app_validation.py` の常設検証へ追加した。文字列の存在確認だけで合格していた旧テストは廃止した。
+- `hado_status_effects.js` の公開キャッシュ識別子を `09.5.49-r139` とし、可視版を `Update09.5.49 r139` へ更新した。
+- HTMLへのロジック追加はなく、既存外部JavaScriptへ実装した。`index.html` の差はcache-bust queryの+15 bytesのみ。
