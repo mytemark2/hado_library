@@ -91,7 +91,7 @@ jobs:
         run: |
           set -euo pipefail
           api_root="https://api.github.com/repos/mytemark2/hado_library-preview"
-          workflow_file="jekyll-gh-pages.yml"
+          workflow_file="deploy-preview.yml"
           auth_header="Authorization: Bearer ${PREVIEW_REPO_TOKEN}"
           accept_header="Accept: application/vnd.github+json"
           version_header="X-GitHub-Api-Version: 2022-11-28"
@@ -154,8 +154,8 @@ jobs:
             echo "Preview sync attempt ${attempt}/3"
             git clone --depth 1 "https://x-access-token:${PREVIEW_REPO_TOKEN}@github.com/mytemark2/hado_library-preview.git" "${PREVIEW_DIR}"
 
-            if [ ! -f "${PREVIEW_DIR}/.github/workflows/jekyll-gh-pages.yml" ]; then
-              echo "Preview Pages workflow .github/workflows/jekyll-gh-pages.yml was not found in mytemark2/hado_library-preview." >&2
+            if [ ! -f "${PREVIEW_DIR}/.github/workflows/deploy-preview.yml" ]; then
+              echo "Preview Pages workflow .github/workflows/deploy-preview.yml was not found in mytemark2/hado_library-preview." >&2
               exit 1
             fi
 
@@ -249,7 +249,7 @@ jobs:
             cat "${push_output}" >&2 || true
             if grep -qiE 'without[^[:cntrl:]]*workflow scope|workflow scope|refusing to allow[^[:cntrl:]]*workflow' "${push_output}"; then
               echo "Preview repository push failed: workflow file was staged or preview token lacks workflow scope." >&2
-              echo "The app preview sync must not edit mytemark2/hado_library-preview/.github/workflows/jekyll-gh-pages.yml; fix preview workflow settings separately with workflow-scoped permission." >&2
+              echo "The app preview sync must not edit mytemark2/hado_library-preview/.github/workflows/deploy-preview.yml; fix preview workflow settings separately with workflow-scoped permission." >&2
               rm -f "${push_output}"
               rm -rf "${PREVIEW_DIR}"
               exit 1
@@ -287,7 +287,7 @@ jobs:
         run: |
           set -euo pipefail
           api_root="https://api.github.com/repos/mytemark2/hado_library-preview"
-          workflow_file="jekyll-gh-pages.yml"
+          workflow_file="deploy-preview.yml"
           auth_header="Authorization: Bearer ${PREVIEW_REPO_TOKEN}"
           accept_header="Accept: application/vnd.github+json"
           version_header="X-GitHub-Api-Version: 2022-11-28"

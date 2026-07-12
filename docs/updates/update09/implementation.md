@@ -966,3 +966,11 @@
 - HTMLサイズは版クエリ分のみ増加。JavaScript本体は引き続き外部化する。
 - in-app browserは実行環境が `C:\Users\mytem\AppData` の参照を拒否して起動不能だったため、PC/スマホの実操作は未確認として残す。
 - GitHub Actions、実preview repository、公開PagesはPR/merge後に確認し、未確認の間はpreview未完了とする。
+
+### Update09.5.48 — Preview Pages監視経路の統一（表示バージョン据え置き）
+
+- `notify-preview.yml` が廃止対象の `jekyll-gh-pages.yml` を監視していたため、実際に公開を担当する `deploy-preview.yml` を監視対象とする。
+- Preview側は `deploy-preview.yml` だけが `actions/deploy-pages` を実行し、重複していたJekyll Pagesワークフロー2本を削除する。
+- Preview成果物に `PREVIEW_SOURCE_COMMIT.txt`、`PREVIEW_SOURCE_BRANCH.txt`、`PREVIEW_DISPLAY_VERSION.txt` を生成し、表示版は単一正本 `hado_version.js` から解決してアプリ側の公開marker検証と一致させる。
+- 再発防止として、Previewデプロイ開始時にPagesデプロイworkflowが `deploy-preview.yml` の1本だけであることを検証する。
+- `index.html` とruntimeは未変更、HTMLサイズ差は0 byte。公開アプリの表示内容を変更しない運用修正のため、`Update09.5.48 r138` は据え置く。

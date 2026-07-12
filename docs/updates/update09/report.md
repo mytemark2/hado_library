@@ -1060,3 +1060,12 @@
 ### 11. Remaining issues
 
 - PR、GitHub Actions、merge、イベント駆動preview同期、公開Pages実機確認が未実施。これらが完了するまで本作業はpreview-completeではない。
+
+### Update09.5.48 — Preview Pages監視失敗の修正報告
+
+- 分類: CI/デプロイ監視経路の不整合。Preview同期自体と `deploy-preview.yml` のPages公開は成功していたが、アプリ側は競合でキャンセルされた `jekyll-gh-pages.yml` を待機してタイムアウトしていた。
+- 根本原因: PreviewリポジトリにPagesデプロイworkflowが3本併存し、アプリ側監視対象と実際の公開担当が一致していなかった。また実際の公開成果物にcommit/version markerが含まれず、旧 `HADO_DEV_INFO.json.displayVersion` 依存も残っていた。
+- 恒久対策: Pages公開を `deploy-preview.yml` へ一本化し、成果物markerを生成する。Preview側にはデプロイworkflowが1本だけであることを検査する起動時guardを追加する。
+- 影響範囲: アプリ正本push後のPreview同期、Pages完了待機、公開marker確認。検索・詳細・編成・保存データ・JSON契約・runtimeには変更なし。
+- HTMLサイズ差: 0 byte。`hado_version.js` と `HADO_DEV_INFO.json` は変更しない。
+- 最小受入操作: 正本branchへのpush後、`Notify Hado Library Preview` とPreview側 `Deploy Hado Library Preview` が成功し、公開3 markerが正本commit/branch/versionと一致することを確認する。
