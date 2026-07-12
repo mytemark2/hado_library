@@ -3,11 +3,11 @@
   'use strict';
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.0.0.0',
-    updateNo: '09.5.51',
-    revision: 141,
+    updateNo: '09.5.52',
+    revision: 142,
     baseAppVersion: '2.9.6.5',
-    summary: 'Update09.5.51: exclude all other-general roster sections and owner-list lines from search.',
-    updatedAt: '2026-07-12T15:35:00+09:00'
+    summary: 'Update09.5.52: show the generated Debug Log panel when log display is enabled.',
+    updatedAt: '2026-07-12T22:45:00+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;
 })();

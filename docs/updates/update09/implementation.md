@@ -997,3 +997,10 @@
 - 武将本人の説明・戦法・技能効果・列伝は維持し、相性一覧セクション、技能所有者一覧行、装備強化対象一覧行だけを共通サニタイズする。
 - LR夏侯淵の五行表fixtureに加え、UR花鬘の `兵心を持つ武将` fixtureを実検索文テストへ追加した。
 - 可視版と両runtime cache keyを `Update09.5.51 r141` へ更新した。HTMLサイズ差はcache keyの数字置換のみで0 bytes。
+
+### Update09.5.52 — Debug Logパネルの表示復旧
+
+- 公開Previewのセルフチェックで、`ログ表示` ON後にログ本文は生成される一方、`#debugPanel.hidden-panel` が残ってCSSの `display:none` が優先されることを確認した。
+- `renderDebugPanel()` が表示状態と同じ正本値 `state.showRawJson` から `hidden-panel` を付け外しし、既存のbodyレイアウトクラス・非同期ログ生成と同期するようにした。
+- `tools/test_update09_5_52_debug_panel_visibility.js` はOFF時の非表示とON時のクラス解除・本文生成を実行し、常設検証へ追加した。
+- 公開キャッシュ対策として `hado_core.js`、`hado_status_effects.js`、`hado_version.js` を同じ `09.5.52-r142` keyで取得する。HTMLへロジックは追加せず、`index.html` の正規化後サイズ差はcore cache key分の+15 bytes。
