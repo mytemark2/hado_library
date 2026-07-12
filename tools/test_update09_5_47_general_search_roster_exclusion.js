@@ -37,6 +37,8 @@ for (const name of [
   'stringifyWithoutTextSample',
   'isSearchExcludedSection',
   'isSearchExcludedTable',
+  'isSearchExcludedContentLine',
+  'sanitizeSectionForSearch',
   'sanitizeRawForSearch',
   'buildSearchableText',
 ]) {
@@ -82,6 +84,28 @@ if (searchableText.includes('関羽')) {
 }
 if (!searchableText.includes('夏侯淵')) {
   throw new Error('runtime search text lost the general own name');
+}
+
+const huaman = items.find(item => String(item.name || '').includes('UR花鬘'));
+if (!huaman) throw new Error('UR花鬘 fixture missing');
+const huamanOwnerRoster = (huaman.sections || [])
+  .flatMap(section => section.content || [])
+  .find(line => String(line).includes('兵心を持つ武将') && String(line).includes('LR関羽'));
+if (!huamanOwnerRoster) throw new Error('skill-owner roster fixture missing');
+const huamanTables = context.normalizeHadouTables(huaman.tables);
+const huamanRuntime = {
+  name: huaman.name,
+  title: huaman.title,
+  description: huaman.description || '',
+  category: huaman.category || '武将',
+  sourceDataset: 'generals',
+  tables: context.normalizeHadouTables(huamanTables),
+  sections: huaman.sections || [],
+  raw: { ...huaman, tables: huamanTables },
+  searchTokens: [huaman.name, huaman.title].filter(Boolean),
+};
+if (context.buildSearchableText(huamanRuntime).includes('関羽')) {
+  throw new Error('UR花鬘 runtime search text still contains another-general roster 関羽');
 }
 const versionSource = fs.readFileSync('hado_version.js', 'utf8');
 const updateNo = versionSource.match(/updateNo:\s*'([^']+)'/)?.[1];

@@ -990,3 +990,10 @@
 - `hado_version.js` と `hado_status_effects.js` の両方に同一の `09.5.50-r140` cache keyを付け、表示版と検索修正が同じデプロイ単位で取得されるようにする。
 - 回帰テストは `hado_version.js` のupdate/revisionから期待cache keyを生成し、両runtime参照が一致することを検証する。
 - 可視版を `Update09.5.50 r140` へ更新した。HTMLへのロジック追加はなく、`index.html` はversion cache keyの+15 bytesのみ。
+
+### Update09.5.51 — 全他武将一覧の検索除外
+
+- 追加監査で、五行表以外に `相性の良いLR/UR/SSR/SR/N・R武将` 子セクションと、技能説明内の `○○を持つ武将` 行が検索対象へ残っていることを確認した。
+- 武将本人の説明・戦法・技能効果・列伝は維持し、相性一覧セクション、技能所有者一覧行、装備強化対象一覧行だけを共通サニタイズする。
+- LR夏侯淵の五行表fixtureに加え、UR花鬘の `兵心を持つ武将` fixtureを実検索文テストへ追加した。
+- 可視版と両runtime cache keyを `Update09.5.51 r141` へ更新した。HTMLサイズ差はcache keyの数字置換のみで0 bytes。
