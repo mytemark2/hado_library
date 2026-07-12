@@ -13,7 +13,7 @@ DERIVED_KEYS = {"releaseVersion", "updateNo", "displayVersion", "revision"}
 
 
 def script_sources(html: str) -> list[str]:
-    return re.findall(r'<script\s+src="\./([^"]+\.js)"\s*>\s*</script>', html)
+    return re.findall(r'<script\s+src="\./([^"]+?\.js)(?:\?[^"]*)?"\s*>\s*</script>', html)
 
 
 def version_field(source: str, key: str) -> str:

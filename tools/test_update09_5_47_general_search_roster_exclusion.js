@@ -83,8 +83,14 @@ if (searchableText.includes('関羽')) {
 if (!searchableText.includes('夏侯淵')) {
   throw new Error('runtime search text lost the general own name');
 }
-if (!html.includes('hado_status_effects.js?v=09.5.49-r139')) {
-  throw new Error('status-effect runtime cache bust is missing');
+const versionSource = fs.readFileSync('hado_version.js', 'utf8');
+const updateNo = versionSource.match(/updateNo:\s*'([^']+)'/)?.[1];
+const revision = versionSource.match(/revision:\s*(\d+)/)?.[1];
+const cacheKey = `${updateNo}-r${revision}`;
+for (const asset of ['hado_version.js', 'hado_status_effects.js']) {
+  if (!html.includes(`${asset}?v=${cacheKey}`)) {
+    throw new Error(`${asset} cache bust does not match ${cacheKey}`);
+  }
 }
 
 console.log('PASS general roster exclusion after runtime table normalization');
