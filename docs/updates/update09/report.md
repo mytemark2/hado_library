@@ -1145,4 +1145,12 @@
 - HTMLサイズ差: 0 bytes。検索制御は外部 `hado_bootstrap.js` に実装し、HTMLは同長のcache key更新だけとした。
 - ローカル検証: `node tools/test_update09_5_54_ime_search_commit.js` と `python tools/run_app_validation.py` 109/109 pass。PC/390x844実ブラウザで `Update09.5.54 r144`、`関羽` 6件、横あふれなし、warning/error 0件を確認した。
 - 最小受入操作: 公開Previewの検索欄で日本語IMEを使い、未確定文字列では結果が変化せず、変換確定後に一度だけ結果が更新されることを確認する。
-- 現在の状態: 実装・検証・公開反映中。Git、Actions、Preview結果は完了後に追記する。
+- Git: canonical base `221aed0dcef822bbbf15042e997e555aff9dd3a9`、実装head `0b2bb8f63d36ea7358a7277ae2c5f24652addc17`、PR #225、merge `3cd15a144cfa505e5ce4e933501194ab8e32e8de`。`python -X utf8 tools/check_pr_merge_readiness.py --base feature/app-3.0.0.0` はmerge-base一致・競合なし。
+- Actions: PR `App Validation / app-validation` run 29254265323 success。正本push `Notify Hado Library Preview` run 29254328923 success。Preview `Deploy Hado Library Preview` run 29254435814 success。
+- Preview repository: `main` HEAD `3aa03f2170051186c40c9216ce97fdc74e85cb28`。`index.html`、`hado_formation.js`、`hado_styles.css`、`hado_bootstrap.js`、`.nojekyll`、34 `hadou_*.json`、3 markerが存在する。
+- 公開marker: `PREVIEW_SOURCE_COMMIT.txt=3cd15a144cfa505e5ce4e933501194ab8e32e8de`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.54`。
+- 公開runtime: `hado_bootstrap.js` にIME検索commit marker、`compositionstart`、`compositionend`、確定直後の重複input抑止、IME Enterの履歴除外が配備されていることをGitHub APIで確認した。
+- 公開PC操作: `Update09.5.54 r144`、JSON 100/100読込完了、ロードoverlay非表示、`関羽` が6件（LR周倉、LR関羽、LR関銀屏、UR廖化、UR関羽、関羽）、body 1280/1280px。
+- 公開スマホ操作: 390x844で同じ6件、body 375/375px、検索パネル表示、横あふれなし。
+- 公開Debug Log: `ログ表示` ONで `debugPanel:toggle` を含む要約を確認。ブラウザwarning/errorは0件。
+- 現在の状態: 実装、検証、PR、Actions、Preview同期、公開runtime・実操作確認まで完了。残課題: なし。
