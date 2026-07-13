@@ -1,4 +1,11 @@
 const fs=require('fs');
+const vm=require('vm');
 const html=fs.readFileSync('index.html','utf8');
-if(!html.includes('./hado_bootstrap.js?v=09.5.46-r136'))throw new Error('bootstrap cache-bust version missing');
+const context={window:null};
+context.window=context;
+vm.createContext(context);
+vm.runInContext(fs.readFileSync('hado_version.js','utf8'),context,{filename:'hado_version.js'});
+const version=context.window.HADO_VERSION;
+const cacheKey=`${version.updateNo}-r${version.revision}`;
+if(!html.includes(`./hado_bootstrap.js?v=${cacheKey}`))throw new Error(`bootstrap cache-bust version missing: ${cacheKey}`);
 console.log('PASS Update09.5.45 bootstrap cache bust');
