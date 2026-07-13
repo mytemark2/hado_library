@@ -1015,3 +1015,4 @@
 - 可視バージョンは `3.0.0.0 Update09.5.53 r143`。`hado_version.js`、`HADO_DEV_INFO.json`、`index.html` の3 runtime cache keyを同期した。
 - HTMLへロジックは追加していない。`index.html` のサイズ差はcache keyの同長置換のため0 bytesで、検索ロジックは外部 `hado_status_effects.js` に維持した。
 - Update09.5.51で「説明・列伝を維持」とした境界はユーザー指定と異なっていたため、本Updateの一次情報境界で明示的に置き換える。
+- PR #223マージ後、公開Previewで `関羽` が6件だけになること、範囲外武将が0件であること、PC/390x844表示、Debug Log、両リポジトリActions、公開marker一致を実確認した。

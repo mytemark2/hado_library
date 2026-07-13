@@ -1127,4 +1127,11 @@
 - HTMLサイズ差: 0 bytes。外部化判断は既存の検索runtimeに実装し、HTMLは同長のcache key更新だけとした。
 - ローカル検証: `node tools/test_update09_5_53_general_search_source_boundary.js` pass（6 exact matches）、旧LR夏侯淵回帰もpass。`python tools/run_app_validation.py` は検索・詳細・編成・保存互換・レスポンシブ・20派生JSON契約を含む108/108 pass。ローカル実ブラウザでも `Update09.5.53 r143`、PC/390x844の6件、範囲外武将0件、横あふれなし、warning/error 0件を確認した。
 - 最小受入操作: 公開Previewで武将だけを選び `関羽` を検索し、6件だけが表示され、LR夏侯淵・盾兵や攻略評価/列伝だけに関羽を含む武将が表示されないことを確認する。
-- 現在の状態: 実装・ローカル検証済み。PR・Actions・公開Preview確認は未完了であり、完了するまでpreview-completeではない。
+- Git: canonical base `950f06ed572900561489c2c3927128d3a45c0980`、実装head `f69d482ed94aebea6d173a4223e469baf5c509d2`、PR #223、merge `ede7f8e0bb7ff3182645361e6f8054206df45696`。`python -X utf8 tools/check_pr_merge_readiness.py --base feature/app-3.0.0.0` はmerge-base一致・競合なし。通常実行はWindows CP932の日本語commit decodeで停止したためUTF-8モードで再実行し、競合判定を完了した。
+- Actions: PR `App Validation / app-validation` run 29250871176 success。正本push `Notify Hado Library Preview` run 29250931109 success。Preview `Deploy Hado Library Preview` run 29250959616 success。
+- Preview repository: `main` HEAD `55a3f0450853f202e9b6b09df0aa34b6580203a3`。`index.html`、`hado_formation.js`、`hado_styles.css`、`hado_status_effects.js`、`.nojekyll`、34 `hadou_*.json`、3 markerが存在する。
+- 公開marker: `PREVIEW_SOURCE_COMMIT.txt=ede7f8e0bb7ff3182645361e6f8054206df45696`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.53`。cache-bust付き公開URLはいずれもHTTP 200。
+- 公開PC操作: `Update09.5.53 r143`、JSON 100/100読込完了後に `関羽` が6件。LR周倉、LR関羽、LR関銀屏、UR廖化、UR関羽、関羽だけが表示され、LR夏侯淵・盾兵、攻略評価/列伝由来の代表誤一致は0件。body 1280/1280px。
+- 公開スマホ操作: 390x844で同じ6件、body 375/375px、検索パネル表示、横あふれなし。
+- 公開Debug Log: `ログ表示` ONで `hidden-panel` が解除され `display:block`、2,412文字の要約と `debugPanel:toggle` を確認。ブラウザwarning/errorは0件。
+- 現在の状態: 実装、検証、PR、Actions、Preview同期、公開実操作まで完了。残課題: なし。
