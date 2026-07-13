@@ -1016,3 +1016,11 @@
 - HTMLへロジックは追加していない。`index.html` のサイズ差はcache keyの同長置換のため0 bytesで、検索ロジックは外部 `hado_status_effects.js` に維持した。
 - Update09.5.51で「説明・列伝を維持」とした境界はユーザー指定と異なっていたため、本Updateの一次情報境界で明示的に置き換える。
 - PR #223マージ後、公開Previewで `関羽` が6件だけになること、範囲外武将が0件であること、PC/390x844表示、Debug Log、両リポジトリActions、公開marker一致を実確認した。
+
+### Update09.5.54 — IME確定後検索
+
+- `hado_bootstrap.js` の検索入力へcaptureフェーズのIMEガードを追加した。変換開始時に既存debounceを取り消し、変換中の `input` とIME確定用 `Enter` を通常検索・履歴登録へ渡さない。
+- `compositionend` で確定値の検索を一度だけ予約し、直後に同じ値で発火する `input` は重複イベントとして消費する。次の通常入力は既存debounce経路へ戻す。
+- `preventDefault()` は使用せず、ブラウザとIMEによる文字確定そのものは維持する。`event.isComposing` と旧ブラウザの `keyCode === 229` の両方を判定する。
+- `tools/test_update09_5_54_ime_search_commit.js` で、予約取消、変換中入力、確定時1回検索、重複input除外、IME Enter履歴除外、通常入力・Enter維持を実行検証し、全アプリ検証へ常設した。
+- 可視版を `3.0.0.0 Update09.5.54 r144` とし、変更runtimeを含む4資産のcache keyを同期した。HTMLへロジックは追加せず、`index.html` のサイズ差は同長置換のため0 bytes。

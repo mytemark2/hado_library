@@ -1135,3 +1135,14 @@
 - 公開スマホ操作: 390x844で同じ6件、body 375/375px、検索パネル表示、横あふれなし。
 - 公開Debug Log: `ログ表示` ONで `hidden-panel` が解除され `display:block`、2,412文字の要約と `debugPanel:toggle` を確認。ブラウザwarning/errorは0件。
 - 現在の状態: 実装、検証、PR、Actions、Preview同期、公開実操作まで完了。残課題: なし。
+
+### Update09.5.54 — IME確定後検索の修正報告
+
+- 分類: IME compositionイベントと通常検索debounceの競合。
+- 根本原因: 変換中の `input` だけを状態フラグで除外しており、変換開始前の検索予約、`event.isComposing`、IME確定用Enterの履歴登録、確定直後の重複inputを一貫して扱っていなかった。
+- 恒久対策: 検索入力のcaptureフェーズにIMEイベント境界を集約し、変換開始・変換中・確定・確定直後を1つの状態遷移として扱う実行テストを常設する。
+- 影響範囲: キーワード検索欄のPC/スマホ入力と検索履歴。検索対象・JSON・詳細表示・編成・保存データ形式は変更しないため、Crawler再実行は不要。
+- HTMLサイズ差: 0 bytes。検索制御は外部 `hado_bootstrap.js` に実装し、HTMLは同長のcache key更新だけとした。
+- ローカル検証: `node tools/test_update09_5_54_ime_search_commit.js` と `python tools/run_app_validation.py` 109/109 pass。PC/390x844実ブラウザで `Update09.5.54 r144`、`関羽` 6件、横あふれなし、warning/error 0件を確認した。
+- 最小受入操作: 公開Previewの検索欄で日本語IMEを使い、未確定文字列では結果が変化せず、変換確定後に一度だけ結果が更新されることを確認する。
+- 現在の状態: 実装・検証・公開反映中。Git、Actions、Preview結果は完了後に追記する。
