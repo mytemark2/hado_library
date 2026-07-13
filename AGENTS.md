@@ -109,6 +109,7 @@ Do not silently build a brittle workaround.
 - Verify both `file://` local execution and `https://` preview execution when applicable.
 - Record changed JavaScript files, HTML size increase or decrease, and the externalization decision in the Update documentation.
 - The legacy monolithic `hado_app.js` artifact has been removed; do not recreate it for normal runtime, guide, or Phase update work. Edit the split runtime scripts that `index.html` actually loads.
+- Candidate-tray persistence and placement gates belong to `hado_formation.js`, while `hado_candidate_tray.js` owns only the tray UI. Do not recreate or load the retired duplicate `hado_candidate_tray_core.js` event/placement path.
 
 ### 6.2 Preserve compatibility
 

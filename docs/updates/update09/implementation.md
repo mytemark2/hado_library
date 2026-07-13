@@ -1024,3 +1024,13 @@
 - `preventDefault()` は使用せず、ブラウザとIMEによる文字確定そのものは維持する。`event.isComposing` と旧ブラウザの `keyCode === 229` の両方を判定する。
 - `tools/test_update09_5_54_ime_search_commit.js` で、予約取消、変換中入力、確定時1回検索、重複input除外、IME Enter履歴除外、通常入力・Enter維持を実行検証し、全アプリ検証へ常設した。
 - 可視版を `3.0.0.0 Update09.5.54 r144` とし、変更runtimeを含む4資産のcache keyを同期した。HTMLへロジックは追加せず、`index.html` のサイズ差は同長置換のため0 bytes。
+
+### Update09.5.55 — 型候補一覧の侍従成立ゲート
+
+- 型候補一覧は `hadou_type_search_role_index.json` の `roleId=attendant` を採点していたが、部隊編成側の侍従条件を参照しないため、配置できないLR武将も候補として表示していた。
+- `hado_formation.js` に役割候補の共通ポリシーを追加し、侍従はUR以下だけを許可する。位置・兵科・能力値は従来どおり、実際の親武将と侍従位置が決まった時点で `evaluateJijuAttendantCondition()` が追加判定する。
+- `hado_type_candidates.js` は採点・所有判定より前に共通ポリシーを適用し、LR侍従候補を候補件数と一覧の両方から除外する。主将・副将・補佐のLR候補には影響させない。
+- 候補トレイは行の `roleId` に対応する配置先だけを表示する。侍従候補を主将・副将・補佐へ置き換える経路や、LR侍従をトレイへ追加・配置する経路を拒否する。
+- `hado_candidate_tray_core.js` は `hado_formation.js` と同じイベントを重複購読し、独自の配置先を生成していたためruntimeから削除した。候補トレイUIは `hado_candidate_tray.js`、保存・配置・成立判定は `hado_formation.js` を正本とする。
+- JSON契約とCrawler出力は変更しない。派生索引にLRの侍従ロール行が含まれていても、runtimeの役割成立ゲートで表示対象外にする。
+- 可視版を `3.0.0.0 Update09.5.55 r145` とし、変更runtimeとversion資産のcache keyを同期した。ロジックは外部JavaScriptに実装し、HTMLにはscript参照の整理だけを行った。`index.html` は 28,058 bytes から 28,077 bytes（+19 bytes）。
