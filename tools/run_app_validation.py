@@ -52,6 +52,7 @@ COMMANDS.extend(
         ["node", "tools/test_update09_5_46_web_startup_light_gate.js"],
         ["node", "tools/test_update09_5_47_general_search_roster_exclusion.js"],
         ["node", "tools/test_update09_5_52_debug_panel_visibility.js"],
+        ["node", "tools/test_update09_5_53_general_search_source_boundary.js"],
         ["node", "tools/test_json_index_contract.js"],
         ["python3", "tools/validate_legacy_hado_app_not_loaded.py"],
         ["python3", "tools/validate_update_version_consistency.py"],

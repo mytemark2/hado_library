@@ -1005,3 +1005,13 @@
 - `tools/test_update09_5_52_debug_panel_visibility.js` はOFF時の非表示とON時のクラス解除・本文生成を実行し、常設検証へ追加した。
 - 公開キャッシュ対策として `hado_core.js`、`hado_status_effects.js`、`hado_version.js` を同じ `09.5.52-r142` keyで取得する。HTMLへロジックは追加せず、`index.html` の正規化後サイズ差はcore cache key分の+15 bytes。
 - PR #221マージ後、公開Previewで初期バナーの通常配置、ロード後非表示、`関羽`検索、Debug Log表示、390px幅の横あふれなしを実操作確認した。
+
+### Update09.5.53 — 武将全文検索の一次情報境界
+
+- `hado_status_effects.js` の武将検索サニタイズへ、基本情報セクションの直後から戦法セクションの直前までを攻略評価領域として判定する `isGeneralCommentarySearchSection()` を追加した。
+- 攻略評価領域に加え、`○○の列伝`、`演義`、`正史` を武将全文検索から除外した。既存の相性・五行・専用名宝・所有者一覧除外も同じ経路で維持する。
+- 武将名、基本情報、戦法、技能、能力・兵科等の構造化表は検索対象のまま維持する。これにより `関羽` は本人3件と実際の戦法・技能条件3件の合計6件となる。
+- `tools/test_update09_5_53_general_search_source_boundary.js` は実データ481武将の完全一致6件、代表的な攻略評価/列伝由来の誤一致除外、未知の攻略見出し除外、実際の効果本文維持を検証する。
+- 可視バージョンは `3.0.0.0 Update09.5.53 r143`。`hado_version.js`、`HADO_DEV_INFO.json`、`index.html` の3 runtime cache keyを同期した。
+- HTMLへロジックは追加していない。`index.html` のサイズ差はcache keyの同長置換のため0 bytesで、検索ロジックは外部 `hado_status_effects.js` に維持した。
+- Update09.5.51で「説明・列伝を維持」とした境界はユーザー指定と異なっていたため、本Updateの一次情報境界で明示的に置き換える。

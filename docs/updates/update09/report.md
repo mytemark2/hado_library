@@ -1114,3 +1114,17 @@
 - 公開Debug Log: `ログ表示` ONで `hidden-panel` が解除され `display:block`、2,407文字の要約と `debugPanel:toggle` を確認。ブラウザwarning/errorは0件。
 - 公開スマホ操作: 390x844で検索欄・108件表示・Debug Logパネルを確認。body 375/375px、パネル幅355pxで横あふれなし。
 - 残課題: なし。
+
+### Update09.5.53 — 武将全文検索の範囲外本文除外報告
+
+- 分類: 全文検索の一次情報境界不足による検索結果汚染。
+- 根本原因: 武将ページのsectionsをほぼ全件連結し、ゲーム内の戦法・技能等の実データと、攻略評価・おすすめ・比較コメント・列伝を区別していなかった。Update09.5.51は他武将一覧だけを除外し、「説明・列伝を維持」としたため、108件中105件の範囲外一致が残った。
+- 恒久対策: 基本情報と戦法の間を構造的に攻略評価領域として除外し、列伝・演義・正史も除外する。見出し文言の追加だけに依存しないため、未知の攻略見出しにも適用される。
+- 影響範囲: 武将カテゴリの通常全文検索。武将名、基本情報、戦法、技能、能力・兵科等の実データは維持し、攻略評価・おすすめ・比較・列伝だけを除外する。JSON生成契約や保存データ形式は変更しないため、Crawler再実行は不要。
+- 実データ結果: `関羽` は108件から6件へ縮小。対象はLR周倉、LR関羽、LR関銀屏、UR廖化、UR関羽、関羽で、本人名3件と実際の戦法・技能条件3件だけである。
+- 再発防止: 実データ481武将の期待集合を完全一致で固定し、未知の攻略見出しが戦法前に追加された場合の除外と、戦法後の実効果本文が検索可能であることを常設Nodeテストへ追加した。
+- 変更ファイル: `hado_status_effects.js`、`hado_version.js`、`HADO_DEV_INFO.json`、`index.html`、`tools/test_update09_5_47_general_search_roster_exclusion.js`、`tools/test_update09_5_53_general_search_source_boundary.js`、`tools/run_app_validation.py`、Update09 roadmap/implementation/report。
+- HTMLサイズ差: 0 bytes。外部化判断は既存の検索runtimeに実装し、HTMLは同長のcache key更新だけとした。
+- ローカル検証: `node tools/test_update09_5_53_general_search_source_boundary.js` pass（6 exact matches）、旧LR夏侯淵回帰もpass。`python tools/run_app_validation.py` は検索・詳細・編成・保存互換・レスポンシブ・20派生JSON契約を含む108/108 pass。ローカル実ブラウザでも `Update09.5.53 r143`、PC/390x844の6件、範囲外武将0件、横あふれなし、warning/error 0件を確認した。
+- 最小受入操作: 公開Previewで武将だけを選び `関羽` を検索し、6件だけが表示され、LR夏侯淵・盾兵や攻略評価/列伝だけに関羽を含む武将が表示されないことを確認する。
+- 現在の状態: 実装・ローカル検証済み。PR・Actions・公開Preview確認は未完了であり、完了するまでpreview-completeではない。
