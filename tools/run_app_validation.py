@@ -54,6 +54,7 @@ COMMANDS.extend(
         ["node", "tools/test_update09_5_52_debug_panel_visibility.js"],
         ["node", "tools/test_update09_5_53_general_search_source_boundary.js"],
         ["node", "tools/test_update09_5_54_ime_search_commit.js"],
+        ["node", "tools/test_update09_5_55_attendant_candidate_gate.js"],
         ["node", "tools/test_json_index_contract.js"],
         ["python3", "tools/validate_legacy_hado_app_not_loaded.py"],
         ["python3", "tools/validate_update_version_consistency.py"],
