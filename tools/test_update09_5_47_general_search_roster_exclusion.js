@@ -35,6 +35,7 @@ for (const name of [
   'normalizeHadouTableRows',
   'normalizeHadouTables',
   'stringifyWithoutTextSample',
+  'isGeneralCommentarySearchSection',
   'isSearchExcludedSection',
   'isSearchExcludedTable',
   'isSearchExcludedContentLine',
