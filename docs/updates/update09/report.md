@@ -1164,4 +1164,13 @@
 - 再発防止: 実際の派生索引にLR侍従行が残ることをfixtureとして確認した上で、runtime表示0件、UR許可、他役割LR許可、役割限定配置、重複runtime非読込を検証する専用テストを全アプリ検証へ追加した。
 - HTMLサイズ差: 28,058 bytes から 28,077 bytes（+19 bytes）。ロジックは外部JavaScriptへ実装し、HTML変更はscript参照とcache keyに限定した。
 - 最小受入操作: 型候補一覧の「侍従」でLR武将が0件であること、UR以下の候補が表示されること、候補トレイから侍従候補を配置する際に侍従枠だけが表示されることを確認する。
-- 現在の状態: 実装・検証中。Git、Actions、Preview結果は完了後に追記する。
+- ローカル検証: `python -X utf8 tools/run_app_validation.py` 110/110 pass。実データの派生索引にLR侍従行105件が存在する状態でruntime表示0件、UR許可、他役割LR許可、役割限定配置、旧runtime非読込を確認した。
+- ローカル実操作: PC 1280x900とスマホ390x844の型候補一覧「戦法速度型 → 侍従」で18件、LR 0件。候補トレイへ追加後も役割が「侍従」で維持され、PC/スマホとも横あふれなし、ブラウザwarning/errorは0件。
+- Git: canonical base `946aad5e3dd002e7976bcc4cbea2bd28e130d35e`、実装head `5d05341ea86ed0735f17792b01bd8f1b7629641f`、PR #227、merge `74cac9e548a64c949de8ec9347ec8d527bb96dc1`。`tools/check_pr_merge_readiness.py --base feature/app-3.0.0.0` はmerge-base一致・競合なし。
+- Actions: PR `App Validation / app-validation` run 29258587962 success。正本push `Notify Hado Library Preview` run 29258656731 success。Preview `Deploy Hado Library Preview` run 29258695074 success。
+- Preview repository: `main` HEAD `832af5f807447741d4a21c5b2035bf0017e16d6d`。`index.html`、`hado_formation.js`、`hado_styles.css`、`hado_type_candidates.js`、`.nojekyll`、34 `hadou_*.json`、3 markerが存在する。
+- 公開marker: `PREVIEW_SOURCE_COMMIT.txt=74cac9e548a64c949de8ec9347ec8d527bb96dc1`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.55`。
+- 公開PC操作: `Update09.5.55 r145`、公開JSON読込と索引作成完了後、型候補一覧「戦法速度型 → 侍従」が18件、LR 0件、UR以下18件。候補トレイで「侍従 UR龐統」と役割を維持し、body 1280/1280px。
+- 公開スマホ操作: 390x844で同じ18件、LR 0件、body 375px、横あふれなし。
+- 公開runtime/Debug Log: `hado_formation.js?v=attendant-gate-r145` と `hado_type_candidates.js?v=09.5.55-r145` を実行し、`hado_candidate_tray_core.js` は未読込。`ログ表示` ONで `debugPanel:toggle` を含む要約を確認し、ブラウザwarning/errorは0件。
+- 現在の状態: 実装、110項目検証、PR、両リポジトリActions、Preview同期、公開runtime・PC/スマホ実操作、Debug Logまで完了。残課題: なし。
