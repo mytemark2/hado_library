@@ -1034,3 +1034,14 @@
 - `hado_candidate_tray_core.js` は `hado_formation.js` と同じイベントを重複購読し、独自の配置先を生成していたためruntimeから削除した。候補トレイUIは `hado_candidate_tray.js`、保存・配置・成立判定は `hado_formation.js` を正本とする。
 - JSON契約とCrawler出力は変更しない。派生索引にLRの侍従ロール行が含まれていても、runtimeの役割成立ゲートで表示対象外にする。
 - 可視版を `3.0.0.0 Update09.5.55 r145` とし、変更runtimeとversion資産のcache keyを同期した。ロジックは外部JavaScriptに実装し、HTMLにはscript参照の整理だけを行った。`index.html` は 28,058 bytes から 28,077 bytes（+19 bytes）。
+
+### Update09.5.56 — 検索境界・候補同期・スマホ応答改善
+
+- `hado_status_effects.js` は「兵科の基本能力」「各レベルの能力」「兵科ランク上昇タイミング」「解説」、武将別の `○○の兵科` 親セクション、兵科基本能力表、`解放将星/基礎兵力` 表を武将全文検索から除外する。表番号だけに依存せず表のセル構造でも判定し、通常検索とパラメータ検索の両経路を同じ境界へ揃えた。
+- 兵科表を外しても、基本情報、戦法表、追加効果表、技能本文、能力・五行表に実在する兵力効果は検索対象として残す。実データ回帰では `兵力` が481/481件の全件一致から227/481件へ減少し、実効果を持つ司馬師が残ることを検証した。
+- `hado_type_candidates.js` は候補トレイsnapshotの `roleId/name/typeId` を選択キーとして保持する。削除・全削除snapshotに該当行がなければ `picked` と `pickedTrayKey` を解除し、開いている候補一覧も再描画する。
+- 新規 `hado_type_data_store.js` が `hadou_type_search_role_index.json`、score rules、purpose rulesを1ページ1回だけ取得し、型編成ナビと型候補一覧で同じPromise/結果を共有する。従来の2系統の `cache:no-store` 重複取得を解消した。
+- 型編成ナビは主将候補を初回80件、型候補一覧は初回60件だけDOM化し「さらに表示」で追加する。型候補採点は24件ごとに次フレームへ制御を返し、読込・採点中もモーダルと進捗を先に表示する。
+- `hado_core.js` の全データ/保存データ切替は、保存操作時に更新済みの保存索引を再利用する。検索・詳細は即時更新し、部隊編成再描画は次フレームへ送って入力応答を先に返す。
+- 可視版を `3.0.0.0 Update09.5.56 r146` とし、変更runtimeとversion資産のcache keyを同期した。ロジックはすべて外部JavaScriptへ実装した。Git正規化後の `index.html` は28,057 bytesから28,136 bytes（+79 bytes）で、追加は共通データストアのscript参照とcache keyだけである。
+- Crawler入力・20派生JSON契約・保存データ形式は変更していないため、Crawler再実行やJSON再生成は不要である。

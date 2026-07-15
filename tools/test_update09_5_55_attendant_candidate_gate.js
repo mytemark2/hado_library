@@ -68,7 +68,7 @@ for (const preservedRolePath of ['placeFormationCandidateTrayFormation', 'placeF
 assert(!indexHtml.includes('hado_candidate_tray_core.js'), 'duplicate candidate tray event handler must not be loaded');
 assert(indexHtml.includes('hado_formation.js?v=attendant-gate-r145'), 'formation runtime must use the attendant-gate cache key');
 for (const asset of ['hado_type_candidates.js', 'hado_candidate_tray.js', 'hado_version.js']) {
-  assert(indexHtml.includes(`${asset}?v=09.5.55-r145`), `${asset} must use the Update09.5.55 cache key`);
+  assert(new RegExp(`${asset.replace('.', '\\.') }\\?v=\\d{2}\\.\\d+\\.\\d+-r\\d+`).test(indexHtml), `${asset} must keep a versioned cache key`);
 }
 
 console.log(`Update09.5.55 attendant candidate gate passed: raw LR attendant rows=${lrAttendants.length}, runtime visible=0`);

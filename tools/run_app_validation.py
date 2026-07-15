@@ -21,6 +21,7 @@ COMMANDS: list[list[str]] = [
     ["node", "--check", "hado_formation.js"],
     ["node", "--check", "hado_type_candidates.js"],
     ["node", "--check", "hado_type_entry.js"],
+    ["node", "--check", "hado_type_data_store.js"],
     ["node", "--check", "hado_candidate_tray.js"],
     ["python3", "-m", "json.tool", "HADO_DEV_INFO.json"],
 ]
@@ -55,6 +56,7 @@ COMMANDS.extend(
         ["node", "tools/test_update09_5_53_general_search_source_boundary.js"],
         ["node", "tools/test_update09_5_54_ime_search_commit.js"],
         ["node", "tools/test_update09_5_55_attendant_candidate_gate.js"],
+        ["node", "tools/test_update09_5_56_search_sync_performance.js"],
         ["node", "tools/test_json_index_contract.js"],
         ["python3", "tools/validate_legacy_hado_app_not_loaded.py"],
         ["python3", "tools/validate_update_version_consistency.py"],

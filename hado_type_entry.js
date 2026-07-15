@@ -4,11 +4,6 @@
 
   const STORAGE_KEY = 'hado.typeEntry.selection.v1';
   const EVENT_NAME = 'hado:type-search-entry-selected';
-  const JSON_FILES = {
-    roles: 'hadou_type_search_role_index.json',
-    scoreRules: 'hadou_type_score_rules.json',
-    purposeRules: 'hadou_type_purpose_rules.json'
-  };
   const WIZARD_STEPS = {
     main: ['main', 'purpose', 'type', 'confirm'],
     purpose: ['purpose', 'type', 'confirm'],
@@ -18,14 +13,18 @@
 
   const state = {
     mode: 'main', stepIndex: 0, mainGeneral: null, purposeId: '', typeId: '',
-    showAllPurposes: false, query: '', data: null
+    showAllPurposes: false, query: '', data: null, mainRenderLimit: 80
   };
 
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   function displayVersion() { return window.HADO_APP_DISPLAY_VERSION || window.HADO_APP_VERSION_META?.displayVersion || '3.0.0.0'; }
   const norm = (s) => String(s ?? '').normalize('NFKC').replace(/\s+/g, '').toLowerCase();
   const asItems = (v, keys) => { if (Array.isArray(v)) return v; for (const k of keys) if (Array.isArray(v?.[k])) return v[k]; return []; };
-  const fetchJson = async (file) => { const r = await fetch(file, { cache: 'no-store' }); if (!r.ok) throw new Error(`${file}: HTTP ${r.status}`); return r.json(); };
+  const nextPaint = () => new Promise(resolve => requestAnimationFrame(() => resolve()));
+  async function loadSharedTypeData() {
+    if (!window.HadoTypeDataStore?.load) throw new Error('型検索共通データストアが読み込まれていません。');
+    return window.HadoTypeDataStore.load();
+  }
 
   const steps = () => WIZARD_STEPS[state.mode] || WIZARD_STEPS.main;
   const currentStep = () => steps()[Math.max(0, Math.min(state.stepIndex, steps().length - 1))];
@@ -95,9 +94,25 @@
   function tagRowsFor(general, rule) { const result = general ? scoreType(general, rule) : null; if (window.HadoTypeTags && general) return window.HadoTypeTags.tagList(general, rule, result); return (rule?.metrics || []).slice(0, 5).map((m, i) => ({ kind: i < 2 ? 'core' : i < 4 ? 'recommended' : 'support', kindLabel: i < 2 ? '中核' : i < 4 ? '推奨' : '補助', label: m.label || m.metricKey || '型要素' })); }
   function renderTypeTags(general, rule) { return tagRowsFor(general, rule).slice(0, 12).map((t) => `<span class="hte-chip is-${esc(t.kind || 'type')}"><b>${esc(t.kindLabel || '型要素')}</b>${esc(t.label || '')}</span>`).join(''); }
   function renderStepProgress() { return `<div class="hte-progress">${steps().map((step, i) => `<span class="hte-step ${i < state.stepIndex ? 'done' : i === state.stepIndex ? 'active' : ''}">${i + 1}. ${esc(STEP_LABELS[step])}</span>`).join('')}</div>`; }
+  function filteredMainGenerals() {
+    const q = norm(state.query);
+    return state.data.generals.filter(g => !q || norm(g.displayName || g.name).includes(q));
+  }
+  function renderMainCandidateItems() {
+    const filtered = filteredMainGenerals();
+    const limit = Math.max(40, Number(state.mainRenderLimit) || 80);
+    const visible = filtered.slice(0, limit);
+    const cards = visible.map(g => `<button class="hte-item ${state.mainGeneral?.id === g.id ? 'active' : ''}" data-main-id="${esc(g.id)}">${esc(g.displayName || g.name)}</button>`).join('');
+    const more = visible.length < filtered.length ? `<button class="hte-btn" type="button" data-main-more>さらに表示（${visible.length}/${filtered.length}件）</button>` : '';
+    return `${cards}${more}`;
+  }
+  function bindMainCandidateItems(modal) {
+    modal.querySelectorAll('[data-main-id]').forEach(b => b.addEventListener('click', () => { state.mainGeneral = state.data.generals.find(g => g.id === b.dataset.mainId) || null; state.purposeId = ''; state.typeId = ''; render(); }));
+    const more = modal.querySelector('[data-main-more]');
+    if (more) more.addEventListener('click', () => { state.mainRenderLimit += 80; const list = modal.querySelector('#hadoTypeEntryMainList'); if (list) { list.innerHTML = renderMainCandidateItems(); bindMainCandidateItems(modal); } });
+  }
   function renderMainStep() {
-    const q = norm(state.query); const generals = state.data.generals;
-    return `<div class="hte-card"><div class="hte-title">主将を選択</div><input class="hte-search" id="hadoTypeEntryQuery" placeholder="主将名で絞り込み" value="${esc(state.query)}"><div class="hte-list">${generals.map((g) => `<button class="hte-item ${state.mainGeneral?.id === g.id ? 'active' : ''}" data-main-id="${esc(g.id)}" ${q && !norm(g.displayName || g.name).includes(q) ? 'hidden' : ''}>${esc(g.displayName || g.name)}</button>`).join('')}</div><div class="hte-note">上ほど新しい武将です。IME変換中は候補DOMを作り直さず、変換確定後に表示・非表示だけを切り替えます。</div></div>`;
+    return `<div class="hte-card"><div class="hte-title">主将を選択</div><input class="hte-search" id="hadoTypeEntryQuery" placeholder="主将名で絞り込み" value="${esc(state.query)}"><div class="hte-list" id="hadoTypeEntryMainList">${renderMainCandidateItems()}</div><div class="hte-note">候補は段階表示します。IME変換中は候補DOMを更新せず、変換確定後に絞り込みます。</div></div>`;
   }
   function renderPurposeStep() { return `<div class="hte-card"><div class="hte-title">${state.mainGeneral ? '主将を使う目的を選択' : '目的を選択'}</div><div class="hte-note" style="margin-bottom:8px">目的は実戦用途で分離しています。型の順位ではなく、用途に必要な役割から選択してください。</div><div class="hte-list">${state.data.purposes.map((p) => `<button class="hte-item ${state.purposeId === p.purposeId ? 'active' : ''}" data-purpose-id="${esc(p.purposeId)}"><div class="hte-title">${esc(p.purposeName)}</div><div class="hte-reason">${esc(p.summary || '')}</div></button>`).join('')}</div></div>`; }
   function typeCard(row) { const rule=state.data.scoreRules.find((t)=>t.typeId===row.typeId); if(!rule)return ''; return `<button class="hte-item ${state.typeId===rule.typeId?'active':''}" data-type-id="${esc(rule.typeId)}"><span class="hte-item-role ${row.role==='primary'?'primary':''}">${esc(row.roleLabel||'型')}</span><div class="hte-title">${esc(rule.typeName)}</div><div class="hte-tags">${renderTypeTags(state.mainGeneral,rule)}</div>${rule.description?`<div class="hte-reason">${esc(rule.description)}</div>`:''}${row.reason?`<div class="hte-reason"><strong>${esc(row.roleLabel||'目的')}:</strong> ${esc(row.reason)}</div>`:''}</button>`; }
@@ -115,18 +130,20 @@
     modal.querySelectorAll('[data-action="back"]').forEach((b) => b.addEventListener('click', goBack));
     modal.querySelectorAll('[data-action="next"]').forEach((b) => b.addEventListener('click', goNext));
     modal.querySelectorAll('[data-action="save"]').forEach((b) => b.addEventListener('click', saveSelection));
-    modal.querySelectorAll('[data-main-id]').forEach((b) => b.addEventListener('click', () => { state.mainGeneral = state.data.generals.find((g) => g.id === b.dataset.mainId) || null; state.purposeId = ''; state.typeId = ''; render(); }));
+    bindMainCandidateItems(modal);
     modal.querySelectorAll('[data-purpose-id]').forEach((b) => b.addEventListener('click', () => { state.purposeId = b.dataset.purposeId; state.typeId = ''; render(); }));
     modal.querySelectorAll('[data-type-id]').forEach((b) => b.addEventListener('click', () => { state.typeId = b.dataset.typeId; render(); }));
     const queryInput = document.getElementById('hadoTypeEntryQuery');
-    if (queryInput) { let composing = false; const applyMainFilter = () => { state.query = queryInput.value; const q = norm(state.query); modal.querySelectorAll('[data-main-id]').forEach((button) => { const general = state.data.generals.find((g) => g.id === button.dataset.mainId); button.hidden = Boolean(q) && !norm(general?.displayName || general?.name).includes(q); }); }; queryInput.addEventListener('compositionstart', () => { composing = true; }); queryInput.addEventListener('compositionend', () => { composing = false; applyMainFilter(); }); queryInput.addEventListener('input', (e) => { state.query = e.target.value; if (!composing && !e.isComposing) applyMainFilter(); }); }
+    if (queryInput) { let composing = false; const applyMainFilter = () => { state.query = queryInput.value; state.mainRenderLimit = 80; const list = modal.querySelector('#hadoTypeEntryMainList'); if (list) { list.innerHTML = renderMainCandidateItems(); bindMainCandidateItems(modal); } }; queryInput.addEventListener('compositionstart', () => { composing = true; }); queryInput.addEventListener('compositionend', () => { composing = false; applyMainFilter(); }); queryInput.addEventListener('input', (e) => { state.query = e.target.value; if (!composing && !e.isComposing) applyMainFilter(); }); }
   }
 
   function close() { document.getElementById('hadoTypeEntryOverlay')?.remove(); }
   async function open() {
     style();
-    if (!state.data) { const [roleIndex, scoreRules, purposeRules] = await Promise.all([fetchJson(JSON_FILES.roles), fetchJson(JSON_FILES.scoreRules), fetchJson(JSON_FILES.purposeRules)]); state.data = { generals: asItems(roleIndex, ['items']).filter((v) => v.roleId === 'main_general').sort((a, b) => Number(a.sourceIndex || 0) - Number(b.sourceIndex || 0)), scoreRules: asItems(scoreRules, ['items', 'types']), purposes: asItems(purposeRules, ['items', 'purposes']) }; window.HADO_TYPE_SCORE_RULES = state.data.scoreRules; loadSaved(); }
-    close(); const overlay = document.createElement('div'); overlay.id = 'hadoTypeEntryOverlay'; overlay.innerHTML = '<section id="hadoTypeEntryModal" role="dialog" aria-modal="true" aria-label="型編成ナビ"></section>'; overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); }); document.body.appendChild(overlay); render();
+    close(); const overlay = document.createElement('div'); overlay.id = 'hadoTypeEntryOverlay'; overlay.innerHTML = '<section id="hadoTypeEntryModal" role="dialog" aria-modal="true" aria-label="型編成ナビ"><div class="hte-body"><div class="hte-card"><div class="hte-title">型編成ナビを準備しています…</div><div class="hte-note">型検索データを読み込んでいます。</div></div></div></section>'; overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); }); document.body.appendChild(overlay); await nextPaint();
+    if (!state.data) { const shared = await loadSharedTypeData(); state.data = { generals: asItems(shared.roleIndex, ['items']).filter((v) => v.roleId === 'main_general').sort((a, b) => Number(a.sourceIndex || 0) - Number(b.sourceIndex || 0)), scoreRules: asItems(shared.scoreRules, ['items', 'types']), purposes: asItems(shared.purposeRules, ['items', 'purposes']) }; window.HADO_TYPE_SCORE_RULES = state.data.scoreRules; loadSaved(); }
+    if (!document.getElementById('hadoTypeEntryModal')) return;
+    render();
   }
   function syncVisibility(){const button=document.getElementById('hadoTypeEntryOpen');const visible=typeof window.state==='object'?window.state.mainTab==='formation':document.getElementById('formationScreen')&&!document.getElementById('formationScreen').classList.contains('tab-content-hidden');if(button)button.hidden=!visible;if(!visible)close();}
   function mount() { if (document.getElementById('hadoTypeEntryOpen')) return; style(); const button = document.createElement('button'); button.id = 'hadoTypeEntryOpen'; button.textContent = '型編成ナビ'; button.addEventListener('click', () => open().catch((e) => alert(`型編成ナビの読込に失敗しました。\n${e.message}`))); document.body.appendChild(button); syncVisibility(); new MutationObserver(syncVisibility).observe(document.documentElement,{attributes:true,subtree:true,attributeFilter:['class']}); setInterval(syncVisibility,400); }
