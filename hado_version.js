@@ -3,11 +3,11 @@
   'use strict';
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.0.0.0',
-    updateNo: '09.5.55',
-    revision: 145,
+    updateNo: '09.5.56',
+    revision: 146,
     baseAppVersion: '2.9.6.5',
-    summary: 'Update09.5.55: apply the formation attendant gate to type candidates and candidate tray placement.',
-    updatedAt: '2026-07-13T23:10:20+09:00'
+    summary: 'Update09.5.56: narrow general search sources and improve type-search state synchronization and responsiveness.',
+    updatedAt: '2026-07-15T00:00:00+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;
 })();

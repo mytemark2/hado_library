@@ -1174,3 +1174,19 @@
 - 公開スマホ操作: 390x844で同じ18件、LR 0件、body 375px、横あふれなし。
 - 公開runtime/Debug Log: `hado_formation.js?v=attendant-gate-r145` と `hado_type_candidates.js?v=09.5.55-r145` を実行し、`hado_candidate_tray_core.js` は未読込。`ログ表示` ONで `debugPanel:toggle` を含む要約を確認し、ブラウザwarning/errorは0件。
 - 現在の状態: 実装、110項目検証、PR、両リポジトリActions、Preview同期、公開runtime・PC/スマホ実操作、Debug Logまで完了。残課題: なし。
+
+### Update09.5.56 — 検索境界・候補同期・スマホ応答改善 修正報告
+
+- 分類: 検索対象境界の不足、独立UI間の状態同期漏れ、大容量JSONの重複取得と同期DOM/採点処理による性能劣化。
+- 根本原因: 兵科データは子セクション・親セクション・表へ重複していたが一部だけが除外対象だった。型候補一覧は候補トレイsnapshotを購読せず、ナビと候補一覧は同じ39MB超の役割索引を個別取得していた。さらに全データ/保存データ切替で変更のない保存索引を毎回再構築し、部隊編成も同じ入力イベント内で同期描画していた。
+- 恒久対策: セクション名と表構造の両方で検索境界を固定し、トレイsnapshotを候補選択の正本状態へ同期する。大容量データは共通ストア、採点はフレーム分割、DOMは上限制、表示切替は維持済み索引と遅延再描画を使用する。
+- 影響範囲: 武将カテゴリの通常全文/パラメータ検索、型編成ナビ、型候補一覧、候補トレイ、全データ/保存データ切替、部隊編成再描画。JSON契約・保存形式・Export/Import互換は変更しない。
+- 再発防止: 実データ481件の検索件数、実兵力効果の残存、共通JSON取得3回、候補削除後の選択解除、候補DOM上限、採点分割、保存索引再利用を1本の実行テストにし、全アプリ検証へ常設した。旧Update09.5.55テストのcache key固定は、後続Updateでも成立ゲートを検証できる版付きasset契約へ修正した。
+- HTMLサイズ差: Git正規化後28,057 bytesから28,136 bytes（+79 bytes）。挙動は外部JavaScriptへ実装し、HTMLには共通データストア参照とcache keyだけを追加した。
+- ローカル検証: `python tools/run_app_validation.py` 112/112 pass。20派生JSON契約、検索、詳細、編成、保存互換、レスポンシブ、禁止queue不在、JavaScript/JSON/HTML整合を含む。
+- ローカル390x844実操作: `兵力+` は481件全件一致から243件へ減少。候補トレイの対応行削除後、型候補一覧の選択中カードは0件。型編成ナビ再表示319ms、型候補一覧は初期モーダル487msで表示して採点進捗を更新、全データ→保存データ283ms、保存データ→全データ276ms。ブラウザwarning/errorは0件。
+- 最小受入操作: 公開Previewで武将のみを選び `兵力+` を検索して全481件にならないこと、型候補をトレイへ追加後にその行を削除して候補一覧の選択表示が解除されること、スマホで型編成ナビ・型候補一覧・データ切替が操作を受け付けることを確認する。
+- Git: canonical base `e79924f589d52fe1267267b537cdc281c153ab2e`、PR #229（draft）、base `feature/app-3.0.0.0`、head `codex/update09-5-56-search-sync-performance`。`python -X utf8 tools/check_pr_merge_readiness.py --base feature/app-3.0.0.0` はmerge-base一致・競合なし。
+- Actions: PR初回 `App Validation / app-validation` run 29423779614 success。記録更新後の最終commitでも再確認する。PRでは正本push専用 `Notify Hado Library Preview` は設計どおりskip。
+- Preview: 正本未マージのため未配備。マージ後に正本push通知、Preview Pages、3 marker、公開runtime、PC/390x844実操作を確認する。
+- 現在の状態: 実装・ローカル検証・PR検証完了。Preview未配備のため未完了。

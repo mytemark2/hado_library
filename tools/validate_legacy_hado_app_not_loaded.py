@@ -20,6 +20,7 @@ REQUIRED_ACTIVE_SCRIPTS = (
     "hado_formation.js",
     "hado_search.js",
     "hado_bootstrap.js",
+    "hado_type_data_store.js",
     "hado_type_entry.js",
     "hado_type_candidates.js",
     "hado_candidate_tray.js",
