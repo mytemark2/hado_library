@@ -1269,7 +1269,8 @@ function syncDataManagementSheet(context=''){
 }
 function openDataManagementSheet(){updateDataContextBar('open-sheet');setSheetHidden('dataManagementSheet',false);}
 function closeDataManagementSheet(){setSheetHidden('dataManagementSheet',true);updateDataContextBar('close-sheet');}
-function updateDiagnosticAppVersion(){const el=document.getElementById('diagnosticAppVersion');if(el)el.textContent=`覇道ライブラリ｜v${HADO_BUILD_INFO.version}`;}
+function currentVisibleAppVersion(){return String(window.HADO_APP_DISPLAY_VERSION||window.HADO_APP_VERSION_META?.visibleVersion||window.HADO_APP_VERSION_META?.displayVersion||HADO_BUILD_INFO.version||'').trim();}
+function updateDiagnosticAppVersion(){const el=document.getElementById('diagnosticAppVersion');if(el)el.textContent=`覇道ライブラリ｜${currentVisibleAppVersion()}`;}
 function openDiagnosticSheet(){updateDiagnosticAppVersion();setSheetHidden('diagnosticSheet',false);}
 function closeDiagnosticSheet(){setSheetHidden('diagnosticSheet',true);}
 function setupDataContextControls(){
@@ -1285,8 +1286,8 @@ function setupDataContextControls(){
   click('diagnosticCloseTopBtn',closeDiagnosticSheet);
   click('diagnosticCloseBtn',closeDiagnosticSheet);
   document.querySelectorAll('[data-diagnostic-close]').forEach(el=>el.addEventListener('click',closeDiagnosticSheet));
-  click('dataModeAllBtn',()=>{setViewMode('all');syncDataManagementSheet('mode-all');updateDataContextBar('mode-all');});
-  click('dataModeSavedBtn',()=>{setViewMode('saved');syncDataManagementSheet('mode-saved');updateDataContextBar('mode-saved');});
+  click('dataModeAllBtn',async()=>{await setViewModeWithUiBusy('all','data-sheet');syncDataManagementSheet('mode-all');updateDataContextBar('mode-all');});
+  click('dataModeSavedBtn',async()=>{await setViewModeWithUiBusy('saved','data-sheet');syncDataManagementSheet('mode-saved');updateDataContextBar('mode-saved');});
   document.querySelectorAll('[data-general-stage]').forEach(btn=>btn.addEventListener('click',()=>setGeneralStage(btn.getAttribute('data-general-stage'))));
   document.querySelectorAll('[data-equipment-stage]').forEach(btn=>btn.addEventListener('click',()=>setEquipmentStage(btn.getAttribute('data-equipment-stage'))));
   const saveSel=document.getElementById('dataSheetSaveSelect');
@@ -1985,6 +1986,7 @@ function renderSaveControls(){ensureCurrentSave();const current=getCurrentSave()
 let viewModeFormationRenderToken=0;
 function scheduleViewModeFormationRender(){const token=++viewModeFormationRenderToken;markFormationScreenStale('setViewMode');const run=()=>{if(token!==viewModeFormationRenderToken||state.mainTab!=='formation')return;renderFormationScreen();};if(typeof requestAnimationFrame==='function')requestAnimationFrame(run);else setTimeout(run,0);}
 function setViewMode(mode,options={}){const started=performance.now(),previous=state.viewMode,next=mode==='saved'?'saved':'all';state.viewMode=next;renderSaveControls();if(!options.skipRender&&previous!==next){renderSearchResults();renderDetail();scheduleViewModeFormationRender();}if(!options.skipHistory&&previous!==next&&typeof pushOperationHistory==='function')pushOperationHistory('view-mode-'+next);const durationMs=Number((performance.now()-started).toFixed(1));state.diagnostics.viewModePerformance={timestamp:new Date().toISOString(),previous,next,durationMs,deferredFormation:state.mainTab==='formation',savedIndexReused:true};debugLog('viewMode:set',{previous,next,skipRender:!!options.skipRender,skipHistory:!!options.skipHistory,durationMs,deferredFormation:state.mainTab==='formation',savedIndexReused:true});}
+async function setViewModeWithUiBusy(mode,context='ui'){const next=mode==='saved'?'saved':'all';if(state.viewMode===next){debugLog('viewMode:busy-skip',{next,context,reason:'already-selected'});return;}const label=next==='saved'?'保存データ':'全データ';await runWithUiBusy(`${label}へ切り替えています…`,'検索結果・詳細・部隊編成を更新しています。',async()=>{setViewMode(next);debugLog('viewMode:busy-complete',{next,context});});}
 async function createNewSave(){const name=norm(await requestTextInput('セーブ名を入力してください','新規'));if(!name)return;createSaveRecordWithName(name);}
 async function renameCurrentSave(){const current=getCurrentSave();if(!current)return;const name=norm(await requestTextInput('新しいセーブ名を入力してください',current.name));if(!name)return;current.name=name;persistSaveData();rebuildSavedModeIndex();renderSaveControls();}
 async function copyCurrentSave(){const current=getCurrentSave();if(!current)return;const name=norm(await requestTextInput('コピー後のセーブ名を入力してください',`${current.name}_copy`));if(!name)return;const save=sanitizeSaveRecord({id:createSaveId(),name,generals:current.generals,equipments:current.equipments,generalSettings:JSON.parse(JSON.stringify(current.generalSettings||{})),generalStars:JSON.parse(JSON.stringify(current.generalStars||{})),equipmentStars:JSON.parse(JSON.stringify(current.equipmentStars||{})),equipmentStages:JSON.parse(JSON.stringify(current.equipmentStages||{})),ethnicResearchSkills:JSON.parse(JSON.stringify(current.ethnicResearchSkills||{})),inheritedSkills:JSON.parse(JSON.stringify(current.inheritedSkills||{})),warhorses:JSON.parse(JSON.stringify(current.warhorses||{}))});state.saveData.saves.push(save);state.saveData.currentSaveId=save.id;persistSaveData();rebuildSavedModeIndex();renderSaveControls();renderSearchResults();renderDetail();if(state.mainTab==='warhorse')renderWarhorseFormationScreen();if(state.mainTab==='formation')renderFormationScreen();debugLog('saveData:copy-with-warhorses',{from:current.id,to:save.id,warhorseCount:Object.keys(save.warhorses?.owned||{}).length,activeSlots:save.warhorses?.activeSlots||[]});}

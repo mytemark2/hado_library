@@ -67,11 +67,16 @@ const entrySource = fs.readFileSync('hado_type_entry.js', 'utf8');
 assert(candidateSource.includes("addEventListener(TRAY_SNAPSHOT,e=>syncPickedFromTraySnapshot"), 'tray snapshot listener missing');
 assert(candidateSource.includes('await prepareRoleRowsBase(role'), 'candidate scoring must yield in batches');
 assert(candidateSource.includes('rs.slice(0,Math.max(30,st.renderLimit))'), 'candidate DOM must be capped');
+assert(candidateSource.includes('picked:new Map()'), 'type candidates must retain multiple selected rows');
+assert(candidateSource.includes('候補トレイへ（${pickedCount}件）'), 'type candidate tray action must show selected count');
+assert(candidateSource.includes('min-width:max-content;white-space:nowrap;overflow:visible;text-overflow:clip'), 'role tab counts must never be ellipsized');
 assert(entrySource.includes('window.HadoTypeDataStore.load()'), 'type entry must use shared data store');
 assert(entrySource.includes('renderMainCandidateItems()'), 'type entry main candidates must be staged');
 const setViewModeBody = coreSource.slice(coreSource.indexOf('function setViewMode('), coreSource.indexOf('async function createNewSave'));
 assert(!setViewModeBody.includes('rebuildSavedModeIndex()'), 'view-mode toggle must reuse the maintained saved index');
 assert(setViewModeBody.includes('scheduleViewModeFormationRender()'), 'formation redraw must be deferred');
+assert(coreSource.includes('async function setViewModeWithUiBusy('), 'view-mode toggle must show a busy state');
+assert(coreSource.includes('window.HADO_APP_DISPLAY_VERSION||window.HADO_APP_VERSION_META?.visibleVersion'), 'diagnostic version must use the visible app version');
 
 const candidateSandbox = {
   console, window: null, state: { diagnostics: {}, mainTab: 'search' },
@@ -90,11 +95,13 @@ vm.runInContext(candidateSource, candidateSandbox, { filename: 'hado_type_candid
 const candidateDebug = candidateSandbox.HadoTypeCandidatesDebug;
 const trayRow = { roleId: 'main_general', name: 'LRテスト', displayName: 'LRテスト', typeId: 'vaccine' };
 const trayKey = candidateDebug.trayPayloadKey(trayRow);
-candidateDebug.setPickedStateForTest('main_general::LRテスト', trayKey);
-candidateDebug.syncPickedFromTraySnapshot({ context: 'candidate-tray-add', items: [trayRow] });
-assert(candidateDebug.getPickedState().picked, 'selection must remain while its tray row exists');
+const secondTrayRow = { roleId: 'vice_general', name: 'URテスト', displayName: 'URテスト', typeId: 'vaccine' };
+const secondTrayKey = candidateDebug.trayPayloadKey(secondTrayRow);
+candidateDebug.setPickedStateForTest(['main_general::LRテスト', 'vice_general::URテスト'], [trayKey, secondTrayKey]);
+candidateDebug.syncPickedFromTraySnapshot({ context: 'candidate-tray-add', items: [trayRow, secondTrayRow] });
+assert.strictEqual(candidateDebug.getPickedState().picked.length, 2, 'all selected rows must remain while their tray rows exist');
 candidateDebug.syncPickedFromTraySnapshot({ context: 'candidate-tray-remove', items: [] });
-assert.deepStrictEqual(candidateDebug.getPickedState().picked, '', 'selection must clear after tray removal');
+assert.strictEqual(candidateDebug.getPickedState().picked.length, 0, 'all matching selections must clear after tray removal');
 
 const storeSource = fs.readFileSync('hado_type_data_store.js', 'utf8');
 let fetchCount = 0;
