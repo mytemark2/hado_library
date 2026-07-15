@@ -1045,3 +1045,11 @@
 - `hado_core.js` の全データ/保存データ切替は、保存操作時に更新済みの保存索引を再利用する。検索・詳細は即時更新し、部隊編成再描画は次フレームへ送って入力応答を先に返す。
 - 可視版を `3.0.0.0 Update09.5.56 r146` とし、変更runtimeとversion資産のcache keyを同期した。ロジックはすべて外部JavaScriptへ実装した。Git正規化後の `index.html` は28,057 bytesから28,136 bytes（+79 bytes）で、追加は共通データストアのscript参照とcache keyだけである。
 - Crawler入力・20派生JSON契約・保存データ形式は変更していないため、Crawler再実行やJSON再生成は不要である。
+
+### Update09.5.57 — 型候補複数選択・データ切替進捗・診断版数表示
+
+- `hado_type_candidates.js` の選択状態を単一キーから候補キーと候補データの `Map` に変更した。役割タブ切替では選択を消さず、選択した全候補を候補トレイへ追加する。候補トレイsnapshotで対応行がなくなれば、従来どおり該当する全選択を解除する。
+- 役割タブには `min-width:max-content`、`white-space:nowrap`、省略なしを指定した。スマホは横スクロールで全タブを表示し、`主将 (N)` 等の件数が `...` にならない。
+- `hado_core.js` に `setViewModeWithUiBusy()` を追加し、データ管理画面からの全データ/保存データ切替を既存のoverlayで包む。処理開始前の1フレームで「切り替えています…」を描画し、その後に検索・詳細・編成を更新する。
+- 診断画面の版数は `HADO_BUILD_INFO.version` 固定ではなく、`hado_version.js` が正本として公開する `HADO_APP_DISPLAY_VERSION` を読む。可視版を `3.0.0.0 Update09.5.57 r147` へ更新し、変更runtimeのcache keyを同じ版へ同期した。
+- HTMLへロジックは追加していない。変更は既存外部JavaScript、version定義、cache keyに限定する。

@@ -1190,3 +1190,15 @@
 - Actions: PR初回 `App Validation / app-validation` run 29423779614 success。記録更新後の最終commitでも再確認する。PRでは正本push専用 `Notify Hado Library Preview` は設計どおりskip。
 - Preview: 正本未マージのため未配備。マージ後に正本push通知、Preview Pages、3 marker、公開runtime、PC/390x844実操作を確認する。
 - 現在の状態: 実装・ローカル検証・PR検証完了。Preview未配備のため未完了。
+
+### Update09.5.57 — 型候補複数選択・データ切替進捗・診断版数表示 修正報告
+
+- 分類: 型候補UIの選択状態を単一値で持つ設計不足、狭幅時のタブ件数省略、長時間処理中の進捗表示不足、診断画面が表示版の正本を参照しない版数不整合。
+- 根本原因: 型候補一覧の `picked` が文字列1件だけであり、選択操作ごとに前の候補を置き換えていた。タブは縮小を許しtext-overflowにより件数が隠れ、データ切替はoverlayを使わず同期更新を開始していた。診断画面は基本版 `HADO_BUILD_INFO.version` を直接表示していた。
+- 恒久対策: 選択を候補キーの `Map` として保持し、トレイ追加とsnapshot削除同期を全件対応にする。タブの数字は縮小・省略不可とし、モバイルは横スクロールにする。切替処理は共通busy overlayを通し、診断画面は可視版の単一正本を参照する。
+- 影響範囲: 型候補一覧、候補トレイ追加・削除同期、PC/スマホの役割タブ、データ管理の全データ/保存データ切替、`？` 診断画面。検索条件、JSON契約、保存形式、Crawler出力は変更しない。
+- 再発防止: `tools/test_update09_5_56_search_sync_performance.js` を拡張し、2件選択の維持・全削除での全解除、選択件数表示、件数省略禁止CSS、busy wrapper、表示版参照を静的・実行回帰として常設した。
+- HTMLサイズ差: 同長のcache key置換のみで0 bytes。外部JavaScript化の方針を維持した。
+- ローカル検証: `node tools/test_update09_5_56_search_sync_performance.js` pass、`python tools/run_app_validation.py` 112/112 pass、`python tools/validate_update_version_consistency.py` pass。
+- 最小受入操作: 型候補一覧で主将と副将を1件ずつ選び「候補トレイへ（2件）」で両方が追加されること、役割タブの `(数字)` がPC/スマホで読めること、全データ/保存データ切替中に進捗表示が出ること、`？` で `覇道ライブラリ 3.0.0.0 Update09.5.57 r147` が表示されることを確認する。
+- 現在の状態: 実装・ローカル検証完了。既存PR #229への反映、Actions、Preview同期・公開実操作は未確認のため未完了。
