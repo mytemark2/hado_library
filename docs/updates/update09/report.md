@@ -1210,4 +1210,13 @@
 - 恒久対策: 候補一覧の最終描画前に全役割をフレーム分割で集計し、全件数cache完成後だけ役割タブを描画する。未集計を省略記号で表示する経路を削除した。
 - 最小受入操作: 公開Previewの型候補一覧を開き、主将・副将・補佐・侍従・装備・陣形・兵器・名馬・軍馬技能の括弧内がすべて数字であることをPC/スマホで確認する。
 - ローカル検証: `node tools/test_update09_5_56_search_sync_performance.js` pass、`python tools/run_app_validation.py` 112/112 pass、版数整合性pass。
-- 現在の状態: 実装・ローカル検証完了。PR、Actions、公開Preview確認待ちのため未完了。
+- HTMLサイズ差: 同長のcache key置換のみで0 bytes。挙動は外部 `hado_type_candidates.js` に実装し、HTMLへロジックは追加していない。
+- Git: canonical base `93d7fc84994f358ebd55e36882ff4c36e08cdd6e`、実装commit `2e824763484bb673c70d02ecd08077c103fada67`、PR #231、merge `ec46a85a15835414387000f2467a376c652c1425`。マージreadinessは競合なし。
+- Actions: PR `App Validation / app-validation` run 29430060216 success。正本 `Notify Hado Library Preview` run 29430092558 success。Preview `Deploy Hado Library Preview` run 29430131083 success。
+- Preview repository: `main` HEAD `ffd7e54e3632001bc5199bce0abaaf7d85447100`。`index.html`、`hado_formation.js`、`hado_styles.css`、`.nojekyll`、34 `hadou_*.json`、3 markerが存在する。
+- 公開marker: `PREVIEW_SOURCE_COMMIT.txt=ec46a85a15835414387000f2467a376c652c1425`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.58`。
+- 公開PC操作: `3.0.0.0 Update09.5.58 r148`。全9役割は主将59、副将58、補佐34、侍従18、装備0、陣形0、兵器0、名馬0、軍馬技能1で、各タブのscrollWidth/clientWidthが一致し文字欠けなし。主将と副将をまたぐ2件選択で「候補トレイへ（2件）」となり、トレイ件数が1件から3件へ増えた。
+- 公開スマホ操作: 390x844で同じ全9役割数値、タブ列は375/808pxの横スクロール、bodyとmodalは375/375pxでページ横あふれなし。同一役割の2件選択で選択中カード2件と「候補トレイへ（2件）」を確認した。
+- 公開データ切替/診断: 全データから保存データへ切替後に `保存データ｜未作成` となり、overlayタイトルは `保存データへ切り替えています…`。`？` は `覇道ライブラリ｜3.0.0.0 Update09.5.58 r148` を表示した。
+- 公開Debug Log: `ログ表示` ONでパネルは `display:block`、ログ本文376文字。ブラウザwarning/errorは0件。
+- 現在の状態: 実装、112項目検証、PR、マージ、両リポジトリActions、Preview同期、公開PC/スマホ実操作まで完了。残課題: なし。
