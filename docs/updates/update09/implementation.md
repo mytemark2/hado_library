@@ -1053,3 +1053,9 @@
 - `hado_core.js` に `setViewModeWithUiBusy()` を追加し、データ管理画面からの全データ/保存データ切替を既存のoverlayで包む。処理開始前の1フレームで「切り替えています…」を描画し、その後に検索・詳細・編成を更新する。
 - 診断画面の版数は `HADO_BUILD_INFO.version` 固定ではなく、`hado_version.js` が正本として公開する `HADO_APP_DISPLAY_VERSION` を読む。可視版を `3.0.0.0 Update09.5.57 r147` へ更新し、変更runtimeのcache keyを同じ版へ同期した。
 - HTMLへロジックは追加していない。変更は既存外部JavaScript、version定義、cache keyに限定する。
+
+### Update09.5.58 — 型候補の全役割件数確定表示
+
+- `scheduleIdleRoleCounts()` は定義されていたが呼び出されておらず、選択中以外の役割件数が `…` のまま更新されなかった。
+- `prepareAllRoleCounts()` で9役割を既存のフレーム分割採点経路に通し、進捗を表示しながら件数cacheを完成させる。候補カードを描画する時点では全タブが数値になり、役割切替時は採点済みcacheを再利用する。
+- 可視版を `3.0.0.0 Update09.5.58 r148` へ更新する。HTMLへロジックは追加せず、外部JavaScriptとcache keyだけを変更する。

@@ -70,6 +70,9 @@ assert(candidateSource.includes('rs.slice(0,Math.max(30,st.renderLimit))'), 'can
 assert(candidateSource.includes('picked:new Map()'), 'type candidates must retain multiple selected rows');
 assert(candidateSource.includes('候補トレイへ（${pickedCount}件）'), 'type candidate tray action must show selected count');
 assert(candidateSource.includes('min-width:max-content;white-space:nowrap;overflow:visible;text-overflow:clip'), 'role tab counts must never be ellipsized');
+assert(candidateSource.includes('async function prepareAllRoleCounts()'), 'all role counts must be prepared before the candidate list is rendered');
+assert(candidateSource.includes('await prepareAllRoleCounts();await selectRole(st.role)'), 'candidate modal must wait for all numeric role counts');
+assert(!candidateSource.includes("roleCountCache.has(role)?String(st.roleCountCache.get(role)):'…'"), 'role count placeholder ellipsis must not be rendered');
 assert(entrySource.includes('window.HadoTypeDataStore.load()'), 'type entry must use shared data store');
 assert(entrySource.includes('renderMainCandidateItems()'), 'type entry main candidates must be staged');
 const setViewModeBody = coreSource.slice(coreSource.indexOf('function setViewMode('), coreSource.indexOf('async function createNewSave'));

@@ -1201,4 +1201,13 @@
 - HTMLサイズ差: 同長のcache key置換のみで0 bytes。外部JavaScript化の方針を維持した。
 - ローカル検証: `node tools/test_update09_5_56_search_sync_performance.js` pass、`python tools/run_app_validation.py` 112/112 pass、`python tools/validate_update_version_consistency.py` pass。
 - 最小受入操作: 型候補一覧で主将と副将を1件ずつ選び「候補トレイへ（2件）」で両方が追加されること、役割タブの `(数字)` がPC/スマホで読めること、全データ/保存データ切替中に進捗表示が出ること、`？` で `覇道ライブラリ 3.0.0.0 Update09.5.57 r147` が表示されることを確認する。
-- 現在の状態: 実装・ローカル検証完了。既存PR #229への反映、Actions、Preview同期・公開実操作は未確認のため未完了。
+- 現在の状態: PR #230、App Validation、正本マージ、Preview Pages配備まで成功。公開実操作で副将以降の件数が `…` のまま残ることを検出し、Update09.5.58へ継続したため要件未完了。
+
+### Update09.5.58 — 型候補の全役割件数確定表示 修正報告
+
+- 分類: 非同期件数集計の起動漏れによる公開UI要件未達。
+- 根本原因: `scheduleIdleRoleCounts()` を実装していたが呼び出しがなく、現在役割だけが `rows()` で件数cacheへ入り、他役割はプレースホルダー `…` のままだった。Update09.5.57のCSS修正だけでは文字列そのものを数値にできなかった。
+- 恒久対策: 候補一覧の最終描画前に全役割をフレーム分割で集計し、全件数cache完成後だけ役割タブを描画する。未集計を省略記号で表示する経路を削除した。
+- 最小受入操作: 公開Previewの型候補一覧を開き、主将・副将・補佐・侍従・装備・陣形・兵器・名馬・軍馬技能の括弧内がすべて数字であることをPC/スマホで確認する。
+- ローカル検証: `node tools/test_update09_5_56_search_sync_performance.js` pass、`python tools/run_app_validation.py` 112/112 pass、版数整合性pass。
+- 現在の状態: 実装・ローカル検証完了。PR、Actions、公開Preview確認待ちのため未完了。
