@@ -1231,4 +1231,11 @@
 - ローカル実画面: 武将検索で `兵力+` 106件、全角 `兵力＋` 106件、LR呂布0件。通常の `兵力` 243件、`関羽` 6件、LR夏侯淵・盾兵0件。
 - HTMLサイズ/外部化: Git正本の28,136 bytesから28,171 bytes（+35 bytes）。増加は `hado_search.js` のcache key追加だけで、ロジックは外部JavaScriptに実装した。
 - 最小受入操作: 公開Previewで版数、`兵力+` 106件・LR呂布0件、全角 `兵力＋` 106件、通常 `兵力` 243件、`関羽` 6件を確認する。保存データはExportしたファイルをImportし、既存保存が消えず、対象保存・編成・検索履歴が復元されることを確認する。
-- 現在の状態: 実装・114項目の全検証・ローカルPC実検索完了。PR、Actions、公開Preview確認待ち。
+- Git: canonical base `368eee53412660aaebb06696bef139c7543cc267`、実装commit `b4caf3fc5a171bea1aba2f20d05b829344fc83d2`、PR #233、merge `b08d82a117bf3799c910fd67ba6f2de997921323`。merge readinessは正本取得、merge-base一致、競合なし。
+- Actions: PR `App Validation / app-validation` run 29638687083 success。正本 `Notify Hado Library Preview` run 29638707623 success。Preview `Deploy Hado Library Preview` run 29638720401 success。
+- Preview repository: `main` HEAD `59b149c595759340720329ec2b9c4343f1c85b96`。`index.html`、`hado_formation.js`、`hado_search.js`、`hado_status_effects.js`、`hado_styles.css`、`.nojekyll`、34 `hadou_*.json`、3 markerを確認した。
+- 公開marker: `PREVIEW_SOURCE_COMMIT.txt=b08d82a117bf3799c910fd67ba6f2de997921323`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.59`。
+- 公開PC操作: `3.0.0.0 Update09.5.59 r149`、JSON武将481件読込、`兵力+` 106件・LR呂布0件、全角 `兵力＋` 106件・LR呂布0件、通常 `兵力` 243件、`関羽` 6件・LR夏侯淵0件。変更runtimeは `09.5.59-r149` cache keyで実行されている。
+- 公開Debug Log: `ログ表示` ONで `#debugPanel` の非表示クラスが解除され、2,413文字のログと `debugPanel:toggle` を確認。ログ内のwarning/error行は0件。
+- Issue監査: open bugは #204だけだったが、Update09.5.41の実データLR黄忠回帰が114項目検証内で成功し、公開revision表示も確認できたため、検証根拠を追記してcloseした。
+- 現在の状態: 実装、114項目検証、PR、マージ、両リポジトリActions、Preview同期、marker、公開PC実操作、Debug Log、open bug整理まで完了。ユーザー最終確認待ち。
