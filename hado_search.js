@@ -957,7 +957,8 @@ function renderSearchResults(){
         t=performance.now();
         const metric=(!searchContext||nameOnlySearch)?null:extractMetricFromItem(item,searchContext);
         {const e=performance.now()-t;metricMs+=e;cat.metricMs+=e;}
-        rows.push({key,label,item,metric});datasetMatched++;
+        if(searchContext&&!nameOnlySearch&&searchContext.mode!=='plain'&&!metricMatchesSearchQuery(metric,searchContext))keywordMatched=false;
+        if(keywordMatched){rows.push({key,label,item,metric});datasetMatched++;}
       }
     });
     cat.matched=datasetMatched;cat.ms=performance.now()-catStart;
