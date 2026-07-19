@@ -1360,6 +1360,13 @@
 - ローカル検証: `python -X utf8 tools/run_app_validation.py` 119/119 pass。JavaScript/JSON/HTML/CSS、起動、検索、詳細、編成、Export/Import、レスポンシブ、20派生JSON契約、版数、禁止queue不在を含む。
 - ローカルPC実操作: 攻撃速度型・LR関羽の作成前候補で、編集モード、副将タブ、検索語 `関羽`、候補1件を設定。閉じた後の通常ボタンとページ再読込後の双方で同じ状態を復元し、既存部隊候補へ戻らないことを確認した。
 - ローカルスマホ実操作: 390x844で編集モード、副将タブ、検索語 `関羽` を維持し、モーダル幅375px・高さ844px、横あふれなし、ブラウザwarning/error 0件を確認した。
-- Git/Actions/Preview: 実装PR、マージ、Actions、Preview marker、公開PC/スマホ実操作はこの記録作成時点では未実施。完了後に同節へ追記する。
+- Git: canonical base `0f690939f78d98311fe1ad01f52fee5b131e8166`、実装commit `4f6b09429d3a7bb2e6cd019251267ba1b82b5dc7`、PR #246、merge `65fc81c1fc6156b8bb90e415fe8db981cb549624`。`python -X utf8 tools/check_pr_merge_readiness.py --base feature/app-3.0.0.0` はbase・merge-base一致、競合なし。
+- Actions: PR `App Validation / app-validation` run 29692320207 success。正本 `Notify Hado Library Preview` run 29692351038 success。Preview `Deploy Hado Library Preview` run 29692367000 success。
+- Preview repository: `main` HEAD `dad977875cb3c938d422dd6362eabef5e36ca065`。`index.html`、`hado_formation.js`、`hado_styles.css`、`.nojekyll`、34 `hadou_*.json`、3 markerが存在する。
+- 公開marker: `PREVIEW_SOURCE_COMMIT.txt=65fc81c1fc6156b8bb90e415fe8db981cb549624`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.65`。
+- 公開PC操作: `3.0.0.0 Update09.5.65 r155`、公開JSON武将481件。攻撃速度型・LR関羽の作成前候補を編集モードで開き、副将タブと検索語 `関羽` を設定した。閉じた後の通常ボタンとページ再読込後の双方で、編集モード、副将4件、検索語、LR関羽を含む4候補を復元した。
+- 公開スマホ操作: 390x844で同じ編集モード・副将タブ・検索語を維持した。モーダル幅375px・高さ844px、body幅375pxで横あふれなし。検証後にviewportを既定値へ戻した。
+- 公開Debug Log: 診断版数 `覇道ライブラリ｜3.0.0.0 Update09.5.65 r155`。`ログ表示` ONで `Debug Log` を表示し、`validation: OK`、`debugPanel:toggle` を確認した。ブラウザwarning/error 0件。
+- 公開配信補足: 1回目の再読込で `hadou_type_search_presets.json` が一時的にHTTP 503となったが、同URLは直後の独立確認でHTTP 200・38,330 bytesへ復帰し、再読込で全29ファイル、索引2,509件、公開実操作まで成功した。アプリ・Previewの既知残存不具合ではない。
 - 最小受入操作: 公開Previewの型編成ナビで主将と型を選び候補ワークスペースへ進む。候補またはタブを変更して閉じ、画面下の候補ワークスペースを再度開き、作成前候補とUI状態が復元されることを確認する。ページ再読込後も同じ操作を行う。
-- 現在の状態: ローカル実装・119項目検証・PC/スマホ実操作まで完了。残課題: PR、マージ、Actions、Preview同期・公開実操作。
+- 現在の状態: 実装、119項目検証、PR、マージ、両リポジトリActions、Preview同期、marker、公開PC/スマホ実操作、Debug Log確認まで完了。残課題: なし。
