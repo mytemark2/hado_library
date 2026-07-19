@@ -16,7 +16,7 @@ req('close();' in entry and 'HadoTypeCandidates.open' in entry and 'hado:type-ca
 req('data-add-tray' not in tc and '候補に追加（' not in tc,'candidate workspace edit mode must not retain the redundant add button')
 req('function toggleCandidate(key)' in tc and 'カード選択は候補へ即時反映されます。' in tc,'candidate workspace edit mode must reflect candidate toggles immediately')
 req('data-create-formation' in tc and 'この型で新規部隊' in tc,'candidate mode must own new formation creation')
-req("st.context=options.source==='type-entry-save'?'draft':'formation'" in tc,'type navigator candidate edits must use an isolated pre-formation draft')
+req('function workspaceOpenPlan(options={},savedDraft=loadMatchingDraft())' in tc and "const draftContext=options.source==='type-entry-save'||!!savedDraft" in tc,'all workspace launch paths must resume a matching isolated pre-formation draft')
 req('candidateTray:candidates' in tc and 'mainGeneral:primary' in tc,'new formation must receive the reviewed candidates and selected main general')
 req('hado:formation-candidate-tray-add' in tc and 'new CustomEvent' in tc,'type candidates must dispatch tray add event')
 req('activeCandidateItems' in tc and 'buildTrayPayload' in tc,'type candidates must expose active candidate and payload helpers')

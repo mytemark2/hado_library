@@ -1129,3 +1129,15 @@
 - HTML/外部化: 挙動は既存の外部JavaScriptへ実装し、HTMLはガイド文とcache keyだけを更新する。Crawler入力・派生JSON契約は変更しないためJSON再生成は不要である。
 - HTMLサイズ: Git正規化後28,151 bytesから28,233 bytes（+82 bytes）。増加はガイド文とcache keyで、JavaScriptロジックをHTMLへ追加していない。
 - 表示版: `3.0.0.0 Update09.5.64 r154`。
+
+## Update09.5.65 — 作成前候補ワークスペースの再開
+
+- 分類: 作成前draftの起動文脈喪失と、起動経路間の状態復元不整合。
+- 根本原因: `open()` が呼出元の `source` だけで作成前draftか既存部隊かを決め、通常ランチャーでは保存済みdraftを確認せず既存部隊へ強制切替していた。保存形式も候補と主将だけで、モード・タブ・絞り込みを保持していなかった。
+- 恒久対策: 現在の型・目的・主将に一致する未完了draftの有無を全起動経路共通の `workspaceOpenPlan()` で判定する。該当draftがある間は通常ランチャー、イベント、ページ再読込でもdraftを優先し、新規部隊作成成功時だけ破棄する。
+- 実装: `hado_type_candidates.js` のdraftをschema 2へ拡張し、候補、選択主将、モード、役割タブ、役割、検索語、表示件数を保存・復元する。draft件数snapshotを `hado_candidate_tray.js` に通知し、ランチャーの件数も表示中の文脈と一致させる。
+- 影響範囲: 型編成ナビ、候補ワークスペースの通常ボタン、外部openイベント、ページ再読込、件数バッジ、新規部隊作成。既存部隊の `candidateTray`、配置、保存Export/Import、侍従制約、JSON契約は変更しない。
+- 再発防止: `tools/test_update09_5_65_candidate_draft_resume.js` を常設検証へ追加し、通常ランチャー、イベント、再読込、異なる型の分離、UI状態、主将選択、件数snapshotを固定する。
+- HTML/外部化: 挙動は既存の外部JavaScriptへ実装する。`index.html` はcache keyのみ更新し、インラインJavaScriptは追加しない。Crawler入力・派生JSON契約は変更しないためJSON再生成は不要。
+- HTMLサイズ: Git正規化後28,214 bytesから28,214 bytes（±0）。
+- 表示版: `3.0.0.0 Update09.5.65 r155`。

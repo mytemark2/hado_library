@@ -71,7 +71,7 @@ assert(candidateSource.includes("function activeCandidateItems(){return st.conte
 assert(candidateSource.includes('カード選択は候補へ即時反映されます。'), 'candidate workspace edit action must explain immediate reflection');
 assert(candidateSource.includes('min-width:max-content;white-space:nowrap;overflow:visible;text-overflow:clip'), 'role tab counts must never be ellipsized');
 assert(candidateSource.includes('async function prepareAllRoleCounts()'), 'all role counts must be prepared before the candidate list is rendered');
-assert(candidateSource.includes('await prepareAllRoleCounts();await selectWorkspaceTab(st.workspaceTab)'), 'candidate workspace edit mode must wait for all numeric role counts');
+assert(candidateSource.includes('await prepareAllRoleCounts();await selectWorkspaceTab(st.workspaceTab,{preserveQuery:true,preserveRenderLimit:true})'), 'candidate workspace edit mode must wait for all numeric role counts while restoring its saved query and render limit');
 assert(!candidateSource.includes("roleCountCache.has(role)?String(st.roleCountCache.get(role)):'…'"), 'role count placeholder ellipsis must not be rendered');
 assert(entrySource.includes('window.HadoTypeDataStore.load()'), 'type entry must use shared data store');
 assert(entrySource.includes('renderMainCandidateItems()'), 'type entry main candidates must be staged');
