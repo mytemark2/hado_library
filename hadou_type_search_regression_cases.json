@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-07-19T05:37:31.798Z",
+  "generatedAt": "2026-07-19T08:16:50.414Z",
   "dataSetId": "2026-07-11T05:38:08.210Z",
-  "crawlerVersion": "1.1.0.1",
+  "crawlerVersion": "1.1.0.2",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
     "hadou_generals.json",
@@ -74,11 +74,11 @@
     "warhorses": "c5edd890",
     "warhorseSkills": "fac49238"
   },
-  "hotfixVersion": "1.1.0.1",
+  "hotfixVersion": "1.1.0.2",
   "kind": "type_search_regression_cases",
   "qualityAudit": {
     "ok": true,
-    "caseCount": 22,
+    "caseCount": 23,
     "failedCount": 0,
     "failedCaseIds": [],
     "policy": "1.0.5.24: 型検索基盤、既存関連リンク回帰、プリセット重要度スキーマ、条件解決、順位付け、LR司馬懿誤判定防止、攻撃速度型、通常攻撃拡張型を同時に監査する。名前表記差は正規化し、否定文脈は句単位で遮断する。",
@@ -89,6 +89,7 @@
       "skill-owner-domain-separation",
       "related-link-no-unresolved-ref",
       "related-link-application-skill-coverage",
+      "equipment-search-stage-coverage",
       "status-meta-group-consistency",
       "tactic-attack-block-consistency",
       "parameter-summary-no-array-fragment"
@@ -468,6 +469,29 @@
         "missingApplicationSkillNames": [],
         "statusEffectExpectedCount": 200,
         "statusEffectIndexedCount": 200
+      }
+    },
+    {
+      "caseId": "equipment-search-stage-coverage",
+      "description": "装備検索索引へ全段階の構造化技能本文を欠落なく収録する",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "expectedEquipmentCount": 244,
+        "indexedEquipmentCount": 244,
+        "missingEquipmentCount": 0,
+        "missingStageCount": 0,
+        "missingSkillRefCount": 0,
+        "missingEquipmentRows": [],
+        "missingStageRows": [],
+        "missingSkillRefs": [],
+        "representative": {
+          "equipment": "双鉄戟",
+          "stage": "urMax",
+          "keyword": "回復",
+          "ok": true
+        },
+        "policy": "装備検索は基本情報と構造化済み段階別技能を分離し、記事コメント・おすすめ武将・入手方法を検索本文へ混入させない。"
       }
     },
     {
