@@ -7,5 +7,6 @@ vm.createContext(context);
 vm.runInContext(fs.readFileSync('hado_version.js','utf8'),context,{filename:'hado_version.js'});
 const version=context.window.HADO_VERSION;
 const cacheKey=`${version.updateNo}-r${version.revision}`;
-if(!html.includes(`./hado_bootstrap.js?v=${cacheKey}`))throw new Error(`bootstrap cache-bust version missing: ${cacheKey}`);
+const bootstrapMatch=html.match(/\.\/hado_bootstrap\.js\?v=([^"']+)/);
+if(!bootstrapMatch||!bootstrapMatch[1].startsWith(cacheKey))throw new Error(`bootstrap cache-bust version missing: ${cacheKey}`);
 console.log('PASS Update09.5.45 bootstrap cache bust');

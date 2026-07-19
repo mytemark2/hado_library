@@ -48,9 +48,11 @@ const skillKeys=new Set(rows(skillOwner).map(v=>v.skillKey).filter(Boolean));
 const statusGroups=new Set(rows(read('hadou_status_effect_group_owner_index.json')).map(v=>v.groupKey).filter(Boolean));
 
 assert.strictEqual(skillOwner.contractVersion,'1.0');
-assert.strictEqual(rows(skillOwner).length,640);
+assert.strictEqual(rows(skillOwner).length,1343);
+const allowedSkillDomains=new Set(['generalSkill','advisorSkill','equipmentSkill','ethnicResearchSkill','fiveElementSkill','warhorseSkill','derivedSkill']);
 rows(skillOwner).forEach(row=>{
-  assert.strictEqual(row.skillDomain,'generalSkill');
+  assert(allowedSkillDomains.has(row.skillDomain),row.skillName+': '+row.skillDomain);
+  assert(Array.isArray(row.skillDomains)&&row.skillDomains.includes(row.skillDomain));
   assert(skillKeys.has(row.skillKey));
   assert(row.sourceEntityKey);
   row.owners.forEach(owner=>assert(owner.ownerEntityKey&&owner.skillOwnerKey));
@@ -58,14 +60,14 @@ rows(skillOwner).forEach(row=>{
 
 let relatedRefCount=0;
 rows(related).forEach(item=>{
-  assert(item.sourceEntityKey&&sourceKeys.has(item.sourceEntityKey));
+  assert(item.sourceEntityKey&&(sourceKeys.has(item.sourceEntityKey)||(item.category==='skills'&&skillKeys.has(item.sourceEntityKey))),item.category+': '+item.name);
   Object.entries(item.related||{}).forEach(([bucket,values])=>{
     if(bucket==='sourceRefs'||!Array.isArray(values))return;
     values.forEach(ref=>{
       relatedRefCount++;
       assert(ref.targetDomain&&ref.targetKey&&ref.relatedRef,`${item.name}:${bucket} relatedRef`);
       if(ref.targetDomain==='statusEffect')assert(statusKeys.has(ref.targetKey));
-      else if(ref.targetDomain==='generalSkill')assert(skillKeys.has(ref.targetKey));
+      else if(ref.targetDomain==='skill')assert(skillKeys.has(ref.targetKey));
       else if(ref.targetDomain==='statusGroup')assert(statusGroups.has(ref.targetKey));
       else if(ref.targetDomain==='equipmentSkill')assert(sourceKeys.has(String(ref.targetKey).split(':equipmentSkill:')[0]));
       else if(ref.targetDomain!=='mechanic')assert(sourceKeys.has(ref.targetKey),`${ref.targetDomain}:${ref.targetKey}`);
@@ -74,6 +76,32 @@ rows(related).forEach(item=>{
 });
 assert(relatedRefCount>0);
 assert.strictEqual(related.qualityAudit.canonicalRefAudit.unresolvedRefCount,0);
+assert.strictEqual(related.qualityAudit.canonicalRefAudit.droppedSourceItemCount,0);
+assert.strictEqual(related.qualityAudit.canonicalRefAudit.droppedTargetCount,0);
+assert.strictEqual(related.qualityAudit.coverageAudit.ok,true);
+assert.strictEqual(related.qualityAudit.coverageAudit.applicationSkillExpectedCount,rows(skillOwner).length);
+assert.strictEqual(related.qualityAudit.coverageAudit.applicationSkillIndexedCount,rows(skillOwner).length);
+assert.strictEqual(related.qualityAudit.coverageAudit.missingApplicationSkillCount,0);
+for(const [name,domain] of [['堅固打破','equipmentSkill'],['啓蒙','advisorSkill'],['烏桓堅装','ethnicResearchSkill'],['火行','fiveElementSkill'],['奮戦','generalSkill'],['窮地戦威','equipmentSkill']]){
+  const owner=rows(skillOwner).find(v=>v.skillName===name);assert(owner,name+' skill owner row');assert.strictEqual(owner.skillDomain,domain,name+' domain');
+  assert(rows(related).some(v=>v.category==='skills'&&v.name===name),name+' related row');
+}
+const equipmentStage=read('hadou_equipment_skill_stage_index.json');
+const medicalBooks=rows(equipmentStage).filter(v=>v.name==='青嚢書・名家医書');
+assert.strictEqual(medicalBooks.length,1);
+assert(Object.values(medicalBooks[0].stages||{}).flatMap(v=>v.skills||[]).some(v=>v.skillName==='窮地戦威'));
+assert.strictEqual(equipmentStage.qualityAudit.duplicateMergeAudit.ok,true);
+
+// Runtime skills assembled from equipment/advisor/etc. retain their sourceDataset.
+// The detail renderer must therefore pass the displayed `skills` category into
+// the related-index lookup instead of falling back to that sourceDataset.
+const relatedRuntimeSource=fs.readFileSync(path.join(ROOT,'hado_status_effects.js'),'utf8');
+assert(/function getDerivedRelatedLinkIndexEntry\(item,categoryHint=''/m.test(relatedRuntimeSource));
+assert(/getDerivedRelatedLinkIndexEntry\(item,category\)/m.test(relatedRuntimeSource));
+assert(/getDerivedRelatedLinkIndexGroupsForItem\(item,\{trustedIndex:true,category,name:itemName\}\)/m.test(relatedRuntimeSource));
+const bootstrapSource=fs.readFileSync(path.join(ROOT,'hado_bootstrap.js'),'utf8');
+assert(/const requestToken=\[/m.test(bootstrapSource));
+assert(/loadJsonTextByXhr\(requestUrl\(file\)\)/m.test(bootstrapSource));
 
 const parameterEffects=rows(parameter).flatMap(v=>v.effects||[]);
 assert(parameterEffects.length>0);
@@ -118,7 +146,7 @@ for(const name of ['穿撃','轟炎']){
   const meta=rows(statusMeta).find(v=>v.name===name);assert(meta);assert.strictEqual(meta.gameType,'有利変化');assert.strictEqual(meta.actorPolarity,'selfPositive');assert.strictEqual(meta.direction,'buff');assert.strictEqual(meta.targetSide,'self');
 }
 
-const requiredCases=['type-feature-no-pseudo-status-key','type-feature-tactic-source-part','role-score-tactic-role-gate','skill-owner-domain-separation','related-link-no-unresolved-ref','status-meta-group-consistency','tactic-attack-block-consistency','parameter-summary-no-array-fragment'];
+const requiredCases=['type-feature-no-pseudo-status-key','type-feature-tactic-source-part','role-score-tactic-role-gate','skill-owner-domain-separation','related-link-no-unresolved-ref','related-link-application-skill-coverage','status-meta-group-consistency','tactic-attack-block-consistency','parameter-summary-no-array-fragment'];
 const caseMap=new Map(rows(regressions).map(v=>[v.caseId,v]));
 requiredCases.forEach(id=>assert.strictEqual(caseMap.get(id)?.ok,true,id));
 

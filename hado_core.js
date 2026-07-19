@@ -3354,11 +3354,27 @@ function getDerivedEquipmentSkillStageEntry(item){
   const items=bucket&&bucket.available&&Array.isArray(bucket.items)?bucket.items:[];
   if(!items.length||!item)return null;
   const names=[getItemDisplayName(item),item?.name,item?.displayName,item?.rawName,item?.title,item?.raw?.name,item?.raw?.title].map(v=>normalizeSaveItemName(v)).filter(Boolean);
-  return items.find(entry=>{
+  const matches=items.filter(entry=>{
     if(normalizeDerivedSearchCategory(entry?.category||'')!=='equipments')return false;
     const entryNames=[entry?.name,entry?.displayName,entry?.rawName,entry?.title].map(v=>normalizeSaveItemName(v)).filter(Boolean);
     return names.some(n=>entryNames.includes(n));
-  })||null;
+  });
+  if(matches.length<=1)return matches[0]||null;
+  const merged={...matches[0],stages:{},stageCandidates:[],sourceUrls:[]};
+  matches.forEach(entry=>{
+    (entry?.stageCandidates||[]).forEach(candidate=>merged.stageCandidates.push(candidate));
+    [entry?.sourceUrl,...(entry?.sourceUrls||[])].map(norm).filter(Boolean).forEach(url=>{if(!merged.sourceUrls.includes(url))merged.sourceUrls.push(url);});
+    Object.entries(entry?.stages||{}).forEach(([stageKey,stage])=>{
+      if(!merged.stages[stageKey]){merged.stages[stageKey]={...stage,skills:[...(stage?.skills||[])],parameterEffects:[...(stage?.parameterEffects||[])]};return;}
+      const target=merged.stages[stageKey];const skillSeen=new Set((target.skills||[]).map(skill=>[norm(skill?.skillName||skill?.name||''),norm(skill?.text||skill?.body||'')].join('@@')));
+      (stage?.skills||[]).forEach(skill=>{const key=[norm(skill?.skillName||skill?.name||''),norm(skill?.text||skill?.body||'')].join('@@');if(!skillSeen.has(key)){skillSeen.add(key);target.skills.push(skill);}});
+      const effectSeen=new Set((target.parameterEffects||[]).map(effect=>JSON.stringify(effect)));
+      (stage?.parameterEffects||[]).forEach(effect=>{const key=JSON.stringify(effect);if(!effectSeen.has(key)){effectSeen.add(key);target.parameterEffects.push(effect);}});
+      target.skillCount=target.skills.length;
+    });
+  });
+  debugLog('equipmentSkillStageIndex:duplicate-name-merged',{name:getItemDisplayName(item),matchCount:matches.length,sourceUrls:merged.sourceUrls,policy:'Update09.5.62: 同名装備の複数索引行は段階・技能・根拠URLを統合し、先頭行だけを採用しない。'});
+  return merged;
 }
 function derivedEquipmentStageLegacyTitle(stageKey){
   const st=normalizeDerivedEquipmentStageKey(stageKey);
