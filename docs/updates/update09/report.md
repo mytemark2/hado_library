@@ -1293,7 +1293,7 @@
 - 変更: `hado_bootstrap.js`、`hado_core.js`、`hado_status_effects.js`、`hado_version.js`、`HADO_DEV_INFO.json`、`index.html`、20派生JSON、契約テスト、Update09記録。
 - HTML/外部化: 28,133 bytes → 28,170 bytes（+37 bytes）。増加はcache keyのみで、HTMLロジック追加なし。
 - ローカルJSON契約: 20ファイル、技能1,343件、関連リンク2,847件、related ref 13,126件、欠落0、削除0、未解決0、代表6技能pass。
-- ローカルPC実操作: 公開JSONの一意トークン付き再取得後、技能 `堅固打破`、`啓蒙`、`烏桓堅装`、`火行`、`奮戦`、`窮地戦威` が各1件で詳細へ自動選択され、6件すべてで関連リンクJSONエラーが表示されないことを確認した。
+- ローカルPC実操作: 公開JSONの一意トークン付き再取得後、技能 `堅固打破`、`啓蒙`、`烏桓堅装`、`火行`、`奮戦`、`窮地戦威` の完全一致項目が詳細へ自動選択され、6件すべてで関連リンクJSONエラーが表示されないことを確認した。部分一致結果件数は技能名ごとに異なる。
 - 表示版: `3.0.0.0 Update09.5.62 r152`。
 - Git: canonical base `3b85c149874b7b0fcc0bfe347fbb0a34ec849602`、実装commit `f7e5a6196656ee45dca57f6e142a92343cdfbf74`、PR #239、merge `7a5acfb0361e34854591e81660b04e47145070d0`。merge readinessはmerge-base一致・競合なし。
 - Actions: PR `App Validation / app-validation` run 29676295655 success。正本 `Notify Hado Library Preview` run 29676974962 success。Preview `Deploy Hado Library Preview` run 29676990694 success。
