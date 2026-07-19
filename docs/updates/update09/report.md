@@ -1315,5 +1315,12 @@
 - ローカル対象回帰: `回復` は初期4件、SSR最大5件、UR最大8件。`双鉄戟` は初期5%／UR最大25%を段階同期し、おすすめ武将文は検索対象外。
 - HTML/外部化: Git正規化後28,151 bytesから28,151 bytes（±0）。HTMLはcache keyのみ変更し、検索ロジックは外部JavaScriptと生成JSONへ実装した。
 - ローカル検証: `python -X utf8 tools/run_app_validation.py` 117/117 pass。クローラー全JavaScript syntax、JSON契約、検索回帰、20派生JSON再生成もpass。
-- Git、Actions、Preview marker、公開PC/スマホ実操作、Debug Logは完了後に追記する。
-- 現在の状態: ローカル実装・117項目検証完了。公開Preview確認前のため未完了。
+- Git: Crawler canonical `c3dd9cd3db767d50ce05e42d2746d3a3ae6ca4c6`、commit `9e284a5ec9e783623436b0476e2282838351a3ca`、PR #13、merge `2c9333b5049fed5802294aacab5ee4233cbea610`。App canonical `c0df02dc00b001e8a2de2ff67c98a5633785f42c`、commit `36047b03fe87e4892df98138224f66f1793a7d68`、PR #242、merge `d3d97194b133c96816c6dd4c0d6993eb03dcc097`。App merge readinessはmerge-base一致・競合なし。
+- Actions: App PR `App Validation / app-validation` run 29680055559 success。正本 `Notify Hado Library Preview` run 29680105527 success。Preview `Deploy Hado Library Preview` run 29680120085 success。CrawlerはPR Actionsなしで、ローカルsyntax・契約・再生成を必須ゲートとした。
+- Preview repository: `main` HEAD `9f0a0efddfb34eb25e9887d1863d65898a2fbadd`。`index.html`、`hado_formation.js`、`hado_styles.css`、`.nojekyll`、34 `hadou_*.json`、3 markerを確認した。
+- 公開marker: `PREVIEW_SOURCE_COMMIT.txt=d3d97194b133c96816c6dd4c0d6993eb03dcc097`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.63`。
+- 公開PC操作: `3.0.0.0 Update09.5.63 r153`、公開JSON装備245件。装備だけで `回復` を検索し、UR最大8件、SSR最大5件、初期4件へ即時同期した。`双鉄戟` は全3段階でヒットし、装備技能本文はUR最大25%、SSR最大15%、初期5%の回復を表示した。UR最大8件は `龍淵剣`、`龍紋鉄甲`、`弘雅守信冠`、`炎帝神農茶譜`、`奮勇燕尾牌`、`金繍緑錦披風`、`双鉄戟`、`龍紋緑袍鎧`。
+- 公開スマホ操作: 390x844指定時の実効幅375pxで、body幅375px、横あふれなし、UR最大の `回復` 8件と `双鉄戟` 詳細を維持した。
+- 公開Debug Log: 診断版数 `覇道ライブラリ｜3.0.0.0 Update09.5.63 r153`。`ログ表示` ONで `#debugPanel` は `display:block`、ログ本文2,404文字、`debugPanel:toggle` あり、検索索引・parameter summary errorなし。ブラウザwarning/error 0件。
+- 最小受入操作: 公開Previewで装備だけを選び `回復` を検索する。UR最大で8件と `双鉄戟` を確認し、装備段階をSSR最大・初期へ切り替えて5件・4件へ変わることを確認する。
+- 現在の状態: 実装、全技能coverage、117項目検証、PR、マージ、Actions、Preview同期、marker、公開PC/スマホ実操作、Debug Log確認まで完了。残課題: なし。
