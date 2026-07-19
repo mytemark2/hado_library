@@ -845,14 +845,14 @@ function getGuidedTourDefinitions(){
       {title:'タブ別ガイドを使ってください',target:'#uxHomeOpenBtn',body:'初回ガイドはここまでです。\n検索機能は大幅に増えているため、最初に検索タブで「ガイド開始」を押してください。\n初回ガイドをもう一度見たい時は、上部の「？」から再表示できます。'}
     ],
     search:[
-      {title:'検索ガイドを開始します',target:'#searchPanel',tab:'search',expandSearchPanel:true,body:'検索には「通常検索」「状態変化検索」「型検索」があります。\n型を決める時は型検索/型編成ナビで目的型を選び、候補ワークスペースの編集モードで理由を確認して候補へ追加し、候補モードから配置します。'},
+      {title:'検索ガイドを開始します',target:'#searchPanel',tab:'search',expandSearchPanel:true,body:'検索には「通常検索」「状態変化検索」「型検索」があります。\n型を決める時は型検索/型編成ナビで目的型を選び、候補ワークスペースの編集モードで候補を整え、候補モードから新規部隊作成または配置へ進みます。'},
       {title:'検索モードを選択',target:'#searchModeBar',tab:'search',expandSearchPanel:true,body:'通常検索は自由検索、状態変化検索は状態変化からの逆引き、型検索は攻撃速度型・撃心型などの編成コンセプトから候補を探す機能です。'},
       {title:'通常検索：キーワード',target:'#normalSearchInputRow',tab:'search',searchMode:'normal',expandSearchPanel:true,body:'通常検索では、名称や本文を部分一致で探します。\n「名称のみ」をONにすると名称限定になります。キーワード未入力でも、カテゴリをONにするとカテゴリ全件を表示します。'},
       {title:'通常検索・型検索：タグ',target:'#tagSearchWrap',tab:'search',searchMode:'normal',expandSearchPanel:true,body:'タグは属性の絞り込みに使います。\n同じタググループ内はOR、異なるタググループ間はANDです。例：兵科:騎兵 OR 兵科:弓兵 AND 性別:女。'},
       {title:'カテゴリを選択',target:'#categoryBar',tab:'search',searchMode:'normal',expandSearchPanel:true,body:'検索対象カテゴリを複数選択できます。\n型検索では、武将・装備・兵器・軍馬技能の4カテゴリに限定されます。'},
       {title:'状態変化検索',target:'#searchPresetBar',tab:'search',searchMode:'status',expandSearchPanel:true,body:'状態変化検索では、6分類から目的を選び、状態変化を1件選択します。\n自部隊能力強化、自部隊状態強化、自部隊不利対策、敵部隊能力低下、敵部隊状態弱化、敵部隊有利対策を逆引きできます。'},
       {title:'型検索',target:'#typeSearchPanel',tab:'search',searchMode:'type',expandSearchPanel:true,body:'型検索では、攻撃速度型、通常攻撃拡張型、撃心型、ゾンビ型などのプリセットを選択できます。\n全データ表示は未所持を含む理論候補、保存データ表示は登録済み所持データ中心の候補です。型編成ナビで型を選ぶと候補ワークスペースを編集モードで開きます。'},
-      {title:'候補ワークスペース',target:'.result-copy-actions',tab:'search',searchMode:'type',expandSearchPanel:true,body:'候補ワークスペースの編集モードでは候補を複数選択できます。\n候補へ追加すると候補モードへ切り替わり、主将・副将・補佐・侍従・装備拡張のタブから直接配置できます。コピー系ボタンは共有や検証に使います。'},
+      {title:'候補ワークスペース',target:'.result-copy-actions',tab:'search',searchMode:'type',expandSearchPanel:true,body:'候補ワークスペースの編集モードでは、カードを押すたびに候補へ即時追加・解除されます。\n候補モードでは主将・副将・補佐・侍従・装備拡張を確認し、型編成ナビ経由なら「この型で新規部隊」、既存部隊なら「配置先を選ぶ」へ進みます。'},
       {title:'検索結果から詳細を確認',target:'#results,#resultSelect',tab:'search',body:'PCでは一覧、スマホではドロップダウンから結果を選択します。\n選択すると、右側または下部の内容詳細へ表示されます。'},
       {title:'内容詳細と履歴操作',target:'#detail',tab:'search',body:'内容詳細では、関連リンク、状態変化率、パラメータ、コピー用テキストを確認できます。\n戻る/進む、検索結果の前後移動も利用できます。'}
     ],

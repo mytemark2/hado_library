@@ -82,7 +82,7 @@ def main() -> int:
         "部隊のグループは、攻城・防衛・イベントなど用途別に部隊を整理する単位です",
         "グループ選択欄で表示対象を切り替え",
         "「変更」ボタンでグループの追加・名前変更・削除",
-        "候補ワークスペースの編集モードでは候補を複数選択",
+        "カードを押すたびに候補へ即時追加・解除",
     ]:
         require(core_js, needle, f"active guided-tour text {needle}")
 
@@ -92,8 +92,8 @@ def main() -> int:
         "<summary>次の操作</summary>",
         "全データ表示",
         "保存データ表示",
-        "候補に追加",
-        "候補モードの「配置先を選ぶ」",
+        "その場で候補へ追加・解除",
+        "候補モード",
     ]:
         require(candidates_js, needle, f"type candidates next-step help {needle}")
 

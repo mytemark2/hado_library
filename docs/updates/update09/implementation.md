@@ -1117,3 +1117,15 @@
 - 可視版を `3.0.0.0 Update09.5.63 r153` へ更新する。
 - HTMLのGit正規化後サイズは28,151 bytesから28,151 bytes（±0）。更新はcache keyだけで、JavaScriptロジックをHTMLへ追加していない。
 - `python -X utf8 tools/run_app_validation.py` は117/117 pass。JavaScript/JSON/HTML/CSS、起動、検索、詳細、編成、保存Export/Import、PC/スマホ契約、20派生JSON、版数、禁止queue不在を検証した。
+
+## Update09.5.64 — 候補ワークスペースの編集・作成フロー改善
+
+- 分類: 候補選定操作の冗長性、作成操作の配置不整合、型編成ナビの主将選択と新規部隊の状態連携不足。
+- 根本原因: 編集モードが一時的な複数選択と確定ボタンを前提としており、候補の確認前に新規作成ボタンを表示していた。また型編成ナビの選択は型評価条件としてだけ保存され、候補と編成主将へ引き継ぐ契約がなかった。
+- 恒久対策: 編集カードを候補データの即時トグルにし、作成前候補を既存部隊から分離したdraftとして保持する。新規作成は候補モードに限定し、選択主将、候補、型を一つのpayloadで `hado_formation.js` の新規部隊生成へ渡す。
+- 影響範囲: 型編成ナビからの新規作成、既存部隊から開く候補ワークスペース、候補削除・全削除、主将選択、候補件数snapshot。既存の `candidateTray` 保存形式、Export/Import、役割制約、配置判定は変更しない。
+- 実装: `hado_type_candidates.js` に作成前draft、即時追加・解除、主将選択、候補モード作成を実装した。`hado_formation.js` は候補を新IDで複製し、適格な選択主将を主将枠へ設定して、描画後に候補snapshotを再通知する。
+- 再発防止: `tools/test_update09_5_64_candidate_workspace_flow.js` を全アプリ検証へ追加し、追加ボタン不在、主将seed、候補・型・主将引継ぎ、既存部隊非変更、作成後snapshotを実行回帰で固定する。既存の候補同期・ワークスペース・ガイドvalidatorも新契約へ更新する。
+- HTML/外部化: 挙動は既存の外部JavaScriptへ実装し、HTMLはガイド文とcache keyだけを更新する。Crawler入力・派生JSON契約は変更しないためJSON再生成は不要である。
+- HTMLサイズ: Git正規化後28,151 bytesから28,233 bytes（+82 bytes）。増加はガイド文とcache keyで、JavaScriptロジックをHTMLへ追加していない。
+- 表示版: `3.0.0.0 Update09.5.64 r154`。
