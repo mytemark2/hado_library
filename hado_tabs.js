@@ -30,9 +30,6 @@
       tab.classList.toggle('is-active', on);
     });
     list.dataset.currentTab = tabLabel(selected);
-    const statusId = options.statusId || list.dataset.tabStatusId || '';
-    const status = statusId ? document.getElementById(statusId) : null;
-    if (status && selected) status.textContent = `${tabLabel(selected)}を表示中`;
     return selected;
   }
 

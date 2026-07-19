@@ -3739,8 +3739,7 @@ function renderTabbedDetailContent(item,categoryKey){
   const tabButtons=profiler.wrap('renderDetailTabs',()=>renderDetailTabs(categoryKey),r=>({htmlLength:String(r||'').length}));
   const cardLog={item:getItemDisplayName(item),category:categoryKey,activeTab:active,lazyRender:!!tabs.lazy,tabs:getDetailTabSpecs(categoryKey).map(t=>t.key),tabLabels:getDetailTabSpecs(categoryKey).map(t=>t.label),cards:tabs.cards,excluded:tabs.excluded,unassigned:tabs.unassigned,buildProfile:safeCloneForDebug(tabs.profile||{})};
   debugLog('detail-tabs',cardLog);state.diagnostics.detailTabs=cardLog;
-  const activeSpec=getDetailTabSpecs(categoryKey).find(tab=>tab.key===active)||getDetailTabSpecs(categoryKey)[0]||{label:'詳細'};
-  const htmlOut=`${tabButtons}<div class="hado-tab-context detail-tab-current" aria-live="polite"><strong>${esc(activeSpec.label)}</strong><span>を表示中</span></div><div id="detail-panel-${esc(active)}" class="detail-tab-content hado-tab-panel-enter" data-active-tab="${esc(active)}" role="tabpanel" aria-labelledby="detail-tab-${esc(active)}" tabindex="0">${tabHtml?`<div class="general-detail-stack">${tabHtml}</div>`:`<div class="detail-empty">このタブに表示する内容はありません。</div>`}</div>`;
+  const htmlOut=`${tabButtons}<div id="detail-panel-${esc(active)}" class="detail-tab-content hado-tab-panel-enter" data-active-tab="${esc(active)}" role="tabpanel" aria-labelledby="detail-tab-${esc(active)}" tabindex="0">${tabHtml?`<div class="general-detail-stack">${tabHtml}</div>`:`<div class="detail-empty">このタブに表示する内容はありません。</div>`}</div>`;
   profiler.mark('assembleTabbedHtml',{htmlLength:String(htmlOut||'').length});
   const p=profiler.finish({activeTab:active,lazyRender:!!tabs.lazy,builderProfile:safeCloneForDebug(tabs.profile||{})});
   if(!state.diagnostics)state.diagnostics={};state.diagnostics.detailTabBuildProfile=p;debugLog('detail-tab-build-profile',p);

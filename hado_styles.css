@@ -1576,9 +1576,6 @@ body{font-feature-settings:"palt" 1,"kern" 1;text-rendering:optimizeLegibility}
 [role="tablist"] [role="tab"]:focus-visible{outline:3px solid color-mix(in srgb,var(--tab-focus) 62%,transparent);outline-offset:3px;z-index:2}
 [role="tablist"] [role="tab"][aria-selected="true"]{font-weight:900;letter-spacing:.01em}
 .hado-tab-label{position:relative;z-index:1}
-.hado-tab-context{display:flex;align-items:center;gap:5px;width:max-content;max-width:100%;margin:4px 0 10px;padding:5px 10px;border-left:4px solid var(--tab-primary);border-radius:0 9px 9px 0;background:#eff6ff;color:#1e3a8a;font-size:12px;font-weight:700;line-height:1.35}
-.hado-tab-context::before{content:'●';font-size:8px;color:var(--tab-primary)}
-.hado-tab-context strong{font-size:13px;color:var(--tab-ink)}
 .hado-tab-panel-enter{animation:hado-tab-panel-enter .14s ease-out both}
 @keyframes hado-tab-panel-enter{from{opacity:.45;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
 
@@ -1587,7 +1584,6 @@ body{font-feature-settings:"palt" 1,"kern" 1;text-rendering:optimizeLegibility}
 #mainTabPanel .main-tab-btn{display:flex;align-items:center;justify-content:center;gap:7px;min-height:46px!important;border:1px solid transparent!important;border-radius:13px!important;background:transparent!important;color:#475569!important;font-size:14px!important;font-weight:750!important}
 #mainTabPanel .main-tab-btn:hover{border-color:#bfdbfe!important;background:#fff!important;color:var(--tab-primary)!important}
 #mainTabPanel .main-tab-btn[aria-selected="true"]{border-color:var(--tab-primary-dark)!important;background:linear-gradient(135deg,var(--tab-primary),var(--tab-primary-dark))!important;color:#fff!important;box-shadow:0 5px 14px rgba(29,78,216,.28)!important}
-#mainTabPanel .main-tab-btn[aria-selected="true"]::after{content:'表示中';padding:2px 6px;border:1px solid rgba(255,255,255,.45);border-radius:999px;background:rgba(255,255,255,.16);font-size:9px;font-weight:900;white-space:nowrap}
 
 /* Search mode: modern segmented control with shape, fill and check mark. */
 #searchModeBar.search-mode-row{display:flex;gap:5px;margin:0 0 5px;padding:5px;border:1px solid #99f6e4;border-radius:14px;background:#f0fdfa;overflow-x:auto;scrollbar-width:thin}
@@ -1616,10 +1612,7 @@ body{font-feature-settings:"palt" 1,"kern" 1;text-rendering:optimizeLegibility}
 #htc-modal .htc-tab-count{display:inline-grid;place-items:center;min-width:24px;height:22px;padding:0 6px;border-radius:999px;background:#e2e8f0;color:#334155;font-size:11px;font-variant-numeric:tabular-nums}
 #htc-modal .htc-tab[aria-selected="true"] .htc-tab-count{background:#fff;color:var(--tab-primary-dark)}
 #htc-modal{grid-template-rows:auto auto minmax(0,1fr)!important}
-#htc-modal .htc-panel{min-height:0;overflow:hidden;display:grid;grid-template-rows:auto auto minmax(0,1fr)}
-#htc-modal .htc-panel-heading{display:flex;align-items:baseline;gap:8px;padding-top:10px;padding-bottom:8px;background:#f8fbff;border-bottom:1px solid #dbeafe}
-#htc-modal .htc-panel-heading strong{font-size:17px;color:var(--tab-ink)}
-#htc-modal .htc-panel-heading span{font-size:12px;font-weight:700;color:var(--tab-primary-dark)}
+#htc-modal .htc-panel{min-height:0;overflow:hidden;display:grid;grid-template-rows:auto minmax(0,1fr)}
 #htc-workspace-panel:focus{outline:none}
 
 /* Type navigator uses the same segmented grammar. */
@@ -1633,13 +1626,10 @@ body{font-feature-settings:"palt" 1,"kern" 1;text-rendering:optimizeLegibility}
 @media(max-width:980px),(pointer:coarse){
   #mainTabPanel .main-tab-row{padding:5px!important;border-radius:14px!important}
   #mainTabPanel .main-tab-btn{min-height:43px!important;padding:7px 5px!important;font-size:12px!important}
-  #mainTabPanel .main-tab-btn[aria-selected="true"]::after{display:none}
   #searchModeBar.search-mode-row{padding:4px}
   #searchModeBar .search-mode-btn{flex:1 0 max-content;padding:7px 9px;font-size:12px}
-  .hado-tab-context{margin-bottom:8px}
   .detail-tabs,.formation-work-tabs{padding:4px!important}
   .detail-tab-btn,.formation-work-tab-btn{min-height:36px!important;padding:7px 10px!important;font-size:12px!important}
   #htc-modal .htc-tabs{padding:8px 10px!important}
-  #htc-modal .htc-panel-heading{position:sticky;top:0;z-index:2;padding:9px 12px}
 }
 @media(prefers-reduced-motion:reduce){[role="tablist"] [role="tab"],.hado-tab-panel-enter{transition:none!important;animation:none!important}}

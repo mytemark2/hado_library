@@ -16,17 +16,31 @@ const candidates = read('hado_type_candidates.js');
 const typeEntry = read('hado_type_entry.js');
 const styles = read('hado_styles.css');
 const tabsSource = read('hado_tabs.js');
+const bootstrap = read('hado_bootstrap.js');
+const statusEffects = read('hado_status_effects.js');
+const relatedLinks = JSON.parse(read('hadou_related_link_index.json'));
 
 assert(index.indexOf('hado_tabs.js?v=10.1-r156') < index.indexOf('hado_core.js?v=10.1-r156'), 'shared tab runtime must load before consumers');
-assert(index.includes('role="tablist"') && index.includes('data-tab-status-id="searchModeCurrent"'), 'primary/search tab semantics missing');
+assert(index.includes('role="tablist"') && index.includes('data-tab-key="normal"'), 'primary/search tab semantics missing');
 assert(index.includes('aria-controls="normalSearchInputRow"') && index.includes('aria-controls="searchPresetBar"') && index.includes('aria-controls="typeSearchPanel"'), 'search tabs must identify their primary controlled content');
 assert(core.includes('window.HADO_TABS.sync(mainTabList,activeMainTab)') && core.includes('role="tabpanel"'), 'main/detail tabs must use shared state and panels');
-assert(search.includes("statusId:'searchModeCurrent'"), 'search mode must expose the active context');
+assert(!index.includes('searchModeCurrent') && !search.includes("statusId:'searchModeCurrent'"), 'redundant search-mode current row must stay removed');
 assert(formation.includes('window.HADO_TABS.sync') && formation.includes('formation-work-panel-'), 'formation tabs must use shared state and panel relationships');
 assert(candidates.includes('htc-workspace-panel') && candidates.includes('htc-tab-count'), 'candidate workspace must expose role context and counts');
 assert(typeEntry.includes('hte-mode-panel') && typeEntry.includes('window.HADO_TABS?.sync'), 'type navigator must share tab semantics');
 assert(styles.includes('#mainTabPanel .main-tab-btn[aria-selected="true"]') && styles.includes('#htc-modal .htc-tab[aria-selected="true"]'), 'strong selected styles missing');
+assert(!core.includes('hado-tab-context') && !typeEntry.includes('hado-tab-context') && !candidates.includes('htc-panel-heading'), 'redundant current-tab rows must stay removed');
+assert(!styles.includes("content:'表示中'"), 'selected tabs must not add a redundant display-status badge');
 assert(styles.includes('@media(prefers-reduced-motion:reduce)'), 'motion preference fallback missing');
+assert(bootstrap.includes("window.HADO_APP_VERSION_META?.visibleVersion") && bootstrap.includes('getValidationStyleText()'), 'runtime validation must follow visible version metadata and external CSS');
+assert(bootstrap.includes("const expectedSummaryIds=['troops','damageTaken','normalAttack','tacticOpening','tacticSpeed','tacticMaxPower']"), 'runtime validation must follow the six-item decision summary contract');
+assert(bootstrap.includes("typeof renderFormationWarhorseSlotsHtml==='function'"), 'runtime validation must follow the current three-slot warhorse UI');
+assert(bootstrap.includes('Lazy-rendered formation/detail labels are validated through their render functions'), 'runtime validation must not require inactive lazy-tab text');
+assert(statusEffects.includes('...(Array.isArray(related.mechanics)?related.mechanics:[])'), 'trusted related-link rendering must include crawler mechanics');
+const relatedItems = relatedLinks.items || relatedLinks;
+const lrZhangFei = relatedItems.find(item => item.name === 'LR張飛（ちょうひ）');
+const zhangFeiMechanics = (lrZhangFei?.related?.mechanics || []).map(item => item.displayName || item.name);
+assert(zhangFeiMechanics.includes('畏怖回避[鋼胆]') && zhangFeiMechanics.includes('恐怖回避[鋼胆]'), 'LR張飛 countermeasure fixtures must remain in the crawler-owned mechanics bucket');
 
 let keydownHandler = null;
 const sandbox = {

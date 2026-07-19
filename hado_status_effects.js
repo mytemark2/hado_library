@@ -3398,7 +3398,9 @@ function getDerivedRelatedLinkIndexGroupsForItem(item,options={}){
   add('tactics','戦法',derivedRelatedIndexNames(related.tactics));
   add('skills','技能',derivedRelatedIndexNames(related.skills));
   add('equipments','装備',derivedRelatedIndexNames(related.equipments));
-  let statusRels=(Array.isArray(related.statusEffects)?related.statusEffects:[]).map(v=>({
+  // The crawler stores ordinary status links and non-master countermeasure summaries in
+  // separate buckets. Both are display contracts for the same six related-link groups.
+  let statusRels=[...(Array.isArray(related.statusEffects)?related.statusEffects:[]),...(Array.isArray(related.mechanics)?related.mechanics:[])].map(v=>({
     name:norm(v?.name||v?.statusEffectName||v?.displayName||''),
     groupKey:norm(v?.groupKey||''),
     groupLabel:norm(v?.groupLabel||''),
