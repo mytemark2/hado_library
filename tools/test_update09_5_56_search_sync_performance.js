@@ -64,11 +64,11 @@ assert(troopMatches.some(item => String(item.name || '').includes('司馬師')),
 const candidateSource = fs.readFileSync('hado_type_candidates.js', 'utf8');
 const coreSource = fs.readFileSync('hado_core.js', 'utf8');
 const entrySource = fs.readFileSync('hado_type_entry.js', 'utf8');
-assert(candidateSource.includes("addEventListener(TRAY_SNAPSHOT,e=>syncPickedFromTraySnapshot"), 'tray snapshot listener missing');
+assert(candidateSource.includes("addEventListener(TRAY_SNAPSHOT,e=>syncCandidateTraySnapshot"), 'tray snapshot listener missing');
 assert(candidateSource.includes('await prepareRoleRowsBase(role'), 'candidate scoring must yield in batches');
 assert(candidateSource.includes('rs.slice(0,Math.max(30,st.renderLimit))'), 'candidate DOM must be capped');
-assert(candidateSource.includes('picked:new Map()'), 'type candidates must retain multiple selected rows');
-assert(candidateSource.includes('候補に追加（${pickedCount}件）'), 'candidate workspace edit action must show selected count');
+assert(candidateSource.includes("function activeCandidateItems(){return st.context==='draft'?st.draftItems:st.trayItems}"), 'candidate workspace must retain multiple candidates in draft or formation state');
+assert(candidateSource.includes('カード選択は候補へ即時反映されます。'), 'candidate workspace edit action must explain immediate reflection');
 assert(candidateSource.includes('min-width:max-content;white-space:nowrap;overflow:visible;text-overflow:clip'), 'role tab counts must never be ellipsized');
 assert(candidateSource.includes('async function prepareAllRoleCounts()'), 'all role counts must be prepared before the candidate list is rendered');
 assert(candidateSource.includes('await prepareAllRoleCounts();await selectWorkspaceTab(st.workspaceTab)'), 'candidate workspace edit mode must wait for all numeric role counts');
@@ -84,7 +84,7 @@ assert(coreSource.includes('window.HADO_APP_DISPLAY_VERSION||window.HADO_APP_VER
 const candidateSandbox = {
   console, window: null, state: { diagnostics: {}, mainTab: 'search' },
   setInterval: () => 0, addEventListener: () => {}, alert: () => {},
-  localStorage: { getItem: () => null },
+  localStorage: { getItem: () => null, setItem: () => {}, removeItem: () => {} },
   MutationObserver: class { observe() {} },
   document: {
     readyState: 'complete', documentElement: {},
@@ -100,11 +100,11 @@ const trayRow = { roleId: 'main_general', name: 'LRテスト', displayName: 'LR�
 const trayKey = candidateDebug.trayPayloadKey(trayRow);
 const secondTrayRow = { roleId: 'vice_general', name: 'URテスト', displayName: 'URテスト', typeId: 'vaccine' };
 const secondTrayKey = candidateDebug.trayPayloadKey(secondTrayRow);
-candidateDebug.setPickedStateForTest(['main_general::LRテスト', 'vice_general::URテスト'], [trayKey, secondTrayKey]);
-candidateDebug.syncPickedFromTraySnapshot({ context: 'candidate-tray-add', items: [trayRow, secondTrayRow] });
-assert.strictEqual(candidateDebug.getPickedState().picked.length, 2, 'all selected rows must remain while their tray rows exist');
-candidateDebug.syncPickedFromTraySnapshot({ context: 'candidate-tray-remove', items: [] });
-assert.strictEqual(candidateDebug.getPickedState().picked.length, 0, 'all matching selections must clear after tray removal');
+candidateDebug.setWorkspaceStateForTest({ context: 'formation', trayItems: [] });
+candidateDebug.syncCandidateTraySnapshot({ context: 'candidate-tray-add', items: [trayRow, secondTrayRow] });
+assert.strictEqual(candidateDebug.getWorkspaceState().activeItems.length, 2, 'all persisted candidate rows must remain in the formation workspace');
+candidateDebug.syncCandidateTraySnapshot({ context: 'candidate-tray-remove', items: [] });
+assert.strictEqual(candidateDebug.getWorkspaceState().activeItems.length, 0, 'formation workspace must follow candidate tray removal');
 
 const storeSource = fs.readFileSync('hado_type_data_store.js', 'utf8');
 let fetchCount = 0;

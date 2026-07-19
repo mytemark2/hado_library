@@ -129,7 +129,7 @@ REQUIRED_TYPE_CANDIDATES = (
     "renderTagChips(v)",
     "tagRank(b)-tagRank(a)||Number(a.sourceIndex||0)-Number(b.sourceIndex||0)",
     "保存データ表示",
-    "選択中の型: ${esc(type()?.typeName||'未選択')} / 目的: ${esc(purpose()?.purposeName||'指定なし')} / ${esc(typeCandidateViewModeLabel())}",
+    "選択中の型: ${esc(type()?.typeName||st.sel?.typeName||'未選択')} / 目的: ${esc(purpose()?.purposeName||'指定なし')} / ${esc(typeCandidateViewModeLabel())}",
 )
 FORBIDDEN_TYPE_CANDIDATES = (
     "候補をクリックすると選択状態になります",
