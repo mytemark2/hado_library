@@ -66,7 +66,7 @@ for (const preservedRolePath of ['placeFormationCandidateTrayFormation', 'placeF
   assert(formation.includes(`function ${preservedRolePath}`), `${preservedRolePath} must preserve the non-general candidate tray feature`);
 }
 assert(!indexHtml.includes('hado_candidate_tray_core.js'), 'duplicate candidate tray event handler must not be loaded');
-assert(indexHtml.includes('hado_formation.js?v=attendant-gate-r145'), 'formation runtime must use the attendant-gate cache key');
+assert(/hado_formation\.js\?v=[^"']+-r\d+/.test(indexHtml), 'formation runtime must keep a revisioned cache key without duplicating the visible Update string');
 for (const asset of ['hado_type_candidates.js', 'hado_candidate_tray.js', 'hado_version.js']) {
   assert(new RegExp(`${asset.replace('.', '\\.') }\\?v=\\d{2}\\.\\d+\\.\\d+-r\\d+`).test(indexHtml), `${asset} must keep a versioned cache key`);
 }
