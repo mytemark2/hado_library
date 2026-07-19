@@ -841,18 +841,18 @@ function getGuidedTourDefinitions(){
       (IS_WEB_DEPLOYMENT?{title:'公開JSONは自動で読み込まれます',target:'#dataContextSummary',body:'ウェブ版では、公開サイトに格納されたJSON一式を起動時に自動取得します。\nJSONフォルダやJSONファイルを手動で選択する必要はありません。'}:{title:'JSONデータを読み込みます',target:'#dataManagementSheet .data-file-pane',openDataSheet:true,body:'PCは「JSONフォルダ再読込」、スマホは「JSONファイル読込」を使います。\n最新クローラーで生成したJSON一式を読み込んでください。'}),
       {title:'保存データを準備します',target:'#dataSavedOptions',openDataSheet:true,dataMode:'saved',body:'保存データでは、お気に入り登録した武将・装備、部隊編成、軍馬を管理できます。\n既存データはImport、新規利用は「新規」から作成します。'},
       {title:'お気に入り登録',target:'#results,#resultSelect',closeDataSheet:true,body:'検索結果や内容詳細で武将・装備を★登録すると、現在選択中の保存データに反映されます。\n保存データ表示では、登録済みの武将・装備を前提に候補を絞り込みます。'},
-      {title:'3つのタブとPhase 4の操作導線',target:'#mainTabPanel',body:'検索、部隊編成、軍馬編成の3つのタブがあります。\n型を使う場合は、型検索/型編成ナビ → 型候補一覧 → 候補トレイ → 部隊編成の順に進めます。タブを切り替えた後に「ガイド開始」を押すと、そのタブ専用の案内が始まります。'},
+      {title:'3つのタブと候補ワークスペース',target:'#mainTabPanel',body:'検索、部隊編成、軍馬編成の3つのタブがあります。\n型を使う場合は、型検索/型編成ナビ → 候補ワークスペースの編集モード → 候補モード → 部隊編成の順に進めます。タブを切り替えた後に「ガイド開始」を押すと、そのタブ専用の案内が始まります。'},
       {title:'タブ別ガイドを使ってください',target:'#uxHomeOpenBtn',body:'初回ガイドはここまでです。\n検索機能は大幅に増えているため、最初に検索タブで「ガイド開始」を押してください。\n初回ガイドをもう一度見たい時は、上部の「？」から再表示できます。'}
     ],
     search:[
-      {title:'検索ガイドを開始します',target:'#searchPanel',tab:'search',expandSearchPanel:true,body:'検索には「通常検索」「状態変化検索」「型検索」があります。\n型を決める時は型検索/型編成ナビで目的型を選び、型候補一覧で理由を確認して候補トレイへ入れ、最後に部隊編成で配置します。'},
+      {title:'検索ガイドを開始します',target:'#searchPanel',tab:'search',expandSearchPanel:true,body:'検索には「通常検索」「状態変化検索」「型検索」があります。\n型を決める時は型検索/型編成ナビで目的型を選び、候補ワークスペースの編集モードで理由を確認して候補へ追加し、候補モードから配置します。'},
       {title:'検索モードを選択',target:'#searchModeBar',tab:'search',expandSearchPanel:true,body:'通常検索は自由検索、状態変化検索は状態変化からの逆引き、型検索は攻撃速度型・撃心型などの編成コンセプトから候補を探す機能です。'},
       {title:'通常検索：キーワード',target:'#normalSearchInputRow',tab:'search',searchMode:'normal',expandSearchPanel:true,body:'通常検索では、名称や本文を部分一致で探します。\n「名称のみ」をONにすると名称限定になります。キーワード未入力でも、カテゴリをONにするとカテゴリ全件を表示します。'},
       {title:'通常検索・型検索：タグ',target:'#tagSearchWrap',tab:'search',searchMode:'normal',expandSearchPanel:true,body:'タグは属性の絞り込みに使います。\n同じタググループ内はOR、異なるタググループ間はANDです。例：兵科:騎兵 OR 兵科:弓兵 AND 性別:女。'},
       {title:'カテゴリを選択',target:'#categoryBar',tab:'search',searchMode:'normal',expandSearchPanel:true,body:'検索対象カテゴリを複数選択できます。\n型検索では、武将・装備・兵器・軍馬技能の4カテゴリに限定されます。'},
       {title:'状態変化検索',target:'#searchPresetBar',tab:'search',searchMode:'status',expandSearchPanel:true,body:'状態変化検索では、6分類から目的を選び、状態変化を1件選択します。\n自部隊能力強化、自部隊状態強化、自部隊不利対策、敵部隊能力低下、敵部隊状態弱化、敵部隊有利対策を逆引きできます。'},
-      {title:'型検索',target:'#typeSearchPanel',tab:'search',searchMode:'type',expandSearchPanel:true,body:'型検索では、攻撃速度型、通常攻撃拡張型、撃心型、ゾンビ型などのプリセットを選択できます。\n全データ表示は未所持を含む理論候補、保存データ表示は登録済み所持データ中心の候補です。型編成ナビで型を選んだ後は型候補一覧から候補トレイへ追加します。'},
-      {title:'型候補一覧から候補トレイへ',target:'.result-copy-actions',tab:'search',searchMode:'type',expandSearchPanel:true,body:'検索結果と型候補一覧は自動更新されます。\n候補一覧では「次の操作」を開くと、全データ表示/保存データ表示の違い、候補トレイ追加、部隊編成への進み方を確認できます。コピー系ボタンは共有や検証に使います。'},
+      {title:'型検索',target:'#typeSearchPanel',tab:'search',searchMode:'type',expandSearchPanel:true,body:'型検索では、攻撃速度型、通常攻撃拡張型、撃心型、ゾンビ型などのプリセットを選択できます。\n全データ表示は未所持を含む理論候補、保存データ表示は登録済み所持データ中心の候補です。型編成ナビで型を選ぶと候補ワークスペースを編集モードで開きます。'},
+      {title:'候補ワークスペース',target:'.result-copy-actions',tab:'search',searchMode:'type',expandSearchPanel:true,body:'候補ワークスペースの編集モードでは候補を複数選択できます。\n候補へ追加すると候補モードへ切り替わり、主将・副将・補佐・侍従・装備拡張のタブから直接配置できます。コピー系ボタンは共有や検証に使います。'},
       {title:'検索結果から詳細を確認',target:'#results,#resultSelect',tab:'search',body:'PCでは一覧、スマホではドロップダウンから結果を選択します。\n選択すると、右側または下部の内容詳細へ表示されます。'},
       {title:'内容詳細と履歴操作',target:'#detail',tab:'search',body:'内容詳細では、関連リンク、状態変化率、パラメータ、コピー用テキストを確認できます。\n戻る/進む、検索結果の前後移動も利用できます。'}
     ],

@@ -59,15 +59,13 @@ def main() -> int:
     for needle in [
         "id=\"uxHomeVersionBadge\"",
         "型編成ナビ",
-        "型候補一覧",
-        "候補トレイ",
+        "候補ワークスペース",
+        "候補モード",
         "部隊編成",
         "./hado_styles.css",
         "./hado_formation.js",
         "全データ表示",
         "保存データ表示",
-        "グループ選択欄",
-        "変更",
     ]:
         require(index_html, needle, f"start guide text {needle}")
 
@@ -78,13 +76,13 @@ def main() -> int:
     forbid(core_js, "target:'.formation-selected-editor-main,.formation-selected-card:not(.formation-warhorse-assignment-card)'", "obsolete formation guide 5/8 missing editor target")
 
     for needle in [
-        "型検索/型編成ナビ → 型候補一覧 → 候補トレイ → 部隊編成",
+        "型検索/型編成ナビ → 候補ワークスペースの編集モード → 候補モード → 部隊編成",
         "全データ表示は未所持を含む理論候補",
         "保存データ表示は登録済み所持データ中心の候補",
         "部隊のグループは、攻城・防衛・イベントなど用途別に部隊を整理する単位です",
         "グループ選択欄で表示対象を切り替え",
         "「変更」ボタンでグループの追加・名前変更・削除",
-        "候補一覧では「次の操作」を開く",
+        "候補ワークスペースの編集モードでは候補を複数選択",
     ]:
         require(core_js, needle, f"active guided-tour text {needle}")
 
@@ -94,19 +92,18 @@ def main() -> int:
         "<summary>次の操作</summary>",
         "全データ表示",
         "保存データ表示",
-        "候補トレイへ追加",
-        "部隊編成を開き",
+        "候補に追加",
+        "候補モードの「配置先を選ぶ」",
     ]:
         require(candidates_js, needle, f"type candidates next-step help {needle}")
 
     for needle in [
-        "hct-flow",
-        "次の操作:",
-        "型候補一覧で追加した候補を確認",
-        "配置先を選ぶ",
-        "成立判定は迂回しません",
+        "候補ワークスペース",
+        "mode:'candidate'",
+        "HadoTypeCandidates.open",
+        "hct-count",
     ]:
-        require(tray_js, needle, f"candidate tray next-step help {needle}")
+        require(tray_js, needle, f"candidate workspace launcher {needle}")
 
 
     for needle in [

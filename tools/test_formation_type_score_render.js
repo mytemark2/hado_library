@@ -53,12 +53,15 @@ const context = {
     return JSON.parse(JSON.stringify(value));
   },
   effectSignedValue(effect) {
-    return `${effect?.sign || '+'}${effect?.value ?? ''}${effect?.unit || ''}`;
+    return Number(effect?.value || 0) * (effect?.sign === '-' ? -1 : 1);
+  },
+  getFormationTacticAttackMaxPowerSummary() {
+    return { maxPower: 860, baseTotal: 760, hasAttack: true, hasModifier: true, hasEvaluatedModifier: true, label: '最大860%' };
   },
   isResponsiveMobileMode() {
     return false;
   },
-  PARAM_DISPLAY_GROUP_ORDER: ['能力'],
+  PARAM_DISPLAY_GROUP_ORDER: ['能力', 'ability', 'damage', 'speed', 'defense', 'gauge', 'target', 'special'],
   PARAM_GROUPS: [{ keys: ['弱化無効', '攻撃速度', '負傷兵回復'] }],
   timingLabel(value) {
     return value;
@@ -67,7 +70,10 @@ const context = {
     return value;
   },
   getParameterDefaultUnit(key, unit) {
-    return unit || '%';
+    return unit === undefined ? '%' : unit;
+  },
+  cleanConditionText(value) {
+    return String(value || '').trim();
   },
   formatFormationParameterNumber(value) {
     return String(Number(value) || 0);
@@ -174,6 +180,44 @@ const formationData = {
     }
   ]
 };
+
+const decisionSummaryData = {
+  summary: {
+    normal: {
+      ability: {
+        '兵力': { maxTotal: 20, unit: '%', maxItems: [{ key: '兵力', value: 20, sign: '+', unit: '%', sourceLabel: '威風Ⅴ', condition: '' }] }
+      },
+      defense: {
+        '被ダメージ': { maxTotal: -15, unit: '%', maxItems: [{ key: '被ダメージ', value: 15, sign: '-', unit: '%', sourceLabel: '堅固Ⅱ', condition: '' }] }
+      },
+      speed: {
+        '攻撃速度': { maxTotal: 40, unit: '%', maxItems: [{ key: '攻撃速度', value: 40, sign: '+', unit: '%', sourceLabel: '敏活Ⅱ', condition: '' }] },
+        '会心発生': { maxTotal: 25, unit: '%', maxItems: [{ key: '会心発生', value: 25, sign: '+', unit: '%', sourceLabel: '豪傑Ⅱ', condition: '兵力50%以上' }] },
+        '戦法速度': { maxTotal: 30, unit: '%', maxItems: [{ key: '戦法速度', value: 30, sign: '+', unit: '%', sourceLabel: '敏活Ⅱ', condition: '' }] }
+      }
+    },
+    deploy: {
+      ability: {
+        '兵力': { maxTotal: 5000, unit: '', maxItems: [{ key: '兵力', value: 5000, sign: '+', unit: '', sourceLabel: '陣形', condition: '' }] }
+      },
+      gauge: {
+        '戦法ゲージ': { maxTotal: 30, unit: '%', maxItems: [{ key: '戦法ゲージ', value: 30, sign: '+', unit: '%', sourceLabel: '雄略Ⅰ', condition: '' }] }
+      }
+    }
+  }
+};
+const decisionRows = context.collectFormationDecisionSummaryRows(decisionSummaryData, formation);
+assert.strictEqual(decisionRows.length, 6, 'decision result summary must always contain exactly six fixed metrics');
+assert.deepStrictEqual(Array.from(decisionRows, row => row.label), ['兵力','被ダメージ','通常攻撃','戦法初動','戦法速度','戦法最大倍率'], 'decision metrics must keep the agreed order');
+assert(decisionRows[0].parts.some(part => part.shortLabel === '固定' && part.value === '+5000'), 'troop card must keep fixed additions separate');
+assert(decisionRows[0].parts.some(part => part.shortLabel === '変化率' && part.value === '+20%'), 'troop card must keep percentage additions separate');
+assert(decisionRows[2].parts.some(part => part.shortLabel === '速度' && part.value === '+40%'), 'normal attack card must include attack speed');
+assert(decisionRows[2].parts.some(part => part.shortLabel === '会心' && part.value === '+25%' && part.scopeLabel === '条件付き'), 'normal attack card must include conditional critical rate without hiding its condition');
+assert(decisionRows[3].parts.length === 1 && decisionRows[3].parts[0].value === '+30%', 'tactic opening must use deploy-time tactic gauge only');
+assert.strictEqual(decisionRows[5].parts[0].value, '最大860%', 'tactic maximum multiplier must use the formation tactic calculator');
+const decisionHtml = context.renderFormationQuickResultSummary(decisionSummaryData, formation);
+assert.strictEqual((decisionHtml.match(/data-formation-summary-metric=/g) || []).length, 6, 'rendered decision result summary must contain exactly six cards on PC and mobile');
+assert(decisionHtml.includes('編成による加算値') && decisionHtml.includes('条件付き'), 'summary UI must explain delta values and expose conditional effects');
 
 const html = context.renderFormationScoreSummaryHtml(formation, formationData);
 const typeScore = context.state.diagnostics.typeScore;
