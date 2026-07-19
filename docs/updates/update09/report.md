@@ -1253,4 +1253,11 @@
 - ローカル操作履歴: 状態変化検索で `看透` を選択後、型検索へ切替・プリセット変更し、履歴を2回戻すと `自部隊不利対策 → 強化奪取回避`、技能4件、`技能 : 看透` を復元した。
 - ローカルスマホ実操作: 390x844で同じ分類・状態変化・技能4件・選択中 `看透`・詳細 `技能 : 看透` を確認。ブラウザwarning/errorは0件。
 - 最小受入操作: 公開Previewで通常検索に `克破` を入力して技能だけを選択し、状態変化検索で `自部隊不利対策 → 強化奪取回避` を選ぶ。`看透` をクリックして詳細が切り替わること、通常・状態変化・型検索を往復して各条件が残ることを確認する。
-- 現在の状態: ローカル実装、115項目検証、PC/スマホ実操作まで完了。PR、Actions、公開Preview確認を継続中。
+- Git: canonical base `98dc231d9274cd265ca88e374ed1712a95592519`、実装commit `780acb1e0873657f97b1a64ea688a5bffe3b38c4`、PR #235、merge `da993a11b1584169cc14313ced3a735844167fcb`。merge readinessはmerge-base一致・競合なし。
+- Actions: PR `App Validation / app-validation` run 29669754636 success。正本 `Notify Hado Library Preview` run 29669782336 success。Preview `Deploy Hado Library Preview` run 29669793546 success。
+- Preview repository: `main` HEAD `c1e67abaff670eb1612670b64066e33c96ccfab9`。`index.html`、`hado_formation.js`、`hado_styles.css`、`.nojekyll`、34 `hadou_*.json`、3 markerを確認した。
+- 公開marker: `PREVIEW_SOURCE_COMMIT.txt=da993a11b1584169cc14313ced3a735844167fcb`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.60`。
+- 公開PC操作: `3.0.0.0 Update09.5.60 r150`、JSON武将481件・技能1342件。通常 `克破`、状態変化 `自部隊不利対策 → 強化奪取回避`、技能4件・選択中 `看透`・詳細 `技能 : 看透`、型 `戦法速度型` を各モード往復後も復元した。
+- 公開スマホ操作: 390x844で状態変化分類・条件、技能4件、結果selectの選択中 `看透`、詳細 `技能 : 看透` を確認した。
+- 公開Debug Log: `ログ表示` ONでログ本文1,648文字。ブラウザwarning/errorは0件。
+- 現在の状態: 実装、115項目検証、PR、マージ、両リポジトリActions、Preview同期、marker、公開PC/スマホ実操作、Debug Log確認まで完了。残課題: なし。
