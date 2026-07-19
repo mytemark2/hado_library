@@ -1274,4 +1274,12 @@
 - ローカルPC実操作: 結果サマリーは表示中1セット・6カード、根拠ダイアログも6項目。型編成ナビから編集モード、部隊側ボタンから候補モードで開き、主将59・副将58・補佐34・侍従18・装備拡張1の数値件数を確認した。主将と副将の2件をまたいで選択し `候補に追加（2件）`、候補モード3件、既存配置先ポップアップへの直接遷移を確認後、追加した2件を削除して元の1件へ戻した。冷間の編集モード集計は4秒以内で完了した。
 - ローカルスマホ実操作: 390x844で表示中サマリー1セット・6カード・2列、詳細ダイアログ6項目。候補ワークスペースは幅375px、body横あふれなし、5タブは数値を省略せず横スクロール（375/502px）し、編集/候補モードを切り替えられた。ブラウザwarning/errorは0件。
 - HTMLサイズ/外部化: 正本28,151 bytesから28,158 bytes（+7 bytes）。増加はガイド文とcache keyで、挙動は既存の外部JavaScript/CSSへ実装し、HTMLへJavaScriptを追加していない。
-- 完了判定: ローカル全検証、PC/スマホ実操作、PR、Actions、Preview marker、公開実操作の結果をマージ後に追記する。それまでは未完了。
+- Git: canonical base `abc00bf5ee7ed4f6f622824b023d228c1e0e8c8e`、実装commit `16acde1c04f0947d6d7820308a2bf735da74ac34`、PR #237、merge `5caa9c5af75467522208e233ece3888c9cee386e`。`python -X utf8 tools/check_pr_merge_readiness.py --base feature/app-3.0.0.0` はmerge-base一致・競合なし。
+- Actions: PR `App Validation / app-validation` run 29673131409 success。正本 `Notify Hado Library Preview` run 29673152611 success。Preview `Deploy Hado Library Preview` run 29673165477 success。
+- Preview repository: `main` HEAD `9a5103967226550dce9c2adb31b073afd441488e`。`index.html`、`hado_formation.js`、`hado_type_candidates.js`、`hado_candidate_tray.js`、`hado_styles.css`、`.nojekyll`、34 `hadou_*.json`、3 markerが存在する。
+- 公開marker: `PREVIEW_SOURCE_COMMIT.txt=5caa9c5af75467522208e233ece3888c9cee386e`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.61`。
+- 公開PC操作: `3.0.0.0 Update09.5.61 r151`、公開JSON武将481件。結果サマリーは表示中1セット・6カード、根拠ダイアログ6項目。候補モードは既存候補を主将・副将・補佐・侍従・装備拡張でグループ表示し、編集モードは主将59・副将58・補佐34・侍従18・装備拡張1。主将と副将をまたぐ2件選択で `候補に追加（2件）` を確認した。
+- 公開スマホ操作: 390x844でbody横あふれなし。結果サマリーは1セット・6カード・2列、根拠ダイアログ6項目。候補ワークスペース幅375px、タブ列375/502pxで数値を省略せず横スクロールし、編集/候補モードを切り替えられた。
+- 公開Debug Log: 診断版数は `覇道ライブラリ｜3.0.0.0 Update09.5.61 r151`。`ログ表示` ONで `#debugPanel` は `display:block`、ログ本文376文字、`debugPanel:toggle` を確認。ブラウザwarning/errorは0件。
+- 最小受入操作: 公開Previewの部隊編成で固定6項目と根拠を確認する。型編成ナビから編集モードを開き、主将と副将を各1件選んで `候補に追加（2件）` を確認し、候補モードで役割別表示と「配置先を選ぶ」を確認する。
+- 現在の状態: 実装、116項目検証、PR、マージ、両リポジトリActions、Preview同期、marker、公開PC/スマホ実操作、Debug Log確認まで完了。残課題: なし。
