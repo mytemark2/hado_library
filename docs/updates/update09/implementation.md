@@ -1104,3 +1104,16 @@
 - `hado_status_effects.js` は装備・参軍・異文化調査・五行を元に構築された技能でも、元データの `sourceDataset` ではなく詳細画面の明示カテゴリ `skills` を関連リンク索引キーとして使う。
 - `tools/test_json_index_contract.js` は代表6技能、全技能coverage、同名装備統合、`窮地戦威` 保持を検証する。
 - HTMLサイズは28,133 bytesから28,170 bytes（+37 bytes）。HTMLにはcache key変更だけを行い、挙動は外部JavaScriptと生成JSONへ実装した。
+
+## Update09.5.63 — 装備技能の段階別検索索引
+
+- 分類: 生成索引の有効本文過剰除外、および装備段階境界の欠落。
+- 根本原因: クローラーが装備技能節の本文へナビゲーション除外語を適用し、正当な説明「この技能を持つ武将」を検出すると節全体を破棄していた。アプリも装備の全段階を平坦化した `searchText` を使用し、現行段階だけを検索する契約を持っていなかった。
+- 恒久対策: クローラーは `baseSearchText` と `equipmentStageSearchText.initial / ssrMax / urMax` を生成し、アプリは `getEffectiveEquipmentStageForItem()` の現行段階だけを合成する。旧JSON時は既存段階ブロックから同じ境界でフォールバックする。
+- 全量監査は244の一意装備、全段階、584技能参照について、技能名・本文の欠落を0件だけ合格とする。修正前は117装備・295技能参照が一部欠落し、94装備では選択段階の全技能が欠落していた。
+- `tools/test_update09_5_63_equipment_search_stage.js` は実データ245行で `回復` の段階別結果（初期4、SSR最大5、UR最大8）、`双鉄戟` の5%／25%切替、おすすめ武将文の非混入を実行検証する。
+- `tools/test_json_index_contract.js` は20派生JSONの装備検索coverage、構造化field、代表 `双鉄戟` を検証する。
+- ロジックは外部 `hado_status_effects.js` / `hado_core.js` とクローラー生成JSONへ実装し、HTMLはcache keyのみ変更する。
+- 可視版を `3.0.0.0 Update09.5.63 r153` へ更新する。
+- HTMLのGit正規化後サイズは28,151 bytesから28,151 bytes（±0）。更新はcache keyだけで、JavaScriptロジックをHTMLへ追加していない。
+- `python -X utf8 tools/run_app_validation.py` は117/117 pass。JavaScript/JSON/HTML/CSS、起動、検索、詳細、編成、保存Export/Import、PC/スマホ契約、20派生JSON、版数、禁止queue不在を検証した。

@@ -87,6 +87,23 @@ for(const [name,domain] of [['堅固打破','equipmentSkill'],['啓蒙','advisor
   assert(rows(related).some(v=>v.category==='skills'&&v.name===name),name+' related row');
 }
 const equipmentStage=read('hadou_equipment_skill_stage_index.json');
+const equipmentSearchAudit=search.qualityAudit?.equipmentStageCoverage||{};
+assert.strictEqual(equipmentSearchAudit.ok,true);
+assert.strictEqual(equipmentSearchAudit.expectedEquipmentCount,244);
+assert.strictEqual(equipmentSearchAudit.indexedEquipmentCount,244);
+assert.strictEqual(equipmentSearchAudit.missingEquipmentCount,0);
+assert.strictEqual(equipmentSearchAudit.missingStageCount,0);
+assert.strictEqual(equipmentSearchAudit.missingSkillRefCount,0);
+const equipmentSearchRows=rows(search).filter(v=>v.category==='equipments');
+assert.strictEqual(equipmentSearchRows.length,245);
+equipmentSearchRows.forEach(row=>{
+  assert.strictEqual(typeof row.baseSearchText,'string',row.name+' baseSearchText');
+  for(const stage of ['initial','ssrMax','urMax'])assert.strictEqual(typeof row.equipmentStageSearchText?.[stage],'string',`${row.name} ${stage}`);
+});
+const twinHalberdSearch=equipmentSearchRows.find(v=>v.name==='双鉄戟');
+assert(twinHalberdSearch,'双鉄戟 search row');
+assert(twinHalberdSearch.equipmentStageSearchText.urMax.includes('回復'));
+assert(!Object.values(twinHalberdSearch.equipmentStageSearchText).some(text=>text.includes('おすすめ武将')));
 const medicalBooks=rows(equipmentStage).filter(v=>v.name==='青嚢書・名家医書');
 assert.strictEqual(medicalBooks.length,1);
 assert(Object.values(medicalBooks[0].stages||{}).flatMap(v=>v.skills||[]).some(v=>v.skillName==='窮地戦威'));

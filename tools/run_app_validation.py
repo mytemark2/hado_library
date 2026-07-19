@@ -61,6 +61,7 @@ COMMANDS.extend(
         ["node", "tools/test_update09_5_59_save_roundtrip.js"],
         ["node", "tools/test_update09_5_60_search_mode_isolation.js"],
         ["node", "tools/test_update09_5_61_candidate_workspace.js"],
+        ["node", "tools/test_update09_5_63_equipment_search_stage.js"],
         ["node", "tools/test_json_index_contract.js"],
         ["python3", "tools/validate_legacy_hado_app_not_loaded.py"],
         ["python3", "tools/validate_update_version_consistency.py"],

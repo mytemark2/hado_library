@@ -3431,7 +3431,7 @@ function extractEquipmentReferencedSkillRefsFromText(text){const refs=[];const s
 function addEquipmentReferencedSkillParameterRecordsFromText(text,parentSkillName,add,extra={}){const refs=extractEquipmentReferencedSkillRefsFromText(text);refs.forEach(ref=>{const skillItem=findSkillItemByName(ref.name);if(ref.kind==='skill-lv-boost'){const source=`技能:${ref.name}Lv+${ref.boost}${ref.limit?`（上限${ref.limit}）`:''}`;add(source,ref.matchedText,'include',{...extra,parentSkillName,formationSkillName:ref.name,formationSavedLevel:ref.boost,grantedSkillName:ref.name,equipmentReferenceKind:ref.kind,equipmentReferenceText:ref.matchedText,equipmentReferenceParentText:text,equipmentSkillBoost:ref.boost,equipmentSkillLimit:ref.limit});debugLog('equipmentStage:skill-lv-boost-record',{equipment:extra.equipmentName||'',stage:extra.equipmentStageLabel||'',sourceSkill:parentSkillName,targetSkill:ref.name,boost:ref.boost,limit:ref.limit,matchedText:ref.matchedText,skillFound:!!skillItem,source});return;}const section=skillItem&&Array.isArray(skillItem.sections)&&skillItem.sections.length?skillItem.sections[0]:null;const raw=(section&&Array.isArray(section.content)?section.content:[]).filter(line=>!isOwnerListContentLine(line)).join(' ');const selected=extractRomanLevelBlockText(raw,ref.level);const source=`参照技能:${ref.name}${ref.level}`;if(selected){add(source,selected,'include',{...extra,parentSkillName,grantedSkillName:ref.name,grantedSkillLevel:ref.level,equipmentReferenceKind:ref.kind,equipmentReferenceText:ref.matchedText,equipmentReferenceParentText:text});}
   debugLog('equipmentStage:granted-skill',{equipment:extra.equipmentName||'',stage:extra.equipmentStageLabel||'',sourceSkill:parentSkillName,referencedSkill:ref.name,referencedLv:ref.level,kind:ref.kind,matchedText:ref.matchedText,skillFound:!!skillItem,adopted:!!selected,source});});return refs;}
 function invalidateEquipmentStageCaches(){
-  let count=0,statusTextCount=0,quickRelationCount=0;
+  let count=0,statusTextCount=0,quickRelationCount=0,searchTextCount=0;
   [...(state.equipments||[])].forEach(item=>{
     if(Object.prototype.hasOwnProperty.call(item,'_parameterSummarySearchTextAll')){delete item._parameterSummarySearchTextAll;count++;}
     if(Object.prototype.hasOwnProperty.call(item,'_metricSourceSegmentsAll'))delete item._metricSourceSegmentsAll;
@@ -3439,10 +3439,11 @@ function invalidateEquipmentStageCaches(){
       if(Object.prototype.hasOwnProperty.call(item,key)){delete item[key];statusTextCount++;}
     });
     if(Object.prototype.hasOwnProperty.call(item,'_quickStatusEffectRelationCache')){delete item._quickStatusEffectRelationCache;quickRelationCount++;}
+    if(Object.prototype.hasOwnProperty.call(item,'_equipmentStageSearchableTextCache')){delete item._equipmentStageSearchableTextCache;searchTextCount++;}
   });
   state._quickOwnerRowsCache=null;
   state._quickOwnerAsyncSeq=(state._quickOwnerAsyncSeq||0)+1;
-  debugLog('equipmentStage:cache-invalidate',{count,statusTextCount,quickRelationCount,quickOwnerActive:!!state.quickStatusEffectOwnerFilter,reason:'equipment stage affects equipment status-effect owner search'});
+  debugLog('equipmentStage:cache-invalidate',{count,statusTextCount,quickRelationCount,searchTextCount,quickOwnerActive:!!state.quickStatusEffectOwnerFilter,reason:'equipment stage affects equipment search and status-effect owner search'});
 }
 function setEquipmentStage(stage){const next=normalizeEquipmentStage(stage);if(state.equipmentStage===next){syncFileSettingsSummary();return;}const prev=state.equipmentStage;state.equipmentStage=next;try{localStorage.setItem('hado_library_equipment_stage_v1',next);}catch{}invalidateEquipmentStageCaches();syncFileSettingsSummary();debugLog('equipmentStage:selected',{previous:prev,current:next,label:equipmentStageLabel(next),quickOwnerActive:!!state.quickStatusEffectOwnerFilter});if(state.quickStatusEffectOwnerFilter)runQuickStatusEffectOwnerSearchAsync(state.quickStatusEffectOwnerFilter);renderSearchResults();renderDetail();if(state.mainTab==='formation')renderFormationScreen();else markFormationScreenStale('equipment-stage');pushOperationHistory('equipment-stage');if(typeof updateDataContextBar==='function')updateDataContextBar('equipment-stage');}
 
