@@ -1337,6 +1337,12 @@
 - ローカル検証: `python -X utf8 tools/run_app_validation.py` 118/118 pass。JavaScript/JSON/HTML/CSS、起動、検索、詳細、編成、保存Export/Import、レスポンシブ、20派生JSON契約、版数整合、禁止queue不在を含む。
 - ローカルPC実操作: 編集モードに「候補に追加」と「この型で新規部隊」がないこと、LR関羽が自動で候補済みになることを確認。候補モードはLR関羽を「主将に選択中」、型を「攻撃速度型」、追加元を「型編成ナビ」と表示した。新規作成後は部隊3件、主将LR関羽、攻撃速度型、候補1件へ即時同期した。
 - ローカルスマホ実操作: 390x844で候補モード、5役割タブの数値、主将選択中、配置先選択、候補削除を確認し、検証後にviewportを既定値へ戻した。
-- Git/Actions/Preview: 公開工程前。PR、マージ、両リポジトリActions、marker、公開PC/スマホ実操作を確認後に本節を完了更新する。
+- Git: canonical base `415040ed3866289acfcd129a2f999392db6af24d`、実装commit `1321604cd966fab7b9157663f9a4ddd052fe1c6a`、PR #244、merge `f558c1a5410002f7bf41aa392a9824aa0c137a74`。`python -X utf8 tools/check_pr_merge_readiness.py --base feature/app-3.0.0.0` はmerge-base一致・競合なし。
+- Actions: PR `App Validation / app-validation` run 29689372810 success。正本 `Notify Hado Library Preview` run 29689403155 success。Preview `Deploy Hado Library Preview` run 29689417350 success。
+- Preview repository: `main` HEAD `56ebe023e5f0d058930ee9d9eb8f2098e144a0b7`。`index.html`、`hado_formation.js`、`hado_styles.css`、`.nojekyll`、34 `hadou_*.json`、3 markerが存在する。
+- 公開marker: `PREVIEW_SOURCE_COMMIT.txt=f558c1a5410002f7bf41aa392a9824aa0c137a74`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.64`。
+- 公開PC操作: `3.0.0.0 Update09.5.64 r154`、公開JSON武将481件。編集モードの「候補に追加」0件・「この型で新規部隊」0件、LR関羽の候補済み表示を確認した。候補モードは作成前候補1件、LR関羽を「主将に選択中」、型を「攻撃速度型」、追加元を「型編成ナビ」と表示した。新規作成後は部隊2件、主将LR関羽、攻撃速度型、候補1件へ即時同期した。
+- 公開スマホ操作: 390x844で候補モード、主将・副将・補佐・侍従・装備拡張の5タブ数値、LR関羽の主将選択中表示、配置先選択、候補削除を確認し、検証後にviewportを既定値へ戻した。
+- 公開Debug Log: 診断版数は `覇道ライブラリ｜3.0.0.0 Update09.5.64 r154`。`ログ表示` ONで `Debug Log` を表示し、`validation: OK`、武将481件、`debugPanel:toggle` を確認した。
 - 最小受入操作: 公開Previewの型編成ナビで主将と型を選び、候補ワークスペースへ進む。編集モードのカード選択が即時反映されること、候補モードに主将選択と新規作成があること、新規部隊へ型・候補・主将が引き継がれることを確認する。
-- 現在の状態: ローカル実装・118項目検証・PC/スマホ実操作まで完了。公開工程前のためPreview完了ではない。
+- 現在の状態: 実装、118項目検証、PR、マージ、両リポジトリActions、Preview同期、marker、公開PC/スマホ実操作、Debug Log確認まで完了。残課題: なし。
