@@ -1568,3 +1568,78 @@ body.formation-tab .formation-compose-bar-grid .formation-memo-under-siege{grid-
 .formation-score-evidence-raw-label{flex:0 0 auto;font-size:12px;font-weight:700;color:#64748b}
 .formation-score-evidence-raw-text{min-width:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;white-space:normal;overflow-wrap:break-word;word-break:normal}
 @media (max-width:640px){.formation-score-evidence-dialog-card{width:min(100%,calc(100vw - 16px));max-width:calc(100vw - 16px)}.formation-score-evidence-line-item{padding:7px 8px}.formation-score-evidence-line-raw{margin-left:0}}
+
+/* Update10.1: shared, high-clarity tab language for primary, segmented, detail and role tabs. */
+:root{--tab-ink:#0f172a;--tab-muted:#64748b;--tab-primary:#1d4ed8;--tab-primary-dark:#1e40af;--tab-primary-soft:#dbeafe;--tab-teal:#0f766e;--tab-teal-dark:#115e59;--tab-teal-soft:#ccfbf1;--tab-surface:#f1f5f9;--tab-border:#cbd5e1;--tab-focus:#f59e0b}
+body{font-feature-settings:"palt" 1,"kern" 1;text-rendering:optimizeLegibility}
+[role="tablist"] [role="tab"]{position:relative;min-height:42px;line-height:1.25;transition:color .14s ease,background-color .14s ease,border-color .14s ease,box-shadow .14s ease,transform .14s ease}
+[role="tablist"] [role="tab"]:focus-visible{outline:3px solid color-mix(in srgb,var(--tab-focus) 62%,transparent);outline-offset:3px;z-index:2}
+[role="tablist"] [role="tab"][aria-selected="true"]{font-weight:900;letter-spacing:.01em}
+.hado-tab-label{position:relative;z-index:1}
+.hado-tab-context{display:flex;align-items:center;gap:5px;width:max-content;max-width:100%;margin:4px 0 10px;padding:5px 10px;border-left:4px solid var(--tab-primary);border-radius:0 9px 9px 0;background:#eff6ff;color:#1e3a8a;font-size:12px;font-weight:700;line-height:1.35}
+.hado-tab-context::before{content:'●';font-size:8px;color:var(--tab-primary)}
+.hado-tab-context strong{font-size:13px;color:var(--tab-ink)}
+.hado-tab-panel-enter{animation:hado-tab-panel-enter .14s ease-out both}
+@keyframes hado-tab-panel-enter{from{opacity:.45;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+
+/* Primary destinations: substantial selected surface and an explicit state badge. */
+#mainTabPanel .main-tab-row{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important;padding:6px!important;border:1px solid #cbd5e1!important;border-radius:18px!important;background:linear-gradient(180deg,#f8fafc,#eef2f7)!important;box-shadow:0 4px 14px rgba(15,23,42,.08)!important;overflow:visible!important}
+#mainTabPanel .main-tab-btn{display:flex;align-items:center;justify-content:center;gap:7px;min-height:46px!important;border:1px solid transparent!important;border-radius:13px!important;background:transparent!important;color:#475569!important;font-size:14px!important;font-weight:750!important}
+#mainTabPanel .main-tab-btn:hover{border-color:#bfdbfe!important;background:#fff!important;color:var(--tab-primary)!important}
+#mainTabPanel .main-tab-btn[aria-selected="true"]{border-color:var(--tab-primary-dark)!important;background:linear-gradient(135deg,var(--tab-primary),var(--tab-primary-dark))!important;color:#fff!important;box-shadow:0 5px 14px rgba(29,78,216,.28)!important}
+#mainTabPanel .main-tab-btn[aria-selected="true"]::after{content:'表示中';padding:2px 6px;border:1px solid rgba(255,255,255,.45);border-radius:999px;background:rgba(255,255,255,.16);font-size:9px;font-weight:900;white-space:nowrap}
+
+/* Search mode: modern segmented control with shape, fill and check mark. */
+#searchModeBar.search-mode-row{display:flex;gap:5px;margin:0 0 5px;padding:5px;border:1px solid #99f6e4;border-radius:14px;background:#f0fdfa;overflow-x:auto;scrollbar-width:thin}
+#searchModeBar .search-mode-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:38px;border:1px solid transparent;border-radius:10px;background:transparent;color:#475569;padding:8px 12px;font-size:13px;font-weight:750}
+#searchModeBar .search-mode-btn:hover{background:#fff;color:var(--tab-teal-dark)}
+#searchModeBar .search-mode-btn[aria-selected="true"]{border-color:var(--tab-teal-dark);background:linear-gradient(135deg,var(--tab-teal),var(--tab-teal-dark));color:#fff;box-shadow:0 4px 10px rgba(15,118,110,.22)}
+#searchModeBar .search-mode-btn[aria-selected="true"]::before{content:'✓';display:inline-grid;place-items:center;width:17px;height:17px;border-radius:50%;background:#fff;color:var(--tab-teal-dark);font-size:11px;font-weight:1000}
+.search-mode-current{border-left-color:var(--tab-teal);background:#f0fdfa;color:var(--tab-teal-dark)}
+.search-mode-current::before{color:var(--tab-teal)}
+
+/* Secondary/detail tabs: connected tab rail plus an explicit content heading. */
+.detail-tabs,.formation-work-tabs{gap:5px!important;padding:5px!important;border:1px solid var(--tab-border);border-radius:13px;background:var(--tab-surface);overflow-x:auto;flex-wrap:nowrap!important;scrollbar-width:thin}
+.detail-tab-btn,.formation-work-tab-btn{flex:0 0 auto!important;display:inline-flex;align-items:center;justify-content:center;min-height:38px!important;border:1px solid transparent!important;border-radius:9px!important;background:transparent!important;color:#475569!important;padding:8px 12px!important;font-size:13px!important;font-weight:750!important;white-space:nowrap}
+.detail-tab-btn:hover,.formation-work-tab-btn:hover{border-color:#bfdbfe!important;background:#fff!important;color:var(--tab-primary)!important}
+.detail-tab-btn[aria-selected="true"],.formation-work-tab-btn[aria-selected="true"]{border-color:#93c5fd!important;background:#fff!important;color:var(--tab-primary-dark)!important;box-shadow:inset 0 -4px 0 var(--tab-primary),0 3px 9px rgba(15,23,42,.09)!important}
+.detail-tab-btn[aria-selected="true"]::before,.formation-work-tab-btn[aria-selected="true"]::before{content:'●';color:var(--tab-primary);font-size:8px}
+.detail-tab-current{margin-top:-6px;margin-bottom:10px}
+.detail-tab-content[role="tabpanel"]:focus{outline:none}
+
+/* Candidate workspace roles: label/count separation and a high-contrast selected state. */
+#htc-modal .htc-tabs{display:flex;gap:7px;padding:10px 14px!important;border-top:1px solid #dbeafe;border-bottom:1px solid #bfdbfe;background:linear-gradient(180deg,#f8fafc,#eff6ff);flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin}
+#htc-modal .htc-tab{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:42px;border:1px solid var(--tab-border);border-radius:11px;background:#fff;color:#475569;padding:8px 10px;font-size:13px;font-weight:800;box-shadow:none}
+#htc-modal .htc-tab:hover{border-color:#93c5fd;color:var(--tab-primary-dark)}
+#htc-modal .htc-tab[aria-selected="true"]{border-color:var(--tab-primary-dark);background:linear-gradient(135deg,var(--tab-primary),var(--tab-primary-dark));color:#fff;box-shadow:0 4px 12px rgba(29,78,216,.25)}
+#htc-modal .htc-tab[aria-selected="true"]::before{content:'✓';font-weight:1000}
+#htc-modal .htc-tab-count{display:inline-grid;place-items:center;min-width:24px;height:22px;padding:0 6px;border-radius:999px;background:#e2e8f0;color:#334155;font-size:11px;font-variant-numeric:tabular-nums}
+#htc-modal .htc-tab[aria-selected="true"] .htc-tab-count{background:#fff;color:var(--tab-primary-dark)}
+#htc-modal{grid-template-rows:auto auto minmax(0,1fr)!important}
+#htc-modal .htc-panel{min-height:0;overflow:hidden;display:grid;grid-template-rows:auto auto minmax(0,1fr)}
+#htc-modal .htc-panel-heading{display:flex;align-items:baseline;gap:8px;padding-top:10px;padding-bottom:8px;background:#f8fbff;border-bottom:1px solid #dbeafe}
+#htc-modal .htc-panel-heading strong{font-size:17px;color:var(--tab-ink)}
+#htc-modal .htc-panel-heading span{font-size:12px;font-weight:700;color:var(--tab-primary-dark)}
+#htc-workspace-panel:focus{outline:none}
+
+/* Type navigator uses the same segmented grammar. */
+#hadoTypeEntryModal .hte-tabs{display:flex;gap:6px;padding:10px 14px;border-bottom:1px solid #dbeafe;background:#f8fafc;flex-wrap:nowrap;overflow-x:auto}
+#hadoTypeEntryModal .hte-tab{flex:0 0 auto;min-height:40px;border:1px solid var(--tab-border);border-radius:10px;background:#fff;color:#475569;font-weight:800}
+#hadoTypeEntryModal .hte-tab[aria-selected="true"]{border-color:var(--tab-primary-dark);background:linear-gradient(135deg,var(--tab-primary),var(--tab-primary-dark));color:#fff;box-shadow:0 4px 11px rgba(29,78,216,.24)}
+#hadoTypeEntryModal .hte-tab[aria-selected="true"]::before{content:'✓';margin-right:6px}
+#hadoTypeEntryModal .hte-mode-current{margin:8px 14px 0}
+#hte-mode-panel:focus{outline:none}
+
+@media(max-width:980px),(pointer:coarse){
+  #mainTabPanel .main-tab-row{padding:5px!important;border-radius:14px!important}
+  #mainTabPanel .main-tab-btn{min-height:43px!important;padding:7px 5px!important;font-size:12px!important}
+  #mainTabPanel .main-tab-btn[aria-selected="true"]::after{display:none}
+  #searchModeBar.search-mode-row{padding:4px}
+  #searchModeBar .search-mode-btn{flex:1 0 max-content;padding:7px 9px;font-size:12px}
+  .hado-tab-context{margin-bottom:8px}
+  .detail-tabs,.formation-work-tabs{padding:4px!important}
+  .detail-tab-btn,.formation-work-tab-btn{min-height:36px!important;padding:7px 10px!important;font-size:12px!important}
+  #htc-modal .htc-tabs{padding:8px 10px!important}
+  #htc-modal .htc-panel-heading{position:sticky;top:0;z-index:2;padding:9px 12px}
+}
+@media(prefers-reduced-motion:reduce){[role="tablist"] [role="tab"],.hado-tab-panel-enter{transition:none!important;animation:none!important}}

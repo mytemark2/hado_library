@@ -67,8 +67,13 @@ for (const preservedRolePath of ['placeFormationCandidateTrayFormation', 'placeF
 }
 assert(!indexHtml.includes('hado_candidate_tray_core.js'), 'duplicate candidate tray event handler must not be loaded');
 assert(/hado_formation\.js\?v=[^"']+-r\d+/.test(indexHtml), 'formation runtime must keep a revisioned cache key without duplicating the visible Update string');
+const versionSource = fs.readFileSync(path.join(root, 'hado_version.js'), 'utf8');
+const updateNo = versionSource.match(/updateNo:\s*'([^']+)'/)?.[1];
+const revision = versionSource.match(/revision:\s*(\d+)/)?.[1];
+assert(updateNo && revision, 'runtime update and revision must be readable from hado_version.js');
+const expectedCacheKey = `${updateNo}-r${revision}`;
 for (const asset of ['hado_type_candidates.js', 'hado_candidate_tray.js', 'hado_version.js']) {
-  assert(new RegExp(`${asset.replace('.', '\\.') }\\?v=\\d{2}\\.\\d+\\.\\d+-r\\d+`).test(indexHtml), `${asset} must keep a versioned cache key`);
+  assert(indexHtml.includes(`${asset}?v=${expectedCacheKey}`), `${asset} must use the current centralized version cache key`);
 }
 
 console.log(`Update09.5.55 attendant candidate gate passed: raw LR attendant rows=${lrAttendants.length}, runtime visible=0`);
