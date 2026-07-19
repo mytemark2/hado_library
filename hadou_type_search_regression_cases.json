@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-07-11T05:38:08.235Z",
-  "dataSetId": "2026-07-05T11:44:39.608Z",
-  "crawlerVersion": "1.0.5.31",
+  "generatedAt": "2026-07-19T05:37:31.798Z",
+  "dataSetId": "2026-07-11T05:38:08.210Z",
+  "crawlerVersion": "1.1.0.1",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
     "hadou_generals.json",
@@ -74,11 +74,11 @@
     "warhorses": "c5edd890",
     "warhorseSkills": "fac49238"
   },
-  "hotfixVersion": "1.0.5.31",
+  "hotfixVersion": "1.1.0.1",
   "kind": "type_search_regression_cases",
   "qualityAudit": {
     "ok": true,
-    "caseCount": 21,
+    "caseCount": 22,
     "failedCount": 0,
     "failedCaseIds": [],
     "policy": "1.0.5.24: 型検索基盤、既存関連リンク回帰、プリセット重要度スキーマ、条件解決、順位付け、LR司馬懿誤判定防止、攻撃速度型、通常攻撃拡張型を同時に監査する。名前表記差は正規化し、否定文脈は句単位で遮断する。",
@@ -88,6 +88,7 @@
       "role-score-tactic-role-gate",
       "skill-owner-domain-separation",
       "related-link-no-unresolved-ref",
+      "related-link-application-skill-coverage",
       "status-meta-group-consistency",
       "tactic-attack-block-consistency",
       "parameter-summary-no-array-fragment"
@@ -431,10 +432,11 @@
     },
     {
       "caseId": "skill-owner-domain-separation",
-      "description": "skill_owner_indexをgeneralSkill正本に限定する",
+      "description": "skill_owner_indexの全アプリ技能を明示ドメイン付きで正本化する",
       "ok": true,
       "detail": {
-        "unresolvedCount": 0
+        "unresolvedCount": 0,
+        "applicationSkillCount": 1343
       }
     },
     {
@@ -444,10 +446,28 @@
       "detail": {
         "ok": true,
         "unresolvedRefCount": 0,
-        "droppedSourceItemCount": 661,
-        "droppedTargetCount": 305,
-        "mechanicCount": 1584,
-        "policy": "Every relatedRef uses a resolvable targetDomain/targetKey; pseudo status labels are mechanics with an optional qualifierSkillKey."
+        "droppedSourceItemCount": 0,
+        "droppedTargetCount": 0,
+        "mechanicCount": 999,
+        "policy": "Every app-visible source has one related-link row and every relatedRef uses a resolvable canonical target. Pseudo status labels remain explicit mechanics."
+      }
+    },
+    {
+      "caseId": "related-link-application-skill-coverage",
+      "description": "アプリ表示技能をrelated_link_indexへ全件収録する",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "expectedDatasetItemCount": 2847,
+        "indexedItemCount": 2847,
+        "missingCount": 0,
+        "missingSourceEntityKeys": [],
+        "applicationSkillExpectedCount": 1343,
+        "applicationSkillIndexedCount": 1343,
+        "missingApplicationSkillCount": 0,
+        "missingApplicationSkillNames": [],
+        "statusEffectExpectedCount": 200,
+        "statusEffectIndexedCount": 200
       }
     },
     {

@@ -1092,3 +1092,15 @@
 - `tools/test_formation_type_score_render.js` に6項目・順序・固定/割合・条件付き・初動・最大倍率の実行回帰を追加し、`tools/test_update09_5_61_candidate_workspace.js` を常設検証へ追加した。
 - 動作は既存の外部JavaScriptとCSSへ実装し、HTMLへJavaScriptを追加しない。`index.html` はガイド文とcache keyだけを変更する。
 - 可視版は `3.0.0.0 Update09.5.61 r151`。`HADO_DEV_INFO.json` の更新日時も同期する。
+
+## Update09.5.62 — 関連リンク索引の技能ドメイン修正
+
+- クローラー `1.1.0.1 Update02.5` が生成した20派生JSONを一式で取り込んだ。
+- `hadou_skill_owner_index.json` は一般・参軍・装備・異文化調査・五行等の技能1,343件を `skillDomain` / `skillDomains` 付きで保持する。
+- `hadou_related_link_index.json` は全技能の空行を含む2,847行を保持し、coverageは期待2,847／収録2,847／欠落0、canonical refは削除元0／未解決0を必須とする。
+- `hado_bootstrap.js` の起動契約を複数技能ドメインへ対応させ、全技能coverageが1件でも欠けたJSON一式を拒否する。
+- 公開JSONのXHR取得には読込単位の一意トークンを付け、同一URLの旧レスポンスがブラウザキャッシュから再利用されないようにする。1回の読込では20派生JSONを含む全ファイルが同じトークンを共有する。
+- `hado_core.js` は旧JSON互換の防御策として、同名装備の段階索引行が複数残っていても技能・parameterEffects・根拠URLを統合する。
+- `hado_status_effects.js` は装備・参軍・異文化調査・五行を元に構築された技能でも、元データの `sourceDataset` ではなく詳細画面の明示カテゴリ `skills` を関連リンク索引キーとして使う。
+- `tools/test_json_index_contract.js` は代表6技能、全技能coverage、同名装備統合、`窮地戦威` 保持を検証する。
+- HTMLサイズは28,133 bytesから28,170 bytes（+37 bytes）。HTMLにはcache key変更だけを行い、挙動は外部JavaScriptと生成JSONへ実装した。

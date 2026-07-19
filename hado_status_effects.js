@@ -3324,9 +3324,14 @@ function buildDerivedRelatedLinkIndexLookup(){
   state.diagnostics.relatedLinkIndexLookup={signature,itemCount:items.length,keyCount:map.size,source:'related-link-index-map'};
   return map;
 }
-function getDerivedRelatedLinkIndexEntry(item){
+function getDerivedRelatedLinkIndexEntry(item,categoryHint=''){
   if(!item)return null;
-  const category=normalizeDerivedSearchCategory(detailCategory(item));
+  // A skill assembled from an equipment/advisor/ethnic/five-element source keeps
+  // that sourceDataset on the runtime item.  The detail renderer, however, is
+  // displaying it as the skills category, which is also the canonical category
+  // used by hadou_related_link_index.json.  Prefer the renderer's explicit
+  // category so the lookup does not accidentally use the source owner's domain.
+  const category=normalizeDerivedSearchCategory(categoryHint||detailCategory(item));
   const names=[getItemDisplayName(item),item?.name,item?.rawName,item?.title,item?.raw?.name,item?.raw?.title].map(v=>norm(v)).filter(Boolean);
   const lookup=buildDerivedRelatedLinkIndexLookup();
   for(const n of names){
@@ -3359,10 +3364,10 @@ function getFastParameterStatusRelationsForTrustedRelatedIndex(category,name,rel
   return rels.filter(v=>{const key=[v.name||'',v.groupKey||'',v.relationType||''].join('@@');if(seen.has(key))return false;seen.add(key);return true;});
 }
 function getDerivedRelatedLinkIndexGroupsForItem(item,options={}){
-  const entry=getDerivedRelatedLinkIndexEntry(item);
+  const category=normalizeDerivedSearchCategory(options.category||detailCategory(item));
+  const name=norm(options.name||getItemDisplayName(item));
+  const entry=getDerivedRelatedLinkIndexEntry(item,category);
   if(!entry||!entry.related)return null;
-  const category=detailCategory(item);
-  const name=norm(getItemDisplayName(item));
   const trustedIndex=!!options.trustedIndex;
   const groups=[];
   const add=(cat,title,names)=>addDerivedRelatedGroup(groups,category,name,cat,title,names);
@@ -3715,7 +3720,7 @@ function safeBuildRelatedLinksHtml(item,categoryKey,name){
     let groups=null;let source='related-link-index-required';let derivedInfo=null;
     const trustedIndex=profiler.wrap('isTrustedRelatedLinkIndexForItem',()=>isTrustedRelatedLinkIndexForItem(item));
     if(!trustedIndex)throw new Error('hadou_related_link_index.json の品質監査がNGです。最新クローラーで生成したJSON一式を再読込してください。');
-    const indexed=profiler.wrap('getDerivedRelatedLinkIndexGroupsForItem',()=>getDerivedRelatedLinkIndexGroupsForItem(item,{trustedIndex:true}),r=>({hasGroups:!!(r&&Array.isArray(r.groups)),groupCount:Array.isArray(r?.groups)?r.groups.length:0,source:r?.source||''}));
+    const indexed=profiler.wrap('getDerivedRelatedLinkIndexGroupsForItem',()=>getDerivedRelatedLinkIndexGroupsForItem(item,{trustedIndex:true,category,name:itemName}),r=>({hasGroups:!!(r&&Array.isArray(r.groups)),groupCount:Array.isArray(r?.groups)?r.groups.length:0,source:r?.source||''}));
     if(!(indexed&&Array.isArray(indexed.groups)))throw new Error('hadou_related_link_index.json に対象データの関連リンク索引がありません。最新クローラーで生成したJSON一式を再読込してください。');
     groups=indexed.groups;source=indexed.source||'related-link-index-required';derivedInfo={trustedIndex:true,usedRelatedLinkIndex:true,usedFastParameterStatus:!!indexed.usedFastParameterStatus,usedEffectSourceWhitelist:!!indexed.usedEffectSourceWhitelist,policy:'HADO-2.9.0.34: related_link_indexを表示正本として必須利用する。監査NG・欠損時にアプリ側で関連リンクを再生成しない。'};
     profiler.mark('countermeasureRelatedGroups.skipped',{reason:'crawler-generated-related-link-index-is-source-of-truth'});
