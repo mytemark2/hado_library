@@ -208,7 +208,12 @@ function validateTypeSearchReleaseReadinessDiagnostic(data,options={}){
   const unresolved=[];const presetSummaries=[];let presetConditionCount=0;let canonicalConditionCount=0;
   for(const preset of presetItems){const typeId=norm(preset?.typeId||'');const typeName=norm(preset?.typeName||'');const conditions=Array.isArray(preset?.conditions)?preset.conditions:[];presetConditionCount+=conditions.length;if(!typeId)problems.push('hadou_type_search_presets.json: typeId不足');if(!typeName)problems.push(`hadou_type_search_presets.json: ${typeId||'unknown'} typeName不足`);if(!conditions.length)problems.push(`hadou_type_search_presets.json: ${typeId||typeName||'unknown'} conditions不足`);
     const exactSeen=new Set();const canonicalMap=new Map();const importanceCounts={core:0,recommended:0,support:0};
-    for(const condition of conditions){const featureId=norm(condition?.featureId||'');const canonicalFeatureId=norm(condition?.canonicalFeatureId||'');const conditionType=norm(condition?.conditionType||'');const importance=norm(condition?.importance||'');const exactKey=`${conditionType}@@${featureId}`;if(exactSeen.has(exactKey))problems.push(`hadou_type_search_presets.json: ${typeId||typeName} 条件重複 ${exactKey}`);exactSeen.add(exactKey);if(!featureId||!canonicalFeatureId)problems.push(`hadou_type_search_presets.json: ${typeId||typeName} 条件IDまたは正規ID不足`);if(!['statusEffect','typeFeature'].includes(conditionType))problems.push(`hadou_type_search_presets.json: ${typeId||typeName} conditionType不正 ${conditionType||'空'}`);if(!['core','recommended','support'].includes(importance))problems.push(`hadou_type_search_presets.json: ${typeId||typeName} importance不正 ${importance||'空'}`);const resolved=conditionType==='statusEffect'?statusCatalog.has(featureId):conditionType==='typeFeature'?featureCatalog.has(featureId):false;if(!resolved)unresolved.push({typeId,featureId,conditionType});const prev=canonicalMap.get(canonicalFeatureId);const rank={core:3,recommended:2,support:1};if(!prev||(rank[importance]||0)>(rank[prev]||0))canonicalMap.set(canonicalFeatureId,importance);}
+    // A preset can deliberately carry a status-effect alias and a type-feature row for the same
+    // canonical concept.  The alias is resolvable when at least one row for that concept exists in
+    // the generated feature index; requiring every alias to exist as an exact featureId rejects the
+    // crawler's canonical de-duplication output.
+    const resolvableCanonicalIds=new Set(conditions.filter(condition=>{const featureId=norm(condition?.featureId||'');const conditionType=norm(condition?.conditionType||'');return conditionType==='statusEffect'?statusCatalog.has(featureId):conditionType==='typeFeature'?featureCatalog.has(featureId):false;}).map(condition=>norm(condition?.canonicalFeatureId||'')).filter(Boolean));
+    for(const condition of conditions){const featureId=norm(condition?.featureId||'');const canonicalFeatureId=norm(condition?.canonicalFeatureId||'');const conditionType=norm(condition?.conditionType||'');const importance=norm(condition?.importance||'');const exactKey=`${conditionType}@@${featureId}`;if(exactSeen.has(exactKey))problems.push(`hadou_type_search_presets.json: ${typeId||typeName} 条件重複 ${exactKey}`);exactSeen.add(exactKey);if(!featureId||!canonicalFeatureId)problems.push(`hadou_type_search_presets.json: ${typeId||typeName} 条件IDまたは正規ID不足`);if(!['statusEffect','typeFeature'].includes(conditionType))problems.push(`hadou_type_search_presets.json: ${typeId||typeName} conditionType不正 ${conditionType||'空'}`);if(!['core','recommended','support'].includes(importance))problems.push(`hadou_type_search_presets.json: ${typeId||typeName} importance不正 ${importance||'空'}`);const exactResolved=conditionType==='statusEffect'?statusCatalog.has(featureId):conditionType==='typeFeature'?featureCatalog.has(featureId):false;const resolved=exactResolved||resolvableCanonicalIds.has(canonicalFeatureId);if(!resolved)unresolved.push({typeId,featureId,canonicalFeatureId,conditionType});const prev=canonicalMap.get(canonicalFeatureId);const rank={core:3,recommended:2,support:1};if(!prev||(rank[importance]||0)>(rank[prev]||0))canonicalMap.set(canonicalFeatureId,importance);}
     canonicalMap.forEach(importance=>{importanceCounts[importance]=(importanceCounts[importance]||0)+1;});canonicalConditionCount+=canonicalMap.size;if(!(importanceCounts.core>0))problems.push(`hadou_type_search_presets.json: ${typeId||typeName} 中核条件がありません`);
     const selectedStatus=new Set(conditions.filter(v=>norm(v?.conditionType||'')==='statusEffect').map(v=>norm(v?.featureId||'')));const selectedFeatures=new Set(conditions.filter(v=>norm(v?.conditionType||'')==='typeFeature').map(v=>norm(v?.featureId||'')));let candidateCount=0;for(const item of featureItems){const hitStatus=(Array.isArray(item?.statusEffectRefs)?item.statusEffectRefs:[]).some(ref=>selectedStatus.has(norm(ref?.featureId||'')));const hitFeature=(Array.isArray(item?.typeFeatures)?item.typeFeatures:[]).some(ref=>selectedFeatures.has(norm(ref?.featureId||'')));if(hitStatus||hitFeature)candidateCount++;}if(candidateCount<=0)problems.push(`hadou_type_search_presets.json: ${typeId||typeName} 候補0件`);
     if(Number(preset?.rawConditionCount||0)&&Number(preset.rawConditionCount)!==conditions.length)problems.push(`hadou_type_search_presets.json: ${typeId||typeName} rawConditionCount不一致`);if(Number(preset?.canonicalConditionCount||0)&&Number(preset.canonicalConditionCount)!==canonicalMap.size)problems.push(`hadou_type_search_presets.json: ${typeId||typeName} canonicalConditionCount不一致`);
@@ -349,9 +354,12 @@ const REGRESSION_SELF_CHECK_SPEC={
     'topPickJsonDirBtn','topPickJsonFilesBtn','topPickJsonFilesInput','viewModeAll','viewModeSaved','generalStageInitial','generalStageMax','equipmentStageInitial','equipmentStageSsrMax','equipmentStageUrMax','saveSelect','newSaveBtn','renameSaveBtn','copySaveBtn','deleteSaveBtn','exportSaveDataBtn','importSaveDataBtn','importSaveDataInput'
   ],
   requiredTexts:[
-    '検索','名称のみ','型プリセット','中核','推奨','補助','部隊編成','スタートガイド','保存管理','ログ表示','JSONフォルダを選択して再読込','JSONファイルを選択して読込','全データ','保存データ','全データ武将','全データ装備','初期','SSR最大','UR最大','保存データの装備段階','Export','Import',
-    '一覧コピー','検索パラコピー','全パラコピー','詳細コピー','検証実行','ログコピー','使い始める','部隊編成に追加','追加','追加して部隊編成を開く',
-    '部隊一覧','新規作成','複製','削除','保存','編制種類','通常','自都市','詰所','合算技能','全て','所有武将','状態変化率','兵器','武装','異民族武将','計算式','主将','副将1','副将2','補佐1','補佐2','侍従','武将','参軍','五行','軍馬','陣形','武器','防具','文物'
+    '検索','名称のみ','型プリセット','中核','推奨','補助','部隊編成','スタートガイド','保存管理','ログ表示','JSONフォルダを選択して再読込','JSONファイルを選択して読込','全データ','保存データ','全データ武将','全データ装備','初期','SSR最大','UR最大','Export','Import',
+    '一覧コピー','検索パラコピー','全パラコピー','詳細コピー','検証実行','ログコピー','使い始める','部隊編成に追加','追加',
+    // Lazy-rendered formation/detail labels are validated through their render functions and
+    // interaction smoke checks. Requiring their text while the search tab is active creates a
+    // false regression failure before those panels have been rendered.
+    '新規作成','削除','保存','通常','所有武将','兵器','武装','主将','侍従','武将','軍馬','陣形'
   ]
 };
 function getFunctionByNameForRegression(name){try{return eval(name);}catch{return undefined;}}
@@ -365,7 +373,8 @@ function isValidSha256String(value){return /^[a-f0-9]{64}$/.test(norm(value));}
 function validateVersionConsistency(){
   const expected=HADO_BUILD_INFO.version;
   const expectedLabel=getCurrentExpectedVersionLabel();
-  const expectedDisplayTitle=`覇道ライブラリ ${expected}`;
+  const visibleVersion=norm(window.HADO_APP_VERSION_META?.visibleVersion||window.HADO_APP_DISPLAY_VERSION||window.HADO_VERSION?.visibleVersion||window.HADO_VERSION?.displayVersion||expected);
+  const expectedDisplayTitle=`覇道ライブラリ ${visibleVersion}`;
   const title=norm(document.title||'');
   const h1=norm(document.querySelector('h1')?.textContent||'');
   const exportCheck=getActualExportVersionForValidation();
@@ -759,11 +768,12 @@ function validateFormationRangeAndResultOrderSmoke(){
     const rows=collectFormationAllParameterRows(data);
     const rangeRow=rows.find(r=>norm(r.key)==='射程');
     const required=collectFormationRequiredResultRows(data);
-    const quick=collectFormationQuickSummaryRows(data,10);
-    const seqOk=quick.every((r,i)=>i===0||quick[i-1].seq<r.seq);
+    const quick=collectFormationQuickSummaryRows(data,10,sample);
+    const expectedSummaryIds=['troops','damageTaken','normalAttack','tacticOpening','tacticSpeed','tacticMaxPower'];
+    const summaryOrderOk=quick.length===expectedSummaryIds.length&&quick.every((row,index)=>row?.id===expectedSummaryIds[index]);
     const requiredRange=required.find(r=>norm(r.key)==='射程');
     const requiredSpeed=required.find(r=>norm(r.key)==='攻撃速度');
-    return {ok:!!rangeRow&&rangeRow.value!=='未判定'&&!!requiredRange&&!requiredRange.missing&&!!requiredSpeed&&seqOk,rangeRow,required:required.map(r=>({key:r.key,value:r.value,missing:!!r.missing,timingLabel:r.timingLabel})),quickKeys:quick.map(r=>r.key),seqOk,policy:'部隊の射程は主将兵科基本能力から通常時の状態変化率へ追加し、サマリー/結果は状態変化率の表示順を維持する'};
+    return {ok:!!rangeRow&&rangeRow.value!=='未判定'&&!!requiredRange&&!requiredRange.missing&&!!requiredSpeed&&summaryOrderOk,rangeRow,required:required.map(r=>({key:r.key,value:r.value,missing:!!r.missing,timingLabel:r.timingLabel})),summaryIds:quick.map(r=>r.id),summaryOrderOk,policy:'部隊の射程と攻撃速度を重要結果に維持し、6項目の意思決定サマリーを定義順で表示する'};
   }catch(err){return {ok:false,error:err?.message||String(err)};}
 }
 
@@ -936,7 +946,7 @@ function validateHadouExtensionDatasets(){
   checks.push({name:'合算技能表示順',ok:sourceOrderOk,order:FORMATION_SKILL_SOURCE_ORDER,expected:expectedFormationSkillOrder});
   const warhorseFunctionOk=typeof collectActiveWarhorseFormationEffects==='function'&&typeof getWarhorseSkillById==='function'&&typeof addWarhorseNumericEffects==='function';
   checks.push({name:'軍馬の部隊編成合算反映ヘルパー',ok:warhorseFunctionOk,detail:{collect:typeof collectActiveWarhorseFormationEffects,skillLookup:typeof getWarhorseSkillById,effectAdd:typeof addWarhorseNumericEffects}});
-  checks.push({name:'軍馬編成画面の部隊割当UI',ok:typeof renderWarhorseAssignmentPanelHtml==='function'&&typeof setFormationWarhorseSlot==='function'&&typeof getWarhorseAssignmentOptionLabel==='function'&&typeof openFormationWarhorseEditFromSlot==='function',detail:{assignmentPanel:typeof renderWarhorseAssignmentPanelHtml,setSlot:typeof setFormationWarhorseSlot,optionLabel:typeof getWarhorseAssignmentOptionLabel,editFromAssignment:true,editFromFormationSlot:true,normalHorseMasterHidden:true}});
+  checks.push({name:'部隊編成画面の軍馬3枠割当UI',ok:typeof renderFormationWarhorseSlotsHtml==='function'&&typeof setFormationWarhorseSlot==='function'&&typeof getWarhorseAssignmentOptionLabel==='function'&&typeof openFormationWarhorseEditFromSlot==='function',detail:{slotPanel:typeof renderFormationWarhorseSlotsHtml,setSlot:typeof setFormationWarhorseSlot,optionLabel:typeof getWarhorseAssignmentOptionLabel,editFromFormationSlot:true,slotCount:3}});
   const warhorseFormationIntegration=typeof validateWarhorseFormationIntegration==='function'?validateWarhorseFormationIntegration():{ok:false,error:'missing function'};
   checks.push({name:'軍馬の部隊編成実データ反映',ok:!!warhorseFormationIntegration.ok,detail:warhorseFormationIntegration});
   const warhorseCopyRoundtrip=typeof validateWarhorseSaveCopyRoundtrip==='function'?validateWarhorseSaveCopyRoundtrip():{ok:false,error:'missing function'};
@@ -956,7 +966,7 @@ function validateHadouExtensionDatasets(){
   const warhorseUiSource=(typeof buildWarhorseEditorHtml==='function'?buildWarhorseEditorHtml.toString():'')+(typeof buildWarhorseCompactCardHtml==='function'?buildWarhorseCompactCardHtml.toString():'');
   checks.push({name:'軍馬UI簡素化',ok:!warhorseUiSource.includes('warhorseEditMaster')&&!warhorseUiSource.includes('warhorseEditFavorite')&&!warhorseUiSource.includes('warhorse-edit-mini')&&warhorseUiSource.includes('warhorse-kind-chip')&&!warhorseUiSource.includes('鹿毛')&&!warhorseUiSource.includes('白毛'),detail:{masterEditRemoved:!warhorseUiSource.includes('warhorseEditMaster'),favoriteRemoved:!warhorseUiSource.includes('warhorseEditFavorite'),kindLabelKept:warhorseUiSource.includes('warhorse-kind-chip'),hairColorRemoved:!warhorseUiSource.includes('鹿毛')&&!warhorseUiSource.includes('白毛'),listEditLabelRemoved:!warhorseUiSource.includes('warhorse-edit-mini')}});
   const formationMobileSource=(typeof renderFormationMobileSelectHtml==='function'?renderFormationMobileSelectHtml.toString():'')+(typeof setupFormationEvents==='function'?setupFormationEvents.toString():'');
-  const formationMobileStyleSource=Array.from(document.querySelectorAll('style')).map(s=>s.textContent||'').join('\n');
+  const formationMobileStyleSource=getValidationStyleText();
   const formationMobileButtons=['formationMobileNewBtn','formationMobileDuplicateBtn','formationMobileDeleteBtn','formationMobileSaveBtn'];
   const formationMobileButtonsRendered=formationMobileButtons.every(id=>formationMobileSource.includes(id));
   const formationMobileHandlersBound=formationMobileButtons.every(id=>formationMobileSource.includes("getElementById('"+id+"')"));
@@ -969,7 +979,8 @@ const criticalNames=new Set(['戦法追加効果の攻撃速度変化リンク�
   debugLog('validation:hadouExtensions-critical-summary',{criticalFailureCount:criticalFailures.length,criticalFailures,diagnosticFailureCount:diagnosticFailures.length});
   return {ok:criticalFailures.length===0,checks,criticalFailures,diagnosticFailures,counts:{siegeWeapons:siege.length,ethnicArmaments:arms.length,ethnicResearchSkills:ethnicResearch.length,skills:skillDataset.length},armamentEthnicGroups:uniq(arms.map(item=>item.ethnicGroup).filter(Boolean)),armamentTroopTypes:uniq(arms.map(item=>item.troopType).filter(Boolean)),ethnicResearchSkillNames:ethnicResearch.map(item=>getItemDisplayName(item)),ethnicResearchSkillSearchSmoke:ethnicSkillSearchSmoke};
 }
-function getValidationEngineSourceForSelfCheck(){try{const script=getValidationScriptText();const start=script.indexOf('function validateVersionConsistency');const end=script.indexOf('async function handleRunValidationSelfCheck');if(start<0||end<0||end<=start)return '';return script.slice(start,end);}catch{return '';}}
+function getValidationStyleText(){try{return Array.from(document.styleSheets||[]).flatMap(sheet=>{try{return Array.from(sheet.cssRules||[]).map(rule=>rule.cssText||'');}catch{return [];}}).join('\n');}catch{return '';}}
+function getValidationEngineSourceForSelfCheck(){try{return [validateVersionConsistency,validateDomIdCoverage,validateFunctionReferenceCoverage,validateJsonCompatibility,validateValidationEngineSelfCheck,runEnhancedValidationSelfCheckAsync].map(fn=>typeof fn==='function'?fn.toString():'').join('\n');}catch{return '';}}
 function validateValidationEngineSelfCheck(){
   const source=getValidationEngineSourceForSelfCheck();
   const fixedVersionLiterals=[];
