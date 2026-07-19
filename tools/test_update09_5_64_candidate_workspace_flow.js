@@ -10,7 +10,7 @@ const formationSource = fs.readFileSync('hado_formation.js', 'utf8');
 
 assert(!candidatesSource.includes('data-add-tray'), 'redundant candidate add button must not return');
 assert(candidatesSource.includes('カード選択は候補へ即時反映されます。'), 'edit mode must explain immediate candidate updates');
-assert(candidatesSource.includes("st.context=options.source==='type-entry-save'?'draft':'formation'"), 'type-entry flow must use an isolated draft');
+assert(candidatesSource.includes('function workspaceOpenPlan(options={},savedDraft=loadMatchingDraft())'), 'type-entry flow must use the shared isolated-draft resolver');
 assert(candidatesSource.includes('data-workspace-main-select=') && candidatesSource.includes('主将に選択中'), 'candidate mode must expose its selected main general');
 assert(candidatesSource.includes("st.sel?.typeId?'<button class=\"htc-btn primary\" data-create-formation>この型で新規部隊</button>':''"), 'new formation action must belong to candidate mode');
 
@@ -35,6 +35,8 @@ const candidateContext = {
   setTimeout: callback => { callback(); return 0; },
   requestAnimationFrame: callback => callback(),
   alert() {},
+  CustomEvent: class { constructor(type, options = {}) { this.type = type; this.detail = options.detail; } },
+  dispatchEvent() {},
 };
 candidateContext.window = candidateContext;
 vm.createContext(candidateContext);
