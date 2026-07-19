@@ -550,6 +550,14 @@ function setMainTab(tab){
   if(els.mainTabSearchBtn)els.mainTabSearchBtn.classList.toggle('is-active',search);
   if(els.mainTabFormationBtn)els.mainTabFormationBtn.classList.toggle('is-active',formation);
   if(els.mainTabWarhorseBtn)els.mainTabWarhorseBtn.classList.toggle('is-active',warhorse);
+  const mainTabList=document.querySelector('#mainTabPanel [role="tablist"]');
+  const activeMainTab=search?els.mainTabSearchBtn:(formation?els.mainTabFormationBtn:els.mainTabWarhorseBtn);
+  if(window.HADO_TABS?.sync)window.HADO_TABS.sync(mainTabList,activeMainTab);
+  [els.searchPanel,els.formationScreen,els.warhorseScreen].forEach(panel=>{
+    if(!panel)return;
+    const visible=(panel===els.searchPanel&&search)||(panel===els.formationScreen&&formation)||(panel===els.warhorseScreen&&warhorse);
+    panel.setAttribute('aria-hidden',visible?'false':'true');
+  });
   if(formation)renderFormationScreenForTabSwitch();
   if(warhorse)renderWarhorseFormationScreen();
   applyResponsiveLayout('setMainTab:'+state.mainTab);
@@ -3645,7 +3653,7 @@ function normalizeDetailActiveTab(categoryKey){
 function renderDetailTabs(categoryKey){
   const active=normalizeDetailActiveTab(categoryKey);
   const specs=getDetailTabSpecs(categoryKey);
-  return `<div class="detail-tabs" role="tablist">${specs.map(tab=>`<button type="button" class="detail-tab-btn ${tab.key===active?'is-active':''}" data-detail-tab="${esc(tab.key)}" role="tab" aria-selected="${tab.key===active?'true':'false'}">${esc(tab.label)}</button>`).join('')}</div>`;
+  return `<div class="detail-tabs" role="tablist" aria-label="内容詳細の表示項目" data-tab-activation="manual">${specs.map(tab=>`<button type="button" id="detail-tab-${esc(tab.key)}" class="detail-tab-btn ${tab.key===active?'is-active':''}" data-detail-tab="${esc(tab.key)}" data-tab-key="${esc(tab.key)}" role="tab" aria-controls="detail-panel-${esc(tab.key)}" aria-selected="${tab.key===active?'true':'false'}" tabindex="${tab.key===active?'0':'-1'}"><span class="hado-tab-label">${esc(tab.label)}</span></button>`).join('')}</div>`;
 }
 function renderEquipmentTablesSubset(tables){
   if(!Array.isArray(tables)||!tables.length)return '';
@@ -3731,7 +3739,8 @@ function renderTabbedDetailContent(item,categoryKey){
   const tabButtons=profiler.wrap('renderDetailTabs',()=>renderDetailTabs(categoryKey),r=>({htmlLength:String(r||'').length}));
   const cardLog={item:getItemDisplayName(item),category:categoryKey,activeTab:active,lazyRender:!!tabs.lazy,tabs:getDetailTabSpecs(categoryKey).map(t=>t.key),tabLabels:getDetailTabSpecs(categoryKey).map(t=>t.label),cards:tabs.cards,excluded:tabs.excluded,unassigned:tabs.unassigned,buildProfile:safeCloneForDebug(tabs.profile||{})};
   debugLog('detail-tabs',cardLog);state.diagnostics.detailTabs=cardLog;
-  const htmlOut=`${tabButtons}<div class="detail-tab-content" data-active-tab="${esc(active)}">${tabHtml?`<div class="general-detail-stack">${tabHtml}</div>`:`<div class="detail-empty">このタブに表示する内容はありません。</div>`}</div>`;
+  const activeSpec=getDetailTabSpecs(categoryKey).find(tab=>tab.key===active)||getDetailTabSpecs(categoryKey)[0]||{label:'詳細'};
+  const htmlOut=`${tabButtons}<div class="hado-tab-context detail-tab-current" aria-live="polite"><strong>${esc(activeSpec.label)}</strong><span>を表示中</span></div><div id="detail-panel-${esc(active)}" class="detail-tab-content hado-tab-panel-enter" data-active-tab="${esc(active)}" role="tabpanel" aria-labelledby="detail-tab-${esc(active)}" tabindex="0">${tabHtml?`<div class="general-detail-stack">${tabHtml}</div>`:`<div class="detail-empty">このタブに表示する内容はありません。</div>`}</div>`;
   profiler.mark('assembleTabbedHtml',{htmlLength:String(htmlOut||'').length});
   const p=profiler.finish({activeTab:active,lazyRender:!!tabs.lazy,builderProfile:safeCloneForDebug(tabs.profile||{})});
   if(!state.diagnostics)state.diagnostics={};state.diagnostics.detailTabBuildProfile=p;debugLog('detail-tab-build-profile',p);

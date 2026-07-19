@@ -50,7 +50,10 @@ def main() -> int:
             raise SystemExit("Update09 Phase 5 revisions must be >= 95")
         require(version_js, f"Update{update_no}", "visible Phase 5 version summary in hado_version.js")
     else:
-        raise SystemExit(f"unexpected Update09 runtime version: {update_no}")
+        update_parts = tuple(int(part) for part in update_no.split(".") if part.isdigit())
+        if not update_parts or update_parts < (10, 0) or revision <= 155:
+            raise SystemExit(f"unexpected runtime version after Update09: {update_no} r{revision}")
+        require(version_js, f"Update{update_no}", "visible post-Update09 version summary in hado_version.js")
 
     if re.search(r"Update09\.5\.\d+", index_html):
         raise SystemExit("index.html must not hard-code the visible Update09.5.x string; hado_update_meta.js syncs it from hado_version.js")

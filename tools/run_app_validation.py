@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 COMMANDS: list[list[str]] = [
     ["node", "--check", "hado_version.js"],
+    ["node", "--check", "hado_tabs.js"],
     ["node", "--check", "hado_update_meta.js"],
     ["node", "--check", "hado_core.js"],
     ["node", "--check", "hado_formation.js"],
@@ -64,6 +65,7 @@ COMMANDS.extend(
         ["node", "tools/test_update09_5_63_equipment_search_stage.js"],
         ["node", "tools/test_update09_5_64_candidate_workspace_flow.js"],
         ["node", "tools/test_update09_5_65_candidate_draft_resume.js"],
+        ["node", "tools/test_update10_1_tab_clarity.js"],
         ["node", "tools/test_json_index_contract.js"],
         ["python3", "tools/validate_legacy_hado_app_not_loaded.py"],
         ["python3", "tools/validate_update_version_consistency.py"],
