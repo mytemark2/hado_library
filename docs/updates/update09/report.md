@@ -1295,6 +1295,11 @@
 - ローカルJSON契約: 20ファイル、技能1,343件、関連リンク2,847件、related ref 13,126件、欠落0、削除0、未解決0、代表6技能pass。
 - ローカルPC実操作: 公開JSONの一意トークン付き再取得後、技能 `堅固打破`、`啓蒙`、`烏桓堅装`、`火行`、`奮戦`、`窮地戦威` が各1件で詳細へ自動選択され、6件すべてで関連リンクJSONエラーが表示されないことを確認した。
 - 表示版: `3.0.0.0 Update09.5.62 r152`。
-- Git/Actions/Preview: 後続工程で追記する。公開Preview確認前は未完了。
+- Git: canonical base `3b85c149874b7b0fcc0bfe347fbb0a34ec849602`、実装commit `f7e5a6196656ee45dca57f6e142a92343cdfbf74`、PR #239、merge `7a5acfb0361e34854591e81660b04e47145070d0`。merge readinessはmerge-base一致・競合なし。
+- Actions: PR `App Validation / app-validation` run 29676295655 success。正本 `Notify Hado Library Preview` run 29676974962 success。Preview `Deploy Hado Library Preview` run 29676990694 success。
+- Preview repository: `main` HEAD `4c3592acbe5b1efcc5e6e4b2547bca125a8e1fb0`。`index.html`、`hado_formation.js`、`hado_styles.css`、`.nojekyll`、34 `hadou_*.json`、3 markerが存在する。
+- 公開marker: `PREVIEW_SOURCE_COMMIT.txt=7a5acfb0361e34854591e81660b04e47145070d0`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.62`。
+- 公開PC操作: `3.0.0.0 Update09.5.62 r152`、公開JSON技能1,343件。代表6技能を順に検索して詳細を開き、6件すべてで関連リンク索引エラーなし。`堅固打破` / `啓蒙` / `奮戦` / `窮地戦威` は関連リンクを表示し、`烏桓堅装` / `火行` は空索引を正常表示した。
+- 公開Debug Log: 診断版数は `覇道ライブラリ｜3.0.0.0 Update09.5.62 r152`。`ログ表示` ONで `#debugPanel` は `display:block`、ログ本文1,655文字、`debugPanel:toggle` あり、`relatedLinks:build-error` なし。
 - 最小受入操作: 公開Previewで技能 `堅固打破`、`啓蒙`、`烏桓堅装`、`火行`、`奮戦`、`窮地戦威` を順に開き、関連リンクJSONエラーが表示されないことを確認する。
-- 残課題: 公開Preview実操作完了まであり。
+- 現在の状態: 実装、116項目検証、PR、マージ、両リポジトリActions、Preview同期、marker、公開PC実操作、Debug Log確認まで完了。残課題: なし。
