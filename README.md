@@ -21,7 +21,7 @@
 
 ## 公開アプリ
 
-GitHub Pagesで公開予定です。
+GitHub Pagesで公開中です。正式公開URL: `https://mytemark2.github.io/hado_library/`（source: `main` / `/`）。
 
 ## License
 
