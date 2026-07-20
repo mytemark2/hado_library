@@ -54,7 +54,11 @@ Update10.1〜Update10.3 完了。Update10.4は実装・ローカル全体検証�
 - 派生データ: クローラー `tools/regenerate_derived_json.js` により、状態変化を含む派生JSON 20件を一式再生成した。派生JSONは個別編集していない。
 - 回帰防止: JSON契約テストの技能・装備件数を旧固定値ではなく今回の入力JSONの件数と段階索引へ照合する方式へ更新し、6件の手動状態変化について名称、分類、説明断片、状態変化メタ索引を検証する。
 - HTMLサイズ: データ・外部キャッシュキー・版数のみの更新で、HTML本体の構造拡張はしていない。
-- 検証・Actions・Preview: 実施結果はマージと公開Preview同期の確認後に追記する。
+- ローカル検証: `python -X utf8 tools/run_app_validation.py` は123/123成功。JSON構文、JavaScript構文、検索、詳細、部隊編成、保存Import/Export、PC/スマホ契約、派生JSON 20件、禁止queue不在を確認した。
+- Git・Actions: 実装commit `fa8ea87a4a8e8ad1d25b00503030ad7281f9156d`、PR [#256](https://github.com/mytemark2/hado_library/pull/256)、正規ブランチmerge commit `5522ed2dae0f996f7d179bd1a9bb67c813c9bbf7`。PR App Validation run `29714829675` と、push起点Preview同期 run `29714851003` はともに成功した。
+- Preview confirmation: 公開URL `https://mytemark2.github.io/hado_library-preview/`、Preview repository `main` commit `0634a6a771fb8909da14d8f8f3667338b97a355e`。markerは`PREVIEW_SOURCE_COMMIT.txt=5522ed2dae0f996f7d179bd1a9bb67c813c9bbf7`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update10.4`。`index.html`、`hado_formation.js`、`hado_styles.css`、`hadou_status_effects.json`、`hadou_search_index.json`、`.nojekyll`を確認した。
+- 公開実操作: `3.0.0.0 Update10.4 r159`で公開JSONの読込完了、表示件数（武将485／状態変化206など）、追加6件が状態変化選択肢へ入ること、Debug Logパネルが既定で非表示で存在することを確認した。
+- 最小受入操作: 公開Previewを再読込し、状態変化検索の選択肢から豪撃・虎守・秀俊・退勢・封縛・封心を選べること、各項目の説明がゲーム内説明と一致することを確認する。
 
 ## 引継ぎ済みの基準
 
@@ -75,4 +79,4 @@ Update10.1〜Update10.3 完了。Update10.4は実装・ローカル全体検証�
 
 ## 残課題
 
-- Update10.4のActionsと公開Preview・marker一致の確認が残る。Update10全体の正式配布物監査と`main`反映判断は継続項目とする。
+- Update10.1〜Update10.4としての残課題はなし。Update10全体の正式配布物監査と`main`反映判断は継続項目とする。

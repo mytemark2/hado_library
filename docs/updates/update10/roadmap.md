@@ -9,7 +9,7 @@ Update09完了版を起点として、正式版候補に必要な全体回帰、
 - 起点commit: `fba2f1999f8f821002931ff2413f4f43cae0983f`
 - 起点表示版: `3.0.0.0 Update09.5.65 r155`
 - 対象ブランチ: `feature/app-3.0.0.0`
-- 状態: Update10.1〜Update10.4 完了（Update10.4は検証・公開Preview同期を実施中）。Update10全体の正式配布物監査と`main`反映判断は継続する。
+- 状態: Update10.1〜Update10.4 完了（Update10.4はActions・公開Preview・marker一致まで確認済み）。Update10全体の正式配布物監査と`main`反映判断は継続する。
 
 ## Update10.1 — タブ視認性と切替フィードバック
 
@@ -47,7 +47,7 @@ Update09完了版を起点として、正式版候補に必要な全体回帰、
 3. クローラーの正規生成経路で派生JSON 20件を一式再生成し、検索・詳細・状態変化索引の整合性を検証する。
 4. データ更新で増減する件数を固定値で誤検知しないよう、JSON契約テストの件数照合を入力データ基準にする。
 
-完了条件はJSON構文、派生JSON 20件の契約、最新データ件数、追加状態変化の説明・分類、App Validation、Actions、公開Preview・marker一致である。
+完了条件はJSON構文、派生JSON 20件の契約、最新データ件数、追加状態変化の説明・分類、App Validation、Actions、公開Preview・marker一致であり、すべて確認済みである。
 
 ## 初期スコープ
 
