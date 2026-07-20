@@ -2,7 +2,7 @@
 
 ## 状態
 
-Update10.1〜Update10.4 実装完了。全体回帰、Actions、公開Preview、marker一致まで確認済み。
+Update10.1〜Update10.4 実装完了。全体回帰、Actions、公開Preview、marker一致、正式版`main`反映まで確認済み。
 
 ## Update10.1 — タブ視認性改善 第1〜3段階
 
@@ -53,6 +53,14 @@ Update10.1〜Update10.4 実装完了。全体回帰、Actions、公開Preview、
 - Update10.1〜Update10.4の既知残課題はない。
 - 配布用ZIPは当面公開しないため、ZIP生成・展開・SHA-256監査は今回の正式版反映条件から除外する。
 - 正式版`main`では開発識別子の`Update10.4`と`r159`を表示せず、`3.0.0.0`のみ表示する。
+
+## 正式版実装
+
+- `hado_version.js`の`formalRelease`を正式版表示の単一切替とし、内部の`updateNo`と`revision`はキャッシュキー・履歴識別との互換性のため保持した。
+- `hado_update_meta.js`は正式版の`displayVersion`と`visibleVersion`を`releaseVersion`だけから導出する。開発版は従来どおりUpdate番号とrevisionを表示する。
+- `HADO_DEV_INFO.json`は`releaseStatus: released`へ変更し、版数値の重複は追加していない。
+- 正式版/開発版の両契約を`tools/test_update09_5_40_revision_display.js`、`tools/validate_update_version_consistency.py`、`tools/validate_update09_phase4_guides.py`で検証する。
+- `index.html`と実機能JavaScript/CSSは変更していない。HTMLサイズは29,254 bytesから増減なしで、インラインJavaScriptを追加していない。
 
 ## 実装方針
 
