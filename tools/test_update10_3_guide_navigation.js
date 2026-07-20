@@ -11,8 +11,8 @@ const core = read('hado_core.js');
 const styles = read('hado_styles.css');
 const version = read('hado_version.js');
 
-assert(version.includes("updateNo: '10.3'"), 'Update10.3 version is required');
-assert(version.includes('revision: 158'), 'revision 158 is required');
+assert(version.includes("updateNo: '10.4'"), 'Update10.4 version is required');
+assert(version.includes('revision: 159'), 'revision 159 is required');
 assert(core.includes("{title:'覇道ライブラリへようこそ',target:'#appTitlePanel',tab:'search',searchMode:'normal'"), 'first-time guide must start on normal search');
 assert(core.includes("{title:'候補ワークスペース',target:'.result-copy-actions',tab:'search',searchMode:'normal'"), 'search guide step 8 must return to normal search');
 assert(core.includes("{title:'結果サマリーの6項目を確認',target:'.formation-quick-summary-strip'"), 'formation guide step 8 must select the result summary');
@@ -50,4 +50,4 @@ vm.createContext(context);
 vm.runInContext(`${extractFunction(core, 'getGuidedTourStepTarget')}; this.resolveTarget=getGuidedTourStepTarget;`, context);
 assert.strictEqual(context.resolveTarget({ target: '.formation-quick-summary-strip' }), visible, 'guide target resolution must skip a hidden duplicate and select the visible result summary');
 
-console.log('Update10.3 guide navigation regression passed.');
+console.log('Update10 guide navigation regression passed.');

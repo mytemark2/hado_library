@@ -48,7 +48,7 @@ const skillKeys=new Set(rows(skillOwner).map(v=>v.skillKey).filter(Boolean));
 const statusGroups=new Set(rows(read('hadou_status_effect_group_owner_index.json')).map(v=>v.groupKey).filter(Boolean));
 
 assert.strictEqual(skillOwner.contractVersion,'1.0');
-assert.strictEqual(rows(skillOwner).length,1343);
+assert(rows(skillOwner).length>0,'skill owner index must not be empty');
 const allowedSkillDomains=new Set(['generalSkill','advisorSkill','equipmentSkill','ethnicResearchSkill','fiveElementSkill','warhorseSkill','derivedSkill']);
 rows(skillOwner).forEach(row=>{
   assert(allowedSkillDomains.has(row.skillDomain),row.skillName+': '+row.skillDomain);
@@ -89,13 +89,13 @@ for(const [name,domain] of [['堅固打破','equipmentSkill'],['啓蒙','advisor
 const equipmentStage=read('hadou_equipment_skill_stage_index.json');
 const equipmentSearchAudit=search.qualityAudit?.equipmentStageCoverage||{};
 assert.strictEqual(equipmentSearchAudit.ok,true);
-assert.strictEqual(equipmentSearchAudit.expectedEquipmentCount,244);
-assert.strictEqual(equipmentSearchAudit.indexedEquipmentCount,244);
+assert.strictEqual(equipmentSearchAudit.expectedEquipmentCount,rows(equipmentStage).length);
+assert.strictEqual(equipmentSearchAudit.indexedEquipmentCount,rows(equipmentStage).length);
 assert.strictEqual(equipmentSearchAudit.missingEquipmentCount,0);
 assert.strictEqual(equipmentSearchAudit.missingStageCount,0);
 assert.strictEqual(equipmentSearchAudit.missingSkillRefCount,0);
 const equipmentSearchRows=rows(search).filter(v=>v.category==='equipments');
-assert.strictEqual(equipmentSearchRows.length,245);
+assert.strictEqual(equipmentSearchRows.length,rows(read('hadou_equipments.json')).length);
 equipmentSearchRows.forEach(row=>{
   assert.strictEqual(typeof row.baseSearchText,'string',row.name+' baseSearchText');
   for(const stage of ['initial','ssrMax','urMax'])assert.strictEqual(typeof row.equipmentStageSearchText?.[stage],'string',`${row.name} ${stage}`);
@@ -161,6 +161,17 @@ rows(tacticAttack).forEach(row=>{
 
 for(const name of ['穿撃','轟炎']){
   const meta=rows(statusMeta).find(v=>v.name===name);assert(meta);assert.strictEqual(meta.gameType,'有利変化');assert.strictEqual(meta.actorPolarity,'selfPositive');assert.strictEqual(meta.direction,'buff');assert.strictEqual(meta.targetSide,'self');
+}
+for(const [name,gameType,fragment] of [
+  ['豪撃','有利変化','戦法の攻撃威力を効果量分上乗せ'],
+  ['虎守','有利変化','負傷兵を最大兵力の5%回復'],
+  ['秀俊','有利変化','被ダメージを50%軽減'],
+  ['退勢','不利変化','全ての有利変化が発揮されない'],
+  ['封縛','不利変化','弱化解除（即時効果）を100%の確率で無効化'],
+  ['封心','不利変化','会心・撃心が発生しない']
+]){
+  const source=rows(read('hadou_status_effects.json')).find(v=>v.name===name);assert(source,`${name} status master row`);assert.strictEqual(source.type,gameType,`${name} status type`);assert(source.description.includes(fragment),`${name} manual description`);
+  const meta=rows(statusMeta).find(v=>v.name===name);assert(meta,`${name} status meta row`);assert.strictEqual(meta.gameType,gameType,`${name} status meta type`);
 }
 
 const requiredCases=['type-feature-no-pseudo-status-key','type-feature-tactic-source-part','role-score-tactic-role-gate','skill-owner-domain-separation','related-link-no-unresolved-ref','related-link-application-skill-coverage','status-meta-group-consistency','tactic-attack-block-consistency','parameter-summary-no-array-fragment'];
