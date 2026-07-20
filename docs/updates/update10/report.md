@@ -2,7 +2,7 @@
 
 ## 状態
 
-Update10.1 完了。Update10.2 操作ガイド最新化を実装中。
+Update10.1・Update10.2 完了。Update10全体の正式配布物監査と`main`反映判断は継続項目とする。
 
 ## Update10.1 — タブ視認性改善
 
@@ -29,6 +29,8 @@ Update10.1 完了。Update10.2 操作ガイド最新化を実装中。
 - ローカルスマホ実操作（390x844指定、実効幅375px）: ガイド吹き出しは左右10px、下端836px以内に収まり、body横はみ出しなし、browser warning/error 0件を確認した。
 - HTMLサイズ: 29,228 bytesでUpdate10.1から増減なし。ガイド文言同期と動作は既存の外部`hado_core.js`へ実装し、HTMLへインラインJavaScriptを追加していない。
 - 最小受入操作: 公開Previewで「ガイド開始」から検索ガイドを進め、検索モード独立・IME・末尾符号・候補ワークスペースの説明を確認する。部隊編成へ切り替えて再度「ガイド開始」を押し、結果サマリー6項目と変化率タブの説明を確認する。
+- Git・Actions・Preview: PR [#252](https://github.com/mytemark2/hado_library/pull/252) を正本へマージした。App Validation run `29710202740` は成功。アプリ側Preview通知 run `29710220880` は、同期成功後のPages待機でGitHub API 503となったが、Preview repositoryのDeploy run `29710234872` を再実行して成功した。
+- Preview confirmation: Preview repository `main` は `456a9903fd228d66d60466b9e26d6326fb9eed65`。markerは `PREVIEW_SOURCE_COMMIT.txt=686f09f75a4f92f76f23810c04ce68c0af4ec3e9`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update10.2`。公開URLで `3.0.0.0 Update10.2 r157`、検索ガイドの開始・検索モード独立説明、browser warning/error 0件を確認した。
 
 ## 引継ぎ済みの基準
 
@@ -49,4 +51,4 @@ Update10.1 完了。Update10.2 操作ガイド最新化を実装中。
 
 ## 残課題
 
-- Update10.1としての残課題はなし。Update10全体の正式配布物監査と`main`反映判断は継続項目とする。
+- Update10.1・Update10.2としての残課題はなし。Update10全体の正式配布物監査と`main`反映判断は継続項目とする。

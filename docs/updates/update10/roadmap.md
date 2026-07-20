@@ -9,7 +9,7 @@ Update09完了版を起点として、正式版候補に必要な全体回帰、
 - 起点commit: `fba2f1999f8f821002931ff2413f4f43cae0983f`
 - 起点表示版: `3.0.0.0 Update09.5.65 r155`
 - 対象ブランチ: `feature/app-3.0.0.0`
-- 状態: Update10.1 完了（公開Preview確認済み）。Update10.2の操作ガイド最新化を実装中。
+- 状態: Update10.1・Update10.2 完了（公開Preview確認済み）。Update10全体の正式配布物監査と`main`反映判断は継続する。
 
 ## Update10.1 — タブ視認性と切替フィードバック
 
@@ -19,7 +19,7 @@ Update09完了版を起点として、正式版候補に必要な全体回帰、
 
 第1〜3段階は完了した。選択状態はタブ自身の面・輪郭・太字・選択記号で示し、表示領域を圧迫する「〇〇を表示中」補助行は追加しない。
 
-完了条件は専用回帰、全App Validation、PC/390x844実操作、Actions、公開Preview・marker一致である。
+完了条件は専用回帰、全App Validation、PC/390x844実操作、Actions、公開Preview・marker一致である。すべて確認済み。
 
 ## Update10.2 — 操作ガイド最新化
 
