@@ -2,7 +2,7 @@
 
 ## 状態
 
-Update10.1〜Update10.4の開発、全体回帰、Actions、公開Preview確認まで完了。既知残課題はなく、正式版`main`への反映を承認済み。配布用ZIPは当面公開しない。
+Update10.1〜Update10.4の開発、全体回帰、Actions、公開Preview確認、正式版`main`への反映まで完了。既知残課題はない。配布用ZIPは当面公開しない。
 
 ## Update10.1 — タブ視認性改善
 
@@ -81,5 +81,17 @@ Update10.1〜Update10.4の開発、全体回帰、Actions、公開Preview確認�
 
 - Update10.1〜Update10.4としての残課題はなし。
 - 配布用ZIPは当面公開しないため、ZIP生成、実展開、SHA-256監査は未実施であり、既知不具合や実装残ではない。
-- `feature/app-3.0.0.0`の開発完了版を正式版候補とし、`main`へPull Requestで反映する。
+- `feature/app-3.0.0.0`の開発完了版をPR [#259](https://github.com/mytemark2/hado_library/pull/259)で`main`へ反映した。
 - 正式版の画面表示は`3.0.0.0`のみとし、開発用のUpdate番号・revisionは表示しない。
+
+## 正式版反映結果
+
+- 開発完了文書: PR [#258](https://github.com/mytemark2/hado_library/pull/258)、commit `6eaeb748a4b5a8cb206b05bacf2a67b2251e7feb`、正規ブランチmerge commit `5ab9ef791473cb5ea136660b74ab30e48277a91e`。App Validation run `29716026301` とPreview同期run `29716048132`は成功した。
+- 正式版実装: commit `df1777eddddc669e2b35615464b2b321119b664f`。`hado_version.js`へ`formalRelease: true`を追加し、Update番号とrevisionを内部キャッシュ・履歴識別用に保持しながら、画面タイトル、見出し、ガイド、診断表示は`3.0.0.0`のみにした。`HADO_DEV_INFO.json`は`releaseStatus: released`へ更新した。
+- `main`競合: 旧`main`がUpdate09.3.22系の版数・Preview運用・文書を独自に保持していたため6ファイルで競合した。内容を比較し、最新開発版のPreview同期、版数管理、README、Update文書、運用規則を採用した。旧`PREVIEW_*`マーカー、使い捨て`apply_update*.py`、禁止済み`updates/queue`は再導入せず、旧`main`のコミット履歴だけを統合した。解消commitは`4adf10b62dd426cf64709eb130cec1a1431abe44`。
+- マージ準備: `python -X utf8 tools/check_pr_merge_readiness.py --base feature/app-3.0.0.0`と`--base main`は、解消後のHEAD `4adf10b62dd426cf64709eb130cec1a1431abe44`でともに競合なし。
+- ローカル検証: `python -X utf8 tools/run_app_validation.py`は123/123成功。正式版表示、JavaScript/JSON/HTML、検索、詳細、保存Import/Export、部隊編成、PC/スマホ契約、派生JSON20件、禁止queue不在を確認した。
+- Git・Actions: 正式版PR [#259](https://github.com/mytemark2/hado_library/pull/259)、App Validation run `29716813318`成功、`main` merge commit `a660f421c2f5253e5db0a405916434352107520b`。`main` pushのPreview通知run `29716846362`は設計どおりskipとなり、開発Previewを正式版表示で上書きしていない。
+- Preview confirmation: 公開URL `https://mytemark2.github.io/hado_library-preview/`、Preview repository `main` commit `d72656b28a881165155355775262a76d78df640a`。markerは`PREVIEW_SOURCE_COMMIT.txt=5ab9ef791473cb5ea136660b74ab30e48277a91e`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update10.4`。実URLで`3.0.0.0 Update10.4 r159`、公開JSON読込、主要タブ、`hado_version.js`、`hado_update_meta.js`、`hado_formation.js`、`hado_styles.css`、診断DOM、browser error 0件を確認した。
+- 正式公開Pages: `https://mytemark2.github.io/hado_library/`のPages sourceは引き続き`hado-2.9.6.5`であり、今回の依頼範囲は`main`ソースへの正式反映まで。公開Pagesのsource切替は行っていない。
+- 最小受入操作: `main`の`index.html`を開き、見出し・タイトル・ガイド・`?`画面がすべて`3.0.0.0`のみで、`Update10.4`と`r159`を表示しないことを確認する。
