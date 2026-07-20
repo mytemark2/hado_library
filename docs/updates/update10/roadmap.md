@@ -9,7 +9,7 @@ Update09完了版を起点として、正式版候補に必要な全体回帰、
 - 起点commit: `fba2f1999f8f821002931ff2413f4f43cae0983f`
 - 起点表示版: `3.0.0.0 Update09.5.65 r155`
 - 対象ブランチ: `feature/app-3.0.0.0`
-- 状態: Update10.1・Update10.2 完了（公開Preview確認済み）。Update10.3はガイド視認性・画面同期を改修中。Update10全体の正式配布物監査と`main`反映判断は継続する。
+- 状態: Update10.1〜Update10.3 完了（公開Preview確認済み）。Update10全体の正式配布物監査と`main`反映判断は継続する。
 
 ## Update10.1 — タブ視認性と切替フィードバック
 
