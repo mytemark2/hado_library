@@ -2,7 +2,7 @@
 
 ## 状態
 
-Update10.1・Update10.2 完了。Update10.3は実装・公開Preview確認中。Update10全体の正式配布物監査と`main`反映判断は継続項目とする。
+Update10.1〜Update10.3 完了。Update10全体の正式配布物監査と`main`反映判断は継続項目とする。
 
 ## Update10.1 — タブ視認性改善
 
@@ -40,7 +40,9 @@ Update10.1・Update10.2 完了。Update10.3は実装・公開Preview確認中。
 - ローカル検証: `python -X utf8 tools/run_app_validation.py` は123/123成功。専用回帰、JavaScript/JSON/HTML、検索、保存Import/Export、部隊編成、派生JSON20ファイルの契約、禁止queue不在、差分検査を確認した。
 - ローカル実操作: PCで部隊編成から初回ガイドを開始して検索/通常検索へ移ること、検索ガイド8/10で通常検索を選択すること、部隊編成ガイド8/9で2個の結果サマリーのうち表示中の1個へ黄色枠が付くことを確認した。390x844では本文14px・行間25.2px・文字間隔0.28px、本文内スクロールなし、横はみ出しなし、browser warning/error 0件を確認した。
 - HTMLサイズ: Git管理上の`index.html`は29,228 bytesから増減なし。変更は外部JavaScript/CSSへ実装し、HTMLは同じ長さのasset cache key更新だけである。
-- Git、Actions、公開Previewは完了後に追記する。
+- Git・Actions: 実装commit `070445e83df807e604390a5eb3906d1ff1e844cc`、PR [#254](https://github.com/mytemark2/hado_library/pull/254)、正規ブランチmerge commit `2ab9df17a921d4f1175be559abaa8f9733ea69b8`。PR App Validation run `29711883575`、push起点Preview同期run `29711899860`はいずれも成功した。
+- Preview confirmation: 公開URL `https://mytemark2.github.io/hado_library-preview/`、Preview repository `main` commit `f373f962ff9ecc3660fa4c08e9f15b67fbe8a5b3`。markerは`PREVIEW_SOURCE_COMMIT.txt=2ab9df17a921d4f1175be559abaa8f9733ea69b8`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update10.3`。`index.html`、`hado_formation.js`、`hado_styles.css`、20個の`hadou_*.json`、`.nojekyll`を確認した。
+- 公開実操作: `3.0.0.0 Update10.3 r158`、`hado_core.js?v=10.3-r158`、`hado_styles.css?v=10.3-r158`を確認。部隊編成から初回ガイドを開始して検索/通常検索へ移動、検索ガイド8/10で通常検索を選択、部隊編成ガイド8/9で表示中の結果サマリーを選択した。390x844は行間25.2px・文字間隔0.28px、本文内スクロールなし、横はみ出しなし、吹き出しviewport内、browser warning/error 0件で合格した。
 - 最小受入操作: 初回ガイドを通常検索以外から開始して通常検索へ移ること、検索ガイド8/10で通常検索が選択されること、部隊編成ガイド8/9で結果サマリーが黄色枠の対象になること、PC/スマホで本文が重ならないことを確認する。
 
 ## 引継ぎ済みの基準
@@ -62,4 +64,4 @@ Update10.1・Update10.2 完了。Update10.3は実装・公開Preview確認中。
 
 ## 残課題
 
-- Update10.1・Update10.2としての残課題はなし。Update10全体の正式配布物監査と`main`反映判断は継続項目とする。
+- Update10.1〜Update10.3としての残課題はなし。Update10全体の正式配布物監査と`main`反映判断は継続項目とする。

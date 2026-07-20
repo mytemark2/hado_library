@@ -2,7 +2,7 @@
 
 ## 状態
 
-Update10.1・Update10.2 実装完了。Update10.2は公開Previewまで確認済み。Update10.3は実装・ローカル確認済みで、公開Preview確認中。
+Update10.1〜Update10.3 実装完了。Update10.3は公開Previewまで確認済み。
 
 ## Update10.1 — タブ視認性改善 第1〜3段階
 
