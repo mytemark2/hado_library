@@ -822,6 +822,29 @@ function updateUxHomePanel(context=''){
   debugLog('uxHome:update',{context,total,saveCount,currentSaveName:current?.name||'',formationCount,historyCount,mainTab:state.mainTab});
 }
 
+const UPDATE10_2_QUICK_GUIDE_STEPS=Object.freeze([
+  Object.freeze({title:'1. 上部のデータバーを確認',text:'全データ/保存データ、保存名、武将状態、装備状態を確認します。設定変更やJSON再読込は、この表示欄から開く「データ管理」で行います。'}),
+  Object.freeze({title:'2. JSONと保存データを準備',text:'PCはJSONフォルダ、スマホはJSONファイルを読み込みます。ウェブ版は公開JSONを自動取得します。所持データを使う場合はImportまたは新規保存を準備します。'}),
+  Object.freeze({title:'3. 目的に合う検索モードを選ぶ',text:'通常検索は語句、状態変化検索は6分類からの逆引き、型検索は編成コンセプトから探します。3モードの条件と選択中詳細は個別に保持されます。'}),
+  Object.freeze({title:'4. 型編成ナビと候補ワークスペースを使う',text:'型編成ナビは「主将から」「目的から」「型を直接」の3通りです。編集モードで複数候補を選び、候補モードで役割別に確認します。'}),
+  Object.freeze({title:'5. 新規部隊作成または既存部隊へ配置',text:'型編成ナビ経由では「この型で新規部隊」、既存部隊の候補検討では「配置先を選ぶ」へ進みます。侍従に配置できる武将はUR以下です。'}),
+  Object.freeze({title:'6. 結果サマリーと根拠を確認',text:'部隊編成では兵力、被ダメージ、通常攻撃、戦法初動、戦法速度、戦法最大倍率の6項目を確認します。カードを押すと加算値の根拠を表示します。'})
+]);
+function syncUpdate10QuickGuideCopy(){
+  const host=document.querySelector('#uxQuickGuide .ux-guide-steps');
+  if(!host)return;
+  const rows=[...host.querySelectorAll('.ux-guide-step')];
+  UPDATE10_2_QUICK_GUIDE_STEPS.forEach((step,index)=>{
+    let row=rows[index];
+    if(!row){row=document.createElement('div');row.className='ux-guide-step';row.innerHTML='<div class="ux-guide-step-title"></div><div class="ux-guide-step-text"></div>';host.appendChild(row);}
+    const title=row.querySelector('.ux-guide-step-title');
+    const text=row.querySelector('.ux-guide-step-text');
+    if(title)title.textContent=step.title;
+    if(text)text.textContent=step.text;
+  });
+  rows.slice(UPDATE10_2_QUICK_GUIDE_STEPS.length).forEach(row=>row.remove());
+}
+
 
 // FEATURE[HADO-2.9.6.1-GUIDED-TOUR]: 現行UI対応のタブ別吹き出しガイド
 const GUIDED_TOUR_STORAGE_KEY='hado_library_guided_tour_intro_seen_v2_9_6_5';
@@ -849,30 +872,31 @@ function getGuidedTourDefinitions(){
       (IS_WEB_DEPLOYMENT?{title:'公開JSONは自動で読み込まれます',target:'#dataContextSummary',body:'ウェブ版では、公開サイトに格納されたJSON一式を起動時に自動取得します。\nJSONフォルダやJSONファイルを手動で選択する必要はありません。'}:{title:'JSONデータを読み込みます',target:'#dataManagementSheet .data-file-pane',openDataSheet:true,body:'PCは「JSONフォルダ再読込」、スマホは「JSONファイル読込」を使います。\n最新クローラーで生成したJSON一式を読み込んでください。'}),
       {title:'保存データを準備します',target:'#dataSavedOptions',openDataSheet:true,dataMode:'saved',body:'保存データでは、お気に入り登録した武将・装備、部隊編成、軍馬を管理できます。\n既存データはImport、新規利用は「新規」から作成します。'},
       {title:'お気に入り登録',target:'#results,#resultSelect',closeDataSheet:true,body:'検索結果や内容詳細で武将・装備を★登録すると、現在選択中の保存データに反映されます。\n保存データ表示では、登録済みの武将・装備を前提に候補を絞り込みます。'},
-      {title:'3つのタブと候補ワークスペース',target:'#mainTabPanel',body:'検索、部隊編成、軍馬編成の3つのタブがあります。\n型を使う場合は、型検索/型編成ナビ → 候補ワークスペースの編集モード → 候補モード → 部隊編成の順に進めます。タブを切り替えた後に「ガイド開始」を押すと、そのタブ専用の案内が始まります。'},
+      {title:'3つのタブと候補ワークスペース',target:'#mainTabPanel',body:'検索、部隊編成、軍馬編成の3つのタブがあります。選択中のタブは面・輪郭・太字・選択記号で確認できます。\n型を使う場合は、型検索/型編成ナビ → 候補ワークスペースの編集モード → 候補モード → 部隊編成の順に進めます。タブを切り替えた後に「ガイド開始」を押すと、そのタブ専用の案内が始まります。'},
       {title:'タブ別ガイドを使ってください',target:'#uxHomeOpenBtn',body:'初回ガイドはここまでです。\n検索機能は大幅に増えているため、最初に検索タブで「ガイド開始」を押してください。\n初回ガイドをもう一度見たい時は、上部の「？」から再表示できます。'}
     ],
     search:[
       {title:'検索ガイドを開始します',target:'#searchPanel',tab:'search',expandSearchPanel:true,body:'検索には「通常検索」「状態変化検索」「型検索」があります。\n型を決める時は型検索/型編成ナビで目的型を選び、候補ワークスペースの編集モードで候補を整え、候補モードから新規部隊作成または配置へ進みます。'},
-      {title:'検索モードを選択',target:'#searchModeBar',tab:'search',expandSearchPanel:true,body:'通常検索は自由検索、状態変化検索は状態変化からの逆引き、型検索は攻撃速度型・撃心型などの編成コンセプトから候補を探す機能です。'},
-      {title:'通常検索：キーワード',target:'#normalSearchInputRow',tab:'search',searchMode:'normal',expandSearchPanel:true,body:'通常検索では、名称や本文を部分一致で探します。\n「名称のみ」をONにすると名称限定になります。キーワード未入力でも、カテゴリをONにするとカテゴリ全件を表示します。'},
+      {title:'検索モードを選択',target:'#searchModeBar',tab:'search',expandSearchPanel:true,body:'通常検索は自由検索、状態変化検索は状態変化からの逆引き、型検索は攻撃速度型・撃心型などの編成コンセプトから候補を探す機能です。\nモードを切り替えても、それぞれの検索条件・一覧・選択中詳細は個別に保持されます。'},
+      {title:'通常検索：キーワード',target:'#normalSearchInputRow',tab:'search',searchMode:'normal',expandSearchPanel:true,body:'名称や検索対象本文を部分一致で探します。「名称のみ」をONにすると名称限定です。\nIME入力中は検索せず、変換確定後に検索します。「兵力+」のように末尾へ+/-を付ける検索は、その直後に数値がある効果だけを対象にします。'},
       {title:'通常検索・型検索：タグ',target:'#tagSearchWrap',tab:'search',searchMode:'normal',expandSearchPanel:true,body:'タグは属性の絞り込みに使います。\n同じタググループ内はOR、異なるタググループ間はANDです。例：兵科:騎兵 OR 兵科:弓兵 AND 性別:女。'},
       {title:'カテゴリを選択',target:'#categoryBar',tab:'search',searchMode:'normal',expandSearchPanel:true,body:'検索対象カテゴリを複数選択できます。\n型検索では、武将・装備・兵器・軍馬技能の4カテゴリに限定されます。'},
       {title:'状態変化検索',target:'#searchPresetBar',tab:'search',searchMode:'status',expandSearchPanel:true,body:'状態変化検索では、6分類から目的を選び、状態変化を1件選択します。\n自部隊能力強化、自部隊状態強化、自部隊不利対策、敵部隊能力低下、敵部隊状態弱化、敵部隊有利対策を逆引きできます。'},
-      {title:'型検索',target:'#typeSearchPanel',tab:'search',searchMode:'type',expandSearchPanel:true,body:'型検索では、攻撃速度型、通常攻撃拡張型、撃心型、ゾンビ型などのプリセットを選択できます。\n全データ表示は未所持を含む理論候補、保存データ表示は登録済み所持データ中心の候補です。型編成ナビで型を選ぶと候補ワークスペースを編集モードで開きます。'},
-      {title:'候補ワークスペース',target:'.result-copy-actions',tab:'search',searchMode:'type',expandSearchPanel:true,body:'候補ワークスペースの編集モードでは、カードを押すたびに候補へ即時追加・解除されます。\n候補モードでは主将・副将・補佐・侍従・装備拡張を確認し、型編成ナビ経由なら「この型で新規部隊」、既存部隊なら「配置先を選ぶ」へ進みます。'},
-      {title:'検索結果から詳細を確認',target:'#results,#resultSelect',tab:'search',body:'PCでは一覧、スマホではドロップダウンから結果を選択します。\n選択すると、右側または下部の内容詳細へ表示されます。'},
-      {title:'内容詳細と履歴操作',target:'#detail',tab:'search',body:'内容詳細では、関連リンク、状態変化率、パラメータ、コピー用テキストを確認できます。\n戻る/進む、検索結果の前後移動も利用できます。'}
+      {title:'型検索と型編成ナビ',target:'#typeSearchPanel',tab:'search',searchMode:'type',expandSearchPanel:true,body:'型検索では、攻撃速度型、通常攻撃拡張型、撃心型、ゾンビ型などのプリセットを選択できます。型編成ナビは「主将から考える」「目的から考える」「型を直接選ぶ」の3通りです。\n全データ表示は未所持を含む理論候補、保存データ表示は登録済み所持データ中心の候補です。'},
+      {title:'候補ワークスペース',target:'.result-copy-actions',tab:'search',searchMode:'type',expandSearchPanel:true,body:'編集モードでは複数選択でき、カードを押すたびに候補へ即時追加・解除されます。編集中の型・役割・選択候補は閉じても復元されます。\n候補モードでは役割別に候補を確認し、型編成ナビ経由なら「この型で新規部隊」、既存部隊なら「配置先を選ぶ」へ進みます。侍従候補はUR以下です。'},
+      {title:'検索結果から詳細を確認',target:'#results,#resultSelect',tab:'search',body:'PCでは一覧、スマホではドロップダウンから結果を選択します。選択すると右側または下部の内容詳細へ表示されます。\n通常検索・状態変化検索・型検索は、選択中の詳細も別々に保持します。'},
+      {title:'内容詳細と履歴操作',target:'#detail',tab:'search',body:'内容詳細では、概要・変化率・基礎・戦法・技能・その他を切り替え、関連リンクやパラメータを確認できます。\n戻る/進む、検索結果の前後移動、詳細コピーも利用できます。'}
     ],
     formation:[
       {title:'部隊編成ガイドを開始します',target:'#formationScreen',body:'部隊編成では、武将・装備・侍従・参軍・兵器・武装・軍馬を配置し、合算結果を確認します。まずは画面全体の構成を確認します。',tab:'formation'},
       {title:'部隊グループと基本設定',target:'.formation-list-fixed-head,#formationMobileSelect',body:'部隊のグループは、攻城・防衛・イベントなど用途別に部隊を整理する単位です。グループ選択欄で表示対象を切り替え、「変更」ボタンでグループの追加・名前変更・削除を行います。部隊を選んだら部隊名・陣形・攻城/防衛などの基本条件を確認します。スマホでは部隊選択ドロップダウンを使います。',tab:'formation'},
-      {title:'部隊編成内のタブ',target:'.formation-work-tabs',body:'部隊編成内には、配置を行う「編成」、戦法攻撃を確認する「戦法」、状態変化率を見る「変化率」、合算技能などを見る「詳細」があります。',tab:'formation'},
+      {title:'部隊編成内のタブ',target:'.formation-work-tabs',body:'部隊編成内には、配置と6項目の結果サマリーを見る「編成」、攻撃順と倍率を見る「戦法」、加算値を確認する「変化率」、合算技能などを見る「詳細」があります。',tab:'formation'},
       {title:'配置パネルで枠を選択',target:'.formation-board-card,.formation-team-grid-selectable',body:'主将・副将・補佐・侍従などの枠を選択します。枠を選ぶと、右側またはダイアログで配置する武将を選べます。',tab:'formation',formationInnerTab:'edit'},
       {title:'武将・装備枠を確認',target:'.formation-board-card,.formation-team-grid-selectable',body:'配置パネルで選択中の武将・装備枠を確認します。保存データ表示では、お気に入り登録済みの所持データを前提に選びます。',tab:'formation',formationInnerTab:'edit'},
       {title:'兵器・武装・異民族武将',target:'.formation-extension-panel,.formation-extension-grid',body:'兵器・武装・異民族武将は、部隊条件に応じて追加効果やパラメータに反映されます。攻城や駐屯向けの確認で重要です。',tab:'formation',formationInnerTab:'edit'},
       {title:'参軍と軍馬',target:'.formation-advisor-row,.formation-warhorse-editor-card',body:'参軍と軍馬も部隊結果に反映されます。PCでは武将編集画面の下、スマホでは配置パネルの参軍の下に軍馬が表示されます。',tab:'formation',formationInnerTab:'edit'},
-      {title:'変化率タブで状態変化率を確認',target:'.formation-result-focus[data-formation-work-panel="parameter"],.formation-param-section',body:'変化率タブでは、状態変化率サマリーを確認します。必要に応じて計算根拠を展開できます。',tab:'formation',formationInnerTab:'parameter'}
+      {title:'結果サマリーの6項目を確認',target:'.formation-quick-summary-strip,.formation-board-card',body:'編成タブの結果サマリーでは、兵力、被ダメージ、通常攻撃、戦法初動、戦法速度、戦法最大倍率を表示します。最終能力値ではなく、現在編成から確認できる加算値です。カードを押すと根拠を拡大表示します。',tab:'formation',formationInnerTab:'edit'},
+      {title:'変化率タブで計算根拠を確認',target:'.formation-result-focus[data-formation-work-panel="parameter"],.formation-param-section',body:'変化率タブでは、戦法発動時・出陣時・通常時・駐屯防衛時に分けて加算値を確認します。必要に応じて各項目の計算根拠を展開できます。',tab:'formation',formationInnerTab:'parameter'}
     ],
     warhorse:[
       {title:'軍馬編成ガイドを開始します',target:'#warhorseScreen',body:'軍馬編成では、通常馬・名馬の登録、技能レベル、名馬の将星を管理します。部隊への割当は、部隊編成画面の軍馬枠で行います。',tab:'warhorse'},
@@ -1171,6 +1195,7 @@ function maybeStartInitialGuidedTour(context=''){
 }
 
 function setupUxHomePanel(){
+  syncUpdate10QuickGuideCopy();
   const panel=document.getElementById('uxHomePanel');
   if(panel){
     panel.classList.add('is-dismissed');
