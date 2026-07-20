@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-07-19T08:16:50.414Z",
-  "dataSetId": "2026-07-11T05:38:08.210Z",
+  "generatedAt": "2026-07-20T03:00:13.407Z",
+  "dataSetId": "2026-07-20T02:43:46.042Z",
   "crawlerVersion": "1.1.0.2",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -33,11 +33,11 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 481,
-    "tactics": 460,
-    "equipments": 245,
-    "skills": 640,
-    "statusEffects": 200,
+    "generals": 485,
+    "tactics": 464,
+    "equipments": 247,
+    "skills": 651,
+    "statusEffects": 206,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
     "ethnicResearchSkills": 32,
@@ -47,11 +47,11 @@
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "d1a6ab1d",
-    "tactics": "14b2d446",
-    "equipments": "4c4f85cf",
-    "skills": "caeb0c45",
-    "statusEffects": "dcfa0de6",
+    "generals": "cda6a4d1",
+    "tactics": "18b2da92",
+    "equipments": "4e4f88f5",
+    "skills": "c5e8c5cf",
+    "statusEffects": "defa110c",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
     "ethnicArmaments": "c731a91c",
@@ -61,11 +61,11 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "d1a6ab1d",
-    "tactics": "14b2d446",
-    "equipments": "4c4f85cf",
-    "skills": "caeb0c45",
-    "statusEffects": "dcfa0de6",
+    "generals": "cda6a4d1",
+    "tactics": "18b2da92",
+    "equipments": "4e4f88f5",
+    "skills": "c5e8c5cf",
+    "statusEffects": "defa110c",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
     "ethnicArmaments": "c731a91c",
@@ -103,28 +103,28 @@
       "detail": [
         {
           "groupKey": "selfAbilityBuff",
-          "ownerRelationCount": 3885,
-          "distinctOwnerCount": 1278
+          "ownerRelationCount": 3962,
+          "distinctOwnerCount": 1294
         },
         {
           "groupKey": "selfStateBuff",
-          "ownerRelationCount": 112,
-          "distinctOwnerCount": 106
+          "ownerRelationCount": 116,
+          "distinctOwnerCount": 110
         },
         {
           "groupKey": "selfResistanceBuff",
-          "ownerRelationCount": 1262,
-          "distinctOwnerCount": 433
+          "ownerRelationCount": 1290,
+          "distinctOwnerCount": 440
         },
         {
           "groupKey": "enemyAbilityDebuff",
-          "ownerRelationCount": 720,
-          "distinctOwnerCount": 419
+          "ownerRelationCount": 726,
+          "distinctOwnerCount": 421
         },
         {
           "groupKey": "enemyStateDebuff",
-          "ownerRelationCount": 249,
-          "distinctOwnerCount": 201
+          "ownerRelationCount": 255,
+          "distinctOwnerCount": 202
         },
         {
           "groupKey": "enemyResistanceDebuff",
@@ -138,8 +138,8 @@
       "description": "型検索補助索引が4カテゴリを全件収録する",
       "ok": true,
       "detail": {
-        "generals": 481,
-        "equipments": 245,
+        "generals": 485,
+        "equipments": 247,
         "siegeWeapons": 6,
         "warhorseSkills": 27
       }
@@ -420,7 +420,7 @@
       "description": "戦法本文由来parameterはtactic_textである",
       "ok": true,
       "detail": {
-        "rowCount": 2790
+        "rowCount": 2835
       }
     },
     {
@@ -437,7 +437,7 @@
       "ok": true,
       "detail": {
         "unresolvedCount": 0,
-        "applicationSkillCount": 1343
+        "applicationSkillCount": 1365
       }
     },
     {
@@ -449,7 +449,7 @@
         "unresolvedRefCount": 0,
         "droppedSourceItemCount": 0,
         "droppedTargetCount": 0,
-        "mechanicCount": 999,
+        "mechanicCount": 1025,
         "policy": "Every app-visible source has one related-link row and every relatedRef uses a resolvable canonical target. Pseudo status labels remain explicit mechanics."
       }
     },
@@ -459,16 +459,16 @@
       "ok": true,
       "detail": {
         "ok": true,
-        "expectedDatasetItemCount": 2847,
-        "indexedItemCount": 2847,
+        "expectedDatasetItemCount": 2885,
+        "indexedItemCount": 2885,
         "missingCount": 0,
         "missingSourceEntityKeys": [],
-        "applicationSkillExpectedCount": 1343,
-        "applicationSkillIndexedCount": 1343,
+        "applicationSkillExpectedCount": 1365,
+        "applicationSkillIndexedCount": 1365,
         "missingApplicationSkillCount": 0,
         "missingApplicationSkillNames": [],
-        "statusEffectExpectedCount": 200,
-        "statusEffectIndexedCount": 200
+        "statusEffectExpectedCount": 206,
+        "statusEffectIndexedCount": 206
       }
     },
     {
@@ -477,8 +477,8 @@
       "ok": true,
       "detail": {
         "ok": true,
-        "expectedEquipmentCount": 244,
-        "indexedEquipmentCount": 244,
+        "expectedEquipmentCount": 246,
+        "indexedEquipmentCount": 246,
         "missingEquipmentCount": 0,
         "missingStageCount": 0,
         "missingSkillRefCount": 0,

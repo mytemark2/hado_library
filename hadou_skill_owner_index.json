@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-07-19T08:16:50.414Z",
-  "dataSetId": "2026-07-11T05:38:08.210Z",
+  "generatedAt": "2026-07-20T03:00:13.407Z",
+  "dataSetId": "2026-07-20T02:43:46.042Z",
   "crawlerVersion": "1.1.0.2",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -33,11 +33,11 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 481,
-    "tactics": 460,
-    "equipments": 245,
-    "skills": 640,
-    "statusEffects": 200,
+    "generals": 485,
+    "tactics": 464,
+    "equipments": 247,
+    "skills": 651,
+    "statusEffects": 206,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
     "ethnicResearchSkills": 32,
@@ -47,11 +47,11 @@
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "d1a6ab1d",
-    "tactics": "14b2d446",
-    "equipments": "4c4f85cf",
-    "skills": "caeb0c45",
-    "statusEffects": "dcfa0de6",
+    "generals": "cda6a4d1",
+    "tactics": "18b2da92",
+    "equipments": "4e4f88f5",
+    "skills": "c5e8c5cf",
+    "statusEffects": "defa110c",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
     "ethnicArmaments": "c731a91c",
@@ -61,11 +61,11 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "d1a6ab1d",
-    "tactics": "14b2d446",
-    "equipments": "4c4f85cf",
-    "skills": "caeb0c45",
-    "statusEffects": "dcfa0de6",
+    "generals": "cda6a4d1",
+    "tactics": "18b2da92",
+    "equipments": "4e4f88f5",
+    "skills": "c5e8c5cf",
+    "statusEffects": "defa110c",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
     "ethnicArmaments": "c731a91c",
@@ -79,10 +79,10 @@
   "qualityAudit": {
     "advisorSkillOwnerAudit": {
       "ok": true,
-      "advisorGeneralCount": 157,
-      "expectedOwnerCount": 284,
-      "actualOwnerCount": 284,
-      "advisorSkillCount": 88,
+      "advisorGeneralCount": 160,
+      "expectedOwnerCount": 290,
+      "actualOwnerCount": 290,
+      "advisorSkillCount": 91,
       "missingAdvisorOwnerKeys": [],
       "unexpectedAdvisorOwnerKeys": [],
       "displaySuffix": "(参)",
@@ -91,15 +91,15 @@
     "skillDomainAudit": {
       "ok": true,
       "policy": "Application skill catalog includes general, advisor, equipment, ethnic research, five-element, and other derived skills displayed by the app.",
-      "masterGeneralSkillCount": 640,
-      "applicationSkillCount": 1343,
-      "indexedSkillCount": 1343,
+      "masterGeneralSkillCount": 651,
+      "applicationSkillCount": 1365,
+      "indexedSkillCount": 1365,
       "domainCounts": {
-        "generalSkill": 642,
-        "equipmentSkill": 784,
+        "generalSkill": 653,
+        "equipmentSkill": 794,
         "warhorseSkill": 3,
         "ethnicResearchSkill": 43,
-        "advisorSkill": 88,
+        "advisorSkill": 91,
         "fiveElementSkill": 10
       },
       "removedSkillCount": 0,
@@ -1707,6 +1707,19 @@
       "skillName": "五渓蛮",
       "owners": [
         {
+          "name": "UR沙摩柯（しゃまか）",
+          "displayName": "UR沙摩柯（しゃまか）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-288270",
+          "ownerEntityKey": "generals:article-568477",
+          "skillOwnerKey": "generalSkill:skills:article-288270:generals:article-568477"
+        },
+        {
           "name": "鄧凱（とうかい）",
           "displayName": "鄧凱（とうかい）",
           "ownerType": "general",
@@ -1796,7 +1809,7 @@
           "skillOwnerKey": "equipmentSkill:skills:article-288270:equipments:article-288527"
         }
       ],
-      "ownerCount": 7,
+      "ownerCount": 8,
       "name": "五渓蛮",
       "sourceEntityKey": "skills:article-288270",
       "skillDomain": "generalSkill",
@@ -1883,6 +1896,290 @@
         "generalSkill"
       ],
       "skillKey": "skills:article-261341"
+    },
+    {
+      "skillName": "碧睨",
+      "owners": [
+        {
+          "name": "UR沙摩柯（しゃまか）",
+          "displayName": "UR沙摩柯（しゃまか）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-568475",
+          "ownerEntityKey": "generals:article-568477",
+          "skillOwnerKey": "generalSkill:skills:article-568475:generals:article-568477"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "碧睨",
+      "sourceEntityKey": "skills:article-568475",
+      "skillDomain": "generalSkill",
+      "skillDomains": [
+        "generalSkill"
+      ],
+      "skillKey": "skills:article-568475"
+    },
+    {
+      "skillName": "戎魁",
+      "owners": [
+        {
+          "name": "UR越吉（えつきつ）",
+          "displayName": "UR越吉（えつきつ）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-568474",
+          "ownerEntityKey": "generals:article-568476",
+          "skillOwnerKey": "generalSkill:skills:article-568474:generals:article-568476"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "戎魁",
+      "sourceEntityKey": "skills:article-568474",
+      "skillDomain": "generalSkill",
+      "skillDomains": [
+        "generalSkill"
+      ],
+      "skillKey": "skills:article-568474"
+    },
+    {
+      "skillName": "契義",
+      "owners": [
+        {
+          "name": "LR関平（かんぺい）",
+          "displayName": "LR関平（かんぺい）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-568455",
+          "ownerEntityKey": "generals:article-568457",
+          "skillOwnerKey": "generalSkill:skills:article-568455:generals:article-568457"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "契義",
+      "sourceEntityKey": "skills:article-568455",
+      "skillDomain": "generalSkill",
+      "skillDomains": [
+        "generalSkill"
+      ],
+      "skillKey": "skills:article-568455"
+    },
+    {
+      "skillName": "振武",
+      "owners": [
+        {
+          "name": "LR関平（かんぺい）",
+          "displayName": "LR関平（かんぺい）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-568454",
+          "ownerEntityKey": "generals:article-568457",
+          "skillOwnerKey": "generalSkill:skills:article-568454:generals:article-568457"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "振武",
+      "sourceEntityKey": "skills:article-568454",
+      "skillDomain": "generalSkill",
+      "skillDomains": [
+        "generalSkill"
+      ],
+      "skillKey": "skills:article-568454"
+    },
+    {
+      "skillName": "勇駿",
+      "owners": [
+        {
+          "name": "LR関平（かんぺい）",
+          "displayName": "LR関平（かんぺい）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-568453",
+          "ownerEntityKey": "generals:article-568457",
+          "skillOwnerKey": "generalSkill:skills:article-568453:generals:article-568457"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "勇駿",
+      "sourceEntityKey": "skills:article-568453",
+      "skillDomain": "generalSkill",
+      "skillDomains": [
+        "generalSkill"
+      ],
+      "skillKey": "skills:article-568453"
+    },
+    {
+      "skillName": "豪義",
+      "owners": [
+        {
+          "name": "LR関平（かんぺい）",
+          "displayName": "LR関平（かんぺい）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-568451",
+          "ownerEntityKey": "generals:article-568457",
+          "skillOwnerKey": "generalSkill:skills:article-568451:generals:article-568457"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "豪義",
+      "sourceEntityKey": "skills:article-568451",
+      "skillDomain": "generalSkill",
+      "skillDomains": [
+        "generalSkill"
+      ],
+      "skillKey": "skills:article-568451"
+    },
+    {
+      "skillName": "孝義",
+      "owners": [
+        {
+          "name": "義壮孝淳剣",
+          "displayName": "義壮孝淳剣",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table",
+          "skillDomain": "equipmentSkill",
+          "skillKey": "skills:article-568452",
+          "ownerEntityKey": "equipments:article-568459",
+          "skillOwnerKey": "equipmentSkill:skills:article-568452:equipments:article-568459"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "孝義",
+      "sourceEntityKey": "skills:article-568452",
+      "skillDomain": "generalSkill",
+      "skillDomains": [
+        "generalSkill",
+        "equipmentSkill"
+      ],
+      "skillKey": "skills:article-568452"
+    },
+    {
+      "skillName": "令徳",
+      "owners": [
+        {
+          "name": "LR馬良（ばりょう）",
+          "displayName": "LR馬良（ばりょう）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-568450",
+          "ownerEntityKey": "generals:article-568456",
+          "skillOwnerKey": "generalSkill:skills:article-568450:generals:article-568456"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "令徳",
+      "sourceEntityKey": "skills:article-568450",
+      "skillDomain": "generalSkill",
+      "skillDomains": [
+        "generalSkill"
+      ],
+      "skillKey": "skills:article-568450"
+    },
+    {
+      "skillName": "克遂",
+      "owners": [
+        {
+          "name": "LR馬良（ばりょう）",
+          "displayName": "LR馬良（ばりょう）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-568449",
+          "ownerEntityKey": "generals:article-568456",
+          "skillOwnerKey": "generalSkill:skills:article-568449:generals:article-568456"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "克遂",
+      "sourceEntityKey": "skills:article-568449",
+      "skillDomain": "generalSkill",
+      "skillDomains": [
+        "generalSkill"
+      ],
+      "skillKey": "skills:article-568449"
+    },
+    {
+      "skillName": "貞良",
+      "owners": [
+        {
+          "name": "LR馬良（ばりょう）",
+          "displayName": "LR馬良（ばりょう）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-568447",
+          "ownerEntityKey": "generals:article-568456",
+          "skillOwnerKey": "generalSkill:skills:article-568447:generals:article-568456"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "貞良",
+      "sourceEntityKey": "skills:article-568447",
+      "skillDomain": "generalSkill",
+      "skillDomains": [
+        "generalSkill"
+      ],
+      "skillKey": "skills:article-568447"
+    },
+    {
+      "skillName": "白眉",
+      "owners": [
+        {
+          "name": "荊南征定図",
+          "displayName": "荊南征定図",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table",
+          "skillDomain": "equipmentSkill",
+          "skillKey": "skills:article-568448",
+          "ownerEntityKey": "equipments:article-568458",
+          "skillOwnerKey": "equipmentSkill:skills:article-568448:equipments:article-568458"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "白眉",
+      "sourceEntityKey": "skills:article-568448",
+      "skillDomain": "generalSkill",
+      "skillDomains": [
+        "generalSkill",
+        "equipmentSkill"
+      ],
+      "skillKey": "skills:article-568448"
     },
     {
       "skillName": "自若",
@@ -1992,17 +2289,6 @@
       "skillName": "克破",
       "owners": [
         {
-          "name": "孫氏玄朱令旗",
-          "displayName": "孫氏玄朱令旗",
-          "ownerType": "equipment",
-          "category": "equipments",
-          "source": "equipment-skill-table",
-          "skillDomain": "equipmentSkill",
-          "skillKey": "skills:article-565574",
-          "ownerEntityKey": "equipments:article-565578",
-          "skillOwnerKey": "equipmentSkill:skills:article-565574:equipments:article-565578"
-        },
-        {
           "name": "尚武丹紅披風",
           "displayName": "尚武丹紅披風",
           "ownerType": "equipment",
@@ -2012,6 +2298,17 @@
           "skillKey": "skills:article-565574",
           "ownerEntityKey": "equipments:article-565579",
           "skillOwnerKey": "equipmentSkill:skills:article-565574:equipments:article-565579"
+        },
+        {
+          "name": "孫氏玄朱令旗",
+          "displayName": "孫氏玄朱令旗",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table",
+          "skillDomain": "equipmentSkill",
+          "skillKey": "skills:article-565574",
+          "ownerEntityKey": "equipments:article-565578",
+          "skillOwnerKey": "equipmentSkill:skills:article-565574:equipments:article-565578"
         }
       ],
       "ownerCount": 2,
@@ -7393,6 +7690,19 @@
       "skillName": "聡哲",
       "owners": [
         {
+          "name": "LR馬良（ばりょう）",
+          "displayName": "LR馬良（ばりょう）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-490361",
+          "ownerEntityKey": "generals:article-568456",
+          "skillOwnerKey": "generalSkill:skills:article-490361:generals:article-568456"
+        },
+        {
           "name": "LR司馬昭（しばしょう）",
           "displayName": "LR司馬昭（しばしょう）",
           "ownerType": "general",
@@ -7419,7 +7729,7 @@
           "skillOwnerKey": "generalSkill:skills:article-490361:generals:article-490351"
         }
       ],
-      "ownerCount": 2,
+      "ownerCount": 3,
       "name": "聡哲",
       "sourceEntityKey": "skills:article-490361",
       "skillDomain": "generalSkill",
@@ -12620,6 +12930,19 @@
       "skillName": "練兵",
       "owners": [
         {
+          "name": "UR越吉（えつきつ）",
+          "displayName": "UR越吉（えつきつ）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-433279",
+          "ownerEntityKey": "generals:article-568476",
+          "skillOwnerKey": "generalSkill:skills:article-433279:generals:article-568476"
+        },
+        {
           "name": "UR曹真（そうしん）",
           "displayName": "UR曹真（そうしん）",
           "ownerType": "general",
@@ -12727,7 +13050,7 @@
           "skillOwnerKey": "equipmentSkill:skills:article-433279:equipments:article-435964"
         }
       ],
-      "ownerCount": 9,
+      "ownerCount": 10,
       "name": "練兵",
       "sourceEntityKey": "skills:article-433279",
       "skillDomain": "generalSkill",
@@ -24810,6 +25133,17 @@
           "skillOwnerKey": "generalSkill:skills:article-261351:generals:article-243480"
         },
         {
+          "name": "荊南征定図",
+          "displayName": "荊南征定図",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table",
+          "skillDomain": "equipmentSkill",
+          "skillKey": "skills:article-261351",
+          "ownerEntityKey": "equipments:article-568458",
+          "skillOwnerKey": "equipmentSkill:skills:article-261351:equipments:article-568458"
+        },
+        {
           "name": "遁甲天書",
           "displayName": "遁甲天書",
           "ownerType": "equipment",
@@ -24986,7 +25320,7 @@
           "skillOwnerKey": "ethnicResearchSkill:skills:article-261351:ethnicResearchSkills:name-bca77035"
         }
       ],
-      "ownerCount": 40,
+      "ownerCount": 41,
       "name": "敏活",
       "sourceEntityKey": "skills:article-261351",
       "skillDomain": "generalSkill",
@@ -28336,6 +28670,32 @@
       "skillName": "巡見",
       "owners": [
         {
+          "name": "UR越吉（えつきつ）",
+          "displayName": "UR越吉（えつきつ）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-261369",
+          "ownerEntityKey": "generals:article-568476",
+          "skillOwnerKey": "generalSkill:skills:article-261369:generals:article-568476"
+        },
+        {
+          "name": "UR沙摩柯（しゃまか）",
+          "displayName": "UR沙摩柯（しゃまか）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-261369",
+          "ownerEntityKey": "generals:article-568477",
+          "skillOwnerKey": "generalSkill:skills:article-261369:generals:article-568477"
+        },
+        {
           "name": "UR兀突骨（ごつとつこつ）",
           "displayName": "UR兀突骨（ごつとつこつ）",
           "ownerType": "general",
@@ -29012,7 +29372,7 @@
           "skillOwnerKey": "generalSkill:skills:article-261369:generals:article-243488"
         }
       ],
-      "ownerCount": 52,
+      "ownerCount": 54,
       "name": "巡見",
       "sourceEntityKey": "skills:article-261369",
       "skillDomain": "generalSkill",
@@ -29168,17 +29528,6 @@
           "skillOwnerKey": "generalSkill:skills:article-261370:generals:article-243490"
         },
         {
-          "name": "孫氏玄朱令旗",
-          "displayName": "孫氏玄朱令旗",
-          "ownerType": "equipment",
-          "category": "equipments",
-          "source": "equipment-skill-table",
-          "skillDomain": "equipmentSkill",
-          "skillKey": "skills:article-261370",
-          "ownerEntityKey": "equipments:article-565578",
-          "skillOwnerKey": "equipmentSkill:skills:article-261370:equipments:article-565578"
-        },
-        {
           "name": "尚武丹紅披風",
           "displayName": "尚武丹紅披風",
           "ownerType": "equipment",
@@ -29188,6 +29537,17 @@
           "skillKey": "skills:article-261370",
           "ownerEntityKey": "equipments:article-565579",
           "skillOwnerKey": "equipmentSkill:skills:article-261370:equipments:article-565579"
+        },
+        {
+          "name": "孫氏玄朱令旗",
+          "displayName": "孫氏玄朱令旗",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table",
+          "skillDomain": "equipmentSkill",
+          "skillKey": "skills:article-261370",
+          "ownerEntityKey": "equipments:article-565578",
+          "skillOwnerKey": "equipmentSkill:skills:article-261370:equipments:article-565578"
         },
         {
           "name": "九華扇",
@@ -29887,6 +30247,19 @@
       "skillName": "剛力",
       "owners": [
         {
+          "name": "UR沙摩柯（しゃまか）",
+          "displayName": "UR沙摩柯（しゃまか）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-261373",
+          "ownerEntityKey": "generals:article-568477",
+          "skillOwnerKey": "generalSkill:skills:article-261373:generals:article-568477"
+        },
+        {
           "name": "UR蒋欽（しょうきん）",
           "displayName": "UR蒋欽（しょうきん）",
           "ownerType": "general",
@@ -30319,7 +30692,7 @@
           "skillOwnerKey": "ethnicResearchSkill:skills:article-261373:ethnicResearchSkills:name-01a41de0"
         }
       ],
-      "ownerCount": 36,
+      "ownerCount": 37,
       "name": "剛力",
       "sourceEntityKey": "skills:article-261373",
       "skillDomain": "generalSkill",
@@ -31315,6 +31688,17 @@
           "skillOwnerKey": "generalSkill:skills:article-261377:generals:article-243489"
         },
         {
+          "name": "義壮孝淳剣",
+          "displayName": "義壮孝淳剣",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table",
+          "skillDomain": "equipmentSkill",
+          "skillKey": "skills:article-261377",
+          "ownerEntityKey": "equipments:article-568459",
+          "skillOwnerKey": "equipmentSkill:skills:article-261377:equipments:article-568459"
+        },
+        {
           "name": "龍紋護臂甲",
           "displayName": "龍紋護臂甲",
           "ownerType": "equipment",
@@ -31469,7 +31853,7 @@
           "skillOwnerKey": "warhorseSkill:skills:article-261377:warhorseSkills:name-e4487c36"
         }
       ],
-      "ownerCount": 33,
+      "ownerCount": 34,
       "name": "豪傑",
       "sourceEntityKey": "skills:article-261377",
       "skillDomain": "generalSkill",
@@ -32136,6 +32520,19 @@
       "skillName": "警戒",
       "owners": [
         {
+          "name": "LR馬良（ばりょう）",
+          "displayName": "LR馬良（ばりょう）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-261382",
+          "ownerEntityKey": "generals:article-568456",
+          "skillOwnerKey": "generalSkill:skills:article-261382:generals:article-568456"
+        },
+        {
           "name": "LR呂蒙・盾兵（りょもう）",
           "displayName": "LR呂蒙・盾兵（りょもう）",
           "ownerType": "general",
@@ -32695,7 +33092,7 @@
           "skillOwnerKey": "generalSkill:skills:article-261382:generals:article-243494"
         }
       ],
-      "ownerCount": 43,
+      "ownerCount": 44,
       "name": "警戒",
       "sourceEntityKey": "skills:article-261382",
       "skillDomain": "generalSkill",
@@ -33676,6 +34073,19 @@
       "skillName": "運搬",
       "owners": [
         {
+          "name": "LR関平（かんぺい）",
+          "displayName": "LR関平（かんぺい）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-261390",
+          "ownerEntityKey": "generals:article-568457",
+          "skillOwnerKey": "generalSkill:skills:article-261390:generals:article-568457"
+        },
+        {
           "name": "LR周倉（しゅうそう）",
           "displayName": "LR周倉（しゅうそう）",
           "ownerType": "general",
@@ -33947,7 +34357,7 @@
           "skillOwnerKey": "equipmentSkill:skills:article-261390:equipments:article-430131"
         }
       ],
-      "ownerCount": 21,
+      "ownerCount": 22,
       "name": "運搬",
       "sourceEntityKey": "skills:article-261390",
       "skillDomain": "generalSkill",
@@ -34184,6 +34594,19 @@
       "skillName": "羌",
       "owners": [
         {
+          "name": "UR越吉（えつきつ）",
+          "displayName": "UR越吉（えつきつ）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-310419",
+          "ownerEntityKey": "generals:article-568476",
+          "skillOwnerKey": "generalSkill:skills:article-310419:generals:article-568476"
+        },
+        {
           "name": "俄何焼戈（がかしょうか）",
           "displayName": "俄何焼戈（がかしょうか）",
           "ownerType": "general",
@@ -34315,7 +34738,7 @@
           "skillOwnerKey": "ethnicResearchSkill:skills:article-310419:ethnicResearchSkills:name-f599f65e"
         }
       ],
-      "ownerCount": 11,
+      "ownerCount": 12,
       "name": "羌",
       "sourceEntityKey": "skills:article-310419",
       "skillDomain": "generalSkill",
@@ -34621,6 +35044,20 @@
           "skillKey": "skills:name-aef9fed9",
           "ownerEntityKey": "generals:article-344554",
           "skillOwnerKey": "advisorSkill:skills:name-aef9fed9:generals:article-344554"
+        },
+        {
+          "name": "覚醒徐盛（じょせい）",
+          "displayName": "覚醒徐盛（じょせい）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "増兵(参)",
+          "skillDomain": "advisorSkill",
+          "skillKey": "skills:name-aef9fed9",
+          "ownerEntityKey": "generals:article-324328",
+          "skillOwnerKey": "advisorSkill:skills:name-aef9fed9:generals:article-324328"
         },
         {
           "name": "覚醒程普（ていふ）",
@@ -35071,7 +35508,7 @@
           "skillOwnerKey": "advisorSkill:skills:name-aef9fed9:generals:article-243492"
         }
       ],
-      "ownerCount": 40,
+      "ownerCount": 41,
       "name": "増兵",
       "sourceEntityKey": "skills:name-aef9fed9",
       "skillDomain": "advisorSkill",
@@ -35925,6 +36362,34 @@
           "skillOwnerKey": "advisorSkill:skills:name-f0c42a2a:generals:article-344400"
         },
         {
+          "name": "覚醒郝昭（かくしょう）",
+          "displayName": "覚醒郝昭（かくしょう）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "激励(参)",
+          "skillDomain": "advisorSkill",
+          "skillKey": "skills:name-f0c42a2a",
+          "ownerEntityKey": "generals:article-327770",
+          "skillOwnerKey": "advisorSkill:skills:name-f0c42a2a:generals:article-327770"
+        },
+        {
+          "name": "覚醒郭淮（かくわい）",
+          "displayName": "覚醒郭淮（かくわい）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "激励(参)",
+          "skillDomain": "advisorSkill",
+          "skillKey": "skills:name-f0c42a2a",
+          "ownerEntityKey": "generals:article-324329",
+          "skillOwnerKey": "advisorSkill:skills:name-f0c42a2a:generals:article-324329"
+        },
+        {
           "name": "覚醒厳顔（げんがん）",
           "displayName": "覚醒厳顔（げんがん）",
           "ownerType": "general",
@@ -36345,7 +36810,7 @@
           "skillOwnerKey": "advisorSkill:skills:name-f0c42a2a:generals:article-243480"
         }
       ],
-      "ownerCount": 36,
+      "ownerCount": 38,
       "name": "激励",
       "sourceEntityKey": "skills:name-f0c42a2a",
       "skillDomain": "advisorSkill",
@@ -37810,6 +38275,33 @@
       "skillKey": "skills:name-79b7b927"
     },
     {
+      "skillName": "鎮守",
+      "owners": [
+        {
+          "name": "覚醒郝昭（かくしょう）",
+          "displayName": "覚醒郝昭（かくしょう）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "鎮守(参)",
+          "skillDomain": "advisorSkill",
+          "skillKey": "skills:name-da8e52fb",
+          "ownerEntityKey": "generals:article-327770",
+          "skillOwnerKey": "advisorSkill:skills:name-da8e52fb:generals:article-327770"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "鎮守",
+      "sourceEntityKey": "skills:name-da8e52fb",
+      "skillDomain": "advisorSkill",
+      "skillDomains": [
+        "advisorSkill"
+      ],
+      "skillKey": "skills:name-da8e52fb"
+    },
+    {
       "skillName": "宿刃",
       "owners": [
         {
@@ -37835,6 +38327,60 @@
         "advisorSkill"
       ],
       "skillKey": "skills:name-52d67477"
+    },
+    {
+      "skillName": "囲撃",
+      "owners": [
+        {
+          "name": "覚醒徐盛（じょせい）",
+          "displayName": "覚醒徐盛（じょせい）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "囲撃(参)",
+          "skillDomain": "advisorSkill",
+          "skillKey": "skills:name-ee775ba2",
+          "ownerEntityKey": "generals:article-324328",
+          "skillOwnerKey": "advisorSkill:skills:name-ee775ba2:generals:article-324328"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "囲撃",
+      "sourceEntityKey": "skills:name-ee775ba2",
+      "skillDomain": "advisorSkill",
+      "skillDomains": [
+        "advisorSkill"
+      ],
+      "skillKey": "skills:name-ee775ba2"
+    },
+    {
+      "skillName": "炯眼",
+      "owners": [
+        {
+          "name": "覚醒郭淮（かくわい）",
+          "displayName": "覚醒郭淮（かくわい）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-advisor-skill-section",
+          "isAdvisorSkill": true,
+          "usage": "advisor",
+          "skillDisplayName": "炯眼(参)",
+          "skillDomain": "advisorSkill",
+          "skillKey": "skills:name-58ea61c6",
+          "ownerEntityKey": "generals:article-324329",
+          "skillOwnerKey": "advisorSkill:skills:name-58ea61c6:generals:article-324329"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "炯眼",
+      "sourceEntityKey": "skills:name-58ea61c6",
+      "skillDomain": "advisorSkill",
+      "skillDomains": [
+        "advisorSkill"
+      ],
+      "skillKey": "skills:name-58ea61c6"
     },
     {
       "skillName": "老鋭",
@@ -39770,76 +40316,148 @@
       "skillKey": "skills:name-0fa61a45"
     },
     {
-      "skillName": "克導強撃",
+      "skillName": "白聡敏達",
       "owners": [
         {
-          "name": "孫氏玄朱令旗",
-          "displayName": "孫氏玄朱令旗",
+          "name": "荊南征定図",
+          "displayName": "荊南征定図",
           "ownerType": "equipment",
           "category": "equipments",
           "source": "equipment-skill-table",
           "skillDomain": "equipmentSkill",
-          "skillKey": "skills:name-3f5d5f06",
-          "ownerEntityKey": "equipments:article-565578",
-          "skillOwnerKey": "equipmentSkill:skills:name-3f5d5f06:equipments:article-565578"
+          "skillKey": "skills:name-e4dc2d68",
+          "ownerEntityKey": "equipments:article-568458",
+          "skillOwnerKey": "equipmentSkill:skills:name-e4dc2d68:equipments:article-568458"
         }
       ],
       "ownerCount": 1,
-      "name": "克導強撃",
-      "sourceEntityKey": "skills:name-3f5d5f06",
+      "name": "白聡敏達",
+      "sourceEntityKey": "skills:name-e4dc2d68",
       "skillDomain": "equipmentSkill",
       "skillDomains": [
         "equipmentSkill"
       ],
-      "skillKey": "skills:name-3f5d5f06"
+      "skillKey": "skills:name-e4dc2d68"
     },
     {
-      "skillName": "声威烈撃",
+      "skillName": "連繋賢激",
       "owners": [
         {
-          "name": "孫氏玄朱令旗",
-          "displayName": "孫氏玄朱令旗",
+          "name": "荊南征定図",
+          "displayName": "荊南征定図",
           "ownerType": "equipment",
           "category": "equipments",
           "source": "equipment-skill-table",
           "skillDomain": "equipmentSkill",
-          "skillKey": "skills:name-75c64e9f",
-          "ownerEntityKey": "equipments:article-565578",
-          "skillOwnerKey": "equipmentSkill:skills:name-75c64e9f:equipments:article-565578"
+          "skillKey": "skills:name-a46c17e1",
+          "ownerEntityKey": "equipments:article-568458",
+          "skillOwnerKey": "equipmentSkill:skills:name-a46c17e1:equipments:article-568458"
         }
       ],
       "ownerCount": 1,
-      "name": "声威烈撃",
-      "sourceEntityKey": "skills:name-75c64e9f",
+      "name": "連繋賢激",
+      "sourceEntityKey": "skills:name-a46c17e1",
       "skillDomain": "equipmentSkill",
       "skillDomains": [
         "equipmentSkill"
       ],
-      "skillKey": "skills:name-75c64e9f"
+      "skillKey": "skills:name-a46c17e1"
     },
     {
-      "skillName": "連繋猛勢",
+      "skillName": "活才明晰",
       "owners": [
         {
-          "name": "孫氏玄朱令旗",
-          "displayName": "孫氏玄朱令旗",
+          "name": "荊南征定図",
+          "displayName": "荊南征定図",
           "ownerType": "equipment",
           "category": "equipments",
           "source": "equipment-skill-table",
           "skillDomain": "equipmentSkill",
-          "skillKey": "skills:name-212087c6",
-          "ownerEntityKey": "equipments:article-565578",
-          "skillOwnerKey": "equipmentSkill:skills:name-212087c6:equipments:article-565578"
+          "skillKey": "skills:name-044988c3",
+          "ownerEntityKey": "equipments:article-568458",
+          "skillOwnerKey": "equipmentSkill:skills:name-044988c3:equipments:article-568458"
         }
       ],
       "ownerCount": 1,
-      "name": "連繋猛勢",
-      "sourceEntityKey": "skills:name-212087c6",
+      "name": "活才明晰",
+      "sourceEntityKey": "skills:name-044988c3",
       "skillDomain": "equipmentSkill",
       "skillDomains": [
         "equipmentSkill"
       ],
-      "skillKey": "skills:name-212087c6"
+      "skillKey": "skills:name-044988c3"
+    },
+    {
+      "skillName": "孝心豪勇",
+      "owners": [
+        {
+          "name": "義壮孝淳剣",
+          "displayName": "義壮孝淳剣",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table",
+          "skillDomain": "equipmentSkill",
+          "skillKey": "skills:name-5c9c1952",
+          "ownerEntityKey": "equipments:article-568459",
+          "skillOwnerKey": "equipmentSkill:skills:name-5c9c1952:equipments:article-568459"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "孝心豪勇",
+      "sourceEntityKey": "skills:name-5c9c1952",
+      "skillDomain": "equipmentSkill",
+      "skillDomains": [
+        "equipmentSkill"
+      ],
+      "skillKey": "skills:name-5c9c1952"
+    },
+    {
+      "skillName": "剛烈会心",
+      "owners": [
+        {
+          "name": "義壮孝淳剣",
+          "displayName": "義壮孝淳剣",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table",
+          "skillDomain": "equipmentSkill",
+          "skillKey": "skills:name-8a99e345",
+          "ownerEntityKey": "equipments:article-568459",
+          "skillOwnerKey": "equipmentSkill:skills:name-8a99e345:equipments:article-568459"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "剛烈会心",
+      "sourceEntityKey": "skills:name-8a99e345",
+      "skillDomain": "equipmentSkill",
+      "skillDomains": [
+        "equipmentSkill"
+      ],
+      "skillKey": "skills:name-8a99e345"
+    },
+    {
+      "skillName": "強撃騎舞",
+      "owners": [
+        {
+          "name": "義壮孝淳剣",
+          "displayName": "義壮孝淳剣",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table",
+          "skillDomain": "equipmentSkill",
+          "skillKey": "skills:name-e485c817",
+          "ownerEntityKey": "equipments:article-568459",
+          "skillOwnerKey": "equipmentSkill:skills:name-e485c817:equipments:article-568459"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "強撃騎舞",
+      "sourceEntityKey": "skills:name-e485c817",
+      "skillDomain": "equipmentSkill",
+      "skillDomains": [
+        "equipmentSkill"
+      ],
+      "skillKey": "skills:name-e485c817"
     },
     {
       "skillName": "克導堅守",
@@ -39912,6 +40530,78 @@
         "equipmentSkill"
       ],
       "skillKey": "skills:name-c2077b9a"
+    },
+    {
+      "skillName": "克導強撃",
+      "owners": [
+        {
+          "name": "孫氏玄朱令旗",
+          "displayName": "孫氏玄朱令旗",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table",
+          "skillDomain": "equipmentSkill",
+          "skillKey": "skills:name-3f5d5f06",
+          "ownerEntityKey": "equipments:article-565578",
+          "skillOwnerKey": "equipmentSkill:skills:name-3f5d5f06:equipments:article-565578"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "克導強撃",
+      "sourceEntityKey": "skills:name-3f5d5f06",
+      "skillDomain": "equipmentSkill",
+      "skillDomains": [
+        "equipmentSkill"
+      ],
+      "skillKey": "skills:name-3f5d5f06"
+    },
+    {
+      "skillName": "声威烈撃",
+      "owners": [
+        {
+          "name": "孫氏玄朱令旗",
+          "displayName": "孫氏玄朱令旗",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table",
+          "skillDomain": "equipmentSkill",
+          "skillKey": "skills:name-75c64e9f",
+          "ownerEntityKey": "equipments:article-565578",
+          "skillOwnerKey": "equipmentSkill:skills:name-75c64e9f:equipments:article-565578"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "声威烈撃",
+      "sourceEntityKey": "skills:name-75c64e9f",
+      "skillDomain": "equipmentSkill",
+      "skillDomains": [
+        "equipmentSkill"
+      ],
+      "skillKey": "skills:name-75c64e9f"
+    },
+    {
+      "skillName": "連繋猛勢",
+      "owners": [
+        {
+          "name": "孫氏玄朱令旗",
+          "displayName": "孫氏玄朱令旗",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table",
+          "skillDomain": "equipmentSkill",
+          "skillKey": "skills:name-212087c6",
+          "ownerEntityKey": "equipments:article-565578",
+          "skillOwnerKey": "equipmentSkill:skills:name-212087c6:equipments:article-565578"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "連繋猛勢",
+      "sourceEntityKey": "skills:name-212087c6",
+      "skillDomain": "equipmentSkill",
+      "skillDomains": [
+        "equipmentSkill"
+      ],
+      "skillKey": "skills:name-212087c6"
     },
     {
       "skillName": "戦撃怒涛",
@@ -47627,6 +48317,30 @@
       "skillKey": "skills:name-077480dd"
     },
     {
+      "skillName": "万政結集",
+      "owners": [
+        {
+          "name": "明道方略冠",
+          "displayName": "明道方略冠",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table",
+          "skillDomain": "equipmentSkill",
+          "skillKey": "skills:name-2c5f4e75",
+          "ownerEntityKey": "equipments:article-392383",
+          "skillOwnerKey": "equipmentSkill:skills:name-2c5f4e75:equipments:article-392383"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "万政結集",
+      "sourceEntityKey": "skills:name-2c5f4e75",
+      "skillDomain": "equipmentSkill",
+      "skillDomains": [
+        "equipmentSkill"
+      ],
+      "skillKey": "skills:name-2c5f4e75"
+    },
+    {
       "skillName": "破城迅疾",
       "owners": [
         {
@@ -50689,6 +51403,30 @@
         "equipmentSkill"
       ],
       "skillKey": "skills:name-3d9e3fcf"
+    },
+    {
+      "skillName": "集荷指揮",
+      "owners": [
+        {
+          "name": "商君書",
+          "displayName": "商君書",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table",
+          "skillDomain": "equipmentSkill",
+          "skillKey": "skills:name-18d2f69b",
+          "ownerEntityKey": "equipments:article-324401",
+          "skillOwnerKey": "equipmentSkill:skills:name-18d2f69b:equipments:article-324401"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "集荷指揮",
+      "sourceEntityKey": "skills:name-18d2f69b",
+      "skillDomain": "equipmentSkill",
+      "skillDomains": [
+        "equipmentSkill"
+      ],
+      "skillKey": "skills:name-18d2f69b"
     },
     {
       "skillName": "弓姫練達",

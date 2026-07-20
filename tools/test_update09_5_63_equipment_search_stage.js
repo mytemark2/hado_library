@@ -40,7 +40,7 @@ const getFastSearchableText=Function(...helperNames,'buildEquipmentStageAwareSea
 
 const search=read('hadou_search_index.json');
 const equipmentRows=rows(search).filter(row=>row.category==='equipments');
-assert.strictEqual(equipmentRows.length,245);
+assert.strictEqual(equipmentRows.length,rows(read('hadou_equipments.json')).length);
 assert.strictEqual(search.qualityAudit?.equipmentStageCoverage?.ok,true);
 assert.strictEqual(search.qualityAudit.equipmentStageCoverage.missingSkillRefCount,0);
 

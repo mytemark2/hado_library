@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-07-19T08:16:50.414Z",
-  "dataSetId": "2026-07-11T05:38:08.210Z",
+  "generatedAt": "2026-07-20T03:00:13.407Z",
+  "dataSetId": "2026-07-20T02:43:46.042Z",
   "crawlerVersion": "1.1.0.2",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -33,11 +33,11 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 481,
-    "tactics": 460,
-    "equipments": 245,
-    "skills": 640,
-    "statusEffects": 200,
+    "generals": 485,
+    "tactics": 464,
+    "equipments": 247,
+    "skills": 651,
+    "statusEffects": 206,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
     "ethnicResearchSkills": 32,
@@ -47,11 +47,11 @@
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "d1a6ab1d",
-    "tactics": "14b2d446",
-    "equipments": "4c4f85cf",
-    "skills": "caeb0c45",
-    "statusEffects": "dcfa0de6",
+    "generals": "cda6a4d1",
+    "tactics": "18b2da92",
+    "equipments": "4e4f88f5",
+    "skills": "c5e8c5cf",
+    "statusEffects": "defa110c",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
     "ethnicArmaments": "c731a91c",
@@ -61,11 +61,11 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "d1a6ab1d",
-    "tactics": "14b2d446",
-    "equipments": "4c4f85cf",
-    "skills": "caeb0c45",
-    "statusEffects": "dcfa0de6",
+    "generals": "cda6a4d1",
+    "tactics": "18b2da92",
+    "equipments": "4e4f88f5",
+    "skills": "c5e8c5cf",
+    "statusEffects": "defa110c",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
     "ethnicArmaments": "c731a91c",
@@ -77,8 +77,8 @@
   "hotfixVersion": "1.1.0.2",
   "kind": "equipment_skill_stage_index",
   "qualityAudit": {
-    "itemCount": 244,
-    "sourceItemCount": 245,
+    "itemCount": 246,
+    "sourceItemCount": 247,
     "duplicateEquipmentNameCount": 1,
     "duplicateEquipmentNames": [
       "青嚢書・名家医書"
@@ -87,8 +87,8 @@
       "ok": true,
       "policy": "同じ表示名の装備記事は段階・技能・根拠URLを統合し、先頭記事だけを採用しない。"
     },
-    "withSkills": 213,
-    "stageParameterEffectCount": 1156,
+    "withSkills": 215,
+    "stageParameterEffectCount": 1172,
     "suspiciousSkillNameCount": 0,
     "suspiciousSkillNameSamples": [],
     "suspiciousParameterEffectCount": 0,
@@ -97,6 +97,491 @@
     "missingDirectSignedEffectSamples": []
   },
   "items": [
+    {
+      "id": "equipments:name:荊南征定図",
+      "category": "equipments",
+      "name": "荊南征定図",
+      "displayName": "荊南征定図",
+      "rawName": "【三國志 覇道】荊南征定図",
+      "highestRarity": "UR",
+      "slot": "文物",
+      "troopType": "騎兵 歩兵 弓兵 盾兵",
+      "stages": {
+        "initial": {
+          "label": "初期",
+          "skills": [
+            {
+              "skillName": "白聡敏達",
+              "text": "■常に ●部隊の「白眉」の技能Lv+1（上限2） ●部隊の知力+2%"
+            },
+            {
+              "skillName": "連繋賢激",
+              "text": "■常に ●副将の連鎖確率+0.5%▼自部隊の副将が戦法を発動する度 ●自身1部隊の知力+10％（15秒） →50％の確率で対象部隊数+2"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+2%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+2%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+10％",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+10％",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "ssrMax": {
+          "label": "SSR最大",
+          "skills": [
+            {
+              "skillName": "白聡敏達",
+              "text": "■常に ●部隊の「白眉」の技能Lv+1（上限2） ●部隊の知力+2%"
+            },
+            {
+              "skillName": "連繋賢激",
+              "text": "■常に ●副将の連鎖確率+2%▼自部隊の副将が戦法を発動する度 ●自身を含む味方3部隊の知力+20％（15秒）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+2%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+2%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+20％",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+20％",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "urMax": {
+          "label": "UR最大",
+          "skills": [
+            {
+              "skillName": "白聡敏達",
+              "text": "■常に ●部隊の「白眉」の技能Lv+1（上限2） ●部隊の「敏活」の技能Lv+1（上限5） ●部隊の知力+4%"
+            },
+            {
+              "skillName": "連繋賢激",
+              "text": "■常に ●副将の連鎖確率+3%▼自部隊の副将が戦法を発動する度 ●自身を含む味方3部隊の知力+25％（15秒） ●自身を含む味方3部隊に15％の有利激攻を付与（15秒）"
+            },
+            {
+              "skillName": "活才明晰",
+              "text": "■常に ●部隊の「敏活」のLv×3%、部隊の知力が上昇"
+            }
+          ],
+          "skillCount": 3,
+          "parameterEffects": [
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+4%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+25％",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+25％",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        }
+      },
+      "stageCandidates": [
+        {
+          "tableIndex": 2,
+          "skillCount": 3,
+          "skillNames": [
+            "白聡敏達",
+            "連繋賢激",
+            "活才明晰"
+          ]
+        },
+        {
+          "tableIndex": 3,
+          "skillCount": 2,
+          "skillNames": [
+            "白聡敏達",
+            "連繋賢激"
+          ]
+        },
+        {
+          "tableIndex": 4,
+          "skillCount": 2,
+          "skillNames": [
+            "白聡敏達",
+            "連繋賢激"
+          ]
+        }
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/568458",
+      "sourceUrls": [
+        "https://gamewith.jp/sangokushihadou/article/show/568458"
+      ]
+    },
+    {
+      "id": "equipments:name:義壮孝淳剣",
+      "category": "equipments",
+      "name": "義壮孝淳剣",
+      "displayName": "義壮孝淳剣",
+      "rawName": "【三國志 覇道】義壮孝淳剣",
+      "highestRarity": "UR",
+      "slot": "武器",
+      "troopType": "騎兵",
+      "stages": {
+        "initial": {
+          "label": "初期",
+          "skills": [
+            {
+              "skillName": "孝心豪勇",
+              "text": "■常に ●部隊の「孝義」の技能Lv+1（上限2） ●部隊の攻撃+2%"
+            },
+            {
+              "skillName": "剛烈会心",
+              "text": "■常に ●物理系統の通常攻撃による与ダメージ+5% →自部隊より攻撃の低い敵部隊に対しては効果が2倍（+10％）▼主将戦法発動時 ●自身1部隊の弱化効果を1つ打ち消す ●自身1部隊の会心威力+10％（10秒）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "会心威力",
+              "direction": "increase",
+              "value": "+10％",
+              "targetSide": "self_or_ally",
+              "matchedText": "会心威力+10％",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+5%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+5%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+2%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+2%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "ssrMax": {
+          "label": "SSR最大",
+          "skills": [
+            {
+              "skillName": "孝心豪勇",
+              "text": "■常に ●部隊の「孝義」の技能Lv+1（上限2） ●部隊の攻撃+2%"
+            },
+            {
+              "skillName": "剛烈会心",
+              "text": "■常に ●物理系統の通常攻撃による与ダメージ+8% →自部隊より攻撃の低い敵部隊に対しては効果が2倍（+16％）▼主将戦法発動時 ●自身1部隊の弱化効果を2つ打ち消す ●自身1部隊の会心威力+20％（10秒）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "会心威力",
+              "direction": "increase",
+              "value": "+20％",
+              "targetSide": "self_or_ally",
+              "matchedText": "会心威力+20％",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+8%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+8%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+2%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+2%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "urMax": {
+          "label": "UR最大",
+          "skills": [
+            {
+              "skillName": "孝心豪勇",
+              "text": "■常に ●部隊の「孝義」の技能Lv+1（上限2） ●部隊の「豪傑」の技能Lv+1（上限5） ●部隊の攻撃+4%"
+            },
+            {
+              "skillName": "剛烈会心",
+              "text": "■常に ●物理系統の通常攻撃による与ダメージ+20%▼主将戦法発動時 ●自身1部隊の弱化効果を3つ打ち消す ●自身1部隊の会心威力+30％（10秒）"
+            },
+            {
+              "skillName": "強撃騎舞",
+              "text": "■常に ●部隊の攻撃+4% →自部隊が騎兵の場合、効果が2倍（+8％）"
+            }
+          ],
+          "skillCount": 3,
+          "parameterEffects": [
+            {
+              "parameter": "会心威力",
+              "direction": "increase",
+              "value": "+30％",
+              "targetSide": "self_or_ally",
+              "matchedText": "会心威力+30％",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+20%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+20%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+4%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        }
+      },
+      "stageCandidates": [
+        {
+          "tableIndex": 2,
+          "skillCount": 3,
+          "skillNames": [
+            "孝心豪勇",
+            "剛烈会心",
+            "強撃騎舞"
+          ]
+        },
+        {
+          "tableIndex": 3,
+          "skillCount": 2,
+          "skillNames": [
+            "孝心豪勇",
+            "剛烈会心"
+          ]
+        },
+        {
+          "tableIndex": 4,
+          "skillCount": 2,
+          "skillNames": [
+            "孝心豪勇",
+            "剛烈会心"
+          ]
+        }
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/568459",
+      "sourceUrls": [
+        "https://gamewith.jp/sangokushihadou/article/show/568459"
+      ]
+    },
+    {
+      "id": "equipments:name:尚武丹紅披風",
+      "category": "equipments",
+      "name": "尚武丹紅披風",
+      "displayName": "尚武丹紅披風",
+      "rawName": "【三國志 覇道】尚武丹紅披風",
+      "highestRarity": "UR",
+      "slot": "防具",
+      "troopType": "騎兵 歩兵 弓兵 盾兵",
+      "stages": {
+        "initial": {
+          "label": "初期",
+          "skills": [
+            {
+              "skillName": "克導堅守",
+              "text": "■常に ●部隊の「克破」の技能Lv+1（上限3） ●部隊の防御+5％"
+            },
+            {
+              "skillName": "砕壁盤石",
+              "text": "■常に ●部隊の対物体攻撃+2% ●通常攻撃・戦法による被ダメージ-5% →自身が主将の際は効果が2倍（-10%）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "被ダメージ",
+              "direction": "decrease",
+              "value": "-5%",
+              "targetSide": "self_or_ally",
+              "matchedText": "被ダメージ-5%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "攻撃",
+              "direction": "decrease",
+              "value": "+2%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+2%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "防御",
+              "direction": "increase",
+              "value": "+5％",
+              "targetSide": "self_or_ally",
+              "matchedText": "防御+5％",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "ssrMax": {
+          "label": "SSR最大",
+          "skills": [
+            {
+              "skillName": "克導堅守",
+              "text": "■常に ●部隊の「克破」の技能Lv+1（上限3） ●部隊の「主導」の技能Lv+1（上限5） ●部隊の防御+6％"
+            },
+            {
+              "skillName": "砕壁盤石",
+              "text": "■常に ●部隊の対物体攻撃+8% ●通常攻撃・戦法による被ダメージ-10% →自身が主将の際は効果が2倍（-20%）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "被ダメージ",
+              "direction": "decrease",
+              "value": "-10%",
+              "targetSide": "self_or_ally",
+              "matchedText": "被ダメージ-10%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "攻撃",
+              "direction": "decrease",
+              "value": "+8%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+8%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "防御",
+              "direction": "increase",
+              "value": "+6％",
+              "targetSide": "self_or_ally",
+              "matchedText": "防御+6％",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "urMax": {
+          "label": "UR最大",
+          "skills": [
+            {
+              "skillName": "克導堅守",
+              "text": "■常に ●部隊の「克破」の技能Lv+1（上限3） ●部隊の「主導」の技能Lv+1（上限5） ●部隊の防御+7％"
+            },
+            {
+              "skillName": "砕壁盤石",
+              "text": "■常に ●部隊の対物体攻撃+10% ●通常攻撃・戦法による被ダメージ-15% →自身が主将の際は効果が2倍（-30%）▼この技能を持つ武将が戦法を発動した時 ●自身1部隊に30％の闘気を付与（10秒）"
+            },
+            {
+              "skillName": "強撃猛勢",
+              "text": "■常に ●部隊の攻撃+4% →自身が主将の際は効果が2倍（+8％）"
+            }
+          ],
+          "skillCount": 3,
+          "parameterEffects": [
+            {
+              "parameter": "被ダメージ",
+              "direction": "decrease",
+              "value": "-15%",
+              "targetSide": "self_or_ally",
+              "matchedText": "被ダメージ-15%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "攻撃",
+              "direction": "decrease",
+              "value": "+10%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+10%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+4%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "防御",
+              "direction": "increase",
+              "value": "+7％",
+              "targetSide": "self_or_ally",
+              "matchedText": "防御+7％",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        }
+      },
+      "stageCandidates": [
+        {
+          "tableIndex": 2,
+          "skillCount": 3,
+          "skillNames": [
+            "克導堅守",
+            "砕壁盤石",
+            "強撃猛勢"
+          ]
+        },
+        {
+          "tableIndex": 3,
+          "skillCount": 2,
+          "skillNames": [
+            "克導堅守",
+            "砕壁盤石"
+          ]
+        },
+        {
+          "tableIndex": 4,
+          "skillCount": 2,
+          "skillNames": [
+            "克導堅守",
+            "砕壁盤石"
+          ]
+        }
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/565579",
+      "sourceUrls": [
+        "https://gamewith.jp/sangokushihadou/article/show/565579"
+      ]
+    },
     {
       "id": "equipments:name:孫氏玄朱令旗",
       "category": "equipments",
@@ -286,181 +771,6 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/565578",
       "sourceUrls": [
         "https://gamewith.jp/sangokushihadou/article/show/565578"
-      ]
-    },
-    {
-      "id": "equipments:name:尚武丹紅披風",
-      "category": "equipments",
-      "name": "尚武丹紅披風",
-      "displayName": "尚武丹紅披風",
-      "rawName": "【三國志 覇道】尚武丹紅披風",
-      "highestRarity": "UR",
-      "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵 盾兵",
-      "stages": {
-        "initial": {
-          "label": "初期",
-          "skills": [
-            {
-              "skillName": "克導堅守",
-              "text": "■常に ●部隊の「克破」の技能Lv+1（上限3） ●部隊の防御+5％"
-            },
-            {
-              "skillName": "砕壁盤石",
-              "text": "■常に ●部隊の対物体攻撃+2% ●通常攻撃・戦法による被ダメージ-5% →自身が主将の際は効果が2倍（-10%）"
-            }
-          ],
-          "skillCount": 2,
-          "parameterEffects": [
-            {
-              "parameter": "被ダメージ",
-              "direction": "decrease",
-              "value": "-5%",
-              "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ-5%",
-              "sourcePartType": "equipment-skill-stage"
-            },
-            {
-              "parameter": "攻撃",
-              "direction": "decrease",
-              "value": "+2%",
-              "targetSide": "self_or_ally",
-              "matchedText": "攻撃+2%",
-              "sourcePartType": "equipment-skill-stage"
-            },
-            {
-              "parameter": "防御",
-              "direction": "increase",
-              "value": "+5％",
-              "targetSide": "self_or_ally",
-              "matchedText": "防御+5％",
-              "sourcePartType": "equipment-skill-stage"
-            }
-          ]
-        },
-        "ssrMax": {
-          "label": "SSR最大",
-          "skills": [
-            {
-              "skillName": "克導堅守",
-              "text": "■常に ●部隊の「克破」の技能Lv+1（上限3） ●部隊の「主導」の技能Lv+1（上限5） ●部隊の防御+6％"
-            },
-            {
-              "skillName": "砕壁盤石",
-              "text": "■常に ●部隊の対物体攻撃+8% ●通常攻撃・戦法による被ダメージ-10% →自身が主将の際は効果が2倍（-20%）"
-            }
-          ],
-          "skillCount": 2,
-          "parameterEffects": [
-            {
-              "parameter": "被ダメージ",
-              "direction": "decrease",
-              "value": "-10%",
-              "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ-10%",
-              "sourcePartType": "equipment-skill-stage"
-            },
-            {
-              "parameter": "攻撃",
-              "direction": "decrease",
-              "value": "+8%",
-              "targetSide": "self_or_ally",
-              "matchedText": "攻撃+8%",
-              "sourcePartType": "equipment-skill-stage"
-            },
-            {
-              "parameter": "防御",
-              "direction": "increase",
-              "value": "+6％",
-              "targetSide": "self_or_ally",
-              "matchedText": "防御+6％",
-              "sourcePartType": "equipment-skill-stage"
-            }
-          ]
-        },
-        "urMax": {
-          "label": "UR最大",
-          "skills": [
-            {
-              "skillName": "克導堅守",
-              "text": "■常に ●部隊の「克破」の技能Lv+1（上限3） ●部隊の「主導」の技能Lv+1（上限5） ●部隊の防御+7％"
-            },
-            {
-              "skillName": "砕壁盤石",
-              "text": "■常に ●部隊の対物体攻撃+10% ●通常攻撃・戦法による被ダメージ-15% →自身が主将の際は効果が2倍（-30%）▼この技能を持つ武将が戦法を発動した時 ●自身1部隊に30％の闘気を付与（10秒）"
-            },
-            {
-              "skillName": "強撃猛勢",
-              "text": "■常に ●部隊の攻撃+4% →自身が主将の際は効果が2倍（+8％）"
-            }
-          ],
-          "skillCount": 3,
-          "parameterEffects": [
-            {
-              "parameter": "被ダメージ",
-              "direction": "decrease",
-              "value": "-15%",
-              "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ-15%",
-              "sourcePartType": "equipment-skill-stage"
-            },
-            {
-              "parameter": "攻撃",
-              "direction": "decrease",
-              "value": "+10%",
-              "targetSide": "self_or_ally",
-              "matchedText": "攻撃+10%",
-              "sourcePartType": "equipment-skill-stage"
-            },
-            {
-              "parameter": "攻撃",
-              "direction": "increase",
-              "value": "+4%",
-              "targetSide": "self_or_ally",
-              "matchedText": "攻撃+4%",
-              "sourcePartType": "equipment-skill-stage"
-            },
-            {
-              "parameter": "防御",
-              "direction": "increase",
-              "value": "+7％",
-              "targetSide": "self_or_ally",
-              "matchedText": "防御+7％",
-              "sourcePartType": "equipment-skill-stage"
-            }
-          ]
-        }
-      },
-      "stageCandidates": [
-        {
-          "tableIndex": 2,
-          "skillCount": 3,
-          "skillNames": [
-            "克導堅守",
-            "砕壁盤石",
-            "強撃猛勢"
-          ]
-        },
-        {
-          "tableIndex": 3,
-          "skillCount": 2,
-          "skillNames": [
-            "克導堅守",
-            "砕壁盤石"
-          ]
-        },
-        {
-          "tableIndex": 4,
-          "skillCount": 2,
-          "skillNames": [
-            "克導堅守",
-            "砕壁盤石"
-          ]
-        }
-      ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/565579",
-      "sourceUrls": [
-        "https://gamewith.jp/sangokushihadou/article/show/565579"
       ]
     },
     {
@@ -16864,9 +17174,9 @@
       "name": "明道方略冠",
       "displayName": "明道方略冠",
       "rawName": "【三國志 覇道】明道方略冠",
-      "highestRarity": "SSR",
+      "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -16945,14 +17255,18 @@
           "skills": [
             {
               "skillName": "賢俊奨導",
-              "text": "■常に ●部隊の「賢政」の技能Lv+1（上限2） ●部隊の「友導」の技能Lv+1（上限2）"
+              "text": "■常に ●部隊の「賢政」の技能Lv+1（上限5） ●部隊の「友導」の技能Lv+1（上限2） ●部隊の知力+4%"
             },
             {
               "skillName": "連志賢守",
-              "text": "■常に ●部隊の「連慧」の技能Lv+1（上限5） ●部隊の「策士」の技能Lv+1（上限5）▼自部隊の副将が戦法を発動するたび ●自身を含む味方3部隊の防御+25%（10秒） ●自身を含む味方3部隊の知力+25%（10秒） ●自身を含む味方3部隊の戦法威力+10%（10秒）"
+              "text": "■常に ●部隊の「連慧」の技能Lv+2（上限5） ●部隊の「策士」の技能Lv+2（上限5）▼自部隊の副将が戦法を発動するたび ●自身を含む味方3部隊の弱化効果を2つ打ち消す ●自身を含む味方3部隊の防御+25%（10秒） ●自身を含む味方3部隊の知力+25%（10秒） ●自身を含む味方3部隊の戦法威力+10%（10秒）"
+            },
+            {
+              "skillName": "万政結集",
+              "text": "■常に ●政治を部隊能力に加算する技能の効果量+5% ●自部隊に付与される結束の効果量+5%"
             }
           ],
-          "skillCount": 2,
+          "skillCount": 3,
           "parameterEffects": [
             {
               "parameter": "戦法威力",
@@ -16973,6 +17287,14 @@
             {
               "parameter": "知力",
               "direction": "increase",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+4%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "increase",
               "value": "+25%",
               "targetSide": "self_or_ally",
               "matchedText": "知力+25%",
@@ -16984,6 +17306,15 @@
       "stageCandidates": [
         {
           "tableIndex": 2,
+          "skillCount": 3,
+          "skillNames": [
+            "賢俊奨導",
+            "連志賢守",
+            "万政結集"
+          ]
+        },
+        {
+          "tableIndex": 3,
           "skillCount": 2,
           "skillNames": [
             "賢俊奨導",
@@ -16991,7 +17322,7 @@
           ]
         },
         {
-          "tableIndex": 3,
+          "tableIndex": 4,
           "skillCount": 2,
           "skillNames": [
             "賢俊奨導",
@@ -22995,9 +23326,9 @@
       "name": "商君書",
       "displayName": "商君書",
       "rawName": "【三國志 覇道】商君書",
-      "highestRarity": "SSR",
+      "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -23034,20 +23365,33 @@
           "skills": [
             {
               "skillName": "内政補佐",
-              "text": "■常に▼施設に任命時 ●この技能を持つ武将の能力値に対して25％分を上乗せして計算する"
+              "text": "■常に▼施設に任命時 ●この技能を持つ武将の能力値に対して100％分を上乗せして計算する"
             },
             {
               "skillName": "利益増進",
               "text": "■主将の際 ●都市外での銅銭入手量+15% ●都市外での部隊の獲得経験+100%"
+            },
+            {
+              "skillName": "集荷指揮",
+              "text": "■常に ●部隊の輸送力+10%"
             }
           ],
-          "skillCount": 2,
+          "skillCount": 3,
           "parameterEffects": []
         }
       },
       "stageCandidates": [
         {
           "tableIndex": 2,
+          "skillCount": 3,
+          "skillNames": [
+            "内政補佐",
+            "利益増進",
+            "集荷指揮"
+          ]
+        },
+        {
+          "tableIndex": 3,
           "skillCount": 2,
           "skillNames": [
             "内政補佐",
@@ -23055,7 +23399,7 @@
           ]
         },
         {
-          "tableIndex": 3,
+          "tableIndex": 4,
           "skillCount": 2,
           "skillNames": [
             "内政補佐",
