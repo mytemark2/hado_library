@@ -1,0 +1,70 @@
+{
+  "updateNo": "08.3",
+  "displayVersion": "3.0.0.0 Update08.3",
+  "status": "completed-local-validation",
+  "summary": "Centralize runtime Update display version in hado_update_meta.js and load the synchronizer from active HTML before type-candidate UI.",
+  "bugClassification": "Version visibility and maintainability issue",
+  "rootCause": "Visible Update strings were duplicated in runtime JavaScript, so every correction required editing multiple locations and made it easy to miss a version bump or leave stale fallbacks.",
+  "changedFiles": [
+    "AGENTS.md",
+    "HADO_DEV_INFO.json",
+    "hado_update_meta.js",
+    "hado_type_candidates.js",
+    "index.html",
+    "hado_library_3.0.0.0.html",
+    "docs/updates/roadmap.md",
+    "docs/updates/update08/implementation.md",
+    "docs/updates/update08/report.md",
+    "tools/validate_update_version_consistency.py",
+    "report/HADO_APP_3.0.0.0_UPDATE08.3_REPORT.json"
+  ],
+  "htmlSizeChange": {
+    "index.html": 45,
+    "hado_library_3.0.0.0.html": 45
+  },
+  "externalizationDecision": "Only a script tag for the existing external version synchronizer was added; version fallback values are centralized in hado_update_meta.js.",
+  "validation": [
+    {
+      "command": "node --check hado_update_meta.js",
+      "result": "pass"
+    },
+    {
+      "command": "node --check hado_type_candidates.js",
+      "result": "pass"
+    },
+    {
+      "command": "python3 -m json.tool HADO_DEV_INFO.json",
+      "result": "pass"
+    },
+    {
+      "command": "python3 -m json.tool report/HADO_APP_3.0.0.0_UPDATE08.3_REPORT.json",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_update_version_consistency.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_type_candidate_saved_name_matching.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_formation_link_helpers.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_app_js.py",
+      "result": "pass"
+    },
+    {
+      "command": "test ! -d updates/queue",
+      "result": "pass"
+    }
+  ],
+  "workflowResult": "pending-after-push",
+  "previewResult": "pending-after-push",
+  "unresolvedItems": [
+    "Confirm push-triggered preview workflow result and preview commit after the branch is pushed.",
+    "Verify the preview URL shows 3.0.0.0 Update08.3 after deployment."
+  ]
+}

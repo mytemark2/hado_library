@@ -17,7 +17,7 @@ Related repositories:
 - Preview repository: `mytemark2/hado_library-preview`
 
 Default development branch at the time this file was created:
-- Application: `feature/app-3.0.0.0`
+- Application: `future/app-3.0.0.0`
 
 Do not assume that this branch remains current forever. Before editing, confirm the target branch from the user's task, the latest Roadmap, and the current repository state. Do not silently switch to `main`.
 
@@ -41,6 +41,22 @@ Do not select a modification base from:
 
 If the repository state, branch, or authoritative source is ambiguous, inspect the repository documents first. If ambiguity remains, report it explicitly before making a destructive change.
 
+### 3.1 Pull request base discipline
+
+For application changes, treat `feature/app-3.0.0.0` as the canonical development branch unless a newer repository document or explicit user instruction supersedes it. Do not base new work on `main`, `hado-2.9.6.5`, stale `codex/...` branches, old pull request heads, or generated preview artifacts.
+
+Before opening a pull request, run `python3 tools/check_pr_merge_readiness.py --base feature/app-3.0.0.0` and confirm/report:
+- canonical branch name and the commit SHA inspected before editing;
+- pull request base branch is `feature/app-3.0.0.0`;
+- head branch is the single Codex work branch for the current task;
+- no old branch, old pull request diff, or unrelated generated artifact is mixed into the final diff;
+- the merge-readiness command, fetched base SHA, head SHA, and conflict-free result;
+- whether any conflict occurred, and if so, the cause and the content-aware resolution.
+
+If the merge-readiness check cannot fetch the canonical branch or cannot complete the local merge dry run, do not open a pull request. Stop and report the blocker instead of asking the user to inspect GitHub's conflict screen.
+
+If an existing unmerged pull request already covers the same files or defect, update that pull request branch when possible instead of creating a parallel duplicate pull request. Never resolve conflicts by mechanically choosing one side wholesale; reconcile the latest canonical branch with the requested change and rerun validation.
+
 ## 4. Required modification method
 
 Use a fresh working tree or Codex Cloud workspace based on the target development branch.
@@ -61,7 +77,7 @@ If a single coherent commit cannot be produced because of an unavoidable platfor
 
 Do **not** implement or use any of the following:
 
-- `updates/queue/*.json` or equivalent files that store search-and-replace instructions.
+- `updates/queue/*.json` or equivalent files that store search-and-replace instructions. Do not recreate an `updates/queue/` directory; remove it if it reappears.
 - Replacement queues containing fields such as `old`, `new`, or `expectedCount`.
 - GitHub Actions that mutate application source files through ad hoc string replacement.
 - Disposable, Update-specific apply workflows.
@@ -92,6 +108,8 @@ Do not silently build a brittle workaround.
 - When adding or changing external JavaScript, verify load order and dependencies.
 - Verify both `file://` local execution and `https://` preview execution when applicable.
 - Record changed JavaScript files, HTML size increase or decrease, and the externalization decision in the Update documentation.
+- The legacy monolithic `hado_app.js` artifact has been removed; do not recreate it for normal runtime, guide, or Phase update work. Edit the split runtime scripts that `index.html` actually loads.
+- Candidate-tray persistence and placement gates belong to `hado_formation.js`, while `hado_candidate_tray.js` owns only the tray UI. Do not recreate or load the retired duplicate `hado_candidate_tray_core.js` event/placement path.
 
 ### 6.2 Preserve compatibility
 
@@ -127,6 +145,12 @@ Confirm the repository's actual implementation before editing. Applicable items 
 
 Do not assume that every item exists. Do not invent missing files. If an expected item does not exist, report that finding.
 
+For every user-visible correction after a numbered Update is marked complete, increment the visible Update suffix together with metadata (for example `Update08` -> `Update08.1`, then `Update08.2`). Update all applicable display/version references in the same commit so preview users can distinguish deployed fixes.
+Keep visible runtime version constants centralized only in `hado_version.js`; `hado_update_meta.js` and other JavaScript should read `window.HADO_VERSION`, `window.HADO_APP_DISPLAY_VERSION`, or `window.HADO_APP_VERSION_META` instead of hard-coding the visible Update string. Do not duplicate `releaseVersion`, `updateNo`, `displayVersion`, or `revision` in `HADO_DEV_INFO.json`.
+
+
+If the user explicitly says not to change the version, do not edit `hado_version.js` or `HADO_DEV_INFO.json`. If either file is edited, the final report must state that it was edited and why. Never report a file as unchanged if it appears in the final diff.
+
 ## 8. Bug-fix policy
 
 A bug fix is incomplete unless the following are addressed:
@@ -156,6 +180,8 @@ At minimum, perform all applicable checks:
 - version and metadata consistency
 - absence of prohibited queue-based source mutation mechanisms
 
+When a derived JSON contract or its runtime consumer changes, run `node tools/test_json_index_contract.js`. The 20 derived `hadou_*.json` files covered by that test must be regenerated from the crawler source and copied as one coherent output set; do not hand-edit individual generated JSON files.
+
 ### 9.2 Functional regression
 Check the areas affected by the change and the related shared paths. Unless the task is strictly documentation-only, include the applicable core paths:
 - application startup
@@ -179,6 +205,20 @@ After pushing the development branch:
 
 A setup that requires the user to manually run a workflow for ordinary preview deployment is incomplete.
 
+
+For any change that affects preview synchronization, preview-visible UI, version display, or runtime assets, completion additionally requires verifying the real preview repository and public Pages URL. Do not report preview completion from workflow text or local tests alone. Verify and report:
+- app repository branch and HEAD commit;
+- preview repository `main` HEAD;
+- presence of `index.html`, `hado_formation.js`, `hado_styles.css`, `hadou_*.json`, `.nojekyll`, `PREVIEW_SOURCE_COMMIT.txt`, `PREVIEW_SOURCE_BRANCH.txt`, and `PREVIEW_DISPLAY_VERSION.txt` in `mytemark2/hado_library-preview/main`;
+- `PREVIEW_SOURCE_COMMIT.txt` equals the intended app commit, `PREVIEW_SOURCE_BRANCH.txt` equals the intended source branch, and `PREVIEW_DISPLAY_VERSION.txt` equals the visible app version;
+- the public URL `https://mytemark2.github.io/hado_library-preview/` shows the intended version and contains/executes the target DOM, JavaScript, CSS, and debug-log behavior.
+
+If network, credentials, GitHub Actions visibility, or browser automation prevents any of these checks, state that the work is **not preview-complete**, list exactly what could not be verified, and do not ask the user to treat the task as complete.
+
+## 9.4 Merge queue and auto-merge
+
+Keep `.github/workflows/app-validation.yml` compatible with GitHub merge queue by including both `pull_request` and `merge_group` triggers. The required GitHub status check for branch protection should be `App Validation / app-validation`. Repository-level settings such as `Allow auto-merge` and `Require merge queue` must be enabled by a repository administrator; do not replace real conflict resolution with blanket `ours`/`theirs` rules.
+
 ## 10. Preview synchronization design
 
 Maintain an event-driven preview synchronization path from the application development branch to the preview repository.
@@ -189,7 +229,10 @@ Allowed patterns include:
 - or an equivalent push-triggered design.
 
 Do not use scheduled polling as the normal path.
-Do not require manual workflow dispatch for normal operation.
+Do not require or expose manual workflow dispatch for normal operation in the application repository preview notification workflow.
+
+
+The normal preview sync must not allow stale branches or old artifacts to overwrite the public preview. Prefer a single intended application development branch as the push source, write source marker files into preview, and keep preview sync checks focused on the actual runtime files and marker files rather than broad or unrelated asset assertions.
 
 ## 11. Distribution package rules
 
@@ -255,6 +298,9 @@ At completion, report:
 10. **Preview synchronization result**
 11. **Minimum user acceptance operation**
 12. **Remaining issues**, explicitly stating `none` when there are none
+
+
+When preview matters, include a dedicated **Preview confirmation** subsection with: public URL, displayed version, preview marker file contents, preview repository commit, DOM checks, operation checks, debug-log checks, and explicit pass/fail/blocked status. If any item is not verified, mark the work as not complete rather than implying completion.
 
 ## 15. Maintain this file
 

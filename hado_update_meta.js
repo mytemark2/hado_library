@@ -1,22 +1,26 @@
-/* HADO app Update display synchronizer: keep visible version labels aligned with HADO_DEV_INFO.json. */
+/* HADO app Update display synchronizer: keep visible version labels aligned with HADO_DEV_INFO.json.
+   This file is metadata-only; runtime scoring/layout fixes belong in source modules and validators block legacy hotfix overrides. */
 (() => {
   'use strict';
 
   const META_URL = './HADO_DEV_INFO.json';
-  const FALLBACK = {
-    releaseVersion: '3.0.0.0',
-    updateNo: '09.3.22',
-    displayVersion: '3.0.0.0 Update09.3.22'
-  };
+  const VERSION_SOURCE = Object.freeze({ ...(window.HADO_VERSION || {}) });
+  const FALLBACK = Object.freeze(normalizeMeta(VERSION_SOURCE));
+  window.HADO_APP_VERSION_META = FALLBACK;
 
   let current = FALLBACK;
   let syncing = false;
+  let started = false;
 
   function normalizeMeta(raw) {
-    const releaseVersion = String(raw?.releaseVersion || FALLBACK.releaseVersion).trim();
-    const updateNo = String(raw?.updateNo || FALLBACK.updateNo).trim();
-    const displayVersion = String(raw?.displayVersion || `${releaseVersion} Update${updateNo}`).trim();
-    return { ...raw, releaseVersion, updateNo, displayVersion };
+    const releaseVersion = String(raw?.releaseVersion || VERSION_SOURCE.releaseVersion || '').trim();
+    const updateNo = String(raw?.updateNo || VERSION_SOURCE.updateNo || '').trim();
+    const revision = Number(raw?.revision || VERSION_SOURCE.revision || 0);
+    const formalRelease = Boolean(raw?.formalRelease ?? VERSION_SOURCE.formalRelease ?? false);
+    const derivedDisplayVersion = formalRelease ? releaseVersion : (releaseVersion && updateNo ? `${releaseVersion} Update${updateNo}` : releaseVersion);
+    const displayVersion = String(raw?.displayVersion || derivedDisplayVersion).trim();
+    const visibleVersion = String(raw?.visibleVersion || (formalRelease ? releaseVersion : (displayVersion && revision ? `${displayVersion} r${revision}` : displayVersion))).trim();
+    return { ...VERSION_SOURCE, ...raw, releaseVersion, updateNo, revision, formalRelease, displayVersion, visibleVersion };
   }
 
   function setText(node, value) {
@@ -28,10 +32,12 @@
     syncing = true;
     try {
       current = normalizeMeta(meta);
-      const display = current.displayVersion;
+      const display = current.visibleVersion || current.displayVersion;
       const title = `覇道ライブラリ ${display}`;
       if (document.title !== title) document.title = title;
       setText(document.querySelector('#appTitlePanel h1'), title);
+      setText(document.getElementById('uxHomeVersionBadge'), `${display} 操作ガイド`);
+      setText(document.getElementById('diagnosticAppVersion'), `覇道ライブラリ｜${display}`);
 
       document.querySelectorAll('#hadoTypeEntryModal .hte-sub').forEach((node) => {
         const text = node.textContent || '';
@@ -47,6 +53,7 @@
 
       window.HADO_DEV_INFO = current;
       window.HADO_APP_DISPLAY_VERSION = display;
+      window.HADO_APP_VERSION_META = current;
     } finally {
       syncing = false;
     }
@@ -54,23 +61,25 @@
 
   async function loadMeta() {
     try {
-      const response = await fetch(META_URL, { cache: 'no-store' });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      syncVisibleVersion(await response.json());
+      const res = await fetch(META_URL, { cache: 'no-store' });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return normalizeMeta(await res.json());
     } catch (_) {
-      syncVisibleVersion(FALLBACK);
+      return FALLBACK;
     }
   }
 
-  function start() {
+  async function start() {
+    if (started) return;
+    started = true;
     syncVisibleVersion(FALLBACK);
-    loadMeta();
-    new MutationObserver(() => syncVisibleVersion(current)).observe(document.documentElement, {
-      childList: true,
-      subtree: true
-    });
+    const meta = await loadMeta();
+    syncVisibleVersion(meta);
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, { once: true });
-  else start();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', start, { once: true });
+  } else {
+    start();
+  }
 })();

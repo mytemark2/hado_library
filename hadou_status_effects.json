@@ -2199,12 +2199,78 @@
       "source_url": "",
       "index": 199,
       "category": ""
+    },
+    {
+      "name": "豪撃",
+      "type": "有利変化",
+      "description": "自部隊の戦法発動時、戦法の攻撃威力を効果量分上乗せした状態で戦法攻撃を行う（その武将の戦法が非攻撃戦法の場合は効果なし）。戦法による攻撃威力の変動計算後に上乗せされる",
+      "base_name": "豪撃",
+      "description_source": "manual_game_capture",
+      "tooltip_id": "",
+      "source_url": "",
+      "index": 200,
+      "category": ""
+    },
+    {
+      "name": "虎守",
+      "type": "有利変化",
+      "description": "一定時間ごとに負傷兵を最大兵力の5%回復する。さらに、弱化効果を受ける際の兵力が50%以上のとき、弱化効果を100%の確率で避ける",
+      "base_name": "虎守",
+      "description_source": "manual_game_capture",
+      "tooltip_id": "",
+      "source_url": "",
+      "index": 201,
+      "category": ""
+    },
+    {
+      "name": "秀俊",
+      "type": "有利変化",
+      "description": "一定時間ごとに、知力が累積して上昇する。さらに、自部隊より知力の低い敵部隊から受ける被ダメージを50%軽減する",
+      "base_name": "秀俊",
+      "description_source": "manual_game_capture",
+      "tooltip_id": "",
+      "source_url": "",
+      "index": 202,
+      "category": ""
+    },
+    {
+      "name": "退勢",
+      "type": "不利変化",
+      "description": "通常攻撃を行う際、自部隊に発生している全ての有利変化が発揮されない状態で与ダメージを計算する",
+      "base_name": "退勢",
+      "description_source": "manual_game_capture",
+      "tooltip_id": "",
+      "source_url": "",
+      "index": 203,
+      "category": ""
+    },
+    {
+      "name": "封縛",
+      "type": "不利変化",
+      "description": "戦法速度が効果量分低下する。さらに、自部隊が受ける弱化解除（即時効果）を100%の確率で無効化する",
+      "base_name": "封縛",
+      "description_source": "manual_game_capture",
+      "tooltip_id": "",
+      "source_url": "",
+      "index": 204,
+      "category": ""
+    },
+    {
+      "name": "封心",
+      "type": "不利変化",
+      "description": "効果時間中、会心・撃心が発生しない（通常のダメージになる）。敵部隊に不利変化「萎縮」が発生している場合も、会心が発生しない",
+      "base_name": "封心",
+      "description_source": "manual_game_capture",
+      "tooltip_id": "",
+      "source_url": "",
+      "index": 205,
+      "category": ""
     }
   ],
   "meta": {
-    "count": 200,
-    "exportedAt": "2026-06-07T04:23:26.648Z",
+    "count": 206,
+    "exportedAt": "2026-07-20T00:00:00.000Z",
     "collector": "chrome_extension_status_effects_collector",
-    "crawlerVersion": "1.1.0.0"
+    "crawlerVersion": "1.0.5.25"
   }
 }

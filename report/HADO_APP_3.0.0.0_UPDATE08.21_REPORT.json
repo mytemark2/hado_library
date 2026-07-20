@@ -1,0 +1,44 @@
+{
+  "updateNo": "08.21",
+  "displayVersion": "3.0.0.0 Update08.21",
+  "status": "completed-local-validation",
+  "summary": "Fix saved-mode selectable type candidate counts so role tabs differ and saved/all counts do not collapse.",
+  "bugClassification": "Saved-mode selectable candidate count regression",
+  "rootCause": "candidateVisibleByScore kept all saved-owned rows visible even when matchedCount was zero. Because the role index contains the same owned generals for main, vice, support, and attendant roles, saved-mode tab counts could become ownership counts rather than selectable scored counts, hiding the role-specific differences the type scoring produced.",
+  "changedFiles": [
+    "hado_type_candidates.js",
+    "hado_version.js",
+    "HADO_DEV_INFO.json",
+    ".github/workflows/app-validation.yml",
+    "tools/test_type_candidate_counts.js",
+    "tools/validate_saved_type_candidates_zero_score_visible.py",
+    "tools/validate_merge_queue_workflow.py",
+    "docs/updates/README.md",
+    "docs/updates/roadmap.md",
+    "docs/updates/update08/implementation.md",
+    "docs/updates/update08/report.md",
+    "report/HADO_APP_3.0.0.0_UPDATE08.21_REPORT.json"
+  ],
+  "selfCheck": {
+    "typeId": "vaccine",
+    "allDataCounts": {"main_general": 182, "vice_general": 175, "support_general": 175, "attendant": 171},
+    "savedAllEquivalentCounts": {"main_general": 182, "vice_general": 175, "support_general": 175, "attendant": 171},
+    "savedSampleCounts": {"main_general": 76, "vice_general": 70, "support_general": 70, "attendant": 67},
+    "savedSampleToAllRatio": 0.40256045519203415
+  },
+  "htmlSizeChange": {"index.html": 0, "hado_library_3.0.0.0.html": 0},
+  "externalizationDecision": "No HTML/CSS change. The fix is in external type candidate JavaScript and count self-check tooling.",
+  "validation": [
+    {"command": "node --check hado_type_candidates.js", "result": "pass"},
+    {"command": "node tools/test_type_candidate_counts.js", "result": "pass"},
+    {"command": "python3 tools/validate_saved_type_candidates_zero_score_visible.py", "result": "pass"},
+    {"command": "python3 tools/validate_update_version_consistency.py", "result": "pass"},
+    {"command": "python3 tools/validate_app_js.py", "result": "pass"},
+    {"command": "node tools/test_type_score.js", "result": "pass"},
+    {"command": "node tools/test_saved_type_candidate_filter.js", "result": "pass"},
+    {"command": "git diff --check", "result": "pass"}
+  ],
+  "workflowResult": "pending-after-push",
+  "previewResult": "pending-after-push",
+  "minimumUserAcceptance": "Open saved-mode type candidates and confirm the main/vice/support/attendant tab counts differ and are reasonably close to all-data counts for a broad saved dataset."
+}

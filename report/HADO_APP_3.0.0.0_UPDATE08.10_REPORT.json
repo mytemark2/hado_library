@@ -1,0 +1,76 @@
+{
+  "updateNo": "08.10",
+  "displayVersion": "3.0.0.0 Update08.10",
+  "status": "completed-local-validation",
+  "summary": "Require preview post-dispatch verification to prove hado_styles.css is deployed and referenced by preview HTML.",
+  "bugClassification": "Preview asset verification gap / external CSS deployment regression",
+  "rootCause": "After CSS externalization, the preview verification checked source commit and version assets but did not require the deployed HTML to reference hado_styles.css or the CSS file to be publicly retrievable and non-empty. Therefore a missing CSS asset could pass the previous preview freshness checks.",
+  "changedFiles": [
+    ".github/workflows/notify-preview.yml",
+    "hado_version.js",
+    "tools/validate_preview_workflow.py",
+    "docs/updates/README.md",
+    "docs/updates/roadmap.md",
+    "docs/updates/update08/implementation.md",
+    "docs/updates/update08/report.md",
+    "report/HADO_APP_3.0.0.0_UPDATE08.10_REPORT.json"
+  ],
+  "htmlSizeChange": {
+    "index.html": 0,
+    "hado_library_3.0.0.0.html": 0
+  },
+  "externalizationDecision": "No HTML/source CSS change. The fix strengthens preview deployment verification for the already externalized hado_styles.css asset.",
+  "previewCssVerification": {
+    "htmlReference": "./hado_styles.css",
+    "asset": "hado_styles.css",
+    "contentChecks": [
+      ":root{",
+      ".panel{"
+    ]
+  },
+  "validation": [
+    {
+      "command": "node --check hado_version.js",
+      "result": "pass"
+    },
+    {
+      "command": "python3 -m json.tool report/HADO_APP_3.0.0.0_UPDATE08.10_REPORT.json",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_preview_workflow.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_update_version_consistency.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_external_css.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_app_js.py",
+      "result": "pass"
+    },
+    {
+      "command": "node tools/test_type_score.js",
+      "result": "pass"
+    },
+    {
+      "command": "node hado_status_effect_regression.js",
+      "result": "pass"
+    },
+    {
+      "command": "test ! -d updates/queue",
+      "result": "pass"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass"
+    }
+  ],
+  "workflowResult": "pending-after-push; workflow now fails if preview hado_styles.css is missing or not referenced",
+  "previewResult": "pending-after-push",
+  "minimumUserAcceptance": "After push, confirm preview hado_styles.css returns CSS content and the page renders styled."
+}

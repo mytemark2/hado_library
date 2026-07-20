@@ -1,0 +1,74 @@
+{
+  "updateNo": "08.18",
+  "displayVersion": "3.0.0.0 Update08.18",
+  "status": "completed-local-validation",
+  "summary": "Fix saved-mode type candidate scoring for saved-star granted skills and role-limited bullet clauses.",
+  "bugClassification": "Saved-mode role-limited type candidate regression",
+  "rootCause": "Saved-mode type-candidate filtering only treated resolved source skill names as owned and checked unowned skill names against the full matchedText before role filtering. Skills granted by saved-star-unlocked skills were therefore treated as unowned, and role headers such as ■主将の際 did not scope following ●/▼ bullet clauses, allowing limited clauses to be wrongly kept or removed for other roles.",
+  "changedFiles": [
+    "hado_type_candidates.js",
+    "hado_type_score.js",
+    "hado_version.js",
+    "HADO_DEV_INFO.json",
+    ".github/workflows/app-validation.yml",
+    "tools/test_type_score.js",
+    "tools/test_saved_type_candidate_filter.js",
+    "tools/validate_type_candidate_saved_name_matching.py",
+    "tools/validate_saved_mode_index_ownership_sources.py",
+    "docs/updates/README.md",
+    "docs/updates/roadmap.md",
+    "docs/updates/update08/implementation.md",
+    "docs/updates/update08/report.md",
+    "report/HADO_APP_3.0.0.0_UPDATE08.18_REPORT.json"
+  ],
+  "htmlSizeChange": {
+    "index.html": 0,
+    "hado_library_3.0.0.0.html": 0
+  },
+  "externalizationDecision": "No HTML/CSS change. The fix is in external JavaScript scoring/candidate logic and validation tooling.",
+  "validation": [
+    {
+      "command": "node --check hado_type_candidates.js",
+      "result": "pass"
+    },
+    {
+      "command": "node --check hado_type_score.js",
+      "result": "pass"
+    },
+    {
+      "command": "node --check hado_version.js",
+      "result": "pass"
+    },
+    {
+      "command": "node tools/test_type_score.js",
+      "result": "pass"
+    },
+    {
+      "command": "node tools/test_saved_type_candidate_filter.js",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_type_candidate_saved_name_matching.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_saved_mode_index_ownership_sources.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_update_version_consistency.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_app_js.py",
+      "result": "pass"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass"
+    }
+  ],
+  "workflowResult": "pending-after-push",
+  "previewResult": "pending-after-push",
+  "minimumUserAcceptance": "In saved-data mode, open type candidates for a type affected by a saved-star-unlocked granted skill and role-limited clauses. Confirm the owned granted skill scores only in the eligible role tab and the ineligible role tab does not receive that limited score."
+}

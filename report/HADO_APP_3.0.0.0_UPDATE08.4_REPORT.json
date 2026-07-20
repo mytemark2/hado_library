@@ -1,0 +1,84 @@
+{
+  "updateNo": "08.4",
+  "displayVersion": "3.0.0.0 Update08.4",
+  "status": "completed-local-validation",
+  "summary": "Include saved stars/settings/stages as saved-mode ownership sources so type candidates are not limited to explicit ownership arrays only.",
+  "bugClassification": "Saved-data candidate filtering false negative",
+  "rootCause": "The saved-mode index used explicit saves[].generals and saves[].equipments as the primary ownership source. User save data can also contain configured generals/equipment via generalStars, generalSettings, inheritedSkills, equipmentStars, and equipmentStages; those configured items were treated as not owned and were excluded from type candidates.",
+  "changedFiles": [
+    "HADO_DEV_INFO.json",
+    "hado_update_meta.js",
+    "hado_core.js",
+    "docs/updates/roadmap.md",
+    "docs/updates/update08/implementation.md",
+    "docs/updates/update08/report.md",
+    "tools/validate_saved_mode_index_ownership_sources.py",
+    "report/HADO_APP_3.0.0.0_UPDATE08.4_REPORT.json"
+  ],
+  "htmlSizeChange": {
+    "index.html": 0,
+    "hado_library_3.0.0.0.html": 0
+  },
+  "externalizationDecision": "No HTML changes; the ownership-source fix is in existing external JavaScript and a validation tool.",
+  "validation": [
+    {
+      "command": "node --check hado_core.js",
+      "result": "pass"
+    },
+    {
+      "command": "node --check hado_update_meta.js",
+      "result": "pass"
+    },
+    {
+      "command": "python3 -m json.tool HADO_DEV_INFO.json",
+      "result": "pass"
+    },
+    {
+      "command": "python3 -m json.tool report/HADO_APP_3.0.0.0_UPDATE08.4_REPORT.json",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_saved_mode_index_ownership_sources.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_update_version_consistency.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_type_candidate_saved_name_matching.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_app_js.py",
+      "result": "pass"
+    },
+    {
+      "command": "node tools/test_type_score.js",
+      "result": "pass"
+    },
+    {
+      "command": "node hado_status_effect_regression.js",
+      "result": "pass"
+    },
+    {
+      "command": "test ! -d updates/queue",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_formation_link_helpers.py",
+      "result": "pass"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass"
+    }
+  ],
+  "workflowResult": "pending-after-push",
+  "previewResult": "pending-after-push",
+  "userPasteDataIfStillLow": [
+    "Preview displayVersion after deployment",
+    "Current save export JSON fields: saves[].generals, saves[].generalStars, saves[].generalSettings, saves[].inheritedSkills, saves[].equipments, saves[].equipmentStars, saves[].equipmentStages",
+    "Selected purpose/type and candidate counts by role tab"
+  ]
+}

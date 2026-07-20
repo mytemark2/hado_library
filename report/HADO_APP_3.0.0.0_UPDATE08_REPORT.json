@@ -1,0 +1,73 @@
+{
+  "updateNo": "08",
+  "displayVersion": "3.0.0.0 Update08",
+  "status": "completed-local-validation",
+  "summary": "Saved-data-aware type candidates, type-based new formation creation, formation evaluation metadata/history, group limits, and active-script formation link helper fix.",
+  "changedFiles": [
+    "hado_formation.js",
+    "hado_core.js",
+    "hado_type_candidates.js",
+    "HADO_DEV_INFO.json",
+    "hado_update_meta.js",
+    "docs/updates/roadmap.md",
+    "docs/updates/update08/roadmap.md",
+    "docs/updates/update08/implementation.md",
+    "docs/updates/update08/report.md",
+    "report/HADO_APP_3.0.0.0_UPDATE08_REPORT.json",
+    "hado_status_effects.js",
+    "tools/validate_formation_link_helpers.py"
+  ],
+  "htmlSizeChange": {
+    "index.html": 0,
+    "hado_library_3.0.0.0.html": 0
+  },
+  "externalizationDecision": "Update08 behavior was implemented in existing external JavaScript files; no large inline HTML script was added.",
+  "validation": [
+    {
+      "command": "node --check hado_formation.js",
+      "result": "pass"
+    },
+    {
+      "command": "node --check hado_type_candidates.js",
+      "result": "pass"
+    },
+    {
+      "command": "node --check hado_update_meta.js",
+      "result": "pass"
+    },
+    {
+      "command": "python3 -m json.tool HADO_DEV_INFO.json",
+      "result": "pass"
+    },
+    {
+      "command": "python3 -m json.tool hadou_type_search_role_index.json",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_app_js.py",
+      "result": "pass"
+    },
+    {
+      "command": "node tools/test_type_score.js",
+      "result": "pass"
+    },
+    {
+      "command": "node hado_status_effect_regression.js",
+      "result": "pass"
+    },
+    {
+      "command": "test ! -d updates/queue",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_formation_link_helpers.py",
+      "result": "pass"
+    }
+  ],
+  "workflowResult": "pending-after-push",
+  "previewResult": "pending-after-push",
+  "unresolvedItems": [
+    "Confirm push-triggered preview workflow result and preview commit after the branch is pushed.",
+    "Perform browser user acceptance for saved-mode candidate filtering and formation group/history UI."
+  ]
+}

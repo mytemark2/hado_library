@@ -1,0 +1,78 @@
+{
+  "updateNo": "08.9",
+  "displayVersion": "3.0.0.0 Update08.9",
+  "status": "completed-local-validation",
+  "summary": "Align app preview dispatch event with the preview repository workflow and verify deployed preview assets by source commit and hado_version.js.",
+  "bugClassification": "Preview synchronization contract mismatch / stale deployment regression",
+  "rootCause": "The app workflow sent repository_dispatch event_type app_branch_updated, but the preview repository workflow listens for sync_app_preview. Therefore pushes from the app repository could leave the preview at older content such as Update08.4. The app workflow also notified from any non-main branch even though the preview workflow clones feature/app-3.0.0.0 specifically.",
+  "changedFiles": [
+    ".github/workflows/notify-preview.yml",
+    "hado_version.js",
+    "tools/validate_preview_workflow.py",
+    "docs/updates/README.md",
+    "docs/updates/roadmap.md",
+    "docs/updates/update08/implementation.md",
+    "docs/updates/update08/report.md",
+    "report/HADO_APP_3.0.0.0_UPDATE08.9_REPORT.json"
+  ],
+  "htmlSizeChange": {
+    "index.html": 0,
+    "hado_library_3.0.0.0.html": 0
+  },
+  "externalizationDecision": "No HTML changes. The fix is in the preview notification workflow and validation tooling.",
+  "previewContract": {
+    "appDispatchEventType": "sync_app_preview",
+    "previewSourceBranch": "feature/app-3.0.0.0",
+    "deployedCommitMarker": "PREVIEW_SOURCE_COMMIT.txt",
+    "versionAsset": "hado_version.js"
+  },
+  "validation": [
+    {
+      "command": "node --check hado_version.js",
+      "result": "pass"
+    },
+    {
+      "command": "python3 -m json.tool report/HADO_APP_3.0.0.0_UPDATE08.9_REPORT.json",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_preview_workflow.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_update_version_consistency.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_update_meta_no_broad_observer.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_external_css.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_app_js.py",
+      "result": "pass"
+    },
+    {
+      "command": "node tools/test_type_score.js",
+      "result": "pass"
+    },
+    {
+      "command": "node hado_status_effect_regression.js",
+      "result": "pass"
+    },
+    {
+      "command": "test ! -d updates/queue",
+      "result": "pass"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass"
+    }
+  ],
+  "workflowResult": "pending-after-push; should now trigger preview repository sync_app_preview dispatch",
+  "previewResult": "currently stale at Update08.4 before push; must show Update08.9 and matching PREVIEW_SOURCE_COMMIT.txt after workflow success",
+  "minimumUserAcceptance": "After push to feature/app-3.0.0.0, confirm preview hado_version.js reports Update08.9 and PREVIEW_SOURCE_COMMIT.txt equals the pushed commit SHA."
+}

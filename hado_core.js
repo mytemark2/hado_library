@@ -5,7 +5,7 @@ const DETAIL_BLOCKLIST=['宇宙SF戦略RPG『ファウンデーション','Text 
 const DETAIL_SECTION_STOP_TITLES=['三國志 覇道の関連リンク','同じ五行適正の高い武将'];
 const DETAIL_SECTION_MERGE_TITLES=['の戦法','の技能','の能力・五行適正','と相性の良い武将','の兵科'];
 const DETAIL_SECTION_CONTENT_STOP_TEXTS=['同じ五行適正の高い武将'];
-const state={rawCounts:{},generals:[],tactics:[],skills:[],equipments:[],statusEffects:[],statusEffectMetaByName:new Map(),statusEffectMetaList:[],siegeWeapons:[],ethnicArmaments:[],ethnicResearchSkills:[],formationMasters:[],fiveElements:[],warhorses:[],warhorseSkills:[],showRawJson:false,activeCategories:{generals:true,tactics:false,equipments:false,skills:false,statusEffects:false,siegeWeapons:false,ethnicArmaments:false,formations:false,warhorses:false,warhorseSkills:false},selectedItem:null,selectedLabel:'',viewMode:'all',saveData:{saves:[],currentSaveId:''},searchHistory:[],lastSearchDebug:null,lastResultRows:[],operationHistory:[],operationHistoryIndex:-1,isRestoringHistory:false,mobileSelectedSearchHistory:'',responsiveCompact:false,formations:[],currentFormationId:'',formationDirty:false,formationCalcVisibleMobile:false,formationDetailsOpen:{},formationLastSummaryUserAction:null,formationSkillFilter:'全て',formationSelectedSlot:'main',formationSelectorDialog:null,generalStage:'max',equipmentStage:'urMax',quickAddDestination:'',selectedTags:[],quickStatusEffectOwnerFilter:null,searchMode:'normal',typeSearchSelectedPresetId:'',typeSearchPresetDirty:false,typeSearchSelectedStatusEffectIds:[],typeSearchSelectedFeatureIds:[],typeSearchCategoriesBeforeEnter:null,typeSearchResultCache:new Map(),typeSearchCacheSeq:0,typeSearchCacheStats:{hit:0,miss:0,invalidations:0,store:0},typeSearchLastInvalidationReason:'',availableTags:[],availableTagsByKey:{},tagPickerVisible:false,nameOnlySearch:false,detailLinkCandidates:[],lookupIndexes:{generalSkillNames:new Map(),equipmentSkillNames:new Map(),generalTacticNames:new Map(),equipmentStatusEffectNames:new Map(),generalStatusEffectNames:new Map(),skillStatusEffectNames:new Map(),tacticStatusEffectNames:new Map()},savedModeIndex:{generalNames:new Set(),equipmentNames:new Set(),skillNames:new Set(),statusEffectNames:new Set()},diagnostics:{startup:{},categories:{},search:{},skillBuild:{},detailProfile:{},detailTabBuildProfile:{},slowContentDetailProfiles:[],derivedJsonIntegrity:{},derivedParameterSummaryUsage:{},derivedSkillOwnerUsage:{},quickStatusEffectGroupFilterCache:{},savedSkillLevelResolution:{}},detailLabelWidth:25,detailActiveTab:'parameter',mainTab:'search',formationInnerTab:'edit',formationResultTab:'tactic',formationTacticSummaryDialogOpen:false,fileSettingsCollapsed:false,searchDialogCollapsed:false,categoryProfileHistory:[],categoryProfileSeq:0,lastSearchProfile:null,_searchCacheStats:null,savedSearchCacheKey:'',savedSearchCacheSeq:0,ethnicGeneralIndex:{},warhorseSelectedId:'',derivedData:{statusEffectRelations:null,skillOwnerIndex:null,searchIndex:null,parameterSummaryIndex:null,resultCardIndex:null,tagIndex:null,statusEffectMetaIndex:null,statusEffectGroupOwnerIndex:null,relatedLinkIndex:null,equipmentSkillStageIndex:null,tacticAttackIndex:null,formationCandidateIndex:null,effectConditionBlocks:null},derivedDataStatus:{loaded:0,total:0,available:[],fallback:[]}};
+const state={rawCounts:{},generals:[],tactics:[],skills:[],equipments:[],statusEffects:[],statusEffectMetaByName:new Map(),statusEffectMetaList:[],siegeWeapons:[],ethnicArmaments:[],ethnicResearchSkills:[],formationMasters:[],fiveElements:[],warhorses:[],warhorseSkills:[],showRawJson:false,activeCategories:{generals:true,tactics:false,equipments:false,skills:false,statusEffects:false,siegeWeapons:false,ethnicArmaments:false,formations:false,warhorses:false,warhorseSkills:false},selectedItem:null,selectedLabel:'',viewMode:'all',saveData:{saves:[],currentSaveId:''},searchHistory:[],lastSearchDebug:null,lastResultRows:[],operationHistory:[],operationHistoryIndex:-1,isRestoringHistory:false,mobileSelectedSearchHistory:'',responsiveCompact:false,formations:[],currentFormationId:'',formationDirty:false,formationCalcVisibleMobile:false,formationDetailsOpen:{},formationLastSummaryUserAction:null,formationSkillFilter:'全て',formationSelectedSlot:'main',formationSelectorDialog:null,generalStage:'max',equipmentStage:'urMax',quickAddDestination:'',selectedTags:[],quickStatusEffectOwnerFilter:null,searchMode:'normal',searchModeContexts:{normal:null,status:null,type:null},typeSearchSelectedPresetId:'',typeSearchPresetDirty:false,typeSearchSelectedStatusEffectIds:[],typeSearchSelectedFeatureIds:[],typeSearchCategoriesBeforeEnter:null,typeSearchResultCache:new Map(),typeSearchCacheSeq:0,typeSearchCacheStats:{hit:0,miss:0,invalidations:0,store:0},typeSearchLastInvalidationReason:'',availableTags:[],availableTagsByKey:{},tagPickerVisible:false,nameOnlySearch:false,detailLinkCandidates:[],lookupIndexes:{generalSkillNames:new Map(),equipmentSkillNames:new Map(),generalTacticNames:new Map(),equipmentStatusEffectNames:new Map(),generalStatusEffectNames:new Map(),skillStatusEffectNames:new Map(),tacticStatusEffectNames:new Map()},savedModeIndex:{generalNames:new Set(),equipmentNames:new Set(),skillNames:new Set(),statusEffectNames:new Set()},diagnostics:{startup:{},categories:{},search:{},skillBuild:{},detailProfile:{},detailTabBuildProfile:{},slowContentDetailProfiles:[],derivedJsonIntegrity:{},derivedParameterSummaryUsage:{},derivedSkillOwnerUsage:{},quickStatusEffectGroupFilterCache:{},savedSkillLevelResolution:{}},detailLabelWidth:25,detailActiveTab:'parameter',mainTab:'search',formationInnerTab:'edit',formationResultTab:'tactic',formationTacticSummaryDialogOpen:false,fileSettingsCollapsed:false,searchDialogCollapsed:false,categoryProfileHistory:[],categoryProfileSeq:0,lastSearchProfile:null,_searchCacheStats:null,savedSearchCacheKey:'',savedSearchCacheSeq:0,ethnicGeneralIndex:{},warhorseSelectedId:'',derivedData:{statusEffectRelations:null,skillOwnerIndex:null,searchIndex:null,parameterSummaryIndex:null,resultCardIndex:null,tagIndex:null,statusEffectMetaIndex:null,statusEffectGroupOwnerIndex:null,relatedLinkIndex:null,equipmentSkillStageIndex:null,tacticAttackIndex:null,formationCandidateIndex:null,effectConditionBlocks:null},derivedDataStatus:{loaded:0,total:0,available:[],fallback:[]}};
 const els={fileSettingsPanel:document.getElementById('fileSettingsPanel'),fileSettingsToggleBtn:document.getElementById('fileSettingsToggleBtn'),fileSettingsModeSummary:document.getElementById('fileSettingsModeSummary'),saveSelectSummary:document.getElementById('saveSelectSummary'),searchPanel:document.getElementById('searchPanel'),searchDialogToggleBtn:document.getElementById('searchDialogToggleBtn'),searchDialogBody:document.getElementById('searchDialogBody'),mainTabSearchBtn:document.getElementById('mainTabSearchBtn'),mainTabFormationBtn:document.getElementById('mainTabFormationBtn'),mainTabWarhorseBtn:document.getElementById('mainTabWarhorseBtn'),formationScreen:document.getElementById('formationScreen'),formationRoot:document.getElementById('formationRoot'),warhorseScreen:document.getElementById('warhorseScreen'),warhorseRoot:document.getElementById('warhorseRoot'),rawJsonToggle:document.getElementById('rawJsonToggle'),categoryBar:document.getElementById('categoryBar'),searchInput:document.getElementById('searchInput'),nameOnlySearchToggle:document.getElementById('nameOnlySearchToggle'),clearKeywordBtn:document.getElementById('clearKeywordBtn'),tagSearchInput:document.getElementById('tagSearchInput'),tagSearchCandidates:document.getElementById('tagSearchCandidates'),tagPickerToggleBtn:document.getElementById('tagPickerToggleBtn'),addTagSearchBtn:document.getElementById('addTagSearchBtn'),clearTagSearchBtn:document.getElementById('clearTagSearchBtn'),selectedTagList:document.getElementById('selectedTagList'),tagPickerPanel:document.getElementById('tagPickerPanel'),resultMeta:document.getElementById('resultMeta'),mobileSearchHistorySelect:document.getElementById('mobileSearchHistorySelect'),mobileDeleteSearchHistoryBtn:document.getElementById('mobileDeleteSearchHistoryBtn'),resultSelect:document.getElementById('resultSelect'),mobileResultFavoriteBtn:document.getElementById('mobileResultFavoriteBtn'),opHistoryBackBtn:document.getElementById('opHistoryBackBtn'),opHistoryForwardBtn:document.getElementById('opHistoryForwardBtn'),resultNextBtn:document.getElementById('resultNextBtn'),resultPrevBtn:document.getElementById('resultPrevBtn'),copyResultsBtn:document.getElementById('copyResultsBtn'),copyParamResultsBtn:document.getElementById('copyParamResultsBtn'),copyAllParamResultsBtn:document.getElementById('copyAllParamResultsBtn'),copyDetailBtn:document.getElementById('copyDetailBtn'),countStatus:document.getElementById('countStatus'),results:document.getElementById('results'),detail:document.getElementById('detail'),debugPanel:document.getElementById('debugPanel'),debugPanelContent:document.getElementById('debugPanelContent'),topPickJsonDirBtn:document.getElementById('topPickJsonDirBtn'),topPickJsonFilesBtn:document.getElementById('topPickJsonFilesBtn'),topPickJsonFilesInput:document.getElementById('topPickJsonFilesInput'),viewModeAll:document.getElementById('viewModeAll'),viewModeSaved:document.getElementById('viewModeSaved'),generalStageInitial:document.getElementById('generalStageInitial'),generalStageMax:document.getElementById('generalStageMax'),equipmentStageInitial:document.getElementById('equipmentStageInitial'),equipmentStageSsrMax:document.getElementById('equipmentStageSsrMax'),equipmentStageUrMax:document.getElementById('equipmentStageUrMax'),saveSelect:document.getElementById('saveSelect'),newSaveBtn:document.getElementById('newSaveBtn'),renameSaveBtn:document.getElementById('renameSaveBtn'),copySaveBtn:document.getElementById('copySaveBtn'),deleteSaveBtn:document.getElementById('deleteSaveBtn'),exportSaveDataBtn:document.getElementById('exportSaveDataBtn'),importSaveDataBtn:document.getElementById('importSaveDataBtn'),importSaveDataInput:document.getElementById('importSaveDataInput'),saveManagerPanel:document.getElementById('saveManagerPanel'),saveManagerSummaryText:document.getElementById('saveManagerSummaryText'),saveManagerRefreshBtn:document.getElementById('saveManagerRefreshBtn'),saveManagerCurrentValue:document.getElementById('saveManagerCurrentValue'),saveManagerCurrentNote:document.getElementById('saveManagerCurrentNote'),saveManagerOwnedValue:document.getElementById('saveManagerOwnedValue'),saveManagerOwnedNote:document.getElementById('saveManagerOwnedNote'),saveManagerFormationValue:document.getElementById('saveManagerFormationValue'),saveManagerFormationNote:document.getElementById('saveManagerFormationNote'),saveManagerExportValue:document.getElementById('saveManagerExportValue'),saveManagerExportNote:document.getElementById('saveManagerExportNote'),saveManagerNewBtn:document.getElementById('saveManagerNewBtn'),saveManagerCopyBtn:document.getElementById('saveManagerCopyBtn'),saveManagerExportBtn:document.getElementById('saveManagerExportBtn'),saveManagerImportBtn:document.getElementById('saveManagerImportBtn'),selectAllCategoriesBtn:document.getElementById('selectAllCategoriesBtn'),clearAllCategoriesBtn:document.getElementById('clearAllCategoriesBtn'),searchHistory:document.getElementById('searchHistory'),loadOverlay:document.getElementById('loadOverlay'),loadTitle:document.getElementById('loadTitle'),loadProgressBar:document.getElementById('loadProgressBar'),loadPercent:document.getElementById('loadPercent'),loadCounts:document.getElementById('loadCounts'),loadDetail:document.getElementById('loadDetail'),debugPanel:document.getElementById('debugPanel'),debugPanelContent:document.getElementById('debugPanelContent'),runValidationBtn:document.getElementById('runValidationBtn'),copyDebugLogBtn:document.getElementById('copyDebugLogBtn')};
 const norm=s=>String(s||'').replace(/\s+/g,' ').trim();
 // FIX[HADO-2.7.0.3-ISHUKU-TYPO-NORMALIZE]: クローリングデータ由来の誤記「委縮」は内部判定上「萎縮」に正規化する。UI表示も萎縮へ統一する。
@@ -272,6 +272,7 @@ state._debugPanelItem=item||null;
 state._debugPanelExtraText=extraText||'';
 cancelDebugPanelRender();
 document.body.classList.toggle('debug-panel-visible',!!state.showRawJson);
+els.debugPanel.classList.toggle('hidden-panel',!state.showRawJson);
 if(typeof schedulePcSearchViewportLayout==='function')schedulePcSearchViewportLayout('debugPanel:visibility');
 if(!state.showRawJson){els.debugPanel.style.display='none';els.debugPanelContent.textContent='';setDebugCopyButtonEnabled(true);return;}
 els.debugPanel.style.display='';setDebugCopyButtonEnabled(false);
@@ -549,6 +550,14 @@ function setMainTab(tab){
   if(els.mainTabSearchBtn)els.mainTabSearchBtn.classList.toggle('is-active',search);
   if(els.mainTabFormationBtn)els.mainTabFormationBtn.classList.toggle('is-active',formation);
   if(els.mainTabWarhorseBtn)els.mainTabWarhorseBtn.classList.toggle('is-active',warhorse);
+  const mainTabList=document.querySelector('#mainTabPanel [role="tablist"]');
+  const activeMainTab=search?els.mainTabSearchBtn:(formation?els.mainTabFormationBtn:els.mainTabWarhorseBtn);
+  if(window.HADO_TABS?.sync)window.HADO_TABS.sync(mainTabList,activeMainTab);
+  [els.searchPanel,els.formationScreen,els.warhorseScreen].forEach(panel=>{
+    if(!panel)return;
+    const visible=(panel===els.searchPanel&&search)||(panel===els.formationScreen&&formation)||(panel===els.warhorseScreen&&warhorse);
+    panel.setAttribute('aria-hidden',visible?'false':'true');
+  });
   if(formation)renderFormationScreenForTabSwitch();
   if(warhorse)renderWarhorseFormationScreen();
   applyResponsiveLayout('setMainTab:'+state.mainTab);
@@ -813,6 +822,29 @@ function updateUxHomePanel(context=''){
   debugLog('uxHome:update',{context,total,saveCount,currentSaveName:current?.name||'',formationCount,historyCount,mainTab:state.mainTab});
 }
 
+const UPDATE10_2_QUICK_GUIDE_STEPS=Object.freeze([
+  Object.freeze({title:'1. 上部のデータバーを確認',text:'全データ/保存データ、保存名、武将状態、装備状態を確認します。設定変更やJSON再読込は、この表示欄から開く「データ管理」で行います。'}),
+  Object.freeze({title:'2. JSONと保存データを準備',text:'PCはJSONフォルダ、スマホはJSONファイルを読み込みます。ウェブ版は公開JSONを自動取得します。所持データを使う場合はImportまたは新規保存を準備します。'}),
+  Object.freeze({title:'3. 目的に合う検索モードを選ぶ',text:'通常検索は語句、状態変化検索は6分類からの逆引き、型検索は編成コンセプトから探します。3モードの条件と選択中詳細は個別に保持されます。'}),
+  Object.freeze({title:'4. 型編成ナビと候補ワークスペースを使う',text:'型編成ナビは「主将から」「目的から」「型を直接」の3通りです。編集モードで複数候補を選び、候補モードで役割別に確認します。'}),
+  Object.freeze({title:'5. 新規部隊作成または既存部隊へ配置',text:'型編成ナビ経由では「この型で新規部隊」、既存部隊の候補検討では「配置先を選ぶ」へ進みます。侍従に配置できる武将はUR以下です。'}),
+  Object.freeze({title:'6. 結果サマリーと根拠を確認',text:'部隊編成では兵力、被ダメージ、通常攻撃、戦法初動、戦法速度、戦法最大倍率の6項目を確認します。カードを押すと加算値の根拠を表示します。'})
+]);
+function syncUpdate10QuickGuideCopy(){
+  const host=document.querySelector('#uxQuickGuide .ux-guide-steps');
+  if(!host)return;
+  const rows=[...host.querySelectorAll('.ux-guide-step')];
+  UPDATE10_2_QUICK_GUIDE_STEPS.forEach((step,index)=>{
+    let row=rows[index];
+    if(!row){row=document.createElement('div');row.className='ux-guide-step';row.innerHTML='<div class="ux-guide-step-title"></div><div class="ux-guide-step-text"></div>';host.appendChild(row);}
+    const title=row.querySelector('.ux-guide-step-title');
+    const text=row.querySelector('.ux-guide-step-text');
+    if(title)title.textContent=step.title;
+    if(text)text.textContent=step.text;
+  });
+  rows.slice(UPDATE10_2_QUICK_GUIDE_STEPS.length).forEach(row=>row.remove());
+}
+
 
 // FEATURE[HADO-2.9.6.1-GUIDED-TOUR]: 現行UI対応のタブ別吹き出しガイド
 const GUIDED_TOUR_STORAGE_KEY='hado_library_guided_tour_intro_seen_v2_9_6_5';
@@ -835,35 +867,36 @@ function getGuidedTourElements(){
 function getGuidedTourDefinitions(){
   return {
     intro:[
-      {title:'覇道ライブラリへようこそ',target:'#appTitlePanel',body:'初回は、準備と基本操作だけを案内します。\n検索・部隊編成・軍馬編成の各タブでは、上部の「ガイド開始」から専用ガイドを確認できます。'},
+      {title:'覇道ライブラリへようこそ',target:'#appTitlePanel',tab:'search',searchMode:'normal',body:'初回は、準備と基本操作だけを案内します。\n検索・部隊編成・軍馬編成の各タブでは、上部の「ガイド開始」から専用ガイドを確認できます。'},
       {title:'現在のデータ状態を確認',target:'#dataContextSummary',body:'上部のデータバーで、全データ/保存データ、保存名、武将状態、装備状態を確認できます。\nこの欄を押すと、データ管理を開けます。'},
       (IS_WEB_DEPLOYMENT?{title:'公開JSONは自動で読み込まれます',target:'#dataContextSummary',body:'ウェブ版では、公開サイトに格納されたJSON一式を起動時に自動取得します。\nJSONフォルダやJSONファイルを手動で選択する必要はありません。'}:{title:'JSONデータを読み込みます',target:'#dataManagementSheet .data-file-pane',openDataSheet:true,body:'PCは「JSONフォルダ再読込」、スマホは「JSONファイル読込」を使います。\n最新クローラーで生成したJSON一式を読み込んでください。'}),
       {title:'保存データを準備します',target:'#dataSavedOptions',openDataSheet:true,dataMode:'saved',body:'保存データでは、お気に入り登録した武将・装備、部隊編成、軍馬を管理できます。\n既存データはImport、新規利用は「新規」から作成します。'},
       {title:'お気に入り登録',target:'#results,#resultSelect',closeDataSheet:true,body:'検索結果や内容詳細で武将・装備を★登録すると、現在選択中の保存データに反映されます。\n保存データ表示では、登録済みの武将・装備を前提に候補を絞り込みます。'},
-      {title:'3つのタブで操作します',target:'#mainTabPanel',body:'検索、部隊編成、軍馬編成の3つのタブがあります。\nタブを切り替えた後に「ガイド開始」を押すと、そのタブ専用の案内が始まります。'},
+      {title:'3つのタブと候補ワークスペース',target:'#mainTabPanel',body:'検索、部隊編成、軍馬編成の3つのタブがあります。選択中のタブは面・輪郭・太字・選択記号で確認できます。\n型を使う場合は、型検索/型編成ナビ → 候補ワークスペースの編集モード → 候補モード → 部隊編成の順に進めます。タブを切り替えた後に「ガイド開始」を押すと、そのタブ専用の案内が始まります。'},
       {title:'タブ別ガイドを使ってください',target:'#uxHomeOpenBtn',body:'初回ガイドはここまでです。\n検索機能は大幅に増えているため、最初に検索タブで「ガイド開始」を押してください。\n初回ガイドをもう一度見たい時は、上部の「？」から再表示できます。'}
     ],
     search:[
-      {title:'検索ガイドを開始します',target:'#searchPanel',tab:'search',expandSearchPanel:true,body:'検索には「通常検索」「状態変化検索」「型検索」があります。\n目的に合う検索モードを選び、カテゴリ・タグ・条件を組み合わせます。'},
-      {title:'検索モードを選択',target:'#searchModeBar',tab:'search',expandSearchPanel:true,body:'通常検索は自由検索、状態変化検索は状態変化からの逆引き、型検索は攻撃速度型・撃心型などの編成コンセプトから候補を探す機能です。'},
-      {title:'通常検索：キーワード',target:'#normalSearchInputRow',tab:'search',searchMode:'normal',expandSearchPanel:true,body:'通常検索では、名称や本文を部分一致で探します。\n「名称のみ」をONにすると名称限定になります。キーワード未入力でも、カテゴリをONにするとカテゴリ全件を表示します。'},
+      {title:'検索ガイドを開始します',target:'#searchPanel',tab:'search',expandSearchPanel:true,body:'検索には「通常検索」「状態変化検索」「型検索」があります。\n型を決める時は型検索/型編成ナビで目的型を選び、候補ワークスペースの編集モードで候補を整え、候補モードから新規部隊作成または配置へ進みます。'},
+      {title:'検索モードを選択',target:'#searchModeBar',tab:'search',expandSearchPanel:true,body:'通常検索は自由検索、状態変化検索は状態変化からの逆引き、型検索は攻撃速度型・撃心型などの編成コンセプトから候補を探す機能です。\nモードを切り替えても、それぞれの検索条件・一覧・選択中詳細は個別に保持されます。'},
+      {title:'通常検索：キーワード',target:'#normalSearchInputRow',tab:'search',searchMode:'normal',expandSearchPanel:true,body:'名称や検索対象本文を部分一致で探します。「名称のみ」をONにすると名称限定です。\nIME入力中は検索せず、変換確定後に検索します。「兵力+」のように末尾へ+/-を付ける検索は、その直後に数値がある効果だけを対象にします。'},
       {title:'通常検索・型検索：タグ',target:'#tagSearchWrap',tab:'search',searchMode:'normal',expandSearchPanel:true,body:'タグは属性の絞り込みに使います。\n同じタググループ内はOR、異なるタググループ間はANDです。例：兵科:騎兵 OR 兵科:弓兵 AND 性別:女。'},
       {title:'カテゴリを選択',target:'#categoryBar',tab:'search',searchMode:'normal',expandSearchPanel:true,body:'検索対象カテゴリを複数選択できます。\n型検索では、武将・装備・兵器・軍馬技能の4カテゴリに限定されます。'},
       {title:'状態変化検索',target:'#searchPresetBar',tab:'search',searchMode:'status',expandSearchPanel:true,body:'状態変化検索では、6分類から目的を選び、状態変化を1件選択します。\n自部隊能力強化、自部隊状態強化、自部隊不利対策、敵部隊能力低下、敵部隊状態弱化、敵部隊有利対策を逆引きできます。'},
-      {title:'型検索',target:'#typeSearchPanel',tab:'search',searchMode:'type',expandSearchPanel:true,body:'型検索では、攻撃速度型、通常攻撃拡張型、撃心型、ゾンビ型などのプリセットを選択できます。\n状態変化と型要素はOR条件で検索され、タグは属性絞り込みとしてANDで適用されます。条件は追加・削除できます。'},
-      {title:'検索結果とコピー',target:'.result-copy-actions',tab:'search',searchMode:'type',expandSearchPanel:true,body:'検索結果は自動更新されます。\n一覧コピー、検索パラコピー、全パラコピーを用途に応じて使います。型検索では一致理由と重要度を確認できます。'},
-      {title:'検索結果から詳細を確認',target:'#results,#resultSelect',tab:'search',body:'PCでは一覧、スマホではドロップダウンから結果を選択します。\n選択すると、右側または下部の内容詳細へ表示されます。'},
-      {title:'内容詳細と履歴操作',target:'#detail',tab:'search',body:'内容詳細では、関連リンク、状態変化率、パラメータ、コピー用テキストを確認できます。\n戻る/進む、検索結果の前後移動も利用できます。'}
+      {title:'型検索と型編成ナビ',target:'#typeSearchPanel',tab:'search',searchMode:'type',expandSearchPanel:true,body:'型検索では、攻撃速度型、通常攻撃拡張型、撃心型、ゾンビ型などのプリセットを選択できます。型編成ナビは「主将から考える」「目的から考える」「型を直接選ぶ」の3通りです。\n全データ表示は未所持を含む理論候補、保存データ表示は登録済み所持データ中心の候補です。'},
+      {title:'候補ワークスペース',target:'.result-copy-actions',tab:'search',searchMode:'normal',expandSearchPanel:true,body:'編集モードでは複数選択でき、カードを押すたびに候補へ即時追加・解除されます。編集中の型・役割・選択候補は閉じても復元されます。\n候補モードでは役割別に候補を確認し、型編成ナビ経由なら「この型で新規部隊」、既存部隊なら「配置先を選ぶ」へ進みます。侍従候補はUR以下です。'},
+      {title:'検索結果から詳細を確認',target:'#results,#resultSelect',tab:'search',body:'PCでは一覧、スマホではドロップダウンから結果を選択します。選択すると右側または下部の内容詳細へ表示されます。\n通常検索・状態変化検索・型検索は、選択中の詳細も別々に保持します。'},
+      {title:'内容詳細と履歴操作',target:'#detail',tab:'search',body:'内容詳細では、概要・変化率・基礎・戦法・技能・その他を切り替え、関連リンクやパラメータを確認できます。\n戻る/進む、検索結果の前後移動、詳細コピーも利用できます。'}
     ],
     formation:[
       {title:'部隊編成ガイドを開始します',target:'#formationScreen',body:'部隊編成では、武将・装備・侍従・参軍・兵器・武装・軍馬を配置し、合算結果を確認します。まずは画面全体の構成を確認します。',tab:'formation'},
-      {title:'部隊の選択と基本設定',target:'.formation-list-panel,#formationMobileSelect',body:'編成対象の部隊を選び、部隊名・陣形・攻城/防衛などの基本条件を確認します。スマホでは部隊選択ドロップダウンを使います。',tab:'formation'},
-      {title:'部隊編成内のタブ',target:'.formation-work-tabs',body:'部隊編成内には、配置を行う「編成」、戦法攻撃を確認する「戦法」、状態変化率を見る「変化率」、合算技能などを見る「詳細」があります。',tab:'formation'},
+      {title:'部隊グループと基本設定',target:'.formation-list-fixed-head,#formationMobileSelect',body:'部隊のグループは、攻城・防衛・イベントなど用途別に部隊を整理する単位です。グループ選択欄で表示対象を切り替え、「変更」ボタンでグループの追加・名前変更・削除を行います。部隊を選んだら部隊名・陣形・攻城/防衛などの基本条件を確認します。スマホでは部隊選択ドロップダウンを使います。',tab:'formation'},
+      {title:'部隊編成内のタブ',target:'.formation-work-tabs',body:'部隊編成内には、配置と6項目の結果サマリーを見る「編成」、攻撃順と倍率を見る「戦法」、加算値を確認する「変化率」、合算技能などを見る「詳細」があります。',tab:'formation'},
       {title:'配置パネルで枠を選択',target:'.formation-board-card,.formation-team-grid-selectable',body:'主将・副将・補佐・侍従などの枠を選択します。枠を選ぶと、右側またはダイアログで配置する武将を選べます。',tab:'formation',formationInnerTab:'edit'},
-      {title:'武将編集画面で装備や条件を設定',target:'.formation-selected-editor-main,.formation-selected-card:not(.formation-warhorse-assignment-card)',body:'選択した武将には、武器・防具・文物、技能条件、侍従などを設定します。保存データ表示では、お気に入り登録済みの所持データを前提に選びます。',tab:'formation',formationInnerTab:'edit'},
+      {title:'武将・装備枠を確認',target:'.formation-board-card,.formation-team-grid-selectable',body:'配置パネルで選択中の武将・装備枠を確認します。保存データ表示では、お気に入り登録済みの所持データを前提に選びます。',tab:'formation',formationInnerTab:'edit'},
       {title:'兵器・武装・異民族武将',target:'.formation-extension-panel,.formation-extension-grid',body:'兵器・武装・異民族武将は、部隊条件に応じて追加効果やパラメータに反映されます。攻城や駐屯向けの確認で重要です。',tab:'formation',formationInnerTab:'edit'},
       {title:'参軍と軍馬',target:'.formation-advisor-row,.formation-warhorse-editor-card',body:'参軍と軍馬も部隊結果に反映されます。PCでは武将編集画面の下、スマホでは配置パネルの参軍の下に軍馬が表示されます。',tab:'formation',formationInnerTab:'edit'},
-      {title:'変化率タブで状態変化率を確認',target:'.formation-result-focus[data-formation-work-panel="parameter"],.formation-param-section',body:'変化率タブでは、状態変化率サマリーを確認します。必要に応じて計算根拠を展開できます。',tab:'formation',formationInnerTab:'parameter'}
+      {title:'結果サマリーの6項目を確認',target:'.formation-quick-summary-strip',body:'編成タブの結果サマリーでは、兵力、被ダメージ、通常攻撃、戦法初動、戦法速度、戦法最大倍率を表示します。最終能力値ではなく、現在編成から確認できる加算値です。カードを押すと根拠を拡大表示します。',tab:'formation',formationInnerTab:'edit'},
+      {title:'変化率タブで計算根拠を確認',target:'.formation-result-focus[data-formation-work-panel="parameter"],.formation-param-section',body:'変化率タブでは、戦法発動時・出陣時・通常時・駐屯防衛時に分けて加算値を確認します。必要に応じて各項目の計算根拠を展開できます。',tab:'formation',formationInnerTab:'parameter'}
     ],
     warhorse:[
       {title:'軍馬編成ガイドを開始します',target:'#warhorseScreen',body:'軍馬編成では、通常馬・名馬の登録、技能レベル、名馬の将星を管理します。部隊への割当は、部隊編成画面の軍馬枠で行います。',tab:'warhorse'},
@@ -884,7 +917,10 @@ function getCurrentGuidedTourKey(){
 function getGuidedTourStepTarget(step){
   const selectors=String(step?.target||'').split(',').map(v=>v.trim()).filter(Boolean);
   for(const sel of selectors){
-    try{const el=document.querySelector(sel);if(el&&el.getClientRects&&el.getClientRects().length)return el;}catch{}
+    try{
+      const visible=[...document.querySelectorAll(sel)].find(el=>el&&el.getClientRects&&el.getClientRects().length);
+      if(visible)return visible;
+    }catch{}
   }
   for(const sel of selectors){
     try{const el=document.querySelector(sel);if(el)return el;}catch{}
@@ -1162,6 +1198,7 @@ function maybeStartInitialGuidedTour(context=''){
 }
 
 function setupUxHomePanel(){
+  syncUpdate10QuickGuideCopy();
   const panel=document.getElementById('uxHomePanel');
   if(panel){
     panel.classList.add('is-dismissed');
@@ -1268,7 +1305,8 @@ function syncDataManagementSheet(context=''){
 }
 function openDataManagementSheet(){updateDataContextBar('open-sheet');setSheetHidden('dataManagementSheet',false);}
 function closeDataManagementSheet(){setSheetHidden('dataManagementSheet',true);updateDataContextBar('close-sheet');}
-function updateDiagnosticAppVersion(){const el=document.getElementById('diagnosticAppVersion');if(el)el.textContent=`覇道ライブラリ｜v${HADO_BUILD_INFO.version}`;}
+function currentVisibleAppVersion(){return String(window.HADO_APP_DISPLAY_VERSION||window.HADO_APP_VERSION_META?.visibleVersion||window.HADO_APP_VERSION_META?.displayVersion||HADO_BUILD_INFO.version||'').trim();}
+function updateDiagnosticAppVersion(){const el=document.getElementById('diagnosticAppVersion');if(el)el.textContent=`覇道ライブラリ｜${currentVisibleAppVersion()}`;}
 function openDiagnosticSheet(){updateDiagnosticAppVersion();setSheetHidden('diagnosticSheet',false);}
 function closeDiagnosticSheet(){setSheetHidden('diagnosticSheet',true);}
 function setupDataContextControls(){
@@ -1284,8 +1322,8 @@ function setupDataContextControls(){
   click('diagnosticCloseTopBtn',closeDiagnosticSheet);
   click('diagnosticCloseBtn',closeDiagnosticSheet);
   document.querySelectorAll('[data-diagnostic-close]').forEach(el=>el.addEventListener('click',closeDiagnosticSheet));
-  click('dataModeAllBtn',()=>{setViewMode('all');syncDataManagementSheet('mode-all');updateDataContextBar('mode-all');});
-  click('dataModeSavedBtn',()=>{setViewMode('saved');syncDataManagementSheet('mode-saved');updateDataContextBar('mode-saved');});
+  click('dataModeAllBtn',async()=>{await setViewModeWithUiBusy('all','data-sheet');syncDataManagementSheet('mode-all');updateDataContextBar('mode-all');});
+  click('dataModeSavedBtn',async()=>{await setViewModeWithUiBusy('saved','data-sheet');syncDataManagementSheet('mode-saved');updateDataContextBar('mode-saved');});
   document.querySelectorAll('[data-general-stage]').forEach(btn=>btn.addEventListener('click',()=>setGeneralStage(btn.getAttribute('data-general-stage'))));
   document.querySelectorAll('[data-equipment-stage]').forEach(btn=>btn.addEventListener('click',()=>setEquipmentStage(btn.getAttribute('data-equipment-stage'))));
   const saveSel=document.getElementById('dataSheetSaveSelect');
@@ -1343,13 +1381,16 @@ function updateMobileStickyHeaderOffsets(mobile,context='') {
     const tabHeight=Math.ceil(tabs.getBoundingClientRect().height||0);
     const gap=0;
     const stackGap=10;
-    const tabTop=headerHeight+gap;
-    const stackSpace=headerHeight+gap+tabHeight+stackGap;
+    const minStackSpace=118;
+    const rawTabTop=headerHeight+gap;
+    const rawStackSpace=headerHeight+gap+tabHeight+stackGap;
+    const tabTop=Math.max(rawTabTop, headerHeight>0?rawTabTop:58);
+    const stackSpace=Math.max(rawStackSpace,minStackSpace);
     root.style.setProperty('--mobile-main-tab-sticky-top', `${tabTop}px`);
     root.style.setProperty('--mobile-main-tab-fixed-top', `${tabTop}px`);
     root.style.setProperty('--mobile-fixed-stack-space', `${stackSpace}px`);
     tabs.setAttribute('data-mobile-sticky-tabs','1');
-    debugLog('mobileStickyHeader:offset',{context,headerHeight,tabHeight,gap,tabTop,stackSpace,mode:'fixed',mobile});
+    debugLog('mobileStickyHeader:offset',{context,headerHeight,tabHeight,gap,rawTabTop,rawStackSpace,tabTop,stackSpace,minStackSpace,mode:'fixed',mobile});
   }else{
     root.style.removeProperty('--mobile-main-tab-sticky-top');
     root.style.removeProperty('--mobile-main-tab-fixed-top');
@@ -1863,7 +1904,7 @@ function syncCurrentSaveSelection(){if(els.saveSelect&&!els.saveSelect.disabled&
 function sanitizeSearchHistoryList(list){return uniq(Array.isArray(list)?list.map(v=>norm(v)).filter(Boolean):[]);}
 function readTextFileCompat(file){return new Promise((resolve,reject)=>{try{const reader=new FileReader();reader.onload=()=>resolve(String(reader.result||''));reader.onerror=()=>reject(reader.error||new Error('ファイル読込に失敗しました'));reader.readAsText(file,'UTF-8');}catch(err){if(file&&typeof file.text==='function'){file.text().then(resolve,reject);}else{reject(err);}}});}
 function forceRefreshSearchHistoryAfterImport(context=''){persistSearchHistory();renderSearchHistory();setTimeout(()=>{renderSearchHistory();debugLog('importSaveData:force-refresh',{context,searchHistoryCount:(state.searchHistory||[]).length,first:(state.searchHistory||[])[0]||'',mobileOptionCount:els.mobileSearchHistorySelect?els.mobileSearchHistorySelect.options.length:0,mobileFirstOption:els.mobileSearchHistorySelect&&els.mobileSearchHistorySelect.options[1]?els.mobileSearchHistorySelect.options[1].textContent:''});debugResponsiveSnapshot('importSaveData:force-refresh');},0);}
-function buildFormationDataExportObject(){return sanitizeFormationData({formations:state.formations,currentFormationId:state.currentFormationId});}
+function buildFormationDataExportObject(){return sanitizeFormationData({groups:state.formationGroups,currentFormationGroupId:state.currentFormationGroupId,formations:state.formations,currentFormationId:state.currentFormationId});}
 function readImportedFormationData(parsed){const hasFormationData=!!(parsed&&parsed.formationData)||Array.isArray(parsed?.formations);const source=parsed?.formationData||{formations:parsed?.formations,currentFormationId:parsed?.currentFormationId};return {hasFormationData,data:sanitizeFormationData(source)};}
 function buildSaveDataExportObject(){syncCurrentSaveSelection();const current=getCurrentSave();const formationData=buildFormationDataExportObject();const payload={saves:current?[sanitizeSaveRecord(JSON.parse(JSON.stringify(current)))]:[],currentSaveId:current?.id||'',searchHistory:sanitizeSearchHistoryList(state.searchHistory),formationData,exportedAt:new Date().toISOString(),exportVersion:`hado_library_${HADO_BUILD_INFO.version}`,exportScope:'currentSave',importPolicy:'singleSaveAddOrOverwrite'};debugLog('exportSaveData:build',{saveCount:payload.saves.length,currentSaveId:payload.currentSaveId,formationCount:formationData.formations.length,currentFormationId:formationData.currentFormationId,searchHistoryCount:payload.searchHistory.length});return payload;}
 function exportSaveDataToFile(){try{const payload=buildSaveDataExportObject();const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`hado_library_save_data_${new Date().toISOString().slice(0,19).replace(/[T:]/g,'-')}.json`;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);}catch(err){window.alert(`Exportに失敗しました: ${err?.message||err}`);}}
@@ -1891,7 +1932,7 @@ function mergeImportedFormationDataIntoCurrent(importedFormation, sourceName='')
   const existing=Array.isArray(state.formations)?state.formations:[];
   const byId=new Map(existing.map(f=>[f.id,f]));
   let added=0;let overwritten=0;
-  incoming.forEach(f=>{if(!f||!f.id)return;if(byId.has(f.id))overwritten++;else added++;byId.set(f.id,sanitizeFormationData({formations:[f],currentFormationId:f.id}).formations[0]||f);});
+  incoming.forEach(f=>{if(!f||!f.id)return;if(byId.has(f.id))overwritten++;else added++;byId.set(f.id,sanitizeFormationData({groups:state.formationGroups,currentFormationGroupId:state.currentFormationGroupId,formations:[f],currentFormationId:f.id}).formations[0]||f);});
   state.formations=[...byId.values()];
   const importedCurrent=norm(importedFormation.data?.currentFormationId||'');
   if(importedCurrent&&state.formations.some(f=>f.id===importedCurrent))state.currentFormationId=importedCurrent;
@@ -1978,7 +2019,10 @@ function createSaveRecordWithName(name){const save=sanitizeSaveRecord({id:create
 function requestTextInput(title,defaultValue=''){return new Promise(resolve=>{if(isSaveInputModalOpen()){debugLog('modal:blocked-duplicate',{type:'text-input',title});resolve(null);return;}const overlay=document.createElement('div');overlay.className='save-input-overlay is-visible';overlay.innerHTML=`<div class="save-input-card" role="dialog" aria-modal="true"><div class="save-input-title">${esc(title)}</div><input type="text" class="save-input-field" value="${esc(defaultValue)}" /><div class="save-input-actions"><button type="button" data-action="cancel">キャンセル</button><button type="button" data-action="ok" class="toggle-active">OK</button></div></div>`;registerSaveInputModalOverlay(overlay);document.body.appendChild(overlay);const input=overlay.querySelector('input');let closed=false;const close=value=>{if(closed)return;closed=true;overlay.remove();resolve(value);};overlay.querySelector('[data-action="cancel"]').addEventListener('click',()=>close(null));overlay.querySelector('[data-action="ok"]').addEventListener('click',()=>close(input.value));overlay.addEventListener('click',e=>{if(e.target===overlay)close(null);});input.addEventListener('keydown',e=>{if(e.key==='Enter')close(input.value);if(e.key==='Escape')close(null);});setTimeout(()=>{input.focus();input.select();},0);});}
 function requestConfirmDialog(message){return new Promise(resolve=>{if(isSaveInputModalOpen()){debugLog('modal:blocked-duplicate',{type:'confirm',message});resolve(false);return;}const overlay=document.createElement('div');overlay.className='save-input-overlay is-visible';overlay.innerHTML=`<div class="save-input-card" role="dialog" aria-modal="true"><div class="save-input-title">確認</div><div class="note">${esc(message)}</div><div class="save-input-actions"><button type="button" data-action="cancel">キャンセル</button><button type="button" data-action="ok" class="toggle-active">OK</button></div></div>`;registerSaveInputModalOverlay(overlay);document.body.appendChild(overlay);let closed=false;const close=value=>{if(closed)return;closed=true;overlay.remove();resolve(value);};overlay.querySelector('[data-action="cancel"]').addEventListener('click',()=>close(false));overlay.querySelector('[data-action="ok"]').addEventListener('click',()=>close(true));overlay.addEventListener('click',e=>{if(e.target===overlay)close(false);});document.addEventListener('keydown',function onKey(e){if(e.key==='Escape'){document.removeEventListener('keydown',onKey);close(false);}});});}
 function renderSaveControls(){ensureCurrentSave();const current=getCurrentSave();els.saveSelect.innerHTML='';if(!state.saveData.saves.length){const opt=document.createElement('option');opt.value='';opt.textContent='セーブ未作成';els.saveSelect.appendChild(opt);els.saveSelect.disabled=true;els.renameSaveBtn.disabled=true;els.copySaveBtn.disabled=true;els.deleteSaveBtn.disabled=true;}else{state.saveData.saves.forEach(save=>{const opt=document.createElement('option');opt.value=save.id;opt.textContent=save.name;if(save.id===state.saveData.currentSaveId)opt.selected=true;els.saveSelect.appendChild(opt);});els.saveSelect.disabled=false;els.renameSaveBtn.disabled=!current;els.copySaveBtn.disabled=!current;els.deleteSaveBtn.disabled=!current;}if(els.viewModeAll)els.viewModeAll.checked=state.viewMode==='all';if(els.viewModeSaved)els.viewModeSaved.checked=state.viewMode==='saved';syncFileSettingsSummary();if(typeof updateUxHomePanel==='function')updateUxHomePanel('renderSaveControls');if(typeof updateSaveManagerPanel==='function')updateSaveManagerPanel('renderSaveControls');if(typeof updateDataContextBar==='function')updateDataContextBar('renderSaveControls');}
-function setViewMode(mode,options={}){const previous=state.viewMode;state.viewMode=mode==='saved'?'saved':'all';rebuildSavedModeIndex();renderSaveControls();if(!options.skipRender){renderSearchResults();renderDetail();if(state.mainTab==='formation')renderFormationScreen();else markFormationScreenStale('setViewMode');}if(typeof updateDataContextBar==='function')updateDataContextBar('setViewMode');if(!options.skipHistory&&previous!==state.viewMode&&typeof pushOperationHistory==='function')pushOperationHistory('view-mode-'+state.viewMode);debugLog('viewMode:set',{previous,next:state.viewMode,skipRender:!!options.skipRender,skipHistory:!!options.skipHistory});}
+let viewModeFormationRenderToken=0;
+function scheduleViewModeFormationRender(){const token=++viewModeFormationRenderToken;markFormationScreenStale('setViewMode');const run=()=>{if(token!==viewModeFormationRenderToken||state.mainTab!=='formation')return;renderFormationScreen();};if(typeof requestAnimationFrame==='function')requestAnimationFrame(run);else setTimeout(run,0);}
+function setViewMode(mode,options={}){const started=performance.now(),previous=state.viewMode,next=mode==='saved'?'saved':'all';state.viewMode=next;renderSaveControls();if(!options.skipRender&&previous!==next){renderSearchResults();renderDetail();scheduleViewModeFormationRender();}if(!options.skipHistory&&previous!==next&&typeof pushOperationHistory==='function')pushOperationHistory('view-mode-'+next);const durationMs=Number((performance.now()-started).toFixed(1));state.diagnostics.viewModePerformance={timestamp:new Date().toISOString(),previous,next,durationMs,deferredFormation:state.mainTab==='formation',savedIndexReused:true};debugLog('viewMode:set',{previous,next,skipRender:!!options.skipRender,skipHistory:!!options.skipHistory,durationMs,deferredFormation:state.mainTab==='formation',savedIndexReused:true});}
+async function setViewModeWithUiBusy(mode,context='ui'){const next=mode==='saved'?'saved':'all';if(state.viewMode===next){debugLog('viewMode:busy-skip',{next,context,reason:'already-selected'});return;}const label=next==='saved'?'保存データ':'全データ';await runWithUiBusy(`${label}へ切り替えています…`,'検索結果・詳細・部隊編成を更新しています。',async()=>{setViewMode(next);debugLog('viewMode:busy-complete',{next,context});});}
 async function createNewSave(){const name=norm(await requestTextInput('セーブ名を入力してください','新規'));if(!name)return;createSaveRecordWithName(name);}
 async function renameCurrentSave(){const current=getCurrentSave();if(!current)return;const name=norm(await requestTextInput('新しいセーブ名を入力してください',current.name));if(!name)return;current.name=name;persistSaveData();rebuildSavedModeIndex();renderSaveControls();}
 async function copyCurrentSave(){const current=getCurrentSave();if(!current)return;const name=norm(await requestTextInput('コピー後のセーブ名を入力してください',`${current.name}_copy`));if(!name)return;const save=sanitizeSaveRecord({id:createSaveId(),name,generals:current.generals,equipments:current.equipments,generalSettings:JSON.parse(JSON.stringify(current.generalSettings||{})),generalStars:JSON.parse(JSON.stringify(current.generalStars||{})),equipmentStars:JSON.parse(JSON.stringify(current.equipmentStars||{})),equipmentStages:JSON.parse(JSON.stringify(current.equipmentStages||{})),ethnicResearchSkills:JSON.parse(JSON.stringify(current.ethnicResearchSkills||{})),inheritedSkills:JSON.parse(JSON.stringify(current.inheritedSkills||{})),warhorses:JSON.parse(JSON.stringify(current.warhorses||{}))});state.saveData.saves.push(save);state.saveData.currentSaveId=save.id;persistSaveData();rebuildSavedModeIndex();renderSaveControls();renderSearchResults();renderDetail();if(state.mainTab==='warhorse')renderWarhorseFormationScreen();if(state.mainTab==='formation')renderFormationScreen();debugLog('saveData:copy-with-warhorses',{from:current.id,to:save.id,warhorseCount:Object.keys(save.warhorses?.owned||{}).length,activeSlots:save.warhorses?.activeSlots||[]});}
@@ -2757,8 +2801,10 @@ function addGrantedSkillsToSavedIndex(skillName,level,skillNames,statusEffectNam
 function rebuildSavedModeIndex(){
 const current=getCurrentSave();
 pruneInvalidInheritedSkillsForCurrentSave('rebuildSavedModeIndex');
-const generalNames=new Set((current?.generals||[]).map(v=>normalizeSaveItemName(v)).filter(Boolean));
-const equipmentNames=new Set((current?.equipments||[]).map(v=>normalizeSaveItemName(v)).filter(Boolean));
+const generalOwnershipSources=[...(current?.generals||[])];
+const equipmentOwnershipSources=[...(current?.equipments||[])];
+const generalNames=new Set(generalOwnershipSources.map(v=>normalizeSaveItemName(v)).filter(Boolean));
+const equipmentNames=new Set(equipmentOwnershipSources.map(v=>normalizeSaveItemName(v)).filter(Boolean));
 const skillNames=new Set();
 const statusEffectNames=new Set();
 const lookup=state.lookupIndexes||{};
@@ -2789,7 +2835,7 @@ if(legacySkillFieldCount)debugLog('saveData:legacy-general-skills-ignored-in-ind
 const nextSavedSearchCacheKey=buildSavedSearchCacheKey(current);
 if(state.savedSearchCacheKey!==nextSavedSearchCacheKey){state.savedSearchCacheKey=nextSavedSearchCacheKey;state.savedSearchCacheSeq=(state.savedSearchCacheSeq||0)+1;debugLog('savedSearchCache:key-update',{seq:state.savedSearchCacheSeq,currentSave:current?.name||'',generals:generalNames.size,equipments:equipmentNames.size});}
 if(grantedSkillDiagnostics.length)debugLog('savedModeIndex:granted-skills-added',{count:grantedSkillDiagnostics.length,sample:grantedSkillDiagnostics.slice(0,20)});
-debugLog('rebuildSavedModeIndex',{generals:generalNames.size,equipments:equipmentNames.size,skills:skillNames.size,statusEffects:statusEffectNames.size,currentSave:current?.name||'',savedSearchCacheSeq:state.savedSearchCacheSeq,policy:'general skills resolved from saved generalStars and granted reference skills',sample:savedSkillDiagnostics.slice(0,8),grantedSkillCount:grantedSkillDiagnostics.length,grantedSkillSample:grantedSkillDiagnostics.slice(0,8)});
+debugLog('rebuildSavedModeIndex',{generals:generalNames.size,equipments:equipmentNames.size,skills:skillNames.size,statusEffects:statusEffectNames.size,currentSave:current?.name||'',savedSearchCacheSeq:state.savedSearchCacheSeq,ownershipSources:{generals:(current?.generals||[]).length,generalStars:Object.keys(current?.generalStars||{}).length,generalSettings:Object.keys(current?.generalSettings||{}).length,inheritedSkills:Object.keys(current?.inheritedSkills||{}).length,equipments:(current?.equipments||[]).length,equipmentStars:Object.keys(current?.equipmentStars||{}).length,equipmentStages:Object.keys(current?.equipmentStages||{}).length},policy:'saved ownership is favorites only; general skills are resolved from saved generalStars for owned generals',sample:savedSkillDiagnostics.slice(0,8),grantedSkillCount:grantedSkillDiagnostics.length,grantedSkillSample:grantedSkillDiagnostics.slice(0,8)});
 state.savedModeIndex={generalNames,equipmentNames,skillNames,statusEffectNames};
 invalidateTypeSearchResultCache('saved-mode-index-rebuild');
 }
@@ -3121,7 +3167,7 @@ function normalizeTacticAttackNoAttackLabel(summary){return summary&&summary.has
 function normalizeTacticAttackModifierLabel(evaluated,summary){const mods=evaluated?.modifierEvaluations||[];if(mods.length)return mods.map(m=>`${m.text||m.formula||m.reason}${m.reason?'（'+m.reason+'）':''}`).join(' / ');if(summary?.hasAttack)return '攻撃率補正なし';return '攻撃率補正対象外';}
 function buildFormationTacticAttackCopyText(){const f=ensureCurrentFormation();const data=buildFormationParameterData(f);const rows=collectFormationTacticAttackRows(f,data);const totals=calculateFormationTacticAttackTotals(rows);const expected=calculateFormationTacticExpectedValue(rows);const lines=['部隊編成 戦法攻撃サマリー',`部隊：${f?.name||f?.formationName||'未命名部隊'}`,''];lines.push('■ 三連鎖時サマリー');lines.push(`基礎合計：${totals.baseFormula} = ${totals.baseTotal}%`);if(totals.hasModifier){lines.push(`補正込み：${totals.adjustedFormula}${totals.hasEvaluatedModifier?' = '+totals.adjustedTotal+'%':'（補正未評価あり）'}`);}else{lines.push(`補正込み：基礎合計と同じ（${totals.baseTotal}%）`);}lines.push('');lines.push('■ 連鎖期待値');lines.push(`基礎期待値：${expected.baseFormula} = ${formatTacticExpectedNumber(expected.baseExpected)}%`);if(expected.hasModifier){lines.push(`補正込み期待値：${expected.adjustedFormula}${expected.hasUnevaluatedModifier?'（補正未評価あり）':' = '+formatTacticExpectedNumber(expected.adjustedExpected)+'%'}`);}else{lines.push(`補正込み期待値：基礎期待値と同じ（${formatTacticExpectedNumber(expected.baseExpected)}%）`);}lines.push('');lines.push('■ 主将・副将戦法');rows.forEach(r=>{lines.push(`${r.slotLabel}：${r.generalDisplay||r.generalName||'未設定'}`);if(!r.generalName){lines.push('  未設定');return;}const s=r.summary||{};lines.push(`  戦法：${s.tacticName||'-'}`);lines.push(`  攻撃：${normalizeTacticAttackNoAttackLabel(s)}`);lines.push(`  補正：${normalizeTacticAttackModifierLabel(r.evaluated,s)}`);if(s.hasAttack)lines.push(`  計算式：${r.evaluated?.adjustedFormula||s.formula||r.evaluated?.baseFormula||'-'}`);else lines.push('  計算式：直接攻撃なし');});lines.push('');lines.push('※2.8.9.1時点：副将の期待値は、相性・発動間隔・侍従配置・将星・技能補正を反映した推定連鎖率で算出。');return '```text\n'+lines.join('\n')+'\n```';}
 async function copyFormationTacticAttackSummary(){try{const text=buildFormationTacticAttackCopyText();await navigator.clipboard.writeText(text);debugLog('copy:formation-tactic-attack',{ok:true,charCount:text.length});const btn=document.querySelector('[data-copy-formation-tactic-attack]');if(btn){const prev=btn.textContent;btn.textContent='コピー済み';setTimeout(()=>{btn.textContent=prev;},1200);}}catch(err){debugLog('copy:formation-tactic-attack',{ok:false,error:String(err?.message||err)});window.alert('コピーに失敗しました: '+(err?.message||err));}}
-function buildTacticAttackDiagnosticSnapshot(){const items=[...(state.generals||[]),...(state.tactics||[])];const seen=new Set();const rows=[];items.forEach(item=>{const key=detailCategory(item)+'@@'+getItemDisplayName(item);if(seen.has(key))return;seen.add(key);const meta=getTacticAttackCompareMeta(item);if(!meta.hasTacticContext)return;const s=meta.summary||{};rows.push({category:detailCategory(item),name:getItemDisplayName(item),tacticName:s.tacticName||'',hasAttack:!!s.hasAttack,basePowerMax:meta.basePowerMax,targetCountMax:meta.targetCountMax,modifierCount:(s.modifiers||[]).length,directAttackNone:!!meta.directAttackNone,unresolvedModifier:(s.modifiers||[]).some(m=>/未評価|将星|対象|場合/.test(m.text||m.conditionText||''))});});const summary={timestamp:debugTimestamp(),version:HADO_BUILD_INFO.version,total:rows.length,hasAttack:rows.filter(r=>r.hasAttack).length,directAttackNone:rows.filter(r=>r.directAttackNone).length,withModifier:rows.filter(r=>r.modifierCount>0).length,unresolvedModifier:rows.filter(r=>r.unresolvedModifier).length,samples:rows.filter(r=>r.hasAttack||r.directAttackNone).slice(0,20)};state.diagnostics.tacticAttackSummary=summary;return summary;}
+function buildTacticAttackDiagnosticSnapshot(){const items=[...(state.generals||[]),...(state.tactics||[])];const seen=new Set();const rows=[];items.forEach(item=>{const key=detailCategory(item)+'@@'+getItemDisplayName(item);if(seen.has(key))return;seen.add(key);const meta=getTacticAttackCompareMeta(item);if(!meta.hasTacticContext)return;const s=meta.summary||{};rows.push({category:detailCategory(item),name:getItemDisplayName(item),tacticName:s.tacticName||'',hasAttack:!!s.hasAttack,basePowerMax:meta.basePowerMax,targetCountMax:meta.targetCountMax,modifierCount:(s.modifiers||[]).length,directAttackNone:!!meta.directAttackNone,unresolvedModifier:(s.modifiers||[]).some(m=>/未評価|将星|対象|場合/.test(m.text||m.conditionText||''))});});const summary={timestamp:debugTimestamp(),version:HADO_BUILD_INFO.version,total:rows.length,hasAttack:rows.filter(r=>r.hasAttack).length,directAttackNone:rows.filter(r=>r.directAttackNone).length,withModifier:rows.filter(r=>r.modifierCount>0).length,unresolvedModifier:rows.filter(r=>r.unresolvedModifier).length,samples:rows.filter(r=>r.hasAttack||r.directAttackNone).slice(0,20)};state.diagnostics.tacticAttackSummary=summary;return summary;}function deferTacticAttackDiagnosticSnapshot(reason='formation-render'){if(state._tacticAttackDiagnosticScheduled)return;state._tacticAttackDiagnosticScheduled=true;const run=()=>{state._tacticAttackDiagnosticScheduled=false;try{const summary=buildTacticAttackDiagnosticSnapshot();debugLog('tacticAttack:diagnostic',{...summary,async:true,reason});}catch(err){debugLog('tacticAttack:diagnostic-error',{async:true,reason,message:err?.message||String(err)});}};if(typeof requestIdleCallback==='function')requestIdleCallback(run,{timeout:1200});else setTimeout(run,0);}
 function renderTacticAttackSummaryBlock(item){const s=extractTacticAttackSummary(item);if(!s.hasAttack&&!s.modifiers.length)return '';const baseRows=(s.baseEntries||[]).map(e=>`<li>${esc(formatTacticAttackEntryLabel(e))}</li>`).join('')||'<li class="tactic-attack-empty">基礎攻撃率なし</li>';const modRows=(s.modifiers||[]).map(m=>`<li>${esc(m.text)}${m.formula?`<div class="meta">式：${esc(m.formula)}</div>`:''}</li>`).join('')||'<li class="tactic-attack-empty">攻撃率補正なし</li>';const formula=s.formula?`<div class="tactic-attack-formula">${esc(s.formula)}</div>`:'<div class="tactic-attack-empty">計算式なし</div>';return `<details class="search-param-details tactic-attack-summary-details"><summary><span>戦法攻撃サマリー</span>${s.label?`<span class="note">${esc(s.label)}</span>`:''}</summary><div class="general-card tactic-attack-summary-card"><div class="general-card-body"><div class="tactic-attack-summary"><div class="tactic-attack-label">${esc(s.label||'戦法攻撃サマリー')}</div><div><strong>基礎攻撃率</strong><ul class="tactic-attack-list">${baseRows}</ul></div><div><strong>攻撃率補正</strong><ul class="tactic-attack-list">${modRows}</ul></div><div><strong>計算式</strong>${formula}</div></div></div></div></details>`;}
 function getFormationSkillTotalLevelFromData(data,skillName){const target=norm(skillName);if(!target)return 0;const row=(data?.skills||[]).find(s=>norm(s?.name||'')===target);const n=Number(row?.total??row?.max??row?.min??0);return Number.isFinite(n)?n:0;}
 function tacticAttackModifierAppliesByRole(modifier,row){const slotKey=row?.slotKey||'';if(modifier?.mainOnly&&slotKey!=='main')return false;if(modifier?.deputyOnly&&slotKey!=='deputy1'&&slotKey!=='deputy2')return false;return true;}
@@ -3344,11 +3390,27 @@ function getDerivedEquipmentSkillStageEntry(item){
   const items=bucket&&bucket.available&&Array.isArray(bucket.items)?bucket.items:[];
   if(!items.length||!item)return null;
   const names=[getItemDisplayName(item),item?.name,item?.displayName,item?.rawName,item?.title,item?.raw?.name,item?.raw?.title].map(v=>normalizeSaveItemName(v)).filter(Boolean);
-  return items.find(entry=>{
+  const matches=items.filter(entry=>{
     if(normalizeDerivedSearchCategory(entry?.category||'')!=='equipments')return false;
     const entryNames=[entry?.name,entry?.displayName,entry?.rawName,entry?.title].map(v=>normalizeSaveItemName(v)).filter(Boolean);
     return names.some(n=>entryNames.includes(n));
-  })||null;
+  });
+  if(matches.length<=1)return matches[0]||null;
+  const merged={...matches[0],stages:{},stageCandidates:[],sourceUrls:[]};
+  matches.forEach(entry=>{
+    (entry?.stageCandidates||[]).forEach(candidate=>merged.stageCandidates.push(candidate));
+    [entry?.sourceUrl,...(entry?.sourceUrls||[])].map(norm).filter(Boolean).forEach(url=>{if(!merged.sourceUrls.includes(url))merged.sourceUrls.push(url);});
+    Object.entries(entry?.stages||{}).forEach(([stageKey,stage])=>{
+      if(!merged.stages[stageKey]){merged.stages[stageKey]={...stage,skills:[...(stage?.skills||[])],parameterEffects:[...(stage?.parameterEffects||[])]};return;}
+      const target=merged.stages[stageKey];const skillSeen=new Set((target.skills||[]).map(skill=>[norm(skill?.skillName||skill?.name||''),norm(skill?.text||skill?.body||'')].join('@@')));
+      (stage?.skills||[]).forEach(skill=>{const key=[norm(skill?.skillName||skill?.name||''),norm(skill?.text||skill?.body||'')].join('@@');if(!skillSeen.has(key)){skillSeen.add(key);target.skills.push(skill);}});
+      const effectSeen=new Set((target.parameterEffects||[]).map(effect=>JSON.stringify(effect)));
+      (stage?.parameterEffects||[]).forEach(effect=>{const key=JSON.stringify(effect);if(!effectSeen.has(key)){effectSeen.add(key);target.parameterEffects.push(effect);}});
+      target.skillCount=target.skills.length;
+    });
+  });
+  debugLog('equipmentSkillStageIndex:duplicate-name-merged',{name:getItemDisplayName(item),matchCount:matches.length,sourceUrls:merged.sourceUrls,policy:'Update09.5.62: 同名装備の複数索引行は段階・技能・根拠URLを統合し、先頭行だけを採用しない。'});
+  return merged;
 }
 function derivedEquipmentStageLegacyTitle(stageKey){
   const st=normalizeDerivedEquipmentStageKey(stageKey);
@@ -3405,7 +3467,7 @@ function extractEquipmentReferencedSkillRefsFromText(text){const refs=[];const s
 function addEquipmentReferencedSkillParameterRecordsFromText(text,parentSkillName,add,extra={}){const refs=extractEquipmentReferencedSkillRefsFromText(text);refs.forEach(ref=>{const skillItem=findSkillItemByName(ref.name);if(ref.kind==='skill-lv-boost'){const source=`技能:${ref.name}Lv+${ref.boost}${ref.limit?`（上限${ref.limit}）`:''}`;add(source,ref.matchedText,'include',{...extra,parentSkillName,formationSkillName:ref.name,formationSavedLevel:ref.boost,grantedSkillName:ref.name,equipmentReferenceKind:ref.kind,equipmentReferenceText:ref.matchedText,equipmentReferenceParentText:text,equipmentSkillBoost:ref.boost,equipmentSkillLimit:ref.limit});debugLog('equipmentStage:skill-lv-boost-record',{equipment:extra.equipmentName||'',stage:extra.equipmentStageLabel||'',sourceSkill:parentSkillName,targetSkill:ref.name,boost:ref.boost,limit:ref.limit,matchedText:ref.matchedText,skillFound:!!skillItem,source});return;}const section=skillItem&&Array.isArray(skillItem.sections)&&skillItem.sections.length?skillItem.sections[0]:null;const raw=(section&&Array.isArray(section.content)?section.content:[]).filter(line=>!isOwnerListContentLine(line)).join(' ');const selected=extractRomanLevelBlockText(raw,ref.level);const source=`参照技能:${ref.name}${ref.level}`;if(selected){add(source,selected,'include',{...extra,parentSkillName,grantedSkillName:ref.name,grantedSkillLevel:ref.level,equipmentReferenceKind:ref.kind,equipmentReferenceText:ref.matchedText,equipmentReferenceParentText:text});}
   debugLog('equipmentStage:granted-skill',{equipment:extra.equipmentName||'',stage:extra.equipmentStageLabel||'',sourceSkill:parentSkillName,referencedSkill:ref.name,referencedLv:ref.level,kind:ref.kind,matchedText:ref.matchedText,skillFound:!!skillItem,adopted:!!selected,source});});return refs;}
 function invalidateEquipmentStageCaches(){
-  let count=0,statusTextCount=0,quickRelationCount=0;
+  let count=0,statusTextCount=0,quickRelationCount=0,searchTextCount=0;
   [...(state.equipments||[])].forEach(item=>{
     if(Object.prototype.hasOwnProperty.call(item,'_parameterSummarySearchTextAll')){delete item._parameterSummarySearchTextAll;count++;}
     if(Object.prototype.hasOwnProperty.call(item,'_metricSourceSegmentsAll'))delete item._metricSourceSegmentsAll;
@@ -3413,10 +3475,11 @@ function invalidateEquipmentStageCaches(){
       if(Object.prototype.hasOwnProperty.call(item,key)){delete item[key];statusTextCount++;}
     });
     if(Object.prototype.hasOwnProperty.call(item,'_quickStatusEffectRelationCache')){delete item._quickStatusEffectRelationCache;quickRelationCount++;}
+    if(Object.prototype.hasOwnProperty.call(item,'_equipmentStageSearchableTextCache')){delete item._equipmentStageSearchableTextCache;searchTextCount++;}
   });
   state._quickOwnerRowsCache=null;
   state._quickOwnerAsyncSeq=(state._quickOwnerAsyncSeq||0)+1;
-  debugLog('equipmentStage:cache-invalidate',{count,statusTextCount,quickRelationCount,quickOwnerActive:!!state.quickStatusEffectOwnerFilter,reason:'equipment stage affects equipment status-effect owner search'});
+  debugLog('equipmentStage:cache-invalidate',{count,statusTextCount,quickRelationCount,searchTextCount,quickOwnerActive:!!state.quickStatusEffectOwnerFilter,reason:'equipment stage affects equipment search and status-effect owner search'});
 }
 function setEquipmentStage(stage){const next=normalizeEquipmentStage(stage);if(state.equipmentStage===next){syncFileSettingsSummary();return;}const prev=state.equipmentStage;state.equipmentStage=next;try{localStorage.setItem('hado_library_equipment_stage_v1',next);}catch{}invalidateEquipmentStageCaches();syncFileSettingsSummary();debugLog('equipmentStage:selected',{previous:prev,current:next,label:equipmentStageLabel(next),quickOwnerActive:!!state.quickStatusEffectOwnerFilter});if(state.quickStatusEffectOwnerFilter)runQuickStatusEffectOwnerSearchAsync(state.quickStatusEffectOwnerFilter);renderSearchResults();renderDetail();if(state.mainTab==='formation')renderFormationScreen();else markFormationScreenStale('equipment-stage');pushOperationHistory('equipment-stage');if(typeof updateDataContextBar==='function')updateDataContextBar('equipment-stage');}
 
@@ -3618,7 +3681,7 @@ function normalizeDetailActiveTab(categoryKey){
 function renderDetailTabs(categoryKey){
   const active=normalizeDetailActiveTab(categoryKey);
   const specs=getDetailTabSpecs(categoryKey);
-  return `<div class="detail-tabs" role="tablist">${specs.map(tab=>`<button type="button" class="detail-tab-btn ${tab.key===active?'is-active':''}" data-detail-tab="${esc(tab.key)}" role="tab" aria-selected="${tab.key===active?'true':'false'}">${esc(tab.label)}</button>`).join('')}</div>`;
+  return `<div class="detail-tabs" role="tablist" aria-label="内容詳細の表示項目" data-tab-activation="manual">${specs.map(tab=>`<button type="button" id="detail-tab-${esc(tab.key)}" class="detail-tab-btn ${tab.key===active?'is-active':''}" data-detail-tab="${esc(tab.key)}" data-tab-key="${esc(tab.key)}" role="tab" aria-controls="detail-panel-${esc(tab.key)}" aria-selected="${tab.key===active?'true':'false'}" tabindex="${tab.key===active?'0':'-1'}"><span class="hado-tab-label">${esc(tab.label)}</span></button>`).join('')}</div>`;
 }
 function renderEquipmentTablesSubset(tables){
   if(!Array.isArray(tables)||!tables.length)return '';
@@ -3704,7 +3767,7 @@ function renderTabbedDetailContent(item,categoryKey){
   const tabButtons=profiler.wrap('renderDetailTabs',()=>renderDetailTabs(categoryKey),r=>({htmlLength:String(r||'').length}));
   const cardLog={item:getItemDisplayName(item),category:categoryKey,activeTab:active,lazyRender:!!tabs.lazy,tabs:getDetailTabSpecs(categoryKey).map(t=>t.key),tabLabels:getDetailTabSpecs(categoryKey).map(t=>t.label),cards:tabs.cards,excluded:tabs.excluded,unassigned:tabs.unassigned,buildProfile:safeCloneForDebug(tabs.profile||{})};
   debugLog('detail-tabs',cardLog);state.diagnostics.detailTabs=cardLog;
-  const htmlOut=`${tabButtons}<div class="detail-tab-content" data-active-tab="${esc(active)}">${tabHtml?`<div class="general-detail-stack">${tabHtml}</div>`:`<div class="detail-empty">このタブに表示する内容はありません。</div>`}</div>`;
+  const htmlOut=`${tabButtons}<div id="detail-panel-${esc(active)}" class="detail-tab-content hado-tab-panel-enter" data-active-tab="${esc(active)}" role="tabpanel" aria-labelledby="detail-tab-${esc(active)}" tabindex="0">${tabHtml?`<div class="general-detail-stack">${tabHtml}</div>`:`<div class="detail-empty">このタブに表示する内容はありません。</div>`}</div>`;
   profiler.mark('assembleTabbedHtml',{htmlLength:String(htmlOut||'').length});
   const p=profiler.finish({activeTab:active,lazyRender:!!tabs.lazy,builderProfile:safeCloneForDebug(tabs.profile||{})});
   if(!state.diagnostics)state.diagnostics={};state.diagnostics.detailTabBuildProfile=p;debugLog('detail-tab-build-profile',p);

@@ -1,0 +1,36 @@
+{
+  "updateNo": "08.17",
+  "displayVersion": "3.0.0.0 Update08.17",
+  "status": "completed-local-validation",
+  "summary": "Restore role-limited type scoring for main-general-only clauses when tactic text also contains non-limiting references such as target unit main general.",
+  "bugClassification": "Role-limited type scoring regression",
+  "rootCause": "The main-general role detector in hado_type_score.js suppressed main-role detection whenever the same matchedText also contained broad strings such as 主将と or 主将の戦法. Real tactic text can contain both この武将が主将の場合 and 対象部隊の主将と..., so main-only clauses became role-neutral and affected vice/support/attendant scoring.",
+  "changedFiles": [
+    "hado_type_score.js",
+    "hado_version.js",
+    "tools/test_type_score.js",
+    "docs/updates/README.md",
+    "docs/updates/roadmap.md",
+    "docs/updates/update08/implementation.md",
+    "docs/updates/update08/report.md",
+    "report/HADO_APP_3.0.0.0_UPDATE08.17_REPORT.json"
+  ],
+  "htmlSizeChange": {
+    "index.html": 0,
+    "hado_library_3.0.0.0.html": 0
+  },
+  "externalizationDecision": "No HTML/CSS change. The fix is in external type scoring JavaScript and regression tests.",
+  "validation": [
+    {"command": "node --check hado_type_score.js", "result": "pass"},
+    {"command": "node --check hado_version.js", "result": "pass"},
+    {"command": "node tools/test_type_score.js", "result": "pass"},
+    {"command": "python3 -m json.tool report/HADO_APP_3.0.0.0_UPDATE08.17_REPORT.json", "result": "pass"},
+    {"command": "python3 tools/validate_update_version_consistency.py", "result": "pass"},
+    {"command": "python3 tools/validate_app_js.py", "result": "pass"},
+    {"command": "node hado_status_effect_regression.js", "result": "pass"},
+    {"command": "git diff --check", "result": "pass"}
+  ],
+  "workflowResult": "pending-after-push",
+  "previewResult": "pending-after-push",
+  "minimumUserAcceptance": "Open type candidates after Update08.17, compare main/vice/support role tabs for a candidate with main-only clauses, and confirm main-only benefits no longer score in non-main tabs."
+}

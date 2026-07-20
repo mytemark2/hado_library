@@ -1,0 +1,74 @@
+{
+  "updateNo": "08.12",
+  "displayVersion": "3.0.0.0 Update08.12",
+  "status": "completed-local-validation",
+  "summary": "Automatically dispatch the preview repository Pages deployment workflow after sync commit verification so users do not need to recreate or manually run site publishing.",
+  "bugClassification": "Preview Pages publish not triggered by workflow-generated sync commits",
+  "rootCause": "The preview sync workflow commits and pushes preview assets from GitHub Actions. Pushes performed by GitHub Actions tokens do not reliably trigger other push-based workflows, so the Pages publishing workflow could remain idle until manually recreated or run. The app workflow only verified/polled the public URL but did not explicitly trigger the Pages publish workflow after sync.",
+  "changedFiles": [
+    ".github/workflows/notify-preview.yml",
+    "hado_version.js",
+    "tools/validate_preview_workflow.py",
+    "docs/updates/README.md",
+    "docs/updates/roadmap.md",
+    "docs/updates/update08/implementation.md",
+    "docs/updates/update08/report.md",
+    "report/HADO_APP_3.0.0.0_UPDATE08.12_REPORT.json"
+  ],
+  "htmlSizeChange": {
+    "index.html": 0,
+    "hado_library_3.0.0.0.html": 0
+  },
+  "externalizationDecision": "No HTML/source CSS change. The fix orchestrates preview sync and Pages publish workflows from the app notification workflow.",
+  "previewPublishOrchestration": {
+    "waitForRepoMarker": "PREVIEW_SOURCE_COMMIT.txt equals github.sha",
+    "dispatchEndpoint": "/repos/mytemark2/hado_library-preview/actions/workflows/jekyll-gh-pages.yml/dispatches",
+    "dispatchRef": "main",
+    "tokenRequirement": "PREVIEW_REPO_TOKEN requires preview repo Contents Read/Write and Actions Read/Write"
+  },
+  "validation": [
+    {
+      "command": "node --check hado_version.js",
+      "result": "pass"
+    },
+    {
+      "command": "python3 -m json.tool report/HADO_APP_3.0.0.0_UPDATE08.12_REPORT.json",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_preview_workflow.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_update_version_consistency.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_external_css.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_app_js.py",
+      "result": "pass"
+    },
+    {
+      "command": "node tools/test_type_score.js",
+      "result": "pass"
+    },
+    {
+      "command": "node hado_status_effect_regression.js",
+      "result": "pass"
+    },
+    {
+      "command": "test ! -d updates/queue",
+      "result": "pass"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass"
+    }
+  ],
+  "workflowResult": "pending-after-push; app workflow now waits for preview sync commit and dispatches the Pages workflow automatically",
+  "previewResult": "pending-after-push",
+  "minimumUserAcceptance": "After push, confirm Notify Hado Library Preview dispatches the preview Pages workflow and the live preview updates without manually recreating the site deployment."
+}

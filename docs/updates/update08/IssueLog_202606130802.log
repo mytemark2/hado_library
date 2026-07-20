@@ -1,0 +1,6951 @@
+=== File Meta ===
+{
+  "fileName": "hado_library_3.0.0.0.html",
+  "createdAt": "2026-06-06 00:00:00"
+}
+
+=== Build Info ===
+{
+  "version": "3.0.0.0",
+  "baseVersion": "2.9.6.5",
+  "changeType": "feature",
+  "summary": "Update07.3: type-score diagnostic trace.",
+  "baseSha256": "fb5063235bd797ae8376c2f0c37da4863e375d85c611f5b3400904a151dfcafa"
+}
+
+=== Diagnostic Snapshot ===
+{
+  "typeScore": {
+    "timestamp": "2026-06-12T22:42:11.483Z",
+    "algorithmVersion": "3.0.0.0 Update07.6/type-score-role-aware-v4",
+    "evaluationCount": 5352,
+    "last": {
+      "timestamp": "2026-06-12T22:42:11.483Z",
+      "algorithmVersion": "3.0.0.0 Update07.6/type-score-role-aware-v4",
+      "entityName": "白龍",
+      "roleId": "warhorse_skill",
+      "typeId": "vaccine",
+      "typeName": "ワクチン型",
+      "score": 0,
+      "confirmedScore": 0,
+      "conditionalMaxScore": 0,
+      "matchedMetricCount": 0,
+      "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2",
+      "breakdown": [
+        {
+          "metricKey": "self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "method": "presence_fixed",
+          "rows": [],
+          "confirmedValue": 0,
+          "conditionalMaxValue": 0,
+          "hit": false
+        },
+        {
+          "metricKey": "ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "method": "presence_fixed",
+          "rows": [],
+          "confirmedValue": 0,
+          "conditionalMaxValue": 0,
+          "hit": false
+        },
+        {
+          "metricKey": "weakening_nullify",
+          "label": "弱化無効",
+          "method": "presence_fixed",
+          "rows": [],
+          "confirmedValue": 0,
+          "conditionalMaxValue": 0,
+          "hit": false
+        },
+        {
+          "metricKey": "weakening_remove",
+          "label": "弱化解除",
+          "method": "presence_fixed",
+          "rows": [],
+          "confirmedValue": 0,
+          "conditionalMaxValue": 0,
+          "hit": false
+        },
+        {
+          "metricKey": "ally_wounded_recovery",
+          "label": "味方負傷兵回復",
+          "method": "percent_sum_or_presence",
+          "rows": [],
+          "confirmedValue": 0,
+          "conditionalMaxValue": 0,
+          "hit": false
+        }
+      ]
+    },
+    "recent": [
+      {
+        "timestamp": "2026-06-12T22:42:11.468Z",
+        "entityName": "銅刀",
+        "roleId": "equipment",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "基本",
+        "roleId": "formation",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "歩兵陣",
+        "roleId": "formation",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "歩兵陣・改",
+        "roleId": "formation",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "弓兵陣",
+        "roleId": "formation",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "弓兵陣・改",
+        "roleId": "formation",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "騎兵陣",
+        "roleId": "formation",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "騎兵陣・改",
+        "roleId": "formation",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "防御陣",
+        "roleId": "formation",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "兵器陣",
+        "roleId": "formation",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "兵器陣・改",
+        "roleId": "formation",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "迎撃陣",
+        "roleId": "formation",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "防衛陣",
+        "roleId": "formation",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "賢策陣",
+        "roleId": "formation",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "賢策陣・改",
+        "roleId": "formation",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "勇往陣",
+        "roleId": "formation",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "勇往陣・改",
+        "roleId": "formation",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "友結陣",
+        "roleId": "formation",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "堅防陣",
+        "roleId": "formation",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "堅防陣・改",
+        "roleId": "formation",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "斬心陣",
+        "roleId": "formation",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "猛盛陣",
+        "roleId": "formation",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "井闌",
+        "roleId": "siege_weapon",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "木牛",
+        "roleId": "siege_weapon",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "衝車",
+        "roleId": "siege_weapon",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "鼓車",
+        "roleId": "siege_weapon",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "投石車",
+        "roleId": "siege_weapon",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "木獣",
+        "roleId": "siege_weapon",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "鹿毛",
+        "roleId": "warhorse",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "青毛",
+        "roleId": "warhorse",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "白毛",
+        "roleId": "warhorse",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "白龍",
+        "roleId": "warhorse",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "絶影",
+        "roleId": "warhorse",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "騎・大固",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "歩・大固",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "弓・大固",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "騎・重撃",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "歩・重撃",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "弓・重撃",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "騎・賢駿",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "歩・賢駿",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.482Z",
+        "entityName": "弓・賢駿",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.483Z",
+        "entityName": "騎・速撃",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.483Z",
+        "entityName": "歩・速撃",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.483Z",
+        "entityName": "弓・速撃",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.483Z",
+        "entityName": "騎・豪傑",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.483Z",
+        "entityName": "歩・豪傑",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.483Z",
+        "entityName": "弓・豪傑",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.483Z",
+        "entityName": "騎・緩衝",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.483Z",
+        "entityName": "歩・緩衝",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.483Z",
+        "entityName": "弓・緩衝",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.483Z",
+        "entityName": "拡滅破効",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.483Z",
+        "entityName": "巻撃軽減",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.483Z",
+        "entityName": "防衛機動",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.483Z",
+        "entityName": "精巧猛進",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.483Z",
+        "entityName": "防衛迅活",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.483Z",
+        "entityName": "破砕猛攻",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.483Z",
+        "entityName": "防勢牽制",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.483Z",
+        "entityName": "絶影",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      },
+      {
+        "timestamp": "2026-06-12T22:42:11.483Z",
+        "entityName": "白龍",
+        "roleId": "warhorse_skill",
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "confirmedScore": 0,
+        "conditionalMaxScore": 0,
+        "matchedMetricCount": 0,
+        "contributionSummary": "自部隊不利対策:0/2 / 味方非ダメージ効果:0/2 / 弱化無効:0/2 / 弱化解除:0/2 / 味方負傷兵回復:0/2"
+      }
+    ]
+  },
+  "startup": {
+    "timestamp": "07:30:34.967",
+    "generalRawCount": 476,
+    "equipmentRawCount": 237,
+    "skillRawCount": 620,
+    "statusEffectRawCount": 200,
+    "siegeWeaponRawCount": 6,
+    "ethnicArmamentRawCount": 18,
+    "ethnicResearchSkillRawCount": 32,
+    "formationRawCount": 21,
+    "fiveElementRawCount": 10,
+    "warhorseRawCount": 5,
+    "warhorseSkillRawCount": 27,
+    "derivedGeneralCount": 476,
+    "derivedTacticCount": 435,
+    "derivedSkillCount": 1295,
+    "hasBushoInSkills": true,
+    "fiveElementSkillCount": 10,
+    "warhorseCount": 5,
+    "warhorseSkillCount": 27
+  },
+  "skillBuild": {
+    "timestamp": "07:30:36.675",
+    "generalDerivedCount": 1847,
+    "normalGeneralDerivedCount": 1577,
+    "advisorGeneralDerivedCount": 270,
+    "equipmentDerivedCount": 1368,
+    "mergedBaseCount": 1247,
+    "skillRawPageCount": 620,
+    "supplementalPageCount": 620,
+    "supplementalAddedCount": 6,
+    "supplementalMergedCount": 620,
+    "detectedBushoInSkillRaw": true,
+    "derivedBusho": false,
+    "appendedBusho": true,
+    "existsBusho": true,
+    "sampleSupplementalNames": [
+      "運籌帷幄",
+      "神焔",
+      "猛堅",
+      "西楚覇王",
+      "武聖",
+      "外功"
+    ]
+  },
+  "advisorSkills": {
+    "timestamp": "07:30:36.694",
+    "generalWithAdvisorSkillCount": 150,
+    "totalAdvisorSkillRefs": 270,
+    "levelBuckets": {
+      "none": 0,
+      "lv0_4": 0,
+      "lv5_9": 0,
+      "lv10": 476
+    },
+    "samples": [
+      {
+        "general": "覚醒盧植（ろしょく）",
+        "advisorLevel": "10",
+        "advisorLevelSource": "全データ武将:最大",
+        "advisorSkillCount": 2,
+        "advisorSkills": [
+          {
+            "order": 1,
+            "name": "増兵",
+            "unlockLevel": 5,
+            "active": true
+          },
+          {
+            "order": 2,
+            "name": "助言",
+            "unlockLevel": 10,
+            "active": true
+          }
+        ],
+        "activeAdvisorSkills": [
+          "増兵",
+          "助言"
+        ],
+        "policy": "全データ表示では武将初期=参軍Lvなし、武将最大=参軍Lv10。保存データ表示では保存データの参軍Lvを使用。Lv5で1つ目、Lv10で2つ目の参軍技能が有効。"
+      },
+      {
+        "general": "覚醒張任（ちょうじん）",
+        "advisorLevel": "10",
+        "advisorLevelSource": "全データ武将:最大",
+        "advisorSkillCount": 2,
+        "advisorSkills": [
+          {
+            "order": 1,
+            "name": "増兵",
+            "unlockLevel": 5,
+            "active": true
+          },
+          {
+            "order": 2,
+            "name": "激励",
+            "unlockLevel": 10,
+            "active": true
+          }
+        ],
+        "activeAdvisorSkills": [
+          "増兵",
+          "激励"
+        ],
+        "policy": "全データ表示では武将初期=参軍Lvなし、武将最大=参軍Lv10。保存データ表示では保存データの参軍Lvを使用。Lv5で1つ目、Lv10で2つ目の参軍技能が有効。"
+      },
+      {
+        "general": "曹節（そうせつ）",
+        "advisorLevel": "10",
+        "advisorLevelSource": "全データ武将:最大",
+        "advisorSkillCount": 2,
+        "advisorSkills": [
+          {
+            "order": 1,
+            "name": "扶帝",
+            "unlockLevel": 5,
+            "active": true
+          },
+          {
+            "order": 2,
+            "name": "先導",
+            "unlockLevel": 10,
+            "active": true
+          }
+        ],
+        "activeAdvisorSkills": [
+          "扶帝",
+          "先導"
+        ],
+        "policy": "全データ表示では武将初期=参軍Lvなし、武将最大=参軍Lv10。保存データ表示では保存データの参軍Lvを使用。Lv5で1つ目、Lv10で2つ目の参軍技能が有効。"
+      },
+      {
+        "general": "覚醒馬岱（ばたい）",
+        "advisorLevel": "10",
+        "advisorLevelSource": "全データ武将:最大",
+        "advisorSkillCount": 2,
+        "advisorSkills": [
+          {
+            "order": 1,
+            "name": "督戦",
+            "unlockLevel": 5,
+            "active": true
+          },
+          {
+            "order": 2,
+            "name": "激励",
+            "unlockLevel": 10,
+            "active": true
+          }
+        ],
+        "activeAdvisorSkills": [
+          "督戦",
+          "激励"
+        ],
+        "policy": "全データ表示では武将初期=参軍Lvなし、武将最大=参軍Lv10。保存データ表示では保存データの参軍Lvを使用。Lv5で1つ目、Lv10で2つ目の参軍技能が有効。"
+      },
+      {
+        "general": "覚醒文聘（ぶんぺい）",
+        "advisorLevel": "10",
+        "advisorLevelSource": "全データ武将:最大",
+        "advisorSkillCount": 2,
+        "advisorSkills": [
+          {
+            "order": 1,
+            "name": "増兵",
+            "unlockLevel": 5,
+            "active": true
+          },
+          {
+            "order": 2,
+            "name": "積載",
+            "unlockLevel": 10,
+            "active": true
+          }
+        ],
+        "activeAdvisorSkills": [
+          "増兵",
+          "積載"
+        ],
+        "policy": "全データ表示では武将初期=参軍Lvなし、武将最大=参軍Lv10。保存データ表示では保存データの参軍Lvを使用。Lv5で1つ目、Lv10で2つ目の参軍技能が有効。"
+      },
+      {
+        "general": "覚醒沮授（そじゅ）",
+        "advisorLevel": "10",
+        "advisorLevelSource": "全データ武将:最大",
+        "advisorSkillCount": 2,
+        "advisorSkills": [
+          {
+            "order": 1,
+            "name": "増兵",
+            "unlockLevel": 5,
+            "active": true
+          },
+          {
+            "order": 2,
+            "name": "先導",
+            "unlockLevel": 10,
+            "active": true
+          }
+        ],
+        "activeAdvisorSkills": [
+          "増兵",
+          "先導"
+        ],
+        "policy": "全データ表示では武将初期=参軍Lvなし、武将最大=参軍Lv10。保存データ表示では保存データの参軍Lvを使用。Lv5で1つ目、Lv10で2つ目の参軍技能が有効。"
+      },
+      {
+        "general": "麹義（きくぎ）",
+        "advisorLevel": "10",
+        "advisorLevelSource": "全データ武将:最大",
+        "advisorSkillCount": 2,
+        "advisorSkills": [
+          {
+            "order": 1,
+            "name": "遠撃",
+            "unlockLevel": 5,
+            "active": true
+          },
+          {
+            "order": 2,
+            "name": "増兵",
+            "unlockLevel": 10,
+            "active": true
+          }
+        ],
+        "activeAdvisorSkills": [
+          "遠撃",
+          "増兵"
+        ],
+        "policy": "全データ表示では武将初期=参軍Lvなし、武将最大=参軍Lv10。保存データ表示では保存データの参軍Lvを使用。Lv5で1つ目、Lv10で2つ目の参軍技能が有効。"
+      },
+      {
+        "general": "覚醒馬良（ばりょう）",
+        "advisorLevel": "10",
+        "advisorLevelSource": "全データ武将:最大",
+        "advisorSkillCount": 2,
+        "advisorSkills": [
+          {
+            "order": 1,
+            "name": "助言",
+            "unlockLevel": 5,
+            "active": true
+          },
+          {
+            "order": 2,
+            "name": "激励",
+            "unlockLevel": 10,
+            "active": true
+          }
+        ],
+        "activeAdvisorSkills": [
+          "助言",
+          "激励"
+        ],
+        "policy": "全データ表示では武将初期=参軍Lvなし、武将最大=参軍Lv10。保存データ表示では保存データの参軍Lvを使用。Lv5で1つ目、Lv10で2つ目の参軍技能が有効。"
+      },
+      {
+        "general": "覚醒高順（こうじゅん）",
+        "advisorLevel": "10",
+        "advisorLevelSource": "全データ武将:最大",
+        "advisorSkillCount": 2,
+        "advisorSkills": [
+          {
+            "order": 1,
+            "name": "増兵",
+            "unlockLevel": 5,
+            "active": true
+          },
+          {
+            "order": 2,
+            "name": "督戦",
+            "unlockLevel": 10,
+            "active": true
+          }
+        ],
+        "activeAdvisorSkills": [
+          "増兵",
+          "督戦"
+        ],
+        "policy": "全データ表示では武将初期=参軍Lvなし、武将最大=参軍Lv10。保存データ表示では保存データの参軍Lvを使用。Lv5で1つ目、Lv10で2つ目の参軍技能が有効。"
+      },
+      {
+        "general": "覚醒韓遂（かんすい）",
+        "advisorLevel": "10",
+        "advisorLevelSource": "全データ武将:最大",
+        "advisorSkillCount": 2,
+        "advisorSkills": [
+          {
+            "order": 1,
+            "name": "助言",
+            "unlockLevel": 5,
+            "active": true
+          },
+          {
+            "order": 2,
+            "name": "督戦",
+            "unlockLevel": 10,
+            "active": true
+          }
+        ],
+        "activeAdvisorSkills": [
+          "助言",
+          "督戦"
+        ],
+        "policy": "全データ表示では武将初期=参軍Lvなし、武将最大=参軍Lv10。保存データ表示では保存データの参軍Lvを使用。Lv5で1つ目、Lv10で2つ目の参軍技能が有効。"
+      },
+      {
+        "general": "覚醒曹植（そうしょく）",
+        "advisorLevel": "10",
+        "advisorLevelSource": "全データ武将:最大",
+        "advisorSkillCount": 2,
+        "advisorSkills": [
+          {
+            "order": 1,
+            "name": "助言",
+            "unlockLevel": 5,
+            "active": true
+          },
+          {
+            "order": 2,
+            "name": "先導",
+            "unlockLevel": 10,
+            "active": true
+          }
+        ],
+        "activeAdvisorSkills": [
+          "助言",
+          "先導"
+        ],
+        "policy": "全データ表示では武将初期=参軍Lvなし、武将最大=参軍Lv10。保存データ表示では保存データの参軍Lvを使用。Lv5で1つ目、Lv10で2つ目の参軍技能が有効。"
+      },
+      {
+        "general": "覚醒朱桓（しゅかん）",
+        "advisorLevel": "10",
+        "advisorLevelSource": "全データ武将:最大",
+        "advisorSkillCount": 2,
+        "advisorSkills": [
+          {
+            "order": 1,
+            "name": "激励",
+            "unlockLevel": 5,
+            "active": true
+          },
+          {
+            "order": 2,
+            "name": "積載",
+            "unlockLevel": 10,
+            "active": true
+          }
+        ],
+        "activeAdvisorSkills": [
+          "激励",
+          "積載"
+        ],
+        "policy": "全データ表示では武将初期=参軍Lvなし、武将最大=参軍Lv10。保存データ表示では保存データの参軍Lvを使用。Lv5で1つ目、Lv10で2つ目の参軍技能が有効。"
+      },
+      {
+        "general": "管輅（かんろ）",
+        "advisorLevel": "10",
+        "advisorLevelSource": "全データ武将:最大",
+        "advisorSkillCount": 2,
+        "advisorSkills": [
+          {
+            "order": 1,
+            "name": "占見",
+            "unlockLevel": 5,
+            "active": true
+          },
+          {
+            "order": 2,
+            "name": "助言",
+            "unlockLevel": 10,
+            "active": true
+          }
+        ],
+        "activeAdvisorSkills": [
+          "占見",
+          "助言"
+        ],
+        "policy": "全データ表示では武将初期=参軍Lvなし、武将最大=参軍Lv10。保存データ表示では保存データの参軍Lvを使用。Lv5で1つ目、Lv10で2つ目の参軍技能が有効。"
+      },
+      {
+        "general": "張松（ちょうしょう）",
+        "advisorLevel": "10",
+        "advisorLevelSource": "全データ武将:最大",
+        "advisorSkillCount": 2,
+        "advisorSkills": [
+          {
+            "order": 1,
+            "name": "封昂",
+            "unlockLevel": 5,
+            "active": true
+          },
+          {
+            "order": 2,
+            "name": "助言",
+            "unlockLevel": 10,
+            "active": true
+          }
+        ],
+        "activeAdvisorSkills": [
+          "封昂",
+          "助言"
+        ],
+        "policy": "全データ表示では武将初期=参軍Lvなし、武将最大=参軍Lv10。保存データ表示では保存データの参軍Lvを使用。Lv5で1つ目、Lv10で2つ目の参軍技能が有効。"
+      },
+      {
+        "general": "覚醒呉懿（ごい）",
+        "advisorLevel": "10",
+        "advisorLevelSource": "全データ武将:最大",
+        "advisorSkillCount": 2,
+        "advisorSkills": [
+          {
+            "order": 1,
+            "name": "高勁",
+            "unlockLevel": 5,
+            "active": true
+          },
+          {
+            "order": 2,
+            "name": "激励",
+            "unlockLevel": 10,
+            "active": true
+          }
+        ],
+        "activeAdvisorSkills": [
+          "高勁",
+          "激励"
+        ],
+        "policy": "全データ表示では武将初期=参軍Lvなし、武将最大=参軍Lv10。保存データ表示では保存データの参軍Lvを使用。Lv5で1つ目、Lv10で2つ目の参軍技能が有効。"
+      },
+      {
+        "general": "卞氏（べんし）",
+        "advisorLevel": "10",
+        "advisorLevelSource": "全データ武将:最大",
+        "advisorSkillCount": 2,
+        "advisorSkills": [
+          {
+            "order": 1,
+            "name": "収諫",
+            "unlockLevel": 5,
+            "active": true
+          },
+          {
+            "order": 2,
+            "name": "助言",
+            "unlockLevel": 10,
+            "active": true
+          }
+        ],
+        "activeAdvisorSkills": [
+          "収諫",
+          "助言"
+        ],
+        "policy": "全データ表示では武将初期=参軍Lvなし、武将最大=参軍Lv10。保存データ表示では保存データの参軍Lvを使用。Lv5で1つ目、Lv10で2つ目の参軍技能が有効。"
+      },
+      {
+        "general": "袁術（えんじゅつ）",
+        "advisorLevel": "10",
+        "advisorLevelSource": "全データ武将:最大",
+        "advisorSkillCount": 2,
+        "advisorSkills": [
+          {
+            "order": 1,
+            "name": "激喚",
+            "unlockLevel": 5,
+            "active": true
+          },
+          {
+            "order": 2,
+            "name": "増兵",
+            "unlockLevel": 10,
+            "active": true
+          }
+        ],
+        "activeAdvisorSkills": [
+          "激喚",
+          "増兵"
+        ],
+        "policy": "全データ表示では武将初期=参軍Lvなし、武将最大=参軍Lv10。保存データ表示では保存データの参軍Lvを使用。Lv5で1つ目、Lv10で2つ目の参軍技能が有効。"
+      },
+      {
+        "general": "覚醒諸葛瑾（しょかつきん）",
+        "advisorLevel": "10",
+        "advisorLevelSource": "全データ武将:最大",
+        "advisorSkillCount": 2,
+        "advisorSkills": [
+          {
+            "order": 1,
+            "name": "輔政",
+            "unlockLevel": 5,
+            "active": true
+          },
+          {
+            "order": 2,
+            "name": "激励",
+            "unlockLevel": 10,
+            "active": true
+          }
+        ],
+        "activeAdvisorSkills": [
+          "輔政",
+          "激励"
+        ],
+        "policy": "全データ表示では武将初期=参軍Lvなし、武将最大=参軍Lv10。保存データ表示では保存データの参軍Lvを使用。Lv5で1つ目、Lv10で2つ目の参軍技能が有効。"
+      },
+      {
+        "general": "費禕（ひい）",
+        "advisorLevel": "10",
+        "advisorLevelSource": "全データ武将:最大",
+        "advisorSkillCount": 2,
+        "advisorSkills": [
+          {
+            "order": 1,
+            "name": "賢相",
+            "unlockLevel": 5,
+            "active": true
+          },
+          {
+            "order": 2,
+            "name": "助言",
+            "unlockLevel": 10,
+            "active": true
+          }
+        ],
+        "activeAdvisorSkills": [
+          "賢相",
+          "助言"
+        ],
+        "policy": "全データ表示では武将初期=参軍Lvなし、武将最大=参軍Lv10。保存データ表示では保存データの参軍Lvを使用。Lv5で1つ目、Lv10で2つ目の参軍技能が有効。"
+      },
+      {
+        "general": "韓当（かんとう）",
+        "advisorLevel": "10",
+        "advisorLevelSource": "全データ武将:最大",
+        "advisorSkillCount": 2,
+        "advisorSkills": [
+          {
+            "order": 1,
+            "name": "宿刃",
+            "unlockLevel": 5,
+            "active": true
+          },
+          {
+            "order": 2,
+            "name": "督戦",
+            "unlockLevel": 10,
+            "active": true
+          }
+        ],
+        "activeAdvisorSkills": [
+          "宿刃",
+          "督戦"
+        ],
+        "policy": "全データ表示では武将初期=参軍Lvなし、武将最大=参軍Lv10。保存データ表示では保存データの参軍Lvを使用。Lv5で1つ目、Lv10で2つ目の参軍技能が有効。"
+      }
+    ]
+  },
+  "derivedJson": {
+    "timestamp": "07:30:34.967",
+    "total": 16,
+    "loaded": 16,
+    "available": [
+      "statusEffectRelations",
+      "skillOwnerIndex",
+      "searchIndex",
+      "parameterSummaryIndex",
+      "resultCardIndex",
+      "tagIndex",
+      "statusEffectMetaIndex",
+      "statusEffectGroupOwnerIndex",
+      "relatedLinkIndex",
+      "equipmentSkillStageIndex",
+      "tacticAttackIndex",
+      "formationCandidateIndex",
+      "effectConditionBlocks",
+      "typeSearchFeatureIndex",
+      "typeSearchPresets",
+      "typeSearchRegressionCases"
+    ],
+    "fallback": [],
+    "allExpectedLoaded": true,
+    "files": [
+      {
+        "key": "statusEffectRelations",
+        "file": "hadou_status_effect_relations.json",
+        "status": "loaded",
+        "available": true,
+        "fallback": false,
+        "missing": false,
+        "itemCount": 200,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "fallbackReason": ""
+      },
+      {
+        "key": "skillOwnerIndex",
+        "file": "hadou_skill_owner_index.json",
+        "status": "loaded",
+        "available": true,
+        "fallback": false,
+        "missing": false,
+        "itemCount": 1254,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "fallbackReason": ""
+      },
+      {
+        "key": "searchIndex",
+        "file": "hadou_search_index.json",
+        "status": "loaded",
+        "available": true,
+        "fallback": false,
+        "missing": false,
+        "itemCount": 2107,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "fallbackReason": ""
+      },
+      {
+        "key": "parameterSummaryIndex",
+        "file": "hadou_parameter_summary_index.json",
+        "status": "loaded",
+        "available": true,
+        "fallback": false,
+        "missing": false,
+        "itemCount": 1580,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "fallbackReason": ""
+      },
+      {
+        "key": "resultCardIndex",
+        "file": "hadou_result_card_index.json",
+        "status": "loaded",
+        "available": true,
+        "fallback": false,
+        "missing": false,
+        "itemCount": 2107,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "fallbackReason": ""
+      },
+      {
+        "key": "tagIndex",
+        "file": "hadou_tag_index.json",
+        "status": "loaded",
+        "available": true,
+        "fallback": false,
+        "missing": false,
+        "itemCount": 1579,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "fallbackReason": ""
+      },
+      {
+        "key": "statusEffectMetaIndex",
+        "file": "hadou_status_effect_meta_index.json",
+        "status": "loaded",
+        "available": true,
+        "fallback": false,
+        "missing": false,
+        "itemCount": 200,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "fallbackReason": ""
+      },
+      {
+        "key": "statusEffectGroupOwnerIndex",
+        "file": "hadou_status_effect_group_owner_index.json",
+        "status": "loaded",
+        "available": true,
+        "fallback": false,
+        "missing": false,
+        "itemCount": 6,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "fallbackReason": ""
+      },
+      {
+        "key": "relatedLinkIndex",
+        "file": "hadou_related_link_index.json",
+        "status": "loaded",
+        "available": true,
+        "fallback": false,
+        "missing": false,
+        "itemCount": 2740,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "fallbackReason": ""
+      },
+      {
+        "key": "equipmentSkillStageIndex",
+        "file": "hadou_equipment_skill_stage_index.json",
+        "status": "loaded",
+        "available": true,
+        "fallback": false,
+        "missing": false,
+        "itemCount": 237,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "fallbackReason": ""
+      },
+      {
+        "key": "tacticAttackIndex",
+        "file": "hadou_tactic_attack_index.json",
+        "status": "loaded",
+        "available": true,
+        "fallback": false,
+        "missing": false,
+        "itemCount": 455,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "fallbackReason": ""
+      },
+      {
+        "key": "formationCandidateIndex",
+        "file": "hadou_formation_candidate_index.json",
+        "status": "loaded",
+        "available": true,
+        "fallback": false,
+        "missing": false,
+        "itemCount": 800,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "fallbackReason": ""
+      },
+      {
+        "key": "effectConditionBlocks",
+        "file": "hadou_effect_condition_blocks.json",
+        "status": "loaded",
+        "available": true,
+        "fallback": false,
+        "missing": false,
+        "itemCount": 1746,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "fallbackReason": ""
+      },
+      {
+        "key": "typeSearchFeatureIndex",
+        "file": "hadou_type_search_feature_index.json",
+        "status": "loaded",
+        "available": true,
+        "fallback": false,
+        "missing": false,
+        "itemCount": 746,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "fallbackReason": ""
+      },
+      {
+        "key": "typeSearchPresets",
+        "file": "hadou_type_search_presets.json",
+        "status": "loaded",
+        "available": true,
+        "fallback": false,
+        "missing": false,
+        "itemCount": 16,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "fallbackReason": ""
+      },
+      {
+        "key": "typeSearchRegressionCases",
+        "file": "hadou_type_search_regression_cases.json",
+        "status": "loaded",
+        "available": true,
+        "fallback": false,
+        "missing": false,
+        "itemCount": 13,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "fallbackReason": ""
+      }
+    ]
+  },
+  "derivedJsonIntegrity": {
+    "timestamp": "07:30:38.305",
+    "policy": "診断のみ。ここでは派生JSON利用可否を変更しない。正式利用前の不足メタ・件数不一致を警告として可視化する。",
+    "loadedCount": 16,
+    "total": 16,
+    "schemaVersions": [
+      "1.0"
+    ],
+    "dataSetIds": [
+      "2026-06-07T04:23:26.720Z"
+    ],
+    "crawlerVersions": [
+      "1.1.0.0"
+    ],
+    "consistentSchemaVersion": true,
+    "consistentDataSetId": true,
+    "details": [
+      {
+        "key": "statusEffectRelations",
+        "file": "hadou_status_effect_relations.json",
+        "itemCount": 200,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "sourceFileCount": 12,
+        "hasSourceSha256": true,
+        "warnings": []
+      },
+      {
+        "key": "skillOwnerIndex",
+        "file": "hadou_skill_owner_index.json",
+        "itemCount": 1254,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "sourceFileCount": 12,
+        "hasSourceSha256": true,
+        "warnings": []
+      },
+      {
+        "key": "searchIndex",
+        "file": "hadou_search_index.json",
+        "itemCount": 2107,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "sourceFileCount": 12,
+        "hasSourceSha256": true,
+        "warnings": []
+      },
+      {
+        "key": "parameterSummaryIndex",
+        "file": "hadou_parameter_summary_index.json",
+        "itemCount": 1580,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "sourceFileCount": 12,
+        "hasSourceSha256": true,
+        "warnings": []
+      },
+      {
+        "key": "resultCardIndex",
+        "file": "hadou_result_card_index.json",
+        "itemCount": 2107,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "sourceFileCount": 12,
+        "hasSourceSha256": true,
+        "warnings": []
+      },
+      {
+        "key": "tagIndex",
+        "file": "hadou_tag_index.json",
+        "itemCount": 1579,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "sourceFileCount": 12,
+        "hasSourceSha256": true,
+        "warnings": []
+      },
+      {
+        "key": "statusEffectMetaIndex",
+        "file": "hadou_status_effect_meta_index.json",
+        "itemCount": 200,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "sourceFileCount": 12,
+        "hasSourceSha256": true,
+        "warnings": []
+      },
+      {
+        "key": "statusEffectGroupOwnerIndex",
+        "file": "hadou_status_effect_group_owner_index.json",
+        "itemCount": 6,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "sourceFileCount": 12,
+        "hasSourceSha256": true,
+        "warnings": []
+      },
+      {
+        "key": "relatedLinkIndex",
+        "file": "hadou_related_link_index.json",
+        "itemCount": 2740,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "sourceFileCount": 12,
+        "hasSourceSha256": true,
+        "warnings": []
+      },
+      {
+        "key": "equipmentSkillStageIndex",
+        "file": "hadou_equipment_skill_stage_index.json",
+        "itemCount": 237,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "sourceFileCount": 12,
+        "hasSourceSha256": true,
+        "warnings": []
+      },
+      {
+        "key": "tacticAttackIndex",
+        "file": "hadou_tactic_attack_index.json",
+        "itemCount": 455,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "sourceFileCount": 12,
+        "hasSourceSha256": true,
+        "warnings": []
+      },
+      {
+        "key": "formationCandidateIndex",
+        "file": "hadou_formation_candidate_index.json",
+        "itemCount": 800,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "sourceFileCount": 12,
+        "hasSourceSha256": true,
+        "warnings": []
+      },
+      {
+        "key": "effectConditionBlocks",
+        "file": "hadou_effect_condition_blocks.json",
+        "itemCount": 1746,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "sourceFileCount": 12,
+        "hasSourceSha256": true,
+        "warnings": []
+      },
+      {
+        "key": "typeSearchFeatureIndex",
+        "file": "hadou_type_search_feature_index.json",
+        "itemCount": 746,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "sourceFileCount": 12,
+        "hasSourceSha256": true,
+        "warnings": []
+      },
+      {
+        "key": "typeSearchPresets",
+        "file": "hadou_type_search_presets.json",
+        "itemCount": 16,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "sourceFileCount": 12,
+        "hasSourceSha256": true,
+        "warnings": []
+      },
+      {
+        "key": "typeSearchRegressionCases",
+        "file": "hadou_type_search_regression_cases.json",
+        "itemCount": 13,
+        "schemaVersion": "1.0",
+        "dataSetId": "2026-06-07T04:23:26.720Z",
+        "crawlerVersion": "1.1.0.0",
+        "sourceFileCount": 12,
+        "hasSourceSha256": true,
+        "warnings": []
+      }
+    ],
+    "warningCount": 0,
+    "warningDetails": [],
+    "countWarnings": [],
+    "datasetCounts": {
+      "generals": 476,
+      "tactics": 435,
+      "skills": 1295,
+      "equipments": 237,
+      "statusEffects": 200,
+      "formations": 21,
+      "siegeWeapons": 6,
+      "ethnicArmaments": 18,
+      "ethnicResearchSkills": 32,
+      "fiveElements": 10,
+      "warhorses": 5,
+      "warhorseSkills": 27
+    }
+  },
+  "typeSearchFoundation": {
+    "timestamp": "07:30:34.939",
+    "ok": true,
+    "featureItemCount": 746,
+    "presetCount": 16,
+    "regressionCaseCount": 13,
+    "presetConditionCount": 96,
+    "presetImportanceCounts": {
+      "core": 31,
+      "recommended": 44,
+      "support": 21
+    },
+    "categoryCounts": {
+      "generals": 476,
+      "equipments": 237,
+      "siegeWeapons": 6,
+      "warhorseSkills": 27
+    },
+    "problems": [],
+    "policy": "HADO-2.9.3.0: 既存状態変化JSON再利用・補助索引4カテゴリ網羅・JSON正本プリセット重要度・回帰ケース・状態変化グループ件数を診断する。"
+  },
+  "typeSearchReleaseReadiness": {
+    "timestamp": "07:30:34.955",
+    "context": "json-load",
+    "ok": true,
+    "minRequiredCrawlerVersion": "1.0.5.23",
+    "featureItemCount": 746,
+    "allowedCategories": [
+      "generals",
+      "equipments",
+      "siegeWeapons",
+      "warhorseSkills"
+    ],
+    "actualCategoryCounts": {
+      "generals": 476,
+      "equipments": 237,
+      "siegeWeapons": 6,
+      "warhorseSkills": 27
+    },
+    "statusCatalogCount": 437,
+    "typeFeatureCatalogCount": 44,
+    "presetCount": 16,
+    "presetConditionCount": 96,
+    "canonicalConditionCount": 77,
+    "unresolvedConditionCount": 0,
+    "unresolved": [],
+    "presetSummaries": [
+      {
+        "typeId": "calm",
+        "typeName": "鎮静型",
+        "conditionCount": 7,
+        "canonicalConditionCount": 5,
+        "importanceCounts": {
+          "core": 1,
+          "recommended": 2,
+          "support": 2
+        },
+        "candidateCount": 107
+      },
+      {
+        "typeId": "zombie",
+        "typeName": "ゾンビ型",
+        "conditionCount": 11,
+        "canonicalConditionCount": 11,
+        "importanceCounts": {
+          "core": 2,
+          "recommended": 4,
+          "support": 5
+        },
+        "candidateCount": 298
+      },
+      {
+        "typeId": "bomb",
+        "typeName": "爆弾型",
+        "conditionCount": 8,
+        "canonicalConditionCount": 6,
+        "importanceCounts": {
+          "core": 4,
+          "recommended": 1,
+          "support": 1
+        },
+        "candidateCount": 192
+      },
+      {
+        "typeId": "critical_tactic",
+        "typeName": "撃心型",
+        "conditionCount": 5,
+        "canonicalConditionCount": 3,
+        "importanceCounts": {
+          "core": 2,
+          "recommended": 0,
+          "support": 1
+        },
+        "candidateCount": 117
+      },
+      {
+        "typeId": "critical_normal",
+        "typeName": "会心型",
+        "conditionCount": 7,
+        "canonicalConditionCount": 4,
+        "importanceCounts": {
+          "core": 2,
+          "recommended": 1,
+          "support": 1
+        },
+        "candidateCount": 279
+      },
+      {
+        "typeId": "tactic_speed",
+        "typeName": "戦法速度型",
+        "conditionCount": 4,
+        "canonicalConditionCount": 3,
+        "importanceCounts": {
+          "core": 1,
+          "recommended": 2,
+          "support": 0
+        },
+        "candidateCount": 116
+      },
+      {
+        "typeId": "attack_speed",
+        "typeName": "攻撃速度型",
+        "conditionCount": 6,
+        "canonicalConditionCount": 3,
+        "importanceCounts": {
+          "core": 1,
+          "recommended": 1,
+          "support": 1
+        },
+        "candidateCount": 239
+      },
+      {
+        "typeId": "normal_attack",
+        "typeName": "通常攻撃拡張型",
+        "conditionCount": 6,
+        "canonicalConditionCount": 3,
+        "importanceCounts": {
+          "core": 1,
+          "recommended": 1,
+          "support": 1
+        },
+        "candidateCount": 239
+      },
+      {
+        "typeId": "debuff",
+        "typeName": "デバフ型",
+        "conditionCount": 8,
+        "canonicalConditionCount": 6,
+        "importanceCounts": {
+          "core": 1,
+          "recommended": 5,
+          "support": 0
+        },
+        "candidateCount": 52
+      },
+      {
+        "typeId": "anti_object",
+        "typeName": "対物型",
+        "conditionCount": 4,
+        "canonicalConditionCount": 3,
+        "importanceCounts": {
+          "core": 1,
+          "recommended": 2,
+          "support": 0
+        },
+        "candidateCount": 204
+      },
+      {
+        "typeId": "annihilation",
+        "typeName": "殲滅型",
+        "conditionCount": 5,
+        "canonicalConditionCount": 5,
+        "importanceCounts": {
+          "core": 2,
+          "recommended": 2,
+          "support": 1
+        },
+        "candidateCount": 351
+      },
+      {
+        "typeId": "buff_support",
+        "typeName": "バフ支援型",
+        "conditionCount": 5,
+        "canonicalConditionCount": 5,
+        "importanceCounts": {
+          "core": 1,
+          "recommended": 2,
+          "support": 2
+        },
+        "candidateCount": 407
+      },
+      {
+        "typeId": "debuff_interference",
+        "typeName": "デバフ妨害型",
+        "conditionCount": 5,
+        "canonicalConditionCount": 5,
+        "importanceCounts": {
+          "core": 1,
+          "recommended": 3,
+          "support": 1
+        },
+        "candidateCount": 355
+      },
+      {
+        "typeId": "wall_defense",
+        "typeName": "城壁防衛型",
+        "conditionCount": 5,
+        "canonicalConditionCount": 5,
+        "importanceCounts": {
+          "core": 2,
+          "recommended": 2,
+          "support": 1
+        },
+        "candidateCount": 387
+      },
+      {
+        "typeId": "garrison_support",
+        "typeName": "駐屯支援型",
+        "conditionCount": 5,
+        "canonicalConditionCount": 5,
+        "importanceCounts": {
+          "core": 2,
+          "recommended": 2,
+          "support": 1
+        },
+        "candidateCount": 178
+      },
+      {
+        "typeId": "vaccine",
+        "typeName": "ワクチン型",
+        "conditionCount": 5,
+        "canonicalConditionCount": 5,
+        "importanceCounts": {
+          "core": 2,
+          "recommended": 2,
+          "support": 1
+        },
+        "candidateCount": 230
+      }
+    ],
+    "regressionCaseCount": 13,
+    "requiredRegressionCaseCount": 13,
+    "missingRequiredCases": [],
+    "failedRegressionIds": [],
+    "problems": [],
+    "warnings": [],
+    "policy": "HADO-2.9.5.0: 型検索正式版では4カテゴリ全件、プリセット一意性、条件解決、正規ID、中核条件、候補存在、必須回帰ケースをCritical監査する。"
+  },
+  "typeSearch": {},
+  "typeSearchCache": {},
+  "typeSearchCacheInvalidation": {
+    "timestamp": "07:42:05.553",
+    "reason": "saved-mode-index-rebuild",
+    "previousSize": 0,
+    "seq": 4,
+    "stats": {
+      "hit": 0,
+      "miss": 0,
+      "invalidations": 4,
+      "store": 0
+    }
+  },
+  "typeSearchHistoryRestore": {},
+  "derivedParameterSummaryUsage": {},
+  "savedSkillLevelResolution": {
+    "timestamp": "07:42:05.450",
+    "policy": "保存データ表示時の現在選択武将について、将星から解決した技能Lvを診断表示する。未解放技能はexcludedSkills側に残り、表示ではLvなしになる想定。",
+    "generalName": "LR司馬師（しばし）",
+    "talent": 1300,
+    "star": 0,
+    "stage": "max",
+    "savedModeActive": true,
+    "rawSkills": [
+      {
+        "name": "威逆",
+        "maxLevel": "Ⅰ",
+        "order": 1,
+        "isAdvisor": false
+      },
+      {
+        "name": "衰撃",
+        "maxLevel": "Ⅰ",
+        "order": 2,
+        "isAdvisor": false
+      },
+      {
+        "name": "克堪",
+        "maxLevel": "Ⅱ",
+        "order": 3,
+        "isAdvisor": false
+      },
+      {
+        "name": "冶金",
+        "maxLevel": "Ⅱ",
+        "order": 4,
+        "isAdvisor": false
+      },
+      {
+        "name": "冷眼",
+        "maxLevel": "Ⅰ",
+        "order": 5,
+        "isAdvisor": false
+      }
+    ],
+    "resolvedSkills": [
+      {
+        "name": "威逆",
+        "level": "Ⅰ",
+        "levelNumber": 1,
+        "reason": "talent>=1300 star0",
+        "order": 1
+      },
+      {
+        "name": "衰撃",
+        "level": "Ⅰ",
+        "levelNumber": 1,
+        "reason": "talent>=1300 star0",
+        "order": 2
+      },
+      {
+        "name": "克堪",
+        "level": "Ⅰ",
+        "levelNumber": 1,
+        "reason": "talent>=1300 star0",
+        "order": 3
+      },
+      {
+        "name": "冶金",
+        "level": "Ⅰ",
+        "levelNumber": 1,
+        "reason": "talent>=1300 star0",
+        "order": 4
+      }
+    ],
+    "excludedSkills": [
+      {
+        "skill": "冷眼",
+        "reason": "not unlocked at resolved star/stage",
+        "order": 5
+      }
+    ]
+  },
+  "categories": {
+    "context": "renderSearchResults:start",
+    "timestamp": "07:42:05.553",
+    "state": {
+      "generals": true,
+      "tactics": false,
+      "equipments": false,
+      "skills": false,
+      "statusEffects": false,
+      "siegeWeapons": false,
+      "ethnicArmaments": false,
+      "formations": false,
+      "warhorses": false,
+      "warhorseSkills": false
+    },
+    "ui": {
+      "generals": {
+        "toggleActive": true,
+        "text": "武将"
+      },
+      "tactics": {
+        "toggleActive": false,
+        "text": "戦法"
+      },
+      "skills": {
+        "toggleActive": false,
+        "text": "技能"
+      },
+      "equipments": {
+        "toggleActive": false,
+        "text": "装備"
+      },
+      "statusEffects": {
+        "toggleActive": false,
+        "text": "状態変化"
+      },
+      "siegeWeapons": {
+        "toggleActive": false,
+        "text": "兵器"
+      },
+      "ethnicArmaments": {
+        "toggleActive": false,
+        "text": "武装"
+      },
+      "formations": {
+        "toggleActive": false,
+        "text": "陣形"
+      },
+      "warhorses": {
+        "toggleActive": false,
+        "text": "名馬"
+      },
+      "warhorseSkills": {
+        "toggleActive": false,
+        "text": "軍馬技能"
+      }
+    }
+  },
+  "search": {
+    "timestamp": "07:42:05.571",
+    "keyword": "",
+    "effectiveKeyword": "",
+    "nameOnlySearch": false,
+    "hasActive": true,
+    "activeCategories": {
+      "generals": true,
+      "tactics": false,
+      "equipments": false,
+      "skills": false,
+      "statusEffects": false,
+      "siegeWeapons": false,
+      "ethnicArmaments": false,
+      "formations": false,
+      "warhorses": false,
+      "warhorseSkills": false
+    },
+    "uiCategoryState": {
+      "generals": {
+        "toggleActive": true,
+        "text": "武将"
+      },
+      "tactics": {
+        "toggleActive": false,
+        "text": "戦法"
+      },
+      "skills": {
+        "toggleActive": false,
+        "text": "技能"
+      },
+      "equipments": {
+        "toggleActive": false,
+        "text": "装備"
+      },
+      "statusEffects": {
+        "toggleActive": false,
+        "text": "状態変化"
+      },
+      "siegeWeapons": {
+        "toggleActive": false,
+        "text": "兵器"
+      },
+      "ethnicArmaments": {
+        "toggleActive": false,
+        "text": "武装"
+      },
+      "formations": {
+        "toggleActive": false,
+        "text": "陣形"
+      },
+      "warhorses": {
+        "toggleActive": false,
+        "text": "名馬"
+      },
+      "warhorseSkills": {
+        "toggleActive": false,
+        "text": "軍馬技能"
+      }
+    },
+    "datasetStats": [
+      {
+        "key": "generals",
+        "label": "武将",
+        "active": true,
+        "total": 476,
+        "matched": 460
+      },
+      {
+        "key": "tactics",
+        "label": "戦法",
+        "active": false,
+        "total": 435,
+        "matched": 0
+      },
+      {
+        "key": "skills",
+        "label": "技能",
+        "active": false,
+        "total": 1295,
+        "matched": 0
+      },
+      {
+        "key": "equipments",
+        "label": "装備",
+        "active": false,
+        "total": 237,
+        "matched": 0
+      },
+      {
+        "key": "statusEffects",
+        "label": "状態変化",
+        "active": false,
+        "total": 200,
+        "matched": 0
+      },
+      {
+        "key": "siegeWeapons",
+        "label": "兵器",
+        "active": false,
+        "total": 6,
+        "matched": 0
+      },
+      {
+        "key": "ethnicArmaments",
+        "label": "武装",
+        "active": false,
+        "total": 18,
+        "matched": 0
+      },
+      {
+        "key": "formations",
+        "label": "陣形",
+        "active": false,
+        "total": 21,
+        "matched": 0
+      },
+      {
+        "key": "warhorses",
+        "label": "名馬",
+        "active": false,
+        "total": 2,
+        "matched": 0
+      },
+      {
+        "key": "warhorseSkills",
+        "label": "軍馬技能",
+        "active": false,
+        "total": 27,
+        "matched": 0
+      }
+    ],
+    "results": 460,
+    "skillDatasetCount": 1295,
+    "hasBushoInSkills": true,
+    "searchProfile": {
+      "keyword": "",
+      "nameOnlySearch": false,
+      "viewMode": "saved",
+      "categoryCount": {
+        "generals": {
+          "active": true,
+          "total": 476,
+          "matched": 460,
+          "ms": 2.1,
+          "buildTextMs": 0,
+          "savedFilterMs": 0.8,
+          "tagFilterMs": 0.1,
+          "keywordMatchMs": 0,
+          "metricMs": 0.2,
+          "parameterSearchTextCache": {
+            "hit": 0,
+            "miss": 0,
+            "bypass": 0
+          },
+          "metricSourceCache": {
+            "hit": 0,
+            "miss": 0,
+            "bypass": 0
+          }
+        },
+        "tactics": {
+          "active": false,
+          "total": 435,
+          "matched": 0,
+          "ms": 0,
+          "buildTextMs": 0,
+          "savedFilterMs": 0,
+          "tagFilterMs": 0,
+          "keywordMatchMs": 0,
+          "metricMs": 0,
+          "parameterSearchTextCache": {
+            "hit": 0,
+            "miss": 0,
+            "bypass": 0
+          },
+          "metricSourceCache": {
+            "hit": 0,
+            "miss": 0,
+            "bypass": 0
+          }
+        },
+        "skills": {
+          "active": false,
+          "total": 1295,
+          "matched": 0,
+          "ms": 0,
+          "buildTextMs": 0,
+          "savedFilterMs": 0,
+          "tagFilterMs": 0,
+          "keywordMatchMs": 0,
+          "metricMs": 0,
+          "parameterSearchTextCache": {
+            "hit": 0,
+            "miss": 0,
+            "bypass": 0
+          },
+          "metricSourceCache": {
+            "hit": 0,
+            "miss": 0,
+            "bypass": 0
+          }
+        },
+        "equipments": {
+          "active": false,
+          "total": 237,
+          "matched": 0,
+          "ms": 0,
+          "buildTextMs": 0,
+          "savedFilterMs": 0,
+          "tagFilterMs": 0,
+          "keywordMatchMs": 0,
+          "metricMs": 0,
+          "parameterSearchTextCache": {
+            "hit": 0,
+            "miss": 0,
+            "bypass": 0
+          },
+          "metricSourceCache": {
+            "hit": 0,
+            "miss": 0,
+            "bypass": 0
+          }
+        },
+        "statusEffects": {
+          "active": false,
+          "total": 200,
+          "matched": 0,
+          "ms": 0,
+          "buildTextMs": 0,
+          "savedFilterMs": 0,
+          "tagFilterMs": 0,
+          "keywordMatchMs": 0,
+          "metricMs": 0,
+          "parameterSearchTextCache": {
+            "hit": 0,
+            "miss": 0,
+            "bypass": 0
+          },
+          "metricSourceCache": {
+            "hit": 0,
+            "miss": 0,
+            "bypass": 0
+          }
+        },
+        "siegeWeapons": {
+          "active": false,
+          "total": 6,
+          "matched": 0,
+          "ms": 0,
+          "buildTextMs": 0,
+          "savedFilterMs": 0,
+          "tagFilterMs": 0,
+          "keywordMatchMs": 0,
+          "metricMs": 0,
+          "parameterSearchTextCache": {
+            "hit": 0,
+            "miss": 0,
+            "bypass": 0
+          },
+          "metricSourceCache": {
+            "hit": 0,
+            "miss": 0,
+            "bypass": 0
+          }
+        },
+        "ethnicArmaments": {
+          "active": false,
+          "total": 18,
+          "matched": 0,
+          "ms": 0,
+          "buildTextMs": 0,
+          "savedFilterMs": 0,
+          "tagFilterMs": 0,
+          "keywordMatchMs": 0,
+          "metricMs": 0,
+          "parameterSearchTextCache": {
+            "hit": 0,
+            "miss": 0,
+            "bypass": 0
+          },
+          "metricSourceCache": {
+            "hit": 0,
+            "miss": 0,
+            "bypass": 0
+          }
+        },
+        "formations": {
+          "active": false,
+          "total": 21,
+          "matched": 0,
+          "ms": 0,
+          "buildTextMs": 0,
+          "savedFilterMs": 0,
+          "tagFilterMs": 0,
+          "keywordMatchMs": 0,
+          "metricMs": 0,
+          "parameterSearchTextCache": {
+            "hit": 0,
+            "miss": 0,
+            "bypass": 0
+          },
+          "metricSourceCache": {
+            "hit": 0,
+            "miss": 0,
+            "bypass": 0
+          }
+        },
+        "warhorses": {
+          "active": false,
+          "total": 2,
+          "matched": 0,
+          "ms": 0,
+          "buildTextMs": 0,
+          "savedFilterMs": 0,
+          "tagFilterMs": 0,
+          "keywordMatchMs": 0,
+          "metricMs": 0,
+          "parameterSearchTextCache": {
+            "hit": 0,
+            "miss": 0,
+            "bypass": 0
+          },
+          "metricSourceCache": {
+            "hit": 0,
+            "miss": 0,
+            "bypass": 0
+          }
+        },
+        "warhorseSkills": {
+          "active": false,
+          "total": 27,
+          "matched": 0,
+          "ms": 0,
+          "buildTextMs": 0,
+          "savedFilterMs": 0,
+          "tagFilterMs": 0,
+          "keywordMatchMs": 0,
+          "metricMs": 0,
+          "parameterSearchTextCache": {
+            "hit": 0,
+            "miss": 0,
+            "bypass": 0
+          },
+          "metricSourceCache": {
+            "hit": 0,
+            "miss": 0,
+            "bypass": 0
+          }
+        }
+      },
+      "totalMs": 21,
+      "buildTextMs": 0,
+      "savedFilterMs": 0.8,
+      "tagFilterMs": 0.1,
+      "keywordMatchMs": 0,
+      "metricMs": 0.2,
+      "sortMs": 0,
+      "renderSelectMs": 13.3,
+      "domRenderMs": 3.8,
+      "searchIndexUsage": {
+        "fastPathHit": 0,
+        "runtimeFallback": 0,
+        "parameterSearchRequested": 0
+      },
+      "resultCardIndex": {
+        "available": true,
+        "indexItems": 2107,
+        "totalItems": 2762,
+        "applied": 2055,
+        "fallback": 707,
+        "byCategory": {
+          "generals": {
+            "total": 476,
+            "applied": 476,
+            "fallback": 0
+          },
+          "tactics": {
+            "total": 435,
+            "applied": 435,
+            "fallback": 0
+          },
+          "skills": {
+            "total": 1327,
+            "applied": 620,
+            "fallback": 707
+          },
+          "equipments": {
+            "total": 237,
+            "applied": 237,
+            "fallback": 0
+          },
+          "status_effects": {
+            "total": 200,
+            "applied": 200,
+            "fallback": 0
+          },
+          "siege_weapons": {
+            "total": 6,
+            "applied": 6,
+            "fallback": 0
+          },
+          "ethnic_armaments": {
+            "total": 18,
+            "applied": 18,
+            "fallback": 0
+          },
+          "formations": {
+            "total": 21,
+            "applied": 21,
+            "fallback": 0
+          },
+          "five_elements": {
+            "total": 10,
+            "applied": 10,
+            "fallback": 0
+          },
+          "warhorses": {
+            "total": 5,
+            "applied": 5,
+            "fallback": 0
+          },
+          "warhorse_skills": {
+            "total": 27,
+            "applied": 27,
+            "fallback": 0
+          }
+        }
+      },
+      "tagIndex": {
+        "available": true,
+        "indexItems": 1579,
+        "totalItems": 2762,
+        "applied": 1559,
+        "fallback": 1203,
+        "tagCount": 749,
+        "blockedTagCount": 0,
+        "blockedTags": [],
+        "byCategory": {
+          "generals": {
+            "total": 476,
+            "applied": 476,
+            "fallback": 0
+          },
+          "tactics": {
+            "total": 435,
+            "applied": 0,
+            "fallback": 435
+          },
+          "skills": {
+            "total": 1327,
+            "applied": 620,
+            "fallback": 707
+          },
+          "equipments": {
+            "total": 237,
+            "applied": 237,
+            "fallback": 0
+          },
+          "status_effects": {
+            "total": 200,
+            "applied": 200,
+            "fallback": 0
+          },
+          "siege_weapons": {
+            "total": 6,
+            "applied": 0,
+            "fallback": 6
+          },
+          "ethnic_armaments": {
+            "total": 18,
+            "applied": 0,
+            "fallback": 18
+          },
+          "formations": {
+            "total": 21,
+            "applied": 21,
+            "fallback": 0
+          },
+          "five_elements": {
+            "total": 10,
+            "applied": 0,
+            "fallback": 10
+          },
+          "warhorses": {
+            "total": 5,
+            "applied": 5,
+            "fallback": 0
+          },
+          "warhorse_skills": {
+            "total": 27,
+            "applied": 0,
+            "fallback": 27
+          }
+        }
+      },
+      "statusEffectGroupOwnerIndex": {},
+      "renderedCount": 100,
+      "totalMatched": 460,
+      "parameterSearchTextCache": {
+        "hit": 0,
+        "miss": 0,
+        "bypass": 0
+      },
+      "metricSourceCache": {
+        "hit": 0,
+        "miss": 0,
+        "bypass": 0
+      },
+      "resultCount": 460
+    }
+  },
+  "responsive": {
+    "context": "renderDetail:after-layout:async",
+    "timestamp": "07:42:06.964",
+    "innerWidth": 1920,
+    "innerHeight": 911,
+    "devicePixelRatio": 1,
+    "matchMax980": false,
+    "matchCoarse": false,
+    "searchHistoryCount": 30,
+    "pcHistoryPanelDisplay": "none",
+    "pcHistoryPanelPosition": "fixed",
+    "mobileHistoryPanelDisplay": "none",
+    "mobileHistoryPanelPosition": "static",
+    "mobileHistoryPanelTop": 0,
+    "historyListDisplay": "grid",
+    "mobileHistorySelectDisplay": "none",
+    "mobileHistorySelectOptionCount": 31,
+    "resultsDisplay": "grid",
+    "resultSelectWrapDisplay": "none",
+    "resultSelectOptionCount": 461,
+    "documentClientWidth": 1920,
+    "documentScrollWidth": 1920,
+    "bodyScrollWidth": 1920,
+    "hasHorizontalOverflow": false,
+    "overflowAmount": 0,
+    "overflowSamples": [
+      {
+        "tag": "SECTION",
+        "id": "fileSettingsPanel",
+        "className": "panel file-settings-panel legacy-data-controls is-collapsed",
+        "width": 1,
+        "right": -9999,
+        "clientWidth": 1,
+        "scrollWidth": 87,
+        "overflowRight": -11919,
+        "scrollOverflow": 86,
+        "text": "ファイル設定▶ ファイル設定データ全データ保存データ保存データ名:20260405_編成検討全データ武将初期最大全データ"
+      }
+    ],
+    "domOrder": [
+      {
+        "idx": 0,
+        "tag": "SECTION",
+        "id": "appTitlePanel",
+        "className": "panel app-title-panel data-context-panel",
+        "text": "覇道ライブラリ覇道ライブラリ 3.0.0.0 Update08.14保存データ｜"
+      },
+      {
+        "idx": 1,
+        "tag": "SECTION",
+        "id": "uxHomePanel",
+        "className": "panel ux-home-panel is-dismissed",
+        "text": "スタートガイド2.9.6 操作ガイド初回のみ自動表示します。2回目以降は上部の「"
+      },
+      {
+        "idx": 2,
+        "tag": "SECTION",
+        "id": "fileSettingsPanel",
+        "className": "panel file-settings-panel legacy-data-controls is-collapsed",
+        "text": "ファイル設定▶ ファイル設定データ全データ保存データ保存データ名:2026040"
+      },
+      {
+        "idx": 3,
+        "tag": "SECTION",
+        "id": "dataManagementSheet",
+        "className": "data-management-sheet",
+        "text": "データ管理切り替え時だけ必要な設定を選択します。通常時は上部の1行表示で前提を確"
+      },
+      {
+        "idx": 4,
+        "tag": "SECTION",
+        "id": "diagnosticSheet",
+        "className": "diagnostic-sheet",
+        "text": "？ガイド再表示やログ確認を行います。通常操作では閉じたままで構いません。覇道ライ"
+      },
+      {
+        "idx": 5,
+        "tag": "SECTION",
+        "id": "saveManagerPanel",
+        "className": "panel save-manager-panel save-manager-compact-panel",
+        "text": "保存管理20260405_編成検討 / 武将460・装備159 / 部隊6保存管"
+      },
+      {
+        "idx": 6,
+        "tag": "SECTION",
+        "id": "mainTabPanel",
+        "className": "main-tab-panel",
+        "text": "検索部隊編成軍馬編成"
+      },
+      {
+        "idx": 7,
+        "tag": "SECTION",
+        "id": "",
+        "className": "panel mobile-search-history-panel tab-content-hidden",
+        "text": "検索履歴検索履歴を選択兵力+部隊の兵力部隊の兵力+対物特効被ダメージ部隊の射程戦"
+      },
+      {
+        "idx": 8,
+        "tag": "SECTION",
+        "id": "searchPanel",
+        "className": "panel search-wrap tab-content-hidden",
+        "text": "検索キーワード：未指定カテゴリ：武将対象：保存データ範囲：全文折り畳む通常検索状"
+      },
+      {
+        "idx": 9,
+        "tag": "SECTION",
+        "id": "",
+        "className": "layout tab-content-hidden",
+        "text": "検索結果一覧コピー検索パラコピー全パラコピー検索結果検索結果から選択（460/4"
+      },
+      {
+        "idx": 10,
+        "tag": "SECTION",
+        "id": "",
+        "className": "panel search-history-panel pc-search-history-panel tab-content-hidden",
+        "text": "検索履歴兵力+×部隊の兵力×部隊の兵力+×対物特効×被ダメージ×部隊の射程×戦法"
+      },
+      {
+        "idx": 11,
+        "tag": "SECTION",
+        "id": "formationScreen",
+        "className": "panel formation-panel",
+        "text": "部隊編成 ※部隊編成の合算技能は配置・好相性・兵科などの条件を判定して反映します"
+      },
+      {
+        "idx": 12,
+        "tag": "SECTION",
+        "id": "warhorseScreen",
+        "className": "panel warhorse-panel tab-content-hidden",
+        "text": "軍馬編成 ※軍馬の作成・編集・削除を行います。"
+      },
+      {
+        "idx": 13,
+        "tag": "SECTION",
+        "id": "debugPanel",
+        "className": "panel hidden-panel",
+        "text": "Debug Log"
+      }
+    ]
+  },
+  "formation": {
+    "timestamp": "07:42:05.625",
+    "skillSummary": {
+      "formationId": "formation_mq7wz2r8_hvjvoh",
+      "formationName": "型:ワクチン型",
+      "viewMode": "saved",
+      "skillCount": 4,
+      "hasBinkatsu": false,
+      "hasUnchui": false,
+      "skills": [
+        {
+          "name": "巻撃軽減",
+          "total": 5,
+          "min": 5,
+          "max": 5,
+          "holders": [
+            "軍馬1:絶影くん"
+          ]
+        },
+        {
+          "name": "絶影",
+          "total": 1,
+          "min": 1,
+          "max": 1,
+          "holders": [
+            "軍馬1:絶影くん"
+          ]
+        },
+        {
+          "name": "歩・重撃",
+          "total": 5,
+          "min": 5,
+          "max": 5,
+          "holders": [
+            "軍馬1:絶影くん"
+          ]
+        },
+        {
+          "name": "歩・大固",
+          "total": 5,
+          "min": 5,
+          "max": 5,
+          "holders": [
+            "軍馬1:絶影くん"
+          ]
+        }
+      ]
+    },
+    "parameterCalculation": {
+      "formationId": "formation_mq7wz2r8_hvjvoh",
+      "formationName": "型:ワクチン型",
+      "viewMode": "saved",
+      "mode": "fixed-by-general-stage",
+      "rowCount": 4,
+      "rows": [
+        {
+          "timing": "normal",
+          "timingLabel": "通常時",
+          "group": "special",
+          "parameterKey": "自身を対象としない範囲攻撃の被ダメージ",
+          "parameterName": "自身を対象としない範囲攻撃の被ダメージ",
+          "displayValue": "-15%",
+          "capApplied": false,
+          "capNote": "",
+          "relatedSkills": [
+            "巻撃軽減"
+          ],
+          "formula": [
+            {
+              "label": "計算",
+              "terms": [
+                {
+                  "value": "-15%",
+                  "source": "巻撃軽減Ⅴ",
+                  "condition": "常に",
+                  "rawText": "常に、自身を対象としない範囲攻撃の被ダメージ-15%"
+                }
+              ],
+              "total": "-15%"
+            }
+          ]
+        },
+        {
+          "timing": "normal",
+          "timingLabel": "通常時",
+          "group": "special",
+          "parameterKey": "負傷兵として生存する兵数",
+          "parameterName": "負傷兵として生存する兵数",
+          "displayValue": "+10%",
+          "capApplied": false,
+          "capNote": "",
+          "relatedSkills": [
+            "絶影くん:絶影"
+          ],
+          "formula": [
+            {
+              "label": "計算",
+              "terms": [
+                {
+                  "value": "+10%",
+                  "source": "絶影くん:絶影Ⅰ",
+                  "condition": "常に",
+                  "rawText": "常に、攻撃を受けた際、負傷兵として生存する兵数+10%。自部隊の主将が曹操と好相性の際、副将の連鎖確率+1%。主将戦法発動時、自身1部隊の負傷兵を最大兵力の5%回復"
+                }
+              ],
+              "total": "+10%"
+            }
+          ]
+        },
+        {
+          "timing": "normal",
+          "timingLabel": "通常時",
+          "group": "special",
+          "parameterKey": "負傷兵回復",
+          "parameterName": "負傷兵回復",
+          "displayValue": "+5%",
+          "capApplied": false,
+          "capNote": "",
+          "relatedSkills": [
+            "絶影くん:絶影"
+          ],
+          "formula": [
+            {
+              "label": "計算",
+              "terms": [
+                {
+                  "value": "+5%",
+                  "source": "絶影くん:絶影Ⅰ",
+                  "condition": "主将戦法発動時",
+                  "rawText": "常に、攻撃を受けた際、負傷兵として生存する兵数+10%。自部隊の主将が曹操と好相性の際、副将の連鎖確率+1%。主将戦法発動時、自身1部隊の負傷兵を最大兵力の5%回復"
+                }
+              ],
+              "total": "+5%"
+            }
+          ]
+        },
+        {
+          "timing": "normal",
+          "timingLabel": "通常時",
+          "group": "special",
+          "parameterKey": "副将の連鎖確率",
+          "parameterName": "副将の連鎖確率",
+          "displayValue": "+1%",
+          "capApplied": false,
+          "capNote": "",
+          "relatedSkills": [
+            "絶影くん:絶影"
+          ],
+          "formula": [
+            {
+              "label": "計算",
+              "terms": [
+                {
+                  "value": "+1%",
+                  "source": "絶影くん:絶影Ⅰ",
+                  "condition": "自部隊の主将が曹操と好相性の際",
+                  "rawText": "常に、攻撃を受けた際、負傷兵として生存する兵数+10%。自部隊の主将が曹操と好相性の際、副将の連鎖確率+1%。主将戦法発動時、自身1部隊の負傷兵を最大兵力の5%回復"
+                }
+              ],
+              "total": "+1%"
+            }
+          ]
+        }
+      ]
+    },
+    "rangeConditionGate": {
+      "baseRange": 0,
+      "conditionalCount": 0,
+      "conditional": []
+    },
+    "rangeEffectTrace": {
+      "rangeRows": [],
+      "hasRenshaRange": false,
+      "rangeTotal": 0,
+      "gate": {
+        "baseRange": 0,
+        "conditionalCount": 0,
+        "conditional": []
+      }
+    },
+    "extensionSelection": {
+      "siegeWeapon": {
+        "name": "",
+        "level": 0
+      },
+      "ethnicArmament": {
+        "name": "",
+        "level": 0,
+        "ethnicGeneralName": ""
+      }
+    },
+    "advisorSummary": [
+      {
+        "slotKey": "leadership",
+        "slotLabel": "統率",
+        "general": "",
+        "advisorLevel": "なし",
+        "canUseSlot": false,
+        "skillCount": 0,
+        "activeSkillCount": 0,
+        "activeSkills": [],
+        "status": "empty"
+      },
+      {
+        "slotKey": "war",
+        "slotLabel": "武力",
+        "general": "",
+        "advisorLevel": "なし",
+        "canUseSlot": false,
+        "skillCount": 0,
+        "activeSkillCount": 0,
+        "activeSkills": [],
+        "status": "empty"
+      },
+      {
+        "slotKey": "intelligence",
+        "slotLabel": "知力",
+        "general": "",
+        "advisorLevel": "なし",
+        "canUseSlot": false,
+        "skillCount": 0,
+        "activeSkillCount": 0,
+        "activeSkills": [],
+        "status": "empty"
+      },
+      {
+        "slotKey": "politics",
+        "slotLabel": "政治",
+        "general": "",
+        "advisorLevel": "なし",
+        "canUseSlot": false,
+        "skillCount": 0,
+        "activeSkillCount": 0,
+        "activeSkills": [],
+        "status": "empty"
+      },
+      {
+        "slotKey": "charm",
+        "slotLabel": "魅力",
+        "general": "",
+        "advisorLevel": "なし",
+        "canUseSlot": false,
+        "skillCount": 0,
+        "activeSkillCount": 0,
+        "activeSkills": [],
+        "status": "empty"
+      }
+    ],
+    "formationSelection": {
+      "formationName": "基本",
+      "deploymentType": "normal",
+      "deploymentTypeLabel": "通常",
+      "jijuAvailability": {
+        "bySlot": {
+          "main": {
+            "slotKey": "main",
+            "owner": "",
+            "ownerLabel": "主将",
+            "ownerCoord": {
+              "row": 0,
+              "col": 1,
+              "rawSlot": "main"
+            },
+            "positions": [],
+            "candidates": [],
+            "selected": null,
+            "available": [],
+            "hasAvailable": false,
+            "attendant": "",
+            "jijuPriorityGroup": 3,
+            "jijuPriorityLabel": "empty-slot",
+            "jijuPositionCount": 0,
+            "jijuProcessingIndex": 0
+          },
+          "deputy1": {
+            "slotKey": "deputy1",
+            "owner": "",
+            "ownerLabel": "副将1",
+            "ownerCoord": {
+              "row": 1,
+              "col": 1,
+              "rawSlot": "vice_1"
+            },
+            "positions": [],
+            "candidates": [],
+            "selected": null,
+            "available": [],
+            "hasAvailable": false,
+            "attendant": "",
+            "jijuPriorityGroup": 3,
+            "jijuPriorityLabel": "empty-slot",
+            "jijuPositionCount": 0,
+            "jijuProcessingIndex": 1
+          },
+          "deputy2": {
+            "slotKey": "deputy2",
+            "owner": "",
+            "ownerLabel": "副将2",
+            "ownerCoord": {
+              "row": 2,
+              "col": 1,
+              "rawSlot": "vice_2"
+            },
+            "positions": [],
+            "candidates": [],
+            "selected": null,
+            "available": [],
+            "hasAvailable": false,
+            "attendant": "",
+            "jijuPriorityGroup": 3,
+            "jijuPriorityLabel": "empty-slot",
+            "jijuPositionCount": 0,
+            "jijuProcessingIndex": 2
+          },
+          "support1": {
+            "slotKey": "support1",
+            "owner": "",
+            "ownerLabel": "補佐1",
+            "ownerCoord": {
+              "row": 2,
+              "col": 0,
+              "rawSlot": "support_1"
+            },
+            "positions": [],
+            "candidates": [],
+            "selected": null,
+            "available": [],
+            "hasAvailable": false,
+            "attendant": "",
+            "jijuPriorityGroup": 3,
+            "jijuPriorityLabel": "empty-slot",
+            "jijuPositionCount": 0,
+            "jijuProcessingIndex": 3
+          },
+          "support2": {
+            "slotKey": "support2",
+            "owner": "",
+            "ownerLabel": "補佐2",
+            "ownerCoord": {
+              "row": 2,
+              "col": 2,
+              "rawSlot": "support_2"
+            },
+            "positions": [],
+            "candidates": [],
+            "selected": null,
+            "available": [],
+            "hasAvailable": false,
+            "attendant": "",
+            "jijuPriorityGroup": 3,
+            "jijuPriorityLabel": "empty-slot",
+            "jijuPositionCount": 0,
+            "jijuProcessingIndex": 4
+          }
+        },
+        "coordMap": {
+          "main": {
+            "row": 0,
+            "col": 1,
+            "rawSlot": "main"
+          },
+          "deputy1": {
+            "row": 1,
+            "col": 1,
+            "rawSlot": "vice_1"
+          },
+          "support1": {
+            "row": 2,
+            "col": 0,
+            "rawSlot": "support_1"
+          },
+          "deputy2": {
+            "row": 2,
+            "col": 1,
+            "rawSlot": "vice_2"
+          },
+          "support2": {
+            "row": 2,
+            "col": 2,
+            "rawSlot": "support_2"
+          }
+        },
+        "occupied": {},
+        "reserved": {},
+        "removed": [],
+        "processingOrder": [
+          {
+            "slotKey": "main",
+            "owner": "",
+            "positionCount": 0,
+            "priorityGroup": 3,
+            "priorityLabel": "empty-slot"
+          },
+          {
+            "slotKey": "deputy1",
+            "owner": "",
+            "positionCount": 0,
+            "priorityGroup": 3,
+            "priorityLabel": "empty-slot"
+          },
+          {
+            "slotKey": "deputy2",
+            "owner": "",
+            "positionCount": 0,
+            "priorityGroup": 3,
+            "priorityLabel": "empty-slot"
+          },
+          {
+            "slotKey": "support1",
+            "owner": "",
+            "positionCount": 0,
+            "priorityGroup": 3,
+            "priorityLabel": "empty-slot"
+          },
+          {
+            "slotKey": "support2",
+            "owner": "",
+            "positionCount": 0,
+            "priorityGroup": 3,
+            "priorityLabel": "empty-slot"
+          }
+        ]
+      }
+    },
+    "extensionSummaryEffects": [],
+    "effectSources": [
+      {
+        "sourceLabel": "軍馬:絶影くん:絶影Ⅰ",
+        "key": "負傷兵として生存する兵数",
+        "group": "special",
+        "timing": "normal",
+        "value": 10,
+        "unit": "%",
+        "condition": "常に",
+        "sourceItemCategory": "warhorseSkills",
+        "sourceItemName": "絶影",
+        "position": "",
+        "positionMultiplierApplied": false,
+        "positionMultiplier": 0
+      },
+      {
+        "sourceLabel": "軍馬:絶影くん:絶影Ⅰ",
+        "key": "副将の連鎖確率",
+        "group": "special",
+        "timing": "normal",
+        "value": 1,
+        "unit": "%",
+        "condition": "自部隊の主将が曹操と好相性の際",
+        "sourceItemCategory": "warhorseSkills",
+        "sourceItemName": "絶影",
+        "position": "",
+        "positionMultiplierApplied": false,
+        "positionMultiplier": 0
+      },
+      {
+        "sourceLabel": "軍馬:絶影くん:絶影Ⅰ",
+        "key": "負傷兵回復",
+        "group": "special",
+        "timing": "normal",
+        "value": 5,
+        "unit": "%",
+        "condition": "主将戦法発動時",
+        "sourceItemCategory": "warhorseSkills",
+        "sourceItemName": "絶影",
+        "position": "",
+        "positionMultiplierApplied": false,
+        "positionMultiplier": 0
+      },
+      {
+        "sourceLabel": "軍馬:巻撃軽減Ⅴ",
+        "key": "自身を対象としない範囲攻撃の被ダメージ",
+        "group": "special",
+        "timing": "normal",
+        "value": -15,
+        "unit": "%",
+        "condition": "常に",
+        "sourceItemCategory": "warhorseSkills",
+        "sourceItemName": "巻撃軽減",
+        "position": "",
+        "positionMultiplierApplied": false,
+        "positionMultiplier": 0
+      }
+    ]
+  },
+  "detailProfile": {
+    "context": "renderDetail",
+    "timestamp": "7:42:05",
+    "version": "3.0.0.0",
+    "phases": {
+      "reconcileSelectedItem": {
+        "ms": 0,
+        "totalMs": 0
+      },
+      "identityResolve": {
+        "ms": 0.1,
+        "totalMs": 0.1
+      },
+      "renderSectionsHtml": {
+        "ms": 1.3,
+        "totalMs": 1.4,
+        "htmlLength": 6022,
+        "sectionCount": 28
+      },
+      "renderTabbedDetailContent": {
+        "ms": 34.6,
+        "totalMs": 36,
+        "htmlLength": 3202,
+        "activeTab": "related"
+      },
+      "renderCategorySpecificHtml": {
+        "ms": 0,
+        "totalMs": 36,
+        "eqLength": 0,
+        "generalLength": 0,
+        "skillLength": 0,
+        "tacticLength": 0,
+        "hadouExtensionLength": 0,
+        "statusEffectLength": 0,
+        "formationLength": 0,
+        "warhorseLength": 0,
+        "warhorseSkillLength": 0
+      },
+      "buildDetailDebugText": {
+        "ms": 0.8,
+        "totalMs": 36.8,
+        "textLength": 3654
+      },
+      "resolveBodyAndButtons": {
+        "ms": 0,
+        "totalMs": 36.8,
+        "bodyLength": 3202,
+        "formationButtonLength": 139
+      },
+      "buildDetailTagsHtml": {
+        "ms": 0.3,
+        "totalMs": 37.1,
+        "htmlLength": 150
+      },
+      "safeBuildRelatedLinksHtml": {
+        "ms": 0,
+        "totalMs": 37.1,
+        "htmlLength": 0,
+        "groupCount": 6
+      },
+      "assembleHtml": {
+        "ms": 0,
+        "totalMs": 37.1,
+        "htmlLength": 4198
+      },
+      "setDetailHtmlHard": {
+        "ms": 0.6,
+        "totalMs": 37.7,
+        "childCount": 2
+      },
+      "debugIdentityAndSkillDom": {
+        "ms": 0,
+        "totalMs": 37.7
+      },
+      "setupDetailTabButtons": {
+        "ms": 0,
+        "totalMs": 37.7
+      },
+      "markDetailTwoColumnTables": {
+        "ms": 0.1,
+        "totalMs": 37.8
+      },
+      "attachDetailEventHandlers": {
+        "ms": 0.1,
+        "totalMs": 37.9,
+        "inputCount": 9
+      },
+      "linkifyDetailTextNodes": {
+        "ms": 0.9,
+        "totalMs": 38.8
+      },
+      "highlightDetailTextNodes": {
+        "ms": 0,
+        "totalMs": 38.8,
+        "keyword": ""
+      },
+      "syncSelectionAndScroll": {
+        "ms": 0.7,
+        "totalMs": 39.5
+      },
+      "responsiveLayoutAndOverflowGuard": {
+        "ms": 1,
+        "totalMs": 40.5
+      }
+    },
+    "categoryKey": "generals",
+    "name": "LR司馬師（しばし）",
+    "label": "武将",
+    "activeTab": "related",
+    "effectConditionBlocks": {
+      "source": "effect-condition-blocks-index",
+      "blockCount": 23
+    },
+    "tabBuildProfile": {
+      "scope": "renderTabbedDetailContent",
+      "category": "generals",
+      "item": "LR司馬師（しばし）",
+      "activeTab": "related",
+      "lazyRender": true,
+      "builderProfile": {
+        "scope": "buildGeneralDetailTabParts",
+        "category": "generals",
+        "item": "LR司馬師（しばし）",
+        "activeOnly": true,
+        "activeKey": "related",
+        "includedTabs": [
+          "related"
+        ],
+        "cardCounts": {
+          "related": 1,
+          "parameter": 0,
+          "basic": 0,
+          "tactic": 0,
+          "skill": 0,
+          "other": 0
+        },
+        "totalMs": 34.4,
+        "steps": [
+          {
+            "label": "related.safeBuildRelatedLinksHtml",
+            "ms": 34.3,
+            "totalMs": 34.3,
+            "htmlLength": 2351,
+            "groupCount": 6,
+            "source": "related-link-index-trusted",
+            "cacheHit": false
+          }
+        ]
+      },
+      "totalMs": 34.5,
+      "steps": [
+        {
+          "label": "normalizeDetailActiveTab",
+          "ms": 0,
+          "totalMs": 0,
+          "active": "related"
+        },
+        {
+          "label": "buildGeneralDetailTabParts",
+          "ms": 34.4,
+          "totalMs": 34.4,
+          "profileTotalMs": 34.4,
+          "includedTabs": "related"
+        },
+        {
+          "label": "resolveFallback",
+          "ms": 0,
+          "totalMs": 34.4,
+          "fallback": "related"
+        },
+        {
+          "label": "resolveTabHtml",
+          "ms": 0,
+          "totalMs": 34.4,
+          "htmlLength": 2351,
+          "active": "related",
+          "fallback": "related"
+        },
+        {
+          "label": "renderDetailTabs",
+          "ms": 0,
+          "totalMs": 34.5,
+          "htmlLength": 747
+        },
+        {
+          "label": "assembleTabbedHtml",
+          "ms": 0,
+          "totalMs": 34.5,
+          "htmlLength": 3202
+        }
+      ]
+    },
+    "relatedLinksProfile": {
+      "scope": "safeBuildRelatedLinksHtml",
+      "category": "generals",
+      "item": "LR司馬師（しばし）",
+      "cacheHit": false,
+      "cacheKey": "generals@@LR司馬師（しばし）@@saved@@relatedIndexTrust@@1.1.0.0|2026-06-07T04:23:26.720Z|ok",
+      "source": "related-link-index-trusted",
+      "groupCount": 6,
+      "htmlLength": 2351,
+      "totalMs": 34.3,
+      "steps": [
+        {
+          "label": "getRelatedLinksCacheKey",
+          "ms": 0.2,
+          "totalMs": 0.2
+        },
+        {
+          "label": "cache.check",
+          "ms": 0,
+          "totalMs": 0.2,
+          "cacheHit": false,
+          "cacheKey": "generals@@LR司馬師（しばし）@@saved@@relatedIndexTrust@@1.1.0.0|2026-06-07T04:23:26.720Z|ok"
+        },
+        {
+          "label": "isTrustedRelatedLinkIndexForItem",
+          "ms": 0,
+          "totalMs": 0.2
+        },
+        {
+          "label": "getDerivedRelatedLinkIndexGroupsForItem",
+          "ms": 27.1,
+          "totalMs": 27.3,
+          "hasGroups": true,
+          "groupCount": 6,
+          "source": "related-link-index-trusted"
+        },
+        {
+          "label": "countermeasureRelatedGroups.skipped",
+          "ms": 0,
+          "totalMs": 27.3,
+          "reason": "crawler-generated-related-link-index-is-source-of-truth"
+        },
+        {
+          "label": "normalizeRelatedLinkGroupsForDisplay",
+          "ms": 0.2,
+          "totalMs": 27.5,
+          "groupCount": 6
+        },
+        {
+          "label": "summarizeRelatedLinkGroups",
+          "ms": 0,
+          "totalMs": 27.5,
+          "groupCount": 6
+        },
+        {
+          "label": "buildRelatedLinksHtmlFromGroups",
+          "ms": 6.8,
+          "totalMs": 34.3,
+          "htmlLength": 2351
+        }
+      ]
+    },
+    "totalMs": 40.5,
+    "asyncLayoutMs": 0.6,
+    "asyncTimestamp": "7:42:06"
+  },
+  "detailTabBuildProfile": {
+    "scope": "renderTabbedDetailContent",
+    "category": "generals",
+    "item": "LR司馬師（しばし）",
+    "activeTab": "related",
+    "lazyRender": true,
+    "builderProfile": {
+      "scope": "buildGeneralDetailTabParts",
+      "category": "generals",
+      "item": "LR司馬師（しばし）",
+      "activeOnly": true,
+      "activeKey": "related",
+      "includedTabs": [
+        "related"
+      ],
+      "cardCounts": {
+        "related": 1,
+        "parameter": 0,
+        "basic": 0,
+        "tactic": 0,
+        "skill": 0,
+        "other": 0
+      },
+      "totalMs": 34.4,
+      "steps": [
+        {
+          "label": "related.safeBuildRelatedLinksHtml",
+          "ms": 34.3,
+          "totalMs": 34.3,
+          "htmlLength": 2351,
+          "groupCount": 6,
+          "source": "related-link-index-trusted",
+          "cacheHit": false
+        }
+      ]
+    },
+    "totalMs": 34.5,
+    "steps": [
+      {
+        "label": "normalizeDetailActiveTab",
+        "ms": 0,
+        "totalMs": 0,
+        "active": "related"
+      },
+      {
+        "label": "buildGeneralDetailTabParts",
+        "ms": 34.4,
+        "totalMs": 34.4,
+        "profileTotalMs": 34.4,
+        "includedTabs": "related"
+      },
+      {
+        "label": "resolveFallback",
+        "ms": 0,
+        "totalMs": 34.4,
+        "fallback": "related"
+      },
+      {
+        "label": "resolveTabHtml",
+        "ms": 0,
+        "totalMs": 34.4,
+        "htmlLength": 2351,
+        "active": "related",
+        "fallback": "related"
+      },
+      {
+        "label": "renderDetailTabs",
+        "ms": 0,
+        "totalMs": 34.5,
+        "htmlLength": 747
+      },
+      {
+        "label": "assembleTabbedHtml",
+        "ms": 0,
+        "totalMs": 34.5,
+        "htmlLength": 3202
+      }
+    ]
+  },
+  "slowContentDetailProfiles": [],
+  "lastSlowContentDetailProfile": {},
+  "detailIdentity": {
+    "context": "renderDetail:after-hard-set",
+    "ok": true,
+    "expected": "武将 : LR司馬師（しばし）",
+    "titleText": "武将 : LR司馬師（しばし）",
+    "categoryKey": "generals",
+    "name": "LR司馬師（しばし）",
+    "label": "武将"
+  },
+  "skillDetailDom": {},
+  "relatedLinks": {
+    "category": "generals",
+    "name": "LR司馬師（しばし）",
+    "groupCount": 6,
+    "groups": [
+      {
+        "category": "tactics",
+        "title": "戦法",
+        "count": 1,
+        "names": [
+          "沈毅大略"
+        ]
+      },
+      {
+        "category": "skills",
+        "title": "技能",
+        "count": 5,
+        "names": [
+          "威逆",
+          "克堪",
+          "衰撃",
+          "冶金",
+          "冷眼"
+        ]
+      },
+      {
+        "category": "statusEffects",
+        "title": "自部隊能力強化",
+        "count": 4,
+        "names": [
+          "会心発生上昇",
+          "知力上昇",
+          "被ダメージ低下",
+          "与ダメージ上昇"
+        ]
+      },
+      {
+        "category": "statusEffects",
+        "title": "敵部隊能力低下",
+        "count": 5,
+        "names": [
+          "会心率半減",
+          "攻撃低下",
+          "知力低下",
+          "被ダメージ上昇",
+          "与ダメージ低下"
+        ]
+      },
+      {
+        "category": "statusEffects",
+        "title": "敵部隊状態弱化",
+        "count": 2,
+        "names": [
+          "分断",
+          "連鎖無効"
+        ]
+      },
+      {
+        "category": "statusEffects",
+        "title": "敵部隊有利対策",
+        "count": 1,
+        "names": [
+          "強化奪取"
+        ]
+      }
+    ],
+    "htmlLength": 2351,
+    "emptyReason": "",
+    "source": "related-link-index-trusted",
+    "cacheHit": false,
+    "cacheKey": "generals@@LR司馬師（しばし）@@saved@@relatedIndexTrust@@1.1.0.0|2026-06-07T04:23:26.720Z|ok",
+    "derivedInfo": {
+      "trustedIndex": true,
+      "usedRelatedLinkIndex": true,
+      "usedFastParameterStatus": false,
+      "usedEffectSourceWhitelist": false,
+      "policy": "HADO-2.9.0.34: related_link_indexを表示正本として必須利用する。監査NG・欠損時にアプリ側で関連リンクを再生成しない。"
+    },
+    "profile": {
+      "scope": "safeBuildRelatedLinksHtml",
+      "category": "generals",
+      "item": "LR司馬師（しばし）",
+      "cacheHit": false,
+      "cacheKey": "generals@@LR司馬師（しばし）@@saved@@relatedIndexTrust@@1.1.0.0|2026-06-07T04:23:26.720Z|ok",
+      "source": "related-link-index-trusted",
+      "groupCount": 6,
+      "htmlLength": 2351,
+      "totalMs": 34.3,
+      "steps": [
+        {
+          "label": "getRelatedLinksCacheKey",
+          "ms": 0.2,
+          "totalMs": 0.2
+        },
+        {
+          "label": "cache.check",
+          "ms": 0,
+          "totalMs": 0.2,
+          "cacheHit": false,
+          "cacheKey": "generals@@LR司馬師（しばし）@@saved@@relatedIndexTrust@@1.1.0.0|2026-06-07T04:23:26.720Z|ok"
+        },
+        {
+          "label": "isTrustedRelatedLinkIndexForItem",
+          "ms": 0,
+          "totalMs": 0.2
+        },
+        {
+          "label": "getDerivedRelatedLinkIndexGroupsForItem",
+          "ms": 27.1,
+          "totalMs": 27.3,
+          "hasGroups": true,
+          "groupCount": 6,
+          "source": "related-link-index-trusted"
+        },
+        {
+          "label": "countermeasureRelatedGroups.skipped",
+          "ms": 0,
+          "totalMs": 27.3,
+          "reason": "crawler-generated-related-link-index-is-source-of-truth"
+        },
+        {
+          "label": "normalizeRelatedLinkGroupsForDisplay",
+          "ms": 0.2,
+          "totalMs": 27.5,
+          "groupCount": 6
+        },
+        {
+          "label": "summarizeRelatedLinkGroups",
+          "ms": 0,
+          "totalMs": 27.5,
+          "groupCount": 6
+        },
+        {
+          "label": "buildRelatedLinksHtmlFromGroups",
+          "ms": 6.8,
+          "totalMs": 34.3,
+          "htmlLength": 2351
+        }
+      ]
+    }
+  },
+  "relatedLinksError": {},
+  "relatedLinkAnnotationLeakAudit": {},
+  "statusEffectMeta": {
+    "source": "HADO-2.7.0.21",
+    "total": 200,
+    "allTargetSideJudged": true,
+    "missingTargetSide": [],
+    "observedMetaCount": 166,
+    "observationCount": 1374,
+    "typeCounts": {
+      "有利変化": 84,
+      "不利変化": 49,
+      "即時効果": 19,
+      "能力変化(強化)": 24,
+      "能力変化(弱化)": 24
+    },
+    "groupCounts": {
+      "selfStateBuff": 10,
+      "selfAbilityBuff": 76,
+      "selfResistanceBuff": 23,
+      "enemyResistanceDebuff": 8,
+      "enemyStateDebuff": 38,
+      "enemyAbilityDebuff": 45
+    },
+    "targetCounts": {
+      "self": 115,
+      "enemy": 85
+    },
+    "actionCounts": {
+      "none": 176,
+      "debuff_nullify": 1,
+      "debuff_reflect": 1,
+      "buff_promote": 1,
+      "buff_nullify": 1,
+      "buff_suppress": 1,
+      "buff_reverse": 2,
+      "normal_attack_wait_shorten": 1,
+      "tactic_wait_shorten": 1,
+      "siege_wait_shorten": 1,
+      "wounded_soldier_reduce": 1,
+      "buff_remove": 1,
+      "buff_steal": 1,
+      "buff_extend": 1,
+      "debuff_cleanse": 1,
+      "debuff_extend": 1,
+      "tactic_gauge_delay": 1,
+      "tactic_gauge_steal": 1,
+      "instant_heal": 1,
+      "buff_amplify": 1,
+      "armament_break": 1,
+      "buff_shorten": 1,
+      "buff_remove_special": 1,
+      "tactic_gauge_destroy": 1
+    },
+    "targetSideSourceCounts": {
+      "derived-json-canonical": 200
+    },
+    "targetSideMismatches": [
+      {
+        "name": "轟炎",
+        "type": "有利変化",
+        "defaultTargetSide": "enemy",
+        "observedTargetSides": [
+          "self"
+        ],
+        "resolvedTargetSide": "self",
+        "targetSideJudgement": "observed-overrides-default",
+        "finalGateReason": "observed-overrides-default"
+      },
+      {
+        "name": "不敵",
+        "type": "有利変化",
+        "defaultTargetSide": "self",
+        "observedTargetSides": [
+          "enemy"
+        ],
+        "resolvedTargetSide": "enemy",
+        "targetSideJudgement": "observed-overrides-default",
+        "finalGateReason": "observed-overrides-default"
+      },
+      {
+        "name": "分断",
+        "type": "不利変化",
+        "defaultTargetSide": "enemy",
+        "observedTargetSides": [
+          "self"
+        ],
+        "resolvedTargetSide": "self",
+        "targetSideJudgement": "observed-overrides-default",
+        "finalGateReason": "observed-overrides-default"
+      },
+      {
+        "name": "沙縛",
+        "type": "不利変化",
+        "defaultTargetSide": "enemy",
+        "observedTargetSides": [
+          "self"
+        ],
+        "resolvedTargetSide": "self",
+        "targetSideJudgement": "observed-overrides-default",
+        "finalGateReason": "observed-overrides-default"
+      },
+      {
+        "name": "毒﨧",
+        "type": "不利変化",
+        "defaultTargetSide": "enemy",
+        "observedTargetSides": [
+          "self"
+        ],
+        "resolvedTargetSide": "self",
+        "targetSideJudgement": "observed-overrides-default",
+        "finalGateReason": "observed-overrides-default"
+      },
+      {
+        "name": "反情",
+        "type": "不利変化",
+        "defaultTargetSide": "enemy",
+        "observedTargetSides": [
+          "self"
+        ],
+        "resolvedTargetSide": "self",
+        "targetSideJudgement": "observed-overrides-default",
+        "finalGateReason": "observed-overrides-default"
+      },
+      {
+        "name": "負傷兵数変化",
+        "type": "即時効果",
+        "defaultTargetSide": "self",
+        "observedTargetSides": [
+          "enemy"
+        ],
+        "resolvedTargetSide": "enemy",
+        "targetSideJudgement": "observed-overrides-default",
+        "finalGateReason": "observed-overrides-default"
+      },
+      {
+        "name": "強化延長",
+        "type": "即時効果",
+        "defaultTargetSide": "enemy",
+        "observedTargetSides": [
+          "self"
+        ],
+        "resolvedTargetSide": "self",
+        "targetSideJudgement": "observed-overrides-default",
+        "finalGateReason": "observed-overrides-default"
+      },
+      {
+        "name": "正転",
+        "type": "即時効果",
+        "defaultTargetSide": "enemy",
+        "observedTargetSides": [
+          "self"
+        ],
+        "resolvedTargetSide": "self",
+        "targetSideJudgement": "observed-overrides-default",
+        "finalGateReason": "observed-overrides-default"
+      },
+      {
+        "name": "強化増幅",
+        "type": "即時効果",
+        "defaultTargetSide": "enemy",
+        "observedTargetSides": [
+          "self"
+        ],
+        "resolvedTargetSide": "self",
+        "targetSideJudgement": "observed-overrides-default",
+        "finalGateReason": "observed-overrides-default"
+      }
+    ],
+    "sample": [
+      {
+        "name": "治癒",
+        "displayName": "治癒",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊状態強化",
+        "defaultGroup": "自部隊状態強化",
+        "resolvedGroup": "自部隊状態強化",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "高揚",
+        "displayName": "高揚",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊能力強化",
+        "defaultGroup": "自部隊能力強化",
+        "resolvedGroup": "自部隊能力強化",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "結束",
+        "displayName": "結束",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊状態強化",
+        "defaultGroup": "自部隊状態強化",
+        "resolvedGroup": "自部隊状態強化",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "通常攻撃拡張",
+        "displayName": "通常攻撃拡張",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊能力強化",
+        "defaultGroup": "自部隊能力強化",
+        "resolvedGroup": "自部隊能力強化",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "火属性強化",
+        "displayName": "火属性強化",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊能力強化",
+        "defaultGroup": "自部隊能力強化",
+        "resolvedGroup": "自部隊能力強化",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "火属性付与",
+        "displayName": "火属性付与",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊状態強化",
+        "defaultGroup": "自部隊状態強化",
+        "resolvedGroup": "自部隊状態強化",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "回避",
+        "displayName": "回避",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化+自部隊回避/無効/遮断",
+        "observedTargetSides": [],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊不利対策",
+        "defaultGroup": "自部隊不利対策",
+        "resolvedGroup": "自部隊不利対策",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "堅固",
+        "displayName": "堅固",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化+自部隊回避/無効/遮断",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊不利対策",
+        "defaultGroup": "自部隊不利対策",
+        "resolvedGroup": "自部隊不利対策",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "取込",
+        "displayName": "取込",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化+自部隊回避/無効/遮断",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊不利対策",
+        "defaultGroup": "自部隊不利対策",
+        "resolvedGroup": "自部隊不利対策",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "攻撃無効",
+        "displayName": "攻撃無効",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化+自部隊回避/無効/遮断",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊不利対策",
+        "defaultGroup": "自部隊不利対策",
+        "resolvedGroup": "自部隊不利対策",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "弱化無効",
+        "displayName": "弱化無効",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化+自部隊回避/無効/遮断",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊不利対策",
+        "defaultGroup": "自部隊不利対策",
+        "resolvedGroup": "自部隊不利対策",
+        "actionKind": "debuff_nullify",
+        "actionLabel": "弱化無効",
+        "actionTarget": "弱化効果"
+      },
+      {
+        "name": "有利激攻",
+        "displayName": "有利激攻",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊能力強化",
+        "defaultGroup": "自部隊能力強化",
+        "resolvedGroup": "自部隊能力強化",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "会心耐性",
+        "displayName": "会心耐性",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化+自部隊回避/無効/遮断",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊不利対策",
+        "defaultGroup": "自部隊不利対策",
+        "resolvedGroup": "自部隊不利対策",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "物理耐性",
+        "displayName": "物理耐性",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化+自部隊回避/無効/遮断",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊不利対策",
+        "defaultGroup": "自部隊不利対策",
+        "resolvedGroup": "自部隊不利対策",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "知力耐性",
+        "displayName": "知力耐性",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化+自部隊回避/無効/遮断",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊不利対策",
+        "defaultGroup": "自部隊不利対策",
+        "resolvedGroup": "自部隊不利対策",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "練心",
+        "displayName": "練心",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊能力強化",
+        "defaultGroup": "自部隊能力強化",
+        "resolvedGroup": "自部隊能力強化",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "絶縁",
+        "displayName": "絶縁",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化+自部隊回避/無効/遮断",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊不利対策",
+        "defaultGroup": "自部隊不利対策",
+        "resolvedGroup": "自部隊不利対策",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "逆襲",
+        "displayName": "逆襲",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊能力強化",
+        "defaultGroup": "自部隊能力強化",
+        "resolvedGroup": "自部隊能力強化",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "穿撃",
+        "displayName": "穿撃",
+        "type": "有利変化",
+        "direction": "debuff",
+        "defaultTargetSide": "enemy",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化+敵耐性低下/強化無視",
+        "observedTargetSides": [
+          "enemy"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "敵部隊有利対策",
+        "defaultGroup": "敵部隊有利対策",
+        "resolvedGroup": "敵部隊有利対策",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "物理戦法遮断",
+        "displayName": "物理戦法遮断",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊能力強化",
+        "defaultGroup": "自部隊能力強化",
+        "resolvedGroup": "自部隊能力強化",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "知力戦法遮断",
+        "displayName": "知力戦法遮断",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊能力強化",
+        "defaultGroup": "自部隊能力強化",
+        "resolvedGroup": "自部隊能力強化",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "不退",
+        "displayName": "不退",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊状態強化",
+        "defaultGroup": "自部隊状態強化",
+        "resolvedGroup": "自部隊状態強化",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "呼応・一",
+        "displayName": "呼応・一",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊状態強化",
+        "defaultGroup": "自部隊状態強化",
+        "resolvedGroup": "自部隊状態強化",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "呼応・二",
+        "displayName": "呼応・二",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊状態強化",
+        "defaultGroup": "自部隊状態強化",
+        "resolvedGroup": "自部隊状態強化",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "戦法威力低下付与",
+        "displayName": "戦法威力低下付与",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊能力強化",
+        "defaultGroup": "自部隊能力強化",
+        "resolvedGroup": "自部隊能力強化",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "盤石",
+        "displayName": "盤石",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊能力強化",
+        "defaultGroup": "自部隊能力強化",
+        "resolvedGroup": "自部隊能力強化",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "有利巧守",
+        "displayName": "有利巧守",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊能力強化",
+        "defaultGroup": "自部隊能力強化",
+        "resolvedGroup": "自部隊能力強化",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "奮心",
+        "displayName": "奮心",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化+自部隊回避/無効/遮断",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊不利対策",
+        "defaultGroup": "自部隊不利対策",
+        "resolvedGroup": "自部隊不利対策",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "憤撃",
+        "displayName": "憤撃",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊能力強化",
+        "defaultGroup": "自部隊能力強化",
+        "resolvedGroup": "自部隊能力強化",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      },
+      {
+        "name": "闘気",
+        "displayName": "闘気",
+        "type": "有利変化",
+        "direction": "buff",
+        "defaultTargetSide": "self",
+        "defaultTargetSideSource": "derived-json-canonical",
+        "defaultTargetSideReason": "type:有利変化+能力/火力/回復/速度/軽減系",
+        "observedTargetSides": [
+          "self"
+        ],
+        "targetSideLocked": false,
+        "targetSideMismatch": false,
+        "targetSideJudgement": "derived-json-canonical",
+        "finalGateReason": "derived-json-canonical",
+        "group": "自部隊能力強化",
+        "defaultGroup": "自部隊能力強化",
+        "resolvedGroup": "自部隊能力強化",
+        "actionKind": "none",
+        "actionLabel": "通常効果",
+        "actionTarget": ""
+      }
+    ],
+    "policy": "状態変化メタは6分類（自部隊能力強化/自部隊状態強化/自部隊不利対策/敵部隊能力低下/敵部隊状態弱化/敵部隊有利対策）で確定し、関連リンク・状態変化率・部隊編成表示で同一分類関数を使用する。"
+  },
+  "selfResistanceRelatedLinks": {},
+  "effectCountermeasureIndex": {
+    "source": "HADO-2.7.0.21",
+    "count": 42,
+    "selfDisadvantage": 42,
+    "enemyAdvantage": 0,
+    "zeroHitCount": 0,
+    "lockedGroupViolationCount": 0,
+    "enemyAdvantageForbiddenNames": [],
+    "selfCheck": [
+      {
+        "group": "自部隊不利対策",
+        "name": "畏怖回避",
+        "target": "畏怖",
+        "lockedGroup": "enemyAbilityDebuff",
+        "skills": [
+          "堅厚",
+          "鋼胆",
+          "守衛",
+          "将器",
+          "酔仙望月歩",
+          "西楚覇王",
+          "大賢",
+          "天衝",
+          "破騎",
+          "飛将",
+          "武聖",
+          "龍胆"
+        ],
+        "statusEffects": [],
+        "hitCount": 12
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "萎縮回避",
+        "target": "萎縮",
+        "lockedGroup": "enemyStateDebuff",
+        "skills": [
+          "堅厚",
+          "巧戦",
+          "剛塁",
+          "信義",
+          "天衝"
+        ],
+        "statusEffects": [],
+        "hitCount": 5
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "火傷回避",
+        "target": "火傷",
+        "lockedGroup": "enemyStateDebuff",
+        "skills": [
+          "焔母",
+          "極炎",
+          "神医"
+        ],
+        "statusEffects": [],
+        "hitCount": 3
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "会心無効",
+        "target": "会心",
+        "lockedGroup": "",
+        "skills": [
+          "堅厚",
+          "巧戦",
+          "剛塁"
+        ],
+        "statusEffects": [],
+        "hitCount": 3
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "感電回避",
+        "target": "感電",
+        "lockedGroup": "enemyAbilityDebuff",
+        "skills": [
+          "西楚覇王",
+          "壮活",
+          "壮望"
+        ],
+        "statusEffects": [],
+        "hitCount": 3
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "機動低下回避",
+        "target": "機動低下",
+        "lockedGroup": "enemyAbilityDebuff",
+        "skills": [
+          "気張",
+          "酔仙望月歩"
+        ],
+        "statusEffects": [],
+        "hitCount": 2
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "疑心回避",
+        "target": "疑心",
+        "lockedGroup": "enemyStateDebuff",
+        "skills": [
+          "恭倹",
+          "権変",
+          "神医",
+          "酔仙望月歩",
+          "大賢",
+          "大徳",
+          "天衝",
+          "連縛",
+          "眩乱"
+        ],
+        "statusEffects": [],
+        "hitCount": 9
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "強化奪取回避",
+        "target": "強化奪取",
+        "lockedGroup": "enemyResistanceDebuff",
+        "skills": [
+          "看透",
+          "頑逆",
+          "大雄"
+        ],
+        "statusEffects": [],
+        "hitCount": 3
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "強化無効回避",
+        "target": "強化無効",
+        "lockedGroup": "enemyStateDebuff",
+        "skills": [
+          "威望"
+        ],
+        "statusEffects": [],
+        "hitCount": 1
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "強化抑制回避",
+        "target": "強化抑制",
+        "lockedGroup": "enemyStateDebuff",
+        "skills": [
+          "威望",
+          "雄将"
+        ],
+        "statusEffects": [],
+        "hitCount": 2
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "怯心回避",
+        "target": "怯心",
+        "lockedGroup": "enemyStateDebuff",
+        "skills": [
+          "堅厚",
+          "天衝"
+        ],
+        "statusEffects": [],
+        "hitCount": 2
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "恐怖回避",
+        "target": "恐怖",
+        "lockedGroup": "enemyStateDebuff",
+        "skills": [
+          "栄華",
+          "堅厚",
+          "鋼胆",
+          "守衛",
+          "信義",
+          "酔仙望月歩",
+          "大賢",
+          "天衝",
+          "飛将",
+          "龍胆"
+        ],
+        "statusEffects": [],
+        "hitCount": 10
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "撃心無効",
+        "target": "撃心",
+        "lockedGroup": "",
+        "skills": [
+          "堅厚",
+          "剛塁"
+        ],
+        "statusEffects": [],
+        "hitCount": 2
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "幻惑回避",
+        "target": "幻惑",
+        "lockedGroup": "enemyAbilityDebuff",
+        "skills": [
+          "眩乱"
+        ],
+        "statusEffects": [],
+        "hitCount": 1
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "攻撃速度低下回避",
+        "target": "攻撃速度低下",
+        "lockedGroup": "enemyAbilityDebuff",
+        "skills": [
+          "栄華",
+          "看透",
+          "斬龍訣",
+          "信義",
+          "酔仙望月歩"
+        ],
+        "statusEffects": [],
+        "hitCount": 5
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "攻撃低下回避",
+        "target": "攻撃低下",
+        "lockedGroup": "enemyAbilityDebuff",
+        "skills": [
+          "活爛",
+          "気張",
+          "剛塁",
+          "才腕",
+          "斬龍訣",
+          "信義",
+          "酔仙望月歩",
+          "沈勇",
+          "雄将",
+          "咬牙"
+        ],
+        "statusEffects": [],
+        "hitCount": 10
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "混乱回避",
+        "target": "混乱",
+        "lockedGroup": "enemyStateDebuff",
+        "skills": [
+          "将器",
+          "心眼",
+          "聡思"
+        ],
+        "statusEffects": [],
+        "hitCount": 3
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "士気奪取回避",
+        "target": "士気奪取",
+        "lockedGroup": "enemyStateDebuff",
+        "skills": [
+          "応義",
+          "恩信",
+          "快覇",
+          "外功",
+          "鬼神",
+          "強欲",
+          "興風",
+          "極致",
+          "美髯公",
+          "明火",
+          "盟傑"
+        ],
+        "statusEffects": [],
+        "hitCount": 11
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "弱化効果解除",
+        "target": "弱化効果",
+        "lockedGroup": "",
+        "skills": [
+          "悪来",
+          "応義",
+          "機霊",
+          "急射",
+          "巨陽",
+          "恭倹",
+          "賢佐",
+          "合体気功",
+          "司傑",
+          "宿志",
+          "西楚覇王",
+          "背水",
+          "武聖",
+          "徇義"
+        ],
+        "statusEffects": [
+          "快気",
+          "弱化解除",
+          "打開",
+          "龍吟"
+        ],
+        "hitCount": 18
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "弱化効果回避",
+        "target": "弱化効果",
+        "lockedGroup": "",
+        "skills": [
+          "炎舞",
+          "応義",
+          "外功",
+          "頑逆",
+          "奇英",
+          "急射",
+          "賢佐",
+          "玄機",
+          "宰制",
+          "熟練",
+          "西楚覇王",
+          "壮活",
+          "鎮静",
+          "破謀",
+          "背水",
+          "比翼",
+          "武聖",
+          "妙手",
+          "龍胆"
+        ],
+        "statusEffects": [
+          "魁威",
+          "献計",
+          "廉潔"
+        ],
+        "hitCount": 22
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "弱化効果反射",
+        "target": "弱化効果",
+        "lockedGroup": "",
+        "skills": [
+          "反計"
+        ],
+        "statusEffects": [
+          "弱化反射"
+        ],
+        "hitCount": 2
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "弱化効果無効",
+        "target": "弱化効果",
+        "lockedGroup": "",
+        "skills": [
+          "反計"
+        ],
+        "statusEffects": [
+          "完璧",
+          "弱化反射",
+          "弱化無効",
+          "瞬影",
+          "泰然",
+          "奮心"
+        ],
+        "hitCount": 7
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "状態変化無効",
+        "target": "状態変化",
+        "lockedGroup": "",
+        "skills": [
+          "外功",
+          "震天",
+          "断風"
+        ],
+        "statusEffects": [
+          "絶縁",
+          "毒﨧",
+          "鈍迷",
+          "分断",
+          "憤怒"
+        ],
+        "hitCount": 8
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "深恐回避",
+        "target": "深恐",
+        "lockedGroup": "enemyStateDebuff",
+        "skills": [
+          "極致",
+          "武聖"
+        ],
+        "statusEffects": [],
+        "hitCount": 2
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "震乱回避",
+        "target": "震乱",
+        "lockedGroup": "enemyStateDebuff",
+        "skills": [
+          "頑逆"
+        ],
+        "statusEffects": [],
+        "hitCount": 1
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "戦法威力低下回避",
+        "target": "戦法威力低下",
+        "lockedGroup": "enemyAbilityDebuff",
+        "skills": [
+          "克槍",
+          "善謀",
+          "夢蛇",
+          "雄将",
+          "咬牙",
+          "眩乱"
+        ],
+        "statusEffects": [],
+        "hitCount": 6
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "戦法速度低下回避",
+        "target": "戦法速度低下",
+        "lockedGroup": "enemyAbilityDebuff",
+        "skills": [
+          "看透",
+          "鬼神",
+          "強欲",
+          "克槍",
+          "酔仙望月歩",
+          "政化",
+          "大徳",
+          "断風",
+          "咬牙"
+        ],
+        "statusEffects": [],
+        "hitCount": 9
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "戦法遅延回避",
+        "target": "戦法遅延",
+        "lockedGroup": "enemyStateDebuff",
+        "skills": [
+          "運籌帷幄",
+          "応義",
+          "恩信",
+          "外功",
+          "鬼神",
+          "強欲",
+          "興風",
+          "極致",
+          "熟練",
+          "西楚覇王",
+          "背水",
+          "武聖",
+          "明火",
+          "盟傑",
+          "龍胆"
+        ],
+        "statusEffects": [],
+        "hitCount": 15
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "戦慄回避",
+        "target": "戦慄",
+        "lockedGroup": "enemyAbilityDebuff",
+        "skills": [
+          "威望",
+          "鬼神",
+          "強欲",
+          "堅厚",
+          "壮活",
+          "大徳",
+          "武聖"
+        ],
+        "statusEffects": [],
+        "hitCount": 7
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "対物特効低下回避",
+        "target": "対物特効低下",
+        "lockedGroup": "enemyAbilityDebuff",
+        "skills": [
+          "活爛",
+          "気張",
+          "政化",
+          "太公望"
+        ],
+        "statusEffects": [],
+        "hitCount": 4
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "断道回避",
+        "target": "断道",
+        "lockedGroup": "enemyAbilityDebuff",
+        "skills": [
+          "信義"
+        ],
+        "statusEffects": [],
+        "hitCount": 1
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "知力低下回避",
+        "target": "知力低下",
+        "lockedGroup": "enemyAbilityDebuff",
+        "skills": [
+          "栄華",
+          "英邁",
+          "啓蒙",
+          "才腕",
+          "善謀",
+          "聡思",
+          "太公望",
+          "夢蛇",
+          "連縛"
+        ],
+        "statusEffects": [],
+        "hitCount": 9
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "通常攻撃威力低下回避",
+        "target": "通常攻撃威力低下",
+        "lockedGroup": "enemyAbilityDebuff",
+        "skills": [
+          "眩乱"
+        ],
+        "statusEffects": [],
+        "hitCount": 1
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "同討回避",
+        "target": "同討",
+        "lockedGroup": "enemyStateDebuff",
+        "skills": [
+          "英邁",
+          "斬龍訣",
+          "止戈",
+          "将器",
+          "心眼",
+          "政化",
+          "聡思",
+          "大賢",
+          "秘計",
+          "武聖",
+          "妙算",
+          "連心"
+        ],
+        "statusEffects": [],
+        "hitCount": 12
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "氷呪回避",
+        "target": "氷呪",
+        "lockedGroup": "enemyAbilityDebuff",
+        "skills": [
+          "眩乱"
+        ],
+        "statusEffects": [],
+        "hitCount": 1
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "病毒回避",
+        "target": "病毒",
+        "lockedGroup": "enemyStateDebuff",
+        "skills": [
+          "惨毒",
+          "神医",
+          "名医"
+        ],
+        "statusEffects": [],
+        "hitCount": 3
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "分断回避",
+        "target": "分断",
+        "lockedGroup": "enemyStateDebuff",
+        "skills": [
+          "政化",
+          "太公望"
+        ],
+        "statusEffects": [],
+        "hitCount": 2
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "防御低下回避",
+        "target": "防御低下",
+        "lockedGroup": "enemyAbilityDebuff",
+        "skills": [
+          "活爛",
+          "酔仙望月歩",
+          "雄将",
+          "咬牙"
+        ],
+        "statusEffects": [],
+        "hitCount": 4
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "命中低下回避",
+        "target": "命中低下",
+        "lockedGroup": "enemyAbilityDebuff",
+        "skills": [
+          "英邁",
+          "斬龍訣",
+          "天衝",
+          "飛将"
+        ],
+        "statusEffects": [],
+        "hitCount": 4
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "連鎖不能回避",
+        "target": "連鎖不能",
+        "lockedGroup": "enemyStateDebuff",
+        "skills": [
+          "恭倹",
+          "権変",
+          "大徳",
+          "連縛"
+        ],
+        "statusEffects": [],
+        "hitCount": 4
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "連鎖無効回避",
+        "target": "連鎖無効",
+        "lockedGroup": "enemyStateDebuff",
+        "skills": [
+          "恭倹",
+          "権変",
+          "大徳",
+          "連縛"
+        ],
+        "statusEffects": [],
+        "hitCount": 4
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "連鎖累減回避",
+        "target": "連鎖累減",
+        "lockedGroup": "enemyAbilityDebuff",
+        "skills": [
+          "恭倹",
+          "権変",
+          "大徳"
+        ],
+        "statusEffects": [],
+        "hitCount": 3
+      }
+    ],
+    "sample": [
+      {
+        "group": "自部隊不利対策",
+        "name": "畏怖回避",
+        "target": "畏怖",
+        "lockedGroup": "enemyAbilityDebuff",
+        "sources": [
+          "堅厚",
+          "鋼胆",
+          "守衛",
+          "将器",
+          "酔仙望月歩",
+          "西楚覇王",
+          "大賢",
+          "天衝",
+          "破騎",
+          "飛将",
+          "武聖",
+          "龍胆"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "萎縮回避",
+        "target": "萎縮",
+        "lockedGroup": "enemyStateDebuff",
+        "sources": [
+          "堅厚",
+          "巧戦",
+          "剛塁",
+          "信義",
+          "天衝"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "火傷回避",
+        "target": "火傷",
+        "lockedGroup": "enemyStateDebuff",
+        "sources": [
+          "焔母",
+          "極炎",
+          "神医"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "会心無効",
+        "target": "会心",
+        "lockedGroup": "",
+        "sources": [
+          "堅厚",
+          "巧戦",
+          "剛塁"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "感電回避",
+        "target": "感電",
+        "lockedGroup": "enemyAbilityDebuff",
+        "sources": [
+          "西楚覇王",
+          "壮活",
+          "壮望"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "機動低下回避",
+        "target": "機動低下",
+        "lockedGroup": "enemyAbilityDebuff",
+        "sources": [
+          "気張",
+          "酔仙望月歩"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "疑心回避",
+        "target": "疑心",
+        "lockedGroup": "enemyStateDebuff",
+        "sources": [
+          "恭倹",
+          "権変",
+          "神医",
+          "酔仙望月歩",
+          "大賢",
+          "大徳",
+          "天衝",
+          "連縛",
+          "眩乱"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "強化奪取回避",
+        "target": "強化奪取",
+        "lockedGroup": "enemyResistanceDebuff",
+        "sources": [
+          "看透",
+          "頑逆",
+          "大雄"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "強化無効回避",
+        "target": "強化無効",
+        "lockedGroup": "enemyStateDebuff",
+        "sources": [
+          "威望"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "強化抑制回避",
+        "target": "強化抑制",
+        "lockedGroup": "enemyStateDebuff",
+        "sources": [
+          "威望",
+          "雄将"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "怯心回避",
+        "target": "怯心",
+        "lockedGroup": "enemyStateDebuff",
+        "sources": [
+          "堅厚",
+          "天衝"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "恐怖回避",
+        "target": "恐怖",
+        "lockedGroup": "enemyStateDebuff",
+        "sources": [
+          "栄華",
+          "堅厚",
+          "鋼胆",
+          "守衛",
+          "信義",
+          "酔仙望月歩",
+          "大賢",
+          "天衝",
+          "飛将",
+          "龍胆"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "撃心無効",
+        "target": "撃心",
+        "lockedGroup": "",
+        "sources": [
+          "堅厚",
+          "剛塁"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "幻惑回避",
+        "target": "幻惑",
+        "lockedGroup": "enemyAbilityDebuff",
+        "sources": [
+          "眩乱"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "攻撃速度低下回避",
+        "target": "攻撃速度低下",
+        "lockedGroup": "enemyAbilityDebuff",
+        "sources": [
+          "栄華",
+          "看透",
+          "斬龍訣",
+          "信義",
+          "酔仙望月歩"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "攻撃低下回避",
+        "target": "攻撃低下",
+        "lockedGroup": "enemyAbilityDebuff",
+        "sources": [
+          "活爛",
+          "気張",
+          "剛塁",
+          "才腕",
+          "斬龍訣",
+          "信義",
+          "酔仙望月歩",
+          "沈勇",
+          "雄将",
+          "咬牙"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "混乱回避",
+        "target": "混乱",
+        "lockedGroup": "enemyStateDebuff",
+        "sources": [
+          "将器",
+          "心眼",
+          "聡思"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "士気奪取回避",
+        "target": "士気奪取",
+        "lockedGroup": "enemyStateDebuff",
+        "sources": [
+          "応義",
+          "恩信",
+          "快覇",
+          "外功",
+          "鬼神",
+          "強欲",
+          "興風",
+          "極致",
+          "美髯公",
+          "明火",
+          "盟傑"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "弱化効果解除",
+        "target": "弱化効果",
+        "lockedGroup": "",
+        "sources": [
+          "悪来",
+          "応義",
+          "機霊",
+          "急射",
+          "巨陽",
+          "恭倹",
+          "賢佐",
+          "合体気功",
+          "司傑",
+          "宿志",
+          "西楚覇王",
+          "背水",
+          "武聖",
+          "徇義",
+          "快気",
+          "弱化解除",
+          "打開",
+          "龍吟"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "弱化効果回避",
+        "target": "弱化効果",
+        "lockedGroup": "",
+        "sources": [
+          "炎舞",
+          "応義",
+          "外功",
+          "頑逆",
+          "奇英",
+          "急射",
+          "賢佐",
+          "玄機",
+          "宰制",
+          "熟練",
+          "西楚覇王",
+          "壮活",
+          "鎮静",
+          "破謀",
+          "背水",
+          "比翼",
+          "武聖",
+          "妙手",
+          "龍胆",
+          "魁威",
+          "献計",
+          "廉潔"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "弱化効果反射",
+        "target": "弱化効果",
+        "lockedGroup": "",
+        "sources": [
+          "反計",
+          "弱化反射"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "弱化効果無効",
+        "target": "弱化効果",
+        "lockedGroup": "",
+        "sources": [
+          "反計",
+          "完璧",
+          "弱化反射",
+          "弱化無効",
+          "瞬影",
+          "泰然",
+          "奮心"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "状態変化無効",
+        "target": "状態変化",
+        "lockedGroup": "",
+        "sources": [
+          "外功",
+          "震天",
+          "断風",
+          "絶縁",
+          "毒﨧",
+          "鈍迷",
+          "分断",
+          "憤怒"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "深恐回避",
+        "target": "深恐",
+        "lockedGroup": "enemyStateDebuff",
+        "sources": [
+          "極致",
+          "武聖"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "震乱回避",
+        "target": "震乱",
+        "lockedGroup": "enemyStateDebuff",
+        "sources": [
+          "頑逆"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "戦法威力低下回避",
+        "target": "戦法威力低下",
+        "lockedGroup": "enemyAbilityDebuff",
+        "sources": [
+          "克槍",
+          "善謀",
+          "夢蛇",
+          "雄将",
+          "咬牙",
+          "眩乱"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "戦法速度低下回避",
+        "target": "戦法速度低下",
+        "lockedGroup": "enemyAbilityDebuff",
+        "sources": [
+          "看透",
+          "鬼神",
+          "強欲",
+          "克槍",
+          "酔仙望月歩",
+          "政化",
+          "大徳",
+          "断風",
+          "咬牙"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "戦法遅延回避",
+        "target": "戦法遅延",
+        "lockedGroup": "enemyStateDebuff",
+        "sources": [
+          "運籌帷幄",
+          "応義",
+          "恩信",
+          "外功",
+          "鬼神",
+          "強欲",
+          "興風",
+          "極致",
+          "熟練",
+          "西楚覇王",
+          "背水",
+          "武聖",
+          "明火",
+          "盟傑",
+          "龍胆"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "戦慄回避",
+        "target": "戦慄",
+        "lockedGroup": "enemyAbilityDebuff",
+        "sources": [
+          "威望",
+          "鬼神",
+          "強欲",
+          "堅厚",
+          "壮活",
+          "大徳",
+          "武聖"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "対物特効低下回避",
+        "target": "対物特効低下",
+        "lockedGroup": "enemyAbilityDebuff",
+        "sources": [
+          "活爛",
+          "気張",
+          "政化",
+          "太公望"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "断道回避",
+        "target": "断道",
+        "lockedGroup": "enemyAbilityDebuff",
+        "sources": [
+          "信義"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "知力低下回避",
+        "target": "知力低下",
+        "lockedGroup": "enemyAbilityDebuff",
+        "sources": [
+          "栄華",
+          "英邁",
+          "啓蒙",
+          "才腕",
+          "善謀",
+          "聡思",
+          "太公望",
+          "夢蛇",
+          "連縛"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "通常攻撃威力低下回避",
+        "target": "通常攻撃威力低下",
+        "lockedGroup": "enemyAbilityDebuff",
+        "sources": [
+          "眩乱"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "同討回避",
+        "target": "同討",
+        "lockedGroup": "enemyStateDebuff",
+        "sources": [
+          "英邁",
+          "斬龍訣",
+          "止戈",
+          "将器",
+          "心眼",
+          "政化",
+          "聡思",
+          "大賢",
+          "秘計",
+          "武聖",
+          "妙算",
+          "連心"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "氷呪回避",
+        "target": "氷呪",
+        "lockedGroup": "enemyAbilityDebuff",
+        "sources": [
+          "眩乱"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "病毒回避",
+        "target": "病毒",
+        "lockedGroup": "enemyStateDebuff",
+        "sources": [
+          "惨毒",
+          "神医",
+          "名医"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "分断回避",
+        "target": "分断",
+        "lockedGroup": "enemyStateDebuff",
+        "sources": [
+          "政化",
+          "太公望"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "防御低下回避",
+        "target": "防御低下",
+        "lockedGroup": "enemyAbilityDebuff",
+        "sources": [
+          "活爛",
+          "酔仙望月歩",
+          "雄将",
+          "咬牙"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "命中低下回避",
+        "target": "命中低下",
+        "lockedGroup": "enemyAbilityDebuff",
+        "sources": [
+          "英邁",
+          "斬龍訣",
+          "天衝",
+          "飛将"
+        ]
+      },
+      {
+        "group": "自部隊不利対策",
+        "name": "連鎖不能回避",
+        "target": "連鎖不能",
+        "lockedGroup": "enemyStateDebuff",
+        "sources": [
+          "恭倹",
+          "権変",
+          "大徳",
+          "連縛"
+        ]
+      }
+    ],
+    "policy": "状態変化名ベースの不利対策に加え、状態変化マスタ外の自部隊不利対策は、弱化効果回避/無効/反射/解除・状態変化無効・会心無効・撃心無効の7候補のみ採用。耐久補助、ダメージ防御、負傷兵生存増加は採用しない。"
+  },
+  "regression": {},
+  "validation": {
+    "version": "3.0.0.0",
+    "context": "startup:skipped-heavy-validation",
+    "timestamp": "07:30:34.159",
+    "ok": true,
+    "skipped": true,
+    "policy": "HADO-2.7.3.52: 起動時の重い検証は実行せず、検証実行ボタンから進捗付きで実行する。進捗は工程開始/完了の2段階で表示し、100%後は軽量結果に切り替える。"
+  },
+  "stability": {
+    "version": "3.0.0.0",
+    "context": "copy-debug-log",
+    "timestamp": "08:02:02.032",
+    "saveData": {
+      "ok": true,
+      "saveCount": 1,
+      "currentSaveId": "save_mnlgkcyb_4atqhs",
+      "searchHistoryCount": 30,
+      "problems": []
+    },
+    "formationData": {
+      "ok": true,
+      "formationCount": 6,
+      "currentFormationId": "formation_mq7wz2r8_hvjvoh",
+      "extensionSummary": [
+        {
+          "formation": "攻城戦A",
+          "formationName": "基本",
+          "deploymentType": "normal",
+          "siegeWeapon": {
+            "name": "",
+            "level": 0
+          },
+          "ethnicArmament": {
+            "name": "",
+            "level": 0,
+            "ethnicGeneralName": ""
+          }
+        },
+        {
+          "formation": "攻城戦A",
+          "formationName": "堅防陣",
+          "deploymentType": "own_city",
+          "siegeWeapon": {
+            "name": "鼓車",
+            "level": 20
+          },
+          "ethnicArmament": {
+            "name": "羌鉄車",
+            "level": 5,
+            "ethnicGeneralName": "迷当大王"
+          }
+        },
+        {
+          "formation": "飛雲-自動対物部隊",
+          "formationName": "勇往陣・改",
+          "deploymentType": "normal",
+          "siegeWeapon": {
+            "name": "",
+            "level": 0
+          },
+          "ethnicArmament": {
+            "name": "突騎鞍",
+            "level": 5,
+            "ethnicGeneralName": "楼班"
+          }
+        },
+        {
+          "formation": "新規部隊3",
+          "formationName": "勇往陣",
+          "deploymentType": "normal",
+          "siegeWeapon": {
+            "name": "",
+            "level": 0
+          },
+          "ethnicArmament": {
+            "name": "",
+            "level": 0,
+            "ethnicGeneralName": ""
+          }
+        },
+        {
+          "formation": "新規部隊5",
+          "formationName": "基本",
+          "deploymentType": "normal",
+          "siegeWeapon": {
+            "name": "",
+            "level": 0
+          },
+          "ethnicArmament": {
+            "name": "",
+            "level": 0,
+            "ethnicGeneralName": ""
+          }
+        },
+        {
+          "formation": "型:ワクチン型",
+          "formationName": "基本",
+          "deploymentType": "normal",
+          "siegeWeapon": {
+            "name": "",
+            "level": 0
+          },
+          "ethnicArmament": {
+            "name": "",
+            "level": 0,
+            "ethnicGeneralName": ""
+          }
+        }
+      ],
+      "problems": []
+    },
+    "uiSnapshot": {
+      "context": "copy-debug-log",
+      "timestamp": "08:02:02.032",
+      "mobile": false,
+      "formationTab": true,
+      "mobileFormationHistoryHidden": true,
+      "resultSelectOptionCount": 461,
+      "detailDataset": {
+        "category": "generals",
+        "name": "LR司馬師（しばし）",
+        "label": "武将"
+      },
+      "detailTitleText": "武将 : LR司馬師（しばし）",
+      "detailActiveTab": "related",
+      "detailHtmlLength": 4196,
+      "detailTextLength": 246,
+      "detailTextSample": "武将 : LR司馬師（しばし）GameWithを開く★部隊編成に追加兵科:弓兵性別:男天賦:1300（LR）おすすめ編成:貫通駐屯1列目幅25%概要変化率基礎戦法技能その他関連リンク戦法： 沈毅大略技能： 威逆 / 克堪 / 衰撃 / 冶金 / 冷眼自部隊能力強化： 会心発生上昇 / 知力上昇 / 被ダメージ低下 / ",
+      "detailTabs": [
+        "概要",
+        "変化率",
+        "基礎",
+        "戦法",
+        "技能",
+        "その他"
+      ],
+      "skillDetailCardExists": false,
+      "skillDetailDomOk": true,
+      "hasGeneralAbilityTable": false,
+      "hasCurrentAbilityInput": false,
+      "debugCopyButtonNearToggle": false,
+      "formationMobileControls": true,
+      "formationLayoutRendered": true,
+      "formationRootTextLength": 2099,
+      "formationParamSectionOpen": true,
+      "formationSkillSectionOpen": true,
+      "formationParamBodyPresent": true,
+      "formationSkillBodyPresent": true,
+      "formationRequiredSectionsVisible": true,
+      "formationContentRendered": true
+    },
+    "ok": true
+  },
+  "uiSnapshot": {
+    "context": "copy-debug-log",
+    "timestamp": "08:02:02.032",
+    "mobile": false,
+    "formationTab": true,
+    "mobileFormationHistoryHidden": true,
+    "resultSelectOptionCount": 461,
+    "detailDataset": {
+      "category": "generals",
+      "name": "LR司馬師（しばし）",
+      "label": "武将"
+    },
+    "detailTitleText": "武将 : LR司馬師（しばし）",
+    "detailActiveTab": "related",
+    "detailHtmlLength": 4196,
+    "detailTextLength": 246,
+    "detailTextSample": "武将 : LR司馬師（しばし）GameWithを開く★部隊編成に追加兵科:弓兵性別:男天賦:1300（LR）おすすめ編成:貫通駐屯1列目幅25%概要変化率基礎戦法技能その他関連リンク戦法： 沈毅大略技能： 威逆 / 克堪 / 衰撃 / 冶金 / 冷眼自部隊能力強化： 会心発生上昇 / 知力上昇 / 被ダメージ低下 / ",
+    "detailTabs": [
+      "概要",
+      "変化率",
+      "基礎",
+      "戦法",
+      "技能",
+      "その他"
+    ],
+    "skillDetailCardExists": false,
+    "skillDetailDomOk": true,
+    "hasGeneralAbilityTable": false,
+    "hasCurrentAbilityInput": false,
+    "debugCopyButtonNearToggle": false,
+    "formationMobileControls": true,
+    "formationLayoutRendered": true,
+    "formationRootTextLength": 2099,
+    "formationParamSectionOpen": true,
+    "formationSkillSectionOpen": true,
+    "formationParamBodyPresent": true,
+    "formationSkillBodyPresent": true,
+    "formationRequiredSectionsVisible": true,
+    "formationContentRendered": true
+  }
+}
+
+=== Startup Diagnostic Log (fixed) ===
+
+
+=== Console Debug Log ===
+
+
+=== Category Profile History ===
+[]
+
+=== Raw JSON ===
+{
+  "category": "generals",
+  "title": "【三國志 覇道】LR司馬師（しばし）の戦法と技能",
+  "name": "【三國志 覇道】LR司馬師（しばし）",
+  "url": "https://gamewith.jp/sangokushihadou/article/show/560766",
+  "tables": [
+    [
+      [
+        "特徴",
+        "戦法"
+      ],
+      [
+        "技能",
+        "能力・五行適正"
+      ],
+      [
+        "参軍性能",
+        "相性の良い武将"
+      ],
+      [
+        "入手方法",
+        "兵科"
+      ],
+      [
+        "列伝",
+        ""
+      ]
+    ],
+    [
+      [
+        "LR司馬師の性能 / LR司馬師の戦法と技能 / LR司馬師の戦法と技能",
+        "LR司馬師のおすすめ編制 / LR司馬師のおすすめ編制(編成) / LR司馬師のおすすめ編制(編成)"
+      ]
+    ],
+    [
+      [
+        "各レアリティの司馬師一覧"
+      ],
+      [
+        "LR司馬師 / LR司馬師アイコン / LR司馬師アイコン",
+        "覚醒司馬師 / 覚醒司馬師アイコン / 覚醒司馬師アイコン",
+        "司馬師 / 司馬師アイコン / 司馬師アイコン"
+      ]
+    ],
+    [
+      [
+        "名",
+        "LR司馬師（シバシ）",
+        "字",
+        "子元（シゲン）"
+      ],
+      [
+        "性別",
+        "男",
+        "天賦",
+        "1300（LR）"
+      ],
+      [
+        "兵科",
+        "弓兵 / 弓兵アイコン / 弓兵アイコン",
+        "相性",
+        "31"
+      ],
+      [
+        "おすすめ編制",
+        "貫通駐屯"
+      ]
+    ],
+    [
+      [
+        "配置位置",
+        "条件"
+      ],
+      [
+        "下",
+        "UR以下弓兵知力500以上"
+      ]
+    ],
+    [
+      [
+        "兵科",
+        "効果系統",
+        "攻撃属性"
+      ],
+      [
+        "なし",
+        "知力 / 知力アイコン / 知力アイコン",
+        "なし"
+      ],
+      [
+        "効果"
+      ],
+      [
+        "自身1部隊の知力を150％上昇（自部隊の主将とこの武将が好相性の際、知力上昇の効果量が2倍になる）対象を含む敵4部隊の強化効果を3つ奪い、退勢と会心率半減、1回の連鎖無効を付与さらに350％の攻撃"
+      ],
+      [
+        "発動間隔",
+        "対象範囲",
+        "発動率",
+        "連鎖順"
+      ],
+      [
+        "20秒",
+        "敵 / 広",
+        "25％",
+        "早い"
+      ]
+    ],
+    [
+      [
+        "追加効果",
+        "対象範囲",
+        "継続"
+      ],
+      [
+        "知力変化",
+        "自分 / 単",
+        "15秒"
+      ],
+      [
+        "部隊の知力が上昇する"
+      ],
+      [
+        "強化奪取",
+        "敵 / 広",
+        "-"
+      ],
+      [
+        "対象に発生している強化効果を奪取して、効果時間を10秒として自身に付与（付与できる能力変化は合計100％まで）※付与される状態変化は、効果量や効果時間を変動させる技能や状態変化の影響を受けない"
+      ],
+      [
+        "退勢",
+        "敵 / 広",
+        "15秒"
+      ],
+      [
+        "通常攻撃を行う際、自部隊に発生している全ての有利変化が発揮されない状態で与ダメージを計算する"
+      ],
+      [
+        "会心率半減",
+        "敵 / 広",
+        "15秒"
+      ],
+      [
+        "効果時間中、会心発生率が半減するさらに会心発生率の上限が50％になる"
+      ],
+      [
+        "連鎖無効",
+        "敵 / 広",
+        "15秒"
+      ],
+      [
+        "効果回数分、戦法で連鎖が起きない"
+      ]
+    ],
+    [
+      [
+        "威逆1",
+        "■主将か、主将と自身が好相性の際　●威風Lv1を付与（この技能を持つ武将が所持しているものとして扱う）　●反逆Lv1を付与（この技能を持つ武将が所持しているものとして扱う）"
+      ],
+      [
+        "衰撃1",
+        "■常に　●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ₋3%■主将の際　●副将の連鎖確率+0.5%"
+      ],
+      [
+        "克堪2",
+        "■常に　●自身を対象としない範囲攻撃の被ダメージ₋20％■主将か、自部隊の主将が司馬懿/司馬昭/張春華の際　●部隊の兵力+20％　●副将の連鎖確率+5％　●自部隊が弱化効果を付与する際、自部隊の知力を150％上昇させた状態で弱化効果の付与を行う（敵部隊との知力差による発生率の変動や、知力を条件とした発生率/効果時間の変動効果などに適用される）▼出陣時　●戦法ゲージ+20％（上限50％）　→以降戦法ゲージが15％より減少しない（命令変更時や戦法発動後も15％未満にならない）▼交戦開始時　●対象を含む敵4部隊に退勢を付与（20秒）"
+      ],
+      [
+        "冶金2",
+        "■製鉄所に任命時　●任命効果+20%"
+      ],
+      [
+        "冷眼1",
+        "■常に　●部隊の知力+7%　●この技能を持つ武将の戦法で付与する連鎖無効の効果時間を10秒増加　●この技能を持つ武将の戦法で付与する退勢の効果時間を10秒増加■主将か、自部隊の主将が司馬懿/司馬昭/張春華の際▼主将戦法発動時　●対象を敵4部隊に分断を付与（20秒）▼出陣時　●戦法ゲージ+10%（上限50％）"
+      ]
+    ],
+    [
+      [
+        "Ⅰ",
+        "■主将か、主将と自身が好相性の際　●威風Lv1を付与（この技能を持つ武将が所持しているものとして扱う）　●反逆Lv1を付与（この技能を持つ武将が所持しているものとして扱う）"
+      ]
+    ],
+    [
+      [
+        "LR司馬師 / LR司馬師アイコン / LR司馬師アイコン",
+        "",
+        "",
+        ""
+      ]
+    ],
+    [
+      [
+        "Ⅰ",
+        "■常に　●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ₋3%■主将の際　●副将の連鎖確率+0.5%"
+      ],
+      [
+        "Ⅱ",
+        "■常に　●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ₋6％■主将の際　●副将の連鎖確率+1％"
+      ],
+      [
+        "Ⅲ",
+        "■常に　●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ₋9％■主将の際　●副将の連鎖確率+1.5％"
+      ],
+      [
+        "Ⅳ",
+        "■常に　●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ₋12％■主将の際　●副将の連鎖確率+2％"
+      ],
+      [
+        "Ⅴ",
+        "■常に　●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ₋15％■主将の際　●副将の連鎖確率+2.5％"
+      ]
+    ],
+    [
+      [
+        "LR司馬師 / LR司馬師アイコン / LR司馬師アイコン",
+        "LR項燕 / LR項燕アイコン / LR項燕アイコン",
+        "",
+        ""
+      ]
+    ],
+    [
+      [
+        "Ⅰ",
+        "■常に　●自身を対象としない範囲攻撃の被ダメージ₋15%■主将か、自部隊の主将が司馬懿/司馬昭/張春華の際　●部隊の兵力+10%　●自部隊が弱化効果を付与する際、自部隊の知力を100％上昇させた状態で弱化効果の付与を行う（敵部隊との知力差による発生率の変動や、知力を条件とした発生率/効果時間の変動効果などに適用される）▼出陣時　●戦法ゲージ+10%（上限50％）　→以降戦法ゲージが5％より減少しない（命令変更時や戦法発動後も5％未満にならない）"
+      ],
+      [
+        "Ⅱ",
+        "■常に　●自身を対象としない範囲攻撃の被ダメージ₋20％■主将か、自部隊の主将が司馬懿/司馬昭/張春華の際　●部隊の兵力+20％　●副将の連鎖確率+5％　●自部隊が弱化効果を付与する際、自部隊の知力を150％上昇させた状態で弱化効果の付与を行う（敵部隊との知力差による発生率の変動や、知力を条件とした発生率/効果時間の変動効果などに適用される）▼出陣時　●戦法ゲージ+20％（上限50％）　→以降戦法ゲージが15％より減少しない（命令変更時や戦法発動後も15％未満にならない）▼交戦開始時　●対象を含む敵4部隊に退勢を付与（20秒）"
+      ]
+    ],
+    [
+      [
+        "LR司馬師 / LR司馬師アイコン / LR司馬師アイコン",
+        "",
+        "",
+        ""
+      ]
+    ],
+    [
+      [
+        "Ⅰ",
+        "■製鉄所に任命時　●任命効果+10%"
+      ],
+      [
+        "Ⅱ",
+        "■製鉄所に任命時　●任命効果+20%"
+      ],
+      [
+        "Ⅲ",
+        "■製鉄所に任命時　●任命効果+30%"
+      ],
+      [
+        "Ⅳ",
+        "■製鉄所に任命時　●任命効果+40%"
+      ],
+      [
+        "Ⅴ",
+        "■製鉄所に任命時　●任命効果+50%"
+      ]
+    ],
+    [
+      [
+        "LR司馬昭 / LR司馬昭アイコン / LR司馬昭アイコン",
+        "LR司馬師 / LR司馬師アイコン / LR司馬師アイコン",
+        "UR王元姫 / UR王元姫アイコン / UR王元姫アイコン",
+        "覚醒杜預 / 覚醒杜預アイコン / 覚醒杜預アイコン"
+      ],
+      [
+        "泄帰泥 / 泄帰泥アイコン / 泄帰泥アイコン",
+        "徹里吉 / 徹里吉アイコン / 徹里吉アイコン",
+        "覚醒司馬昭 / 覚醒司馬昭アイコン / 覚醒司馬昭アイコン",
+        "覚醒司馬師 / 覚醒司馬師アイコン / 覚醒司馬師アイコン"
+      ],
+      [
+        "王元姫 / 王元姫アイコン / 王元姫アイコン",
+        "曹休 / 曹休アイコン / 曹休アイコン",
+        "紀霊 / 紀霊アイコン / 紀霊アイコン",
+        "杜預 / 杜預アイコン / 杜預アイコン"
+      ],
+      [
+        "司馬昭 / 司馬昭アイコン / 司馬昭アイコン",
+        "司馬師 / 司馬師アイコン / 司馬師アイコン",
+        "夏侯惇 / 夏侯惇アイコン / 夏侯惇アイコン",
+        "司馬懿 / 司馬懿アイコン / 司馬懿アイコン"
+      ]
+    ],
+    [
+      [
+        "Ⅰ",
+        "■常に　●部隊の知力+7%　●この技能を持つ武将の戦法で付与する連鎖無効の効果時間を10秒増加　●この技能を持つ武将の戦法で付与する退勢の効果時間を10秒増加■主将か、自部隊の主将が司馬懿/司馬昭/張春華の際▼主将戦法発動時　●対象を敵4部隊に分断を付与（20秒）▼出陣時　●戦法ゲージ+10%（上限50％）"
+      ]
+    ],
+    [
+      [
+        "LR司馬師 / LR司馬師アイコン / LR司馬師アイコン",
+        "",
+        "",
+        ""
+      ]
+    ],
+    [
+      [
+        "統率",
+        "87",
+        "142位 / 477人"
+      ],
+      [
+        "武力",
+        "76",
+        "235位 / 477人"
+      ],
+      [
+        "知力",
+        "90",
+        "84位 / 477人"
+      ],
+      [
+        "政治",
+        "85",
+        "88位 / 477人"
+      ],
+      [
+        "魅力",
+        "82",
+        "176位 / 477人"
+      ]
+    ],
+    [
+      [
+        "統率",
+        "1195",
+        "65位 / 477人"
+      ],
+      [
+        "武力",
+        "1044",
+        "78位 / 477人"
+      ],
+      [
+        "知力",
+        "1238",
+        "40位 / 477人"
+      ],
+      [
+        "政治",
+        "1169",
+        "35位 / 477人"
+      ],
+      [
+        "魅力",
+        "1126",
+        "64位 / 477人"
+      ]
+    ],
+    [
+      [
+        "木",
+        "D",
+        "火",
+        "A"
+      ],
+      [
+        "土",
+        "C",
+        "金",
+        "C"
+      ],
+      [
+        "水",
+        "A",
+        "-",
+        "-"
+      ]
+    ],
+    [
+      [
+        "騎兵武将"
+      ],
+      [
+        "UR呂布 / UR呂布アイコン",
+        "UR関羽 / UR関羽アイコン",
+        "UR孟獲 / UR孟獲アイコン",
+        "UR荀攸 / UR荀攸アイコン"
+      ],
+      [
+        "UR華雄 / UR華雄アイコン",
+        "UR王元姫 / UR王元姫アイコン",
+        "UR甄氏 / UR甄氏アイコン",
+        "UR顔良 / UR顔良アイコン"
+      ],
+      [
+        "UR馬雲騄 / UR馬雲騄アイコン",
+        "UR張苞 / UR張苞アイコン",
+        "UR蹋頓 / UR蹋頓アイコン",
+        "関羽 / 関羽アイコン"
+      ],
+      [
+        "呂布 / 呂布アイコン",
+        "徐晃 / 徐晃アイコン",
+        "袁紹 / 袁紹アイコン",
+        "覚醒関平 / 覚醒関平アイコン"
+      ],
+      [
+        "覚醒曹仁 / 覚醒曹仁アイコン",
+        "蹋頓 / 蹋頓アイコン",
+        "夏侯惇 / 夏侯惇アイコン",
+        "華雄 / 華雄アイコン"
+      ],
+      [
+        "呂玲綺 / 呂玲綺アイコン",
+        "顔良 / 顔良アイコン",
+        "何進 / 何進アイコン",
+        ""
+      ],
+      [
+        "歩兵武将"
+      ],
+      [
+        "UR諸葛亮 / UR諸葛亮アイコン",
+        "UR張角 / UR張角アイコン",
+        "UR袁紹 / UR袁紹アイコン",
+        "UR張飛 / UR張飛アイコン"
+      ],
+      [
+        "UR夏侯惇 / UR夏侯惇アイコン",
+        "UR呂玲綺 / UR呂玲綺アイコン",
+        "UR徐晃 / UR徐晃アイコン",
+        "UR陸抗 / UR陸抗アイコン"
+      ],
+      [
+        "UR岳飛 / UR岳飛アイコン",
+        "UR周泰 / UR周泰アイコン",
+        "UR曹仁 / UR曹仁アイコン",
+        "UR丁奉 / UR丁奉アイコン"
+      ],
+      [
+        "URキルヒアイス / URキルヒアイスアイコン",
+        "張飛 / 張飛アイコン",
+        "張角 / 張角アイコン",
+        "孟獲 / 孟獲アイコン"
+      ],
+      [
+        "甄氏 / 甄氏アイコン",
+        "覚醒張苞 / 覚醒張苞アイコン",
+        "朱儁 / 朱儁アイコン",
+        "覚醒司馬師 / 覚醒司馬師アイコン"
+      ],
+      [
+        "沙摩柯 / 沙摩柯アイコン",
+        "覚醒呉国太 / 覚醒呉国太アイコン",
+        "周泰 / 周泰アイコン",
+        ""
+      ],
+      [
+        "弓兵武将"
+      ],
+      [
+        "UR周瑜 / UR周瑜アイコン",
+        "UR魯粛 / UR魯粛アイコン",
+        "UR黄蓋 / UR黄蓋アイコン",
+        "URフレデリカ / URフレデリカアイコン"
+      ],
+      [
+        "UR孫魯班 / UR孫魯班アイコン",
+        "UR董白 / UR董白アイコン",
+        "UR呉国太 / UR呉国太アイコン",
+        "周瑜 / 周瑜アイコン"
+      ],
+      [
+        "諸葛亮 / 諸葛亮アイコン",
+        "羊祜 / 羊祜アイコン",
+        "荀攸 / 荀攸アイコン",
+        "陸抗 / 陸抗アイコン"
+      ],
+      [
+        "覚醒黄蓋 / 覚醒黄蓋アイコン",
+        "董白 / 董白アイコン",
+        "覚醒李儒 / 覚醒李儒アイコン",
+        "覚醒李厳 / 覚醒李厳アイコン"
+      ],
+      [
+        "王元姫 / 王元姫アイコン",
+        "魯粛 / 魯粛アイコン",
+        "徹里吉 / 徹里吉アイコン",
+        ""
+      ]
+    ],
+    [
+      [
+        "騎兵武将"
+      ],
+      [
+        "UR孟獲 / UR孟獲アイコン",
+        "UR趙雲 / UR趙雲アイコン",
+        "UR公孫瓚 / UR公孫瓚アイコン",
+        "UR関銀屏 / UR関銀屏アイコン"
+      ],
+      [
+        "UR馬騰 / UR馬騰アイコン",
+        "UR華雄 / UR華雄アイコン",
+        "UR馬雲騄 / UR馬雲騄アイコン",
+        "UR文鴦 / UR文鴦アイコン"
+      ],
+      [
+        "UR凌統 / UR凌統アイコン",
+        "UR廖化 / UR廖化アイコン",
+        "UR張春華 / UR張春華アイコン",
+        "UR張梁 / UR張梁アイコン"
+      ],
+      [
+        "UR花鬘 / UR花鬘アイコン",
+        "覚醒高順 / 覚醒高順アイコン",
+        "郭嘉 / 郭嘉アイコン",
+        "趙雲 / 趙雲アイコン"
+      ],
+      [
+        "馬騰 / 馬騰アイコン",
+        "覚醒曹彰 / 覚醒曹彰アイコン",
+        "覚醒凌統 / 覚醒凌統アイコン",
+        "張春華 / 張春華アイコン"
+      ],
+      [
+        "花鬘 / 花鬘アイコン",
+        "覚醒曹真 / 覚醒曹真アイコン",
+        "覚醒夏侯覇 / 覚醒夏侯覇アイコン",
+        "華雄 / 華雄アイコン"
+      ],
+      [
+        "歩兵武将"
+      ],
+      [
+        "UR諸葛亮 / UR諸葛亮アイコン",
+        "UR張郃 / UR張郃アイコン",
+        "UR呂玲綺 / UR呂玲綺アイコン",
+        "UR呂蒙 / UR呂蒙アイコン"
+      ],
+      [
+        "UR陸抗 / UR陸抗アイコン",
+        "UR郭嘉 / UR郭嘉アイコン",
+        "UR王平 / UR王平アイコン",
+        "UR周倉 / UR周倉アイコン"
+      ],
+      [
+        "UR丁奉 / UR丁奉アイコン",
+        "UR李典 / UR李典アイコン",
+        "UR蒋欽 / UR蒋欽アイコン",
+        "孟獲 / 孟獲アイコン"
+      ],
+      [
+        "覚醒朱桓 / 覚醒朱桓アイコン",
+        "甘寧 / 甘寧アイコン",
+        "許褚 / 許褚アイコン",
+        "徐庶 / 徐庶アイコン"
+      ],
+      [
+        "覚醒蒋欽 / 覚醒蒋欽アイコン",
+        "覚醒司馬師 / 覚醒司馬師アイコン",
+        "周倉 / 周倉アイコン",
+        "呂蒙 / 呂蒙アイコン"
+      ],
+      [
+        "覚醒王平 / 覚醒王平アイコン",
+        "",
+        "",
+        ""
+      ],
+      [
+        "弓兵武将"
+      ],
+      [
+        "UR周瑜 / UR周瑜アイコン",
+        "UR荀彧 / UR荀彧アイコン",
+        "UR徐庶 / UR徐庶アイコン",
+        "UR甘寧 / UR甘寧アイコン"
+      ],
+      [
+        "UR夏侯淵 / UR夏侯淵アイコン",
+        "UR魯粛 / UR魯粛アイコン",
+        "UR曹真 / UR曹真アイコン",
+        "UR朱然 / UR朱然アイコン"
+      ],
+      [
+        "UR董白 / UR董白アイコン",
+        "UR張宝 / UR張宝アイコン",
+        "UR司馬徽 / UR司馬徽アイコン",
+        "UR厳顔 / UR厳顔アイコン"
+      ],
+      [
+        "周瑜 / 周瑜アイコン",
+        "諸葛亮 / 諸葛亮アイコン",
+        "覚醒張任 / 覚醒張任アイコン",
+        "羊祜 / 羊祜アイコン"
+      ],
+      [
+        "陸抗 / 陸抗アイコン",
+        "司馬徽 / 司馬徽アイコン",
+        "董白 / 董白アイコン",
+        "覚醒杜預 / 覚醒杜預アイコン"
+      ],
+      [
+        "覚醒李厳 / 覚醒李厳アイコン",
+        "夏侯淵 / 夏侯淵アイコン",
+        "法正 / 法正アイコン",
+        "劉禅 / 劉禅アイコン"
+      ]
+    ],
+    [
+      [
+        "騎兵 / 騎兵アイコン / 騎兵アイコン",
+        "LR司馬懿LR郭嘉LR夏侯惇LR張郃LR徐晃LR甄氏LR楽進LR夏侯惇(ORIGINS)LR荀攸 / LR司馬懿アイコン / LR司馬懿アイコン / LR郭嘉アイコン / LR郭嘉アイコン / LR夏侯惇アイコン / LR夏侯惇アイコン / LR張郃アイコン / LR張郃アイコン / LR徐晃アイコン / LR徐晃アイコン / LR甄氏アイコン / LR甄氏アイコン / LR楽進アイコン / LR楽進アイコン / LR夏侯惇(ORIGINS)アイコン / LR夏侯惇(ORIGINS)アイコン / LR荀攸アイコン / LR荀攸アイコン"
+      ],
+      [
+        "歩兵 / 歩兵アイコン / 歩兵アイコン",
+        "LR曹操LR李信LR許褚LRラインハルトLR典韋LR鄧艾LR呉起LR于禁LR司馬昭 / LR曹操アイコン / LR曹操アイコン / LR李信アイコン / LR李信アイコン / LR許褚アイコン / LR許褚アイコン / LRラインハルトアイコン / LRラインハルトアイコン / LR典韋アイコン / LR典韋アイコン / LR鄧艾アイコン / LR鄧艾アイコン / LR呉起アイコン / LR呉起アイコン / LR于禁アイコン / LR于禁アイコン / LR司馬昭アイコン / LR司馬昭アイコン"
+      ],
+      [
+        "弓兵 / 弓兵アイコン / 弓兵アイコン",
+        "LR夏侯淵LR羊祜LR荀彧 / LR夏侯淵アイコン / LR夏侯淵アイコン / LR羊祜アイコン / LR羊祜アイコン / LR荀彧アイコン / LR荀彧アイコン"
+      ]
+    ],
+    [
+      [
+        "騎兵 / 騎兵アイコン / 騎兵アイコン",
+        "UR曹操UR司馬懿UR曹丕UR楽進UR龐徳UR荀攸UR王元姫UR甄氏UR文鴦UR曹叡UR蔡琰UR曹洪UR満寵UR張春華UR郝昭 / UR曹操アイコン / UR曹操アイコン / UR司馬懿アイコン / UR司馬懿アイコン / UR曹丕アイコン / UR曹丕アイコン / UR楽進アイコン / UR楽進アイコン / UR龐徳アイコン / UR龐徳アイコン / UR荀攸アイコン / UR荀攸アイコン / UR王元姫アイコン / UR王元姫アイコン / UR甄氏アイコン / UR甄氏アイコン / UR文鴦アイコン / UR文鴦アイコン / UR曹叡アイコン / UR曹叡アイコン / UR蔡琰アイコン / UR蔡琰アイコン / UR曹洪アイコン / UR曹洪アイコン / UR満寵アイコン / UR満寵アイコン / UR張春華アイコン / UR張春華アイコン / UR郝昭アイコン / UR郝昭アイコン"
+      ],
+      [
+        "歩兵 / 歩兵アイコン / 歩兵アイコン",
+        "UR張遼UR夏侯惇UR張郃UR徐晃UR典韋UR鄧艾UR于禁UR郭嘉UR曹仁UR程昱URキルヒアイスUR王異UR李典 / UR張遼アイコン / UR張遼アイコン / UR夏侯惇アイコン / UR夏侯惇アイコン / UR張郃アイコン / UR張郃アイコン / UR徐晃アイコン / UR徐晃アイコン / UR典韋アイコン / UR典韋アイコン / UR鄧艾アイコン / UR鄧艾アイコン / UR于禁アイコン / UR于禁アイコン / UR郭嘉アイコン / UR郭嘉アイコン / UR曹仁アイコン / UR曹仁アイコン / UR程昱アイコン / UR程昱アイコン / URキルヒアイスアイコン / URキルヒアイスアイコン / UR王異アイコン / UR王異アイコン / UR李典アイコン / UR李典アイコン"
+      ],
+      [
+        "弓兵 / 弓兵アイコン / 弓兵アイコン",
+        "UR荀彧UR夏侯淵UR曹真UR辛憲英 / UR荀彧アイコン / UR荀彧アイコン / UR夏侯淵アイコン / UR夏侯淵アイコン / UR曹真アイコン / UR曹真アイコン / UR辛憲英アイコン / UR辛憲英アイコン"
+      ]
+    ],
+    [
+      [
+        "騎兵 / 騎兵アイコン / 騎兵アイコン",
+        "司馬懿曹操徐晃劉曄郭嘉張遼覚醒曹彰張春華覚醒曹仁覚醒蔡琰覚醒曹真覚醒夏侯覇覚醒満寵夏侯惇張郃文鴦于禁 / 司馬懿アイコン / 司馬懿アイコン / 曹操アイコン / 曹操アイコン / 徐晃アイコン / 徐晃アイコン / 劉曄アイコン / 劉曄アイコン / 郭嘉アイコン / 郭嘉アイコン / 張遼アイコン / 張遼アイコン / 覚醒曹彰アイコン / 覚醒曹彰アイコン / 張春華アイコン / 張春華アイコン / 覚醒曹仁アイコン / 覚醒曹仁アイコン / 覚醒蔡琰アイコン / 覚醒蔡琰アイコン / 覚醒曹真アイコン / 覚醒曹真アイコン / 覚醒夏侯覇アイコン / 覚醒夏侯覇アイコン / 覚醒満寵アイコン / 覚醒満寵アイコン / 夏侯惇アイコン / 夏侯惇アイコン / 張郃アイコン / 張郃アイコン / 文鴦アイコン / 文鴦アイコン / 于禁アイコン / 于禁アイコン"
+      ],
+      [
+        "歩兵 / 歩兵アイコン / 歩兵アイコン",
+        "覚醒文聘許褚典韋甄氏覚醒楽進覚醒司馬師覚醒曹丕覚醒郝昭卞氏王異鄧艾程昱 / 覚醒文聘アイコン / 覚醒文聘アイコン / 許褚アイコン / 許褚アイコン / 典韋アイコン / 典韋アイコン / 甄氏アイコン / 甄氏アイコン / 覚醒楽進アイコン / 覚醒楽進アイコン / 覚醒司馬師アイコン / 覚醒司馬師アイコン / 覚醒曹丕アイコン / 覚醒曹丕アイコン / 覚醒郝昭アイコン / 覚醒郝昭アイコン / 卞氏アイコン / 卞氏アイコン / 王異アイコン / 王異アイコン / 鄧艾アイコン / 鄧艾アイコン / 程昱アイコン / 程昱アイコン"
+      ],
+      [
+        "弓兵 / 弓兵アイコン / 弓兵アイコン",
+        "覚醒曹植曹節夏侯氏羊祜荀攸覚醒司馬昭越吉覚醒杜預管輅夏侯淵陳羣王元姫荀彧徹里吉 / 覚醒曹植アイコン / 覚醒曹植アイコン / 曹節アイコン / 曹節アイコン / 夏侯氏アイコン / 夏侯氏アイコン / 羊祜アイコン / 羊祜アイコン / 荀攸アイコン / 荀攸アイコン / 覚醒司馬昭アイコン / 覚醒司馬昭アイコン / 越吉アイコン / 越吉アイコン / 覚醒杜預アイコン / 覚醒杜預アイコン / 管輅アイコン / 管輅アイコン / 夏侯淵アイコン / 夏侯淵アイコン / 陳羣アイコン / 陳羣アイコン / 王元姫アイコン / 王元姫アイコン / 荀彧アイコン / 荀彧アイコン / 徹里吉アイコン / 徹里吉アイコン"
+      ]
+    ],
+    [
+      [
+        "騎兵 / 騎兵アイコン / 騎兵アイコン",
+        "夏侯覇蔡琰曹彰曹真曹仁満寵 / 夏侯覇アイコン / 夏侯覇アイコン / 蔡琰アイコン / 蔡琰アイコン / 曹彰アイコン / 曹彰アイコン / 曹真アイコン / 曹真アイコン / 曹仁アイコン / 曹仁アイコン / 満寵アイコン / 満寵アイコン"
+      ],
+      [
+        "歩兵 / 歩兵アイコン / 歩兵アイコン",
+        "郝昭楽進司馬師曹丕文聘 / 郝昭アイコン / 郝昭アイコン / 楽進アイコン / 楽進アイコン / 司馬師アイコン / 司馬師アイコン / 曹丕アイコン / 曹丕アイコン / 文聘アイコン / 文聘アイコン"
+      ],
+      [
+        "弓兵 / 弓兵アイコン / 弓兵アイコン",
+        "司馬昭杜預曹植雅丹 / 司馬昭アイコン / 司馬昭アイコン / 杜預アイコン / 杜預アイコン / 曹植アイコン / 曹植アイコン / 雅丹アイコン / 雅丹アイコン"
+      ]
+    ],
+    [
+      [
+        "騎兵 / 騎兵アイコン / 騎兵アイコン",
+        "王双牛金曹洪曹純王同骨進曹昂 / 王双アイコン / 王双アイコン / 牛金アイコン / 牛金アイコン / 曹洪アイコン / 曹洪アイコン / 曹純アイコン / 曹純アイコン / 王同アイコン / 王同アイコン / 骨進アイコン / 骨進アイコン / 曹昂アイコン / 曹昂アイコン"
+      ],
+      [
+        "歩兵 / 歩兵アイコン / 歩兵アイコン",
+        "李典夏侯恩 / 李典アイコン / 李典アイコン / 夏侯恩アイコン / 夏侯恩アイコン"
+      ],
+      [
+        "弓兵 / 弓兵アイコン / 弓兵アイコン",
+        "王朗蔡瑁鍾繇許攸曹休陳矯 / 王朗アイコン / 王朗アイコン / 蔡瑁アイコン / 蔡瑁アイコン / 鍾繇アイコン / 鍾繇アイコン / 許攸アイコン / 許攸アイコン / 曹休アイコン / 曹休アイコン / 陳矯アイコン / 陳矯アイコン"
+      ]
+    ],
+    [
+      [
+        "兵科",
+        "弓兵 / 弓兵アイコン / 弓兵アイコン",
+        "輸送",
+        "0%"
+      ],
+      [
+        "機動",
+        "100",
+        "射程",
+        "1.5"
+      ],
+      [
+        "攻撃属性",
+        "なし",
+        "攻撃間隔",
+        "6秒"
+      ]
+    ],
+    [
+      [
+        "最強武将(LR・UR) / 最強LR・UR武将(キャラ)ランキング / 最強LR・UR武将(キャラ)ランキング",
+        "リセマラランキング / リセマラのやり方と引き直しガチャの当たり武将 / リセマラのやり方と引き直しガチャの当たり武将"
+      ],
+      [
+        "名宝ランキング / 名宝ランキング / 名宝ランキング",
+        "SSR武将 / SSR武将(キャラ)ランキング / SSR武将(キャラ)ランキング"
+      ]
+    ],
+    [
+      [
+        "武将の強化方法と育成優先度 / 武将の強化方法と育成優先度 / 武将の強化方法と育成優先度",
+        "武将の入手方法 / 武将・友好度・交流ポイントの入手方法 / 武将・友好度・交流ポイントの入手方法"
+      ],
+      [
+        "UR武将の特徴 / UR武将の特徴とSSR武将との違い / UR武将の特徴とSSR武将との違い",
+        "LR武将の特徴 / LR武将の特徴と入手方法 / LR武将の特徴と入手方法"
+      ]
+    ]
+  ],
+  "sections": [
+    {
+      "title": "LR司馬師の基本情報",
+      "content": [
+        "名LR司馬師（シバシ）字子元（シゲン）性別男天賦1300（LR）兵科弓兵相性おすすめ編制貫通駐屯",
+        "侍従の配置可能位置と条件",
+        "配置位置条件UR以下弓兵知力500以上"
+      ]
+    },
+    {
+      "title": "会心部隊を妨害する弓兵武将",
+      "content": [
+        "LR司馬師は戦法と技能「克堪」で退勢を付与する弓兵武将。退勢の効果時間中、敵部隊は通常攻撃時に全てのバフが発揮されないので、LR関羽やLR項籍などの会心火力を抑えられる。"
+      ]
+    },
+    {
+      "title": "LR司馬懿の副将や補佐で使える",
+      "content": [
+        "技能の主な効果は、自部隊の主将が司馬懿/司馬昭/張春華の際に発動する。なので主にLR司馬懿の副将や補佐として使えるが、LR司馬師も戦法発動間隔は20秒なのでLR司馬懿が未所持なら主将として使うのもあり。"
+      ]
+    },
+    {
+      "title": "LR司馬師の戦法",
+      "content": [
+        "沈毅大略兵科効果系統攻撃属性なし知力なし効果自身1部隊の知力を150％上昇（自部隊の主将とこの武将が好相性の際、知力上昇の効果量が2倍になる）対象を含む敵4部隊の強化効果を3つ奪い、退勢と会心率半減、1回の連鎖無効を付与さらに350％の攻撃発動間隔対象範囲発動率連鎖順20秒敵 / 広25％早い沈毅大略の追加効果追加効果対象範囲継続知力変化自分 / 単15秒部隊の知力が上昇する強化奪取敵 / 広-対象に発生している強化効果を奪取して、効果時間を10秒として自身に付与（付与できる能力変化は合計100％まで）※付与される状態変化は、効果量や効果時間を変動させる技能や状態変化の影響を受けない退勢敵 / 広15秒通常攻撃を行う際、自部隊に発生している全ての有利変化が発揮されない状態で与ダメージを計算する会心率半減敵 / 広15秒効果時間中、会心発生率が半減するさらに会心発生率の上限が50％になる連鎖無効敵 / 広15秒効果回数分、戦法で連鎖が起きない"
+      ]
+    },
+    {
+      "title": "沈毅大略",
+      "content": [
+        "兵科効果系統攻撃属性なし知力なし効果自身1部隊の知力を150％上昇（自部隊の主将とこの武将が好相性の際、知力上昇の効果量が2倍になる）対象を含む敵4部隊の強化効果を3つ奪い、退勢と会心率半減、1回の連鎖無効を付与さらに350％の攻撃発動間隔対象範囲発動率連鎖順20秒敵 / 広25％早い",
+        "沈毅大略の追加効果",
+        "追加効果対象範囲継続知力変化自分 / 単15秒部隊の知力が上昇する強化奪取敵 / 広-対象に発生している強化効果を奪取して、効果時間を10秒として自身に付与（付与できる能力変化は合計100％まで）※付与される状態変化は、効果量や効果時間を変動させる技能や状態変化の影響を受けない退勢敵 / 広15秒通常攻撃を行う際、自部隊に発生している全ての有利変化が発揮されない状態で与ダメージを計算する会心率半減敵 / 広15秒効果時間中、会心発生率が半減するさらに会心発生率の上限が50％になる連鎖無効敵 / 広15秒効果回数分、戦法で連鎖が起きない"
+      ]
+    },
+    {
+      "title": "LR司馬師の技能",
+      "content": [
+        "威逆1■主将か、主将と自身が好相性の際　●威風Lv1を付与（この技能を持つ武将が所持しているものとして扱う）　●反逆Lv1を付与（この技能を持つ武将が所持しているものとして扱う）衰撃1■常に　●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ₋3%■主将の際　●副将の連鎖確率+0.5%克堪2■常に　●自身を対象としない範囲攻撃の被ダメージ₋20％■主将か、自部隊の主将が司馬懿/司馬昭/張春華の際　●部隊の兵力+20％　●副将の連鎖確率+5％　●自部隊が弱化効果を付与する際、自部隊の知力を150％上昇させた状態で弱化効果の付与を行う（敵部隊との知力差による発生率の変動や、知力を条件とした発生率/効果時間の変動効果などに適用される）▼出陣時　●戦法ゲージ+20％（上限50％）　→以降戦法ゲージが15％より減少しない（命令変更時や戦法発動後も15％未満にならない）▼交戦開始時　●対象を含む敵4部隊に退勢を付与（20秒）冶金2■製鉄所に任命時　●任命効果+20%冷眼1■常に　●部隊の知力+7%　●この技能を持つ武将の戦法で付与する連鎖無効の効果時間を10秒増加　●この技能を持つ武将の戦法で付与する退勢の効果時間を10秒増加■主将か、自部隊の主将が司馬懿/司馬昭/張春華の際▼主将戦法発動時　●対象を敵4部隊に分断を付与（20秒）▼出陣時　●戦法ゲージ+10%（上限50％）",
+        "※将星ランク7時の技能効果となります"
+      ]
+    },
+    {
+      "title": "威逆",
+      "content": [
+        "Ⅰ■主将か、主将と自身が好相性の際　●威風Lv1を付与（この技能を持つ武将が所持しているものとして扱う）　●反逆Lv1を付与（この技能を持つ武将が所持しているものとして扱う）",
+        "威逆を持つ武将LR司馬師"
+      ]
+    },
+    {
+      "title": "衰撃",
+      "content": [
+        "Ⅰ■常に　●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ₋3%■主将の際　●副将の連鎖確率+0.5%Ⅱ■常に　●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ₋6％■主将の際　●副将の連鎖確率+1％Ⅲ■常に　●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ₋9％■主将の際　●副将の連鎖確率+1.5％Ⅳ■常に　●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ₋12％■主将の際　●副将の連鎖確率+2％Ⅴ■常に　●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ₋15％■主将の際　●副将の連鎖確率+2.5％",
+        "衰撃を持つ武将LR司馬師LR項燕"
+      ]
+    },
+    {
+      "title": "克堪",
+      "content": [
+        "Ⅰ■常に　●自身を対象としない範囲攻撃の被ダメージ₋15%■主将か、自部隊の主将が司馬懿/司馬昭/張春華の際　●部隊の兵力+10%　●自部隊が弱化効果を付与する際、自部隊の知力を100％上昇させた状態で弱化効果の付与を行う（敵部隊との知力差による発生率の変動や、知力を条件とした発生率/効果時間の変動効果などに適用される）▼出陣時　●戦法ゲージ+10%（上限50％）　→以降戦法ゲージが5％より減少しない（命令変更時や戦法発動後も5％未満にならない）Ⅱ■常に　●自身を対象としない範囲攻撃の被ダメージ₋20％■主将か、自部隊の主将が司馬懿/司馬昭/張春華の際　●部隊の兵力+20％　●副将の連鎖確率+5％　●自部隊が弱化効果を付与する際、自部隊の知力を150％上昇させた状態で弱化効果の付与を行う（敵部隊との知力差による発生率の変動や、知力を条件とした発生率/効果時間の変動効果などに適用される）▼出陣時　●戦法ゲージ+20％（上限50％）　→以降戦法ゲージが15％より減少しない（命令変更時や戦法発動後も15％未満にならない）▼交戦開始時　●対象を含む敵4部隊に退勢を付与（20秒）",
+        "克堪を持つ武将LR司馬師"
+      ]
+    },
+    {
+      "title": "冶金",
+      "content": [
+        "Ⅰ■製鉄所に任命時　●任命効果+10%Ⅱ■製鉄所に任命時　●任命効果+20%Ⅲ■製鉄所に任命時　●任命効果+30%Ⅳ■製鉄所に任命時　●任命効果+40%Ⅴ■製鉄所に任命時　●任命効果+50%",
+        "冶金を持つ武将LR司馬昭LR司馬師UR王元姫覚醒杜預泄帰泥徹里吉覚醒司馬昭覚醒司馬師王元姫曹休紀霊杜預司馬昭司馬師夏侯惇司馬懿"
+      ]
+    },
+    {
+      "title": "冷眼",
+      "content": [
+        "Ⅰ■常に　●部隊の知力+7%　●この技能を持つ武将の戦法で付与する連鎖無効の効果時間を10秒増加　●この技能を持つ武将の戦法で付与する退勢の効果時間を10秒増加■主将か、自部隊の主将が司馬懿/司馬昭/張春華の際▼主将戦法発動時　●対象を敵4部隊に分断を付与（20秒）▼出陣時　●戦法ゲージ+10%（上限50％）",
+        "冷眼を持つ武将LR司馬師",
+        "技能別武将一覧はこちら"
+      ]
+    },
+    {
+      "title": "LR司馬師の能力・五行適正",
+      "content": [
+        "初期能力統率　87142位 / 477人武力　76235位 / 477人知力　9084位 / 477人政治　8588位 / 477人魅力　82176位 / 477人最大能力統率　119565位 / 477人武力　104478位 / 477人知力　123840位 / 477人政治　116935位 / 477人魅力　112664位 / 477人",
+        "能力比較一覧はこちら"
+      ]
+    },
+    {
+      "title": "初期能力",
+      "content": [
+        "統率　87142位 / 477人武力　76235位 / 477人知力　9084位 / 477人政治　8588位 / 477人魅力　82176位 / 477人最大能力統率　119565位 / 477人武力　104478位 / 477人知力　123840位 / 477人政治　116935位 / 477人魅力　112664位 / 477人"
+      ]
+    },
+    {
+      "title": "最大能力",
+      "content": [
+        "統率　119565位 / 477人武力　104478位 / 477人知力　123840位 / 477人政治　116935位 / 477人魅力　112664位 / 477人"
+      ]
+    },
+    {
+      "title": "五行適正",
+      "content": [
+        "木D火A土C金C水A--",
+        "同じ五行適正の高い武将",
+        "※ 適正がSとAの武将を記載しています。火行適正の高い武将騎兵武将UR呂布UR関羽UR孟獲UR荀攸UR華雄UR王元姫UR甄氏UR顔良UR馬雲騄UR張苞UR蹋頓関羽呂布徐晃袁紹覚醒関平覚醒曹仁蹋頓夏侯惇華雄呂玲綺顔良何進歩兵武将UR諸葛亮UR張角UR袁紹UR張飛UR夏侯惇UR呂玲綺UR徐晃UR陸抗UR岳飛UR周泰UR曹仁UR丁奉URキルヒアイス張飛張角孟獲甄氏覚醒張苞朱儁覚醒司馬師沙摩柯覚醒呉国太周泰弓兵武将UR周瑜UR魯粛UR黄蓋URフレデリカUR孫魯班UR董白UR呉国太周瑜諸葛亮羊祜荀攸陸抗覚醒黄蓋董白覚醒李儒覚醒李厳王元姫魯粛徹里吉水行適正の高い武将騎兵武将UR孟獲UR趙雲UR公孫瓚UR関銀屏UR馬騰UR華雄UR馬雲騄UR文鴦UR凌統UR廖化UR張春華UR張梁UR花鬘覚醒高順郭嘉趙雲馬騰覚醒曹彰覚醒凌統張春華花鬘覚醒曹真覚醒夏侯覇華雄歩兵武将UR諸葛亮UR張郃UR呂玲綺UR呂蒙UR陸抗UR郭嘉UR王平UR周倉UR丁奉UR李典UR蒋欽孟獲覚醒朱桓甘寧許褚徐庶覚醒蒋欽覚醒司馬師周倉呂蒙覚醒王平弓兵武将UR周瑜UR荀彧UR徐庶UR甘寧UR夏侯淵UR魯粛UR曹真UR朱然UR董白UR張宝UR司馬徽UR厳顔周瑜諸葛亮覚醒張任羊祜陸抗司馬徽董白覚醒杜預覚醒李厳夏侯淵法正劉禅"
+      ]
+    },
+    {
+      "title": "LR司馬師の参軍性能",
+      "content": [
+        "この武将は参軍起用できない。",
+        "参軍技能別武将一覧はこちら"
+      ]
+    },
+    {
+      "title": "LR司馬師と相性の良い武将",
+      "content": [
+        "相性の良いLR武将騎兵LR司馬懿LR郭嘉LR夏侯惇LR張郃LR徐晃LR甄氏LR楽進LR夏侯惇(ORIGINS)LR荀攸歩兵LR曹操LR李信LR許褚LRラインハルトLR典韋LR鄧艾LR呉起LR于禁LR司馬昭弓兵LR夏侯淵LR羊祜LR荀彧相性の良いUR武将騎兵UR曹操UR司馬懿UR曹丕UR楽進UR龐徳UR荀攸UR王元姫UR甄氏UR文鴦UR曹叡UR蔡琰UR曹洪UR満寵UR張春華UR郝昭歩兵UR張遼UR夏侯惇UR張郃UR徐晃UR典韋UR鄧艾UR于禁UR郭嘉UR曹仁UR程昱URキルヒアイスUR王異UR李典弓兵UR荀彧UR夏侯淵UR曹真UR辛憲英相性の良いSSR武将騎兵司馬懿曹操徐晃劉曄郭嘉張遼覚醒曹彰張春華覚醒曹仁覚醒蔡琰覚醒曹真覚醒夏侯覇覚醒満寵夏侯惇張郃文鴦于禁歩兵覚醒文聘許褚典韋甄氏覚醒楽進覚醒司馬師覚醒曹丕覚醒郝昭卞氏王異鄧艾程昱弓兵覚醒曹植曹節夏侯氏羊祜荀攸覚醒司馬昭越吉覚醒杜預管輅夏侯淵陳羣王元姫荀彧徹里吉相性の良いSR武将騎兵夏侯覇蔡琰曹彰曹真曹仁満寵歩兵郝昭楽進司馬師曹丕文聘弓兵司馬昭杜預曹植雅丹相性の良いN・R武将騎兵王双牛金曹洪曹純王同骨進曹昂歩兵李典夏侯恩弓兵王朗蔡瑁鍾繇許攸曹休陳矯"
+      ]
+    },
+    {
+      "title": "相性の良いLR武将",
+      "content": [
+        "騎兵LR司馬懿LR郭嘉LR夏侯惇LR張郃LR徐晃LR甄氏LR楽進LR夏侯惇(ORIGINS)LR荀攸歩兵LR曹操LR李信LR許褚LRラインハルトLR典韋LR鄧艾LR呉起LR于禁LR司馬昭弓兵LR夏侯淵LR羊祜LR荀彧"
+      ]
+    },
+    {
+      "title": "相性の良いUR武将",
+      "content": [
+        "騎兵UR曹操UR司馬懿UR曹丕UR楽進UR龐徳UR荀攸UR王元姫UR甄氏UR文鴦UR曹叡UR蔡琰UR曹洪UR満寵UR張春華UR郝昭歩兵UR張遼UR夏侯惇UR張郃UR徐晃UR典韋UR鄧艾UR于禁UR郭嘉UR曹仁UR程昱URキルヒアイスUR王異UR李典弓兵UR荀彧UR夏侯淵UR曹真UR辛憲英"
+      ]
+    },
+    {
+      "title": "相性の良いSSR武将",
+      "content": [
+        "騎兵司馬懿曹操徐晃劉曄郭嘉張遼覚醒曹彰張春華覚醒曹仁覚醒蔡琰覚醒曹真覚醒夏侯覇覚醒満寵夏侯惇張郃文鴦于禁歩兵覚醒文聘許褚典韋甄氏覚醒楽進覚醒司馬師覚醒曹丕覚醒郝昭卞氏王異鄧艾程昱弓兵覚醒曹植曹節夏侯氏羊祜荀攸覚醒司馬昭越吉覚醒杜預管輅夏侯淵陳羣王元姫荀彧徹里吉"
+      ]
+    },
+    {
+      "title": "相性の良いSR武将",
+      "content": [
+        "騎兵夏侯覇蔡琰曹彰曹真曹仁満寵歩兵郝昭楽進司馬師曹丕文聘弓兵司馬昭杜預曹植雅丹"
+      ]
+    },
+    {
+      "title": "相性の良いN・R武将",
+      "content": [
+        "騎兵王双牛金曹洪曹純王同骨進曹昂歩兵李典夏侯恩弓兵王朗蔡瑁鍾繇許攸曹休陳矯"
+      ]
+    },
+    {
+      "title": "LR司馬師の入手方法",
+      "content": [
+        "極求賢令"
+      ]
+    },
+    {
+      "title": "LR司馬師の兵科",
+      "content": [
+        "兵科の基本能力兵科弓兵輸送0%機動100射程1.5攻撃属性なし攻撃間隔6秒"
+      ]
+    },
+    {
+      "title": "兵科の基本能力",
+      "content": [
+        "兵科弓兵輸送0%機動100射程1.5攻撃属性なし攻撃間隔6秒"
+      ]
+    },
+    {
+      "title": "LR司馬師の列伝",
+      "content": [
+        "魏の重臣・司馬懿の長男。司馬昭の兄。晋の景帝。"
+      ]
+    },
+    {
+      "title": "演義",
+      "content": [
+        "司馬懿に従い、諸葛亮の北伐軍防衛、公孫淵討伐などで活躍した。249年の政変で政敵の曹爽を倒して政権を掌握し、司馬懿の死後、大将軍となる。以後、皇帝を上回る実権を握り、曹芳に誅殺されそうになるが、未然に阻止。曹芳を廃して曹髦を立て、曹芳に協力した夏侯玄、李豊、張緝を処刑した。廃立に反発した毋丘倹、文欽が反乱を起こすと自ら鎮圧するが、間もなく病没。"
+      ]
+    },
+    {
+      "title": "正史",
+      "content": [
+        "孫権の死後、呉討伐を命じるが失敗。自ら責任を取り、指揮官の王昶、胡遵、毋丘倹らを処罰しなかった。"
+      ]
+    }
+  ],
+  "crawled_at": "2026-06-07T02:35:05.348Z",
+  "jiju_positions": [
+    {
+      "position": "下",
+      "condition": "UR以下\n弓兵\n知力500以上",
+      "source": "jiju_table_img_alt",
+      "table_index": 4,
+      "row_index": 0
+    }
+  ]
+}

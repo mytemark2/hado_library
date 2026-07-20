@@ -1,0 +1,84 @@
+{
+  "updateNo": "08.5",
+  "displayVersion": "3.0.0.0 Update08.5",
+  "status": "completed-local-validation",
+  "summary": "Show saved-owned type candidates even when their selected-type score is zero, so saved-data mode does not hide most owned targets.",
+  "bugClassification": "Saved-data candidate filtering false negative caused by score-threshold ordering",
+  "rootCause": "The type candidate list always required matchedCount > 0 before rendering. In saved-data mode the candidate population is already restricted to owned saved data, so owned generals/equipment with zero score for the selected type disappeared completely instead of appearing with 0/10 at the bottom of the list.",
+  "changedFiles": [
+    "HADO_DEV_INFO.json",
+    "hado_update_meta.js",
+    "hado_type_candidates.js",
+    "docs/updates/roadmap.md",
+    "docs/updates/update08/implementation.md",
+    "docs/updates/update08/report.md",
+    "tools/validate_saved_type_candidates_zero_score_visible.py",
+    "report/HADO_APP_3.0.0.0_UPDATE08.5_REPORT.json"
+  ],
+  "htmlSizeChange": {
+    "index.html": 0,
+    "hado_library_3.0.0.0.html": 0
+  },
+  "externalizationDecision": "No HTML changes; the behavior is fixed in existing external JavaScript and guarded by a validation tool.",
+  "validation": [
+    {
+      "command": "node --check hado_type_candidates.js",
+      "result": "pass"
+    },
+    {
+      "command": "node --check hado_update_meta.js",
+      "result": "pass"
+    },
+    {
+      "command": "python3 -m json.tool HADO_DEV_INFO.json",
+      "result": "pass"
+    },
+    {
+      "command": "python3 -m json.tool report/HADO_APP_3.0.0.0_UPDATE08.5_REPORT.json",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_saved_type_candidates_zero_score_visible.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_update_version_consistency.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_type_candidate_saved_name_matching.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_saved_mode_index_ownership_sources.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_formation_link_helpers.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_app_js.py",
+      "result": "pass"
+    },
+    {
+      "command": "node tools/test_type_score.js",
+      "result": "pass"
+    },
+    {
+      "command": "node hado_status_effect_regression.js",
+      "result": "pass"
+    },
+    {
+      "command": "test ! -d updates/queue",
+      "result": "pass"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass"
+    }
+  ],
+  "workflowResult": "pending-after-push",
+  "previewResult": "pending-after-push",
+  "minimumUserAcceptance": "Open saved-data mode, select the same vaccine type, open type candidates, and confirm saved-owned generals/equipment remain listed with low/zero scores instead of disappearing."
+}

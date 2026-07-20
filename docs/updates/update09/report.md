@@ -1,0 +1,1372 @@
+# Update09 Report
+
+## Phase 1: UI/UX監査レポート
+
+## Summary
+- Update09の最初の作業として、現行UI/UXの問題点を「性能」「部隊編成レイアウト」「ガイド」「補足説明」「操作導線」の5分類で整理した。
+- 各分類に対し、実装可能性と既存アーキテクチャへの影響を踏まえた改善案を3つずつ提示した。
+- 実装順は、性能改善 → 部隊編成ポップアップ化 → 導線統合 → ガイド/説明整理 → PC/スマホ回帰を推奨する。
+
+## Bug classification and root cause
+- 分類: UI/UX改善前調査。特定の単一不具合ではなく、Update08までに機能追加を優先した結果として、表示密度、再描画範囲、横断導線、ガイド世代差が積み上がったもの。
+- 根本原因:
+  - 部隊編成画面の描画責務が大きく、軽い表示状態変更でも全体描画へ流れやすい。
+  - 型編成ナビ、型候補一覧、候補トレイ、部隊編成が別UIとして追加され、全体の操作順を示す統合ナビゲーションが不足している。
+  - 仕様説明を常時表示する箇所が残り、主操作の視認性を下げている。
+  - スタートガイドが最新の保存データ対応型候補・候補トレイ・評価履歴導線を十分に反映していない。
+
+## Impact scope checked
+- 部隊編成画面の描画・レイアウト・スロット変更導線。
+- 型編成ナビの主将選択、目的選択、型選択、確認フロー。
+- 型候補一覧の保存データ表示、ロール別候補、検索、診断/キャッシュ方針。
+- 候補トレイの表示、解除、配置先選択、既存ゲート委譲。
+- スタートガイド、型検索ヘルプ、補足説明表示。
+- 全データ表示/保存データ表示の見分け方。
+
+## Files changed
+- `docs/updates/roadmap.md`: Update09の状態を予定から調査・設計中へ更新。
+- `docs/updates/update09/roadmap.md`: Update09の目的、優先テーマ、フェーズ計画、完了条件を追加。
+- `docs/updates/update09/implementation.md`: UI/UX問題点と各3案の改善案、推奨実装順、検証方針を追加。
+- `docs/updates/update09/report.md`: Phase 1の調査結果、根本原因、影響範囲、検証結果を記録。
+
+## HTML size change and externalization decision
+- HTMLサイズ変更: なし。
+- 外部化判断: Phase 1はドキュメントのみ。今後の実装は既存責務の外部JS/CSSへ統合し、HTMLへ大型ロジックを追加しない。
+
+## Validation commands executed
+- `python3 -m json.tool HADO_DEV_INFO.json`
+- `python3 tools/validate_app_js.py`
+- `python3 tools/validate_external_css.py`
+- `python3 tools/validate_type_candidate_render_performance.py`
+- `python3 tools/validate_update_version_consistency.py`
+
+## Validation results
+- `python3 -m json.tool HADO_DEV_INFO.json`: PASS。
+- `python3 tools/validate_app_js.py`: PASS（js=14, json=36, html_identity=ok）。
+- `python3 tools/validate_external_css.py`: PASS（HTML references hado_styles.css and has no style blocks/attributes）。
+- `python3 tools/validate_type_candidate_render_performance.py`: PASS（cached rows, async diagnostics, suspended bulk traces）。
+- `python3 tools/validate_update_version_consistency.py`: PASS（3.0.0.0 Update08.23 / revision 31 / single source hado_version.js）。
+
+## Git commit and pull request
+- ローカルGitコミット作成済み。Pull RequestはCodexのPR記録として作成する。
+
+## GitHub Actions result
+- 未実行。Phase 1のローカル調査PR作成後、リモートPush/Actions/preview同期の確認が必要。
+
+## Preview synchronization result
+- 未実行。Phase 1のローカル調査PR作成後、push-triggered preview同期の確認が必要。
+
+## Minimum user acceptance operation
+1. Update09の問題点分類が、ユーザー申告の5項目を網羅していることを確認する。
+2. 各分類に3つずつ改善案があり、優先順位に違和感がないことを確認する。
+3. 次フェーズで最初に着手する改善案を選択する。
+
+## Remaining issues
+- Phase 1時点では実装変更は未着手。
+- ブラウザ上のPC/スマホ実操作確認、GitHub Actions、preview同期確認は次フェーズ以降で実施する。
+
+
+## Phase 2: 性能・再描画改善レポート
+
+## Summary
+- 部隊編成の重い状態変化率/合算技能計算を、編成内容と保存データの署名でキャッシュするようにした。
+- 型候補一覧のロール別スコア計算結果を検索語から分離し、検索欄入力では再スコアリングせず文字列フィルタだけ行うようにした。
+- 可視バージョンを `3.0.0.0 Update09.0` へ更新した。
+
+## Bug classification and root cause
+- 分類: 性能改善。
+- 根本原因: 部隊編成画面では、編成内容が変わらない操作でも `buildFormationParameterData()` が再実行されやすかった。型候補一覧では、検索語が変わるたびにロール候補のスコア計算・所有判定まで再実行される構造だった。
+
+## Impact scope checked
+- 部隊編成の編成タブ、戦法タブ、変化率タブ、詳細タブ。
+- 部隊編成の選択スロット変更、ダイアログ開閉、結果サマリー表示。
+- 型候補一覧のロール別件数、検索欄入力、保存データ表示での所有候補フィルタ。
+- 表示バージョン同期、HTML/CSS外部化、プレビュー/merge queue workflow定義。
+
+## Files changed
+- `hado_formation.js`: 部隊編成パラメータ計算キャッシュを追加。
+- `hado_type_candidates.js`: 型候補一覧のロール別ベースキャッシュと検索語フィルタ分離を追加。
+- `hado_version.js`: 可視バージョンを `Update09.0` に更新。
+- `HADO_DEV_INFO.json`: 開発概要と更新日時をUpdate09性能改善へ更新。
+- `docs/updates/update09/implementation.md`: Phase 2実装記録を追記。
+- `docs/updates/update09/report.md`: Phase 2検証・残課題を追記。
+
+## HTML size change and externalization decision
+- HTMLサイズ変更: なし。
+- 外部化判断: 既存責務の外部JSに統合し、HTMLへ大型ロジックは追加していない。
+
+## Validation commands executed
+- `node --check hado_formation.js`
+- `node --check hado_type_candidates.js`
+- `python3 -m json.tool HADO_DEV_INFO.json`
+- `python3 tools/validate_app_js.py`
+- `python3 tools/validate_external_css.py`
+- `python3 tools/validate_type_candidate_render_performance.py`
+- `python3 tools/validate_update_version_consistency.py`
+- `python3 tools/validate_formation_link_helpers.py`
+- `python3 tools/validate_preview_workflow.py`
+- `python3 tools/validate_merge_queue_workflow.py`
+
+## Validation results
+- `node --check hado_formation.js`: PASS。
+- `node --check hado_type_candidates.js`: PASS。
+- `python3 -m json.tool HADO_DEV_INFO.json`: PASS。
+- `python3 tools/validate_app_js.py`: PASS（js=14, json=36, html_identity=ok）。
+- `python3 tools/validate_external_css.py`: PASS。
+- `python3 tools/validate_type_candidate_render_performance.py`: PASS。
+- `python3 tools/validate_update_version_consistency.py`: PASS（3.0.0.0 Update09.0 / revision 32）。
+- `python3 tools/validate_formation_link_helpers.py`: PASS。
+- `python3 tools/validate_preview_workflow.py`: PASS。
+- `python3 tools/validate_merge_queue_workflow.py`: PASS。
+
+## GitHub Actions result
+- 未実行。ローカル環境ではpush後のActions実行結果を確認できないため、PR作成後に確認が必要。
+
+## Preview synchronization result
+- 未実行。ローカル環境ではpush-triggered preview同期を確認できないため、PR作成後に確認が必要。
+
+## Minimum user acceptance operation
+1. 部隊編成画面を開き、スロット選択・タブ切替・結果サマリー拡大/閉じるを連続操作して、以前より固まりにくいことを確認する。
+2. 部隊編成で武将または装備を変更した後、合算技能・状態変化率・結果サマリーが最新内容へ更新されることを確認する。
+3. 型候補一覧を開き、ロール切替後に検索欄へ文字入力/削除しても、候補一覧の反応が重くなりにくいことを確認する。
+4. 保存データ表示で型候補一覧を開き、所有済み候補だけが表示され、検索しても候補数やスコアが不自然に変わらないことを確認する。
+5. 画面タイトルまたはアプリ上部の表示が `3.0.0.0 Update09.0` になっていることを確認する。
+
+## Remaining issues
+- ブラウザ実機でのPC/スマホ体感確認、GitHub Actions、preview同期確認は未実施。
+- Phase 3以降の部隊編成レイアウト/ポップアップ化、ガイド整理、導線統合は未着手。
+
+
+## Phase 3: 部隊編成レイアウト改修メモ
+
+### 変更概要
+- Phase 3着手に向け、可視表示を `Update09.x.y` 形式で管理する方針を追加した。Phase 3初回は `3.0.0.0 Update09.3.0` とする。
+- グループ表示、型選択、スコア表示、保存/履歴、マイメモ編集のPhase 3改修メモを追加した。
+- 実装前の設計整理のため、HTMLサイズ変更はない。
+
+### ユーザー受け入れ確認項目
+1. Phase 3実装後、画面上部の表示が `3.0.0.0 Update09.3.0` 以降になっていることを確認する。
+2. 部隊編成のグループ行が、ボタンを含めて1行で表示され、名前変更は別ダイアログで行えることを確認する。
+3. 型選択が重複表示されず、表示型IDが通常UIに出ていないことを確認する。
+4. トータルスコアと評価スコアが入力ダイアログではなく、自動計算の読み取り専用表示としてまとまっていることを確認する。
+5. 履歴へ保存ボタンがなく、保存ボタンで保存できること、マイメモは1行表示で編集時のみ別ダイアログになることを確認する。
+
+### 検証
+- `python3 -m json.tool HADO_DEV_INFO.json`: PASS。
+- `python3 tools/validate_update_version_consistency.py`: PASS。
+- `python3 tools/validate_app_js.py`: PASS。
+- `python3 tools/validate_external_css.py`: PASS。
+
+### 未解決事項
+- Phase 3の画面実装とPC/スマホ実操作確認は次作業。
+- GitHub Actionsとpreview同期確認はpush後に実施が必要。
+
+
+## Phase 3: Preview workflow Node.js 20 warning follow-up
+
+### 調査結果
+- `Notify Hado Library Preview` の提示ログに出ていた `Node.js 20 actions are deprecated` は、preview同期処理本体の失敗原因ではなく、JavaScript Actionの実行ランタイム移行に関するGitHub Actions runnerの警告である。
+- 該当箇所は `actions/checkout@v4` であり、preview同期の成否は別途 `Require preview repository token`、`Sync preview repository contents`、`Dispatch preview Pages deployment workflow`、`Verify preview reflects source commit and version assets` の各ステップ結果で判断する必要がある。
+
+### 対応
+- `Notify Hado Library Preview` と `App Validation` の `actions/checkout` を Node.js 24 対応版の `actions/checkout@v5` へ更新した。
+- permission-sensitive な `Auto-merge Internal PR` workflow は最小CI方針に合わないため削除対象とした。
+- workflow契約検証スクリプトを更新し、古いNode.js 20世代のAction指定へ戻った場合に検知できるようにした。
+
+### 残確認
+- GitHub Actions上で `Notify Hado Library Preview` を再実行し、警告解消と実際の失敗ステップ有無を確認する。
+- preview公開URLの `PREVIEW_SOURCE_COMMIT.txt`、`PREVIEW_SOURCE_BRANCH.txt`、`PREVIEW_DISPLAY_VERSION.txt`、`hado_version.js` が期待値に一致することを確認する。
+
+
+## Phase 3: Preview workflow dispatch 403 follow-up
+
+### 調査結果
+- `Dispatch preview Pages deployment workflow` で `Resource not accessible by personal access token` / HTTP 403 が出る場合、preview repoへの同期push自体ではなく、preview repoの Pages workflow を API dispatch する権限が `PREVIEW_REPO_TOKEN` に不足している。
+- preview repo側の `jekyll-gh-pages.yml` は push trigger も持つ前提で検証しているため、app workflowが preview repo `main` へpushした後は、dispatch権限がなくてもpush-triggered Pages公開で反映される可能性がある。
+- 重要なのはdispatch APIの成功だけではなく、最後の `Verify preview reflects source commit and version assets` で公開URLのcommit/version/CSSが期待値と一致することである。
+
+### 対応
+- `Dispatch preview Pages deployment workflow` のHTTP 403は即失敗にせず、警告を出して最終preview検証へ進むようにした。
+- HTTP 204の場合は従来通りdispatch成功として扱い、403以外の想定外HTTP statusは失敗させる。
+- `PREVIEW_REPO_TOKEN` の必須権限説明を Contents Read/Write 中心へ見直し、Actions Read/Writeは即時dispatch用の任意権限として扱う。
+- workflow契約検証に、dispatch 403時も最終preview検証が必須であることのチェックを追加した。
+
+### 残確認
+- GitHub Actions上で `Notify Hado Library Preview` を再実行し、dispatch 403が警告扱いになった後、`Verify preview reflects source commit and version assets` が成功することを確認する。
+- final verificationが失敗する場合は、preview repo側のpush trigger Pages workflowが実行されているか、または `PREVIEW_REPO_TOKEN` に Actions Read/Write を付与する必要がある。
+
+
+## Phase 3.1: 部隊編成レイアウト実装レポート
+
+### 変更概要
+- `3.0.0.0 Update09.3.1` として、Phase 3で未実装だった部隊編成レイアウト/変更ダイアログの主要項目を実装した。
+- グループ行を1行表示にし、名前変更を別ダイアログへ分離した。
+- 型IDの通常表示入力欄、スコア入力欄、履歴へ保存ボタン、履歴一覧の常時表示を廃止した。
+- トータルスコア/評価スコアは自動計算の読み取り専用サマリーとし、評価スコアと内訳をトータルスコア配下へ表示した。
+- マイメモは1行表示にし、編集時のみ別ダイアログを開くようにした。
+- 編成盤面のスロット選択はPC/スマホ共通でポップアップ編集を開くようにした。
+
+### 受け入れ確認項目
+1. PC幅で、部隊編成のグループ行がグループ選択・現在名・名前変更・追加ボタンを含めて1行に収まること。
+2. グループ名の変更がインライン入力ではなく、別ダイアログで完結すること。
+3. 型選択状態が型名だけで表示され、表示型IDの読み取り専用入力欄が出ないこと。
+4. トータルスコア/評価スコアの入力欄がなく、読み取り専用の自動計算サマリーと内訳だけが表示されること。
+5. `履歴へ保存` ボタンが出ず、保存ボタンで現在の自動計算スコアが保存されること。
+6. マイメモが1行表示で、編集ボタンから別ダイアログを開いて編集できること。
+7. PCでも編成盤面の武将枠を選ぶと、武将・装備・侍従変更ダイアログが開くこと。
+
+### 検証
+- `python3 tools/validate_update09_phase3_formation_ui.py`: PASS。
+
+### 残確認
+- ブラウザ実機でのPC/スマホ操作確認、GitHub Actions、preview同期確認はpush後に実施する。
+
+
+## Phase 3.2: 部隊編成描画エラー修正レポート
+
+### 不具合分類・根本原因
+- 分類: Phase 3 UI実装時の参照漏れによる描画停止。
+- 根本原因: 右側の常時編集カードを案内表示へ変更した際にも、軍馬カード側で `renderFormationWarhorseSlotsHtml()` を呼び続けていたが、このヘルパーが `hado_formation.js` に存在しなかった。
+
+### 対応
+- `renderFormationWarhorseSlotsHtml()`、`setFormationWarhorseSlot()`、`openFormationWarhorseEditFromSlot()`、`getWarhorseAssignmentOptionLabel()` を追加し、軍馬3枠の表示・選択・解除・編集導線を復元した。
+- Phase 3 UI契約検証へ軍馬関連ヘルパーの存在確認を追加した。
+- 可視バージョンを `3.0.0.0 Update09.3.2` へ更新した。
+
+### 受け入れ確認
+1. 部隊編成画面を開いて、描画エラーが発生しないこと。
+2. 編成タブ内に軍馬3枠が表示されること。
+3. 登録済み軍馬を選択/解除でき、編集ボタンから軍馬編成へ移動できること。
+
+
+## Phase 3.3: 追加UI整理レポート
+
+### 不具合分類・根本原因
+- 分類: Phase 3 UI改善後の表示密度・説明過多・スコア算出認識差分の是正。
+- 根本原因: Phase 3.1ではポップアップ編集の案内パネルを残していたため、利用者が必要とするスコア表示位置を占有していた。また、スコア算出が各武将枠の合算ではなく編成要素の充足率ベースであり、ユーザー認識とずれていた。
+
+### 影響範囲
+- 部隊編成の編成タブ、スコア表示、グループ行、グループ変更ダイアログ、軍馬選択カード。
+- 型候補一覧のヘッダー説明表示。
+- 保存時に保持される自動計算スコア値。
+
+### 対応
+- 案内パネルを削除し、同じ位置へ自動計算スコアパネルを移動した。
+- トータルスコア/評価スコアを主将・副将・補佐の各武将枠スコア合算に変更した。
+- グループ行を `グループ`、`グループリスト`、`変更` へ簡素化し、変更ダイアログで新規作成・名前変更・削除を実行できるようにした。
+- 型候補一覧は `選択中の型 / 目的 / 全データ表示または保存データ表示` の1行表示へ整理した。
+- 軍馬選択の編集ボタンを除去し、スマホでも3枠が横並びになるCSSを追加した。
+- 再発防止として Phase 3 UI契約検証を更新し、廃止文言・廃止ボタン・型候補説明の契約を検査対象へ追加した。
+
+### 受け入れ確認
+1. 部隊編成画面で `編集はポップアップで行います` パネルが表示されず、その位置に `トータルスコア` が表示されること。
+2. 武将を変更すると、主将・副将・補佐ごとのスコア内訳とトータルスコア/評価スコアが合算値として更新されること。
+3. グループ行が `グループ`、`グループリスト`、`変更` だけになり、変更ダイアログで新規作成・名前変更・削除できること。
+4. 型候補一覧の上部が `選択中の型 / 目的 / 全データ表示または保存データ表示` の1行だけになっていること。
+5. 軍馬選択に `編集` ボタンがなく、スマホ幅で3つの軍馬枠が横並びで表示されること。
+
+## Phase 3.3 preview通知失敗調査
+
+### 不具合分類・根本原因
+- 分類: preview同期前の必須アセット検証失敗。
+- 根本原因: `Notify Hado Library Preview` の `Validate source preview assets before sync` ステップは、previewへ同期するルート直下アセットとして `index.html`、`hado_library_3.0.0.0.html`、`hado_styles.css`、`hado_version.js` の4ファイルを必須としている。提示ログでは、このうち `hado_library_3.0.0.0.html` がチェックアウト済みworkspaceに存在しなかったため、preview repoへ同期する前に意図通り停止した。
+- 補足: ローカルの現在HEADでは `hado_library_3.0.0.0.html` は存在し、同じ検証スクリプトもPASSした。そのため、失敗したActions runは「現在HEADそのもののCSS/JSエラー」ではなく、実行対象SHA/ブランチのチェックアウト結果に必須previewアセットが欠けていたことが直接原因である。
+
+### 対応
+- `notify-preview.yml` の必須アセット検証を、単に `Required preview source asset missing` で停止するだけでなく、欠落ファイル、存在している必須アセット、workflowから見えているルートファイル一覧を出力する診断メッセージへ強化した。
+- preview repoへのrsync後検証でも同様に、同期後rootに存在するファイル一覧を出すようにした。
+- 再発防止として `tools/validate_preview_workflow.py` に、今回追加した診断文言の存在確認を追加した。
+
+### 対応方法
+1. 失敗したActions runの `GITHUB_SHA` とブランチを確認し、そのコミットに `hado_library_3.0.0.0.html` が含まれているか確認する。
+2. 含まれていない場合は、`index.html` と同一内容の `hado_library_3.0.0.0.html` をソースブランチへ含めてpushする。
+3. 含まれているのに失敗する場合は、今回強化したログの `Root files visible to workflow` を確認し、checkout対象SHA/ブランチ、またはワークフロー実行対象が想定ブランチと一致しているかを確認する。
+
+## Phase 3.3 preview workflow簡素化レポート
+
+### 不具合分類・根本原因
+- 分類: preview通知workflowに、アプリ検証と重複する事前/同期後アセット検証を入れすぎたことによる不要な失敗。
+- 根本原因: `Notify Hado Library Preview` は本来、pushされたソースをpreview repoへ同期し、公開previewが対象commit/versionへ更新されたか確認する責務で十分だった。しかし、`hado_library_3.0.0.0.html` の存在、CSSサイズ、CSS必須断片、preview Pages workflow定義のAPI読取など、`App Validation` やpreview repo側の責務と重複するチェックを追加していたため、UI改修とは無関係な条件で即失敗する状態になっていた。
+- ログZIPはこの環境から直接取得できなかったが、提示された失敗ログと現行workflowを照合し、失敗点がsource asset検証であることを確認した。
+
+### 対応
+- `notify-preview.yml` から `Validate source preview assets before sync` を削除した。
+- `notify-preview.yml` から `Verify preview Pages deployment workflow exists` を削除した。
+- preview repoへのrsync後に行っていたHTML/CSSサイズ/断片検証を削除した。
+- 公開preview確認は、`PREVIEW_SOURCE_COMMIT.txt`、`PREVIEW_SOURCE_BRANCH.txt`、`hado_version.js` によるcommit/branch/version一致確認に絞った。
+- `tools/validate_preview_workflow.py` も、簡素化後の責務に合わせて更新した。
+
+### 今後の切り分け
+- アプリ本体のHTML/CSS/JS整合性は `App Validation` で確認する。
+- preview通知workflowは、同期・push・必要ならdispatch・公開commit/version一致確認だけを行う。
+- preview workflowが失敗した場合は、token/clone/push/dispatch/公開反映のどこで止まったかを見る。アプリ内部の静的検証失敗と混同しない。
+
+## Phase 3.3 workflow action version rollback report
+
+### 不具合分類・根本原因
+- 分類: GitHub Actions共通部品の過剰アップグレードによる複数workflow失敗。
+- 根本原因: `Node.js 20 actions are deprecated` は警告であり、直ちに失敗原因ではなかったにもかかわらず、`actions/checkout@v5` と `actions/github-script@v8` へ先行更新した。これらはrunner互換条件が上がるため、リポジトリ側の実行環境で4つのworkflowが同時に失敗するリスクを作った。
+- 類似原因: App Validation、Notify Preview、Auto-merge、各validatorで同じaction version前提を共有していたため、1つの誤ったversion判断が複数workflowへ波及した。
+
+### 対応
+- `actions/checkout` を `@v4` へ戻した。
+- permission-sensitive な auto-merge workflow は削除し、PRの自動マージ有効化はGitHub標準UI/設定に委ねる方針へ戻した。
+- `tools/validate_preview_workflow.py`、`tools/validate_merge_queue_workflow.py` の期待値も安定版に戻し、auto-merge workflow validatorは削除した。
+- Node 20 deprecation warningは「警告」として扱い、workflowを壊す先行アップグレードを行わない方針へ戻した。
+
+### 再発防止
+- GitHub Actionsの共通action major versionを上げる場合は、警告だけで判断せず、対象runner互換性と実際の成功runを確認してから変更する。
+- 複数workflowへ横断適用する変更は、App Validation、Notify Preview、Auto-merge、merge queue validatorの全てで同一version前提になっていないか確認する。
+
+## Phase 3.3 preview push競合修正レポート
+
+### 不具合分類・根本原因
+- 分類: preview repository `main` への並列push競合。
+- 根本原因: `Notify Hado Library Preview` はpreview repoをcloneしてcommitを作成した後に `main` へpushしていたが、同時または近接して別のpreview同期runが `main` を更新すると、手元cloneの期待old SHAとremote current SHAがずれ、GitHubから `cannot lock ref 'refs/heads/main': is at ... but expected ...` として拒否される。これはアプリ改修内容ではなく、preview同期workflowの競合制御不足である。
+
+### 対応
+- `Notify Hado Library Preview` に `concurrency` を追加し、同一リポジトリ内のpreview同期runを直列化した。
+- preview repo pushがremote更新競合で失敗した場合に、最大3回までfresh cloneからrsync/commit/pushをやり直すretryを追加した。
+- 3回連続で競合する場合のみ、継続的に別runがpreview mainを更新している異常状態として失敗させる。
+- `tools/validate_preview_workflow.py` にconcurrencyとretry文言の存在確認を追加し、同じ競合対策が消えないようにした。
+
+### 再発防止
+- preview repoのような共有ブランチへworkflowからpushする場合は、必ずworkflow-level concurrencyかpush retryのいずれか、または両方を入れる。
+- `cannot lock ref ... is at ... but expected ...` はコンテンツ検証エラーではなく、remote branch更新競合として扱う。
+
+## Phase 3.3 dispatch権限/配布HTML必須チェック削除レポート
+
+### 不具合分類・根本原因
+- 分類: preview通知workflowとApp Validationに残っていた不要な権限/API呼び出し・重複ファイル必須チェック。
+- 根本原因: preview repoへのpushでPages deploymentが起動する構成にもかかわらず、`workflow_dispatch` APIを呼び続けていたため、`PREVIEW_REPO_TOKEN` に Actions: write がない環境で403になった。また、通常開発のApp Validationで `hado_library_3.0.0.0.html` を必須にしていたため、root正本である `index.html` が存在していても配布用HTMLがないブランチで失敗した。
+
+### 対応
+- `Notify Hado Library Preview` から `Dispatch preview Pages deployment workflow` ステップを削除した。
+- `PREVIEW_REPO_TOKEN` の必要権限を preview repo の Contents: Read and write に絞り、Actions: write を不要にした。
+- `tools/validate_app_js.py` から `hado_library_3.0.0.0.html` との同一性必須チェックを削除し、通常開発では `index.html` の存在確認に絞った。
+- `tools/validate_external_css.py` と `tools/validate_update_version_consistency.py` も通常開発のroot HTMLである `index.html` を検証対象に絞った。
+- `tools/validate_preview_workflow.py` からdispatch API前提の検証を削除した。
+
+### 再発防止
+- 通常開発workflowでは、配布パッケージ用HTMLを必須にしない。配布物チェックは配布作成時だけ実施する。
+- preview通知workflowでは、preview repoへのpush-triggered deploymentを正とし、通常同期に追加のActions権限/API dispatchを要求しない。
+
+## Phase 3.3 saved候補validator文言依存修正レポート
+
+### 不具合分類・根本原因
+- 分類: UI文言削除後にvalidatorだけが旧説明文を要求し続けたことによるApp Validation失敗。
+- 根本原因: 型候補一覧から補足説明を削除するPhase 3要件に従って `適合する候補だけを選択可能として表示` というユーザー向け文言は削除済みだった。しかし `tools/validate_saved_type_candidates_zero_score_visible.py` がその文言の存在を必須にしていたため、実装挙動は正しいままvalidatorが失敗した。
+
+### 対応
+- `tools/validate_saved_type_candidates_zero_score_visible.py` から旧UI文言の必須チェックを削除した。
+- validatorは `candidateVisibleByScore()` と `owned.filter(...).filter(candidateVisibleByScore)` 相当の実装挙動だけを検証するようにした。
+
+### 再発防止
+- UI簡素化で削除した表示文言を、validatorの必須条件として残さない。
+- validatorはユーザー表示文言ではなく、原則として動作契約・関数・データフローを検証する。
+
+## Phase 3.3 preview sync最小化レポート
+
+### 不具合分類・根本原因
+- 分類: preview同期workflowがsource root全体を広くrsyncしていたことによる不要ファイル同期とpush競合誘発。
+- 根本原因: `rsync -a --delete ./` でroot全体をpreview repoへ同期していたため、既に削除/不要化した旧HTML（例: `hado_library_2.9.6.1.html` など）までpreview rootへ移動・復活させる差分を作っていた。これはUpdate09 Phase 3の実行に不要であり、push差分を過大化して競合や失敗を起こしやすくしていた。
+
+### 対応
+- preview同期対象を `index.html`、`hado_*.js`、`hado_styles.css`、`hadou_*.json` の現在runtimeに必要な最小ファイルへ限定した。
+- preview rootは `.git` と `.github` を残して一度クリアし、最小runtimeファイルと `PREVIEW_SOURCE_*` メタファイルだけを配置するようにした。
+- 公開previewのpost-sync checkは削除済みのまま維持し、workflow内の追加チェックは行わない。
+- `tools/validate_preview_workflow.py` に、広範囲 `rsync -a --delete`、dispatch、post-sync verifyが戻らないことを検証する禁止条件を追加した。
+
+### 再発防止
+- preview同期workflowでは、source root全体を同期しない。
+- 削除済み/旧版HTMLをpreview rootへ戻さない。
+- previewに必要なファイルセットは現在runtimeの最小構成だけに限定する。
+
+
+## Phase 3.4 型候補一覧スコア計算変更レポート
+
+### 不具合分類・根本原因
+- 分類: 型候補一覧のスコア定義変更。
+- 根本原因: 旧実装は百分率や基準値を点数化していたため、ユーザーが求める「対象となる5条件の状態変化率項目数の合計」と一致していなかった。
+
+### 対応
+- `HadoTypeScore.metricValue()` を、百分率/基準値の換算ではなく、対象条件に一致した状態変化率項目数を数える方式へ変更した。
+- `HadoTypeScore.score()` に `fitScore`、`evaluationScore`、`totalScore` を明示し、適合/評価/トータルの各スコアを件数ベースで返すようにした。
+- 型候補カードの表示を、適合スコア、評価スコア、トータルスコアの3値が確認できる形へ変更した。
+
+### 再発防止
+- `tools/test_type_score.js` の期待値を件数ベースへ更新し、百分率換算へ戻った場合に検知できるようにした。
+
+### 最低限の受け入れ確認
+- 型候補一覧で候補カードを表示し、適合スコア/評価スコア/トータルスコアが「件」単位で表示されること。
+- 条件ごとの内訳が、状態変化率項目数として `兵力:1件` のように表示されること。
+
+## Phase 3.5 部隊編成スコア計算反映レポート
+
+### 不具合分類・根本原因
+- 分類: 型候補一覧と部隊編成スコアの計算定義不一致。
+- 根本原因: 型候補一覧は件数ベースへ変更済みだったが、部隊編成の `calculateFormationAutoScores()` は主将/副将/補佐の装備・技能数を足す旧Phase 3暫定計算のままだった。
+
+### 対応
+- 部隊編成でも選択中の型ルールを取得し、部隊の状態変化率効果を `HadoTypeScore` に渡して、対象5条件に一致する項目数を数える方式へ変更した。
+- トータルスコア/評価スコアを `件` 単位で表示し、条件別内訳も状態変化率項目数として表示するようにした。
+- 型ルールは部隊編成側で非同期ロードし、型編成ナビ/型候補一覧がロード済みの場合は共有キャッシュを使うようにした。
+
+### 再発防止
+- 部隊編成と型候補一覧で別々のスコア定義を持たず、どちらも `HadoTypeScore` の件数ベース採点を利用する。
+
+### 最低限の受け入れ確認
+- 部隊編成で型を選択済みの部隊を開き、トータルスコア/評価スコアが `件` 単位で表示されること。
+- 武将・装備・軍馬などを変更して状態変化率項目が変わると、トータルスコア/評価スコアと条件別内訳が更新されること。
+
+## Phase 3.6 型候補表示とスマホ部隊スコア表示修正レポート
+
+### 不具合分類・根本原因
+- 分類: 型候補一覧表示要件の過剰表示とスマホ部隊編成CSSの表示抑制。
+- 根本原因: 型候補一覧の武将カードに、ユーザーが不要としたトータルスコアを表示していた。また、スマホ部隊編成では旧レイアウト用の `.formation-selected-card:not(.is-dialog){display:none}` がスコアカードにも適用され、トータルスコア/評価スコアが非表示になっていた。
+
+### 対応
+- 型候補一覧の武将カードからトータルスコアを削除し、適合スコアと評価項目ごとの評価スコア内訳だけを表示するようにした。
+- スマホ部隊編成で `.formation-score-card` を明示的に表示するCSSを追加した。
+- validatorに、型候補一覧のトータルスコア表示が戻らないこと、スマホでスコアカードを表示するCSSが存在することを追加した。
+
+### 再発防止
+- 武将候補カードにトータルスコア表示を戻さない。
+- スマホの選択カード非表示ルールに、スコアカードを巻き込まない。
+
+### 最低限の受け入れ確認
+- 型候補一覧の武将カードにトータルスコアが表示されず、適合スコアと5評価項目ごとの内訳が表示されること。
+- スマホ幅で部隊編成を開き、スコアカードにトータルスコア/評価スコアが表示されること。
+
+## Phase 3.7 部隊編成スコア表示位置・軍馬操作・単位表記修正レポート
+
+### 不具合分類・根本原因
+- 分類: スマホ部隊編成レイアウト、軍馬操作UI、スコア表示要件の不一致。
+- 根本原因: スマホ部隊編成ではスコアカードを再表示したものの、結果サマリーとの通常フロー上の間隔を明示していなかったため重なって見えるケースがあった。また、軍馬は `未設定` 選択で解除できるのに別途削除ボタンを残していた。スコア表示も `件` 単位を付けており、ユーザー要望の「数値のみ」と一致していなかった。
+
+### 対応
+- スマホ部隊編成のスコアカードと結果サマリーへ `position:relative`、`clear:both`、個別marginを指定し、重ならない通常フローに固定した。
+- 軍馬枠の削除ボタンと削除ボタン用イベント登録を削除した。
+- トータルスコア、評価スコア、適合スコアおよび評価項目別スコアの表示から単位を外した。
+- 型候補一覧は適合スコアと評価項目別スコアのみを表示し、ロール別描画エラー時は診断ログを残して候補一覧全体の読み込みを止めないようにした。
+
+### 再発防止
+- `tools/validate_update09_phase3_formation_ui.py` で、候補カードのトータルスコア再表示、スコアの旧単位表示、スマホスコアカード位置調整CSSの欠落を検出する。
+
+### 最低限の受け入れ確認
+- スマホ幅で部隊編成を開き、スコアカードと結果サマリーが重ならないこと。
+- 軍馬枠に削除ボタンがなく、プルダウンの `未設定` で解除できること。
+- トータルスコア、評価スコア、適合スコアが数値のみで表示されること。
+- 型候補一覧で武将の適合スコアと評価項目別スコア内訳が表示され、トータルスコアは表示されないこと。
+
+## Phase 3.8 official JSON load regression fix
+
+- Classification: runtime official JSON loading regression after Update09.3.7 scoring changes.
+- Root cause: Phase 3 score rendering started depending on `hadou_type_score_rules.json`, but the startup official JSON bundle did not load that file. The app therefore had a split dependency: core JSON loaded at startup, while score rules were fetched later by feature-specific code.
+- Permanent countermeasure: `hadou_type_score_rules.json` is now an optional member of the official JSON bundle, and `applyLoadedData()` publishes it to `window.HADO_TYPE_SCORE_RULES` before formation/type score rendering uses it.
+- Impact scope checked: HTTP preview official JSON loading, local file/folder JSON loading, formation score rendering, and the existing standalone fallback fetch for score rules.
+- HTML size change: none. The change stays in external JavaScript.
+
+## Phase 3.9 mobile score/result layout fix
+
+- Classification: smartphone formation layout defect.
+- Root cause: the result summary was rendered after the whole compose grid, while the total score panel was inside the selected-stack column. On smartphone this made the two panels depend on grid/stack flow and could place or overlay them unexpectedly.
+- Permanent countermeasure: the result summary is now rendered directly after the score panel in the same stack. The score panel is a tappable `details` component so smartphone users can expand evaluation-item scores only when needed.
+- Minimum acceptance: on smartphone width, open 部隊編成 and confirm the visible order is 軍馬 -> トータルスコア -> 結果サマリー, then tap トータルスコア to expand/collapse the itemized evaluation scores.
+
+## Phase 3.10 mobile panel order correction
+
+- Classification: smartphone formation panel ordering defect.
+- Root cause: Phase 3.9 placed the score panel before the result summary but misunderstood the desired full order and left the warhorse panel after both panels.
+- Permanent countermeasure: the render order and validator contract now require `formationWarhorseEditorHtml -> selectedEditorHtml -> quickSummaryHtml`.
+- Minimum acceptance: on smartphone width, open 部隊編成 and confirm the visible order is 軍馬 -> トータルスコア -> 結果サマリー.
+
+## Phase 3.11 mobile visible panel and advisor compactness fix
+
+- Classification: smartphone formation visibility/layout regression.
+- Root cause: the requested order was applied inside the selected stack, but smartphone CSS hides selected cards and renders warhorse in the board card. As a result, the visible smartphone flow still depended on separate hidden/visible regions and the score/result panels could be missed.
+- Permanent countermeasure: smartphone-visible score and result summary panels are now rendered inside the board card directly after the smartphone warhorse placement; advisor and warhorse controls are compacted with mobile-specific CSS.
+- Minimum acceptance: on smartphone width, open 部隊編成 and confirm 軍馬 -> トータルスコア -> 結果サマリー are all visible, and the 参軍 row is compact rather than vertically long.
+
+
+## Phase 3.12 formation evaluation-score regression fix
+
+- Classification: formation score calculation regression.
+- Root cause: the Phase 3 formation score panel calculated evaluation rows from `data.effects` after the formation parameter summary had already merged effects. That lost the member-level type-search feature rows used by the candidate score calculation, so the formation 評価スコア could be lower or zero even though candidate 適合スコア was correct.
+- Impact scope checked: 部隊編成 score panel, selected formation members, role-scoped score matching, type-candidate fit/adaptation scoring, and smartphone score/result layout.
+- Permanent countermeasure: formation score calculation now builds member score entities from `hadou_type_search_feature_index.json`, applies each member role before calling `HadoTypeScore.score()`, and sums the five evaluation metrics into the score panel rows. The validator now requires the member-aggregate score policy marker.
+- Minimum acceptance: open 部隊編成, choose a type, and confirm the トータルスコア/評価スコア and each evaluation item change according to the assigned members while the 型候補一覧の適合スコア remains unchanged.
+- HTML size change: none. The change stays in external JavaScript and validation/docs.
+
+
+## Phase 3.13 score terminology alignment
+
+- Classification: score terminology and aggregation regression.
+- Root cause: the UI treated 評価スコア as one aggregate number in the score-card header. The requested definition is that 評価スコア exists per each of the five type evaluation items, while 適合スコア and トータルスコア are the sums of those five rows for a武将 and a部隊 respectively.
+- Permanent countermeasure: formation total score is now explicitly calculated as the sum of the five evaluation-score rows, and the header no longer labels that aggregate as 評価スコア.
+- Impact scope checked: 部隊編成 score card, formation list score label, type-candidate fit score semantics, and mobile score expansion layout.
+- Minimum acceptance: open 部隊編成, expand トータルスコア, and confirm the five displayed rows are the 評価スコア values and the header トータルスコア equals their sum.
+
+
+## Phase 3.14 formation layout cleanup
+
+- Classification: formation layout and visual-noise improvement.
+- Root cause: Phase 3 retained legacy panel framing, duplicated title placement, explanatory notes, and horizontally scrollable chip rows after the layout had moved to compact score/result cards.
+- Permanent countermeasure: the formation title now lives in the internal tab row, the old panel frame and explanatory notes are hidden/removed, warhorse heading text is removed, and score/result chip rows are constrained to no-scroll compact layouts.
+- Impact scope checked: 部隊編成 outer panel, internal tabs, 軍馬 panel, total score card, evaluation-score rows, result summary rows, PC/mobile overflow behavior.
+- Minimum acceptance: open 部隊編成 and confirm the visible order starts with `部隊編成 | 編成 | 戦法 | 変化率 | 詳細`, the old explanatory note and warhorse heading/note are absent, and score/result rows do not horizontally scroll.
+
+
+## Phase 3.15 PC/mobile formation layout and score-row fallback fix
+
+- Classification: formation layout refinement and score display regression.
+- Root cause: PC group/memo rows still used the previous dense grid, smartphone score spacing inherited a margin from the mobile placement container, and the no-rule fallback reused old general slot score rows (`主将`, `副将`) instead of type evaluation metric rows.
+- Permanent countermeasure: group and memo rows have explicit layout contracts, mobile score spacing/meta rows have dedicated overrides, and formation score fallback no longer emits general-slot rows.
+- Impact scope checked: PC group controls, PC compose bar memo row, smartphone 軍馬 -> トータルスコア spacing, smartphone score metadata, and score rows when type rules/member rows are unavailable.
+- Minimum acceptance: PCでグループが2行、マイメモが独立1行になっていること、スマホで軍馬直下にトータルスコアが詰まって表示されること、評価スコア行に主将/副将が出ないことを確認する。
+
+
+## Phase 3.17 smartphone formation member-score resolution fix
+
+- Classification: smartphone-visible formation score calculation regression.
+- Root cause: `getFormationTypeSearchFeatureItems()` required `typeSearchFeatureIndex.available`, so a loaded derived JSON bundle with `items` but no truthy `available` flag could resolve zero member feature rows. `calculateFormationAutoScores()` then fell back to scoring `formationTypeScoreEntity()`, leaving the diagnostic trace at `roleId: formation` with all five metrics at zero.
+- Permanent countermeasure: member scoring now reads the `items` array directly, logs member-resolution misses, and no longer falls back to pseudo-formation entity scoring.
+- Impact scope checked: smartphone score card, PC score card shared calculation path, type-search feature index loading, member score aggregation, and type-score diagnostics.
+- Minimum acceptance: on smartphone width, open 部隊編成 and confirm `formation:type-score-member-aggregate.memberCount` is non-zero, `typeScore.last.roleId` is a member role rather than `formation`, and the five evaluation-score rows/total score are no longer all zero for a populated formation.
+
+
+## Workflow validation cleanup: remove unnecessary update-meta sync check
+
+- Classification: CI validation noise reduction.
+- Root cause: `App Validation` still ran `tools/validate_update_meta_no_broad_observer.py`, a narrow implementation-detail check for update-meta sync hooks. In practice this check could fail the entire workflow even when app JavaScript, CSS, version consistency, preview workflow contract, and functional regressions had already passed.
+- Permanent countermeasure: removed the update-meta sync-hook validator from the App Validation workflow and added a merge-queue workflow guard so it is not accidentally reintroduced.
+- Impact scope checked: App Validation workflow command list and merge-queue workflow contract validator.
+- HTML size change: none. Runtime app files were not changed.
+
+## 2026-06-17 Update09.3.17 type-search feature index regression guard
+
+- Rechecked the current source artifact `hadou_type_search_feature_index.json`; it is not an empty file in this working tree and contains 746 `items` across generals, equipments, siege weapons, and warhorse skills.
+- Root cause for the reported preview behavior is that a deployment with an empty `hadou_type_search_feature_index.json` leaves `state.derivedData.typeSearchFeatureIndex.items` empty, so formation score member resolution cannot find武将/装備 feature rows and the aggregate diagnostic remains at `memberCount=0`.
+- Added a minimal App Validation guard that fails when `hadou_type_search_feature_index.json` is missing, empty, has `items: []`, lacks required categories, or lacks usable `typeFeatures` / `statusEffectRefs` rows. This prevents the same empty-artifact deployment from passing validation again.
+- Preview sync remains minimal: because `notify-preview.yml` already syncs `hadou_*.json`, the same non-empty JSON will be copied to the preview repository when the source branch is pushed and the preview workflow runs.
+
+## 2026-06-17 Update09.3.18 formation render type-score connection
+
+- Classification: formation score calculation invocation bug.
+- Root cause: the derived type-search JSON was loaded, but the formation render path still did not guarantee a concrete type-score diagnostic/output when the current formation had no selected type or when member feature resolution was not the correct source for actual formation effects.
+- Implementation change: `calculateFormationTypeScore()` now runs from the formation score summary render path, uses `parameterCalculation` rows and `effectSources` as the primary scoring entity, evaluates the selected type or all available presets/rules, writes the same result to the UI and `state.diagnostics.typeScore`, and records `calculationInvoked`, preset/item/parameter/effect counts, candidate scores, and empty reasons.
+- Permanent countermeasure: the score diagnostic is no longer left as `{}` during formation rendering; when scoring cannot proceed it records an explicit `emptyReason` instead.
+- HTML size change: none. The fix remains in external JavaScript plus documentation/validator updates.
+
+## 2026-06-17 Update09.3.19 PC formation score visibility fix
+
+- Classification: PC-width layout visibility regression.
+- Root cause: older mobile/coarse-pointer CSS hid `.formation-selected-card:not(.is-dialog)` for touch-capable devices. On PC-width devices that report `pointer: coarse`, the right-pane score card could still be hidden even though the layout was visually PC-sized.
+- Implementation change: added a PC-width override that always shows the right-pane `.formation-score-card` inside `.formation-selected-stack` and hides the mobile-only score placement at `min-width: 981px`.
+- Impact scope checked: PC-width formation edit panel score card, touch-capable PC media query interaction, and mobile score placement separation.
+- HTML size change: none. CSS-only fix plus metadata/docs.
+
+## 2026-06-17 Update09.3.20 formation type-score execution proof
+
+- Classification: formation score calculation verification gap and duplicate-source counting bug.
+- Root cause: the previous Update09.3.19 response proved only score-card visibility. It did not add a repeatable post-fix check that executes the formation render score path and proves `typeScore` is populated with a non-zero score and matched effect/parameter evidence.
+- Implementation change: added `tools/test_formation_type_score_render.js`, which loads `hado_type_score.js` and `hado_formation.js` in a VM, calls `renderFormationScoreSummaryHtml()` with a formation containing actual parameter/effect data, and asserts that `state.diagnostics.typeScore` has `calculationInvoked: true`, non-empty candidate scores, a non-zero total, and matched effect or parameter rows. The formation effect scoring entity now keeps parameter rows in `typeFeatures` and effect rows in `statusEffectRefs`, avoiding duplicate parameter/effect scoring from the same effect source.
+- Post-fix diagnostic excerpt from the new executable check: `calculationInvoked=true`, `presetCount=16`, `featureItemCount=746`, `parameterRowCount=1`, `effectSourceCount=1`, `candidateScoresLength=1`, `maxTotalScore=2`, top type `会心型`, positive row `会心発生`, matched effect `検証技能`, matched parameter `会心発生`.
+- Permanent countermeasure: App Validation now runs the formation render score diagnostic test, and the merge-queue workflow validator requires that command so the test cannot silently disappear from CI.
+- Impact scope checked: `calculateFormationTypeScore()`, `renderFormationScoreSummaryHtml()`, `calculateFormationAutoScores()`, diagnostic output (`typeScore`, `typeSearch`, `typeSearchCache`), and UI output containing `トータルスコア`.
+- HTML size change: none. The regression proof is an external test and the runtime calculation fix remains in external JavaScript.
+
+## 2026-06-17 Update09.3.21 vaccine score alias matching fix
+
+- Classification: type-score matching defect, not a data-load or render-path defect.
+- Root cause: the previous investigation over-focused on whether `typeScore` was invoked and whether derived JSON / formation parameter rows existed. For `selectedTypeId=vaccine`, the real failure mode was `candidateScores[0].totalScore=0` with all `matchedEffects` / `matchedParameters` empty because `hado_type_score.js` did not map real effect/parameter wording to the vaccine metric keys.
+- Implementation change: expanded `METRIC_ALIASES` for vaccine-related metric keys, especially `self_disadvantage_countermeasure`, `ally_non_damage_effect`, `weakening_nullify`, `weakening_remove`, and `ally_wounded_recovery`, using real wording such as `弱化効果無効`, `不利変化無効`, `自身を含む味方`, `攻撃速度`, `戦法ゲージ`, `通常攻撃対象部隊数`, `負傷兵回復`, and `負傷兵を最大兵力`.
+- Regression proof: `tools/test_formation_type_score_render.js` now selects `vaccine` / `ワクチン型` and feeds actual-style parameter/effect rows. The post-fix diagnostic has `selectedTypeId=vaccine`, `presetCount=16`, `parameterRowCount=3`, `effectSourceCount=3`, `candidateScoresLength=1`, `maxTotalScore=10`, and matched evidence in `自部隊不利対策`, `味方非ダメージ効果`, `弱化無効`, and `味方負傷兵回復` rows.
+- Permanent countermeasure: direct type-score regression coverage was added for vaccine aliases in `tools/test_type_score.js`, and the formation render diagnostic test now uses vaccine instead of an unrelated critical-score type.
+- Lesson learned: if `typeScore.calculationInvoked=true`, rows/effects are non-empty, and `candidateScores` exists but all matched arrays are empty, treat it as a metric alias / feature-id matching problem first rather than changing JSON generation, CSS, cache, or render placement.
+- HTML size change: none. The fix is in external JavaScript and tests.
+
+## 2026-06-17 Update09.3.22 expandable formation evaluation-score details
+
+- Classification: formation score UX improvement.
+- Request: clicking an evaluation score under the total score should show the score breakdown.
+- Implementation change: formation score rows now carry `matchedEffects` and `matchedParameters` from the scoring diagnostic into `renderFormationScoreSummaryHtml()`. Rows with evidence render as clickable `<details>` chips that expand to show matched effect and parameter sources, while rows without evidence remain compact chips.
+- Regression proof: `tools/test_formation_type_score_render.js` now asserts the score summary HTML contains expandable score detail markup and matched evidence labels in addition to the existing non-zero vaccine score diagnostics.
+- HTML size change: none. The behavior is implemented in external JavaScript and CSS.
+
+## 2026-06-23 Phase 3 completion report
+
+- Summary: Update09 Phase 3 is complete. The final accepted runtime version is `3.0.0.0 Update09.3.40` / revision `73`.
+- Bug classification and root cause: the final Phase 3 fixes addressed formation score display mismatches where the total score and evaluation score headers could diverge from the visible tag evidence. The root cause was using a prior aggregate score source for display instead of deriving the displayed total from the five rendered evaluation rows and their normalized evidence tags.
+- Impact scope checked: formation score summary, evaluation score chips, tag-only detail panel, show-more behavior, type candidate/tag UI, candidate tray related display paths, PC layout, and supporting validators.
+- Files changed in the completion record: `docs/updates/update09/roadmap.md`, `docs/updates/roadmap.md`, `docs/updates/update09/implementation.md`, and `docs/updates/update09/report.md`.
+- HTML size and externalization decision: no HTML or runtime JavaScript/CSS was changed for this completion record. Phase 3 runtime changes remain externalized in JavaScript/CSS from the preceding implementation commits.
+- Validation commands recorded for the accepted Phase 3 state: `python3 tools/run_app_validation.py` passed with `app validation self-check passed: 64 commands`; `python3 tools/validate_update09_phase3_formation_ui.py`, `python3 tools/validate_formation_score_tag_only.py`, and `python3 tools/validate_update_version_consistency.py` passed.
+- Preview confirmation: the user confirmed the public preview display is correct and accepted Phase 3 on 2026-06-23.
+- Minimum user acceptance operation: open the preview 部隊編成 screen, confirm the five evaluation scores sum to the displayed total, open an evaluation score detail, confirm tag-only evidence display and `さらに表示` behavior. This was accepted by the user.
+- Remaining issues: none for Phase 3. Phase 4 remains the next planned phase for guide/help/wording and operation-flow cleanup, not a Phase 3 residual defect.
+
+
+## 2026-06-25 Update09.4.1 Phase 4 start report
+
+- Summary: Phase 4 is not complete yet; this change starts Phase 4 by updating visible version metadata and the first layer of in-app guide/flow wording.
+- Bug classification and root cause: this is a planned UX/guide update, not a runtime defect fix. The root UX gap was that Phase 3 changed formation/group/score behavior, but the start guide and guided tours still described the older generic search-to-detail flow.
+- Implementation change: active guide copy in `hado_core.js` now explains the 型検索/型編成ナビ → 型候補一覧 → 候補トレイ → 部隊編成 flow, clarifies 全データ表示 vs 保存データ表示, and adds a 部隊グループ/グループリスト/「変更」 button explanation to the formation guide.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.1` / revision `74`; `HADO_DEV_INFO.json` records Phase 4 guide/flow cleanup while keeping version constants centralized in `hado_version.js`.
+- Recurrence prevention: `tools/validate_update09_phase4_guides.py` checks the version, active guide text, start guide text, documentation status, and confirms the legacy `hado_app.js` bundle is not referenced by `index.html`.
+- HTML size and externalization decision: the HTML change is limited to the compact start-guide text/badge. No large inline JavaScript was added; active behavior remains in external JavaScript.
+- Minimum user acceptance operation: open the start guide and confirm Update09.4.1 is visible; open Search guide and confirm 型検索/型編成ナビ → 型候補一覧 → 候補トレイ → 部隊編成 wording; open Formation guide and confirm 部隊グループ, グループリスト, and 「変更」 button explanation appears.
+- Remaining issues: Phase 4 is ongoing. Next work should move longer supplemental explanations into details/help/modal blocks and continue reducing always-visible text density.
+
+
+## 2026-06-26 Update09.4.2 Phase 4 next-step help report
+
+- Summary: Phase 4 remains ongoing. This change completes the next slice by adding compact next-step guidance to 型候補一覧 and 候補トレイ.
+- Bug classification and root cause: planned UX/guide cleanup. The root UX issue was that users could identify a type and see candidates, but the immediate next action was still split across modal text, floating tray UI, and formation screen knowledge.
+- Implementation change: `hado_type_candidates.js` now renders a collapsible `次の操作` block that states the current data mode, explains 全データ表示 vs 保存データ表示, and lists the candidate-to-tray-to-formation path. `hado_candidate_tray.js` now uses a shorter action-oriented guide line.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.2` / revision `75`.
+- Recurrence prevention: `tools/validate_update09_phase4_guides.py` now checks Update09.4.2, the 型候補一覧 `次の操作` block, the 候補トレイ short guidance, and the active guide wording.
+- HTML size and externalization decision: only the compact start-guide badge version changed in HTML. The guide behavior is implemented in external JavaScript.
+- Minimum user acceptance operation: open 型候補一覧, expand `次の操作`, confirm the data-mode explanation and 3-step path; open 候補トレイ and confirm the short next-action line; proceed to 部隊編成 using `配置先を選ぶ`.
+- Remaining issues: Phase 4 is not complete. Next work should continue moving other long supplemental explanations into details/help/modal blocks and review PC/smartphone text density.
+
+
+## 2026-06-26 Update09.4.3 formation score render error fix report
+
+- Summary: fixed and guarded the reported 部隊編成 render error `displayTotalScore is not defined`. Phase 4 remains ongoing.
+- Bug classification: runtime rendering regression / stale local identifier reference risk in the formation score summary path.
+- Root cause: the score summary renderer depended on the local identifier `displayTotalScore` in multiple rendered/diagnostic positions, and previous self-checks asserted only that the string existed instead of proving that stale references could not remain.
+- Impact scope checked: `renderFormationScoreSummaryHtml()`, total score header rendering, score render diagnostics, tag-only score details, `hado_update_meta.js` renderer override prevention, and the standard formation score render test.
+- Implementation change: introduced `calculateFormationDisplayedTotalScore(rows)` and changed the render path to use the locally defined `visibleTotalScore` consistently for `f.totalScore`, `f.evaluationScore`, diagnostics, matched/evidence counts, and the visible header.
+- Permanent countermeasure: added `tools/validate_formation_score_total_scope.py` to forbid `displayTotalScore` in `hado_formation.js`, require the helper contract, and keep the guard in `tools/run_app_validation.py`.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.3` / revision `76`.
+- Minimum user acceptance operation: open 部隊編成, confirm no render error appears, confirm トータルスコア is visible, and click an evaluation score chip to confirm tag-only details still open.
+- Remaining issues: Phase 4 is not complete. Continue the planned guide/help density cleanup after this regression fix is accepted.
+
+
+## 2026-06-26 Update09.4.4 formation next-step help report
+
+- Summary: continued Phase 4 by adding a compact in-screen `次の操作` guide to 部隊編成. Phase 4 remains ongoing.
+- Bug classification and root cause: planned UX/guide cleanup. The UX gap was that the formation guided tour explained groups, but the normal screen did not provide a persistent compact reminder of the group-list → change → slot placement → score/save sequence.
+- Implementation change: `hado_formation.js` now renders `renderFormationNextStepHelpHtml()` inside the group controls area, and `hado_styles.css` styles it as a compact collapsible block.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.4` / revision `77`.
+- Recurrence prevention: `tools/validate_update09_phase4_guides.py` now checks the active formation runtime and CSS for the new `次の操作` guide contract.
+- HTML size and externalization decision: only the guide badge version changed in HTML. The guide itself is externalized in JavaScript/CSS.
+- Minimum user acceptance operation: open 部隊編成, expand `次の操作`, confirm the four-step explanation, switch the グループリスト, open `変更`, select a slot, confirm score tags, and save.
+- Remaining issues: Phase 4 is not complete. Continue reducing long always-visible explanations and verify PC/smartphone text density in the next slice.
+
+
+## 2026-06-26 Update09.4.5 formation group control fix report
+
+- Summary: fixed the 部隊編成 group controls so the visible current group name is shown and every rendered `変更` button opens the group dialog. Phase 4 remains ongoing.
+- Bug classification: runtime UI event-binding regression / duplicate-ID binding risk in the formation group controls.
+- Root cause: the group controls can appear in multiple rendered areas, but handlers were attached with single `document.getElementById()` calls. If the visible control was not the first matching ID, clicking `変更` produced no dialog and no debug log.
+- Implementation change: added stable `data-formation-group-manage` / `data-formation-group-select` hooks, changed binding to `els.formationRoot.querySelectorAll(...)`, added debug logs, and changed the visible label from `グループリスト` to a current group-name chip plus `切替`.
+- Permanent countermeasure: extended `tools/validate_update09_phase3_formation_ui.py` and `tools/validate_update09_phase4_guides.py` to require data-hook group binding and debug-log snippets.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.5` / revision `78`.
+- Minimum user acceptance operation: open 部隊編成, confirm the current group name is visible, click `変更`, confirm the group dialog opens and Debug Log records `formationGroup:manage-click` / `formationGroup:dialog-open`, then switch groups via `切替`.
+- Remaining issues: Phase 4 is not complete. Continue reducing long always-visible explanations and verify PC/smartphone text density in the next slice.
+
+
+## 2026-06-26 Update09.4.6 formation group selector compact row report
+
+- Summary: changed the 部隊編成 group controls to a one-line wide listbox plus `変更` button layout. Phase 4 remains ongoing.
+- Bug classification and root cause: UX/layout correction. The prior fix made the group name visible, but it introduced extra labels and reduced the effective listbox width on compact layouts.
+- Implementation change: removed visible `グループ` / `グループリスト` / `切替` labels from the normal controls, kept the selected group visible inside the listbox, and kept the `変更` button in the same row.
+- Permanent countermeasure: validators now require the `.formation-group-select` hook and forbid the obsolete label/current-name/count snippets in `hado_formation.js`.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.6` / revision `79`.
+- Minimum user acceptance operation: open 部隊編成 and confirm the group controls show one wide listbox and one `変更` button on the same row; click `変更` and confirm the dialog still opens.
+- Remaining issues: Phase 4 is not complete. Continue reducing long always-visible explanations and verify PC/smartphone text density in the next slice.
+
+
+## 2026-06-26 Update09.4.7 stale update-meta group override report
+
+- Summary: removed the stale Update09.3 group-control override from `hado_update_meta.js` so the compact one-line group selector actually appears at runtime. Phase 4 remains ongoing.
+- Bug classification and root cause: runtime override regression. `hado_formation.js` had the intended compact markup, but `hado_update_meta.js` ran after it and overwrote `renderFormationGroupControlsHtml()` with old `グループ` / `グループリスト` markup.
+- Implementation change: deleted the stale override and injected `.formation-group-list-row` CSS, leaving the active split runtime to render the wide listbox + `変更` button.
+- Permanent countermeasure: Phase 3/4 validators now inspect `hado_update_meta.js` and fail if obsolete group-control override snippets return.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.7` / revision `80`.
+- Minimum user acceptance operation: hard reload the preview, open 部隊編成, confirm the left group area no longer shows `グループ` / `グループリスト`, and confirm the wide listbox plus `変更` button is on one row.
+- Remaining issues: Phase 4 is not complete. Continue PC/smartphone density checks after this runtime override correction is verified.
+
+
+## 2026-06-26 Update09.4.8 remove unrequested formation group help report
+
+- Summary: removed the unrequested `次の操作` block from directly under the 部隊編成 group selector. Phase 4 remains ongoing.
+- Bug classification and root cause: UX over-implementation. The group selector is a simple control, but Phase 4 guidance was inserted directly under it, increasing visual noise and implying the control was more complex than it is.
+- Implementation change: deleted the formation-only next-step helper function, removed it from `renderFormationGroupControlsHtml()`, and removed the corresponding CSS. The group area now contains only the wide listbox and `変更` button.
+- Permanent countermeasure: validators now forbid `renderFormationNextStepHelpHtml`, `.formation-next-step-help`, and `.formation-next-step-body` in the formation runtime/styles.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.8` / revision `81`.
+- Minimum user acceptance operation: hard reload the preview, open 部隊編成, confirm the group area contains only the listbox and `変更` button, and confirm no `次の操作` block appears under it.
+- Remaining issues: Phase 4 is not complete. Continue only with requested Phase 4 guide refinements and avoid adding extra controls to simple UI areas.
+
+
+## 2026-06-26 Update09.4.9 PC formation list panel scrollbar report
+
+- Summary: restored a visible vertical scroll path for the PC left-side group/formation selection panel. Phase 4 remains ongoing.
+- Bug classification and root cause: PC layout regression. Fixed-position panel rules hid overflow on `.formation-list-panel`, so the panel could lose an obvious vertical scroll path when content was taller than the viewport.
+- Implementation change: added a PC-only CSS override to make `.formation-list-panel` and `.formation-list` vertically scrollable with stable scrollbar gutter.
+- Permanent countermeasure: Phase 3/4 validators require the scrollbar fix marker and stable scrollbar CSS.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.9` / revision `82`.
+- Minimum user acceptance operation: in PC width, open 部隊編成 and confirm the left-side group/部隊一覧 panel has a vertical scrollbar when the panel content exceeds the visible height.
+- Remaining issues: Phase 4 is not complete. Keep subsequent slices smaller to reduce conflict surface.
+
+
+## 2026-06-26 Update09.4.10 PC formation list scroll area constraint report
+
+- Summary: adjusted the PC left formation panel so the group selector/actions stay fixed and only the 部隊一覧 list area scrolls. Phase 4 remains ongoing.
+- Bug classification and root cause: PC layout regression from the prior scrollbar fix. Scrolling the whole fixed panel could hide the top group/header area, matching the reported screenshot.
+- Implementation change: restored hidden overflow on `.formation-list-panel` and moved vertical scrolling to `.formation-list` with stable scrollbar gutter.
+- Permanent countermeasure: validators require the new marker plus fixed-panel and scrollable-list snippets.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.10` / revision `83`.
+- Minimum user acceptance operation: in PC width, open 部隊編成 and confirm the group selector/header/actions stay visible while the 部隊一覧 cards scroll inside the list area.
+- Remaining issues: Phase 4 is not complete. Continue keeping future corrections narrow to reduce conflict surface.
+
+
+## 2026-06-26 Update09.4.11 PC formation panel scroll reset report
+
+- Summary: reset the PC left formation panel scroll position after render so the 部隊一覧 header, group selector, and action buttons are visible at initial display. Phase 4 remains ongoing.
+- Bug classification and root cause: PC layout state regression. The prior whole-panel scroll path could leave a retained non-zero `scrollTop`, so the top controls remained clipped even after restricting list scrolling.
+- Implementation change: set `.formation-list-panel.scrollTop = 0` immediately after rendering the formation DOM.
+- Permanent countermeasure: validators require the render-time scroll reset guard.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.11` / revision `84`.
+- Minimum user acceptance operation: in PC width, hard reload, open 部隊編成, and confirm 部隊一覧 header, group selector, and buttons are visible before the list cards; only the list cards scroll.
+- Remaining issues: Phase 4 is not complete. Continue keeping future corrections narrow to reduce conflict surface.
+
+
+## 2026-06-27 Update09.4.12 delayed PC formation panel scroll reset report
+
+- Summary: strengthened the PC left formation panel reset so the 部隊一覧 header, group selector, and action buttons are restored after layout settles. Phase 4 remains ongoing.
+- Bug classification and root cause: PC layout state regression. The immediate reset could be too early if layout/browser scroll restoration adjusted the panel after DOM insertion.
+- Implementation change: added immediate, `requestAnimationFrame`, and timeout reset calls for `.formation-list-panel.scrollTop`.
+- Permanent countermeasure: validators require the reset helper and delayed reset calls.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.12` / revision `85`.
+- Minimum user acceptance operation: hard reload, open 部隊編成 in PC width, and confirm the 部隊一覧 header/group selector/action buttons are visible above the scrollable card list.
+- Remaining issues: Phase 4 is not complete. Continue keeping future corrections narrow and avoid unrelated files.
+
+
+## 2026-06-27 Update09.4.13 PC formation panel shell non-scrollable report
+
+- Summary: stopped the PC left formation panel shell from being a scroll container so 部隊一覧, group selector, and action buttons cannot be hidden by retained panel scroll offset.
+- Bug classification and root cause: PC fixed-panel scroll ancestor regression. The panel itself could still receive focus/restore scrolling after render even though only the list child should scroll.
+- Implementation change: use `overflow:clip` on `.formation-list-panel`, keep `.formation-list` as the only scroll area, and expand reset timing with `scrollTo` and longer delayed resets.
+- Permanent countermeasure: validators require the non-scrollable panel shell and expanded reset calls.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.13` / revision `86`.
+- Minimum user acceptance operation: hard reload, open 部隊編成 in PC width, and confirm the 部隊一覧 header/group selector/action buttons are always visible; only the card list scrolls.
+- Remaining issues: Phase 4 is not complete. Continue future corrections in narrow PRs.
+
+
+## 2026-06-27 Update09.4.14 PC formation asset cache-bust report
+
+- Summary: added cache-bust query strings for the active formation CSS/JS assets so the deployed preview cannot keep using older panel-scroll code while showing the new version.
+- Bug classification and root cause: stale asset cache / deployment visibility mismatch. Version metadata could update independently from cached CSS/JS.
+- Implementation change: `index.html` now loads `hado_styles.css?v=09.4.14` and `hado_formation.js?v=09.4.14`.
+- Permanent countermeasure: validators require the cache-busted asset references.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.14` / revision `87`.
+- Minimum user acceptance operation: hard reload or open preview in a fresh tab, then confirm 部隊一覧/group/action controls are visible and only the card list scrolls.
+- Remaining issues: Phase 4 is not complete.
+
+
+## 2026-06-27 Update09.4.15 PC formation fixed-header offset clamp report
+
+- Summary: fixed the likely actual PC clipping cause by preventing `--mobile-fixed-stack-space` from being set below the header stack height.
+- Bug classification and root cause: fixed-position offset calculation race. Early zero-height measurement could set the shared header offset variable too small, placing the fixed formation panel behind the header.
+- Implementation change: clamp stack space to 118px minimum and log raw/calculated values in `mobileStickyHeader:offset`.
+- Permanent countermeasure: validators require the stack-space clamp and raw offset diagnostics.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.15` / revision `88`.
+- Minimum user acceptance operation: hard reload, open 部隊編成 in PC width, and confirm 部隊一覧/group/action controls are visible above the list. If not, copy `mobileStickyHeader:offset` and `formationListPanel:scroll-reset` logs.
+- Remaining issues: Phase 4 is not complete.
+
+
+## 2026-06-27 Update09.4.16 PC formation list fixed head report
+
+- Summary: separated and pinned the PC left-panel header/group/actions so they remain visible independently of the card list scroll state.
+- Bug classification and root cause: shared-scroll-shell layout regression. Header/group/actions were still in the same scrollable/clipped shell flow as the card list.
+- Implementation change: introduced `.formation-list-fixed-head` around 部隊一覧, group selector, and action buttons, with sticky top CSS.
+- Permanent countermeasure: validators require the fixed-head wrapper and sticky CSS marker.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.16` / revision `89`.
+- Minimum user acceptance operation: open 部隊編成 in PC width and confirm 部隊一覧/group/action controls are visible; scroll only the card list.
+- Remaining issues: Phase 4 is not complete. If this still fails, collect DOM/computed-style logs before further UI changes.
+
+## 2026-06-27 Update09.4.17 PC formation panel measured tab offset report
+
+- Summary: corrected the PC left formation panel position by measuring the actual fixed data/header and main-tab bottom instead of relying on fallback offsets.
+- Bug classification and root cause: fixed-header overlap/layout calculation defect. The fixed `検索 / 部隊編成 / 軍馬` tab area was not used as the source of truth for left-panel top positioning.
+- Implementation change: added measured panel top synchronization and forced the card list child to show a vertical scrollbar when overflowing.
+- Permanent countermeasure: validators require the measured-offset helper and CSS marker.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.17` / revision `90`.
+- Minimum user acceptance operation: open 部隊編成 in PC width and confirm the left panel starts below the top tabs, shows the group selector/actions, and the部隊 card list shows a scrollbar.
+- Remaining issues: Phase 4 is not complete. If this still fails, collect `formationListPanel:viewport-sync` logs and computed styles for `.formation-list-panel` and `.formation-list` before further UI changes.
+
+## 2026-06-27 Update09.4.18 PC formation action buttons compact row report
+
+- Summary: changed the PC left-panel formation actions from four stacked buttons to one row: `新規 / 複製 / 削除 / 保存`.
+- Implementation change: shortened the new-formation button label and added a PC CSS override for a four-column action row.
+- Permanent countermeasure: validators require the compact action CSS marker.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.18` / revision `91`.
+- Minimum user acceptance operation: open 部隊編成 in PC width and confirm the four action buttons appear on one row above the scrollable部隊 list.
+- Remaining issues: Phase 4 is not complete.
+
+## 2026-06-27 Update09.4.19 mobile total score placement report
+
+- Summary: restored the mobile total score panel between the warhorse block and result summary.
+- Bug classification and root cause: mobile placement regression. The mobile board placement received only the result summary, not the score card.
+- Implementation change: mobile board placement now receives `scoreCardHtml` before `quickSummaryHtml`; mobile CSS hides only the duplicate selected-stack score card.
+- Permanent countermeasure: validators and render tests require the score-card mobile placement contract.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.19` / revision `92`.
+- Minimum user acceptance operation: open 部隊編成 on smartphone width and confirm トータルスコア appears between 軍馬 and 結果サマリー.
+- Remaining issues: Phase 4 is not complete.
+
+## 2026-06-27 Update09.4.20 formation responsive layout regression guard report
+
+- Summary: added a dedicated regression guard for the converged PC and smartphone formation layout defects before continuing Phase 4.
+- Bug classification and root cause: recurrence-prevention gap. The PC formation left-panel and smartphone score placement contracts were validated in fragments, which made repeated regressions possible during Phase 4 UI changes.
+- Implementation change: introduced `tools/validate_formation_responsive_layout_contract.py` and wired it into the standard validation runner.
+- Permanent countermeasure: the validation suite now checks the combined responsive contract for measured PC top offset, fixed group/action header, one-row action buttons, scrollable formation list, and smartphone score placement between 軍馬 and 結果サマリー.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.20` / revision `93`.
+- Minimum user acceptance operation: open 部隊編成 on PC and smartphone width; confirm the PC left panel keeps 部隊一覧/group/actions visible with the list scrollbar, and smartphone width shows トータルスコア between 軍馬 and 結果サマリー.
+- Remaining issues: Phase 4 is still in progress; no known residual issue for the converged PC/mobile formation layout contract.
+
+
+## 2026-06-27 Update09.4.21 Phase 4 completion report
+
+- Summary: corrected the misplaced formation guide spotlight targets for steps 2/8 and 5/8 and closed Phase 4.
+- Bug classification and root cause: guided-tour target mismatch. Step 2/8 used the full fixed left panel instead of the fixed group/action header; step 5/8 used a selector that is absent in the current PC formation layout, so the spotlight could fall back to an unrelated area.
+- Implementation change: changed only the guide definitions in `hado_core.js` and validation/version/docs. No formation layout, scoring, data, or save behavior was changed.
+- Permanent countermeasure: `tools/validate_update09_phase4_guides.py` now requires the corrected guide targets and forbids the old selectors.
+- Version metadata: visible runtime version advanced to `3.0.0.0 Update09.4.21` / revision `94`.
+- Minimum user acceptance operation: open 部隊編成ガイド and confirm 2/8 highlights the left panel fixed head/group/action area, and 5/8 highlights the visible formation board instead of the app title.
+- Remaining issues: none for Phase 4; Phase 4 is complete.
+
+## 2026-06-27 Update09.5.1 Phase 5 type search/candidate/tray report
+
+- Summary: Update09 Phase 5 fixes the type-entry → type-candidate → candidate-tray handoff and adds profiling for the previously unmeasured type-search time.
+- Bug classification and root cause: UI flow defect and persistence gap. Type candidate card selection only updated local modal state (`st.picked`), and no event connected that state to the current formation `candidateTray`; the entry dialog also saved selection without navigating to the candidate list.
+- Impact scope checked: type search profiling, type candidate role tabs/counts, candidate card selection, candidate tray add/open/remove/clear/place events, current formation persistence, candidateTray sanitize compatibility, and validation wiring.
+- Files changed: `hado_search.js`, `hado_type_entry.js`, `hado_type_candidates.js`, `hado_candidate_tray.js`, `hado_formation.js`, `hado_version.js`, `HADO_DEV_INFO.json`, `tools/run_app_validation.py`, and `tools/validate_update09_phase5_type_candidate_flow.py`.
+- HTML size change and externalization decision: `index.html` was not changed; all runtime behavior was implemented in external JavaScript modules.
+- Speed measurement result: the earlier observed `totalMs=269.8ms` with about `22ms` of measured phases is now diagnosable through `measuredKnownMs`, `unmeasuredMs`, `unmeasuredMsWarning`, row-build, importance, chips, diagnostic, responsive, detail, and cache timings. New runtime measurements must be collected in browser after deployment.
+- Validation commands: `node --check` for the changed JavaScript files, `python3 tools/validate_update09_phase5_type_candidate_flow.py`, and `python3 tools/run_app_validation.py`.
+- Validation results: recorded in the final agent report for this change.
+- GitHub Actions result: not available in this local workspace before push.
+- Preview result: not preview-complete in this workspace because no `origin` remote is configured, so the application branch cannot be pushed and the preview repository/Pages markers cannot be verified here.
+- Minimum user acceptance operation: open 部隊編成, open 型編成ナビ, choose a type, press `型候補一覧へ`, select a candidate card, press `候補トレイへ`, confirm the tray opens with that candidate, repeat add to confirm no duplicate, then use `配置先を選ぶ` for a supported 武将/装備 candidate and verify the existing formation placement popover appears.
+- Remaining issues: preview synchronization and public Pages verification remain blocked until a remote-enabled environment pushes the committed branch.
+
+## 2026-06-27 Update09.5.2 formation score type selector report
+
+- Summary: added an editable `型` list box to the total score panel so the current formation type can be changed directly from 部隊編成.
+- Bug classification and root cause: missing edit affordance. Formation records already persisted `evaluationTypeId` / `evaluationTypeName`, but the score panel only displayed the active type and no UI path updated those fields for the current formation.
+- Implementation change: `renderFormationScoreSummaryHtml` renders `formationEvaluationTypeSelect` before `トータルスコア`; `setFormationEvaluationType(typeId)` updates the current formation, recalculates `totalScore` / `evaluationScore`, saves with `setFormationEvaluationType`, rerenders, and shows a toast.
+- Impact scope checked: formation score rendering, type option rendering, selected option state, immediate recalculation/persistence, existing score chips/detail panel, candidate tray behavior, and forbidden old labels/IDs.
+- HTML size change and externalization decision: no large inline HTML logic was added; behavior is in `hado_formation.js` and styling is in `hado_styles.css`.
+- Validation commands: `node tools/test_formation_type_score_render.js`, `python3 tools/run_app_validation.py`.
+- Preview result: not preview-complete in this workspace because remote fetch/push is blocked.
+- Minimum user acceptance operation: open 部隊編成, use the `型` select at the left of the total score panel, confirm the score/chips/tags redraw immediately, reload, and confirm the selected type persists.
+- Remaining issues: preview synchronization and public Pages verification remain blocked until a remote-enabled environment pushes the branch.
+
+## 2026-06-27 Update09.5.3 formation type selector binding fix report
+
+- Summary: fixed the issue where changing the visible `型` list box did not always update the current formation or recalculate score immediately.
+- Bug classification and root cause: duplicated DOM binding defect. The score card is rendered in two placements for responsive layout, but the prior code bound only a single `getElementById('formationEvaluationTypeSelect')` result.
+- Implementation change: every rendered score-panel type select is marked with `data-formation-evaluation-type-select="1"`, and `setupFormationEvents` binds all matching selects to `setFormationEvaluationType`.
+- Validation: `node tools/test_formation_type_score_render.js` and `python3 tools/run_app_validation.py`.
+- Remaining issues: preview synchronization and public Pages verification remain blocked until remote access is available.
+
+
+### Update09.5.4 完了報告 — 評価スコア根拠タグの発生元表示復旧
+- 事象: 型変更の即時再計算修正後、評価スコア詳細タグから `弱化無効(技能名)` のような発生元表示が欠落していた。
+- 原因: 詳細タグをタグ専用 UI に戻した際、`source` / `sourceLabel` をタグ本文へ合成する処理がなく、補助情報側にしか残らない経路があった。
+- 対応: `formationScoreEvidenceDisplayTitle()` を追加し、提供済み詳細行・フォールバック根拠行の両方で `sourceTag` を保持して括弧付き表示へ反映した。
+- 回帰防止: `tools/test_formation_type_score_render.js` で `弱化無効(検証耐性技能)` 形式を検証し、`tools/validate_formation_score_tag_only.py` でも共有フォーマッタと実レンダー断片を必須化した。
+- 残課題: ローカル静的/機能検証は実施対象。プレビュー同期はリモート接続・認証状態に依存するため、この環境で完了可否を別途報告する。
+
+
+### Update09.5.5 完了報告 — 評価スコア根拠タグの集約テキスト露出防止
+- 事象: `class="sr-only"` として出した根拠集約 `sourceLabels` が、CSS 未定義のため通常本文として露出した。
+- 原因: 括弧付き発生元の存在チェックに偏り、余計な補助テキストが画面に出ないことと `sr-only` 定義の有無を検証していなかった。
+- 対応: 集約テキスト生成と `sr-only` span 出力を削除し、表示対象をタグ内の括弧付き発生元だけにした。
+- 再発防止: テストと validator で `sourceLabels` / 未定義 `sr-only` 依存 / `/` 区切り根拠ダンプの再混入を禁止した。
+
+
+### Update09.5.6 完了報告 — 評価スコア内訳の欄外表示防止
+- 事象: 評価スコア内訳の根拠タグが複数行に広がり、スコアカード内の結果サマリー領域と干渉して欄外表示に見える状態だった。
+- 原因: collapsed/expanded の表示状態を CSS クラスで分けず、通常時も `flex-wrap` で複数行表示していたため、長い根拠名がカード内の余白を押し広げていた。
+- 対応: 通常時は1行 `nowrap + overflow hidden`、さらに表示時は結果サマリー風のグリッド chip 表示へ切り替えるようにした。
+- 再発防止: test / validator で collapsed/expanded クラスと overflow-safe CSS、`formation-quick-summary-chip` 共有を検証する。
+
+
+### Update09.5.7 完了報告 — 評価スコア内訳の全件ダイアログ化
+- 事象: `さらに表示` が inline 展開であり、結果サマリーと同じ別ダイアログ表示・全件表示になっていなかった。
+- 原因: 「結果サマリーと同じように」を chip/grid の見た目として解釈し、既存の結果サマリーの拡大ダイアログ動作まで接続していなかった。
+- 対応: `さらに表示` は `formationScoreEvidenceDialogOpen` を立てて再描画し、専用 dialog で選択中評価項目の根拠を全件表示する。
+- 再発防止: test / validator で dialog 出力、全件 chip 表示、dialog close/backdrop イベントを検証する。
+
+
+### Update09.5.8 完了報告 — 評価スコアクリック時の詳細切替復旧
+- 事象: 評価スコア chip をクリックしても、表示中の詳細が確実に切り替わらなかった。
+- 原因: score card が responsive layout 用に複数描画される一方、イベント委譲が最初の `.formation-score-card` に偏り、さらにクリック処理が同一 card だけを部分更新していたため、実際に見ている側の詳細 panel が更新されない経路があった。
+- 対応: 全ての `.formation-score-card` に delegated click/key handler を束ね、クリック後は部分 DOM 置換ではなく `state.formationScoreDetailIndex` 更新後に `renderFormationScreen()` で全 score card を同じ状態へ再描画する。
+- 再発防止: test / validator で全 score card binding と、クリック時に全体再描画へ進む契約を検証する。
+
+
+### Update09.5.9 完了報告 — 評価スコア targetScope 判定の根本修正
+- 事象: `METRIC_ALIASES` の語句一致だけで評価していたため、味方非ダメージ効果に攻撃速度・戦法速度・戦法ゲージ・通常攻撃対象数などが混入し、対象不明の語句一致でも ally/self/enemy 系項目へ加点される問題があった。
+- 原因: 評価項目ごとに効果対象を確認する構造がなく、alias 一致結果をそのまま件数スコアへ使っていた。
+- 対応: `targetScope` を導入し、ally/self/enemy/any/unknown の対象判定、`includeAliases` / `excludeAliases`、`requiresTarget`、`displayBucket`、同一根拠行の単一加点化を実装した。
+- 非ダメージ: 火力・速度・ゲージ・機動・射程・連鎖・通常攻撃対象数を除外し、知力上昇は targetScope 不問で含める。
+- 自部隊不利対策: 自部隊対象なら弱化対策・状態変化対策・被火力対策・生存対策・バフ維持へ分類する。
+- 味方負傷兵回復: 味方対象を必須とし、自部隊のみ・自身のみ・対象不明の回復は加点しない。
+- 再発防止: `tools/test_update09_phase5_score_target_scope.js` と `tools/validate_update09_phase5_score_target_scope.py` を追加し、full validation に組み込んだ。
+
+### Update09.5.10 完了報告 — 評価スコア旧ランタイムパッチ撤去
+
+- 問題分類: 旧 hotfix の残存による実ロジック上書き。`hado_type_score.js` 側で targetScope 判定を導入しても、後段で `hado_update_meta.js` の旧ワクチン型キーワード一致パッチが `calculateFormationAutoScores` を差し替え、`攻撃速度` / `戦法速度` / `戦法ゲージ` / `通常攻撃対象数` などを `ally_non_damage_effect` に再分類していた。
+- 根本原因: Update 用メタ同期ファイルに一時的なランタイム修正を積み重ね、正規ソースへ移管後に削除・検証する仕組みが不足していた。
+- 恒久対策: `hado_update_meta.js` をメタデータ同期専用に戻し、スコア計算・描画差し替え・CSS 注入・旧キーワード一致を validator と Node テストで禁止した。
+- 実装: 部隊一覧は空データスコア計算を呼ばず保存済みスコアを表示し、編成バーのメモ欄レイアウトは通常 CSS に移管した。
+- 検証: `python3 tools/run_app_validation.py` で追加 validator / Node テストを含むローカル検証を実行する。
+- 残課題: preview 同期と Pages 実機確認は、リモート fetch/push が可能な環境で実施する。
+
+### Update09.5.11 完了報告 — 可視バージョン固定記載の撤去
+
+- 問題分類: バージョン単一ソース規約違反。`hado_version.js` を単一ソースとしているにもかかわらず、`index.html`、asset query、score trace の固定文字列、validator の固定列挙にも同じ Update 番号を持たせていた。
+- 根本原因: cache busting / 初期プレースホルダ / テスト期待値を「現在の Update 番号」で直接更新しており、`hado_update_meta.js` の同期機構を信頼する設計に寄せ切れていなかった。
+- 恒久対策: runtime 側の固定 Update09.5.x を撤去し、trace は `window.HADO_VERSION` から組み立て、validator は `index.html` へ固定バージョンが戻ると失敗するようにした。
+- 検証: `python3 tools/run_app_validation.py` で、version consistency、Phase4 guide validator、targetScope validator、Node render tests を含む全ローカル検証を実行する。
+- 残課題: preview 同期と Pages 実機確認は、リモート fetch/push が可能な環境で実施する。
+
+### Update09.5.12 完了報告 — 評価スコア内訳クリックで詳細表示
+
+- 変更内容: 評価スコア内訳の `さらに表示` ボタンを廃止し、内訳パネル全体をクリック可能にした。ヘッダー右側には `クリックで詳細表示` を出し、クリック時は既存の根拠付き詳細ダイアログを表示する。
+- 簡略表示: 内訳パネル上のタグは `知力上昇` などの簡略名だけにし、同一簡略名は重複表示しない。
+- 詳細表示: ダイアログは従来通り、根拠や発生元を含む詳細表示を維持した。
+- 検証: `node tools/test_formation_type_score_render.js` と `python3 tools/validate_formation_score_tag_only.py` の期待値を更新し、`python3 tools/run_app_validation.py` で全体検証する。
+- 残課題: preview 同期と Pages 実機確認は、リモート fetch/push が可能な環境で実施する。
+### Update09.5.13 完了報告 — 評価スコア詳細タグ全文表示
+
+- 変更内容: 評価スコア詳細ダイアログ内の各タグについて、ラベルの `overflow:hidden` / `text-overflow:ellipsis` / `white-space:nowrap` をダイアログ内だけ解除し、根拠内容を全文表示するようにした。
+- 影響範囲: 通常の評価スコア内訳パネルは、従来通り簡略タグ・重複排除・1行表示を維持する。
+- 検証: `node tools/test_formation_type_score_render.js`、`python3 tools/validate_formation_score_tag_only.py`、`python3 tools/run_app_validation.py` で全文表示 CSS 契約を確認する。
+- 残課題: preview 同期と Pages 実機確認は、リモート fetch/push が可能な環境で実施する。
+### Update09.5.14 完了報告 — 評価スコアカテゴリゲート修正
+
+- 問題分類: 評価スコア根拠抽出ロジック不具合。対象が自部隊/味方であることだけを強く見すぎ、防御・回復など別カテゴリの効果が自部隊不利対策に混入していた。
+- 修正内容: 自部隊不利対策は `弱化対策` / `状態変化対策` / `制御対策` のみを許可し、`防御` / `対物防御` / `被ダメージ軽減` / `兵力回復` / `負傷兵回復` / `攻撃` / `会心` / `戦法ゲージ` などを category deny で除外する。
+- 類似カテゴリ監査: 被火力対策に回復、回復/生存に防御、火力支援に防御、敵部隊妨害に味方バフ、戦法支援に防御、連鎖支援に戦法ゲージが入らない回帰ケースを追加した。
+- 重複排除: 代表根拠キーを source / rawText / effectKind / targetScope に寄せ、`弱化効果無効[弱化無効]` と `弱化無効` など同一根拠由来の派生タグを二重加点しない。
+- 検証: `node tools/test_update09_phase5_score_target_scope.js`、`python3 tools/validate_update09_phase5_score_target_scope.py`、`python3 tools/run_app_validation.py` で再発防止を確認する。
+- 残課題: preview 同期と Pages 実機確認は、リモート fetch/push が可能な環境で実施する。
+
+## 2026-06-28 Update09.5.15 score evidence primary-effect gate report
+- Summary: 評価スコアの根拠抽出で、一次効果・派生タグ・型要素・変化率集計・対象不明を分離し、`型要素 知力上昇` や `部隊の知力(変化率集計)` が味方非ダメージ効果へ加点される欠陥を修正した。
+- Root cause: targetScope と alias 一致の後に、根拠が一次効果か、派生/集計値かを判定していなかったため、検索/分類用タグや集計結果が評価根拠として再投入されていた。
+- Implementation: `scoreEvidenceOrigin()` / `scoreEligibleEvidence()` を追加し、aggregate / derived / primary を分類。評価カテゴリゲートは primary evidence のみ通し、対象不明は対象依存カテゴリに加点しない。
+- Ally non-damage: 自部隊/味方対象の一次効果のみ許可し、火力支援・耐久支援・生存支援・不利対策・戦法支援・連鎖支援へ内訳分類する。型要素、変化率集計、敵対象、ダメージ、敵妨害、対象不明は除外する。
+- Self disadvantage: 防御、被ダメージ軽減、兵力回復、負傷兵回復、攻撃/会心/戦法ゲージ/連鎖率は自部隊不利対策の加点対象から除外されたまま、弱化無効・弱化解除・状態変化無効など本来の不利対策は維持する。
+- Validation: `tools/test_update09_phase5_score_target_scope.js` と `tools/validate_update09_phase5_score_target_scope.py` に、変化率集計・型要素・対象不明タグ除外と一次効果の代表加点を確認するケースを追加した。
+- Remaining items: preview deployment verification is not complete in this local workspace until GitHub fetch/push/Pages verification is available.
+## 2026-07-11 JSONインデックス契約修正レポート（表示バージョン据え置き）
+
+### 1. Summary
+
+- クローラー生成元を修正し、20派生JSONを同一入力から再生成した。アプリは正規化済み契約を読み、手修正JSONへ依存しない。
+- 監査元9,390行で検出された9,378件（高6,248、中3,130）の問題クラスを、識別子・発生元・参照・role gateの契約として是正した。
+
+### 2. Bug classification and root cause
+
+- 分類: 派生索引の正規化/参照整合性/評価根拠汚染。
+- 根本原因: 表示名と全文断片を安定IDの代用にし、entity、source part、evidence path、canonical key、role可否を生成時に保持していなかった。
+- 恒久対策: クローラーの共通contract層、20ファイル一括再生成、アプリ消費側の契約ゲート、一次ソース包含検査、8必須回帰ケース。
+
+### 3. Impact scope checked
+
+- `parameter_summary`、type feature/role、related link、skill owner、status meta/group/relations、tactic attack、condition、equipment stage、formation candidate、search/result/tag、preset/rule/purposeを横断確認した。
+- 検索、詳細、型候補、部隊編成スコア、補佐/侍従の戦法除外、既存保存Import/Export互換を静的・Nodeテストで確認した。
+
+### 4. Files changed
+
+- 生成物: 実装記録に列挙した20個の `hadou_*.json`。
+- runtime: `hado_bootstrap.js`、`hado_formation.js`、`hado_search.js`、`hado_type_candidates.js`、`hado_type_score.js`、`hado_type_score_evidence.js`。
+- validation/workflow: `tools/test_json_index_contract.js`、関連回帰テスト、`tools/run_app_validation.py`、preview validator/test、`.github/workflows/notify-preview.yml`。
+- records: Update09 roadmap/implementation/report、全体roadmap、`AGENTS.md`。
+
+### 5. HTML size and externalization
+
+- `index.html`: 変更なし、0 bytes。
+- 外部化判断: HTMLへロジックを追加せず、既存の責務別runtime JSとcrawler contract moduleへ実装した。
+- `hado_version.js`: `Update09.5.41/r131` → `Update09.5.42/r132`。`HADO_DEV_INFO.json` の更新日時も同期。
+
+### 6. Validation commands and results
+
+- `node tools/test_json_index_contract.js`: pass。20ファイル、技能所有者640件、関連2,144 item/11,925 ref、parameter 16,403効果、feature 5,436根拠、role 2,228行、regression 21件を検査。
+- `python tools/run_app_validation.py`: 101/101 pass。
+- `git diff --check`: pass。
+- ローカルHTTP smoke: `index.html`、参照14資産、ルート34 JSONをHTTP 200で取得し、全JSONをparse。表示版 `.5.42/r132` を確認。
+- ブラウザー実操作: BLOCKED。browser runtime起動時に環境側の `C:\Users\mytem\AppData` 参照拒否（EPERM）が発生した。PC/スマホ、検索・詳細・Import/Exportの実操作はminimum UATとして残す。
+
+### 7. Git commit and pull request
+
+- base: `feature/app-3.0.0.0` / `49a71accb3228c7a8a82b3988150186d15dd19e1`。
+- head: `codex/json-index-contract`（最終SHAはPR #207のGitHub headを正本とする）。
+- draft PR: https://github.com/mytemark2/hado_library/pull/207（base `feature/app-3.0.0.0`）。
+
+### 8. GitHub Actions result
+
+- PRは作成済み。`App Validation / app-validation`: pass。preview通知はPRブランチではskip（canonical push限定）。
+
+### 9. Preview confirmation
+
+- public URL: `https://mytemark2.github.io/hado_library-preview/`
+- displayed version: intended `3.0.0.0 Update09.5.42 r132`。現在の公開値は旧版 `3.0.0.0 Update09.5.41`（revisionなし）。
+- marker: 現在の `PREVIEW_SOURCE_COMMIT.txt=49a71accb3228c7a8a82b3988150186d15dd19e1`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.41`。意図した `codex/json-index-contract` / `3.0.0.0 Update09.5.42 r132` と不一致。
+- preview repository commit、runtime asset、DOM、検索/詳細/部隊編成/Import/Export、PC/スマホ、debug log: 未確認。
+- status: **BLOCKED / not preview-complete**（PRは作成済みだが未mergeのため）。
+
+### 10. Minimum user acceptance operation
+
+- 公開previewをPCとスマホで開き、画面上に `3.0.0.0 Update09.5.42 r132` と表示されることを確認する。
+
+### Update09.5.43 完了報告 — JSON未読込時の空検索防止
+
+- 分類: 起動状態/UIガード不備。検索語 `関羽` の照合ロジックは正常で、根本原因は武将マスター0件でも検索UIが操作可能だったこと。
+- 影響範囲: JSON未読込状態の全検索語・全カテゴリ。JSON読込後の検索処理、保存データ、編成処理は変更していない。
+- 変更: `hado_search.js` に未読込ガードを追加し、0件表示ではなくJSON選択画面へ戻す。可視版を `3.0.0.0 Update09.5.43 r133` に更新。
+- 再発防止: 専用テストを常設のアプリ検証へ追加。`python tools/run_app_validation.py` は102コマンドをすべて通過すること。
+- HTMLサイズ差: 0 byte。処理は既存外部JavaScriptへ実装し、HTMLへスクリプトを追加していない。
+- 最小受入操作: JSONを未読込の状態で `関羽` を入力するとJSON選択画面が表示されること。JSON一式を読み込んだ後、武将カテゴリで `関羽` が1件以上ヒットすること。
+- preview確認はPRマージおよび同期後に実施するため、現時点ではpreview未完了。
+
+### Update09.5.44 — 公開JSON取得後の起動停止修正
+
+- 分類: 性能・メモリ管理不備。PR #211反映後の公開Previewで29/29取得後に起動が完了しないことを実ブラウザで再現。
+- 根本対策: 全件同時Promiseを最大3並列のキューへ変更し、巨大な生JSON文字列の同時滞留を防止。
+- 再発防止: `tools/test_update09_5_44_bounded_public_json_load.js` を常設検証へ追加。
+- 最小受入操作: 公開Previewを強制再読込し、JSON読込済になること、その後「関羽」で3件表示されること。
+- HTMLサイズ差: 0 byte。preview実操作確認完了までは未完了。
+
+### Update09.5.45 — 公開bootstrapキャッシュ更新
+
+- 原因: Pages更新後も固定URLの旧起動スクリプトが再利用され、修正済みJSONローダーへ切り替わらなかった。
+- 対策: `hado_bootstrap.js?v=09.5.45-r135` として配信版をURLで識別する。
+- 再発防止: HTML参照を検証する専用テストを常設検証へ追加。
+- 最小受入操作: 公開PreviewでJSON読込済を確認後、「関羽」で3件表示すること。
+- 通常検索で「関羽」を入力し、検索結果から武将詳細・関連リンクを開く。
+- 型候補で主将・副将を選び、型スコアの根拠に `sourcePartType` が表示されることを確認する。
+- 補佐または侍従を配置し、戦法本文が候補説明に残っても型スコアへ加点されないことを確認する。
+- 部隊を保存し、Export→Import後に部隊、候補トレイ、評価型、スコアが維持されることを確認する。
+- PC幅とスマホ幅で、検索・詳細・型候補・部隊編成の主要ボタンが押せることを確認する。
+
+### 11. Remaining issues
+
+- PR、GitHub Actions、merge、イベント駆動preview同期、公開Pages実機確認が未実施。これらが完了するまで本作業はpreview-completeではない。
+
+### Update09.5.48 — Preview Pages監視失敗の修正報告
+
+- 分類: CI/デプロイ監視経路の不整合。Preview同期自体と `deploy-preview.yml` のPages公開は成功していたが、アプリ側は競合でキャンセルされた `jekyll-gh-pages.yml` を待機してタイムアウトしていた。
+- 根本原因: PreviewリポジトリにPagesデプロイworkflowが3本併存し、アプリ側監視対象と実際の公開担当が一致していなかった。また実際の公開成果物にcommit/version markerが含まれず、旧 `HADO_DEV_INFO.json.displayVersion` 依存も残っていた。
+- 恒久対策: Pages公開を `deploy-preview.yml` へ一本化し、成果物markerを生成する。Preview側にはデプロイworkflowが1本だけであることを検査する起動時guardを追加する。
+- 影響範囲: アプリ正本push後のPreview同期、Pages完了待機、公開marker確認。検索・詳細・編成・保存データ・JSON契約・runtimeには変更なし。
+- HTMLサイズ差: 0 byte。`hado_version.js` と `HADO_DEV_INFO.json` は変更しない。
+- 最小受入操作: 正本branchへのpush後、`Notify Hado Library Preview` とPreview側 `Deploy Hado Library Preview` が成功し、公開3 markerが正本commit/branch/versionと一致することを確認する。
+
+### Update09.5.49 — 武将検索デグレ修正報告
+
+- 分類: runtime正規化時の出典情報欠落と回帰テスト不足。
+- 根本原因: object表の `index` をrows配列へ変換する際に破棄し、実検索経路ではtable 20/21除外が成立しなかった。旧テストは実検索文を生成せず、常設検証にも未登録だった。
+- 恒久対策: 表の `_sourceIndex` を非列挙メタとして保持し、raw/normalized両方をJSON化前に同じ除外関数へ通す。LR夏侯淵の実データによるruntime検索文テストを常設化する。
+- 影響範囲: 武将全文検索のうち、五行適正・他武将一覧にだけ検索語が存在するケース。武将本人の名称・説明・戦法・技能・列伝は検索対象として維持する。
+- HTMLサイズ差: cache-bust queryの+15 bytes。処理は `hado_status_effects.js` に外部化したまま維持する。
+- 最小受入操作: 公開Previewで武将だけを選び `関羽` を検索し、LR夏侯淵・盾兵が結果に含まれないことを確認する。
+
+### Update09.5.50 — 公開表示版キャッシュ不整合の修正報告
+
+- 分類: Preview runtime asset cache不整合。
+- 根本原因: 検索runtimeだけにcache keyを付け、表示版の単一正本 `hado_version.js` は固定URLのままだった。
+- 恒久対策: 表示版と検索runtimeへ同一cache keyを要求する実行テストを常設する。
+- 影響範囲: 公開Previewの見出し・title・ガイド表示版。検索データと保存データ形式には変更なし。
+- HTMLサイズ差: +15 bytes。外部runtime参照のcache keyだけを変更し、ロジックは外部JavaScriptに維持する。
+- 最小受入操作: 公開Previewで `Update09.5.50 r140` を確認後、`関羽` 検索でLR夏侯淵が表示されないことを確認する。
+
+### Update09.5.51 — 他武将一覧の横断除外報告
+
+- 分類: 同一ページ内の説明本文と参照用他武将一覧の境界不足。
+- 根本原因: セクション単位の除外だけでは、子相性セクションと技能本文に別行で付加された所有武将一覧を識別できなかった。
+- 恒久対策: セクション除外と内容行除外を同じ検索サニタイズ経路へ統合し、normalized/raw検索文の両方へ適用する。
+- 影響範囲: 武将全文検索。他武将一覧だけを除外し、本人説明内の対戦相手・史実・技能効果に現れる武将名は維持する。
+- HTMLサイズ差: 0 bytes。ロジックは外部 `hado_status_effects.js` に維持する。
+- 最小受入操作: `関羽` でLR夏侯淵と所有者一覧だけが一致元の武将が表示されず、LR関羽と説明・列伝に実記載がある武将は残ることを確認する。
+
+### Update09.5.52 — Debug Log表示回帰の修正報告
+
+- 分類: UI表示状態とCSS初期非表示クラスの同期不備。
+- 根本原因: `renderDebugPanel()` はinline `display` とbodyクラスだけを更新し、HTML初期状態の `hidden-panel` を解除していなかったため、ログ生成成功後もパネルが非表示だった。
+- 恒久対策: `state.showRawJson` からパネルの `hidden-panel`、inline表示、bodyレイアウトを同時更新し、実行型Nodeテストを常設検証へ追加した。
+- 影響範囲: PC/スマホの診断メニューにある `ログ表示`。ログ生成・ログコピー、検索、詳細、編成、保存データ形式は変更しない。
+- HTMLサイズ差: +15 bytes（`hado_core.js` cache key追加分のみ）。ロジックは外部 `hado_core.js` に維持する。
+- 最小受入操作: 公開Previewの `？` → `ログ表示` をONにし、Debug Logパネルと `debugPanel:toggle` を含む要約が表示されることを確認する。
+- 検証: `python tools/run_app_validation.py` 107/107 pass。専用Debug Log runtimeテスト、`関羽`検索実fixture、20派生JSON契約、検索・詳細・編成・保存互換・レスポンシブ契約を含む。
+- Git: base `c2470dd4ca8b76e03956900864f50e274ea5fac5`、head `e601aa05083770580222029dd2e125361e631adf`、PR #221、merge `15b38a9f3d77b446479fd4884f25b8547801119a`。merge-readinessはmerge-base一致・競合なし。
+- Actions: PR `App Validation / app-validation` run 29195286043 success。正規push `Notify Hado Library Preview` run 29195315396 success。Preview `Deploy Hado Library Preview` run 29195328400 success。
+- Preview repository: `main` HEAD `ac26259361aa50aa751d8a1b7a2dfcca30467c0f`。`index.html`、`hado_formation.js`、`hado_styles.css`、`.nojekyll`、34 `hadou_*.json`、3 markerが存在する。
+- 公開marker: `PREVIEW_SOURCE_COMMIT.txt=15b38a9f3d77b446479fd4884f25b8547801119a`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.52`。cache-bust付き公開URLはいずれもHTTP 200。
+- 公開PC操作: `Update09.5.52 r142`、ロード中バナーは `position:relative`、ロード完了後は `hidden=true` / `aria-hidden=true` / `display:none`。`関羽`は108件、LR夏侯淵・盾兵0件、UR花鬘0件、LR関羽1件。
+- 公開Debug Log: `ログ表示` ONで `hidden-panel` が解除され `display:block`、2,407文字の要約と `debugPanel:toggle` を確認。ブラウザwarning/errorは0件。
+- 公開スマホ操作: 390x844で検索欄・108件表示・Debug Logパネルを確認。body 375/375px、パネル幅355pxで横あふれなし。
+- 残課題: なし。
+
+### Update09.5.53 — 武将全文検索の範囲外本文除外報告
+
+- 分類: 全文検索の一次情報境界不足による検索結果汚染。
+- 根本原因: 武将ページのsectionsをほぼ全件連結し、ゲーム内の戦法・技能等の実データと、攻略評価・おすすめ・比較コメント・列伝を区別していなかった。Update09.5.51は他武将一覧だけを除外し、「説明・列伝を維持」としたため、108件中105件の範囲外一致が残った。
+- 恒久対策: 基本情報と戦法の間を構造的に攻略評価領域として除外し、列伝・演義・正史も除外する。見出し文言の追加だけに依存しないため、未知の攻略見出しにも適用される。
+- 影響範囲: 武将カテゴリの通常全文検索。武将名、基本情報、戦法、技能、能力・兵科等の実データは維持し、攻略評価・おすすめ・比較・列伝だけを除外する。JSON生成契約や保存データ形式は変更しないため、Crawler再実行は不要。
+- 実データ結果: `関羽` は108件から6件へ縮小。対象はLR周倉、LR関羽、LR関銀屏、UR廖化、UR関羽、関羽で、本人名3件と実際の戦法・技能条件3件だけである。
+- 再発防止: 実データ481武将の期待集合を完全一致で固定し、未知の攻略見出しが戦法前に追加された場合の除外と、戦法後の実効果本文が検索可能であることを常設Nodeテストへ追加した。
+- 変更ファイル: `hado_status_effects.js`、`hado_version.js`、`HADO_DEV_INFO.json`、`index.html`、`tools/test_update09_5_47_general_search_roster_exclusion.js`、`tools/test_update09_5_53_general_search_source_boundary.js`、`tools/run_app_validation.py`、Update09 roadmap/implementation/report。
+- HTMLサイズ差: 0 bytes。外部化判断は既存の検索runtimeに実装し、HTMLは同長のcache key更新だけとした。
+- ローカル検証: `node tools/test_update09_5_53_general_search_source_boundary.js` pass（6 exact matches）、旧LR夏侯淵回帰もpass。`python tools/run_app_validation.py` は検索・詳細・編成・保存互換・レスポンシブ・20派生JSON契約を含む108/108 pass。ローカル実ブラウザでも `Update09.5.53 r143`、PC/390x844の6件、範囲外武将0件、横あふれなし、warning/error 0件を確認した。
+- 最小受入操作: 公開Previewで武将だけを選び `関羽` を検索し、6件だけが表示され、LR夏侯淵・盾兵や攻略評価/列伝だけに関羽を含む武将が表示されないことを確認する。
+- Git: canonical base `950f06ed572900561489c2c3927128d3a45c0980`、実装head `f69d482ed94aebea6d173a4223e469baf5c509d2`、PR #223、merge `ede7f8e0bb7ff3182645361e6f8054206df45696`。`python -X utf8 tools/check_pr_merge_readiness.py --base feature/app-3.0.0.0` はmerge-base一致・競合なし。通常実行はWindows CP932の日本語commit decodeで停止したためUTF-8モードで再実行し、競合判定を完了した。
+- Actions: PR `App Validation / app-validation` run 29250871176 success。正本push `Notify Hado Library Preview` run 29250931109 success。Preview `Deploy Hado Library Preview` run 29250959616 success。
+- Preview repository: `main` HEAD `55a3f0450853f202e9b6b09df0aa34b6580203a3`。`index.html`、`hado_formation.js`、`hado_styles.css`、`hado_status_effects.js`、`.nojekyll`、34 `hadou_*.json`、3 markerが存在する。
+- 公開marker: `PREVIEW_SOURCE_COMMIT.txt=ede7f8e0bb7ff3182645361e6f8054206df45696`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.53`。cache-bust付き公開URLはいずれもHTTP 200。
+- 公開PC操作: `Update09.5.53 r143`、JSON 100/100読込完了後に `関羽` が6件。LR周倉、LR関羽、LR関銀屏、UR廖化、UR関羽、関羽だけが表示され、LR夏侯淵・盾兵、攻略評価/列伝由来の代表誤一致は0件。body 1280/1280px。
+- 公開スマホ操作: 390x844で同じ6件、body 375/375px、検索パネル表示、横あふれなし。
+- 公開Debug Log: `ログ表示` ONで `hidden-panel` が解除され `display:block`、2,412文字の要約と `debugPanel:toggle` を確認。ブラウザwarning/errorは0件。
+- 現在の状態: 実装、検証、PR、Actions、Preview同期、公開実操作まで完了。残課題: なし。
+
+### Update09.5.54 — IME確定後検索の修正報告
+
+- 分類: IME compositionイベントと通常検索debounceの競合。
+- 根本原因: 変換中の `input` だけを状態フラグで除外しており、変換開始前の検索予約、`event.isComposing`、IME確定用Enterの履歴登録、確定直後の重複inputを一貫して扱っていなかった。
+- 恒久対策: 検索入力のcaptureフェーズにIMEイベント境界を集約し、変換開始・変換中・確定・確定直後を1つの状態遷移として扱う実行テストを常設する。
+- 影響範囲: キーワード検索欄のPC/スマホ入力と検索履歴。検索対象・JSON・詳細表示・編成・保存データ形式は変更しないため、Crawler再実行は不要。
+- HTMLサイズ差: 0 bytes。検索制御は外部 `hado_bootstrap.js` に実装し、HTMLは同長のcache key更新だけとした。
+- ローカル検証: `node tools/test_update09_5_54_ime_search_commit.js` と `python tools/run_app_validation.py` 109/109 pass。PC/390x844実ブラウザで `Update09.5.54 r144`、`関羽` 6件、横あふれなし、warning/error 0件を確認した。
+- 最小受入操作: 公開Previewの検索欄で日本語IMEを使い、未確定文字列では結果が変化せず、変換確定後に一度だけ結果が更新されることを確認する。
+- Git: canonical base `221aed0dcef822bbbf15042e997e555aff9dd3a9`、実装head `0b2bb8f63d36ea7358a7277ae2c5f24652addc17`、PR #225、merge `3cd15a144cfa505e5ce4e933501194ab8e32e8de`。`python -X utf8 tools/check_pr_merge_readiness.py --base feature/app-3.0.0.0` はmerge-base一致・競合なし。
+- Actions: PR `App Validation / app-validation` run 29254265323 success。正本push `Notify Hado Library Preview` run 29254328923 success。Preview `Deploy Hado Library Preview` run 29254435814 success。
+- Preview repository: `main` HEAD `3aa03f2170051186c40c9216ce97fdc74e85cb28`。`index.html`、`hado_formation.js`、`hado_styles.css`、`hado_bootstrap.js`、`.nojekyll`、34 `hadou_*.json`、3 markerが存在する。
+- 公開marker: `PREVIEW_SOURCE_COMMIT.txt=3cd15a144cfa505e5ce4e933501194ab8e32e8de`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.54`。
+- 公開runtime: `hado_bootstrap.js` にIME検索commit marker、`compositionstart`、`compositionend`、確定直後の重複input抑止、IME Enterの履歴除外が配備されていることをGitHub APIで確認した。
+- 公開PC操作: `Update09.5.54 r144`、JSON 100/100読込完了、ロードoverlay非表示、`関羽` が6件（LR周倉、LR関羽、LR関銀屏、UR廖化、UR関羽、関羽）、body 1280/1280px。
+- 公開スマホ操作: 390x844で同じ6件、body 375/375px、検索パネル表示、横あふれなし。
+- 公開Debug Log: `ログ表示` ONで `debugPanel:toggle` を含む要約を確認。ブラウザwarning/errorは0件。
+- 現在の状態: 実装、検証、PR、Actions、Preview同期、公開runtime・実操作確認まで完了。残課題: なし。
+
+### Update09.5.55 — 型候補一覧の侍従成立ゲート修正報告
+
+- 分類: 候補生成と配置成立判定の境界不一致、および候補トレイイベント処理の重複。
+- 根本原因: 型候補一覧は役割索引の `attendant` 行をそのまま採点し、部隊編成側のUR以下ゲートを参照していなかった。また候補トレイに、正規の `hado_formation.js` と同じイベントを購読して独自配置先を生成する旧runtimeが残っていた。
+- 恒久対策: 役割候補の共通ポリシーを `hado_formation.js` に置き、型候補表示、トレイ追加、役割限定配置、最終侍従条件の全入口で使用する。重複する候補トレイcore runtimeは廃止する。
+- 影響範囲: 型候補一覧の侍従件数・一覧、候補トレイ追加・配置先、部隊編成への直接追加、保存済み候補トレイ。検索、詳細、JSON契約、編成保存形式、Crawler出力は変更しない。
+- 再発防止: 実際の派生索引にLR侍従行が残ることをfixtureとして確認した上で、runtime表示0件、UR許可、他役割LR許可、役割限定配置、重複runtime非読込を検証する専用テストを全アプリ検証へ追加した。
+- HTMLサイズ差: 28,058 bytes から 28,077 bytes（+19 bytes）。ロジックは外部JavaScriptへ実装し、HTML変更はscript参照とcache keyに限定した。
+- 最小受入操作: 型候補一覧の「侍従」でLR武将が0件であること、UR以下の候補が表示されること、候補トレイから侍従候補を配置する際に侍従枠だけが表示されることを確認する。
+- ローカル検証: `python -X utf8 tools/run_app_validation.py` 110/110 pass。実データの派生索引にLR侍従行105件が存在する状態でruntime表示0件、UR許可、他役割LR許可、役割限定配置、旧runtime非読込を確認した。
+- ローカル実操作: PC 1280x900とスマホ390x844の型候補一覧「戦法速度型 → 侍従」で18件、LR 0件。候補トレイへ追加後も役割が「侍従」で維持され、PC/スマホとも横あふれなし、ブラウザwarning/errorは0件。
+- Git: canonical base `946aad5e3dd002e7976bcc4cbea2bd28e130d35e`、実装head `5d05341ea86ed0735f17792b01bd8f1b7629641f`、PR #227、merge `74cac9e548a64c949de8ec9347ec8d527bb96dc1`。`tools/check_pr_merge_readiness.py --base feature/app-3.0.0.0` はmerge-base一致・競合なし。
+- Actions: PR `App Validation / app-validation` run 29258587962 success。正本push `Notify Hado Library Preview` run 29258656731 success。Preview `Deploy Hado Library Preview` run 29258695074 success。
+- Preview repository: `main` HEAD `832af5f807447741d4a21c5b2035bf0017e16d6d`。`index.html`、`hado_formation.js`、`hado_styles.css`、`hado_type_candidates.js`、`.nojekyll`、34 `hadou_*.json`、3 markerが存在する。
+- 公開marker: `PREVIEW_SOURCE_COMMIT.txt=74cac9e548a64c949de8ec9347ec8d527bb96dc1`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.55`。
+- 公開PC操作: `Update09.5.55 r145`、公開JSON読込と索引作成完了後、型候補一覧「戦法速度型 → 侍従」が18件、LR 0件、UR以下18件。候補トレイで「侍従 UR龐統」と役割を維持し、body 1280/1280px。
+- 公開スマホ操作: 390x844で同じ18件、LR 0件、body 375px、横あふれなし。
+- 公開runtime/Debug Log: `hado_formation.js?v=attendant-gate-r145` と `hado_type_candidates.js?v=09.5.55-r145` を実行し、`hado_candidate_tray_core.js` は未読込。`ログ表示` ONで `debugPanel:toggle` を含む要約を確認し、ブラウザwarning/errorは0件。
+- 現在の状態: 実装、110項目検証、PR、両リポジトリActions、Preview同期、公開runtime・PC/スマホ実操作、Debug Logまで完了。残課題: なし。
+
+### Update09.5.56 — 検索境界・候補同期・スマホ応答改善 修正報告
+
+- 分類: 検索対象境界の不足、独立UI間の状態同期漏れ、大容量JSONの重複取得と同期DOM/採点処理による性能劣化。
+- 根本原因: 兵科データは子セクション・親セクション・表へ重複していたが一部だけが除外対象だった。型候補一覧は候補トレイsnapshotを購読せず、ナビと候補一覧は同じ39MB超の役割索引を個別取得していた。さらに全データ/保存データ切替で変更のない保存索引を毎回再構築し、部隊編成も同じ入力イベント内で同期描画していた。
+- 恒久対策: セクション名と表構造の両方で検索境界を固定し、トレイsnapshotを候補選択の正本状態へ同期する。大容量データは共通ストア、採点はフレーム分割、DOMは上限制、表示切替は維持済み索引と遅延再描画を使用する。
+- 影響範囲: 武将カテゴリの通常全文/パラメータ検索、型編成ナビ、型候補一覧、候補トレイ、全データ/保存データ切替、部隊編成再描画。JSON契約・保存形式・Export/Import互換は変更しない。
+- 再発防止: 実データ481件の検索件数、実兵力効果の残存、共通JSON取得3回、候補削除後の選択解除、候補DOM上限、採点分割、保存索引再利用を1本の実行テストにし、全アプリ検証へ常設した。旧Update09.5.55テストのcache key固定は、後続Updateでも成立ゲートを検証できる版付きasset契約へ修正した。
+- HTMLサイズ差: Git正規化後28,057 bytesから28,136 bytes（+79 bytes）。挙動は外部JavaScriptへ実装し、HTMLには共通データストア参照とcache keyだけを追加した。
+- ローカル検証: `python tools/run_app_validation.py` 112/112 pass。20派生JSON契約、検索、詳細、編成、保存互換、レスポンシブ、禁止queue不在、JavaScript/JSON/HTML整合を含む。
+- ローカル390x844実操作: `兵力+` は481件全件一致から243件へ減少。候補トレイの対応行削除後、型候補一覧の選択中カードは0件。型編成ナビ再表示319ms、型候補一覧は初期モーダル487msで表示して採点進捗を更新、全データ→保存データ283ms、保存データ→全データ276ms。ブラウザwarning/errorは0件。
+- 最小受入操作: 公開Previewで武将のみを選び `兵力+` を検索して全481件にならないこと、型候補をトレイへ追加後にその行を削除して候補一覧の選択表示が解除されること、スマホで型編成ナビ・型候補一覧・データ切替が操作を受け付けることを確認する。
+- Git: canonical base `e79924f589d52fe1267267b537cdc281c153ab2e`、PR #229（draft）、base `feature/app-3.0.0.0`、head `codex/update09-5-56-search-sync-performance`。`python -X utf8 tools/check_pr_merge_readiness.py --base feature/app-3.0.0.0` はmerge-base一致・競合なし。
+- Actions: PR初回 `App Validation / app-validation` run 29423779614 success。記録更新後の最終commitでも再確認する。PRでは正本push専用 `Notify Hado Library Preview` は設計どおりskip。
+- Preview: 正本未マージのため未配備。マージ後に正本push通知、Preview Pages、3 marker、公開runtime、PC/390x844実操作を確認する。
+- 現在の状態: 実装・ローカル検証・PR検証完了。Preview未配備のため未完了。
+
+### Update09.5.57 — 型候補複数選択・データ切替進捗・診断版数表示 修正報告
+
+- 分類: 型候補UIの選択状態を単一値で持つ設計不足、狭幅時のタブ件数省略、長時間処理中の進捗表示不足、診断画面が表示版の正本を参照しない版数不整合。
+- 根本原因: 型候補一覧の `picked` が文字列1件だけであり、選択操作ごとに前の候補を置き換えていた。タブは縮小を許しtext-overflowにより件数が隠れ、データ切替はoverlayを使わず同期更新を開始していた。診断画面は基本版 `HADO_BUILD_INFO.version` を直接表示していた。
+- 恒久対策: 選択を候補キーの `Map` として保持し、トレイ追加とsnapshot削除同期を全件対応にする。タブの数字は縮小・省略不可とし、モバイルは横スクロールにする。切替処理は共通busy overlayを通し、診断画面は可視版の単一正本を参照する。
+- 影響範囲: 型候補一覧、候補トレイ追加・削除同期、PC/スマホの役割タブ、データ管理の全データ/保存データ切替、`？` 診断画面。検索条件、JSON契約、保存形式、Crawler出力は変更しない。
+- 再発防止: `tools/test_update09_5_56_search_sync_performance.js` を拡張し、2件選択の維持・全削除での全解除、選択件数表示、件数省略禁止CSS、busy wrapper、表示版参照を静的・実行回帰として常設した。
+- HTMLサイズ差: 同長のcache key置換のみで0 bytes。外部JavaScript化の方針を維持した。
+- ローカル検証: `node tools/test_update09_5_56_search_sync_performance.js` pass、`python tools/run_app_validation.py` 112/112 pass、`python tools/validate_update_version_consistency.py` pass。
+- 最小受入操作: 型候補一覧で主将と副将を1件ずつ選び「候補トレイへ（2件）」で両方が追加されること、役割タブの `(数字)` がPC/スマホで読めること、全データ/保存データ切替中に進捗表示が出ること、`？` で `覇道ライブラリ 3.0.0.0 Update09.5.57 r147` が表示されることを確認する。
+- 現在の状態: PR #230、App Validation、正本マージ、Preview Pages配備まで成功。公開実操作で副将以降の件数が `…` のまま残ることを検出し、Update09.5.58へ継続したため要件未完了。
+
+### Update09.5.58 — 型候補の全役割件数確定表示 修正報告
+
+- 分類: 非同期件数集計の起動漏れによる公開UI要件未達。
+- 根本原因: `scheduleIdleRoleCounts()` を実装していたが呼び出しがなく、現在役割だけが `rows()` で件数cacheへ入り、他役割はプレースホルダー `…` のままだった。Update09.5.57のCSS修正だけでは文字列そのものを数値にできなかった。
+- 恒久対策: 候補一覧の最終描画前に全役割をフレーム分割で集計し、全件数cache完成後だけ役割タブを描画する。未集計を省略記号で表示する経路を削除した。
+- 最小受入操作: 公開Previewの型候補一覧を開き、主将・副将・補佐・侍従・装備・陣形・兵器・名馬・軍馬技能の括弧内がすべて数字であることをPC/スマホで確認する。
+- ローカル検証: `node tools/test_update09_5_56_search_sync_performance.js` pass、`python tools/run_app_validation.py` 112/112 pass、版数整合性pass。
+- HTMLサイズ差: 同長のcache key置換のみで0 bytes。挙動は外部 `hado_type_candidates.js` に実装し、HTMLへロジックは追加していない。
+- Git: canonical base `93d7fc84994f358ebd55e36882ff4c36e08cdd6e`、実装commit `2e824763484bb673c70d02ecd08077c103fada67`、PR #231、merge `ec46a85a15835414387000f2467a376c652c1425`。マージreadinessは競合なし。
+- Actions: PR `App Validation / app-validation` run 29430060216 success。正本 `Notify Hado Library Preview` run 29430092558 success。Preview `Deploy Hado Library Preview` run 29430131083 success。
+- Preview repository: `main` HEAD `ffd7e54e3632001bc5199bce0abaaf7d85447100`。`index.html`、`hado_formation.js`、`hado_styles.css`、`.nojekyll`、34 `hadou_*.json`、3 markerが存在する。
+- 公開marker: `PREVIEW_SOURCE_COMMIT.txt=ec46a85a15835414387000f2467a376c652c1425`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.58`。
+- 公開PC操作: `3.0.0.0 Update09.5.58 r148`。全9役割は主将59、副将58、補佐34、侍従18、装備0、陣形0、兵器0、名馬0、軍馬技能1で、各タブのscrollWidth/clientWidthが一致し文字欠けなし。主将と副将をまたぐ2件選択で「候補トレイへ（2件）」となり、トレイ件数が1件から3件へ増えた。
+- 公開スマホ操作: 390x844で同じ全9役割数値、タブ列は375/808pxの横スクロール、bodyとmodalは375/375pxでページ横あふれなし。同一役割の2件選択で選択中カード2件と「候補トレイへ（2件）」を確認した。
+- 公開データ切替/診断: 全データから保存データへ切替後に `保存データ｜未作成` となり、overlayタイトルは `保存データへ切り替えています…`。`？` は `覇道ライブラリ｜3.0.0.0 Update09.5.58 r148` を表示した。
+- 公開Debug Log: `ログ表示` ONでパネルは `display:block`、ログ本文376文字。ブラウザwarning/errorは0件。
+- 現在の状態: 実装、112項目検証、PR、マージ、両リポジトリActions、Preview同期、公開PC/スマホ実操作まで完了。残課題: なし。
+
+### Update09.5.59 — 符号付き数値検索境界・保存データ往復監査 修正報告
+
+- 分類: 符号付きメトリック検索の条件適用漏れと、保存データ往復の実行回帰不足。
+- 根本原因: `兵力+` を解析した後も候補採否が基礎語 `兵力` の部分一致だけで決まり、抽出した符号・数値・単位は採否に使われていなかった。このためLR呂布の `兵力を決定` も誤一致した。
+- 恒久対策: 非plainメトリック検索は明示された符号・数値・単位に一致する実効果がある場合だけ採用し、符号なし基礎値を `+` とみなさない。兵力固有ではなく共通メトリック検索へ適用する。
+- 再発防止: 実データLR呂布、半角/全角正負、数値・単位を検証する専用テストと、保存Export→Importの追加・維持・上書き・編成/履歴統合・永続化を実関数で確認する専用テストを全アプリ検証へ常設した。
+- ローカル検証: `python -X utf8 tools/run_app_validation.py` 114/114 pass。検索、詳細、編成、保存互換、レスポンシブ、20派生JSON契約、版数整合、禁止queue不在を含む。
+- ローカル実画面: 武将検索で `兵力+` 106件、全角 `兵力＋` 106件、LR呂布0件。通常の `兵力` 243件、`関羽` 6件、LR夏侯淵・盾兵0件。
+- HTMLサイズ/外部化: Git正本の28,136 bytesから28,171 bytes（+35 bytes）。増加は `hado_search.js` のcache key追加だけで、ロジックは外部JavaScriptに実装した。
+- 最小受入操作: 公開Previewで版数、`兵力+` 106件・LR呂布0件、全角 `兵力＋` 106件、通常 `兵力` 243件、`関羽` 6件を確認する。保存データはExportしたファイルをImportし、既存保存が消えず、対象保存・編成・検索履歴が復元されることを確認する。
+- Git: canonical base `368eee53412660aaebb06696bef139c7543cc267`、実装commit `b4caf3fc5a171bea1aba2f20d05b829344fc83d2`、PR #233、merge `b08d82a117bf3799c910fd67ba6f2de997921323`。merge readinessは正本取得、merge-base一致、競合なし。
+- Actions: PR `App Validation / app-validation` run 29638687083 success。正本 `Notify Hado Library Preview` run 29638707623 success。Preview `Deploy Hado Library Preview` run 29638720401 success。
+- Preview repository: `main` HEAD `59b149c595759340720329ec2b9c4343f1c85b96`。`index.html`、`hado_formation.js`、`hado_search.js`、`hado_status_effects.js`、`hado_styles.css`、`.nojekyll`、34 `hadou_*.json`、3 markerを確認した。
+- 公開marker: `PREVIEW_SOURCE_COMMIT.txt=b08d82a117bf3799c910fd67ba6f2de997921323`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.59`。
+- 公開PC操作: `3.0.0.0 Update09.5.59 r149`、JSON武将481件読込、`兵力+` 106件・LR呂布0件、全角 `兵力＋` 106件・LR呂布0件、通常 `兵力` 243件、`関羽` 6件・LR夏侯淵0件。変更runtimeは `09.5.59-r149` cache keyで実行されている。
+- 公開Debug Log: `ログ表示` ONで `#debugPanel` の非表示クラスが解除され、2,413文字のログと `debugPanel:toggle` を確認。ログ内のwarning/error行は0件。
+- Issue監査: open bugは #204だけだったが、Update09.5.41の実データLR黄忠回帰が114項目検証内で成功し、公開revision表示も確認できたため、検証根拠を追記してcloseした。
+- 現在の状態: 実装、114項目検証、PR、マージ、両リポジトリActions、Preview同期、marker、公開PC実操作、Debug Log、open bug整理まで完了。ユーザー最終確認待ち。
+
+### Update09.5.60 — 検索モード状態独立化 修正報告
+
+- 分類: 検索モード間の状態境界不備と、モード切替・操作履歴における条件破棄／条件混入。
+- 根本原因: 3検索モードが単一のキーワード、カテゴリ、選択詳細を共有する一方、状態変化条件だけはモード離脱時に削除していた。非表示になった通常検索キーワードも状態変化検索の完全一致自動選択へ使われていた。
+- 恒久対策: 3モードごとのコンテキストを検索状態の正本とし、切替時は保存・復元する。通常検索キーワード判定を通常モードへ限定し、操作履歴も同じコンテキスト復元経路へ統合する。
+- 影響範囲: 通常検索、状態変化検索、型検索、対象カテゴリ、タグ、検索結果選択、内容詳細、結果移動、操作履歴。JSON契約、Crawler、保存形式、編成データは変更しない。
+- 再発防止: 3モード往復と非表示キーワード境界、状態変化条件・詳細選択、型プリセット、操作履歴の契約を専用Nodeテストとして全アプリ検証へ追加した。
+- HTMLサイズ/外部化: Git正本と変更後はいずれも28,151 bytes（差分0 bytes）。挙動は外部 `hado_search.js` / `hado_status_effects.js`、状態初期値は `hado_core.js` に実装し、HTMLは同長のcache keyのみ変更した。
+- ローカル検証: `python -X utf8 tools/run_app_validation.py` 115/115 pass。専用回帰、検索・詳細・編成・保存互換、レスポンシブ、20派生JSON契約、版数整合、禁止queue不在を含む。
+- ローカルPC実操作: 通常検索に `克破` を残して状態変化検索 `強化奪取回避` を実行し、`看透` クリック後に一覧選択・詳細とも `技能 : 看透` へ切替。通常へ戻ると `克破`、状態変化へ戻ると分類・条件・技能カテゴリ・`看透` 詳細を復元。型検索 `戦法速度型` も往復後に復元した。
+- ローカル操作履歴: 状態変化検索で `看透` を選択後、型検索へ切替・プリセット変更し、履歴を2回戻すと `自部隊不利対策 → 強化奪取回避`、技能4件、`技能 : 看透` を復元した。
+- ローカルスマホ実操作: 390x844で同じ分類・状態変化・技能4件・選択中 `看透`・詳細 `技能 : 看透` を確認。ブラウザwarning/errorは0件。
+- 最小受入操作: 公開Previewで通常検索に `克破` を入力して技能だけを選択し、状態変化検索で `自部隊不利対策 → 強化奪取回避` を選ぶ。`看透` をクリックして詳細が切り替わること、通常・状態変化・型検索を往復して各条件が残ることを確認する。
+- Git: canonical base `98dc231d9274cd265ca88e374ed1712a95592519`、実装commit `780acb1e0873657f97b1a64ea688a5bffe3b38c4`、PR #235、merge `da993a11b1584169cc14313ced3a735844167fcb`。merge readinessはmerge-base一致・競合なし。
+- Actions: PR `App Validation / app-validation` run 29669754636 success。正本 `Notify Hado Library Preview` run 29669782336 success。Preview `Deploy Hado Library Preview` run 29669793546 success。
+- Preview repository: `main` HEAD `c1e67abaff670eb1612670b64066e33c96ccfab9`。`index.html`、`hado_formation.js`、`hado_styles.css`、`.nojekyll`、34 `hadou_*.json`、3 markerを確認した。
+- 公開marker: `PREVIEW_SOURCE_COMMIT.txt=da993a11b1584169cc14313ced3a735844167fcb`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.60`。
+- 公開PC操作: `3.0.0.0 Update09.5.60 r150`、JSON武将481件・技能1342件。通常 `克破`、状態変化 `自部隊不利対策 → 強化奪取回避`、技能4件・選択中 `看透`・詳細 `技能 : 看透`、型 `戦法速度型` を各モード往復後も復元した。
+- 公開スマホ操作: 390x844で状態変化分類・条件、技能4件、結果selectの選択中 `看透`、詳細 `技能 : 看透` を確認した。
+- 公開Debug Log: `ログ表示` ONでログ本文1,648文字。ブラウザwarning/errorは0件。
+- 現在の状態: 実装、115項目検証、PR、マージ、両リポジトリActions、Preview同期、marker、公開PC/スマホ実操作、Debug Log確認まで完了。残課題: なし。
+
+### Update09.5.61 — 編成判断サマリー・候補ワークスペース統合 進捗報告
+
+- 実装: 結果サマリーを固定6項目の編成差分表示へ変更し、型候補一覧と候補トレイを編集/候補モードの単一ワークスペースへ統合した。
+- 保存互換: `candidateTray` の保存形式、Export/Import、役割制約、配置判定の正本は変更していない。
+- 再発防止: 6項目集計の実行回帰と候補ワークスペース契約テストを全アプリ検証へ追加した。
+- 応答性: 全タブの正確な数値件数を先に確定する契約は維持し、採点バッチを120件へ拡大して統合ワークスペースの初回表示待ちを短縮した。
+- HTML/外部化: HTMLへロジックを追加せず、外部 `hado_formation.js`、`hado_type_candidates.js`、`hado_candidate_tray.js`、`hado_type_entry.js`、`hado_core.js`、`hado_styles.css` を変更した。
+- 表示版: `3.0.0.0 Update09.5.61 r151`。
+- ローカル検証: `python -X utf8 tools/run_app_validation.py` 116/116 pass。JavaScript/JSON/HTML/CSS、検索・詳細、編成、保存Export/Import、レスポンシブ、20派生JSON契約、版数整合、禁止queue不在を含む。
+- ローカルPC実操作: 結果サマリーは表示中1セット・6カード、根拠ダイアログも6項目。型編成ナビから編集モード、部隊側ボタンから候補モードで開き、主将59・副将58・補佐34・侍従18・装備拡張1の数値件数を確認した。主将と副将の2件をまたいで選択し `候補に追加（2件）`、候補モード3件、既存配置先ポップアップへの直接遷移を確認後、追加した2件を削除して元の1件へ戻した。冷間の編集モード集計は4秒以内で完了した。
+- ローカルスマホ実操作: 390x844で表示中サマリー1セット・6カード・2列、詳細ダイアログ6項目。候補ワークスペースは幅375px、body横あふれなし、5タブは数値を省略せず横スクロール（375/502px）し、編集/候補モードを切り替えられた。ブラウザwarning/errorは0件。
+- HTMLサイズ/外部化: 正本28,151 bytesから28,158 bytes（+7 bytes）。増加はガイド文とcache keyで、挙動は既存の外部JavaScript/CSSへ実装し、HTMLへJavaScriptを追加していない。
+- Git: canonical base `abc00bf5ee7ed4f6f622824b023d228c1e0e8c8e`、実装commit `16acde1c04f0947d6d7820308a2bf735da74ac34`、PR #237、merge `5caa9c5af75467522208e233ece3888c9cee386e`。`python -X utf8 tools/check_pr_merge_readiness.py --base feature/app-3.0.0.0` はmerge-base一致・競合なし。
+- Actions: PR `App Validation / app-validation` run 29673131409 success。正本 `Notify Hado Library Preview` run 29673152611 success。Preview `Deploy Hado Library Preview` run 29673165477 success。
+- Preview repository: `main` HEAD `9a5103967226550dce9c2adb31b073afd441488e`。`index.html`、`hado_formation.js`、`hado_type_candidates.js`、`hado_candidate_tray.js`、`hado_styles.css`、`.nojekyll`、34 `hadou_*.json`、3 markerが存在する。
+- 公開marker: `PREVIEW_SOURCE_COMMIT.txt=5caa9c5af75467522208e233ece3888c9cee386e`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.61`。
+- 公開PC操作: `3.0.0.0 Update09.5.61 r151`、公開JSON武将481件。結果サマリーは表示中1セット・6カード、根拠ダイアログ6項目。候補モードは既存候補を主将・副将・補佐・侍従・装備拡張でグループ表示し、編集モードは主将59・副将58・補佐34・侍従18・装備拡張1。主将と副将をまたぐ2件選択で `候補に追加（2件）` を確認した。
+- 公開スマホ操作: 390x844でbody横あふれなし。結果サマリーは1セット・6カード・2列、根拠ダイアログ6項目。候補ワークスペース幅375px、タブ列375/502pxで数値を省略せず横スクロールし、編集/候補モードを切り替えられた。
+- 公開Debug Log: 診断版数は `覇道ライブラリ｜3.0.0.0 Update09.5.61 r151`。`ログ表示` ONで `#debugPanel` は `display:block`、ログ本文376文字、`debugPanel:toggle` を確認。ブラウザwarning/errorは0件。
+- 最小受入操作: 公開Previewの部隊編成で固定6項目と根拠を確認する。型編成ナビから編集モードを開き、主将と副将を各1件選んで `候補に追加（2件）` を確認し、候補モードで役割別表示と「配置先を選ぶ」を確認する。
+- 現在の状態: 実装、116項目検証、PR、マージ、両リポジトリActions、Preview同期、marker、公開PC/スマホ実操作、Debug Log確認まで完了。残課題: なし。
+
+### Update09.5.62 — 全表示技能の関連リンク索引 修正報告
+
+- 分類: クローラー生成後契約による有効技能削除、アプリ／クローラー間の技能ドメイン不一致、同名装備の先頭一致。
+- 根本原因: アプリは1,342件（修正後1,343件）の統合技能を表示していたが、契約層が一般技能640件だけを正本として661技能行を削除していた。さらに同名の `青嚢書・名家医書` が2行あり、アプリは先頭だけを採用して `窮地戦威` を失っていた。実画面経路では、技能アイテムが保持する装備等の `sourceDataset` を索引カテゴリより優先していた。また公開JSONのXHR URLが固定で、更新後も旧索引を再利用できる状態だった。
+- 影響範囲: 装備技能572件、参軍技能88件、異文化調査技能32件、五行技能10件、および同名装備の後続記事にだけ存在する技能。一般技能の既存関連リンクも同じcanonical ref監査で再確認した。
+- 恒久対策: アプリ表示技能1,343件を同じ正本へ統合し、関連リンク欠落0・生成時削除0・未解決参照0を機械ゲートにした。同名装備は生成側と消費側で統合する。詳細画面の明示カテゴリを索引検索へ渡し、公開JSONは読込単位の一意トークン付きURLで取得する。
+- 変更: `hado_bootstrap.js`、`hado_core.js`、`hado_status_effects.js`、`hado_version.js`、`HADO_DEV_INFO.json`、`index.html`、20派生JSON、契約テスト、Update09記録。
+- HTML/外部化: 28,133 bytes → 28,170 bytes（+37 bytes）。増加はcache keyのみで、HTMLロジック追加なし。
+- ローカルJSON契約: 20ファイル、技能1,343件、関連リンク2,847件、related ref 13,126件、欠落0、削除0、未解決0、代表6技能pass。
+- ローカルPC実操作: 公開JSONの一意トークン付き再取得後、技能 `堅固打破`、`啓蒙`、`烏桓堅装`、`火行`、`奮戦`、`窮地戦威` の完全一致項目が詳細へ自動選択され、6件すべてで関連リンクJSONエラーが表示されないことを確認した。部分一致結果件数は技能名ごとに異なる。
+- 表示版: `3.0.0.0 Update09.5.62 r152`。
+- Git: canonical base `3b85c149874b7b0fcc0bfe347fbb0a34ec849602`、実装commit `f7e5a6196656ee45dca57f6e142a92343cdfbf74`、PR #239、merge `7a5acfb0361e34854591e81660b04e47145070d0`。merge readinessはmerge-base一致・競合なし。
+- Actions: PR `App Validation / app-validation` run 29676295655 success。正本 `Notify Hado Library Preview` run 29676974962 success。Preview `Deploy Hado Library Preview` run 29676990694 success。
+- Preview repository: `main` HEAD `4c3592acbe5b1efcc5e6e4b2547bca125a8e1fb0`。`index.html`、`hado_formation.js`、`hado_styles.css`、`.nojekyll`、34 `hadou_*.json`、3 markerが存在する。
+- 公開marker: `PREVIEW_SOURCE_COMMIT.txt=7a5acfb0361e34854591e81660b04e47145070d0`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.62`。
+- 公開PC操作: `3.0.0.0 Update09.5.62 r152`、公開JSON技能1,343件。代表6技能を順に検索して詳細を開き、6件すべてで関連リンク索引エラーなし。`堅固打破` / `啓蒙` / `奮戦` / `窮地戦威` は関連リンクを表示し、`烏桓堅装` / `火行` は空索引を正常表示した。
+- 公開Debug Log: 診断版数は `覇道ライブラリ｜3.0.0.0 Update09.5.62 r152`。`ログ表示` ONで `#debugPanel` は `display:block`、ログ本文1,655文字、`debugPanel:toggle` あり、`relatedLinks:build-error` なし。
+- 最小受入操作: 公開Previewで技能 `堅固打破`、`啓蒙`、`烏桓堅装`、`火行`、`奮戦`、`窮地戦威` を順に開き、関連リンクJSONエラーが表示されないことを確認する。
+- 現在の状態: 実装、116項目検証、PR、マージ、両リポジトリActions、Preview同期、marker、公開PC実操作、Debug Log確認まで完了。残課題: なし。
+
+### Update09.5.63 — 装備技能の段階別検索 修正報告
+
+- 分類: クローラー検索索引の有効データ過剰除外／アプリ検索の装備段階非対応。
+- 根本原因: 装備技能節に「この技能を持つ武将」があるとナビゲーション節と誤認して全技能本文を破棄し、アプリ側は全段階を一つに平坦化した索引だけを参照していた。
+- 影響範囲: 一意装備244件、段階別技能584参照。修正前は117装備・295技能参照が一部欠落し、94装備は対象段階の全技能が欠落していた。`回復` はUR最大の正しい8件中4件だけがヒットしていた。
+- 恒久対策: 基本情報と段階別技能本文を分離生成し、アプリは表示中段階だけを検索する。欠落装備・段階・技能参照0件を生成契約にした。
+- 変更: クローラー `1.1.0.2 Update02.6`、アプリ検索runtime、20派生JSON、契約・実データ回帰、版数・Update09記録。
+- 表示版: `3.0.0.0 Update09.5.63 r153`。
+- ローカル対象回帰: `回復` は初期4件、SSR最大5件、UR最大8件。`双鉄戟` は初期5%／UR最大25%を段階同期し、おすすめ武将文は検索対象外。
+- HTML/外部化: Git正規化後28,151 bytesから28,151 bytes（±0）。HTMLはcache keyのみ変更し、検索ロジックは外部JavaScriptと生成JSONへ実装した。
+- ローカル検証: `python -X utf8 tools/run_app_validation.py` 117/117 pass。クローラー全JavaScript syntax、JSON契約、検索回帰、20派生JSON再生成もpass。
+- Git: Crawler canonical `c3dd9cd3db767d50ce05e42d2746d3a3ae6ca4c6`、commit `9e284a5ec9e783623436b0476e2282838351a3ca`、PR #13、merge `2c9333b5049fed5802294aacab5ee4233cbea610`。App canonical `c0df02dc00b001e8a2de2ff67c98a5633785f42c`、commit `36047b03fe87e4892df98138224f66f1793a7d68`、PR #242、merge `d3d97194b133c96816c6dd4c0d6993eb03dcc097`。App merge readinessはmerge-base一致・競合なし。
+- Actions: App PR `App Validation / app-validation` run 29680055559 success。正本 `Notify Hado Library Preview` run 29680105527 success。Preview `Deploy Hado Library Preview` run 29680120085 success。CrawlerはPR Actionsなしで、ローカルsyntax・契約・再生成を必須ゲートとした。
+- Preview repository: `main` HEAD `9f0a0efddfb34eb25e9887d1863d65898a2fbadd`。`index.html`、`hado_formation.js`、`hado_styles.css`、`.nojekyll`、34 `hadou_*.json`、3 markerを確認した。
+- 公開marker: `PREVIEW_SOURCE_COMMIT.txt=d3d97194b133c96816c6dd4c0d6993eb03dcc097`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.63`。
+- 公開PC操作: `3.0.0.0 Update09.5.63 r153`、公開JSON装備245件。装備だけで `回復` を検索し、UR最大8件、SSR最大5件、初期4件へ即時同期した。`双鉄戟` は全3段階でヒットし、装備技能本文はUR最大25%、SSR最大15%、初期5%の回復を表示した。UR最大8件は `龍淵剣`、`龍紋鉄甲`、`弘雅守信冠`、`炎帝神農茶譜`、`奮勇燕尾牌`、`金繍緑錦披風`、`双鉄戟`、`龍紋緑袍鎧`。
+- 公開スマホ操作: 390x844指定時の実効幅375pxで、body幅375px、横あふれなし、UR最大の `回復` 8件と `双鉄戟` 詳細を維持した。
+- 公開Debug Log: 診断版数 `覇道ライブラリ｜3.0.0.0 Update09.5.63 r153`。`ログ表示` ONで `#debugPanel` は `display:block`、ログ本文2,404文字、`debugPanel:toggle` あり、検索索引・parameter summary errorなし。ブラウザwarning/error 0件。
+- 最小受入操作: 公開Previewで装備だけを選び `回復` を検索する。UR最大で8件と `双鉄戟` を確認し、装備段階をSSR最大・初期へ切り替えて5件・4件へ変わることを確認する。
+- 現在の状態: 実装、全技能coverage、117項目検証、PR、マージ、Actions、Preview同期、marker、公開PC/スマホ実操作、Debug Log確認まで完了。残課題: なし。
+
+### Update09.5.64 — 候補ワークスペースの編集・作成フロー 改修報告
+
+- 分類: 候補操作の冗長性、作成ボタンの画面責務不一致、型編成ナビから新規部隊への状態引継ぎ不足。
+- 根本原因: 編集モードが候補カードとは別に確定操作を要求し、新規作成は候補確認前に置かれていた。型編成ナビで選択した主将も型条件にだけ保存され、候補・主将枠へ引き継がれていなかった。
+- 影響範囲: 型編成ナビからの作成前候補、既存部隊の候補編集、主将選択、新規部隊生成、候補件数snapshot。既存の保存形式、Export/Import、役割制約、配置判定、派生JSONは非変更。
+- 恒久対策: 編集カードを即時追加・解除にし、作成前候補を既存部隊と分離したdraftへ保存する。候補モードだけで新規作成し、型・候補・選択主将を一括で新規部隊へ渡す。
+- 再発防止: `tools/test_update09_5_64_candidate_workspace_flow.js` を全検証へ追加し、追加ボタン不在、主将seed、候補モード作成、既存部隊非変更、候補snapshotを固定した。関連する既存4検証も新契約へ更新した。
+- 表示版: `3.0.0.0 Update09.5.64 r154`。
+- HTML/外部化: 28,151 bytesから28,233 bytes（+82 bytes）。HTMLはガイド文とcache keyだけを更新し、挙動は既存の外部JavaScriptへ実装した。
+- ローカル検証: `python -X utf8 tools/run_app_validation.py` 118/118 pass。JavaScript/JSON/HTML/CSS、起動、検索、詳細、編成、保存Export/Import、レスポンシブ、20派生JSON契約、版数整合、禁止queue不在を含む。
+- ローカルPC実操作: 編集モードに「候補に追加」と「この型で新規部隊」がないこと、LR関羽が自動で候補済みになることを確認。候補モードはLR関羽を「主将に選択中」、型を「攻撃速度型」、追加元を「型編成ナビ」と表示した。新規作成後は部隊3件、主将LR関羽、攻撃速度型、候補1件へ即時同期した。
+- ローカルスマホ実操作: 390x844で候補モード、5役割タブの数値、主将選択中、配置先選択、候補削除を確認し、検証後にviewportを既定値へ戻した。
+- Git: canonical base `415040ed3866289acfcd129a2f999392db6af24d`、実装commit `1321604cd966fab7b9157663f9a4ddd052fe1c6a`、PR #244、merge `f558c1a5410002f7bf41aa392a9824aa0c137a74`。`python -X utf8 tools/check_pr_merge_readiness.py --base feature/app-3.0.0.0` はmerge-base一致・競合なし。
+- Actions: PR `App Validation / app-validation` run 29689372810 success。正本 `Notify Hado Library Preview` run 29689403155 success。Preview `Deploy Hado Library Preview` run 29689417350 success。
+- Preview repository: `main` HEAD `56ebe023e5f0d058930ee9d9eb8f2098e144a0b7`。`index.html`、`hado_formation.js`、`hado_styles.css`、`.nojekyll`、34 `hadou_*.json`、3 markerが存在する。
+- 公開marker: `PREVIEW_SOURCE_COMMIT.txt=f558c1a5410002f7bf41aa392a9824aa0c137a74`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.64`。
+- 公開PC操作: `3.0.0.0 Update09.5.64 r154`、公開JSON武将481件。編集モードの「候補に追加」0件・「この型で新規部隊」0件、LR関羽の候補済み表示を確認した。候補モードは作成前候補1件、LR関羽を「主将に選択中」、型を「攻撃速度型」、追加元を「型編成ナビ」と表示した。新規作成後は部隊2件、主将LR関羽、攻撃速度型、候補1件へ即時同期した。
+- 公開スマホ操作: 390x844で候補モード、主将・副将・補佐・侍従・装備拡張の5タブ数値、LR関羽の主将選択中表示、配置先選択、候補削除を確認し、検証後にviewportを既定値へ戻した。
+- 公開Debug Log: 診断版数は `覇道ライブラリ｜3.0.0.0 Update09.5.64 r154`。`ログ表示` ONで `Debug Log` を表示し、`validation: OK`、武将481件、`debugPanel:toggle` を確認した。
+- 最小受入操作: 公開Previewの型編成ナビで主将と型を選び、候補ワークスペースへ進む。編集モードのカード選択が即時反映されること、候補モードに主将選択と新規作成があること、新規部隊へ型・候補・主将が引き継がれることを確認する。
+- 現在の状態: 実装、118項目検証、PR、マージ、両リポジトリActions、Preview同期、marker、公開PC/スマホ実操作、Debug Log確認まで完了。残課題: なし。
+
+### Update09.5.65 — 作成前候補ワークスペース再開 改修報告
+
+- 分類: 作成前draftの起動文脈喪失と、通常ランチャー・イベント・ページ再読込の状態復元不整合。
+- 根本原因: 候補ワークスペースの起動元文字列だけでdraft／既存部隊を切り替えており、保存済みdraftの一致確認をしていなかった。候補と主将以外のUI状態も保存していなかった。
+- 影響範囲: 型編成ナビからの作成前候補、通常ランチャー、外部openイベント、ページ再読込、編集／候補モード、役割タブ、絞り込み、表示件数、件数バッジ。既存部隊候補、配置、Export/Import、派生JSONは非変更。
+- 恒久対策: 型・目的・主将のsignatureが一致する未完了draftを全起動経路で優先し、候補・選択主将・UI状態をschema 2で一体保存する。新規部隊作成成功時だけdraftを破棄する。
+- 変更ファイル: `hado_type_candidates.js`、`hado_candidate_tray.js`、`hado_version.js`、`HADO_DEV_INFO.json`、`index.html`、Update記録、関連validator、`tools/test_update09_5_65_candidate_draft_resume.js`。
+- 再発防止: 通常ランチャー、イベント、ページ再読込、異なる型の分離、UI状態、主将、件数snapshotを常設実行回帰に追加した。
+- HTML/外部化: Git正規化後28,214 bytesから28,214 bytes（±0）。挙動は外部JavaScriptへ実装し、HTMLはcache keyのみ変更した。JSON再生成は不要。
+- 表示版: `3.0.0.0 Update09.5.65 r155`。
+- ローカル検証: `python -X utf8 tools/run_app_validation.py` 119/119 pass。JavaScript/JSON/HTML/CSS、起動、検索、詳細、編成、Export/Import、レスポンシブ、20派生JSON契約、版数、禁止queue不在を含む。
+- ローカルPC実操作: 攻撃速度型・LR関羽の作成前候補で、編集モード、副将タブ、検索語 `関羽`、候補1件を設定。閉じた後の通常ボタンとページ再読込後の双方で同じ状態を復元し、既存部隊候補へ戻らないことを確認した。
+- ローカルスマホ実操作: 390x844で編集モード、副将タブ、検索語 `関羽` を維持し、モーダル幅375px・高さ844px、横あふれなし、ブラウザwarning/error 0件を確認した。
+- Git: canonical base `0f690939f78d98311fe1ad01f52fee5b131e8166`、実装commit `4f6b09429d3a7bb2e6cd019251267ba1b82b5dc7`、PR #246、merge `65fc81c1fc6156b8bb90e415fe8db981cb549624`。`python -X utf8 tools/check_pr_merge_readiness.py --base feature/app-3.0.0.0` はbase・merge-base一致、競合なし。
+- Actions: PR `App Validation / app-validation` run 29692320207 success。正本 `Notify Hado Library Preview` run 29692351038 success。Preview `Deploy Hado Library Preview` run 29692367000 success。
+- Preview repository: `main` HEAD `dad977875cb3c938d422dd6362eabef5e36ca065`。`index.html`、`hado_formation.js`、`hado_styles.css`、`.nojekyll`、34 `hadou_*.json`、3 markerが存在する。
+- 公開marker: `PREVIEW_SOURCE_COMMIT.txt=65fc81c1fc6156b8bb90e415fe8db981cb549624`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update09.5.65`。
+- 公開PC操作: `3.0.0.0 Update09.5.65 r155`、公開JSON武将481件。攻撃速度型・LR関羽の作成前候補を編集モードで開き、副将タブと検索語 `関羽` を設定した。閉じた後の通常ボタンとページ再読込後の双方で、編集モード、副将4件、検索語、LR関羽を含む4候補を復元した。
+- 公開スマホ操作: 390x844で同じ編集モード・副将タブ・検索語を維持した。モーダル幅375px・高さ844px、body幅375pxで横あふれなし。検証後にviewportを既定値へ戻した。
+- 公開Debug Log: 診断版数 `覇道ライブラリ｜3.0.0.0 Update09.5.65 r155`。`ログ表示` ONで `Debug Log` を表示し、`validation: OK`、`debugPanel:toggle` を確認した。ブラウザwarning/error 0件。
+- 公開配信補足: 1回目の再読込で `hadou_type_search_presets.json` が一時的にHTTP 503となったが、同URLは直後の独立確認でHTTP 200・38,330 bytesへ復帰し、再読込で全29ファイル、索引2,509件、公開実操作まで成功した。アプリ・Previewの既知残存不具合ではない。
+- 最小受入操作: 公開Previewの型編成ナビで主将と型を選び候補ワークスペースへ進む。候補またはタブを変更して閉じ、画面下の候補ワークスペースを再度開き、作成前候補とUI状態が復元されることを確認する。ページ再読込後も同じ操作を行う。
+- 現在の状態: 実装、119項目検証、PR、マージ、両リポジトリActions、Preview同期、marker、公開PC/スマホ実操作、Debug Log確認まで完了。残課題: なし。

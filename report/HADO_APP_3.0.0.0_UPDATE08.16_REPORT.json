@@ -1,0 +1,49 @@
+{
+  "updateNo": "08.16",
+  "displayVersion": "3.0.0.0 Update08.16",
+  "status": "completed-local-validation",
+  "summary": "Correct saved-mode type candidate policy: ownership is favorites-only, and general type scoring uses only skills unlocked by the saved star level.",
+  "bugClassification": "Saved-mode type candidate policy mismatch",
+  "rootCause": "Update08.15 broadened name/ownership matching, but the correct model is two-stage: (1) candidate ownership is whether the general/equipment is favorited in the save data, and (2) general type scoring must be based on skills unlocked at the saved star level. generalStars/generalSettings/inheritedSkills are not ownership sources by themselves.",
+  "changedFiles": [
+    "hado_core.js",
+    "hado_type_candidates.js",
+    "hado_version.js",
+    "tools/validate_saved_mode_index_ownership_sources.py",
+    "tools/validate_type_candidate_saved_name_matching.py",
+    "docs/updates/README.md",
+    "docs/updates/roadmap.md",
+    "docs/updates/update08/implementation.md",
+    "docs/updates/update08/report.md",
+    "report/HADO_APP_3.0.0.0_UPDATE08.16_REPORT.json"
+  ],
+  "htmlSizeChange": {
+    "index.html": 0,
+    "hado_library_3.0.0.0.html": 0
+  },
+  "externalizationDecision": "No HTML/CSS change. The policy fix is implemented in external JavaScript and validation tools.",
+  "savedCandidatePolicy": {
+    "allDataMode": "All candidates are considered owned; general stage max exposes all skills for type scoring.",
+    "savedDataModeOwnership": "Only save.generals / save.equipments favorites are ownership sources for type candidate visibility.",
+    "savedDataModeSkillScoring": "Saved generalStars resolve unlocked general skills; unowned skill-derived feature rows are excluded before HadoTypeScore.score.",
+    "notOwnershipSources": ["generalStars", "generalSettings", "inheritedSkills", "equipmentStars", "equipmentStages"],
+    "zeroScorePolicy": "Owned/favorited candidates remain visible even when the saved-star scoped score is zero."
+  },
+  "validation": [
+    {"command": "node --check hado_type_candidates.js", "result": "pass"},
+    {"command": "node --check hado_core.js", "result": "pass"},
+    {"command": "node --check hado_version.js", "result": "pass"},
+    {"command": "python3 -m json.tool report/HADO_APP_3.0.0.0_UPDATE08.16_REPORT.json", "result": "pass"},
+    {"command": "python3 tools/validate_saved_mode_index_ownership_sources.py", "result": "pass"},
+    {"command": "python3 tools/validate_type_candidate_saved_name_matching.py", "result": "pass"},
+    {"command": "python3 tools/validate_saved_type_candidates_zero_score_visible.py", "result": "pass"},
+    {"command": "python3 tools/validate_update_version_consistency.py", "result": "pass"},
+    {"command": "python3 tools/validate_app_js.py", "result": "pass"},
+    {"command": "node tools/test_type_score.js", "result": "pass"},
+    {"command": "node hado_status_effect_regression.js", "result": "pass"},
+    {"command": "git diff --check", "result": "pass"}
+  ],
+  "workflowResult": "pending-after-push",
+  "previewResult": "pending-after-push",
+  "minimumUserAcceptance": "Import the provided save data, switch to saved-data mode, set/check star values for favorited generals, open type candidates, and verify candidates are favorites only while scores change according to saved star-unlocked skills."
+}

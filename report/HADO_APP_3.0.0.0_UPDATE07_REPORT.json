@@ -43,7 +43,10 @@
     "post-apply SHA-256 match: hado_type_candidates.js",
     "HTML SHA-256 match: index.html == hado_library_3.0.0.0.html",
     "obsolete local scoring aliases removed from hado_type_entry.js",
-    "reusable validator added: tools/validate_app_js.py"
+    "reusable validator added: tools/validate_app_js.py",
+    "role-limited vice-only skill effects excluded from main-general candidate scoring",
+    "role-compatible main-general clauses remain scored with effect values while skill Lv notation is not counted as target count",
+    "type candidate list selectable card UI and tray-add button absence audited"
   ],
   "fixRevision": "07.1",
   "fixSummary": "Replaced presence-only placeholder with rule-based numeric scoring and visible confirmed/conditional breakdown.",
@@ -54,5 +57,7 @@
     "baseline_ratio"
   ],
   "regressionAdded": "tools/test_type_score.js",
-  "nextUpdate": "Update08: saved-data ownership filters, new formation creation, saved evaluation, history, and group management"
+  "nextUpdate": "Update08: saved-data ownership filters, new formation creation, saved evaluation, history, and group management",
+  "latestRevision": "07.6",
+  "latestRevisionSummary": "Selectable type candidate cards, role-aware scoring clauses, skill-level-safe numeric extraction, and removal of the type-candidate tray-add button."
 }

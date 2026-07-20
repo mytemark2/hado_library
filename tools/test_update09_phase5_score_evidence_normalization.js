@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+'use strict';
+const assert=require('assert');
+const api=require('../hado_type_score_evidence.js');
+const has=(ev,f)=>ev.filter(r=>r.isPrimaryEffect).some(r=>r.effectFamily===f);
+const buff={effects:[{sourceType:'tactic',sourceLabel:'検証戦法',timing:'tactic',rawText:'戦法発動時、自部隊の攻撃を55%、防御を75%、知力を100%上昇。通常攻撃威力を50%、戦法威力を30%、攻撃速度を195%、会心発生を5%、会心威力を5%、通常攻撃対象数を+1する'}]};
+const ev=api.buildFormationScoreEvidence({id:'buff-test'}, {formationData:buff});
+['attack_up','defense_up','intelligence_up','normal_attack_power_up','tactic_power_up','attack_speed_up','critical_rate_up','critical_power_up','normal_attack_target_count_up'].forEach(f=>assert(has(ev,f),`must include ${f}`));
+assert(ev.every(r=>r.targetScope==='self'),'自部隊バフはselfとして正規化する');
+const five={effects:[{sourceType:'fiveElement',sourceLabel:'火行',rawText:'部隊が受ける火属性のダメージ-5%。戦法のダメージを受けて壊滅しなかったとき、自身1部隊の戦法ゲージを5%増加'},{sourceType:'fiveElement',sourceLabel:'土行',rawText:'通常攻撃時に25%の確率で、自身1部隊の弱化効果を1つ打ち消す'},{sourceType:'fiveElement',sourceLabel:'水行',rawText:'負傷兵として生存する兵数+10%。自身1部隊の兵力を回復'}]};
+const fe=api.buildFormationScoreEvidence({id:'five'}, {formationData:five});
+const fire=fe.filter(r=>r.sourceLabel==='火行'), earth=fe.filter(r=>r.sourceLabel==='土行'), water=fe.filter(r=>r.sourceLabel==='水行');
+assert(fire.some(r=>r.effectFamily==='attribute_resistance'),'火行は属性耐性');
+assert(fire.some(r=>r.effectFamily==='tactic_gauge'),'火行はゲージ支援');
+assert(!fire.some(r=>r.effectFamily==='weakening_remove'),'火行は弱化解除ではない');
+assert(earth.some(r=>r.effectFamily==='weakening_remove'),'土行は弱化解除');
+assert(water.some(r=>r.effectFamily==='wounded_survival'),'水行は負傷兵生存');
+assert(water.some(r=>r.effectFamily==='healing'),'水行は回復');
+const diag={effects:[{sourceKind:'type-feature',sourceLabel:'型要素 知力上昇',rawText:'型要素 知力上昇 > 対象不明 > 部隊の知力(変化率集計)'},{sourceKind:'aggregate',sourceLabel:'結果サマリー',rawText:'部隊の防御(変化率集計)'}]};
+const de=api.buildFormationScoreEvidence({id:'diag'}, {formationData:diag,defaultTargetScope:'unknown'});
+assert(de.length>0,'診断上は派生/集計も見える');
+assert(de.every(r=>!r.isPrimaryEffect),'派生/集計は一次効果ではない');
+assert(de.some(r=>r.isDerivedTag),'型要素はderived');
+assert(de.some(r=>r.isAggregateMetric),'変化率集計はaggregate');
+console.log('Update09.5.22 scoreEvidence normalization regression: passed');

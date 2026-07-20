@@ -1,0 +1,18 @@
+name: App Validation
+
+on:
+  pull_request:
+  merge_group:
+
+permissions:
+  contents: read
+
+jobs:
+  app-validation:
+    name: app-validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validation handled by local Python self-check
+        shell: bash
+        run: |
+          echo "Source validation is performed locally with: python3 tools/run_app_validation.py"

@@ -1,0 +1,44 @@
+{
+  "updateNo": "08.15",
+  "displayVersion": "3.0.0.0 Update08.15",
+  "status": "completed-local-validation",
+  "summary": "Broaden saved-mode type candidate ownership matching by merging ownership directly from the current save record and by matching rarity/base/ORIGINS aliases.",
+  "bugClassification": "Saved-mode type candidate ownership matching false negatives",
+  "rootCause": "The provided save data contains many owned generals/equipment, but the provided IssueLog was produced by an older Update07.x build. Current source also still had a weak point: type candidates relied on state.savedModeIndex only and exact normalized names, so stale indexes or save/candidate naming variants such as base names, rarity-prefixed names, readings, and ORIGINS labels could under-count saved candidates compared with all-data mode.",
+  "changedFiles": [
+    "hado_type_candidates.js",
+    "hado_version.js",
+    "tools/validate_type_candidate_saved_name_matching.py",
+    "docs/updates/README.md",
+    "docs/updates/roadmap.md",
+    "docs/updates/update08/implementation.md",
+    "docs/updates/update08/report.md",
+    "report/HADO_APP_3.0.0.0_UPDATE08.15_REPORT.json"
+  ],
+  "htmlSizeChange": {
+    "index.html": 0,
+    "hado_library_3.0.0.0.html": 0
+  },
+  "externalizationDecision": "No HTML/CSS change. The saved-mode candidate logic remains in external JavaScript.",
+  "candidateMatchingFix": {
+    "directSaveSources": ["generals", "generalStars", "generalSettings", "inheritedSkills", "equipments", "equipmentStars", "equipmentStages"],
+    "aliasExamples": [["関羽", "LR関羽（かんう）"], ["LR夏侯惇(ORIGINS)", "夏侯惇"], ["【三國志 覇道】LR司馬師（しばし）", "LR司馬師"]],
+    "zeroScorePolicy": "Saved-owned candidate rows remain visible even when matchedCount is zero."
+  },
+  "validation": [
+    {"command": "node --check hado_type_candidates.js", "result": "pass"},
+    {"command": "node --check hado_version.js", "result": "pass"},
+    {"command": "python3 -m json.tool report/HADO_APP_3.0.0.0_UPDATE08.15_REPORT.json", "result": "pass"},
+    {"command": "python3 tools/validate_type_candidate_saved_name_matching.py", "result": "pass"},
+    {"command": "python3 tools/validate_saved_type_candidates_zero_score_visible.py", "result": "pass"},
+    {"command": "python3 tools/validate_saved_mode_index_ownership_sources.py", "result": "pass"},
+    {"command": "python3 tools/validate_update_version_consistency.py", "result": "pass"},
+    {"command": "python3 tools/validate_app_js.py", "result": "pass"},
+    {"command": "node tools/test_type_score.js", "result": "pass"},
+    {"command": "node hado_status_effect_regression.js", "result": "pass"},
+    {"command": "git diff --check", "result": "pass"}
+  ],
+  "workflowResult": "pending-after-push",
+  "previewResult": "pending-after-push",
+  "minimumUserAcceptance": "Import the provided save data, switch to saved-data mode, open type candidates for ワクチン型, and confirm owned generals/equipment appear beyond the previously tiny matched-score-only counts."
+}

@@ -1,0 +1,52 @@
+{
+  "version": "3.0.0.0 Update08.22",
+  "summary": "Add saved-mode type-candidate diagnostic logging and fail-loud auto-merge settings checks.",
+  "bugClassification": "diagnostic gap for saved-data + role-limited type candidate filtering",
+  "rootCause": "Previous self-checks did not exercise hado_type_candidates.js saved-mode UI filtering, so savedScoreEntity/rowUsesUnownedSkill/savedCandidateAllowed rejection reasons were not visible in logs.",
+  "changedFiles": [
+    "hado_type_candidates.js",
+    "hado_version.js",
+    "HADO_DEV_INFO.json",
+    ".github/workflows/app-validation.yml",
+    ".github/workflows/auto-merge-codex-pr.yml",
+    "tools/test_type_candidate_diagnostics.js",
+    "tools/validate_auto_merge_workflow.py",
+    "tools/validate_merge_queue_workflow.py",
+    "docs/updates/update08/implementation.md",
+    "docs/updates/update08/report.md",
+    "docs/operations/merge-queue-auto-merge.md"
+  ],
+  "diagnosticFields": [
+    "typeCandidate:saved-role-rows",
+    "sourceCount",
+    "ownedCount",
+    "scoreVisibleCount",
+    "finalCount",
+    "limitedRows",
+    "roleEmptyRows",
+    "skillRejectedRows",
+    "skillRejectedSamples",
+    "noScoreSamples",
+    "saveSources"
+  ],
+  "autoMergeSettingsCheck": {
+    "workflow": ".github/workflows/auto-merge-codex-pr.yml",
+    "checks": [
+      "Repository allow_auto_merge",
+      "base branch protection summary",
+      "GraphQL enablePullRequestAutoMerge failure is workflow failure"
+    ],
+    "manualSettingsStillRequired": [
+      "Settings > General > Pull Requests > Allow auto-merge",
+      "Branch protection required status check: App Validation / app-validation",
+      "Require merge queue if desired by repository policy"
+    ]
+  },
+  "validation": [
+    "node --check hado_type_candidates.js",
+    "node --check tools/test_type_candidate_diagnostics.js",
+    "node tools/test_type_candidate_diagnostics.js"
+  ],
+  "previewResult": "pending-after-push",
+  "workflowResult": "pending-after-push"
+}

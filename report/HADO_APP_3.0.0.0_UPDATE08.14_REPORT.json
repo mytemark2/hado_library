@@ -1,0 +1,48 @@
+{
+  "updateNo": "08.14",
+  "displayVersion": "3.0.0.0 Update08.14",
+  "status": "completed-local-validation",
+  "summary": "Replace preview repository_dispatch dependency with direct rsync of the current source checkout to the preview repository, then verify CSS on the synced repo and live preview.",
+  "bugClassification": "Preview sync branch/source mismatch and indirect deployment dependency",
+  "rootCause": "The live preview still returned 404 for hado_styles.css because the app workflow depended on the preview repository sync-preview workflow, while that workflow hard-coded cloning feature/app-3.0.0.0. Fix commits on the current source branch could therefore be absent from the preview repository, and CSS presence was not guaranteed until after the indirect sync completed.",
+  "changedFiles": [
+    ".github/workflows/notify-preview.yml",
+    "hado_version.js",
+    "tools/validate_preview_workflow.py",
+    "docs/updates/README.md",
+    "docs/updates/roadmap.md",
+    "docs/updates/update08/implementation.md",
+    "docs/updates/update08/report.md",
+    "report/HADO_APP_3.0.0.0_UPDATE08.14_REPORT.json"
+  ],
+  "htmlSizeChange": {
+    "index.html": 0,
+    "hado_library_3.0.0.0.html": 0
+  },
+  "externalizationDecision": "Keep CSS externalized in hado_styles.css. The fix changes preview synchronization so the external stylesheet is copied from the same source checkout as index.html and is validated before and after publish.",
+  "previewSyncChange": {
+    "removedDependency": "repository_dispatch sync_app_preview path in the app workflow",
+    "newPath": "Checkout current app source branch, rsync preview assets into mytemark2/hado_library-preview main, commit/push, dispatch Pages deployment, verify live URL.",
+    "branchMarker": "PREVIEW_SOURCE_BRANCH.txt",
+    "commitMarker": "PREVIEW_SOURCE_COMMIT.txt",
+    "cssMinBytes": 100000,
+    "requiredCssSnippets": [":root{", ".panel{", ".app{"]
+  },
+  "validation": [
+    {"command": "node --check hado_version.js", "result": "pass"},
+    {"command": "node --check hado_update_meta.js", "result": "pass"},
+    {"command": "python3 -m json.tool HADO_DEV_INFO.json", "result": "pass"},
+    {"command": "python3 -m json.tool report/HADO_APP_3.0.0.0_UPDATE08.14_REPORT.json", "result": "pass"},
+    {"command": "python3 tools/validate_preview_workflow.py", "result": "pass"},
+    {"command": "python3 tools/validate_update_version_consistency.py", "result": "pass"},
+    {"command": "python3 tools/validate_external_css.py", "result": "pass"},
+    {"command": "python3 tools/validate_app_js.py", "result": "pass"},
+    {"command": "node tools/test_type_score.js", "result": "pass"},
+    {"command": "node hado_status_effect_regression.js", "result": "pass"},
+    {"command": "test ! -d updates/queue", "result": "pass"},
+    {"command": "git diff --check", "result": "pass"}
+  ],
+  "workflowResult": "pending-after-push; workflow now directly pushes current source checkout assets including hado_styles.css to the preview repository before dispatching Pages",
+  "previewResult": "pending-after-push",
+  "minimumUserAcceptance": "After push, confirm live preview hado_styles.css is HTTP 200, at least 100KB, and the page renders styled with 3.0.0.0 Update08.14."
+}

@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-06-07T06:04:52.977Z",
-  "dataSetId": "2026-06-07T04:23:26.720Z",
-  "crawlerVersion": "1.1.0.0",
+  "generatedAt": "2026-07-20T03:00:13.407Z",
+  "dataSetId": "2026-07-20T02:43:46.042Z",
+  "crawlerVersion": "1.1.0.2",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
     "hadou_generals.json",
@@ -33,11 +33,11 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 476,
-    "tactics": 455,
-    "equipments": 237,
-    "skills": 620,
-    "statusEffects": 200,
+    "generals": 485,
+    "tactics": 464,
+    "equipments": 247,
+    "skills": 651,
+    "statusEffects": 206,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
     "ethnicResearchSkills": 32,
@@ -47,11 +47,11 @@
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "4c9aa0cb",
-    "tactics": "a9afed3e",
-    "equipments": "4e60d216",
-    "skills": "bee67c33",
-    "statusEffects": "dcfa0de6",
+    "generals": "cda6a4d1",
+    "tactics": "18b2da92",
+    "equipments": "4e4f88f5",
+    "skills": "c5e8c5cf",
+    "statusEffects": "defa110c",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
     "ethnicArmaments": "c731a91c",
@@ -61,11 +61,11 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "4c9aa0cb",
-    "tactics": "a9afed3e",
-    "equipments": "4e60d216",
-    "skills": "bee67c33",
-    "statusEffects": "dcfa0de6",
+    "generals": "cda6a4d1",
+    "tactics": "18b2da92",
+    "equipments": "4e4f88f5",
+    "skills": "c5e8c5cf",
+    "statusEffects": "defa110c",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
     "ethnicArmaments": "c731a91c",
@@ -74,6 +74,7 @@
     "warhorses": "c5edd890",
     "warhorseSkills": "fac49238"
   },
+  "hotfixVersion": "1.1.0.2",
   "kind": "type_search_presets",
   "qualityAudit": {
     "ok": true,

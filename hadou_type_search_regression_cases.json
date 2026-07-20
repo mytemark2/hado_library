@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-06-07T06:04:52.977Z",
-  "dataSetId": "2026-06-07T04:23:26.720Z",
-  "crawlerVersion": "1.1.0.0",
+  "generatedAt": "2026-07-20T03:00:13.407Z",
+  "dataSetId": "2026-07-20T02:43:46.042Z",
+  "crawlerVersion": "1.1.0.2",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
     "hadou_generals.json",
@@ -33,11 +33,11 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 476,
-    "tactics": 455,
-    "equipments": 237,
-    "skills": 620,
-    "statusEffects": 200,
+    "generals": 485,
+    "tactics": 464,
+    "equipments": 247,
+    "skills": 651,
+    "statusEffects": 206,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
     "ethnicResearchSkills": 32,
@@ -47,11 +47,11 @@
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "4c9aa0cb",
-    "tactics": "a9afed3e",
-    "equipments": "4e60d216",
-    "skills": "bee67c33",
-    "statusEffects": "dcfa0de6",
+    "generals": "cda6a4d1",
+    "tactics": "18b2da92",
+    "equipments": "4e4f88f5",
+    "skills": "c5e8c5cf",
+    "statusEffects": "defa110c",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
     "ethnicArmaments": "c731a91c",
@@ -61,11 +61,11 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "4c9aa0cb",
-    "tactics": "a9afed3e",
-    "equipments": "4e60d216",
-    "skills": "bee67c33",
-    "statusEffects": "dcfa0de6",
+    "generals": "cda6a4d1",
+    "tactics": "18b2da92",
+    "equipments": "4e4f88f5",
+    "skills": "c5e8c5cf",
+    "statusEffects": "defa110c",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
     "ethnicArmaments": "c731a91c",
@@ -74,13 +74,26 @@
     "warhorses": "c5edd890",
     "warhorseSkills": "fac49238"
   },
+  "hotfixVersion": "1.1.0.2",
   "kind": "type_search_regression_cases",
   "qualityAudit": {
     "ok": true,
-    "caseCount": 13,
+    "caseCount": 23,
     "failedCount": 0,
     "failedCaseIds": [],
-    "policy": "1.0.5.23: 型検索基盤、既存関連リンク回帰、プリセット重要度スキーマ、条件解決、順位付け、LR司馬懿誤判定防止、攻撃速度型、通常攻撃拡張型を同時に監査する。名前表記差は正規化し、否定文脈は句単位で遮断する。"
+    "policy": "1.0.5.24: 型検索基盤、既存関連リンク回帰、プリセット重要度スキーマ、条件解決、順位付け、LR司馬懿誤判定防止、攻撃速度型、通常攻撃拡張型を同時に監査する。名前表記差は正規化し、否定文脈は句単位で遮断する。",
+    "jsonIndexContractCaseIds": [
+      "type-feature-no-pseudo-status-key",
+      "type-feature-tactic-source-part",
+      "role-score-tactic-role-gate",
+      "skill-owner-domain-separation",
+      "related-link-no-unresolved-ref",
+      "related-link-application-skill-coverage",
+      "equipment-search-stage-coverage",
+      "status-meta-group-consistency",
+      "tactic-attack-block-consistency",
+      "parameter-summary-no-array-fragment"
+    ]
   },
   "items": [
     {
@@ -90,28 +103,28 @@
       "detail": [
         {
           "groupKey": "selfAbilityBuff",
-          "ownerRelationCount": 3719,
-          "distinctOwnerCount": 1250
+          "ownerRelationCount": 3962,
+          "distinctOwnerCount": 1294
         },
         {
           "groupKey": "selfStateBuff",
-          "ownerRelationCount": 110,
-          "distinctOwnerCount": 105
+          "ownerRelationCount": 116,
+          "distinctOwnerCount": 110
         },
         {
           "groupKey": "selfResistanceBuff",
-          "ownerRelationCount": 1215,
-          "distinctOwnerCount": 418
+          "ownerRelationCount": 1290,
+          "distinctOwnerCount": 440
         },
         {
           "groupKey": "enemyAbilityDebuff",
-          "ownerRelationCount": 710,
-          "distinctOwnerCount": 418
+          "ownerRelationCount": 726,
+          "distinctOwnerCount": 421
         },
         {
           "groupKey": "enemyStateDebuff",
-          "ownerRelationCount": 247,
-          "distinctOwnerCount": 201
+          "ownerRelationCount": 255,
+          "distinctOwnerCount": 202
         },
         {
           "groupKey": "enemyResistanceDebuff",
@@ -125,8 +138,8 @@
       "description": "型検索補助索引が4カテゴリを全件収録する",
       "ok": true,
       "detail": {
-        "generals": 476,
-        "equipments": 237,
+        "generals": 485,
+        "equipments": 247,
         "siegeWeapons": 6,
         "warhorseSkills": 27
       }
@@ -393,6 +406,118 @@
           }
         ]
       }
+    },
+    {
+      "caseId": "type-feature-no-pseudo-status-key",
+      "description": "疑似状態をstatusEffectKeyとして出力しない",
+      "ok": true,
+      "detail": {
+        "unresolvedCount": 0
+      }
+    },
+    {
+      "caseId": "type-feature-tactic-source-part",
+      "description": "戦法本文由来parameterはtactic_textである",
+      "ok": true,
+      "detail": {
+        "rowCount": 2835
+      }
+    },
+    {
+      "caseId": "role-score-tactic-role-gate",
+      "description": "補佐・侍従の戦法本文をスコア加点しない",
+      "ok": true,
+      "detail": {
+        "forbiddenCount": 0
+      }
+    },
+    {
+      "caseId": "skill-owner-domain-separation",
+      "description": "skill_owner_indexの全アプリ技能を明示ドメイン付きで正本化する",
+      "ok": true,
+      "detail": {
+        "unresolvedCount": 0,
+        "applicationSkillCount": 1365
+      }
+    },
+    {
+      "caseId": "related-link-no-unresolved-ref",
+      "description": "relatedRefを解決可能なtargetKeyへ正規化する",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "unresolvedRefCount": 0,
+        "droppedSourceItemCount": 0,
+        "droppedTargetCount": 0,
+        "mechanicCount": 1025,
+        "policy": "Every app-visible source has one related-link row and every relatedRef uses a resolvable canonical target. Pseudo status labels remain explicit mechanics."
+      }
+    },
+    {
+      "caseId": "related-link-application-skill-coverage",
+      "description": "アプリ表示技能をrelated_link_indexへ全件収録する",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "expectedDatasetItemCount": 2885,
+        "indexedItemCount": 2885,
+        "missingCount": 0,
+        "missingSourceEntityKeys": [],
+        "applicationSkillExpectedCount": 1365,
+        "applicationSkillIndexedCount": 1365,
+        "missingApplicationSkillCount": 0,
+        "missingApplicationSkillNames": [],
+        "statusEffectExpectedCount": 206,
+        "statusEffectIndexedCount": 206
+      }
+    },
+    {
+      "caseId": "equipment-search-stage-coverage",
+      "description": "装備検索索引へ全段階の構造化技能本文を欠落なく収録する",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "expectedEquipmentCount": 246,
+        "indexedEquipmentCount": 246,
+        "missingEquipmentCount": 0,
+        "missingStageCount": 0,
+        "missingSkillRefCount": 0,
+        "missingEquipmentRows": [],
+        "missingStageRows": [],
+        "missingSkillRefs": [],
+        "representative": {
+          "equipment": "双鉄戟",
+          "stage": "urMax",
+          "keyword": "回復",
+          "ok": true
+        },
+        "policy": "装備検索は基本情報と構造化済み段階別技能を分離し、記事コメント・おすすめ武将・入手方法を検索本文へ混入させない。"
+      }
+    },
+    {
+      "caseId": "status-meta-group-consistency",
+      "description": "feature/roleのgroupKeyはstatus meta正本と一致する",
+      "ok": true,
+      "detail": {
+        "inconsistentCount": 0
+      }
+    },
+    {
+      "caseId": "tactic-attack-block-consistency",
+      "description": "attackBlocksがある戦法はhasAnyAttackEffect=trueである",
+      "ok": true,
+      "detail": {
+        "inconsistentCount": 0
+      }
+    },
+    {
+      "caseId": "parameter-summary-no-array-fragment",
+      "description": "parameter keywordsへ配列断片を混入させない",
+      "ok": true,
+      "detail": {
+        "fragmentCount": 0
+      }
     }
-  ]
+  ],
+  "contractVersion": "1.0"
 }

@@ -1,0 +1,78 @@
+{
+  "updateNo": "08.11",
+  "displayVersion": "3.0.0.0 Update08.11",
+  "status": "completed-local-validation",
+  "summary": "Add app-side preflight verification that the preview repository has a working GitHub Pages deployment workflow before dispatching preview sync.",
+  "bugClassification": "Preview publication workflow dependency not validated",
+  "rootCause": "Preview deployment has two stages: syncing app files into the preview repository and publishing the preview repository to GitHub Pages. The app workflow verified synced assets after deployment, but did not preflight that the preview repository had a valid jekyll-gh-pages.yml Pages publishing workflow. Recreating that workflow allowed CSS to load because Pages publishing resumed.",
+  "changedFiles": [
+    ".github/workflows/notify-preview.yml",
+    "hado_version.js",
+    "tools/validate_preview_workflow.py",
+    "docs/updates/README.md",
+    "docs/updates/roadmap.md",
+    "docs/updates/update08/implementation.md",
+    "docs/updates/update08/report.md",
+    "report/HADO_APP_3.0.0.0_UPDATE08.11_REPORT.json"
+  ],
+  "htmlSizeChange": {
+    "index.html": 0,
+    "hado_library_3.0.0.0.html": 0
+  },
+  "externalizationDecision": "No HTML/source CSS change. The fix adds a preview Pages workflow preflight to the app notification workflow.",
+  "previewPagesPreflight": {
+    "repo": "mytemark2/hado_library-preview",
+    "workflow": ".github/workflows/jekyll-gh-pages.yml",
+    "requiredEntries": [
+      "actions/jekyll-build-pages",
+      "actions/deploy-pages",
+      "push:",
+      "branches:"
+    ]
+  },
+  "validation": [
+    {
+      "command": "node --check hado_version.js",
+      "result": "pass"
+    },
+    {
+      "command": "python3 -m json.tool report/HADO_APP_3.0.0.0_UPDATE08.11_REPORT.json",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_preview_workflow.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_update_version_consistency.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_external_css.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_app_js.py",
+      "result": "pass"
+    },
+    {
+      "command": "node tools/test_type_score.js",
+      "result": "pass"
+    },
+    {
+      "command": "node hado_status_effect_regression.js",
+      "result": "pass"
+    },
+    {
+      "command": "test ! -d updates/queue",
+      "result": "pass"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass"
+    }
+  ],
+  "workflowResult": "pending-after-push; workflow now fails before dispatch if preview Pages workflow is missing or malformed",
+  "previewResult": "pending-after-push",
+  "minimumUserAcceptance": "After push, confirm Notify Hado Library Preview passes the new Pages workflow preflight and preview CSS remains loaded."
+}

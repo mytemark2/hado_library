@@ -1,0 +1,81 @@
+{
+  "updateNo": "08.13",
+  "displayVersion": "3.0.0.0 Update08.13",
+  "status": "completed-local-validation",
+  "summary": "Validate hado_styles.css source and deployed asset size/content so missing, empty, or truncated CSS cannot pass preview checks.",
+  "bugClassification": "Preview CSS asset content validation gap",
+  "rootCause": "Live preview inspection showed hado_styles.css was not a valid full stylesheet. Previous checks verified references/snippets but did not validate the source CSS before dispatch or require a minimum deployed CSS size, so a missing/truncated CSS asset could still slip through until browser devtools showed 404 or an unusable asset.",
+  "changedFiles": [
+    ".github/workflows/notify-preview.yml",
+    "hado_version.js",
+    "tools/validate_preview_workflow.py",
+    "docs/updates/README.md",
+    "docs/updates/roadmap.md",
+    "docs/updates/update08/implementation.md",
+    "docs/updates/update08/report.md",
+    "report/HADO_APP_3.0.0.0_UPDATE08.13_REPORT.json"
+  ],
+  "htmlSizeChange": {
+    "index.html": 0,
+    "hado_library_3.0.0.0.html": 0
+  },
+  "externalizationDecision": "No HTML/source CSS change. The fix adds source and deployed CSS asset content/size validation.",
+  "cssValidation": {
+    "sourceMinBytes": 100000,
+    "deployedMinBytes": 100000,
+    "sourceRequiredSnippets": [
+      ":root{",
+      ".panel{",
+      ".app{"
+    ],
+    "deployedRequiredSnippets": [
+      ":root{",
+      ".panel{"
+    ]
+  },
+  "validation": [
+    {
+      "command": "node --check hado_version.js",
+      "result": "pass"
+    },
+    {
+      "command": "python3 -m json.tool report/HADO_APP_3.0.0.0_UPDATE08.13_REPORT.json",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_preview_workflow.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_update_version_consistency.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_external_css.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 tools/validate_app_js.py",
+      "result": "pass"
+    },
+    {
+      "command": "node tools/test_type_score.js",
+      "result": "pass"
+    },
+    {
+      "command": "node hado_status_effect_regression.js",
+      "result": "pass"
+    },
+    {
+      "command": "test ! -d updates/queue",
+      "result": "pass"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass"
+    }
+  ],
+  "workflowResult": "pending-after-push; workflow now fails before dispatch if source CSS is missing/truncated and after publish if deployed CSS is missing/truncated",
+  "previewResult": "pending-after-push",
+  "minimumUserAcceptance": "After push, confirm live preview hado_styles.css is HTTP 200 and at least 100KB, and the page renders styled."
+}
