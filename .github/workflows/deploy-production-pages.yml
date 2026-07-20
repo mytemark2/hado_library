@@ -1,0 +1,56 @@
+name: Deploy Hado Library Production Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - index.html
+      - HADO_DEV_INFO.json
+      - hado_*.js
+      - hado_styles.css
+      - hadou_*.json
+      - .github/workflows/deploy-production-pages.yml
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: hado-library-production-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v5
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Verify production runtime assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s index.html
+          test -s hado_version.js
+          test -s hado_update_meta.js
+          test -s hado_formation.js
+          test -s hado_styles.css
+          test -s hadou_generals.json
+          test -s hadou_search_index.json
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
