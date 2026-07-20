@@ -19,8 +19,13 @@ const tabsSource = read('hado_tabs.js');
 const bootstrap = read('hado_bootstrap.js');
 const statusEffects = read('hado_status_effects.js');
 const relatedLinks = JSON.parse(read('hadou_related_link_index.json'));
+const versionSource = read('hado_version.js');
+const updateNo = versionSource.match(/updateNo:\s*'([^']+)'/)?.[1];
+const revision = versionSource.match(/revision:\s*(\d+)/)?.[1];
+assert(updateNo && revision, 'visible version source must define updateNo and revision');
+const assetVersion = `${updateNo}-r${revision}`;
 
-assert(index.indexOf('hado_tabs.js?v=10.1-r156') < index.indexOf('hado_core.js?v=10.1-r156'), 'shared tab runtime must load before consumers');
+assert(index.indexOf(`hado_tabs.js?v=${assetVersion}`) < index.indexOf(`hado_core.js?v=${assetVersion}`), 'shared tab runtime must load before consumers');
 assert(index.includes('role="tablist"') && index.includes('data-tab-key="normal"'), 'primary/search tab semantics missing');
 assert(index.includes('aria-controls="normalSearchInputRow"') && index.includes('aria-controls="searchPresetBar"') && index.includes('aria-controls="typeSearchPanel"'), 'search tabs must identify their primary controlled content');
 assert(core.includes('window.HADO_TABS.sync(mainTabList,activeMainTab)') && core.includes('role="tabpanel"'), 'main/detail tabs must use shared state and panels');
