@@ -2,7 +2,7 @@
 
 ## 状態
 
-Update10.1〜Update10.3 完了。Update10.4は実装・ローカル全体検証まで完了し、Actionsと公開Preview同期を確認中。Update10全体の正式配布物監査と`main`反映判断は継続項目とする。
+Update10.1〜Update10.4の開発、全体回帰、Actions、公開Preview確認まで完了。既知残課題はなく、正式版`main`への反映を承認済み。配布用ZIPは当面公開しない。
 
 ## Update10.1 — タブ視認性改善
 
@@ -77,6 +77,9 @@ Update10.1〜Update10.3 完了。Update10.4は実装・ローカル全体検証�
 - marker: `PREVIEW_SOURCE_COMMIT.txt=197e62d2a778671dc46d2dbc0384e53cae9da6db`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update10.1`。
 - 公開URL: `https://mytemark2.github.io/hado_library-preview/`。表示版、外部JavaScript/CSS、対象tabpanel、PC/390x844表示、タブ切替、LR張飛の対策リンク、内蔵検証 `criticalFailures=0 / warnings=0 / info=0`、browser warning/error 0件を確認した。
 
-## 残課題
+## 開発完了・正式版判断
 
-- Update10.1〜Update10.4としての残課題はなし。Update10全体の正式配布物監査と`main`反映判断は継続項目とする。
+- Update10.1〜Update10.4としての残課題はなし。
+- 配布用ZIPは当面公開しないため、ZIP生成、実展開、SHA-256監査は未実施であり、既知不具合や実装残ではない。
+- `feature/app-3.0.0.0`の開発完了版を正式版候補とし、`main`へPull Requestで反映する。
+- 正式版の画面表示は`3.0.0.0`のみとし、開発用のUpdate番号・revisionは表示しない。
