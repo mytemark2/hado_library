@@ -16,9 +16,11 @@
     const releaseVersion = String(raw?.releaseVersion || VERSION_SOURCE.releaseVersion || '').trim();
     const updateNo = String(raw?.updateNo || VERSION_SOURCE.updateNo || '').trim();
     const revision = Number(raw?.revision || VERSION_SOURCE.revision || 0);
-    const displayVersion = String(raw?.displayVersion || (releaseVersion && updateNo ? `${releaseVersion} Update${updateNo}` : releaseVersion)).trim();
-    const visibleVersion = String(raw?.visibleVersion || (displayVersion && revision ? `${displayVersion} r${revision}` : displayVersion)).trim();
-    return { ...VERSION_SOURCE, ...raw, releaseVersion, updateNo, revision, displayVersion, visibleVersion };
+    const formalRelease = Boolean(raw?.formalRelease ?? VERSION_SOURCE.formalRelease ?? false);
+    const derivedDisplayVersion = formalRelease ? releaseVersion : (releaseVersion && updateNo ? `${releaseVersion} Update${updateNo}` : releaseVersion);
+    const displayVersion = String(raw?.displayVersion || derivedDisplayVersion).trim();
+    const visibleVersion = String(raw?.visibleVersion || (formalRelease ? releaseVersion : (displayVersion && revision ? `${displayVersion} r${revision}` : displayVersion))).trim();
+    return { ...VERSION_SOURCE, ...raw, releaseVersion, updateNo, revision, formalRelease, displayVersion, visibleVersion };
   }
 
   function setText(node, value) {

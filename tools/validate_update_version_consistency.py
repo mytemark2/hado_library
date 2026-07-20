@@ -35,7 +35,8 @@ def main() -> int:
     release_version = version_field(version_source, "releaseVersion")
     update_no = version_field(version_source, "updateNo")
     revision = number_field(version_source, "revision")
-    display_version = f"{release_version} Update{update_no}"
+    formal_release = bool(re.search(r"formalRelease:\s*true", version_source))
+    display_version = release_version if formal_release else f"{release_version} Update{update_no}"
 
     dev_info = json.loads((ROOT / "HADO_DEV_INFO.json").read_text(encoding="utf-8"))
     duplicated = sorted(DERIVED_KEYS.intersection(dev_info))
@@ -107,7 +108,8 @@ def main() -> int:
         if "hado_type_candidates.js" in sources and sources.index("hado_update_meta.js") > sources.index("hado_type_candidates.js"):
             raise SystemExit(f"{html_name} loads hado_update_meta.js after hado_type_candidates.js")
 
-    print(f"update version consistency ok: {display_version} (revision {revision}, single source hado_version.js)")
+    channel = "formal release" if formal_release else f"revision {revision}"
+    print(f"update version consistency ok: {display_version} ({channel}, single source hado_version.js)")
     return 0
 
 
