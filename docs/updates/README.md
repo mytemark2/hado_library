@@ -2,7 +2,7 @@
 
 開発ブランチ: `feature/app-3.0.0.0`
 
-現在の到達点: `3.0.0.0 Update10.2 r157`（操作ガイド最新化を完了、公開Preview確認済み）
+現在の到達点: `3.0.0.0 Update10.3 r158`（ガイドの視認性・画面同期をローカル確認済み、公開Preview確認中）
 
 全体計画: [3.0.0.0 全体ロードマップ](roadmap.md)
 
@@ -17,7 +17,7 @@
 | Update07 | 完了（最新: 07.6） | 10段階適合スコア・評価ロジック調整・候補一覧の選択状態表示と役割限定条件対応 | [roadmap](update07/roadmap.md) | [implementation](update07/implementation.md) | [report](update07/report.md) |
 | Update08 | 完了（最新: 08.23） | 保存データ対応型編成ナビ・新規部隊作成・保存評価・履歴・グループ管理・CSS外部化・単一バージョン定義 | [roadmap](update08/roadmap.md) | [implementation](update08/implementation.md) | [report](update08/report.md) |
 | Update09 | 完了（最新: 09.5.65 r155） | PC・スマホUI/UX、検索境界、候補ワークスペース、実用性改善 | [roadmap](update09/roadmap.md) | [implementation](update09/implementation.md) | [report](update09/report.md) |
-| Update10 | 進行中（Update10.1・10.2完了） | タブ視認性・全体回帰・ガイド更新・正式版候補 | [roadmap](update10/roadmap.md) | [implementation](update10/implementation.md) | [report](update10/report.md) |
+| Update10 | 進行中（Update10.1・10.2完了、10.3改修中） | タブ視認性・全体回帰・ガイド更新・正式版候補 | [roadmap](update10/roadmap.md) | [implementation](update10/implementation.md) | [report](update10/report.md) |
 
 ## 更新方式
 

@@ -7,11 +7,8 @@ const path = require('path');
 const root = path.resolve(__dirname, '..');
 const read = (name) => fs.readFileSync(path.join(root, name), 'utf8');
 const core = read('hado_core.js');
-const version = read('hado_version.js');
 const index = read('index.html');
 
-assert(version.includes("updateNo: '10.2'"), 'Update10.2 version is required');
-assert(version.includes('revision: 157'), 'revision 157 is required');
 assert(core.includes('UPDATE10_2_QUICK_GUIDE_STEPS'), 'quick guide must be owned by the active external runtime');
 assert(core.includes('UPDATE10_2_QUICK_GUIDE_STEPS.length'), 'quick guide must render every current step');
 assert(core.includes('syncUpdate10QuickGuideCopy();'), 'quick guide copy must be synchronized during setup');
@@ -29,7 +26,7 @@ assert(core.includes('syncUpdate10QuickGuideCopy();'), 'quick guide copy must be
   '概要・変化率・基礎・戦法・技能・その他',
 ].forEach((needle) => assert(core.includes(needle), `missing current guide contract: ${needle}`));
 
-assert(core.includes("target:'.formation-quick-summary-strip,.formation-board-card'"), 'formation summary guide must target the current summary or board');
+assert(core.includes("target:'.formation-quick-summary-strip'"), 'formation summary guide must target the result summary itself');
 assert(core.includes("formationInnerTab:'edit'"), 'formation summary guide must open the edit tab');
 assert(core.includes("formationInnerTab:'parameter'"), 'formation calculation guide must open the parameter tab');
 assert(index.includes('id="uxQuickGuide"'), 'start guide host must remain available');

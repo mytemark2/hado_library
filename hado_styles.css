@@ -942,8 +942,8 @@ body.warhorse-tab .warhorse-list-item:hover{border-color:#60a5fa;box-shadow:0 12
 .guided-tour-bubble::before{content:"";position:absolute;width:14px;height:14px;background:#fff;border-left:1px solid #bfdbfe;border-top:1px solid #bfdbfe;transform:rotate(45deg);left:24px;top:-8px}
 .guided-tour-bubble.is-above::before{top:auto;bottom:-8px;transform:rotate(225deg)}
 .guided-tour-kicker{font-size:12px;font-weight:800;color:#2563eb;letter-spacing:.04em}
-.guided-tour-title{font-size:17px;font-weight:900;color:#0f172a;line-height:1.35}
-.guided-tour-text{font-size:14px;line-height:1.65;color:#334155;white-space:pre-line}
+.guided-tour-title{font-size:17px;font-weight:900;color:#0f172a;line-height:1.5;letter-spacing:.015em}
+.guided-tour-text{font-size:14px;line-height:1.8;letter-spacing:.02em;color:#334155;white-space:pre-line}
 .guided-tour-actions{display:flex;gap:8px;align-items:center;justify-content:flex-end;flex-wrap:wrap;border-top:1px solid #e5e7eb;padding-top:10px}
 .guided-tour-actions button{border-radius:999px;padding:8px 12px;font-size:13px;font-weight:800}
 .guided-tour-actions .guided-tour-end{background:#fff;color:#475569;border-color:#cbd5e1;margin-right:auto}
@@ -999,7 +999,7 @@ body.guided-tour-active{overflow-x:hidden}
 .guided-tour-bubble .guided-tour-actions{display:flex!important;gap:8px!important;flex-wrap:wrap!important;align-items:center!important;justify-content:flex-end!important}
 @media (max-width:980px),(pointer:coarse){
   .guided-tour-bubble{max-height:min(46vh,390px)!important}
-  .guided-tour-text{line-height:1.55!important}
+  .guided-tour-text{line-height:1.8!important}
 }
 
 
