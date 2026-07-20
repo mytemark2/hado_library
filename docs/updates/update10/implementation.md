@@ -60,7 +60,7 @@ Update10.1〜Update10.4 実装完了。全体回帰、Actions、公開Preview、
 - `hado_update_meta.js`は正式版の`displayVersion`と`visibleVersion`を`releaseVersion`だけから導出する。開発版は従来どおりUpdate番号とrevisionを表示する。
 - `HADO_DEV_INFO.json`は`releaseStatus: released`へ変更し、版数値の重複は追加していない。
 - 正式版/開発版の両契約を`tools/test_update09_5_40_revision_display.js`、`tools/validate_update_version_consistency.py`、`tools/validate_update09_phase4_guides.py`で検証する。
-- `index.html`と実機能JavaScript/CSSは変更していない。HTMLサイズは29,254 bytesから増減なしで、インラインJavaScriptを追加していない。
+- `index.html`と実機能JavaScript/CSSは変更していない。HTMLサイズは29,228 bytesから増減なしで、インラインJavaScriptを追加していない。
 
 ## 実装方針
 
