@@ -2,7 +2,7 @@
 
 ## 状態
 
-Update10.1・Update10.2 完了。Update10全体の正式配布物監査と`main`反映判断は継続項目とする。
+Update10.1・Update10.2 完了。Update10.3は実装・公開Preview確認中。Update10全体の正式配布物監査と`main`反映判断は継続項目とする。
 
 ## Update10.1 — タブ視認性改善
 
@@ -31,6 +31,17 @@ Update10.1・Update10.2 完了。Update10全体の正式配布物監査と`main`
 - 最小受入操作: 公開Previewで「ガイド開始」から検索ガイドを進め、検索モード独立・IME・末尾符号・候補ワークスペースの説明を確認する。部隊編成へ切り替えて再度「ガイド開始」を押し、結果サマリー6項目と変化率タブの説明を確認する。
 - Git・Actions・Preview: PR [#252](https://github.com/mytemark2/hado_library/pull/252) を正本へマージした。App Validation run `29710202740` は成功。アプリ側Preview通知 run `29710220880` は、同期成功後のPages待機でGitHub API 503となったが、Preview repositoryのDeploy run `29710234872` を再実行して成功した。
 - Preview confirmation: Preview repository `main` は `456a9903fd228d66d60466b9e26d6326fb9eed65`。markerは `PREVIEW_SOURCE_COMMIT.txt=686f09f75a4f92f76f23810c04ce68c0af4ec3e9`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.0.0 Update10.2`。公開URLで `3.0.0.0 Update10.2 r157`、検索ガイドの開始・検索モード独立説明、browser warning/error 0件を確認した。
+
+## Update10.3 — ガイド視認性と画面同期
+
+- 表示版: `3.0.0.0 Update10.3 r158`。
+- 改修: 本文行間をPC/スマホとも`1.8`、本文文字間隔を`0.02em`へ統一。初回ガイド開始時と検索ガイド8番目を通常検索へ同期し、部隊編成ガイド8番目は表示中の結果サマリーを選択する。
+- 同種確認: ガイド対象解決を全候補の可視判定へ変更したため、結果サマリー以外のPC/スマホ重複DOMも先頭非表示による誤選択を防止する。
+- ローカル検証: `python -X utf8 tools/run_app_validation.py` は123/123成功。専用回帰、JavaScript/JSON/HTML、検索、保存Import/Export、部隊編成、派生JSON20ファイルの契約、禁止queue不在、差分検査を確認した。
+- ローカル実操作: PCで部隊編成から初回ガイドを開始して検索/通常検索へ移ること、検索ガイド8/10で通常検索を選択すること、部隊編成ガイド8/9で2個の結果サマリーのうち表示中の1個へ黄色枠が付くことを確認した。390x844では本文14px・行間25.2px・文字間隔0.28px、本文内スクロールなし、横はみ出しなし、browser warning/error 0件を確認した。
+- HTMLサイズ: Git管理上の`index.html`は29,228 bytesから増減なし。変更は外部JavaScript/CSSへ実装し、HTMLは同じ長さのasset cache key更新だけである。
+- Git、Actions、公開Previewは完了後に追記する。
+- 最小受入操作: 初回ガイドを通常検索以外から開始して通常検索へ移ること、検索ガイド8/10で通常検索が選択されること、部隊編成ガイド8/9で結果サマリーが黄色枠の対象になること、PC/スマホで本文が重ならないことを確認する。
 
 ## 引継ぎ済みの基準
 

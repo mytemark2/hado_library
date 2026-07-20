@@ -3,11 +3,11 @@
   'use strict';
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.0.0.0',
-    updateNo: '10.2',
-    revision: 157,
+    updateNo: '10.3',
+    revision: 158,
     baseAppVersion: '2.9.6.5',
-    summary: 'Update10.2: synchronize the start, search, formation, and warhorse guides with the current Update10 workflows.',
-    updatedAt: '2026-07-20T09:41:22+09:00'
+    summary: 'Update10.3: improve guide readability and synchronize guide steps with their intended screens.',
+    updatedAt: '2026-07-20T10:50:17+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;
 })();

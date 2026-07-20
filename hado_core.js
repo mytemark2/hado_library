@@ -867,7 +867,7 @@ function getGuidedTourElements(){
 function getGuidedTourDefinitions(){
   return {
     intro:[
-      {title:'覇道ライブラリへようこそ',target:'#appTitlePanel',body:'初回は、準備と基本操作だけを案内します。\n検索・部隊編成・軍馬編成の各タブでは、上部の「ガイド開始」から専用ガイドを確認できます。'},
+      {title:'覇道ライブラリへようこそ',target:'#appTitlePanel',tab:'search',searchMode:'normal',body:'初回は、準備と基本操作だけを案内します。\n検索・部隊編成・軍馬編成の各タブでは、上部の「ガイド開始」から専用ガイドを確認できます。'},
       {title:'現在のデータ状態を確認',target:'#dataContextSummary',body:'上部のデータバーで、全データ/保存データ、保存名、武将状態、装備状態を確認できます。\nこの欄を押すと、データ管理を開けます。'},
       (IS_WEB_DEPLOYMENT?{title:'公開JSONは自動で読み込まれます',target:'#dataContextSummary',body:'ウェブ版では、公開サイトに格納されたJSON一式を起動時に自動取得します。\nJSONフォルダやJSONファイルを手動で選択する必要はありません。'}:{title:'JSONデータを読み込みます',target:'#dataManagementSheet .data-file-pane',openDataSheet:true,body:'PCは「JSONフォルダ再読込」、スマホは「JSONファイル読込」を使います。\n最新クローラーで生成したJSON一式を読み込んでください。'}),
       {title:'保存データを準備します',target:'#dataSavedOptions',openDataSheet:true,dataMode:'saved',body:'保存データでは、お気に入り登録した武将・装備、部隊編成、軍馬を管理できます。\n既存データはImport、新規利用は「新規」から作成します。'},
@@ -883,7 +883,7 @@ function getGuidedTourDefinitions(){
       {title:'カテゴリを選択',target:'#categoryBar',tab:'search',searchMode:'normal',expandSearchPanel:true,body:'検索対象カテゴリを複数選択できます。\n型検索では、武将・装備・兵器・軍馬技能の4カテゴリに限定されます。'},
       {title:'状態変化検索',target:'#searchPresetBar',tab:'search',searchMode:'status',expandSearchPanel:true,body:'状態変化検索では、6分類から目的を選び、状態変化を1件選択します。\n自部隊能力強化、自部隊状態強化、自部隊不利対策、敵部隊能力低下、敵部隊状態弱化、敵部隊有利対策を逆引きできます。'},
       {title:'型検索と型編成ナビ',target:'#typeSearchPanel',tab:'search',searchMode:'type',expandSearchPanel:true,body:'型検索では、攻撃速度型、通常攻撃拡張型、撃心型、ゾンビ型などのプリセットを選択できます。型編成ナビは「主将から考える」「目的から考える」「型を直接選ぶ」の3通りです。\n全データ表示は未所持を含む理論候補、保存データ表示は登録済み所持データ中心の候補です。'},
-      {title:'候補ワークスペース',target:'.result-copy-actions',tab:'search',searchMode:'type',expandSearchPanel:true,body:'編集モードでは複数選択でき、カードを押すたびに候補へ即時追加・解除されます。編集中の型・役割・選択候補は閉じても復元されます。\n候補モードでは役割別に候補を確認し、型編成ナビ経由なら「この型で新規部隊」、既存部隊なら「配置先を選ぶ」へ進みます。侍従候補はUR以下です。'},
+      {title:'候補ワークスペース',target:'.result-copy-actions',tab:'search',searchMode:'normal',expandSearchPanel:true,body:'編集モードでは複数選択でき、カードを押すたびに候補へ即時追加・解除されます。編集中の型・役割・選択候補は閉じても復元されます。\n候補モードでは役割別に候補を確認し、型編成ナビ経由なら「この型で新規部隊」、既存部隊なら「配置先を選ぶ」へ進みます。侍従候補はUR以下です。'},
       {title:'検索結果から詳細を確認',target:'#results,#resultSelect',tab:'search',body:'PCでは一覧、スマホではドロップダウンから結果を選択します。選択すると右側または下部の内容詳細へ表示されます。\n通常検索・状態変化検索・型検索は、選択中の詳細も別々に保持します。'},
       {title:'内容詳細と履歴操作',target:'#detail',tab:'search',body:'内容詳細では、概要・変化率・基礎・戦法・技能・その他を切り替え、関連リンクやパラメータを確認できます。\n戻る/進む、検索結果の前後移動、詳細コピーも利用できます。'}
     ],
@@ -895,7 +895,7 @@ function getGuidedTourDefinitions(){
       {title:'武将・装備枠を確認',target:'.formation-board-card,.formation-team-grid-selectable',body:'配置パネルで選択中の武将・装備枠を確認します。保存データ表示では、お気に入り登録済みの所持データを前提に選びます。',tab:'formation',formationInnerTab:'edit'},
       {title:'兵器・武装・異民族武将',target:'.formation-extension-panel,.formation-extension-grid',body:'兵器・武装・異民族武将は、部隊条件に応じて追加効果やパラメータに反映されます。攻城や駐屯向けの確認で重要です。',tab:'formation',formationInnerTab:'edit'},
       {title:'参軍と軍馬',target:'.formation-advisor-row,.formation-warhorse-editor-card',body:'参軍と軍馬も部隊結果に反映されます。PCでは武将編集画面の下、スマホでは配置パネルの参軍の下に軍馬が表示されます。',tab:'formation',formationInnerTab:'edit'},
-      {title:'結果サマリーの6項目を確認',target:'.formation-quick-summary-strip,.formation-board-card',body:'編成タブの結果サマリーでは、兵力、被ダメージ、通常攻撃、戦法初動、戦法速度、戦法最大倍率を表示します。最終能力値ではなく、現在編成から確認できる加算値です。カードを押すと根拠を拡大表示します。',tab:'formation',formationInnerTab:'edit'},
+      {title:'結果サマリーの6項目を確認',target:'.formation-quick-summary-strip',body:'編成タブの結果サマリーでは、兵力、被ダメージ、通常攻撃、戦法初動、戦法速度、戦法最大倍率を表示します。最終能力値ではなく、現在編成から確認できる加算値です。カードを押すと根拠を拡大表示します。',tab:'formation',formationInnerTab:'edit'},
       {title:'変化率タブで計算根拠を確認',target:'.formation-result-focus[data-formation-work-panel="parameter"],.formation-param-section',body:'変化率タブでは、戦法発動時・出陣時・通常時・駐屯防衛時に分けて加算値を確認します。必要に応じて各項目の計算根拠を展開できます。',tab:'formation',formationInnerTab:'parameter'}
     ],
     warhorse:[
@@ -917,7 +917,10 @@ function getCurrentGuidedTourKey(){
 function getGuidedTourStepTarget(step){
   const selectors=String(step?.target||'').split(',').map(v=>v.trim()).filter(Boolean);
   for(const sel of selectors){
-    try{const el=document.querySelector(sel);if(el&&el.getClientRects&&el.getClientRects().length)return el;}catch{}
+    try{
+      const visible=[...document.querySelectorAll(sel)].find(el=>el&&el.getClientRects&&el.getClientRects().length);
+      if(visible)return visible;
+    }catch{}
   }
   for(const sel of selectors){
     try{const el=document.querySelector(sel);if(el)return el;}catch{}
