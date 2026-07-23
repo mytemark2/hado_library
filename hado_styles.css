@@ -1414,6 +1414,23 @@ body.formation-tab .formation-result-focus .formation-table{max-width:100%;overf
 .selected-tag-badge{border-radius:999px;border-color:#93c5fd;background:#eff6ff;color:#1d4ed8;padding:3px 7px;font-weight:700}
 .selected-tag-remove{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;color:#1d4ed8;font-weight:900}
 .selected-tag-remove:hover{background:#dbeafe}
+
+/* 3.0.1.0: tag groups expose their target categories and follow search-category order. */
+.tag-picker-title{display:flex;align-items:center;gap:7px;flex-wrap:wrap;color:var(--text)}
+.tag-picker-category{display:inline-flex;align-items:center;border:1px solid #93c5fd;border-radius:999px;background:#dbeafe;color:#1e3a8a;padding:2px 7px;font-size:11px;font-weight:800;line-height:1.35}
+.tag-picker-group-name{font-size:13px;font-weight:700;color:var(--muted)}
+
+/* 状態変化検索では状態変化2選択＋解除＋タグを同じ1行に置き、候補パネルだけ次行へ展開する。 */
+.search-preset-row.has-tag-filter{display:grid!important;grid-template-columns:minmax(0,.85fr) minmax(0,1.25fr) 32px auto!important;gap:6px!important;align-items:center!important;overflow:visible!important}
+.search-preset-row.has-tag-filter .search-preset-source{display:none!important}
+.search-preset-row.has-tag-filter #tagPickerToggleBtn{grid-column:4;white-space:nowrap;min-width:60px;padding:6px 8px}
+.search-preset-row.has-tag-filter .tag-picker-panel{grid-column:1/-1;width:100%;box-sizing:border-box;margin-top:2px}
+@media (max-width:520px){
+  .search-preset-row.has-tag-filter{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr) 30px auto!important;gap:4px!important;padding:5px!important}
+  .search-preset-row.has-tag-filter .search-preset-select{min-width:0!important;max-width:none!important;width:100%!important;font-size:11px!important;padding:5px 4px!important}
+  .search-preset-row.has-tag-filter #tagPickerToggleBtn{min-width:52px;padding:5px 6px;font-size:11px}
+  .search-preset-row.has-tag-filter .quick-search-reset-btn{width:30px;min-width:30px;padding:4px}
+}
 /* 型検索の選択済み条件は×付きトークン。表示専用重要度は小型ラベル。 */
 .type-search-badge{border-radius:999px;padding:2px 5px 2px 4px;box-shadow:0 1px 0 rgba(15,23,42,.05)}
 .type-search-badge-label,.type-search-importance-chip{display:inline-flex;align-items:center;gap:2px;border-radius:3px;padding:1px 4px;font-size:10px;font-weight:900;line-height:1.25}

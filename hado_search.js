@@ -291,6 +291,7 @@ function buildQuickStatusEffectGroupOwnerRowsFromIndex(filter){
     const ownerMap=index.bucket[key]||new Map();
     arr.forEach(item=>{
       if(state.viewMode==='saved'&&!itemMatchesSavedMode(item,key))return;
+      if(!matchesSelectedTags(item))return;
       const names=[getItemDisplayName(item),item?.name,item?.title,item?.rawName,item?.raw?.name,item?.raw?.title,item?.raw?.rawName].map(norm).filter(Boolean);
       let record=null;
       for(const n of names){if(ownerMap.has(n)){record=ownerMap.get(n);break;}}
@@ -475,9 +476,10 @@ function buildQuickStatusEffectOwnerRows(filter){
     let matched=0;
     const active=activeDatasetKeys.has(key);
     if(!active){stats.push({key,label,active:false,total:Array.isArray(items)?items.length:0,matched:0});return;}
-    // クイック検索は状態変化所有者専用。カテゴリ選択だけ尊重し、キーワード・タグ条件は適用しない。
+    // 状態変化条件とタグ条件をANDで適用する。タグ内は共通のグループ内OR・グループ間ANDを維持する。
     (Array.isArray(items)?items:[]).forEach(item=>{
       if(state.viewMode==='saved'&&!itemMatchesSavedMode(item,key))return;
+      if(!matchesSelectedTags(item))return;
       const hits=collectQuickStatusEffectOwnersForItem(item,key,filter,statusEffectNames);
       if(!hits.length)return;
       const metric={display:`${filter.label} 所有`,value:hits.length,quickStatusEffect:true,reasonText:buildQuickOwnerSelectionReason(hits,filter),relationTypes:[...new Set(hits.map(h=>norm(h.relationType||'')).filter(Boolean))].join('/')};
@@ -497,8 +499,9 @@ function buildQuickStatusEffectOwnerRows(filter){
 
 function getQuickOwnerFilterCacheKey(filter){
   if(!filter)return '';
-  // カテゴリ選択はクイック検索に反映する。キーワード・タグは反映しない。
-  return [filter.kind||'',filter.key||'',filter.group||'',filter.label||'',filter.statusName||'',filter.relationType||'',state.viewMode||'',state.equipmentStage||'',state.savedSearchCacheSeq||0,'equipmentSkillStageFilter:v1',[...getQuickOwnerActiveDatasetKeys()].join('|')].map(norm).join('@@');
+  // カテゴリ・表示範囲・タグ条件をすべてキャッシュ世代へ反映する。
+  const tagKey=[...(state.selectedTags||[])].map(norm).filter(Boolean).sort((a,b)=>a.localeCompare(b,'ja')).join('|');
+  return [filter.kind||'',filter.key||'',filter.group||'',filter.label||'',filter.statusName||'',filter.relationType||'',state.viewMode||'',state.equipmentStage||'',state.savedSearchCacheSeq||0,'equipmentSkillStageFilter:v1',[...getQuickOwnerActiveDatasetKeys()].join('|'),tagKey].map(norm).join('@@');
 }
 function runQuickStatusEffectOwnerSearchAsync(filter,options={}){
   if(!filter)return;
@@ -565,6 +568,7 @@ function runQuickStatusEffectOwnerSearchAsync(filter,options={}){
       const task=tasks[idx];
       const {key,label,item,stat}=task;
       if(state.viewMode==='saved'&&!itemMatchesSavedMode(item,key))continue;
+      if(!matchesSelectedTags(item))continue;
       const hits=collectQuickStatusEffectOwnersForItem(item,key,filter,statusEffectNames);
       if(!hits.length)continue;
       const metric={display:`${filter.label} 所有`,value:hits.length,quickStatusEffect:true,reasonText:buildQuickOwnerSelectionReason(hits,filter),relationTypes:[...new Set(hits.map(h=>norm(h.relationType||'')).filter(Boolean))].join('/')};
@@ -649,6 +653,8 @@ function renderSearchConditionChips(){
     chips.push(`<span class="search-condition-chip is-keyword">状態変化検索：${esc(state.quickStatusEffectOwnerFilter.label||'')}</span>`);
     chips.push(`<span class="search-condition-chip">対象データ：${esc(getQuickOwnerActiveDatasetLabel())}</span>`);
     chips.push(`<span class="search-condition-chip">表示範囲：${state.viewMode==='saved'?'保存データ':'全データ'}</span>`);
+    const tags=Array.isArray(state.selectedTags)?state.selectedTags:[];
+    if(tags.length)groupTagsByKey(tags).forEach((groupTags,key)=>{chips.push(`<span class="search-condition-chip">タグ（${esc(getTagGroupCategoryLabel(key))}｜${esc(displayTagGroupKey(key))}・OR）：${esc(groupTags.map(getTagValueLabel).join(' / '))}</span>`);});
     wrap.innerHTML=chips.join('');
     return;
   }
@@ -788,10 +794,10 @@ function getSearchModeSelectionSnapshot(){const item=state.selectedItem;return i
 function createSearchModeContext(mode,options={}){
   const inherited=cloneSearchModeCategories(options.inheritCategories||state.activeCategories);
   const categories=mode==='type'?Object.fromEntries(Object.keys(state.activeCategories||{}).map(key=>[key,TYPE_SEARCH_ALLOWED_CATEGORIES.includes(key)])):inherited;
-  return {initialized:true,activeCategories:categories,selectedTags:mode==='status'?[]:[...(state.selectedTags||[])],selection:mode==='normal'?getSearchModeSelectionSnapshot():null,keyword:mode==='normal'?(els.searchInput?.value||''):'',nameOnly:mode==='normal'?!!(els.nameOnlySearchToggle?.checked||state.nameOnlySearch):false,quickFilter:null,quickCache:null,quickGroup:'all',quickEffect:'',typePresetId:mode==='type'?(state.typeSearchSelectedPresetId||''):'',typePresetDirty:mode==='type'?!!state.typeSearchPresetDirty:false,typeStatusIds:mode==='type'?[...(state.typeSearchSelectedStatusEffectIds||[])]:[],typeFeatureIds:mode==='type'?[...(state.typeSearchSelectedFeatureIds||[])]:[],resultRenderLimit:Number(state.searchResultRenderLimit)||100};
+  return {initialized:true,activeCategories:categories,selectedTags:[...(state.selectedTags||[])],selection:mode==='normal'?getSearchModeSelectionSnapshot():null,keyword:mode==='normal'?(els.searchInput?.value||''):'',nameOnly:mode==='normal'?!!(els.nameOnlySearchToggle?.checked||state.nameOnlySearch):false,quickFilter:null,quickCache:null,quickGroup:'all',quickEffect:'',typePresetId:mode==='type'?(state.typeSearchSelectedPresetId||''):'',typePresetDirty:mode==='type'?!!state.typeSearchPresetDirty:false,typeStatusIds:mode==='type'?[...(state.typeSearchSelectedStatusEffectIds||[])]:[],typeFeatureIds:mode==='type'?[...(state.typeSearchSelectedFeatureIds||[])]:[],resultRenderLimit:Number(state.searchResultRenderLimit)||100};
 }
 function ensureSearchModeContext(mode,options={}){if(!state.searchModeContexts||typeof state.searchModeContexts!=='object')state.searchModeContexts={normal:null,status:null,type:null};if(!state.searchModeContexts[mode])state.searchModeContexts[mode]=createSearchModeContext(mode,options);return state.searchModeContexts[mode];}
-function captureSearchModeContext(mode){const context=ensureSearchModeContext(mode);context.activeCategories=cloneSearchModeCategories(state.activeCategories);context.selection=getSearchModeSelectionSnapshot();context.resultRenderLimit=Number(state.searchResultRenderLimit)||100;if(mode==='normal'){context.keyword=els.searchInput?.value||'';context.nameOnly=!!(els.nameOnlySearchToggle?.checked||state.nameOnlySearch);context.selectedTags=[...(state.selectedTags||[])];}else if(mode==='status'){context.quickFilter=state.quickStatusEffectOwnerFilter?safeCloneForDebug(state.quickStatusEffectOwnerFilter):null;context.quickCache=state._quickOwnerRowsCache||null;context.quickGroup=document.getElementById('quickStatusEffectGroupSelect')?.value||'all';context.quickEffect=document.getElementById('quickStatusEffectSelect')?.value||'';}else if(mode==='type'){context.selectedTags=[...(state.selectedTags||[])];context.typePresetId=state.typeSearchSelectedPresetId||'';context.typePresetDirty=!!state.typeSearchPresetDirty;context.typeStatusIds=[...(state.typeSearchSelectedStatusEffectIds||[])];context.typeFeatureIds=[...(state.typeSearchSelectedFeatureIds||[])];}debugLog('searchMode:context-capture',{mode,keyword:context.keyword||'',categoryKeys:Object.keys(context.activeCategories||{}).filter(key=>context.activeCategories[key]),selectedName:context.selection?.name||'',quickLabel:context.quickFilter?.label||'',typePresetId:context.typePresetId||''});return context;}
+function captureSearchModeContext(mode){const context=ensureSearchModeContext(mode);context.activeCategories=cloneSearchModeCategories(state.activeCategories);context.selection=getSearchModeSelectionSnapshot();context.resultRenderLimit=Number(state.searchResultRenderLimit)||100;context.selectedTags=[...(state.selectedTags||[])];if(mode==='normal'){context.keyword=els.searchInput?.value||'';context.nameOnly=!!(els.nameOnlySearchToggle?.checked||state.nameOnlySearch);}else if(mode==='status'){context.quickFilter=state.quickStatusEffectOwnerFilter?safeCloneForDebug(state.quickStatusEffectOwnerFilter):null;context.quickCache=state._quickOwnerRowsCache||null;context.quickGroup=document.getElementById('quickStatusEffectGroupSelect')?.value||'all';context.quickEffect=document.getElementById('quickStatusEffectSelect')?.value||'';}else if(mode==='type'){context.typePresetId=state.typeSearchSelectedPresetId||'';context.typePresetDirty=!!state.typeSearchPresetDirty;context.typeStatusIds=[...(state.typeSearchSelectedStatusEffectIds||[])];context.typeFeatureIds=[...(state.typeSearchSelectedFeatureIds||[])];}debugLog('searchMode:context-capture',{mode,keyword:context.keyword||'',categoryKeys:Object.keys(context.activeCategories||{}).filter(key=>context.activeCategories[key]),selectedTags:context.selectedTags,selectedName:context.selection?.name||'',quickLabel:context.quickFilter?.label||'',typePresetId:context.typePresetId||''});return context;}
 function resolveSearchModeSelection(selection){if(!selection)return null;if(selection.item&&getItemDisplayName(selection.item)===selection.name)return selection.item;return findItemByCategoryAndName(selection.category,selection.name);}
 function restoreSearchModeContext(mode,context){
   Object.keys(state.activeCategories||{}).forEach(key=>{state.activeCategories[key]=!!context.activeCategories?.[key];});
@@ -800,7 +806,7 @@ function restoreSearchModeContext(mode,context){
   if(els.searchInput)els.searchInput.value=mode==='normal'?(context.keyword||''):'';
   if(els.nameOnlySearchToggle)els.nameOnlySearchToggle.checked=mode==='normal'&&!!context.nameOnly;
   state.nameOnlySearch=mode==='normal'&&!!context.nameOnly;
-  state.selectedTags=mode==='status'?[]:[...(context.selectedTags||[])];
+  state.selectedTags=[...(context.selectedTags||[])];
   if(mode==='status'){
     state.quickStatusEffectOwnerFilter=context.quickFilter?safeCloneForDebug(context.quickFilter):null;
     state._quickOwnerRowsCache=context.quickCache||null;
@@ -816,7 +822,7 @@ function restoreSearchModeContext(mode,context){
   if(typeof renderTagSearchControls==='function')renderTagSearchControls();
   debugLog('searchMode:context-restore',{mode,keyword:els.searchInput?.value||'',categoryKeys:Object.keys(state.activeCategories||{}).filter(key=>state.activeCategories[key]),selectedName:selected?getItemDisplayName(selected):'',quickLabel:state.quickStatusEffectOwnerFilter?.label||'',typePresetId:state.typeSearchSelectedPresetId||''});
 }
-function updateSearchModeUi(){const mode=norm(state.searchMode||'normal');let activeModeButton=null;[['normal','searchModeNormalBtn'],['status','searchModeStatusBtn'],['type','searchModeTypeBtn']].forEach(([key,id])=>{const btn=document.getElementById(id);if(!btn)return;const active=mode===key;btn.classList.toggle('is-active',active);btn.setAttribute('aria-selected',active?'true':'false');if(active)activeModeButton=btn;});const modeBar=document.getElementById('searchModeBar');if(window.HADO_TABS?.sync)window.HADO_TABS.sync(modeBar,activeModeButton);const statusBar=document.getElementById('searchPresetBar');if(statusBar)statusBar.hidden=mode!=='status';const typePanel=document.getElementById('typeSearchPanel');if(typePanel)typePanel.hidden=mode!=='type';const queryRow=document.getElementById('searchQueryRow');if(queryRow)queryRow.hidden=mode==='status';const inputRow=document.getElementById('normalSearchInputRow');if(inputRow)inputRow.hidden=mode!=='normal';const tagWrap=document.getElementById('tagSearchWrap');if(tagWrap)tagWrap.hidden=mode==='status';const enterNote=document.querySelector('.search-enter-note');if(enterNote)enterNote.hidden=mode!=='normal';if(els.nameOnlySearchToggle)els.nameOnlySearchToggle.disabled=mode!=='normal';if(els.clearKeywordBtn)els.clearKeywordBtn.hidden=mode!=='normal';if(els.copyParamResultsBtn)els.copyParamResultsBtn.hidden=mode==='type';document.querySelectorAll('#categoryBar button[data-category]').forEach(btn=>{const hidden=mode==='type'&&!TYPE_SEARCH_ALLOWED_CATEGORIES.includes(btn.dataset.category||'');btn.classList.toggle('type-search-category-hidden',hidden);btn.disabled=hidden;});renderTypeSearchSelectedConditions();renderSearchConditionChips();}
+function updateSearchModeUi(){const mode=norm(state.searchMode||'normal');let activeModeButton=null;[['normal','searchModeNormalBtn'],['status','searchModeStatusBtn'],['type','searchModeTypeBtn']].forEach(([key,id])=>{const btn=document.getElementById(id);if(!btn)return;const active=mode===key;btn.classList.toggle('is-active',active);btn.setAttribute('aria-selected',active?'true':'false');if(active)activeModeButton=btn;});const modeBar=document.getElementById('searchModeBar');if(window.HADO_TABS?.sync)window.HADO_TABS.sync(modeBar,activeModeButton);const statusBar=document.getElementById('searchPresetBar');if(statusBar){statusBar.hidden=mode!=='status';statusBar.classList.toggle('has-tag-filter',mode==='status');}const typePanel=document.getElementById('typeSearchPanel');if(typePanel)typePanel.hidden=mode!=='type';const queryRow=document.getElementById('searchQueryRow');if(queryRow)queryRow.hidden=mode==='status';const inputRow=document.getElementById('normalSearchInputRow');if(inputRow)inputRow.hidden=mode!=='normal';const tagWrap=document.getElementById('tagSearchWrap'),tagInputRow=tagWrap?.querySelector('.tag-input-row'),tagButton=document.getElementById('tagPickerToggleBtn'),tagPanel=document.getElementById('tagPickerPanel');if(tagWrap&&queryRow&&tagWrap.parentElement!==queryRow)queryRow.appendChild(tagWrap);if(mode==='status'&&statusBar){tagWrap.hidden=true;if(tagButton&&tagButton.parentElement!==statusBar)statusBar.appendChild(tagButton);if(tagPanel&&tagPanel.parentElement!==statusBar)statusBar.appendChild(tagPanel);}else{tagWrap.hidden=false;if(tagButton&&tagInputRow&&tagButton.parentElement!==tagInputRow)tagInputRow.insertBefore(tagButton,tagInputRow.firstChild);if(tagPanel&&tagPanel.parentElement!==tagWrap)tagWrap.appendChild(tagPanel);}const enterNote=document.querySelector('.search-enter-note');if(enterNote)enterNote.hidden=mode!=='normal';if(els.nameOnlySearchToggle)els.nameOnlySearchToggle.disabled=mode!=='normal';if(els.clearKeywordBtn)els.clearKeywordBtn.hidden=mode!=='normal';if(els.copyParamResultsBtn)els.copyParamResultsBtn.hidden=mode==='type';document.querySelectorAll('#categoryBar button[data-category]').forEach(btn=>{const hidden=mode==='type'&&!TYPE_SEARCH_ALLOWED_CATEGORIES.includes(btn.dataset.category||'');btn.classList.toggle('type-search-category-hidden',hidden);btn.disabled=hidden;});renderTagSearchControls();renderTypeSearchSelectedConditions();renderSearchConditionChips();}
 function setSearchMode(mode,options={}){const next=['normal','status','type'].includes(norm(mode))?norm(mode):'normal';const previous=norm(state.searchMode||'normal');if(previous!==next){const inheritedCategories=cloneSearchModeCategories(state.activeCategories);captureSearchModeContext(previous);if(previous==='status')state._quickOwnerAsyncSeq=(state._quickOwnerAsyncSeq||0)+1;const nextContext=ensureSearchModeContext(next,{inheritCategories:inheritedCategories});state.searchMode=next;restoreSearchModeContext(next,nextContext);updateCategoryStyles();}updateSearchModeUi();if(!options.skipRender){resetMobileResultSelectLimit();renderSearchResults();renderDetail();if(next==='status'&&state.quickStatusEffectOwnerFilter){const fallbackRows=Array.isArray(state.lastResultRows)?state.lastResultRows.slice():[];runQuickStatusEffectOwnerSearchAsync(state.quickStatusEffectOwnerFilter,{keepPreviousRowsWhilePending:true,fallbackRows,reason:'search-mode-restore'});}if(!options.skipHistory)pushOperationHistory('search-mode-'+next);}debugLog('searchMode:set',{previous,next,skipRender:!!options.skipRender,isolatedContext:true});}
 function setupTypeSearchUi(){const bind=(id,fn)=>{const el=document.getElementById(id);if(el)el.addEventListener('click',fn);};ensureSearchModeContext('normal');const presetSelect=document.getElementById('typeSearchPresetSelect');if(presetSelect)presetSelect.addEventListener('change',()=>applyTypeSearchPreset(presetSelect.value));bind('searchModeNormalBtn',()=>setSearchMode('normal'));bind('searchModeStatusBtn',()=>setSearchMode('status'));bind('searchModeTypeBtn',()=>setSearchMode('type'));bind('typeSearchStatusEffectAddBtn',()=>{const select=document.getElementById('typeSearchStatusEffectSelect');addTypeSearchCondition('statusEffectRefs',select?.value||'');if(select)select.value='';});bind('typeSearchFeatureAddBtn',()=>{const select=document.getElementById('typeSearchFeatureSelect');addTypeSearchCondition('typeFeatures',select?.value||'');if(select)select.value='';});bind('typeSearchClearBtn',()=>clearTypeSearchConditions());refreshTypeSearchOptions();updateSearchModeUi();debugLog('typeSearch:setup',{presetCount:getTypeSearchPresetItems().length,statusCatalogCount:getTypeSearchStatusCatalog().length,featureCatalogCount:getTypeSearchFeatureCatalog().length,allowedCategories:TYPE_SEARCH_ALLOWED_CATEGORIES,autoSearch:true,manualRunButton:false,uiLayout:'compact-3rows',isolatedContexts:true});}
 
@@ -1021,10 +1027,10 @@ function renderSearchResults(){
     }
     rows.length=0;
     if(quickOwner&&!quickOwner.pending){
-      rows.push(...(quickOwner.rows||[]));
+      rows.push(...(quickOwner.rows||[]).filter(row=>row&&row.item&&matchesSelectedTags(row.item)));
       debugLog('searchUx:owner-results',{source:'HADO-2.5.5.25-mobile-search-ux',filter:state.quickStatusEffectOwnerFilter,resultCount:rows.length,stats:quickOwner.stats,ms:quickOwner.ms});
     }else if(quickOwner&&quickOwner.pending&&quickOwner.keepPreviousRowsWhilePending&&Array.isArray(quickOwner.fallbackRows)&&quickOwner.fallbackRows.length){
-      rows.push(...quickOwner.fallbackRows.filter(row=>row&&row.item));
+      rows.push(...quickOwner.fallbackRows.filter(row=>row&&row.item&&matchesSelectedTags(row.item)));
       debugLog('searchUx:owner-results-pending-fallback',{source:'HADO-2.7.3.48-QUICK-OWNER-FAVORITE-REFRESH',filter:state.quickStatusEffectOwnerFilter,resultCount:rows.length,reason:quickOwner.fallbackReason||'',policy:'お気に入り切替後の非同期再検索中だけ旧結果を保持して0件表示を防止'});
     }else{
       debugLog('searchUx:owner-results-pending',{source:'HADO-2.5.5.25-mobile-search-ux',filter:state.quickStatusEffectOwnerFilter});

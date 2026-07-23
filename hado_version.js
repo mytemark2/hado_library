@@ -2,12 +2,12 @@
 (() => {
   'use strict';
   const HADO_VERSION = Object.freeze({
-    releaseVersion: '3.0.0.0',
-    updateNo: '10.4',
-    revision: 159,
-    baseAppVersion: '2.9.6.5',
-    summary: 'Update10.4: import the latest crawler dataset and add six manually maintained status effects.',
-    updatedAt: '2026-07-20T12:15:00+09:00'
+    releaseVersion: '3.0.1.0',
+    updateNo: '11',
+    revision: 160,
+    baseAppVersion: '3.0.0.0',
+    summary: 'Update11: organize tag groups by category and support tag filtering in status-effect search.',
+    updatedAt: '2026-07-23T00:00:00+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;
 })();
