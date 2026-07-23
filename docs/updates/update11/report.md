@@ -2,7 +2,7 @@
 
 ## 状態
 
-実装・ローカル検証済み。Pull Request、Actions、公開Preview確認を進行中。
+完了。実装、ローカル検証、Pull Request、Actions、イベント駆動Preview同期、公開URL実操作を確認済み。
 
 ## 変更概要
 
@@ -37,7 +37,24 @@
 - 基準ブランチ: `feature/app-3.0.0.0`。
 - 基準commit: `5a06478461e756e41305c57e9b9b649f5fcb2fe4`。
 - 作業ブランチ: `codex/update301-tag-organization`。
-- Commit、Pull Request、Actions、公開Preview marker・実操作は未確認。
+- 実装commit: `0ec6d719cc251d8e6254c5a2ef0d02b7f893960d`。
+- Pull Request: [#266](https://github.com/mytemark2/hado_library/pull/266)（`feature/app-3.0.0.0`向け、merge済み）。
+- 正本merge commit: `f127ca3d80682b032aa1a66e70ccbc1c8a2cc8e1`。
+- `App Validation / app-validation`: run `30015078301`、成功。
+- `Notify Hado Library Preview`: run `30015225348`、成功。
+- `Deploy Hado Library Preview`: run `30015272034`、成功。
+
+## Preview confirmation
+
+- 公開URL: https://mytemark2.github.io/hado_library-preview/
+- 表示版: `3.0.1.0 Update11 r160`。
+- Preview repository `main`: `50fd95fc30c4052d4c0a8434cfb35329c743b624`。
+- marker: `PREVIEW_SOURCE_COMMIT.txt=f127ca3d80682b032aa1a66e70ccbc1c8a2cc8e1`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.1.0 Update11`。
+- 必須ファイル: `index.html`、`hado_formation.js`、`hado_styles.css`、`hadou_*.json`、`.nojekyll`、marker 3件を確認。
+- DOM / asset: Update11のタイトル、状態変化検索、タグ入口、カテゴリbadge、`hado_search.js?v=11-r160`、`hado_styles.css?v=11-r160`を確認。
+- 実操作: 公開版でも「攻撃上昇」363件に「兵科:騎兵」を追加して82件へAND絞り込み。PCの同一行配置とスマートフォン実効375pxの同一行・横overflowなしを確認。
+- Debug Log / console: error / warning なし。
+- 判定: PASS。
 
 ## 最小受入操作
 
@@ -48,4 +65,4 @@
 
 ## 残課題
 
-Pull Request、Actions、公開Preview確認。
+none
