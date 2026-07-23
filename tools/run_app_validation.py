@@ -68,6 +68,7 @@ COMMANDS.extend(
         ["node", "tools/test_update10_1_tab_clarity.js"],
         ["node", "tools/test_update10_2_guide_refresh.js"],
         ["node", "tools/test_update10_3_guide_navigation.js"],
+        ["node", "tools/test_update11_tag_organization.js"],
         ["node", "tools/test_json_index_contract.js"],
         ["python3", "tools/validate_legacy_hado_app_not_loaded.py"],
         ["python3", "tools/validate_update_version_consistency.py"],
