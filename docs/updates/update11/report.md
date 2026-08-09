@@ -1,6 +1,6 @@
 # Update11 Report
 
-## 3.0.1.0 正式版反映（公開処理中）
+## 3.0.1.0 正式版反映完了
 
 - 正式表示: `3.0.1.0`。内部識別`Update11.2 r162`はキャッシュ・履歴・開発Preview向けに保持する。
 - 統合元: `main` commit `46912ef5b19e5f2b5562e4a65d219a08d308f2ce`、開発正本 commit `863c137011f5ad20d7a6daf27634823d745c1f31`。
@@ -9,7 +9,21 @@
 - 全体回帰: `python -X utf8 tools/run_app_validation.py` 127/127成功。本番Pages workflow、JavaScript・JSON・HTML・外部CSS・派生JSON 20件・検索・詳細・編成・保存Import / Export・レスポンシブ契約を確認した。
 - ローカル実操作: title、h1、診断画面がすべて`3.0.1.0`のみで、`Update11.2`と`r162`の可視表示なし。「追加」ボタン0件、`技能:練兵`の入力だけで自動追加・武将5件、状態変化「攻撃上昇」とのAND検索5件を確認した。
 - PC配置: 状態変化選択とタグ入口が同一行、横overflowなし。アプリ内検証ログ2,402文字を生成し、error / exception / failedなし。
-- Pull Request、Actions、本番Pages反映、正式公開URL実操作は実施中。
+- Git: リリースcommit `5417b6a3e82d08e1f9360576de30e772eb602ffd`、PR [#272](https://github.com/mytemark2/hado_library/pull/272)、正式版`main` commit `0755b447973747648094d2b37bfa75a1b4d9d403`。
+- マージ準備: `python -X utf8 tools/check_pr_merge_readiness.py --base main`はbase `46912ef5b19e5f2b5562e4a65d219a08d308f2ce`、`--base feature/app-3.0.0.0`はbase `863c137011f5ad20d7a6daf27634823d745c1f31`で成功。6競合は版数・本番Pages・文書の事実を内容単位で統合済み。
+- Actions: `App Validation / app-validation` run `31306314323`成功。`Deploy Hado Library Production Pages` run `31306352848`成功。`Notify Hado Library Preview` run `31306352862`は`main` pushのため意図どおりskip。
+- Pages: source `main` / `/`、status `built`、配信commit `0755b447973747648094d2b37bfa75a1b4d9d403`。
+
+### 正式公開確認
+
+- 公開URL: https://mytemark2.github.io/hado_library/
+- 表示版: title、h1、診断画面はいずれも`3.0.1.0`のみ。`Update11.2`と`r162`の可視表示なし。
+- DOM / runtime / data: 状態変化選択、タグ入口、タグ一覧DOM、正式版runtime assets、公開JSON読込を確認。表示件数は武将485、戦法444、技能1,365、装備247、状態変化206、兵器6、武装18、専用技能32、陣形21、軍馬5、軍馬技能27。
+- 操作: 「追加」ボタン0件。`技能:練兵`を入力すると自動追加され武将5件。状態変化「攻撃上昇」とのAND検索も5件。状態変化選択とタグ入口は同一行、横overflowなし。
+- Debug Log: 画面内検証は`OK`、`criticalFailures: 0`、`warnings: 0`、`info: 0`。表示版は`3.0.1.0`。
+- 判定: PASS。
+- 最小受入操作: 正式公開URLの通常検索で`技能:練兵`を入力し、追加ボタンなしでタグが追加され武将5件になることを確認する。
+- 残課題: none。
 
 ## Update11.2 完了報告
 
