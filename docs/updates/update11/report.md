@@ -1,6 +1,6 @@
 # Update11 Report
 
-## Update11.3 実装・検証記録
+## Update11.3 Preview反映報告（スマホ実機受入待ち）
 
 - 表示版: `3.0.1.0 Update11.3 r163`。
 - 実装: タグ描画先行、世代番号付き遅延検索、スマホ入力16px、429px以下の状態変化検索2段配置、選択済みタグ・件数の折り返し表示。
@@ -9,8 +9,16 @@
 - 全体回帰: `python -X utf8 tools/run_app_validation.py` 127/127成功。JavaScript・JSON・HTML・外部CSS・派生JSON 20件・検索・詳細・編成・保存Import / Export・レスポンシブ契約を確認した。
 - ローカル実操作: `技能:練兵` を入力後、検索進捗56%時点で選択済みタグが表示済みであること、その後に武将5件へ確定することを確認した。状態変化「攻撃上昇」とタグ「技能:練兵」のAND検索は越吉・関興・関索・曹洪・曹真の5件。
 - PC 1280px: 状態変化分類・状態変化・解除・タグのtop座標が266pxで一致し、行の `scrollWidth=clientWidth=956px`、文書横overflow 0pxを確認した。
-- スマホ契約: 520px以下の入力16px、429px以下の2段配置、選択済みタグ折り返し、件数全表示、viewportズーム維持を専用回帰で確認した。ブラウザーのURLポリシーによりローカル検証用の狭幅フレーム作成が拒否されたため、実際の320px・375px・390px操作は公開Preview反映後の受入確認対象とする。
-- Pull Request、Actions、Preview同期、公開URL確認結果は、この改修の公開確認後に本節へ追記する。
+- スマホ契約: 520px以下の入力16px、429px以下の2段配置、選択済みタグ折り返し、件数全表示、viewportズーム維持を専用回帰で確認した。ブラウザーのURLポリシーによりローカル検証用の狭幅フレーム作成が拒否されたため、実際の320px・375px・390px操作は利用者のスマホ受入確認対象とする。
+- Git: 基準 `863c137011f5ad20d7a6daf27634823d745c1f31`、実装commit `8f23aa6882fafa436e2c4ec7fadd96ed6af050e4`、PR [#274](https://github.com/mytemark2/hado_library/pull/274)、正本merge commit `0d5af461a5cc283d33739caa72b9d9c08649bf18`。
+- マージ準備: `python -X utf8 tools/check_pr_merge_readiness.py --base feature/app-3.0.0.0` 成功。取得base `863c137011f5ad20d7a6daf27634823d745c1f31`、head `8f23aa6882fafa436e2c4ec7fadd96ed6af050e4`、競合なし。
+- Actions: `App Validation / app-validation` run `31315203580` 成功、`Notify Hado Library Preview` run `31315240852` 成功。
+- Preview repository `main`: `bbaa10d577dfdef840d7ee4b30a76d1b9b2c7b62`。`Deploy Hado Library Preview` run `31315258424` 成功。
+- Preview marker: `PREVIEW_SOURCE_COMMIT.txt=0d5af461a5cc283d33739caa72b9d9c08649bf18`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.1.0 Update11.3`。
+- 公開URL: https://mytemark2.github.io/hado_library-preview/ 。表示版、Update11.3のJS/CSSとcache key、状態変化検索・タグDOM、必須runtime・派生JSON・`.nojekyll` を確認した。
+- 公開実操作: `技能:練兵` は検索進捗34%時点で選択済みタグが表示され、その後武将5件へ確定した。状態変化「攻撃上昇」とのAND検索も越吉・関興・関索・曹洪・曹真の5件。Debug Log表示・非表示とログ生成を確認し、console error / warning 0件。
+- 最小受入操作: スマホで公開URLを開き、(1)キーワード欄タップで画面が自動拡大しない、(2)状態変化検索が2段で欠けない、(3)タグ選択直後にbadgeが表示されてから検索が進む、(4)選択済みタグとヒット件数が省略されない、の4点を確認する。
+- 残課題: 320px・375px・390pxのスマホ実機受入確認。
 
 ## Update11.2 完了報告
 
