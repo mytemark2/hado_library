@@ -1,5 +1,17 @@
 # Update11 Report
 
+## Update11.2 検証中
+
+- 表示版: `3.0.1.0 Update11.2 r162`。
+- 実装: 有効タグ完全一致時の自動追加、IME変換保護、無効入力保持、重複追加の副作用抑止、「追加」ボタン削除、3列レスポンシブ化。
+- HTML: 変更前29,257 bytes、変更後29,180 bytes（77 bytes減）。HTMLはボタン削除と外部asset cache key更新のみで、動作・表示は外部JavaScript/CSSへ実装。
+- 専用回帰: `node tools/test_update11_2_tag_auto_add.js` 成功。
+- 全体回帰: `python -X utf8 tools/run_app_validation.py` 126/126成功。JavaScript・JSON・HTML・外部CSS・派生JSON 20件・検索・詳細・編成・保存Import / Export・レスポンシブ契約を確認した。
+- ローカル実操作: 「追加」ボタンなし、部分一致入力保持、`技能:練兵` の完全一致入力で自動追加・入力欄消去・武将5件、重複入力でbadge 1件・結果5件を維持、無効な `技能:連兵` はEnter後も保持、状態変化「攻撃上昇」とタグ「技能:練兵」のAND検索5件を確認した。
+- PC 1280px: 状態変化分類・状態変化・解除・タグのtop座標がすべて231pxで同一行、横overflowなし。ブラウザconsole error / warning 0件。
+- IME境界: 専用回帰で `compositionstart` / `compositionend`、`isComposing`、keyCode 229の保護を固定した。
+- Pull Request、Actions、イベント駆動Preview同期、公開URL実操作は実施中。
+
 ## Update11.1 完了報告
 
 - 表示版: `3.0.1.0 Update11.1 r161`。

@@ -3,7 +3,7 @@
 .save-input-overlay{position:fixed;inset:0;background:rgba(15,23,42,.54);display:none;align-items:center;justify-content:center;z-index:220000;padding:16px;isolation:isolate}.save-input-overlay.is-visible{display:flex}.save-input-overlay .save-input-card{z-index:220001}.save-input-overlay.is-visible{display:flex}.save-input-card{width:min(420px,94vw);background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:0 8px 24px rgba(0,0,0,.18);display:grid;gap:12px}.save-input-title{font-size:16px;font-weight:700}.save-input-actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}.save-input-actions button{min-width:80px}
 
 .search-input-row,.tag-input-row{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;align-items:center}.search-input-row button,.tag-input-row button{white-space:nowrap}.name-only-search-label{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;border:1px solid var(--border);background:#fff;border-radius:10px;padding:10px 12px;font-size:14px;color:var(--text)}.name-only-search-label input{margin:0}
-.tag-input-row{grid-template-columns:auto minmax(0,1fr) auto auto}.tag-search-wrap{display:grid;gap:8px}.tag-rule-note{font-size:12px;color:var(--muted);line-height:1.5}.selected-tag-list{display:flex;gap:6px;flex-wrap:wrap;align-items:center}.selected-tag-group{display:inline-flex;gap:4px;align-items:center;flex-wrap:wrap;border:1px dashed #bfdbfe;border-radius:10px;padding:3px 5px;background:#f8fbff}.selected-tag-group-label{font-size:11px;font-weight:700;color:#475569;padding:0 2px}.selected-tag-badge{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--border);border-radius:999px;padding:4px 8px;background:#eff6ff;color:#1d4ed8;font-size:12px}.selected-tag-remove{border:none;background:transparent;color:#1d4ed8;padding:0 2px;line-height:1;font-size:14px}.tag-picker-panel{display:none;border:1px solid var(--border);border-radius:12px;padding:12px;background:#fafafa;max-height:320px;overflow:auto}.tag-picker-panel.is-visible{display:grid;gap:12px}.tag-picker-group{display:grid;gap:6px}.tag-picker-title{font-size:13px;font-weight:700;color:var(--muted)}.tag-picker-options{display:flex;gap:6px;flex-wrap:wrap}.tag-picker-option{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--border);border-radius:999px;padding:5px 8px;background:#fff;font-size:12px}.tag-search-note{font-size:12px;color:var(--muted)}.mobile-search-history-actions,.result-select-actions{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center}.mobile-delete-history-btn,.mobile-result-favorite-btn{white-space:nowrap}.mobile-result-favorite-btn:disabled{opacity:.45;cursor:not-allowed}@media (min-width:981px) and (pointer:fine){.app{margin-left:240px;max-width:calc(100vw - 260px)}}@media (max-width:520px){.detail-tabs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px}.detail-tab-btn{white-space:nowrap;padding:8px 10px}.parameter-row{grid-template-columns:1fr}.parameter-value{text-align:left}.app{margin-left:auto!important;max-width:1400px!important}.layout{grid-template-columns:1fr!important}.results{display:none!important}.result-select-wrap{display:grid!important;gap:8px}.pc-search-history-panel{display:none!important}.mobile-search-history-panel{display:block!important;position:static!important;width:auto!important;max-height:none!important;overflow:visible!important;z-index:auto!important}.mobile-search-history-panel .search-history-select{display:block!important}.search-history-list{display:none!important}.general-detail-layout{grid-template-columns:1fr}.general-skill-grid,.general-two-col{grid-template-columns:1fr}.detail-col-width-control{width:100%;justify-content:flex-start}.detail-col-width-control input[type=range]{width:min(180px,60vw)}.search-input-row,.tag-input-row{grid-template-columns:1fr}.tag-input-row{align-items:stretch}.tag-picker-panel{max-height:45vh}}
+.tag-input-row{grid-template-columns:auto minmax(0,1fr) auto}.tag-search-wrap{display:grid;gap:8px}.tag-rule-note{font-size:12px;color:var(--muted);line-height:1.5}.selected-tag-list{display:flex;gap:6px;flex-wrap:wrap;align-items:center}.selected-tag-group{display:inline-flex;gap:4px;align-items:center;flex-wrap:wrap;border:1px dashed #bfdbfe;border-radius:10px;padding:3px 5px;background:#f8fbff}.selected-tag-group-label{font-size:11px;font-weight:700;color:#475569;padding:0 2px}.selected-tag-badge{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--border);border-radius:999px;padding:4px 8px;background:#eff6ff;color:#1d4ed8;font-size:12px}.selected-tag-remove{border:none;background:transparent;color:#1d4ed8;padding:0 2px;line-height:1;font-size:14px}.tag-picker-panel{display:none;border:1px solid var(--border);border-radius:12px;padding:12px;background:#fafafa;max-height:320px;overflow:auto}.tag-picker-panel.is-visible{display:grid;gap:12px}.tag-picker-group{display:grid;gap:6px}.tag-picker-title{font-size:13px;font-weight:700;color:var(--muted)}.tag-picker-options{display:flex;gap:6px;flex-wrap:wrap}.tag-picker-option{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--border);border-radius:999px;padding:5px 8px;background:#fff;font-size:12px}.tag-search-note{font-size:12px;color:var(--muted)}.mobile-search-history-actions,.result-select-actions{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center}.mobile-delete-history-btn,.mobile-result-favorite-btn{white-space:nowrap}.mobile-result-favorite-btn:disabled{opacity:.45;cursor:not-allowed}@media (min-width:981px) and (pointer:fine){.app{margin-left:240px;max-width:calc(100vw - 260px)}}@media (max-width:520px){.detail-tabs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px}.detail-tab-btn{white-space:nowrap;padding:8px 10px}.parameter-row{grid-template-columns:1fr}.parameter-value{text-align:left}.app{margin-left:auto!important;max-width:1400px!important}.layout{grid-template-columns:1fr!important}.results{display:none!important}.result-select-wrap{display:grid!important;gap:8px}.pc-search-history-panel{display:none!important}.mobile-search-history-panel{display:block!important;position:static!important;width:auto!important;max-height:none!important;overflow:visible!important;z-index:auto!important}.mobile-search-history-panel .search-history-select{display:block!important}.search-history-list{display:none!important}.general-detail-layout{grid-template-columns:1fr}.general-skill-grid,.general-two-col{grid-template-columns:1fr}.detail-col-width-control{width:100%;justify-content:flex-start}.detail-col-width-control input[type=range]{width:min(180px,60vw)}.search-input-row,.tag-input-row{grid-template-columns:1fr}.tag-input-row{align-items:stretch}.tag-picker-panel{max-height:45vh}}
 
 /* parameter summary responsive detail display - fixed
    PC/tablet wide: show evidence inline, no [詳細].
@@ -296,8 +296,8 @@ body.formation-tab .pc-search-history-panel{display:none!important}
   .name-only-search-label::after{content:'名称';white-space:nowrap}
   #searchInput{min-width:0;padding:9px 10px;font-size:14px}
   #clearKeywordBtn{padding:8px 9px;font-size:12px;border-radius:9px}
-  .tag-input-row{display:grid!important;grid-template-columns:auto minmax(0,1fr) auto auto!important;gap:6px;align-items:center}
-  #tagPickerToggleBtn,#addTagSearchBtn,#clearTagSearchBtn{padding:8px 9px;font-size:12px;border-radius:9px;white-space:nowrap}
+  .tag-input-row{display:grid!important;grid-template-columns:auto minmax(0,1fr) auto!important;gap:6px;align-items:center}
+  #tagPickerToggleBtn,#clearTagSearchBtn{padding:8px 9px;font-size:12px;border-radius:9px;white-space:nowrap}
   #tagSearchInput{min-width:0;padding:9px 10px;font-size:14px}
   .selected-tag-list{gap:5px;min-height:24px}.selected-tag-badge{font-size:11px;padding:3px 7px}.tag-search-note{font-size:11px}
   .search-condition-chips{max-height:58px;overflow:auto;align-content:flex-start;border:1px dashed #e5e7eb;border-radius:10px;padding:6px;background:#fafafa}
@@ -309,7 +309,7 @@ body.formation-tab .pc-search-history-panel{display:none!important}
 }
 @media (max-width:520px){
   .search-input-row{grid-template-columns:auto minmax(0,1fr) auto!important}
-  .tag-input-row{grid-template-columns:auto minmax(0,1fr) auto auto!important}
+  .tag-input-row{grid-template-columns:auto minmax(0,1fr) auto!important}
 }
 
 
@@ -1076,7 +1076,7 @@ body.formation-tab .formation-result-focus .formation-table{max-width:100%;overf
 .formation-tactic-subsection .parameter-row{padding:7px 0;border-top:1px dashed #e2e8f0;}
 .formation-tactic-subsection .parameter-row:first-child{border-top:none;}
 .formation-tactic-subsection .parameter-main{gap:8px 10px;}
-@media (max-width:980px),(pointer:coarse){.tag-input-row{display:grid!important;grid-template-columns:1fr auto 1fr auto auto;gap:6px;align-items:center}.search-enter-note{grid-column:1/-1;white-space:normal}.formation-tactic-attack-section{grid-template-columns:1fr}.formation-tactic-subsection>summary{min-height:auto}.formation-tactic-summary-main{white-space:normal}.formation-tactic-summary-chip{font-size:11px;padding:3px 7px}}
+@media (max-width:980px),(pointer:coarse){.tag-input-row{display:grid!important;grid-template-columns:auto minmax(0,1fr) auto;gap:6px;align-items:center}.search-enter-note{grid-column:1/-1;white-space:normal}.formation-tactic-attack-section{grid-template-columns:1fr}.formation-tactic-subsection>summary{min-height:auto}.formation-tactic-summary-main{white-space:normal}.formation-tactic-summary-chip{font-size:11px;padding:3px 7px}}
 
 
 /* HADO-2.8.9.17: search panel row alignment recovery */
@@ -1132,7 +1132,7 @@ body.formation-tab .formation-result-focus .formation-table{max-width:100%;overf
   min-width:160px!important;
   width:auto!important;
 }
-#searchPanel #addTagSearchBtn,
+
 #searchPanel #clearTagSearchBtn,
 #searchPanel #clearKeywordBtn{
   flex:0 0 auto!important;
@@ -1149,15 +1149,14 @@ body.formation-tab .formation-result-focus .formation-table{max-width:100%;overf
 }
 @media (max-width:1180px){
   #searchPanel .search-query-row{grid-template-columns:1fr!important;}
-  #searchPanel .tag-input-row{display:grid!important;grid-template-columns:auto auto minmax(180px,1fr) auto auto!important;}
+  #searchPanel .tag-input-row{display:grid!important;grid-template-columns:auto minmax(180px,1fr) auto!important;}
   #searchPanel .selected-tag-list{padding-left:0!important;}
 }
 @media (max-width:980px),(pointer:coarse){
   #searchPanel .search-query-row{grid-template-columns:1fr!important;gap:8px!important;}
   #searchPanel .search-input-row{grid-template-columns:auto minmax(0,1fr) auto!important;gap:6px!important;}
-  #searchPanel .tag-input-row{display:grid!important;grid-template-columns:auto auto minmax(0,1fr) auto!important;gap:6px!important;}
+  #searchPanel .tag-input-row{display:grid!important;grid-template-columns:auto minmax(0,1fr) auto!important;gap:6px!important;}
   #searchPanel .search-enter-note{grid-column:1 / -1!important;white-space:normal!important;font-size:12px!important;}
-  #searchPanel #clearTagSearchBtn{grid-column:1 / -1!important;width:100%!important;}
   #searchPanel #tagPickerToggleBtn{min-width:58px!important;padding-left:10px!important;padding-right:10px!important;}
   #searchPanel .selected-tag-list{padding-left:0!important;}
 }
@@ -1168,8 +1167,7 @@ body.formation-tab .formation-result-focus .formation-table{max-width:100%;overf
   #searchPanel .search-enter-note{grid-column:1 / -1!important;}
   #searchPanel #tagPickerToggleBtn{grid-column:1 / 2!important;}
   #searchPanel #tagSearchInput{grid-column:2 / 3!important;}
-  #searchPanel #addTagSearchBtn{grid-column:3 / 4!important;}
-  #searchPanel #clearTagSearchBtn{grid-column:1 / -1!important;}
+  #searchPanel #clearTagSearchBtn{grid-column:3 / 4!important;}
 }
 
 
@@ -1209,7 +1207,7 @@ body.formation-tab .formation-result-focus .formation-table{max-width:100%;overf
   text-overflow:ellipsis!important;
 }
 #searchPanel .search-enter-note{flex:0 0 auto!important;}
-#searchPanel .tag-input-row{grid-template-columns:auto minmax(0,1fr) auto auto!important;}
+#searchPanel .tag-input-row{grid-template-columns:auto minmax(0,1fr) auto!important;}
 @media (max-width:980px),(pointer:coarse){
   #searchPanel .search-status-line{gap:7px!important;flex-wrap:nowrap!important;}
   #searchPanel .search-status-line .meta,
@@ -1236,14 +1234,14 @@ body.formation-tab .formation-result-focus .formation-table{max-width:100%;overf
 
 /* FIX[HADO-2.9.0.29-MOBILE-SEARCH-COMPACT-ROWS]:
    スマホ検索条件は、名称・検索キーワード・クリア、および
-   タグ・タグキーワード・追加・クリアを各1行で維持する。
+   タグ・タグキーワード・クリアを各1行で維持する。
    入力欄を優先し、チェックボックスと操作ボタンは最小サイズに詰める。 */
 @media (max-width:520px){
   .search-query-row{gap:5px!important}
   .search-input-row,
   .tag-input-row{width:100%;gap:4px!important;align-items:center!important}
   .search-input-row{grid-template-columns:auto minmax(0,1fr) auto!important}
-  .tag-input-row{grid-template-columns:auto minmax(0,1fr) auto auto!important}
+  .tag-input-row{grid-template-columns:auto minmax(0,1fr) auto!important}
   .name-only-search-label{
     min-height:26px!important;
     padding:2px 4px!important;
@@ -1276,8 +1274,7 @@ body.formation-tab .formation-result-focus .formation-table{max-width:100%;overf
     line-height:1!important;
     white-space:nowrap!important;
   }
-  #tagPickerToggleBtn,
-  #addTagSearchBtn{
+  #tagPickerToggleBtn{
     min-height:26px!important;
     padding:3px 5px!important;
     border-radius:6px!important;
@@ -1295,11 +1292,11 @@ body.formation-tab .formation-result-focus .formation-table{max-width:100%;overf
 /* FIX[HADO-2.9.0.31-MOBILE-SEARCH-COMPACT]: スマホ検索2行を1行固定し、名称チェックと操作ボタンを最小化 */
 @media (max-width:520px){
   .search-input-row{display:grid!important;grid-template-columns:auto minmax(0,1fr) auto!important;gap:4px!important;align-items:center!important}
-  .tag-input-row{display:grid!important;grid-template-columns:auto minmax(0,1fr) auto auto!important;gap:4px!important;align-items:center!important}
+  .tag-input-row{display:grid!important;grid-template-columns:auto minmax(0,1fr) auto!important;gap:4px!important;align-items:center!important}
   .name-only-search-label{min-height:24px!important;height:24px!important;padding:2px 4px!important;gap:3px!important;border-radius:6px!important;font-size:11px!important;line-height:1!important}
   .name-only-search-label input[type=checkbox]{width:12px!important;height:12px!important;min-width:12px!important;min-height:12px!important;margin:0!important}
   #searchInput,#tagSearchInput{min-width:0!important;height:28px!important;padding:3px 6px!important;border-radius:6px!important;font-size:12px!important}
-  #clearKeywordBtn,#tagPickerToggleBtn,#addTagSearchBtn,#clearTagSearchBtn{min-width:0!important;min-height:24px!important;height:24px!important;padding:2px 5px!important;border-radius:6px!important;font-size:11px!important;line-height:1!important;white-space:nowrap!important}
+  #clearKeywordBtn,#tagPickerToggleBtn,#clearTagSearchBtn{min-width:0!important;min-height:24px!important;height:24px!important;padding:2px 5px!important;border-radius:6px!important;font-size:11px!important;line-height:1!important;white-space:nowrap!important}
 }
 
 
@@ -1319,7 +1316,7 @@ body.formation-tab .formation-result-focus .formation-table{max-width:100%;overf
   }
   #searchPanel .tag-input-row{
     display:grid!important;
-    grid-template-columns:auto minmax(0,1fr) auto auto!important;
+    grid-template-columns:auto minmax(0,1fr) auto!important;
     gap:4px!important;
     align-items:center!important;
     width:100%!important;
@@ -1355,7 +1352,6 @@ body.formation-tab .formation-result-focus .formation-table{max-width:100%;overf
   }
   #searchPanel #clearKeywordBtn,
   #searchPanel #tagPickerToggleBtn,
-  #searchPanel #addTagSearchBtn,
   #searchPanel #clearTagSearchBtn{
     grid-column:auto!important;
     width:auto!important;

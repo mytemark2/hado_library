@@ -17,8 +17,8 @@ const version = read('hado_version.js');
 const tagIndex = JSON.parse(read('hadou_tag_index.json'));
 
 assert(version.includes("releaseVersion: '3.0.1.0'"), 'release version must be 3.0.1.0');
-assert(version.includes("updateNo: '11.1'"), 'visible update must be Update11.1');
-assert(version.includes('revision: 161'), 'revision must be 161');
+assert(version.includes("updateNo: '11.2'"), 'visible update must be Update11.2');
+assert(version.includes('revision: 162'), 'revision must be 162');
 assert(core.includes("version:\"3.0.1.0\""), 'runtime build version must match 3.0.1.0');
 assert(core.includes("fileName:\"hado_library_3.0.1.0.html\""), 'runtime file metadata must match 3.0.1.0');
 
@@ -57,7 +57,7 @@ assert(status.includes("runQuickStatusEffectOwnerSearchAsync(state.quickStatusEf
 assert(css.includes('.search-preset-row.has-tag-filter'), 'status/tag one-line layout CSS is required');
 assert(css.includes('grid-template-columns:minmax(0,.85fr) minmax(0,1.25fr) 32px auto'), 'desktop status/tag row must have four columns');
 assert(css.includes('.tag-picker-category'), 'tag category badge CSS is required');
-assert(html.includes('hado_search.js?v=11.1-r161') && html.includes('hado_styles.css?v=11.1-r161'), 'runtime assets must use the 3.0.1.0 Update11.1 cache generation');
+assert(html.includes('hado_search.js?v=11.2-r162') && html.includes('hado_styles.css?v=11.2-r162'), 'runtime assets must use the 3.0.1.0 Update11.2 cache generation');
 assert(!html.includes('10.4-r159'), 'old Update10.4 cache keys must not remain');
 
 console.log('update11 tag organization regression ok');
