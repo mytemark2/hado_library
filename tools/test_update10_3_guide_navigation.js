@@ -11,8 +11,9 @@ const core = read('hado_core.js');
 const styles = read('hado_styles.css');
 const version = read('hado_version.js');
 
-assert(version.includes("updateNo: '10.4'"), 'Update10.4 version is required');
-assert(version.includes('revision: 159'), 'revision 159 is required');
+assert(/releaseVersion:\s*'\d+\.\d+\.\d+\.\d+'/.test(version), 'runtime release version source is required');
+assert(/updateNo:\s*'\d+(?:\.\d+)?'/.test(version), 'runtime update number source is required');
+assert(/revision:\s*\d+/.test(version), 'runtime revision source is required');
 assert(core.includes("{title:'覇道ライブラリへようこそ',target:'#appTitlePanel',tab:'search',searchMode:'normal'"), 'first-time guide must start on normal search');
 assert(core.includes("{title:'候補ワークスペース',target:'.result-copy-actions',tab:'search',searchMode:'normal'"), 'search guide step 8 must return to normal search');
 assert(core.includes("{title:'結果サマリーの6項目を確認',target:'.formation-quick-summary-strip'"), 'formation guide step 8 must select the result summary');

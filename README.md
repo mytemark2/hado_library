@@ -4,9 +4,10 @@
 
 ## 現在の公開状況
 
-- 正式版: `3.0.0.0`
+- 正式版: `3.0.1.0`
 - 正式版正本ブランチ: `main`
-- 現在の到達点: Update01〜Update10の実装、全体回帰、Actions、公開Preview確認を完了し、正式版へ反映しました。
+- 開発中正本ブランチ: `feature/app-3.0.0.0`
+- 現在の到達点: Update11.2までの実装、全体回帰、Actions、公開Preview確認を完了し、正式版へ反映しました。
 - 配布用ZIPは当面公開しません。
 
 詳細なUpdate計画と進捗は [`docs/updates/roadmap.md`](./docs/updates/roadmap.md) と [`docs/updates/README.md`](./docs/updates/README.md) を参照してください。
