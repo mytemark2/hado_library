@@ -1,5 +1,17 @@
 # Update11 Report
 
+## Update11.1 進捗
+
+- 表示版: `3.0.1.0 Update11.1 r161`。
+- 実装: 技能651件のタグを武将所有関係1,598件、装備所有関係427件へ共通反映。
+- 個別確認: `技能:練兵` は武将5件、装備5件、技能1件。状態変化「攻撃上昇」とのAND検索も武将5件。
+- タグ表示: `武将・技能・装備｜技能`。
+- HTML: 変更前29,230 bytes、変更後29,257 bytes（27 bytes増）。変更は外部asset cache keyのみで、動作は外部JavaScriptへ実装。
+- ローカル検証: `python -X utf8 tools/run_app_validation.py` 125/125成功。専用回帰、派生JSON 20件契約、版数整合、保存Import / Export、部隊編成、レスポンシブ契約、PC実操作、ブラウザconsoleを確認済み。
+- Git / Actions / Preview: Pull Request作成後に追記する。
+- 最小受入操作: 武将カテゴリで `技能:練兵` を設定し、越吉・曹真・関索・曹洪・関興の5件が表示されることを確認する。
+- 残課題: Actionsと公開Preview確認。
+
 ## 状態
 
 完了。実装、ローカル検証、Pull Request、Actions、イベント駆動Preview同期、公開URL実操作を確認済み。

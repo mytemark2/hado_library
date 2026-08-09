@@ -39,7 +39,7 @@ const startupDebugLines=[];
 const MAX_DEBUG_LINES=220;
 const FILE_META={fileName:"hado_library_3.0.1.0.html",createdAt:"2026-07-23 00:00:00"};
 // FEATURE[HADO-VERSIONING]: 2.x.x.y バージョン管理。メジャー/マイナーはユーザー採番、x は機能追加、y は不具合修正。
-const HADO_BUILD_INFO={version:"3.0.1.0",baseVersion:"3.0.0.0",changeType:"feature",summary:"Update11: category-aware tag groups and status-effect tag filtering.",baseSha256:"f246072703ff320bdc15194ede70518b9cd307c5ecbfe56c56f6f28d45fc7a1d"};
+const HADO_BUILD_INFO={version:"3.0.1.0",baseVersion:"3.0.0.0",changeType:"bugfix",summary:"Update11.1: propagate skill tags to owning generals and equipment.",baseSha256:"7c7d9f4169d4caf5c7b1f77e595d89bea5c68eb1f25b5e127aa3cbc8ee47d075"};
 
 // FEATURE[HADO-2.9.6.3-WEB-DEPLOYMENT]: HTTP(S)配信時は公開JSONを自動取得し、手動JSONロードUIを表示しない。
 const IS_WEB_DEPLOYMENT=/^https?:$/.test(location.protocol);
