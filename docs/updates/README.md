@@ -2,7 +2,7 @@
 
 開発ブランチ: `feature/app-3.0.0.0`
 
-現在の到達点: `3.0.1.0 Update11.2 r162`（タグ自動追加と追加ボタン削除を実装、検証・Preview反映中）
+現在の到達点: `3.0.1.0 Update11.2 r162`（タグ自動追加と追加ボタン削除、全体回帰・Actions・公開Preview確認済み）
 
 全体計画: [3.0.1.0 全体ロードマップ](roadmap.md)
 
@@ -18,7 +18,7 @@
 | Update08 | 完了（最新: 08.23） | 保存データ対応型編成ナビ・新規部隊作成・保存評価・履歴・グループ管理・CSS外部化・単一バージョン定義 | [roadmap](update08/roadmap.md) | [implementation](update08/implementation.md) | [report](update08/report.md) |
 | Update09 | 完了（最新: 09.5.65 r155） | PC・スマホUI/UX、検索境界、候補ワークスペース、実用性改善 | [roadmap](update09/roadmap.md) | [implementation](update09/implementation.md) | [report](update09/report.md) |
 | Update10 | 完了（Update10.1〜10.4） | タブ視認性・全体回帰・ガイド更新・最新データ・正式版候補 | [roadmap](update10/roadmap.md) | [implementation](update10/implementation.md) | [report](update10/report.md) |
-| Update11 | 改訂中（最新: 11.2 r162） | タグカテゴリ表示・状態変化検索タグ対応・技能所有者タグ修正・タグ自動追加 | [roadmap](update11/roadmap.md) | [implementation](update11/implementation.md) | [report](update11/report.md) |
+| Update11 | 改訂完了（最新: 11.2 r162） | タグカテゴリ表示・状態変化検索タグ対応・技能所有者タグ修正・タグ自動追加 | [roadmap](update11/roadmap.md) | [implementation](update11/implementation.md) | [report](update11/report.md) |
 
 ## 更新方式
 

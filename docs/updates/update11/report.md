@@ -1,6 +1,6 @@
 # Update11 Report
 
-## Update11.2 検証中
+## Update11.2 完了報告
 
 - 表示版: `3.0.1.0 Update11.2 r162`。
 - 実装: 有効タグ完全一致時の自動追加、IME変換保護、無効入力保持、重複追加の副作用抑止、「追加」ボタン削除、3列レスポンシブ化。
@@ -10,7 +10,14 @@
 - ローカル実操作: 「追加」ボタンなし、部分一致入力保持、`技能:練兵` の完全一致入力で自動追加・入力欄消去・武将5件、重複入力でbadge 1件・結果5件を維持、無効な `技能:連兵` はEnter後も保持、状態変化「攻撃上昇」とタグ「技能:練兵」のAND検索5件を確認した。
 - PC 1280px: 状態変化分類・状態変化・解除・タグのtop座標がすべて231pxで同一行、横overflowなし。ブラウザconsole error / warning 0件。
 - IME境界: 専用回帰で `compositionstart` / `compositionend`、`isComposing`、keyCode 229の保護を固定した。
-- Pull Request、Actions、イベント駆動Preview同期、公開URL実操作は実施中。
+- Git: 基準 `497199f25df2208e72241925d399acc8a74297bb`、実装commit `d96d76ea8cf474e1e46ea1fc556381cf5c79ac7a`、PR [#270](https://github.com/mytemark2/hado_library/pull/270)、正本merge commit `0ea7d86c2cbaae662f7fe10ee1a5763bf04d3b11`。
+- マージ準備: `python -X utf8 tools/check_pr_merge_readiness.py --base feature/app-3.0.0.0` 成功。取得base `497199f25df2208e72241925d399acc8a74297bb`、head `d96d76ea8cf474e1e46ea1fc556381cf5c79ac7a`、競合なし。
+- Actions: `App Validation / app-validation` run `31305115421` 成功、`Notify Hado Library Preview` run `31305131954` 成功。
+- Preview repository `main`: `3e8af11b282f9cd64ae216d38d02a8586d45efb0`。`Deploy Hado Library Preview` run `31305149606` 成功。
+- Preview marker: `PREVIEW_SOURCE_COMMIT.txt=0ea7d86c2cbaae662f7fe10ee1a5763bf04d3b11`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.1.0 Update11.2`。
+- 公開URL: https://mytemark2.github.io/hado_library-preview/ 。表示版、必須runtime・派生JSON、cache key、自動追加、部分一致・無効入力保持、重複抑止、状態変化AND検索、PC同一行・横overflowなし、Debug Log、console error / warning 0件を確認した。
+- 最小受入操作: 通常検索のタグ欄で `技能:練兵` を入力し、「追加」ボタンを押さずにタグが追加され、武将5件になることを確認する。
+- 残課題: none。
 
 ## Update11.1 完了報告
 
