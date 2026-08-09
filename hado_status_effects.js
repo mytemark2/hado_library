@@ -1109,9 +1109,36 @@ function buildDerivedTagIndexLookup(){
   const tagGroups=bucket&&bucket.available&&bucket.meta&&bucket.meta.tagGroups;
   return {available:items.length>0,count:items.length,byName,tagSet,byKey,byKeyCategories,tagGroupOrder:tagGroups&&typeof tagGroups==='object'?Object.keys(tagGroups):Object.keys(byKey),blockedTags:[...blockedTags].sort((a,b)=>a.localeCompare(b,'ja'))};
 }
+function buildDerivedSkillOwnerTagLookup(availableTags){
+  const byOwner=new Map(),categories=new Set();
+  const entries=getDerivedRelatedBucketItems('skillOwnerIndex');
+  const diagnostic={available:entries.length>0,skillEntries:entries.length,ownerLinks:0,linkedOwnerKeys:0,missingSkillTags:0,unsupportedOwners:0,categories:[]};
+  entries.forEach(entry=>{
+    const skillName=norm(entry?.skillName||entry?.name||'');
+    const tag=skillName?`技能:${skillName}`:'';
+    if(!tag||!availableTags.has(tag)){diagnostic.missingSkillTags++;return;}
+    (Array.isArray(entry?.owners)?entry.owners:[]).forEach(owner=>{
+      const category=normalizeDerivedSearchCategory(owner?.category||derivedOwnerTypeToCategory(owner?.ownerType||''));
+      if(category!=='generals'&&category!=='equipments'){diagnostic.unsupportedOwners++;return;}
+      const names=[owner?.displayName,owner?.name].map(norm).filter(Boolean);
+      if(!names.length){diagnostic.unsupportedOwners++;return;}
+      categories.add(category);
+      names.forEach(name=>{
+        const key=makeDerivedSearchIndexKey(category,name);
+        if(!byOwner.has(key))byOwner.set(key,new Set());
+        byOwner.get(key).add(tag);
+      });
+      diagnostic.ownerLinks++;
+    });
+  });
+  diagnostic.linkedOwnerKeys=byOwner.size;
+  diagnostic.categories=sortTagCategoryKeys([...categories]);
+  return {byOwner,categories,diagnostic};
+}
 function applyDerivedTagIndexToItems(allItems){
   const lookup=buildDerivedTagIndexLookup();
-  const diag={available:!!lookup.available,indexItems:lookup.count||0,totalItems:Array.isArray(allItems)?allItems.length:0,applied:0,fallback:0,tagCount:lookup.tagSet?lookup.tagSet.size:0,blockedTagCount:Array.isArray(lookup.blockedTags)?lookup.blockedTags.length:0,blockedTags:lookup.blockedTags||[],byCategory:{}};
+  const ownerLookup=buildDerivedSkillOwnerTagLookup(lookup.tagSet||new Set());
+  const diag={available:!!lookup.available,indexItems:lookup.count||0,totalItems:Array.isArray(allItems)?allItems.length:0,applied:0,fallback:0,ownerTagAppliedItems:0,ownerTagApplications:0,tagCount:lookup.tagSet?lookup.tagSet.size:0,blockedTagCount:Array.isArray(lookup.blockedTags)?lookup.blockedTags.length:0,blockedTags:lookup.blockedTags||[],skillOwnerTags:ownerLookup.diagnostic,byCategory:{}};
   if(!Array.isArray(allItems)||!lookup.available){diag.fallback=Array.isArray(allItems)?allItems.length:0;state.diagnostics.tagIndex=diag;debugLog('tagSearch:derived-index-fallback',diag);return false;}
   allItems.forEach(item=>{
     const cat=normalizeDerivedSearchCategory(detailCategory(item)||'unknown');
@@ -1120,9 +1147,14 @@ function applyDerivedTagIndexToItems(allItems){
     const names=[getItemDisplayName(item),item?.name,item?.rawName,item?.title,item?.raw?.name,item?.raw?.title].map(norm).filter(Boolean);
     let tags=null;
     for(const name of names){const hit=lookup.byName.get(makeDerivedSearchIndexKey(cat,name));if(hit){tags=hit;break;}}
-    if(tags){item._detailTags=[...new Set(tags)];item._derivedTagIndexHit=true;diag.applied++;diag.byCategory[cat].applied++;}
+    const ownerTags=new Set();
+    names.forEach(name=>(ownerLookup.byOwner.get(makeDerivedSearchIndexKey(cat,name))||[]).forEach(tag=>ownerTags.add(tag)));
+    if(tags||ownerTags.size)item._detailTags=[...new Set([...(tags||getSearchTagsForItem(item)),...ownerTags])];
+    if(tags){item._derivedTagIndexHit=true;diag.applied++;diag.byCategory[cat].applied++;}
     else{item._derivedTagIndexHit=false;diag.fallback++;diag.byCategory[cat].fallback++;}
+    if(ownerTags.size){diag.ownerTagAppliedItems++;diag.ownerTagApplications+=ownerTags.size;}
   });
+  if(ownerLookup.categories.size){if(!lookup.byKeyCategories['技能'])lookup.byKeyCategories['技能']=new Set();ownerLookup.categories.forEach(category=>lookup.byKeyCategories['技能'].add(category));}
   state.availableTags=[...lookup.tagSet].sort((a,b)=>a.localeCompare(b,'ja'));
   state.availableTagsByKey=Object.fromEntries(Object.entries(lookup.byKey).map(([key,set])=>[key,[...set].sort((a,b)=>a.localeCompare(b,'ja'))]));
   state.availableTagCategoriesByKey=Object.fromEntries(Object.entries(lookup.byKeyCategories).map(([key,set])=>[key,sortTagCategoryKeys([...set])]));
