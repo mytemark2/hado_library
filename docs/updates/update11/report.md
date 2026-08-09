@@ -1,6 +1,6 @@
 # Update11 Report
 
-## Update11.1 進捗
+## Update11.1 完了報告
 
 - 表示版: `3.0.1.0 Update11.1 r161`。
 - 実装: 技能651件のタグを武将所有関係1,598件、装備所有関係427件へ共通反映。
@@ -8,9 +8,13 @@
 - タグ表示: `武将・技能・装備｜技能`。
 - HTML: 変更前29,230 bytes、変更後29,257 bytes（27 bytes増）。変更は外部asset cache keyのみで、動作は外部JavaScriptへ実装。
 - ローカル検証: `python -X utf8 tools/run_app_validation.py` 125/125成功。専用回帰、派生JSON 20件契約、版数整合、保存Import / Export、部隊編成、レスポンシブ契約、PC実操作、ブラウザconsoleを確認済み。
-- Git / Actions / Preview: Pull Request作成後に追記する。
+- Git: 基準 `bf05d58a57e0d0cb1180b649c0d38f531ea16367`、実装commit `a99e58593f7bdfb7556be96ee707e8acd04f3413`、PR [#268](https://github.com/mytemark2/hado_library/pull/268)、正本merge commit `3e715a233cc4364ac7a6e7bd0a17e5901bc3e0aa`。
+- Actions: `App Validation / app-validation` run `31303341917` 成功、`Notify Hado Library Preview` run `31303366732` 成功。
+- Preview repository `main`: `575023323a8212e1779c691de1d2996c3304ad97`。`Deploy Hado Library Preview` run `31303384185` 成功。
+- Preview marker: `PREVIEW_SOURCE_COMMIT.txt=3e715a233cc4364ac7a6e7bd0a17e5901bc3e0aa`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.1.0 Update11.1`。
+- 公開URL: https://mytemark2.github.io/hado_library-preview/ 。表示版、必須runtime・派生JSON、`技能:練兵` の武将5件・装備5件、状態変化「攻撃上昇」とのAND 5件、同一行配置、cache key、Debug Log、console error 0件を確認した。
 - 最小受入操作: 武将カテゴリで `技能:練兵` を設定し、越吉・曹真・関索・曹洪・関興の5件が表示されることを確認する。
-- 残課題: Actionsと公開Preview確認。
+- 残課題: none。
 
 ## 状態
 
