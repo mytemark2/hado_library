@@ -4,10 +4,10 @@
 
 ## 現在の開発状況
 
-- 開発完了版: `3.0.1.0 Update11.1 r161`
+- 開発中版: `3.0.1.0 Update11.2 r162`
 - 開発中正本ブランチ: `feature/app-3.0.0.0`
-- 現在の到達点: Update11.1の技能所有者タグ修正を実装し、全体回帰・Actions・公開Preview確認まで完了しています。
-- 次の予定: 次Updateの要件を整理します。配布用ZIPは当面公開しません。
+- 現在の到達点: タグ候補の完全一致時自動追加と「追加」ボタン削除を実装し、検証・Preview反映を進めています。
+- 次の予定: 全体回帰、Pull Request、Actions、公開Preview実操作を完了します。配布用ZIPは当面公開しません。
 
 詳細なUpdate計画と進捗は [`docs/updates/roadmap.md`](./docs/updates/roadmap.md) と [`docs/updates/README.md`](./docs/updates/README.md) を参照してください。
 

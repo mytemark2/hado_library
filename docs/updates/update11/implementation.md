@@ -1,5 +1,26 @@
 # Update11 Implementation
 
+## Update11.2 タグ操作改善
+
+### 分類と根本原因
+
+- 分類: タグ入力UIの不要な確定操作による操作負荷。
+- 根本原因: `datalist` 候補選択後も利用者が「追加」ボタンまたはEnterで確定する二段階操作になっていた。また従来の追加関数は重複タグでも再描画、再検索、操作履歴追加を実行していた。
+- 同一欠陥クラスの影響: 通常検索、状態変化検索、型検索で共有するタグ入力経路。タグ一覧のチェックボックス経路は直接追加のため影響なし。
+
+### 恒久対策と実装
+
+- `hado_status_effects.js` に有効タグ完全一致だけを確定する `commitTagSearchInput` を追加した。候補リスト選択時の `input` / `change` と、直接入力・Enterを同じ関数へ集約した。
+- 無効または部分一致の入力は保持する。有効タグは追加後に入力欄を空にし、重複タグは選択状態、検索結果、操作履歴を変更しない。
+- `compositionstart` / `compositionend` と `isComposing` / keyCode 229を使い、日本語IMEの変換途中では追加しない。
+- `index.html` から `addTagSearchBtn` を削除し、`hado_core.js` のDOM参照、`hado_bootstrap.js` の必須要素・click listener、`hado_styles.css` のボタン用指定を同時に削除した。
+- タグ入力行はPC・スマホとも「タグ・入力・クリア」の3列へ統一した。
+- `tools/test_update11_2_tag_auto_add.js` を全App Validationへ常設し、完全一致、自動追加、IME保護、無効入力保持、重複抑止、DOM/CSS契約を固定した。
+
+### 外部化判断
+
+動作は既存責務の外部 `hado_status_effects.js` と `hado_bootstrap.js`、表示は外部 `hado_styles.css` に実装した。HTMLはボタン要素の削除と外部asset cache key更新だけで、インラインJavaScriptとインラインCSSは追加していない。
+
 ## Update11.1 技能所有者タグ修正
 
 ### 分類と根本原因
