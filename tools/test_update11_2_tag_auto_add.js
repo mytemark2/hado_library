@@ -15,10 +15,10 @@ const css = read('hado_styles.css');
 const html = read('index.html');
 const version = read('hado_version.js');
 
-assert(version.includes("updateNo: '11.2'"), 'visible update must be Update11.2');
-assert(version.includes('revision: 162'), 'revision must be r162');
-assert(html.includes('hado_status_effects.js?v=11.2-r162-tag-auto-add'), 'changed runtime must use the Update11.2 cache key');
-assert(html.includes('hado_bootstrap.js?v=11.2-r162-tag-auto-add'), 'bootstrap must use the Update11.2 cache key');
+assert(version.includes("updateNo: '11.3'"), 'visible update must be Update11.3');
+assert(version.includes('revision: 163'), 'revision must be r163');
+assert(html.includes('hado_status_effects.js?v=11.3-r163-mobile-tag-ux'), 'changed runtime must use the Update11.3 cache key');
+assert(html.includes('hado_bootstrap.js?v=11.3-r163'), 'bootstrap must use the Update11.3 cache key');
 
 for (const [name, source] of Object.entries({core, bootstrap, css, html})) {
   assert(!source.includes('addTagSearchBtn'), `${name} must not retain the removed add button contract`);

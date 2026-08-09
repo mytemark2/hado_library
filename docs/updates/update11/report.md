@@ -1,5 +1,17 @@
 # Update11 Report
 
+## Update11.3 実装・検証記録
+
+- 表示版: `3.0.1.0 Update11.3 r163`。
+- 実装: タグ描画先行、世代番号付き遅延検索、スマホ入力16px、429px以下の状態変化検索2段配置、選択済みタグ・件数の折り返し表示。
+- HTML: 変更前29,180 bytes、変更後29,168 bytes（12 bytes減）。動作は `hado_status_effects.js`、表示は `hado_styles.css` に実装し、HTMLはasset cache keyだけを更新した。
+- 専用回帰: `node tools/test_update11_3_mobile_tag_ux.js` 成功。
+- 全体回帰: `python -X utf8 tools/run_app_validation.py` 127/127成功。JavaScript・JSON・HTML・外部CSS・派生JSON 20件・検索・詳細・編成・保存Import / Export・レスポンシブ契約を確認した。
+- ローカル実操作: `技能:練兵` を入力後、検索進捗56%時点で選択済みタグが表示済みであること、その後に武将5件へ確定することを確認した。状態変化「攻撃上昇」とタグ「技能:練兵」のAND検索は越吉・関興・関索・曹洪・曹真の5件。
+- PC 1280px: 状態変化分類・状態変化・解除・タグのtop座標が266pxで一致し、行の `scrollWidth=clientWidth=956px`、文書横overflow 0pxを確認した。
+- スマホ契約: 520px以下の入力16px、429px以下の2段配置、選択済みタグ折り返し、件数全表示、viewportズーム維持を専用回帰で確認した。ブラウザーのURLポリシーによりローカル検証用の狭幅フレーム作成が拒否されたため、実際の320px・375px・390px操作は公開Preview反映後の受入確認対象とする。
+- Pull Request、Actions、Preview同期、公開URL確認結果は、この改修の公開確認後に本節へ追記する。
+
 ## Update11.2 完了報告
 
 - 表示版: `3.0.1.0 Update11.2 r162`。

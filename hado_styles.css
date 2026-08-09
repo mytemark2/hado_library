@@ -1427,6 +1427,54 @@ body.formation-tab .formation-result-focus .formation-table{max-width:100%;overf
   .search-preset-row.has-tag-filter #tagPickerToggleBtn{min-width:52px;padding:5px 6px;font-size:11px}
   .search-preset-row.has-tag-filter .quick-search-reset-btn{width:30px;min-width:30px;padding:4px}
 }
+/* Update11.3: mobile tag feedback, iOS focus zoom prevention, and narrow status-search reflow. */
+@media (max-width:520px){
+  #searchPanel #searchInput,
+  #searchPanel #tagSearchInput{
+    height:32px!important;
+    font-size:16px!important;
+    line-height:1.2!important;
+  }
+  #searchPanel .search-status-line{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:5px!important;
+    align-items:start!important;
+    overflow:visible!important;
+  }
+  #searchPanel .search-status-line .search-enter-note,
+  #searchPanel .search-status-line .selected-tag-list,
+  #searchPanel .search-status-line #resultMeta{
+    grid-column:1!important;
+    min-width:0!important;
+    max-width:100%!important;
+  }
+  #searchPanel .search-status-line .selected-tag-list{
+    flex-wrap:wrap!important;
+    overflow:visible!important;
+  }
+  #searchPanel .search-status-line #resultMeta{
+    overflow:visible!important;
+    text-overflow:clip!important;
+    white-space:normal!important;
+  }
+}
+@media (max-width:429px){
+  .search-preset-row.has-tag-filter{
+    grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr)!important;
+    gap:5px!important;
+  }
+  .search-preset-row.has-tag-filter .search-preset-group-select{grid-column:1!important;grid-row:1!important}
+  .search-preset-row.has-tag-filter .search-preset-effect-select{grid-column:2!important;grid-row:1!important}
+  .search-preset-row.has-tag-filter .quick-search-reset-btn{grid-column:1!important;grid-row:2!important;justify-self:end!important}
+  #searchPanel .search-preset-row.has-tag-filter #tagPickerToggleBtn{
+    grid-column:2!important;
+    grid-row:2!important;
+    justify-self:stretch!important;
+    width:100%!important;
+  }
+  #searchPanel .search-preset-row.has-tag-filter .tag-picker-panel{grid-column:1/-1!important;grid-row:3!important}
+}
 /* 型検索の選択済み条件は×付きトークン。表示専用重要度は小型ラベル。 */
 .type-search-badge{border-radius:999px;padding:2px 5px 2px 4px;box-shadow:0 1px 0 rgba(15,23,42,.05)}
 .type-search-badge-label,.type-search-importance-chip{display:inline-flex;align-items:center;gap:2px;border-radius:3px;padding:1px 4px;font-size:10px;font-weight:900;line-height:1.25}

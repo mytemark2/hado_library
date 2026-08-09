@@ -14,15 +14,15 @@ const html = read('index.html');
 const tagIndex = JSON.parse(read('hadou_tag_index.json'));
 const ownerIndex = JSON.parse(read('hadou_skill_owner_index.json'));
 
-assert(version.includes("updateNo: '11.2'"), 'visible update must be Update11.2');
-assert(version.includes('revision: 162'), 'revision must be r162');
+assert(version.includes("updateNo: '11.3'"), 'visible update must be Update11.3');
+assert(version.includes('revision: 163'), 'revision must be r163');
 assert(runtime.includes("buildDerivedSkillOwnerTagLookup(availableTags)"), 'skill-owner tag lookup must be implemented');
 assert(runtime.includes("getDerivedRelatedBucketItems('skillOwnerIndex')"), 'runtime must use the derived skill-owner index');
 assert(runtime.includes("`技能:${skillName}`"), 'runtime must map skill names to skill tags');
 assert(runtime.includes("category!=='generals'&&category!=='equipments'"), 'only searchable owner categories may receive skill tags');
 assert(runtime.includes("lookup.byKeyCategories['技能'].add(category)"), 'skill tag group must expose owner categories');
 assert(runtime.includes('ownerTagAppliedItems') && runtime.includes('ownerTagApplications'), 'runtime diagnostics must report owner tag propagation');
-assert(html.includes('hado_status_effects.js?v=11.2-r162-tag-auto-add'), 'changed runtime must use the Update11.2 cache key');
+assert(html.includes('hado_status_effects.js?v=11.3-r163-mobile-tag-ux'), 'changed runtime must use the Update11.3 cache key');
 
 const skillTags = new Set();
 for (const item of tagIndex.items || []) {
