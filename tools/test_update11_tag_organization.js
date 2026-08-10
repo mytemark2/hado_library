@@ -16,11 +16,14 @@ const html = read('index.html');
 const version = read('hado_version.js');
 const tagIndex = JSON.parse(read('hadou_tag_index.json'));
 
-assert(version.includes("releaseVersion: '3.0.1.0'"), 'release version must be 3.0.1.0');
-assert(version.includes("updateNo: '11.2'"), 'visible update must be Update11.2');
-assert(version.includes('revision: 162'), 'revision must be 162');
-assert(core.includes("version:\"3.0.1.0\""), 'runtime build version must match 3.0.1.0');
-assert(core.includes("fileName:\"hado_library_3.0.1.0.html\""), 'runtime file metadata must match 3.0.1.0');
+assert(version.includes("releaseVersion: '3.0.1.1'"), 'release version must be 3.0.1.1');
+const updateMatch = version.match(/updateNo:\s*'(\d+)\.(\d+)'/);
+const updateNoIsEmpty = version.includes("updateNo: ''");
+const revisionMatch = version.match(/revision:\s*(\d+)/);
+assert(updateNoIsEmpty || (updateMatch && (Number(updateMatch[1]) > 11 || (Number(updateMatch[1]) === 11 && Number(updateMatch[2]) >= 0))), 'runtime must retain Update11 behavior after the Update plan ends');
+assert(revisionMatch && Number(revisionMatch[1]) >= 160, 'revision must be r160 or later');
+assert(core.includes("version:\"3.0.1.1\""), 'runtime build version must match 3.0.1.1');
+assert(core.includes("fileName:\"hado_library_3.0.1.1.html\""), 'runtime file metadata must match 3.0.1.1');
 
 const expectedCategoryOrder = "['generals','tactics','skills','equipments','statusEffects','siegeWeapons','ethnicArmaments','formations','warhorses','warhorseSkills']";
 assert(core.includes(`SEARCH_CATEGORY_DISPLAY_ORDER=Object.freeze(${expectedCategoryOrder})`), 'tag order must share the visible search category order');
@@ -46,8 +49,8 @@ assert(categoriesByTagGroup.get('状態変化分類')?.has('status_effects'), 's
 
 assert(!search.includes("state.selectedTags=mode==='status'?[]"), 'status mode must not erase selected tags');
 assert(search.includes('context.selectedTags=[...(state.selectedTags||[])]'), 'each search mode must preserve its own tags');
-assert(search.includes('statusBar.appendChild(tagButton)') && search.includes('statusBar.appendChild(tagPanel)'), 'status mode must move tag controls directly into its status row');
-assert(search.includes('tagInputRow.insertBefore(tagButton,tagInputRow.firstChild)') && search.includes('tagWrap.appendChild(tagPanel)'), 'normal/type modes must restore tag controls to their original owner');
+assert(search.includes("const target=(mode==='status'&&statusBar)?statusBar:queryRow"), 'status mode must move the complete tag combobox into its status row');
+assert(search.includes('tagWrap.hidden=false') && !search.includes('tagWrap.hidden=true'), 'status mode must keep the complete tag combobox visible');
 assert(search.includes("if(!matchesSelectedTags(item))return;"), 'synchronous status owner search must apply tags');
 assert(search.includes("if(!matchesSelectedTags(item))continue;"), 'asynchronous status owner search must apply tags');
 assert(search.includes("const tagKey=[...(state.selectedTags||[])]"), 'status owner cache key must include selected tags');
@@ -55,9 +58,9 @@ assert(search.includes('getTagGroupCategoryLabel(key)'), 'status condition chips
 assert(status.includes("runQuickStatusEffectOwnerSearchAsync(state.quickStatusEffectOwnerFilter,{reason:'tag-filter-change'})"), 'tag changes must restart active status-effect searches');
 
 assert(css.includes('.search-preset-row.has-tag-filter'), 'status/tag one-line layout CSS is required');
-assert(css.includes('grid-template-columns:minmax(0,.85fr) minmax(0,1.25fr) 32px auto'), 'desktop status/tag row must have four columns');
+assert(css.includes('grid-template-columns:minmax(140px,.85fr) minmax(180px,1.25fr) 32px minmax(320px,1.35fr)!important'), 'desktop status/tag row must reserve a full tag-combobox column');
 assert(css.includes('.tag-picker-category'), 'tag category badge CSS is required');
-assert(html.includes('hado_search.js?v=11.2-r162') && html.includes('hado_styles.css?v=11.2-r162'), 'runtime assets must use the 3.0.1.0 Update11.2 cache generation');
+assert(/hado_search\.js\?v=\d+(?:\.\d+)*-r\d+/.test(html) && /hado_styles\.css\?v=\d+(?:\.\d+)*-r\d+/.test(html), 'runtime assets must use a versioned cache generation');
 assert(!html.includes('10.4-r159'), 'old Update10.4 cache keys must not remain');
 
 console.log('update11 tag organization regression ok');

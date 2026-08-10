@@ -1427,6 +1427,54 @@ body.formation-tab .formation-result-focus .formation-table{max-width:100%;overf
   .search-preset-row.has-tag-filter #tagPickerToggleBtn{min-width:52px;padding:5px 6px;font-size:11px}
   .search-preset-row.has-tag-filter .quick-search-reset-btn{width:30px;min-width:30px;padding:4px}
 }
+/* Update11.3: mobile tag feedback, iOS focus zoom prevention, and narrow status-search reflow. */
+@media (max-width:520px){
+  #searchPanel #searchInput,
+  #searchPanel #tagSearchInput{
+    height:32px!important;
+    font-size:16px!important;
+    line-height:1.2!important;
+  }
+  #searchPanel .search-status-line{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:5px!important;
+    align-items:start!important;
+    overflow:visible!important;
+  }
+  #searchPanel .search-status-line .search-enter-note,
+  #searchPanel .search-status-line .selected-tag-list,
+  #searchPanel .search-status-line #resultMeta{
+    grid-column:1!important;
+    min-width:0!important;
+    max-width:100%!important;
+  }
+  #searchPanel .search-status-line .selected-tag-list{
+    flex-wrap:wrap!important;
+    overflow:visible!important;
+  }
+  #searchPanel .search-status-line #resultMeta{
+    overflow:visible!important;
+    text-overflow:clip!important;
+    white-space:normal!important;
+  }
+}
+@media (max-width:429px){
+  .search-preset-row.has-tag-filter{
+    grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr)!important;
+    gap:5px!important;
+  }
+  .search-preset-row.has-tag-filter .search-preset-group-select{grid-column:1!important;grid-row:1!important}
+  .search-preset-row.has-tag-filter .search-preset-effect-select{grid-column:2!important;grid-row:1!important}
+  .search-preset-row.has-tag-filter .quick-search-reset-btn{grid-column:1!important;grid-row:2!important;justify-self:end!important}
+  #searchPanel .search-preset-row.has-tag-filter #tagPickerToggleBtn{
+    grid-column:2!important;
+    grid-row:2!important;
+    justify-self:stretch!important;
+    width:100%!important;
+  }
+  #searchPanel .search-preset-row.has-tag-filter .tag-picker-panel{grid-column:1/-1!important;grid-row:3!important}
+}
 /* 型検索の選択済み条件は×付きトークン。表示専用重要度は小型ラベル。 */
 .type-search-badge{border-radius:999px;padding:2px 5px 2px 4px;box-shadow:0 1px 0 rgba(15,23,42,.05)}
 .type-search-badge-label,.type-search-importance-chip{display:inline-flex;align-items:center;gap:2px;border-radius:3px;padding:1px 4px;font-size:10px;font-weight:900;line-height:1.25}
@@ -1646,3 +1694,75 @@ body{font-feature-settings:"palt" 1,"kern" 1;text-rendering:optimizeLegibility}
   #htc-modal .htc-tabs{padding:8px 10px!important}
 }
 @media(prefers-reduced-motion:reduce){[role="tablist"] [role="tab"],.hado-tab-panel-enter{transition:none!important;animation:none!important}}
+
+/* Update11.4: PC/mobile feature parity and focus-safe compact layouts. */
+.search-preset-row.has-tag-filter{
+  grid-template-columns:minmax(140px,.85fr) minmax(180px,1.25fr) 32px minmax(320px,1.35fr)!important;
+}
+.search-preset-row.has-tag-filter #tagSearchWrap{
+  grid-column:4!important;
+  grid-row:1!important;
+  min-width:0!important;
+  width:100%!important;
+}
+.search-preset-row.has-tag-filter #tagSearchWrap .tag-input-row{
+  grid-template-columns:auto minmax(0,1fr) auto!important;
+  gap:5px!important;
+  min-width:0!important;
+}
+.search-preset-row.has-tag-filter #tagPickerToggleBtn{
+  grid-column:auto!important;
+  grid-row:auto!important;
+  width:auto!important;
+  min-width:56px!important;
+}
+.search-preset-row.has-tag-filter .tag-picker-panel{
+  width:100%!important;
+  min-width:0!important;
+  margin-top:2px!important;
+}
+.mobile-result-summary{display:none}
+.formation-selector-current-skill-note{
+  display:grid;gap:3px;border:1px solid #bfdbfe;border-radius:10px;background:#eff6ff;padding:8px 10px;color:#334155;font-size:12px;line-height:1.45;
+}
+.formation-selector-current-skill-note strong{color:#1d4ed8}
+.formation-warhorse-slot-note{
+  min-width:0;color:#64748b;font-size:10px;line-height:1.35;white-space:normal;overflow-wrap:anywhere;
+}
+.formation-selected-skill-title{cursor:pointer;list-style:none}
+.formation-selected-skill-title::-webkit-details-marker{display:none}
+
+@media(max-width:980px),(pointer:coarse){
+  /* iOS系ブラウザの入力フォーカス拡大を、ズーム禁止指定を使わずに防ぐ。 */
+  input[type="text"],input[type="search"],input[type="number"],select,textarea{font-size:16px!important}
+  .search-preset-row.has-tag-filter{
+    grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr) 32px!important;
+    gap:5px!important;
+  }
+  .search-preset-row.has-tag-filter .search-preset-group-select{grid-column:1!important;grid-row:1!important}
+  .search-preset-row.has-tag-filter .search-preset-effect-select{grid-column:2!important;grid-row:1!important}
+  .search-preset-row.has-tag-filter .search-preset-select{font-size:16px!important}
+  .search-preset-row.has-tag-filter .quick-search-reset-btn{grid-column:3!important;grid-row:1!important;width:32px!important;min-width:32px!important}
+  .search-preset-row.has-tag-filter #tagSearchWrap{grid-column:1/-1!important;grid-row:2!important}
+  #searchPanel .search-preset-row.has-tag-filter #tagSearchWrap .tag-input-row{grid-template-columns:auto minmax(0,1fr) auto!important}
+  .mobile-result-summary[hidden]{display:none!important}
+  .mobile-result-summary{
+    display:grid;gap:5px;min-width:0;border:1px solid #dbeafe;border-radius:10px;background:#f8fbff;padding:8px;overflow:hidden;
+  }
+  .mobile-result-summary-head{display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-width:0;font-size:13px}
+  .mobile-result-summary-head strong{min-width:0;overflow-wrap:anywhere}
+  .mobile-result-summary-meta,.mobile-result-summary-reason{font-size:11px;color:#475569;line-height:1.45;overflow-wrap:anywhere}
+  .mobile-result-summary-badges{display:flex;gap:4px;flex-wrap:wrap;min-width:0}
+  .formation-selected-skill-panel{display:grid!important;padding:0!important;overflow:hidden!important;max-height:none!important}
+  .formation-selected-skill-title{display:flex!important;justify-content:space-between;align-items:center;padding:9px 10px;color:#1d4ed8;font-size:12px}
+  .formation-selected-skill-title::after{content:'表示';font-size:10px;color:#64748b}
+  .formation-selected-skill-panel[open]>.formation-selected-skill-title::after{content:'閉じる'}
+  .formation-selected-skill-list{max-height:34vh!important;padding:0 8px 8px!important;overflow:auto!important}
+}
+
+@media(max-width:520px){
+  body.formation-tab .formation-warhorse-slots-body{grid-template-columns:1fr!important}
+  body.formation-tab .formation-warhorse-slot-row{border:1px solid #e2e8f0;border-radius:9px;background:#fff;padding:6px!important}
+  body.formation-tab .formation-warhorse-slot-row .formation-select{height:38px!important;min-height:38px!important;font-size:16px!important}
+  body.formation-tab .formation-warhorse-slot-note{display:block!important;font-size:11px!important}
+}

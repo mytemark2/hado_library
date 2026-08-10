@@ -1,4 +1,4 @@
-/* HADO app Update display synchronizer: keep visible version labels aligned with HADO_DEV_INFO.json.
+/* HADO app version display synchronizer: keep visible version labels aligned with HADO_DEV_INFO.json.
    This file is metadata-only; runtime scoring/layout fixes belong in source modules and validators block legacy hotfix overrides. */
 (() => {
   'use strict';

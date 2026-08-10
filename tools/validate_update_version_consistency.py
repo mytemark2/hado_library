@@ -17,7 +17,7 @@ def script_sources(html: str) -> list[str]:
 
 
 def version_field(source: str, key: str) -> str:
-    match = re.search(rf"{key}:\s*'([^']+)'", source)
+    match = re.search(rf"{key}:\s*'([^']*)'", source)
     if not match:
         raise SystemExit(f"hado_version.js missing {key}")
     return match.group(1)
@@ -36,7 +36,9 @@ def main() -> int:
     update_no = version_field(version_source, "updateNo")
     revision = number_field(version_source, "revision")
     formal_release = bool(re.search(r"formalRelease:\s*true", version_source))
-    display_version = release_version if formal_release else f"{release_version} Update{update_no}"
+    preview_base_version = f"{release_version} Update{update_no}" if update_no else release_version
+    display_version = release_version if formal_release else preview_base_version
+    visible_version = display_version if formal_release else f"{display_version} r{revision}"
 
     dev_info = json.loads((ROOT / "HADO_DEV_INFO.json").read_text(encoding="utf-8"))
     duplicated = sorted(DERIVED_KEYS.intersection(dev_info))
@@ -87,6 +89,8 @@ def main() -> int:
         raise SystemExit("preview workflow must read hado_version.js")
     if "with open('HADO_DEV_INFO.json'" in workflow:
         raise SystemExit("preview workflow must not read displayVersion from HADO_DEV_INFO.json")
+    if "revision = re.search" not in workflow or "print(f\"{base} r{revision.group(1)}\")" not in workflow:
+        raise SystemExit("preview workflow must publish the full visible preview version including revision")
 
     forbidden_html_literals = ("2.9.6 操作ガイド", "覇道ライブラリ｜v2.9.2.0", "Update08")
     for html_name in HTML_FILES:
@@ -108,8 +112,7 @@ def main() -> int:
         if "hado_type_candidates.js" in sources and sources.index("hado_update_meta.js") > sources.index("hado_type_candidates.js"):
             raise SystemExit(f"{html_name} loads hado_update_meta.js after hado_type_candidates.js")
 
-    channel = "formal release" if formal_release else f"revision {revision}"
-    print(f"update version consistency ok: {display_version} ({channel}, single source hado_version.js)")
+    print(f"update version consistency ok: {visible_version} (single source hado_version.js)")
     return 0
 
 

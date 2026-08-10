@@ -20,10 +20,11 @@ const bootstrap = read('hado_bootstrap.js');
 const statusEffects = read('hado_status_effects.js');
 const relatedLinks = JSON.parse(read('hadou_related_link_index.json'));
 const versionSource = read('hado_version.js');
-const updateNo = versionSource.match(/updateNo:\s*'([^']+)'/)?.[1];
+const releaseVersion = versionSource.match(/releaseVersion:\s*'([^']+)'/)?.[1];
+const updateNo = versionSource.match(/updateNo:\s*'([^']*)'/)?.[1] || '';
 const revision = versionSource.match(/revision:\s*(\d+)/)?.[1];
-assert(updateNo && revision, 'visible version source must define updateNo and revision');
-const assetVersion = `${updateNo}-r${revision}`;
+assert(releaseVersion && revision, 'visible version source must define releaseVersion and revision');
+const assetVersion = `${updateNo || releaseVersion}-r${revision}`;
 
 assert(index.indexOf(`hado_tabs.js?v=${assetVersion}`) < index.indexOf(`hado_core.js?v=${assetVersion}`), 'shared tab runtime must load before consumers');
 assert(index.includes('role="tablist"') && index.includes('data-tab-key="normal"'), 'primary/search tab semantics missing');
