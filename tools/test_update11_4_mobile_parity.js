@@ -16,11 +16,14 @@ const css = read('hado_styles.css');
 const html = read('index.html');
 const version = read('hado_version.js');
 
-assert(version.includes("updateNo: '11.4'"), 'visible update must be Update11.4');
-assert(version.includes('revision: 164'), 'revision must be r164');
-assert(html.includes('hado_status_effects.js?v=11.4-r164-mobile-parity'), 'status runtime must use the Update11.4 cache key');
-assert(html.includes('hado_formation.js?v=11.4-r164-mobile-parity'), 'formation runtime must use the Update11.4 cache key');
-assert(html.includes('hado_styles.css?v=11.4-r164'), 'CSS must use the Update11.4 cache key');
+const releaseVersion = version.match(/releaseVersion:\s*'([^']+)'/)?.[1];
+const updateNo = version.match(/updateNo:\s*'([^']*)'/)?.[1] || '';
+const revision = Number(version.match(/revision:\s*(\d+)/)?.[1] || 0);
+const cacheKey = `${updateNo || releaseVersion}-r${revision}`;
+assert(releaseVersion && revision >= 164, 'runtime must retain the accepted Update11.4 mobile parity behavior');
+assert(html.includes(`hado_status_effects.js?v=${cacheKey}-mobile-parity`), 'status runtime must use the current revisioned cache key');
+assert(html.includes(`hado_formation.js?v=${cacheKey}-mobile-parity`), 'formation runtime must use the current revisioned cache key');
+assert(html.includes(`hado_styles.css?v=${cacheKey}`), 'CSS must use the current revisioned cache key');
 
 assert(search.includes("const target=(mode==='status'&&statusBar)?statusBar:queryRow"), 'status search must move the complete tag combobox into the status row');
 assert(search.includes('tagWrap.hidden=false'), 'tag combobox must stay visible in status search');

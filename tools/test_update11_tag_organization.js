@@ -16,13 +16,14 @@ const html = read('index.html');
 const version = read('hado_version.js');
 const tagIndex = JSON.parse(read('hadou_tag_index.json'));
 
-assert(version.includes("releaseVersion: '3.0.1.0'"), 'release version must be 3.0.1.0');
+assert(version.includes("releaseVersion: '3.0.1.1'"), 'release version must be 3.0.1.1');
 const updateMatch = version.match(/updateNo:\s*'(\d+)\.(\d+)'/);
+const updateNoIsEmpty = version.includes("updateNo: ''");
 const revisionMatch = version.match(/revision:\s*(\d+)/);
-assert(updateMatch && (Number(updateMatch[1]) > 11 || (Number(updateMatch[1]) === 11 && Number(updateMatch[2]) >= 0)), 'visible update must retain Update11 or later behavior');
+assert(updateNoIsEmpty || (updateMatch && (Number(updateMatch[1]) > 11 || (Number(updateMatch[1]) === 11 && Number(updateMatch[2]) >= 0))), 'runtime must retain Update11 behavior after the Update plan ends');
 assert(revisionMatch && Number(revisionMatch[1]) >= 160, 'revision must be r160 or later');
-assert(core.includes("version:\"3.0.1.0\""), 'runtime build version must match 3.0.1.0');
-assert(core.includes("fileName:\"hado_library_3.0.1.0.html\""), 'runtime file metadata must match 3.0.1.0');
+assert(core.includes("version:\"3.0.1.1\""), 'runtime build version must match 3.0.1.1');
+assert(core.includes("fileName:\"hado_library_3.0.1.1.html\""), 'runtime file metadata must match 3.0.1.1');
 
 const expectedCategoryOrder = "['generals','tactics','skills','equipments','statusEffects','siegeWeapons','ethnicArmaments','formations','warhorses','warhorseSkills']";
 assert(core.includes(`SEARCH_CATEGORY_DISPLAY_ORDER=Object.freeze(${expectedCategoryOrder})`), 'tag order must share the visible search category order');

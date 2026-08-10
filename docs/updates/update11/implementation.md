@@ -1,5 +1,13 @@
 # Update11 Implementation
 
+## 3.0.1.1版管理移行
+
+- `3.0.0.0` の大型開発計画完了に伴い、runtimeの `updateNo` を空にし、通常の4桁版管理へ移行した。
+- `releaseVersion` は公開後のスマホ対応修正版として `3.0.1.1`、preview buildは `r165` とした。
+- `hado_update_meta.js` はUpdate計画中、Updateなしpreview、正式版の3表示契約を共通処理で導出する。
+- preview marker生成、asset cache key、版数validator、過去Update回帰を、空の `updateNo` と `3.0.1.1 r165` に対応させた。
+- 過去のUpdate01〜11文書と `3.0.1.0 Update11.4 r164` の受入記録は履歴として保持する。
+
 ## Update11.4 PC/スマホ機能差解消
 
 ### 分類と根本原因

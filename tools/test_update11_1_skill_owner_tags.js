@@ -15,8 +15,9 @@ const tagIndex = JSON.parse(read('hadou_tag_index.json'));
 const ownerIndex = JSON.parse(read('hadou_skill_owner_index.json'));
 
 const updateMatch = version.match(/updateNo:\s*'(\d+)\.(\d+)'/);
+const updateNoIsEmpty = version.includes("updateNo: ''");
 const revisionMatch = version.match(/revision:\s*(\d+)/);
-assert(updateMatch && (Number(updateMatch[1]) > 11 || (Number(updateMatch[1]) === 11 && Number(updateMatch[2]) >= 1)), 'visible update must retain Update11.1 or later behavior');
+assert(updateNoIsEmpty || (updateMatch && (Number(updateMatch[1]) > 11 || (Number(updateMatch[1]) === 11 && Number(updateMatch[2]) >= 1))), 'runtime must retain Update11.1 behavior after the Update plan ends');
 assert(revisionMatch && Number(revisionMatch[1]) >= 161, 'revision must be r161 or later');
 assert(runtime.includes("buildDerivedSkillOwnerTagLookup(availableTags)"), 'skill-owner tag lookup must be implemented');
 assert(runtime.includes("getDerivedRelatedBucketItems('skillOwnerIndex')"), 'runtime must use the derived skill-owner index');

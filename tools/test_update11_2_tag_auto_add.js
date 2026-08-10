@@ -16,8 +16,9 @@ const html = read('index.html');
 const version = read('hado_version.js');
 
 const updateMatch = version.match(/updateNo:\s*'(\d+)\.(\d+)'/);
+const updateNoIsEmpty = version.includes("updateNo: ''");
 const revisionMatch = version.match(/revision:\s*(\d+)/);
-assert(updateMatch && (Number(updateMatch[1]) > 11 || (Number(updateMatch[1]) === 11 && Number(updateMatch[2]) >= 2)), 'visible update must retain Update11.2 or later behavior');
+assert(updateNoIsEmpty || (updateMatch && (Number(updateMatch[1]) > 11 || (Number(updateMatch[1]) === 11 && Number(updateMatch[2]) >= 2))), 'runtime must retain Update11.2 behavior after the Update plan ends');
 assert(revisionMatch && Number(revisionMatch[1]) >= 162, 'revision must be r162 or later');
 assert(/hado_status_effects\.js\?v=\d+(?:\.\d+)*-r\d+/.test(html), 'changed runtime must use a versioned cache key');
 assert(/hado_bootstrap\.js\?v=\d+(?:\.\d+)*-r\d+/.test(html), 'bootstrap must use a versioned cache key');
