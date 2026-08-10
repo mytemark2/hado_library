@@ -11,9 +11,10 @@
 - スマホ: 320px・375px・390pxで状態変化行・文書の横overflowは0px、状態変化選択とタグ入力は16px。390pxで `技能:練兵` 選択直後にbadgeと検索進捗34%が表示され、その後5件へ確定した。
 - スマホ検索結果: 選択欄直下にカテゴリ、名称、補足、主要badgeを表示し、要約欄と文書の横overflowは0px。
 - スマホ部隊編成: 主将枠で有効技能6件を開閉表示、参軍「王異」で `増兵Ⅰ / 助言Ⅰ` を表示。軍馬枠は1列で補足行を表示し、軍馬画面・部隊編成ともconsole error / warning 0件。
-- Git / Actions / Preview: Pull Request作成後に確認する。
+- Git: 基準 `c6c82105312b0a89b2a57ac602d69d5a37d37d16`、実装commit `188cc5f68e174490b37c578f17caba97e74bef7d`、PR [#276](https://github.com/mytemark2/hado_library/pull/276)。`python tools/check_pr_merge_readiness.py --base feature/app-3.0.0.0` は競合なしで成功した。
+- Actions: `App Validation / app-validation` run `31345853587` 成功。イベント駆動Preview同期は正本ブランチへのmerge後に確認する。
 - 最小受入操作: スマホで状態変化検索を開き、タグ欄へ `技能:練兵` を入力してタグが先に表示されること、検索結果を選んで補足badgeを確認すること、部隊編成の主将枠で有効技能を展開すること、参軍枠を開いて現在の有効技能を確認すること、軍馬編成タブがエラーなく開くことを確認する。
-- 残課題: Pull Request、Actions、イベント駆動Preview同期、公開URLとmarker一致の確認。
+- 残課題: 正本ブランチへのmerge、イベント駆動Preview同期、公開URLとmarker一致の確認。
 
 ## Update11.3 Preview反映報告（スマホ実機受入待ち）
 
