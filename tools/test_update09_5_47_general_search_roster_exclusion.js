@@ -109,9 +109,10 @@ if (context.buildSearchableText(huamanRuntime).includes('関羽')) {
   throw new Error('UR花鬘 runtime search text still contains another-general roster 関羽');
 }
 const versionSource = fs.readFileSync('hado_version.js', 'utf8');
-const updateNo = versionSource.match(/updateNo:\s*'([^']+)'/)?.[1];
+const releaseVersion = versionSource.match(/releaseVersion:\s*'([^']+)'/)?.[1];
+const updateNo = versionSource.match(/updateNo:\s*'([^']*)'/)?.[1] || '';
 const revision = versionSource.match(/revision:\s*(\d+)/)?.[1];
-const cacheKey = `${updateNo}-r${revision}`;
+const cacheKey = `${updateNo || releaseVersion}-r${revision}`;
 for (const asset of ['hado_version.js', 'hado_core.js', 'hado_status_effects.js']) {
   if (!html.includes(`${asset}?v=${cacheKey}`)) {
     throw new Error(`${asset} cache bust does not match ${cacheKey}`);

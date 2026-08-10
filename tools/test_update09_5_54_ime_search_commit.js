@@ -81,9 +81,10 @@ assert.strictEqual(dispatch('keydown', { key: 'Enter', keyCode: 229 }).stopped, 
 const indexHtml = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 assert(/hado_bootstrap\.js\?v=[^"']+/.test(indexHtml), 'IME runtime bootstrap must keep a cache-busting query');
 const versionSource = fs.readFileSync(path.join(root, 'hado_version.js'), 'utf8');
-const updateNo = versionSource.match(/updateNo:\s*'([^']+)'/)?.[1];
+const releaseVersion = versionSource.match(/releaseVersion:\s*'([^']+)'/)?.[1];
+const updateNo = versionSource.match(/updateNo:\s*'([^']*)'/)?.[1] || '';
 const revision = versionSource.match(/revision:\s*(\d+)/)?.[1];
-assert(updateNo && revision, 'current version metadata must be readable');
-assert(indexHtml.includes(`hado_version.js?v=${updateNo}-r${revision}`), 'version asset cache key must follow the current visible version');
+assert(releaseVersion && revision, 'current version metadata must be readable');
+assert(indexHtml.includes(`hado_version.js?v=${updateNo || releaseVersion}-r${revision}`), 'version asset cache key must follow the current visible version');
 
 console.log('Update09.5.54 IME search commit regression test passed');

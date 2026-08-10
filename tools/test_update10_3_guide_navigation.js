@@ -12,7 +12,7 @@ const styles = read('hado_styles.css');
 const version = read('hado_version.js');
 
 assert(/releaseVersion:\s*'\d+\.\d+\.\d+\.\d+'/.test(version), 'runtime release version source is required');
-assert(/updateNo:\s*'\d+(?:\.\d+)?'/.test(version), 'runtime update number source is required');
+assert(/updateNo:\s*'(?:\d+(?:\.\d+)?)?'/.test(version), 'runtime optional update number source is required');
 assert(/revision:\s*\d+/.test(version), 'runtime revision source is required');
 assert(core.includes("{title:'覇道ライブラリへようこそ',target:'#appTitlePanel',tab:'search',searchMode:'normal'"), 'first-time guide must start on normal search');
 assert(core.includes("{title:'候補ワークスペース',target:'.result-copy-actions',tab:'search',searchMode:'normal'"), 'search guide step 8 must return to normal search');

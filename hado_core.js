@@ -37,9 +37,9 @@ const debugTimerMap=new Map();
 const debugLines=[];
 const startupDebugLines=[];
 const MAX_DEBUG_LINES=220;
-const FILE_META={fileName:"hado_library_3.0.1.0.html",createdAt:"2026-07-23 00:00:00"};
+const FILE_META={fileName:"hado_library_3.0.1.1.html",createdAt:"2026-08-10 00:00:00"};
 // FEATURE[HADO-VERSIONING]: 2.x.x.y バージョン管理。メジャー/マイナーはユーザー採番、x は機能追加、y は不具合修正。
-const HADO_BUILD_INFO={version:"3.0.1.0",baseVersion:"3.0.0.0",changeType:"feature",summary:"Update11.2: automatically add exact valid tags and remove the add button.",baseSha256:"5011c83cd19b058e1106749794d2f2464c026c2fe6300b7d850c0aba9c1d09b6"};
+const HADO_BUILD_INFO={version:"3.0.1.1",baseVersion:"3.0.1.0",changeType:"fix",summary:"Publish the accepted mobile search and formation improvements without an active Update plan.",baseSha256:"5011c83cd19b058e1106749794d2f2464c026c2fe6300b7d850c0aba9c1d09b6"};
 
 // FEATURE[HADO-2.9.6.3-WEB-DEPLOYMENT]: HTTP(S)配信時は公開JSONを自動取得し、手動JSONロードUIを表示しない。
 const IS_WEB_DEPLOYMENT=/^https?:$/.test(location.protocol);

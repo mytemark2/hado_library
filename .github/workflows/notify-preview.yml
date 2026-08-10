@@ -59,10 +59,12 @@ jobs:
           from pathlib import Path
           source = Path('hado_version.js').read_text(encoding='utf-8')
           release = re.search(r"releaseVersion:\s*'([^']+)'", source)
-          update = re.search(r"updateNo:\s*'([^']+)'", source)
-          if not release or not update:
-              raise SystemExit('releaseVersion/updateNo not found in hado_version.js')
-          print(f"{release.group(1)} Update{update.group(1)}")
+          update = re.search(r"updateNo:\s*'([^']*)'", source)
+          revision = re.search(r"revision:\s*(\d+)", source)
+          if not release or not update or not revision:
+              raise SystemExit('releaseVersion/updateNo/revision not found in hado_version.js')
+          base = f"{release.group(1)} Update{update.group(1)}" if update.group(1) else release.group(1)
+          print(f"{base} r{revision.group(1)}")
           PY
           )"
           if [ -z "${display_version}" ]; then

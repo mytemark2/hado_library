@@ -14,11 +14,12 @@ const html = read('index.html');
 const version = read('hado_version.js');
 
 const updateMatch = version.match(/updateNo:\s*'(\d+)\.(\d+)'/);
+const updateNoIsEmpty = version.includes("updateNo: ''");
 const revisionMatch = version.match(/revision:\s*(\d+)/);
-assert(updateMatch && (Number(updateMatch[1]) > 11 || (Number(updateMatch[1]) === 11 && Number(updateMatch[2]) >= 3)), 'visible update must retain Update11.3 or later behavior');
+assert(updateNoIsEmpty || (updateMatch && (Number(updateMatch[1]) > 11 || (Number(updateMatch[1]) === 11 && Number(updateMatch[2]) >= 3))), 'runtime must retain Update11.3 behavior after the Update plan ends');
 assert(revisionMatch && Number(revisionMatch[1]) >= 163, 'revision must be r163 or later');
-assert(/hado_status_effects\.js\?v=11\.(?:3|[4-9]|\d{2,})-r\d+/.test(html), 'tag runtime must use an Update11.3-or-later cache key');
-assert(/hado_styles\.css\?v=11\.(?:3|[4-9]|\d{2,})-r\d+/.test(html), 'CSS must use an Update11.3-or-later cache key');
+assert(/hado_status_effects\.js\?v=\d+(?:\.\d+){1,3}-r\d+/.test(html), 'tag runtime must use a revisioned cache key');
+assert(/hado_styles\.css\?v=\d+(?:\.\d+){1,3}-r\d+/.test(html), 'CSS must use a revisioned cache key');
 
 assert(status.includes("function scheduleSearchAfterTagChange(reason='')"), 'tag search must have a deferred refresh scheduler');
 assert(status.includes("els.resultMeta.textContent='タグを反映しました。検索中…'"), 'tag selection must expose immediate feedback');

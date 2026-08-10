@@ -36,13 +36,19 @@ def main() -> int:
     report = read("docs/updates/update09/report.md")
 
     import re
-    update_match = re.search(r"updateNo:\s*'([^']+)'", version_js)
+    release_match = re.search(r"releaseVersion:\s*'([^']+)'", version_js)
+    update_match = re.search(r"updateNo:\s*'([^']*)'", version_js)
     revision_match = re.search(r"revision:\s*(\d+)", version_js)
-    if not update_match or not revision_match:
-        raise SystemExit("hado_version.js must define updateNo and revision")
+    if not release_match or not update_match or not revision_match:
+        raise SystemExit("hado_version.js must define releaseVersion, optional updateNo, and revision")
+    release_version = release_match.group(1)
     update_no = update_match.group(1)
     revision = int(revision_match.group(1))
-    if update_no == "09.4.21":
+    if not update_no:
+        release_parts = tuple(int(part) for part in release_version.split("."))
+        if release_parts < (3, 0, 1, 1) or revision < 165:
+            raise SystemExit(f"unexpected post-Update release: {release_version} r{revision}")
+    elif update_no == "09.4.21":
         if revision != 94:
             raise SystemExit("Update09.4.21 must keep revision 94")
     elif update_no.startswith("09.5."):

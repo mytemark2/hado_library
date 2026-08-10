@@ -131,6 +131,16 @@ When refactoring a shared path, inspect all entry points that use the same behav
 
 When a versioned application update is requested, inspect and update all applicable version references together.
 
+The four-part public version `A.B.C.D` has these meanings:
+- `A`: major product generation, such as `3` -> `4`.
+- `B`: large feature line within the generation, such as `3.0` -> `3.1`.
+- `C`: post-release feature improvement, such as `3.0.0.0` -> `3.0.1.0`.
+- `D`: corrective or compatibility release after that improvement, such as `3.0.1.0` -> `3.0.1.1`.
+
+`Update` is not a normal release suffix. Use it only as a planning identifier when a major development such as `3` -> `4` or `3.0` -> `3.1` is deliberately split into multiple implementation stages. Once that planned development is complete, keep its Update records as history but set runtime `updateNo` to an empty string. Do not create another Update number for ordinary post-release improvements or corrections.
+
+`revision` is a monotonically increasing preview-build identifier, not a semantic version part and not a commit counter. Increment it when a user-visible preview build is issued. A development preview without an active Update displays `<releaseVersion> r<revision>`; a planned multi-stage development preview displays `<releaseVersion> Update<updateNo> r<revision>`. A formal release sets `formalRelease: true` and displays only `<releaseVersion>` while retaining the revision internally for traceability.
+
 Confirm the repository's actual implementation before editing. Applicable items may include:
 - Update number,
 - screen title,
@@ -145,8 +155,8 @@ Confirm the repository's actual implementation before editing. Applicable items 
 
 Do not assume that every item exists. Do not invent missing files. If an expected item does not exist, report that finding.
 
-For every user-visible correction after a numbered Update is marked complete, increment the visible Update suffix together with metadata (for example `Update08` -> `Update08.1`, then `Update08.2`). Update all applicable display/version references in the same commit so preview users can distinguish deployed fixes.
-Keep visible runtime version constants centralized only in `hado_version.js`; `hado_update_meta.js` and other JavaScript should read `window.HADO_VERSION`, `window.HADO_APP_DISPLAY_VERSION`, or `window.HADO_APP_VERSION_META` instead of hard-coding the visible Update string. Do not duplicate `releaseVersion`, `updateNo`, `displayVersion`, or `revision` in `HADO_DEV_INFO.json`.
+Update all applicable display/version references in the same commit so preview users can distinguish deployed builds. Asset cache keys must use `<updateNo>-r<revision>` while an Update plan is active, and `<releaseVersion>-r<revision>` when `updateNo` is empty.
+Keep visible runtime version constants centralized only in `hado_version.js`; `hado_update_meta.js` and other JavaScript should read `window.HADO_VERSION`, `window.HADO_APP_DISPLAY_VERSION`, or `window.HADO_APP_VERSION_META` instead of hard-coding the visible version. Do not duplicate `releaseVersion`, `updateNo`, `displayVersion`, or `revision` in `HADO_DEV_INFO.json`.
 
 
 If the user explicitly says not to change the version, do not edit `hado_version.js` or `HADO_DEV_INFO.json`. If either file is edited, the final report must state that it was edited and why. Never report a file as unchanged if it appears in the final diff.

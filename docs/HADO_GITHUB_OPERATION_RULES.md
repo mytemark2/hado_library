@@ -2,7 +2,7 @@
 
 ## 正本
 - `main`: 正式公開済みソース。直接Pushしない。
-- `future/app-3.0.0.0`: 現在のアプリ開発中正本。
+- `feature/app-3.0.0.0`: 現在のアプリ開発中正本。
 - `mytemark2/hado_library-preview`: ブラウザ動作確認専用。修正元にしない。
 
 ## 作業開始時
@@ -41,8 +41,16 @@ python3 tools/check_pr_merge_readiness.py --base feature/app-3.0.0.0
 
 この確認を通していないPRは、レビュー可能でも「マージ可能性未確認」として扱う。
 
+## バージョン管理
+
+- 公開版は4桁 `A.B.C.D` で管理する。`A`は製品世代、`B`は世代内の大型機能系列、`C`はリリース後の機能改善、`D`はその後の修正・互換性改善を表す。
+- `Update` は `3 -> 4` や `3.0 -> 3.1` の大型開発を複数回に分けて進める際の計画番号であり、通常のリリース接尾辞ではない。大型開発完了後は履歴だけを残し、runtimeの `updateNo` は空にする。
+- `revision` はプレビュー配布物を一意に識別する単調増加番号であり、意味的バージョンでもcommit件数でもない。利用者向けプレビューを発行する時に増やす。
+- Update計画中のプレビューは `<version> Update<updateNo> r<revision>`、Updateを使用しない通常プレビューは `<version> r<revision>`、正式版は `<version>` だけを表示する。
+- 正式版では `formalRelease: true`、プレビュー版では `formalRelease: false` とする。表示版の単一正本は `hado_version.js` とする。
+
 ## Update記録
-各Updateは `docs/updates/<update>/roadmap.md`、`implementation.md`、`report.md` に記録する。`docs/updates/README.md` も原則としてコードと同じCommitで更新する。旧形式資料は削除せず、新形式文書から参照する。
+大型開発でUpdate計画を使用する場合だけ、`docs/updates/<update>/roadmap.md`、`implementation.md`、`report.md` に記録する。大型開発完了後の通常改善は4桁バージョンで管理し、完了済みUpdate文書は履歴として保持する。`docs/updates/README.md` も原則としてコードと同じCommitで更新する。
 
 ## プレビュー
 `main` 以外の作業ブランチへのPush後、`.github/workflows/notify-preview.yml` によりプレビュー同期を自動起動する。通常運用で手動Workflow Dispatchを要求しない。開発ブランチ反映とプレビュー同期結果は分けて報告する。正式公開用の `main` はプレビュー通知の対象外とする。

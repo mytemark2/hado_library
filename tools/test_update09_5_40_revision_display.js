@@ -19,7 +19,7 @@ vm.createContext(context);
 vm.runInContext(fs.readFileSync('hado_version.js','utf8'), context, { filename: 'hado_version.js' });
 vm.runInContext(fs.readFileSync('hado_update_meta.js','utf8'), context, { filename: 'hado_update_meta.js' });
 const version = context.window.HADO_VERSION;
-const expectedBase = `${version.releaseVersion} Update${version.updateNo}`;
+const expectedBase = version.updateNo ? `${version.releaseVersion} Update${version.updateNo}` : version.releaseVersion;
 const expected = `${expectedBase} r${version.revision}`;
 assert.strictEqual(context.window.HADO_APP_DISPLAY_VERSION, expected, 'visible app version includes revision');
 assert.strictEqual(document.title, `覇道ライブラリ ${expected}`, 'page title includes revision');
