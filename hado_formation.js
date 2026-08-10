@@ -1800,7 +1800,28 @@ function getFormationWarhorseActiveSlots(){const data=(typeof getCurrentWarhorse
 function getWarhorseAssignmentOptionLabel(id){const {data}=getFormationWarhorseActiveSlots();const key=norm(id||'');const entry=key?data.owned?.[key]:null;if(!entry)return '未設定';return norm(entry.name||entry.customName||entry.id||key)||key;}
 function setFormationWarhorseSlot(slotIndex,value){const idx=Math.max(0,Math.min(2,Number(slotIndex)||0));const {data,active}=getFormationWarhorseActiveSlots();const next=norm(value||'');active[idx]=next&&data.owned?.[next]?next:null;data.activeSlots=active;try{if(typeof persistSaveData==='function')persistSaveData();}catch(err){debugLog('formation:warhorse-slot-persist-error',{slotIndex:idx,message:err?.message||String(err)});}markFormationScreenStale('formation-warhorse-slot-change');if(state.mainTab==='formation')renderFormationScreen();debugLog('formation:warhorse-slot-change',{slotIndex:idx,value:active[idx]||'',activeSlots:active});}
 function openFormationWarhorseEditFromSlot(slotIndex){const idx=Math.max(0,Math.min(2,Number(slotIndex)||0));const {active}=getFormationWarhorseActiveSlots();const id=norm(active[idx]||'');if(!id){try{window.alert('編集する軍馬が未設定です。軍馬編成画面で軍馬を登録してください。');}catch{}return;}if(typeof openWarhorseEditDialog==='function'){openWarhorseEditDialog(id);if(typeof setMainTab==='function')setMainTab('warhorse');}else{debugLog('formation:warhorse-edit-unavailable',{slotIndex:idx,id});}}
-function renderFormationWarhorseSlotsHtml(){const {data,active}=getFormationWarhorseActiveSlots();const owned=Object.values(data.owned||{}).sort((a,b)=>norm(a.name||a.customName||a.id).localeCompare(norm(b.name||b.customName||b.id),'ja'));const options=(selected)=>`<option value="">未設定</option>${owned.map(w=>`<option value="${esc(w.id)}" ${norm(selected)===norm(w.id)?'selected':''}>${esc(w.name||w.customName||w.id)}</option>`).join('')}`;const rows=[0,1,2].map(i=>{const id=norm(active[i]||'');return `<div class="formation-warhorse-slot-row"><label><span class="note">軍馬${i+1}</span><select class="formation-select" data-formation-warhorse-slot="${i}">${options(id)}</select></label></div>`;}).join('');const emptyNote=owned.length?'':'<div class="formation-note">登録済み軍馬がありません。軍馬編成画面で軍馬を登録してください。</div>';return `<div class="formation-warhorse-slots">${emptyNote}<div class="formation-warhorse-slots-body">${rows}</div></div>`;}
+function getFormationWarhorseSlotNote(entry,slotIndex){
+  if(!entry)return '未設定';
+  const master=getWarhorseMasterById(entry.horseMasterId);
+  const isFamous=getWarhorseMasterKind(master)==='famous';
+  const normalSkills=(Array.isArray(entry.skills)?entry.skills:[]).map(skill=>`${getWarhorseSkillDisplayName(skill.skillId)} Lv${normalizeWarhorseSkillLevel(skill.level)}`);
+  const parts=[`軍馬${slotIndex+1}へ編成`,isFamous?'名馬':'通常馬'];
+  if(isFamous){const fixedName=getWarhorseFixedSkillName(master);if(fixedName)parts.push(`固有 ${fixedName} Lv${getFamousHorseFixedSkillLevel(master,entry.star||0)}`);}
+  parts.push(normalSkills.length?`通常技能 ${normalSkills.join(' / ')}`:'通常技能 未設定');
+  return parts.join('・');
+}
+function renderFormationWarhorseSlotsHtml(){
+  const {data,active}=getFormationWarhorseActiveSlots();
+  const owned=Object.values(data.owned||{}).sort((a,b)=>norm(a.name||a.customName||a.id).localeCompare(norm(b.name||b.customName||b.id),'ja'));
+  const options=(selected)=>`<option value="">未設定</option>${owned.map(w=>`<option value="${esc(w.id)}" ${norm(selected)===norm(w.id)?'selected':''}>${esc(w.name||w.customName||w.id)}</option>`).join('')}`;
+  const rows=[0,1,2].map(i=>{
+    const id=norm(active[i]||'');
+    const entry=id?data.owned?.[id]:null;
+    return `<div class="formation-warhorse-slot-row"><label><span class="note">軍馬${i+1}</span><select class="formation-select" data-formation-warhorse-slot="${i}">${options(id)}</select></label><div class="formation-warhorse-slot-note" title="${esc(getFormationWarhorseSlotNote(entry,i))}">${esc(getFormationWarhorseSlotNote(entry,i))}</div></div>`;
+  }).join('');
+  const emptyNote=owned.length?'':'<div class="formation-note">登録済み軍馬がありません。軍馬編成画面で軍馬を登録してください。</div>';
+  return `<div class="formation-warhorse-slots">${emptyNote}<div class="formation-warhorse-slots-body">${rows}</div></div>`;
+}
 function renderFormationTeamBoardSelectableHtml(f,mobileScoreResultHtml=''){
   const master=getSelectedFormationMaster(f);const matrix=getFormationMasterLayoutMatrix(master);const availability=computeFormationJijuAvailability(f);const attendantCells=new Map();const openJijuCells=new Map();
   Object.values(availability.bySlot||{}).forEach(info=>{
@@ -2288,13 +2309,16 @@ function renderFormationSelectorDialogHtml(f){
       : `<div class="formation-selector-filter-grid has-status-filter"><input type="text" class="formation-select" data-formation-selector-filter="keyword" placeholder="武将名で検索" value="${esc(ctx.keyword)}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><select class="formation-select" data-formation-selector-filter="statusGroup">${buildFormationSelectorStatusGroupOptions(ctx)}</select><select class="formation-select" data-formation-selector-filter="statusEffect">${buildFormationSelectorStatusEffectOptions(ctx)}</select><select class="formation-select" data-formation-selector-filter="troop"><option value="">兵科すべて</option>${['歩兵','騎兵','弓兵'].map(v=>`<option value="${esc(v)}" ${ctx.troop===v?'selected':''}>${esc(v)}</option>`).join('')}</select><select class="formation-select" data-formation-selector-filter="rarity"><option value="">レアリティすべて</option>${['LR','UR','SSR','SR','R','N'].map(v=>`<option value="${esc(v)}" ${ctx.rarity===v?'selected':''}>${esc(v)}</option>`).join('')}</select></div>`;
   const currentSlot=f?.slots?.[ctx.slotKey]||{};
   const currentAdvisorName=ctx.type==='advisor'?normalizeSaveItemName((f?.advisorSlots||{})[ctx.advisorKey]||''):'';
+  const currentAdvisorItem=currentAdvisorName?findItemByDisplayName('generals',currentAdvisorName):null;
+  const currentAdvisorSkills=currentAdvisorItem?getActiveAdvisorSkillRecordsForGeneralItem(currentAdvisorItem):[];
+  const currentAdvisorSkillInfo=(ctx.type==='advisor'&&currentAdvisorName)?`<div class="formation-selector-current-skill-note"><strong>現在の有効技能</strong><span>${currentAdvisorSkills.length?esc(currentAdvisorSkills.map(skill=>`${skill.skillName}${skill.levelRoman}`).join(' / ')):'参軍Lv条件を満たす技能はありません'}</span></div>`:'';
   const clearButton=(ctx.type==='advisor'&&currentAdvisorName)?`<div class="formation-selector-command-row"><button type="button" class="copy-btn btn-clear-all" data-formation-remove="advisor" data-equip-key="${esc(ctx.advisorKey)}">現在の参軍を解除</button><span class="formation-selector-advisor-note">現在: ${esc(formationDisplayNameNoReading('generals',currentAdvisorName))}</span></div>`:(ctx.type==='attendant'&&currentSlot.attendant)?`<div class="formation-selector-command-row"><button type="button" class="copy-btn btn-clear-all" data-formation-remove="attendant" data-slot-key="${esc(ctx.slotKey)}">現在の侍従を解除</button></div>`:'';
   const listHtml=renderFormationSelectorResultsHtml(ctx,candidates,category);
-  return `<div class="formation-mobile-dialog-overlay is-selector-top no-detail-linkify" data-formation-selector-backdrop="1"><div class="formation-mobile-dialog-card" role="dialog" aria-modal="true" aria-label="${esc(title)}"><div class="formation-mobile-dialog-head"><div class="formation-mobile-dialog-title">${esc(title)}</div><button type="button" class="formation-mobile-dialog-close" data-formation-selector-close="1">閉じる</button></div><div class="formation-selector-dialog-body">${fixedNotes.length?`<div class="formation-selector-fixed-note">${esc(fixedNotes.join(' '))}</div>`:''}${filterHtml}${clearButton}<div data-formation-selector-results>${listHtml}</div></div></div></div>`;
+  return `<div class="formation-mobile-dialog-overlay is-selector-top no-detail-linkify" data-formation-selector-backdrop="1"><div class="formation-mobile-dialog-card" role="dialog" aria-modal="true" aria-label="${esc(title)}"><div class="formation-mobile-dialog-head"><div class="formation-mobile-dialog-title">${esc(title)}</div><button type="button" class="formation-mobile-dialog-close" data-formation-selector-close="1">閉じる</button></div><div class="formation-selector-dialog-body">${fixedNotes.length?`<div class="formation-selector-fixed-note">${esc(fixedNotes.join(' '))}</div>`:''}${currentAdvisorSkillInfo}${filterHtml}${clearButton}<div data-formation-selector-results>${listHtml}</div></div></div></div>`;
 }
 
 function renderFormationSelectedSlotSkillSummaryHtml(f,spec,slot,data){
-  if(!slot||!slot.general)return '<div class="formation-selected-skill-panel"><div class="formation-selected-skill-list"><div class="formation-selected-skill-empty">武将未設定です。</div></div></div>';
+  if(!slot||!slot.general)return `<details class="formation-selected-skill-panel"${isResponsiveMobileMode()?'':' open'}><summary class="formation-selected-skill-title">この枠で有効な技能（0件）</summary><div class="formation-selected-skill-list"><div class="formation-selected-skill-empty">武将未設定です。</div></div></details>`;
   const holderNames=new Set();
   const addName=name=>{const n=normalizeSaveItemName(name||'');if(n)holderNames.add(n);};
   addName(slot.general);addName(slot.attendant);
@@ -2314,7 +2338,7 @@ function renderFormationSelectedSlotSkillSummaryHtml(f,spec,slot,data){
     const lv=(minLv===maxLv)?(ROMAN_LEVELS[minLv-1]||String(minLv)):`${ROMAN_LEVELS[minLv-1]||minLv}〜${ROMAN_LEVELS[maxLv-1]||maxLv}`;
     return `<div class="formation-selected-skill-row"><div class="formation-selected-skill-name"><span>${esc(row.name)}</span><span class="formation-badge">${esc(lv)}</span></div></div>`;
   }).join(''):`<div class="formation-selected-skill-empty">この武将・装備で有効な合算技能はありません。</div>`;
-  return `<div class="formation-selected-skill-panel"><div class="formation-selected-skill-list">${body}</div></div>`;
+  return `<details class="formation-selected-skill-panel"${isResponsiveMobileMode()?'':' open'}><summary class="formation-selected-skill-title">この枠で有効な技能（${visible.length}件）</summary><div class="formation-selected-skill-list">${body}</div></details>`;
 }
 
 function renderFormationSelectedSlotEditorHtml(f,data){
@@ -2604,8 +2628,35 @@ function scheduleSearchAndDetailRender(reason='search-input'){
 }
 function cancelScheduledSearchRender(){if(state._searchDebounceTimer){clearTimeout(state._searchDebounceTimer);state._searchDebounceTimer=0;}}
 
+function getMobileResultSummaryRow(){
+  if(!els.resultSelect||els.resultSelect.value===''||els.resultSelect.value==='__more__')return null;
+  const idx=Number(els.resultSelect.value);
+  return Number.isInteger(idx)&&idx>=0?state.lastResultRows?.[idx]||null:null;
+}
+function renderMobileResultSummary(context=''){
+  const wrap=els.resultSelect?.closest('.result-select-wrap');if(!wrap)return;
+  let summary=wrap.querySelector('.mobile-result-summary');
+  if(!summary){summary=document.createElement('div');summary.className='mobile-result-summary';summary.setAttribute('aria-live','polite');wrap.appendChild(summary);}
+  const row=getMobileResultSummaryRow();
+  if(!isResponsiveMobileMode()||!row){summary.hidden=true;summary.innerHTML='';return;}
+  const displayName=getResultCardDisplayName(row);
+  const subTitle=getResultCardSubtitle(row);
+  const metricLabel=row.metric?.display||'';
+  const cardBadges=getResultCardBadgesHtml(row);
+  const reasonText=row.metric?.reasonText||'';
+  const typeReasons=formatTypeSearchReasonsHtml(row.typeSearchMatches||[]);
+  const tacticBadges=(row.key==='tactics'||row.key==='generals')?renderTacticAttackResultBadges(row.item):'';
+  summary.hidden=false;
+  summary.innerHTML=`<div class="mobile-result-summary-head"><span class="search-result-category">${esc(row.label)}</span><strong>${esc(displayName)}</strong>${metricLabel?`<span class="search-result-metric">${esc(metricLabel)}</span>`:''}</div>${subTitle?`<div class="mobile-result-summary-meta">${esc(subTitle)}</div>`:''}${cardBadges||tacticBadges?`<div class="mobile-result-summary-badges">${cardBadges}${tacticBadges}</div>`:''}${reasonText?`<div class="mobile-result-summary-reason"><strong>一致理由：</strong>${esc(reasonText)}</div>`:''}${typeReasons?`<div class="mobile-result-summary-reason"><strong>一致理由：</strong>${typeReasons}</div>`:''}`;
+  debugLog('mobileResultSummary:render',{context,category:row.key,name:displayName,hasBadges:!!(cardBadges||tacticBadges),hasReason:!!(reasonText||typeReasons)});
+}
+
 function renderResultSelect(rows){
   if(!els.resultSelect)return;
+  if(!els.resultSelect.dataset.mobileSummaryBound){
+    els.resultSelect.dataset.mobileSummaryBound='1';
+    els.resultSelect.addEventListener('change',()=>setTimeout(()=>renderMobileResultSummary('result-select-change'),0));
+  }
   const list=Array.isArray(rows)?rows:[];
   const mobile=isResponsiveMobileMode();
   const limit=mobile?Math.min(getMobileResultSelectLimit(),list.length):list.length;
@@ -2624,6 +2675,7 @@ function renderResultSelect(rows){
   if(note)note.textContent=(mobile&&list.length>limit)?`スマホ負荷軽減のため ${limit}/${list.length}件を表示中です。`:(mobile&&list.length>0?`${list.length}件を表示中です。`:'' );
   applyResponsiveLayout('renderResultSelect');
   syncMobileResultFavoriteButton('renderResultSelect');
+  renderMobileResultSummary('renderResultSelect');
 }
 function buildCategoryCacheStatsForProfile(categoryStats){
   const stats=state._searchCacheStats||makeSearchCacheStats();

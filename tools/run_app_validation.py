@@ -72,6 +72,7 @@ COMMANDS.extend(
         ["node", "tools/test_update11_1_skill_owner_tags.js"],
         ["node", "tools/test_update11_2_tag_auto_add.js"],
         ["node", "tools/test_update11_3_mobile_tag_ux.js"],
+        ["node", "tools/test_update11_4_mobile_parity.js"],
         ["node", "tools/test_json_index_contract.js"],
         ["python3", "tools/validate_legacy_hado_app_not_loaded.py"],
         ["python3", "tools/validate_update_version_consistency.py"],

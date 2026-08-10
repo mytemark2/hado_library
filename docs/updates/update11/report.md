@@ -1,5 +1,20 @@
 # Update11 Report
 
+## Update11.4 Preview反映前報告
+
+- 表示版: `3.0.1.0 Update11.4 r164`。正式版の基本バージョンは `3.0.1.0` のまま。
+- 実装: 状態変化検索の完全なタグ入力コンボボックス、スマホ検索結果の主要badge・一致理由、選択枠の有効技能開閉、参軍の有効技能名、軍馬の編成・技能補足、軍馬画面の未定義変数修正、検索タブ外の検索履歴非表示、入力系16px化。
+- HTML: 変更前29,168 bytes、変更後29,162 bytes（6 bytes減）。HTMLはasset cache key更新のみで、動作・表示は既存の外部JavaScript/CSSへ実装した。
+- 専用回帰: `node tools/test_update11_4_mobile_parity.js` 成功。Update11〜11.3の履歴回帰も成功。
+- 全体回帰: `python -X utf8 tools/run_app_validation.py` 128/128成功。JavaScript・JSON・HTML・外部CSS・派生JSON 20件・検索・詳細・編成・保存Import / Export・レスポンシブ契約を確認した。
+- PC 1280px: 状態変化分類・状態変化・解除・タグ入力は同一行（top差2px以内）。状態変化行と文書の横overflowは0px。
+- スマホ: 320px・375px・390pxで状態変化行・文書の横overflowは0px、状態変化選択とタグ入力は16px。390pxで `技能:練兵` 選択直後にbadgeと検索進捗34%が表示され、その後5件へ確定した。
+- スマホ検索結果: 選択欄直下にカテゴリ、名称、補足、主要badgeを表示し、要約欄と文書の横overflowは0px。
+- スマホ部隊編成: 主将枠で有効技能6件を開閉表示、参軍「王異」で `増兵Ⅰ / 助言Ⅰ` を表示。軍馬枠は1列で補足行を表示し、軍馬画面・部隊編成ともconsole error / warning 0件。
+- Git / Actions / Preview: Pull Request作成後に確認する。
+- 最小受入操作: スマホで状態変化検索を開き、タグ欄へ `技能:練兵` を入力してタグが先に表示されること、検索結果を選んで補足badgeを確認すること、部隊編成の主将枠で有効技能を展開すること、参軍枠を開いて現在の有効技能を確認すること、軍馬編成タブがエラーなく開くことを確認する。
+- 残課題: Pull Request、Actions、イベント駆動Preview同期、公開URLとmarker一致の確認。
+
 ## Update11.3 Preview反映報告（スマホ実機受入待ち）
 
 - 表示版: `3.0.1.0 Update11.3 r163`。

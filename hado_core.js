@@ -761,6 +761,7 @@ function renderWarhorseFormationScreen(){
   const currentSave=getCurrentSave?getCurrentSave():null;
   const warhorseData=currentSave?ensureSaveWarhorseData(currentSave):sanitizeWarhorseSaveData({});
   const ownedList=currentSave?getOwnedWarhorseList():[];
+  const assignedCount=(Array.isArray(warhorseData.activeSlots)?warhorseData.activeSlots:[]).filter(Boolean).length;
   if(state.warhorseSelectedId&&!ownedList.some(w=>w.id===state.warhorseSelectedId))state.warhorseSelectedId=ownedList[0]?.id||'';
   if(state._warhorseEditDialogId&&!ownedList.some(w=>w.id===state._warhorseEditDialogId))state._warhorseEditDialogId='';if(state._warhorseDeleteConfirmId&&!ownedList.some(w=>w.id===state._warhorseDeleteConfirmId))state._warhorseDeleteConfirmId='';
   const ownedRows=currentSave?(ownedList.map(w=>buildWarhorseCompactCardHtml(w,warhorseData)).join('')||'<div class="warhorse-empty-state"><strong>まだ軍馬がありません。</strong><span>「＋ 軍馬を登録」から通常馬または名馬を作成してください。編集は作成後のカードから行えます。</span></div>'):'<div class="warhorse-empty-state"><strong>保存データが未作成です。</strong><span>保存データを新規作成またはImportすると、軍馬を保存できます。</span></div>';
@@ -1420,7 +1421,7 @@ if(mobilePanel&&app&&mainTabPanel){
   }
 }
 if(mobile){
-const formation=state.mainTab==='formation';
+const search=state.mainTab==='search';
 if(mainTabPanel)mainTabPanel.style.setProperty('order','30','important');
 if(mobilePanel)mobilePanel.style.setProperty('order','31','important');
 if(searchPanel)searchPanel.style.setProperty('order','32','important');
@@ -1429,18 +1430,18 @@ if(layoutPanel)layoutPanel.style.setProperty('order','33','important');
 if(els.formationScreen)els.formationScreen.style.setProperty('order','34','important');
 if(pcPanel){pcPanel.style.setProperty('display','none','important');}
 if(mobilePanel){
-  if(formation){
-    mobilePanel.style.setProperty('display','none','important');
-  }else{
+  if(search){
     mobilePanel.style.setProperty('display','block','important');
     mobilePanel.style.setProperty('position','static','important');
     mobilePanel.style.setProperty('width','auto','important');
     mobilePanel.style.setProperty('max-height','none','important');
     mobilePanel.style.setProperty('overflow','visible','important');
     mobilePanel.style.setProperty('z-index','auto','important');
+  }else{
+    mobilePanel.style.setProperty('display','none','important');
   }
 }
-if(els.mobileSearchHistorySelect){els.mobileSearchHistorySelect.style.setProperty('display',formation?'none':'block','important');}
+if(els.mobileSearchHistorySelect){els.mobileSearchHistorySelect.style.setProperty('display',search?'block':'none','important');}
 if(els.searchHistory){els.searchHistory.style.setProperty('display','none','important');}
 if(els.results){els.results.style.setProperty('display','none','important');}
 if(resultWrap){resultWrap.style.setProperty('display','grid','important');resultWrap.style.setProperty('gap','8px');}
