@@ -6,7 +6,12 @@
 - Updateは大型開発の分割計画に限定し、完了後の通常改善では使用しないルールへ統一した。
 - スマホ検索・編成の受入済み改善を正式公開するため、4桁版を `3.0.1.1`、最終プレビュー版を `3.0.1.1 r165` とする。
 - 正式版は `formalRelease: true` により `3.0.1.1` だけを表示し、プレビュー版は `formalRelease: false` により `3.0.1.1 r165` を表示する。
-- Git、Actions、Preview marker、正式版main反映結果は公開処理完了後に本節へ追記する。
+- 開発ブランチ: PR [#277](https://github.com/mytemark2/hado_library/pull/277) をmergeし、正本commitは `9592e6a5f171245711eb26e2821ba9f5d2cec467`。`App Validation / app-validation` run `31350753878` は成功した。
+- Preview同期: 初回run `31350782645` は、Preview Pages側が空の `updateNo` を受理できず失敗した。根本原因をPreview PR [#5](https://github.com/mytemark2/hado_library-preview/pull/5) で修正し、Pages run `31351006919` は成功した。
+- Preview repository `main`: `607fab319eb5ce12f2b4843fbba8d509181eaf92`。必須runtime、`.nojekyll`、派生JSON 34件を確認した。
+- Preview marker: `PREVIEW_SOURCE_COMMIT.txt=9592e6a5f171245711eb26e2821ba9f5d2cec467`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.1.1 r165`。
+- 公開Preview実操作: https://mytemark2.github.io/hado_library-preview/ で `3.0.1.1 r165`、Update非表示、公開JSON自動読込、状態変化検索の `技能:練兵` 5件、検索中のタグ先行表示、横overflow 0px、Debug Log表示とログ生成を確認した。
+- 正式公開: `formalRelease: true`、`releaseStatus: released` とし、`main` では `3.0.1.1` のみを表示する。正式版のPR、Actions、公開URL結果は公開処理完了後に記録する。
 
 ## Update11.4 Preview反映前報告
 
