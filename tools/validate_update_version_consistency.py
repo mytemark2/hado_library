@@ -35,8 +35,10 @@ def main() -> int:
     release_version = version_field(version_source, "releaseVersion")
     update_no = version_field(version_source, "updateNo")
     revision = number_field(version_source, "revision")
-    display_version = f"{release_version} Update{update_no}" if update_no else release_version
-    visible_version = f"{display_version} r{revision}"
+    formal_release = bool(re.search(r"formalRelease:\s*true", version_source))
+    preview_base_version = f"{release_version} Update{update_no}" if update_no else release_version
+    display_version = release_version if formal_release else preview_base_version
+    visible_version = display_version if formal_release else f"{display_version} r{revision}"
 
     dev_info = json.loads((ROOT / "HADO_DEV_INFO.json").read_text(encoding="utf-8"))
     duplicated = sorted(DERIVED_KEYS.intersection(dev_info))

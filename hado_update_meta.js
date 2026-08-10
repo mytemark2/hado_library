@@ -17,7 +17,7 @@
     const updateNo = String(raw?.updateNo || VERSION_SOURCE.updateNo || '').trim();
     const revision = Number(raw?.revision || VERSION_SOURCE.revision || 0);
     const formalRelease = Boolean(raw?.formalRelease ?? VERSION_SOURCE.formalRelease ?? false);
-    const derivedDisplayVersion = releaseVersion && updateNo ? `${releaseVersion} Update${updateNo}` : releaseVersion;
+    const derivedDisplayVersion = formalRelease ? releaseVersion : (releaseVersion && updateNo ? `${releaseVersion} Update${updateNo}` : releaseVersion);
     const displayVersion = String(raw?.displayVersion || derivedDisplayVersion).trim();
     const visibleVersion = String(raw?.visibleVersion || (formalRelease ? releaseVersion : (displayVersion && revision ? `${displayVersion} r${revision}` : displayVersion))).trim();
     return { ...VERSION_SOURCE, ...raw, releaseVersion, updateNo, revision, formalRelease, displayVersion, visibleVersion };

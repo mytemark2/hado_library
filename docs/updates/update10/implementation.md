@@ -2,7 +2,7 @@
 
 ## 状態
 
-Update10.1〜Update10.4 実装完了。全体回帰、Actions、公開Preview、marker一致、正式版`main`反映まで確認済み。
+Update10.1〜Update10.4 実装完了。全体回帰、Actions、公開Preview、marker一致、正式版`main`反映、本番GitHub Pagesの`main` source切替まで確認済み。
 
 ## Update10.1 — タブ視認性改善 第1〜3段階
 
@@ -61,6 +61,12 @@ Update10.1〜Update10.4 実装完了。全体回帰、Actions、公開Preview、
 - `HADO_DEV_INFO.json`は`releaseStatus: released`へ変更し、版数値の重複は追加していない。
 - 正式版/開発版の両契約を`tools/test_update09_5_40_revision_display.js`、`tools/validate_update_version_consistency.py`、`tools/validate_update09_phase4_guides.py`で検証する。
 - `index.html`と実機能JavaScript/CSSは変更していない。HTMLサイズは29,228 bytesから増減なしで、インラインJavaScriptを追加していない。
+
+## 正式公開 Pages
+
+- `main` のランタイム資産更新だけで起動する `.github/workflows/deploy-production-pages.yml` を追加した。`workflow_dispatch`・定期実行は持たず、`index.html`、外部JavaScript/CSS、主要JSONが存在することを確認してから Pages artifact を配信する。
+- 実装契約は `tools/validate_production_pages_workflow.py` と全体回帰へ追加した。旧 `hado-2.9.6.5` を参照する workflow を新規の本番経路に混在させない。
+- GitHub Pages設定は `build_type: workflow`、source `main`、path `/` とした。表示版は正式版規約どおり `3.0.0.0` のみである。
 
 ## 実装方針
 

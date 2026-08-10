@@ -48,6 +48,15 @@
 
 動作は既存責務の外部 `hado_status_effects.js`、表示は外部 `hado_styles.css` に実装した。HTMLは外部asset cache key更新だけとし、インラインJavaScriptとインラインCSSは追加していない。
 
+## 3.0.1.0 正式版反映履歴
+
+- `main`の本番Pages配信設定を保持したまま、開発正本`feature/app-3.0.0.0`のUpdate11一式を統合する。
+- `hado_version.js`は内部の`updateNo: 11.2`と`revision: 162`を保持し、`formalRelease: true`を正式版表示の単一切替とする。正式画面は`3.0.1.0`だけを表示し、開発Previewは`3.0.1.0 Update11.2 r162`を維持する。
+- `HADO_DEV_INFO.json`は`releaseStatus: released`とし、可視版数値を重複保持しない。
+- `main`固有の`.github/workflows/deploy-production-pages.yml`、Pages source `main` / `/`、本番配信検証を維持する。
+- 競合は`HADO_DEV_INFO.json`、`README.md`、Update10文書3件、`hado_version.js`の6件。版数は最新開発正本、本番Pagesの事実と正式表示規則は最新`main`を採用し、内容単位で解消する。
+- HTMLと機能JavaScript/CSSは検証済み開発正本をそのまま利用する。正式版切替は外部`hado_version.js`だけで行い、HTMLを増やさない。
+
 ## Update11.2 タグ操作改善
 
 ### 分類と根本原因

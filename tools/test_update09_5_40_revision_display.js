@@ -28,4 +28,5 @@ assert.strictEqual(node('uxHomeVersionBadge').textContent, `${expected} 操作�
 assert.strictEqual(node('diagnosticAppVersion').textContent, `覇道ライブラリ｜${expected}`, 'diagnostic display follows preview/formal release policy');
 assert.strictEqual(context.window.HADO_APP_VERSION_META.displayVersion, expectedBase, 'base displayVersion remains revision-free metadata');
 assert.strictEqual(context.window.HADO_APP_VERSION_META.visibleVersion, expected, 'visibleVersion carries revision');
+if (version.formalRelease) assert(!/Update| r\d+/.test(expected), 'formal release must hide Update and revision');
 console.log('preview/formal release display tests passed');

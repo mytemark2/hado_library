@@ -36,6 +36,7 @@ def main() -> int:
     report = read("docs/updates/update09/report.md")
 
     import re
+    formal_release = bool(re.search(r"formalRelease:\s*true", version_js))
     release_match = re.search(r"releaseVersion:\s*'([^']+)'", version_js)
     update_match = re.search(r"updateNo:\s*'([^']*)'", version_js)
     revision_match = re.search(r"revision:\s*(\d+)", version_js)
@@ -59,7 +60,14 @@ def main() -> int:
         update_parts = tuple(int(part) for part in update_no.split(".") if part.isdigit())
         if not update_parts or update_parts < (10, 0) or revision <= 155:
             raise SystemExit(f"unexpected runtime version after Update09: {update_no} r{revision}")
-        require(version_js, f"Update{update_no}", "visible post-Update09 version summary in hado_version.js")
+        if formal_release:
+            require(
+                version_js,
+                f"Formal release {release_match.group(1)}",
+                "formal release summary in hado_version.js",
+            )
+        else:
+            require(version_js, f"Update{update_no}", "visible post-Update09 version summary in hado_version.js")
 
     if re.search(r"Update09\.5\.\d+", index_html):
         raise SystemExit("index.html must not hard-code the visible Update09.5.x string; hado_update_meta.js syncs it from hado_version.js")
