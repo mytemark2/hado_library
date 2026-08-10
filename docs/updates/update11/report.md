@@ -11,7 +11,15 @@
 - Preview repository `main`: `607fab319eb5ce12f2b4843fbba8d509181eaf92`。必須runtime、`.nojekyll`、派生JSON 34件を確認した。
 - Preview marker: `PREVIEW_SOURCE_COMMIT.txt=9592e6a5f171245711eb26e2821ba9f5d2cec467`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.0.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.0.1.1 r165`。
 - 公開Preview実操作: https://mytemark2.github.io/hado_library-preview/ で `3.0.1.1 r165`、Update非表示、公開JSON自動読込、状態変化検索の `技能:練兵` 5件、検索中のタグ先行表示、横overflow 0px、Debug Log表示とログ生成を確認した。
-- 正式公開: `formalRelease: true`、`releaseStatus: released` とし、`main` では `3.0.1.1` のみを表示する。正式版のPR、Actions、公開URL結果は公開処理完了後に記録する。
+- 正式公開: PR [#278](https://github.com/mytemark2/hado_library/pull/278) をmergeし、`main` commitは `eb492f45890a3d1a1cffe5d9b225ca626ddf0524`。リリースブランチHEADは `765046cc4de2f07d4a4b971eec749ccbc0c59b67`。
+- main統合: 最新main `f5621a44315f702068378cbc0332bb9055420f10` と開発正本 `9592e6a5f171245711eb26e2821ba9f5d2cec467` の双方に対するmerge readinessは成功。文書・版表示・版検証の10競合は、本番Pages基盤、過去の3.0.1.0公開履歴、最新3.0.1.1機能を保持するよう内容単位で解消した。
+- 正式版検証: `python -X utf8 tools/run_app_validation.py` は本番Pages検証を含む130/130件成功。PR Actions `App Validation / app-validation` run `31351822970` も成功した。
+- 本番配信: `Deploy Hado Library Production Pages` run `31351858443` 成功。`Notify Hado Library Preview` run `31351858398` はmain pushのため意図どおりskip。Pagesはworkflow配信、source `main` / `/`、status `built`。
+- 正式公開URL: https://mytemark2.github.io/hado_library/ 。title、h1、診断表示はいずれも `3.0.1.1` のみで、Update・revisionは非表示。公開JSONは武将485、戦法444、技能1,365、装備247、状態変化206、兵器6、武装18、専用技能32、陣形21、軍馬5、軍馬技能27を読込済み。
+- 正式公開実操作: 状態変化検索で `技能:練兵` の選択済みタグを検索開始前に表示し、その後5件（先頭: UR越吉）へ確定。横overflow 0px、Debug Log 2,402文字、重大エラーなし、console error / warning 0件を確認した。
+- HTML: mainのGit blob 29,154 bytesから29,172 bytesへ18 bytes増。変更は外部asset cache keyのみで、インラインJavaScript / CSSは追加していない。
+- 最小受入操作: 正式公開URLの状態変化検索でタグ欄へ `技能:練兵` を入力し、タグが先に表示され、その後5件になることを確認する。
+- 残課題: none。
 
 ## Update11.4 Preview反映前報告
 
