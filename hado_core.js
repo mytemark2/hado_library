@@ -1264,6 +1264,7 @@ function setupSaveManagerPanel(){
 
 // FEATURE[HADO-2.5.2.2-DATA-BAR]: 通常時は1行データバー、切替時だけモード別設定を表示
 function dataContextLoadedCount(){return (state.generals?.length||0)+(state.tactics?.length||0)+(state.skills?.length||0)+(state.equipments?.length||0)+(state.statusEffects?.length||0)+(state.siegeWeapons?.length||0)+(state.ethnicArmaments?.length||0)+(state.ethnicResearchSkills?.length||0)+(state.formationMasters?.length||0)+(state.warhorses?.length||0)+(state.warhorseSkills?.length||0);}
+function dataUpdatedAtDisplay(){const value=norm(state.dataUpdateMeta?.dataUpdatedAtJst||'');return value||'未記録';}
 function getDataContextSummaryText(){
   const current=getCurrentSave?getCurrentSave():null;
   const jsonOk=dataContextLoadedCount()>0;
@@ -1281,6 +1282,7 @@ function updateDataContextBar(context=''){
     if(fileStatus){
       const loaded=dataContextLoadedCount()>0;
       fileStatus.textContent=loaded?(IS_WEB_DEPLOYMENT?`ウェブ版：公開JSONを自動読込済｜武将${state.generals.length} / 戦法${state.tactics.length} / 技能${state.skills.length} / 装備${state.equipments.length} / 陣形${state.formationMasters.length}`:`JSON読込済：武将${state.generals.length} / 戦法${state.tactics.length} / 技能${state.skills.length} / 装備${state.equipments.length} / 陣形${state.formationMasters.length}`):(IS_WEB_DEPLOYMENT?'ウェブ版：公開JSONを自動取得中です。失敗時はページを再読込してください。':'JSON未読込：JSONフォルダまたはJSONファイルを選択してください。');
+      if(loaded)fileStatus.textContent+=`｜データ更新日：${dataUpdatedAtDisplay()}`;
     }
     syncDataManagementSheet(context);
     debugLog('dataContext:update',{context,summary:summary?summary.textContent:'',viewMode:state.viewMode,generalStage:state.generalStage,equipmentStage:state.equipmentStage});
