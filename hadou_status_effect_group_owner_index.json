@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-07-20T03:00:13.407Z",
+  "generatedAt": "2026-08-13T06:28:37.561Z",
   "dataSetId": "2026-07-20T02:43:46.042Z",
   "crawlerVersion": "1.1.0.2",
   "generator": "hado_crawler_extension",
@@ -33,10 +33,10 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 485,
-    "tactics": 464,
-    "equipments": 247,
-    "skills": 651,
+    "generals": 486,
+    "tactics": 465,
+    "equipments": 249,
+    "skills": 653,
     "statusEffects": 206,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
@@ -47,10 +47,10 @@
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "cda6a4d1",
-    "tactics": "18b2da92",
-    "equipments": "4e4f88f5",
-    "skills": "c5e8c5cf",
+    "generals": "caa6a018",
+    "tactics": "19b2dc25",
+    "equipments": "504f8c1b",
+    "skills": "c7e8c8f5",
     "statusEffects": "defa110c",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
@@ -61,10 +61,10 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "cda6a4d1",
-    "tactics": "18b2da92",
-    "equipments": "4e4f88f5",
-    "skills": "c5e8c5cf",
+    "generals": "caa6a018",
+    "tactics": "19b2dc25",
+    "equipments": "504f8c1b",
+    "skills": "c7e8c8f5",
     "statusEffects": "defa110c",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
@@ -78,9 +78,9 @@
   "kind": "status_effect_group_owner_index",
   "qualityAudit": {
     "groupCount": 6,
-    "totalOwnerCount": 6367,
-    "ownerRelationCount": 6367,
-    "distinctOwnerCount": 2485,
+    "totalOwnerCount": 6412,
+    "ownerRelationCount": 6412,
+    "distinctOwnerCount": 2502,
     "countRecalculatedAfterRelatedLinkRebuild": true,
     "relatedLinkOwnerEnriched": true,
     "rebuildFromRelatedLinkIndex": true,
@@ -5140,8 +5140,26 @@
             "displayName": "LR范増（はんぞう）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "戦法速度変化(強化)",
+            "matchedText": "戦法速度+10%"
+          },
+          {
+            "category": "generals",
+            "name": "LR范増（はんぞう）",
+            "displayName": "LR范増（はんぞう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "与ダメージ変化(強化)",
             "matchedText": "与ダメージ+2%"
+          },
+          {
+            "category": "generals",
+            "name": "LR范増（はんぞう）",
+            "displayName": "LR范増（はんぞう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(強化)",
+            "matchedText": "被ダメージ-15%"
           },
           {
             "category": "generals",
@@ -7085,7 +7103,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "会心発生変化(強化)",
-            "matchedText": "会心発生を50％"
+            "matchedText": "会心発生が100％"
           },
           {
             "category": "generals",
@@ -9804,6 +9822,51 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "窮策",
             "matchedText": "窮策"
+          },
+          {
+            "category": "generals",
+            "name": "UR卞氏（べんし）",
+            "displayName": "UR卞氏（べんし）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージ+5%"
+          },
+          {
+            "category": "generals",
+            "name": "UR卞氏（べんし）",
+            "displayName": "UR卞氏（べんし）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(強化)",
+            "matchedText": "被ダメージ-20％"
+          },
+          {
+            "category": "generals",
+            "name": "UR卞氏（べんし）",
+            "displayName": "UR卞氏（べんし）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃+3%"
+          },
+          {
+            "category": "generals",
+            "name": "UR卞氏（べんし）",
+            "displayName": "UR卞氏（べんし）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(強化)",
+            "matchedText": "防御が上昇する知力変化味方 / 中10"
+          },
+          {
+            "category": "generals",
+            "name": "UR卞氏（べんし）",
+            "displayName": "UR卞氏（べんし）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力を150％"
           },
           {
             "category": "generals",
@@ -20915,6 +20978,24 @@
           },
           {
             "category": "tactics",
+            "name": "斉聖祥禎",
+            "displayName": "斉聖祥禎",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(強化)",
+            "matchedText": "防御が上昇する知力変化味方 / 中10"
+          },
+          {
+            "category": "tactics",
+            "name": "斉聖祥禎",
+            "displayName": "斉聖祥禎",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力を150％"
+          },
+          {
+            "category": "tactics",
             "name": "赤帝爛舞",
             "displayName": "赤帝爛舞",
             "source": "related_link_index",
@@ -27748,6 +27829,15 @@
           },
           {
             "category": "skills",
+            "name": "勤励",
+            "displayName": "勤励",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージ+5%"
+          },
+          {
+            "category": "skills",
             "name": "金剛",
             "displayName": "金剛",
             "source": "related_link_index",
@@ -30241,6 +30331,15 @@
           },
           {
             "category": "skills",
+            "name": "心照",
+            "displayName": "心照",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(強化)",
+            "matchedText": "被ダメージ-10%"
+          },
+          {
+            "category": "skills",
             "name": "心戦",
             "displayName": "心戦",
             "source": "related_link_index",
@@ -30345,7 +30444,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋10%"
+            "matchedText": "被ダメージ-10%"
           },
           {
             "category": "skills",
@@ -32155,6 +32254,33 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "与ダメージ変化(強化)",
             "matchedText": "与ダメージが、敵部隊に発生している弱化効果の数×2%"
+          },
+          {
+            "category": "skills",
+            "name": "倒豎",
+            "displayName": "倒豎",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(強化)",
+            "matchedText": "被ダメージ-10%"
+          },
+          {
+            "category": "skills",
+            "name": "倒豎",
+            "displayName": "倒豎",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(強化)",
+            "matchedText": "防御+1%"
+          },
+          {
+            "category": "skills",
+            "name": "倒豎",
+            "displayName": "倒豎",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力+1%"
           },
           {
             "category": "skills",
@@ -35051,6 +35177,42 @@
             "displayName": "老巧",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "戦法速度変化(強化)",
+            "matchedText": "戦法速度+10%"
+          },
+          {
+            "category": "skills",
+            "name": "老巧",
+            "displayName": "老巧",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージ+10%"
+          },
+          {
+            "category": "skills",
+            "name": "老巧",
+            "displayName": "老巧",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(強化)",
+            "matchedText": "被ダメージ-10%"
+          },
+          {
+            "category": "skills",
+            "name": "老巧",
+            "displayName": "老巧",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(強化)",
+            "matchedText": "防御+1%"
+          },
+          {
+            "category": "skills",
+            "name": "老巧",
+            "displayName": "老巧",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "知力変化(強化)",
             "matchedText": "知力+3%"
           },
@@ -35062,6 +35224,24 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃速度変化(強化)",
             "matchedText": "攻撃速度+5%"
+          },
+          {
+            "category": "skills",
+            "name": "老練",
+            "displayName": "老練",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージ+10%"
+          },
+          {
+            "category": "skills",
+            "name": "老練",
+            "displayName": "老練",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力+1%"
           },
           {
             "category": "skills",
@@ -35765,17 +35945,17 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 1778,
-        "tactics": 1058,
-        "skills": 1110,
+        "generals": 1785,
+        "tactics": 1060,
+        "skills": 1121,
         "equipments": 14,
         "statusEffects": 0,
         "warhorseSkills": 2
       },
-      "totalOwnerCount": 3962,
+      "totalOwnerCount": 3982,
       "source": "related_link_index",
-      "ownerRelationCount": 3962,
-      "distinctOwnerCount": 1294
+      "ownerRelationCount": 3982,
+      "distinctOwnerCount": 1298
     },
     {
       "groupKey": "selfStateBuff",
@@ -36146,6 +36326,15 @@
           },
           {
             "category": "generals",
+            "name": "UR卞氏（べんし）",
+            "displayName": "UR卞氏（べんし）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "結束",
+            "matchedText": "結束"
+          },
+          {
+            "category": "generals",
             "name": "UR荀攸（じゅんゆう）",
             "displayName": "UR荀攸（じゅんゆう）",
             "source": "related_link_index",
@@ -36388,6 +36577,15 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "快気",
             "matchedText": "快気"
+          },
+          {
+            "category": "tactics",
+            "name": "斉聖祥禎",
+            "displayName": "斉聖祥禎",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "結束",
+            "matchedText": "結束"
           },
           {
             "category": "tactics",
@@ -36838,16 +37036,16 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 50,
-        "tactics": 36,
+        "generals": 51,
+        "tactics": 37,
         "skills": 30,
         "equipments": 0,
         "statusEffects": 0
       },
-      "totalOwnerCount": 116,
+      "totalOwnerCount": 118,
       "source": "related_link_index",
-      "ownerRelationCount": 116,
-      "distinctOwnerCount": 110
+      "ownerRelationCount": 118,
+      "distinctOwnerCount": 112
     },
     {
       "groupKey": "selfResistanceBuff",
@@ -40962,6 +41160,51 @@
           },
           {
             "category": "generals",
+            "name": "UR卞氏（べんし）",
+            "displayName": "UR卞氏（べんし）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "弱化無効",
+            "matchedText": "弱化無効"
+          },
+          {
+            "category": "generals",
+            "name": "UR卞氏（べんし）",
+            "displayName": "UR卞氏（べんし）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "絶縁",
+            "matchedText": "絶縁"
+          },
+          {
+            "category": "generals",
+            "name": "UR卞氏（べんし）",
+            "displayName": "UR卞氏（べんし）",
+            "source": "related_link_index",
+            "sourcePartType": "self-granted-status-nullify",
+            "statusEffectName": "状態変化無効[絶縁]",
+            "matchedText": "自身1部隊に1度の絶縁を付与（30秒）Ⅱ-Ⅲ-Ⅳ-Ⅴ-"
+          },
+          {
+            "category": "generals",
+            "name": "UR卞氏（べんし）",
+            "displayName": "UR卞氏（べんし）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-granted-status",
+            "statusEffectName": "弱化効果無効[弱化無効]",
+            "matchedText": "効果回数分、受けた弱化効果を無効化する"
+          },
+          {
+            "category": "generals",
+            "name": "UR卞氏（べんし）",
+            "displayName": "UR卞氏（べんし）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-granted-status",
+            "statusEffectName": "状態変化無効[絶縁]",
+            "matchedText": "敵部隊の連鎖を含む戦法全体から、自部隊が受ける状態変化と攻撃の発生を無効にする"
+          },
+          {
+            "category": "generals",
             "name": "UR姜維（きょうい）",
             "displayName": "UR姜維（きょうい）",
             "source": "related_link_index",
@@ -42239,6 +42482,42 @@
             "sourcePartType": "self-countermeasure-granted-status",
             "statusEffectName": "弱化効果解除[快気]",
             "matchedText": "交戦中、一定時間ごとに効果量分の確率で自身1部隊の弱化効果を1つ打ち消す"
+          },
+          {
+            "category": "tactics",
+            "name": "斉聖祥禎",
+            "displayName": "斉聖祥禎",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "弱化無効",
+            "matchedText": "弱化無効"
+          },
+          {
+            "category": "tactics",
+            "name": "斉聖祥禎",
+            "displayName": "斉聖祥禎",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "絶縁",
+            "matchedText": "絶縁"
+          },
+          {
+            "category": "tactics",
+            "name": "斉聖祥禎",
+            "displayName": "斉聖祥禎",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-granted-status",
+            "statusEffectName": "弱化効果無効[弱化無効]",
+            "matchedText": "効果回数分、受けた弱化効果を無効化する"
+          },
+          {
+            "category": "tactics",
+            "name": "斉聖祥禎",
+            "displayName": "斉聖祥禎",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-granted-status",
+            "statusEffectName": "状態変化無効[絶縁]",
+            "matchedText": "敵部隊の連鎖を含む戦法全体から、自部隊が受ける状態変化と攻撃の発生を無効にする"
           },
           {
             "category": "tactics",
@@ -43771,6 +44050,24 @@
             "sourcePartType": "self-countermeasure-skill",
             "statusEffectName": "深恐回避[極致]",
             "matchedText": "自身1部隊にかかる士気奪取、戦法遅延、深恐を避ける"
+          },
+          {
+            "category": "skills",
+            "name": "勤励",
+            "displayName": "勤励",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "絶縁",
+            "matchedText": "絶縁"
+          },
+          {
+            "category": "skills",
+            "name": "勤励",
+            "displayName": "勤励",
+            "source": "related_link_index",
+            "sourcePartType": "self-granted-status-nullify",
+            "statusEffectName": "状態変化無効[絶縁]",
+            "matchedText": "自身1部隊に1度の絶縁を付与（30秒）Ⅱ-Ⅲ-Ⅳ-Ⅴ-"
           },
           {
             "category": "skills",
@@ -48231,6 +48528,15 @@
           },
           {
             "category": "equipments",
+            "name": "羅綺香嚢",
+            "displayName": "羅綺香嚢",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "弱化効果回避[鎮静]",
+            "matchedText": "弱化効果を5%の確率で避ける（他技能と合算）Ⅱ"
+          },
+          {
+            "category": "equipments",
             "name": "藍田玉軍令牌",
             "displayName": "藍田玉軍令牌",
             "source": "related_link_index",
@@ -48477,16 +48783,16 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 523,
-        "tactics": 149,
-        "skills": 417,
-        "equipments": 201,
+        "generals": 528,
+        "tactics": 153,
+        "skills": 419,
+        "equipments": 202,
         "statusEffects": 0
       },
-      "totalOwnerCount": 1290,
+      "totalOwnerCount": 1302,
       "source": "related_link_index",
-      "ownerRelationCount": 1290,
-      "distinctOwnerCount": 440
+      "ownerRelationCount": 1302,
+      "distinctOwnerCount": 444
     },
     {
       "groupKey": "enemyAbilityDebuff",
@@ -49474,7 +49780,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(弱化)",
-            "matchedText": "被ダメージが上昇する強化無効敵 / 中10"
+            "matchedText": "被ダメージを増やしたり強化無効で妨害する他、封撃で敵部隊の戦法によるダメージを確率で「0"
           },
           {
             "category": "generals",
@@ -50627,6 +50933,15 @@
             "sourcePartType": "direct-ability-variation-row",
             "statusEffectName": "戦法威力変化(弱化)",
             "matchedText": "戦法威力変化 / 敵 / 中 10秒"
+          },
+          {
+            "category": "generals",
+            "name": "UR卞氏（べんし）",
+            "displayName": "UR卞氏（べんし）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "通常攻撃威力変化(弱化)",
+            "matchedText": "通常攻撃威力-30%"
           },
           {
             "category": "generals",
@@ -54324,12 +54639,21 @@
           },
           {
             "category": "skills",
+            "name": "心照",
+            "displayName": "心照",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "通常攻撃威力変化(弱化)",
+            "matchedText": "通常攻撃威力-30%"
+          },
+          {
+            "category": "skills",
             "name": "深謀",
             "displayName": "深謀",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "通常攻撃威力変化(弱化)",
-            "matchedText": "通常攻撃威力₋20%"
+            "matchedText": "通常攻撃威力-20%"
           },
           {
             "category": "skills",
@@ -54348,6 +54672,15 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "対物特効変化(弱化)",
             "matchedText": "対物特効低下の効果量+20%"
+          },
+          {
+            "category": "skills",
+            "name": "深謀",
+            "displayName": "深謀",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(弱化)",
+            "matchedText": "知力-20%"
           },
           {
             "category": "skills",
@@ -54598,8 +54931,17 @@
             "displayName": "倒豎",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(弱化)",
+            "matchedText": "被ダメージを、敵部隊に発生している弱化効果の数×5%"
+          },
+          {
+            "category": "skills",
+            "name": "倒豎",
+            "displayName": "倒豎",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃変化(弱化)",
-            "matchedText": "攻撃−25%"
+            "matchedText": "攻撃-25%"
           },
           {
             "category": "skills",
@@ -54608,7 +54950,16 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "知力変化(弱化)",
-            "matchedText": "知力−25％"
+            "matchedText": "知力-25％"
+          },
+          {
+            "category": "skills",
+            "name": "倒豎",
+            "displayName": "倒豎",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "断道",
+            "matchedText": "断道"
           },
           {
             "category": "skills",
@@ -54936,6 +55287,15 @@
           },
           {
             "category": "skills",
+            "name": "老巧",
+            "displayName": "老巧",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(弱化)",
+            "matchedText": "知力-20%"
+          },
+          {
+            "category": "skills",
             "name": "巫術毒蠱",
             "displayName": "巫術毒蠱",
             "source": "related_link_index",
@@ -55039,16 +55399,16 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 442,
+        "generals": 443,
         "tactics": 143,
-        "skills": 141,
+        "skills": 146,
         "equipments": 0,
         "statusEffects": 0
       },
-      "totalOwnerCount": 726,
+      "totalOwnerCount": 732,
       "source": "related_link_index",
-      "ownerRelationCount": 726,
-      "distinctOwnerCount": 421
+      "ownerRelationCount": 732,
+      "distinctOwnerCount": 424
     },
     {
       "groupKey": "enemyStateDebuff",
@@ -55797,6 +56157,24 @@
           },
           {
             "category": "generals",
+            "name": "UR卞氏（べんし）",
+            "displayName": "UR卞氏（べんし）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "正転",
+            "matchedText": "正転"
+          },
+          {
+            "category": "generals",
+            "name": "UR卞氏（べんし）",
+            "displayName": "UR卞氏（べんし）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "強化抑制",
+            "matchedText": "強化抑制"
+          },
+          {
+            "category": "generals",
             "name": "UR潘臨（はんりん）",
             "displayName": "UR潘臨（はんりん）",
             "source": "related_link_index",
@@ -56501,6 +56879,15 @@
           },
           {
             "category": "tactics",
+            "name": "斉聖祥禎",
+            "displayName": "斉聖祥禎",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "正転",
+            "matchedText": "正転"
+          },
+          {
+            "category": "tactics",
             "name": "猪突搔乱",
             "displayName": "猪突搔乱",
             "source": "related_link_index",
@@ -57052,6 +57439,15 @@
           },
           {
             "category": "skills",
+            "name": "心照",
+            "displayName": "心照",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "強化抑制",
+            "matchedText": "強化抑制"
+          },
+          {
+            "category": "skills",
             "name": "心戦",
             "displayName": "心戦",
             "source": "related_link_index",
@@ -57139,6 +57535,15 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "強化無効",
             "matchedText": "強化無効"
+          },
+          {
+            "category": "skills",
+            "name": "倒豎",
+            "displayName": "倒豎",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "封撃",
+            "matchedText": "封撃"
           },
           {
             "category": "skills",
@@ -57362,16 +57767,16 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 118,
-        "tactics": 81,
-        "skills": 56,
+        "generals": 120,
+        "tactics": 82,
+        "skills": 58,
         "equipments": 0,
         "statusEffects": 0
       },
-      "totalOwnerCount": 255,
+      "totalOwnerCount": 260,
       "source": "related_link_index",
-      "ownerRelationCount": 255,
-      "distinctOwnerCount": 202
+      "ownerRelationCount": 260,
+      "distinctOwnerCount": 206
     },
     {
       "groupKey": "enemyResistanceDebuff",
