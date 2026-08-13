@@ -19,4 +19,10 @@
 - スマホ実操作: 375pxで文書・タグパネル・状態変化行の横overflow 0px、タグ入力16px、`状態変化:畏怖` で武将5件。
 - console error / warning: 0件。
 - HTML: 29,172 bytesから29,198 bytesへ26 bytes増。ロジックは外部JavaScriptのためHTMLへ追加していない。
-- コミット、Actions、Preview markerは配信確認後に追記する。
+- クローラーPR: `mytemark2/hado_library-crawler#16`、統合コミット `f97bb5f9ff0a2cf31fb77f1cabec56dcc7552e08`。
+- アプリPR: `mytemark2/hado_library#283`、統合コミット `2bd349129d9abe86f273784e2d1da6de2e94b09e`。
+- `App Validation / app-validation`: success（run `31688034011`）。
+- `Notify Hado Library Preview`: success（run `31688065271`）。
+- `Deploy Hado Library Preview`: success（run `31688116205`）、Preview repository `main` は `b0fe17a66ecef2e5d145de25831c728de467a82e`。
+- 機能実装配信時のPreview marker: source commit `2bd349129d9abe86f273784e2d1da6de2e94b09e`、source branch `feature/app-3.0.0.0`、display version `3.0.2.0 r167`。
+- 公開URL `https://mytemark2.github.io/hado_library-preview/` で、表示版、状態変化タグの配置、`状態変化:畏怖` の5件検索、ログ表示、console error / warning 0件を確認した。
