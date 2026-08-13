@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-07-20T03:00:13.407Z",
+  "generatedAt": "2026-08-13T06:28:37.561Z",
   "dataSetId": "2026-07-20T02:43:46.042Z",
   "crawlerVersion": "1.1.0.2",
   "generator": "hado_crawler_extension",
@@ -33,10 +33,10 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 485,
-    "tactics": 464,
-    "equipments": 247,
-    "skills": 651,
+    "generals": 486,
+    "tactics": 465,
+    "equipments": 249,
+    "skills": 653,
     "statusEffects": 206,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
@@ -47,10 +47,10 @@
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "cda6a4d1",
-    "tactics": "18b2da92",
-    "equipments": "4e4f88f5",
-    "skills": "c5e8c5cf",
+    "generals": "caa6a018",
+    "tactics": "19b2dc25",
+    "equipments": "504f8c1b",
+    "skills": "c7e8c8f5",
     "statusEffects": "defa110c",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
@@ -61,10 +61,10 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "cda6a4d1",
-    "tactics": "18b2da92",
-    "equipments": "4e4f88f5",
-    "skills": "c5e8c5cf",
+    "generals": "caa6a018",
+    "tactics": "19b2dc25",
+    "equipments": "504f8c1b",
+    "skills": "c7e8c8f5",
     "statusEffects": "defa110c",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
@@ -2456,46 +2456,47 @@
   ],
   "qualityAudit": {
     "ok": true,
-    "itemCount": 765,
+    "itemCount": 768,
     "categoryCounts": {
-      "generals": 485,
-      "equipments": 247,
+      "generals": 486,
+      "equipments": 249,
       "siegeWeapons": 6,
       "warhorseSkills": 27
     },
-    "itemsWithAnyFeature": 577,
-    "statusEffectReferenceCount": 1182,
-    "typeFeatureReferenceCount": 2883,
+    "itemsWithAnyFeature": 581,
+    "statusEffectReferenceCount": 1191,
+    "typeFeatureReferenceCount": 2900,
     "featureCounts": {
       "skill_effect:wounded_survival": 40,
       "skill_effect:wounded_recovery": 55,
       "skill_effect:weakening_remove": 63,
       "skill_effect:strengthening_seize_avoid": 6,
       "skill_effect:healing": 55,
-      "skill_effect:damage_reduction": 202,
-      "skill_effect:chain_rate": 131,
+      "skill_effect:damage_reduction": 204,
+      "skill_effect:chain_rate": 132,
       "skill_effect:ally_wounded_recovery": 25,
-      "skill_effect:ally_buff_multi": 227,
-      "skill_effect:enemy_debuff_multi": 187,
-      "skill_effect:ally_target_count": 247,
-      "skill_effect:self_disadvantage_countermeasure": 110,
-      "skill_effect:initial_tactic_gauge": 59,
+      "skill_effect:ally_buff_multi": 228,
+      "skill_effect:enemy_debuff_multi": 190,
+      "skill_effect:ally_target_count": 248,
+      "skill_effect:self_disadvantage_countermeasure": 111,
+      "skill_effect:initial_tactic_gauge": 60,
       "skill_effect:normal_attack_target_count": 53,
       "parameter:attack_speed": 164,
       "parameter:critical_rate": 101,
       "parameter:critical_power": 84,
-      "parameter:normal_attack_power": 25,
+      "parameter:normal_attack_power": 26,
       "skill_effect:effect_duration": 99,
-      "skill_effect:enemy_target_count": 238,
+      "skill_effect:enemy_target_count": 240,
+      "skill_effect:weakening_nullify": 27,
+      "skill_effect:ally_defense_buff": 72,
+      "skill_effect:ally_non_damage_effect": 122,
       "parameter:tactic_power": 83,
       "skill_effect:combat_start_tactic_gauge": 16,
       "parameter:anti_object": 62,
       "skill_effect:annihilation_avoidance": 51,
       "skill_effect:remaining_troops": 35,
       "skill_effect:strengthening_remove_avoid": 12,
-      "skill_effect:attack_nullify": 14,
-      "skill_effect:ally_defense_buff": 71,
-      "skill_effect:ally_non_damage_effect": 121,
+      "skill_effect:attack_nullify": 15,
       "parameter:critical_tactic_power": 18,
       "skill_effect:status_effect_rate": 10,
       "parameter:tactic_speed": 91,
@@ -2503,7 +2504,6 @@
       "parameter:critical_tactic_rate": 13,
       "parameter:fire_attribute_power": 24,
       "skill_effect:tactic_delay": 14,
-      "skill_effect:weakening_nullify": 26,
       "skill_effect:tactic_reduction": 3,
       "skill_effect:enemy_anti_object_debuff": 14,
       "parameter:troops": 4,
@@ -2515,9 +2515,9 @@
     "policy": "1.0.5.24: 型検索では既存状態変化JSONを参照し、補助索引は状態変化で表現できない型要素を保守的に追加する。対物抑制文脈は候補化しない。攻撃速度型と通常攻撃拡張型をJSON正本として生成する。",
     "evidenceContractAudit": {
       "ok": false,
-      "pseudoStatusRefCount": 599,
-      "droppedStatusRefCount": 693,
-      "droppedFeatureCount": 484,
+      "pseudoStatusRefCount": 603,
+      "droppedStatusRefCount": 697,
+      "droppedFeatureCount": 487,
       "requiredFields": [
         "sourceEntityKey",
         "sourcePartType",
@@ -3837,8 +3837,165 @@
     {
       "category": "generals",
       "categoryLabel": "武将",
-      "name": "UR越吉（えつきつ）",
-      "statusEffectRefs": [],
+      "name": "UR卞氏（べんし）",
+      "statusEffectRefs": [
+        {
+          "featureId": "status_effect:弱化無効",
+          "label": "弱化無効",
+          "featureType": "statusEffect",
+          "statusEffectName": "弱化無効",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "granted-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "tactic_text",
+          "matchedText": "弱化無効",
+          "sourceType": "tactic",
+          "statusEffectKey": "statusEffects:11",
+          "canonicalFeatureKey": "concept:weakening_nullify",
+          "featureDomain": "statusEffect",
+          "sourceEntityKey": "generals:article-570446",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-570446:tactic_text:statusEffect:concept:weakening_nullify:fe13bb8e"
+        },
+        {
+          "featureId": "status_effect:結束",
+          "label": "結束",
+          "featureType": "statusEffect",
+          "statusEffectName": "結束",
+          "groupKey": "selfStateBuff",
+          "groupLabel": "自部隊状態強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い",
+          "sourceType": "tactic",
+          "statusEffectKey": "statusEffects:3",
+          "canonicalFeatureKey": "status_effect:結束",
+          "featureDomain": "statusEffect",
+          "sourceEntityKey": "generals:article-570446",
+          "evidencePath": "sections[4].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-570446:tactic_text:statusEffect:status_effect:結束:fdfb9a70"
+        },
+        {
+          "featureId": "status_effect:絶縁",
+          "label": "絶縁",
+          "featureType": "statusEffect",
+          "statusEffectName": "絶縁",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "granted-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "skill_text",
+          "matchedText": "自身1部隊に1度の絶縁を付与（30秒）",
+          "sourceType": "skill",
+          "statusEffectKey": "statusEffects:17",
+          "canonicalFeatureKey": "status_effect:絶縁",
+          "featureDomain": "statusEffect",
+          "sourceEntityKey": "generals:article-570446",
+          "evidencePath": "sections[9].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-570446:skill_text:statusEffect:status_effect:絶縁:181f860c"
+        },
+        {
+          "featureId": "status_effect:正転",
+          "label": "正転",
+          "featureType": "statusEffect",
+          "statusEffectName": "正転",
+          "groupKey": "enemyStateDebuff",
+          "groupLabel": "敵部隊状態弱化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い",
+          "sourceType": "tactic",
+          "statusEffectKey": "statusEffects:112",
+          "canonicalFeatureKey": "status_effect:正転",
+          "featureDomain": "statusEffect",
+          "sourceEntityKey": "generals:article-570446",
+          "evidencePath": "sections[4].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-570446:tactic_text:statusEffect:status_effect:正転:fdfb9a70"
+        },
+        {
+          "featureId": "status_effect:強化抑制",
+          "label": "強化抑制",
+          "featureType": "statusEffect",
+          "statusEffectName": "強化抑制",
+          "groupKey": "enemyStateDebuff",
+          "groupLabel": "敵部隊状態弱化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "skill_text",
+          "matchedText": "強化抑制",
+          "sourceType": "skill",
+          "statusEffectKey": "statusEffects:73",
+          "canonicalFeatureKey": "status_effect:強化抑制",
+          "featureDomain": "statusEffect",
+          "sourceEntityKey": "generals:article-570446",
+          "evidencePath": "sections[5].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-570446:skill_text:statusEffect:status_effect:強化抑制:0e0985e3"
+        }
+      ],
       "typeFeatures": [
         {
           "featureId": "skill_effect:initial_tactic_gauge",
@@ -3846,13 +4003,13 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "tactic_text",
-          "matchedText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
-          "rawText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
+          "matchedText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い 斉聖祥禎の追加効果 追加効果対象範囲継続正転味方 / 中-能力弱…",
+          "rawText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い 斉聖祥禎の追加効果 追加効果対象範囲継続正転味方 / 中-能力弱…",
           "sourceType": "tactic",
           "canonicalFeatureKey": "skill_effect:initial_tactic_gauge",
           "featureDomain": "skillEffect",
-          "sourceEntityKey": "generals:article-568476",
-          "evidencePath": "sections[1].content[0]",
+          "sourceEntityKey": "generals:article-570446",
+          "evidencePath": "sections[3].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -3866,35 +4023,7 @@
             ],
             "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
-          "typeFeatureKey": "generals:article-568476:tactic_text:skillEffect:skill_effect:initial_tactic_gauge:9b55bb3c"
-        },
-        {
-          "featureId": "parameter:attack_speed",
-          "label": "攻撃速度",
-          "featureType": "parameter",
-          "source": "effect-text",
-          "sourcePartType": "tactic_text",
-          "matchedText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
-          "rawText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
-          "sourceType": "tactic",
-          "canonicalFeatureKey": "concept:attack_speed",
-          "featureDomain": "parameter",
-          "sourceEntityKey": "generals:article-568476",
-          "evidencePath": "sections[1].content[0]",
-          "roleGate": {
-            "scoreEligible": true,
-            "allowedRoleIds": [
-              "main_general",
-              "vice_general"
-            ],
-            "allowedSlots": [
-              "main",
-              "deputy1",
-              "deputy2"
-            ],
-            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
-          },
-          "typeFeatureKey": "generals:article-568476:tactic_text:parameter:concept:attack_speed:9b55bb3c"
+          "typeFeatureKey": "generals:article-570446:tactic_text:skillEffect:skill_effect:initial_tactic_gauge:097b577e"
         },
         {
           "featureId": "parameter:normal_attack_power",
@@ -3902,13 +4031,13 @@
           "featureType": "parameter",
           "source": "effect-text",
           "sourcePartType": "tactic_text",
-          "matchedText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
-          "rawText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
+          "matchedText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い 斉聖祥禎の追加効果 追加効果対象範囲継続正転味方 / 中-能力弱…",
+          "rawText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い 斉聖祥禎の追加効果 追加効果対象範囲継続正転味方 / 中-能力弱…",
           "sourceType": "tactic",
           "canonicalFeatureKey": "concept:normal_attack_power",
           "featureDomain": "parameter",
-          "sourceEntityKey": "generals:article-568476",
-          "evidencePath": "sections[1].content[0]",
+          "sourceEntityKey": "generals:article-570446",
+          "evidencePath": "sections[3].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -3922,49 +4051,21 @@
             ],
             "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
-          "typeFeatureKey": "generals:article-568476:tactic_text:parameter:concept:normal_attack_power:9b55bb3c"
+          "typeFeatureKey": "generals:article-570446:tactic_text:parameter:concept:normal_attack_power:097b577e"
         },
         {
-          "featureId": "parameter:tactic_power",
-          "label": "戦法威力",
-          "featureType": "parameter",
-          "source": "effect-text",
-          "sourcePartType": "tactic_text",
-          "matchedText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
-          "rawText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
-          "sourceType": "tactic",
-          "canonicalFeatureKey": "parameter:tactic_power",
-          "featureDomain": "parameter",
-          "sourceEntityKey": "generals:article-568476",
-          "evidencePath": "sections[1].content[0]",
-          "roleGate": {
-            "scoreEligible": true,
-            "allowedRoleIds": [
-              "main_general",
-              "vice_general"
-            ],
-            "allowedSlots": [
-              "main",
-              "deputy1",
-              "deputy2"
-            ],
-            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
-          },
-          "typeFeatureKey": "generals:article-568476:tactic_text:parameter:parameter:tactic_power:9b55bb3c"
-        },
-        {
-          "featureId": "skill_effect:combat_start_tactic_gauge",
-          "label": "交戦開始時戦法ゲージ",
+          "featureId": "skill_effect:weakening_nullify",
+          "label": "弱化無効",
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "tactic_text",
-          "matchedText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
-          "rawText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
+          "matchedText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い 斉聖祥禎の追加効果 追加効果対象範囲継続正転味方 / 中-能力弱…",
+          "rawText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い 斉聖祥禎の追加効果 追加効果対象範囲継続正転味方 / 中-能力弱…",
           "sourceType": "tactic",
-          "canonicalFeatureKey": "skill_effect:combat_start_tactic_gauge",
+          "canonicalFeatureKey": "concept:weakening_nullify",
           "featureDomain": "skillEffect",
-          "sourceEntityKey": "generals:article-568476",
-          "evidencePath": "sections[1].content[0]",
+          "sourceEntityKey": "generals:article-570446",
+          "evidencePath": "sections[3].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -3978,7 +4079,119 @@
             ],
             "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
-          "typeFeatureKey": "generals:article-568476:tactic_text:skillEffect:skill_effect:combat_start_tactic_gauge:9b55bb3c"
+          "typeFeatureKey": "generals:article-570446:tactic_text:skillEffect:concept:weakening_nullify:097b577e"
+        },
+        {
+          "featureId": "skill_effect:damage_reduction",
+          "label": "被ダメージ軽減",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い 斉聖祥禎の追加効果 追加効果対象範囲継続正転味方 / 中-能力弱…",
+          "rawText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い 斉聖祥禎の追加効果 追加効果対象範囲継続正転味方 / 中-能力弱…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:damage_reduction",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-570446",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-570446:tactic_text:skillEffect:skill_effect:damage_reduction:097b577e"
+        },
+        {
+          "featureId": "skill_effect:chain_rate",
+          "label": "連鎖確率",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い 斉聖祥禎の追加効果 追加効果対象範囲継続正転味方 / 中-能力弱…",
+          "rawText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い 斉聖祥禎の追加効果 追加効果対象範囲継続正転味方 / 中-能力弱…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:chain_rate",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-570446",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-570446:tactic_text:skillEffect:skill_effect:chain_rate:097b577e"
+        },
+        {
+          "featureId": "skill_effect:ally_defense_buff",
+          "label": "味方防御上昇",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い 斉聖祥禎の追加効果 追加効果対象範囲継続正転味方 / 中-能力弱…",
+          "rawText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い 斉聖祥禎の追加効果 追加効果対象範囲継続正転味方 / 中-能力弱…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:ally_defense_buff",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-570446",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-570446:tactic_text:skillEffect:skill_effect:ally_defense_buff:097b577e"
+        },
+        {
+          "featureId": "skill_effect:ally_buff_multi",
+          "label": "味方バフ配布",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い 斉聖祥禎の追加効果 追加効果対象範囲継続正転味方 / 中-能力弱…",
+          "rawText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い 斉聖祥禎の追加効果 追加効果対象範囲継続正転味方 / 中-能力弱…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:ally_buff_multi",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-570446",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-570446:tactic_text:skillEffect:skill_effect:ally_buff_multi:097b577e"
         },
         {
           "featureId": "skill_effect:enemy_debuff_multi",
@@ -3986,13 +4199,13 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "tactic_text",
-          "matchedText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
-          "rawText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
+          "matchedText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い 斉聖祥禎の追加効果 追加効果対象範囲継続正転味方 / 中-能力弱…",
+          "rawText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い 斉聖祥禎の追加効果 追加効果対象範囲継続正転味方 / 中-能力弱…",
           "sourceType": "tactic",
           "canonicalFeatureKey": "skill_effect:enemy_debuff_multi",
           "featureDomain": "skillEffect",
-          "sourceEntityKey": "generals:article-568476",
-          "evidencePath": "sections[1].content[0]",
+          "sourceEntityKey": "generals:article-570446",
+          "evidencePath": "sections[3].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -4006,7 +4219,7 @@
             ],
             "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
-          "typeFeatureKey": "generals:article-568476:tactic_text:skillEffect:skill_effect:enemy_debuff_multi:9b55bb3c"
+          "typeFeatureKey": "generals:article-570446:tactic_text:skillEffect:skill_effect:enemy_debuff_multi:097b577e"
         },
         {
           "featureId": "skill_effect:enemy_target_count",
@@ -4014,13 +4227,13 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "tactic_text",
-          "matchedText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
-          "rawText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
+          "matchedText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い 斉聖祥禎の追加効果 追加効果対象範囲継続正転味方 / 中-能力弱…",
+          "rawText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い 斉聖祥禎の追加効果 追加効果対象範囲継続正転味方 / 中-能力弱…",
           "sourceType": "tactic",
           "canonicalFeatureKey": "skill_effect:enemy_target_count",
           "featureDomain": "skillEffect",
-          "sourceEntityKey": "generals:article-568476",
-          "evidencePath": "sections[1].content[0]",
+          "sourceEntityKey": "generals:article-570446",
+          "evidencePath": "sections[3].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -4034,20 +4247,104 @@
             ],
             "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
-          "typeFeatureKey": "generals:article-568476:tactic_text:skillEffect:skill_effect:enemy_target_count:9b55bb3c"
+          "typeFeatureKey": "generals:article-570446:tactic_text:skillEffect:skill_effect:enemy_target_count:097b577e"
         },
         {
-          "featureId": "parameter:attack_speed",
-          "label": "攻撃速度",
+          "featureId": "skill_effect:ally_target_count",
+          "label": "味方対象部隊数",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い 斉聖祥禎の追加効果 追加効果対象範囲継続正転味方 / 中-能力弱…",
+          "rawText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い 斉聖祥禎の追加効果 追加効果対象範囲継続正転味方 / 中-能力弱…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:ally_target_count",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-570446",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-570446:tactic_text:skillEffect:skill_effect:ally_target_count:097b577e"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い 斉聖祥禎の追加効果 追加効果対象範囲継続正転味方 / 中-能力弱…",
+          "rawText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い 斉聖祥禎の追加効果 追加効果対象範囲継続正転味方 / 中-能力弱…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:self_disadvantage_countermeasure",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-570446",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-570446:tactic_text:skillEffect:skill_effect:self_disadvantage_countermeasure:097b577e"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い 斉聖祥禎の追加効果 追加効果対象範囲継続正転味方 / 中-能力弱…",
+          "rawText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）発動間隔対象範囲発動率連鎖順20秒- / -25％早い 斉聖祥禎の追加効果 追加効果対象範囲継続正転味方 / 中-能力弱…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:ally_non_damage_effect",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-570446",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-570446:tactic_text:skillEffect:skill_effect:ally_non_damage_effect:097b577e"
+        },
+        {
+          "featureId": "parameter:normal_attack_power",
+          "label": "通常攻撃威力",
           "featureType": "parameter",
           "source": "effect-text",
           "sourcePartType": "skill_text",
-          "matchedText": "部隊の「羌」のLv×4％、部隊の攻撃速度が上昇",
-          "rawText": "部隊の「羌」のLv×4％、部隊の攻撃速度が上昇",
-          "canonicalFeatureKey": "concept:attack_speed",
+          "matchedText": "対象を含む敵3部隊の通常攻撃威力-30%（15秒）人徳2",
+          "rawText": "対象を含む敵3部隊の通常攻撃威力-30%（15秒）人徳2",
+          "canonicalFeatureKey": "concept:normal_attack_power",
           "featureDomain": "parameter",
-          "sourceEntityKey": "generals:article-568476",
-          "evidencePath": "sections[3].content[0]",
+          "sourceEntityKey": "generals:article-570446",
+          "evidencePath": "sections[5].content[0]",
           "sourceType": "skill",
           "roleGate": {
             "scoreEligible": true,
@@ -4060,12 +4357,116 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "generals:article-568476:skill_text:parameter:concept:attack_speed:ca07bf73"
+          "typeFeatureKey": "generals:article-570446:skill_text:parameter:concept:normal_attack_power:85939be2"
+        },
+        {
+          "featureId": "skill_effect:damage_reduction",
+          "label": "被ダメージ軽減",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "淑徳1■主将が男性の際 ●部隊の攻撃+3% ●部隊の防御+3% ●部隊の知力+3%▼出陣時 ●戦法ゲージ+2%（上限50%）心照2■常に ●自身の魅力の10％を部隊の攻撃、防御、知力に加算■主将か、自部隊の主将が曹操と好相性の際 ●自部隊の絶縁が効果を発揮した際、10％の確率で効果回数を消費せずに効果を発揮する（この技能を持つ武将の将星ランクに応じて確率が3％ずつ上昇） ●通常攻撃による被ダメージ-20％▼主将戦法発動時 ●対象を含む敵3部隊に強化抑制を付与（15秒） ●対象を含む敵3部隊の通常攻撃威力-30%（1…",
+          "rawText": "淑徳1■主将が男性の際 ●部隊の攻撃+3% ●部隊の防御+3% ●部隊の知力+3%▼出陣時 ●戦法ゲージ+2%（上限50%）心照2■常に ●自身の魅力の10％を部隊の攻撃、防御、知力に加算■主将か、自部隊の主将が曹操と好相性の際 ●自部隊の絶縁が効果を発揮した際、10％の確率で効果回数を消費せずに効果を発揮する（この技能を持つ武将の将星ランクに応じて確率が3％ずつ上昇） ●通常攻撃による被ダメージ-20％▼主将戦法発動時 ●対象を含む敵3部隊に強化抑制を付与（15秒） ●対象を含む敵3部隊の通常攻撃威力-30%（1…",
+          "canonicalFeatureKey": "skill_effect:damage_reduction",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-570446",
+          "evidencePath": "sections[5].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-570446:skill_text:skillEffect:skill_effect:damage_reduction:28300c29"
+        },
+        {
+          "featureId": "skill_effect:chain_rate",
+          "label": "連鎖確率",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "副将の連鎖確率+5%",
+          "rawText": "副将の連鎖確率+5%",
+          "canonicalFeatureKey": "skill_effect:chain_rate",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-570446",
+          "evidencePath": "sections[5].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-570446:skill_text:skillEffect:skill_effect:chain_rate:3393c807"
+        },
+        {
+          "featureId": "skill_effect:enemy_debuff_multi",
+          "label": "敵デバフ配布",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "淑徳1■主将が男性の際 ●部隊の攻撃+3% ●部隊の防御+3% ●部隊の知力+3%▼出陣時 ●戦法ゲージ+2%（上限50%）心照2■常に ●自身の魅力の10％を部隊の攻撃、防御、知力に加算■主将か、自部隊の主将が曹操と好相性の際 ●自部隊の絶縁が効果を発揮した際、10％の確率で効果回数を消費せずに効果を発揮する（この技能を持つ武将の将星ランクに応じて確率が3％ずつ上昇） ●通常攻撃による被ダメージ-20％▼主将戦法発動時 ●対象を含む敵3部隊に強化抑制を付与（15秒） ●対象を含む敵3部隊の通常攻撃威力-30%（1…",
+          "rawText": "淑徳1■主将が男性の際 ●部隊の攻撃+3% ●部隊の防御+3% ●部隊の知力+3%▼出陣時 ●戦法ゲージ+2%（上限50%）心照2■常に ●自身の魅力の10％を部隊の攻撃、防御、知力に加算■主将か、自部隊の主将が曹操と好相性の際 ●自部隊の絶縁が効果を発揮した際、10％の確率で効果回数を消費せずに効果を発揮する（この技能を持つ武将の将星ランクに応じて確率が3％ずつ上昇） ●通常攻撃による被ダメージ-20％▼主将戦法発動時 ●対象を含む敵3部隊に強化抑制を付与（15秒） ●対象を含む敵3部隊の通常攻撃威力-30%（1…",
+          "canonicalFeatureKey": "skill_effect:enemy_debuff_multi",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-570446",
+          "evidencePath": "sections[5].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-570446:skill_text:skillEffect:skill_effect:enemy_debuff_multi:28300c29"
+        },
+        {
+          "featureId": "skill_effect:enemy_target_count",
+          "label": "敵対象部隊数",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "淑徳1■主将が男性の際 ●部隊の攻撃+3% ●部隊の防御+3% ●部隊の知力+3%▼出陣時 ●戦法ゲージ+2%（上限50%）心照2■常に ●自身の魅力の10％を部隊の攻撃、防御、知力に加算■主将か、自部隊の主将が曹操と好相性の際 ●自部隊の絶縁が効果を発揮した際、10％の確率で効果回数を消費せずに効果を発揮する（この技能を持つ武将の将星ランクに応じて確率が3％ずつ上昇） ●通常攻撃による被ダメージ-20％▼主将戦法発動時 ●対象を含む敵3部隊に強化抑制を付与（15秒） ●対象を含む敵3部隊の通常攻撃威力-30%（1…",
+          "rawText": "淑徳1■主将が男性の際 ●部隊の攻撃+3% ●部隊の防御+3% ●部隊の知力+3%▼出陣時 ●戦法ゲージ+2%（上限50%）心照2■常に ●自身の魅力の10％を部隊の攻撃、防御、知力に加算■主将か、自部隊の主将が曹操と好相性の際 ●自部隊の絶縁が効果を発揮した際、10％の確率で効果回数を消費せずに効果を発揮する（この技能を持つ武将の将星ランクに応じて確率が3％ずつ上昇） ●通常攻撃による被ダメージ-20％▼主将戦法発動時 ●対象を含む敵3部隊に強化抑制を付与（15秒） ●対象を含む敵3部隊の通常攻撃威力-30%（1…",
+          "canonicalFeatureKey": "skill_effect:enemy_target_count",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-570446",
+          "evidencePath": "sections[5].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-570446:skill_text:skillEffect:skill_effect:enemy_target_count:28300c29"
         }
       ],
-      "statusEffectRefCount": 0,
-      "typeFeatureCount": 8,
-      "sourceEntityKey": "generals:article-568476"
+      "statusEffectRefCount": 5,
+      "typeFeatureCount": 17,
+      "sourceEntityKey": "generals:article-570446"
     },
     {
       "category": "generals",
@@ -4088,7 +4489,7 @@
           "canonicalFeatureKey": "status_effect:高揚",
           "featureDomain": "statusEffect",
           "sourceEntityKey": "generals:article-568477",
-          "evidencePath": "sections[2].content[0]",
+          "evidencePath": "sections[4].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -4102,7 +4503,7 @@
             ],
             "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
-          "typeFeatureKey": "generals:article-568477:tactic_text:statusEffect:status_effect:高揚:2ad3fb74"
+          "typeFeatureKey": "generals:article-568477:tactic_text:statusEffect:status_effect:高揚:885d2202"
         }
       ],
       "typeFeatures": [
@@ -4118,7 +4519,7 @@
           "canonicalFeatureKey": "concept:normal_attack_expansion",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "generals:article-568477",
-          "evidencePath": "sections[1].content[0]",
+          "evidencePath": "sections[3].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -4132,7 +4533,7 @@
             ],
             "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
-          "typeFeatureKey": "generals:article-568477:tactic_text:skillEffect:concept:normal_attack_expansion:218edcde"
+          "typeFeatureKey": "generals:article-568477:tactic_text:skillEffect:concept:normal_attack_expansion:b00e68b0"
         },
         {
           "featureId": "parameter:critical_rate",
@@ -4146,7 +4547,7 @@
           "canonicalFeatureKey": "concept:critical_rate",
           "featureDomain": "parameter",
           "sourceEntityKey": "generals:article-568477",
-          "evidencePath": "sections[1].content[0]",
+          "evidencePath": "sections[3].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -4160,7 +4561,7 @@
             ],
             "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
-          "typeFeatureKey": "generals:article-568477:tactic_text:parameter:concept:critical_rate:218edcde"
+          "typeFeatureKey": "generals:article-568477:tactic_text:parameter:concept:critical_rate:b00e68b0"
         },
         {
           "featureId": "parameter:critical_power",
@@ -4174,7 +4575,7 @@
           "canonicalFeatureKey": "concept:critical_power",
           "featureDomain": "parameter",
           "sourceEntityKey": "generals:article-568477",
-          "evidencePath": "sections[1].content[0]",
+          "evidencePath": "sections[3].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -4188,7 +4589,7 @@
             ],
             "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
-          "typeFeatureKey": "generals:article-568477:tactic_text:parameter:concept:critical_power:218edcde"
+          "typeFeatureKey": "generals:article-568477:tactic_text:parameter:concept:critical_power:b00e68b0"
         },
         {
           "featureId": "skill_effect:damage_reduction",
@@ -4202,7 +4603,7 @@
           "canonicalFeatureKey": "skill_effect:damage_reduction",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "generals:article-568477",
-          "evidencePath": "sections[1].content[0]",
+          "evidencePath": "sections[3].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -4216,7 +4617,7 @@
             ],
             "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
-          "typeFeatureKey": "generals:article-568477:tactic_text:skillEffect:skill_effect:damage_reduction:218edcde"
+          "typeFeatureKey": "generals:article-568477:tactic_text:skillEffect:skill_effect:damage_reduction:b00e68b0"
         },
         {
           "featureId": "skill_effect:enemy_target_count",
@@ -4230,7 +4631,7 @@
           "canonicalFeatureKey": "skill_effect:enemy_target_count",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "generals:article-568477",
-          "evidencePath": "sections[1].content[0]",
+          "evidencePath": "sections[3].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -4244,7 +4645,7 @@
             ],
             "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
-          "typeFeatureKey": "generals:article-568477:tactic_text:skillEffect:skill_effect:enemy_target_count:218edcde"
+          "typeFeatureKey": "generals:article-568477:tactic_text:skillEffect:skill_effect:enemy_target_count:b00e68b0"
         },
         {
           "featureId": "parameter:critical_rate",
@@ -4257,7 +4658,7 @@
           "canonicalFeatureKey": "concept:critical_rate",
           "featureDomain": "parameter",
           "sourceEntityKey": "generals:article-568477",
-          "evidencePath": "sections[3].content[0]",
+          "evidencePath": "sections[5].content[0]",
           "sourceType": "skill",
           "roleGate": {
             "scoreEligible": true,
@@ -4270,7 +4671,7 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "generals:article-568477:skill_text:parameter:concept:critical_rate:a171ec1e"
+          "typeFeatureKey": "generals:article-568477:skill_text:parameter:concept:critical_rate:9de76914"
         },
         {
           "featureId": "parameter:critical_power",
@@ -4283,7 +4684,7 @@
           "canonicalFeatureKey": "concept:critical_power",
           "featureDomain": "parameter",
           "sourceEntityKey": "generals:article-568477",
-          "evidencePath": "sections[3].content[0]",
+          "evidencePath": "sections[5].content[0]",
           "sourceType": "skill",
           "roleGate": {
             "scoreEligible": true,
@@ -4296,7 +4697,7 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "generals:article-568477:skill_text:parameter:concept:critical_power:d51f1926"
+          "typeFeatureKey": "generals:article-568477:skill_text:parameter:concept:critical_power:c5f9dec0"
         },
         {
           "featureId": "skill_effect:damage_reduction",
@@ -4309,7 +4710,7 @@
           "canonicalFeatureKey": "skill_effect:damage_reduction",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "generals:article-568477",
-          "evidencePath": "sections[3].content[0]",
+          "evidencePath": "sections[5].content[0]",
           "sourceType": "skill",
           "roleGate": {
             "scoreEligible": true,
@@ -4322,12 +4723,245 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "generals:article-568477:skill_text:skillEffect:skill_effect:damage_reduction:5da6097a"
+          "typeFeatureKey": "generals:article-568477:skill_text:skillEffect:skill_effect:damage_reduction:d8d302ec"
         }
       ],
       "statusEffectRefCount": 1,
       "typeFeatureCount": 8,
       "sourceEntityKey": "generals:article-568477"
+    },
+    {
+      "category": "generals",
+      "categoryLabel": "武将",
+      "name": "UR越吉（えつきつ）",
+      "statusEffectRefs": [],
+      "typeFeatures": [
+        {
+          "featureId": "skill_effect:initial_tactic_gauge",
+          "label": "出陣時戦法ゲージ",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
+          "rawText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:initial_tactic_gauge",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-568476",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-568476:tactic_text:skillEffect:skill_effect:initial_tactic_gauge:8d3c774e"
+        },
+        {
+          "featureId": "parameter:attack_speed",
+          "label": "攻撃速度",
+          "featureType": "parameter",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
+          "rawText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "concept:attack_speed",
+          "featureDomain": "parameter",
+          "sourceEntityKey": "generals:article-568476",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-568476:tactic_text:parameter:concept:attack_speed:8d3c774e"
+        },
+        {
+          "featureId": "parameter:normal_attack_power",
+          "label": "通常攻撃威力",
+          "featureType": "parameter",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
+          "rawText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "concept:normal_attack_power",
+          "featureDomain": "parameter",
+          "sourceEntityKey": "generals:article-568476",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-568476:tactic_text:parameter:concept:normal_attack_power:8d3c774e"
+        },
+        {
+          "featureId": "parameter:tactic_power",
+          "label": "戦法威力",
+          "featureType": "parameter",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
+          "rawText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "parameter:tactic_power",
+          "featureDomain": "parameter",
+          "sourceEntityKey": "generals:article-568476",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-568476:tactic_text:parameter:parameter:tactic_power:8d3c774e"
+        },
+        {
+          "featureId": "skill_effect:combat_start_tactic_gauge",
+          "label": "交戦開始時戦法ゲージ",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
+          "rawText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:combat_start_tactic_gauge",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-568476",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-568476:tactic_text:skillEffect:skill_effect:combat_start_tactic_gauge:8d3c774e"
+        },
+        {
+          "featureId": "skill_effect:enemy_debuff_multi",
+          "label": "敵デバフ配布",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
+          "rawText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:enemy_debuff_multi",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-568476",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-568476:tactic_text:skillEffect:skill_effect:enemy_debuff_multi:8d3c774e"
+        },
+        {
+          "featureId": "skill_effect:enemy_target_count",
+          "label": "敵対象部隊数",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
+          "rawText": "兵科効果系統攻撃属性弓兵物理なし効果自身1部隊の攻撃と攻撃速度を100％、通常攻撃威力と戦法威力を25％上昇（自部隊の主将と曹真の相性が良い場合、上記全ての効果量+25%）対象を含む敵3部隊の命中を30％低下させて350％の攻撃（自部隊の「羌」の技能Lv×20%、威力が上昇 最大+100％）発動間隔対象範囲発動率連鎖順20秒敵 / 中25％普通 閃撃奔箭の追…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:enemy_target_count",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-568476",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-568476:tactic_text:skillEffect:skill_effect:enemy_target_count:8d3c774e"
+        },
+        {
+          "featureId": "parameter:attack_speed",
+          "label": "攻撃速度",
+          "featureType": "parameter",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "部隊の「羌」のLv×4％、部隊の攻撃速度が上昇",
+          "rawText": "部隊の「羌」のLv×4％、部隊の攻撃速度が上昇",
+          "canonicalFeatureKey": "concept:attack_speed",
+          "featureDomain": "parameter",
+          "sourceEntityKey": "generals:article-568476",
+          "evidencePath": "sections[5].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-568476:skill_text:parameter:concept:attack_speed:af0f7421"
+        }
+      ],
+      "statusEffectRefCount": 0,
+      "typeFeatureCount": 8,
+      "sourceEntityKey": "generals:article-568476"
     },
     {
       "category": "generals",
@@ -50705,10 +51339,166 @@
             "reason": "Structured primary evidence for the matching source role."
           },
           "typeFeatureKey": "generals:article-469236:skill_text:skillEffect:skill_effect:ally_target_count:6f8ad044"
+        },
+        {
+          "featureId": "parameter:tactic_speed",
+          "label": "戦法速度",
+          "featureType": "parameter",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "部隊の戦法速度+10%",
+          "rawText": "部隊の戦法速度+10%",
+          "canonicalFeatureKey": "concept:tactic_speed",
+          "featureDomain": "parameter",
+          "sourceEntityKey": "generals:article-469236",
+          "evidencePath": "sections[8].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-469236:skill_text:parameter:concept:tactic_speed:aeada287"
+        },
+        {
+          "featureId": "skill_effect:normal_attack_target_count",
+          "label": "通常攻撃対象数",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "Ⅰ■常に ●部隊の知力+3%■主将か、副将で主将と自身が好相性の際 ●部隊の攻撃速度+25%▼出陣時 ●戦法ゲージ+10%（上限50％）■主将の際 ●通常攻撃の効果系統を知力にするⅡ■常に ●部隊の知力+7%■主将か、副将で主将と自身が好相性の際 ●部隊の攻撃速度+25%▼出陣時 ●戦法ゲージ+15%（上限50％）▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊を全ての兵科と物体に対して不利にする（15秒） ●自身を含む味方3部隊の通常攻撃威力+25%（10秒） ●自身を含む味方3部隊の戦法威力+25%…",
+          "rawText": "Ⅰ■常に ●部隊の知力+3%■主将か、副将で主将と自身が好相性の際 ●部隊の攻撃速度+25%▼出陣時 ●戦法ゲージ+10%（上限50％）■主将の際 ●通常攻撃の効果系統を知力にするⅡ■常に ●部隊の知力+7%■主将か、副将で主将と自身が好相性の際 ●部隊の攻撃速度+25%▼出陣時 ●戦法ゲージ+15%（上限50％）▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊を全ての兵科と物体に対して不利にする（15秒） ●自身を含む味方3部隊の通常攻撃威力+25%（10秒） ●自身を含む味方3部隊の戦法威力+25%…",
+          "canonicalFeatureKey": "concept:normal_attack_expansion",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-469236",
+          "evidencePath": "sections[8].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-469236:skill_text:skillEffect:concept:normal_attack_expansion:874fe310"
+        },
+        {
+          "featureId": "skill_effect:damage_reduction",
+          "label": "被ダメージ軽減",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "Ⅰ■常に ●知力系統の与ダメージが、敵部隊に発生している弱化効果の数×2%上昇（最大20％）■主将か、副将で主将と自身が好相性の際▼交戦開始時 ●対象を含む敵3部隊の攻撃-25%（15秒）（すでに攻撃低下が発生している部隊には付与できない） ●対象を含む敵3部隊の知力-25％（15秒）（すでに知力低下が発生している部隊には付与できない）Ⅱ■常に ●知力系統の与ダメージが、敵部隊に発生している弱化効果の数×3％上昇（最大30％）■主将か、主将と自身が好相性の際 ●自部隊が弱化効果を付与する際、自部隊の知力を150％上…",
+          "rawText": "Ⅰ■常に ●知力系統の与ダメージが、敵部隊に発生している弱化効果の数×2%上昇（最大20％）■主将か、副将で主将と自身が好相性の際▼交戦開始時 ●対象を含む敵3部隊の攻撃-25%（15秒）（すでに攻撃低下が発生している部隊には付与できない） ●対象を含む敵3部隊の知力-25％（15秒）（すでに知力低下が発生している部隊には付与できない）Ⅱ■常に ●知力系統の与ダメージが、敵部隊に発生している弱化効果の数×3％上昇（最大30％）■主将か、主将と自身が好相性の際 ●自部隊が弱化効果を付与する際、自部隊の知力を150％上…",
+          "canonicalFeatureKey": "skill_effect:damage_reduction",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-469236",
+          "evidencePath": "sections[10].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-469236:skill_text:skillEffect:skill_effect:damage_reduction:bdb443e2"
+        },
+        {
+          "featureId": "skill_effect:status_effect_rate",
+          "label": "状態変化発生率",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "Ⅰ■常に ●知力系統の与ダメージが、敵部隊に発生している弱化効果の数×2%上昇（最大20％）■主将か、副将で主将と自身が好相性の際▼交戦開始時 ●対象を含む敵3部隊の攻撃-25%（15秒）（すでに攻撃低下が発生している部隊には付与できない） ●対象を含む敵3部隊の知力-25％（15秒）（すでに知力低下が発生している部隊には付与できない）Ⅱ■常に ●知力系統の与ダメージが、敵部隊に発生している弱化効果の数×3％上昇（最大30％）■主将か、主将と自身が好相性の際 ●自部隊が弱化効果を付与する際、自部隊の知力を150％上…",
+          "rawText": "Ⅰ■常に ●知力系統の与ダメージが、敵部隊に発生している弱化効果の数×2%上昇（最大20％）■主将か、副将で主将と自身が好相性の際▼交戦開始時 ●対象を含む敵3部隊の攻撃-25%（15秒）（すでに攻撃低下が発生している部隊には付与できない） ●対象を含む敵3部隊の知力-25％（15秒）（すでに知力低下が発生している部隊には付与できない）Ⅱ■常に ●知力系統の与ダメージが、敵部隊に発生している弱化効果の数×3％上昇（最大30％）■主将か、主将と自身が好相性の際 ●自部隊が弱化効果を付与する際、自部隊の知力を150％上…",
+          "canonicalFeatureKey": "skill_effect:status_effect_rate",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-469236",
+          "evidencePath": "sections[10].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-469236:skill_text:skillEffect:skill_effect:status_effect_rate:bdb443e2"
+        },
+        {
+          "featureId": "skill_effect:effect_duration",
+          "label": "効果時間",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "自部隊が弱化効果を付与する際、自部隊の知力を150％上昇させた状態で弱化効果の付与を行う（敵部隊との知力差による発生率の変動や、知力を条件とした発生率/効果時間の変動効果などに適用される）",
+          "rawText": "自部隊が弱化効果を付与する際、自部隊の知力を150％上昇させた状態で弱化効果の付与を行う（敵部隊との知力差による発生率の変動や、知力を条件とした発生率/効果時間の変動効果などに適用される）",
+          "canonicalFeatureKey": "skill_effect:effect_duration",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-469236",
+          "evidencePath": "sections[10].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-469236:skill_text:skillEffect:skill_effect:effect_duration:7033fe0b"
+        },
+        {
+          "featureId": "skill_effect:attack_nullify",
+          "label": "攻撃無効",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "自身1部隊に1回の攻撃無効を付与（10秒） →50％の確率で上記効果の対象部隊数+2",
+          "rawText": "自身1部隊に1回の攻撃無効を付与（10秒） →50％の確率で上記効果の対象部隊数+2",
+          "canonicalFeatureKey": "skill_effect:attack_nullify",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-469236",
+          "evidencePath": "sections[16].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-469236:skill_text:skillEffect:skill_effect:attack_nullify:a3020090"
         }
       ],
       "statusEffectRefCount": 3,
-      "typeFeatureCount": 16,
+      "typeFeatureCount": 22,
       "sourceEntityKey": "generals:article-469236"
     },
     {
@@ -135296,6 +136086,246 @@
     {
       "category": "equipments",
       "categoryLabel": "装備",
+      "name": "亜父奇謀冠",
+      "statusEffectRefs": [],
+      "typeFeatures": [
+        {
+          "featureId": "skill_effect:enemy_target_count",
+          "label": "敵対象部隊数",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "敵1部隊に10％の疑心を付与（20秒） →50％の確率で上記効果の敵対象部隊数+2（加算後の上限4）",
+          "rawText": "【三國志 覇道】亜父奇謀冠 【三國志 覇道】亜父奇謀冠の能力と技能 各レアリティの能力 レア統率武力知力政治魅力UR168040900SSR93027900 亜父奇謀冠の技能 UR時の最大技能老豎堅守 常に 部隊の「老巧」の技能Lv+1（上限4） 部隊の「倒豎」の技能Lv+1（上限3） 部隊の「深謀」の技能Lv+1（上限5） 部隊の防御+4%対衰困迷 常に …",
+          "sourceType": "equipmentSkill",
+          "canonicalFeatureKey": "skill_effect:enemy_target_count",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-570300",
+          "evidencePath": "sections[5].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-570300:equipment_skill_text:skillEffect:skill_effect:enemy_target_count:13308f49"
+        },
+        {
+          "featureId": "parameter:tactic_speed",
+          "label": "戦法速度",
+          "featureType": "parameter",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "鴻門宴玉玦と合わせて老巧をLv4にすると、戦闘中の戦法速度上昇や出陣時の戦法ゲージ増加などが補佐でも発動するため、呉の知力部隊を強力に使いたいなら特におすすめ",
+          "rawText": "鴻門宴玉玦と合わせて老巧をLv4にすると、戦闘中の戦法速度上昇や出陣時の戦法ゲージ増加などが補佐でも発動するため、呉の知力部隊を強力に使いたいなら特におすすめ",
+          "canonicalFeatureKey": "concept:tactic_speed",
+          "featureDomain": "parameter",
+          "sourceEntityKey": "equipments:article-570300",
+          "evidencePath": "sections[1].content[0]",
+          "sourceType": "equipmentSkill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-570300:equipment_skill_text:parameter:concept:tactic_speed:bc37e34e"
+        },
+        {
+          "featureId": "skill_effect:initial_tactic_gauge",
+          "label": "出陣時戦法ゲージ",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "亜父奇謀冠はLR范増の技能「老巧」と「倒豎」を強化する知力防具。鴻門宴玉玦と合わせて老巧をLv4にすると、戦闘中の戦法速度上昇や出陣時の戦法ゲージ増加などが補佐でも発動するため、呉の知力部隊を強力に使いたいなら特におすすめ。",
+          "rawText": "亜父奇謀冠はLR范増の技能「老巧」と「倒豎」を強化する知力防具。鴻門宴玉玦と合わせて老巧をLv4にすると、戦闘中の戦法速度上昇や出陣時の戦法ゲージ増加などが補佐でも発動するため、呉の知力部隊を強力に使いたいなら特におすすめ。",
+          "canonicalFeatureKey": "skill_effect:initial_tactic_gauge",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-570300",
+          "evidencePath": "sections[1].content[0]",
+          "sourceType": "equipmentSkill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-570300:equipment_skill_text:skillEffect:skill_effect:initial_tactic_gauge:0e4a6243"
+        },
+        {
+          "featureId": "skill_effect:enemy_debuff_multi",
+          "label": "敵デバフ配布",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "技能「対衰困迷」の効果で、通常攻撃時に確率で敵3部隊の知力を20％低下させる。老巧Lv4には「弱化効果が発生している部隊を攻撃目標にしている時に戦法速度+10%」があるので、LR范増の性能を活かしやすくなっている。",
+          "rawText": "技能「対衰困迷」の効果で、通常攻撃時に確率で敵3部隊の知力を20％低下させる。老巧Lv4には「弱化効果が発生している部隊を攻撃目標にしている時に戦法速度+10%」があるので、LR范増の性能を活かしやすくなっている。",
+          "canonicalFeatureKey": "skill_effect:enemy_debuff_multi",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-570300",
+          "evidencePath": "sections[2].content[0]",
+          "sourceType": "equipmentSkill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-570300:equipment_skill_text:skillEffect:skill_effect:enemy_debuff_multi:97c77c7e"
+        },
+        {
+          "featureId": "skill_effect:damage_reduction",
+          "label": "被ダメージ軽減",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "UR時の最大技能老豎堅守■常に ●部隊の「老巧」の技能Lv+1（上限4） ●部隊の「倒豎」の技能Lv+1（上限3） ●部隊の「深謀」の技能Lv+1（上限5） ●部隊の防御+4%対衰困迷■常に ●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ-15% ●通常攻撃時、50％の確率で対象を含む敵3部隊の知力-20%（10秒）（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回） ●通常攻撃時、50％の確率で対象を含む敵3部隊に50％の弱化残存を付与（10秒）（1度の通常攻撃に…",
+          "rawText": "UR時の最大技能老豎堅守■常に ●部隊の「老巧」の技能Lv+1（上限4） ●部隊の「倒豎」の技能Lv+1（上限3） ●部隊の「深謀」の技能Lv+1（上限5） ●部隊の防御+4%対衰困迷■常に ●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ-15% ●通常攻撃時、50％の確率で対象を含む敵3部隊の知力-20%（10秒）（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回） ●通常攻撃時、50％の確率で対象を含む敵3部隊に50％の弱化残存を付与（10秒）（1度の通常攻撃に…",
+          "canonicalFeatureKey": "skill_effect:damage_reduction",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-570300",
+          "evidencePath": "sections[4].content[0]",
+          "sourceType": "equipmentSkill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-570300:equipment_skill_text:skillEffect:skill_effect:damage_reduction:a06f7c0d"
+        }
+      ],
+      "statusEffectRefCount": 0,
+      "typeFeatureCount": 5,
+      "sourceEntityKey": "equipments:article-570300"
+    },
+    {
+      "category": "equipments",
+      "categoryLabel": "装備",
+      "name": "鴻門宴玉玦",
+      "statusEffectRefs": [],
+      "typeFeatures": [
+        {
+          "featureId": "skill_effect:attack_nullify",
+          "label": "攻撃無効",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "自身1部隊に1回の攻撃無効を付与（10秒） →50％の確率で上記効果の対象部隊数+2",
+          "rawText": "【三國志 覇道】鴻門宴玉玦 【三國志 覇道】鴻門宴玉玦の能力と技能 各レアリティの能力 レア統率武力知力政治魅力UR0057700SSR0037200 鴻門宴玉玦の技能 UR時の最大技能老豎才気 常に 部隊の「老巧」の技能Lv+1（上限4） 部隊の「倒豎」の技能Lv+1（上限3） 部隊の「老練」の技能Lv+1（上限4） 部隊の知力+4%対衰心知 常に 弱化効…",
+          "sourceType": "equipmentSkill",
+          "canonicalFeatureKey": "skill_effect:attack_nullify",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-570301",
+          "evidencePath": "sections[5].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-570301:equipment_skill_text:skillEffect:skill_effect:attack_nullify:224f4488"
+        }
+      ],
+      "statusEffectRefCount": 0,
+      "typeFeatureCount": 1,
+      "sourceEntityKey": "equipments:article-570301"
+    },
+    {
+      "category": "equipments",
+      "categoryLabel": "装備",
+      "name": "義壮孝淳剣",
+      "statusEffectRefs": [],
+      "typeFeatures": [
+        {
+          "featureId": "parameter:critical_power",
+          "label": "会心威力",
+          "featureType": "parameter",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "孝義がLv2であれば会心攻撃時の会心威力上昇が確定で発生するため、LR関平を貫通編制や駐屯編制の副将か補佐で使うなら入手しておこう",
+          "rawText": "【三國志 覇道】義壮孝淳剣 【三國志 覇道】義壮孝淳剣の能力と技能 各レアリティの能力 レア統率武力知力政治魅力UR120457000SSR55317000 義壮孝淳剣の技能 UR時の最大技能孝心豪勇 常に 部隊の「孝義」の技能Lv+1（上限2） 部隊の「豪傑」の技能Lv+1（上限5） 部隊の攻撃+4%剛烈会心 常に 物理系統の通常攻撃による与ダメージ+20…",
+          "sourceType": "equipmentSkill",
+          "canonicalFeatureKey": "concept:critical_power",
+          "featureDomain": "parameter",
+          "sourceEntityKey": "equipments:article-568459",
+          "evidencePath": "sections[1].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-568459:equipment_skill_text:parameter:concept:critical_power:61b6ba22"
+        },
+        {
+          "featureId": "skill_effect:weakening_remove",
+          "label": "弱化解除",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "技能「剛烈会心」の効果で、主将戦法発動時に自部隊の弱化効果を解除する。その他の技能も全て装備者が補佐でも発動するため、物理会心部隊であれば汎用的に使えて非常に優秀。",
+          "rawText": "技能「剛烈会心」の効果で、主将戦法発動時に自部隊の弱化効果を解除する。その他の技能も全て装備者が補佐でも発動するため、物理会心部隊であれば汎用的に使えて非常に優秀。",
+          "canonicalFeatureKey": "concept:weakening_remove",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-568459",
+          "evidencePath": "sections[2].content[0]",
+          "sourceType": "equipmentSkill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-568459:equipment_skill_text:skillEffect:concept:weakening_remove:61e5fc2e"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "技能「剛烈会心」の効果で、主将戦法発動時に自部隊の弱化効果を解除する。その他の技能も全て装備者が補佐でも発動するため、物理会心部隊であれば汎用的に使えて非常に優秀。",
+          "rawText": "技能「剛烈会心」の効果で、主将戦法発動時に自部隊の弱化効果を解除する。その他の技能も全て装備者が補佐でも発動するため、物理会心部隊であれば汎用的に使えて非常に優秀。",
+          "canonicalFeatureKey": "skill_effect:self_disadvantage_countermeasure",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-568459",
+          "evidencePath": "sections[2].content[0]",
+          "sourceType": "equipmentSkill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-568459:equipment_skill_text:skillEffect:skill_effect:self_disadvantage_countermeasure:61e5fc2e"
+        }
+      ],
+      "statusEffectRefCount": 0,
+      "typeFeatureCount": 3,
+      "sourceEntityKey": "equipments:article-568459"
+    },
+    {
+      "category": "equipments",
+      "categoryLabel": "装備",
       "name": "荊南征定図",
       "statusEffectRefs": [],
       "typeFeatures": [
@@ -135311,7 +136341,7 @@
           "canonicalFeatureKey": "skill_effect:chain_rate",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "equipments:article-568458",
-          "evidencePath": "sections[4].content[0]",
+          "evidencePath": "sections[6].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -135320,7 +136350,30 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "equipments:article-568458:equipment_skill_text:skillEffect:skill_effect:chain_rate:005df2e9"
+          "typeFeatureKey": "equipments:article-568458:equipment_skill_text:skillEffect:skill_effect:chain_rate:38f4a1e3"
+        },
+        {
+          "featureId": "skill_effect:initial_tactic_gauge",
+          "label": "出陣時戦法ゲージ",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "荊南征定図はLR馬良の技能「白眉」を強化する知力文物。白眉がLv2の場合、出陣時の戦法ゲージ上昇量が最大5％から最大10％になるので、LR馬良で出陣時の戦法ゲージを補いたい場合は入手しておこう。",
+          "rawText": "荊南征定図はLR馬良の技能「白眉」を強化する知力文物。白眉がLv2の場合、出陣時の戦法ゲージ上昇量が最大5％から最大10％になるので、LR馬良で出陣時の戦法ゲージを補いたい場合は入手しておこう。",
+          "canonicalFeatureKey": "skill_effect:initial_tactic_gauge",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-568458",
+          "evidencePath": "sections[1].content[0]",
+          "sourceType": "equipmentSkill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-568458:equipment_skill_text:skillEffect:skill_effect:initial_tactic_gauge:cb5f3a1a"
         },
         {
           "featureId": "skill_effect:ally_buff_multi",
@@ -135333,7 +136386,7 @@
           "canonicalFeatureKey": "skill_effect:ally_buff_multi",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "equipments:article-568458",
-          "evidencePath": "sections[2].content[0]",
+          "evidencePath": "sections[4].content[0]",
           "sourceType": "equipmentSkill",
           "roleGate": {
             "scoreEligible": true,
@@ -135343,7 +136396,7 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "equipments:article-568458:equipment_skill_text:skillEffect:skill_effect:ally_buff_multi:122cc95b"
+          "typeFeatureKey": "equipments:article-568458:equipment_skill_text:skillEffect:skill_effect:ally_buff_multi:5299836d"
         },
         {
           "featureId": "skill_effect:ally_target_count",
@@ -135356,7 +136409,7 @@
           "canonicalFeatureKey": "skill_effect:ally_target_count",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "equipments:article-568458",
-          "evidencePath": "sections[2].content[0]",
+          "evidencePath": "sections[4].content[0]",
           "sourceType": "equipmentSkill",
           "roleGate": {
             "scoreEligible": true,
@@ -135366,92 +136419,12 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "equipments:article-568458:equipment_skill_text:skillEffect:skill_effect:ally_target_count:122cc95b"
+          "typeFeatureKey": "equipments:article-568458:equipment_skill_text:skillEffect:skill_effect:ally_target_count:5299836d"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 3,
+      "typeFeatureCount": 4,
       "sourceEntityKey": "equipments:article-568458"
-    },
-    {
-      "category": "equipments",
-      "categoryLabel": "装備",
-      "name": "義壮孝淳剣",
-      "statusEffectRefs": [],
-      "typeFeatures": [
-        {
-          "featureId": "parameter:critical_power",
-          "label": "会心威力",
-          "featureType": "parameter",
-          "source": "effect-text",
-          "sourcePartType": "equipment_skill_text",
-          "matchedText": "自身1部隊の会心威力+10％（10秒）",
-          "rawText": "【三國志 覇道】義壮孝淳剣 【三國志 覇道】義壮孝淳剣の能力と技能 各レアリティの能力 レア統率武力知力政治魅力UR120457000SSR55317000 義壮孝淳剣の技能 UR時の最大技能孝心豪勇 常に 部隊の「孝義」の技能Lv+1（上限2） 部隊の「豪傑」の技能Lv+1（上限5） 部隊の攻撃+4%剛烈会心 常に 物理系統の通常攻撃による与ダメージ+20…",
-          "sourceType": "equipmentSkill",
-          "canonicalFeatureKey": "concept:critical_power",
-          "featureDomain": "parameter",
-          "sourceEntityKey": "equipments:article-568459",
-          "evidencePath": "sections[2].content[2]",
-          "roleGate": {
-            "scoreEligible": true,
-            "allowedRoleIds": [
-              "equipment"
-            ],
-            "allowedSlots": [],
-            "reason": "Structured primary evidence for the matching source role."
-          },
-          "typeFeatureKey": "equipments:article-568459:equipment_skill_text:parameter:concept:critical_power:8316257e"
-        },
-        {
-          "featureId": "skill_effect:weakening_remove",
-          "label": "弱化解除",
-          "featureType": "skillEffect",
-          "source": "effect-text",
-          "sourcePartType": "equipment_skill_text",
-          "matchedText": "UR時の最大技能孝心豪勇■常に ●部隊の「孝義」の技能Lv+1（上限2） ●部隊の「豪傑」の技能Lv+1（上限5） ●部隊の攻撃+4%剛烈会心■常に ●物理系統の通常攻撃による与ダメージ+20%▼主将戦法発動時 ●自身1部隊の弱化効果を3つ打ち消す ●自身1部隊の会心威力+30％（10秒）強撃騎舞■常に ●部隊の攻撃+4% →自部隊が騎兵の場合、効果が2倍（+8％）SSR時の最大技能孝心豪勇■常に ●部隊の「孝義」の技能Lv+1（上限2） ●部隊の攻撃+2%剛烈会心■常に ●物理系統の通常攻撃による与ダメージ+8%…",
-          "rawText": "UR時の最大技能孝心豪勇■常に ●部隊の「孝義」の技能Lv+1（上限2） ●部隊の「豪傑」の技能Lv+1（上限5） ●部隊の攻撃+4%剛烈会心■常に ●物理系統の通常攻撃による与ダメージ+20%▼主将戦法発動時 ●自身1部隊の弱化効果を3つ打ち消す ●自身1部隊の会心威力+30％（10秒）強撃騎舞■常に ●部隊の攻撃+4% →自部隊が騎兵の場合、効果が2倍（+8％）SSR時の最大技能孝心豪勇■常に ●部隊の「孝義」の技能Lv+1（上限2） ●部隊の攻撃+2%剛烈会心■常に ●物理系統の通常攻撃による与ダメージ+8%…",
-          "canonicalFeatureKey": "concept:weakening_remove",
-          "featureDomain": "skillEffect",
-          "sourceEntityKey": "equipments:article-568459",
-          "evidencePath": "sections[2].content[0]",
-          "sourceType": "equipmentSkill",
-          "roleGate": {
-            "scoreEligible": true,
-            "allowedRoleIds": [
-              "equipment"
-            ],
-            "allowedSlots": [],
-            "reason": "Structured primary evidence for the matching source role."
-          },
-          "typeFeatureKey": "equipments:article-568459:equipment_skill_text:skillEffect:concept:weakening_remove:615581e9"
-        },
-        {
-          "featureId": "skill_effect:self_disadvantage_countermeasure",
-          "label": "自部隊不利対策",
-          "featureType": "skillEffect",
-          "source": "effect-text",
-          "sourcePartType": "equipment_skill_text",
-          "matchedText": "UR時の最大技能孝心豪勇■常に ●部隊の「孝義」の技能Lv+1（上限2） ●部隊の「豪傑」の技能Lv+1（上限5） ●部隊の攻撃+4%剛烈会心■常に ●物理系統の通常攻撃による与ダメージ+20%▼主将戦法発動時 ●自身1部隊の弱化効果を3つ打ち消す ●自身1部隊の会心威力+30％（10秒）強撃騎舞■常に ●部隊の攻撃+4% →自部隊が騎兵の場合、効果が2倍（+8％）SSR時の最大技能孝心豪勇■常に ●部隊の「孝義」の技能Lv+1（上限2） ●部隊の攻撃+2%剛烈会心■常に ●物理系統の通常攻撃による与ダメージ+8%…",
-          "rawText": "UR時の最大技能孝心豪勇■常に ●部隊の「孝義」の技能Lv+1（上限2） ●部隊の「豪傑」の技能Lv+1（上限5） ●部隊の攻撃+4%剛烈会心■常に ●物理系統の通常攻撃による与ダメージ+20%▼主将戦法発動時 ●自身1部隊の弱化効果を3つ打ち消す ●自身1部隊の会心威力+30％（10秒）強撃騎舞■常に ●部隊の攻撃+4% →自部隊が騎兵の場合、効果が2倍（+8％）SSR時の最大技能孝心豪勇■常に ●部隊の「孝義」の技能Lv+1（上限2） ●部隊の攻撃+2%剛烈会心■常に ●物理系統の通常攻撃による与ダメージ+8%…",
-          "canonicalFeatureKey": "skill_effect:self_disadvantage_countermeasure",
-          "featureDomain": "skillEffect",
-          "sourceEntityKey": "equipments:article-568459",
-          "evidencePath": "sections[2].content[0]",
-          "sourceType": "equipmentSkill",
-          "roleGate": {
-            "scoreEligible": true,
-            "allowedRoleIds": [
-              "equipment"
-            ],
-            "allowedSlots": [],
-            "reason": "Structured primary evidence for the matching source role."
-          },
-          "typeFeatureKey": "equipments:article-568459:equipment_skill_text:skillEffect:skill_effect:self_disadvantage_countermeasure:615581e9"
-        }
-      ],
-      "statusEffectRefCount": 0,
-      "typeFeatureCount": 3,
-      "sourceEntityKey": "equipments:article-568459"
     },
     {
       "category": "equipments",
@@ -135470,7 +136443,7 @@
           "canonicalFeatureKey": "concept:anti_object",
           "featureDomain": "parameter",
           "sourceEntityKey": "equipments:article-565579",
-          "evidencePath": "sections[2].content[0]",
+          "evidencePath": "sections[4].content[0]",
           "sourceType": "equipmentSkill",
           "roleGate": {
             "scoreEligible": true,
@@ -135480,7 +136453,7 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "equipments:article-565579:equipment_skill_text:parameter:concept:anti_object:dbfe6248"
+          "typeFeatureKey": "equipments:article-565579:equipment_skill_text:parameter:concept:anti_object:c433b842"
         },
         {
           "featureId": "skill_effect:damage_reduction",
@@ -135493,7 +136466,7 @@
           "canonicalFeatureKey": "skill_effect:damage_reduction",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "equipments:article-565579",
-          "evidencePath": "sections[2].content[0]",
+          "evidencePath": "sections[4].content[0]",
           "sourceType": "equipmentSkill",
           "roleGate": {
             "scoreEligible": true,
@@ -135503,7 +136476,7 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "equipments:article-565579:equipment_skill_text:skillEffect:skill_effect:damage_reduction:dbfe6248"
+          "typeFeatureKey": "equipments:article-565579:equipment_skill_text:skillEffect:skill_effect:damage_reduction:c433b842"
         }
       ],
       "statusEffectRefCount": 0,
@@ -135517,6 +136490,75 @@
       "statusEffectRefs": [],
       "typeFeatures": [
         {
+          "featureId": "skill_effect:strengthening_remove_avoid",
+          "label": "強化解除回避",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "孫氏玄朱令旗はLR孫堅・盾兵の技能「克破」と「主導」を強化する盾兵武器。尚武丹紅披風と合わせて克破をLv3にすると、士気奪取と戦法遅延に加えて強化奪取と強化解除も避けられるため、LR孫堅・盾兵が安定して戦法を発動しやすくなる。",
+          "rawText": "孫氏玄朱令旗はLR孫堅・盾兵の技能「克破」と「主導」を強化する盾兵武器。尚武丹紅披風と合わせて克破をLv3にすると、士気奪取と戦法遅延に加えて強化奪取と強化解除も避けられるため、LR孫堅・盾兵が安定して戦法を発動しやすくなる。",
+          "canonicalFeatureKey": "skill_effect:strengthening_remove_avoid",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-565578",
+          "evidencePath": "sections[1].content[0]",
+          "sourceType": "equipmentSkill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-565578:equipment_skill_text:skillEffect:skill_effect:strengthening_remove_avoid:5df9e979"
+        },
+        {
+          "featureId": "skill_effect:strengthening_seize_avoid",
+          "label": "強化奪取回避",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "孫氏玄朱令旗はLR孫堅・盾兵の技能「克破」と「主導」を強化する盾兵武器。尚武丹紅披風と合わせて克破をLv3にすると、士気奪取と戦法遅延に加えて強化奪取と強化解除も避けられるため、LR孫堅・盾兵が安定して戦法を発動しやすくなる。",
+          "rawText": "孫氏玄朱令旗はLR孫堅・盾兵の技能「克破」と「主導」を強化する盾兵武器。尚武丹紅披風と合わせて克破をLv3にすると、士気奪取と戦法遅延に加えて強化奪取と強化解除も避けられるため、LR孫堅・盾兵が安定して戦法を発動しやすくなる。",
+          "canonicalFeatureKey": "skill_effect:strengthening_seize_avoid",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-565578",
+          "evidencePath": "sections[1].content[0]",
+          "sourceType": "equipmentSkill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-565578:equipment_skill_text:skillEffect:skill_effect:strengthening_seize_avoid:5df9e979"
+        },
+        {
+          "featureId": "skill_effect:tactic_delay",
+          "label": "戦法遅延",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "尚武丹紅披風と合わせて克破をLv3にすると、士気奪取と戦法遅延に加えて強化奪取と強化解除も避けられるため、LR孫堅・盾兵が安定して戦法を発動しやすくなる",
+          "rawText": "尚武丹紅披風と合わせて克破をLv3にすると、士気奪取と戦法遅延に加えて強化奪取と強化解除も避けられるため、LR孫堅・盾兵が安定して戦法を発動しやすくなる",
+          "canonicalFeatureKey": "concept:tactic_delay",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-565578",
+          "evidencePath": "sections[1].content[0]",
+          "sourceType": "equipmentSkill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-565578:equipment_skill_text:skillEffect:concept:tactic_delay:3b582363"
+        },
+        {
           "featureId": "skill_effect:chain_rate",
           "label": "連鎖確率",
           "featureType": "skillEffect",
@@ -135527,7 +136569,7 @@
           "canonicalFeatureKey": "skill_effect:chain_rate",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "equipments:article-565578",
-          "evidencePath": "sections[2].content[0]",
+          "evidencePath": "sections[4].content[0]",
           "sourceType": "equipmentSkill",
           "roleGate": {
             "scoreEligible": true,
@@ -135537,11 +136579,11 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "equipments:article-565578:equipment_skill_text:skillEffect:skill_effect:chain_rate:3d181e1f"
+          "typeFeatureKey": "equipments:article-565578:equipment_skill_text:skillEffect:skill_effect:chain_rate:f14c9ebd"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 1,
+      "typeFeatureCount": 4,
       "sourceEntityKey": "equipments:article-565578"
     },
     {
@@ -135582,7 +136624,7 @@
           "canonicalFeatureKey": "concept:critical_tactic_power",
           "featureDomain": "parameter",
           "sourceEntityKey": "equipments:article-564671",
-          "evidencePath": "sections[2].content[2]",
+          "evidencePath": "sections[4].content[2]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -135591,7 +136633,7 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "equipments:article-564671:equipment_skill_text:parameter:concept:critical_tactic_power:64249b39"
+          "typeFeatureKey": "equipments:article-564671:equipment_skill_text:parameter:concept:critical_tactic_power:809530d3"
         },
         {
           "featureId": "skill_effect:damage_reduction",
@@ -135604,7 +136646,7 @@
           "canonicalFeatureKey": "skill_effect:damage_reduction",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "equipments:article-564671",
-          "evidencePath": "sections[2].content[0]",
+          "evidencePath": "sections[4].content[0]",
           "sourceType": "equipmentSkill",
           "roleGate": {
             "scoreEligible": true,
@@ -135614,7 +136656,7 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "equipments:article-564671:equipment_skill_text:skillEffect:skill_effect:damage_reduction:df624b11"
+          "typeFeatureKey": "equipments:article-564671:equipment_skill_text:skillEffect:skill_effect:damage_reduction:a691feb7"
         }
       ],
       "statusEffectRefCount": 0,
@@ -135638,7 +136680,7 @@
           "canonicalFeatureKey": "concept:normal_attack_power",
           "featureDomain": "parameter",
           "sourceEntityKey": "equipments:article-564670",
-          "evidencePath": "sections[2].content[0]",
+          "evidencePath": "sections[4].content[0]",
           "sourceType": "equipmentSkill",
           "roleGate": {
             "scoreEligible": true,
@@ -135648,7 +136690,7 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "equipments:article-564670:equipment_skill_text:parameter:concept:normal_attack_power:a046c80b"
+          "typeFeatureKey": "equipments:article-564670:equipment_skill_text:parameter:concept:normal_attack_power:eb7075a9"
         },
         {
           "featureId": "parameter:tactic_power",
@@ -135661,7 +136703,7 @@
           "canonicalFeatureKey": "parameter:tactic_power",
           "featureDomain": "parameter",
           "sourceEntityKey": "equipments:article-564670",
-          "evidencePath": "sections[2].content[0]",
+          "evidencePath": "sections[4].content[0]",
           "sourceType": "equipmentSkill",
           "roleGate": {
             "scoreEligible": true,
@@ -135671,7 +136713,7 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "equipments:article-564670:equipment_skill_text:parameter:parameter:tactic_power:bce8b96c"
+          "typeFeatureKey": "equipments:article-564670:equipment_skill_text:parameter:parameter:tactic_power:d3e677c2"
         },
         {
           "featureId": "skill_effect:enemy_debuff_multi",
@@ -135684,7 +136726,7 @@
           "canonicalFeatureKey": "skill_effect:enemy_debuff_multi",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "equipments:article-564670",
-          "evidencePath": "sections[2].content[0]",
+          "evidencePath": "sections[4].content[0]",
           "sourceType": "equipmentSkill",
           "roleGate": {
             "scoreEligible": true,
@@ -135694,7 +136736,7 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "equipments:article-564670:equipment_skill_text:skillEffect:skill_effect:enemy_debuff_multi:2283fe9a"
+          "typeFeatureKey": "equipments:article-564670:equipment_skill_text:skillEffect:skill_effect:enemy_debuff_multi:66b9a044"
         },
         {
           "featureId": "skill_effect:enemy_target_count",
@@ -135707,7 +136749,7 @@
           "canonicalFeatureKey": "skill_effect:enemy_target_count",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "equipments:article-564670",
-          "evidencePath": "sections[2].content[0]",
+          "evidencePath": "sections[4].content[0]",
           "sourceType": "equipmentSkill",
           "roleGate": {
             "scoreEligible": true,
@@ -135717,7 +136759,7 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "equipments:article-564670:equipment_skill_text:skillEffect:skill_effect:enemy_target_count:2283fe9a"
+          "typeFeatureKey": "equipments:article-564670:equipment_skill_text:skillEffect:skill_effect:enemy_target_count:66b9a044"
         }
       ],
       "statusEffectRefCount": 0,
@@ -135731,6 +136773,29 @@
       "statusEffectRefs": [],
       "typeFeatures": [
         {
+          "featureId": "skill_effect:ally_target_count",
+          "label": "味方対象部隊数",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "疾風玄鉄刀はLR夏侯淵・盾兵の技能「迅護」を強化する盾兵武器。迅護がLv2の場合、瞬影と駿撃の効果判定を機動+150%の状態で行い、交戦開始時の瞬影付与が味方4部隊に増えるため、LR夏侯淵・盾兵を貫通編制や駐屯編制の主将で使うなら入手しておきたい。",
+          "rawText": "疾風玄鉄刀はLR夏侯淵・盾兵の技能「迅護」を強化する盾兵武器。迅護がLv2の場合、瞬影と駿撃の効果判定を機動+150%の状態で行い、交戦開始時の瞬影付与が味方4部隊に増えるため、LR夏侯淵・盾兵を貫通編制や駐屯編制の主将で使うなら入手しておきたい。",
+          "canonicalFeatureKey": "skill_effect:ally_target_count",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-564669",
+          "evidencePath": "sections[1].content[0]",
+          "sourceType": "equipmentSkill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-564669:equipment_skill_text:skillEffect:skill_effect:ally_target_count:3015c27e"
+        },
+        {
           "featureId": "skill_effect:ally_buff_multi",
           "label": "味方バフ配布",
           "featureType": "skillEffect",
@@ -135741,7 +136806,7 @@
           "canonicalFeatureKey": "skill_effect:ally_buff_multi",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "equipments:article-564669",
-          "evidencePath": "sections[2].content[0]",
+          "evidencePath": "sections[4].content[0]",
           "sourceType": "equipmentSkill",
           "roleGate": {
             "scoreEligible": true,
@@ -135751,30 +136816,7 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "equipments:article-564669:equipment_skill_text:skillEffect:skill_effect:ally_buff_multi:3ba9862b"
-        },
-        {
-          "featureId": "skill_effect:ally_target_count",
-          "label": "味方対象部隊数",
-          "featureType": "skillEffect",
-          "source": "effect-text",
-          "sourcePartType": "equipment_skill_text",
-          "matchedText": "UR時の最大技能護威強撃■常に ●部隊の「迅護」の技能Lv+1（上限2） ●部隊の「威風」の技能Lv+1（上限5） ●部隊の攻撃+4%怒涛駿昂■常に ●出陣時の自部隊の攻撃に応じて、戦法による与ダメージが上昇（攻撃500につき2％上昇。最大20％） →敵部隊の機動が自部隊より低い場合は効果が2倍（攻撃500につき4%上昇。最大40％）▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方4部隊に15％の強兵を10秒付与威武勇撃■常に▼この技能を持つ武将が戦法を発動した時 ●部隊の「威風」のLv×5%、自身を含む味…",
-          "rawText": "UR時の最大技能護威強撃■常に ●部隊の「迅護」の技能Lv+1（上限2） ●部隊の「威風」の技能Lv+1（上限5） ●部隊の攻撃+4%怒涛駿昂■常に ●出陣時の自部隊の攻撃に応じて、戦法による与ダメージが上昇（攻撃500につき2％上昇。最大20％） →敵部隊の機動が自部隊より低い場合は効果が2倍（攻撃500につき4%上昇。最大40％）▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方4部隊に15％の強兵を10秒付与威武勇撃■常に▼この技能を持つ武将が戦法を発動した時 ●部隊の「威風」のLv×5%、自身を含む味…",
-          "canonicalFeatureKey": "skill_effect:ally_target_count",
-          "featureDomain": "skillEffect",
-          "sourceEntityKey": "equipments:article-564669",
-          "evidencePath": "sections[2].content[0]",
-          "sourceType": "equipmentSkill",
-          "roleGate": {
-            "scoreEligible": true,
-            "allowedRoleIds": [
-              "equipment"
-            ],
-            "allowedSlots": [],
-            "reason": "Structured primary evidence for the matching source role."
-          },
-          "typeFeatureKey": "equipments:article-564669:equipment_skill_text:skillEffect:skill_effect:ally_target_count:3ba9862b"
+          "typeFeatureKey": "equipments:article-564669:equipment_skill_text:skillEffect:skill_effect:ally_buff_multi:2baba555"
         }
       ],
       "statusEffectRefCount": 0,
@@ -145174,8 +146216,8 @@
           "featureType": "parameter",
           "source": "effect-text",
           "sourcePartType": "equipment_skill_text",
-          "matchedText": "部隊内（主将/副将/補佐）の女性の人数×5%、自身1部隊の戦法威力が上昇（10秒）",
-          "rawText": "部隊内（主将/副将/補佐）の女性の人数×5%、自身1部隊の戦法威力が上昇（10秒）",
+          "matchedText": "部隊内（主将/副将/補佐）の女性の人数×5%、自身1部隊の戦法威力が上昇（10秒）華宴盤石",
+          "rawText": "部隊内（主将/副将/補佐）の女性の人数×5%、自身1部隊の戦法威力が上昇（10秒）華宴盤石",
           "canonicalFeatureKey": "parameter:tactic_power",
           "featureDomain": "parameter",
           "sourceEntityKey": "equipments:article-396756",
@@ -145189,11 +146231,34 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "equipments:article-396756:equipment_skill_text:parameter:parameter:tactic_power:097a5306"
+          "typeFeatureKey": "equipments:article-396756:equipment_skill_text:parameter:parameter:tactic_power:ebf3ff08"
+        },
+        {
+          "featureId": "skill_effect:damage_reduction",
+          "label": "被ダメージ軽減",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "UR時の最大技能狂喜歓宴■常に ●部隊の「歓喜」の技能Lv+1（上限4） ●部隊の「狂宴」の技能Lv+1（上限4） ●部隊の「剛力」の技能Lv+1（上限5） ●部隊の防御+4%百花凄艷■常に▼この技能を持つ武将が戦法を発動した時 ●部隊内（主将/副将/補佐）の女性の人数×5%、自身1部隊の攻撃が上昇（10秒） ●部隊内（主将/副将/補佐）の女性の人数×5%、自身1部隊の戦法威力が上昇（10秒）華宴盤石■常に ●部隊内（主将/副将/補佐）とその侍従に配置されている女性の人数×3%、通常攻撃・戦法による被ダメージを軽減…",
+          "rawText": "UR時の最大技能狂喜歓宴■常に ●部隊の「歓喜」の技能Lv+1（上限4） ●部隊の「狂宴」の技能Lv+1（上限4） ●部隊の「剛力」の技能Lv+1（上限5） ●部隊の防御+4%百花凄艷■常に▼この技能を持つ武将が戦法を発動した時 ●部隊内（主将/副将/補佐）の女性の人数×5%、自身1部隊の攻撃が上昇（10秒） ●部隊内（主将/副将/補佐）の女性の人数×5%、自身1部隊の戦法威力が上昇（10秒）華宴盤石■常に ●部隊内（主将/副将/補佐）とその侍従に配置されている女性の人数×3%、通常攻撃・戦法による被ダメージを軽減…",
+          "canonicalFeatureKey": "skill_effect:damage_reduction",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-396756",
+          "evidencePath": "sections[4].content[0]",
+          "sourceType": "equipmentSkill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-396756:equipment_skill_text:skillEffect:skill_effect:damage_reduction:1fdbdb91"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 1,
+      "typeFeatureCount": 2,
       "sourceEntityKey": "equipments:article-396756"
     },
     {

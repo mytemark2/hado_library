@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-07-20T03:00:13.407Z",
+  "generatedAt": "2026-08-13T06:28:37.561Z",
   "dataSetId": "2026-07-20T02:43:46.042Z",
   "crawlerVersion": "1.1.0.2",
   "generator": "hado_crawler_extension",
@@ -33,10 +33,10 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 485,
-    "tactics": 464,
-    "equipments": 247,
-    "skills": 651,
+    "generals": 486,
+    "tactics": 465,
+    "equipments": 249,
+    "skills": 653,
     "statusEffects": 206,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
@@ -47,10 +47,10 @@
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "cda6a4d1",
-    "tactics": "18b2da92",
-    "equipments": "4e4f88f5",
-    "skills": "c5e8c5cf",
+    "generals": "caa6a018",
+    "tactics": "19b2dc25",
+    "equipments": "504f8c1b",
+    "skills": "c7e8c8f5",
     "statusEffects": "defa110c",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
@@ -61,10 +61,10 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "cda6a4d1",
-    "tactics": "18b2da92",
-    "equipments": "4e4f88f5",
-    "skills": "c5e8c5cf",
+    "generals": "caa6a018",
+    "tactics": "19b2dc25",
+    "equipments": "504f8c1b",
+    "skills": "c7e8c8f5",
     "statusEffects": "defa110c",
     "formations": "9c5d2dae",
     "siegeWeapons": "5742664a",
@@ -87,7 +87,7 @@
       "敵部隊能力低下": 46
     },
     "relationTypeCounts": {
-      "direct_grant": 1183
+      "direct_grant": 1200
     },
     "policy": "1.0.5.6: 状態変化詳細の逆引きは直接付与だけを正本化。全文一致・注記・条件参照・対策・効果調整を混ぜない。"
   },
@@ -1056,6 +1056,20 @@
       "related": {
         "generals": [
           {
+            "name": "UR卞氏（べんし）",
+            "ownerType": "general",
+            "category": "generals",
+            "matchedText": "結束",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfStateBuff",
+            "groupLabel": "自部隊状態強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "UR歩練師（ほれんし）",
             "ownerType": "general",
             "category": "generals",
@@ -1211,6 +1225,20 @@
           }
         ],
         "tactics": [
+          {
+            "name": "斉聖祥禎",
+            "ownerType": "tactic",
+            "category": "tactics",
+            "matchedText": "結束",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfStateBuff",
+            "groupLabel": "自部隊状態強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
           {
             "name": "麒麟閃牙",
             "ownerType": "tactic",
@@ -1443,6 +1471,13 @@
       "sourceRefs": [
         {
           "type": "generals",
+          "name": "UR卞氏（べんし）",
+          "matchedText": "結束",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "generals",
           "name": "UR歩練師（ほれんし）",
           "matchedText": "結束",
           "sourcePartType": "semantic-owner-status-grant",
@@ -1514,6 +1549,13 @@
         {
           "type": "generals",
           "name": "魯粛（ろしゅく）",
+          "matchedText": "結束",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "tactics",
+          "name": "斉聖祥禎",
           "matchedText": "結束",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -3405,6 +3447,20 @@
         ],
         "equipments": [
           {
+            "name": "鴻門宴玉玦",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "攻撃無効",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "龍紋緑袍鎧",
             "ownerType": "equipment",
             "category": "equipments",
@@ -3605,6 +3661,13 @@
         },
         {
           "type": "equipments",
+          "name": "鴻門宴玉玦",
+          "matchedText": "攻撃無効",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
           "name": "龍紋緑袍鎧",
           "matchedText": "攻撃無効",
           "sourcePartType": "semantic-owner-status-grant",
@@ -3625,6 +3688,20 @@
       "classificationReason": "type:有利変化+自部隊回避/無効/遮断",
       "related": {
         "generals": [
+          {
+            "name": "UR卞氏（べんし）",
+            "ownerType": "general",
+            "category": "generals",
+            "matchedText": "弱化無効",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "targetSide": "self",
+            "direction": "buff"
+          },
           {
             "name": "LR関羽（かんう）",
             "ownerType": "general",
@@ -3950,6 +4027,20 @@
         ],
         "tactics": [
           {
+            "name": "斉聖祥禎",
+            "ownerType": "tactic",
+            "category": "tactics",
+            "matchedText": "弱化無効",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "神武威顕",
             "ownerType": "tactic",
             "category": "tactics",
@@ -4266,6 +4357,13 @@
       "sourceRefs": [
         {
           "type": "generals",
+          "name": "UR卞氏（べんし）",
+          "matchedText": "弱化無効",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "generals",
           "name": "LR関羽（かんう）",
           "matchedText": "弱化無効",
           "sourcePartType": "semantic-owner-status-grant",
@@ -4421,6 +4519,13 @@
         {
           "type": "generals",
           "name": "司馬徽（しばき）",
+          "matchedText": "弱化無効",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "tactics",
+          "name": "斉聖祥禎",
           "matchedText": "弱化無効",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -6982,6 +7087,20 @@
       "related": {
         "generals": [
           {
+            "name": "UR卞氏（べんし）",
+            "ownerType": "general",
+            "category": "generals",
+            "matchedText": "絶縁",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "UR袁術（えんじゅつ）",
             "ownerType": "general",
             "category": "generals",
@@ -7124,6 +7243,20 @@
         ],
         "tactics": [
           {
+            "name": "斉聖祥禎",
+            "ownerType": "tactic",
+            "category": "tactics",
+            "matchedText": "絶縁",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "驕栄当路",
             "ownerType": "tactic",
             "category": "tactics",
@@ -7238,6 +7371,20 @@
         ],
         "skills": [
           {
+            "name": "勤励",
+            "ownerType": "skill",
+            "category": "skills",
+            "matchedText": "絶縁",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "電断",
             "ownerType": "skill",
             "category": "skills",
@@ -7298,6 +7445,13 @@
         ]
       },
       "sourceRefs": [
+        {
+          "type": "generals",
+          "name": "UR卞氏（べんし）",
+          "matchedText": "絶縁",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
         {
           "type": "generals",
           "name": "UR袁術（えんじゅつ）",
@@ -7370,6 +7524,13 @@
         },
         {
           "type": "tactics",
+          "name": "斉聖祥禎",
+          "matchedText": "絶縁",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "tactics",
           "name": "驕栄当路",
           "matchedText": "絶縁",
           "sourcePartType": "semantic-owner-status-grant",
@@ -7420,6 +7581,13 @@
         {
           "type": "tactics",
           "name": "国士無双",
+          "matchedText": "絶縁",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "skills",
+          "name": "勤励",
           "matchedText": "絶縁",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -12664,7 +12832,22 @@
             "direction": "buff"
           }
         ],
-        "equipments": []
+        "equipments": [
+          {
+            "name": "鴻門宴玉玦",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "追討",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          }
+        ]
       },
       "sourceRefs": [
         {
@@ -12705,6 +12888,13 @@
         {
           "type": "skills",
           "name": "偽策",
+          "matchedText": "追討",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
+          "name": "鴻門宴玉玦",
           "matchedText": "追討",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -20392,6 +20582,20 @@
         ],
         "equipments": [
           {
+            "name": "亜父奇謀冠",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "疑心",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyStateDebuff",
+            "groupLabel": "敵部隊状態弱化",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          },
+          {
             "name": "太平要術の書・経国要術",
             "ownerType": "equipment",
             "category": "equipments",
@@ -20523,6 +20727,13 @@
         {
           "type": "skills",
           "name": "連縛",
+          "matchedText": "疑心",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
+          "name": "亜父奇謀冠",
           "matchedText": "疑心",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -21368,7 +21579,22 @@
             "direction": "debuff"
           }
         ],
-        "equipments": []
+        "equipments": [
+          {
+            "name": "亜父奇謀冠",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "弱化残存",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyStateDebuff",
+            "groupLabel": "敵部隊状態弱化",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          }
+        ]
       },
       "sourceRefs": [
         {
@@ -21500,6 +21726,13 @@
         {
           "type": "skills",
           "name": "包囲",
+          "matchedText": "弱化残存",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
+          "name": "亜父奇謀冠",
           "matchedText": "弱化残存",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -21860,6 +22093,20 @@
       "related": {
         "generals": [
           {
+            "name": "UR卞氏（べんし）",
+            "ownerType": "general",
+            "category": "generals",
+            "matchedText": "強化抑制",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyStateDebuff",
+            "groupLabel": "敵部隊状態弱化",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          },
+          {
             "name": "UR潘臨（はんりん）",
             "ownerType": "general",
             "category": "generals",
@@ -21934,6 +22181,20 @@
         ],
         "skills": [
           {
+            "name": "心照",
+            "ownerType": "skill",
+            "category": "skills",
+            "matchedText": "強化抑制",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyStateDebuff",
+            "groupLabel": "敵部隊状態弱化",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          },
+          {
             "name": "撃荒",
             "ownerType": "skill",
             "category": "skills",
@@ -21967,6 +22228,13 @@
       "sourceRefs": [
         {
           "type": "generals",
+          "name": "UR卞氏（べんし）",
+          "matchedText": "強化抑制",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "generals",
           "name": "UR潘臨（はんりん）",
           "matchedText": "強化抑制",
           "sourcePartType": "semantic-owner-status-grant",
@@ -21996,6 +22264,13 @@
         {
           "type": "tactics",
           "name": "慈祥勤倹",
+          "matchedText": "強化抑制",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "skills",
+          "name": "心照",
           "matchedText": "強化抑制",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -25183,6 +25458,20 @@
             "direction": "debuff"
           },
           {
+            "name": "倒豎",
+            "ownerType": "skill",
+            "category": "skills",
+            "matchedText": "断道",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyAbilityDebuff",
+            "groupLabel": "敵部隊能力低下",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          },
+          {
             "name": "急迫",
             "ownerType": "skill",
             "category": "skills",
@@ -25231,6 +25520,13 @@
         {
           "type": "skills",
           "name": "賢威",
+          "matchedText": "断道",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "skills",
+          "name": "倒豎",
           "matchedText": "断道",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -25843,6 +26139,20 @@
             "groupLabel": "敵部隊状態弱化",
             "targetSide": "enemy",
             "direction": "debuff"
+          },
+          {
+            "name": "倒豎",
+            "ownerType": "skill",
+            "category": "skills",
+            "matchedText": "封撃",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyStateDebuff",
+            "groupLabel": "敵部隊状態弱化",
+            "targetSide": "enemy",
+            "direction": "debuff"
           }
         ],
         "equipments": []
@@ -25879,6 +26189,13 @@
         {
           "type": "skills",
           "name": "鋭牙連断",
+          "matchedText": "封撃",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "skills",
+          "name": "倒豎",
           "matchedText": "封撃",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -27712,6 +28029,20 @@
       "related": {
         "generals": [
           {
+            "name": "UR卞氏（べんし）",
+            "ownerType": "general",
+            "category": "generals",
+            "matchedText": "正転",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyStateDebuff",
+            "groupLabel": "敵部隊状態弱化",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          },
+          {
             "name": "LR徐庶（じょしょ）",
             "ownerType": "general",
             "category": "generals",
@@ -27727,6 +28058,20 @@
           }
         ],
         "tactics": [
+          {
+            "name": "斉聖祥禎",
+            "ownerType": "tactic",
+            "category": "tactics",
+            "matchedText": "正転",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyStateDebuff",
+            "groupLabel": "敵部隊状態弱化",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          },
           {
             "name": "共図王覇",
             "ownerType": "tactic",
@@ -27748,7 +28093,21 @@
       "sourceRefs": [
         {
           "type": "generals",
+          "name": "UR卞氏（べんし）",
+          "matchedText": "正転",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "generals",
           "name": "LR徐庶（じょしょ）",
+          "matchedText": "正転",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "tactics",
+          "name": "斉聖祥禎",
           "matchedText": "正転",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
