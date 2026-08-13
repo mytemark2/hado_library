@@ -31,7 +31,8 @@ assert(css.includes('.tag-input-row{grid-template-columns:auto minmax(0,1fr) aut
 
 assert(core.includes('tagSearchComposing:false'), 'shared state must track tag IME composition');
 assert(status.includes("function commitTagSearchInput(reason='input-exact')"), 'exact-tag commit helper must exist');
-assert(status.includes('state.availableTags.includes(value)'), 'only valid candidate tags may be committed');
+assert(status.includes('if(state.availableTags.includes(input))return input;'), 'only canonical or resolved display-name candidate tags may be committed');
+assert(status.includes('const value=norm(els.tagSearchInput.value),resolved=resolveAvailableTagInput(value)'), 'tag input must resolve display names before committing');
 assert(status.includes("debugLog('tagSearch:add-duplicate'"), 'duplicate additions must be diagnosed without re-adding');
 assert(status.includes('if(state.selectedTags.includes(t))'), 'duplicate tags must be idempotent');
 assert(bootstrap.includes("addEventListener('compositionstart'"), 'tag input must guard IME composition start');
