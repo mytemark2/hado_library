@@ -36,20 +36,20 @@ function runVersion(formalRelease) {
 
 assert(versionSource.includes("releaseVersion: '3.0.1.1'"), 'release version must be 3.0.1.1');
 assert(versionSource.includes("updateNo: ''"), 'completed Update plan must leave updateNo empty');
-assert(versionSource.includes('revision: 165'), 'preview revision must be r165');
+assert(versionSource.includes('revision: 166'), 'preview revision must be r166');
 const configuredFormalRelease = versionSource.match(/formalRelease:\s*(true|false)/)?.[1];
 assert(configuredFormalRelease === 'true' || configuredFormalRelease === 'false', 'formalRelease must be an explicit boolean');
 
 const preview = runVersion(false);
-assert.strictEqual(preview.context.window.HADO_APP_DISPLAY_VERSION, '3.0.1.1 r165', 'preview must display release version and revision without Update');
-assert.strictEqual(preview.nodes.get('h1').textContent, '覇道ライブラリ 3.0.1.1 r165', 'preview heading must omit Update');
+assert.strictEqual(preview.context.window.HADO_APP_DISPLAY_VERSION, '3.0.1.1 r166', 'preview must display release version and revision without Update');
+assert.strictEqual(preview.nodes.get('h1').textContent, '覇道ライブラリ 3.0.1.1 r166', 'preview heading must omit Update');
 
 const formal = runVersion(true);
 assert.strictEqual(formal.context.window.HADO_APP_DISPLAY_VERSION, '3.0.1.1', 'formal release must display only the four-part version');
 assert.strictEqual(formal.nodes.get('diagnosticAppVersion').textContent, '覇道ライブラリ｜3.0.1.1', 'formal diagnostics must hide revision and Update');
 
 for (const asset of ['hado_styles.css', 'hado_version.js', 'hado_core.js', 'hado_search.js']) {
-  assert(indexHtml.includes(`${asset}?v=3.0.1.1-r165`), `${asset} must use the no-Update cache key`);
+  assert(indexHtml.includes(`${asset}?v=3.0.1.1-r166`), `${asset} must use the no-Update cache key`);
 }
 assert(agents.includes('`Update` is not a normal release suffix'), 'repository rules must define Update as a large-development planning identifier');
 assert(operationRules.includes('通常のリリース接尾辞ではない'), 'Japanese GitHub rules must define Update scope');
