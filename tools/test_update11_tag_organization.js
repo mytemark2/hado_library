@@ -16,14 +16,14 @@ const html = read('index.html');
 const version = read('hado_version.js');
 const tagIndex = JSON.parse(read('hadou_tag_index.json'));
 
-assert(version.includes("releaseVersion: '3.0.1.1'"), 'release version must be 3.0.1.1');
+assert(version.includes("releaseVersion: '3.0.2.0'"), 'release version must retain Update11 behavior in 3.0.2.0');
 const updateMatch = version.match(/updateNo:\s*'(\d+)\.(\d+)'/);
 const updateNoIsEmpty = version.includes("updateNo: ''");
 const revisionMatch = version.match(/revision:\s*(\d+)/);
 assert(updateNoIsEmpty || (updateMatch && (Number(updateMatch[1]) > 11 || (Number(updateMatch[1]) === 11 && Number(updateMatch[2]) >= 0))), 'runtime must retain Update11 behavior after the Update plan ends');
 assert(revisionMatch && Number(revisionMatch[1]) >= 160, 'revision must be r160 or later');
-assert(core.includes("version:\"3.0.1.1\""), 'runtime build version must match 3.0.1.1');
-assert(core.includes("fileName:\"hado_library_3.0.1.1.html\""), 'runtime file metadata must match 3.0.1.1');
+assert(core.includes("version:\"3.0.2.0\""), 'runtime build version must match 3.0.2.0');
+assert(core.includes("fileName:\"hado_library_3.0.2.0.html\""), 'runtime file metadata must match 3.0.2.0');
 
 const expectedCategoryOrder = "['generals','tactics','skills','equipments','statusEffects','siegeWeapons','ethnicArmaments','formations','warhorses','warhorseSkills']";
 assert(core.includes(`SEARCH_CATEGORY_DISPLAY_ORDER=Object.freeze(${expectedCategoryOrder})`), 'tag order must share the visible search category order');
@@ -32,7 +32,7 @@ assert(status.includes('byKeyCategories[key].add(cat)'), 'derived tag index must
 assert(status.includes("status_effects:'statusEffects'"), 'derived status_effect category must normalize to the visible runtime category');
 assert(status.includes('getTagGroupCategoryLabel(key)'), 'tag UI must render category labels');
 assert(status.includes("category.className='tag-picker-category'"), 'tag picker must expose a visible category badge');
-assert(status.includes('Object.keys(state.availableTagsByKey||{}).sort(compareTagGroupKeys)'), 'tag groups must use category-aware ordering');
+assert(status.includes("const keys=Object.keys(state.availableTagsByKey||{}).sort(compareTagGroupKeys)"), 'tag groups must use category-aware ordering');
 
 const categoriesByTagGroup = new Map();
 for (const item of tagIndex.items || []) {
