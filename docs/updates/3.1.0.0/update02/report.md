@@ -2,7 +2,7 @@
 
 ## 状態
 
-Condition Registry / EffectClause / Evaluator正式契約のローカル実装完了。GitHub Actions・公開Preview確認後にUpdate02を閉じる。
+Condition Registry / EffectClause / Evaluator正式契約、GitHub Actions、公開Preview確認まで完了。Update02を完了とする。
 
 ## Summary
 
@@ -50,7 +50,32 @@ Condition Registry / EffectClause / Evaluator正式契約のローカル実装�
 - App Validation: `138/138`、PASS。
 - 派生JSON契約: 20ファイル、PASS。runtime生成JSON差分なし。
 
-GitHub Actions、Commit、PR、Preview marker、公開Pages結果はGitHub反映後に記録する。
+## Git / GitHub Actions
+
+- 実装commit: `0b639bcb6e94ee9c9aae78d1f4af4525bc13a811`
+- 開発ブランチmerge commit: `f61fe6b094e7d7454aebf0b2eba4ad9c0583d5ad`
+- Pull Request: [#294](https://github.com/mytemark2/hado_library/pull/294)
+- base: `feature/app-3.1.0.0`
+- App Validation: `app-validation`、success（run `31800468345`）
+- Preview通知: `Notify Hado Library Preview`、success（run `31800505836`）
+- Preview Pages: `Deploy Hado Library Preview`、success（run `31800542400`）
+
+## Preview confirmation
+
+- 状態: **PASS**
+- 公開URL: `https://mytemark2.github.io/hado_library-preview/`
+- 表示版: `3.1.0.0 Update02 r173`
+- app branch / HEAD: `feature/app-3.1.0.0` / `f61fe6b094e7d7454aebf0b2eba4ad9c0583d5ad`
+- preview repository / HEAD: `mytemark2/hado_library-preview` / `2af5577347c61e3b55642b68510e91d9aaa62504`
+- `PREVIEW_SOURCE_COMMIT.txt`: `f61fe6b094e7d7454aebf0b2eba4ad9c0583d5ad`
+- `PREVIEW_SOURCE_BRANCH.txt`: `feature/app-3.1.0.0`
+- `PREVIEW_DISPLAY_VERSION.txt`: `3.1.0.0 Update02 r173`
+- 配置確認: `index.html`、`hado_formation.js`、`hado_condition_model.js`、`hado_styles.css`、全`hadou_*.json`、`.nojekyll`、3 marker filesを確認。
+- DOM確認: title / h1 / Preview statusがUpdate02 r173。script / CSS cache keyが`02-r173`。
+- 操作確認: `LR劉備`検索1件、内容詳細表示、部隊編成tab、軍馬編成tabを確認。
+- PC / smartphone: 通常幅および390 x 844で表示。スマートフォン幅の横overflowなし。
+- debug / console: Debug Log空、browser warning / error 0件。
+- 正式公開: 未実施。`formalRelease: false`を維持。
 
 ## Completion gate
 
@@ -60,8 +85,8 @@ GitHub Actions、Commit、PR、Preview marker、公開Pages結果はGitHub反映
 - [x] 5評価状態とboolean優先規則を検証。
 - [x] base/override親子関係を検証。
 - [x] runtime・保存・scoreEvidence非変更。
-- [ ] GitHub Actions App Validation成功。
-- [ ] Preview同期・marker・公開Pages確認。
+- [x] GitHub Actions App Validation成功。
+- [x] Preview同期・marker・公開Pages確認。
 
 ## 確認事項
 
@@ -69,4 +94,4 @@ GitHub Actions、Commit、PR、Preview marker、公開Pages結果はGitHub反映
 
 ## Remaining issues
 
-GitHub Actions・公開Preview確認のみ。Update03以降の実装は計画どおり別Updateの範囲。
+none。Update03以降の実装は計画どおり別Updateの範囲。
