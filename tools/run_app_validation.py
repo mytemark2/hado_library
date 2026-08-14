@@ -75,6 +75,7 @@ COMMANDS.extend(
         ["node", "tools/test_update11_4_mobile_parity.js"],
         ["node", "tools/test_release_3_0_2_0_version_policy.js"],
         ["node", "tools/test_release_3_0_2_0_status_effect_tags.js"],
+        ["node", "tools/test_release_3_0_2_0_mobile_tag_candidates.js"],
         ["node", "tools/test_data_update_metadata.js"],
         ["node", "tools/test_json_index_contract.js"],
         ["python3", "tools/validate_legacy_hado_app_not_loaded.py"],
