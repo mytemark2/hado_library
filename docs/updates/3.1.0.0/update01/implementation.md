@@ -2,7 +2,7 @@
 
 ## 状態
 
-未実装。3.1開発基盤とロードマップ文書のみ準備済み。
+開始準備中。3.1正本・表示版・Preview同期経路をUpdate01へ切り替える。
 
 ## 今回の準備作業
 
@@ -10,6 +10,17 @@
 - 3.1専用の開発記録を `docs/updates/3.1.0.0/` 配下へ分離する。
 - 全体ロードマップとUpdate01ロードマップを作成し、Codexが実装開始前に読む正本とする。
 - Update01ではUI実装を先行せず、全件条件センサスを最優先とする。
+
+## 2026-08-14 Update01開始準備
+
+- 正本ブランチを`feature/app-3.1.0.0`として、`AGENTS.md`、GitHub運用ルール、README、PRマージ準備チェックの既定baseを同期した。
+- 表示版を`3.1.0.0 Update01 r171`へ更新し、`hado_version.js`を単一の可視バージョン正本として維持した。
+- `HADO_DEV_INFO.json`、`FILE_META`、`HADO_BUILD_INFO`、`index.html`のasset cache keyをUpdate01開始版へ同期した。
+- `.github/workflows/notify-preview.yml`の唯一の許可元を`feature/app-3.1.0.0`へ変更し、3.0系とCodex作業ブランチからのPreview上書きを禁止した。
+- scheduleや`workflow_dispatch`は追加せず、正本ブランチへのpushを契機とするイベント駆動同期を維持した。
+- Preview repositoryの旧`.github/workflows/sync-preview.yml`は3.0正本を固定取得していたため、GitHub上で`disabled_manually`へ変更した。Pages配信を担当する`Deploy Hado Library Preview`はactiveのまま維持した。
+- HTMLへ機能実装やインラインJavaScriptは追加していない。asset cache key短縮により、Git blobとしての`index.html`は29,327 bytesから29,267 bytesへ60 bytes減少する。
+- `python -X utf8 tools/run_app_validation.py`を実行し、133/133 commands成功を確認した。3.1でUpdate番号が`01`へ戻るため、旧Update11/Update09の機能回帰テストは過去の番号大小比較ではなく、現在版と機能契約を検証するよう更新した。
 
 ## 実装時の原則
 
@@ -38,6 +49,6 @@
 
 ## Previewについて
 
-本準備作業では機能ソースを変更しないため、Preview同期元の切替は行わない。
+Update01開始準備で、Preview同期元を`feature/app-3.1.0.0`へ切り替える。3.0と3.1から同一Previewへ同時に上書きしない。
 
-3.1の実装結果をPreviewへ出す最初のUpdateで、最新の`.github/workflows/notify-preview.yml`とPreview repositoryの同期契約を再確認し、同期元を`feature/app-3.1.0.0`へ切り替える。3.0と3.1から同一Previewへ同時に上書きしない。
+この切替は正本ブランチへ反映されたpushから有効になる。Actions、Preview repository marker、公開Pagesの一致は反映後に確認する。

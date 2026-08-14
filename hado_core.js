@@ -37,9 +37,9 @@ const debugTimerMap=new Map();
 const debugLines=[];
 const startupDebugLines=[];
 const MAX_DEBUG_LINES=220;
-const FILE_META={fileName:"hado_library_3.0.2.0.html",createdAt:"2026-08-13 18:30:00"};
+const FILE_META={fileName:"hado_library_3.1.0.0.html",createdAt:"2026-08-14 17:20:25"};
 // FEATURE[HADO-VERSIONING]: 2.x.x.y バージョン管理。メジャー/マイナーはユーザー採番、x は機能追加、y は不具合修正。
-const HADO_BUILD_INFO={version:"3.0.2.0",baseVersion:"3.0.1.1",changeType:"feature",summary:"Add canonical status-effect tags before skill tags and propagate them to related owners.",baseSha256:"7326f622c0a07a2b128f1eb45794030ec7ee1458"};
+const HADO_BUILD_INFO={version:"3.1.0.0",baseVersion:"3.0.2.0",changeType:"major-feature",summary:"Begin Update01 condition census and switch the canonical preview source to feature/app-3.1.0.0.",baseSha256:"1a5ce523053661c3b8d6a8fc5a295ef620196fe6"};
 
 // FEATURE[HADO-2.9.6.3-WEB-DEPLOYMENT]: HTTP(S)配信時は公開JSONを自動取得し、手動JSONロードUIを表示しない。
 const IS_WEB_DEPLOYMENT=/^https?:$/.test(location.protocol);

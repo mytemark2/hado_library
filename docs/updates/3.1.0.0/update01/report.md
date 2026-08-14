@@ -2,7 +2,7 @@
 
 ## 状態
 
-3.1開発準備完了。Update01本体の全件条件センサスは未着手。
+3.1 Update01開始準備を実施中。全件条件センサス本体は未着手。
 
 ## 今回完了した範囲
 
@@ -12,6 +12,12 @@
 - 3.1全体ロードマップを作成した。
 - Update01全件条件センサスの詳細ロードマップを作成した。
 - Codexでの標準作業ルール、禁止事項、Preview切替方針を文書化した。
+- 3.1開発の表示版を`3.1.0.0 Update01 r171`として開始する。
+- Preview通知Workflowの唯一の同期元を`feature/app-3.1.0.0`へ切り替える。
+- リポジトリ内の正本ブランチ記載とPRマージ準備チェックの既定baseを3.1へ揃える。
+- 全App Validationは133/133 commands成功した。
+- Preview repositoryで3.0正本を固定取得する旧同期Workflowを`disabled_manually`へ変更し、Pages配信Workflowはactiveのまま維持した。
+- `index.html`は機能DOMを変更せず、asset cache key更新によりGit blobで60 bytes減少した。新規インラインJavaScriptは追加していない。
 
 ## ロードマップで固定した重要事項
 
@@ -34,10 +40,18 @@
 - EffectClause正式schema
 - クローラー構造化JSON変更
 - アプリUI変更
-- Preview同期元の3.1ブランチへの切替
-- Actions/公開Previewによる3.1機能確認
+- Update01全件センサスの成果に基づく3.1機能実装
 
-これらは今回の「開発フォルダとロードマップ準備」の範囲外であり、CodexによるUpdate01以降で実施する。
+これらは今回の「3.1 Update01開始準備」の範囲外であり、以後のUpdate01実装で実施する。
+
+## 開始準備の確認項目
+
+- [x] 全App Validation（133/133 commands）
+- [ ] PRのbaseが`feature/app-3.1.0.0`
+- [ ] GitHub ActionsのApp Validation成功
+- [ ] `Notify Hado Library Preview`成功
+- [ ] Preview repositoryのsource branch/commit/display version marker一致
+- [ ] 公開Previewの`3.1.0.0 Update01 r171`表示
 
 ## Codex開始時の最小確認
 

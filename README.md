@@ -4,10 +4,10 @@
 
 ## 現在の開発状況
 
-- 開発完了版: `3.0.1.0 Update11.2 r162`
-- 開発中正本ブランチ: `feature/app-3.0.0.0`
-- 現在の到達点: タグ候補の完全一致時自動追加と「追加」ボタン削除を実装し、全体回帰・Actions・公開Preview確認まで完了しています。
-- 次の予定: 次Updateの要件を整理します。配布用ZIPは当面公開しません。
+- 直前の開発完了版: `3.0.2.0 r170`
+- 開発中正本ブランチ: `feature/app-3.1.0.0`
+- 現在の到達点: `3.1.0.0 Update01 r171`として全件条件センサスを開始できる開発・Preview基盤を準備しています。
+- 次の予定: Update01で全戦法・全技能・関連状態変化の条件表現を監査します。配布用ZIPは当面公開しません。
 
 詳細なUpdate計画と進捗は [`docs/updates/roadmap.md`](./docs/updates/roadmap.md) と [`docs/updates/README.md`](./docs/updates/README.md) を参照してください。
 
@@ -17,7 +17,7 @@
 
 - `updates/queue/*.json` に検索置換命令を置く方式は廃止済みです。
 - GitHub Actionsでアプリソースをアドホックに文字列置換する方式は使用しません。
-- `main` 以外の作業ブランチへのpushで、プレビュー同期通知Workflowが自動実行されます。
+- 正本の`feature/app-3.1.0.0`へのpushで、プレビュー同期通知Workflowが自動実行されます。
 
 ## 公開アプリ
 
