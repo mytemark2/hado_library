@@ -7,7 +7,7 @@ permissions:
   contents: read
 
 env:
-  ALLOWED_PREVIEW_SOURCE_BRANCH: feature/app-3.0.0.0
+  ALLOWED_PREVIEW_SOURCE_BRANCH: feature/app-3.1.0.0
 
 concurrency:
   group: hado-library-preview-sync
@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   notify-preview:
-    if: ${{ github.event.deleted == false && github.ref == 'refs/heads/feature/app-3.0.0.0' }}
+    if: ${{ github.event.deleted == false && github.ref == 'refs/heads/feature/app-3.1.0.0' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source

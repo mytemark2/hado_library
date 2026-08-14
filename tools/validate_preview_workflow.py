@@ -10,8 +10,8 @@ WORKFLOW = ROOT / ".github" / "workflows" / "notify-preview.yml"
 CHECKOUT_ACTION_RE = re.compile(r"uses:\s*actions/checkout@v[45]\b")
 
 REQUIRED = (
-    "ALLOWED_PREVIEW_SOURCE_BRANCH: feature/app-3.0.0.0",
-    "github.ref == 'refs/heads/feature/app-3.0.0.0'",
+    "ALLOWED_PREVIEW_SOURCE_BRANCH: feature/app-3.1.0.0",
+    "github.ref == 'refs/heads/feature/app-3.1.0.0'",
     "SOURCE_COMMIT=\"$(git rev-parse HEAD)\"",
     "Checked-out source commit ${SOURCE_COMMIT} does not match GITHUB_SHA ${GITHUB_SHA}.",
     "group: hado-library-preview-sync",
