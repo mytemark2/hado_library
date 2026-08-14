@@ -2,11 +2,11 @@
 
 開発ブランチ: `feature/app-3.1.0.0`
 
-現在の到達点: `3.1.0.0 Update01 r172`（全件条件センサス完了・Update02設計入力確定）
+現在の到達点: `3.1.0.0 Update02 r173`（Condition Registry・EffectClause・5状態Evaluator契約確定）
 
 3.1全体計画: [3.1.0.0 開発ロードマップ](3.1.0.0/roadmap.md)
 
-現在のUpdate: [Update01 全件条件センサス](3.1.0.0/update01/roadmap.md)
+現在のUpdate: [Update02 Condition Registry / EffectClause正式仕様](3.1.0.0/update02/roadmap.md)
 
 通常リリース記録: [3.0.2.0 状態変化タグ](../releases/3.0.2.0/roadmap.md)
 

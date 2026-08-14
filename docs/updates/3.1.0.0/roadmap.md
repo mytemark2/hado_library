@@ -9,7 +9,7 @@
 - 起点Commit: `1a5ce523053661c3b8d6a8fc5a295ef620196fe6`
 - 起点表示版: `3.0.2.0 r170`
 - 開発実施環境: ChatGPTデスクトップアプリのCodex
-- `3.1.0.0 Update01 r171`から開発・Preview運用を開始し、`r172`で全件条件センサスを完了した。次の実装UpdateはUpdate02の正式schema設計とする。
+- `3.1.0.0 Update01 r171`から開発・Preview運用を開始し、`r172`で全件条件センサス、`Update02 r173`で正式schemaとEvaluator契約を完了した。次の実装UpdateはUpdate03のクローラー構造化JSON生成とする。
 
 3.1.0.0は、LR袁紹だけを正しく表示するための個別改善ではない。戦法・技能・状態変化等に含まれる「発動契機・条件・対象・効果・倍率変更・回数制限・抑止条件」を構造化し、詳細、部隊編成、検索、状態変化、型評価、結果サマリーが同じ一次情報を共有できる基盤へ刷新する大型開発である。
 
@@ -267,6 +267,8 @@ Update01で条件型が増えた場合、各新型に最低1件の回帰ケー�
 - Update02でschemaを決めるための入力が揃っている。
 
 ### Update02 — Condition Registry / EffectClause正式仕様
+
+**状態:** `3.1.0.0 Update02 r173`で完了。44 taxonomy型、44 gold fixture、5状態Evaluator契約を固定した。
 
 **目的:** Update01の全件センサス結果から、全既知条件を表現できる正式schemaとEvaluator契約を確定する。
 

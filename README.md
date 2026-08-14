@@ -6,8 +6,8 @@
 
 - 直前の開発完了版: `3.0.2.0 r170`
 - 開発中正本ブランチ: `feature/app-3.1.0.0`
-- 現在の到達点: `3.1.0.0 Update01 r172`で全件条件センサスを完了しました。
-- 次の予定: Update02でCondition Registry / EffectClause / Evaluatorの正式仕様を確定します。配布用ZIPは当面公開しません。
+- 現在の到達点: `3.1.0.0 Update02 r173`でCondition Registry / EffectClause / Evaluatorの正式契約を確定しました。
+- 次の予定: Update03でクローラーからEffectClauseを決定的に生成します。全Update完了までは正式公開・配布用ZIP作成を行いません。
 
 詳細なUpdate計画と進捗は [`docs/updates/roadmap.md`](./docs/updates/roadmap.md) と [`docs/updates/README.md`](./docs/updates/README.md) を参照してください。
 
