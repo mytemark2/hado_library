@@ -42,6 +42,7 @@ assert(runtime.includes('buildDerivedStatusEffectOwnerTagLookup'),'runtime must 
 assert(runtime.includes("order.splice(order.indexOf('技能'),0,groupKey)"),'runtime fallback must place status-effect tags before skill tags');
 assert(runtime.includes("keys.splice(keys.indexOf('技能'),0,'状態変化')"),'tag picker must place status-effect tags immediately before skill tags');
 assert(runtime.includes("key==='状態変化'?(statusEffectTagDisplayName(value)||value):value"),'status-effect tag values must use the same user-facing display names as status search');
-assert(runtime.includes('resolveAvailableTagInput'),'display-name input must resolve to the canonical tag value');
+assert(runtime.includes('getMatchingTagCandidates(input,limit=16)'),'display-name input must resolve to bounded canonical candidates');
+assert(runtime.includes("selectTagCandidate(tag,'candidate-tap')"),'a resolved status-effect candidate must be registered only by explicit selection');
 
 console.log(`3.0.2.0 status-effect tags regression ok: ${statusNames.size} tags / ${checkedOwnerRelations} owner relations`);
