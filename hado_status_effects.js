@@ -1135,10 +1135,65 @@ function buildDerivedSkillOwnerTagLookup(availableTags){
   diagnostic.categories=sortTagCategoryKeys([...categories]);
   return {byOwner,categories,diagnostic};
 }
+function canonicalStatusEffectTagName(name){
+  const input=norm(name);if(!input)return '';
+  const item=findStatusEffectItemByAnyName(input);
+  return norm(item?.name||item?.originalName||item?.raw?.name||input);
+}
+function statusEffectTagDisplayName(name){
+  const canonical=canonicalStatusEffectTagName(name);
+  return canonical?norm(getStatusEffectProfile(canonical).displayName||canonical):'';
+}
+function buildDerivedStatusEffectOwnerTagLookup(lookup){
+  const byOwner=new Map(),categories=new Set(),groupKey='状態変化';
+  const entries=getDerivedRelatedBucketItems('relatedLinkIndex');
+  const diagnostic={available:entries.length>0,statusEffectEntries:0,ownerLinks:0,linkedOwnerKeys:0,tagCount:0,categories:[]};
+  if(!lookup.byKey[groupKey])lookup.byKey[groupKey]=new Set();
+  if(!lookup.byKeyCategories[groupKey])lookup.byKeyCategories[groupKey]=new Set();
+  const ensureTag=name=>{
+    const canonical=canonicalStatusEffectTagName(name);if(!canonical)return '';
+    const tag=`${groupKey}:${canonical}`;
+    lookup.tagSet.add(tag);lookup.byKey[groupKey].add(tag);diagnostic.tagCount=lookup.byKey[groupKey].size;
+    return tag;
+  };
+  const addOwnerTag=(category,names,tag)=>{
+    const cat=normalizeDerivedSearchCategory(category);if(!cat||!tag)return;
+    categories.add(cat);lookup.byKeyCategories[groupKey].add(cat);
+    [...new Set((Array.isArray(names)?names:[]).map(norm).filter(Boolean))].forEach(name=>{
+      const key=makeDerivedSearchIndexKey(cat,name);
+      if(!byOwner.has(key))byOwner.set(key,new Set());
+      byOwner.get(key).add(tag);
+    });
+  };
+  (state.statusEffects||[]).forEach(item=>{
+    const tag=ensureTag(item?.name||item?.originalName||item?.statusDisplayName||getItemDisplayName(item));
+    if(!tag)return;
+    diagnostic.statusEffectEntries++;
+    addOwnerTag('statusEffects',[getItemDisplayName(item),item?.name,item?.originalName,item?.statusDisplayName,item?.raw?.name],tag);
+  });
+  entries.forEach(entry=>{
+    const category=normalizeDerivedSearchCategory(entry?.category||'');
+    const names=[entry?.name,entry?.rawName,entry?.title,entry?.displayName];
+    (entry?.related?.statusEffects||[]).forEach(relation=>{
+      const tag=ensureTag(relation?.statusEffectName||relation?.name||relation?.displayName||'');
+      if(!tag)return;addOwnerTag(category,names,tag);diagnostic.ownerLinks++;
+    });
+  });
+  diagnostic.linkedOwnerKeys=byOwner.size;
+  diagnostic.categories=sortTagCategoryKeys([...categories]);
+  const order=lookup.tagGroupOrder||[];
+  if(!order.includes(groupKey)){
+    const skillIndex=order.indexOf('技能');order.splice(skillIndex<0?order.length:skillIndex,0,groupKey);
+  }else if(order.indexOf(groupKey)>order.indexOf('技能')&&order.includes('技能')){
+    order.splice(order.indexOf(groupKey),1);order.splice(order.indexOf('技能'),0,groupKey);
+  }
+  return {byOwner,categories,diagnostic};
+}
 function applyDerivedTagIndexToItems(allItems){
   const lookup=buildDerivedTagIndexLookup();
-  const ownerLookup=buildDerivedSkillOwnerTagLookup(lookup.tagSet||new Set());
-  const diag={available:!!lookup.available,indexItems:lookup.count||0,totalItems:Array.isArray(allItems)?allItems.length:0,applied:0,fallback:0,ownerTagAppliedItems:0,ownerTagApplications:0,tagCount:lookup.tagSet?lookup.tagSet.size:0,blockedTagCount:Array.isArray(lookup.blockedTags)?lookup.blockedTags.length:0,blockedTags:lookup.blockedTags||[],skillOwnerTags:ownerLookup.diagnostic,byCategory:{}};
+  const skillOwnerLookup=buildDerivedSkillOwnerTagLookup(lookup.tagSet||new Set());
+  const statusOwnerLookup=buildDerivedStatusEffectOwnerTagLookup(lookup);
+  const diag={available:!!lookup.available,indexItems:lookup.count||0,totalItems:Array.isArray(allItems)?allItems.length:0,applied:0,fallback:0,ownerTagAppliedItems:0,ownerTagApplications:0,tagCount:lookup.tagSet?lookup.tagSet.size:0,blockedTagCount:Array.isArray(lookup.blockedTags)?lookup.blockedTags.length:0,blockedTags:lookup.blockedTags||[],skillOwnerTags:skillOwnerLookup.diagnostic,statusEffectOwnerTags:statusOwnerLookup.diagnostic,byCategory:{}};
   if(!Array.isArray(allItems)||!lookup.available){diag.fallback=Array.isArray(allItems)?allItems.length:0;state.diagnostics.tagIndex=diag;debugLog('tagSearch:derived-index-fallback',diag);return false;}
   allItems.forEach(item=>{
     const cat=normalizeDerivedSearchCategory(detailCategory(item)||'unknown');
@@ -1148,13 +1203,16 @@ function applyDerivedTagIndexToItems(allItems){
     let tags=null;
     for(const name of names){const hit=lookup.byName.get(makeDerivedSearchIndexKey(cat,name));if(hit){tags=hit;break;}}
     const ownerTags=new Set();
-    names.forEach(name=>(ownerLookup.byOwner.get(makeDerivedSearchIndexKey(cat,name))||[]).forEach(tag=>ownerTags.add(tag)));
+    names.forEach(name=>{
+      (skillOwnerLookup.byOwner.get(makeDerivedSearchIndexKey(cat,name))||[]).forEach(tag=>ownerTags.add(tag));
+      (statusOwnerLookup.byOwner.get(makeDerivedSearchIndexKey(cat,name))||[]).forEach(tag=>ownerTags.add(tag));
+    });
     if(tags||ownerTags.size)item._detailTags=[...new Set([...(tags||getSearchTagsForItem(item)),...ownerTags])];
     if(tags){item._derivedTagIndexHit=true;diag.applied++;diag.byCategory[cat].applied++;}
     else{item._derivedTagIndexHit=false;diag.fallback++;diag.byCategory[cat].fallback++;}
     if(ownerTags.size){diag.ownerTagAppliedItems++;diag.ownerTagApplications+=ownerTags.size;}
   });
-  if(ownerLookup.categories.size){if(!lookup.byKeyCategories['技能'])lookup.byKeyCategories['技能']=new Set();ownerLookup.categories.forEach(category=>lookup.byKeyCategories['技能'].add(category));}
+  if(skillOwnerLookup.categories.size){if(!lookup.byKeyCategories['技能'])lookup.byKeyCategories['技能']=new Set();skillOwnerLookup.categories.forEach(category=>lookup.byKeyCategories['技能'].add(category));}
   state.availableTags=[...lookup.tagSet].sort((a,b)=>a.localeCompare(b,'ja'));
   state.availableTagsByKey=Object.fromEntries(Object.entries(lookup.byKey).map(([key,set])=>[key,[...set].sort((a,b)=>a.localeCompare(b,'ja'))]));
   state.availableTagCategoriesByKey=Object.fromEntries(Object.entries(lookup.byKeyCategories).map(([key,set])=>[key,sortTagCategoryKeys([...set])]));
@@ -3848,7 +3906,7 @@ function getSearchTagsForItem(item){const category=detailCategory(item);const ta
 function buildDetailTagsHtml(item){const tags=getSearchTagsForItem(item);debugLog('detailTags:render',{category:detailCategory(item),name:getItemDisplayName(item),tags});return `<div>${tags.map(t=>`<span class="badge">${esc(t)}</span>`).join('')}</div>`;}
 function buildSearchTagIndex(){
   const all=[...state.generals,...state.tactics,...state.skills,...state.equipments,...state.statusEffects,...state.siegeWeapons,...state.ethnicArmaments,...state.ethnicResearchSkills,...state.formationMasters,...state.fiveElements,...state.warhorses,...state.warhorseSkills];
-  if(applyDerivedTagIndexToItems(all)){debugLog('tagSearch:indexBuilt',{source:'hadou_tag_index.json',totalTags:state.availableTags.length,keys:Object.keys(state.availableTagsByKey),sample:state.availableTags.slice(0,20),diagnostic:state.diagnostics.tagIndex});renderTagSearchControls();return;}
+  if(applyDerivedTagIndexToItems(all)){rebuildTagCandidateSearchIndex();debugLog('tagSearch:indexBuilt',{source:'hadou_tag_index.json',totalTags:state.availableTags.length,keys:Object.keys(state.availableTagsByKey),sample:state.availableTags.slice(0,20),diagnostic:state.diagnostics.tagIndex});renderTagSearchControls();return;}
   const tagSet=new Set(),byKey={},byKeyCategories={};
   all.forEach(item=>{
     const category=detailCategory(item),tags=getSearchTagsForItem(item);
@@ -3867,12 +3925,14 @@ function buildSearchTagIndex(){
   state.availableTagCategoriesByKey=Object.fromEntries(Object.entries(byKeyCategories).map(([key,set])=>[key,sortTagCategoryKeys([...set])]));
   state.availableTagGroupOrder=Object.keys(byKey);
   state.selectedTags=(state.selectedTags||[]).filter(tag=>tagSet.has(tag));
+  rebuildTagCandidateSearchIndex();
   debugLog('tagSearch:indexBuilt',{source:'runtime',totalTags:state.availableTags.length,keys:Object.keys(state.availableTagsByKey),tagGroups:state.availableTagGroupOrder.map(key=>({key,categories:state.availableTagCategoriesByKey[key]||[]})),sample:state.availableTags.slice(0,20)});
   renderTagSearchControls();
 }
-function tagMatchesInput(tag,input){const q=norm(input).toLowerCase();if(!q)return true;return norm(tag).toLowerCase().includes(q);}
+function tagMatchesInput(tag,input){const q=norm(input).toLowerCase();if(!q)return true;const raw=norm(tag).toLowerCase(),key=displayTagGroupKey(getTagGroupKey(tag)).toLowerCase(),value=getTagValueLabel(tag).toLowerCase();return raw.includes(q)||value.includes(q)||`${key}:${value}`.includes(q);}
 function getTagGroupKey(tag){const t=norm(tag);const p=t.indexOf(':');return p>=0?norm(t.slice(0,p)):`その他:${t}`;}
-function getTagValueLabel(tag){const t=norm(tag);const p=t.indexOf(':');return p>=0?norm(t.slice(p+1)):t;}
+function getTagValueLabel(tag){const t=norm(tag);const p=t.indexOf(':');const key=p>=0?norm(t.slice(0,p)):'';const value=p>=0?norm(t.slice(p+1)):t;return key==='状態変化'?(statusEffectTagDisplayName(value)||value):value;}
+function rebuildTagCandidateSearchIndex(){const groupRank=new Map(getOrderedTagGroupKeys().map((key,index)=>[key,index]));state.tagCandidateIndex=(state.availableTags||[]).map(tag=>{const key=getTagGroupKey(tag),displayKey=displayTagGroupKey(key),label=getTagValueLabel(tag),rawLower=norm(tag).toLowerCase(),valueLower=label.toLowerCase(),displayLower=`${displayKey}:${label}`.toLowerCase();return {tag,key,label,rawLower,valueLower,displayLower,searchText:`${rawLower}\n${valueLower}\n${displayLower}`,groupRank:groupRank.get(key)??Number.MAX_SAFE_INTEGER};});debugLog('tagSearch:candidate-index',{count:state.tagCandidateIndex.length,source:'precomputed'});}
 function groupTagsByKey(tags){const groups=new Map();(Array.isArray(tags)?tags:[]).map(norm).filter(Boolean).forEach(tag=>{const key=getTagGroupKey(tag);if(!groups.has(key))groups.set(key,[]);groups.get(key).push(tag);});return groups;}
 function displayTagGroupKey(key){const k=norm(key);return k.startsWith('その他:')?'その他':k;}
 const TAG_DISPLAY_CATEGORY_ALIASES=Object.freeze({status_effects:'statusEffects',siege_weapons:'siegeWeapons',ethnic_armaments:'ethnicArmaments',ethnic_research_skills:'ethnicResearchSkills',five_elements:'fiveElements',warhorse_skills:'warhorseSkills'});
@@ -3882,6 +3942,7 @@ function getTagGroupCategoryKeys(key){return sortTagCategoryKeys(state.available
 function getTagGroupCategoryLabel(key){const labels=getTagGroupCategoryKeys(key).map(category=>DATASET_LABELS[category]||category);return labels.length?labels.join('・'):'共通';}
 function getTagGroupSortTuple(key){const categories=getTagGroupCategoryKeys(key),categoryOrder=Array.isArray(SEARCH_CATEGORY_DISPLAY_ORDER)?SEARCH_CATEGORY_DISPLAY_ORDER:[],categoryIndex=categories.length?categoryOrder.indexOf(categories[0]):categoryOrder.length;const declared=(state.availableTagGroupOrder||[]).indexOf(key);return [categoryIndex<0?categoryOrder.length:categoryIndex,declared<0?Number.MAX_SAFE_INTEGER:declared,displayTagGroupKey(key)];}
 function compareTagGroupKeys(a,b){const av=getTagGroupSortTuple(a),bv=getTagGroupSortTuple(b);return av[0]-bv[0]||av[1]-bv[1]||String(av[2]).localeCompare(String(bv[2]),'ja');}
+function getOrderedTagGroupKeys(){const keys=Object.keys(state.availableTagsByKey||{}).sort(compareTagGroupKeys);const statusIndex=keys.indexOf('状態変化'),skillIndex=keys.indexOf('技能');if(statusIndex>=0&&skillIndex>=0&&statusIndex!==skillIndex-1){keys.splice(statusIndex,1);keys.splice(keys.indexOf('技能'),0,'状態変化');}return keys;}
 function getSelectedTagGroupsDebug(){return [...groupTagsByKey(state.selectedTags||[]).entries()].map(([key,tags])=>({key:displayTagGroupKey(key),matchMode:'OR',tags:[...tags]}));}
 function refreshSearchAfterTagChange(){
   if(state.quickStatusEffectOwnerFilter&&typeof runQuickStatusEffectOwnerSearchAsync==='function'){
@@ -3904,12 +3965,18 @@ function scheduleSearchAfterTagChange(reason=''){
   else setTimeout(run,0);
 }
 function addSelectedTag(tag,reason=''){const t=norm(tag);if(!t)return false;if(!state.availableTags.includes(t)){debugLog('tagSearch:add-missing',{tag:t,reason});return false;}if(state.selectedTags.includes(t)){debugLog('tagSearch:add-duplicate',{tag:t,reason});return false;}state.selectedTags.push(t);debugLog('tagSearch:selected',{reason,selectedTags:state.selectedTags,selectedTagGroups:getSelectedTagGroupsDebug(),groupRelation:'AND'});renderTagSearchControls();scheduleSearchAfterTagChange(reason||'tag-search');pushOperationHistory('tag-search');return true;}
-function commitTagSearchInput(reason='input-exact'){if(!els.tagSearchInput)return false;const value=norm(els.tagSearchInput.value);if(!value||!state.availableTags.includes(value)){debugLog('tagSearch:input-pending',{value,reason});renderTagCandidates();return false;}addSelectedTag(value,reason);els.tagSearchInput.value='';renderTagCandidates();return true;}
+function getTagCandidateScore(row,input){const q=norm(input).toLowerCase();if(row.rawLower===q)return 0;if(row.valueLower===q)return 1;if(row.displayLower===q)return 2;if(row.valueLower.startsWith(q))return 3;if(row.rawLower.startsWith(q)||row.displayLower.startsWith(q))return 4;return 5;}
+function getMatchingTagCandidates(input,limit=16){const q=norm(input).toLowerCase();if(!q)return [];const selected=new Set(state.selectedTags||[]);return (state.tagCandidateIndex||[]).filter(row=>!selected.has(row.tag)&&row.searchText.includes(q)).map(row=>({...row,score:getTagCandidateScore(row,q)})).sort((a,b)=>a.score-b.score||a.groupRank-b.groupRank||a.label.localeCompare(b.label,'ja')).slice(0,limit).map(row=>row.tag);}
+function hideTagCandidates(){if(!els.tagSearchCandidates||!els.tagSearchInput)return;state.tagCandidateValues=[];state.tagCandidateActiveIndex=-1;state.tagCandidateSignature='';els.tagSearchCandidates.hidden=true;els.tagSearchCandidates.innerHTML='';els.tagSearchInput.setAttribute('aria-expanded','false');els.tagSearchInput.removeAttribute('aria-activedescendant');}
+function selectTagCandidate(tag,reason='candidate-tap'){const value=norm(tag);if(!value)return false;if(els.tagSearchInput)els.tagSearchInput.value='';hideTagCandidates();const added=addSelectedTag(value,reason);if(els.tagSearchInput)els.tagSearchInput.focus({preventScroll:true});return added;}
+function setTagCandidateActiveIndex(index){const values=state.tagCandidateValues||[];if(!values.length)return false;const next=(index+values.length)%values.length;state.tagCandidateActiveIndex=next;els.tagSearchCandidates?.querySelectorAll('[data-tag-candidate]').forEach((node,i)=>{const active=i===next;node.classList.toggle('is-active',active);node.setAttribute('aria-selected',active?'true':'false');if(active){els.tagSearchInput?.setAttribute('aria-activedescendant',node.id);node.scrollIntoView({block:'nearest'});}});return true;}
+function moveTagCandidateActive(delta){const active=Number.isInteger(state.tagCandidateActiveIndex)?state.tagCandidateActiveIndex:-1;const current=active<0?(delta>0?-1:0):active;return setTagCandidateActiveIndex(current+delta);}
 function removeSelectedTag(tag,reason=''){const t=norm(tag);state.selectedTags=(state.selectedTags||[]).filter(v=>v!==t);debugLog('tagSearch:selected',{reason,selectedTags:state.selectedTags,selectedTagGroups:getSelectedTagGroupsDebug(),groupRelation:'AND'});renderTagSearchControls();scheduleSearchAfterTagChange(reason||'tag-remove');pushOperationHistory('tag-remove');}
 function clearSelectedTags(reason=''){state.selectedTags=[];if(els.tagSearchInput)els.tagSearchInput.value='';debugLog('tagSearch:selected',{reason,selectedTags:state.selectedTags,selectedTagGroups:[],groupRelation:'AND'});renderTagSearchControls();scheduleSearchAfterTagChange(reason||'tag-clear');pushOperationHistory('tag-clear');}
 function renderSelectedTags(){if(!els.selectedTagList)return;const tags=state.selectedTags||[];els.selectedTagList.innerHTML='';if(!tags.length){els.selectedTagList.innerHTML='<span class="tag-search-note">タグ未指定</span>';return;}[...groupTagsByKey(tags).entries()].sort(([a],[b])=>compareTagGroupKeys(a,b)).forEach(([key,groupTags])=>{const group=document.createElement('span');group.className='selected-tag-group';const label=document.createElement('span');label.className='selected-tag-group-label';label.textContent=getTagGroupCategoryLabel(key)+'｜'+displayTagGroupKey(key)+'：';group.appendChild(label);groupTags.forEach(tag=>{const span=document.createElement('span');span.className='selected-tag-badge';span.textContent=getTagValueLabel(tag);const btn=document.createElement('button');btn.type='button';btn.className='selected-tag-remove';btn.textContent='×';btn.setAttribute('aria-label',tag+' を解除');btn.addEventListener('click',()=>removeSelectedTag(tag,'badge'));span.appendChild(btn);group.appendChild(span);});els.selectedTagList.appendChild(group);});}
-function renderTagCandidates(){if(!els.tagSearchCandidates)return;els.tagSearchCandidates.innerHTML='';const q=els.tagSearchInput?els.tagSearchInput.value:'';state.availableTags.filter(tag=>tagMatchesInput(tag,q)).slice(0,80).forEach(tag=>{const opt=document.createElement('option');opt.value=tag;els.tagSearchCandidates.appendChild(opt);});}
-function renderTagPickerPanel(){if(!els.tagPickerPanel)return;els.tagPickerPanel.classList.toggle('is-visible',!!state.tagPickerVisible);els.tagPickerPanel.innerHTML='';if(!state.tagPickerVisible)return;const keys=Object.keys(state.availableTagsByKey||{}).sort(compareTagGroupKeys);if(!keys.length){els.tagPickerPanel.innerHTML='<div class="tag-search-note">タグ候補なし</div>';return;}keys.forEach(key=>{const group=document.createElement('section');group.className='tag-picker-group';group.dataset.tagCategories=getTagGroupCategoryKeys(key).join(' ');const title=document.createElement('div');title.className='tag-picker-title';const category=document.createElement('span');category.className='tag-picker-category';category.textContent=getTagGroupCategoryLabel(key);const name=document.createElement('span');name.className='tag-picker-group-name';name.textContent=displayTagGroupKey(key)+'（グループ内OR）';title.appendChild(category);title.appendChild(name);const options=document.createElement('div');options.className='tag-picker-options';(state.availableTagsByKey[key]||[]).forEach(tag=>{const label=document.createElement('label');label.className='tag-picker-option';const cb=document.createElement('input');cb.type='checkbox';cb.value=tag;cb.checked=(state.selectedTags||[]).includes(tag);cb.addEventListener('change',()=>{if(cb.checked)addSelectedTag(tag,'picker');else removeSelectedTag(tag,'picker');});label.appendChild(cb);label.appendChild(document.createTextNode(getTagValueLabel(tag)));options.appendChild(label);});group.appendChild(title);group.appendChild(options);els.tagPickerPanel.appendChild(group);});}
+function bindTagCandidateInputOnce(){if(!els.tagSearchInput||els.tagSearchInput.dataset.tagCandidateBound==='1')return;els.tagSearchInput.dataset.tagCandidateBound='1';els.tagSearchInput.addEventListener('focus',()=>{state.tagCandidateBlurSeq=(state.tagCandidateBlurSeq||0)+1;renderTagCandidates();});els.tagSearchInput.addEventListener('blur',()=>{const seq=(state.tagCandidateBlurSeq||0)+1;state.tagCandidateBlurSeq=seq;setTimeout(()=>{if(seq!==state.tagCandidateBlurSeq||state.tagCandidatePointerDown||document.activeElement===els.tagSearchInput)return;hideTagCandidates();},180);});els.tagSearchInput.addEventListener('keydown',e=>{if(state.tagSearchComposing||e.isComposing||e.keyCode===229)return;if(e.key==='ArrowDown'||e.key==='ArrowUp'){if(!(state.tagCandidateValues||[]).length)renderTagCandidates();if(moveTagCandidateActive(e.key==='ArrowDown'?1:-1))e.preventDefault();return;}if(e.key==='Escape'){hideTagCandidates();return;}if(e.key==='Enter'&&state.tagCandidateActiveIndex>=0){const tag=(state.tagCandidateValues||[])[state.tagCandidateActiveIndex];if(tag){e.preventDefault();e.stopImmediatePropagation();selectTagCandidate(tag,'candidate-keyboard');}}},true);}
+function renderTagCandidates(){if(!els.tagSearchCandidates||!els.tagSearchInput)return;bindTagCandidateInputOnce();if(state.tagSearchComposing){hideTagCandidates();return;}const started=typeof performance!=='undefined'&&performance.now?performance.now():Date.now(),q=norm(els.tagSearchInput.value);if(!q){hideTagCandidates();return;}const tags=getMatchingTagCandidates(q,16),signature=`${q}\u0000${tags.join('\u0000')}`;if(signature===state.tagCandidateSignature&&!els.tagSearchCandidates.hidden)return;state.tagCandidateSignature=signature;state.tagCandidateValues=tags;state.tagCandidateActiveIndex=-1;els.tagSearchCandidates.innerHTML='';tags.forEach((tag,index)=>{const option=document.createElement('button');option.type='button';option.id=`tagSearchCandidate-${index}`;option.className='tag-candidate-option';option.dataset.tagCandidate=tag;option.setAttribute('role','option');option.setAttribute('aria-selected','false');const value=document.createElement('span');value.className='tag-candidate-value';value.textContent=getTagValueLabel(tag);const group=document.createElement('span');group.className='tag-candidate-group';group.textContent=displayTagGroupKey(getTagGroupKey(tag));option.appendChild(value);option.appendChild(group);option.addEventListener('pointerdown',e=>{state.tagCandidatePointerDown=true;e.preventDefault();});option.addEventListener('pointercancel',()=>{state.tagCandidatePointerDown=false;});option.addEventListener('mouseenter',()=>setTagCandidateActiveIndex(index));option.addEventListener('click',()=>{state.tagCandidatePointerDown=false;selectTagCandidate(tag,'candidate-tap');});els.tagSearchCandidates.appendChild(option);});els.tagSearchCandidates.hidden=!tags.length;els.tagSearchInput.setAttribute('aria-expanded',tags.length?'true':'false');const elapsed=(typeof performance!=='undefined'&&performance.now?performance.now():Date.now())-started;debugLog('tagSearch:candidates-render',{input:q,count:tags.length,limit:16,elapsedMs:Number(elapsed.toFixed?elapsed.toFixed(1):elapsed),ui:'custom-listbox'});}
+function renderTagPickerPanel(){if(!els.tagPickerPanel)return;els.tagPickerPanel.classList.toggle('is-visible',!!state.tagPickerVisible);els.tagPickerPanel.innerHTML='';if(!state.tagPickerVisible)return;const keys=getOrderedTagGroupKeys();if(!keys.length){els.tagPickerPanel.innerHTML='<div class="tag-search-note">タグ候補なし</div>';return;}keys.forEach(key=>{const group=document.createElement('section');group.className='tag-picker-group';group.dataset.tagCategories=getTagGroupCategoryKeys(key).join(' ');const title=document.createElement('div');title.className='tag-picker-title';const category=document.createElement('span');category.className='tag-picker-category';category.textContent=getTagGroupCategoryLabel(key);const name=document.createElement('span');name.className='tag-picker-group-name';name.textContent=displayTagGroupKey(key)+'（グループ内OR）';title.appendChild(category);title.appendChild(name);const options=document.createElement('div');options.className='tag-picker-options';(state.availableTagsByKey[key]||[]).forEach(tag=>{const label=document.createElement('label');label.className='tag-picker-option';const cb=document.createElement('input');cb.type='checkbox';cb.value=tag;cb.checked=(state.selectedTags||[]).includes(tag);cb.addEventListener('change',()=>{if(cb.checked)addSelectedTag(tag,'picker');else removeSelectedTag(tag,'picker');});label.appendChild(cb);label.appendChild(document.createTextNode(getTagValueLabel(tag)));options.appendChild(label);});group.appendChild(title);group.appendChild(options);els.tagPickerPanel.appendChild(group);});}
 function renderTagSearchControls(){if(els.tagPickerToggleBtn){const count=(state.selectedTags||[]).length;els.tagPickerToggleBtn.textContent=count?`タグ(${count})`:'タグ';els.tagPickerToggleBtn.setAttribute('aria-expanded',state.tagPickerVisible?'true':'false');}renderTagCandidates();renderSelectedTags();renderTagPickerPanel();}
 function matchesSelectedTags(item){const selected=state.selectedTags||[];if(!selected.length)return true;const tags=new Set((item?._detailTags||getSearchTagsForItem(item)).map(norm).filter(Boolean));return [...groupTagsByKey(selected).values()].every(groupTags=>groupTags.some(tag=>tags.has(tag)));}
 function getSelectedResultSelectRow(){if(!els.resultSelect||els.resultSelect.value===''||els.resultSelect.value==='__more__')return null;const idx=Number(els.resultSelect.value);return Number.isInteger(idx)&&idx>=0?state.lastResultRows[idx]||null:null;}
