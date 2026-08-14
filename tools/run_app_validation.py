@@ -74,6 +74,7 @@ COMMANDS.extend(
         ["node", "tools/test_update11_3_mobile_tag_ux.js"],
         ["node", "tools/test_update11_4_mobile_parity.js"],
         ["node", "tools/test_3_1_0_0_update01_version_policy.js"],
+        ["node", "tools/test_update01_condition_census.js"],
         ["node", "tools/test_release_3_0_2_0_status_effect_tags.js"],
         ["node", "tools/test_release_3_0_2_0_mobile_tag_candidates.js"],
         ["node", "tools/test_release_3_0_2_0_explicit_tag_selection.js"],

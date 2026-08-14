@@ -6,8 +6,8 @@
 
 - 直前の開発完了版: `3.0.2.0 r170`
 - 開発中正本ブランチ: `feature/app-3.1.0.0`
-- 現在の到達点: `3.1.0.0 Update01 r171`として全件条件センサスを開始できる開発・Preview基盤を準備しています。
-- 次の予定: Update01で全戦法・全技能・関連状態変化の条件表現を監査します。配布用ZIPは当面公開しません。
+- 現在の到達点: `3.1.0.0 Update01 r172`で全件条件センサスを完了しました。
+- 次の予定: Update02でCondition Registry / EffectClause / Evaluatorの正式仕様を確定します。配布用ZIPは当面公開しません。
 
 詳細なUpdate計画と進捗は [`docs/updates/roadmap.md`](./docs/updates/roadmap.md) と [`docs/updates/README.md`](./docs/updates/README.md) を参照してください。
 

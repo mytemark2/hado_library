@@ -2,64 +2,76 @@
 
 ## 状態
 
-3.1 Update01開始準備を実施中。全件条件センサス本体は未着手。
+全件条件センサス完了。ローカル完了ゲート合格。GitHub Actions・公開Previewの最終確認後にUpdate01を閉じる。
 
-## 今回完了した範囲
+## Summary
 
-- `feature/app-3.1.0.0` 開発ブランチを作成した。
-- 起点は `feature/app-3.0.0.0` の最新確認済みCommit `1a5ce523053661c3b8d6a8fc5a295ef620196fe6`。
-- 3.1専用開発記録フォルダ `docs/updates/3.1.0.0/` を用意した。
-- 3.1全体ロードマップを作成した。
-- Update01全件条件センサスの詳細ロードマップを作成した。
-- Codexでの標準作業ルール、禁止事項、Preview切替方針を文書化した。
-- 3.1開発の表示版を`3.1.0.0 Update01 r171`として開始する。
-- Preview通知Workflowの唯一の同期元を`feature/app-3.1.0.0`へ切り替える。
-- リポジトリ内の正本ブランチ記載とPRマージ準備チェックの既定baseを3.1へ揃える。
-- 全App Validationは133/133 commands成功した。
-- Preview repositoryで3.0正本を固定取得する旧同期Workflowを`disabled_manually`へ変更し、Pages配信Workflowはactiveのまま維持した。
-- `index.html`は機能DOMを変更せず、asset cache key更新によりGit blobで60 bytes減少した。新規インラインJavaScriptは追加していない。
+- 武将486、戦法465、技能653、状態変化206の全1,810件を走査した。
+- 45,929意味単位を分類し、未走査0件、未分類残差0件を確認した。
+- condition / trigger / context / modifier / limit / reset / suppression / targetingの44 taxonomy候補を作成した。
+- 必須武将と横断条件を含む44件のgold setを作成した。
+- Update02へ渡すCondition Registry / EffectClause / Evaluator要件を確定した。
 
-## ロードマップで固定した重要事項
+## 現行condition blocksの診断
 
-- LR袁紹を唯一の設計基準にしない。
-- 武将486・戦法465・技能653・状態変化206を基準に全件監査する。
-- 既知キーワード抽出ではなく、全原文から未分類残差を出す方式を採用する。
-- Update01完了前にEffectClause/Condition Registryの最終schemaを固定しない。
-- `trigger`、`when`、`target`、`effect`、`context`を分離する。
-- 基礎値と条件成立値はbase + overrideで表現し、別効果として二重登録しない。
-- 原文は証跡として保持し、詳細UIでは折り畳み表示を標準とする。
-- 部隊編成の判定は成立/不成立/戦闘中判定/対象外/判定不可の5状態を前提とする。
-- 条件判定結果はlocalStorageへ保存せず、編成と最新Clauseから再計算する。
-- scoreEvidence切替はUI/構造化と分離し、Update07でshadow比較後に行う。
-- 新武将追加時に未知条件を検出できる品質ゲートを3.1完成条件へ含める。
+- 未収載228件: 武将5、戦法5、技能12、状態変化206。
+- 分類見直し候補2,196ブロック。
+- 親条件を文字列マーカーだけでは特定できない曖昧候補1,385ブロック。
+- conditionとeffectの親子リンク欠落4,787ブロック。
+- 結論: 診断入力として再利用し、3.1意味モデル正本にはしない。
 
-## 未実施
+## Files changed
 
-- Update01全件センサス
-- Condition Registry正式仕様
-- EffectClause正式schema
-- クローラー構造化JSON変更
-- アプリUI変更
-- Update01全件センサスの成果に基づく3.1機能実装
+- `tools/build_update01_condition_census.js`
+- `tools/test_update01_condition_census.js`
+- `tools/run_app_validation.py`
+- `docs/updates/3.1.0.0/update01/condition-census.json`
+- `docs/updates/3.1.0.0/update01/condition-gold-set.json`
+- 3.1全体・Update01 Roadmap、Implementation、Report、README
+- `hado_version.js`、`HADO_DEV_INFO.json`、`hado_core.js`、`index.html`
+- `tools/test_3_1_0_0_update01_version_policy.js`
 
-これらは今回の「3.1 Update01開始準備」の範囲外であり、以後のUpdate01実装で実施する。
+元の`hadou_*.json`、検索、詳細、編成、保存データ契約、runtime consumerは変更していない。
 
-## 開始準備の確認項目
+## HTML size / externalization
 
-- [x] 全App Validation（133/133 commands）
-- [ ] PRのbaseが`feature/app-3.1.0.0`
-- [ ] GitHub ActionsのApp Validation成功
-- [ ] `Notify Hado Library Preview`成功
-- [ ] Preview repositoryのsource branch/commit/display version marker一致
-- [ ] 公開Previewの`3.1.0.0 Update01 r171`表示
+- `index.html`: 0 bytes
+- JavaScriptのHTML内追加: なし
+- 新規責務: 外部Node.js監査ツールへ実装
 
-## Codex開始時の最小確認
+## Validation
 
-Codexは開発開始時に次を確認すること。
+- `node tools/build_update01_condition_census.js`
+- `node tools/test_update01_condition_census.js`
+- `python -X utf8 tools/run_app_validation.py`
+- `python -X utf8 tools/check_pr_merge_readiness.py --base feature/app-3.1.0.0`
 
-1. `feature/app-3.1.0.0` の最新HEAD。
-2. `docs/updates/3.1.0.0/roadmap.md`。
-3. `docs/updates/3.1.0.0/update01/roadmap.md`。
-4. 本`implementation.md`と`report.md`。
-5. 最新`hadou_effect_condition_blocks.json`とクローラー生成処理。
-6. 最新の全対象JSON件数/hashと既存workflow/Preview同期経路。
+ローカル結果:
+
+- Update01 census regression: `1810 records / 45929 units / 44 gold cases`、PASS。
+- App Validation: `134/134`、PASS。
+- runtime生成JSON差分: なし。`hadou_effect_condition_blocks.json`は監査入力としてのみ使用。
+
+merge readiness、Commit、PR、Actions、Preview marker、公開Pages確認はGitHub反映後に本タスクの完了報告へ記録する。
+
+## Completion gate
+
+- [x] 最新正本の母数を再確認した。
+- [x] 対象母数と実走査件数が一致した。
+- [x] 未走査武将・戦法・技能・状態変化が0件。
+- [x] 現行condition blocksを持たないレコードを個別記録した。
+- [x] 未確認残差が0件。
+- [x] 全分類一覧と代表例を作成した。
+- [x] gold setを44件作成した。
+- [x] 現行condition blocksの再利用可否と不足点を明文化した。
+- [x] Update02で正式schemaを確定する入力が揃った。
+- [ ] GitHub Actions App Validation成功。
+- [ ] Preview同期・marker・公開Pages確認。
+
+## Minimum user acceptance
+
+公開Previewで`3.1.0.0 Update01 r172`を確認し、公開JSON自動読込、通常検索、部隊編成、軍馬編成が従来どおり操作できることを確認する。Update01は監査Updateのため、新しいUI操作は追加しない。
+
+## Remaining issues
+
+GitHub Actions・公開Preview確認のみ。正式schema・UI・Evaluator実装は計画どおりUpdate02以降の範囲。
