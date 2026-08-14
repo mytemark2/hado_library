@@ -33,10 +33,8 @@ assert(html.includes('class="tag-candidate-list"'), 'custom tag candidate list m
 assert(css.includes('.tag-input-row{grid-template-columns:auto minmax(0,1fr) auto}'), 'tag input row must have three columns');
 
 assert(core.includes('tagSearchComposing:false'), 'shared state must track tag IME composition');
-assert(status.includes("function commitTagSearchInput(reason='input-exact')"), 'exact-tag commit helper must exist');
-assert(status.includes('if(state.availableTags.includes(input))return input;'), 'only canonical or resolved display-name candidate tags may be committed');
-assert(status.includes('const value=norm(els.tagSearchInput.value),resolved=resolveAvailableTagInput(value)'), 'tag input must resolve display names before committing');
-assert(status.includes("return exact.length===1?exact[0].tag:''"), 'a unique display-name candidate such as 掃討 must resolve to its canonical tag');
+assert(!status.includes('function commitTagSearchInput('), 'typed text must not have an automatic commit helper');
+assert(!status.includes('function resolveAvailableTagInput('), 'exact display-name input must remain a candidate until explicit selection');
 assert(status.includes('rebuildTagCandidateSearchIndex();'), 'candidate search metadata must be precomputed when the tag index is built');
 assert(status.includes('getMatchingTagCandidates(q,16)'), 'candidate rendering must be bounded to a small custom list');
 assert(status.includes("selectTagCandidate(tag,'candidate-tap')"), 'candidate taps must commit the canonical tag directly');
@@ -44,10 +42,9 @@ assert(status.includes("if(state.tagSearchComposing){hideTagCandidates();return;
 assert(status.includes("debugLog('tagSearch:add-duplicate'"), 'duplicate additions must be diagnosed without re-adding');
 assert(status.includes('if(state.selectedTags.includes(t))'), 'duplicate tags must be idempotent');
 assert(bootstrap.includes("addEventListener('compositionstart'"), 'tag input must guard IME composition start');
-assert(bootstrap.includes("addEventListener('compositionend'"), 'tag input must commit after IME composition ends');
-assert(bootstrap.includes('e.isComposing||e.keyCode===229'), 'Enter during IME composition must not commit');
-assert(bootstrap.includes("commitTagSearchInput('input-exact')"), 'exact typed values and datalist selections must auto-add');
-assert(bootstrap.includes("commitTagSearchInput('input-enter')"), 'Enter must use the same valid-tag commit path');
-assert(!bootstrap.includes("commitTagSearchInput('input-button')"), 'removed button path must not remain');
+assert(bootstrap.includes("addEventListener('compositionend'"), 'tag input must refresh candidates after IME composition ends');
+assert(!bootstrap.includes('commitTagSearchInput('), 'input, change, composition end, and bare Enter must never auto-add a tag');
+assert(status.includes("e.key==='Enter'&&state.tagCandidateActiveIndex>=0"), 'Enter must add only an explicitly active candidate');
+assert(status.includes('e.isComposing||e.keyCode===229'), 'Enter during IME composition must not select a candidate');
 
-console.log('update11.2 tag auto-add regression ok');
+console.log('update11.2 explicit tag selection regression ok');
