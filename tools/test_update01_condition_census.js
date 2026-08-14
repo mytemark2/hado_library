@@ -11,13 +11,14 @@ const GOLD_PATH = path.join(ROOT, 'docs', 'updates', '3.1.0.0', 'update01', 'con
 
 const beforeCensus = fs.readFileSync(CENSUS_PATH);
 const beforeGold = fs.readFileSync(GOLD_PATH);
+const normalizeLineEndings = buffer => buffer.toString('utf8').replace(/\r\n/g, '\n');
 const build = childProcess.spawnSync(process.execPath, ['tools/build_update01_condition_census.js'], {
   cwd: ROOT,
   encoding: 'utf8'
 });
 assert.strictEqual(build.status, 0, build.stderr || build.stdout || 'condition census regeneration failed');
-assert(fs.readFileSync(CENSUS_PATH).equals(beforeCensus), 'condition census must regenerate deterministically');
-assert(fs.readFileSync(GOLD_PATH).equals(beforeGold), 'condition gold set must regenerate deterministically');
+assert.strictEqual(normalizeLineEndings(fs.readFileSync(CENSUS_PATH)), normalizeLineEndings(beforeCensus), 'condition census must regenerate deterministically');
+assert.strictEqual(normalizeLineEndings(fs.readFileSync(GOLD_PATH)), normalizeLineEndings(beforeGold), 'condition gold set must regenerate deterministically');
 
 const census = JSON.parse(beforeCensus.toString('utf8'));
 const gold = JSON.parse(beforeGold.toString('utf8'));

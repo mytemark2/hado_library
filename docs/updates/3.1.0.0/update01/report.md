@@ -2,7 +2,7 @@
 
 ## 状態
 
-全件条件センサス完了。ローカル完了ゲート合格。GitHub Actions・公開Previewの最終確認後にUpdate01を閉じる。
+全件条件センサス、ローカル完了ゲート、GitHub Actions、Preview同期、公開Pages確認がすべて完了。Update01を完了とする。
 
 ## Summary
 
@@ -51,8 +51,34 @@
 - Update01 census regression: `1810 records / 45929 units / 44 gold cases`、PASS。
 - App Validation: `134/134`、PASS。
 - runtime生成JSON差分: なし。`hadou_effect_condition_blocks.json`は監査入力としてのみ使用。
+- Windows新規worktree再検証で、生成JSONの内容が同一でもCRLF/LF差を非決定的と誤判定するテスト不備を検出。比較前に改行コードをLFへ正規化する恒久対策を追加し、再検証PASS。
 
-merge readiness、Commit、PR、Actions、Preview marker、公開Pages確認はGitHub反映後に本タスクの完了報告へ記録する。
+- Merge readiness: base `feature/app-3.1.0.0` / base SHA `161cabaf8f043b23946ed08898bf534617583b8f` / head SHA `99da560ad90131b62ed79c2ad53206b8cc8347d2`、競合なし、PASS。
+
+## Git / GitHub Actions
+
+- 実装Commit: `99da560ad90131b62ed79c2ad53206b8cc8347d2`
+- Pull Request: `#292`、base `feature/app-3.1.0.0`、merged。
+- Merge Commit / 開発ブランチHEAD: `df71a014e022de54fd97e87759325dc62dcfc6af`
+- App Validation: run `31789580341` / job `94733243064`、SUCCESS。
+- Notify Hado Library Preview: run `31789653121` / job `94733464205`、SUCCESS。
+
+## Preview confirmation
+
+以下はruntimeを発行したPR `#292`の同期証跡である。本Reportの証跡追補はruntime変更を含まない。
+
+- 公開URL: `https://mytemark2.github.io/hado_library-preview/`
+- 表示version: `3.1.0.0 Update01 r172`
+- Preview repository `main`: `9ad4e25eb4edacab7e675ebe62c728065b25ca6e`
+- Deploy Hado Library Preview: run `31789685846`、SUCCESS。
+- `PREVIEW_SOURCE_COMMIT.txt`: `df71a014e022de54fd97e87759325dc62dcfc6af`
+- `PREVIEW_SOURCE_BRANCH.txt`: `feature/app-3.1.0.0`
+- `PREVIEW_DISPLAY_VERSION.txt`: `3.1.0.0 Update01 r172`
+- 必須配置: `index.html`、`hado_formation.js`、`hado_styles.css`、34件の`hadou_*.json`、`.nojekyll`、3 markerを確認。
+- DOM / asset: h1・titleは表示versionと一致。主要3画面DOM、`01-r172`のJavaScript群、`hado_styles.css?v=01-r172`の読込を確認。
+- 操作: 公開JSON読込後に武将486件を表示。「劉備」の通常検索、部隊編成、軍馬編成を確認。
+- Debug: ブラウザwarning/error 0件、`debugPanelContent`空。
+- 判定: PASS。
 
 ## Completion gate
 
@@ -65,8 +91,8 @@ merge readiness、Commit、PR、Actions、Preview marker、公開Pages確認はG
 - [x] gold setを44件作成した。
 - [x] 現行condition blocksの再利用可否と不足点を明文化した。
 - [x] Update02で正式schemaを確定する入力が揃った。
-- [ ] GitHub Actions App Validation成功。
-- [ ] Preview同期・marker・公開Pages確認。
+- [x] GitHub Actions App Validation成功。
+- [x] Preview同期・marker・公開Pages確認。
 
 ## Minimum user acceptance
 
@@ -74,4 +100,4 @@ merge readiness、Commit、PR、Actions、Preview marker、公開Pages確認はG
 
 ## Remaining issues
 
-GitHub Actions・公開Preview確認のみ。正式schema・UI・Evaluator実装は計画どおりUpdate02以降の範囲。
+なし。正式schema・UI・Evaluator実装は未解決事項ではなく、計画どおりUpdate02以降の開発範囲とする。
