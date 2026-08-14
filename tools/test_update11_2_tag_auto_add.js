@@ -27,12 +27,19 @@ for (const [name, source] of Object.entries({core, bootstrap, css, html})) {
   assert(!source.includes('addTagSearchBtn'), `${name} must not retain the removed add button contract`);
 }
 assert(!html.includes('id="addTagSearchBtn"'), 'tag add button must be removed from the DOM');
+assert(!html.includes('<datalist id="tagSearchCandidates"'), 'tag candidates must not depend on the browser-native datalist UI');
+assert(html.includes('aria-autocomplete="list"'), 'tag input must expose the custom listbox relationship');
+assert(html.includes('class="tag-candidate-list"'), 'custom tag candidate list must exist in the DOM');
 assert(css.includes('.tag-input-row{grid-template-columns:auto minmax(0,1fr) auto}'), 'tag input row must have three columns');
 
 assert(core.includes('tagSearchComposing:false'), 'shared state must track tag IME composition');
 assert(status.includes("function commitTagSearchInput(reason='input-exact')"), 'exact-tag commit helper must exist');
 assert(status.includes('if(state.availableTags.includes(input))return input;'), 'only canonical or resolved display-name candidate tags may be committed');
 assert(status.includes('const value=norm(els.tagSearchInput.value),resolved=resolveAvailableTagInput(value)'), 'tag input must resolve display names before committing');
+assert(status.includes('return exact.length===1?exact[0]'), 'a unique display-name candidate such as 掃討 must resolve to its canonical tag');
+assert(status.includes('getMatchingTagCandidates(q,16)'), 'candidate rendering must be bounded to a small custom list');
+assert(status.includes("selectTagCandidate(tag,'candidate-tap')"), 'candidate taps must commit the canonical tag directly');
+assert(status.includes("if(state.tagSearchComposing){hideTagCandidates();return;}"), 'candidate work must be skipped while IME composition is active');
 assert(status.includes("debugLog('tagSearch:add-duplicate'"), 'duplicate additions must be diagnosed without re-adding');
 assert(status.includes('if(state.selectedTags.includes(t))'), 'duplicate tags must be idempotent');
 assert(bootstrap.includes("addEventListener('compositionstart'"), 'tag input must guard IME composition start');

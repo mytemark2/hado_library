@@ -1766,3 +1766,61 @@ body{font-feature-settings:"palt" 1,"kern" 1;text-rendering:optimizeLegibility}
   body.formation-tab .formation-warhorse-slot-row .formation-select{height:38px!important;min-height:38px!important;font-size:16px!important}
   body.formation-tab .formation-warhorse-slot-note{display:block!important;font-size:11px!important}
 }
+
+/* BUGFIX[HADO-3.0.2.0-R168-MOBILE-TAG-CANDIDATE]: browser-independent, tap-safe tag suggestions. */
+#searchPanel .tag-input-combobox{
+  position:relative;
+  flex:1 1 260px;
+  min-width:0;
+  width:100%;
+  max-width:100%;
+}
+#searchPanel .tag-input-combobox #tagSearchInput{
+  box-sizing:border-box;
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+}
+.tag-candidate-list{
+  position:absolute;
+  z-index:80;
+  top:calc(100% + 4px);
+  left:0;
+  right:0;
+  display:grid;
+  max-height:min(280px,45vh);
+  overflow-x:hidden;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  border:1px solid #93c5fd;
+  border-radius:10px;
+  background:#fff;
+  box-shadow:0 12px 28px rgba(15,23,42,.18);
+}
+.tag-candidate-list[hidden]{display:none!important}
+.tag-candidate-option{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:8px;
+  min-height:40px;
+  width:100%;
+  max-width:100%;
+  border:0;
+  border-bottom:1px solid #e2e8f0;
+  border-radius:0;
+  padding:8px 10px;
+  background:#fff;
+  color:#0f172a;
+  text-align:left;
+}
+.tag-candidate-option:last-child{border-bottom:0}
+.tag-candidate-option:hover,.tag-candidate-option.is-active{background:#eff6ff;color:#1d4ed8}
+.tag-candidate-value{min-width:0;font-weight:700;overflow-wrap:anywhere}
+.tag-candidate-group{max-width:42%;color:#64748b;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:520px){
+  #searchPanel .tag-input-combobox{grid-column:2 / 3!important;min-width:0!important}
+  .tag-candidate-list{max-height:min(248px,38dvh);border-radius:8px}
+  .tag-candidate-option{min-height:44px;padding:9px 10px;font-size:14px;touch-action:manipulation}
+  .tag-candidate-group{font-size:11px}
+}
