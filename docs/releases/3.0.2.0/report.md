@@ -60,4 +60,11 @@
 - ローカルChrome・1280×900: `掃討` → 未選択Enterでは未登録、候補クリック後に21件。文書幅1280px・横overflow 0px・scale 1を確認した。
 - console error / warning: 0件。
 - HTML: 29,327 bytesから29,327 bytesで増減なし。DOM構造は変更せず、処理は外部JavaScriptへ実装した。
-- GitHub Actions、Preview同期、公開Pages実操作の結果は配信確認後に本節へ追記する。
+- アプリPR: `mytemark2/hado_library#287`、統合コミット `e79aca94ba6a2b11369acebae41fd39bd26dc023`。
+- `App Validation / app-validation`: success（run `31765878690`）。
+- `Notify Hado Library Preview`: success（run `31765915304`）。
+- `Deploy Hado Library Preview`: success（run `31765940055`）、Preview repository `main` は `ade1bb9369620e487adce9e79f5ee0eba41edd67`。
+- Preview marker: source commit `e79aca94ba6a2b11369acebae41fd39bd26dc023`、source branch `feature/app-3.0.0.0`、display version `3.0.2.0 r170`。
+- 公開URL `https://mytemark2.github.io/hado_library-preview/` の390×844で、入力・未選択Enter後は `掃討` と候補1件を維持し、タグ未指定のままであることを確認した。通常検索・状態変化検索とも候補タップ後は `技能：掃討`、21件、入力空、横overflow 0px、scale 1、入力16pxとなった。
+- 公開URLの1280×900でも未選択Enterでは未登録、候補クリック後は `技能：掃討`、21件、横overflow 0px、scale 1となった。
+- 公開Debug Logで `candidate-tap` → タグ先行描画 → 遅延検索 → 21件フィルターを確認し、console error / warningは0件だった。
