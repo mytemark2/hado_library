@@ -1,0 +1,357 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mytemark2.github.io/hado_library-preview/schema/effect-clause-1.0.json",
+  "title": "Hado Library EffectClause 1.0",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "id",
+    "target",
+    "effect",
+    "modifier",
+    "limit",
+    "reset",
+    "priority",
+    "suppression",
+    "evidence",
+    "trust"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "context": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/expression"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "trigger": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/expression"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "when": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/expression"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "target": {
+      "type": "object",
+      "required": [
+        "scope",
+        "rules"
+      ],
+      "properties": {
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "type",
+              "effectId"
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "pattern": "^targeting\\."
+              },
+              "effectId": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "effect": {
+      "type": "object",
+      "required": [
+        "id",
+        "identity",
+        "kind",
+        "operation",
+        "unit"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "identity": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "operation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "baseValue": {},
+        "unit": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "modifier": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "type",
+          "effectId"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "pattern": "^modifier\\."
+          },
+          "effectId": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "limit": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "type",
+          "effectId"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "pattern": "^limit\\."
+          },
+          "effectId": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "reset": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "type",
+          "effectId"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "pattern": "^reset\\."
+          },
+          "effectId": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "priority": {
+      "type": "number"
+    },
+    "suppression": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "type",
+          "effectId"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "pattern": "^suppression\\."
+          },
+          "effectId": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": [
+        "category",
+        "entity",
+        "sourceRecordId",
+        "sourceUnitId",
+        "rawText",
+        "rawTextSha256"
+      ],
+      "properties": {
+        "category": {
+          "type": "string"
+        },
+        "entity": {
+          "type": "string"
+        },
+        "sourceRecordId": {
+          "type": "string"
+        },
+        "sourceUnitId": {
+          "type": "string"
+        },
+        "rawText": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rawTextSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "trust": {
+      "type": "object",
+      "required": [
+        "state",
+        "fallbackPolicy"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "unparsed",
+            "generated",
+            "reviewed",
+            "verified"
+          ]
+        },
+        "fallbackPolicy": {
+          "enum": [
+            "raw_text_only",
+            "none"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "expression": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "op",
+            "type",
+            "fact",
+            "comparator",
+            "value"
+          ],
+          "properties": {
+            "op": {
+              "const": "predicate"
+            },
+            "type": {
+              "type": "string"
+            },
+            "fact": {
+              "type": "string"
+            },
+            "comparator": {
+              "enum": [
+                "eq",
+                "neq",
+                "gt",
+                "gte",
+                "lt",
+                "lte",
+                "in",
+                "not_in",
+                "includes",
+                "includes_all",
+                "includes_any",
+                "exists"
+              ]
+            },
+            "value": {}
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "op",
+            "items"
+          ],
+          "properties": {
+            "op": {
+              "enum": [
+                "all",
+                "any"
+              ]
+            },
+            "items": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/expression"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "op",
+            "item"
+          ],
+          "properties": {
+            "op": {
+              "const": "not"
+            },
+            "item": {
+              "$ref": "#/$defs/expression"
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}

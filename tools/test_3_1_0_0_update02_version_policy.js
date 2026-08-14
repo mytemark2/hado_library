@@ -35,24 +35,23 @@ function runVersion(formalRelease) {
 }
 
 assert(versionSource.includes("releaseVersion: '3.1.0.0'"), 'release version must be 3.1.0.0');
-assert(versionSource.includes("updateNo: '01'"), '3.1 development must start with Update01');
-assert(versionSource.includes('revision: 172'), 'preview revision must be r172');
-const configuredFormalRelease = versionSource.match(/formalRelease:\s*(true|false)/)?.[1];
-assert(configuredFormalRelease === 'true' || configuredFormalRelease === 'false', 'formalRelease must be an explicit boolean');
+assert(versionSource.includes("updateNo: '02'"), 'active development stage must be Update02');
+assert(versionSource.includes('revision: 173'), 'preview revision must be r173');
+assert(versionSource.includes('formalRelease: false'), 'Update02 must remain a development preview');
 
 const preview = runVersion(false);
-assert.strictEqual(preview.context.window.HADO_APP_DISPLAY_VERSION, '3.1.0.0 Update01 r172', 'preview must display release version, Update, and revision');
-assert.strictEqual(preview.nodes.get('h1').textContent, '覇道ライブラリ 3.1.0.0 Update01 r172', 'preview heading must include the active Update');
+assert.strictEqual(preview.context.window.HADO_APP_DISPLAY_VERSION, '3.1.0.0 Update02 r173', 'preview must display release version, Update, and revision');
+assert.strictEqual(preview.nodes.get('h1').textContent, '覇道ライブラリ 3.1.0.0 Update02 r173', 'preview heading must include the active Update');
 
 const formal = runVersion(true);
 assert.strictEqual(formal.context.window.HADO_APP_DISPLAY_VERSION, '3.1.0.0', 'formal release must display only the four-part version');
 assert.strictEqual(formal.nodes.get('diagnosticAppVersion').textContent, '覇道ライブラリ｜3.1.0.0', 'formal diagnostics must hide revision and Update');
 
 for (const asset of ['hado_styles.css', 'hado_version.js', 'hado_core.js', 'hado_search.js']) {
-  assert(indexHtml.includes(`${asset}?v=01-r172`), `${asset} must use the active Update cache key`);
+  assert(indexHtml.includes(`${asset}?v=02-r173`), `${asset} must use the active Update cache key`);
 }
 assert(agents.includes('`Update` is not a normal release suffix'), 'repository rules must define Update as a large-development planning identifier');
 assert(operationRules.includes('通常のリリース接尾辞ではない'), 'Japanese GitHub rules must define Update scope');
 assert(previewWorkflow.includes('print(f"{base} r{revision.group(1)}")'), 'preview marker must include revision and support an empty Update');
 
-console.log('3.1.0.0 Update01 version policy regression ok');
+console.log('3.1.0.0 Update02 version policy regression ok');

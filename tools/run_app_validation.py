@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 COMMANDS: list[list[str]] = [
     ["node", "--check", "hado_version.js"],
+    ["node", "--check", "hado_condition_model.js"],
     ["node", "--check", "hado_tabs.js"],
     ["node", "--check", "hado_update_meta.js"],
     ["node", "--check", "hado_core.js"],
@@ -73,8 +74,11 @@ COMMANDS.extend(
         ["node", "tools/test_update11_2_tag_auto_add.js"],
         ["node", "tools/test_update11_3_mobile_tag_ux.js"],
         ["node", "tools/test_update11_4_mobile_parity.js"],
-        ["node", "tools/test_3_1_0_0_update01_version_policy.js"],
+        ["node", "tools/test_3_1_0_0_update02_version_policy.js"],
         ["node", "tools/test_update01_condition_census.js"],
+        ["node", "--check", "tools/build_update02_condition_contract.js"],
+        ["node", "--check", "tools/test_update02_condition_contract.js"],
+        ["node", "tools/test_update02_condition_contract.js"],
         ["node", "tools/test_release_3_0_2_0_status_effect_tags.js"],
         ["node", "tools/test_release_3_0_2_0_mobile_tag_candidates.js"],
         ["node", "tools/test_release_3_0_2_0_explicit_tag_selection.js"],
