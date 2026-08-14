@@ -75,4 +75,15 @@
 - 昇格元をPreview source commit `1a5ce523053661c3b8d6a8fc5a295ef620196fe6` に固定し、再クロール・再生成を行わない。
 - 正式版mainの基点は `8c4866ee4d68df00eca67daba947dfcda25c24a1`。正式版専用Pages workflowと公開履歴を保持して内容統合する。
 - `revision: 170` を内部追跡用に保持し、`formalRelease: true` により正式版画面では `3.0.2.0` だけを表示する。
-- 検証、Pull Request、Pages配信、公開URLの結果は正式版配信確認後に追記する。
+- `python -X utf8 tools/run_app_validation.py`: 正式版Pages検証を含む134/134合格。
+- Preview固定コミットと正式版候補のランタイム・データ31ファイルが一致。再クロール・再生成なし。
+- HTML: 正式版3.0.1.1の29,172 bytesから29,327 bytesへ155 bytes増。候補listboxの最小DOM以外の処理は外部JavaScript・CSSに保持した。
+- 正式版PR: `mytemark2/hado_library#289`、候補コミット `998416a203939b65d924bbfd408d522f8b8b6ae5`、main統合コミット `ce6ab0f92860e9b92e540fbed2313480bec0ec9e`。
+- `App Validation / app-validation`: success（run `31767520105`）。
+- `Deploy Hado Library Production Pages`: success（run `31767551301`）。mainのPreview通知は設計どおりskip。
+- 正式公開URL `https://mytemark2.github.io/hado_library/` はHTTP 200、表示版 `3.0.2.0`、`formalRelease: true`、asset cache key `3.0.2.0-r170`。
+- 公開Chrome・390×844: 通常検索・状態変化検索とも `掃討` 入力後の未選択Enterではタグ未指定を維持し、候補タップ後は `技能：掃討`、21件、入力空、文書client幅375px・scroll幅375px、scale 1、入力16pxとなった。
+- 公開Chrome・1280×900: 未選択Enterでは未登録、候補クリック後は `技能：掃討`、21件、文書client幅1280px・scroll幅1280px、scale 1となった。
+- 公開Debug Logで候補表示0.6ms、`candidate-tap`、タグ先行描画、遅延検索、21件フィルターを確認し、console error / warningは0件だった。
+- 公開データはPreviewとSHA-256一致。武将486、装備249、技能653、陣形21、タグ索引2,062項目。`sourceCommit=7d97d28bec614102a6f7b4671f0b6cf533b53312` を保持した。
+- Previewはrepository HEAD `511979f639504f79cac93440e84f86d24d6e2cc1`、source commit `1a5ce523053661c3b8d6a8fc5a295ef620196fe6`、display version `3.0.2.0 r170` のまま変更していない。
