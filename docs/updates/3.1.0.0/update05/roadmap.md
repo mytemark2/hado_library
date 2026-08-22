@@ -7,10 +7,10 @@
 ## 実装条件
 
 - 正本ブランチ: `feature/app-3.1.0.0`
-- 実装起点Commit: `bcef465b96bd08f468ce0aaeada19d90b20ec761`
-- Preview表示版: `3.1.0.0 Update05 r176`（保持中。Update04完了後に新しいrevisionで再開）
+- 再開起点Commit: `75c1636e5817054a8810a46bb045a873ac22ea36`
+- Preview表示版: `3.1.0.0 Update05 r178`
 - 推奨・使用エンジン: GPT-5.6 Sol / reasoning High
-- ユーザー指示によりUpdate05を一時中断し、Update04を先に完了した直後にUpdate05を再開する。
+- ユーザー指示どおりUpdate04を先に完了し、Update05を最新正本へ載せ直して再開した。
 - `formalRelease: false`を維持し、正式公開・本番昇格は行わない。
 
 ## 実施内容
@@ -32,4 +32,8 @@
 
 ## Update04との関係
 
-同じClauseを詳細UIと編成判定で共有する最終ゲートは、未実施Update04の詳細consumer接続後に横断確認する。Update05では共通Clause/Evaluator APIを正本化し、編成側で独自自由文解析を追加しない。
+Update04の詳細consumerとUpdate05の編成判定は、同じ`hado_formation_condition_evaluator.js`とreviewed Clause索引を共有する。Update05では編成側に独自自由文解析を追加せず、表示と判定の横断一致を回帰・実ブラウザで確認する。
+
+## 確認事項
+
+なし。Update05完了後はUpdate06の通常検索・状態変化検索統合へ進む。推奨エンジンはGPT-5.6 Sol / reasoning High。
