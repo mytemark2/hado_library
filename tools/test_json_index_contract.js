@@ -26,7 +26,7 @@ generatedFiles.forEach(name=>assert.doesNotThrow(()=>read(name),`${name} must pa
 const effectClauseText=fs.readFileSync(path.join(ROOT,'hadou_effect_clauses.json'),'utf8');
 const effectClauses=JSON.parse(effectClauseText);
 assert.strictEqual(effectClauses.kind,'effect_clause_index');
-assert.strictEqual(effectClauses.contractVersion,'app-3.1.0.0-update03');
+assert.strictEqual(effectClauses.contractVersion,'app-3.1.0.0-update05');
 assert.strictEqual(effectClauses.itemCount,1810);
 assert.strictEqual(effectClauses.clauseCount,24329);
 assert.strictEqual(rows(effectClauses).length,effectClauses.itemCount);
@@ -40,6 +40,9 @@ assert.strictEqual(effectClauses.qualityAudit.duplicateEffectIdentityCount,0);
 assert.strictEqual(effectClauses.qualityAudit.reviewedGoldCount,44);
 assert.strictEqual(effectClauses.qualityAudit.goldCaseCount,44);
 assert.deepStrictEqual(effectClauses.qualityAudit.unmatchedGoldCaseIds,[]);
+assert.strictEqual(effectClauses.reviewedCaseCount,44);
+assert.strictEqual(effectClauses.reviewedCases.length,44);
+assert(effectClauses.reviewedCases.every(row=>row?.clause?.trust?.state==='reviewed'));
 const clauseRows=rows(effectClauses).flatMap(item=>item.clauses||[]);
 assert.strictEqual(clauseRows.length,effectClauses.clauseCount);
 for(const clause of clauseRows){
@@ -49,9 +52,9 @@ for(const clause of clauseRows){
   assert.strictEqual(crypto.createHash('sha256').update(clause.evidence.rawText).digest('hex'),clause.evidence.rawTextSha256);
   for(const key of ['modifier','limit','reset','suppression'])for(const typed of clause[key]||[])assert.strictEqual(typed.effectId,clause.effect.id);
   for(const typed of clause.target?.rules||[])assert.strictEqual(typed.effectId,clause.effect.id);
-  assert(['generated','reviewed'].includes(clause.trust?.state));
+  assert.strictEqual(clause.trust?.state,'generated','parser output must not be promoted to reviewed by approximate semantic overlap');
 }
-assert.strictEqual(crypto.createHash('sha256').update(effectClauseText).digest('hex'),'e50e65d9c7b831ce9bab6e80b41fabc837df9b742038d034f4835786edbf321b');
+assert.strictEqual(crypto.createHash('sha256').update(effectClauseText).digest('hex'),'620c37aa711b58866252f8bc2311ba3931eb2d7fc362f1a6f31a4cbbd6f9dc2f');
 
 const parameter=read('hadou_parameter_summary_index.json');
 const related=read('hadou_related_link_index.json');
