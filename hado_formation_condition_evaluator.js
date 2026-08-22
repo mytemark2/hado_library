@@ -74,6 +74,7 @@
   let clauseData = null;
   let reviewedByEntity = new Map();
   let generatedConditionalCountByEntity = new Map();
+  let generatedConditionalRowsByEntity = new Map();
 
   function text(value) { return String(value == null ? '' : value).trim(); }
   function comparableName(value) {
@@ -99,13 +100,22 @@
       nextReviewed.get(key).push(Object.freeze({ caseId: text(row.caseId), clause }));
     }
     const nextGenerated = new Map();
+    const nextGeneratedRows = new Map();
     for (const item of Array.isArray(data.items) ? data.items : []) {
-      const count = (Array.isArray(item?.clauses) ? item.clauses : []).filter(hasConditionalExpression).length;
-      if (count) nextGenerated.set(entityKey(item.category, item.name), count);
+      const rows = (Array.isArray(item?.clauses) ? item.clauses : []).filter(hasConditionalExpression).map(clause => Object.freeze({
+        sourceUnitId: text(clause?.evidence?.sourceUnitId),
+        rawText: text(clause?.evidence?.rawText)
+      }));
+      if (rows.length) {
+        const key = entityKey(item.category, item.name);
+        nextGenerated.set(key, rows.length);
+        nextGeneratedRows.set(key, Object.freeze(rows));
+      }
     }
     clauseData = data;
     reviewedByEntity = nextReviewed;
     generatedConditionalCountByEntity = nextGenerated;
+    generatedConditionalRowsByEntity = nextGeneratedRows;
     return getDataStatus();
   }
   function getDataStatus() {
@@ -115,6 +125,16 @@
       reviewedCaseCount: Number(clauseData?.reviewedCaseCount || 0),
       sourceRecordCount: Number(clauseData?.itemCount || 0),
       clauseCount: Number(clauseData?.clauseCount || 0)
+    });
+  }
+  function getEntityClauseSummary(category, name) {
+    const key = entityKey(category, name);
+    return Object.freeze({
+      category: text(category),
+      name: text(name),
+      reviewedCases: Object.freeze([...(reviewedByEntity.get(key) || [])]),
+      generatedConditionalCount: Number(generatedConditionalCountByEntity.get(key) || 0),
+      generatedConditionals: Object.freeze([...(generatedConditionalRowsByEntity.get(key) || [])])
     });
   }
   function memberFacts(snapshot, member) {
@@ -173,6 +193,7 @@
     comparableName,
     indexClauseData,
     getDataStatus,
+    getEntityClauseSummary,
     evaluateFormation
   });
 });
