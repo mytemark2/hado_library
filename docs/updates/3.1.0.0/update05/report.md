@@ -11,6 +11,7 @@
 - 戦闘中/任命/未reviewedを推測で成立・不成立へしない。
 - 評価結果を保存schemaへ追加しない。
 - Crawler PR #19を`feature/crawler-1.1.0.0`へマージし、確定Commit `ec92bbc6fb7f22a62b51776c36d1ed8209784d72`から全21派生JSONを一括反映した。
+- 初回Preview同期で新規CSSが転送対象外だったため、`hado_*.css`を包括する恒久同期契約へ修正し、r176へ更新した。
 
 ## Local validation
 

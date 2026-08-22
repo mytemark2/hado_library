@@ -60,7 +60,9 @@ for (const forbidden of [
 }
 
 assert(syncStep.includes("find \"${PREVIEW_DIR}\" -mindepth 1 -maxdepth 1 -not -name '.git' -not -name '.github' -exec rm -rf {} +"), 'sync step must preserve preview .github directory while replacing root runtime files');
-assert(syncStep.includes('rsync -a index.html HADO_DEV_INFO.json hado_*.js hado_styles.css hadou_*.json'), 'sync step must copy only runtime assets from the app repo');
+assert(syncStep.includes('rsync -a index.html HADO_DEV_INFO.json hado_*.js hado_*.css hadou_*.json'), 'sync step must copy only runtime assets from the app repo');
+assert(syncStep.includes('sha256sum index.html hado_formation.js hado_styles.css hado_update05.css hado_version.js HADO_DEV_INFO.json'), 'sync step must hash the Update05 stylesheet as a required runtime asset');
+assert(syncStep.includes('test -s "${PREVIEW_DIR}/hado_update05.css"'), 'sync step must fail when the Update05 stylesheet is absent');
 assert(syncStep.includes('sync_paths=('), 'sync step must build an explicit add list');
 assert(syncStep.includes('git add -- "${sync_paths[@]}"'), 'sync step must explicitly add existing sync targets');
 assert(syncStep.includes('git add -u --'), 'sync step must stage deletions only for explicit sync targets');
