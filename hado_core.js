@@ -39,7 +39,7 @@ const startupDebugLines=[];
 const MAX_DEBUG_LINES=220;
 const FILE_META={fileName:"hado_library_3.1.0.0.html",createdAt:"2026-08-14 17:20:25"};
 // FEATURE[HADO-VERSIONING]: 2.x.x.y バージョン管理。メジャー/マイナーはユーザー採番、x は機能追加、y は不具合修正。
-const HADO_BUILD_INFO={version:"3.1.0.0",baseVersion:"3.0.2.0",changeType:"major-feature",summary:"Generate the Update03 deterministic EffectClause JSON and full-source structural audits.",baseSha256:"1a5ce523053661c3b8d6a8fc5a295ef620196fe6"};
+const HADO_BUILD_INFO={version:"3.1.0.0",baseVersion:"3.0.2.0",changeType:"major-feature",summary:"Evaluate reviewed EffectClause conditions from the current formation without persisting derived results.",baseSha256:"1a5ce523053661c3b8d6a8fc5a295ef620196fe6"};
 
 // FEATURE[HADO-2.9.6.3-WEB-DEPLOYMENT]: HTTP(S)配信時は公開JSONを自動取得し、手動JSONロードUIを表示しない。
 const IS_WEB_DEPLOYMENT=/^https?:$/.test(location.protocol);
