@@ -4,7 +4,7 @@
 
 Update03では、全件パーサー生成Clauseがgoldと同じsource unit・semantic typeを持つだけで`reviewed`へ昇格していた。boolean構造、fact、comparator、期待値はgold fixtureと異なるため、確定Evaluator入力にはできない。
 
-クローラー1.1.0.5では全件パーサー出力を常に`generated`とし、Update02の正式gold 44件を`reviewedCases`へ構造ごと収録する。アプリは`reviewedCases`だけを成立/不成立へ確定し、残り24,329生成Clauseは判定不可として件数を表示する。
+クローラー1.1.0.6では全件パーサー出力を常に`generated`とし、Update02の正式gold 44件を`reviewedCases`へ構造ごと収録する。アプリは`reviewedCases`だけを成立/不成立へ確定し、残り24,329生成Clauseは判定不可として件数を表示する。
 
 ## runtime構成
 
@@ -31,4 +31,4 @@ Update03では、全件パーサー生成Clauseがgoldと同じsource unit・sem
 
 ## 生成JSON
 
-クローラー1.1.0.5で21派生JSONを一括再生成した。EffectClauseは1,810 records / 24,329 generated clauses / 44 reviewed cases。個別JSONは手編集していない。
+クローラー1.1.0.6の確定Commit `ec10b7979faa93dd8a5a45bd978a8ebe818b0e50`で、Update04完了Commit `75c1636e5817054a8810a46bb045a873ac22ea36`を入力に21派生JSONを一括再生成した。EffectClauseは1,810 records / 24,329 generated clauses / 44 reviewed cases。個別JSONは手編集していない。LR司馬師の関連リンク代表回帰は正本どおり「退勢」「分断」「連鎖無効」の3件となり、`representativeRegression`と`legacyEquivalence`は合格した。
