@@ -2,7 +2,7 @@
 
 ## 状態
 
-実装・ローカル検証完了。GitHub Actionsと公開Previewの最終確認を行う。
+EffectClause決定的生成、21派生JSON一括反映、GitHub Actions、公開Preview実操作まで完了。Update03を完了とする。
 
 ## Summary
 
@@ -50,11 +50,53 @@
 - App Validation: `138/138`、PASS。
 - 派生JSON更新に伴いUpdate01センサスの互換索引source SHAを再生成し、決定性回帰を再合格させた。
 
-Git / Actions、Previewの実値は確認後に追記する。
+## Git / GitHub Actions
+
+- クローラー実装commit: `6f32265402aae35deedd4791c6111e966f828c7a`
+- クローラー開発ブランチmerge commit: `8328a58a39aabe89b4a9db843ce2b8707309bae5`
+- クローラーPull Request: [#18](https://github.com/mytemark2/hado_library-crawler/pull/18)
+- アプリ実装commit: `4a2591f647c353100970c75ff28e1415d02493c0`
+- アプリ開発ブランチmerge commit: `fecbe25774b84a4f5130615bdaaf9b110b774065`
+- アプリPull Request: [#296](https://github.com/mytemark2/hado_library/pull/296)
+- base: `feature/app-3.1.0.0`
+- PR App Validation: `app-validation`、success（run `32550063405`）
+- Preview通知: `Notify Hado Library Preview`、success（run `32550088159`）
+- Preview Pages: `Deploy Hado Library Preview`、success（run `32550118444`）
+
+クローラーリポジトリには本Update時点でActions workflowがなく、PR #18は競合なしとローカル回帰4/4合格を確認して統合した。
+
+## Preview confirmation
+
+- 状態: **PASS**
+- 公開URL: `https://mytemark2.github.io/hado_library-preview/`
+- 表示版: `3.1.0.0 Update03 r174`
+- app branch / HEAD: `feature/app-3.1.0.0` / `fecbe25774b84a4f5130615bdaaf9b110b774065`
+- preview repository / HEAD: `mytemark2/hado_library-preview` / `93e2e2cb65409edc27db70219066e46e2c364a39`
+- `PREVIEW_SOURCE_COMMIT.txt`: `fecbe25774b84a4f5130615bdaaf9b110b774065`
+- `PREVIEW_SOURCE_BRANCH.txt`: `feature/app-3.1.0.0`
+- `PREVIEW_DISPLAY_VERSION.txt`: `3.1.0.0 Update03 r174`
+- 配置確認: `index.html`、`hado_formation.js`、`hado_styles.css`、21件の`hadou_*.json`、`.nojekyll`、3 marker filesをPreview repository `main`で確認。
+- EffectClause実体: 33,293,268 bytes、公開HTTP 200、`application/json`。HTTP圧縮時Content-Lengthは2,745,937 bytes。
+- DOM確認: title / h1がUpdate03 r174。主要script / CSS cache keyが`03-r174`。
+- 起動確認: 武将486件、runtime派生JSON 16/16読込。EffectClauseはUpdate03設計どおり起動時未読込。
+- 操作確認: `LR劉備`検索1件、詳細表示、部隊編成tab、軍馬編成tabを確認。
+- PC / smartphone: 1440 x 1000および390 x 844で表示。390px幅の横overflowなし。
+- debug / console: Debug Log空。アプリJS / CSS / JSONのwarning / error 0件。ブラウザ自動要求のサイトルート`/favicon.ico`だけが404であり、アプリ資産・操作への影響なし。
+- 正式公開: 未実施。`formalRelease: false`を維持。
+
+## Completion gate
+
+- [x] 同一入力の2回生成がSHA-256まで一致。
+- [x] 4正本1,810件、EffectClause 24,329件を収録。
+- [x] 未分類、無効Clause、最終孤立、重複効果IDが0件。
+- [x] 44ゴールドケース全件対応。
+- [x] 21派生JSONを手編集なしで一括反映。
+- [x] App Validation 138/138成功。
+- [x] Preview同期・marker・公開Pages実操作成功。
 
 ## 確認事項
 
-なし。正式公開は行わず、Update03はPreviewで確認する。
+なし。
 
 ## 次Update
 
@@ -62,4 +104,4 @@ Update04は戦法・技能詳細UI。構造化表示を主表示とし、「現�
 
 ## Remaining issues
 
-Actionsと公開Previewの確認待ち。完了前に解消する。
+none。固定値上書き監査候補104件は隠さず構造化JSONへ保持しており、Update04以降の表示・評価改善に使う計画済み入力である。
