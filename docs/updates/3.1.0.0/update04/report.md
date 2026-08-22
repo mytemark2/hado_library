@@ -2,7 +2,7 @@
 
 ## 状態
 
-実装・ローカル検証完了。Pull Request、GitHub Actions、Preview同期、公開URL実操作を残す。
+完了。実装、ローカル検証、Pull Request、GitHub Actions、Preview同期、公開URL実操作をすべて確認した。
 
 ## 1. Summary
 
@@ -70,15 +70,38 @@
 
 ## 8. Git commit and pull request
 
-ローカル実装完了。commitおよびPull Requestは次工程で記録する。
+- 実装commit: `8d2a0e74c038afa10f93291d5c8793469e91acda`
+- 統合commit: `3a6e1c194a81f8772bb737a27019ce62a2e3dae0`
+- Pull Request: #300 `3.1.0.0 Update04 条件付き効果の詳細表示`
+- base: `feature/app-3.1.0.0`、base SHA: `1574d8e49e9e20888d087bb5b1089e181db3e8a8`
+- merge-readiness: 競合なし、PASS。
 
 ## 9. GitHub Actions result
 
-未実行。Pull Request作成後にApp Validationを確認する。
+- `App Validation / app-validation`: PASS。
+- Pull Request run: `32604920864`、job: `97108491999`。
+- `Notify Hado Library Preview`: PASS。
+- push run: `32604955872`、job: `97108573058`、1分19秒。
 
 ## 10. Preview synchronization result
 
-未実行。開発ブランチ反映後にPreviewリポジトリ、マーカーファイル、公開URLを確認する。
+### Preview confirmation
+
+- 状態: PASS、Preview完了。
+- 公開URL: `https://mytemark2.github.io/hado_library-preview/`
+- 表示版: `3.1.0.0 Update04 r177`
+- app branch / HEAD: `feature/app-3.1.0.0` / `3a6e1c194a81f8772bb737a27019ce62a2e3dae0`
+- preview repository / HEAD: `mytemark2/hado_library-preview` / `e270db4543a3c40b6523f4aea22400b7799e4af4`
+- `PREVIEW_SOURCE_COMMIT.txt`: `3a6e1c194a81f8772bb737a27019ce62a2e3dae0`
+- `PREVIEW_SOURCE_BRANCH.txt`: `feature/app-3.1.0.0`
+- `PREVIEW_DISPLAY_VERSION.txt`: `3.1.0.0 Update04 r177`
+- 必須ファイル: `index.html`, `hado_formation.js`, `hado_styles.css`, `hado_update04.css`, `hado_detail_condition_presenter.js`, `.nojekyll`, 3マーカー、`hadou_*.json`を確認した。
+- DOM: Update04 CSS・JavaScript読込、条件カード4行、原文detailsを確認した。
+- 操作: LR袁紹を検索し、戦法タブで常時2件、主将1件、主将かつ兵力50%以上1件を確認した。
+- PC: カード252 / 252 px、行250 / 250 px、横あふれなし。
+- スマートフォン390 x 844: カード273 / 273 px、行271 / 271 px、横あふれなし。
+- 原文開閉: 初期状態は閉、開いた状態273 / 273 px、再度閉じられることを確認した。
+- debug log: error / warning 0件。
 
 ## 11. Minimum user acceptance operation
 
@@ -86,9 +109,8 @@ PreviewでLR袁紹の詳細を開き、700%効果に「主将」「兵力50%以�
 
 ## 12. 確認事項
 
-なし。Update04のPreview確認完了後はUpdate05を再開する。推奨エンジンはGPT-5.6 Sol / reasoning High。
+なし。Update05を再開する。推奨エンジンはGPT-5.6 Sol / reasoning High。
 
 ## 13. Remaining issues
 
-- Pull Request、Actions、Preview同期、公開URL実操作の証跡追記。
-- Update05で保留中の関連リンク監査不一致は、Update04完了後にクローラ修正から再開する。
+なし。Update05で保留中の関連リンク監査不一致はUpdate04の残件ではなく、Update05のクローラ修正から再開する。

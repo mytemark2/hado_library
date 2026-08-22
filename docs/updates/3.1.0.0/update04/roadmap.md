@@ -2,7 +2,7 @@
 
 ## 状態
 
-`3.1.0.0 Update04 r177`として実装・Preview検証中。Update04完了後、保持中のUpdate05を再開する。正式公開は行わない。
+`3.1.0.0 Update04 r177`として完了。実装、App Validation、Actions、Preview同期、公開URLのPC・スマートフォン実操作が合格した。保持中のUpdate05を再開する。正式公開は行わない。
 
 ## 目的
 
@@ -26,4 +26,4 @@ EffectClauseの条件・効果関係を詳細画面で読みやすく表示し�
 
 ## 確認事項
 
-なし。Update04完了後はUpdate05を再開する。推奨エンジンはGPT-5.6 Sol / reasoning High。
+なし。Update05を再開する。推奨エンジンはGPT-5.6 Sol / reasoning High。
