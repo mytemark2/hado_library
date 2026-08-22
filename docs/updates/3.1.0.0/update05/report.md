@@ -2,7 +2,7 @@
 
 ## 状態
 
-Update04完了後の正本へ再統合し、クローラ修正と21派生JSON再生成まで完了。App Validation、Pull Request、Actions、Preview同期、公開URL実操作を残す。
+Preview完了。実装、クローラ修正、21派生JSON再生成、App Validation、Pull Request、Actions、Preview同期、公開URL実操作はすべて合格した。`file://`の最小利用者確認を残す。
 
 ## Summary
 
@@ -53,7 +53,29 @@ Update04完了後の正本へ再統合し、クローラ修正と21派生JSON再
 ## Git and Preview
 
 - Crawler PR: #20、merge commit `ec10b7979faa93dd8a5a45bd978a8ebe818b0e50`。
-- App Pull Request、Actions、Preview同期は次工程。
+- App実装commit: `292c02860f8b7950c044250c77955355f1f269f9`。
+- App PR: #302、merge commit `b0c0bde733431942972da76d28d7824f89553185`。
+- merge-readiness: base `75c1636e5817054a8810a46bb045a873ac22ea36`へ競合なし、PASS。
+- `App Validation / app-validation`: PASS。run `32606018322`、job `97111062651`。
+- `Notify Hado Library Preview`: PASS。run `32606038756`、job `97111109543`、1分29秒。
+
+### Preview confirmation
+
+- 状態: PASS、Preview完了。
+- 公開URL: `https://mytemark2.github.io/hado_library-preview/`
+- 表示版: `3.1.0.0 Update05 r178`
+- app branch / HEAD: `feature/app-3.1.0.0` / `b0c0bde733431942972da76d28d7824f89553185`
+- preview repository / HEAD: `mytemark2/hado_library-preview` / `e782938fe28bf61afd5e89a723948cef58d5106d`
+- `PREVIEW_SOURCE_COMMIT.txt`: `b0c0bde733431942972da76d28d7824f89553185`
+- `PREVIEW_SOURCE_BRANCH.txt`: `feature/app-3.1.0.0`
+- `PREVIEW_DISPLAY_VERSION.txt`: `3.1.0.0 Update05 r178`
+- 必須ファイル: `index.html`, `hado_formation.js`, `hado_styles.css`, Update04/05 CSS、detail presenter、formation evaluator、`.nojekyll`、3マーカー、`hadou_*.json`を確認した。
+- 操作: 既存部隊を上書きせず検証用部隊を新規作成し、LR袁紹を主将へ登録した。
+- 5状態: 成立3、不成立0、戦闘中判定1、対象外0、判定不可14。reviewed 44 / Clause 24329。
+- PC: 条件shell 941 / 941 px、横あふれなし。
+- スマートフォン390 x 844: shell 316 / 316 px、各行310 / 310 px、横あふれなし。
+- 横断確認: 条件欄からLR袁紹詳細へ遷移し、Update04の4件と700%複合条件を確認した。
+- debug log: error / warning 0件。
 
 ## Minimum user acceptance operation
 
@@ -65,4 +87,4 @@ Update04完了後の正本へ再統合し、クローラ修正と21派生JSON再
 
 ## Remaining issues
 
-Pull Request、Actions、Preview同期、公開URLの編成条件表示確認。`file://`は最小利用者確認を残す。
+`file://`の最小利用者確認1件。Preview側の残件はなし。
