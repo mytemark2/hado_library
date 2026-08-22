@@ -8,7 +8,7 @@
 
 - 正本ブランチ: `feature/app-3.1.0.0`
 - 実装起点Commit: `bcef465b96bd08f468ce0aaeada19d90b20ec761`
-- Preview表示版: `3.1.0.0 Update05 r175`
+- Preview表示版: `3.1.0.0 Update05 r176`
 - 推奨・使用エンジン: GPT-5.6 Sol / reasoning High
 - ユーザー指示によりUpdate04を先行実施せずUpdate05へ進む。Update04の詳細UIは未実施として明示する。
 - `formalRelease: false`を維持し、正式公開・本番昇格は行わない。

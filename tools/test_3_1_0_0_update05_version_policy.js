@@ -36,19 +36,19 @@ function runVersion(formalRelease) {
 
 assert(versionSource.includes("releaseVersion: '3.1.0.0'"), 'release version must be 3.1.0.0');
 assert(versionSource.includes("updateNo: '05'"), 'active development stage must be Update05');
-assert(versionSource.includes('revision: 175'), 'preview revision must be r175');
+assert(versionSource.includes('revision: 176'), 'preview revision must be r176');
 assert(versionSource.includes('formalRelease: false'), 'Update05 must remain a development preview');
 
 const preview = runVersion(false);
-assert.strictEqual(preview.context.window.HADO_APP_DISPLAY_VERSION, '3.1.0.0 Update05 r175', 'preview must display release version, Update, and revision');
-assert.strictEqual(preview.nodes.get('h1').textContent, '覇道ライブラリ 3.1.0.0 Update05 r175', 'preview heading must include the active Update');
+assert.strictEqual(preview.context.window.HADO_APP_DISPLAY_VERSION, '3.1.0.0 Update05 r176', 'preview must display release version, Update, and revision');
+assert.strictEqual(preview.nodes.get('h1').textContent, '覇道ライブラリ 3.1.0.0 Update05 r176', 'preview heading must include the active Update');
 
 const formal = runVersion(true);
 assert.strictEqual(formal.context.window.HADO_APP_DISPLAY_VERSION, '3.1.0.0', 'formal release must display only the four-part version');
 assert.strictEqual(formal.nodes.get('diagnosticAppVersion').textContent, '覇道ライブラリ｜3.1.0.0', 'formal diagnostics must hide revision and Update');
 
 for (const asset of ['hado_update05.css', 'hado_condition_model.js', 'hado_formation_condition_evaluator.js', 'hado_version.js', 'hado_core.js', 'hado_formation.js', 'hado_search.js', 'hado_bootstrap.js']) {
-  assert(indexHtml.includes(`${asset}?v=05-r175`), `${asset} must use the active Update cache key`);
+  assert(indexHtml.includes(`${asset}?v=05-r176`), `${asset} must use the active Update cache key`);
 }
 assert(indexHtml.indexOf('hado_condition_model.js') < indexHtml.indexOf('hado_formation_condition_evaluator.js'));
 assert(indexHtml.indexOf('hado_formation_condition_evaluator.js') < indexHtml.indexOf('hado_formation.js'));

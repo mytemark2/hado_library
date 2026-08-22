@@ -162,16 +162,17 @@ jobs:
             fi
 
             find "${PREVIEW_DIR}" -mindepth 1 -maxdepth 1 -not -name '.git' -not -name '.github' -exec rm -rf {} +
-            rsync -a index.html HADO_DEV_INFO.json hado_*.js hado_styles.css hadou_*.json "${PREVIEW_DIR}/"
+            rsync -a index.html HADO_DEV_INFO.json hado_*.js hado_*.css hadou_*.json "${PREVIEW_DIR}/"
 
             touch "${PREVIEW_DIR}/.nojekyll"
             printf '%s\n' "${SOURCE_COMMIT}" > "${PREVIEW_DIR}/PREVIEW_SOURCE_COMMIT.txt"
             printf '%s\n' "${APP_REF}" > "${PREVIEW_DIR}/PREVIEW_SOURCE_BRANCH.txt"
             printf '%s\n' "${DISPLAY_VERSION}" > "${PREVIEW_DIR}/PREVIEW_DISPLAY_VERSION.txt"
-            sha256sum index.html hado_formation.js hado_styles.css hado_version.js HADO_DEV_INFO.json > "${PREVIEW_DIR}/PREVIEW_SOURCE_FILES.txt"
+            sha256sum index.html hado_formation.js hado_styles.css hado_update05.css hado_version.js HADO_DEV_INFO.json > "${PREVIEW_DIR}/PREVIEW_SOURCE_FILES.txt"
 
             test -s "${PREVIEW_DIR}/hado_formation.js"
             test -s "${PREVIEW_DIR}/hado_styles.css"
+            test -s "${PREVIEW_DIR}/hado_update05.css"
             test -s "${PREVIEW_DIR}/HADO_DEV_INFO.json"
             cmp -s HADO_DEV_INFO.json "${PREVIEW_DIR}/HADO_DEV_INFO.json"
             test -s "${PREVIEW_DIR}/PREVIEW_SOURCE_COMMIT.txt"
@@ -194,7 +195,7 @@ jobs:
                 index.html
                 HADO_DEV_INFO.json
                 hado_*.js
-                hado_styles.css
+                hado_*.css
                 hadou_*.json
                 .nojekyll
                 PREVIEW_SOURCE_COMMIT.txt
@@ -209,7 +210,7 @@ jobs:
                 index.html \
                 HADO_DEV_INFO.json \
                 'hado_*.js' \
-                hado_styles.css \
+                'hado_*.css' \
                 'hadou_*.json' \
                 .nojekyll \
                 PREVIEW_SOURCE_COMMIT.txt \
