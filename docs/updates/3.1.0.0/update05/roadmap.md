@@ -1,5 +1,9 @@
 # 3.1.0.0 Update05 Roadmap — 部隊編成の条件評価
 
+## 状態
+
+`3.1.0.0 Update05 r178`の実装、App Validation、Actions、Preview同期、公開URLのPC・スマートフォン実操作は完了。ブラウザ安全制約で自動化できなかった`file://`の最小利用者確認を残す。正式公開は行わない。
+
 ## 目的
 
 現在の部隊編成から判定可能なEffectClauseをUpdate02の共通Evaluatorで評価し、成立・不成立・戦闘中判定・対象外・判定不可の5状態を表示する。
