@@ -6,8 +6,8 @@
 
 - 直前の開発完了版: `3.0.2.0 r170`
 - 開発中正本ブランチ: `feature/app-3.1.0.0`
-- 現在の到達点: `3.1.0.0 Update05 r176`でreviewed EffectClauseを現在編成から5状態評価するPreviewを実装中です。
-- 未実施のUpdate04（戦法・技能詳細UI）は後続で実施します。全Update完了までは正式公開・配布用ZIP作成を行いません。
+- 現在の到達点: `3.1.0.0 Update04 r177`でreviewed EffectClauseを戦法・技能・状態変化の詳細へ安全に表示するPreviewを実装中です。
+- Update04完了後は、保持中のUpdate05（部隊編成の条件評価）を再開します。全Update完了までは正式公開・配布用ZIP作成を行いません。
 
 詳細なUpdate計画と進捗は [`docs/updates/roadmap.md`](./docs/updates/roadmap.md) と [`docs/updates/README.md`](./docs/updates/README.md) を参照してください。
 

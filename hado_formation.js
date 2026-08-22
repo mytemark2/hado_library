@@ -2584,7 +2584,9 @@ function renderDetail(){
   const skillHtml=!tabbedHtml&&categoryKey==='skills'?renderSkillDetail(item):'';
   const tacticHtml=categoryKey==='tactics'?renderTacticDetail(item):'';
   const hadouExtensionHtml=isHadouExtensionEquipmentItem(item)?buildHadouExtensionDetailHtml(item,categoryKey):'';
-  const statusEffectHtml=categoryKey==='statusEffects'?`<div class="general-detail-stack"><div class="general-card"><div class="general-card-header">状態変化</div><div class="general-card-body">${renderEquipmentKeyValueRows([[`種類`,item?.effectType||'']])}${sectionsHtml}</div></div></div>`:'';
+  const statusCondition=categoryKey==='statusEffects'?buildDetailConditionPresentation(item,'statusEffects',(Array.isArray(item?.sections)?item.sections:[]).flatMap(sec=>Array.isArray(sec?.content)?sec.content:[])):{html:'',reviewed:false};
+  const statusEffectBody=statusCondition.reviewed?statusCondition.html:[statusCondition.html,sectionsHtml].filter(Boolean).join('');
+  const statusEffectHtml=categoryKey==='statusEffects'?`<div class="general-detail-stack"><div class="general-card"><div class="general-card-header">状態変化</div><div class="general-card-body">${renderEquipmentKeyValueRows([[`種類`,item?.effectType||'']])}${statusEffectBody}</div></div></div>`:'';
   const formationMasterHtml=categoryKey==='formations'?renderFormationMasterDetail(item):'';
   const warhorseHtml=categoryKey==='warhorses'?renderWarhorseMasterDetail(item):'';
   const warhorseSkillHtml=categoryKey==='warhorseSkills'?renderWarhorseSkillDetail(item):'';
