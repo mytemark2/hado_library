@@ -2,7 +2,7 @@
 
 ## 状態
 
-Preview完了。実装、クローラ修正、21派生JSON再生成、App Validation、Pull Request、Actions、Preview同期、公開URL実操作はすべて合格した。`file://`の最小利用者確認を残す。
+完了。実装、クローラ修正、21派生JSON再生成、App Validation、Pull Request、Actions、Preview同期、公開URL実操作、`file://`の最小利用者確認はすべて合格した。正式公開は行わない。
 
 ## Summary
 
@@ -21,11 +21,14 @@ Preview完了。実装、クローラ修正、21派生JSON再生成、App Valida
 - 原因: LR司馬師の正本へ「退勢」が追加された後も、旧2件の期待値が残っていた。
 - 影響: 正しい関連リンクJSONがローカル厳格監査で誤ってNGになった。
 - 恒久対策: クローラ生成元の期待値と回帰テストを正本3件へ更新し、全21ファイルを一括再生成した。
+- 追加分類: WindowsのCRLF改行により、LF基準のJSONハッシュ検証と条件センサスの生成記録が誤って不一致になった。
+- 追加恒久対策: JSON契約検証と条件センサス生成のハッシュ入力をLFへ正規化し、OSごとのチェックアウト改行差を検証対象から除外した。
 
 ## Files changed
 
 - `hadou_*.json`: クローラ1.1.0.6から生成した21ファイル。
 - `hado_version.js`, `HADO_DEV_INFO.json`, `index.html`: `3.1.0.0 Update05 r178`とキャッシュキー。
+- `tools/test_json_index_contract.js`, `tools/build_update01_condition_census.js`: 改行コード非依存のハッシュ検証。
 - README、全体Roadmap、Update05 Roadmap・実装記録・本報告。
 
 ## HTML size and externalization
@@ -48,7 +51,7 @@ Preview完了。実装、クローラ修正、21派生JSON再生成、App Valida
 - スマートフォン390 x 844: 条件shell 316 / 316 px、各行310 / 310 px、横あふれなし。
 - 条件欄のLR袁紹リンクから詳細へ遷移し、Update04の4件表示と700%複合条件を同じデータで確認した。
 - ブラウザerror / warningログ: 0件。
-- `file://`実ブラウザ操作はブラウザのURL安全制約により自動化不可。構文、起動分岐、JSON読込、保存Export / ImportはApp Validationで確認し、最小利用者確認へ残す。
+- `file://`実ブラウザ操作はブラウザのURL安全制約により自動化不可だったが、2026-08-23に利用者がローカル版で確認した。JSONフォルダ読込後、LR袁紹を主将にした部隊の「条件」で成立3、戦闘中判定1、判定不可14が表示され、JSON監査エラーがないことを確認済み。
 
 ## Git and Preview
 
@@ -81,10 +84,12 @@ Preview完了。実装、クローラ修正、21派生JSON再生成、App Valida
 
 ローカルの`index.html`を直接開き、JSONフォルダを読み込んだ後、LR袁紹を主将にした部隊の「条件」で「成立3」「戦闘中判定1」「判定不可14」が表示され、JSON監査エラーが出ないことを確認する。
 
+**結果:** 2026-08-23に利用者確認済み。合格。
+
 ## 確認事項
 
-1件。上記`file://`の最小利用者確認をお願いする。公開PreviewはCodex側で確認する。確認後はUpdate06の通常検索・状態変化検索統合へ進む。推奨エンジンはGPT-5.6 Sol / reasoning High。
+なし。Update05は完了。次はUpdate06の通常検索・状態変化検索統合へ進む。推奨エンジンはGPT-5.6 Sol / reasoning High。
 
 ## Remaining issues
 
-`file://`の最小利用者確認1件。Preview側の残件はなし。
+なし。
