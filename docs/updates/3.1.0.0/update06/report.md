@@ -61,31 +61,30 @@ Update06 r180の検索統合とr181の利用者向け表示を維持し、r182�
 - 実装commit: `328a0c8e38b74e686661faa75c8519ecce59812b`
 - Pull Request: `#311`（`feature/app-3.1.0.0`へsquash merge）
 - 競合: なし。`python3 tools/check_pr_merge_readiness.py --base feature/app-3.1.0.0`でbase `17907bed8cd99d3f2cec82238a49fa5710d6691f`、head `1cc5f91fa623539e71e7ec92cb59e492c02af57e`、merge可能を確認した。
-- r183の起動時安定化commitとPull Requestは、remote検証完了後に追記する。
+- r183安定化commit: `a49dc7fc899fc1557ce0e45069a435b002994519`
+- r183 Pull Request: `#313`（`feature/app-3.1.0.0`へsquash merge）
+- r183競合: なし。merge-readinessでbase `4bf3d5255f50ff9539ae81dad2e6110a9ea94513`、head `2c9d537190a019f7003265fc095635d7f3ef7786`、merge可能を確認した。
 
 ## 9. GitHub Actions result
 
-- `App Validation / app-validation`: PASS、run `32635871079`。
-- `Notify Hado Library Preview`: push起動・PASS、run `32635894809`。
+- `App Validation / app-validation`: r182 run `32635871079`、r183 run `32636671059`、ともにPASS。
+- `Notify Hado Library Preview`: r182 run `32635894809`、r183 run `32636687678`、ともにpush起動・PASS。
 - 通常のPreview同期に手動実行・scheduleは使用していない。
-- 上記はr182の実装同期結果。r183はPull Request作成後に追記する。
 
 ## 10. Preview synchronization result
 
-Preview repository `main`は`3016f95e6507bc1554f9a525be83078f9bc17abc`。`PREVIEW_SOURCE_COMMIT.txt`は`328a0c8e38b74e686661faa75c8519ecce59812b`、`PREVIEW_SOURCE_BRANCH.txt`は`feature/app-3.1.0.0`、`PREVIEW_DISPLAY_VERSION.txt`は`3.1.0.0 Update06 r182`で一致した。
-
-上記はr182の参照技能表示を確認した時点の記録。r183の最終markerと実操作は正本反映後に置き換える。
+Preview repository `main`は`1b8a23a9d06903aa835d87bc072590e7dfb4d4c0`。`PREVIEW_SOURCE_COMMIT.txt`は`a49dc7fc899fc1557ce0e45069a435b002994519`、`PREVIEW_SOURCE_BRANCH.txt`は`feature/app-3.1.0.0`、`PREVIEW_DISPLAY_VERSION.txt`は`3.1.0.0 Update06 r183`で一致した。
 
 `index.html`、`hado_formation.js`、`hado_styles.css`、`hadou_*.json`、`.nojekyll`、3 marker、`hado_core.js`、`hado_update04.css`の配備を確認した。
 
 ### Preview confirmation
 
 - 公開URL: `https://mytemark2.github.io/hado_library-preview/`
-- 表示版: `覇道ライブラリ 3.1.0.0 Update06 r182`。
-- marker: source commit `328a0c8e38b74e686661faa75c8519ecce59812b` / branch `feature/app-3.1.0.0` / display `3.1.0.0 Update06 r182`。
-- Preview repository commit: `3016f95e6507bc1554f9a525be83078f9bc17abc`。
-- DOM/asset: r182の`hado_core.js`と`hado_update04.css`を実行し、白眉・敏活の参照技能カードと共通条件・効果グループDOMを確認。
-- 操作: LR馬良を通常検索し、白眉LvⅠは2グループ、効果数は2・1、原文開閉1個、旧原文直表示0個、LvⅡ効果混在なし。敏活は1グループ、克遂の旧原文二重表示0件、検索結果の内部ラベル0件。
+- 表示版: `覇道ライブラリ 3.1.0.0 Update06 r183`。
+- marker: source commit `a49dc7fc899fc1557ce0e45069a435b002994519` / branch `feature/app-3.1.0.0` / display `3.1.0.0 Update06 r183`。
+- Preview repository commit: `1b8a23a9d06903aa835d87bc072590e7dfb4d4c0`。
+- DOM/asset: r183の`hado_core.js`、`hado_search.js`、`hado_update04.css`を実行し、白眉・敏活の参照技能カードと共通条件・効果グループDOMを確認。
+- 操作: 公開JSON読込中にLR馬良を入力して例外0件。読込完了後は1件を返した。白眉LvⅠは2グループ、効果数は2・1、原文開閉1個、旧原文直表示0個、LvⅡ効果混在なし。敏活は1グループ、克遂の旧原文二重表示0件、検索結果の内部ラベル0件。
 - PC/スマートフォン: 1280×720、390×844ともページ・白眉カードの横方向超過なし。
 - debug log: ブラウザ警告・エラー0件。
 - 判定: PASS。
@@ -96,7 +95,7 @@ Preview repository `main`は`3016f95e6507bc1554f9a525be83078f9bc17abc`。`PREVIE
 
 ## 12. Remaining issues
 
-r183のPull Request、GitHub Actions、自動Preview同期、公開Preview実操作が未完了。正式公開は全Update完了後の明示承認まで実施しない。
+none。正式公開は全Update完了後の明示承認まで実施しない。
 
 ## 確認事項
 
