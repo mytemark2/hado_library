@@ -2,31 +2,34 @@
 
 ## 1. Summary
 
-Update06 r180の検索統合を維持したまま、r181で利用者向け表示を修正した。検索結果から「正規ID一致」「効果あり」および未指定のClause条件・発動タグを除去し、技能詳細を条件または発動契機と該当効果が一体で読めるカードへ変更した。正式公開は行わない。
+Update06 r180の検索統合とr181の利用者向け表示を維持し、r182で「白眉」など参照付与技能の表示を通常技能と同じ条件・効果カードへ統合する。参照先の全Lv原文をそのまま表示せず、実際に付与されたLvだけを表示する。正式公開は行わない。
 
 ## 2. Bug classification and root cause
 
-- 分類: 内部診断情報の画面露出、および情報階層の分断。
-- 原因: r180では検索統合が成立したことを示す内部情報を結果カードへそのまま表示し、詳細カードもClause単位の行と意味タグを並べていた。そのため、利用者が次に行う操作や判断へつながらず、原文上の条件と効果の対応も見失いやすかった。
-- 影響範囲: 通常検索結果、状態変化検索結果、武将詳細の戦法・技能カード、PC・スマートフォン表示。
-- 恒久対策: 検索用索引・正規ID照合と利用者表示を分離する。詳細は原文の`■`（適用・条件）、`▼`（発動）、`●`（効果）、`→`（補足）を用い、条件見出しと直後の効果を同じグループへ構成する。専用回帰で「克遂 LvⅡ」の5グループと内部ラベル非表示を固定する。
+- 分類: 共通表示経路から外れた並行実装、およびLv表示範囲の誤り。
+- 原因: 通常技能は`buildDetailConditionPresentation`を通る一方、参照付与技能は`renderGeneralSkills`内で参照先の全Lv原文を`fmtContent`へ直接渡していた。このため条件と効果のグループ化が行われず、付与されていないLvも混在した。
+- 同系統の原因: 通常技能側も、原文明示記号からグループ化済みでも`reviewed`でない場合は旧原文を併記していたため、generatedデータで二重表示し得た。
+- 恒久対策: 通常技能・参照付与技能の双方を共通Presenterへ通し、参照付与技能は指定されたRoman Lvブロックだけを抽出する。Presenterがグループを生成できたかを共通判定にし、グループ化不能時だけ旧表示へフォールバックする。
+- 再発防止: 全データの重複除外200参照関係を走査し、参照先存在、指定Lv抽出、条件・効果グループ、原文開閉1個を検証する専用回帰をApp Validationへ追加する。
 
 ## 3. Impact scope checked
 
-通常検索、状態変化検索、タグ検索、検索モード独立、詳細、部隊編成条件、型スコアShadow、保存Export/Import、PC 1280×720、スマートフォン390×844、派生JSON契約を対象に確認した。
+技能付与参照215出現、重複除外200関係、親技能122件、参照先112技能を全件監査した。対象参照先は全件存在した。表示の直接影響は武将詳細内の参照付与技能カードで、同じ欠陥クラスとして通常技能のgenerated原文二重表示経路も修正対象に含めた。計算側の付与技能反映、保存データ、部隊編成、検索索引、派生JSONは変更しない。
 
 ## 4. Files changed
 
-`hado_detail_condition_presenter.js`、`hado_update04.css`、`hado_search_clause_integration.js`、`hado_status_effects.js`、`hado_update06.css`（削除）、`index.html`、`hado_version.js`、専用回帰、App Validation、README、全体Roadmap、Update06記録。
+`hado_core.js`、`hado_update04.css`、`index.html`、`hado_version.js`、`tools/test_3_1_0_0_update06_referenced_skill_cards.js`、既存版表示回帰、`tools/run_app_validation.py`、README、全体Roadmap、Update06記録。
 
-`hado_version.js`は利用者がr180と修正版を区別できるようr181へ更新した。`HADO_DEV_INFO.json`は表示版の重複を避ける現行方針に従い変更していない。
+`hado_version.js`はPreviewで修正版を識別できるようr182へ更新した。`HADO_DEV_INFO.json`は表示版の重複を避ける現行方針に従い変更していない。
 
 ## 5. HTML size change and externalization decision
 
-`index.html`: 29,928 bytes → 29,875 bytes、-53 bytes。結果カード用CSSの読込宣言を削除し、実装は外部JavaScriptと既存外部CSSへ分離した。HTML内JavaScript/CSSは追加していない。
+`index.html`: 29,857 bytes → 29,857 bytes、±0 bytes。キャッシュキーだけを`06-r182`へ更新した。JavaScriptは`hado_core.js`、表示調整は`hado_update04.css`へ外部化し、HTML内JavaScript/CSSは追加していない。
 
 ## 6. Validation commands executed
 
+- `node --check hado_core.js`
+- `node tools/test_3_1_0_0_update06_referenced_skill_cards.js`
 - `node tools/test_3_1_0_0_update06_user_facing_cards.js`
 - `node tools/test_3_1_0_0_update06_search_clause_integration.js`
 - `node tools/test_3_1_0_0_update04_detail_condition_presenter.js`
@@ -39,54 +42,40 @@ Update06 r180の検索統合を維持したまま、r181で利用者向け表示
 
 ## 7. Validation results
 
-専用回帰、検索内部契約、Update04詳細、Update07 Shadow、派生JSON契約、版表示整合、全App Validation 143/143、`git diff --check`はPASS。内部の条件タグ24種・発動タグ7種・正規状態変化参照5,884件を維持した。
+専用回帰、派生JSON契約、版表示整合、全App Validation 144/144、`git diff --check`はPASS。全データ監査で参照関係200件、親技能122件、参照先112技能、参照先欠損0件を確認した。
 
 ローカルHTTP版では次を確認した。
 
-- 「克遂」はLvⅠが4グループ、LvⅡが5グループ。LvⅡの「主将か、主将と自身が好相性の際」には4効果が同じ枠内にまとまる。
-- 原文開閉はLvごとに1つ。「確認済み」「自部隊が比較優位」等の抽象的な意味タグは技能カードに表示しない。
-- LR馬良の通常検索結果に未指定の条件タグを表示しない。
-- 状態変化「有利激攻」は39件を返し、「正規ID一致」「効果あり」「未指定の条件タグ」を表示しない。
-- PC 1280×720、スマートフォン390×844とも横方向の画面超過なし。ブラウザ警告・エラー0件。
+- 「白眉」付与LvⅠは「主将か、主将と自身が好相性の際」2効果と「出陣時」1効果の2グループ。LvⅡの「防御+15%」「主将戦法発動時」は混在しない。
+- 原文開閉は1個、旧原文直表示は0個。「敏活」も共通カードで1グループになる。
+- 通常技能「克遂」に旧原文の二重表示はない。検索結果の「正規ID一致」「効果あり」も0件。
+- PC 1280×720、スマートフォン390×844ともページ・白眉カードの横方向超過なし。ブラウザ警告・エラー0件。
 
 ## 8. Git commit and pull request
 
-- 実装commit: `468de5eece1de9aa240d0c8b3dd50d0362ec8bc6`
-- Pull Request: `#309`（`feature/app-3.1.0.0`へsquash merge）
-- 競合: なし。`python3 tools/check_pr_merge_readiness.py --base feature/app-3.1.0.0`でbase `d231df9d90915f34252d85b58c262aa626053f1b`、head `802c08bedf288151d1932238a195751904fa5fa6`、merge可能を確認した。
+検証完了後に記録する。
 
 ## 9. GitHub Actions result
 
-- `App Validation / app-validation`: PASS、run `32627728277`。
-- `Notify Hado Library Preview`: push起動・PASS、run `32627752468`。
-- 通常のPreview同期に手動実行・scheduleは使用していない。
+Pull Request作成後に記録する。
 
 ## 10. Preview synchronization result
 
-Preview repository `main`は`842394bbbb69860d4fd163426ff079f898cf248b`。`PREVIEW_SOURCE_COMMIT.txt`は`468de5eece1de9aa240d0c8b3dd50d0362ec8bc6`、`PREVIEW_SOURCE_BRANCH.txt`は`feature/app-3.1.0.0`、`PREVIEW_DISPLAY_VERSION.txt`は`3.1.0.0 Update06 r181`で一致した。
-
-`index.html`、`hado_formation.js`、`hado_styles.css`、`hadou_*.json`、`.nojekyll`、3 marker、`hado_detail_condition_presenter.js`、`hado_search_clause_integration.js`、`hado_update04.css`の配備を確認した。廃止した`hado_update06.css`はPreviewから除去されている。
+正本ブランチへの反映後に実Previewとmarkerを確認して記録する。
 
 ### Preview confirmation
 
 - 公開URL: `https://mytemark2.github.io/hado_library-preview/`
-- 表示版: `覇道ライブラリ 3.1.0.0 Update06 r181`。
-- marker: source commit `468de5eece1de9aa240d0c8b3dd50d0362ec8bc6` / branch `feature/app-3.1.0.0` / display `3.1.0.0 Update06 r181`。
-- Preview repository commit: `842394bbbb69860d4fd163426ff079f898cf248b`。
-- DOM/asset: r181の`hado_update04.css`読込、旧`hado_update06.css`不在、検索結果DOMと技能の条件・効果グループDOMを確認。
-- 操作: LR馬良を通常検索し、結果1件に内部ラベル0件。技能「克遂」はLvⅠ 4グループ、LvⅡ 5グループで、LvⅡの効果数は順に1・4・1・2・1。状態変化「有利激攻」は39件で内部ラベル0件。
-- PC/スマートフォン: 1280×720、390×844ともカード・ページの横方向超過なし。
-- debug log: ブラウザ警告・エラー0件。
-- 判定: PASS。
+- 判定: 未確認。正本ブランチ反映後に確認する。
 
 ## 11. Minimum user acceptance operation
 
-公開Previewの「検索」で`LR馬良`を検索し、「技能」タブの「克遂」LvⅡを確認する。「主将か、主将と自身が好相性の際」の直下に4効果がまとまり、「交戦開始時」「主将の際」「副将か補佐の際」が別グループで続くことを確認する。続けて状態変化検索で「自部隊能力強化」→「有利激攻」を選び、検索結果に「正規ID一致」や未指定の条件タグが表示されないことを確認する。
+公開Previewの「検索」で`LR馬良`を検索し、技能内の参照カード「白眉」を確認する。「主将か、主将と自身が好相性の際」の直下に「防御+10%」と「政治を部隊能力に加算する技能の効果量+5%」がまとまり、続く「出陣時」の直下に戦法ゲージ上昇が表示されることを確認する。「防御+15%」など白眉LvⅡの効果が混在しないことも確認する。
 
 ## 12. Remaining issues
 
-none。正式公開は全Update完了後の明示承認まで実施しない。
+Pull Request、GitHub Actions、自動Preview同期、公開Preview実操作が未完了。
 
 ## 確認事項
 
-なし。Update07は完了済みのため、次はUpdate08「結果サマリー・全画面統一」へ進む。推奨エンジンはGPT-5.6 Sol / reasoning High。
+現時点でなし。Update06完了後は、Update07が完了済みのためUpdate08「結果サマリー・全画面統一」へ進む。推奨エンジンはGPT-5.6 Sol / reasoning High。
