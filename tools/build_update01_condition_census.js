@@ -115,7 +115,7 @@ function readJson(file) {
 }
 
 function sha256File(file) {
-  return crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT, file))).digest('hex');
+  return crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT, file), 'utf8').replace(/\r\n/g, '\n')).digest('hex');
 }
 
 function clean(value) {

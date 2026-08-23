@@ -324,7 +324,7 @@ Update01で条件型が増えた場合、各新型に最低1件の回帰ケー�
 
 ### Update05 — 部隊編成の条件評価
 
-**状態:** `3.1.0.0 Update05 r178`の実装、App Validation、Actions、Preview同期、公開URL実操作まで完了。関連リンク監査不一致はクローラ1.1.0.6の生成元から修正済み。44 reviewed Clauseだけを確定判定し、未reviewed生成Clauseは判定不可とする。`file://`の最小利用者確認を残す。
+**状態:** 完了。`3.1.0.0 Update05 r178`の実装、App Validation、Actions、Preview同期、公開URL実操作、2026-08-23の利用者による`file://`最小確認まで合格。関連リンク監査不一致はクローラ1.1.0.6の生成元から修正済み。44 reviewed Clauseだけを確定判定し、未reviewed生成Clauseは判定不可とする。
 
 **目的:** 現在の編成から判定可能な条件を共通Evaluatorで評価する。
 

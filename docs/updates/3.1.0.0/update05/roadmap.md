@@ -2,7 +2,7 @@
 
 ## 状態
 
-`3.1.0.0 Update05 r178`の実装、App Validation、Actions、Preview同期、公開URLのPC・スマートフォン実操作は完了。ブラウザ安全制約で自動化できなかった`file://`の最小利用者確認を残す。正式公開は行わない。
+`3.1.0.0 Update05 r178`は完了。実装、App Validation、Actions、Preview同期、公開URLのPC・スマートフォン実操作に加え、2026-08-23に利用者が`file://`の最小確認を合格した。正式公開は行わない。
 
 ## 目的
 

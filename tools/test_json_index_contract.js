@@ -54,7 +54,7 @@ for(const clause of clauseRows){
   for(const typed of clause.target?.rules||[])assert.strictEqual(typed.effectId,clause.effect.id);
   assert.strictEqual(clause.trust?.state,'generated','parser output must not be promoted to reviewed by approximate semantic overlap');
 }
-assert.strictEqual(crypto.createHash('sha256').update(effectClauseText).digest('hex'),'620c37aa711b58866252f8bc2311ba3931eb2d7fc362f1a6f31a4cbbd6f9dc2f');
+assert.strictEqual(crypto.createHash('sha256').update(effectClauseText.replace(/\r\n/g,'\n')).digest('hex'),'620c37aa711b58866252f8bc2311ba3931eb2d7fc362f1a6f31a4cbbd6f9dc2f');
 
 const parameter=read('hadou_parameter_summary_index.json');
 const related=read('hadou_related_link_index.json');
