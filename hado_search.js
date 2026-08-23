@@ -334,7 +334,7 @@ function collectQuickStatusEffectOwnersForItem(item,categoryKey,filter,statusEff
   const options=categoryKey==='tactics'?{includeTacticAdditionalEffects:true,suppressDebug:true}:{suppressDebug:true};
   const bucket=getQuickStatusEffectRelationCacheBucket(item);
   const filterKey=[filter?.kind||'',filter?.key||'',filter?.group||'',filter?.label||'',filter?.statusName||'',filter?.relationType||'',getQuickStatusEffectFilterProfileKey(filter,statusEffectNames)].map(norm).join('@@');
-  const stageKey=categoryKey==='equipments'?getEffectiveEquipmentStageForItem(item):'';const cacheKey=`${categoryKey}|${options.includeTacticAdditionalEffects?'withTacticEffects':'default'}|${filterKey}|stage:${stageKey}|view:${state.viewMode||''}|seq:${state.savedSearchCacheSeq||0}`;
+  const clauseApi=(typeof window!=='undefined'?window:globalThis).HADO_SEARCH_CLAUSE_INTEGRATION;const clauseCacheKey=clauseApi&&typeof clauseApi.getCacheKey==='function'?clauseApi.getCacheKey():'';const stageKey=categoryKey==='equipments'?getEffectiveEquipmentStageForItem(item):'';const cacheKey=`${categoryKey}|${options.includeTacticAdditionalEffects?'withTacticEffects':'default'}|${filterKey}|stage:${stageKey}|view:${state.viewMode||''}|seq:${state.savedSearchCacheSeq||0}|clause:${clauseCacheKey}`;
   if(bucket&&bucket[cacheKey])return bucket[cacheKey];
   const profiles=getQuickStatusEffectFilterProfiles(filter,statusEffectNames);
   const out=[];
@@ -414,6 +414,14 @@ function collectQuickStatusEffectOwnersForItem(item,categoryKey,filter,statusEff
       });
     });
   }
+  if(filter?.kind==='status'&&clauseApi&&typeof clauseApi.getCanonicalStatusMatches==='function'){
+    clauseApi.getCanonicalStatusMatches({category:categoryKey,name:getItemDisplayName(item),statusName:filter.statusName||filter.label,groupKey:filter.group}).forEach(rel=>{
+      const key=[rel.name,rel.groupKey,rel.relationType,rel.reason,rel.statusEffectKey].join('@@');
+      if(seen.has(key))return;
+      seen.add(key);
+      out.push(rel);
+    });
+  }
   collectQuickStatusEffectOwnersFromRelatedLinkIndex(item,categoryKey,filter).forEach(rel=>{
     const key=[rel.name,rel.groupKey,rel.relationType,rel.reason,rel.sourceText||rel.matchedText||''].join('@@');
     if(seen.has(key))return;
@@ -438,6 +446,7 @@ function collectQuickStatusEffectOwnersForItem(item,categoryKey,filter,statusEff
       out.push(rel);
     }
   }
+  const canonicalIdentity=new Set(out.filter(hit=>hit?.canonical).map(hit=>[norm(hit.name),norm(hit.groupKey),norm(hit.relationType)].join('@@')));if(canonicalIdentity.size){const preferred=[];const preferredSeen=new Set();out.forEach(hit=>{const key=[norm(hit.name),norm(hit.groupKey),norm(hit.relationType)].join('@@');if(canonicalIdentity.has(key)&&!hit?.canonical)return;if(preferredSeen.has(key)&&hit?.canonical)return;preferredSeen.add(key);preferred.push(hit);});out.splice(0,out.length,...preferred);}
   if(bucket)bucket[cacheKey]=out;
   return out;
 }
