@@ -51,21 +51,33 @@ Update06 r180の検索統合を維持したまま、r181で利用者向け表示
 
 ## 8. Git commit and pull request
 
-実装PRの統合後に最終記録する。
+- 実装commit: `468de5eece1de9aa240d0c8b3dd50d0362ec8bc6`
+- Pull Request: `#309`（`feature/app-3.1.0.0`へsquash merge）
+- 競合: なし。`python3 tools/check_pr_merge_readiness.py --base feature/app-3.1.0.0`でbase `d231df9d90915f34252d85b58c262aa626053f1b`、head `802c08bedf288151d1932238a195751904fa5fa6`、merge可能を確認した。
 
 ## 9. GitHub Actions result
 
-実装PRのActions完了後に最終記録する。
+- `App Validation / app-validation`: PASS、run `32627728277`。
+- `Notify Hado Library Preview`: push起動・PASS、run `32627752468`。
+- 通常のPreview同期に手動実行・scheduleは使用していない。
 
 ## 10. Preview synchronization result
 
-`feature/app-3.1.0.0`への統合後、push起動のPreview同期と公開Pagesを最終確認する。手動実行・scheduleは使用しない。
+Preview repository `main`は`842394bbbb69860d4fd163426ff079f898cf248b`。`PREVIEW_SOURCE_COMMIT.txt`は`468de5eece1de9aa240d0c8b3dd50d0362ec8bc6`、`PREVIEW_SOURCE_BRANCH.txt`は`feature/app-3.1.0.0`、`PREVIEW_DISPLAY_VERSION.txt`は`3.1.0.0 Update06 r181`で一致した。
+
+`index.html`、`hado_formation.js`、`hado_styles.css`、`hadou_*.json`、`.nojekyll`、3 marker、`hado_detail_condition_presenter.js`、`hado_search_clause_integration.js`、`hado_update04.css`の配備を確認した。廃止した`hado_update06.css`はPreviewから除去されている。
 
 ### Preview confirmation
 
 - 公開URL: `https://mytemark2.github.io/hado_library-preview/`
-- 表示版・marker・Preview repository commit・DOM・操作・debug log: 実装統合後に最終記録する。
-- 現在判定: ローカル検証PASS、Preview確認待ち。
+- 表示版: `覇道ライブラリ 3.1.0.0 Update06 r181`。
+- marker: source commit `468de5eece1de9aa240d0c8b3dd50d0362ec8bc6` / branch `feature/app-3.1.0.0` / display `3.1.0.0 Update06 r181`。
+- Preview repository commit: `842394bbbb69860d4fd163426ff079f898cf248b`。
+- DOM/asset: r181の`hado_update04.css`読込、旧`hado_update06.css`不在、検索結果DOMと技能の条件・効果グループDOMを確認。
+- 操作: LR馬良を通常検索し、結果1件に内部ラベル0件。技能「克遂」はLvⅠ 4グループ、LvⅡ 5グループで、LvⅡの効果数は順に1・4・1・2・1。状態変化「有利激攻」は39件で内部ラベル0件。
+- PC/スマートフォン: 1280×720、390×844ともカード・ページの横方向超過なし。
+- debug log: ブラウザ警告・エラー0件。
+- 判定: PASS。
 
 ## 11. Minimum user acceptance operation
 
@@ -73,8 +85,8 @@ Update06 r180の検索統合を維持したまま、r181で利用者向け表示
 
 ## 12. Remaining issues
 
-実装PRのActions、自動Preview同期、公開Preview確認が未完了。正式公開は全Update完了後の明示承認まで実施しない。
+none。正式公開は全Update完了後の明示承認まで実施しない。
 
 ## 確認事項
 
-Preview確認待ち。完了後、特段の確認事項がなければUpdate08「結果サマリー・全画面統一」へ進む。推奨エンジンはGPT-5.6 Sol / reasoning High。
+なし。Update07は完了済みのため、次はUpdate08「結果サマリー・全画面統一」へ進む。推奨エンジンはGPT-5.6 Sol / reasoning High。
