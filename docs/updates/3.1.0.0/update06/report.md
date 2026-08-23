@@ -2,7 +2,7 @@
 
 ## 1. Summary
 
-Update06 r180の検索統合とr181の利用者向け表示を維持し、r182で「白眉」など参照付与技能の表示を通常技能と同じ条件・効果カードへ統合する。参照先の全Lv原文をそのまま表示せず、実際に付与されたLvだけを表示する。正式公開は行わない。
+Update06 r180の検索統合とr181の利用者向け表示を維持し、r182で「白眉」など参照付与技能の表示を通常技能と同じ条件・効果カードへ統合した。参照先の全Lv原文をそのまま表示せず、実際に付与されたLvだけを表示する。正式公開は行わない。
 
 ## 2. Bug classification and root cause
 
@@ -53,20 +53,33 @@ Update06 r180の検索統合とr181の利用者向け表示を維持し、r182�
 
 ## 8. Git commit and pull request
 
-検証完了後に記録する。
+- 実装commit: `328a0c8e38b74e686661faa75c8519ecce59812b`
+- Pull Request: `#311`（`feature/app-3.1.0.0`へsquash merge）
+- 競合: なし。`python3 tools/check_pr_merge_readiness.py --base feature/app-3.1.0.0`でbase `17907bed8cd99d3f2cec82238a49fa5710d6691f`、head `1cc5f91fa623539e71e7ec92cb59e492c02af57e`、merge可能を確認した。
 
 ## 9. GitHub Actions result
 
-Pull Request作成後に記録する。
+- `App Validation / app-validation`: PASS、run `32635871079`。
+- `Notify Hado Library Preview`: push起動・PASS、run `32635894809`。
+- 通常のPreview同期に手動実行・scheduleは使用していない。
 
 ## 10. Preview synchronization result
 
-正本ブランチへの反映後に実Previewとmarkerを確認して記録する。
+Preview repository `main`は`3016f95e6507bc1554f9a525be83078f9bc17abc`。`PREVIEW_SOURCE_COMMIT.txt`は`328a0c8e38b74e686661faa75c8519ecce59812b`、`PREVIEW_SOURCE_BRANCH.txt`は`feature/app-3.1.0.0`、`PREVIEW_DISPLAY_VERSION.txt`は`3.1.0.0 Update06 r182`で一致した。
+
+`index.html`、`hado_formation.js`、`hado_styles.css`、`hadou_*.json`、`.nojekyll`、3 marker、`hado_core.js`、`hado_update04.css`の配備を確認した。
 
 ### Preview confirmation
 
 - 公開URL: `https://mytemark2.github.io/hado_library-preview/`
-- 判定: 未確認。正本ブランチ反映後に確認する。
+- 表示版: `覇道ライブラリ 3.1.0.0 Update06 r182`。
+- marker: source commit `328a0c8e38b74e686661faa75c8519ecce59812b` / branch `feature/app-3.1.0.0` / display `3.1.0.0 Update06 r182`。
+- Preview repository commit: `3016f95e6507bc1554f9a525be83078f9bc17abc`。
+- DOM/asset: r182の`hado_core.js`と`hado_update04.css`を実行し、白眉・敏活の参照技能カードと共通条件・効果グループDOMを確認。
+- 操作: LR馬良を通常検索し、白眉LvⅠは2グループ、効果数は2・1、原文開閉1個、旧原文直表示0個、LvⅡ効果混在なし。敏活は1グループ、克遂の旧原文二重表示0件、検索結果の内部ラベル0件。
+- PC/スマートフォン: 1280×720、390×844ともページ・白眉カードの横方向超過なし。
+- debug log: ブラウザ警告・エラー0件。
+- 判定: PASS。
 
 ## 11. Minimum user acceptance operation
 
@@ -74,8 +87,8 @@ Pull Request作成後に記録する。
 
 ## 12. Remaining issues
 
-Pull Request、GitHub Actions、自動Preview同期、公開Preview実操作が未完了。
+none。正式公開は全Update完了後の明示承認まで実施しない。
 
 ## 確認事項
 
-現時点でなし。Update06完了後は、Update07が完了済みのためUpdate08「結果サマリー・全画面統一」へ進む。推奨エンジンはGPT-5.6 Sol / reasoning High。
+なし。Update07は完了済みのため、次はUpdate08「結果サマリー・全画面統一」へ進む。推奨エンジンはGPT-5.6 Sol / reasoning High。
