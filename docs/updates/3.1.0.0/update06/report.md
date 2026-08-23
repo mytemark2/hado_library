@@ -2,7 +2,7 @@
 
 ## 1. Summary
 
-Update06 r180の検索統合とr181の利用者向け表示を維持し、r182で「白眉」など参照付与技能の表示を通常技能と同じ条件・効果カードへ統合した。参照先の全Lv原文をそのまま表示せず、実際に付与されたLvだけを表示する。正式公開は行わない。
+Update06 r180の検索統合とr181の利用者向け表示を維持し、r182で「白眉」など参照付与技能の表示を通常技能と同じ条件・効果カードへ統合した。最終Preview確認でデータ読込完了前検索の既存エラーを検出したため、r183で同時に安定化する。正式公開は行わない。
 
 ## 2. Bug classification and root cause
 
@@ -11,20 +11,23 @@ Update06 r180の検索統合とr181の利用者向け表示を維持し、r182�
 - 同系統の原因: 通常技能側も、原文明示記号からグループ化済みでも`reviewed`でない場合は旧原文を併記していたため、generatedデータで二重表示し得た。
 - 恒久対策: 通常技能・参照付与技能の双方を共通Presenterへ通し、参照付与技能は指定されたRoman Lvブロックだけを抽出する。Presenterがグループを生成できたかを共通判定にし、グループ化不能時だけ旧表示へフォールバックする。
 - 再発防止: 全データの重複除外200参照関係を走査し、参照先存在、指定Lv抽出、条件・効果グループ、原文開閉1個を検証する専用回帰をApp Validationへ追加する。
+- 追加分類: 起動時の例外処理経路にある存在しない関数名の呼出し。
+- 追加原因: データ未読込ガードだけが、実在する`clearSearchProgressTimer`ではなく未定義の`cancelSearchProgressIndicator`を呼び出していた。通常の読込完了後操作では通らないため、従来回帰で検出されていなかった。
+- 追加対策: データ未読込ガードを既存の進捗タイマー停止関数へ統一し、未定義関数名の不在とガード内の正しい呼出しを専用回帰で固定する。
 
 ## 3. Impact scope checked
 
-技能付与参照215出現、重複除外200関係、親技能122件、参照先112技能を全件監査した。対象参照先は全件存在した。表示の直接影響は武将詳細内の参照付与技能カードで、同じ欠陥クラスとして通常技能のgenerated原文二重表示経路も修正対象に含めた。計算側の付与技能反映、保存データ、部隊編成、検索索引、派生JSONは変更しない。
+技能付与参照215出現、重複除外200関係、親技能122件、参照先112技能を全件監査した。対象参照先は全件存在した。表示の直接影響は武将詳細内の参照付与技能カードで、同じ欠陥クラスとして通常技能のgenerated原文二重表示経路も修正対象に含めた。追加で公開JSON読込中の通常検索入力経路を確認した。計算側の付与技能反映、保存データ、部隊編成、検索索引、派生JSONは変更しない。
 
 ## 4. Files changed
 
-`hado_core.js`、`hado_update04.css`、`index.html`、`hado_version.js`、`tools/test_3_1_0_0_update06_referenced_skill_cards.js`、既存版表示回帰、`tools/run_app_validation.py`、README、全体Roadmap、Update06記録。
+`hado_core.js`、`hado_update04.css`、`hado_search.js`、`index.html`、`hado_version.js`、`tools/test_3_1_0_0_update06_referenced_skill_cards.js`、`tools/test_update09_5_43_search_requires_json.js`、既存版表示回帰、`tools/run_app_validation.py`、README、全体Roadmap、Update06記録。
 
-`hado_version.js`はPreviewで修正版を識別できるようr182へ更新した。`HADO_DEV_INFO.json`は表示版の重複を避ける現行方針に従い変更していない。
+`hado_version.js`はPreviewで最終安定化版を識別できるようr183へ更新した。`HADO_DEV_INFO.json`は表示版の重複を避ける現行方針に従い変更していない。
 
 ## 5. HTML size change and externalization decision
 
-`index.html`: 29,857 bytes → 29,857 bytes、±0 bytes。キャッシュキーだけを`06-r182`へ更新した。JavaScriptは`hado_core.js`、表示調整は`hado_update04.css`へ外部化し、HTML内JavaScript/CSSは追加していない。
+`index.html`: 29,857 bytes → 29,857 bytes、±0 bytes。キャッシュキーだけを`06-r183`へ更新した。JavaScriptは`hado_core.js`と`hado_search.js`、表示調整は`hado_update04.css`へ外部化し、HTML内JavaScript/CSSは追加していない。
 
 ## 6. Validation commands executed
 
@@ -34,6 +37,7 @@ Update06 r180の検索統合とr181の利用者向け表示を維持し、r182�
 - `node tools/test_3_1_0_0_update06_search_clause_integration.js`
 - `node tools/test_3_1_0_0_update04_detail_condition_presenter.js`
 - `node tools/test_3_1_0_0_update07_score_shadow.js`
+- `node tools/test_update09_5_43_search_requires_json.js`
 - `node tools/test_json_index_contract.js`
 - `python -X utf8 tools/validate_update_version_consistency.py`
 - `python -X utf8 tools/run_app_validation.py`
@@ -49,6 +53,7 @@ Update06 r180の検索統合とr181の利用者向け表示を維持し、r182�
 - 「白眉」付与LvⅠは「主将か、主将と自身が好相性の際」2効果と「出陣時」1効果の2グループ。LvⅡの「防御+15%」「主将戦法発動時」は混在しない。
 - 原文開閉は1個、旧原文直表示は0個。「敏活」も共通カードで1グループになる。
 - 通常技能「克遂」に旧原文の二重表示はない。検索結果の「正規ID一致」「効果あり」も0件。
+- 公開JSON読込完了前に検索入力し、未読込ガードを通しても例外0件。読込完了後は同じキーワードで1件を返し、白眉カードへ遷移できる。
 - PC 1280×720、スマートフォン390×844ともページ・白眉カードの横方向超過なし。ブラウザ警告・エラー0件。
 
 ## 8. Git commit and pull request
@@ -56,16 +61,20 @@ Update06 r180の検索統合とr181の利用者向け表示を維持し、r182�
 - 実装commit: `328a0c8e38b74e686661faa75c8519ecce59812b`
 - Pull Request: `#311`（`feature/app-3.1.0.0`へsquash merge）
 - 競合: なし。`python3 tools/check_pr_merge_readiness.py --base feature/app-3.1.0.0`でbase `17907bed8cd99d3f2cec82238a49fa5710d6691f`、head `1cc5f91fa623539e71e7ec92cb59e492c02af57e`、merge可能を確認した。
+- r183の起動時安定化commitとPull Requestは、remote検証完了後に追記する。
 
 ## 9. GitHub Actions result
 
 - `App Validation / app-validation`: PASS、run `32635871079`。
 - `Notify Hado Library Preview`: push起動・PASS、run `32635894809`。
 - 通常のPreview同期に手動実行・scheduleは使用していない。
+- 上記はr182の実装同期結果。r183はPull Request作成後に追記する。
 
 ## 10. Preview synchronization result
 
 Preview repository `main`は`3016f95e6507bc1554f9a525be83078f9bc17abc`。`PREVIEW_SOURCE_COMMIT.txt`は`328a0c8e38b74e686661faa75c8519ecce59812b`、`PREVIEW_SOURCE_BRANCH.txt`は`feature/app-3.1.0.0`、`PREVIEW_DISPLAY_VERSION.txt`は`3.1.0.0 Update06 r182`で一致した。
+
+上記はr182の参照技能表示を確認した時点の記録。r183の最終markerと実操作は正本反映後に置き換える。
 
 `index.html`、`hado_formation.js`、`hado_styles.css`、`hadou_*.json`、`.nojekyll`、3 marker、`hado_core.js`、`hado_update04.css`の配備を確認した。
 
@@ -87,7 +96,7 @@ Preview repository `main`は`3016f95e6507bc1554f9a525be83078f9bc17abc`。`PREVIE
 
 ## 12. Remaining issues
 
-none。正式公開は全Update完了後の明示承認まで実施しない。
+r183のPull Request、GitHub Actions、自動Preview同期、公開Preview実操作が未完了。正式公開は全Update完了後の明示承認まで実施しない。
 
 ## 確認事項
 

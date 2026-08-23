@@ -956,7 +956,7 @@ function renderSearchResults(){
   if(isTypeSearchMode())return renderTypeSearchResults();
   const searchableMasterCount=(Array.isArray(state.generals)?state.generals.length:0)+(Array.isArray(state.equipments)?state.equipments.length:0);
   if(searchableMasterCount===0){
-    cancelSearchProgressIndicator();
+    clearSearchProgressTimer();
     state.lastResultRows=[];
     if(els.resultMeta)els.resultMeta.textContent='JSON未読込：検索できません';
     if(els.results)els.results.innerHTML='<li class="search-data-required">検索するにはJSONデータの読み込みが必要です。</li>';

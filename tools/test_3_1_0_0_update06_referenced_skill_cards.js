@@ -61,7 +61,7 @@ assert(core.includes('condition.grouped?condition.html'));
 assert(core.includes('cards.push(renderReferencedSkillCard(entry))'));
 assert(!core.includes('fmtContent(entry.content)'), 'referenced cards must not bypass the shared presenter with all-level raw content');
 assert(css.includes('.referenced-skill-card{background:#f8fafc}'));
-assert(indexHtml.includes('hado_core.js?v=06-r182'));
-assert(!indexHtml.includes('06-r181'));
+assert(indexHtml.includes('hado_core.js?v=06-r183'));
+assert(!indexHtml.includes('06-r182'));
 
 console.log(`Update06 referenced-skill cards ok: ${relations.size} relations / 白眉 2 groups / shared presenter / one granted level only`);
