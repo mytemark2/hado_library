@@ -6,8 +6,8 @@
 
 - 直前の開発完了版: `3.0.2.0 r170`
 - 開発中正本ブランチ: `feature/app-3.1.0.0`
-- 現在の到達点: `3.1.0.0 Update04 r177`を完了し、`Update05 r178`でreviewed EffectClauseを部隊編成の5状態評価へ接続しています。
-- Update05では、Update04と同じClause/Evaluatorを共有し、全Update完了までは正式公開・配布用ZIP作成を行いません。
+- 現在の到達点: `3.1.0.0 Update05 r178`を完了し、`Update07 r179`でreviewed EffectClauseと既存scoreEvidenceのshadow比較を実装しています。
+- Update07では現行スコアを表示上の正本に維持し、全Update完了までは正式公開・配布用ZIP作成を行いません。Update06はユーザー指示によりUpdate07の後に実施します。
 
 詳細なUpdate計画と進捗は [`docs/updates/roadmap.md`](./docs/updates/roadmap.md) と [`docs/updates/README.md`](./docs/updates/README.md) を参照してください。
 
