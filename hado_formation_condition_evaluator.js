@@ -165,6 +165,8 @@
       rawText: text(row.clause.evidence?.rawText),
       rawTextSha256: text(row.clause.evidence?.rawTextSha256),
       trust: 'reviewed',
+      effectIdentity: text(row.clause.effect?.identity),
+      clause: row.clause,
       details: evaluation.details || {}
     });
   }
@@ -187,6 +189,25 @@
     return Object.freeze({ ok: true, rows, unresolved, counts: Object.freeze(counts), status: getDataStatus(), evaluatedMemberCount: members.length });
   }
 
+  function evaluateFormationScoreClauses(snapshot) {
+    if (!clauseData) return Object.freeze({ ok: false, counts: { unknown: 1 }, rows: [], unresolved: [], status: getDataStatus(), error: 'EffectClause data is not loaded' });
+    const members = Array.isArray(snapshot?.members) ? snapshot.members.filter(member => text(member?.name)) : [];
+    const rows = [];
+    const unresolved = [];
+    for (const member of members) {
+      const key = entityKey('generals', member.name);
+      const reviewed = reviewedByEntity.get(key) || [];
+      reviewed.forEach(row => rows.push(evaluateReviewedCase(row, snapshot, member)));
+      const generatedCount = Number(generatedConditionalCountByEntity.get(key) || 0);
+      const unresolvedCount = Math.max(0, generatedCount - reviewed.length);
+      if (unresolvedCount) unresolved.push(Object.freeze({ sourceName: text(member.name), sourceRole: text(member.role), state: 'unknown', label: RESULT_LABELS.unknown, count: unresolvedCount, reason: 'generated_clause_not_reviewed' }));
+    }
+    rows.sort((a, b) => RESULT_ORDER.indexOf(a.state) - RESULT_ORDER.indexOf(b.state) || a.sourceName.localeCompare(b.sourceName, 'ja') || a.caseId.localeCompare(b.caseId));
+    const counts = Object.fromEntries(model.RESULT_STATES.map(state => [state, rows.filter(row => row.state === state).length]));
+    counts.unknown += unresolved.reduce((sum, row) => sum + row.count, 0);
+    return Object.freeze({ ok: true, rows, unresolved, counts: Object.freeze(counts), status: getDataStatus(), evaluatedMemberCount: members.length });
+  }
+
   return Object.freeze({
     RUNTIME_REGISTRY,
     RESULT_LABELS,
@@ -194,6 +215,7 @@
     indexClauseData,
     getDataStatus,
     getEntityClauseSummary,
-    evaluateFormation
+    evaluateFormation,
+    evaluateFormationScoreClauses
   });
 });
