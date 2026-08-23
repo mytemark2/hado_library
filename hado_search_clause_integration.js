@@ -28,7 +28,6 @@
     return ({ status_effects: 'statusEffects', siege_weapons: 'siegeWeapons', ethnic_armaments: 'ethnicArmaments', warhorse_skills: 'warhorseSkills' })[key] || key;
   }
   function entityKey(category, name) { return `${normalizeCategory(category)}@@${comparableName(name)}`; }
-  function esc(value) { return text(value).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch])); }
   function items(raw) { return Array.isArray(raw) ? raw : (Array.isArray(raw?.items) ? raw.items : []); }
   function addMapSet(map, key, value) {
     if (!key || !value) return;
@@ -195,17 +194,5 @@
       canonical: true
     })));
   }
-  function renderResultHtml(options = {}) {
-    const summary = getEntitySummary(options.category, options.name);
-    const chips = summary.tags.slice(0, 4).map(tag => `<span class="search-clause-chip">${esc(tag)}</span>`);
-    const filter = options.statusFilter || null;
-    const canonicalMatches = filter ? getCanonicalStatusMatches({ category: options.category, name: options.name, statusName: filter.statusName || filter.label, groupKey: filter.group }) : [];
-    if (canonicalMatches.length) chips.unshift(`<span class="search-clause-chip is-status-id" title="${esc(canonicalMatches[0].statusEffectKey)}">正規ID一致</span>`);
-    if (!chips.length) return '';
-    const hiddenCount = Math.max(0, summary.tags.length - 4);
-    if (hiddenCount) chips.push(`<span class="search-clause-chip is-more">ほか${hiddenCount}</span>`);
-    return `<span class="search-clause-summary" data-update06-clause-summary="1" data-condition-trust="${esc(summary.trust)}">${chips.join('')}</span>`;
-  }
-
-  return Object.freeze({ indexData, getDiagnostic: () => diagnostic, getCacheKey: () => cacheKey, getEntitySummary, getEntityTags, getEntitySearchText, getCanonicalStatusMatches, renderResultHtml });
+  return Object.freeze({ indexData, getDiagnostic: () => diagnostic, getCacheKey: () => cacheKey, getEntitySummary, getEntityTags, getEntitySearchText, getCanonicalStatusMatches });
 });

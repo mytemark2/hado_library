@@ -127,6 +127,107 @@
     return [predicateLabel(clause?.context), predicateLabel(clause?.trigger), predicateLabel(clause?.when)].filter(Boolean);
   }
   function cleanEvidence(value) { return text(value).replace(/^[■▼●→\s]+/, '').replace(/\s+/g, ' '); }
+  function qualifierKind(marker, label) {
+    if (marker === '▼') return 'trigger';
+    if (label === '常時') return 'context';
+    return 'condition';
+  }
+  function qualifierCaption(kind) {
+    return kind === 'trigger' ? '発動' : kind === 'context' ? '適用' : '条件';
+  }
+  function normalizeQualifier(marker, value) {
+    const raw = cleanEvidence(value);
+    const label = raw === '常に' ? '常時' : raw;
+    return Object.freeze({ kind: qualifierKind(marker, label), caption: qualifierCaption(qualifierKind(marker, label)), label });
+  }
+  function splitLevelSources(value) {
+    const raw = text(value);
+    const matches = [...raw.matchAll(/([ⅠⅡⅢⅣⅤ])(?=[■▼●])/g)];
+    if (!matches.length) return Object.freeze([Object.freeze({ level: '', rawText: raw })]);
+    const parts = [];
+    matches.forEach((match, index) => {
+      const start = match.index;
+      const end = index + 1 < matches.length ? matches[index + 1].index : raw.length;
+      parts.push(Object.freeze({ level: match[1], rawText: raw.slice(start, end) }));
+    });
+    return Object.freeze(parts);
+  }
+  function parseMarkedSource(value) {
+    const groups = [];
+    let qualifiers = [];
+    let current = null;
+    const flush = () => {
+      if (current?.effects?.length) groups.push(Object.freeze({
+        qualifiers: Object.freeze(current.qualifiers.slice()),
+        effects: Object.freeze(current.effects.map(effect => Object.freeze({ text: effect.text, notes: Object.freeze(effect.notes.slice()) })))
+      }));
+      current = null;
+    };
+    text(value).split(/(?=[■▼●→])/).map(text).filter(Boolean).forEach(token => {
+      const marker = token.charAt(0);
+      const body = cleanEvidence(token);
+      if (!body || !'■▼●→'.includes(marker)) return;
+      if (marker === '■' || marker === '▼') {
+        if (current?.effects?.length) {
+          flush();
+          qualifiers = [];
+        }
+        qualifiers.push(normalizeQualifier(marker, body));
+        return;
+      }
+      if (marker === '●') {
+        if (!current) {
+          const active = qualifiers.length ? qualifiers : [normalizeQualifier('■', '常時')];
+          current = { qualifiers: active.slice(), effects: [] };
+        }
+        current.effects.push({ text: body, notes: [] });
+        return;
+      }
+      if (marker === '→') {
+        if (!current) {
+          const active = qualifiers.length ? qualifiers : [normalizeQualifier('■', '常時')];
+          current = { qualifiers: active.slice(), effects: [] };
+        }
+        const effect = current.effects[current.effects.length - 1];
+        if (effect) effect.notes.push(body);
+        else current.effects.push({ text: body, notes: [] });
+      }
+    });
+    flush();
+    return Object.freeze(groups);
+  }
+  function uniqueMarkedSources(sourceTexts) {
+    const candidates = sourceTexts.map(text).filter(value => /[■▼●]/.test(value));
+    const selected = [];
+    candidates.sort((a, b) => a.length - b.length).forEach(source => {
+      const normalized = normalizeEvidence(source);
+      if (!normalized || selected.some(row => row.normalized === normalized || normalized.includes(row.normalized))) return;
+      selected.push({ source, normalized });
+    });
+    return selected.map(row => row.source);
+  }
+  function fallbackDisplaySources(groups) {
+    return Object.freeze(groups.map(group => {
+      const byCondition = new Map();
+      group.rows.forEach(row => {
+        const labels = row.conditions.length ? row.conditions : ['常時'];
+        const key = labels.join('\u0000');
+        if (!byCondition.has(key)) byCondition.set(key, { qualifiers: labels.map(label => normalizeQualifier(label === '常時' ? '■' : '■', label)), effects: [] });
+        byCondition.get(key).effects.push(Object.freeze({ text: row.effectText, notes: Object.freeze([]) }));
+      });
+      return Object.freeze({ level: '', rawText: group.rawText, parsedFromMarkers: false, groups: Object.freeze([...byCondition.values()].map(row => Object.freeze({ qualifiers: Object.freeze(row.qualifiers), effects: Object.freeze(row.effects) }))) });
+    }));
+  }
+  function buildDisplaySources(sourceTexts, groups) {
+    const parsed = [];
+    uniqueMarkedSources(sourceTexts).forEach(source => {
+      splitLevelSources(source).forEach(levelSource => {
+        const sourceGroups = parseMarkedSource(levelSource.rawText);
+        if (sourceGroups.length) parsed.push(Object.freeze({ level: levelSource.level, rawText: levelSource.rawText, parsedFromMarkers: true, groups: sourceGroups }));
+      });
+    });
+    return parsed.length ? Object.freeze(parsed) : fallbackDisplaySources(groups);
+  }
   function defaultRow(reviewed) {
     const clause = reviewed.clause;
     const conditions = conditionLabels(clause);
@@ -170,14 +271,16 @@
         rawText: text(cases[0]?.clause?.evidence?.rawText)
       });
     });
+    const displaySources = buildDisplaySources(sourceTexts, groups);
     return Object.freeze({
       category,
       name,
       groups: Object.freeze(groups),
+      displaySources,
       reviewedCaseCount: reviewed.length,
       generatedConditionalCount: generated.length,
-      fallback: !reviewed.length && generated.length > 0,
-      empty: !reviewed.length && !generated.length
+      fallback: !displaySources.length && !reviewed.length && generated.length > 0,
+      empty: !displaySources.length && !reviewed.length && !generated.length
     });
   }
   function renderHtml(options = {}) {
@@ -186,15 +289,18 @@
     if (view.fallback) {
       return `<div class="detail-condition-fallback" data-condition-trust="generated"><strong>原文表示</strong><span>構造化確認中の条件が${view.generatedConditionalCount}件あります。未確認データを推測せず、原文を表示しています。</span></div>`;
     }
-    const groupsHtml = view.groups.map(group => {
-      const rows = group.rows.map(row => {
-        const conditionHtml = row.conditions.map(label => `<span class="detail-condition-chip">${esc(label)}</span>`).join('');
-        const semanticHtml = row.semanticTypes.map(type => `<span class="detail-semantic-chip" title="${esc(type)}">${esc(TYPE_LABELS[type] || type)}</span>`).join('');
-        return `<li class="detail-condition-row" data-case-ids="${esc(row.caseIds.join(' '))}"><div class="detail-condition-when">${conditionHtml}</div><div class="detail-condition-effect">${esc(row.effectText)}</div>${semanticHtml ? `<div class="detail-condition-semantics">${semanticHtml}</div>` : ''}</li>`;
+    const groupsHtml = view.displaySources.map(source => {
+      const levelHtml = source.level ? `<div class="detail-condition-level">Lv ${esc(source.level)}</div>` : '';
+      const effectGroups = source.groups.map(group => {
+        const qualifiers = group.qualifiers.map(row => `<div class="detail-effect-qualifier is-${esc(row.kind)}"><span>${esc(row.caption)}</span><strong>${esc(row.label)}</strong></div>`).join('');
+        const effects = group.effects.map(effect => `<li><div>${esc(effect.text)}</div>${effect.notes.map(note => `<div class="detail-effect-note">補足：${esc(note)}</div>`).join('')}</li>`).join('');
+        return `<section class="detail-effect-group"><header>${qualifiers}</header><ul>${effects}</ul></section>`;
       }).join('');
-      return `<section class="detail-condition-group" data-source-unit="${esc(group.sourceUnitId)}"><ul class="detail-condition-list">${rows}</ul><details class="detail-condition-raw"><summary>原文を表示</summary><div>${esc(group.rawText)}</div></details></section>`;
+      const rawLabel = source.parsedFromMarkers ? 'この技能Lvの原文を表示' : 'この効果の原文を表示';
+      return `<section class="detail-condition-source">${levelHtml}${effectGroups}<details class="detail-condition-raw"><summary>${rawLabel}</summary><div>${esc(source.rawText)}</div></details></section>`;
     }).join('');
-    return `<div class="detail-condition-card" data-condition-trust="reviewed"><div class="detail-condition-card-head"><strong>条件と効果</strong><span>確認済み ${view.reviewedCaseCount}件</span></div>${groupsHtml}</div>`;
+    const trust = view.reviewedCaseCount ? 'reviewed' : 'source';
+    return `<div class="detail-condition-card" data-condition-trust="${trust}"><div class="detail-condition-card-head"><strong>適用条件と効果</strong></div><p class="detail-condition-help">条件ごとに、その条件で有効になる効果をまとめています。</p>${groupsHtml}</div>`;
   }
 
   return Object.freeze({ TYPE_LABELS, buildViewModel, renderHtml });
