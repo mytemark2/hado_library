@@ -34,14 +34,16 @@ const generatedSkill = data.items.find(item => item.category === 'skills' && ite
 assert(generatedSkill, 'a generated-only skill fixture is required');
 const generatedEvidence = generatedSkill.clauses.find(clause => clause.when).evidence.rawText;
 const fallback = presenter.buildViewModel({ category: 'skills', name: generatedSkill.name, sourceTexts: [generatedEvidence] });
-assert.strictEqual(fallback.fallback, true);
+assert.strictEqual(fallback.fallback, false, 'explicit source markers are safe to group without inferring semantic conditions');
 const fallbackHtml = presenter.renderHtml({ category: 'skills', name: generatedSkill.name, sourceTexts: [generatedEvidence] });
-assert(fallbackHtml.includes('data-condition-trust="generated"'));
-assert(fallbackHtml.includes('未確認データを推測せず'));
+assert(fallbackHtml.includes('data-condition-trust="source"'));
+assert(fallbackHtml.includes('detail-effect-group'));
+assert(!fallbackHtml.includes('未確認データを推測せず'));
 
 const css = fs.readFileSync(path.join(ROOT, 'hado_update04.css'), 'utf8');
 assert(css.includes('@media(max-width:760px)'));
 assert(css.includes('overflow-wrap:anywhere'));
-assert(css.includes('.detail-condition-row{display:grid'));
+assert(css.includes('.detail-effect-group>header{display:grid'));
+assert(css.includes('.detail-effect-group>ul'));
 
-console.log('Update04 detail presenter ok: 44 reviewed cases / LR袁紹 gated 700% / generated raw fallback / mobile CSS');
+console.log('Update04 detail presenter ok: 44 reviewed cases / LR袁紹 gated 700% / marked-source grouping / mobile CSS');

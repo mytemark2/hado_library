@@ -42,12 +42,7 @@ const tacticRef = tacticWithCanonicalStatus.related.statusEffects.find(ref => re
 const tacticMatches = integration.getCanonicalStatusMatches({ category: 'tactics', name: tacticWithCanonicalStatus.name, statusName: tacticRef.statusEffectName || tacticRef.name, groupKey: tacticRef.groupKey });
 assert(tacticMatches.some(ref => ref.statusEffectKey === tacticRef.statusEffectKey), 'tactics must use the canonical related-link status ID');
 
-const normalHtml = integration.renderResultHtml({ category: 'generals', name: 'LR袁紹（えんしょう）' });
-assert(normalHtml.includes('data-update06-clause-summary="1"'));
-assert(normalHtml.includes('条件:主将'));
-const statusHtml = integration.renderResultHtml({ category: 'generals', name: 'LR馬良（ばりょう）', statusFilter: { kind: 'status', statusName: '有利激攻', group: 'selfAbilityBuff' } });
-assert(statusHtml.includes('正規ID一致'));
-assert(statusHtml.includes('statusEffects:12'));
+assert.strictEqual(integration.renderResultHtml, undefined, 'internal Clause diagnostics must not render on user-facing result cards');
 
 const bootstrapSource = fs.readFileSync('hado_bootstrap.js', 'utf8');
 const searchSource = fs.readFileSync('hado_search.js', 'utf8');
@@ -60,13 +55,16 @@ assert(searchSource.includes('getCanonicalStatusMatches'));
 assert(searchSource.includes("canonical-status-effect-id") || searchSource.includes('canonicalIdentity'));
 assert(statusSource.includes('mergeClauseSearchTags'));
 assert(statusSource.includes('getEntitySearchText'));
+assert(!statusSource.includes('renderResultHtml'));
+assert(!statusSource.includes('正規ID一致'));
 assert(indexHtml.indexOf('hado_detail_condition_presenter.js') < indexHtml.indexOf('hado_search_clause_integration.js'));
 assert(indexHtml.indexOf('hado_search_clause_integration.js') < indexHtml.indexOf('hado_search.js'));
-assert(indexHtml.includes('hado_update06.css?v=06-r180'));
-assert(indexHtml.includes('hado_search_clause_integration.js?v=06-r180'));
+assert(!indexHtml.includes('hado_update06.css'));
+assert(indexHtml.includes('hado_search_clause_integration.js?v=06-r181'));
+assert(!indexHtml.includes('06-r180'));
 assert(!indexHtml.includes('07-r179'));
 assert(versionSource.includes("updateNo: '06'"));
-assert(versionSource.includes('revision: 180'));
+assert(versionSource.includes('revision: 181'));
 assert(versionSource.includes('formalRelease: false'));
 
 const nodes = new Map();
@@ -77,6 +75,6 @@ context.window = context;
 vm.createContext(context);
 vm.runInContext(versionSource, context, { filename: 'hado_version.js' });
 vm.runInContext(metaSource, context, { filename: 'hado_update_meta.js' });
-assert.strictEqual(context.window.HADO_APP_DISPLAY_VERSION, '3.1.0.0 Update06 r180');
+assert.strictEqual(context.window.HADO_APP_DISPLAY_VERSION, '3.1.0.0 Update06 r181');
 
-console.log(`3.1.0.0 Update06 search clause integration ok: ${diagnostic.conditionTagCount} condition tags / ${diagnostic.triggerTagCount} trigger tags / ${diagnostic.canonicalStatusRefCount} canonical status refs`);
+console.log(`3.1.0.0 Update06 search internals ok: ${diagnostic.conditionTagCount} condition tags / ${diagnostic.triggerTagCount} trigger tags / ${diagnostic.canonicalStatusRefCount} canonical status refs / no internal result-card labels`);

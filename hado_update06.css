@@ -1,6 +1,0 @@
-/* Hado Library 3.1 Update06: Clause-derived search result tags. */
-.search-clause-summary{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
-.search-clause-chip{display:inline-flex;align-items:center;max-width:100%;padding:2px 7px;border:1px solid #c4b5fd;border-radius:999px;background:#f5f3ff;color:#5b21b6;font-size:11px;font-weight:700;line-height:1.35;overflow-wrap:anywhere}
-.search-clause-chip.is-status-id{border-color:#86c9b8;background:#ecfdf5;color:#116149}
-.search-clause-chip.is-more{border-color:#d6dde7;background:#f8fafc;color:#526173;font-weight:600}
-@media(max-width:760px){.search-clause-summary{gap:3px}.search-clause-chip{white-space:normal;padding:3px 7px}}
