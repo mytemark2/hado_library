@@ -33,19 +33,33 @@ Update06を実装した。通常検索へreviewed EffectClause由来の条件・
 
 ## 7. Validation results
 
-専用回帰、Update07 Shadow回帰、派生JSON契約、版表示整合、全App Validation 142/142、`git diff --check`はPASS。ローカルHTTP版の実ブラウザでは、通常検索のClauseタグ選択、LR袁紹の結果・詳細タグ一致、状態変化「有利激攻」の正規ID一致、LR司馬昭の検索結果・詳細Clause一致を確認した。PC 1280×720とスマートフォン390×844で横方向の画面超過はなく、ブラウザエラーログは0件だった。Actionsと公開Previewはマージ後に確定記録する。
+専用回帰、Update07 Shadow回帰、派生JSON契約、版表示整合、全App Validation 142/142、`git diff --check`はPASS。ローカルHTTP版の実ブラウザでは、通常検索のClauseタグ選択、LR袁紹の結果・詳細タグ一致、状態変化「有利激攻」の正規ID一致、LR司馬昭の検索結果・詳細Clause一致を確認した。PC 1280×720とスマートフォン390×844で横方向の画面超過はなく、ブラウザエラーログは0件だった。公開Previewでも同じ主要操作、必須資産、PC/スマートフォン表示、ログ0件を確認した。
 
 ## 8. Git commit and pull request
 
-実装完了後に確定記録する。
+- 実装commit: `4ec97ec73e88ce35dcbaeb71b2f29af20ca15c0c`
+- Pull Request: `#307`（`feature/app-3.1.0.0`へsquash merge）
+- 競合: なし。`python tools/check_pr_merge_readiness.py --base feature/app-3.1.0.0`でbase `37a2bb1e38d3d05b3819c8144dfe3d7782325840`、head `0a488d251179feb6850d77f75afc1844dbea27c5`、merge可能を確認した。
 
 ## 9. GitHub Actions result
 
-Pull Request作成後に確定記録する。
+- `App Validation / app-validation`: PASS、run `32621337247`。
+- `Notify Hado Library Preview`: push起動・PASS、run `32621356871`。
+- 通常のPreview同期に手動実行・scheduleは使用していない。
 
 ## 10. Preview synchronization result
 
-実装マージ後に実Preview repository・marker・公開URLを確認して確定記録する。
+実装commit同期時のPreview repository `main`は`308e85be4b4a772fc377bd3bf06ce5134f852c09`。`PREVIEW_SOURCE_COMMIT.txt`は`4ec97ec73e88ce35dcbaeb71b2f29af20ca15c0c`、`PREVIEW_SOURCE_BRANCH.txt`は`feature/app-3.1.0.0`、`PREVIEW_DISPLAY_VERSION.txt`は`3.1.0.0 Update06 r180`で一致した。`index.html`、`hado_formation.js`、`hado_styles.css`、`hadou_*.json`、`.nojekyll`、3 markerに加え、`hado_search_clause_integration.js`と`hado_update06.css`の配備を確認した。
+
+### Preview confirmation
+
+- 公開URL: `https://mytemark2.github.io/hado_library-preview/`
+- 表示版: `覇道ライブラリ 3.1.0.0 Update06 r180`
+- DOM/asset: Update06 JS/CSSのHTTP 200読込、ClauseチップDOM、正規ID一致DOMを確認。
+- 操作: LR袁紹の通常検索・詳細で「条件:主将」「条件:兵力50%以上」が一致。「自部隊能力強化」→「有利激攻」で39件に「正規ID一致」が表示。
+- PC/スマートフォン: 1280×720、390×844とも横方向の画面超過なし。
+- debug log: ブラウザエラーログ0件。
+- 判定: PASS。
 
 ## 11. Minimum user acceptance operation
 
@@ -53,7 +67,7 @@ Pull Request作成後に確定記録する。
 
 ## 12. Remaining issues
 
-リモート検証完了後に確定する。
+none。正式公開は全Update完了後の明示承認まで実施しない。
 
 ## 確認事項
 
