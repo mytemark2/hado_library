@@ -2,7 +2,7 @@
 
 ## 1. Summary
 
-Update07のローカル実装・全回帰・HTTP Preview確認を完了した。reviewed EffectClauseを既存scoreEvidenceへ投影するClause Shadowを追加し、現行トータルを変更せず比較値と除外理由を部隊編成へ表示する。GitHub Actionsと公開Previewの確認が終わるまではPreview未完了として扱う。
+Update07を完了した。reviewed EffectClauseを既存scoreEvidenceへ投影するClause Shadowを追加し、現行トータルを変更せず比較値と除外理由を部隊編成へ表示する。全回帰、GitHub Actions、Preview同期、公開URLのPC・スマートフォン実操作まで合格し、正式公開は行っていない。
 
 ## 2. Bug classification and root cause
 
@@ -55,25 +55,43 @@ Update07のローカル実装・全回帰・HTTP Preview確認を完了した。
 
 ## 8. Git commit and pull request
 
-- Git commit: Preview反映後に追記。
-- Pull Request: Preview反映後に追記。
+- 実装コミット: `501d866a1abf6b15d3520206cad18944339aabb8`
+- 正本squash commit: `ccd1474ac457d05b23c07d6ad839a05e66e5e986`
+- Pull Request: [#305](https://github.com/mytemark2/hado_library/pull/305)
+- Base: `feature/app-3.1.0.0`
+- merge-readiness: base `4b1749c433133e64215bb8409ed719801018cce1`、head `501d866a1abf6b15d3520206cad18944339aabb8`、競合なし。
 
 ## 9. GitHub Actions result
 
-未確認。Pull Request作成後にApp Validationを確認する。
+- `App Validation / app-validation`: SUCCESS（run `32611192813`、job `97124444670`）。
+- `Notify Hado Library Preview`: SUCCESS（run `32611216664`、job `97124506397`）。
 
 ## 10. Preview synchronization result
 
-未確認。正本マージ後にNotify Hado Library Preview、Preview repository marker、公開Pagesを確認する。現時点の状態は**未完了**。
+**PASS**。push起動の`Notify Hado Library Preview`が手動操作なしで同期し、Pages反映完了まで検証した。
+
+### Preview confirmation
+
+- 公開URL: <https://mytemark2.github.io/hado_library-preview/>
+- 表示版: `3.1.0.0 Update07 r179`
+- App正本HEAD: `ccd1474ac457d05b23c07d6ad839a05e66e5e986`
+- Preview repository `main` HEAD: `1f1687b06a28b2c94ae4a815552482aac1621b78`
+- `PREVIEW_SOURCE_COMMIT.txt`: `ccd1474ac457d05b23c07d6ad839a05e66e5e986`
+- `PREVIEW_SOURCE_BRANCH.txt`: `feature/app-3.1.0.0`
+- `PREVIEW_DISPLAY_VERSION.txt`: `3.1.0.0 Update07 r179`
+- 必須資産: `index.html`、`hado_formation.js`、`hado_styles.css`、`hado_update07.css`、`hado_update07_score_shadow.js`、`hado_type_score_evidence.js`、20派生`hadou_*.json`、`.nojekyll`、3 markerを確認。
+- DOM/操作: LR袁紹・バフ支援型で現行17 / Shadow 0、reviewed 5、除外5、条件は成立3 / 戦闘中判定1 / 判定不可14。現行トータルは17のまま。
+- PC/スマートフォン: 390×844で比較カード1件、2列、カード・ページ横あふれなし。
+- Debug log: `formationScore:update07-shadow`にtypeId、reviewed 5、identity衝突4、現行17、Shadow 0、`switchReady:false`を確認。`formationScore:update07-shadow-error`、console warning/errorなし。
+- 結果: **PASS**。
 
 ## 11. Minimum user acceptance operation
 
-公開Previewの「部隊編成」→型を選択した部隊→「Clause Shadow（比較表示）」で、現行スコアが従来値のまま、Shadowスコアと除外理由が別表示になることを確認する。
+公開Previewの「部隊編成」→LR袁紹を主将にした部隊→型「バフ支援型」で、「Clause Shadow（比較表示）」が現行17、Shadow 0、reviewed 5、除外5を別表示し、トータルスコアが17のままであることを確認する。
 
 ## 12. Remaining issues
 
-- GitHub Actions、Preview同期、公開Pages実操作が未確認。
-- EffectClauseの正規評価項目未構造化とidentity衝突があるため、新経路への切替は保留。
+なし。EffectClauseの正規評価項目未構造化とidentity衝突による新経路切替保留は、誤採点防止のための意図したUpdate07結果であり、現行スコアへ影響しない。
 
 ## 確認事項
 
