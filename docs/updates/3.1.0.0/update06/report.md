@@ -83,6 +83,9 @@ r185の一次JSONは武将488・装備251・技能661・陣形22。日曜日の�
 - r184実装commit: `6c2c3be07d2a4ee7d03dfc515613e93cbbaf24bc`
 - r184 Pull Request: `#315`（`feature/app-3.1.0.0`へsquash merge）
 - r184競合: なし。merge-readinessでbase `a00c3ce3d9098c2397948632ae7097259448389c`、head `ee1e0e43c32c70cb0dfaa817989c016865c57e88`、merge可能を確認した。
+- r185復旧commit: `17740dd62b7f70d59d00a006bad11ee0cb73c527`
+- r185 Pull Request: `#317`（`feature/app-3.1.0.0`へsquash merge）
+- r185競合: なし。merge-readinessでbase `14f3ede6d17851438d7e1647cb08d5be3f39de52`、head `a4d0b26b57d8ba18708ef3b9097bab31795ecdeb`、merge可能を確認した。
 
 ## 9. GitHub Actions result
 
@@ -91,6 +94,8 @@ r185の一次JSONは武将488・装備251・技能661・陣形22。日曜日の�
 - 通常のPreview同期に手動実行・scheduleは使用していない。
 - r184 `App Validation / app-validation`: run `32731448122`、PASS。
 - r184 `Notify Hado Library Preview`: push run `32731665384`、PASS。同期とPages公開待ちを含め1分31秒で完了した。
+- r185 `App Validation / app-validation`: PR run `32755795849`、PASS。
+- r185 `Notify Hado Library Preview`: push run `32755838912`、PASS。同期とPages公開待ちを含め1分48秒で完了した。
 
 ## 10. Preview synchronization result
 
@@ -125,9 +130,22 @@ Preview repository `main`は`1b8a23a9d06903aa835d87bc072590e7dfb4d4c0`。`PREVIE
 - debug log: ブラウザ警告・エラー0件、アプリDebug Logのerror/exception/failed 0件。
 - 判定: PASS。
 
+### r185 Preview confirmation
+
+- 公開URL: `https://mytemark2.github.io/hado_library-preview/`
+- 表示版: `覇道ライブラリ 3.1.0.0 Update06 r185`。
+- marker: source commit `17740dd62b7f70d59d00a006bad11ee0cb73c527` / branch `feature/app-3.1.0.0` / display `3.1.0.0 Update06 r185`。
+- Preview repository commit: `3f680d12f6dfee753df413ad2d23a6d6c140421c`。
+- 配備: `index.html`、`hado_formation.js`、`hado_styles.css`、一次JSON4ファイル、21派生`hadou_*.json`、`.nojekyll`、3 markerを確認。
+- 公開JSON: 武将488・装備251・技能661・陣形22。復旧対象の武将2・装備2・技能8・陣形1を全件確認。
+- PC操作: 表示件数は武将488・戦法447・技能1389・装備251・陣形22。`LR沮授`を検索して1件、詳細画面と追加技能リンクを確認。
+- スマートフォン: Chrome 390×844でr185を表示し、document/bodyの横方向超過0件。
+- debug log: PC・スマートフォンともブラウザ警告・エラー0件。
+- 判定: PASS。
+
 ## 11. Minimum user acceptance operation
 
-公開Previewの「検索」で`LR馬良`を検索し、技能内の参照カード「白眉」を確認する。「適用条件と効果」「条件／発動／適用」「補足：」「技能データ参照」が表示されず、実際の条件文と効果文だけで白眉LvⅠの2グループを読み取れることを確認する。併せて検索欄、データ管理、軍馬編成の重複説明が削除されていることを確認する。
+公開Previewの見出しが`3.1.0.0 Update06 r185`で、表示件数が武将488・装備251・陣形22であることを確認する。「検索」で`LR沮授`を検索し、1件の結果から詳細を開けることを確認する。
 
 ## 12. Remaining issues
 
