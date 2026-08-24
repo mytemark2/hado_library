@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-08-22T23:29:37.854Z",
+  "generatedAt": "2026-08-24T16:58:11.850Z",
   "dataSetId": "2026-08-13T06:28:33.208Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
@@ -33,26 +33,26 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 486,
-    "tactics": 465,
-    "equipments": 249,
-    "skills": 653,
+    "generals": 488,
+    "tactics": 467,
+    "equipments": 251,
+    "skills": 661,
     "statusEffects": 206,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
     "ethnicResearchSkills": 32,
-    "formations": 21,
+    "formations": 22,
     "fiveElements": 10,
     "warhorses": 5,
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "caa6a018",
-    "tactics": "19b2dc25",
-    "equipments": "504f8c1b",
-    "skills": "c7e8c8f5",
+    "generals": "c8a69cf2",
+    "tactics": "17b2d8ff",
+    "equipments": "4c51c466",
+    "skills": "55f06444",
     "statusEffects": "defa110c",
-    "formations": "9c5d2dae",
+    "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
     "ethnicArmaments": "c731a91c",
     "ethnicResearchSkills": "06d47d06",
@@ -61,12 +61,12 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "caa6a018",
-    "tactics": "19b2dc25",
-    "equipments": "504f8c1b",
-    "skills": "c7e8c8f5",
+    "generals": "c8a69cf2",
+    "tactics": "17b2d8ff",
+    "equipments": "4c51c466",
+    "skills": "55f06444",
     "statusEffects": "defa110c",
-    "formations": "9c5d2dae",
+    "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
     "ethnicArmaments": "c731a91c",
     "ethnicResearchSkills": "06d47d06",
@@ -77,17 +77,17 @@
   "hotfixVersion": "1.1.0.3",
   "kind": "result_card_index",
   "qualityAudit": {
-    "itemCount": 2178,
+    "itemCount": 2193,
     "categories": {
-      "generals": 486,
-      "tactics": 465,
-      "equipments": 249,
-      "skills": 653,
+      "generals": 488,
+      "tactics": 467,
+      "equipments": 251,
+      "skills": 661,
       "status_effects": 206,
       "siege_weapons": 6,
       "ethnic_armaments": 18,
       "ethnic_research_skills": 32,
-      "formations": 21,
+      "formations": 22,
       "five_elements": 10,
       "warhorses": 5,
       "warhorse_skills": 27
@@ -12024,6 +12024,55 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243495"
     },
     {
+      "id": "generals:486:LR沮授（そじゅ）",
+      "category": "generals",
+      "name": "LR沮授（そじゅ）",
+      "rawName": "【三國志 覇道】LR沮授（そじゅ）",
+      "title": "【三國志 覇道】LR沮授（そじゅ）の戦法と技能",
+      "displayName": "LR沮授（そじゅ）",
+      "subtitle": "1300（LR） / 貫通 / 侍従:下/上",
+      "badges": [
+        "LR"
+      ],
+      "optionLabel": "LR沮授（そじゅ）｜1300（LR） / 貫通 / 侍従:下/上",
+      "sortKey": 486,
+      "tagSummary": [
+        "レアリティ:LR",
+        "性別:男",
+        "天賦:1300",
+        "おすすめ編制:貫通",
+        "侍従位置:下",
+        "侍従位置:上"
+      ],
+      "hasParameterSummary": true,
+      "hasStatusRelations": false,
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572584"
+    },
+    {
+      "id": "generals:487:LR蒙恬（もうてん）",
+      "category": "generals",
+      "name": "LR蒙恬（もうてん）",
+      "rawName": "【三國志 覇道】LR蒙恬（もうてん）",
+      "title": "【三國志 覇道】LR蒙恬（もうてん）の戦法と技能",
+      "displayName": "LR蒙恬（もうてん）",
+      "subtitle": "1300（LR） / 貫通駐屯サポート / 侍従:右",
+      "badges": [
+        "LR"
+      ],
+      "optionLabel": "LR蒙恬（もうてん）｜1300（LR） / 貫通駐屯サポート / 侍従:右",
+      "sortKey": 487,
+      "tagSummary": [
+        "レアリティ:LR",
+        "性別:男",
+        "天賦:1300",
+        "おすすめ編制:貫通駐屯サポート",
+        "侍従位置:右"
+      ],
+      "hasParameterSummary": true,
+      "hasStatusRelations": false,
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572585"
+    },
+    {
       "id": "tactics:0:白眉良実",
       "category": "tactics",
       "name": "白眉良実",
@@ -19144,7 +19193,39 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243495"
     },
     {
-      "id": "tactics:445:廖化（りょうか）",
+      "id": "tactics:445:忠烈貞賢",
+      "category": "tactics",
+      "name": "忠烈貞賢",
+      "rawName": "忠烈貞賢",
+      "title": "忠烈貞賢",
+      "displayName": "忠烈貞賢",
+      "subtitle": "LR沮授（そじゅ）",
+      "badges": [],
+      "optionLabel": "忠烈貞賢｜LR沮授（そじゅ）",
+      "sortKey": 445,
+      "tagSummary": [],
+      "hasParameterSummary": true,
+      "hasStatusRelations": false,
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572584"
+    },
+    {
+      "id": "tactics:446:威振靖華",
+      "category": "tactics",
+      "name": "威振靖華",
+      "rawName": "威振靖華",
+      "title": "威振靖華",
+      "displayName": "威振靖華",
+      "subtitle": "LR蒙恬（もうてん）",
+      "badges": [],
+      "optionLabel": "威振靖華｜LR蒙恬（もうてん）",
+      "sortKey": 446,
+      "tagSummary": [],
+      "hasParameterSummary": true,
+      "hasStatusRelations": false,
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572585"
+    },
+    {
+      "id": "tactics:447:廖化（りょうか）",
       "category": "tactics",
       "name": "廖化（りょうか）",
       "rawName": "廖化（りょうか）",
@@ -19156,7 +19237,7 @@
         "歩兵"
       ],
       "optionLabel": "廖化（りょうか）｜廖化（りょうか） / 歩兵",
-      "sortKey": 445,
+      "sortKey": 447,
       "tagSummary": [
         "レアリティ:N",
         "兵科:歩兵"
@@ -19166,7 +19247,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243374"
     },
     {
-      "id": "tactics:446:劉封（りゅうほう）",
+      "id": "tactics:448:劉封（りゅうほう）",
       "category": "tactics",
       "name": "劉封（りゅうほう）",
       "rawName": "劉封（りゅうほう）",
@@ -19178,7 +19259,7 @@
         "歩兵"
       ],
       "optionLabel": "劉封（りゅうほう）｜劉封（りゅうほう） / 歩兵",
-      "sortKey": 446,
+      "sortKey": 448,
       "tagSummary": [
         "レアリティ:N",
         "兵科:歩兵"
@@ -19188,7 +19269,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243375"
     },
     {
-      "id": "tactics:447:李傕（りかく）",
+      "id": "tactics:449:李傕（りかく）",
       "category": "tactics",
       "name": "李傕（りかく）",
       "rawName": "李傕（りかく）",
@@ -19200,7 +19281,7 @@
         "騎兵"
       ],
       "optionLabel": "李傕（りかく）｜李傕（りかく） / 騎兵",
-      "sortKey": 447,
+      "sortKey": 449,
       "tagSummary": [
         "レアリティ:N",
         "兵科:騎兵"
@@ -19210,7 +19291,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243376"
     },
     {
-      "id": "tactics:448:楊脩（ようしゅう）",
+      "id": "tactics:450:楊脩（ようしゅう）",
       "category": "tactics",
       "name": "楊脩（ようしゅう）",
       "rawName": "楊脩（ようしゅう）",
@@ -19222,7 +19303,7 @@
         "弓兵"
       ],
       "optionLabel": "楊脩（ようしゅう）｜楊脩（ようしゅう） / 弓兵",
-      "sortKey": 448,
+      "sortKey": 450,
       "tagSummary": [
         "レアリティ:N",
         "兵科:弓兵"
@@ -19232,7 +19313,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243377"
     },
     {
-      "id": "tactics:449:卞喜（べんき）",
+      "id": "tactics:451:卞喜（べんき）",
       "category": "tactics",
       "name": "卞喜（べんき）",
       "rawName": "卞喜（べんき）",
@@ -19244,7 +19325,7 @@
         "弓兵"
       ],
       "optionLabel": "卞喜（べんき）｜卞喜（べんき） / 弓兵",
-      "sortKey": 449,
+      "sortKey": 451,
       "tagSummary": [
         "レアリティ:N",
         "兵科:弓兵"
@@ -19254,7 +19335,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243378"
     },
     {
-      "id": "tactics:450:武安国（ぶあんこく）",
+      "id": "tactics:452:武安国（ぶあんこく）",
       "category": "tactics",
       "name": "武安国（ぶあんこく）",
       "rawName": "武安国（ぶあんこく）",
@@ -19266,7 +19347,7 @@
         "歩兵"
       ],
       "optionLabel": "武安国（ぶあんこく）｜武安国（ぶあんこく） / 歩兵",
-      "sortKey": 450,
+      "sortKey": 452,
       "tagSummary": [
         "レアリティ:N",
         "兵科:歩兵"
@@ -19276,7 +19357,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243379"
     },
     {
-      "id": "tactics:451:潘鳳（はんぽう）",
+      "id": "tactics:453:潘鳳（はんぽう）",
       "category": "tactics",
       "name": "潘鳳（はんぽう）",
       "rawName": "潘鳳（はんぽう）",
@@ -19288,7 +19369,7 @@
         "騎兵"
       ],
       "optionLabel": "潘鳳（はんぽう）｜潘鳳（はんぽう） / 騎兵",
-      "sortKey": 451,
+      "sortKey": 453,
       "tagSummary": [
         "レアリティ:N",
         "兵科:騎兵"
@@ -19298,7 +19379,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243380"
     },
     {
-      "id": "tactics:452:陳矯（ちんきょう）",
+      "id": "tactics:454:陳矯（ちんきょう）",
       "category": "tactics",
       "name": "陳矯（ちんきょう）",
       "rawName": "陳矯（ちんきょう）",
@@ -19310,7 +19391,7 @@
         "弓兵"
       ],
       "optionLabel": "陳矯（ちんきょう）｜陳矯（ちんきょう） / 弓兵",
-      "sortKey": 452,
+      "sortKey": 454,
       "tagSummary": [
         "レアリティ:N",
         "兵科:弓兵"
@@ -19320,7 +19401,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243381"
     },
     {
-      "id": "tactics:453:祖茂（そも）",
+      "id": "tactics:455:祖茂（そも）",
       "category": "tactics",
       "name": "祖茂（そも）",
       "rawName": "祖茂（そも）",
@@ -19332,7 +19413,7 @@
         "歩兵"
       ],
       "optionLabel": "祖茂（そも）｜祖茂（そも） / 歩兵",
-      "sortKey": 453,
+      "sortKey": 455,
       "tagSummary": [
         "レアリティ:N",
         "兵科:歩兵"
@@ -19342,7 +19423,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243382"
     },
     {
-      "id": "tactics:454:曹昂（そうこう）",
+      "id": "tactics:456:曹昂（そうこう）",
       "category": "tactics",
       "name": "曹昂（そうこう）",
       "rawName": "曹昂（そうこう）",
@@ -19354,7 +19435,7 @@
         "騎兵"
       ],
       "optionLabel": "曹昂（そうこう）｜曹昂（そうこう） / 騎兵",
-      "sortKey": 454,
+      "sortKey": 456,
       "tagSummary": [
         "レアリティ:N",
         "兵科:騎兵"
@@ -19364,7 +19445,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243383"
     },
     {
-      "id": "tactics:455:曹休（そうきゅう）",
+      "id": "tactics:457:曹休（そうきゅう）",
       "category": "tactics",
       "name": "曹休（そうきゅう）",
       "rawName": "曹休（そうきゅう）",
@@ -19376,7 +19457,7 @@
         "弓兵"
       ],
       "optionLabel": "曹休（そうきゅう）｜曹休（そうきゅう） / 弓兵",
-      "sortKey": 455,
+      "sortKey": 457,
       "tagSummary": [
         "レアリティ:N",
         "兵科:弓兵"
@@ -19386,7 +19467,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243384"
     },
     {
-      "id": "tactics:456:淳于瓊（じゅんうけい）",
+      "id": "tactics:458:淳于瓊（じゅんうけい）",
       "category": "tactics",
       "name": "淳于瓊（じゅんうけい）",
       "rawName": "淳于瓊（じゅんうけい）",
@@ -19398,7 +19479,7 @@
         "騎兵"
       ],
       "optionLabel": "淳于瓊（じゅんうけい）｜淳于瓊（じゅんうけい） / 騎兵",
-      "sortKey": 456,
+      "sortKey": 458,
       "tagSummary": [
         "レアリティ:N",
         "兵科:騎兵"
@@ -19408,7 +19489,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243385"
     },
     {
-      "id": "tactics:457:朱治（しゅち）",
+      "id": "tactics:459:朱治（しゅち）",
       "category": "tactics",
       "name": "朱治（しゅち）",
       "rawName": "朱治（しゅち）",
@@ -19420,7 +19501,7 @@
         "弓兵"
       ],
       "optionLabel": "朱治（しゅち）｜朱治（しゅち） / 弓兵",
-      "sortKey": 457,
+      "sortKey": 459,
       "tagSummary": [
         "レアリティ:N",
         "兵科:弓兵"
@@ -19430,7 +19511,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243386"
     },
     {
-      "id": "tactics:458:孔融（こうゆう）",
+      "id": "tactics:460:孔融（こうゆう）",
       "category": "tactics",
       "name": "孔融（こうゆう）",
       "rawName": "孔融（こうゆう）",
@@ -19442,7 +19523,7 @@
         "弓兵"
       ],
       "optionLabel": "孔融（こうゆう）｜孔融（こうゆう） / 弓兵",
-      "sortKey": 458,
+      "sortKey": 460,
       "tagSummary": [
         "レアリティ:N",
         "兵科:弓兵"
@@ -19452,7 +19533,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243387"
     },
     {
-      "id": "tactics:459:黄祖（こうそ）",
+      "id": "tactics:461:黄祖（こうそ）",
       "category": "tactics",
       "name": "黄祖（こうそ）",
       "rawName": "黄祖（こうそ）",
@@ -19464,7 +19545,7 @@
         "弓兵"
       ],
       "optionLabel": "黄祖（こうそ）｜黄祖（こうそ） / 弓兵",
-      "sortKey": 459,
+      "sortKey": 461,
       "tagSummary": [
         "レアリティ:N",
         "兵科:弓兵"
@@ -19474,7 +19555,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243388"
     },
     {
-      "id": "tactics:460:許攸（きょゆう）",
+      "id": "tactics:462:許攸（きょゆう）",
       "category": "tactics",
       "name": "許攸（きょゆう）",
       "rawName": "許攸（きょゆう）",
@@ -19486,7 +19567,7 @@
         "弓兵"
       ],
       "optionLabel": "許攸（きょゆう）｜許攸（きょゆう） / 弓兵",
-      "sortKey": 460,
+      "sortKey": 462,
       "tagSummary": [
         "レアリティ:N",
         "兵科:弓兵"
@@ -19496,7 +19577,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243389"
     },
     {
-      "id": "tactics:461:簡雍（かんよう）",
+      "id": "tactics:463:簡雍（かんよう）",
       "category": "tactics",
       "name": "簡雍（かんよう）",
       "rawName": "簡雍（かんよう）",
@@ -19508,7 +19589,7 @@
         "歩兵"
       ],
       "optionLabel": "簡雍（かんよう）｜簡雍（かんよう） / 歩兵",
-      "sortKey": 461,
+      "sortKey": 463,
       "tagSummary": [
         "レアリティ:N",
         "兵科:歩兵"
@@ -19518,7 +19599,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243390"
     },
     {
-      "id": "tactics:462:夏侯楙（かこうぼう）",
+      "id": "tactics:464:夏侯楙（かこうぼう）",
       "category": "tactics",
       "name": "夏侯楙（かこうぼう）",
       "rawName": "夏侯楙（かこうぼう）",
@@ -19530,7 +19611,7 @@
         "歩兵"
       ],
       "optionLabel": "夏侯楙（かこうぼう）｜夏侯楙（かこうぼう） / 歩兵",
-      "sortKey": 462,
+      "sortKey": 464,
       "tagSummary": [
         "レアリティ:N",
         "兵科:歩兵"
@@ -19540,7 +19621,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243391"
     },
     {
-      "id": "tactics:463:夏侯恩（かこうおん）",
+      "id": "tactics:465:夏侯恩（かこうおん）",
       "category": "tactics",
       "name": "夏侯恩（かこうおん）",
       "rawName": "夏侯恩（かこうおん）",
@@ -19552,7 +19633,7 @@
         "歩兵"
       ],
       "optionLabel": "夏侯恩（かこうおん）｜夏侯恩（かこうおん） / 歩兵",
-      "sortKey": 463,
+      "sortKey": 465,
       "tagSummary": [
         "レアリティ:N",
         "兵科:歩兵"
@@ -19562,7 +19643,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243392"
     },
     {
-      "id": "tactics:464:郭汜（かくし）",
+      "id": "tactics:466:郭汜（かくし）",
       "category": "tactics",
       "name": "郭汜（かくし）",
       "rawName": "郭汜（かくし）",
@@ -19574,7 +19655,7 @@
         "騎兵"
       ],
       "optionLabel": "郭汜（かくし）｜郭汜（かくし） / 騎兵",
-      "sortKey": 464,
+      "sortKey": 466,
       "tagSummary": [
         "レアリティ:N",
         "兵科:騎兵"
@@ -26509,6 +26590,58 @@
       "hasParameterSummary": false,
       "hasStatusRelations": false,
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248393"
+    },
+    {
+      "id": "equipments:249:心翠宝玉佩",
+      "category": "equipments",
+      "name": "心翠宝玉佩",
+      "rawName": "【三國志 覇道】心翠宝玉佩",
+      "title": "【三國志 覇道】心翠宝玉佩の能力と技能",
+      "displayName": "心翠宝玉佩",
+      "subtitle": "UR / 文物 / 騎兵 歩兵 弓兵",
+      "badges": [
+        "UR",
+        "文物",
+        "騎兵",
+        "歩兵",
+        "弓兵"
+      ],
+      "optionLabel": "心翠宝玉佩｜UR / 文物 / 騎兵 歩兵 弓兵",
+      "sortKey": 249,
+      "tagSummary": [
+        "レアリティ:UR",
+        "最高レア:UR",
+        "種類:文物",
+        "兵科:騎兵",
+        "兵科:歩兵",
+        "兵科:弓兵"
+      ],
+      "hasParameterSummary": true,
+      "hasStatusRelations": false,
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572594"
+    },
+    {
+      "id": "equipments:250:万里安境矛",
+      "category": "equipments",
+      "name": "万里安境矛",
+      "rawName": "【三國志 覇道】万里安境矛",
+      "title": "【三國志 覇道】万里安境矛の能力と技能",
+      "displayName": "万里安境矛",
+      "subtitle": "UR / 武器",
+      "badges": [
+        "UR",
+        "武器"
+      ],
+      "optionLabel": "万里安境矛｜UR / 武器",
+      "sortKey": 250,
+      "tagSummary": [
+        "レアリティ:UR",
+        "最高レア:UR",
+        "種類:武器"
+      ],
+      "hasParameterSummary": true,
+      "hasStatusRelations": false,
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572595"
     },
     {
       "id": "skills:0:勤励",
@@ -38265,6 +38398,150 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/261392"
     },
     {
+      "id": "skills:653:忠賢",
+      "category": "skills",
+      "name": "忠賢",
+      "rawName": "【三國志 覇道】忠賢",
+      "title": "【三國志 覇道】忠賢の効果と所持武将・強化する装備品",
+      "displayName": "忠賢",
+      "subtitle": "Lv:Ⅰ/Ⅱ/Ⅲ/Ⅳ/Ⅴ",
+      "badges": [],
+      "optionLabel": "忠賢｜Lv:Ⅰ/Ⅱ/Ⅲ/Ⅳ/Ⅴ",
+      "sortKey": 653,
+      "tagSummary": [
+        "技能:忠賢"
+      ],
+      "hasParameterSummary": true,
+      "hasStatusRelations": false,
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572593"
+    },
+    {
+      "id": "skills:654:恬安",
+      "category": "skills",
+      "name": "恬安",
+      "rawName": "【三國志 覇道】恬安",
+      "title": "【三國志 覇道】恬安の効果と所持武将・強化する装備品",
+      "displayName": "恬安",
+      "subtitle": "Lv:Ⅰ/Ⅱ/Ⅲ/Ⅳ/Ⅴ",
+      "badges": [],
+      "optionLabel": "恬安｜Lv:Ⅰ/Ⅱ/Ⅲ/Ⅳ/Ⅴ",
+      "sortKey": 654,
+      "tagSummary": [
+        "技能:恬安"
+      ],
+      "hasParameterSummary": true,
+      "hasStatusRelations": false,
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572592"
+    },
+    {
+      "id": "skills:655:攻逐",
+      "category": "skills",
+      "name": "攻逐",
+      "rawName": "【三國志 覇道】攻逐",
+      "title": "【三國志 覇道】攻逐の効果と所持武将・強化する装備品",
+      "displayName": "攻逐",
+      "subtitle": "Lv:Ⅰ/Ⅱ/Ⅲ/Ⅳ/Ⅴ",
+      "badges": [],
+      "optionLabel": "攻逐｜Lv:Ⅰ/Ⅱ/Ⅲ/Ⅳ/Ⅴ",
+      "sortKey": 655,
+      "tagSummary": [
+        "技能:攻逐"
+      ],
+      "hasParameterSummary": true,
+      "hasStatusRelations": false,
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572590"
+    },
+    {
+      "id": "skills:656:逐敵",
+      "category": "skills",
+      "name": "逐敵",
+      "rawName": "【三國志 覇道】逐敵",
+      "title": "【三國志 覇道】逐敵の効果と所持武将・強化する装備品",
+      "displayName": "逐敵",
+      "subtitle": "Lv:Ⅰ/Ⅱ/Ⅲ/Ⅳ/Ⅴ",
+      "badges": [],
+      "optionLabel": "逐敵｜Lv:Ⅰ/Ⅱ/Ⅲ/Ⅳ/Ⅴ",
+      "sortKey": 656,
+      "tagSummary": [
+        "技能:逐敵"
+      ],
+      "hasParameterSummary": true,
+      "hasStatusRelations": false,
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572591"
+    },
+    {
+      "id": "skills:657:叡威",
+      "category": "skills",
+      "name": "叡威",
+      "rawName": "【三國志 覇道】叡威",
+      "title": "【三國志 覇道】叡威の効果と所持武将・強化する装備品",
+      "displayName": "叡威",
+      "subtitle": "Lv:Ⅰ/Ⅱ/Ⅲ/Ⅳ/Ⅴ",
+      "badges": [],
+      "optionLabel": "叡威｜Lv:Ⅰ/Ⅱ/Ⅲ/Ⅳ/Ⅴ",
+      "sortKey": 657,
+      "tagSummary": [
+        "技能:叡威"
+      ],
+      "hasParameterSummary": true,
+      "hasStatusRelations": false,
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572589"
+    },
+    {
+      "id": "skills:658:鋼志",
+      "category": "skills",
+      "name": "鋼志",
+      "rawName": "【三國志 覇道】鋼志",
+      "title": "【三國志 覇道】鋼志の効果と所持武将・強化する装備品",
+      "displayName": "鋼志",
+      "subtitle": "Lv:Ⅰ/Ⅱ/Ⅲ/Ⅳ/Ⅴ",
+      "badges": [],
+      "optionLabel": "鋼志｜Lv:Ⅰ/Ⅱ/Ⅲ/Ⅳ/Ⅴ",
+      "sortKey": 658,
+      "tagSummary": [
+        "技能:鋼志"
+      ],
+      "hasParameterSummary": true,
+      "hasStatusRelations": false,
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572588"
+    },
+    {
+      "id": "skills:659:護叡",
+      "category": "skills",
+      "name": "護叡",
+      "rawName": "【三國志 覇道】護叡",
+      "title": "【三國志 覇道】護叡の効果と所持武将・強化する装備品",
+      "displayName": "護叡",
+      "subtitle": "Lv:Ⅰ/Ⅱ/Ⅲ/Ⅳ/Ⅴ",
+      "badges": [],
+      "optionLabel": "護叡｜Lv:Ⅰ/Ⅱ/Ⅲ/Ⅳ/Ⅴ",
+      "sortKey": 659,
+      "tagSummary": [
+        "技能:護叡"
+      ],
+      "hasParameterSummary": false,
+      "hasStatusRelations": false,
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572586"
+    },
+    {
+      "id": "skills:660:執守",
+      "category": "skills",
+      "name": "執守",
+      "rawName": "【三國志 覇道】執守",
+      "title": "【三國志 覇道】執守の効果と所持武将・強化する装備品",
+      "displayName": "執守",
+      "subtitle": "Lv:Ⅰ/Ⅱ/Ⅲ/Ⅳ/Ⅴ",
+      "badges": [],
+      "optionLabel": "執守｜Lv:Ⅰ/Ⅱ/Ⅲ/Ⅳ/Ⅴ",
+      "sortKey": 660,
+      "tagSummary": [
+        "技能:執守"
+      ],
+      "hasParameterSummary": true,
+      "hasStatusRelations": false,
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572587"
+    },
+    {
       "id": "status_effects:0:治癒",
       "category": "status_effects",
       "name": "治癒",
@@ -44271,6 +44548,24 @@
       "sortKey": 20,
       "tagSummary": [
         "陣形:猛盛陣"
+      ],
+      "hasParameterSummary": false,
+      "hasStatusRelations": false,
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/261056"
+    },
+    {
+      "id": "formations:21:盾兵陣",
+      "category": "formations",
+      "name": "盾兵陣",
+      "rawName": "盾兵陣",
+      "title": "",
+      "displayName": "盾兵陣",
+      "subtitle": "formations",
+      "badges": [],
+      "optionLabel": "盾兵陣｜formations",
+      "sortKey": 21,
+      "tagSummary": [
+        "陣形:盾兵陣"
       ],
       "hasParameterSummary": false,
       "hasStatusRelations": false,

@@ -6,18 +6,18 @@
   "sourceFiles": {
     "generals": {
       "file": "hadou_generals.json",
-      "itemCount": 486,
-      "sha256": "c911dd30292e3b2c01762a410f99d2a5495802a25970fd18fd9a08abb5c8484b"
+      "itemCount": 488,
+      "sha256": "73c19b0c0a86da5ff44c6b6c2875ee58c71c72ec62e865415c1020d126635fb3"
     },
     "tactics": {
       "file": "hadou_tactics.json",
-      "itemCount": 465,
-      "sha256": "3289b4c10b53470966ae2b4496f7a13bb4cb7ec8872d7d46a96a15d2f948a524"
+      "itemCount": 467,
+      "sha256": "3f3611dc534bb1a1f3ce1007e8a39ac3c05615d6f3762e41522874d379fe5413"
     },
     "skills": {
       "file": "hadou_skills.json",
-      "itemCount": 653,
-      "sha256": "24e440c6ba2d389de051ec284da0ed5911414a23f8a2c26af481dd9f53fddc50"
+      "itemCount": 661,
+      "sha256": "087e69e30918f1c5f900c6438e36b2e6ee392c1cdbc90556a1cfaba433b942f9"
     },
     "statusEffects": {
       "file": "hadou_status_effects.json",
@@ -26,33 +26,33 @@
     }
   },
   "scanSummary": {
-    "sourceRecordCount": 1810,
-    "scannedRecordCount": 1810,
-    "semanticUnitCount": 45929,
-    "classifiedUnitCount": 45929,
+    "sourceRecordCount": 1822,
+    "scannedRecordCount": 1822,
+    "semanticUnitCount": 46362,
+    "classifiedUnitCount": 46362,
     "unresolvedUnitCount": 0,
     "unscannedRecordCount": 0,
     "byCategory": {
       "generals": {
-        "sourceRecords": 486,
-        "scannedRecords": 486,
-        "recordsWithSemanticUnits": 486,
+        "sourceRecords": 488,
+        "scannedRecords": 488,
+        "recordsWithSemanticUnits": 488,
         "recordsWithoutConditionLanguage": 0,
-        "semanticUnitCount": 26086
+        "semanticUnitCount": 26269
       },
       "tactics": {
-        "sourceRecords": 465,
-        "scannedRecords": 465,
-        "recordsWithSemanticUnits": 465,
+        "sourceRecords": 467,
+        "scannedRecords": 467,
+        "recordsWithSemanticUnits": 467,
         "recordsWithoutConditionLanguage": 0,
-        "semanticUnitCount": 2340
+        "semanticUnitCount": 2348
       },
       "skills": {
-        "sourceRecords": 653,
-        "scannedRecords": 653,
-        "recordsWithSemanticUnits": 653,
+        "sourceRecords": 661,
+        "scannedRecords": 661,
+        "recordsWithSemanticUnits": 661,
         "recordsWithoutConditionLanguage": 0,
-        "semanticUnitCount": 17265
+        "semanticUnitCount": 17507
       },
       "statusEffects": {
         "sourceRecords": 206,
@@ -68,7 +68,7 @@
       "group": "condition",
       "id": "placement_role",
       "label": "配置役割",
-      "unitCount": 8229,
+      "unitCount": 8331,
       "examples": [
         {
           "category": "generals",
@@ -94,7 +94,7 @@
       "group": "condition",
       "id": "formation_membership",
       "label": "編制・部隊内構成",
-      "unitCount": 1398,
+      "unitCount": 1410,
       "examples": [
         {
           "category": "generals",
@@ -120,7 +120,7 @@
       "group": "condition",
       "id": "troop_type",
       "label": "兵科",
-      "unitCount": 2815,
+      "unitCount": 2827,
       "examples": [
         {
           "category": "generals",
@@ -172,7 +172,7 @@
       "group": "condition",
       "id": "affinity",
       "label": "相性",
-      "unitCount": 1988,
+      "unitCount": 2025,
       "examples": [
         {
           "category": "generals",
@@ -198,7 +198,7 @@
       "group": "condition",
       "id": "formation_stat_threshold",
       "label": "編制時能力閾値",
-      "unitCount": 155,
+      "unitCount": 158,
       "examples": [
         {
           "category": "generals",
@@ -250,7 +250,7 @@
       "group": "condition",
       "id": "troop_threshold",
       "label": "現在兵力",
-      "unitCount": 1979,
+      "unitCount": 2021,
       "examples": [
         {
           "category": "generals",
@@ -276,7 +276,7 @@
       "group": "condition",
       "id": "stat_comparison",
       "label": "能力比較",
-      "unitCount": 487,
+      "unitCount": 492,
       "examples": [
         {
           "category": "generals",
@@ -302,7 +302,7 @@
       "group": "condition",
       "id": "status_presence_count",
       "label": "状態変化の有無・個数",
-      "unitCount": 682,
+      "unitCount": 692,
       "examples": [
         {
           "category": "generals",
@@ -328,7 +328,7 @@
       "group": "condition",
       "id": "skill_level",
       "label": "技能Lv",
-      "unitCount": 749,
+      "unitCount": 754,
       "examples": [
         {
           "category": "generals",
@@ -380,7 +380,7 @@
       "group": "condition",
       "id": "count_threshold",
       "label": "人数・部隊数・回数",
-      "unitCount": 2974,
+      "unitCount": 3008,
       "examples": [
         {
           "category": "generals",
@@ -406,7 +406,7 @@
       "group": "condition",
       "id": "probability",
       "label": "確率",
-      "unitCount": 2255,
+      "unitCount": 2270,
       "examples": [
         {
           "category": "generals",
@@ -432,7 +432,7 @@
       "group": "condition",
       "id": "target_relation",
       "label": "対象・攻撃元との関係",
-      "unitCount": 4856,
+      "unitCount": 4919,
       "examples": [
         {
           "category": "generals",
@@ -458,7 +458,7 @@
       "group": "condition",
       "id": "entity_state_relation",
       "label": "個別状態・関係条件",
-      "unitCount": 10150,
+      "unitCount": 10283,
       "examples": [
         {
           "category": "generals",
@@ -484,7 +484,7 @@
       "group": "trigger",
       "id": "sortie",
       "label": "出陣",
-      "unitCount": 795,
+      "unitCount": 818,
       "examples": [
         {
           "category": "generals",
@@ -510,7 +510,7 @@
       "group": "trigger",
       "id": "engagement_start",
       "label": "交戦開始",
-      "unitCount": 789,
+      "unitCount": 792,
       "examples": [
         {
           "category": "generals",
@@ -536,7 +536,7 @@
       "group": "trigger",
       "id": "tactic_activation",
       "label": "戦法発動",
-      "unitCount": 1548,
+      "unitCount": 1569,
       "examples": [
         {
           "category": "generals",
@@ -562,7 +562,7 @@
       "group": "trigger",
       "id": "normal_attack",
       "label": "通常攻撃",
-      "unitCount": 2369,
+      "unitCount": 2398,
       "examples": [
         {
           "category": "generals",
@@ -588,7 +588,7 @@
       "group": "trigger",
       "id": "pre_attack_or_hit",
       "label": "被攻撃・攻撃直前",
-      "unitCount": 392,
+      "unitCount": 404,
       "examples": [
         {
           "category": "generals",
@@ -614,7 +614,7 @@
       "group": "trigger",
       "id": "critical_hit",
       "label": "会心・撃心",
-      "unitCount": 1339,
+      "unitCount": 1347,
       "examples": [
         {
           "category": "generals",
@@ -692,7 +692,7 @@
       "group": "trigger",
       "id": "damage_event",
       "label": "ダメージイベント",
-      "unitCount": 896,
+      "unitCount": 899,
       "examples": [
         {
           "category": "generals",
@@ -718,7 +718,7 @@
       "group": "trigger",
       "id": "custom_event",
       "label": "その他の明示イベント",
-      "unitCount": 1493,
+      "unitCount": 1515,
       "examples": [
         {
           "category": "generals",
@@ -744,7 +744,7 @@
       "group": "context",
       "id": "always",
       "label": "常時",
-      "unitCount": 6900,
+      "unitCount": 6934,
       "examples": [
         {
           "category": "generals",
@@ -770,7 +770,7 @@
       "group": "context",
       "id": "appointment",
       "label": "任命・非戦闘",
-      "unitCount": 4248,
+      "unitCount": 4268,
       "examples": [
         {
           "category": "generals",
@@ -796,7 +796,7 @@
       "group": "modifier",
       "id": "multiplier",
       "label": "倍率変更",
-      "unitCount": 2284,
+      "unitCount": 2310,
       "examples": [
         {
           "category": "generals",
@@ -848,7 +848,7 @@
       "group": "modifier",
       "id": "override_fixed",
       "label": "固定値・上書き",
-      "unitCount": 246,
+      "unitCount": 255,
       "examples": [
         {
           "category": "generals",
@@ -874,7 +874,7 @@
       "group": "modifier",
       "id": "additive",
       "label": "加算・上乗せ・合算",
-      "unitCount": 1824,
+      "unitCount": 1845,
       "examples": [
         {
           "category": "generals",
@@ -900,7 +900,7 @@
       "group": "modifier",
       "id": "cap_floor",
       "label": "上限・下限",
-      "unitCount": 2008,
+      "unitCount": 2059,
       "examples": [
         {
           "category": "generals",
@@ -926,7 +926,7 @@
       "group": "modifier",
       "id": "conditional_adjustment",
       "label": "条件付き調整",
-      "unitCount": 3547,
+      "unitCount": 3592,
       "examples": [
         {
           "category": "generals",
@@ -952,7 +952,7 @@
       "group": "limit",
       "id": "activation_count",
       "label": "発動回数制限",
-      "unitCount": 342,
+      "unitCount": 348,
       "examples": [
         {
           "category": "generals",
@@ -978,7 +978,7 @@
       "group": "limit",
       "id": "duration",
       "label": "期間・効果時間",
-      "unitCount": 4140,
+      "unitCount": 4164,
       "examples": [
         {
           "category": "generals",
@@ -1004,7 +1004,7 @@
       "group": "limit",
       "id": "upper_lower_bound",
       "label": "数値上限・下限",
-      "unitCount": 2591,
+      "unitCount": 2637,
       "examples": [
         {
           "category": "generals",
@@ -1056,7 +1056,7 @@
       "group": "reset",
       "id": "reset_or_expire",
       "label": "リセット・終了",
-      "unitCount": 301,
+      "unitCount": 303,
       "examples": [
         {
           "category": "generals",
@@ -1082,7 +1082,7 @@
       "group": "suppression",
       "id": "activation_suppression",
       "label": "発動抑止",
-      "unitCount": 263,
+      "unitCount": 272,
       "examples": [
         {
           "category": "generals",
@@ -1134,7 +1134,7 @@
       "group": "suppression",
       "id": "ignore_or_avoid",
       "label": "無視・回避",
-      "unitCount": 824,
+      "unitCount": 841,
       "examples": [
         {
           "category": "generals",
@@ -1186,7 +1186,7 @@
       "group": "targeting",
       "id": "target_count",
       "label": "対象数",
-      "unitCount": 4478,
+      "unitCount": 4518,
       "examples": [
         {
           "category": "generals",
@@ -1212,23 +1212,23 @@
   "unresolvedUnits": [],
   "existingConditionBlocksAudit": {
     "sourceFile": "hadou_effect_condition_blocks.json",
-    "sourceSha256": "f52479ac1d623e88f82dd7201763ce0fa3cf4bd4ef79f11b2856c9991c871173",
-    "sourceItemCount": 1810,
-    "sourceBlockCount": 13928,
+    "sourceSha256": "93142971cf66f935792ebc130574415446cdaa68e02dc852588bd0767260edba",
+    "sourceItemCount": 1824,
+    "sourceBlockCount": 14101,
     "byCategory": {
       "generals": {
-        "sourceRecords": 486,
-        "indexedRecords": 481,
+        "sourceRecords": 488,
+        "indexedRecords": 483,
         "missingRecords": 5
       },
       "tactics": {
-        "sourceRecords": 465,
-        "indexedRecords": 460,
+        "sourceRecords": 467,
+        "indexedRecords": 462,
         "missingRecords": 5
       },
       "skills": {
-        "sourceRecords": 653,
-        "indexedRecords": 641,
+        "sourceRecords": 661,
+        "indexedRecords": 649,
         "missingRecords": 12
       },
       "statusEffects": {
@@ -2380,7 +2380,7 @@
         "disposition": "independently_scanned_by_update01"
       }
     ],
-    "likelyMisclassificationCount": 2196,
+    "likelyMisclassificationCount": 2218,
     "likelyMisclassifications": [
       {
         "blockId": "generals:0:11",
@@ -9108,6 +9108,73 @@
         "reason": "trigger_is_collapsed_into_condition"
       },
       {
+        "blockId": "generals:486:10",
+        "category": "generals",
+        "entity": "LR沮授（そじゅ）",
+        "currentType": "condition",
+        "suggestedRole": "trigger",
+        "tags": [
+          "trigger.sortie"
+        ],
+        "sourceText": "▼出陣時",
+        "reason": "trigger_is_collapsed_into_condition"
+      },
+      {
+        "blockId": "generals:486:19",
+        "category": "generals",
+        "entity": "LR沮授（そじゅ）",
+        "currentType": "condition",
+        "suggestedRole": "trigger",
+        "tags": [
+          "trigger.custom_event",
+          "trigger.tactic_activation"
+        ],
+        "sourceText": "▼この技能を持つ武将が戦法を発動した時",
+        "reason": "trigger_is_collapsed_into_condition"
+      },
+      {
+        "blockId": "generals:487:0",
+        "category": "generals",
+        "entity": "LR蒙恬（もうてん）",
+        "currentType": "conditionedEffect",
+        "suggestedRole": "condition",
+        "tags": [
+          "condition.entity_state_relation",
+          "condition.formation_membership",
+          "condition.formation_stat_threshold",
+          "condition.placement_role",
+          "condition.target_relation",
+          "limit.upper_lower_bound"
+        ],
+        "sourceText": "■主将で、編制時点の自部隊の防御が2500以上の際",
+        "reason": "condition_heading_is_collapsed_into_conditioned_effect"
+      },
+      {
+        "blockId": "generals:487:21",
+        "category": "generals",
+        "entity": "LR蒙恬（もうてん）",
+        "currentType": "condition",
+        "suggestedRole": "trigger",
+        "tags": [
+          "trigger.custom_event",
+          "trigger.tactic_activation"
+        ],
+        "sourceText": "▼この技能を持つ武将が戦法を発動した時",
+        "reason": "trigger_is_collapsed_into_condition"
+      },
+      {
+        "blockId": "generals:487:25",
+        "category": "generals",
+        "entity": "LR蒙恬（もうてん）",
+        "currentType": "condition",
+        "suggestedRole": "trigger",
+        "tags": [
+          "trigger.engagement_start"
+        ],
+        "sourceText": "▼駐屯/防衛中に交戦開始時",
+        "reason": "trigger_is_collapsed_into_condition"
+      },
+      {
         "blockId": "tactics:0:0",
         "category": "tactics",
         "entity": "白眉良実",
@@ -14852,7 +14919,87 @@
         "reason": "trigger_is_collapsed_into_conditioned_effect"
       },
       {
-        "blockId": "tactics:448:3",
+        "blockId": "tactics:445:0",
+        "category": "tactics",
+        "entity": "忠烈貞賢",
+        "currentType": "conditionedEffect",
+        "suggestedRole": "trigger",
+        "tags": [
+          "condition.affinity",
+          "condition.count_threshold",
+          "condition.entity_state_relation",
+          "condition.placement_role",
+          "condition.status_presence_count",
+          "condition.target_relation",
+          "condition.troop_type",
+          "limit.duration",
+          "modifier.additive",
+          "modifier.conditional_adjustment",
+          "modifier.multiplier",
+          "targeting.target_count",
+          "trigger.critical_hit",
+          "trigger.tactic_activation"
+        ],
+        "sourceText": "忠烈貞賢 兵科効果系統攻撃属性なし知力なし効果自身1部隊に50％の慧叡と練守を付与して知力を100％、撃心威力と戦法威力を25％上昇（自部隊の主将とこの武将が好相性の際、知力上昇、撃心威力上昇、戦法威力上昇の効果量が2倍になる）対象を含む敵3部隊に400％の攻撃発動間隔対象範囲発動率連鎖順30秒敵 / 中25％普通 忠烈貞賢の追加効果 追加効果対象範囲継続慧叡自分 / 単10秒知力系統の攻撃の与ダメージが効果量分上昇、知力系統の攻撃の被ダメージを効果量分軽減練守自分 / 単10秒自部隊に発生している強化効果の数に応じて、部隊の被ダメージを軽減（強化効果1つにつき5％ずつ軽減",
+        "reason": "trigger_is_collapsed_into_conditioned_effect"
+      },
+      {
+        "blockId": "tactics:445:1",
+        "category": "tactics",
+        "entity": "忠烈貞賢",
+        "currentType": "conditionedEffect",
+        "suggestedRole": "trigger",
+        "tags": [
+          "limit.duration",
+          "limit.upper_lower_bound",
+          "modifier.cap_floor",
+          "trigger.critical_hit"
+        ],
+        "sourceText": "最大50％軽減）知力変化自分 / 単10秒部隊の知力が上昇する撃心威力変化自分 / 単10秒撃心発生時の威力が上昇する戦法威力変化自分 / 単10秒戦法による攻撃の威力が上昇する",
+        "reason": "trigger_is_collapsed_into_conditioned_effect"
+      },
+      {
+        "blockId": "tactics:446:0",
+        "category": "tactics",
+        "entity": "威振靖華",
+        "currentType": "conditionedEffect",
+        "suggestedRole": "trigger",
+        "tags": [
+          "condition.count_threshold",
+          "condition.entity_state_relation",
+          "condition.placement_role",
+          "condition.stat_comparison",
+          "condition.status_presence_count",
+          "condition.target_relation",
+          "condition.troop_threshold",
+          "condition.troop_type",
+          "limit.duration",
+          "modifier.additive",
+          "modifier.cap_floor",
+          "modifier.conditional_adjustment",
+          "targeting.target_count",
+          "trigger.tactic_activation"
+        ],
+        "sourceText": "威振靖華 兵科効果系統攻撃属性盾兵特殊なし効果自身を含む味方2部隊に75％の強兵と豪昇を付与して、攻撃と知力を150％、戦法威力を50％上昇（この武将が主将の場合、上記全ての効果の味方対象部隊数+2）対象を含む敵4部隊に自部隊の攻撃または知力の高い方の系統で500％の攻撃を行う（同値の場合は知力系統）発動間隔対象範囲発動率連鎖順20秒敵 / 広25％遅い 威振靖華の追加効果 追加効果対象範囲継続強兵味方 / 狭10秒自部隊より最大兵力の低い敵部隊への与ダメージを効果量分上昇豪昇味方 / 狭10秒自部隊に発生している強化効果の数に応じて、部隊の与ダメージが上昇（強化効果1つにつき5％ずつ上昇",
+        "reason": "trigger_is_collapsed_into_conditioned_effect"
+      },
+      {
+        "blockId": "tactics:446:1",
+        "category": "tactics",
+        "entity": "威振靖華",
+        "currentType": "effect",
+        "suggestedRole": "conditionedEffect",
+        "tags": [
+          "condition.target_relation",
+          "limit.duration",
+          "limit.upper_lower_bound",
+          "modifier.cap_floor"
+        ],
+        "sourceText": "最大50％上昇）攻撃変化味方 / 狭10秒部隊の攻撃が上昇する知力変化味方 / 狭10秒部隊の知力が上昇する戦法威力変化味方 / 狭10秒戦法による攻撃の威力が上昇する",
+        "reason": "inline_condition_or_trigger_is_classified_as_plain_effect"
+      },
+      {
+        "blockId": "tactics:450:3",
         "category": "tactics",
         "entity": "楊脩（ようしゅう）",
         "currentType": "effect",
@@ -14865,7 +15012,7 @@
         "reason": "inline_condition_or_trigger_is_classified_as_plain_effect"
       },
       {
-        "blockId": "tactics:449:3",
+        "blockId": "tactics:451:3",
         "category": "tactics",
         "entity": "卞喜（べんき）",
         "currentType": "effect",
@@ -14878,7 +15025,7 @@
         "reason": "inline_condition_or_trigger_is_classified_as_plain_effect"
       },
       {
-        "blockId": "tactics:452:2",
+        "blockId": "tactics:454:2",
         "category": "tactics",
         "entity": "陳矯（ちんきょう）",
         "currentType": "effect",
@@ -14891,7 +15038,7 @@
         "reason": "inline_condition_or_trigger_is_classified_as_plain_effect"
       },
       {
-        "blockId": "tactics:455:3",
+        "blockId": "tactics:457:3",
         "category": "tactics",
         "entity": "曹休（そうきゅう）",
         "currentType": "effect",
@@ -14904,7 +15051,7 @@
         "reason": "inline_condition_or_trigger_is_classified_as_plain_effect"
       },
       {
-        "blockId": "tactics:457:3",
+        "blockId": "tactics:459:3",
         "category": "tactics",
         "entity": "朱治（しゅち）",
         "currentType": "effect",
@@ -14917,7 +15064,7 @@
         "reason": "inline_condition_or_trigger_is_classified_as_plain_effect"
       },
       {
-        "blockId": "tactics:458:3",
+        "blockId": "tactics:460:3",
         "category": "tactics",
         "entity": "孔融（こうゆう）",
         "currentType": "effect",
@@ -14930,7 +15077,7 @@
         "reason": "inline_condition_or_trigger_is_classified_as_plain_effect"
       },
       {
-        "blockId": "tactics:459:3",
+        "blockId": "tactics:461:3",
         "category": "tactics",
         "entity": "黄祖（こうそ）",
         "currentType": "effect",
@@ -14943,7 +15090,7 @@
         "reason": "inline_condition_or_trigger_is_classified_as_plain_effect"
       },
       {
-        "blockId": "tactics:460:3",
+        "blockId": "tactics:462:3",
         "category": "tactics",
         "entity": "許攸（きょゆう）",
         "currentType": "effect",
@@ -26394,6 +26541,135 @@
         "reason": "trigger_is_collapsed_into_condition"
       },
       {
+        "blockId": "skills:653:3",
+        "category": "skills",
+        "entity": "忠賢",
+        "currentType": "condition",
+        "suggestedRole": "trigger",
+        "tags": [
+          "trigger.custom_event",
+          "trigger.tactic_activation"
+        ],
+        "sourceText": "▼この技能を持つ武将が戦法を発動した時",
+        "reason": "trigger_is_collapsed_into_condition"
+      },
+      {
+        "blockId": "skills:653:7",
+        "category": "skills",
+        "entity": "忠賢",
+        "currentType": "condition",
+        "suggestedRole": "trigger",
+        "tags": [
+          "trigger.engagement_start"
+        ],
+        "sourceText": "▼駐屯/防衛中に交戦開始時",
+        "reason": "trigger_is_collapsed_into_condition"
+      },
+      {
+        "blockId": "skills:655:0",
+        "category": "skills",
+        "entity": "攻逐",
+        "currentType": "conditionedEffect",
+        "suggestedRole": "condition",
+        "tags": [
+          "condition.entity_state_relation",
+          "condition.formation_membership",
+          "condition.formation_stat_threshold",
+          "condition.placement_role",
+          "condition.target_relation",
+          "limit.upper_lower_bound"
+        ],
+        "sourceText": "■主将で、編制時点の自部隊の防御が2500以上の際",
+        "reason": "condition_heading_is_collapsed_into_conditioned_effect"
+      },
+      {
+        "blockId": "skills:656:4",
+        "category": "skills",
+        "entity": "逐敵",
+        "currentType": "condition",
+        "suggestedRole": "trigger",
+        "tags": [
+          "trigger.sortie"
+        ],
+        "sourceText": "▼出陣時",
+        "reason": "trigger_is_collapsed_into_condition"
+      },
+      {
+        "blockId": "skills:656:11",
+        "category": "skills",
+        "entity": "逐敵",
+        "currentType": "condition",
+        "suggestedRole": "trigger",
+        "tags": [
+          "trigger.sortie"
+        ],
+        "sourceText": "▼出陣時",
+        "reason": "trigger_is_collapsed_into_condition"
+      },
+      {
+        "blockId": "skills:657:4",
+        "category": "skills",
+        "entity": "叡威",
+        "currentType": "condition",
+        "suggestedRole": "trigger",
+        "tags": [
+          "trigger.custom_event",
+          "trigger.tactic_activation"
+        ],
+        "sourceText": "▼この技能を持つ武将が戦法を発動した時",
+        "reason": "trigger_is_collapsed_into_condition"
+      },
+      {
+        "blockId": "skills:658:4",
+        "category": "skills",
+        "entity": "鋼志",
+        "currentType": "condition",
+        "suggestedRole": "trigger",
+        "tags": [
+          "trigger.sortie"
+        ],
+        "sourceText": "▼出陣時",
+        "reason": "trigger_is_collapsed_into_condition"
+      },
+      {
+        "blockId": "skills:658:12",
+        "category": "skills",
+        "entity": "鋼志",
+        "currentType": "condition",
+        "suggestedRole": "trigger",
+        "tags": [
+          "trigger.sortie"
+        ],
+        "sourceText": "▼出陣時",
+        "reason": "trigger_is_collapsed_into_condition"
+      },
+      {
+        "blockId": "skills:660:5",
+        "category": "skills",
+        "entity": "執守",
+        "currentType": "condition",
+        "suggestedRole": "trigger",
+        "tags": [
+          "trigger.custom_event",
+          "trigger.tactic_activation"
+        ],
+        "sourceText": "▼この技能を持つ武将が戦法を発動した時",
+        "reason": "trigger_is_collapsed_into_condition"
+      },
+      {
+        "blockId": "skills:660:13",
+        "category": "skills",
+        "entity": "執守",
+        "currentType": "condition",
+        "suggestedRole": "trigger",
+        "tags": [
+          "trigger.custom_event",
+          "trigger.tactic_activation"
+        ],
+        "sourceText": "▼この技能を持つ武将が戦法を発動した時",
+        "reason": "trigger_is_collapsed_into_condition"
+      },
+      {
         "blockId": "equipments:0:9",
         "category": "equipments",
         "entity": "亜父奇謀冠",
@@ -33685,6 +33961,48 @@
         "reason": "condition_heading_is_collapsed_into_conditioned_effect"
       },
       {
+        "blockId": "equipments:249:3",
+        "category": "equipments",
+        "entity": "心翠宝玉佩",
+        "currentType": "conditionedEffect",
+        "suggestedRole": "condition",
+        "tags": [
+          "condition.entity_state_relation",
+          "condition.troop_threshold",
+          "limit.upper_lower_bound"
+        ],
+        "sourceText": "▼兵力が50％以上の時",
+        "reason": "condition_heading_is_collapsed_into_conditioned_effect"
+      },
+      {
+        "blockId": "equipments:249:9",
+        "category": "equipments",
+        "entity": "心翠宝玉佩",
+        "currentType": "conditionedEffect",
+        "suggestedRole": "condition",
+        "tags": [
+          "condition.entity_state_relation",
+          "condition.troop_threshold",
+          "limit.upper_lower_bound"
+        ],
+        "sourceText": "▼兵力が50％以上の時",
+        "reason": "condition_heading_is_collapsed_into_conditioned_effect"
+      },
+      {
+        "blockId": "equipments:249:14",
+        "category": "equipments",
+        "entity": "心翠宝玉佩",
+        "currentType": "conditionedEffect",
+        "suggestedRole": "condition",
+        "tags": [
+          "condition.entity_state_relation",
+          "condition.troop_threshold",
+          "limit.upper_lower_bound"
+        ],
+        "sourceText": "▼兵力が50％以上の時",
+        "reason": "condition_heading_is_collapsed_into_conditioned_effect"
+      },
+      {
         "blockId": "ethnic_armaments:2:0",
         "category": "ethnic_armaments",
         "entity": "羌弩",
@@ -33721,7 +34039,7 @@
         "reason": "inline_condition_or_trigger_is_classified_as_plain_effect"
       }
     ],
-    "ambiguousMarkerOnlyClassificationCount": 1385,
+    "ambiguousMarkerOnlyClassificationCount": 1395,
     "ambiguousMarkerOnlyClassifications": [
       {
         "blockId": "generals:0:5",
@@ -39437,6 +39755,78 @@
         "reason": "condition_marker_word_without_explicit_parent_link"
       },
       {
+        "blockId": "generals:486:5",
+        "category": "generals",
+        "entity": "LR沮授（そじゅ）",
+        "currentType": "conditionedEffect",
+        "suggestedRole": "effect",
+        "tags": [
+          "condition.placement_role",
+          "condition.probability",
+          "modifier.conditional_adjustment"
+        ],
+        "sourceText": "●副将の連鎖確率+0.5%",
+        "reason": "condition_marker_word_without_explicit_parent_link"
+      },
+      {
+        "blockId": "generals:487:5",
+        "category": "generals",
+        "entity": "LR蒙恬（もうてん）",
+        "currentType": "conditionedEffect",
+        "suggestedRole": "effect",
+        "tags": [
+          "condition.placement_role",
+          "condition.probability",
+          "modifier.conditional_adjustment"
+        ],
+        "sourceText": "●副将の連鎖確率+0.5%",
+        "reason": "condition_marker_word_without_explicit_parent_link"
+      },
+      {
+        "blockId": "generals:487:9",
+        "category": "generals",
+        "entity": "LR蒙恬（もうてん）",
+        "currentType": "conditionedEffect",
+        "suggestedRole": "effect",
+        "tags": [
+          "condition.formation_membership",
+          "condition.placement_role",
+          "condition.troop_type"
+        ],
+        "sourceText": "●副将と補佐を兵科一致として兵力を決定",
+        "reason": "condition_marker_word_without_explicit_parent_link"
+      },
+      {
+        "blockId": "generals:487:15",
+        "category": "generals",
+        "entity": "LR蒙恬（もうてん）",
+        "currentType": "conditionedEffect",
+        "suggestedRole": "effect",
+        "tags": [
+          "condition.count_threshold",
+          "condition.target_relation",
+          "limit.duration",
+          "targeting.target_count",
+          "trigger.custom_event",
+          "trigger.tactic_activation"
+        ],
+        "sourceText": "●この技能を持つ武将が戦法を発動した時、自身を含む味方4部隊に2度の絶縁を付与（15秒）",
+        "reason": "condition_marker_word_without_explicit_parent_link"
+      },
+      {
+        "blockId": "generals:487:18",
+        "category": "generals",
+        "entity": "LR蒙恬（もうてん）",
+        "currentType": "conditionedEffect",
+        "suggestedRole": "effect",
+        "tags": [
+          "condition.target_relation",
+          "limit.duration"
+        ],
+        "sourceText": "●自部隊が付与する強兵と豪昇の効果時間+5秒",
+        "reason": "condition_marker_word_without_explicit_parent_link"
+      },
+      {
         "blockId": "tactics:18:0",
         "category": "tactics",
         "entity": "壮健滅砕",
@@ -41727,7 +42117,7 @@
         "reason": "condition_marker_word_without_explicit_parent_link"
       },
       {
-        "blockId": "tactics:445:0",
+        "blockId": "tactics:447:0",
         "category": "tactics",
         "entity": "廖化（りょうか）",
         "currentType": "conditionedEffect",
@@ -41744,7 +42134,7 @@
         "reason": "condition_marker_word_without_explicit_parent_link"
       },
       {
-        "blockId": "tactics:448:2",
+        "blockId": "tactics:450:2",
         "category": "tactics",
         "entity": "楊脩（ようしゅう）",
         "currentType": "conditionedEffect",
@@ -41759,7 +42149,7 @@
         "reason": "condition_marker_word_without_explicit_parent_link"
       },
       {
-        "blockId": "tactics:449:2",
+        "blockId": "tactics:451:2",
         "category": "tactics",
         "entity": "卞喜（べんき）",
         "currentType": "conditionedEffect",
@@ -41774,7 +42164,7 @@
         "reason": "condition_marker_word_without_explicit_parent_link"
       },
       {
-        "blockId": "tactics:450:0",
+        "blockId": "tactics:452:0",
         "category": "tactics",
         "entity": "武安国（ぶあんこく）",
         "currentType": "conditionedEffect",
@@ -41787,7 +42177,7 @@
         "reason": "condition_marker_word_without_explicit_parent_link"
       },
       {
-        "blockId": "tactics:451:0",
+        "blockId": "tactics:453:0",
         "category": "tactics",
         "entity": "潘鳳（はんぽう）",
         "currentType": "conditionedEffect",
@@ -41800,7 +42190,7 @@
         "reason": "condition_marker_word_without_explicit_parent_link"
       },
       {
-        "blockId": "tactics:452:1",
+        "blockId": "tactics:454:1",
         "category": "tactics",
         "entity": "陳矯（ちんきょう）",
         "currentType": "conditionedEffect",
@@ -41815,7 +42205,7 @@
         "reason": "condition_marker_word_without_explicit_parent_link"
       },
       {
-        "blockId": "tactics:455:2",
+        "blockId": "tactics:457:2",
         "category": "tactics",
         "entity": "曹休（そうきゅう）",
         "currentType": "conditionedEffect",
@@ -41830,7 +42220,7 @@
         "reason": "condition_marker_word_without_explicit_parent_link"
       },
       {
-        "blockId": "tactics:457:2",
+        "blockId": "tactics:459:2",
         "category": "tactics",
         "entity": "朱治（しゅち）",
         "currentType": "conditionedEffect",
@@ -41845,7 +42235,7 @@
         "reason": "condition_marker_word_without_explicit_parent_link"
       },
       {
-        "blockId": "tactics:458:2",
+        "blockId": "tactics:460:2",
         "category": "tactics",
         "entity": "孔融（こうゆう）",
         "currentType": "conditionedEffect",
@@ -41860,7 +42250,7 @@
         "reason": "condition_marker_word_without_explicit_parent_link"
       },
       {
-        "blockId": "tactics:459:2",
+        "blockId": "tactics:461:2",
         "category": "tactics",
         "entity": "黄祖（こうそ）",
         "currentType": "conditionedEffect",
@@ -41875,7 +42265,7 @@
         "reason": "condition_marker_word_without_explicit_parent_link"
       },
       {
-        "blockId": "tactics:460:2",
+        "blockId": "tactics:462:2",
         "category": "tactics",
         "entity": "許攸（きょゆう）",
         "currentType": "conditionedEffect",
@@ -41890,7 +42280,7 @@
         "reason": "condition_marker_word_without_explicit_parent_link"
       },
       {
-        "blockId": "tactics:463:0",
+        "blockId": "tactics:465:0",
         "category": "tactics",
         "entity": "夏侯恩（かこうおん）",
         "currentType": "conditionedEffect",
@@ -52131,6 +52521,80 @@
         "reason": "condition_marker_word_without_explicit_parent_link"
       },
       {
+        "blockId": "skills:653:0",
+        "category": "skills",
+        "entity": "忠賢",
+        "currentType": "conditionedEffect",
+        "suggestedRole": "effect",
+        "tags": [
+          "condition.target_relation",
+          "limit.duration"
+        ],
+        "sourceText": "●自部隊が付与する強兵と豪昇の効果時間+5秒",
+        "reason": "condition_marker_word_without_explicit_parent_link"
+      },
+      {
+        "blockId": "skills:654:3",
+        "category": "skills",
+        "entity": "恬安",
+        "currentType": "conditionedEffect",
+        "suggestedRole": "effect",
+        "tags": [
+          "condition.formation_membership",
+          "condition.placement_role",
+          "condition.troop_type"
+        ],
+        "sourceText": "●副将と補佐を兵科一致として兵力を決定",
+        "reason": "condition_marker_word_without_explicit_parent_link"
+      },
+      {
+        "blockId": "skills:654:7",
+        "category": "skills",
+        "entity": "恬安",
+        "currentType": "conditionedEffect",
+        "suggestedRole": "effect",
+        "tags": [
+          "condition.count_threshold",
+          "limit.duration",
+          "targeting.target_count",
+          "trigger.custom_event",
+          "trigger.tactic_activation"
+        ],
+        "sourceText": "●この技能を持つ武将が戦法を発動した時、自身1部隊に2度の絶縁を付与（15秒）",
+        "reason": "condition_marker_word_without_explicit_parent_link"
+      },
+      {
+        "blockId": "skills:654:12",
+        "category": "skills",
+        "entity": "恬安",
+        "currentType": "conditionedEffect",
+        "suggestedRole": "effect",
+        "tags": [
+          "condition.formation_membership",
+          "condition.placement_role",
+          "condition.troop_type"
+        ],
+        "sourceText": "●副将と補佐を兵科一致として兵力を決定",
+        "reason": "condition_marker_word_without_explicit_parent_link"
+      },
+      {
+        "blockId": "skills:654:18",
+        "category": "skills",
+        "entity": "恬安",
+        "currentType": "conditionedEffect",
+        "suggestedRole": "effect",
+        "tags": [
+          "condition.count_threshold",
+          "condition.target_relation",
+          "limit.duration",
+          "targeting.target_count",
+          "trigger.custom_event",
+          "trigger.tactic_activation"
+        ],
+        "sourceText": "●この技能を持つ武将が戦法を発動した時、自身を含む味方4部隊に2度の絶縁を付与（15秒）",
+        "reason": "condition_marker_word_without_explicit_parent_link"
+      },
+      {
         "blockId": "equipments:0:5",
         "category": "equipments",
         "entity": "亜父奇謀冠",
@@ -54280,7 +54744,7 @@
         "reason": "condition_marker_word_without_explicit_parent_link"
       }
     ],
-    "conditionBlocksWithoutParentEffectLinkCount": 4787,
+    "conditionBlocksWithoutParentEffectLinkCount": 4840,
     "reuseDecision": "diagnostic_input_only",
     "limitations": [
       "statusEffects are not included in the current generator category list.",
@@ -71770,6 +72234,109 @@
       "unitDigest": "98de7c6b3b316d405c7fbf706d05455e31d98f762605ef95eedfbd3c5f55f2b0"
     },
     {
+      "id": "generals:486",
+      "category": "generals",
+      "sourceIndex": 486,
+      "name": "LR沮授（そじゅ）",
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572584",
+      "unitCount": 83,
+      "tags": [
+        "condition.affinity",
+        "condition.count_threshold",
+        "condition.entity_state_relation",
+        "condition.formation_membership",
+        "condition.placement_role",
+        "condition.probability",
+        "condition.skill_level",
+        "condition.status_presence_count",
+        "condition.target_relation",
+        "condition.troop_threshold",
+        "context.always",
+        "context.appointment",
+        "limit.activation_count",
+        "limit.duration",
+        "limit.upper_lower_bound",
+        "modifier.additive",
+        "modifier.cap_floor",
+        "modifier.conditional_adjustment",
+        "modifier.multiplier",
+        "suppression.activation_suppression",
+        "suppression.ignore_or_avoid",
+        "targeting.target_count",
+        "trigger.critical_hit",
+        "trigger.custom_event",
+        "trigger.normal_attack",
+        "trigger.pre_attack_or_hit",
+        "trigger.sortie",
+        "trigger.tactic_activation"
+      ],
+      "disposition": "semantic_units_scanned",
+      "conditionalUnitCount": 37,
+      "primaryRoleCounts": {
+        "trigger": 4,
+        "conditionedEffect": 7,
+        "effect": 33,
+        "condition": 22,
+        "context": 11,
+        "modifier": 4,
+        "description": 2
+      },
+      "unitDigest": "b8477dbc3ae7647d96e3434dcce2f2167bf24833ce20f2363e2fb6cce0f4966c"
+    },
+    {
+      "id": "generals:487",
+      "category": "generals",
+      "sourceIndex": 487,
+      "name": "LR蒙恬（もうてん）",
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572585",
+      "unitCount": 100,
+      "tags": [
+        "condition.count_threshold",
+        "condition.entity_state_relation",
+        "condition.formation_membership",
+        "condition.formation_stat_threshold",
+        "condition.placement_role",
+        "condition.probability",
+        "condition.skill_level",
+        "condition.stat_comparison",
+        "condition.status_presence_count",
+        "condition.target_relation",
+        "condition.troop_threshold",
+        "condition.troop_type",
+        "context.always",
+        "context.appointment",
+        "limit.duration",
+        "limit.upper_lower_bound",
+        "modifier.additive",
+        "modifier.cap_floor",
+        "modifier.conditional_adjustment",
+        "modifier.multiplier",
+        "modifier.override_fixed",
+        "suppression.activation_suppression",
+        "suppression.ignore_or_avoid",
+        "targeting.target_count",
+        "trigger.custom_event",
+        "trigger.damage_event",
+        "trigger.engagement_start",
+        "trigger.normal_attack",
+        "trigger.sortie",
+        "trigger.tactic_activation"
+      ],
+      "disposition": "semantic_units_scanned",
+      "conditionalUnitCount": 36,
+      "primaryRoleCounts": {
+        "condition": 23,
+        "conditionedEffect": 6,
+        "effect": 46,
+        "context": 11,
+        "modifier": 5,
+        "explanation": 4,
+        "description": 3,
+        "trigger": 2
+      },
+      "unitDigest": "3049f1ea5e0a098571a547f7f7d26ebb76c0c1a1cd5f510d1535c5945bfcd49d"
+    },
+    {
       "id": "tactics:0",
       "category": "tactics",
       "sourceIndex": 0,
@@ -83730,6 +84297,73 @@
       "id": "tactics:445",
       "category": "tactics",
       "sourceIndex": 445,
+      "name": "忠烈貞賢",
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572584",
+      "unitCount": 4,
+      "tags": [
+        "condition.affinity",
+        "condition.count_threshold",
+        "condition.entity_state_relation",
+        "condition.placement_role",
+        "condition.status_presence_count",
+        "condition.target_relation",
+        "condition.troop_type",
+        "limit.duration",
+        "limit.upper_lower_bound",
+        "modifier.additive",
+        "modifier.cap_floor",
+        "modifier.conditional_adjustment",
+        "modifier.multiplier",
+        "targeting.target_count",
+        "trigger.critical_hit",
+        "trigger.tactic_activation"
+      ],
+      "disposition": "semantic_units_scanned",
+      "conditionalUnitCount": 3,
+      "primaryRoleCounts": {
+        "trigger": 2,
+        "description": 1,
+        "conditionedEffect": 1
+      },
+      "unitDigest": "9565b2a972076872a632451225a67cad3545dc9dd7ee6d5b7ca2d8bab4b3336a"
+    },
+    {
+      "id": "tactics:446",
+      "category": "tactics",
+      "sourceIndex": 446,
+      "name": "威振靖華",
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572585",
+      "unitCount": 4,
+      "tags": [
+        "condition.count_threshold",
+        "condition.entity_state_relation",
+        "condition.placement_role",
+        "condition.stat_comparison",
+        "condition.status_presence_count",
+        "condition.target_relation",
+        "condition.troop_threshold",
+        "condition.troop_type",
+        "limit.duration",
+        "limit.upper_lower_bound",
+        "modifier.additive",
+        "modifier.cap_floor",
+        "modifier.conditional_adjustment",
+        "targeting.target_count",
+        "trigger.tactic_activation"
+      ],
+      "disposition": "semantic_units_scanned",
+      "conditionalUnitCount": 3,
+      "primaryRoleCounts": {
+        "trigger": 1,
+        "description": 1,
+        "conditionedEffect": 2
+      },
+      "unitDigest": "0581eed26f74f5bd0e8697c6f4c239888e17aec9d9b87583e861af8b367f8ba9"
+    },
+    {
+      "id": "tactics:447",
+      "category": "tactics",
+      "sourceIndex": 447,
       "name": "廖化（りょうか）",
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243374",
       "unitCount": 54,
@@ -83760,9 +84394,9 @@
       "unitDigest": "da51201cdfb0ed4815b85357938d005d39783bd8dc6f5364629e5829e8247dc4"
     },
     {
-      "id": "tactics:446",
+      "id": "tactics:448",
       "category": "tactics",
-      "sourceIndex": 446,
+      "sourceIndex": 448,
       "name": "劉封（りゅうほう）",
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243375",
       "unitCount": 53,
@@ -83790,9 +84424,9 @@
       "unitDigest": "e6852d24022de96f929cede918f55553612515fd28f656b3834878589a20bd1f"
     },
     {
-      "id": "tactics:447",
+      "id": "tactics:449",
       "category": "tactics",
-      "sourceIndex": 447,
+      "sourceIndex": 449,
       "name": "李傕（りかく）",
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243376",
       "unitCount": 50,
@@ -83821,9 +84455,9 @@
       "unitDigest": "7aa57f782be6a4ffbd7ef3477db4528544f5e54d8a7df6c664e5dd925683a65a"
     },
     {
-      "id": "tactics:448",
+      "id": "tactics:450",
       "category": "tactics",
-      "sourceIndex": 448,
+      "sourceIndex": 450,
       "name": "楊脩（ようしゅう）",
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243377",
       "unitCount": 46,
@@ -83850,9 +84484,9 @@
       "unitDigest": "feedaa248b7dad61d68903e95c99df96e2aadf34c0803140530bc77a3fcc4b43"
     },
     {
-      "id": "tactics:449",
+      "id": "tactics:451",
       "category": "tactics",
-      "sourceIndex": 449,
+      "sourceIndex": 451,
       "name": "卞喜（べんき）",
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243378",
       "unitCount": 45,
@@ -83879,9 +84513,9 @@
       "unitDigest": "4d76ce41d81d4befb4cbd664c43e5cd5a7353f21cec8c145ec42d271f8a43f01"
     },
     {
-      "id": "tactics:450",
+      "id": "tactics:452",
       "category": "tactics",
-      "sourceIndex": 450,
+      "sourceIndex": 452,
       "name": "武安国（ぶあんこく）",
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243379",
       "unitCount": 47,
@@ -83910,9 +84544,9 @@
       "unitDigest": "6a3e87455deb96c33be08969ec542a2f60dfb2ab362fc887481dac46577d232c"
     },
     {
-      "id": "tactics:451",
+      "id": "tactics:453",
       "category": "tactics",
-      "sourceIndex": 451,
+      "sourceIndex": 453,
       "name": "潘鳳（はんぽう）",
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243380",
       "unitCount": 44,
@@ -83940,9 +84574,9 @@
       "unitDigest": "8d64f928c85500842250eee9952cbaf70b0a7ebddfdd14a7e06253d478564f3b"
     },
     {
-      "id": "tactics:452",
+      "id": "tactics:454",
       "category": "tactics",
-      "sourceIndex": 452,
+      "sourceIndex": 454,
       "name": "陳矯（ちんきょう）",
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243381",
       "unitCount": 41,
@@ -83971,9 +84605,9 @@
       "unitDigest": "26b21b859b351874077ffa54abdb453e887b6c3315a959111d5ed361e383284f"
     },
     {
-      "id": "tactics:453",
+      "id": "tactics:455",
       "category": "tactics",
-      "sourceIndex": 453,
+      "sourceIndex": 455,
       "name": "祖茂（そも）",
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243382",
       "unitCount": 44,
@@ -84001,9 +84635,9 @@
       "unitDigest": "2ff15bad6124b350232f9aab385be30bed3f457abef8959f94b5e1bd546f1304"
     },
     {
-      "id": "tactics:454",
+      "id": "tactics:456",
       "category": "tactics",
-      "sourceIndex": 454,
+      "sourceIndex": 456,
       "name": "曹昂（そうこう）",
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243383",
       "unitCount": 44,
@@ -84030,9 +84664,9 @@
       "unitDigest": "dc76d82b4985c950ccc7cb8d919cb27a091a03899fccc01c934f4e57a5562d7d"
     },
     {
-      "id": "tactics:455",
+      "id": "tactics:457",
       "category": "tactics",
-      "sourceIndex": 455,
+      "sourceIndex": 457,
       "name": "曹休（そうきゅう）",
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243384",
       "unitCount": 50,
@@ -84064,9 +84698,9 @@
       "unitDigest": "12b0a5dba111c1b9bdfef18cf74ecc20b3ea507cbb2f8deac3317fbc0075634d"
     },
     {
-      "id": "tactics:456",
+      "id": "tactics:458",
       "category": "tactics",
-      "sourceIndex": 456,
+      "sourceIndex": 458,
       "name": "淳于瓊（じゅんうけい）",
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243385",
       "unitCount": 47,
@@ -84096,9 +84730,9 @@
       "unitDigest": "af3d805825d7d248459b2143249cd5240058d98b0ea9872c47a18b0c3801bfec"
     },
     {
-      "id": "tactics:457",
+      "id": "tactics:459",
       "category": "tactics",
-      "sourceIndex": 457,
+      "sourceIndex": 459,
       "name": "朱治（しゅち）",
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243386",
       "unitCount": 51,
@@ -84126,9 +84760,9 @@
       "unitDigest": "8772db233431927189b06e388604c8c7f03471f921cccebecc5f08924e4cb9ed"
     },
     {
-      "id": "tactics:458",
+      "id": "tactics:460",
       "category": "tactics",
-      "sourceIndex": 458,
+      "sourceIndex": 460,
       "name": "孔融（こうゆう）",
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243387",
       "unitCount": 49,
@@ -84156,9 +84790,9 @@
       "unitDigest": "f428753f89c0d77cd5fd9e87c4d58b30f06a5878d366031c093c7200cc62607f"
     },
     {
-      "id": "tactics:459",
+      "id": "tactics:461",
       "category": "tactics",
-      "sourceIndex": 459,
+      "sourceIndex": 461,
       "name": "黄祖（こうそ）",
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243388",
       "unitCount": 47,
@@ -84185,9 +84819,9 @@
       "unitDigest": "d23408219b20a9c9107252af6e254e0ac005b0bee62e9f57a77f303d77a6112f"
     },
     {
-      "id": "tactics:460",
+      "id": "tactics:462",
       "category": "tactics",
-      "sourceIndex": 460,
+      "sourceIndex": 462,
       "name": "許攸（きょゆう）",
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243389",
       "unitCount": 47,
@@ -84216,9 +84850,9 @@
       "unitDigest": "dffc74e1c671c6c15015a9d1329318695e1f3649d1915fcc95093c033033574f"
     },
     {
-      "id": "tactics:461",
+      "id": "tactics:463",
       "category": "tactics",
-      "sourceIndex": 461,
+      "sourceIndex": 463,
       "name": "簡雍（かんよう）",
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243390",
       "unitCount": 47,
@@ -84247,9 +84881,9 @@
       "unitDigest": "60c1c007fc0b4719111bc03f69bb1fdb791ea1d9d1c37a294840323239c331d0"
     },
     {
-      "id": "tactics:462",
+      "id": "tactics:464",
       "category": "tactics",
-      "sourceIndex": 462,
+      "sourceIndex": 464,
       "name": "夏侯楙（かこうぼう）",
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243391",
       "unitCount": 49,
@@ -84276,9 +84910,9 @@
       "unitDigest": "5acff8937f59411c3cac343d7b9aed8218574334850d5c44325cbeeed771fc24"
     },
     {
-      "id": "tactics:463",
+      "id": "tactics:465",
       "category": "tactics",
-      "sourceIndex": 463,
+      "sourceIndex": 465,
       "name": "夏侯恩（かこうおん）",
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243392",
       "unitCount": 45,
@@ -84309,9 +84943,9 @@
       "unitDigest": "909f26bf6562b8c98c1ef06ede7e2cc75b7106d387cc860fb401fcb12559ed1f"
     },
     {
-      "id": "tactics:464",
+      "id": "tactics:466",
       "category": "tactics",
-      "sourceIndex": 464,
+      "sourceIndex": 466,
       "name": "郭汜（かくし）",
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243393",
       "unitCount": 47,
@@ -103069,6 +103703,274 @@
         "description": 1
       },
       "unitDigest": "b01007f9db33bd7ddafb5e5763d80f4f2e9036a14316678f250e888dc6c9740e"
+    },
+    {
+      "id": "skills:653",
+      "category": "skills",
+      "sourceIndex": 653,
+      "name": "忠賢",
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572593",
+      "unitCount": 23,
+      "tags": [
+        "condition.count_threshold",
+        "condition.entity_state_relation",
+        "condition.placement_role",
+        "condition.target_relation",
+        "context.always",
+        "limit.duration",
+        "limit.upper_lower_bound",
+        "modifier.cap_floor",
+        "modifier.override_fixed",
+        "targeting.target_count",
+        "trigger.custom_event",
+        "trigger.engagement_start",
+        "trigger.tactic_activation"
+      ],
+      "disposition": "semantic_units_scanned",
+      "conditionalUnitCount": 10,
+      "primaryRoleCounts": {
+        "context": 2,
+        "effect": 10,
+        "condition": 4,
+        "trigger": 4,
+        "conditionedEffect": 2,
+        "description": 1
+      },
+      "unitDigest": "06962e4845dbc1ecd923055eff0b4fdba74f4ad42b036f241264a975f1398300"
+    },
+    {
+      "id": "skills:654",
+      "category": "skills",
+      "sourceIndex": 654,
+      "name": "恬安",
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572592",
+      "unitCount": 73,
+      "tags": [
+        "condition.count_threshold",
+        "condition.entity_state_relation",
+        "condition.formation_membership",
+        "condition.placement_role",
+        "condition.stat_comparison",
+        "condition.target_relation",
+        "condition.troop_threshold",
+        "condition.troop_type",
+        "context.always",
+        "limit.duration",
+        "limit.upper_lower_bound",
+        "modifier.additive",
+        "modifier.cap_floor",
+        "modifier.conditional_adjustment",
+        "modifier.multiplier",
+        "modifier.override_fixed",
+        "suppression.activation_suppression",
+        "suppression.ignore_or_avoid",
+        "targeting.target_count",
+        "trigger.custom_event",
+        "trigger.damage_event",
+        "trigger.normal_attack",
+        "trigger.sortie",
+        "trigger.tactic_activation"
+      ],
+      "disposition": "semantic_units_scanned",
+      "conditionalUnitCount": 30,
+      "primaryRoleCounts": {
+        "context": 4,
+        "effect": 26,
+        "modifier": 8,
+        "condition": 16,
+        "explanation": 8,
+        "conditionedEffect": 6,
+        "description": 5
+      },
+      "unitDigest": "849b0c848da55169d0593d40f66ef1a716a15124db75e7a0be7822b48fbe47fb"
+    },
+    {
+      "id": "skills:655",
+      "category": "skills",
+      "sourceIndex": 655,
+      "name": "攻逐",
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572590",
+      "unitCount": 7,
+      "tags": [
+        "condition.entity_state_relation",
+        "condition.formation_membership",
+        "condition.formation_stat_threshold",
+        "condition.placement_role",
+        "condition.target_relation",
+        "limit.upper_lower_bound"
+      ],
+      "disposition": "semantic_units_scanned",
+      "conditionalUnitCount": 2,
+      "primaryRoleCounts": {
+        "condition": 2,
+        "effect": 4,
+        "description": 1
+      },
+      "unitDigest": "14e093df628bf418812aa5eb2b021e2233a77f55d0a5d6ff5dc6814673fe368b"
+    },
+    {
+      "id": "skills:656",
+      "category": "skills",
+      "sourceIndex": 656,
+      "name": "逐敵",
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572591",
+      "unitCount": 31,
+      "tags": [
+        "condition.entity_state_relation",
+        "condition.placement_role",
+        "condition.probability",
+        "condition.target_relation",
+        "condition.troop_threshold",
+        "limit.upper_lower_bound",
+        "modifier.additive",
+        "modifier.cap_floor",
+        "suppression.ignore_or_avoid",
+        "targeting.target_count",
+        "trigger.sortie"
+      ],
+      "disposition": "semantic_units_scanned",
+      "conditionalUnitCount": 8,
+      "primaryRoleCounts": {
+        "condition": 4,
+        "effect": 22,
+        "trigger": 4,
+        "description": 1
+      },
+      "unitDigest": "a4f394ea398564b43fe5ac70d806fb09e06e51c4037f50a58e2a0248a8f746aa"
+    },
+    {
+      "id": "skills:657",
+      "category": "skills",
+      "sourceIndex": 657,
+      "name": "叡威",
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572589",
+      "unitCount": 17,
+      "tags": [
+        "condition.affinity",
+        "condition.count_threshold",
+        "condition.entity_state_relation",
+        "condition.formation_membership",
+        "condition.placement_role",
+        "condition.probability",
+        "condition.target_relation",
+        "condition.troop_threshold",
+        "context.always",
+        "limit.duration",
+        "limit.upper_lower_bound",
+        "modifier.additive",
+        "modifier.conditional_adjustment",
+        "modifier.multiplier",
+        "targeting.target_count",
+        "trigger.custom_event",
+        "trigger.tactic_activation"
+      ],
+      "disposition": "semantic_units_scanned",
+      "conditionalUnitCount": 10,
+      "primaryRoleCounts": {
+        "context": 2,
+        "effect": 4,
+        "modifier": 2,
+        "condition": 4,
+        "conditionedEffect": 2,
+        "trigger": 2,
+        "description": 1
+      },
+      "unitDigest": "bdff1cfc2a3a5be77cb0c6df033552f4e39d635e5ba25baf51274163622b8102"
+    },
+    {
+      "id": "skills:658",
+      "category": "skills",
+      "sourceIndex": 658,
+      "name": "鋼志",
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572588",
+      "unitCount": 53,
+      "tags": [
+        "condition.affinity",
+        "condition.count_threshold",
+        "condition.entity_state_relation",
+        "condition.placement_role",
+        "condition.status_presence_count",
+        "condition.target_relation",
+        "condition.troop_threshold",
+        "context.always",
+        "limit.activation_count",
+        "limit.upper_lower_bound",
+        "modifier.cap_floor",
+        "modifier.conditional_adjustment",
+        "modifier.multiplier",
+        "suppression.activation_suppression",
+        "suppression.ignore_or_avoid",
+        "targeting.target_count",
+        "trigger.custom_event",
+        "trigger.normal_attack",
+        "trigger.pre_attack_or_hit",
+        "trigger.sortie"
+      ],
+      "disposition": "semantic_units_scanned",
+      "conditionalUnitCount": 32,
+      "primaryRoleCounts": {
+        "context": 4,
+        "effect": 16,
+        "modifier": 4,
+        "condition": 16,
+        "conditionedEffect": 8,
+        "trigger": 4,
+        "description": 1
+      },
+      "unitDigest": "297de4cfcdfce635a351fdf66407ba2d686f41f1b5a523f3a6e8c11d911416e5"
+    },
+    {
+      "id": "skills:659",
+      "category": "skills",
+      "sourceIndex": 659,
+      "name": "護叡",
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572586",
+      "unitCount": 7,
+      "tags": [
+        "condition.affinity",
+        "condition.entity_state_relation",
+        "condition.placement_role"
+      ],
+      "disposition": "semantic_units_scanned",
+      "conditionalUnitCount": 2,
+      "primaryRoleCounts": {
+        "condition": 2,
+        "effect": 4,
+        "description": 1
+      },
+      "unitDigest": "f047c9da6fd46a34fd5c4ef6808e1041a17cf91b79ed46da848b82516e03fc80"
+    },
+    {
+      "id": "skills:660",
+      "category": "skills",
+      "sourceIndex": 660,
+      "name": "執守",
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572587",
+      "unitCount": 31,
+      "tags": [
+        "condition.affinity",
+        "condition.entity_state_relation",
+        "condition.placement_role",
+        "condition.target_relation",
+        "condition.troop_threshold",
+        "limit.duration",
+        "reset.reset_or_expire",
+        "suppression.ignore_or_avoid",
+        "targeting.target_count",
+        "trigger.critical_hit",
+        "trigger.custom_event",
+        "trigger.normal_attack",
+        "trigger.tactic_activation"
+      ],
+      "disposition": "semantic_units_scanned",
+      "conditionalUnitCount": 12,
+      "primaryRoleCounts": {
+        "condition": 8,
+        "effect": 18,
+        "trigger": 4,
+        "description": 1
+      },
+      "unitDigest": "ff28e8e4f1759834a492d7fba1da6093894f9da51bd64a9cffb5473eb1983408"
     },
     {
       "id": "statusEffects:0",

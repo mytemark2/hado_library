@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-08-22T23:29:37.854Z",
+  "generatedAt": "2026-08-24T16:58:11.850Z",
   "dataSetId": "2026-08-13T06:28:33.208Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
@@ -33,26 +33,26 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 486,
-    "tactics": 465,
-    "equipments": 249,
-    "skills": 653,
+    "generals": 488,
+    "tactics": 467,
+    "equipments": 251,
+    "skills": 661,
     "statusEffects": 206,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
     "ethnicResearchSkills": 32,
-    "formations": 21,
+    "formations": 22,
     "fiveElements": 10,
     "warhorses": 5,
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "caa6a018",
-    "tactics": "19b2dc25",
-    "equipments": "504f8c1b",
-    "skills": "c7e8c8f5",
+    "generals": "c8a69cf2",
+    "tactics": "17b2d8ff",
+    "equipments": "4c51c466",
+    "skills": "55f06444",
     "statusEffects": "defa110c",
-    "formations": "9c5d2dae",
+    "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
     "ethnicArmaments": "c731a91c",
     "ethnicResearchSkills": "06d47d06",
@@ -61,12 +61,12 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "caa6a018",
-    "tactics": "19b2dc25",
-    "equipments": "504f8c1b",
-    "skills": "c7e8c8f5",
+    "generals": "c8a69cf2",
+    "tactics": "17b2d8ff",
+    "equipments": "4c51c466",
+    "skills": "55f06444",
     "statusEffects": "defa110c",
-    "formations": "9c5d2dae",
+    "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
     "ethnicArmaments": "c731a91c",
     "ethnicResearchSkills": "06d47d06",
@@ -77,7 +77,7 @@
   "hotfixVersion": "1.1.0.3",
   "kind": "parameter_summary_index",
   "qualityAudit": {
-    "rejectedCount": 44557,
+    "rejectedCount": 44900,
     "rejectedSamples": [
       {
         "parameter": "攻撃",
@@ -480,12 +480,12 @@
         "matchedText": "兵力850090009500"
       }
     ],
-    "acceptedCount": 43848,
+    "acceptedCount": 44202,
     "contractAudit": {
       "ok": true,
-      "originalEffectCount": 19136,
-      "keptEffectCount": 17772,
-      "droppedEffectCount": 1364,
+      "originalEffectCount": 19279,
+      "keptEffectCount": 17905,
+      "droppedEffectCount": 1374,
       "arrayFragmentCount": 0,
       "keywordSource": "canonical parameterKey"
     }
@@ -275237,6 +275237,1635 @@
       "sourceEntityKey": "generals:article-243495"
     },
     {
+      "category": "generals",
+      "name": "LR沮授（そじゅ）",
+      "rawName": "【三國志 覇道】LR沮授（そじゅ）",
+      "title": "【三國志 覇道】LR沮授（そじゅ）の戦法と技能",
+      "effects": [
+        {
+          "parameter": "戦法威力",
+          "direction": "increase",
+          "value": "25％",
+          "targetSide": "self_or_ally",
+          "matchedText": "戦法威力を25％",
+          "parameterKey": "tactic_power",
+          "keywords": [
+            "戦法威力",
+            "戦法ダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "generals:article-572584:tactic_text:tactic_power:increase:self_or_ally:53cbef94"
+        },
+        {
+          "parameter": "戦法威力",
+          "direction": "increase",
+          "value": "2",
+          "targetSide": "self_or_ally",
+          "matchedText": "戦法威力上昇の効果量が2",
+          "parameterKey": "tactic_power",
+          "keywords": [
+            "戦法威力",
+            "戦法ダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "generals:article-572584:tactic_text:tactic_power:increase:self_or_ally:bd1f8bcf"
+        },
+        {
+          "parameter": "戦法威力",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "戦法威力変化自分 / 単10",
+          "parameterKey": "tactic_power",
+          "keywords": [
+            "戦法威力",
+            "戦法ダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "generals:article-572584:tactic_text:tactic_power:increase:self_or_ally:582531a5"
+        },
+        {
+          "parameter": "戦法威力",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵科弓兵輸送0%機動100射程1.5攻撃属性なし攻撃間隔6秒",
+          "parameterKey": "tactic_power",
+          "keywords": [
+            "戦法威力",
+            "戦法ダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[25].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572584:skill_text:tactic_power:increase:self_or_ally:c7293216"
+        },
+        {
+          "parameter": "撃心発生",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "撃心発生時の威力が上昇する戦法威力変化自分 / 単10",
+          "parameterKey": "critical_tactic_rate",
+          "keywords": [
+            "撃心発生",
+            "撃心発生率",
+            "撃心率"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "generals:article-572584:tactic_text:critical_tactic_rate:increase:self_or_ally:6d1cc4db"
+        },
+        {
+          "parameter": "撃心発生",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵科弓兵輸送0%機動100射程1.5攻撃属性なし攻撃間隔6秒",
+          "parameterKey": "critical_tactic_rate",
+          "keywords": [
+            "撃心発生",
+            "撃心発生率",
+            "撃心率"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[25].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572584:skill_text:critical_tactic_rate:increase:self_or_ally:c7293216"
+        },
+        {
+          "parameter": "撃心威力",
+          "direction": "increase",
+          "value": "25％",
+          "targetSide": "self_or_ally",
+          "matchedText": "撃心威力と戦法威力を25％",
+          "parameterKey": "critical_tactic_power",
+          "keywords": [
+            "撃心威力"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "generals:article-572584:tactic_text:critical_tactic_power:increase:self_or_ally:c50f2aa4"
+        },
+        {
+          "parameter": "撃心威力",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "撃心威力変化自分 / 単10",
+          "parameterKey": "critical_tactic_power",
+          "keywords": [
+            "撃心威力"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "generals:article-572584:tactic_text:critical_tactic_power:increase:self_or_ally:fb606ce2"
+        },
+        {
+          "parameter": "撃心威力",
+          "direction": "increase",
+          "value": "500",
+          "targetSide": "self_or_ally",
+          "matchedText": "撃心威力が上昇 ●出陣時の自部隊の知力に応じて、戦法による与ダメージが上昇（知力500",
+          "parameterKey": "critical_tactic_power",
+          "keywords": [
+            "撃心威力"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[16].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572584:skill_text:critical_tactic_power:increase:self_or_ally:e45a9ab2"
+        },
+        {
+          "parameter": "撃心威力",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵科弓兵輸送0%機動100射程1.5攻撃属性なし攻撃間隔6秒",
+          "parameterKey": "critical_tactic_power",
+          "keywords": [
+            "撃心威力"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[25].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572584:skill_text:critical_tactic_power:increase:self_or_ally:c7293216"
+        },
+        {
+          "parameter": "与ダメージ",
+          "direction": "increase",
+          "value": "500",
+          "targetSide": "self_or_ally",
+          "matchedText": "与ダメージが上昇（知力500",
+          "parameterKey": "damage_dealt",
+          "keywords": [
+            "与ダメージ",
+            "与えるダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[16].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572584:skill_text:damage_dealt:increase:self_or_ally:c8626baa"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージを効果量分軽減練守自分 / 単10",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "generals:article-572584:tactic_text:damage_received:decrease:self_or_ally:c12d8a0b"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "1",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージを軽減（強化効果1",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "generals:article-572584:tactic_text:damage_received:decrease:self_or_ally:e15bcbb4"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "-2%",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージ-2%",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[5].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572584:skill_text:damage_received:decrease:self_or_ally:7a64f6b9"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "-4%",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージ-4%",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[7].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572584:skill_text:damage_received:decrease:self_or_ally:c3b08b05"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "-6%",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージ-6%",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[7].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572584:skill_text:damage_received:decrease:self_or_ally:6fab899b"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "-8%",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージ-8%",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[7].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572584:skill_text:damage_received:decrease:self_or_ally:53ba6811"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "-10%",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージ-10%",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[7].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572584:skill_text:damage_received:decrease:self_or_ally:1c52389a"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "-5％",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージ-5％",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[16].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572584:skill_text:damage_received:decrease:self_or_ally:cfbb8e76"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵科弓兵輸送0%機動100射程1.5攻撃属性なし攻撃間隔6秒",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[25].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572584:skill_text:damage_received:decrease:self_or_ally:c7293216"
+        },
+        {
+          "parameter": "攻撃",
+          "direction": "increase",
+          "value": "+15%",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃を受けた際、負傷兵として生存する兵数+15%",
+          "parameterKey": "attack",
+          "keywords": [
+            "攻撃"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[5].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572584:skill_text:attack:increase:self_or_ally:c046fc25"
+        },
+        {
+          "parameter": "攻撃",
+          "direction": "increase",
+          "value": "+10%",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃を受けた際、負傷兵として生存する兵数+10%",
+          "parameterKey": "attack",
+          "keywords": [
+            "攻撃"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[8].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572584:skill_text:attack:increase:self_or_ally:3b76f26d"
+        },
+        {
+          "parameter": "攻撃",
+          "direction": "decrease",
+          "value": "-2%",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃-2%",
+          "parameterKey": "attack",
+          "keywords": [
+            "攻撃"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[26].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572584:skill_text:attack:decrease:self_or_ally:6c827ed0"
+        },
+        {
+          "parameter": "防御",
+          "direction": "decrease",
+          "value": "-2%",
+          "targetSide": "self_or_ally",
+          "matchedText": "防御-2%",
+          "parameterKey": "defense",
+          "keywords": [
+            "防御"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[26].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572584:skill_text:defense:decrease:self_or_ally:4e84ab1d"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "100％",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力を100％",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "generals:article-572584:tactic_text:intelligence:increase:self_or_ally:6e44caa1"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力が上昇する撃心威力変化自分 / 単10",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "generals:article-572584:tactic_text:intelligence:increase:self_or_ally:1358ec13"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+500",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+500",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[5].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572584:skill_text:intelligence:increase:self_or_ally:4fbf38f5"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+4%",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+4%",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[16].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572584:skill_text:intelligence:increase:self_or_ally:328b1645"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵科弓兵輸送0%機動100射程1.5攻撃属性なし攻撃間隔6秒",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[25].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572584:skill_text:intelligence:increase:self_or_ally:c7293216"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "50％",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵力が50％",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "generals:article-572584",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[16].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572584:skill_text:troops:increase:self_or_ally:35025079"
+        }
+      ],
+      "effectCount": 30,
+      "sourceEntityKey": "generals:article-572584"
+    },
+    {
+      "category": "generals",
+      "name": "LR蒙恬（もうてん）",
+      "rawName": "【三國志 覇道】LR蒙恬（もうてん）",
+      "title": "【三國志 覇道】LR蒙恬（もうてん）の戦法と技能",
+      "effects": [
+        {
+          "parameter": "戦法威力",
+          "direction": "increase",
+          "value": "50％",
+          "targetSide": "self_or_ally",
+          "matchedText": "戦法威力を50％",
+          "parameterKey": "tactic_power",
+          "keywords": [
+            "戦法威力",
+            "戦法ダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "generals:article-572585:tactic_text:tactic_power:increase:self_or_ally:3bf21538"
+        },
+        {
+          "parameter": "戦法威力",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "戦法威力変化味方 / 狭10",
+          "parameterKey": "tactic_power",
+          "keywords": [
+            "戦法威力",
+            "戦法ダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "generals:article-572585:tactic_text:tactic_power:increase:self_or_ally:7aeeaa82"
+        },
+        {
+          "parameter": "戦法威力",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵科盾兵輸送0%機動100射程1.0攻撃属性なし攻撃間隔8秒",
+          "parameterKey": "tactic_power",
+          "keywords": [
+            "戦法威力",
+            "戦法ダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[25].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572585:skill_text:tactic_power:increase:self_or_ally:5feb002a"
+        },
+        {
+          "parameter": "与ダメージ",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "与ダメージを効果量分上昇豪昇味方 / 狭10",
+          "parameterKey": "damage_dealt",
+          "keywords": [
+            "与ダメージ",
+            "与えるダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "generals:article-572585:tactic_text:damage_dealt:increase:self_or_ally:04e80b39"
+        },
+        {
+          "parameter": "与ダメージ",
+          "direction": "increase",
+          "value": "1",
+          "targetSide": "self_or_ally",
+          "matchedText": "与ダメージが上昇（強化効果1",
+          "parameterKey": "damage_dealt",
+          "keywords": [
+            "与ダメージ",
+            "与えるダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "generals:article-572585:tactic_text:damage_dealt:increase:self_or_ally:5e227d2c"
+        },
+        {
+          "parameter": "与ダメージ",
+          "direction": "increase",
+          "value": "+15％",
+          "targetSide": "self_or_ally",
+          "matchedText": "与ダメージ+15％",
+          "parameterKey": "damage_dealt",
+          "keywords": [
+            "与ダメージ",
+            "与えるダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[5].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572585:skill_text:damage_dealt:increase:self_or_ally:77850420"
+        },
+        {
+          "parameter": "与ダメージ",
+          "direction": "increase",
+          "value": "1",
+          "targetSide": "self_or_ally",
+          "matchedText": "与ダメージ上昇が「強化効果1",
+          "parameterKey": "damage_dealt",
+          "keywords": [
+            "与ダメージ",
+            "与えるダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[5].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572585:skill_text:damage_dealt:increase:self_or_ally:9bac1060"
+        },
+        {
+          "parameter": "与ダメージ",
+          "direction": "increase",
+          "value": "+5%",
+          "targetSide": "self_or_ally",
+          "matchedText": "与ダメージ+5%",
+          "parameterKey": "damage_dealt",
+          "keywords": [
+            "与ダメージ",
+            "与えるダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[8].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572585:skill_text:damage_dealt:increase:self_or_ally:acc39ec4"
+        },
+        {
+          "parameter": "与ダメージ",
+          "direction": "increase",
+          "value": "+10%",
+          "targetSide": "self_or_ally",
+          "matchedText": "与ダメージ+10%",
+          "parameterKey": "damage_dealt",
+          "keywords": [
+            "与ダメージ",
+            "与えるダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[16].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572585:skill_text:damage_dealt:increase:self_or_ally:d22e1d31"
+        },
+        {
+          "parameter": "与ダメージ",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵科盾兵輸送0%機動100射程1.0攻撃属性なし攻撃間隔8秒",
+          "parameterKey": "damage_dealt",
+          "keywords": [
+            "与ダメージ",
+            "与えるダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[25].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572585:skill_text:damage_dealt:increase:self_or_ally:5feb002a"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "-10％",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージ-10％",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[5].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572585:skill_text:damage_received:decrease:self_or_ally:bb973e94"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "-50％",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージ-50％",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[5].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572585:skill_text:damage_received:decrease:self_or_ally:af774328"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "-5%",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージ-5%",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[8].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572585:skill_text:damage_received:decrease:self_or_ally:9c750baf"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "-25%",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージ-25%",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[8].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572585:skill_text:damage_received:decrease:self_or_ally:bc4fb25f"
+        },
+        {
+          "parameter": "攻撃",
+          "direction": "increase",
+          "value": "20",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃を行う（同値の場合は知力系統）発動間隔対象範囲発動率連鎖順20",
+          "parameterKey": "attack",
+          "keywords": [
+            "攻撃"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "generals:article-572585:tactic_text:attack:increase:self_or_ally:8b859585"
+        },
+        {
+          "parameter": "攻撃",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃が上昇する知力変化味方 / 狭10",
+          "parameterKey": "attack",
+          "keywords": [
+            "攻撃"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "generals:article-572585:tactic_text:attack:increase:self_or_ally:e7d28b20"
+        },
+        {
+          "parameter": "攻撃",
+          "direction": "increase",
+          "value": "+10%",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃+10%",
+          "parameterKey": "attack",
+          "keywords": [
+            "攻撃"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[16].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572585:skill_text:attack:increase:self_or_ally:3a94b080"
+        },
+        {
+          "parameter": "攻撃",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵科盾兵輸送0%機動100射程1.0攻撃属性なし攻撃間隔8秒",
+          "parameterKey": "attack",
+          "keywords": [
+            "攻撃"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[25].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572585:skill_text:attack:increase:self_or_ally:5feb002a"
+        },
+        {
+          "parameter": "防御",
+          "direction": "increase",
+          "value": "2500",
+          "targetSide": "self_or_ally",
+          "matchedText": "防御が2500",
+          "parameterKey": "defense",
+          "keywords": [
+            "防御"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[5].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572585:skill_text:defense:increase:self_or_ally:1fb1a9c5"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "150％",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力を150％",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "generals:article-572585:tactic_text:intelligence:increase:self_or_ally:f800b192"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力が上昇する戦法威力変化味方 / 狭10",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "generals:article-572585:tactic_text:intelligence:increase:self_or_ally:08aac94b"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+10%",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+10%",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[16].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572585:skill_text:intelligence:increase:self_or_ally:de5b6e5a"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵科盾兵輸送0%機動100射程1.0攻撃属性なし攻撃間隔8秒",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[25].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572585:skill_text:intelligence:increase:self_or_ally:5feb002a"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "50％",
+          "targetSide": "enemy",
+          "matchedText": "Pv9Pv10Pv11解放将星星0星1星3基礎兵力850090009500攻撃0%0%0%防御27%29%31%被ダメ軽減-2%-4%-7%Pv12--解放将星星6--基礎兵力10000--攻撃0%--防御33%--被ダメ軽減-10%--",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[26].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572585:skill_text:troops:increase:enemy:8134f332"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "+2%",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵力+2%",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[5].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572585:skill_text:troops:increase:self_or_ally:2ca90b07"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "+4%",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵力+4%",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[7].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572585:skill_text:troops:increase:self_or_ally:468e5def"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "+6%",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵力+6%",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[7].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572585:skill_text:troops:increase:self_or_ally:4a92e169"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "+8%",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵力+8%",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[7].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572585:skill_text:troops:increase:self_or_ally:c6aba983"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "+10%",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵力+10%",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "generals:article-572585",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[7].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-572585:skill_text:troops:increase:self_or_ally:781c3278"
+        }
+      ],
+      "effectCount": 29,
+      "sourceEntityKey": "generals:article-572585"
+    },
+    {
       "category": "tactics",
       "name": "白眉良実",
       "rawName": "白眉良実",
@@ -326525,6 +328154,541 @@
       ],
       "effectCount": 5,
       "sourceEntityKey": "tactics:article-243494"
+    },
+    {
+      "category": "tactics",
+      "name": "忠烈貞賢",
+      "rawName": "忠烈貞賢",
+      "title": "忠烈貞賢",
+      "effects": [
+        {
+          "parameter": "戦法威力",
+          "direction": "increase",
+          "value": "25％",
+          "targetSide": "self_or_ally",
+          "matchedText": "戦法威力を25％",
+          "parameterKey": "tactic_power",
+          "keywords": [
+            "戦法威力",
+            "戦法ダメージ"
+          ],
+          "sourceEntityKey": "tactics:article-572584",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "tactics:article-572584:tactic_text:tactic_power:increase:self_or_ally:026fa85f"
+        },
+        {
+          "parameter": "戦法威力",
+          "direction": "increase",
+          "value": "2",
+          "targetSide": "self_or_ally",
+          "matchedText": "戦法威力上昇の効果量が2",
+          "parameterKey": "tactic_power",
+          "keywords": [
+            "戦法威力",
+            "戦法ダメージ"
+          ],
+          "sourceEntityKey": "tactics:article-572584",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "tactics:article-572584:tactic_text:tactic_power:increase:self_or_ally:e1c5cd3c"
+        },
+        {
+          "parameter": "戦法威力",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "戦法威力変化自分 / 単10",
+          "parameterKey": "tactic_power",
+          "keywords": [
+            "戦法威力",
+            "戦法ダメージ"
+          ],
+          "sourceEntityKey": "tactics:article-572584",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[0].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "tactics:article-572584:tactic_text:tactic_power:increase:self_or_ally:81691460"
+        },
+        {
+          "parameter": "撃心発生",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "撃心発生時の威力が上昇する戦法威力変化自分 / 単10",
+          "parameterKey": "critical_tactic_rate",
+          "keywords": [
+            "撃心発生",
+            "撃心発生率",
+            "撃心率"
+          ],
+          "sourceEntityKey": "tactics:article-572584",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[0].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "tactics:article-572584:tactic_text:critical_tactic_rate:increase:self_or_ally:a3fb8dd8"
+        },
+        {
+          "parameter": "撃心威力",
+          "direction": "increase",
+          "value": "25％",
+          "targetSide": "self_or_ally",
+          "matchedText": "撃心威力と戦法威力を25％",
+          "parameterKey": "critical_tactic_power",
+          "keywords": [
+            "撃心威力"
+          ],
+          "sourceEntityKey": "tactics:article-572584",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "tactics:article-572584:tactic_text:critical_tactic_power:increase:self_or_ally:82cee2fd"
+        },
+        {
+          "parameter": "撃心威力",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "撃心威力変化自分 / 単10",
+          "parameterKey": "critical_tactic_power",
+          "keywords": [
+            "撃心威力"
+          ],
+          "sourceEntityKey": "tactics:article-572584",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[0].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "tactics:article-572584:tactic_text:critical_tactic_power:increase:self_or_ally:b957d90b"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージを効果量分軽減練守自分 / 単10",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "tactics:article-572584",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[0].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "tactics:article-572584:tactic_text:damage_received:decrease:self_or_ally:daece836"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "1",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージを軽減（強化効果1",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "tactics:article-572584",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[0].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "tactics:article-572584:tactic_text:damage_received:decrease:self_or_ally:f6837ff9"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "100％",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力を100％",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "tactics:article-572584",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "tactics:article-572584:tactic_text:intelligence:increase:self_or_ally:2baef654"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力が上昇する撃心威力変化自分 / 単10",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "tactics:article-572584",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[0].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "tactics:article-572584:tactic_text:intelligence:increase:self_or_ally:aa735ca8"
+        }
+      ],
+      "effectCount": 10,
+      "sourceEntityKey": "tactics:article-572584"
+    },
+    {
+      "category": "tactics",
+      "name": "威振靖華",
+      "rawName": "威振靖華",
+      "title": "威振靖華",
+      "effects": [
+        {
+          "parameter": "戦法威力",
+          "direction": "increase",
+          "value": "50％",
+          "targetSide": "self_or_ally",
+          "matchedText": "戦法威力を50％",
+          "parameterKey": "tactic_power",
+          "keywords": [
+            "戦法威力",
+            "戦法ダメージ"
+          ],
+          "sourceEntityKey": "tactics:article-572585",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "tactics:article-572585:tactic_text:tactic_power:increase:self_or_ally:092c2b5f"
+        },
+        {
+          "parameter": "戦法威力",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "戦法威力変化味方 / 狭10",
+          "parameterKey": "tactic_power",
+          "keywords": [
+            "戦法威力",
+            "戦法ダメージ"
+          ],
+          "sourceEntityKey": "tactics:article-572585",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[0].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "tactics:article-572585:tactic_text:tactic_power:increase:self_or_ally:27dd0c23"
+        },
+        {
+          "parameter": "与ダメージ",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "与ダメージを効果量分上昇豪昇味方 / 狭10",
+          "parameterKey": "damage_dealt",
+          "keywords": [
+            "与ダメージ",
+            "与えるダメージ"
+          ],
+          "sourceEntityKey": "tactics:article-572585",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[0].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "tactics:article-572585:tactic_text:damage_dealt:increase:self_or_ally:b062fd98"
+        },
+        {
+          "parameter": "与ダメージ",
+          "direction": "increase",
+          "value": "1",
+          "targetSide": "self_or_ally",
+          "matchedText": "与ダメージが上昇（強化効果1",
+          "parameterKey": "damage_dealt",
+          "keywords": [
+            "与ダメージ",
+            "与えるダメージ"
+          ],
+          "sourceEntityKey": "tactics:article-572585",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[0].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "tactics:article-572585:tactic_text:damage_dealt:increase:self_or_ally:42e67e6d"
+        },
+        {
+          "parameter": "攻撃",
+          "direction": "increase",
+          "value": "20",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃を行う（同値の場合は知力系統）発動間隔対象範囲発動率連鎖順20",
+          "parameterKey": "attack",
+          "keywords": [
+            "攻撃"
+          ],
+          "sourceEntityKey": "tactics:article-572585",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "tactics:article-572585:tactic_text:attack:increase:self_or_ally:dfe6ea54"
+        },
+        {
+          "parameter": "攻撃",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃が上昇する知力変化味方 / 狭10",
+          "parameterKey": "attack",
+          "keywords": [
+            "攻撃"
+          ],
+          "sourceEntityKey": "tactics:article-572585",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[0].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "tactics:article-572585:tactic_text:attack:increase:self_or_ally:eaa43aff"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "150％",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力を150％",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "tactics:article-572585",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "tactics:article-572585:tactic_text:intelligence:increase:self_or_ally:a3da47e3"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "10",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力が上昇する戦法威力変化味方 / 狭10",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "tactics:article-572585",
+          "sourcePartType": "tactic_text",
+          "evidencePath": "sections[0].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "parameterFeatureKey": "tactics:article-572585:tactic_text:intelligence:increase:self_or_ally:85ade4f0"
+        }
+      ],
+      "effectCount": 8,
+      "sourceEntityKey": "tactics:article-572585"
     },
     {
       "category": "tactics",
@@ -387165,6 +389329,591 @@
       ],
       "effectCount": 3,
       "sourceEntityKey": "equipments:article-248380"
+    },
+    {
+      "category": "equipments",
+      "name": "心翠宝玉佩",
+      "rawName": "【三國志 覇道】心翠宝玉佩",
+      "title": "【三國志 覇道】心翠宝玉佩の能力と技能",
+      "effects": [
+        {
+          "parameter": "撃心威力",
+          "direction": "increase",
+          "value": "500",
+          "targetSide": "self_or_ally",
+          "matchedText": "撃心威力が上昇 ●出陣時の自部隊の知力に応じて、戦法による与ダメージが上昇（知力500",
+          "parameterKey": "critical_tactic_power",
+          "keywords": [
+            "撃心威力"
+          ],
+          "sourceEntityKey": "equipments:article-572594",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[2].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-572594:equipment_skill_text:critical_tactic_power:increase:self_or_ally:edcc2357"
+        },
+        {
+          "parameter": "撃心威力",
+          "direction": "increase",
+          "value": "+75%",
+          "targetSide": "self_or_ally",
+          "matchedText": "部隊の「機略」のLv×1%、部隊の撃心威力が上昇",
+          "parameterKey": "critical_tactic_power",
+          "keywords": [
+            "撃心威力"
+          ],
+          "sourceEntityKey": "equipments:article-572594",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[2].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-572594:equipment_skill_text:critical_tactic_power:increase:self_or_ally:b47fdbc6"
+        },
+        {
+          "parameter": "与ダメージ",
+          "direction": "increase",
+          "value": "500",
+          "targetSide": "self_or_ally",
+          "matchedText": "与ダメージが上昇（知力500",
+          "parameterKey": "damage_dealt",
+          "keywords": [
+            "与ダメージ",
+            "与えるダメージ"
+          ],
+          "sourceEntityKey": "equipments:article-572594",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[2].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-572594:equipment_skill_text:damage_dealt:increase:self_or_ally:dffe4bf1"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "-5％",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージ-5％",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "equipments:article-572594",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[2].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-572594:equipment_skill_text:damage_received:decrease:self_or_ally:1a3985f9"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "7",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力系統の通常攻撃・戦法による被ダメージ-5％ →自部隊の兵力が50％以上の際、効果が2倍（-10%）",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "equipments:article-572594",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[3].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-572594:equipment_skill_text:damage_received:decrease:self_or_ally:f718cf47"
+        },
+        {
+          "parameter": "防御",
+          "direction": "increase",
+          "value": "3",
+          "targetSide": "self_or_ally",
+          "matchedText": "武将特徴 / 所持技能LR沮授天賦1300 / 弓兵 / 護叡 / 忍耐 / 鋼志 / 指導 / 叡威",
+          "parameterKey": "defense",
+          "keywords": [
+            "防御"
+          ],
+          "sourceEntityKey": "equipments:article-572594",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[5].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-572594:equipment_skill_text:defense:increase:self_or_ally:8e1fcb61"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+4%",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+4%",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "equipments:article-572594",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[2].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-572594:equipment_skill_text:intelligence:increase:self_or_ally:ef3ba45c"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+2%",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+2%",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "equipments:article-572594",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[2].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-572594:equipment_skill_text:intelligence:increase:self_or_ally:f34027d6"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+200%",
+          "targetSide": "self_or_ally",
+          "matchedText": "部隊の知力+2%機才十全",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "equipments:article-572594",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[2].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-572594:equipment_skill_text:intelligence:increase:self_or_ally:332bbcfd"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "50％",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵力が50％",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "equipments:article-572594",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[2].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-572594:equipment_skill_text:troops:increase:self_or_ally:2fb121ca"
+        }
+      ],
+      "effectCount": 10,
+      "sourceEntityKey": "equipments:article-572594"
+    },
+    {
+      "category": "equipments",
+      "name": "万里安境矛",
+      "rawName": "【三國志 覇道】万里安境矛",
+      "title": "【三國志 覇道】万里安境矛の能力と技能",
+      "effects": [
+        {
+          "parameter": "与ダメージ",
+          "direction": "increase",
+          "value": "+10%",
+          "targetSide": "self_or_ally",
+          "matchedText": "与ダメージ+10%",
+          "parameterKey": "damage_dealt",
+          "keywords": [
+            "与ダメージ",
+            "与えるダメージ"
+          ],
+          "sourceEntityKey": "equipments:article-572595",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[2].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-572595:equipment_skill_text:damage_dealt:increase:self_or_ally:184cab10"
+        },
+        {
+          "parameter": "与ダメージ",
+          "direction": "increase",
+          "value": "+5%",
+          "targetSide": "self_or_ally",
+          "matchedText": "与ダメージ+5%",
+          "parameterKey": "damage_dealt",
+          "keywords": [
+            "与ダメージ",
+            "与えるダメージ"
+          ],
+          "sourceEntityKey": "equipments:article-572595",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[2].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-572595:equipment_skill_text:damage_dealt:increase:self_or_ally:09f3a3e8"
+        },
+        {
+          "parameter": "与ダメージ",
+          "direction": "increase",
+          "value": "3",
+          "targetSide": "self_or_ally",
+          "matchedText": "武将特徴 / 所持技能LR蒙恬天賦1300 / 盾兵 / 攻逐 / 威然 / 恬安 / 巡見 / 忠賢",
+          "parameterKey": "damage_dealt",
+          "keywords": [
+            "与ダメージ",
+            "与えるダメージ"
+          ],
+          "sourceEntityKey": "equipments:article-572595",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[5].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-572595:equipment_skill_text:damage_dealt:increase:self_or_ally:b3e20e41"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "increase",
+          "value": "+10%",
+          "targetSide": "self_or_ally",
+          "matchedText": "戦法による与ダメージ+5% →自部隊より最大兵力の低い敵部隊に対しては効果が2倍（+10%）",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "equipments:article-572595",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[2].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-572595:equipment_skill_text:damage_received:increase:self_or_ally:4e051f8a"
+        },
+        {
+          "parameter": "攻撃",
+          "direction": "increase",
+          "value": "+10%",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃+10%",
+          "parameterKey": "attack",
+          "keywords": [
+            "攻撃"
+          ],
+          "sourceEntityKey": "equipments:article-572595",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[2].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-572595:equipment_skill_text:attack:increase:self_or_ally:b01d6f0b"
+        },
+        {
+          "parameter": "攻撃",
+          "direction": "increase",
+          "value": "+3%",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃+3%",
+          "parameterKey": "attack",
+          "keywords": [
+            "攻撃"
+          ],
+          "sourceEntityKey": "equipments:article-572595",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[2].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-572595:equipment_skill_text:attack:increase:self_or_ally:8a046457"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+10%",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+10%",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "equipments:article-572595",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[2].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-572595:equipment_skill_text:intelligence:increase:self_or_ally:beb83bb1"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+3%",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+3%",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "equipments:article-572595",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[2].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-572595:equipment_skill_text:intelligence:increase:self_or_ally:335aec69"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "100％",
+          "targetSide": "self_or_ally",
+          "matchedText": "部隊の知力+3%",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "equipments:article-572595",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[2].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-572595:equipment_skill_text:intelligence:increase:self_or_ally:60ea45e1"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "+4%",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵力+4%",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "equipments:article-572595",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[2].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-572595:equipment_skill_text:troops:increase:self_or_ally:416c3eac"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "+2%",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵力+2%",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "equipments:article-572595",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[2].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-572595:equipment_skill_text:troops:increase:self_or_ally:4570c226"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "2",
+          "targetSide": "self_or_ally",
+          "matchedText": "部隊の「逐敵」の技能Lv+1（上限2）",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "equipments:article-572595",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[2].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-572595:equipment_skill_text:troops:increase:self_or_ally:e0ee6bd8"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "+10%",
+          "targetSide": "enemy",
+          "matchedText": "部隊の兵力+2%武慧凌撃",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "equipments:article-572595",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[2].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-572595:equipment_skill_text:troops:increase:enemy:c2138e22"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "3",
+          "targetSide": "self_or_ally",
+          "matchedText": "武将特徴 / 所持技能LR蒙恬天賦1300 / 盾兵 / 攻逐 / 威然 / 恬安 / 巡見 / 忠賢",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "equipments:article-572595",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[5].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-572595:equipment_skill_text:troops:increase:self_or_ally:b3e20e41"
+        }
+      ],
+      "effectCount": 14,
+      "sourceEntityKey": "equipments:article-572595"
     },
     {
       "category": "skills",
@@ -447953,6 +450702,725 @@
       ],
       "effectCount": 5,
       "sourceEntityKey": "skills:article-261392"
+    },
+    {
+      "category": "skills",
+      "name": "忠賢",
+      "rawName": "【三國志 覇道】忠賢",
+      "title": "【三國志 覇道】忠賢の効果と所持武将・強化する装備品",
+      "effects": [
+        {
+          "parameter": "与ダメージ",
+          "direction": "increase",
+          "value": "1",
+          "targetSide": "self_or_ally",
+          "matchedText": "与ダメージ上昇が「強化効果1",
+          "parameterKey": "damage_dealt",
+          "keywords": [
+            "与ダメージ",
+            "与えるダメージ"
+          ],
+          "sourceEntityKey": "skills:article-572593",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572593:skill_text:damage_dealt:increase:self_or_ally:d3e0c17d"
+        }
+      ],
+      "effectCount": 1,
+      "sourceEntityKey": "skills:article-572593"
+    },
+    {
+      "category": "skills",
+      "name": "恬安",
+      "rawName": "【三國志 覇道】恬安",
+      "title": "【三國志 覇道】恬安の効果と所持武将・強化する装備品",
+      "effects": [
+        {
+          "parameter": "与ダメージ",
+          "direction": "increase",
+          "value": "+5%",
+          "targetSide": "self_or_ally",
+          "matchedText": "与ダメージ+5%",
+          "parameterKey": "damage_dealt",
+          "keywords": [
+            "与ダメージ",
+            "与えるダメージ"
+          ],
+          "sourceEntityKey": "skills:article-572592",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572592:skill_text:damage_dealt:increase:self_or_ally:6ea1ccfc"
+        },
+        {
+          "parameter": "与ダメージ",
+          "direction": "increase",
+          "value": "+15％",
+          "targetSide": "self_or_ally",
+          "matchedText": "与ダメージ+15％",
+          "parameterKey": "damage_dealt",
+          "keywords": [
+            "与ダメージ",
+            "与えるダメージ"
+          ],
+          "sourceEntityKey": "skills:article-572592",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572592:skill_text:damage_dealt:increase:self_or_ally:94e118e7"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "-5%",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージ-5%",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "skills:article-572592",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572592:skill_text:damage_received:decrease:self_or_ally:7dccc6e7"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "-25%",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージ-25%",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "skills:article-572592",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572592:skill_text:damage_received:decrease:self_or_ally:f16bd047"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "-10％",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージ-10％",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "skills:article-572592",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572592:skill_text:damage_received:decrease:self_or_ally:0ccb8bdb"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "-50％",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージ-50％",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "skills:article-572592",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572592:skill_text:damage_received:decrease:self_or_ally:d6b309e7"
+        }
+      ],
+      "effectCount": 6,
+      "sourceEntityKey": "skills:article-572592"
+    },
+    {
+      "category": "skills",
+      "name": "攻逐",
+      "rawName": "【三國志 覇道】攻逐",
+      "title": "【三國志 覇道】攻逐の効果と所持武将・強化する装備品",
+      "effects": [
+        {
+          "parameter": "防御",
+          "direction": "increase",
+          "value": "2500",
+          "targetSide": "self_or_ally",
+          "matchedText": "防御が2500",
+          "parameterKey": "defense",
+          "keywords": [
+            "防御"
+          ],
+          "sourceEntityKey": "skills:article-572590",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572590:skill_text:defense:increase:self_or_ally:e6ab19ca"
+        }
+      ],
+      "effectCount": 1,
+      "sourceEntityKey": "skills:article-572590"
+    },
+    {
+      "category": "skills",
+      "name": "逐敵",
+      "rawName": "【三國志 覇道】逐敵",
+      "title": "【三國志 覇道】逐敵の効果と所持武将・強化する装備品",
+      "effects": [
+        {
+          "parameter": "与ダメージ",
+          "direction": "increase",
+          "value": "+10%",
+          "targetSide": "self_or_ally",
+          "matchedText": "与ダメージ+10%",
+          "parameterKey": "damage_dealt",
+          "keywords": [
+            "与ダメージ",
+            "与えるダメージ"
+          ],
+          "sourceEntityKey": "skills:article-572591",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[2].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572591:skill_text:damage_dealt:increase:self_or_ally:184cab10"
+        },
+        {
+          "parameter": "攻撃",
+          "direction": "increase",
+          "value": "+10%",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃+10%",
+          "parameterKey": "attack",
+          "keywords": [
+            "攻撃"
+          ],
+          "sourceEntityKey": "skills:article-572591",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572591:skill_text:attack:increase:self_or_ally:81bd7bd9"
+        },
+        {
+          "parameter": "攻撃",
+          "direction": "increase",
+          "value": "+15％",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃+15％",
+          "parameterKey": "attack",
+          "keywords": [
+            "攻撃"
+          ],
+          "sourceEntityKey": "skills:article-572591",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572591:skill_text:attack:increase:self_or_ally:1d4a2760"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+10%",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+10%",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "skills:article-572591",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572591:skill_text:intelligence:increase:self_or_ally:e9000933"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+15％",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+15％",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "skills:article-572591",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572591:skill_text:intelligence:increase:self_or_ally:5e3b280a"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "+10%",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵力+10%",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "skills:article-572591",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572591:skill_text:troops:increase:self_or_ally:6de83c63"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "+15％",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵力+15％",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "skills:article-572591",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572591:skill_text:troops:increase:self_or_ally:e0cd273a"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "+2%",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵力+2%",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "skills:article-572591",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[2].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572591:skill_text:troops:increase:self_or_ally:4570c226"
+        }
+      ],
+      "effectCount": 8,
+      "sourceEntityKey": "skills:article-572591"
+    },
+    {
+      "category": "skills",
+      "name": "叡威",
+      "rawName": "【三國志 覇道】叡威",
+      "title": "【三國志 覇道】叡威の効果と所持武将・強化する装備品",
+      "effects": [
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+500",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+500",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "skills:article-572589",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572589:skill_text:intelligence:increase:self_or_ally:c064f530"
+        }
+      ],
+      "effectCount": 1,
+      "sourceEntityKey": "skills:article-572589"
+    },
+    {
+      "category": "skills",
+      "name": "鋼志",
+      "rawName": "【三國志 覇道】鋼志",
+      "title": "【三國志 覇道】鋼志の効果と所持武将・強化する装備品",
+      "effects": [
+        {
+          "parameter": "攻撃",
+          "direction": "increase",
+          "value": "+10%",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃を受けた際、負傷兵として生存する兵数+10%",
+          "parameterKey": "attack",
+          "keywords": [
+            "攻撃"
+          ],
+          "sourceEntityKey": "skills:article-572588",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572588:skill_text:attack:increase:self_or_ally:c92c12f5"
+        },
+        {
+          "parameter": "攻撃",
+          "direction": "increase",
+          "value": "+15%",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃を受けた際、負傷兵として生存する兵数+15%",
+          "parameterKey": "attack",
+          "keywords": [
+            "攻撃"
+          ],
+          "sourceEntityKey": "skills:article-572588",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572588:skill_text:attack:increase:self_or_ally:5524a094"
+        }
+      ],
+      "effectCount": 2,
+      "sourceEntityKey": "skills:article-572588"
+    },
+    {
+      "category": "skills",
+      "name": "執守",
+      "rawName": "【三國志 覇道】執守",
+      "title": "【三國志 覇道】執守の効果と所持武将・強化する装備品",
+      "effects": [
+        {
+          "parameter": "撃心発生",
+          "direction": "increase",
+          "value": "+25%",
+          "targetSide": "self_or_ally",
+          "matchedText": "撃心発生+25%",
+          "parameterKey": "critical_tactic_rate",
+          "keywords": [
+            "撃心発生",
+            "撃心発生率",
+            "撃心率"
+          ],
+          "sourceEntityKey": "skills:article-572587",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572587:skill_text:critical_tactic_rate:increase:self_or_ally:e379bb1a"
+        },
+        {
+          "parameter": "撃心威力",
+          "direction": "increase",
+          "value": "500",
+          "targetSide": "self_or_ally",
+          "matchedText": "撃心威力が上昇 ●出陣時の自部隊の知力に応じて、戦法による与ダメージが上昇（知力500",
+          "parameterKey": "critical_tactic_power",
+          "keywords": [
+            "撃心威力"
+          ],
+          "sourceEntityKey": "skills:article-572587",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[2].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572587:skill_text:critical_tactic_power:increase:self_or_ally:edcc2357"
+        },
+        {
+          "parameter": "与ダメージ",
+          "direction": "increase",
+          "value": "500",
+          "targetSide": "self_or_ally",
+          "matchedText": "与ダメージが上昇（知力500",
+          "parameterKey": "damage_dealt",
+          "keywords": [
+            "与ダメージ",
+            "与えるダメージ"
+          ],
+          "sourceEntityKey": "skills:article-572587",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[2].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572587:skill_text:damage_dealt:increase:self_or_ally:dffe4bf1"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "-20%",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージ-20%",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "skills:article-572587",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572587:skill_text:damage_received:decrease:self_or_ally:6577bfd6"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "-30%",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージ-30%",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "skills:article-572587",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572587:skill_text:damage_received:decrease:self_or_ally:e8e05cd1"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+10%",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+10%",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "skills:article-572587",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572587:skill_text:intelligence:increase:self_or_ally:e9000933"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+15%",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+15%",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "skills:article-572587",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572587:skill_text:intelligence:increase:self_or_ally:7cf8a36a"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+2%",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+2%",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "skills:article-572587",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[2].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572587:skill_text:intelligence:increase:self_or_ally:f34027d6"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "+10％",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵力+10％",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "skills:article-572587",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572587:skill_text:troops:increase:self_or_ally:4cc7f503"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "+15%",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵力+15%",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "skills:article-572587",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[0].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572587:skill_text:troops:increase:self_or_ally:01e0d69a"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "50％",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵力が50％",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "skills:article-572587",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[2].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "skills:article-572587:skill_text:troops:increase:self_or_ally:2fb121ca"
+        }
+      ],
+      "effectCount": 11,
+      "sourceEntityKey": "skills:article-572587"
     }
   ],
   "contractVersion": "1.0"

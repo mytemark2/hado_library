@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-08-22T23:29:37.854Z",
+  "generatedAt": "2026-08-24T16:58:11.850Z",
   "dataSetId": "2026-08-13T06:28:33.208Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
@@ -33,26 +33,26 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 486,
-    "tactics": 465,
-    "equipments": 249,
-    "skills": 653,
+    "generals": 488,
+    "tactics": 467,
+    "equipments": 251,
+    "skills": 661,
     "statusEffects": 206,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
     "ethnicResearchSkills": 32,
-    "formations": 21,
+    "formations": 22,
     "fiveElements": 10,
     "warhorses": 5,
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "caa6a018",
-    "tactics": "19b2dc25",
-    "equipments": "504f8c1b",
-    "skills": "c7e8c8f5",
+    "generals": "c8a69cf2",
+    "tactics": "17b2d8ff",
+    "equipments": "4c51c466",
+    "skills": "55f06444",
     "statusEffects": "defa110c",
-    "formations": "9c5d2dae",
+    "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
     "ethnicArmaments": "c731a91c",
     "ethnicResearchSkills": "06d47d06",
@@ -61,12 +61,12 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "caa6a018",
-    "tactics": "19b2dc25",
-    "equipments": "504f8c1b",
-    "skills": "c7e8c8f5",
+    "generals": "c8a69cf2",
+    "tactics": "17b2d8ff",
+    "equipments": "4c51c466",
+    "skills": "55f06444",
     "statusEffects": "defa110c",
-    "formations": "9c5d2dae",
+    "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
     "ethnicArmaments": "c731a91c",
     "ethnicResearchSkills": "06d47d06",
@@ -408,6 +408,7 @@
       "羽翼",
       "運搬",
       "運籌帷幄",
+      "叡威",
       "栄華",
       "栄光",
       "栄勢",
@@ -578,6 +579,7 @@
       "鼓励",
       "五渓鋼斧",
       "五渓蛮",
+      "護叡",
       "護志",
       "護身",
       "交結",
@@ -590,7 +592,9 @@
       "幸運",
       "抗越",
       "攻城",
+      "攻逐",
       "耕作",
+      "鋼志",
       "鋼耐",
       "鋼胆",
       "高賢",
@@ -652,6 +656,7 @@
       "治要",
       "自若",
       "七訣剣気",
+      "執守",
       "疾駆",
       "主導",
       "守衛",
@@ -788,6 +793,8 @@
       "断風",
       "断壁",
       "地公",
+      "逐敵",
+      "忠賢",
       "忠勇",
       "調護",
       "調和",
@@ -1016,6 +1023,7 @@
       "嬌媚",
       "巫術毒蠱",
       "徇義",
+      "恬安",
       "悧巧",
       "掎角",
       "梟騎",
@@ -1079,6 +1087,7 @@
       "賢策陣",
       "賢策陣・改",
       "斬心陣",
+      "盾兵陣",
       "兵器陣",
       "兵器陣・改",
       "歩兵陣",
@@ -1634,6 +1643,16 @@
         "id": "generals:164:LR張飛（ちょうひ）",
         "category": "generals",
         "name": "LR張飛（ちょうひ）"
+      },
+      {
+        "id": "generals:486:LR沮授（そじゅ）",
+        "category": "generals",
+        "name": "LR沮授（そじゅ）"
+      },
+      {
+        "id": "generals:487:LR蒙恬（もうてん）",
+        "category": "generals",
+        "name": "LR蒙恬（もうてん）"
       }
     ],
     "性別:男": [
@@ -3756,6 +3775,16 @@
         "id": "generals:485:関羽（かんう）",
         "category": "generals",
         "name": "関羽（かんう）"
+      },
+      {
+        "id": "generals:486:LR沮授（そじゅ）",
+        "category": "generals",
+        "name": "LR沮授（そじゅ）"
+      },
+      {
+        "id": "generals:487:LR蒙恬（もうてん）",
+        "category": "generals",
+        "name": "LR蒙恬（もうてん）"
       }
     ],
     "天賦:1300": [
@@ -4223,6 +4252,16 @@
         "id": "generals:164:LR張飛（ちょうひ）",
         "category": "generals",
         "name": "LR張飛（ちょうひ）"
+      },
+      {
+        "id": "generals:486:LR沮授（そじゅ）",
+        "category": "generals",
+        "name": "LR沮授（そじゅ）"
+      },
+      {
+        "id": "generals:487:LR蒙恬（もうてん）",
+        "category": "generals",
+        "name": "LR蒙恬（もうてん）"
       }
     ],
     "おすすめ編制:サポート": [
@@ -4901,6 +4940,11 @@
         "id": "generals:156:LR夏侯淵・弓兵（かこうえん）",
         "category": "generals",
         "name": "LR夏侯淵・弓兵（かこうえん）"
+      },
+      {
+        "id": "generals:486:LR沮授（そじゅ）",
+        "category": "generals",
+        "name": "LR沮授（そじゅ）"
       }
     ],
     "レアリティ:UR": [
@@ -6473,6 +6517,16 @@
         "id": "equipments:244:神刀・鉄刀",
         "category": "equipments",
         "name": "神刀・鉄刀"
+      },
+      {
+        "id": "equipments:249:心翠宝玉佩",
+        "category": "equipments",
+        "name": "心翠宝玉佩"
+      },
+      {
+        "id": "equipments:250:万里安境矛",
+        "category": "equipments",
+        "name": "万里安境矛"
       }
     ],
     "兵科:騎兵": [
@@ -7012,27 +7066,27 @@
         "name": "関羽（かんう）"
       },
       {
-        "id": "tactics:447:李傕（りかく）",
+        "id": "tactics:449:李傕（りかく）",
         "category": "tactics",
         "name": "李傕（りかく）"
       },
       {
-        "id": "tactics:451:潘鳳（はんぽう）",
+        "id": "tactics:453:潘鳳（はんぽう）",
         "category": "tactics",
         "name": "潘鳳（はんぽう）"
       },
       {
-        "id": "tactics:454:曹昂（そうこう）",
+        "id": "tactics:456:曹昂（そうこう）",
         "category": "tactics",
         "name": "曹昂（そうこう）"
       },
       {
-        "id": "tactics:456:淳于瓊（じゅんうけい）",
+        "id": "tactics:458:淳于瓊（じゅんうけい）",
         "category": "tactics",
         "name": "淳于瓊（じゅんうけい）"
       },
       {
-        "id": "tactics:464:郭汜（かくし）",
+        "id": "tactics:466:郭汜（かくし）",
         "category": "tactics",
         "name": "郭汜（かくし）"
       },
@@ -8020,6 +8074,11 @@
         "id": "equipments:236:銅大刀",
         "category": "equipments",
         "name": "銅大刀"
+      },
+      {
+        "id": "equipments:249:心翠宝玉佩",
+        "category": "equipments",
+        "name": "心翠宝玉佩"
       }
     ],
     "性別:女": [
@@ -8866,6 +8925,11 @@
         "id": "generals:164:LR張飛（ちょうひ）",
         "category": "generals",
         "name": "LR張飛（ちょうひ）"
+      },
+      {
+        "id": "generals:487:LR蒙恬（もうてん）",
+        "category": "generals",
+        "name": "LR蒙恬（もうてん）"
       }
     ],
     "兵科:歩兵": [
@@ -9450,37 +9514,37 @@
         "name": "姜維（きょうい）"
       },
       {
-        "id": "tactics:445:廖化（りょうか）",
+        "id": "tactics:447:廖化（りょうか）",
         "category": "tactics",
         "name": "廖化（りょうか）"
       },
       {
-        "id": "tactics:446:劉封（りゅうほう）",
+        "id": "tactics:448:劉封（りゅうほう）",
         "category": "tactics",
         "name": "劉封（りゅうほう）"
       },
       {
-        "id": "tactics:450:武安国（ぶあんこく）",
+        "id": "tactics:452:武安国（ぶあんこく）",
         "category": "tactics",
         "name": "武安国（ぶあんこく）"
       },
       {
-        "id": "tactics:453:祖茂（そも）",
+        "id": "tactics:455:祖茂（そも）",
         "category": "tactics",
         "name": "祖茂（そも）"
       },
       {
-        "id": "tactics:461:簡雍（かんよう）",
+        "id": "tactics:463:簡雍（かんよう）",
         "category": "tactics",
         "name": "簡雍（かんよう）"
       },
       {
-        "id": "tactics:462:夏侯楙（かこうぼう）",
+        "id": "tactics:464:夏侯楙（かこうぼう）",
         "category": "tactics",
         "name": "夏侯楙（かこうぼう）"
       },
       {
-        "id": "tactics:463:夏侯恩（かこうおん）",
+        "id": "tactics:465:夏侯恩（かこうおん）",
         "category": "tactics",
         "name": "夏侯恩（かこうおん）"
       },
@@ -10473,6 +10537,11 @@
         "id": "equipments:248:銅刀",
         "category": "equipments",
         "name": "銅刀"
+      },
+      {
+        "id": "equipments:249:心翠宝玉佩",
+        "category": "equipments",
+        "name": "心翠宝玉佩"
       }
     ],
     "兵科:弓兵": [
@@ -11102,42 +11171,42 @@
         "name": "周瑜（しゅうゆ）"
       },
       {
-        "id": "tactics:448:楊脩（ようしゅう）",
+        "id": "tactics:450:楊脩（ようしゅう）",
         "category": "tactics",
         "name": "楊脩（ようしゅう）"
       },
       {
-        "id": "tactics:449:卞喜（べんき）",
+        "id": "tactics:451:卞喜（べんき）",
         "category": "tactics",
         "name": "卞喜（べんき）"
       },
       {
-        "id": "tactics:452:陳矯（ちんきょう）",
+        "id": "tactics:454:陳矯（ちんきょう）",
         "category": "tactics",
         "name": "陳矯（ちんきょう）"
       },
       {
-        "id": "tactics:455:曹休（そうきゅう）",
+        "id": "tactics:457:曹休（そうきゅう）",
         "category": "tactics",
         "name": "曹休（そうきゅう）"
       },
       {
-        "id": "tactics:457:朱治（しゅち）",
+        "id": "tactics:459:朱治（しゅち）",
         "category": "tactics",
         "name": "朱治（しゅち）"
       },
       {
-        "id": "tactics:458:孔融（こうゆう）",
+        "id": "tactics:460:孔融（こうゆう）",
         "category": "tactics",
         "name": "孔融（こうゆう）"
       },
       {
-        "id": "tactics:459:黄祖（こうそ）",
+        "id": "tactics:461:黄祖（こうそ）",
         "category": "tactics",
         "name": "黄祖（こうそ）"
       },
       {
-        "id": "tactics:460:許攸（きょゆう）",
+        "id": "tactics:462:許攸（きょゆう）",
         "category": "tactics",
         "name": "許攸（きょゆう）"
       },
@@ -12090,6 +12159,11 @@
         "id": "equipments:242:銅剣",
         "category": "equipments",
         "name": "銅剣"
+      },
+      {
+        "id": "equipments:249:心翠宝玉佩",
+        "category": "equipments",
+        "name": "心翠宝玉佩"
       }
     ],
     "天賦:1400": [
@@ -12271,6 +12345,11 @@
         "id": "generals:153:LR呂布（りょふ）",
         "category": "generals",
         "name": "LR呂布（りょふ）"
+      },
+      {
+        "id": "generals:487:LR蒙恬（もうてん）",
+        "category": "generals",
+        "name": "LR蒙恬（もうてん）"
       }
     ],
     "おすすめ編制:駐屯サポート": [
@@ -12490,6 +12569,11 @@
         "id": "generals:163:LR呂尚（りょしょう）",
         "category": "generals",
         "name": "LR呂尚（りょしょう）"
+      },
+      {
+        "id": "generals:486:LR沮授（そじゅ）",
+        "category": "generals",
+        "name": "LR沮授（そじゅ）"
       }
     ],
     "おすすめ編制:貫通サポート": [
@@ -13378,6 +13462,11 @@
         "id": "generals:305:司馬徽（しばき）",
         "category": "generals",
         "name": "司馬徽（しばき）"
+      },
+      {
+        "id": "generals:486:LR沮授（そじゅ）",
+        "category": "generals",
+        "name": "LR沮授（そじゅ）"
       }
     ],
     "おすすめ編制:貫通攻城駐屯": [
@@ -17111,102 +17200,102 @@
         "name": "郭汜（かくし）"
       },
       {
-        "id": "tactics:445:廖化（りょうか）",
+        "id": "tactics:447:廖化（りょうか）",
         "category": "tactics",
         "name": "廖化（りょうか）"
       },
       {
-        "id": "tactics:446:劉封（りゅうほう）",
+        "id": "tactics:448:劉封（りゅうほう）",
         "category": "tactics",
         "name": "劉封（りゅうほう）"
       },
       {
-        "id": "tactics:447:李傕（りかく）",
+        "id": "tactics:449:李傕（りかく）",
         "category": "tactics",
         "name": "李傕（りかく）"
       },
       {
-        "id": "tactics:448:楊脩（ようしゅう）",
+        "id": "tactics:450:楊脩（ようしゅう）",
         "category": "tactics",
         "name": "楊脩（ようしゅう）"
       },
       {
-        "id": "tactics:449:卞喜（べんき）",
+        "id": "tactics:451:卞喜（べんき）",
         "category": "tactics",
         "name": "卞喜（べんき）"
       },
       {
-        "id": "tactics:450:武安国（ぶあんこく）",
+        "id": "tactics:452:武安国（ぶあんこく）",
         "category": "tactics",
         "name": "武安国（ぶあんこく）"
       },
       {
-        "id": "tactics:451:潘鳳（はんぽう）",
+        "id": "tactics:453:潘鳳（はんぽう）",
         "category": "tactics",
         "name": "潘鳳（はんぽう）"
       },
       {
-        "id": "tactics:452:陳矯（ちんきょう）",
+        "id": "tactics:454:陳矯（ちんきょう）",
         "category": "tactics",
         "name": "陳矯（ちんきょう）"
       },
       {
-        "id": "tactics:453:祖茂（そも）",
+        "id": "tactics:455:祖茂（そも）",
         "category": "tactics",
         "name": "祖茂（そも）"
       },
       {
-        "id": "tactics:454:曹昂（そうこう）",
+        "id": "tactics:456:曹昂（そうこう）",
         "category": "tactics",
         "name": "曹昂（そうこう）"
       },
       {
-        "id": "tactics:455:曹休（そうきゅう）",
+        "id": "tactics:457:曹休（そうきゅう）",
         "category": "tactics",
         "name": "曹休（そうきゅう）"
       },
       {
-        "id": "tactics:456:淳于瓊（じゅんうけい）",
+        "id": "tactics:458:淳于瓊（じゅんうけい）",
         "category": "tactics",
         "name": "淳于瓊（じゅんうけい）"
       },
       {
-        "id": "tactics:457:朱治（しゅち）",
+        "id": "tactics:459:朱治（しゅち）",
         "category": "tactics",
         "name": "朱治（しゅち）"
       },
       {
-        "id": "tactics:458:孔融（こうゆう）",
+        "id": "tactics:460:孔融（こうゆう）",
         "category": "tactics",
         "name": "孔融（こうゆう）"
       },
       {
-        "id": "tactics:459:黄祖（こうそ）",
+        "id": "tactics:461:黄祖（こうそ）",
         "category": "tactics",
         "name": "黄祖（こうそ）"
       },
       {
-        "id": "tactics:460:許攸（きょゆう）",
+        "id": "tactics:462:許攸（きょゆう）",
         "category": "tactics",
         "name": "許攸（きょゆう）"
       },
       {
-        "id": "tactics:461:簡雍（かんよう）",
+        "id": "tactics:463:簡雍（かんよう）",
         "category": "tactics",
         "name": "簡雍（かんよう）"
       },
       {
-        "id": "tactics:462:夏侯楙（かこうぼう）",
+        "id": "tactics:464:夏侯楙（かこうぼう）",
         "category": "tactics",
         "name": "夏侯楙（かこうぼう）"
       },
       {
-        "id": "tactics:463:夏侯恩（かこうおん）",
+        "id": "tactics:465:夏侯恩（かこうおん）",
         "category": "tactics",
         "name": "夏侯恩（かこうおん）"
       },
       {
-        "id": "tactics:464:郭汜（かくし）",
+        "id": "tactics:466:郭汜（かくし）",
         "category": "tactics",
         "name": "郭汜（かくし）"
       }
@@ -18309,6 +18398,16 @@
         "id": "equipments:244:神刀・鉄刀",
         "category": "equipments",
         "name": "神刀・鉄刀"
+      },
+      {
+        "id": "equipments:249:心翠宝玉佩",
+        "category": "equipments",
+        "name": "心翠宝玉佩"
+      },
+      {
+        "id": "equipments:250:万里安境矛",
+        "category": "equipments",
+        "name": "万里安境矛"
       }
     ],
     "種類:防具": [
@@ -19108,6 +19207,11 @@
         "id": "equipments:221:経書抄本",
         "category": "equipments",
         "name": "経書抄本"
+      },
+      {
+        "id": "equipments:249:心翠宝玉佩",
+        "category": "equipments",
+        "name": "心翠宝玉佩"
       }
     ],
     "種類:武器": [
@@ -19555,6 +19659,11 @@
         "id": "equipments:248:銅刀",
         "category": "equipments",
         "name": "銅刀"
+      },
+      {
+        "id": "equipments:250:万里安境矛",
+        "category": "equipments",
+        "name": "万里安境矛"
       }
     ],
     "最高レア:SSR": [
@@ -24404,6 +24513,62 @@
         "id": "skills:652:暗転",
         "category": "skills",
         "name": "暗転"
+      }
+    ],
+    "技能:忠賢": [
+      {
+        "id": "skills:653:忠賢",
+        "category": "skills",
+        "name": "忠賢"
+      }
+    ],
+    "技能:恬安": [
+      {
+        "id": "skills:654:恬安",
+        "category": "skills",
+        "name": "恬安"
+      }
+    ],
+    "技能:攻逐": [
+      {
+        "id": "skills:655:攻逐",
+        "category": "skills",
+        "name": "攻逐"
+      }
+    ],
+    "技能:逐敵": [
+      {
+        "id": "skills:656:逐敵",
+        "category": "skills",
+        "name": "逐敵"
+      }
+    ],
+    "技能:叡威": [
+      {
+        "id": "skills:657:叡威",
+        "category": "skills",
+        "name": "叡威"
+      }
+    ],
+    "技能:鋼志": [
+      {
+        "id": "skills:658:鋼志",
+        "category": "skills",
+        "name": "鋼志"
+      }
+    ],
+    "技能:護叡": [
+      {
+        "id": "skills:659:護叡",
+        "category": "skills",
+        "name": "護叡"
+      }
+    ],
+    "技能:執守": [
+      {
+        "id": "skills:660:執守",
+        "category": "skills",
+        "name": "執守"
       }
     ],
     "状態変化種別:有利変化": [
@@ -30462,6 +30627,11 @@
         "name": "LR黄忠（こうちゅう）"
       },
       {
+        "id": "generals:486:LR沮授（そじゅ）",
+        "category": "generals",
+        "name": "LR沮授（そじゅ）"
+      },
+      {
         "id": "tactics:21:疾雷迅激",
         "category": "tactics",
         "name": "疾雷迅激"
@@ -30475,6 +30645,11 @@
         "id": "tactics:140:勇毅振天",
         "category": "tactics",
         "name": "勇毅振天"
+      },
+      {
+        "id": "tactics:445:忠烈貞賢",
+        "category": "tactics",
+        "name": "忠烈貞賢"
       },
       {
         "id": "skills:178:隆盛",
@@ -30657,6 +30832,11 @@
         "name": "LR夏侯惇（かこうとん）"
       },
       {
+        "id": "generals:487:LR蒙恬（もうてん）",
+        "category": "generals",
+        "name": "LR蒙恬（もうてん）"
+      },
+      {
         "id": "tactics:1:孝烈忠武",
         "category": "tactics",
         "name": "孝烈忠武"
@@ -30690,6 +30870,11 @@
         "id": "tactics:127:烈気震天",
         "category": "tactics",
         "name": "烈気震天"
+      },
+      {
+        "id": "tactics:446:威振靖華",
+        "category": "tactics",
+        "name": "威振靖華"
       }
     ],
     "状態変化:他対象攻撃耐性": [
@@ -30822,6 +31007,11 @@
         "name": "LR大喬（だいきょう）"
       },
       {
+        "id": "generals:486:LR沮授（そじゅ）",
+        "category": "generals",
+        "name": "LR沮授（そじゅ）"
+      },
+      {
         "id": "tactics:7:嬌傑徳行",
         "category": "tactics",
         "name": "嬌傑徳行"
@@ -30845,6 +31035,11 @@
         "id": "skills:342:明響",
         "category": "skills",
         "name": "明響"
+      },
+      {
+        "id": "skills:657:叡威",
+        "category": "skills",
+        "name": "叡威"
       }
     ],
     "状態変化:完璧": [
@@ -31622,6 +31817,11 @@
         "name": "LR管夷吾（かんいご）"
       },
       {
+        "id": "generals:487:LR蒙恬（もうてん）",
+        "category": "generals",
+        "name": "LR蒙恬（もうてん）"
+      },
+      {
         "id": "tactics:20:討暴堅塁",
         "category": "tactics",
         "name": "討暴堅塁"
@@ -31630,6 +31830,11 @@
         "id": "tactics:55:一匡天下",
         "category": "tactics",
         "name": "一匡天下"
+      },
+      {
+        "id": "tactics:446:威振靖華",
+        "category": "tactics",
+        "name": "威振靖華"
       },
       {
         "id": "skills:117:滅尽剛牙断",
@@ -31828,6 +32033,11 @@
         "name": "LR諸葛恪（しょかつかく）"
       },
       {
+        "id": "generals:486:LR沮授（そじゅ）",
+        "category": "generals",
+        "name": "LR沮授（そじゅ）"
+      },
+      {
         "id": "tactics:15:決勝千里",
         "category": "tactics",
         "name": "決勝千里"
@@ -31836,6 +32046,11 @@
         "id": "tactics:29:才気幹略",
         "category": "tactics",
         "name": "才気幹略"
+      },
+      {
+        "id": "tactics:445:忠烈貞賢",
+        "category": "tactics",
+        "name": "忠烈貞賢"
       }
     ],
     "状態変化:護厳": [
@@ -37597,6 +37812,11 @@
         "name": "関羽（かんう）"
       },
       {
+        "id": "generals:487:LR蒙恬（もうてん）",
+        "category": "generals",
+        "name": "LR蒙恬（もうてん）"
+      },
+      {
         "id": "tactics:1:孝烈忠武",
         "category": "tactics",
         "name": "孝烈忠武"
@@ -38462,22 +38682,27 @@
         "name": "麒麟児の志"
       },
       {
-        "id": "tactics:445:廖化（りょうか）",
+        "id": "tactics:446:威振靖華",
+        "category": "tactics",
+        "name": "威振靖華"
+      },
+      {
+        "id": "tactics:447:廖化（りょうか）",
         "category": "tactics",
         "name": "廖化（りょうか）"
       },
       {
-        "id": "tactics:450:武安国（ぶあんこく）",
+        "id": "tactics:452:武安国（ぶあんこく）",
         "category": "tactics",
         "name": "武安国（ぶあんこく）"
       },
       {
-        "id": "tactics:451:潘鳳（はんぽう）",
+        "id": "tactics:453:潘鳳（はんぽう）",
         "category": "tactics",
         "name": "潘鳳（はんぽう）"
       },
       {
-        "id": "tactics:463:夏侯恩（かこうおん）",
+        "id": "tactics:465:夏侯恩（かこうおん）",
         "category": "tactics",
         "name": "夏侯恩（かこうおん）"
       },
@@ -39190,6 +39415,11 @@
         "id": "skills:650:運搬",
         "category": "skills",
         "name": "運搬"
+      },
+      {
+        "id": "skills:656:逐敵",
+        "category": "skills",
+        "name": "逐敵"
       }
     ],
     "状態変化:攻撃変化(弱化)": [
@@ -39784,42 +40014,42 @@
         "name": "機略謀攻"
       },
       {
-        "id": "tactics:448:楊脩（ようしゅう）",
+        "id": "tactics:450:楊脩（ようしゅう）",
         "category": "tactics",
         "name": "楊脩（ようしゅう）"
       },
       {
-        "id": "tactics:449:卞喜（べんき）",
+        "id": "tactics:451:卞喜（べんき）",
         "category": "tactics",
         "name": "卞喜（べんき）"
       },
       {
-        "id": "tactics:452:陳矯（ちんきょう）",
+        "id": "tactics:454:陳矯（ちんきょう）",
         "category": "tactics",
         "name": "陳矯（ちんきょう）"
       },
       {
-        "id": "tactics:455:曹休（そうきゅう）",
+        "id": "tactics:457:曹休（そうきゅう）",
         "category": "tactics",
         "name": "曹休（そうきゅう）"
       },
       {
-        "id": "tactics:457:朱治（しゅち）",
+        "id": "tactics:459:朱治（しゅち）",
         "category": "tactics",
         "name": "朱治（しゅち）"
       },
       {
-        "id": "tactics:458:孔融（こうゆう）",
+        "id": "tactics:460:孔融（こうゆう）",
         "category": "tactics",
         "name": "孔融（こうゆう）"
       },
       {
-        "id": "tactics:459:黄祖（こうそ）",
+        "id": "tactics:461:黄祖（こうそ）",
         "category": "tactics",
         "name": "黄祖（こうそ）"
       },
       {
-        "id": "tactics:460:許攸（きょゆう）",
+        "id": "tactics:462:許攸（きょゆう）",
         "category": "tactics",
         "name": "許攸（きょゆう）"
       },
@@ -42763,42 +42993,42 @@
         "name": "奮闘励起"
       },
       {
-        "id": "tactics:448:楊脩（ようしゅう）",
+        "id": "tactics:450:楊脩（ようしゅう）",
         "category": "tactics",
         "name": "楊脩（ようしゅう）"
       },
       {
-        "id": "tactics:449:卞喜（べんき）",
+        "id": "tactics:451:卞喜（べんき）",
         "category": "tactics",
         "name": "卞喜（べんき）"
       },
       {
-        "id": "tactics:452:陳矯（ちんきょう）",
+        "id": "tactics:454:陳矯（ちんきょう）",
         "category": "tactics",
         "name": "陳矯（ちんきょう）"
       },
       {
-        "id": "tactics:455:曹休（そうきゅう）",
+        "id": "tactics:457:曹休（そうきゅう）",
         "category": "tactics",
         "name": "曹休（そうきゅう）"
       },
       {
-        "id": "tactics:457:朱治（しゅち）",
+        "id": "tactics:459:朱治（しゅち）",
         "category": "tactics",
         "name": "朱治（しゅち）"
       },
       {
-        "id": "tactics:458:孔融（こうゆう）",
+        "id": "tactics:460:孔融（こうゆう）",
         "category": "tactics",
         "name": "孔融（こうゆう）"
       },
       {
-        "id": "tactics:459:黄祖（こうそ）",
+        "id": "tactics:461:黄祖（こうそ）",
         "category": "tactics",
         "name": "黄祖（こうそ）"
       },
       {
-        "id": "tactics:460:許攸（きょゆう）",
+        "id": "tactics:462:許攸（きょゆう）",
         "category": "tactics",
         "name": "許攸（きょゆう）"
       },
@@ -43685,6 +43915,16 @@
         "name": "姜維（きょうい）"
       },
       {
+        "id": "generals:486:LR沮授（そじゅ）",
+        "category": "generals",
+        "name": "LR沮授（そじゅ）"
+      },
+      {
+        "id": "generals:487:LR蒙恬（もうてん）",
+        "category": "generals",
+        "name": "LR蒙恬（もうてん）"
+      },
+      {
         "id": "tactics:0:白眉良実",
         "category": "tactics",
         "name": "白眉良実"
@@ -44218,6 +44458,16 @@
         "id": "tactics:443:麒麟児の志",
         "category": "tactics",
         "name": "麒麟児の志"
+      },
+      {
+        "id": "tactics:445:忠烈貞賢",
+        "category": "tactics",
+        "name": "忠烈貞賢"
+      },
+      {
+        "id": "tactics:446:威振靖華",
+        "category": "tactics",
+        "name": "威振靖華"
       },
       {
         "id": "skills:10:克遂",
@@ -44828,6 +45078,21 @@
         "id": "skills:650:運搬",
         "category": "skills",
         "name": "運搬"
+      },
+      {
+        "id": "skills:656:逐敵",
+        "category": "skills",
+        "name": "逐敵"
+      },
+      {
+        "id": "skills:657:叡威",
+        "category": "skills",
+        "name": "叡威"
+      },
+      {
+        "id": "skills:660:執守",
+        "category": "skills",
+        "name": "執守"
       }
     ],
     "状態変化:知力変化(弱化)": [
@@ -50588,6 +50853,11 @@
         "name": "UR黄忠（こうちゅう）"
       },
       {
+        "id": "generals:486:LR沮授（そじゅ）",
+        "category": "generals",
+        "name": "LR沮授（そじゅ）"
+      },
+      {
         "id": "tactics:22:疾雷狂濤",
         "category": "tactics",
         "name": "疾雷狂濤"
@@ -50643,6 +50913,11 @@
         "name": "神射万箭"
       },
       {
+        "id": "tactics:445:忠烈貞賢",
+        "category": "tactics",
+        "name": "忠烈貞賢"
+      },
+      {
         "id": "skills:108:神機",
         "category": "skills",
         "name": "神機"
@@ -50656,6 +50931,11 @@
         "id": "skills:172:熟練",
         "category": "skills",
         "name": "熟練"
+      },
+      {
+        "id": "skills:660:執守",
+        "category": "skills",
+        "name": "執守"
       }
     ],
     "状態変化:撃心発生変化(弱化)": [
@@ -50747,6 +51027,11 @@
         "name": "UR黄忠（こうちゅう）"
       },
       {
+        "id": "generals:486:LR沮授（そじゅ）",
+        "category": "generals",
+        "name": "LR沮授（そじゅ）"
+      },
+      {
         "id": "tactics:43:断敵撃射",
         "category": "tactics",
         "name": "断敵撃射"
@@ -50785,6 +51070,11 @@
         "id": "tactics:229:歴戦の説法・改",
         "category": "tactics",
         "name": "歴戦の説法・改"
+      },
+      {
+        "id": "tactics:445:忠烈貞賢",
+        "category": "tactics",
+        "name": "忠烈貞賢"
       },
       {
         "id": "skills:21:宰守",
@@ -50845,6 +51135,11 @@
         "id": "skills:545:弓神",
         "category": "skills",
         "name": "弓神"
+      },
+      {
+        "id": "skills:660:執守",
+        "category": "skills",
+        "name": "執守"
       }
     ],
     "状態変化:撃心威力変化(弱化)": [
@@ -51261,6 +51556,16 @@
         "name": "夏侯覇（かこうは）"
       },
       {
+        "id": "generals:486:LR沮授（そじゅ）",
+        "category": "generals",
+        "name": "LR沮授（そじゅ）"
+      },
+      {
+        "id": "generals:487:LR蒙恬（もうてん）",
+        "category": "generals",
+        "name": "LR蒙恬（もうてん）"
+      },
+      {
         "id": "tactics:4:閃撃奔箭",
         "category": "tactics",
         "name": "閃撃奔箭"
@@ -51534,6 +51839,16 @@
         "id": "tactics:396:報恩の奮励",
         "category": "tactics",
         "name": "報恩の奮励"
+      },
+      {
+        "id": "tactics:445:忠烈貞賢",
+        "category": "tactics",
+        "name": "忠烈貞賢"
+      },
+      {
+        "id": "tactics:446:威振靖華",
+        "category": "tactics",
+        "name": "威振靖華"
       },
       {
         "id": "equipments:15:披荊斬棘戈",
@@ -52857,6 +53172,11 @@
         "name": "関羽（かんう）"
       },
       {
+        "id": "generals:487:LR蒙恬（もうてん）",
+        "category": "generals",
+        "name": "LR蒙恬（もうてん）"
+      },
+      {
         "id": "tactics:0:白眉良実",
         "category": "tactics",
         "name": "白眉良実"
@@ -53080,6 +53400,11 @@
         "id": "tactics:289:驍勇善射",
         "category": "tactics",
         "name": "驍勇善射"
+      },
+      {
+        "id": "tactics:446:威振靖華",
+        "category": "tactics",
+        "name": "威振靖華"
       },
       {
         "id": "equipments:15:披荊斬棘戈",
@@ -53910,6 +54235,26 @@
         "id": "skills:651:威風",
         "category": "skills",
         "name": "威風"
+      },
+      {
+        "id": "skills:653:忠賢",
+        "category": "skills",
+        "name": "忠賢"
+      },
+      {
+        "id": "skills:654:恬安",
+        "category": "skills",
+        "name": "恬安"
+      },
+      {
+        "id": "skills:656:逐敵",
+        "category": "skills",
+        "name": "逐敵"
+      },
+      {
+        "id": "skills:660:執守",
+        "category": "skills",
+        "name": "執守"
       }
     ],
     "状態変化:与ダメージ変化(弱化)": [
@@ -54736,6 +55081,16 @@
         "name": "司馬懿（しばい）"
       },
       {
+        "id": "generals:486:LR沮授（そじゅ）",
+        "category": "generals",
+        "name": "LR沮授（そじゅ）"
+      },
+      {
+        "id": "generals:487:LR蒙恬（もうてん）",
+        "category": "generals",
+        "name": "LR蒙恬（もうてん）"
+      },
+      {
         "id": "tactics:1:孝烈忠武",
         "category": "tactics",
         "name": "孝烈忠武"
@@ -54889,6 +55244,11 @@
         "id": "tactics:210:黄天当立",
         "category": "tactics",
         "name": "黄天当立"
+      },
+      {
+        "id": "tactics:445:忠烈貞賢",
+        "category": "tactics",
+        "name": "忠烈貞賢"
       },
       {
         "id": "equipments:15:披荊斬棘戈",
@@ -55759,6 +56119,16 @@
         "id": "skills:651:威風",
         "category": "skills",
         "name": "威風"
+      },
+      {
+        "id": "skills:654:恬安",
+        "category": "skills",
+        "name": "恬安"
+      },
+      {
+        "id": "skills:660:執守",
+        "category": "skills",
+        "name": "執守"
       }
     ],
     "状態変化:被ダメージ変化(弱化)": [
@@ -56650,6 +57020,13 @@
         "name": "猛盛陣"
       }
     ],
+    "陣形:盾兵陣": [
+      {
+        "id": "formations:21:盾兵陣",
+        "category": "formations",
+        "name": "盾兵陣"
+      }
+    ],
     "軍馬:鹿毛": [
       {
         "id": "warhorses:0:鹿毛",
@@ -56687,21 +57064,21 @@
     ]
   },
   "tagCounts": {
-    "状態変化:攻撃変化(強化)": 585,
+    "状態変化:攻撃変化(強化)": 588,
     "状態変化:防御変化(強化)": 477,
-    "性別:男": 424,
-    "状態変化:知力変化(強化)": 402,
-    "状態変化:与ダメージ変化(強化)": 357,
-    "状態変化:被ダメージ変化(強化)": 357,
-    "兵科:弓兵": 323,
-    "兵科:歩兵": 321,
+    "性別:男": 426,
+    "状態変化:知力変化(強化)": 409,
+    "状態変化:与ダメージ変化(強化)": 363,
+    "状態変化:被ダメージ変化(強化)": 362,
+    "兵科:弓兵": 324,
+    "兵科:歩兵": 322,
     "状態変化:攻撃速度変化(強化)": 320,
-    "レアリティ:UR": 314,
-    "兵科:騎兵": 309,
+    "レアリティ:UR": 316,
+    "兵科:騎兵": 310,
     "状態変化:会心発生変化(強化)": 199,
-    "最高レア:UR": 195,
+    "最高レア:UR": 197,
+    "状態変化:戦法威力変化(強化)": 183,
     "レアリティ:SSR": 180,
-    "状態変化:戦法威力変化(強化)": 179,
     "状態変化:会心威力変化(強化)": 153,
     "状態変化:対物特効変化(強化)": 139,
     "状態変化:戦法速度変化(強化)": 135,
@@ -56709,20 +57086,20 @@
     "状態変化:防御変化(弱化)": 113,
     "対象側:self": 112,
     "方向:buff": 112,
-    "レアリティ:LR": 107,
+    "レアリティ:LR": 109,
     "状態変化:知力変化(弱化)": 99,
+    "天賦:1300": 95,
     "おすすめ編制:駐屯": 94,
     "対象側:enemy": 94,
     "方向:debuff": 94,
-    "天賦:1300": 93,
     "種類:防具": 90,
-    "種類:武器": 89,
+    "種類:武器": 90,
     "状態変化種別:有利変化": 87,
     "状態変化:機動変化(強化)": 85,
     "天賦:1000": 80,
     "状態変化分類:自部隊能力強化": 77,
     "天賦:850": 74,
-    "種類:文物": 69,
+    "種類:文物": 70,
     "状態変化:被ダメージ変化(弱化)": 64,
     "レアリティ:SR": 63,
     "性別:女": 62,
@@ -56741,22 +57118,22 @@
     "状態変化分類:敵部隊状態弱化": 40,
     "天賦:550": 39,
     "状態変化:攻撃速度変化(弱化)": 39,
+    "状態変化:撃心威力変化(強化)": 39,
     "状態変化:堅固": 36,
-    "状態変化:撃心威力変化(強化)": 36,
     "おすすめ編制:内政": 33,
     "天賦:1100": 31,
     "状態変化:混乱": 31,
     "状態変化:対物特効変化(弱化)": 31,
+    "状態変化:撃心発生変化(強化)": 31,
     "状態変化:結束": 30,
+    "侍従位置:上": 29,
     "最高レア:SSR": 29,
     "状態変化:戦法威力変化(弱化)": 29,
-    "侍従位置:上": 28,
-    "状態変化:撃心発生変化(強化)": 28,
+    "おすすめ編制:貫通駐屯サポート": 27,
     "状態変化:攻撃無効": 27,
     "状態変化:命中変化(弱化)": 27,
-    "おすすめ編制:貫通駐屯サポート": 26,
+    "侍従位置:下": 26,
     "状態変化:兵器速度変化(強化)": 26,
-    "侍従位置:下": 25,
     "状態変化:治癒": 25,
     "状態変化:絶縁": 25,
     "状態変化:有利巧守": 25,
@@ -56777,15 +57154,15 @@
     "状態変化:知力耐性": 19,
     "状態変化:同討": 19,
     "状態変化種別:即時効果": 19,
+    "侍従位置:右": 18,
     "おすすめ編制:駐屯サポート": 18,
     "おすすめ編制:攻城サポート": 18,
     "状態変化:取込": 18,
     "状態変化:疑心": 18,
-    "侍従位置:右": 17,
+    "状態変化:豪昇": 17,
     "天賦:900": 16,
     "状態変化:闘気": 16,
     "おすすめ編制:貫通攻城": 15,
-    "状態変化:豪昇": 15,
     "状態変化:憤怒": 15,
     "状態変化:機動変化(弱化)": 15,
     "天賦:1400": 14,
@@ -56802,6 +57179,8 @@
     "状態変化:呼応・二": 12,
     "状態変化:強化促進": 12,
     "状態変化:強固": 12,
+    "状態変化:練守": 12,
+    "状態変化:恵守": 12,
     "状態変化:不敵": 12,
     "状態変化:命中変化(強化)": 12,
     "状態変化:与ダメージ変化(弱化)": 12,
@@ -56811,9 +57190,8 @@
     "状態変化:萎縮": 11,
     "状態変化:分断": 11,
     "状態変化:通常攻撃威力変化(弱化)": 11,
-    "状態変化:練守": 10,
-    "状態変化:恵守": 10,
     "状態変化:廉潔": 10,
+    "状態変化:強兵": 10,
     "状態変化:火傷": 10,
     "状態変化:強化抑制": 10,
     "状態変化:会心率半減": 10,
@@ -56838,22 +57216,22 @@
     "状態変化:弱化反射": 8,
     "状態変化:窮策": 8,
     "状態変化:泰然": 8,
-    "状態変化:強兵": 8,
     "状態変化:威槍": 8,
     "状態変化:挑発": 8,
     "状態変化:潜影": 8,
     "状態変化:断道": 8,
     "おすすめ編制:飛ばし攻城サポート": 7,
+    "おすすめ編制:貫通": 7,
     "状態変化:練心": 7,
     "状態変化:戦法威力低下付与": 7,
     "状態変化:追討": 7,
     "状態変化:巧知": 7,
+    "状態変化:慧叡": 7,
     "状態変化:病毒": 7,
     "状態変化:弱化積鈍": 7,
     "状態変化:闇動": 7,
     "状態変化:封撃": 7,
     "状態変化:砕心": 7,
-    "おすすめ編制:貫通": 6,
     "おすすめ編制:飛ばし攻城": 6,
     "おすすめ編制:採集": 6,
     "状態変化:奮心": 6,
@@ -56867,7 +57245,6 @@
     "状態変化:通常攻撃拡張": 5,
     "状態変化:轟炎": 5,
     "状態変化:閃襲": 5,
-    "状態変化:慧叡": 5,
     "状態変化:異心": 5,
     "状態変化:強化反転": 5,
     "状態変化:不利消沈": 5,
@@ -57613,6 +57990,14 @@
     "技能:運搬": 1,
     "技能:威風": 1,
     "技能:暗転": 1,
+    "技能:忠賢": 1,
+    "技能:恬安": 1,
+    "技能:攻逐": 1,
+    "技能:逐敵": 1,
+    "技能:叡威": 1,
+    "技能:鋼志": 1,
+    "技能:護叡": 1,
+    "技能:執守": 1,
     "状態変化:火属性強化": 1,
     "状態変化:火属性付与": 1,
     "状態変化:回避": 1,
@@ -57670,6 +58055,7 @@
     "陣形:堅防陣・改": 1,
     "陣形:斬心陣": 1,
     "陣形:猛盛陣": 1,
+    "陣形:盾兵陣": 1,
     "軍馬:鹿毛": 1,
     "軍馬:青毛": 1,
     "軍馬:白毛": 1,
@@ -57677,13 +58063,13 @@
     "軍馬:絶影": 1
   },
   "qualityAudit": {
-    "itemCount": 2062,
-    "tagCount": 988,
+    "itemCount": 2077,
+    "tagCount": 997,
     "statusEffectTagAudit": {
       "ok": true,
       "statusEffectTagCount": 206,
       "statusEffectMasterCount": 206,
-      "ownerRelationCount": 5301,
+      "ownerRelationCount": 5342,
       "groupOrder": [
         "レアリティ",
         "性別",
@@ -91121,6 +91507,180 @@
       "id": "generals:485:関羽（かんう）"
     },
     {
+      "category": "generals",
+      "name": "LR沮授（そじゅ）",
+      "tags": [
+        "レアリティ:LR",
+        "性別:男",
+        "天賦:1300",
+        "おすすめ編制:貫通",
+        "侍従位置:下",
+        "侍従位置:上",
+        "状態変化:戦法威力変化(強化)",
+        "状態変化:撃心発生変化(強化)",
+        "状態変化:撃心威力変化(強化)",
+        "状態変化:被ダメージ変化(強化)",
+        "状態変化:知力変化(強化)",
+        "状態変化:練守",
+        "状態変化:慧叡",
+        "状態変化:恵守"
+      ],
+      "tagObjects": [
+        {
+          "key": "レアリティ",
+          "value": "LR",
+          "tag": "レアリティ:LR"
+        },
+        {
+          "key": "性別",
+          "value": "男",
+          "tag": "性別:男"
+        },
+        {
+          "key": "天賦",
+          "value": "1300",
+          "tag": "天賦:1300"
+        },
+        {
+          "key": "おすすめ編制",
+          "value": "貫通",
+          "tag": "おすすめ編制:貫通"
+        },
+        {
+          "key": "侍従位置",
+          "value": "下",
+          "tag": "侍従位置:下"
+        },
+        {
+          "key": "侍従位置",
+          "value": "上",
+          "tag": "侍従位置:上"
+        },
+        {
+          "key": "状態変化",
+          "value": "戦法威力変化(強化)",
+          "tag": "状態変化:戦法威力変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "撃心発生変化(強化)",
+          "tag": "状態変化:撃心発生変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "撃心威力変化(強化)",
+          "tag": "状態変化:撃心威力変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "被ダメージ変化(強化)",
+          "tag": "状態変化:被ダメージ変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "知力変化(強化)",
+          "tag": "状態変化:知力変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "練守",
+          "tag": "状態変化:練守"
+        },
+        {
+          "key": "状態変化",
+          "value": "慧叡",
+          "tag": "状態変化:慧叡"
+        },
+        {
+          "key": "状態変化",
+          "value": "恵守",
+          "tag": "状態変化:恵守"
+        }
+      ],
+      "id": "generals:486:LR沮授（そじゅ）"
+    },
+    {
+      "category": "generals",
+      "name": "LR蒙恬（もうてん）",
+      "tags": [
+        "レアリティ:LR",
+        "性別:男",
+        "天賦:1300",
+        "おすすめ編制:貫通駐屯サポート",
+        "侍従位置:右",
+        "状態変化:戦法威力変化(強化)",
+        "状態変化:与ダメージ変化(強化)",
+        "状態変化:被ダメージ変化(強化)",
+        "状態変化:攻撃変化(強化)",
+        "状態変化:知力変化(強化)",
+        "状態変化:豪昇",
+        "状態変化:強兵"
+      ],
+      "tagObjects": [
+        {
+          "key": "レアリティ",
+          "value": "LR",
+          "tag": "レアリティ:LR"
+        },
+        {
+          "key": "性別",
+          "value": "男",
+          "tag": "性別:男"
+        },
+        {
+          "key": "天賦",
+          "value": "1300",
+          "tag": "天賦:1300"
+        },
+        {
+          "key": "おすすめ編制",
+          "value": "貫通駐屯サポート",
+          "tag": "おすすめ編制:貫通駐屯サポート"
+        },
+        {
+          "key": "侍従位置",
+          "value": "右",
+          "tag": "侍従位置:右"
+        },
+        {
+          "key": "状態変化",
+          "value": "戦法威力変化(強化)",
+          "tag": "状態変化:戦法威力変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "与ダメージ変化(強化)",
+          "tag": "状態変化:与ダメージ変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "被ダメージ変化(強化)",
+          "tag": "状態変化:被ダメージ変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "攻撃変化(強化)",
+          "tag": "状態変化:攻撃変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "知力変化(強化)",
+          "tag": "状態変化:知力変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "豪昇",
+          "tag": "状態変化:豪昇"
+        },
+        {
+          "key": "状態変化",
+          "value": "強兵",
+          "tag": "状態変化:強兵"
+        }
+      ],
+      "id": "generals:487:LR蒙恬（もうてん）"
+    },
+    {
       "category": "tactics",
       "name": "白眉良実",
       "tags": [
@@ -103086,6 +103646,102 @@
     },
     {
       "category": "tactics",
+      "name": "忠烈貞賢",
+      "tags": [
+        "状態変化:戦法威力変化(強化)",
+        "状態変化:撃心発生変化(強化)",
+        "状態変化:撃心威力変化(強化)",
+        "状態変化:被ダメージ変化(強化)",
+        "状態変化:知力変化(強化)",
+        "状態変化:練守",
+        "状態変化:慧叡"
+      ],
+      "tagObjects": [
+        {
+          "key": "状態変化",
+          "value": "戦法威力変化(強化)",
+          "tag": "状態変化:戦法威力変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "撃心発生変化(強化)",
+          "tag": "状態変化:撃心発生変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "撃心威力変化(強化)",
+          "tag": "状態変化:撃心威力変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "被ダメージ変化(強化)",
+          "tag": "状態変化:被ダメージ変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "知力変化(強化)",
+          "tag": "状態変化:知力変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "練守",
+          "tag": "状態変化:練守"
+        },
+        {
+          "key": "状態変化",
+          "value": "慧叡",
+          "tag": "状態変化:慧叡"
+        }
+      ],
+      "id": "tactics:445:忠烈貞賢"
+    },
+    {
+      "category": "tactics",
+      "name": "威振靖華",
+      "tags": [
+        "状態変化:戦法威力変化(強化)",
+        "状態変化:与ダメージ変化(強化)",
+        "状態変化:攻撃変化(強化)",
+        "状態変化:知力変化(強化)",
+        "状態変化:豪昇",
+        "状態変化:強兵"
+      ],
+      "tagObjects": [
+        {
+          "key": "状態変化",
+          "value": "戦法威力変化(強化)",
+          "tag": "状態変化:戦法威力変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "与ダメージ変化(強化)",
+          "tag": "状態変化:与ダメージ変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "攻撃変化(強化)",
+          "tag": "状態変化:攻撃変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "知力変化(強化)",
+          "tag": "状態変化:知力変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "豪昇",
+          "tag": "状態変化:豪昇"
+        },
+        {
+          "key": "状態変化",
+          "value": "強兵",
+          "tag": "状態変化:強兵"
+        }
+      ],
+      "id": "tactics:446:威振靖華"
+    },
+    {
+      "category": "tactics",
       "name": "廖化（りょうか）",
       "tags": [
         "レアリティ:N",
@@ -103109,7 +103765,7 @@
           "tag": "状態変化:攻撃変化(強化)"
         }
       ],
-      "id": "tactics:445:廖化（りょうか）"
+      "id": "tactics:447:廖化（りょうか）"
     },
     {
       "category": "tactics",
@@ -103130,7 +103786,7 @@
           "tag": "兵科:歩兵"
         }
       ],
-      "id": "tactics:446:劉封（りゅうほう）"
+      "id": "tactics:448:劉封（りゅうほう）"
     },
     {
       "category": "tactics",
@@ -103151,7 +103807,7 @@
           "tag": "兵科:騎兵"
         }
       ],
-      "id": "tactics:447:李傕（りかく）"
+      "id": "tactics:449:李傕（りかく）"
     },
     {
       "category": "tactics",
@@ -103184,7 +103840,7 @@
           "tag": "状態変化:防御変化(弱化)"
         }
       ],
-      "id": "tactics:448:楊脩（ようしゅう）"
+      "id": "tactics:450:楊脩（ようしゅう）"
     },
     {
       "category": "tactics",
@@ -103217,7 +103873,7 @@
           "tag": "状態変化:防御変化(弱化)"
         }
       ],
-      "id": "tactics:449:卞喜（べんき）"
+      "id": "tactics:451:卞喜（べんき）"
     },
     {
       "category": "tactics",
@@ -103244,7 +103900,7 @@
           "tag": "状態変化:攻撃変化(強化)"
         }
       ],
-      "id": "tactics:450:武安国（ぶあんこく）"
+      "id": "tactics:452:武安国（ぶあんこく）"
     },
     {
       "category": "tactics",
@@ -103271,7 +103927,7 @@
           "tag": "状態変化:攻撃変化(強化)"
         }
       ],
-      "id": "tactics:451:潘鳳（はんぽう）"
+      "id": "tactics:453:潘鳳（はんぽう）"
     },
     {
       "category": "tactics",
@@ -103304,7 +103960,7 @@
           "tag": "状態変化:防御変化(弱化)"
         }
       ],
-      "id": "tactics:452:陳矯（ちんきょう）"
+      "id": "tactics:454:陳矯（ちんきょう）"
     },
     {
       "category": "tactics",
@@ -103325,7 +103981,7 @@
           "tag": "兵科:歩兵"
         }
       ],
-      "id": "tactics:453:祖茂（そも）"
+      "id": "tactics:455:祖茂（そも）"
     },
     {
       "category": "tactics",
@@ -103346,7 +104002,7 @@
           "tag": "兵科:騎兵"
         }
       ],
-      "id": "tactics:454:曹昂（そうこう）"
+      "id": "tactics:456:曹昂（そうこう）"
     },
     {
       "category": "tactics",
@@ -103379,7 +104035,7 @@
           "tag": "状態変化:防御変化(弱化)"
         }
       ],
-      "id": "tactics:455:曹休（そうきゅう）"
+      "id": "tactics:457:曹休（そうきゅう）"
     },
     {
       "category": "tactics",
@@ -103400,7 +104056,7 @@
           "tag": "兵科:騎兵"
         }
       ],
-      "id": "tactics:456:淳于瓊（じゅんうけい）"
+      "id": "tactics:458:淳于瓊（じゅんうけい）"
     },
     {
       "category": "tactics",
@@ -103433,7 +104089,7 @@
           "tag": "状態変化:防御変化(弱化)"
         }
       ],
-      "id": "tactics:457:朱治（しゅち）"
+      "id": "tactics:459:朱治（しゅち）"
     },
     {
       "category": "tactics",
@@ -103466,7 +104122,7 @@
           "tag": "状態変化:防御変化(弱化)"
         }
       ],
-      "id": "tactics:458:孔融（こうゆう）"
+      "id": "tactics:460:孔融（こうゆう）"
     },
     {
       "category": "tactics",
@@ -103499,7 +104155,7 @@
           "tag": "状態変化:防御変化(弱化)"
         }
       ],
-      "id": "tactics:459:黄祖（こうそ）"
+      "id": "tactics:461:黄祖（こうそ）"
     },
     {
       "category": "tactics",
@@ -103532,7 +104188,7 @@
           "tag": "状態変化:防御変化(弱化)"
         }
       ],
-      "id": "tactics:460:許攸（きょゆう）"
+      "id": "tactics:462:許攸（きょゆう）"
     },
     {
       "category": "tactics",
@@ -103553,7 +104209,7 @@
           "tag": "兵科:歩兵"
         }
       ],
-      "id": "tactics:461:簡雍（かんよう）"
+      "id": "tactics:463:簡雍（かんよう）"
     },
     {
       "category": "tactics",
@@ -103574,7 +104230,7 @@
           "tag": "兵科:歩兵"
         }
       ],
-      "id": "tactics:462:夏侯楙（かこうぼう）"
+      "id": "tactics:464:夏侯楙（かこうぼう）"
     },
     {
       "category": "tactics",
@@ -103601,7 +104257,7 @@
           "tag": "状態変化:攻撃変化(強化)"
         }
       ],
-      "id": "tactics:463:夏侯恩（かこうおん）"
+      "id": "tactics:465:夏侯恩（かこうおん）"
     },
     {
       "category": "tactics",
@@ -103622,7 +104278,7 @@
           "tag": "兵科:騎兵"
         }
       ],
-      "id": "tactics:464:郭汜（かくし）"
+      "id": "tactics:466:郭汜（かくし）"
     },
     {
       "category": "equipments",
@@ -113925,6 +114581,78 @@
         }
       ],
       "id": "equipments:248:銅刀"
+    },
+    {
+      "category": "equipments",
+      "name": "心翠宝玉佩",
+      "tags": [
+        "レアリティ:UR",
+        "最高レア:UR",
+        "種類:文物",
+        "兵科:騎兵",
+        "兵科:歩兵",
+        "兵科:弓兵"
+      ],
+      "tagObjects": [
+        {
+          "key": "レアリティ",
+          "value": "UR",
+          "tag": "レアリティ:UR"
+        },
+        {
+          "key": "最高レア",
+          "value": "UR",
+          "tag": "最高レア:UR"
+        },
+        {
+          "key": "種類",
+          "value": "文物",
+          "tag": "種類:文物"
+        },
+        {
+          "key": "兵科",
+          "value": "騎兵",
+          "tag": "兵科:騎兵"
+        },
+        {
+          "key": "兵科",
+          "value": "歩兵",
+          "tag": "兵科:歩兵"
+        },
+        {
+          "key": "兵科",
+          "value": "弓兵",
+          "tag": "兵科:弓兵"
+        }
+      ],
+      "id": "equipments:249:心翠宝玉佩"
+    },
+    {
+      "category": "equipments",
+      "name": "万里安境矛",
+      "tags": [
+        "レアリティ:UR",
+        "最高レア:UR",
+        "種類:武器"
+      ],
+      "tagObjects": [
+        {
+          "key": "レアリティ",
+          "value": "UR",
+          "tag": "レアリティ:UR"
+        },
+        {
+          "key": "最高レア",
+          "value": "UR",
+          "tag": "最高レア:UR"
+        },
+        {
+          "key": "種類",
+          "value": "武器",
+          "tag": "種類:武器"
+        }
+      ],
+      "id": "equipments:250:万里安境矛"
     },
     {
       "category": "skills",
@@ -132164,6 +132892,204 @@
       "id": "skills:652:暗転"
     },
     {
+      "category": "skills",
+      "name": "忠賢",
+      "tags": [
+        "技能:忠賢",
+        "状態変化:与ダメージ変化(強化)"
+      ],
+      "tagObjects": [
+        {
+          "key": "技能",
+          "value": "忠賢",
+          "tag": "技能:忠賢"
+        },
+        {
+          "key": "状態変化",
+          "value": "与ダメージ変化(強化)",
+          "tag": "状態変化:与ダメージ変化(強化)"
+        }
+      ],
+      "id": "skills:653:忠賢"
+    },
+    {
+      "category": "skills",
+      "name": "恬安",
+      "tags": [
+        "技能:恬安",
+        "状態変化:与ダメージ変化(強化)",
+        "状態変化:被ダメージ変化(強化)"
+      ],
+      "tagObjects": [
+        {
+          "key": "技能",
+          "value": "恬安",
+          "tag": "技能:恬安"
+        },
+        {
+          "key": "状態変化",
+          "value": "与ダメージ変化(強化)",
+          "tag": "状態変化:与ダメージ変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "被ダメージ変化(強化)",
+          "tag": "状態変化:被ダメージ変化(強化)"
+        }
+      ],
+      "id": "skills:654:恬安"
+    },
+    {
+      "category": "skills",
+      "name": "攻逐",
+      "tags": [
+        "技能:攻逐"
+      ],
+      "tagObjects": [
+        {
+          "key": "技能",
+          "value": "攻逐",
+          "tag": "技能:攻逐"
+        }
+      ],
+      "id": "skills:655:攻逐"
+    },
+    {
+      "category": "skills",
+      "name": "逐敵",
+      "tags": [
+        "技能:逐敵",
+        "状態変化:与ダメージ変化(強化)",
+        "状態変化:攻撃変化(強化)",
+        "状態変化:知力変化(強化)"
+      ],
+      "tagObjects": [
+        {
+          "key": "技能",
+          "value": "逐敵",
+          "tag": "技能:逐敵"
+        },
+        {
+          "key": "状態変化",
+          "value": "与ダメージ変化(強化)",
+          "tag": "状態変化:与ダメージ変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "攻撃変化(強化)",
+          "tag": "状態変化:攻撃変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "知力変化(強化)",
+          "tag": "状態変化:知力変化(強化)"
+        }
+      ],
+      "id": "skills:656:逐敵"
+    },
+    {
+      "category": "skills",
+      "name": "叡威",
+      "tags": [
+        "技能:叡威",
+        "状態変化:知力変化(強化)",
+        "状態変化:恵守"
+      ],
+      "tagObjects": [
+        {
+          "key": "技能",
+          "value": "叡威",
+          "tag": "技能:叡威"
+        },
+        {
+          "key": "状態変化",
+          "value": "知力変化(強化)",
+          "tag": "状態変化:知力変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "恵守",
+          "tag": "状態変化:恵守"
+        }
+      ],
+      "id": "skills:657:叡威"
+    },
+    {
+      "category": "skills",
+      "name": "鋼志",
+      "tags": [
+        "技能:鋼志"
+      ],
+      "tagObjects": [
+        {
+          "key": "技能",
+          "value": "鋼志",
+          "tag": "技能:鋼志"
+        }
+      ],
+      "id": "skills:658:鋼志"
+    },
+    {
+      "category": "skills",
+      "name": "護叡",
+      "tags": [
+        "技能:護叡"
+      ],
+      "tagObjects": [
+        {
+          "key": "技能",
+          "value": "護叡",
+          "tag": "技能:護叡"
+        }
+      ],
+      "id": "skills:659:護叡"
+    },
+    {
+      "category": "skills",
+      "name": "執守",
+      "tags": [
+        "技能:執守",
+        "状態変化:撃心発生変化(強化)",
+        "状態変化:撃心威力変化(強化)",
+        "状態変化:与ダメージ変化(強化)",
+        "状態変化:被ダメージ変化(強化)",
+        "状態変化:知力変化(強化)"
+      ],
+      "tagObjects": [
+        {
+          "key": "技能",
+          "value": "執守",
+          "tag": "技能:執守"
+        },
+        {
+          "key": "状態変化",
+          "value": "撃心発生変化(強化)",
+          "tag": "状態変化:撃心発生変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "撃心威力変化(強化)",
+          "tag": "状態変化:撃心威力変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "与ダメージ変化(強化)",
+          "tag": "状態変化:与ダメージ変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "被ダメージ変化(強化)",
+          "tag": "状態変化:被ダメージ変化(強化)"
+        },
+        {
+          "key": "状態変化",
+          "value": "知力変化(強化)",
+          "tag": "状態変化:知力変化(強化)"
+        }
+      ],
+      "id": "skills:660:執守"
+    },
+    {
       "category": "status_effects",
       "name": "治癒",
       "tags": [
@@ -140511,6 +141437,21 @@
         }
       ],
       "id": "formations:20:猛盛陣"
+    },
+    {
+      "category": "formations",
+      "name": "盾兵陣",
+      "tags": [
+        "陣形:盾兵陣"
+      ],
+      "tagObjects": [
+        {
+          "key": "陣形",
+          "value": "盾兵陣",
+          "tag": "陣形:盾兵陣"
+        }
+      ],
+      "id": "formations:21:盾兵陣"
     },
     {
       "category": "warhorses",

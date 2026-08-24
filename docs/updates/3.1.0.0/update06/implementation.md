@@ -42,3 +42,12 @@
 - 型プリセット未選択時の空の説明欄は`hidden`と`hado_styles.css`の非表示規則を併用し、レイアウト余白も残さない。
 - 初回ガイド、型検索の`？`ヘルプ、Import前のバックアップ警告は、必要時の説明とデータ消失防止に必要なため残す。
 - 画面文言の再増加を防ぐ`tools/test_3_1_0_0_update06_ui_copy_reduction.js`をApp Validationへ追加する。
+
+## r185 日曜日取得データの復旧
+
+- 復旧元実行ID`2026-08-22T23-05-36-909Z`の完了ログと、武将488・装備251・技能661・陣形22の全件一致を必須とした。
+- 復元原本の監査で追加を武将2、装備2、技能8、陣形1と確定した。既存武将419件等の差分は順位母数・相性一覧などの参照波及を含むため、最新アプリ正本を保持した。
+- 一次JSON、戦法JSON、21派生JSONを一括再生成する。
+- `tools/test_json_index_contract.js`はデータ追加のたびに古い固定件数・固定ファイルhashで停止しないよう、内部件数一致、sourceEntityKey一意性、Clause ID一意性、証跡hash、品質監査を検証する。
+- `tools/test_3_1_0_0_update05_formation_evaluator.js`は実際のEffectClause metadataを期待値に使い、契約版・reviewed件数・Evaluator挙動を固定する。
+- `HADO_DEV_INFO.json`は表示版を重複保持しない方針のため変更しない。

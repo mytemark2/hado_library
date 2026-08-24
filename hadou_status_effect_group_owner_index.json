@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-08-22T23:29:37.854Z",
+  "generatedAt": "2026-08-24T16:58:11.850Z",
   "dataSetId": "2026-08-13T06:28:33.208Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
@@ -33,26 +33,26 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 486,
-    "tactics": 465,
-    "equipments": 249,
-    "skills": 653,
+    "generals": 488,
+    "tactics": 467,
+    "equipments": 251,
+    "skills": 661,
     "statusEffects": 206,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
     "ethnicResearchSkills": 32,
-    "formations": 21,
+    "formations": 22,
     "fiveElements": 10,
     "warhorses": 5,
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "caa6a018",
-    "tactics": "19b2dc25",
-    "equipments": "504f8c1b",
-    "skills": "c7e8c8f5",
+    "generals": "c8a69cf2",
+    "tactics": "17b2d8ff",
+    "equipments": "4c51c466",
+    "skills": "55f06444",
     "statusEffects": "defa110c",
-    "formations": "9c5d2dae",
+    "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
     "ethnicArmaments": "c731a91c",
     "ethnicResearchSkills": "06d47d06",
@@ -61,12 +61,12 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "caa6a018",
-    "tactics": "19b2dc25",
-    "equipments": "504f8c1b",
-    "skills": "c7e8c8f5",
+    "generals": "c8a69cf2",
+    "tactics": "17b2d8ff",
+    "equipments": "4c51c466",
+    "skills": "55f06444",
     "statusEffects": "defa110c",
-    "formations": "9c5d2dae",
+    "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
     "ethnicArmaments": "c731a91c",
     "ethnicResearchSkills": "06d47d06",
@@ -78,9 +78,9 @@
   "kind": "status_effect_group_owner_index",
   "qualityAudit": {
     "groupCount": 6,
-    "totalOwnerCount": 6412,
-    "ownerRelationCount": 6412,
-    "distinctOwnerCount": 2502,
+    "totalOwnerCount": 6475,
+    "ownerRelationCount": 6475,
+    "distinctOwnerCount": 2518,
     "countRecalculatedAfterRelatedLinkRebuild": true,
     "relatedLinkOwnerEnriched": true,
     "rebuildFromRelatedLinkIndex": true,
@@ -4083,6 +4083,69 @@
           },
           {
             "category": "generals",
+            "name": "LR蒙恬（もうてん）",
+            "displayName": "LR蒙恬（もうてん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "戦法威力変化(強化)",
+            "matchedText": "戦法威力を50％"
+          },
+          {
+            "category": "generals",
+            "name": "LR蒙恬（もうてん）",
+            "displayName": "LR蒙恬（もうてん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージを効果量分上昇豪昇味方 / 狭10"
+          },
+          {
+            "category": "generals",
+            "name": "LR蒙恬（もうてん）",
+            "displayName": "LR蒙恬（もうてん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(強化)",
+            "matchedText": "被ダメージ-10％"
+          },
+          {
+            "category": "generals",
+            "name": "LR蒙恬（もうてん）",
+            "displayName": "LR蒙恬（もうてん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃が上昇する知力変化味方 / 狭10"
+          },
+          {
+            "category": "generals",
+            "name": "LR蒙恬（もうてん）",
+            "displayName": "LR蒙恬（もうてん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力を150％"
+          },
+          {
+            "category": "generals",
+            "name": "LR蒙恬（もうてん）",
+            "displayName": "LR蒙恬（もうてん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "豪昇",
+            "matchedText": "豪昇"
+          },
+          {
+            "category": "generals",
+            "name": "LR蒙恬（もうてん）",
+            "displayName": "LR蒙恬（もうてん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "強兵",
+            "matchedText": "強兵"
+          },
+          {
+            "category": "generals",
             "name": "LR羊祜（ようこ）",
             "displayName": "LR羊祜（ようこ）",
             "source": "related_link_index",
@@ -5079,6 +5142,78 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "打開",
             "matchedText": "打開"
+          },
+          {
+            "category": "generals",
+            "name": "LR沮授（そじゅ）",
+            "displayName": "LR沮授（そじゅ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "戦法威力変化(強化)",
+            "matchedText": "戦法威力を25％"
+          },
+          {
+            "category": "generals",
+            "name": "LR沮授（そじゅ）",
+            "displayName": "LR沮授（そじゅ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "撃心発生変化(強化)",
+            "matchedText": "撃心発生時の威力が上昇する戦法威力変化自分 / 単10"
+          },
+          {
+            "category": "generals",
+            "name": "LR沮授（そじゅ）",
+            "displayName": "LR沮授（そじゅ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "撃心威力変化(強化)",
+            "matchedText": "撃心威力と戦法威力を25％"
+          },
+          {
+            "category": "generals",
+            "name": "LR沮授（そじゅ）",
+            "displayName": "LR沮授（そじゅ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(強化)",
+            "matchedText": "被ダメージを効果量分軽減練守自分 / 単10"
+          },
+          {
+            "category": "generals",
+            "name": "LR沮授（そじゅ）",
+            "displayName": "LR沮授（そじゅ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力を100％"
+          },
+          {
+            "category": "generals",
+            "name": "LR沮授（そじゅ）",
+            "displayName": "LR沮授（そじゅ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "練守",
+            "matchedText": "練守"
+          },
+          {
+            "category": "generals",
+            "name": "LR沮授（そじゅ）",
+            "displayName": "LR沮授（そじゅ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "慧叡",
+            "matchedText": "慧叡"
+          },
+          {
+            "category": "generals",
+            "name": "LR沮授（そじゅ）",
+            "displayName": "LR沮授（そじゅ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "恵守",
+            "matchedText": "恵守"
           },
           {
             "category": "generals",
@@ -16163,6 +16298,60 @@
         "tactics": [
           {
             "category": "tactics",
+            "name": "威振靖華",
+            "displayName": "威振靖華",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "戦法威力変化(強化)",
+            "matchedText": "戦法威力を50％"
+          },
+          {
+            "category": "tactics",
+            "name": "威振靖華",
+            "displayName": "威振靖華",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージを効果量分上昇豪昇味方 / 狭10"
+          },
+          {
+            "category": "tactics",
+            "name": "威振靖華",
+            "displayName": "威振靖華",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃が上昇する知力変化味方 / 狭10"
+          },
+          {
+            "category": "tactics",
+            "name": "威振靖華",
+            "displayName": "威振靖華",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力を150％"
+          },
+          {
+            "category": "tactics",
+            "name": "威振靖華",
+            "displayName": "威振靖華",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "豪昇",
+            "matchedText": "豪昇"
+          },
+          {
+            "category": "tactics",
+            "name": "威振靖華",
+            "displayName": "威振靖華",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "強兵",
+            "matchedText": "強兵"
+          },
+          {
+            "category": "tactics",
             "name": "威震海内",
             "displayName": "威震海内",
             "source": "related_link_index",
@@ -21644,6 +21833,69 @@
           },
           {
             "category": "tactics",
+            "name": "忠烈貞賢",
+            "displayName": "忠烈貞賢",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "戦法威力変化(強化)",
+            "matchedText": "戦法威力を25％"
+          },
+          {
+            "category": "tactics",
+            "name": "忠烈貞賢",
+            "displayName": "忠烈貞賢",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "撃心発生変化(強化)",
+            "matchedText": "撃心発生時の威力が上昇する戦法威力変化自分 / 単10"
+          },
+          {
+            "category": "tactics",
+            "name": "忠烈貞賢",
+            "displayName": "忠烈貞賢",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "撃心威力変化(強化)",
+            "matchedText": "撃心威力と戦法威力を25％"
+          },
+          {
+            "category": "tactics",
+            "name": "忠烈貞賢",
+            "displayName": "忠烈貞賢",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(強化)",
+            "matchedText": "被ダメージを効果量分軽減練守自分 / 単10"
+          },
+          {
+            "category": "tactics",
+            "name": "忠烈貞賢",
+            "displayName": "忠烈貞賢",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力を100％"
+          },
+          {
+            "category": "tactics",
+            "name": "忠烈貞賢",
+            "displayName": "忠烈貞賢",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "練守",
+            "matchedText": "練守"
+          },
+          {
+            "category": "tactics",
+            "name": "忠烈貞賢",
+            "displayName": "忠烈貞賢",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "慧叡",
+            "matchedText": "慧叡"
+          },
+          {
+            "category": "tactics",
             "name": "猪突搔乱",
             "displayName": "猪突搔乱",
             "source": "related_link_index",
@@ -26020,6 +26272,24 @@
           },
           {
             "category": "skills",
+            "name": "叡威",
+            "displayName": "叡威",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力+500"
+          },
+          {
+            "category": "skills",
+            "name": "叡威",
+            "displayName": "叡威",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "恵守",
+            "matchedText": "恵守"
+          },
+          {
+            "category": "skills",
             "name": "栄華",
             "displayName": "栄華",
             "source": "related_link_index",
@@ -29845,6 +30115,51 @@
           },
           {
             "category": "skills",
+            "name": "執守",
+            "displayName": "執守",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "撃心発生変化(強化)",
+            "matchedText": "撃心発生+25%"
+          },
+          {
+            "category": "skills",
+            "name": "執守",
+            "displayName": "執守",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "撃心威力変化(強化)",
+            "matchedText": "撃心威力が上昇 ●出陣時の自部隊の知力に応じて、戦法による与ダメージが上昇（知力500"
+          },
+          {
+            "category": "skills",
+            "name": "執守",
+            "displayName": "執守",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージが上昇（知力500"
+          },
+          {
+            "category": "skills",
+            "name": "執守",
+            "displayName": "執守",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(強化)",
+            "matchedText": "被ダメージ-20%"
+          },
+          {
+            "category": "skills",
+            "name": "執守",
+            "displayName": "執守",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力+10%"
+          },
+          {
+            "category": "skills",
             "name": "疾駆",
             "displayName": "疾駆",
             "source": "related_link_index",
@@ -32002,6 +32317,42 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "与ダメージ変化(強化)",
             "matchedText": "与ダメージが上昇▼交戦開始時 ●自身1"
+          },
+          {
+            "category": "skills",
+            "name": "逐敵",
+            "displayName": "逐敵",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージ+10%"
+          },
+          {
+            "category": "skills",
+            "name": "逐敵",
+            "displayName": "逐敵",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃+10%"
+          },
+          {
+            "category": "skills",
+            "name": "逐敵",
+            "displayName": "逐敵",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力+10%"
+          },
+          {
+            "category": "skills",
+            "name": "忠賢",
+            "displayName": "忠賢",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージ上昇が「強化効果1"
           },
           {
             "category": "skills",
@@ -35443,6 +35794,24 @@
           },
           {
             "category": "skills",
+            "name": "恬安",
+            "displayName": "恬安",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージ+5%"
+          },
+          {
+            "category": "skills",
+            "name": "恬安",
+            "displayName": "恬安",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(強化)",
+            "matchedText": "被ダメージ-5%"
+          },
+          {
+            "category": "skills",
             "name": "悧巧",
             "displayName": "悧巧",
             "source": "related_link_index",
@@ -35945,17 +36314,17 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 1785,
-        "tactics": 1060,
-        "skills": 1121,
+        "generals": 1800,
+        "tactics": 1073,
+        "skills": 1134,
         "equipments": 14,
         "statusEffects": 0,
         "warhorseSkills": 2
       },
-      "totalOwnerCount": 3982,
+      "totalOwnerCount": 4023,
       "source": "related_link_index",
-      "ownerRelationCount": 3982,
-      "distinctOwnerCount": 1298
+      "ownerRelationCount": 4023,
+      "distinctOwnerCount": 1307
     },
     {
       "groupKey": "selfStateBuff",
@@ -39879,6 +40248,60 @@
             "sourcePartType": "self-countermeasure-granted-status",
             "statusEffectName": "弱化効果解除[弱化解除]",
             "matchedText": "対象に発生している弱化効果を打ち消す"
+          },
+          {
+            "category": "generals",
+            "name": "LR沮授（そじゅ）",
+            "displayName": "LR沮授（そじゅ）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "弱化効果回避[鋼志]",
+            "matchedText": "自身1部隊にかかる一部の不利変化（強化無効）と負傷兵数変化を避ける"
+          },
+          {
+            "category": "generals",
+            "name": "LR沮授（そじゅ）",
+            "displayName": "LR沮授（そじゅ）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "強化無効回避[鋼志]",
+            "matchedText": "自身1部隊にかかる一部の不利変化（強化無効）と負傷兵数変化を避ける"
+          },
+          {
+            "category": "generals",
+            "name": "LR沮授（そじゅ）",
+            "displayName": "LR沮授（そじゅ）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "強化抑制回避[鋼志]",
+            "matchedText": "自身1部隊にかかる一部の不利変化（強化無効/強化抑制/強化反転/戦法弱化）と負傷兵数変化を避ける"
+          },
+          {
+            "category": "generals",
+            "name": "LR沮授（そじゅ）",
+            "displayName": "LR沮授（そじゅ）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "強化反転回避[鋼志]",
+            "matchedText": "自身1部隊にかかる一部の不利変化（強化無効/強化抑制/強化反転/戦法弱化）と負傷兵数変化を避ける"
+          },
+          {
+            "category": "generals",
+            "name": "LR沮授（そじゅ）",
+            "displayName": "LR沮授（そじゅ）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "戦法弱化回避[鋼志]",
+            "matchedText": "自身1部隊にかかる一部の不利変化（強化無効/強化抑制/強化反転/戦法弱化）と負傷兵数変化を避ける"
+          },
+          {
+            "category": "generals",
+            "name": "LR沮授（そじゅ）",
+            "displayName": "LR沮授（そじゅ）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill-via-granted-skill",
+            "statusEffectName": "強化解除回避[執守]",
+            "matchedText": "自部隊より現在兵力の低い敵部隊から受ける強化解除を避ける"
           },
           {
             "category": "generals",
@@ -44251,6 +44674,15 @@
           },
           {
             "category": "skills",
+            "name": "護叡",
+            "displayName": "護叡",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill-via-granted-skill",
+            "statusEffectName": "強化解除回避[執守]",
+            "matchedText": "自部隊より現在兵力の低い敵部隊から受ける強化解除を避ける"
+          },
+          {
+            "category": "skills",
             "name": "護志",
             "displayName": "護志",
             "source": "related_link_index",
@@ -44338,6 +44770,51 @@
             "sourcePartType": "self-countermeasure-skill",
             "statusEffectName": "会心無効[巧戦]",
             "matchedText": "砕心が発生している敵部隊からの通常攻撃のダメージを受ける際に会心が発生しない（通常のダメージになる）Ⅱ-Ⅲ-Ⅳ-Ⅴ-"
+          },
+          {
+            "category": "skills",
+            "name": "鋼志",
+            "displayName": "鋼志",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "弱化効果回避[鋼志]",
+            "matchedText": "自身1部隊にかかる一部の不利変化（強化無効）と負傷兵数変化を避ける"
+          },
+          {
+            "category": "skills",
+            "name": "鋼志",
+            "displayName": "鋼志",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "強化無効回避[鋼志]",
+            "matchedText": "自身1部隊にかかる一部の不利変化（強化無効）と負傷兵数変化を避ける"
+          },
+          {
+            "category": "skills",
+            "name": "鋼志",
+            "displayName": "鋼志",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "強化抑制回避[鋼志]",
+            "matchedText": "自身1部隊にかかる一部の不利変化（強化無効/強化抑制/強化反転/戦法弱化）と負傷兵数変化を避ける"
+          },
+          {
+            "category": "skills",
+            "name": "鋼志",
+            "displayName": "鋼志",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "強化反転回避[鋼志]",
+            "matchedText": "自身1部隊にかかる一部の不利変化（強化無効/強化抑制/強化反転/戦法弱化）と負傷兵数変化を避ける"
+          },
+          {
+            "category": "skills",
+            "name": "鋼志",
+            "displayName": "鋼志",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "戦法弱化回避[鋼志]",
+            "matchedText": "自身1部隊にかかる一部の不利変化（強化無効/強化抑制/強化反転/戦法弱化）と負傷兵数変化を避ける"
           },
           {
             "category": "skills",
@@ -44689,6 +45166,15 @@
             "sourcePartType": "self-granted-status-nullify",
             "statusEffectName": "状態変化無効[絶縁]",
             "matchedText": "自身を含む味方4部隊に憤怒を付与（10秒） →この武将と主将が好相性の部隊が優先して対象となるⅡ-Ⅲ-Ⅳ-Ⅴ-"
+          },
+          {
+            "category": "skills",
+            "name": "執守",
+            "displayName": "執守",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "強化解除回避[執守]",
+            "matchedText": "自部隊より現在兵力の低い敵部隊から受ける強化解除を避ける"
           },
           {
             "category": "skills",
@@ -45688,6 +46174,42 @@
             "sourcePartType": "self-countermeasure-skill",
             "statusEffectName": "戦法速度低下回避[断風]",
             "matchedText": "攻撃速度と戦法速度の弱化効果を避けるⅡ-Ⅲ-Ⅳ-Ⅴ-"
+          },
+          {
+            "category": "skills",
+            "name": "逐敵",
+            "displayName": "逐敵",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "戦法遅延回避[逐敵]",
+            "matchedText": "自身1部隊にかかる戦法遅延を避ける"
+          },
+          {
+            "category": "skills",
+            "name": "逐敵",
+            "displayName": "逐敵",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "強化奪取回避[逐敵]",
+            "matchedText": "自身1部隊にかかる戦法遅延、強化奪取、反転を避ける"
+          },
+          {
+            "category": "skills",
+            "name": "逐敵",
+            "displayName": "逐敵",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "反転回避[逐敵]",
+            "matchedText": "自身1部隊にかかる戦法遅延、強化奪取、反転を避ける"
+          },
+          {
+            "category": "skills",
+            "name": "逐敵",
+            "displayName": "逐敵",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "弱化効果回避[逐敵]",
+            "matchedText": "自部隊より最大兵力の低い敵部隊から受ける弱化効果を50％の確率で避ける（確率は他効果と合算）"
           },
           {
             "category": "skills",
@@ -47511,6 +48033,15 @@
           },
           {
             "category": "equipments",
+            "name": "心翠宝玉佩",
+            "displayName": "心翠宝玉佩",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "強化解除回避[執守]",
+            "matchedText": "自部隊より現在兵力の低い敵部隊から受ける強化解除を避ける"
+          },
+          {
+            "category": "equipments",
             "name": "真鋼鎮定剣",
             "displayName": "真鋼鎮定剣",
             "source": "related_link_index",
@@ -48375,6 +48906,42 @@
           },
           {
             "category": "equipments",
+            "name": "万里安境矛",
+            "displayName": "万里安境矛",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "戦法遅延回避[逐敵]",
+            "matchedText": "自身1部隊にかかる戦法遅延を避ける"
+          },
+          {
+            "category": "equipments",
+            "name": "万里安境矛",
+            "displayName": "万里安境矛",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "強化奪取回避[逐敵]",
+            "matchedText": "自身1部隊にかかる戦法遅延、強化奪取、反転を避ける"
+          },
+          {
+            "category": "equipments",
+            "name": "万里安境矛",
+            "displayName": "万里安境矛",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "反転回避[逐敵]",
+            "matchedText": "自身1部隊にかかる戦法遅延、強化奪取、反転を避ける"
+          },
+          {
+            "category": "equipments",
+            "name": "万里安境矛",
+            "displayName": "万里安境矛",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "弱化効果回避[逐敵]",
+            "matchedText": "自部隊より最大兵力の低い敵部隊から受ける弱化効果を50％の確率で避ける（確率は他効果と合算）"
+          },
+          {
+            "category": "equipments",
             "name": "無塵剣",
             "displayName": "無塵剣",
             "source": "related_link_index",
@@ -48783,16 +49350,16 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 528,
+        "generals": 534,
         "tactics": 153,
-        "skills": 419,
-        "equipments": 202,
+        "skills": 430,
+        "equipments": 207,
         "statusEffects": 0
       },
-      "totalOwnerCount": 1302,
+      "totalOwnerCount": 1324,
       "source": "related_link_index",
-      "ownerRelationCount": 1302,
-      "distinctOwnerCount": 444
+      "ownerRelationCount": 1324,
+      "distinctOwnerCount": 451
     },
     {
       "groupKey": "enemyAbilityDebuff",
