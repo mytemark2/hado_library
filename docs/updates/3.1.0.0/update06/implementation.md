@@ -33,3 +33,12 @@
 ## 外部化
 
 統合責務は`hado_search_clause_integration.js`、詳細カードは既存の`hado_detail_condition_presenter.js`、`hado_core.js`、`hado_update04.css`へ分離する。結果カード専用だった`hado_update06.css`は削除し、`index.html`へJavaScriptやCSSを直書きしない。
+
+## r184 表示情報の削減
+
+- 技能カードでは「適用条件と効果」「条件ごとに～」「条件／発動／適用」「補足：」を常時表示しない。実際の条件文と効果文を残し、区分は左罫線の色と`title`・`aria-label`で補う。
+- 参照技能の「技能データ参照」を削除し、`付与Lv`は通常技能と同じ`Lv`表示へ統一する。原文開閉は`原文`へ短縮する。
+- 検索、データ管理、保存管理、軍馬編成、兵器・武装、結果サマリーの操作内容と重複する説明を削除する。検索履歴登録と結果根拠の操作説明はツールチップへ移す。
+- 型プリセット未選択時の空の説明欄は`hidden`と`hado_styles.css`の非表示規則を併用し、レイアウト余白も残さない。
+- 初回ガイド、型検索の`？`ヘルプ、Import前のバックアップ警告は、必要時の説明とデータ消失防止に必要なため残す。
+- 画面文言の再増加を防ぐ`tools/test_3_1_0_0_update06_ui_copy_reduction.js`をApp Validationへ追加する。

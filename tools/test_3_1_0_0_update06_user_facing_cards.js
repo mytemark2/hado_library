@@ -38,9 +38,13 @@ assert(display.groups[1].effects.some(row => row.text.includes('ダメージの�
 assert(display.groups[1].effects.some(row => row.text.includes('有利激攻/有利巧守')));
 
 const html = presenter.renderHtml({ category: 'skills', name: '克遂', sourceTexts: [levelTwo] });
-assert(html.includes('適用条件と効果'));
-assert(html.includes('条件ごとに、その条件で有効になる効果をまとめています。'));
-assert.strictEqual((html.match(/この技能Lvの原文を表示/g) || []).length, 1, 'raw source toggle must appear once per skill level');
+assert(!html.includes('適用条件と効果'));
+assert(!html.includes('条件ごとに、その条件で有効になる効果をまとめています。'));
+assert.strictEqual((html.match(/<summary [^>]*>原文<\/summary>/g) || []).length, 1, 'compact raw source toggle must appear once per skill level');
+assert(!html.includes('<span>条件</span>'));
+assert(!html.includes('<span>発動</span>'));
+assert(!html.includes('<span>適用</span>'));
+assert(!html.includes('補足：'));
 assert(!html.includes('確認済み'));
 assert(!html.includes('detail-semantic-chip'));
 assert(!html.includes('自部隊が比較優位'));
@@ -58,7 +62,7 @@ assert(!statusSource.includes('renderResultHtml'));
 assert(css.includes('.detail-effect-group'));
 assert(css.includes('@media(max-width:760px)'));
 assert(!indexHtml.includes('hado_update06.css'));
-assert(indexHtml.includes('06-r183'));
+assert(indexHtml.includes('06-r184'));
 assert(!indexHtml.includes('06-r180'));
 
-console.log('Update06 user-facing cards ok: 克遂 LvⅡ 5 groups / one raw toggle / internal search labels hidden');
+console.log('Update06 user-facing cards ok: 克遂 LvⅡ 5 groups / compact labels / one raw toggle');

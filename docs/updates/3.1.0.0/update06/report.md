@@ -2,7 +2,7 @@
 
 ## 1. Summary
 
-Update06 r180の検索統合とr181の利用者向け表示を維持し、r182で「白眉」など参照付与技能の表示を通常技能と同じ条件・効果カードへ統合した。最終Preview確認でデータ読込完了前検索の既存エラーを検出したため、r183で同時に安定化する。正式公開は行わない。
+Update06 r180からr183までの検索・技能カード・読込安定化を維持し、r184で技能、検索、データ管理、保存管理、軍馬編成、兵器・武装、結果サマリーの重複説明を削減する。必要説明はガイド、ツールチップ、アクセシビリティ名へ集約し、データ消失防止警告は残す。正式公開は行わない。
 
 ## 2. Bug classification and root cause
 
@@ -14,26 +14,30 @@ Update06 r180の検索統合とr181の利用者向け表示を維持し、r182�
 - 追加分類: 起動時の例外処理経路にある存在しない関数名の呼出し。
 - 追加原因: データ未読込ガードだけが、実在する`clearSearchProgressTimer`ではなく未定義の`cancelSearchProgressIndicator`を呼び出していた。通常の読込完了後操作では通らないため、従来回帰で検出されていなかった。
 - 追加対策: データ未読込ガードを既存の進捗タイマー停止関数へ統一し、未定義関数名の不在とガード内の正しい呼出しを専用回帰で固定する。
+- r184分類: 情報設計上の冗長表示。見出し、区分名、補足文が実際の条件文・効果文・操作部品と同時に常時表示され、内容理解より先に説明を読ませる構成になっていた。
+- r184原因: 技能カード改善時に内部区分を利用者向け見出しとして追加し、他画面でも機能追加ごとに説明文を常設したため、画面全体の表示基準が統一されていなかった。
+- r184恒久対策: 「操作に必要な名称・状態・警告は表示、操作部品と重複する説明は非表示、必要時の説明はガイドまたはツールチップ」の共通基準へ統一する。専用文言回帰をApp Validationへ組み込み、削除した説明の再追加を検出する。
 
 ## 3. Impact scope checked
 
-技能付与参照215出現、重複除外200関係、親技能122件、参照先112技能を全件監査した。対象参照先は全件存在した。表示の直接影響は武将詳細内の参照付与技能カードで、同じ欠陥クラスとして通常技能のgenerated原文二重表示経路も修正対象に含めた。追加で公開JSON読込中の通常検索入力経路を確認した。計算側の付与技能反映、保存データ、部隊編成、検索索引、派生JSONは変更しない。
+技能付与参照215出現、重複除外200関係、親技能122件、参照先112技能を全件回帰した。r184の表示監査は技能、通常検索、状態変化検索、型検索、データ管理、保存管理、軍馬編成、部隊編成の兵器・武装と結果サマリーを対象とした。計算、検索判定、保存データ、Export/Import、派生JSONは変更しない。
 
 ## 4. Files changed
 
-`hado_core.js`、`hado_update04.css`、`hado_search.js`、`index.html`、`hado_version.js`、`tools/test_3_1_0_0_update06_referenced_skill_cards.js`、`tools/test_update09_5_43_search_requires_json.js`、既存版表示回帰、`tools/run_app_validation.py`、README、全体Roadmap、Update06記録。
+`hado_detail_condition_presenter.js`、`hado_core.js`、`hado_search.js`、`hado_formation.js`、`hado_update04.css`、`hado_styles.css`、`index.html`、`hado_version.js`、技能・検索・編成の既存回帰、`tools/test_3_1_0_0_update06_ui_copy_reduction.js`、`tools/run_app_validation.py`、README、全体Roadmap、Update06記録。
 
-`hado_version.js`はPreviewで最終安定化版を識別できるようr183へ更新した。`HADO_DEV_INFO.json`は表示版の重複を避ける現行方針に従い変更していない。
+`hado_version.js`はPreviewで表示削減版を識別できるようr184へ更新した。`HADO_DEV_INFO.json`は表示版の重複を避ける現行方針に従い変更していない。
 
 ## 5. HTML size change and externalization decision
 
-`index.html`: 29,857 bytes → 29,857 bytes、±0 bytes。キャッシュキーだけを`06-r183`へ更新した。JavaScriptは`hado_core.js`と`hado_search.js`、表示調整は`hado_update04.css`へ外部化し、HTML内JavaScript/CSSは追加していない。
+`index.html`: 29,857 bytes → 28,475 bytes、-1,382 bytes。冗長な静的説明を削除し、キャッシュキーを`06-r184`へ更新した。動的表示は既存の外部JavaScript、表示調整は`hado_update04.css`で行い、HTML内JavaScript/CSSは追加していない。
 
 ## 6. Validation commands executed
 
 - `node --check hado_core.js`
 - `node tools/test_3_1_0_0_update06_referenced_skill_cards.js`
 - `node tools/test_3_1_0_0_update06_user_facing_cards.js`
+- `node tools/test_3_1_0_0_update06_ui_copy_reduction.js`
 - `node tools/test_3_1_0_0_update06_search_clause_integration.js`
 - `node tools/test_3_1_0_0_update04_detail_condition_presenter.js`
 - `node tools/test_3_1_0_0_update07_score_shadow.js`
@@ -42,11 +46,11 @@ Update06 r180の検索統合とr181の利用者向け表示を維持し、r182�
 - `python -X utf8 tools/validate_update_version_consistency.py`
 - `python -X utf8 tools/run_app_validation.py`
 - `git diff --check`
-- ローカルHTTP版のPC・スマートフォン実操作
+- 公開PreviewのPC・スマートフォン実操作（反映後に実施）
 
 ## 7. Validation results
 
-専用回帰、派生JSON契約、版表示整合、全App Validation 144/144、`git diff --check`はPASS。全データ監査で参照関係200件、親技能122件、参照先112技能、参照先欠損0件を確認した。
+専用回帰、派生JSON契約、版表示整合、全App Validation 145/145、`git diff --check`はPASS。全データ監査で参照関係200件、親技能122件、参照先112技能、参照先欠損0件を確認した。ローカルURLのブラウザ操作はブラウザ安全制限で実施できないため、実画面確認は公開Preview反映後に行う。
 
 ローカルHTTP版では次を確認した。
 
@@ -64,12 +68,14 @@ Update06 r180の検索統合とr181の利用者向け表示を維持し、r182�
 - r183安定化commit: `a49dc7fc899fc1557ce0e45069a435b002994519`
 - r183 Pull Request: `#313`（`feature/app-3.1.0.0`へsquash merge）
 - r183競合: なし。merge-readinessでbase `4bf3d5255f50ff9539ae81dad2e6110a9ea94513`、head `2c9d537190a019f7003265fc095635d7f3ef7786`、merge可能を確認した。
+- r184: 実装・ローカル検証済み。commit、Pull Request、merge-readiness結果は統合後に追記する。
 
 ## 9. GitHub Actions result
 
 - `App Validation / app-validation`: r182 run `32635871079`、r183 run `32636671059`、ともにPASS。
 - `Notify Hado Library Preview`: r182 run `32635894809`、r183 run `32636687678`、ともにpush起動・PASS。
 - 通常のPreview同期に手動実行・scheduleは使用していない。
+- r184: Pull RequestとPreview同期の実行結果は反映後に追記する。
 
 ## 10. Preview synchronization result
 
@@ -89,14 +95,16 @@ Preview repository `main`は`1b8a23a9d06903aa835d87bc072590e7dfb4d4c0`。`PREVIE
 - debug log: ブラウザ警告・エラー0件。
 - 判定: PASS。
 
+r184のmarker、配備ファイル、DOM、PC・スマートフォン操作、debug logは公開Preview反映後に追記する。追記完了まではr184をPreview完了としない。
+
 ## 11. Minimum user acceptance operation
 
-公開Previewの「検索」で`LR馬良`を検索し、技能内の参照カード「白眉」を確認する。「主将か、主将と自身が好相性の際」の直下に「防御+10%」と「政治を部隊能力に加算する技能の効果量+5%」がまとまり、続く「出陣時」の直下に戦法ゲージ上昇が表示されることを確認する。「防御+15%」など白眉LvⅡの効果が混在しないことも確認する。
+公開Previewの「検索」で`LR馬良`を検索し、技能内の参照カード「白眉」を確認する。「適用条件と効果」「条件／発動／適用」「補足：」「技能データ参照」が表示されず、実際の条件文と効果文だけで白眉LvⅠの2グループを読み取れることを確認する。併せて検索欄、データ管理、軍馬編成の重複説明が削除されていることを確認する。
 
 ## 12. Remaining issues
 
-none。正式公開は全Update完了後の明示承認まで実施しない。
+r184公開Previewの同期・実画面確認が未完了。正式公開は全Update完了後の明示承認まで実施しない。
 
 ## 確認事項
 
-なし。Update07は完了済みのため、次はUpdate08「結果サマリー・全画面統一」へ進む。推奨エンジンはGPT-5.6 Sol / reasoning High。
+r184公開PreviewのPC・スマートフォン表示確認が必要。完了後の利用者確認事項は上記「Minimum user acceptance operation」の1操作。Update07は完了済みのため、次はUpdate08「結果サマリー・全画面統一」。推奨エンジンはGPT-5.6 Sol / reasoning High。
