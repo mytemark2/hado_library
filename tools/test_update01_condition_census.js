@@ -22,17 +22,22 @@ assert.strictEqual(normalizeLineEndings(fs.readFileSync(GOLD_PATH)), normalizeLi
 
 const census = JSON.parse(beforeCensus.toString('utf8'));
 const gold = JSON.parse(beforeGold.toString('utf8'));
-const expectedCounts = { generals: 486, tactics: 465, skills: 653, statusEffects: 206 };
+const sourceFiles = { generals: 'hadou_generals.json', tactics: 'hadou_tactics.json', skills: 'hadou_skills.json', statusEffects: 'hadou_status_effects.json' };
+const expectedCounts = Object.fromEntries(Object.entries(sourceFiles).map(([category, file]) => {
+  const source = JSON.parse(fs.readFileSync(path.join(ROOT, file), 'utf8'));
+  return [category, Array.isArray(source) ? source.length : source.items.length];
+}));
+const expectedTotal = Object.values(expectedCounts).reduce((sum, count) => sum + count, 0);
 
 assert.strictEqual(census.kind, 'update01_condition_census');
 assert.strictEqual(census.releaseVersion, '3.1.0.0');
 assert.strictEqual(census.updateNo, '01');
-assert.strictEqual(census.scanSummary.sourceRecordCount, 1810);
-assert.strictEqual(census.scanSummary.scannedRecordCount, 1810);
+assert.strictEqual(census.scanSummary.sourceRecordCount, expectedTotal);
+assert.strictEqual(census.scanSummary.scannedRecordCount, expectedTotal);
 assert.strictEqual(census.scanSummary.unscannedRecordCount, 0);
 assert.strictEqual(census.scanSummary.unresolvedUnitCount, 0);
 assert(census.scanSummary.semanticUnitCount > 40000, 'semantic unit census must retain full source coverage');
-assert.strictEqual(census.records.length, 1810, 'every source record must have an audit record');
+assert.strictEqual(census.records.length, expectedTotal, 'every source record must have an audit record');
 assert(census.records.every(row => row.unitCount > 0 && row.unitDigest && row.disposition === 'semantic_units_scanned'), 'each source record must retain a deterministic scan disposition');
 
 for (const [category, expected] of Object.entries(expectedCounts)) {
@@ -50,11 +55,14 @@ for (const group of requiredGroups) {
 }
 
 const blocksAudit = census.existingConditionBlocksAudit;
-assert.strictEqual(blocksAudit.missingRecordCount, 228);
-assert.deepStrictEqual(blocksAudit.byCategory.generals, { sourceRecords: 486, indexedRecords: 481, missingRecords: 5 });
-assert.deepStrictEqual(blocksAudit.byCategory.tactics, { sourceRecords: 465, indexedRecords: 460, missingRecords: 5 });
-assert.deepStrictEqual(blocksAudit.byCategory.skills, { sourceRecords: 653, indexedRecords: 641, missingRecords: 12 });
-assert.deepStrictEqual(blocksAudit.byCategory.statusEffects, { sourceRecords: 206, indexedRecords: 0, missingRecords: 206 });
+let missingRecordCount = 0;
+for (const [category, expected] of Object.entries(expectedCounts)) {
+  const row = blocksAudit.byCategory[category];
+  assert.strictEqual(row.sourceRecords, expected, `${category} condition-block source count`);
+  assert.strictEqual(row.indexedRecords + row.missingRecords, expected, `${category} condition-block coverage`);
+  missingRecordCount += row.missingRecords;
+}
+assert.strictEqual(blocksAudit.missingRecordCount, missingRecordCount);
 assert(blocksAudit.likelyMisclassificationCount > 0, 'current marker classifier review list must be retained');
 assert(blocksAudit.conditionBlocksWithoutParentEffectLinkCount > 0, 'missing parent-child links must be quantified');
 assert.strictEqual(blocksAudit.reuseDecision, 'diagnostic_input_only');

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-08-22T23:29:37.854Z",
+  "generatedAt": "2026-08-24T16:58:11.850Z",
   "dataSetId": "2026-08-13T06:28:33.208Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
@@ -33,26 +33,26 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 486,
-    "tactics": 465,
-    "equipments": 249,
-    "skills": 653,
+    "generals": 488,
+    "tactics": 467,
+    "equipments": 251,
+    "skills": 661,
     "statusEffects": 206,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
     "ethnicResearchSkills": 32,
-    "formations": 21,
+    "formations": 22,
     "fiveElements": 10,
     "warhorses": 5,
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "caa6a018",
-    "tactics": "19b2dc25",
-    "equipments": "504f8c1b",
-    "skills": "c7e8c8f5",
+    "generals": "c8a69cf2",
+    "tactics": "17b2d8ff",
+    "equipments": "4c51c466",
+    "skills": "55f06444",
     "statusEffects": "defa110c",
-    "formations": "9c5d2dae",
+    "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
     "ethnicArmaments": "c731a91c",
     "ethnicResearchSkills": "06d47d06",
@@ -61,12 +61,12 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "caa6a018",
-    "tactics": "19b2dc25",
-    "equipments": "504f8c1b",
-    "skills": "c7e8c8f5",
+    "generals": "c8a69cf2",
+    "tactics": "17b2d8ff",
+    "equipments": "4c51c466",
+    "skills": "55f06444",
     "statusEffects": "defa110c",
-    "formations": "9c5d2dae",
+    "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
     "ethnicArmaments": "c731a91c",
     "ethnicResearchSkills": "06d47d06",
@@ -77,13 +77,13 @@
   "hotfixVersion": "1.1.0.3",
   "kind": "tactic_attack_index",
   "qualityAudit": {
-    "itemCount": 465,
-    "attackCount": 220,
+    "itemCount": 467,
+    "attackCount": 222,
     "noAttackCount": 245,
-    "withConditionBlocks": 460,
+    "withConditionBlocks": 462,
     "withRangeGate": 0,
     "withChainRate": 5,
-    "tacticAttackBlockNoiseRemovedCount": 165,
+    "tacticAttackBlockNoiseRemovedCount": 167,
     "tacticAttackBlockNoiseRemainingCount": 0,
     "warnings": [],
     "attackKindAudit": {
@@ -33513,7 +33513,175 @@
       ]
     },
     {
-      "id": "tactics:445:廖化（りょうか）",
+      "id": "tactics:445:忠烈貞賢",
+      "category": "tactics",
+      "name": "忠烈貞賢",
+      "displayName": "忠烈貞賢",
+      "sourceGeneral": "LR沮授（そじゅ）",
+      "hasAttack": true,
+      "directAttack": true,
+      "basePower": 400,
+      "targetCount": 3,
+      "label": "戦法攻撃400%(3部隊)",
+      "formula": "400%",
+      "modifiers": [
+        {
+          "type": "additive",
+          "value": 25,
+          "text": "威力を25%上昇",
+          "evaluable": false
+        }
+      ],
+      "searchTokens": [
+        "戦法攻撃400%(3部隊)",
+        "戦法攻撃",
+        "戦法攻撃あり",
+        "戦法攻撃率:400",
+        "対象部隊数:3",
+        "対象3部隊",
+        "攻撃補正あり",
+        "威力+25%",
+        "攻撃補正あり"
+      ],
+      "attackBlocks": [],
+      "conditionBlocks": [
+        {
+          "blockId": "tactics:445:0",
+          "sourcePartType": "section",
+          "sourceTitle": "忠烈貞賢",
+          "sourceIndex": "0",
+          "sentenceIndex": 0,
+          "conditionText": "の際 / 応じて / 主将 / 好相性 / 兵科",
+          "effectText": "忠烈貞賢 兵科効果系統攻撃属性なし知力なし効果自身1部隊に50％の慧叡と練守を付与して知力を100％、撃心威力と戦法威力を25％上昇（自部隊の主将とこの武将が好相性の際、知力上昇、撃心威力上昇、戦法威力上昇の効果量が2倍になる）対象を含む敵3部隊に400％の攻撃発動間隔対象範囲発動率連鎖順30秒敵 / 中25％普通 忠烈貞賢の追加効果 追加効果対象範囲継続慧叡自分 / 単10秒知力系統の攻撃の与ダメージが効果量分上昇、知力系統の攻撃の被ダメージを効果量分軽減練守自分 / 単10秒自部隊に発生している強化効果の数に応じて、部隊の被ダメージを軽減（強化効果1つにつき5％ずつ軽減",
+          "sourceText": "忠烈貞賢 兵科効果系統攻撃属性なし知力なし効果自身1部隊に50％の慧叡と練守を付与して知力を100％、撃心威力と戦法威力を25％上昇（自部隊の主将とこの武将が好相性の際、知力上昇、撃心威力上昇、戦法威力上昇の効果量が2倍になる）対象を含む敵3部隊に400％の攻撃発動間隔対象範囲発動率連鎖順30秒敵 / 中25％普通 忠烈貞賢の追加効果 追加効果対象範囲継続慧叡自分 / 単10秒知力系統の攻撃の与ダメージが効果量分上昇、知力系統の攻撃の被ダメージを効果量分軽減練守自分 / 単10秒自部隊に発生している強化効果の数に応じて、部隊の被ダメージを軽減（強化効果1つにつき5％ずつ軽減",
+          "blockType": "conditionedEffect",
+          "effectKinds": [
+            "parameter",
+            "tacticAttack",
+            "statusEffect"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "tactics:445:1",
+          "sourcePartType": "section",
+          "sourceTitle": "忠烈貞賢",
+          "sourceIndex": "0",
+          "sentenceIndex": 1,
+          "conditionText": "時",
+          "effectText": "最大50％軽減）知力変化自分 / 単10秒部隊の知力が上昇する撃心威力変化自分 / 単10秒撃心発生時の威力が上昇する戦法威力変化自分 / 単10秒戦法による攻撃の威力が上昇する",
+          "sourceText": "最大50％軽減）知力変化自分 / 単10秒部隊の知力が上昇する撃心威力変化自分 / 単10秒撃心発生時の威力が上昇する戦法威力変化自分 / 単10秒戦法による攻撃の威力が上昇する",
+          "blockType": "conditionedEffect",
+          "effectKinds": [
+            "parameter",
+            "statusEffect"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        }
+      ],
+      "hasRangeGate": false,
+      "hasChainRate": false,
+      "sourceText": "忠烈貞賢 忠烈貞賢 忠烈貞賢 LR沮授（そじゅ） 忠烈貞賢 忠烈貞賢 兵科効果系統攻撃属性なし知力なし効果自身1部隊に50％の慧叡と練守を付与して知力を100％、撃心威力と戦法威力を25％上昇（自部隊の主将とこの武将が好相性の際、知力上昇、撃心威力上昇、戦法威力上昇の効果量が2倍になる）対象を含む敵3部隊に400％の攻撃発動間隔対象範囲発動率連鎖順30秒敵 / 中25％普通 忠烈貞賢の追加効果 追加効果対象範囲継続慧叡自分 / 単10秒知力系統の攻撃の与ダメージが効果量分上昇、知力系統の攻撃の被ダメージを効果量分軽減練守自分 / 単10秒自部隊に発生している強化効果の数に応じて、部隊の被ダメージを軽減（強化効果1つにつき5％ずつ軽減。最大50％軽減）知力変化自分 / 単10秒部隊の知力が上昇する撃心威力変化自分 / 単10秒撃心発生時の威力が上昇する戦法威力変化自分 / 単10秒戦法による攻撃の威力が上昇する",
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572584",
+      "sourceEntityKey": "tactics:article-572584",
+      "tacticAttackKey": "tactics:article-572584:attack:direct",
+      "hasDirectDamage": true,
+      "hasAnyAttackEffect": true,
+      "hasConditionalAttack": false,
+      "hasCounterAttack": false,
+      "sourcePartType": "tactic_text",
+      "keywords": [
+        "忠烈貞賢",
+        "攻撃",
+        "戦法攻撃",
+        "400%"
+      ]
+    },
+    {
+      "id": "tactics:446:威振靖華",
+      "category": "tactics",
+      "name": "威振靖華",
+      "displayName": "威振靖華",
+      "sourceGeneral": "LR蒙恬（もうてん）",
+      "hasAttack": true,
+      "directAttack": true,
+      "basePower": 500,
+      "targetCount": 4,
+      "label": "戦法攻撃500%(4部隊)",
+      "formula": "500%",
+      "modifiers": [
+        {
+          "type": "attackSystemChoice",
+          "label": "攻撃系統選択",
+          "text": "攻撃または知力の高い方（同値の場合は知力）",
+          "evaluable": false
+        },
+        {
+          "type": "additive",
+          "value": 50,
+          "text": "威力を50%上昇",
+          "evaluable": false
+        }
+      ],
+      "searchTokens": [
+        "戦法攻撃500%(4部隊)",
+        "戦法攻撃",
+        "戦法攻撃あり",
+        "戦法攻撃率:500",
+        "対象部隊数:4",
+        "対象4部隊",
+        "攻撃系統選択",
+        "攻撃知力高い方",
+        "攻撃補正あり",
+        "威力+50%",
+        "攻撃補正あり"
+      ],
+      "attackBlocks": [],
+      "conditionBlocks": [
+        {
+          "blockId": "tactics:446:0",
+          "sourcePartType": "section",
+          "sourceTitle": "威振靖華",
+          "sourceIndex": "0",
+          "sentenceIndex": 0,
+          "conditionText": "場合 / 応じて / 主将 / 兵科",
+          "effectText": "威振靖華 兵科効果系統攻撃属性盾兵特殊なし効果自身を含む味方2部隊に75％の強兵と豪昇を付与して、攻撃と知力を150％、戦法威力を50％上昇（この武将が主将の場合、上記全ての効果の味方対象部隊数+2）対象を含む敵4部隊に自部隊の攻撃または知力の高い方の系統で500％の攻撃を行う（同値の場合は知力系統）発動間隔対象範囲発動率連鎖順20秒敵 / 広25％遅い 威振靖華の追加効果 追加効果対象範囲継続強兵味方 / 狭10秒自部隊より最大兵力の低い敵部隊への与ダメージを効果量分上昇豪昇味方 / 狭10秒自部隊に発生している強化効果の数に応じて、部隊の与ダメージが上昇（強化効果1つにつき5％ずつ上昇",
+          "sourceText": "威振靖華 兵科効果系統攻撃属性盾兵特殊なし効果自身を含む味方2部隊に75％の強兵と豪昇を付与して、攻撃と知力を150％、戦法威力を50％上昇（この武将が主将の場合、上記全ての効果の味方対象部隊数+2）対象を含む敵4部隊に自部隊の攻撃または知力の高い方の系統で500％の攻撃を行う（同値の場合は知力系統）発動間隔対象範囲発動率連鎖順20秒敵 / 広25％遅い 威振靖華の追加効果 追加効果対象範囲継続強兵味方 / 狭10秒自部隊より最大兵力の低い敵部隊への与ダメージを効果量分上昇豪昇味方 / 狭10秒自部隊に発生している強化効果の数に応じて、部隊の与ダメージが上昇（強化効果1つにつき5％ずつ上昇",
+          "blockType": "conditionedEffect",
+          "effectKinds": [
+            "parameter",
+            "tacticAttack",
+            "statusEffect"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        }
+      ],
+      "hasRangeGate": false,
+      "hasChainRate": false,
+      "sourceText": "威振靖華 威振靖華 威振靖華 LR蒙恬（もうてん） 威振靖華 威振靖華 兵科効果系統攻撃属性盾兵特殊なし効果自身を含む味方2部隊に75％の強兵と豪昇を付与して、攻撃と知力を150％、戦法威力を50％上昇（この武将が主将の場合、上記全ての効果の味方対象部隊数+2）対象を含む敵4部隊に自部隊の攻撃または知力の高い方の系統で500％の攻撃を行う（同値の場合は知力系統）発動間隔対象範囲発動率連鎖順20秒敵 / 広25％遅い 威振靖華の追加効果 追加効果対象範囲継続強兵味方 / 狭10秒自部隊より最大兵力の低い敵部隊への与ダメージを効果量分上昇豪昇味方 / 狭10秒自部隊に発生している強化効果の数に応じて、部隊の与ダメージが上昇（強化効果1つにつき5％ずつ上昇。最大50％上昇）攻撃変化味方 / 狭10秒部隊の攻撃が上昇する知力変化味方 / 狭10秒部隊の知力が上昇する戦法威力変化味方 / 狭10秒戦法による攻撃の威力が上昇する",
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572585",
+      "sourceEntityKey": "tactics:article-572585",
+      "tacticAttackKey": "tactics:article-572585:attack:direct",
+      "hasDirectDamage": true,
+      "hasAnyAttackEffect": true,
+      "hasConditionalAttack": false,
+      "hasCounterAttack": false,
+      "sourcePartType": "tactic_text",
+      "keywords": [
+        "威振靖華",
+        "攻撃",
+        "戦法攻撃",
+        "500%"
+      ]
+    },
+    {
+      "id": "tactics:447:廖化（りょうか）",
       "category": "tactics",
       "name": "廖化（りょうか）",
       "displayName": "廖化（りょうか）",
@@ -33534,7 +33702,7 @@
       "attackBlocks": [],
       "conditionBlocks": [
         {
-          "blockId": "tactics:445:0",
+          "blockId": "tactics:447:0",
           "sourcePartType": "section",
           "sourceTitle": "廖化の技能",
           "sourceIndex": "3",
@@ -33551,7 +33719,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:445:1",
+          "blockId": "tactics:447:1",
           "sourcePartType": "section",
           "sourceTitle": "廖化の兵科",
           "sourceIndex": "19",
@@ -33584,7 +33752,7 @@
       ]
     },
     {
-      "id": "tactics:446:劉封（りゅうほう）",
+      "id": "tactics:448:劉封（りゅうほう）",
       "category": "tactics",
       "name": "劉封（りゅうほう）",
       "displayName": "劉封（りゅうほう）",
@@ -33605,7 +33773,7 @@
       "attackBlocks": [],
       "conditionBlocks": [
         {
-          "blockId": "tactics:446:0",
+          "blockId": "tactics:448:0",
           "sourcePartType": "section",
           "sourceTitle": "劉封の技能",
           "sourceIndex": "3",
@@ -33620,7 +33788,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:446:1",
+          "blockId": "tactics:448:1",
           "sourcePartType": "section",
           "sourceTitle": "劉封の技能",
           "sourceIndex": "3",
@@ -33635,7 +33803,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:446:2",
+          "blockId": "tactics:448:2",
           "sourcePartType": "section",
           "sourceTitle": "劉封の兵科",
           "sourceIndex": "19",
@@ -33668,7 +33836,7 @@
       ]
     },
     {
-      "id": "tactics:447:李傕（りかく）",
+      "id": "tactics:449:李傕（りかく）",
       "category": "tactics",
       "name": "李傕（りかく）",
       "displayName": "李傕（りかく）",
@@ -33689,7 +33857,7 @@
       "attackBlocks": [],
       "conditionBlocks": [
         {
-          "blockId": "tactics:447:0",
+          "blockId": "tactics:449:0",
           "sourcePartType": "section",
           "sourceTitle": "李傕の技能",
           "sourceIndex": "3",
@@ -33704,7 +33872,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:447:1",
+          "blockId": "tactics:449:1",
           "sourcePartType": "section",
           "sourceTitle": "李傕の兵科",
           "sourceIndex": "19",
@@ -33737,7 +33905,7 @@
       ]
     },
     {
-      "id": "tactics:448:楊脩（ようしゅう）",
+      "id": "tactics:450:楊脩（ようしゅう）",
       "category": "tactics",
       "name": "楊脩（ようしゅう）",
       "displayName": "楊脩（ようしゅう）",
@@ -33758,7 +33926,7 @@
       "attackBlocks": [],
       "conditionBlocks": [
         {
-          "blockId": "tactics:448:0",
+          "blockId": "tactics:450:0",
           "sourcePartType": "section",
           "sourceTitle": "楊脩の技能",
           "sourceIndex": "3",
@@ -33773,7 +33941,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:448:1",
+          "blockId": "tactics:450:1",
           "sourcePartType": "section",
           "sourceTitle": "楊脩の技能",
           "sourceIndex": "3",
@@ -33788,7 +33956,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:448:2",
+          "blockId": "tactics:450:2",
           "sourcePartType": "section",
           "sourceTitle": "楊脩の兵科",
           "sourceIndex": "19",
@@ -33823,7 +33991,7 @@
       ]
     },
     {
-      "id": "tactics:449:卞喜（べんき）",
+      "id": "tactics:451:卞喜（べんき）",
       "category": "tactics",
       "name": "卞喜（べんき）",
       "displayName": "卞喜（べんき）",
@@ -33844,7 +34012,7 @@
       "attackBlocks": [],
       "conditionBlocks": [
         {
-          "blockId": "tactics:449:0",
+          "blockId": "tactics:451:0",
           "sourcePartType": "section",
           "sourceTitle": "卞喜の技能",
           "sourceIndex": "3",
@@ -33859,7 +34027,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:449:1",
+          "blockId": "tactics:451:1",
           "sourcePartType": "section",
           "sourceTitle": "卞喜の技能",
           "sourceIndex": "3",
@@ -33874,7 +34042,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:449:2",
+          "blockId": "tactics:451:2",
           "sourcePartType": "section",
           "sourceTitle": "卞喜の兵科",
           "sourceIndex": "19",
@@ -33909,7 +34077,7 @@
       ]
     },
     {
-      "id": "tactics:450:武安国（ぶあんこく）",
+      "id": "tactics:452:武安国（ぶあんこく）",
       "category": "tactics",
       "name": "武安国（ぶあんこく）",
       "displayName": "武安国（ぶあんこく）",
@@ -33930,7 +34098,7 @@
       "attackBlocks": [],
       "conditionBlocks": [
         {
-          "blockId": "tactics:450:0",
+          "blockId": "tactics:452:0",
           "sourcePartType": "section",
           "sourceTitle": "武安国の技能",
           "sourceIndex": "3",
@@ -33947,7 +34115,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:450:1",
+          "blockId": "tactics:452:1",
           "sourcePartType": "section",
           "sourceTitle": "武安国の兵科",
           "sourceIndex": "19",
@@ -33980,7 +34148,7 @@
       ]
     },
     {
-      "id": "tactics:451:潘鳳（はんぽう）",
+      "id": "tactics:453:潘鳳（はんぽう）",
       "category": "tactics",
       "name": "潘鳳（はんぽう）",
       "displayName": "潘鳳（はんぽう）",
@@ -34001,7 +34169,7 @@
       "attackBlocks": [],
       "conditionBlocks": [
         {
-          "blockId": "tactics:451:0",
+          "blockId": "tactics:453:0",
           "sourcePartType": "section",
           "sourceTitle": "潘鳳の技能",
           "sourceIndex": "3",
@@ -34018,7 +34186,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:451:1",
+          "blockId": "tactics:453:1",
           "sourcePartType": "section",
           "sourceTitle": "潘鳳の兵科",
           "sourceIndex": "19",
@@ -34051,7 +34219,7 @@
       ]
     },
     {
-      "id": "tactics:452:陳矯（ちんきょう）",
+      "id": "tactics:454:陳矯（ちんきょう）",
       "category": "tactics",
       "name": "陳矯（ちんきょう）",
       "displayName": "陳矯（ちんきょう）",
@@ -34072,7 +34240,7 @@
       "attackBlocks": [],
       "conditionBlocks": [
         {
-          "blockId": "tactics:452:0",
+          "blockId": "tactics:454:0",
           "sourcePartType": "section",
           "sourceTitle": "陳矯の技能",
           "sourceIndex": "3",
@@ -34087,7 +34255,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:452:1",
+          "blockId": "tactics:454:1",
           "sourcePartType": "section",
           "sourceTitle": "陳矯の兵科",
           "sourceIndex": "19",
@@ -34122,7 +34290,7 @@
       ]
     },
     {
-      "id": "tactics:453:祖茂（そも）",
+      "id": "tactics:455:祖茂（そも）",
       "category": "tactics",
       "name": "祖茂（そも）",
       "displayName": "祖茂（そも）",
@@ -34143,7 +34311,7 @@
       "attackBlocks": [],
       "conditionBlocks": [
         {
-          "blockId": "tactics:453:0",
+          "blockId": "tactics:455:0",
           "sourcePartType": "section",
           "sourceTitle": "祖茂の技能",
           "sourceIndex": "3",
@@ -34158,7 +34326,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:453:1",
+          "blockId": "tactics:455:1",
           "sourcePartType": "section",
           "sourceTitle": "祖茂の技能",
           "sourceIndex": "3",
@@ -34173,7 +34341,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:453:2",
+          "blockId": "tactics:455:2",
           "sourcePartType": "section",
           "sourceTitle": "祖茂の兵科",
           "sourceIndex": "19",
@@ -34206,7 +34374,7 @@
       ]
     },
     {
-      "id": "tactics:454:曹昂（そうこう）",
+      "id": "tactics:456:曹昂（そうこう）",
       "category": "tactics",
       "name": "曹昂（そうこう）",
       "displayName": "曹昂（そうこう）",
@@ -34227,7 +34395,7 @@
       "attackBlocks": [],
       "conditionBlocks": [
         {
-          "blockId": "tactics:454:0",
+          "blockId": "tactics:456:0",
           "sourcePartType": "section",
           "sourceTitle": "曹昂の技能",
           "sourceIndex": "3",
@@ -34242,7 +34410,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:454:1",
+          "blockId": "tactics:456:1",
           "sourcePartType": "section",
           "sourceTitle": "曹昂の技能",
           "sourceIndex": "3",
@@ -34257,7 +34425,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:454:2",
+          "blockId": "tactics:456:2",
           "sourcePartType": "section",
           "sourceTitle": "曹昂の兵科",
           "sourceIndex": "19",
@@ -34290,7 +34458,7 @@
       ]
     },
     {
-      "id": "tactics:455:曹休（そうきゅう）",
+      "id": "tactics:457:曹休（そうきゅう）",
       "category": "tactics",
       "name": "曹休（そうきゅう）",
       "displayName": "曹休（そうきゅう）",
@@ -34311,7 +34479,7 @@
       "attackBlocks": [],
       "conditionBlocks": [
         {
-          "blockId": "tactics:455:0",
+          "blockId": "tactics:457:0",
           "sourcePartType": "section",
           "sourceTitle": "曹休の技能",
           "sourceIndex": "3",
@@ -34326,7 +34494,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:455:1",
+          "blockId": "tactics:457:1",
           "sourcePartType": "section",
           "sourceTitle": "曹休の技能",
           "sourceIndex": "3",
@@ -34341,7 +34509,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:455:2",
+          "blockId": "tactics:457:2",
           "sourcePartType": "section",
           "sourceTitle": "曹休の兵科",
           "sourceIndex": "19",
@@ -34376,7 +34544,7 @@
       ]
     },
     {
-      "id": "tactics:456:淳于瓊（じゅんうけい）",
+      "id": "tactics:458:淳于瓊（じゅんうけい）",
       "category": "tactics",
       "name": "淳于瓊（じゅんうけい）",
       "displayName": "淳于瓊（じゅんうけい）",
@@ -34397,7 +34565,7 @@
       "attackBlocks": [],
       "conditionBlocks": [
         {
-          "blockId": "tactics:456:0",
+          "blockId": "tactics:458:0",
           "sourcePartType": "section",
           "sourceTitle": "淳于瓊の技能",
           "sourceIndex": "3",
@@ -34412,7 +34580,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:456:1",
+          "blockId": "tactics:458:1",
           "sourcePartType": "section",
           "sourceTitle": "淳于瓊の兵科",
           "sourceIndex": "19",
@@ -34445,7 +34613,7 @@
       ]
     },
     {
-      "id": "tactics:457:朱治（しゅち）",
+      "id": "tactics:459:朱治（しゅち）",
       "category": "tactics",
       "name": "朱治（しゅち）",
       "displayName": "朱治（しゅち）",
@@ -34466,7 +34634,7 @@
       "attackBlocks": [],
       "conditionBlocks": [
         {
-          "blockId": "tactics:457:0",
+          "blockId": "tactics:459:0",
           "sourcePartType": "section",
           "sourceTitle": "朱治の技能",
           "sourceIndex": "3",
@@ -34481,7 +34649,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:457:1",
+          "blockId": "tactics:459:1",
           "sourcePartType": "section",
           "sourceTitle": "朱治の技能",
           "sourceIndex": "3",
@@ -34496,7 +34664,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:457:2",
+          "blockId": "tactics:459:2",
           "sourcePartType": "section",
           "sourceTitle": "朱治の兵科",
           "sourceIndex": "19",
@@ -34531,7 +34699,7 @@
       ]
     },
     {
-      "id": "tactics:458:孔融（こうゆう）",
+      "id": "tactics:460:孔融（こうゆう）",
       "category": "tactics",
       "name": "孔融（こうゆう）",
       "displayName": "孔融（こうゆう）",
@@ -34552,7 +34720,7 @@
       "attackBlocks": [],
       "conditionBlocks": [
         {
-          "blockId": "tactics:458:0",
+          "blockId": "tactics:460:0",
           "sourcePartType": "section",
           "sourceTitle": "孔融の技能",
           "sourceIndex": "3",
@@ -34567,7 +34735,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:458:1",
+          "blockId": "tactics:460:1",
           "sourcePartType": "section",
           "sourceTitle": "孔融の技能",
           "sourceIndex": "3",
@@ -34582,7 +34750,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:458:2",
+          "blockId": "tactics:460:2",
           "sourcePartType": "section",
           "sourceTitle": "孔融の兵科",
           "sourceIndex": "19",
@@ -34617,7 +34785,7 @@
       ]
     },
     {
-      "id": "tactics:459:黄祖（こうそ）",
+      "id": "tactics:461:黄祖（こうそ）",
       "category": "tactics",
       "name": "黄祖（こうそ）",
       "displayName": "黄祖（こうそ）",
@@ -34638,7 +34806,7 @@
       "attackBlocks": [],
       "conditionBlocks": [
         {
-          "blockId": "tactics:459:0",
+          "blockId": "tactics:461:0",
           "sourcePartType": "section",
           "sourceTitle": "黄祖の技能",
           "sourceIndex": "3",
@@ -34653,7 +34821,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:459:1",
+          "blockId": "tactics:461:1",
           "sourcePartType": "section",
           "sourceTitle": "黄祖の技能",
           "sourceIndex": "3",
@@ -34668,7 +34836,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:459:2",
+          "blockId": "tactics:461:2",
           "sourcePartType": "section",
           "sourceTitle": "黄祖の兵科",
           "sourceIndex": "19",
@@ -34703,7 +34871,7 @@
       ]
     },
     {
-      "id": "tactics:460:許攸（きょゆう）",
+      "id": "tactics:462:許攸（きょゆう）",
       "category": "tactics",
       "name": "許攸（きょゆう）",
       "displayName": "許攸（きょゆう）",
@@ -34724,7 +34892,7 @@
       "attackBlocks": [],
       "conditionBlocks": [
         {
-          "blockId": "tactics:460:0",
+          "blockId": "tactics:462:0",
           "sourcePartType": "section",
           "sourceTitle": "許攸の技能",
           "sourceIndex": "3",
@@ -34739,7 +34907,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:460:1",
+          "blockId": "tactics:462:1",
           "sourcePartType": "section",
           "sourceTitle": "許攸の技能",
           "sourceIndex": "3",
@@ -34754,7 +34922,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:460:2",
+          "blockId": "tactics:462:2",
           "sourcePartType": "section",
           "sourceTitle": "許攸の兵科",
           "sourceIndex": "19",
@@ -34789,7 +34957,7 @@
       ]
     },
     {
-      "id": "tactics:461:簡雍（かんよう）",
+      "id": "tactics:463:簡雍（かんよう）",
       "category": "tactics",
       "name": "簡雍（かんよう）",
       "displayName": "簡雍（かんよう）",
@@ -34810,7 +34978,7 @@
       "attackBlocks": [],
       "conditionBlocks": [
         {
-          "blockId": "tactics:461:0",
+          "blockId": "tactics:463:0",
           "sourcePartType": "section",
           "sourceTitle": "簡雍の技能",
           "sourceIndex": "3",
@@ -34825,7 +34993,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:461:1",
+          "blockId": "tactics:463:1",
           "sourcePartType": "section",
           "sourceTitle": "簡雍の技能",
           "sourceIndex": "3",
@@ -34840,7 +35008,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:461:2",
+          "blockId": "tactics:463:2",
           "sourcePartType": "section",
           "sourceTitle": "簡雍の兵科",
           "sourceIndex": "19",
@@ -34873,7 +35041,7 @@
       ]
     },
     {
-      "id": "tactics:462:夏侯楙（かこうぼう）",
+      "id": "tactics:464:夏侯楙（かこうぼう）",
       "category": "tactics",
       "name": "夏侯楙（かこうぼう）",
       "displayName": "夏侯楙（かこうぼう）",
@@ -34894,7 +35062,7 @@
       "attackBlocks": [],
       "conditionBlocks": [
         {
-          "blockId": "tactics:462:0",
+          "blockId": "tactics:464:0",
           "sourcePartType": "section",
           "sourceTitle": "夏侯楙の技能",
           "sourceIndex": "3",
@@ -34909,7 +35077,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:462:1",
+          "blockId": "tactics:464:1",
           "sourcePartType": "section",
           "sourceTitle": "夏侯楙の技能",
           "sourceIndex": "3",
@@ -34924,7 +35092,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:462:2",
+          "blockId": "tactics:464:2",
           "sourcePartType": "section",
           "sourceTitle": "夏侯楙の兵科",
           "sourceIndex": "19",
@@ -34957,7 +35125,7 @@
       ]
     },
     {
-      "id": "tactics:463:夏侯恩（かこうおん）",
+      "id": "tactics:465:夏侯恩（かこうおん）",
       "category": "tactics",
       "name": "夏侯恩（かこうおん）",
       "displayName": "夏侯恩（かこうおん）",
@@ -34978,7 +35146,7 @@
       "attackBlocks": [],
       "conditionBlocks": [
         {
-          "blockId": "tactics:463:0",
+          "blockId": "tactics:465:0",
           "sourcePartType": "section",
           "sourceTitle": "夏侯恩の技能",
           "sourceIndex": "3",
@@ -34995,7 +35163,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:463:1",
+          "blockId": "tactics:465:1",
           "sourcePartType": "section",
           "sourceTitle": "夏侯恩の兵科",
           "sourceIndex": "19",
@@ -35028,7 +35196,7 @@
       ]
     },
     {
-      "id": "tactics:464:郭汜（かくし）",
+      "id": "tactics:466:郭汜（かくし）",
       "category": "tactics",
       "name": "郭汜（かくし）",
       "displayName": "郭汜（かくし）",
@@ -35049,7 +35217,7 @@
       "attackBlocks": [],
       "conditionBlocks": [
         {
-          "blockId": "tactics:464:0",
+          "blockId": "tactics:466:0",
           "sourcePartType": "section",
           "sourceTitle": "郭汜の技能",
           "sourceIndex": "3",
@@ -35064,7 +35232,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "tactics:464:1",
+          "blockId": "tactics:466:1",
           "sourcePartType": "section",
           "sourceTitle": "郭汜の兵科",
           "sourceIndex": "19",

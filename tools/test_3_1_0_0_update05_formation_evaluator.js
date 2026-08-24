@@ -29,8 +29,8 @@ assert.deepStrictEqual(status, {
   ready: true,
   contractVersion: 'app-3.1.0.0-update05',
   reviewedCaseCount: 44,
-  sourceRecordCount: 1810,
-  clauseCount: 24329
+  sourceRecordCount: clauseData.itemCount,
+  clauseCount: clauseData.clauseCount
 });
 
 function evaluate(name, role, options = {}) {

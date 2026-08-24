@@ -4,11 +4,11 @@
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.1.0.0',
     updateNo: '06',
-    revision: 184,
+    revision: 185,
     formalRelease: false,
     baseAppVersion: '3.0.2.0',
-    summary: '3.1.0.0 Update06: reduce redundant explanations across skill, search, data, and formation screens.',
-    updatedAt: '2026-08-23T21:30:00+09:00'
+    summary: '3.1.0.0 Update06: restore the completed Sunday crawl additions with audited data generation.',
+    updatedAt: '2026-08-25T02:02:54+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;
 })();

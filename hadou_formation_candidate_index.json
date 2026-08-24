@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-08-22T23:29:37.854Z",
+  "generatedAt": "2026-08-24T16:58:11.850Z",
   "dataSetId": "2026-08-13T06:28:33.208Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
@@ -33,26 +33,26 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 486,
-    "tactics": 465,
-    "equipments": 249,
-    "skills": 653,
+    "generals": 488,
+    "tactics": 467,
+    "equipments": 251,
+    "skills": 661,
     "statusEffects": 206,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
     "ethnicResearchSkills": 32,
-    "formations": 21,
+    "formations": 22,
     "fiveElements": 10,
     "warhorses": 5,
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "caa6a018",
-    "tactics": "19b2dc25",
-    "equipments": "504f8c1b",
-    "skills": "c7e8c8f5",
+    "generals": "c8a69cf2",
+    "tactics": "17b2d8ff",
+    "equipments": "4c51c466",
+    "skills": "55f06444",
     "statusEffects": "defa110c",
-    "formations": "9c5d2dae",
+    "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
     "ethnicArmaments": "c731a91c",
     "ethnicResearchSkills": "06d47d06",
@@ -61,12 +61,12 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "caa6a018",
-    "tactics": "19b2dc25",
-    "equipments": "504f8c1b",
-    "skills": "c7e8c8f5",
+    "generals": "c8a69cf2",
+    "tactics": "17b2d8ff",
+    "equipments": "4c51c466",
+    "skills": "55f06444",
     "statusEffects": "defa110c",
-    "formations": "9c5d2dae",
+    "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
     "ethnicArmaments": "c731a91c",
     "ethnicResearchSkills": "06d47d06",
@@ -77,11 +77,11 @@
   "hotfixVersion": "1.1.0.3",
   "kind": "formation_candidate_index",
   "qualityAudit": {
-    "itemCount": 822,
+    "itemCount": 827,
     "byCategory": {
-      "generals": 486,
-      "equipments": 249,
-      "formations": 21,
+      "generals": 488,
+      "equipments": 251,
+      "formations": 22,
       "siege_weapons": 6,
       "ethnic_armaments": 18,
       "five_elements": 10,
@@ -89,7 +89,7 @@
       "warhorse_skills": 27
     },
     "missingNameCount": 0,
-    "formationLayoutCompleteCount": 21,
+    "formationLayoutCompleteCount": 22,
     "objectStringCount": 0,
     "generalMissingSkillCount": 0
   },
@@ -11791,6 +11791,60 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243495"
     },
     {
+      "id": "generals:486:LR沮授（そじゅ）",
+      "category": "generals",
+      "name": "LR沮授（そじゅ）",
+      "displayName": "LR沮授（そじゅ）",
+      "rarity": "",
+      "talent": "1300（LR）",
+      "troopTypes": [],
+      "roles": [
+        "main",
+        "vice",
+        "support",
+        "attendant"
+      ],
+      "jijuPositions": [
+        "下/上"
+      ],
+      "skillNames": [
+        "護叡",
+        "忍耐",
+        "鋼志",
+        "指導",
+        "叡威"
+      ],
+      "skillCount": 5,
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572584"
+    },
+    {
+      "id": "generals:487:LR蒙恬（もうてん）",
+      "category": "generals",
+      "name": "LR蒙恬（もうてん）",
+      "displayName": "LR蒙恬（もうてん）",
+      "rarity": "",
+      "talent": "1300（LR）",
+      "troopTypes": [],
+      "roles": [
+        "main",
+        "vice",
+        "support",
+        "attendant"
+      ],
+      "jijuPositions": [
+        "右"
+      ],
+      "skillNames": [
+        "攻逐",
+        "威然",
+        "恬安",
+        "巡見",
+        "忠賢"
+      ],
+      "skillCount": 5,
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572585"
+    },
+    {
       "id": "equipments:0:亜父奇謀冠",
       "category": "equipments",
       "name": "亜父奇謀冠",
@@ -17680,6 +17734,52 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/248393"
     },
     {
+      "id": "equipments:249:心翠宝玉佩",
+      "category": "equipments",
+      "name": "心翠宝玉佩",
+      "displayName": "心翠宝玉佩",
+      "highestRarity": "UR",
+      "slot": "文物",
+      "troopTypes": [
+        "歩兵",
+        "騎兵",
+        "弓兵"
+      ],
+      "skillNames": [
+        "執献才略",
+        "機才十全",
+        "賢護壮昇"
+      ],
+      "skillCount": 3,
+      "stageSkillCounts": {
+        "initial": 2,
+        "ssrMax": 2,
+        "urMax": 3
+      },
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572594"
+    },
+    {
+      "id": "equipments:250:万里安境矛",
+      "category": "equipments",
+      "name": "万里安境矛",
+      "displayName": "万里安境矛",
+      "highestRarity": "UR",
+      "slot": "武器",
+      "troopTypes": [],
+      "skillNames": [
+        "声威斥逐",
+        "武慧凌撃",
+        "倒撃援連"
+      ],
+      "skillCount": 3,
+      "stageSkillCounts": {
+        "initial": 2,
+        "ssrMax": 2,
+        "urMax": 3
+      },
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572595"
+    },
+    {
       "id": "formations:0:基本",
       "category": "formations",
       "name": "基本",
@@ -18617,6 +18717,51 @@
       "skillNames": [
         "剛力",
         "猛盛烈衛"
+      ],
+      "skillCount": 2,
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/261056"
+    },
+    {
+      "id": "formations:21:盾兵陣",
+      "category": "formations",
+      "name": "盾兵陣",
+      "displayName": "盾兵陣",
+      "formationType": "",
+      "layout": {
+        "rowCount": 3,
+        "colCount": 3,
+        "positionCount": 5,
+        "positions": [
+          {
+            "role": "main",
+            "row": 1,
+            "col": 1
+          },
+          {
+            "role": "vice_1",
+            "row": 0,
+            "col": 0
+          },
+          {
+            "role": "vice_2",
+            "row": 1,
+            "col": 0
+          },
+          {
+            "role": "support_1",
+            "row": 0,
+            "col": 2
+          },
+          {
+            "role": "support_2",
+            "row": 2,
+            "col": 2
+          }
+        ]
+      },
+      "skillNames": [
+        "盾兵兵力",
+        "盾兵防御"
       ],
       "skillCount": 2,
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/261056"
