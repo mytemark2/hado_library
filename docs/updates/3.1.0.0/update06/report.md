@@ -50,7 +50,7 @@ Update06 r180からr183までの検索・技能カード・読込安定化を維
 
 ## 7. Validation results
 
-専用回帰、派生JSON契約、版表示整合、全App Validation 145/145、`git diff --check`はPASS。全データ監査で参照関係200件、親技能122件、参照先112技能、参照先欠損0件を確認した。ローカルURLのブラウザ操作はブラウザ安全制限で実施できないため、実画面確認は公開Preview反映後に行う。
+専用回帰、派生JSON契約、版表示整合、全App Validation 145/145、`git diff --check`はPASS。全データ監査で参照関係200件、親技能122件、参照先112技能、参照先欠損0件を確認した。ローカルURLのブラウザ操作はブラウザ安全制限で実施せず、実画面は公開Previewで確認した。
 
 ローカルHTTP版では次を確認した。
 
@@ -68,14 +68,17 @@ Update06 r180からr183までの検索・技能カード・読込安定化を維
 - r183安定化commit: `a49dc7fc899fc1557ce0e45069a435b002994519`
 - r183 Pull Request: `#313`（`feature/app-3.1.0.0`へsquash merge）
 - r183競合: なし。merge-readinessでbase `4bf3d5255f50ff9539ae81dad2e6110a9ea94513`、head `2c9d537190a019f7003265fc095635d7f3ef7786`、merge可能を確認した。
-- r184: 実装・ローカル検証済み。commit、Pull Request、merge-readiness結果は統合後に追記する。
+- r184実装commit: `6c2c3be07d2a4ee7d03dfc515613e93cbbaf24bc`
+- r184 Pull Request: `#315`（`feature/app-3.1.0.0`へsquash merge）
+- r184競合: なし。merge-readinessでbase `a00c3ce3d9098c2397948632ae7097259448389c`、head `ee1e0e43c32c70cb0dfaa817989c016865c57e88`、merge可能を確認した。
 
 ## 9. GitHub Actions result
 
 - `App Validation / app-validation`: r182 run `32635871079`、r183 run `32636671059`、ともにPASS。
 - `Notify Hado Library Preview`: r182 run `32635894809`、r183 run `32636687678`、ともにpush起動・PASS。
 - 通常のPreview同期に手動実行・scheduleは使用していない。
-- r184: Pull RequestとPreview同期の実行結果は反映後に追記する。
+- r184 `App Validation / app-validation`: run `32731448122`、PASS。
+- r184 `Notify Hado Library Preview`: push run `32731665384`、PASS。同期とPages公開待ちを含め1分31秒で完了した。
 
 ## 10. Preview synchronization result
 
@@ -95,7 +98,20 @@ Preview repository `main`は`1b8a23a9d06903aa835d87bc072590e7dfb4d4c0`。`PREVIE
 - debug log: ブラウザ警告・エラー0件。
 - 判定: PASS。
 
-r184のmarker、配備ファイル、DOM、PC・スマートフォン操作、debug logは公開Preview反映後に追記する。追記完了まではr184をPreview完了としない。
+### r184 Preview confirmation
+
+- 公開URL: `https://mytemark2.github.io/hado_library-preview/`
+- 表示版: `覇道ライブラリ 3.1.0.0 Update06 r184`。
+- marker: source commit `6c2c3be07d2a4ee7d03dfc515613e93cbbaf24bc` / branch `feature/app-3.1.0.0` / display `3.1.0.0 Update06 r184`。
+- Preview repository commit: `e4f992dfa2e05a4f18bdba44f6d35119ba3dd930`。
+- 配備: `index.html`、`hado_formation.js`、`hado_styles.css`、`hadou_*.json`一式、`.nojekyll`、3 marker、`hado_core.js`、`hado_detail_condition_presenter.js`、`hado_update04.css`を確認。
+- asset: `hado_version.js?v=06-r184`と`hado_styles.css?v=06-r184`を公開URLで実行していることを確認。
+- PC操作: 1280×720で`LR馬良`を検索し1件、技能タブへ遷移。白眉LvⅠは2グループ、効果数2・1、原文開閉1個、カード・ページの横方向超過0件。
+- 表示削減: 白眉の「適用条件と効果」「条件ごとに～」「技能データ参照」「付与Lv:」「補足：」は0件。検索欄、データ管理、軍馬編成でも削除対象文言0件。
+- ヘルプ境界: 検索履歴登録は検索欄の`aria-label`・`title`に保持。型プリセット未選択時の説明欄は非表示、型検索の`？`ヘルプは表示。
+- スマートフォン操作: 390×844で白眉カードは2グループ・効果数2・1を維持し、カード・ページ・型検索の横方向超過0件。
+- debug log: ブラウザ警告・エラー0件、アプリDebug Logのerror/exception/failed 0件。
+- 判定: PASS。
 
 ## 11. Minimum user acceptance operation
 
@@ -103,8 +119,8 @@ r184のmarker、配備ファイル、DOM、PC・スマートフォン操作、de
 
 ## 12. Remaining issues
 
-r184公開Previewの同期・実画面確認が未完了。正式公開は全Update完了後の明示承認まで実施しない。
+none。正式公開は全Update完了後の明示承認まで実施しない。
 
 ## 確認事項
 
-r184公開PreviewのPC・スマートフォン表示確認が必要。完了後の利用者確認事項は上記「Minimum user acceptance operation」の1操作。Update07は完了済みのため、次はUpdate08「結果サマリー・全画面統一」。推奨エンジンはGPT-5.6 Sol / reasoning High。
+なし。ユーザーが公開Previewを開いた状態で、上記「Minimum user acceptance operation」を代理実行して合格した。Update07は完了済みのため、次はUpdate08「結果サマリー・全画面統一」。推奨エンジンはGPT-5.6 Sol / reasoning High。
