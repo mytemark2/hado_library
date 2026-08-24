@@ -79,6 +79,7 @@ COMMANDS.extend(
         ["node", "tools/test_3_1_0_0_update06_search_clause_integration.js"],
         ["node", "tools/test_3_1_0_0_update06_user_facing_cards.js"],
         ["node", "tools/test_3_1_0_0_update06_referenced_skill_cards.js"],
+        ["node", "tools/test_3_1_0_0_update06_ui_copy_reduction.js"],
         ["node", "tools/test_3_1_0_0_update04_detail_condition_presenter.js"],
         ["node", "tools/test_3_1_0_0_update05_formation_evaluator.js"],
         ["node", "tools/test_update01_condition_census.js"],

@@ -1,18 +1,15 @@
 /* Hado Library 3.1 Update04/06: user-facing condition to effect grouping. */
 .detail-condition-card{display:grid;gap:12px;color:#172033}
-.detail-condition-card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:8px;border-bottom:1px solid #d9e1ec}
-.detail-condition-help{margin:0;color:#526173;font-size:12px;line-height:1.6}
 .detail-condition-source{display:grid;gap:10px}
 .detail-condition-source+.detail-condition-source{padding-top:12px;border-top:1px solid #d9e1ec}
 .detail-condition-level{width:max-content;max-width:100%;padding:3px 9px;border-radius:999px;background:#edf3f8;color:#526173;font-size:12px;font-weight:700}
 .detail-effect-group{overflow:hidden;border:1px solid #dce5ef;border-radius:12px;background:#fff}
 .detail-effect-group>header{display:grid;gap:5px;padding:10px 12px;border-bottom:1px solid #dce5ef;background:#f4f7fb}
-.detail-effect-qualifier{display:grid;grid-template-columns:44px minmax(0,1fr);gap:8px;align-items:start}
-.detail-effect-qualifier>span{padding:2px 6px;border-radius:6px;background:#e2e8f0;color:#475569;font-size:11px;font-weight:700;text-align:center}
+.detail-effect-qualifier{min-width:0;padding-left:9px;border-left:3px solid #94a3b8}
 .detail-effect-qualifier>strong{min-width:0;line-height:1.55;overflow-wrap:anywhere}
-.detail-effect-qualifier.is-condition>span{background:#ede9fe;color:#6d28d9}
-.detail-effect-qualifier.is-trigger>span{background:#fef3c7;color:#92400e}
-.detail-effect-qualifier.is-context>span{background:#dbeafe;color:#1d4ed8}
+.detail-effect-qualifier.is-condition{border-left-color:#8b5cf6}
+.detail-effect-qualifier.is-trigger{border-left-color:#d99a00}
+.detail-effect-qualifier.is-context{border-left-color:#3b82f6}
 .detail-effect-group>ul{display:grid;gap:0;margin:0;padding:0;list-style:none}
 .detail-effect-group>ul>li{position:relative;padding:10px 12px 10px 31px;line-height:1.65;font-weight:600;overflow-wrap:anywhere}
 .detail-effect-group>ul>li+li{border-top:1px solid #edf1f5}
@@ -21,9 +18,7 @@
 .detail-condition-raw{border-top:1px dashed #cbd5e1;padding-top:7px;color:#526173}
 .detail-condition-raw>summary{cursor:pointer;width:max-content;max-width:100%;font-size:12px;font-weight:700;color:#475569}
 .detail-condition-raw>div{margin-top:8px;padding:9px;border-radius:8px;background:#f4f6f8;line-height:1.65;font-size:12px;white-space:normal;overflow-wrap:anywhere}
-.detail-condition-fallback{display:flex;flex-wrap:wrap;gap:6px 10px;margin:8px 0;padding:10px;border:1px solid #e2c56b;border-radius:9px;background:#fff9df;color:#614b00;line-height:1.55}
-.detail-condition-fallback>span{min-width:0;flex:1 1 220px}
 .referenced-skill-list{display:grid;gap:12px;margin-top:12px}
 .referenced-skill-card{background:#f8fafc}
 .referenced-skill-raw{margin-top:12px}
-@media(max-width:760px){.detail-condition-card-head{align-items:flex-start}.detail-condition-help{font-size:11px}.detail-effect-group>header{padding:9px 10px}.detail-effect-qualifier{grid-template-columns:40px minmax(0,1fr);gap:7px}.detail-effect-group>ul>li{padding:10px 10px 10px 27px;font-size:14px}.detail-effect-group>ul>li::before{left:11px}.detail-condition-raw>summary{min-height:36px;display:flex;align-items:center}}
+@media(max-width:760px){.detail-effect-group>header{padding:9px 10px}.detail-effect-group>ul>li{padding:10px 10px 10px 27px;font-size:14px}.detail-effect-group>ul>li::before{left:11px}.detail-condition-raw>summary{min-height:36px;display:flex;align-items:center}}

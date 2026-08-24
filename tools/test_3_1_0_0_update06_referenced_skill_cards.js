@@ -41,7 +41,7 @@ for (const relation of relations.values()) {
   assert.strictEqual(view.displaySources.length, 1, `one granted level must render once: ${relation.target} ${level}`);
   assert(view.displaySources[0].groups.length > 0, `condition/effect groups are required: ${relation.target} ${level}`);
   const html = presenter.renderHtml({ category: 'skills', name: relation.target, sourceTexts: [levelRow[1]] });
-  assert.strictEqual((html.match(/この技能Lvの原文を表示/g) || []).length, 1, `raw source toggle must appear once: ${relation.target} ${level}`);
+  assert.strictEqual((html.match(/<summary [^>]*>原文<\/summary>/g) || []).length, 1, `compact raw source toggle must appear once: ${relation.target} ${level}`);
 }
 
 const whiteBrow = skillMap.get('白眉');
@@ -60,8 +60,10 @@ assert(core.includes('getReferencedSkillLevelContent(entry)'));
 assert(core.includes('condition.grouped?condition.html'));
 assert(core.includes('cards.push(renderReferencedSkillCard(entry))'));
 assert(!core.includes('fmtContent(entry.content)'), 'referenced cards must not bypass the shared presenter with all-level raw content');
+assert(!core.includes('技能データ参照'));
+assert(!core.includes('付与Lv:'));
 assert(css.includes('.referenced-skill-card{background:#f8fafc}'));
-assert(indexHtml.includes('hado_core.js?v=06-r183'));
+assert(indexHtml.includes('hado_core.js?v=06-r184'));
 assert(!indexHtml.includes('06-r182'));
 
 console.log(`Update06 referenced-skill cards ok: ${relations.size} relations / 白眉 2 groups / shared presenter / one granted level only`);

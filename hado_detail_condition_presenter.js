@@ -286,21 +286,19 @@
   function renderHtml(options = {}) {
     const view = buildViewModel(options);
     if (view.empty) return '';
-    if (view.fallback) {
-      return `<div class="detail-condition-fallback" data-condition-trust="generated"><strong>原文表示</strong><span>構造化確認中の条件が${view.generatedConditionalCount}件あります。未確認データを推測せず、原文を表示しています。</span></div>`;
-    }
+    if (view.fallback) return '';
     const groupsHtml = view.displaySources.map(source => {
       const levelHtml = source.level ? `<div class="detail-condition-level">Lv ${esc(source.level)}</div>` : '';
       const effectGroups = source.groups.map(group => {
-        const qualifiers = group.qualifiers.map(row => `<div class="detail-effect-qualifier is-${esc(row.kind)}"><span>${esc(row.caption)}</span><strong>${esc(row.label)}</strong></div>`).join('');
-        const effects = group.effects.map(effect => `<li><div>${esc(effect.text)}</div>${effect.notes.map(note => `<div class="detail-effect-note">補足：${esc(note)}</div>`).join('')}</li>`).join('');
+        const qualifiers = group.qualifiers.map(row => `<div class="detail-effect-qualifier is-${esc(row.kind)}" aria-label="${esc(row.caption)}：${esc(row.label)}" title="${esc(row.caption)}"><strong>${esc(row.label)}</strong></div>`).join('');
+        const effects = group.effects.map(effect => `<li><div>${esc(effect.text)}</div>${effect.notes.map(note => `<div class="detail-effect-note">${esc(note)}</div>`).join('')}</li>`).join('');
         return `<section class="detail-effect-group"><header>${qualifiers}</header><ul>${effects}</ul></section>`;
       }).join('');
-      const rawLabel = source.parsedFromMarkers ? 'この技能Lvの原文を表示' : 'この効果の原文を表示';
-      return `<section class="detail-condition-source">${levelHtml}${effectGroups}<details class="detail-condition-raw"><summary>${rawLabel}</summary><div>${esc(source.rawText)}</div></details></section>`;
+      const rawTitle = source.parsedFromMarkers ? 'この技能Lvの原文を表示' : 'この効果の原文を表示';
+      return `<section class="detail-condition-source">${levelHtml}${effectGroups}<details class="detail-condition-raw"><summary aria-label="${rawTitle}" title="${rawTitle}">原文</summary><div>${esc(source.rawText)}</div></details></section>`;
     }).join('');
     const trust = view.reviewedCaseCount ? 'reviewed' : 'source';
-    return `<div class="detail-condition-card" data-condition-trust="${trust}"><div class="detail-condition-card-head"><strong>適用条件と効果</strong></div><p class="detail-condition-help">条件ごとに、その条件で有効になる効果をまとめています。</p>${groupsHtml}</div>`;
+    return `<div class="detail-condition-card" data-condition-trust="${trust}">${groupsHtml}</div>`;
   }
 
   return Object.freeze({ TYPE_LABELS, buildViewModel, renderHtml });
