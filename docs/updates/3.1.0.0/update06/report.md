@@ -190,8 +190,23 @@ none。正式公開は全Update完了後の明示承認まで実施しない。
 - HTML: `index.html`は28,442 byteから28,535 byteへ93 byte増。増加は外部化した`hado_web_json_cache.js`のscript読込1件とr187キャッシュキーだけで、実装コードをHTMLへ追加していない。
 - 検証: `python -X utf8 tools/run_app_validation.py`は151/151 PASS。JavaScript・JSON・HTML・CSS・Preview Workflow・JSON索引契約・検索・詳細・編成・保存Export/Import・スマートフォン回帰・r186先頭順を確認した。
 - ローカルWeb: 初回はマニフェスト1件と対象JSON30件を取得し、「公開JSON更新済」、武将488・戦法447・技能1389・装備251・陣形22、先頭`LR沮授`を確認した。2回目はHTML等を除きマニフェスト1件だけでJSON本体取得0件、「保存済みデータで起動」を確認した。マニフェストを一時的に404へした再読込ではJSON本体取得0件のまま「前回データで起動」と全件表示へ復帰し、ブラウザ警告・エラー0件だった。検証後にマニフェストを元のパスへ復元した。
-- Preview: ソースPR統合後のpush起動Actions、Preview repository marker、公開URL、初回更新・更新なし再読込・通信失敗復帰を確認して追記する。
+- Preview: PR #322を`feature/app-3.1.0.0`へ競合なしで統合した。push起動Actions、Preview repository marker、公開URLの起動・件数・最新データ先頭・保存済みデータ利用を確認した。通信失敗復帰は公開サイトの通信を意図的に妨害せず、同一配信構成のローカルWeb検証で確認した。
+
+### r187 Preview confirmation
+
+- Public URL: `https://mytemark2.github.io/hado_library-preview/`。
+- Displayed version: `3.1.0.0 Update06 r187`。
+- App source commit: `782677bf1fe96ec894766781f4caff066c3f8284`（PR #322 merge）。
+- Actions: `App Validation / app-validation`はPASS。`Notify Hado Library Preview` push run `32907859713`はPASSし、同期とPages公開待ちを含め1分29秒で完了した。
+- Preview marker: `PREVIEW_SOURCE_COMMIT.txt=782677bf1fe96ec894766781f4caff066c3f8284`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.1.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.1.0.0 Update06 r187`。
+- Preview repository commit: `bf9df0cd62b6e1845186083d4bc7dabe3666b035`。
+- Repository assets: `index.html`、`hado_formation.js`、`hado_styles.css`、`hado_web_json_cache.js`、`hadou_bundle_manifest.json`、`hadou_*.json`、`.nojekyll`、3 markerを確認した。
+- Manifest: `bundleId=3d030f8d4c3c823527f7f00455c5608a2f1569601fd13df34c96edfbb8051a19`。公開されたキャッシュスクリプトの契約`hado-json-bundle-manifest-v1`と一致した。
+- DOM: 見出しr187、武将488・戦法447・技能1389・装備251・陣形22、検索先頭`LR沮授`、次点`LR蒙恬`を確認した。
+- Operation: 「ウェブ版：保存済みデータで起動」と全件表示を確認した。更新時全件取得、更新なし再読込でJSON本体0件、マニフェスト404時の従来キャッシュ復帰は同一配信構成のローカルWebで確認済み。
+- Debug log: 公開Previewのブラウザ警告・エラー0件。
+- 判定: PASS。
 
 ## 確認事項
 
-現時点ではなし。r187はPreview実環境確認まで完了させる。完了後はUpdate07が完了済みのためUpdate08「結果サマリー・全画面統一」へ進む。推奨エンジンはGPT-5.6 Sol / reasoning High。
+なし。Update06はr187の実装、回帰、Actions、Preview同期、公開URL確認まで完了した。Update07も完了済みのため、次はUpdate08「結果サマリー・全画面統一」へ進む。推奨エンジンはGPT-5.6 Sol / reasoning High。
