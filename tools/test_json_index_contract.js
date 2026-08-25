@@ -152,7 +152,7 @@ assert(/getDerivedRelatedLinkIndexEntry\(item,category\)/m.test(relatedRuntimeSo
 assert(/getDerivedRelatedLinkIndexGroupsForItem\(item,\{trustedIndex:true,category,name:itemName\}\)/m.test(relatedRuntimeSource));
 const bootstrapSource=fs.readFileSync(path.join(ROOT,'hado_bootstrap.js'),'utf8');
 assert(/const requestToken=\[/m.test(bootstrapSource));
-assert(/loadJsonTextByXhr\(requestUrl\(file\)\)/m.test(bootstrapSource));
+assert(/loadJsonTextByXhr\(requestUrl\(file\),\{timeoutMs:/m.test(bootstrapSource));
 
 const parameterEffects=rows(parameter).flatMap(v=>v.effects||[]);
 assert(parameterEffects.length>0);

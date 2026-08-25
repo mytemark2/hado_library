@@ -51,3 +51,16 @@
 - `tools/test_json_index_contract.js`はデータ追加のたびに古い固定件数・固定ファイルhashで停止しないよう、内部件数一致、sourceEntityKey一意性、Clause ID一意性、証跡hash、品質監査を検証する。
 - `tools/test_3_1_0_0_update05_formation_evaluator.js`は実際のEffectClause metadataを期待値に使い、契約版・reviewed件数・Evaluator挙動を固定する。
 - `HADO_DEV_INFO.json`は表示版を重複保持しない方針のため変更しない。
+
+## r187 Web JSONキャッシュ
+
+- `hado_web_json_cache.js`: 公開JSONマニフェスト契約、3秒の更新確認、8秒のファイル取得タイムアウト、手動強制更新フラグを外部化する。
+- `hadou_bundle_manifest.json`: 起動対象30ファイルの必須区分、LF正規化後サイズ、SHA-256、データ固有`bundleId`を保持する。
+- `hado_bootstrap.js`: Web起動時にIndexedDBキャッシュを先に検証し、`bundleId`一致、オフライン、更新確認失敗、更新本体取得失敗では保存済みJSONを返す。更新成功時だけ検証済み一式を1トランザクションで置換する。
+- `hado_core.js`: 「公開JSONを再取得」は次回起動を強制更新にし、キャッシュ利用時のデータ状態を簡潔に表示する。
+- クローリングと既存JSONの再生成は行わず、現在のr186 JSONから決定的マニフェストだけを生成する。
+- `HADO_DEV_INFO.json`は表示版を重複保持しない方針のため変更しない。
+
+## r187 外部化
+
+新しいキャッシュ方針は`hado_web_json_cache.js`へ分離し、`index.html`は外部script読込と`06-r187`キャッシュキーだけを変更する。HTMLへ実装コードを追加しない。

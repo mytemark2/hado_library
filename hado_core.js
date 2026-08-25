@@ -56,7 +56,7 @@ function configureDeploymentUi(){
     if(note){note.textContent='';note.hidden=true;}
     const sub=document.getElementById('fileSettingsJsonLoadSubNote');
     if(sub){sub.textContent='';sub.hidden=true;}
-    ['topWebJsonReloadBtn','webJsonReloadBtn'].forEach(id=>{const btn=document.getElementById(id);if(btn&&!btn.dataset.boundWebReload){btn.dataset.boundWebReload='1';btn.addEventListener('click',()=>location.reload());}});
+    ['topWebJsonReloadBtn','webJsonReloadBtn'].forEach(id=>{const btn=document.getElementById(id);if(btn&&!btn.dataset.boundWebReload){btn.dataset.boundWebReload='1';btn.addEventListener('click',()=>{window.HadoWebJsonCache?.requestForceRefresh();location.reload();});}});
     if(IS_WEB_DEPLOYMENT){const overlay=document.getElementById('startupDataOverlay');if(overlay)overlay.classList.remove('is-visible');}
     debugLog('deployment:ui',{web:IS_WEB_DEPLOYMENT,protocol:location.protocol});
   }catch(err){try{debugLog('deployment:ui-error',{message:err?.message||String(err)});}catch{}}
@@ -67,7 +67,7 @@ function renderWebJsonLoadFailure(err){
   if(els.countStatus)els.countStatus.textContent='公開JSON取得失敗';
   if(els.resultMeta)els.resultMeta.textContent='ヒット件数：0件';
   if(els.results)els.results.innerHTML='';
-  if(els.detail){els.detail.innerHTML=`<section><h2>公開JSONの取得に失敗しました</h2><p class="meta">${esc(message)}</p><p class="meta">ウェブ版では公開サイトに格納されたJSONを自動取得します。JSONフォルダやJSONファイルを手動で選択する必要はありません。</p><p class="meta">ページを再読込してください。改善しない場合は、公開JSONの配置または整合性を確認してください。</p><button id="webRetryJsonLoadBtn" type="button">ページを再読込</button></section>`;document.getElementById('webRetryJsonLoadBtn')?.addEventListener('click',()=>location.reload());}
+  if(els.detail){els.detail.innerHTML=`<section><h2>公開JSONの取得に失敗しました</h2><p class="meta">${esc(message)}</p><p class="meta">ページを再読込してください。改善しない場合は、公開JSONの配置または整合性を確認してください。</p><button id="webRetryJsonLoadBtn" type="button">ページを再読込</button></section>`;document.getElementById('webRetryJsonLoadBtn')?.addEventListener('click',()=>{window.HadoWebJsonCache?.requestForceRefresh();location.reload();});}
   const status=document.getElementById('dataFileStatusText');if(status)status.textContent='ウェブ版：公開JSONの取得に失敗しました。ページを再読込してください。';
   debugLog('deployment:web-json-load-failed',{message});
 }
@@ -1281,7 +1281,8 @@ function updateDataContextBar(context=''){
     const fileStatus=document.getElementById('dataFileStatusText');
     if(fileStatus){
       const loaded=dataContextLoadedCount()>0;
-      fileStatus.textContent=loaded?(IS_WEB_DEPLOYMENT?`ウェブ版：公開JSONを自動読込済｜武将${state.generals.length} / 戦法${state.tactics.length} / 技能${state.skills.length} / 装備${state.equipments.length} / 陣形${state.formationMasters.length}`:`JSON読込済：武将${state.generals.length} / 戦法${state.tactics.length} / 技能${state.skills.length} / 装備${state.equipments.length} / 陣形${state.formationMasters.length}`):(IS_WEB_DEPLOYMENT?'ウェブ版：公開JSONを自動取得中です。失敗時はページを再読込してください。':'JSON未読込：JSONフォルダまたはJSONファイルを選択してください。');
+      const webCacheMode=norm(window.HADO_WEB_JSON_STARTUP_STATUS?.mode||'');const webPrefix=webCacheMode==='cache-fallback'?'ウェブ版：前回データで起動':(webCacheMode==='cache-current'?'ウェブ版：保存済みデータで起動':(webCacheMode==='server-updated'?'ウェブ版：公開JSON更新済':'ウェブ版：公開JSON読込済'));
+      fileStatus.textContent=loaded?(IS_WEB_DEPLOYMENT?`${webPrefix}｜武将${state.generals.length} / 戦法${state.tactics.length} / 技能${state.skills.length} / 装備${state.equipments.length} / 陣形${state.formationMasters.length}`:`JSON読込済：武将${state.generals.length} / 戦法${state.tactics.length} / 技能${state.skills.length} / 装備${state.equipments.length} / 陣形${state.formationMasters.length}`):(IS_WEB_DEPLOYMENT?'ウェブ版：公開JSONを確認中です。':'JSON未読込：JSONフォルダまたはJSONファイルを選択してください。');
       if(loaded)fileStatus.textContent+=`｜データ更新日：${dataUpdatedAtDisplay()}`;
     }
     syncDataManagementSheet(context);

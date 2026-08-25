@@ -62,7 +62,7 @@ assert(!statusSource.includes('renderResultHtml'));
 assert(css.includes('.detail-effect-group'));
 assert(css.includes('@media(max-width:760px)'));
 assert(!indexHtml.includes('hado_update06.css'));
-assert(indexHtml.includes('06-r186'));
+assert(indexHtml.includes('06-r187'));
 assert(!indexHtml.includes('06-r180'));
 
 console.log('Update06 user-facing cards ok: 克遂 LvⅡ 5 groups / compact labels / one raw toggle');
