@@ -145,7 +145,7 @@ Preview repository `main`は`1b8a23a9d06903aa835d87bc072590e7dfb4d4c0`。`PREVIE
 
 ## 11. Minimum user acceptance operation
 
-公開Previewの見出しが`3.1.0.0 Update06 r185`で、表示件数が武将488・装備251・陣形22であることを確認する。「検索」で`LR沮授`を検索し、1件の結果から詳細を開けることを確認する。
+公開Previewの見出しが`3.1.0.0 Update06 r186`で、表示件数が武将488・装備251・陣形22であることを確認する。検索条件を武将だけにした初期結果の先頭が`LR沮授`、次が`LR蒙恬`であることを確認する。
 
 ## 12. Remaining issues
 
@@ -161,6 +161,20 @@ none。正式公開は全Update完了後の明示承認まで実施しない。
 - 検証: `python -X utf8 tools/run_app_validation.py`は145/145 PASS。クローラー側も`node --check cli/hadou-crawler.js`、`npm test`、`npm run test:scheduler`、`git diff --check`がPASSした。
 - HTML: `index.html`のコミット上のサイズは変更せず、キャッシュキーだけを`06-r186`へ更新した。実行ロジックとCSSは変更していない。
 
+### r186 Preview confirmation
+
+- アプリPR: `#319`を`c8266f7721e815c42d282ac82b3253e6542d3baf`として`feature/app-3.1.0.0`へ統合。クローラーfixture PR `#21`は`a03a77538bab8b3a03b7bbbf48d56bc12b512047`として統合。
+- Actions: `App Validation / app-validation`はPASS。`Notify Hado Library Preview` push run `32856138468`はPASS。
+- 公開URL: `https://mytemark2.github.io/hado_library-preview/`
+- 表示版: `覇道ライブラリ 3.1.0.0 Update06 r186`。
+- marker: source commit `c8266f7721e815c42d282ac82b3253e6542d3baf` / branch `feature/app-3.1.0.0` / display `3.1.0.0 Update06 r186`。
+- Preview repository commit: `744f5c552431eedfb70981143da4ca1a9b0f273f`。
+- 配備: `index.html`、`hado_formation.js`、`hado_styles.css`、一次JSON4ファイル、派生を含む`hadou_*.json`35ファイル、`.nojekyll`、3 markerを確認。
+- 公開JSON: 武将488・装備251・技能661・陣形22。先頭は武将`LR沮授`・`LR蒙恬`、装備`心翠宝玉佩`・`万里安境矛`、技能`忠賢`・`恬安`・`攻逐`・`逐敵`・`叡威`・`鋼志`・`護叡`・`執守`、陣形`盾兵陣`。
+- PC操作: 初期武将結果の先頭が`LR沮授`、次が`LR蒙恬`。装備先頭`心翠宝玉佩`、陣形先頭`盾兵陣`を確認。技能画面は既存仕様どおり武将内技能を統合するが、一次JSONと検索索引では新規8技能が先頭である。
+- スマートフォン: Chrome 390×844の索引作成中画面で横方向超過0件、ブラウザ警告・エラー0件。スマートフォン回帰はApp Validationのmobile parityを含めてPASS。
+- 判定: PASS。
+
 ## 確認事項
 
-なし。ユーザーが公開Previewを開いた状態で、上記「Minimum user acceptance operation」を代理実行して合格した。Update07は完了済みのため、次はUpdate08「結果サマリー・全画面統一」。推奨エンジンはGPT-5.6 Sol / reasoning High。
+なし。r186の公開Previewで先頭順を代理確認して合格した。Update07は完了済みのため、次はUpdate08「結果サマリー・全画面統一」。推奨エンジンはGPT-5.6 Sol / reasoning High。
