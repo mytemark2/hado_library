@@ -119,11 +119,14 @@ applyLoadedData=async function(data){
   state.dataUpdateMeta={dataUpdatedAt:norm(data?.meta?.dataUpdatedAt||''),dataUpdatedAtJst:norm(data?.meta?.dataUpdatedAtJst||''),runId:norm(data?.meta?.runId||''),sourceCommit:norm(data?.meta?.sourceCommit||'')};
   if(!window.HADO_FORMATION_CONDITION_EVALUATOR)throw new Error('Update05 formation condition evaluator is not loaded');
   if(!window.HADO_SEARCH_CLAUSE_INTEGRATION)throw new Error('Update06 search clause integration is not loaded');
+  if(!window.HADO_CLAUSE_SURFACE_BRIDGE)throw new Error('Update08 clause surface bridge is not loaded');
   state.effectClauseData=data?.effectClauses||null;
   state.diagnostics.effectClause=window.HADO_FORMATION_CONDITION_EVALUATOR.indexClauseData(state.effectClauseData);
   state.diagnostics.searchClauseIntegration=window.HADO_SEARCH_CLAUSE_INTEGRATION.indexData({effectClauses:state.effectClauseData,typeSearchFeatureIndex:data?.typeSearchFeatureIndex,relatedLinkIndex:data?.relatedLinkIndex,statusEffects:data?.statusEffects});
+  state.diagnostics.clauseSurfaceBridge=window.HADO_CLAUSE_SURFACE_BRIDGE.indexData({effectClauses:state.effectClauseData});
   debugLog('effectClause:runtime-ready',state.diagnostics.effectClause);
   debugLog('searchClauseIntegration:runtime-ready',state.diagnostics.searchClauseIntegration);
+  debugLog('clauseSurfaceBridge:runtime-ready',state.diagnostics.clauseSurfaceBridge);
   debugLog('dataUpdate:loaded',state.dataUpdateMeta);
   return await applyLoadedDataWithoutDataUpdateMeta(data);
 };

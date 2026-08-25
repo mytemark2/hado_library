@@ -6,8 +6,8 @@
 
 - 直前の開発完了版: `3.0.2.0 r170`
 - 開発中正本ブランチ: `feature/app-3.1.0.0`
-- 現在の到達点: `3.1.0.0 Update06 r187`まで完了。最新データ順を維持し、Web起動時は保存済みJSONを優先して更新時だけ公開JSON一式を再取得します。
-- Update07のClause Shadowも完了済みで、現行スコアを表示上の正本に維持しています。次はUpdate08へ進み、全Update完了までは正式公開・配布用ZIP作成を行いません。
+- 現在の到達点: `3.1.0.0 Update08 r188`を開発中。詳細・検索・編成条件・型評価根拠・結果サマリーを同じEffectClause/Evaluator投影へ統一します。
+- Update07のClause Shadow判定に従い、現行スコア値は表示上の正本として維持します。全Update完了までは正式公開・配布用ZIP作成を行いません。
 
 詳細なUpdate計画と進捗は [`docs/updates/roadmap.md`](./docs/updates/roadmap.md) と [`docs/updates/README.md`](./docs/updates/README.md) を参照してください。
 
