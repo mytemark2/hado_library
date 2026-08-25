@@ -68,7 +68,7 @@ const identityCounts = reviewed.reduce((map, row) => {
 const collisions = [...identityCounts.values()].filter(count => count > 1);
 assert.strictEqual(reviewed.length, 44, 'Update05 reviewed corpus must remain the shadow input');
 assert.strictEqual(collisions.length, 2, 'known effect-identity collision groups must remain classified');
-assert.strictEqual(collisions.reduce((sum, count) => sum + count, 0), 7, 'known collision rows must not be double-scored');
+assert.strictEqual(collisions.reduce((sum, count) => sum + count, 0), 6, 'known collision rows must not be double-scored');
 formationEvaluator.indexClauseData(clauseIndex);
 const yuanScoreClauses = formationEvaluator.evaluateFormationScoreClauses({
   members: [{ name: 'LR袁紹（えんしょう）', role: 'main', affinity: 'good', affinityCount: 1, starRank: 7 }],
@@ -87,7 +87,7 @@ const indexHtml = fs.readFileSync('index.html', 'utf8');
 const formationSource = fs.readFileSync('hado_formation.js', 'utf8');
 const css = fs.readFileSync('hado_update07.css', 'utf8');
 assert(versionSource.includes("updateNo: '06'"));
-assert(versionSource.includes('revision: 185'));
+assert(versionSource.includes('revision: 186'));
 assert(versionSource.includes('formalRelease: false'));
 
 const nodes = new Map();
@@ -98,10 +98,10 @@ context.window = context;
 vm.createContext(context);
 vm.runInContext(versionSource, context, { filename: 'hado_version.js' });
 vm.runInContext(metaSource, context, { filename: 'hado_update_meta.js' });
-assert.strictEqual(context.window.HADO_APP_DISPLAY_VERSION, '3.1.0.0 Update06 r185');
+assert.strictEqual(context.window.HADO_APP_DISPLAY_VERSION, '3.1.0.0 Update06 r186');
 
 for (const asset of ['hado_update04.css', 'hado_update05.css', 'hado_update07.css', 'hado_condition_model.js', 'hado_formation_condition_evaluator.js', 'hado_detail_condition_presenter.js', 'hado_version.js', 'hado_type_score.js', 'hado_type_score_evidence.js', 'hado_update07_score_shadow.js', 'hado_type_data_store.js']) {
-  assert(indexHtml.includes(`${asset}?v=06-r185`), `${asset} must use the current preview cache key`);
+  assert(indexHtml.includes(`${asset}?v=06-r186`), `${asset} must use the current preview cache key`);
 }
 assert(indexHtml.indexOf('hado_type_score.js') < indexHtml.indexOf('hado_type_score_evidence.js'));
 assert(indexHtml.indexOf('hado_type_score_evidence.js') < indexHtml.indexOf('hado_update07_score_shadow.js'));

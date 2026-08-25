@@ -151,6 +151,16 @@ Preview repository `main`は`1b8a23a9d06903aa835d87bc072590e7dfb4d4c0`。`PREVIE
 
 none。正式公開は全Update完了後の明示承認まで実施しない。
 
+### r186 データ順修正
+
+- 分類: 復旧時の配列順序不整合。
+- 原因: 追加のみ復旧で、最新13件を各一次JSONの末尾へ結合していた。
+- 対応: 武将2・装備2・技能8・陣形1の内部順を維持したまま、各カテゴリの先頭へ移動した。検索・表示・編成・保存ロジックは変更していない。
+- 派生データ: 一次JSONの新しい配列順から戦法JSONと21派生JSONを一括再生成し、Update01/02の監査証跡を同じ順へ追随させた。
+- 順序監査: 武将488・装備251・技能661・陣形22をキー単位でr185と照合し、レコード内容変更0・欠落0・追加0を確認した。先頭は順に`LR沮授`、`心翠宝玉佩`、`忠賢`、`盾兵陣`である。
+- 検証: `python -X utf8 tools/run_app_validation.py`は145/145 PASS。クローラー側も`node --check cli/hadou-crawler.js`、`npm test`、`npm run test:scheduler`、`git diff --check`がPASSした。
+- HTML: `index.html`のコミット上のサイズは変更せず、キャッシュキーだけを`06-r186`へ更新した。実行ロジックとCSSは変更していない。
+
 ## 確認事項
 
 なし。ユーザーが公開Previewを開いた状態で、上記「Minimum user acceptance operation」を代理実行して合格した。Update07は完了済みのため、次はUpdate08「結果サマリー・全画面統一」。推奨エンジンはGPT-5.6 Sol / reasoning High。
