@@ -65,6 +65,7 @@ COMMANDS.extend(
         ["node", "tools/test_update09_5_60_search_mode_isolation.js"],
         ["node", "tools/test_update09_5_61_candidate_workspace.js"],
         ["node", "tools/test_update09_5_63_equipment_search_stage.js"],
+        ["node", "tools/test_restored_data_order.js"],
         ["node", "tools/test_update09_5_64_candidate_workspace_flow.js"],
         ["node", "tools/test_update09_5_65_candidate_draft_resume.js"],
         ["node", "tools/test_update10_1_tab_clarity.js"],

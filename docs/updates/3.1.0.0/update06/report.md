@@ -158,7 +158,8 @@ none。正式公開は全Update完了後の明示承認まで実施しない。
 - 対応: 武将2・装備2・技能8・陣形1の内部順を維持したまま、各カテゴリの先頭へ移動した。検索・表示・編成・保存ロジックは変更していない。
 - 派生データ: 一次JSONの新しい配列順から戦法JSONと21派生JSONを一括再生成し、Update01/02の監査証跡を同じ順へ追随させた。
 - 順序監査: 武将488・装備251・技能661・陣形22をキー単位でr185と照合し、レコード内容変更0・欠落0・追加0を確認した。先頭は順に`LR沮授`、`心翠宝玉佩`、`忠賢`、`盾兵陣`である。
-- 検証: `python -X utf8 tools/run_app_validation.py`は145/145 PASS。クローラー側も`node --check cli/hadou-crawler.js`、`npm test`、`npm run test:scheduler`、`git diff --check`がPASSした。
+- 検証: `python -X utf8 tools/run_app_validation.py`は146/146 PASS。クローラー側も`node --check cli/hadou-crawler.js`、`npm test`、`npm run test:scheduler`、`git diff --check`がPASSした。
+- 再発防止: `tools/test_restored_data_order.js`をApp Validationへ追加し、4区分の件数・先頭13件と技能検索索引の先頭順を固定した。
 - HTML: `index.html`のコミット上のサイズは変更せず、キャッシュキーだけを`06-r186`へ更新した。実行ロジックとCSSは変更していない。
 
 ### r186 Preview confirmation
