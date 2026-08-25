@@ -21,12 +21,15 @@ COMMANDS: list[list[str]] = [
     ["node", "--check", "hado_tabs.js"],
     ["node", "--check", "hado_update_meta.js"],
     ["node", "--check", "hado_core.js"],
+    ["node", "--check", "hado_web_json_cache.js"],
+    ["node", "--check", "hado_bootstrap.js"],
     ["node", "--check", "hado_formation.js"],
     ["node", "--check", "hado_type_candidates.js"],
     ["node", "--check", "hado_type_entry.js"],
     ["node", "--check", "hado_type_data_store.js"],
     ["node", "--check", "hado_candidate_tray.js"],
     ["python3", "-m", "json.tool", "HADO_DEV_INFO.json"],
+    ["python3", "-m", "json.tool", "hadou_bundle_manifest.json"],
 ]
 
 for report in sorted(glob.glob(str(ROOT / "report" / "*.json"))):
@@ -54,6 +57,8 @@ COMMANDS.extend(
         ["node", "tools/test_update09_5_44_bounded_public_json_load.js"],
         ["node", "tools/test_update09_5_45_bootstrap_cache_bust.js"],
         ["node", "tools/test_update09_5_46_web_startup_light_gate.js"],
+        ["node", "tools/build_json_bundle_manifest.js", "--check"],
+        ["node", "tools/test_web_json_cache_policy.js"],
         ["node", "tools/test_update09_5_47_general_search_roster_exclusion.js"],
         ["node", "tools/test_update09_5_52_debug_panel_visibility.js"],
         ["node", "tools/test_update09_5_53_general_search_source_boundary.js"],

@@ -176,6 +176,22 @@ none。正式公開は全Update完了後の明示承認まで実施しない。
 - スマートフォン: Chrome 390×844の索引作成中画面で横方向超過0件、ブラウザ警告・エラー0件。スマートフォン回帰はApp Validationのmobile parityを含めてPASS。
 - 判定: PASS。
 
+### r187 Web JSONキャッシュ改修
+
+- 分類: Web起動時の不要な全JSON再取得と通信障害時の可用性不足。
+- 根本原因: IndexedDBキャッシュを保存していたが、HTTP(S)起動経路がキャッシュ確認より先に公開JSON一式を取得していた。XHRにも明示的なタイムアウトがなく、通信失敗時は有効なキャッシュがあってもエラー画面へ遷移していた。
+- 対応: 軽量な`hadou_bundle_manifest.json`だけを3秒以内で取得し、保存済み`bundleId`または旧キャッシュの`runId`・`dataUpdatedAt`が一致する場合はJSON本体を取得しない。オフライン、更新確認失敗、更新本体取得失敗時は構造検証済みキャッシュで起動する。
+- 完全性: 更新時は対象30ファイルを最大3並列・各8秒で取得し、LF正規化後のサイズとSHA-256を検証する。全件成功後だけIndexedDBの`bundle`キーを1トランザクションで置換し、失敗時は従来キャッシュを保持する。
+- 手動操作: 「公開JSONを再取得」は次回起動の強制更新フラグを`sessionStorage`へ設定し、マニフェスト一致時でも全件を取得する。
+- 再発防止: 決定的マニフェスト生成・同期確認、対象ファイル集合、全SHA-256、タイムアウト分岐、キャッシュ復帰分岐、Preview配備・公開マニフェスト一致をApp ValidationとWorkflowで検証する。
+- データ: r186のJSON内容と並び順は変更せず、クローリング・派生JSON再生成は実施していない。
+- 版: `hado_version.js`をr187へ更新した。`HADO_DEV_INFO.json`は表示版を重複保持しないため変更していない。
+- 変更ファイル: `hado_web_json_cache.js`、`hadou_bundle_manifest.json`、`hado_bootstrap.js`、`hado_core.js`、`index.html`、`hado_version.js`、Preview同期Workflow、マニフェスト生成・回帰テスト、App Validation、README・Roadmap・Update06記録。
+- HTML: `index.html`は28,442 byteから28,535 byteへ93 byte増。増加は外部化した`hado_web_json_cache.js`のscript読込1件とr187キャッシュキーだけで、実装コードをHTMLへ追加していない。
+- 検証: `python -X utf8 tools/run_app_validation.py`は151/151 PASS。JavaScript・JSON・HTML・CSS・Preview Workflow・JSON索引契約・検索・詳細・編成・保存Export/Import・スマートフォン回帰・r186先頭順を確認した。
+- ローカルWeb: 初回はマニフェスト1件と対象JSON30件を取得し、「公開JSON更新済」、武将488・戦法447・技能1389・装備251・陣形22、先頭`LR沮授`を確認した。2回目はHTML等を除きマニフェスト1件だけでJSON本体取得0件、「保存済みデータで起動」を確認した。マニフェストを一時的に404へした再読込ではJSON本体取得0件のまま「前回データで起動」と全件表示へ復帰し、ブラウザ警告・エラー0件だった。検証後にマニフェストを元のパスへ復元した。
+- Preview: ソースPR統合後のpush起動Actions、Preview repository marker、公開URL、初回更新・更新なし再読込・通信失敗復帰を確認して追記する。
+
 ## 確認事項
 
-なし。r186の公開Previewで先頭順を代理確認して合格した。Update07は完了済みのため、次はUpdate08「結果サマリー・全画面統一」。推奨エンジンはGPT-5.6 Sol / reasoning High。
+現時点ではなし。r187はPreview実環境確認まで完了させる。完了後はUpdate07が完了済みのためUpdate08「結果サマリー・全画面統一」へ進む。推奨エンジンはGPT-5.6 Sol / reasoning High。

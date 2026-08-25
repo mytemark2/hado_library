@@ -25,8 +25,10 @@ REQUIRED = (
     "Preview repository main changed during push; retrying with a fresh clone.",
     "find \"${PREVIEW_DIR}\" -mindepth 1 -maxdepth 1 -not -name '.git' -not -name '.github' -exec rm -rf {} +",
     "rsync -a index.html HADO_DEV_INFO.json hado_*.js hado_*.css hadou_*.json",
-    "sha256sum index.html hado_formation.js hado_styles.css hado_update05.css hado_version.js HADO_DEV_INFO.json",
+    "sha256sum index.html hado_formation.js hado_styles.css hado_update05.css hado_version.js hado_web_json_cache.js hadou_bundle_manifest.json HADO_DEV_INFO.json",
     'test -s "${PREVIEW_DIR}/hado_update05.css"',
+    'test -s "${PREVIEW_DIR}/hado_web_json_cache.js"',
+    'test -s "${PREVIEW_DIR}/hadou_bundle_manifest.json"',
     "PREVIEW_SOURCE_COMMIT.txt",
     "PREVIEW_SOURCE_BRANCH.txt",
     "PREVIEW_DISPLAY_VERSION.txt",
@@ -43,7 +45,8 @@ REQUIRED = (
     "Preview synchronization is incomplete until this Pages deployment succeeds.",
     "PREVIEW_SOURCE_COMMIT.txt?cb=${SOURCE_COMMIT}",
     "PREVIEW_DISPLAY_VERSION.txt?cb=${SOURCE_COMMIT}",
-    "Public preview matches source commit ${SOURCE_COMMIT} and display version ${DISPLAY_VERSION}.",
+    "hadou_bundle_manifest.json?cb=${SOURCE_COMMIT}",
+    "Public preview matches source commit ${SOURCE_COMMIT}, display version ${DISPLAY_VERSION}, and JSON bundle ${expected_bundle_id}.",
 )
 
 FORBIDDEN = (
