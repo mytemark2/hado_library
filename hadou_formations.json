@@ -1,6 +1,135 @@
 {
   "items": [
     {
+      "name": "盾兵陣",
+      "category": "formations",
+      "is_modified": false,
+      "base_formation": null,
+      "ability_impact": {
+        "主将": "中",
+        "副将": "中",
+        "補佐": "小"
+      },
+      "ability_impact_text": "主将：中　副将：中　補佐：小",
+      "skills": [
+        {
+          "name": "盾兵兵力",
+          "content": [
+            "■常に",
+            "●部隊の兵力+3%",
+            "→自部隊が盾兵の際は効果が2倍（+6%）"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "盾兵陣",
+          "level": 1
+        },
+        {
+          "name": "盾兵防御",
+          "content": [
+            "■常に",
+            "●部隊の防御+3%",
+            "→自部隊が盾兵の際は効果が2倍（+6%）"
+          ],
+          "source": "formation",
+          "source_type": "formation",
+          "source_name": "盾兵陣",
+          "level": 1
+        }
+      ],
+      "status_correction": "兵力上昇、攻撃低下",
+      "unlock_condition": "研究所で「陣形解放」の研究を完了させた後、盾兵術にある「盾兵陣」の研究を完了させる",
+      "image_url": "https://img.gamewith.jp/img/72dac191e44bf376613faf51a0d9249c.png",
+      "image_urls": [
+        "https://img.gamewith.jp/img/72dac191e44bf376613faf51a0d9249c.png"
+      ],
+      "raw_text": "盾兵陣 【能力影響】主将：中　副将：中　補佐：小 【技能】《盾兵兵力》\n■常に\n　●部隊の兵力+3%\n　→自部隊が盾兵の際は効果が2倍（+6%）《盾兵防御》\n■常に\n　●部隊の防御+3%\n　→自部隊が盾兵の際は効果が2倍（+6%） 【ステータス補正】兵力上昇、攻撃低下 【解放条件】研究所で「陣形解放」の研究を完了させた後、盾兵術にある「盾兵陣」の研究を完了させる",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/261056",
+      "crawled_at": "2026-08-24T16:50:22.445Z",
+      "layout": {
+        "grid": {
+          "rows": 3,
+          "cols": 3
+        },
+        "matrix": [
+          [
+            "vice_1",
+            null,
+            "support_1"
+          ],
+          [
+            "vice_2",
+            "main",
+            null
+          ],
+          [
+            null,
+            null,
+            "support_2"
+          ]
+        ],
+        "positions": [
+          {
+            "slot": "main",
+            "role": "主将",
+            "label": "主",
+            "row": 1,
+            "col": 1,
+            "score": 656
+          },
+          {
+            "slot": "vice_1",
+            "role": "副将1",
+            "label": "副",
+            "row": 0,
+            "col": 0,
+            "score": 372
+          },
+          {
+            "slot": "vice_2",
+            "role": "副将2",
+            "label": "副",
+            "row": 1,
+            "col": 0,
+            "score": 419
+          },
+          {
+            "slot": "support_1",
+            "role": "補佐1",
+            "label": "補",
+            "row": 0,
+            "col": 2,
+            "score": 546
+          },
+          {
+            "slot": "support_2",
+            "role": "補佐2",
+            "label": "補",
+            "row": 2,
+            "col": 2,
+            "score": 499
+          }
+        ],
+        "source": {
+          "type": "formation_image_analysis",
+          "image_url": "https://img.gamewith.jp/img/72dac191e44bf376613faf51a0d9249c.png",
+          "method": "3x3_grid_color_role_detection_v2_strict_score"
+        },
+        "confidence": 1,
+        "validation": {
+          "ok": true,
+          "missing": [],
+          "roleCounts": {
+            "main": 1,
+            "vice": 2,
+            "support": 2
+          },
+          "lowScoreAccepted": [],
+          "minAcceptedScore": 372
+        }
+      }
+    },
+    {
       "name": "基本",
       "category": "formations",
       "is_modified": false,
@@ -2697,135 +2826,6 @@
           },
           "lowScoreAccepted": [],
           "minAcceptedScore": 661
-        }
-      }
-    },
-    {
-      "name": "盾兵陣",
-      "category": "formations",
-      "is_modified": false,
-      "base_formation": null,
-      "ability_impact": {
-        "主将": "中",
-        "副将": "中",
-        "補佐": "小"
-      },
-      "ability_impact_text": "主将：中　副将：中　補佐：小",
-      "skills": [
-        {
-          "name": "盾兵兵力",
-          "content": [
-            "■常に",
-            "●部隊の兵力+3%",
-            "→自部隊が盾兵の際は効果が2倍（+6%）"
-          ],
-          "source": "formation",
-          "source_type": "formation",
-          "source_name": "盾兵陣",
-          "level": 1
-        },
-        {
-          "name": "盾兵防御",
-          "content": [
-            "■常に",
-            "●部隊の防御+3%",
-            "→自部隊が盾兵の際は効果が2倍（+6%）"
-          ],
-          "source": "formation",
-          "source_type": "formation",
-          "source_name": "盾兵陣",
-          "level": 1
-        }
-      ],
-      "status_correction": "兵力上昇、攻撃低下",
-      "unlock_condition": "研究所で「陣形解放」の研究を完了させた後、盾兵術にある「盾兵陣」の研究を完了させる",
-      "image_url": "https://img.gamewith.jp/img/72dac191e44bf376613faf51a0d9249c.png",
-      "image_urls": [
-        "https://img.gamewith.jp/img/72dac191e44bf376613faf51a0d9249c.png"
-      ],
-      "raw_text": "盾兵陣 【能力影響】主将：中　副将：中　補佐：小 【技能】《盾兵兵力》\n■常に\n　●部隊の兵力+3%\n　→自部隊が盾兵の際は効果が2倍（+6%）《盾兵防御》\n■常に\n　●部隊の防御+3%\n　→自部隊が盾兵の際は効果が2倍（+6%） 【ステータス補正】兵力上昇、攻撃低下 【解放条件】研究所で「陣形解放」の研究を完了させた後、盾兵術にある「盾兵陣」の研究を完了させる",
-      "source_url": "https://gamewith.jp/sangokushihadou/article/show/261056",
-      "crawled_at": "2026-08-24T16:50:22.445Z",
-      "layout": {
-        "grid": {
-          "rows": 3,
-          "cols": 3
-        },
-        "matrix": [
-          [
-            "vice_1",
-            null,
-            "support_1"
-          ],
-          [
-            "vice_2",
-            "main",
-            null
-          ],
-          [
-            null,
-            null,
-            "support_2"
-          ]
-        ],
-        "positions": [
-          {
-            "slot": "main",
-            "role": "主将",
-            "label": "主",
-            "row": 1,
-            "col": 1,
-            "score": 656
-          },
-          {
-            "slot": "vice_1",
-            "role": "副将1",
-            "label": "副",
-            "row": 0,
-            "col": 0,
-            "score": 372
-          },
-          {
-            "slot": "vice_2",
-            "role": "副将2",
-            "label": "副",
-            "row": 1,
-            "col": 0,
-            "score": 419
-          },
-          {
-            "slot": "support_1",
-            "role": "補佐1",
-            "label": "補",
-            "row": 0,
-            "col": 2,
-            "score": 546
-          },
-          {
-            "slot": "support_2",
-            "role": "補佐2",
-            "label": "補",
-            "row": 2,
-            "col": 2,
-            "score": 499
-          }
-        ],
-        "source": {
-          "type": "formation_image_analysis",
-          "image_url": "https://img.gamewith.jp/img/72dac191e44bf376613faf51a0d9249c.png",
-          "method": "3x3_grid_color_role_detection_v2_strict_score"
-        },
-        "confidence": 1,
-        "validation": {
-          "ok": true,
-          "missing": [],
-          "roleCounts": {
-            "main": 1,
-            "vice": 2,
-            "support": 2
-          },
-          "lowScoreAccepted": [],
-          "minAcceptedScore": 372
         }
       }
     }
