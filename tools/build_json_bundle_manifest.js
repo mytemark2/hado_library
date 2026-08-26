@@ -17,6 +17,10 @@ function canonicalJsonBytes(buffer) {
   return Buffer.from(buffer.toString('utf8').replace(/\r\n/g, '\n'), 'utf8');
 }
 
+function canonicalText(value) {
+  return String(value == null ? '' : value).replace(/\r\n/g, '\n');
+}
+
 function buildManifest() {
   const required = new Set(cachePolicy.REQUIRED_FILE_NAMES);
   const names = [...cachePolicy.REQUIRED_FILE_NAMES, ...cachePolicy.OPTIONAL_FILE_NAMES].sort();
@@ -44,14 +48,22 @@ function buildManifest() {
   };
 }
 
-const expected = `${JSON.stringify(buildManifest(), null, 2)}\n`;
-if (process.argv.includes('--check')) {
-  if (!fs.existsSync(OUTPUT) || fs.readFileSync(OUTPUT, 'utf8') !== expected) {
-    console.error(`${cachePolicy.MANIFEST_FILE} is not synchronized with the public JSON bundle`);
-    process.exit(1);
+function main(args = process.argv.slice(2)) {
+  const expected = `${JSON.stringify(buildManifest(), null, 2)}\n`;
+  if (args.includes('--check')) {
+    const actual = fs.existsSync(OUTPUT) ? canonicalText(fs.readFileSync(OUTPUT, 'utf8')) : '';
+    if (actual !== expected) {
+      console.error(`${cachePolicy.MANIFEST_FILE} is not synchronized with the public JSON bundle`);
+      return 1;
+    }
+    console.log(`PASS ${cachePolicy.MANIFEST_FILE} bundle manifest`);
+    return 0;
   }
-  console.log(`PASS ${cachePolicy.MANIFEST_FILE} bundle manifest`);
-} else {
   fs.writeFileSync(OUTPUT, expected, 'utf8');
   console.log(`wrote ${cachePolicy.MANIFEST_FILE}`);
+  return 0;
 }
+
+if (require.main === module) process.exitCode = main();
+
+module.exports = { buildManifest, canonicalJsonBytes, canonicalText, main };

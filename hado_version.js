@@ -3,12 +3,12 @@
   'use strict';
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.1.0.0',
-    updateNo: '08',
-    revision: 189,
+    updateNo: '',
+    revision: 190,
     formalRelease: false,
     baseAppVersion: '3.0.2.0',
-    summary: '3.1.0.0 Update08: use one EffectClause and Evaluator projection across detail, search, formation, score evidence, and result summary.',
-    updatedAt: '2026-08-26T09:08:00+09:00'
+    summary: '3.1.0.0 release candidate: full-data regression gates passed across Clause, search, formation, saved data, and Preview.',
+    updatedAt: '2026-08-26T13:48:04+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;
 })();
