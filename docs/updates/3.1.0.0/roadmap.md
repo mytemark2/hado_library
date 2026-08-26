@@ -385,7 +385,7 @@ Update01で条件型が増えた場合、各新型に最低1件の回帰ケー�
 
 ### Update09 — 全件回帰・3.1.0.0正式版候補
 
-**進捗:** `3.1.0.0 r190`として実施中。全Updateの最終段階のため、Preview表示はUpdate番号を外した正式版候補形式とする。正式公開は行わない。
+**状態:** `3.1.0.0 r190`として完了。全1,822件・意味単位46,362件・Clause 24,554件を走査し、未分類、未確認残差、無効Clause、孤立condition/trigger/effect、実害のあるeffect identity重複、modifier基礎effect欠落、evidence SHA不一致をすべて0件とした。App Validation、PR検証、イベント駆動Preview同期、公開PagesのPC・390x844実操作まで合格している。正式公開は利用者の明示承認まで行わない。
 
 **目的:** 個別gold setだけでなく全データへ戻って漏れ・不整合を検出する。
 
