@@ -21,7 +21,7 @@
 
 ## 外部化
 
-共通処理は`hado_clause_surface_bridge.js`、表示差分は`hado_update08.css`へ分離する。`index.html`は外部資産の読込と`08-r188`キャッシュキーだけを変更し、インライン実装を追加しない。
+共通処理は`hado_clause_surface_bridge.js`、表示差分は`hado_update08.css`へ分離する。`index.html`は外部資産の読込と`08-r189`キャッシュキーだけを変更し、インライン実装を追加しない。
 
 ## 事前監査
 

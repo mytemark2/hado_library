@@ -43,7 +43,7 @@
       entityName: text(clause?.evidence?.entity), sourceUnitId: text(clause?.evidence?.sourceUnitId),
       conditions: Object.freeze(unique(displayRow?.conditions || [])), semanticTypes: Object.freeze(unique(displayRow?.semanticTypes || [])),
       targetScope: text(clause?.target?.scope) || 'unknown', targetLabel: TARGET_LABELS[text(clause?.target?.scope)] ?? '',
-      effectIdentity: text(clause?.effect?.identity), effectKind: text(clause?.effect?.kind),
+      effectIdentity: text(clause?.effect?.identity), effectKind: text(clause?.effect?.kind), effectText: text(displayRow?.effectText),
       rawText: text(clause?.evidence?.rawText), rawTextSha256: text(clause?.evidence?.rawTextSha256), trust: text(clause?.trust?.state)
     });
   }
@@ -110,11 +110,25 @@
       links.push(Object.freeze({
         caseId: clause.caseId, clauseId: clause.clauseId, state: text(candidate.state), stateLabel: text(candidate.label),
         conditions: clause.conditions, targetScope: clause.targetScope, targetLabel: clause.targetLabel,
-        effectIdentity: clause.effectIdentity, entityName: clause.entityName, rawTextSha256: clause.rawTextSha256
+        effectIdentity: clause.effectIdentity, effectText: clause.effectText, entityName: clause.entityName, rawTextSha256: clause.rawTextSha256
       }));
     }
     runtimeDiagnostic = { ...runtimeDiagnostic, evidenceLinks: runtimeDiagnostic.evidenceLinks + links.length };
     return Object.freeze(links);
+  }
+  function getFormationClauseLinks(formationProjection, options = {}) {
+    const effectTextIncludes = text(options.effectTextIncludes);
+    const output = [];
+    for (const candidate of formationProjection?.rows || []) {
+      const clause = candidate.surfaceClause;
+      if (!clause || (effectTextIncludes && !clause.effectText.includes(effectTextIncludes))) continue;
+      output.push(Object.freeze({
+        caseId: clause.caseId, clauseId: clause.clauseId, state: text(candidate.state), stateLabel: text(candidate.label),
+        conditions: clause.conditions, targetScope: clause.targetScope, targetLabel: clause.targetLabel,
+        effectIdentity: clause.effectIdentity, effectText: clause.effectText, entityName: clause.entityName, rawTextSha256: clause.rawTextSha256
+      }));
+    }
+    return Object.freeze(output);
   }
   function linkFormationEffects(effects, formationProjection) {
     const seen = new Set(), output = [];
@@ -142,7 +156,7 @@
 
   return Object.freeze({
     CONTRACT_VERSION, RESULT_LABELS: evaluator.RESULT_LABELS, indexData, getDiagnostic, getEntityProjection, evaluateFormation,
-    linkEvidence, linkFormationEffects, annotateTypeSearchHits, buildDetailPresentation,
+    linkEvidence, linkFormationEffects, getFormationClauseLinks, annotateTypeSearchHits, buildDetailPresentation,
     getEntityTags: (category, name) => getEntityProjection(category, name).searchTags,
     getCacheKey: () => `${CONTRACT_VERSION}|${search.getCacheKey ? search.getCacheKey() : ''}`,
     getEntitySearchText: (category, name) => search.getEntitySearchText(category, name),
