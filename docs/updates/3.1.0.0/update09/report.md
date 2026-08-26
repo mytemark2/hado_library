@@ -2,7 +2,7 @@
 
 ## 1. Summary
 
-Update09で全データ回帰と正式版候補確認を行い、Previewを`3.1.0.0 r190`へ更新する。正式公開は行わない。
+Update09で全データ回帰と正式版候補確認を完了し、Previewを`3.1.0.0 r190`へ更新した。正式公開は行っていない。
 
 ## 2. Bug classification and root cause
 
@@ -35,30 +35,50 @@ Update09で全データ回帰と正式版候補確認を行い、Previewを`3.1.
 
 ## 7. Validation results
 
-実装・Preview反映後に確定する。
+- 全1,822件・意味単位46,362件・生成Clause 24,554件を走査し、未走査、未分類、未確認残差、無効Clause、孤立condition/trigger/effect、実害のあるeffect identity重複、modifier基礎effect欠落、evidence SHA不一致はすべて0件。
+- 正規化後の重複候補107群はレベル・段階差を含む監査候補であり、Clause IDとeffect identityによる実害重複は0件。
+- `python -X utf8 tools/run_app_validation.py`: 154/154件PASS。
+- JSON契約、保存Import/Export往復、通常検索、状態変化検索、型検索、詳細、部隊編成、候補ワークスペース、型評価、結果サマリー、PC、390x844の回帰はPASS。
 
 ## 8. Git commit and pull request
 
-反映後に確定する。
+- 作業commit: `5c6d10904080476b7fd0145b84e0d66b8b68a2d4`
+- Pull Request: [#327](https://github.com/mytemark2/hado_library/pull/327)
+- `feature/app-3.1.0.0`へのmerge commit: `12f1889ea1129bb20610fcc939e871b4c155c285`
+- merge-readiness: base `1e4f41af8a4f9c5a01efb1cb914adade9e355774`、head `5c6d10904080476b7fd0145b84e0d66b8b68a2d4`、競合なし。
 
 ## 9. GitHub Actions result
 
-反映後に確定する。
+- `App Validation / app-validation`: run `32932133613`、PASS。
+- `Notify Preview Repository`: run `32932159080`、success（1分19秒）。
 
 ## 10. Preview synchronization result
 
-反映後に公開Pagesと3 markerを確認して確定する。
+`feature/app-3.1.0.0`へのpushを契機にイベント駆動で同期した。scheduleや手動workflowは使用していない。
+
+### Preview confirmation
+
+- 公開URL: <https://mytemark2.github.io/hado_library-preview/>
+- 表示版: `覇道ライブラリ 3.1.0.0 r190`
+- Preview repository commit: `53581011b06704326aeb1002cabfe8995be8439f`
+- marker: source commit `12f1889ea1129bb20610fcc939e871b4c155c285`、source branch `feature/app-3.1.0.0`、display version `3.1.0.0 r190`
+- 必須配置: `index.html`、`hado_formation.js`、`hado_styles.css`、`hadou_*.json`、`.nojekyll`、3 markerを確認。
+- DOM・asset: 版表示、検索、詳細、部隊編成、条件、結果サマリーを確認し、script/CSSのcache keyが`3.1.0.0-r190`であることを確認。
+- 操作: LR袁紹の通常検索1件、状態変化「攻撃上昇」366件、型「撃心型」138件、保存済み編成3/12件、条件内訳「成立3・不成立0・戦闘中判定1・対象外0・判定不可14」、結果サマリー「最大250%」を確認。内部ID表示なし。
+- PC 1280x720・スマートフォン390x844: 横方向overflow 0、表示崩れなし。
+- debug log: browser error 0件。
+- 判定: PASS。
 
 ## 11. Minimum user acceptance operation
 
-公開Previewで版表示、検索、詳細、保存編成、結果サマリーを確認する。Codex側で実施し、追加確認が必要な場合だけ利用者へ明記する。
+公開Previewで版表示、検索、詳細、保存編成、条件、結果サマリーをCodex側で確認済み。利用者による追加の必須確認はない。
 
 ## 12. Remaining issues
 
-Preview確認前のため未完了。正式公開は利用者の明示承認まで行わない。
+none。正式公開は利用者の明示承認まで行わない。
 
 ## 確認事項
 
-なし。Update09完了後は正式公開の明示承認待ちとなる。
+なし。3.1.0.0の全Updateは完了し、正式公開の明示承認待ちとなる。
 
 推奨エンジン: GPT-5.6 Sol / reasoning High。

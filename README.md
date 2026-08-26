@@ -6,8 +6,8 @@
 
 - 直前の開発完了版: `3.0.2.0 r170`
 - 開発中正本ブランチ: `feature/app-3.1.0.0`
-- 現在の到達点: `3.1.0.0 r190`正式版候補を検証中。Update09で全1,822件・意味単位46,362件・Clause 24,554件と全主要操作の回帰を実施します。
-- Update07のClause Shadow判定に従い、現行スコア値は表示上の正本として維持します。全Update完了までは正式公開・配布用ZIP作成を行いません。
+- 現在の到達点: `3.1.0.0 r190`正式版候補としてUpdate09まで完了。全1,822件・意味単位46,362件・Clause 24,554件と全主要操作の回帰に合格しています。
+- Update07のClause Shadow判定に従い、現行スコア値は表示上の正本として維持します。3.1.0.0の全Updateは完了しましたが、正式公開・配布用ZIP作成は利用者の明示承認まで行いません。
 
 詳細なUpdate計画と進捗は [`docs/updates/roadmap.md`](./docs/updates/roadmap.md) と [`docs/updates/README.md`](./docs/updates/README.md) を参照してください。
 

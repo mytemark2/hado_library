@@ -1,5 +1,7 @@
 # 3.1.0.0 Update09 Roadmap
 
+**状態:** `3.1.0.0 r190`として完了。全完了ゲート、App Validation、GitHub Actions、イベント駆動Preview同期、公開Pages確認に合格した。正式公開は行っていない。
+
 ## 目的
 
 個別gold setだけでなく全データへ戻り、Clause生成、条件分類、検索、詳細、編成、型評価、結果サマリー、保存互換、データ読込、Preview同期を正式版候補として回帰する。

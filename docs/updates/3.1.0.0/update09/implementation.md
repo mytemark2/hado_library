@@ -20,3 +20,11 @@ WindowsのCRLF checkoutでは`hadou_bundle_manifest.json`の内容が同じで�
 - アプリの実行機能、JSON内容、crawler、保存schema、現行スコア値は変更しない。
 - 新しい実行時JavaScript/CSSやHTMLインライン実装は追加しない。
 - 変更は検証ツール、版情報、キャッシュキー、Update09記録に限定する。
+
+## 実装結果
+
+- 全1,822件・意味単位46,362件・生成Clause 24,554件を走査し、未分類、未確認残差、無効Clause、孤立condition/trigger/effect、実害のあるeffect identity重複、modifier基礎effect欠落、evidence SHA不一致をすべて0件にした。
+- 正規化後の重複候補107群はレベル・段階差を含む監査候補であり、Clause IDとeffect identityによる実害重複は0件であることを分離して検証した。
+- WindowsのCRLF checkoutでbundle manifest検証が誤失敗する問題をLF正規化によって恒久修正し、LF/CRLF同値性をUpdate09全件回帰へ追加した。
+- `python -X utf8 tools/run_app_validation.py`は154/154件PASS。PR検証、イベント駆動Preview同期、公開PagesのPC・390x844実操作もPASSした。
+- JSON、保存schema、現行スコア値、crawler、`HADO_DEV_INFO.json`は変更していない。
