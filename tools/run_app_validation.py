@@ -43,6 +43,7 @@ COMMANDS.extend(
         ["python3", "tools/validate_preview_workflow.py"],
         ["node", "tools/test_notify_preview_workflow_no_preview_workflow_edit.js"],
         ["node", "tools/test_3_1_0_0_update08_surface_unification.js"],
+        ["node", "tools/test_3_1_0_0_update09_full_regression.js"],
         ["node", "--check", "tools/test_update09_5_28_public_json_load_regression.js"],
         ["node", "tools/test_update09_5_28_public_json_load_regression.js"],
         ["node", "--check", "tools/test_update09_5_29_disadvantage_display_labels.js"],
