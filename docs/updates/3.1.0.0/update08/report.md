@@ -2,7 +2,7 @@
 
 ## 1. Summary
 
-Update08 r189で、詳細・通常検索・状態変化検索・型検索・部隊編成・型評価根拠・結果サマリーを同じEffectClause/Evaluator投影へ統一する。現行スコア値、JSON、保存データは変更せず、正式公開は行わない。
+Update08 r189で、詳細・通常検索・状態変化検索・型検索・部隊編成・型評価根拠・結果サマリーを同じEffectClause/Evaluator投影へ統一した。現行スコア値、JSON、保存データは変更せず、正式公開は行っていない。
 
 ## 2. Bug classification and root cause
 
@@ -39,30 +39,47 @@ reviewed Clause 44件 / 14項目、詳細、通常検索、状態変化検索、
 
 ## 7. Validation results
 
-専用回帰はreviewed Clause 44件 / 14項目、画面投影不一致0件でPASS。全App Validation 153/153、版表示整合、Preview Workflow検証、`git diff --check`はPASS。ローカルHTTP版はUpdate08 r189、武将488・戦法447・技能1389・装備251、LR袁紹5 Clause、PC/390x844横方向超過0、ブラウザwarning/error 0件を確認した。公開Preview結果は反映後に記録する。
+専用回帰はreviewed Clause 44件 / 14項目、画面投影不一致0件でPASS。全App Validation 153/153、版表示整合、Preview Workflow検証、`git diff --check`はPASS。ローカルHTTP版はUpdate08 r189、武将488・戦法447・技能1389・装備251、LR袁紹5 Clause、PC/390x844横方向超過0、ブラウザwarning/error 0件を確認した。公開Previewでも同じ件数、表示版、対象DOM・資産、結果サマリー、PC/390x844横方向超過0、ブラウザwarning/error 0件を確認した。
 
 ## 8. Git commit and pull request
 
-実装Pull Request反映後に記録する。
+- 初回実装: PR #324、作業Commit `c94d6b324609b178f4f211853216dd9dc24603dc`、正本Merge Commit `9e6111eff134b5db3a12aef77a9b588b85dce522`。
+- Preview実編成で検出した不足の修正: PR #325、作業Commit `2cb64b54d8f96e5821c3196843809ccc92cf59aa`、正本Merge Commit `d7b6004230a482f82869e4f1fa5f211db8f365c1`。
+- PR #325のmerge-readiness: base/headは`9e6111eff134b5db3a12aef77a9b588b85dce522` / `2cb64b54d8f96e5821c3196843809ccc92cf59aa`、競合なし。
 
 ## 9. GitHub Actions result
 
-実装Pull Request反映後に記録する。
+- PR #324 App Validation: run `32913121825`、PASS。
+- PR #325 App Validation: run `32927929885`、PASS。
+- r188 Preview同期: `Notify Hado Library Preview` run `32913167788`、success。
+- r189 Preview同期: `Notify Hado Library Preview` run `32927952111`、success（1分20秒）。
 
 ## 10. Preview synchronization result
 
-実装Pull Request反映後に公開Pagesと3 markerを確認して記録する。
+イベント駆動同期はpushだけで自動起動し、手動dispatchやscheduleを使用していない。r189同期後のPreview repository `main` HEADは`968d433e6c49b0222816cdbb8c8e6fe02eae1147`。必須配信ファイルと3 markerの一致を確認した。
+
+### Preview confirmation
+
+- 公開URL: `https://mytemark2.github.io/hado_library-preview/`
+- 表示版: `3.1.0.0 Update08 r189`
+- marker: `PREVIEW_SOURCE_COMMIT.txt=d7b6004230a482f82869e4f1fa5f211db8f365c1`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.1.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.1.0.0 Update08 r189`
+- Preview repository commit: `968d433e6c49b0222816cdbb8c8e6fe02eae1147`
+- DOM/資産: `index.html`、`hado_clause_surface_bridge.js`、`hado_formation.js`、`hado_update08.css`、`hado_styles.css`、`hadou_*.json`、`.nojekyll`を確認。画面内へ内部Clause IDの露出なし。
+- 操作: LR袁紹を主将にした保存編成で、結果サマリーに「最大250%」「成立」「戦闘中判定」「主将」「兵力50%以上」「敵4部隊: 戦法威力 250% → 700%」「LR袁紹」を確認。
+- PC/スマートフォン: 1280pxと390x844で横方向超過0。
+- debug-log: browser warning/error 0件。
+- 判定: PASS。
 
 ## 11. Minimum user acceptance operation
 
-公開PreviewでUpdate08 r189を確認し、reviewed Clauseを持つ武将を含む編成の「条件」と「結果サマリー」で同じ成立状態が表示されることを確認する。
+公開PreviewでLR袁紹を主将にした保存編成を開き、「戦法最大倍率」へ成立・戦闘中判定と250%→700%の根拠が表示される操作を実施済み。利用者側の追加必須確認はない。
 
 ## 12. Remaining issues
 
-Preview確認前のため未完了。正式公開は全Update完了後の明示承認まで実施しない。
+none。正式公開は全Update完了後の明示承認まで実施しない。
 
 ## 確認事項
 
-なし。Update08完了後はUpdate09の全件回帰・3.1.0.0正式版候補確認へ進む。
+なし。次はUpdate09の全件回帰・3.1.0.0正式版候補確認へ進む。
 
 推奨エンジン: GPT-5.6 Sol / reasoning High。
