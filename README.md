@@ -6,7 +6,7 @@
 
 - 直前の開発完了版: `3.0.2.0 r170`
 - 開発中正本ブランチ: `feature/app-3.1.0.0`
-- 現在の到達点: `3.1.0.0 Update08 r189`を開発中。詳細・検索・編成条件・型評価根拠・結果サマリーを同じEffectClause/Evaluator投影へ統一します。
+- 現在の到達点: `3.1.0.0 Update08 r189`を完了。詳細・検索・編成条件・型評価根拠・結果サマリーを同じEffectClause/Evaluator投影へ統一しました。次はUpdate09の全件回帰・正式版候補確認です。
 - Update07のClause Shadow判定に従い、現行スコア値は表示上の正本として維持します。全Update完了までは正式公開・配布用ZIP作成を行いません。
 
 詳細なUpdate計画と進捗は [`docs/updates/roadmap.md`](./docs/updates/roadmap.md) と [`docs/updates/README.md`](./docs/updates/README.md) を参照してください。
