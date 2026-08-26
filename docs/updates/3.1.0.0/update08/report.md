@@ -2,7 +2,7 @@
 
 ## 1. Summary
 
-Update08 r188で、詳細・通常検索・状態変化検索・型検索・部隊編成・型評価根拠・結果サマリーを同じEffectClause/Evaluator投影へ統一する。現行スコア値、JSON、保存データは変更せず、正式公開は行わない。
+Update08 r189で、詳細・通常検索・状態変化検索・型検索・部隊編成・型評価根拠・結果サマリーを同じEffectClause/Evaluator投影へ統一する。現行スコア値、JSON、保存データは変更せず、正式公開は行わない。
 
 ## 2. Bug classification and root cause
 
@@ -10,6 +10,8 @@ Update08 r188で、詳細・通常検索・状態変化検索・型検索・部�
 - 原因: 詳細、検索、編成判定は共通Clauseを利用していたが、結果サマリーと型検索結果は既存の加算・派生索引だけを保持し、同じClauseの条件・対象・5状態を追跡できなかった。
 - 恒久対策: Presenter、検索統合、Formation Evaluatorの出力をClause単位で束ねる共通画面投影を追加し、各画面が同じ投影を参照する。
 - 再発防止: 44件全件についてClause ID、条件、対象、効果identity、原文SHA-256、詳細件数、検索件数、編成判定を比較する専用回帰をApp Validationへ追加する。
+- Preview実編成で検出した不足: r188では「戦法最大倍率」が従来の250%だけを表示し、同じClauseの「250%→700% / 兵力50%以上」と5状態を結果サマリーへ渡していなかった。
+- 追加対策: r189でPresenterの効果文を共通投影へ保持し、戦法最大倍率へ基礎Clauseの成立、条件Clauseの戦闘中判定、条件文、250%→700%を同じ参照として渡す。専用回帰で2 Clauseと2状態の組合せを固定する。
 
 ## 3. Impact scope checked
 
@@ -17,11 +19,11 @@ reviewed Clause 44件 / 14項目、詳細、通常検索、状態変化検索、
 
 ## 4. Files changed
 
-`hado_clause_surface_bridge.js`、`hado_update08.css`、`hado_bootstrap.js`、`hado_core.js`、`hado_status_effects.js`、`hado_search.js`、`hado_formation.js`、`index.html`、`hado_version.js`、Preview同期Workflowと検証、Update06/07版表示回帰、Update08専用回帰、App Validation一覧、README、全体Roadmap、Update08記録。`hado_version.js`はUpdate08 r188を識別するため変更し、`HADO_DEV_INFO.json`は変更しない。
+`hado_clause_surface_bridge.js`、`hado_update08.css`、`hado_bootstrap.js`、`hado_core.js`、`hado_status_effects.js`、`hado_search.js`、`hado_formation.js`、`index.html`、`hado_version.js`、Preview同期Workflowと検証、Update06/07版表示回帰、Update08専用回帰、App Validation一覧、README、全体Roadmap、Update08記録。`hado_version.js`はUpdate08 r189を識別するため変更し、`HADO_DEV_INFO.json`は変更しない。
 
 ## 5. HTML size change and externalization decision
 
-`index.html`: 28,501 bytes → 28,629 bytes、+128 bytes。変更は外部JavaScript/CSSの読込2件と`08-r188`キャッシュキーである。実装は外部JavaScript/CSSへ分離し、HTMLへインライン実装を追加しない。
+`index.html`: 28,501 bytes → 28,629 bytes、+128 bytes。変更は外部JavaScript/CSSの読込2件と`08-r189`キャッシュキーである。実装は外部JavaScript/CSSへ分離し、HTMLへインライン実装を追加しない。
 
 ## 6. Validation commands executed
 
@@ -37,7 +39,7 @@ reviewed Clause 44件 / 14項目、詳細、通常検索、状態変化検索、
 
 ## 7. Validation results
 
-専用回帰はreviewed Clause 44件 / 14項目、画面投影不一致0件でPASS。全App Validation 153/153、版表示整合、Preview Workflow検証、`git diff --check`はPASS。ローカルHTTP版はUpdate08 r188、武将488・戦法447・技能1389・装備251、LR袁紹5 Clause、PC/390x844横方向超過0、ブラウザwarning/error 0件を確認した。公開Preview結果は反映後に記録する。
+専用回帰はreviewed Clause 44件 / 14項目、画面投影不一致0件でPASS。全App Validation 153/153、版表示整合、Preview Workflow検証、`git diff --check`はPASS。ローカルHTTP版はUpdate08 r189、武将488・戦法447・技能1389・装備251、LR袁紹5 Clause、PC/390x844横方向超過0、ブラウザwarning/error 0件を確認した。公開Preview結果は反映後に記録する。
 
 ## 8. Git commit and pull request
 
@@ -53,7 +55,7 @@ reviewed Clause 44件 / 14項目、詳細、通常検索、状態変化検索、
 
 ## 11. Minimum user acceptance operation
 
-公開PreviewでUpdate08 r188を確認し、reviewed Clauseを持つ武将を含む編成の「条件」と「結果サマリー」で同じ成立状態が表示されることを確認する。
+公開PreviewでUpdate08 r189を確認し、reviewed Clauseを持つ武将を含む編成の「条件」と「結果サマリー」で同じ成立状態が表示されることを確認する。
 
 ## 12. Remaining issues
 
