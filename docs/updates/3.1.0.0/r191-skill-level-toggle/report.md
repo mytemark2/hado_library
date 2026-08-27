@@ -43,26 +43,46 @@
 
 ## 8. Git commit and pull request
 
-作成後に記録する。
+- 修正前の開発正本: `e4c7a3b87a0deee637c32ce8738c0fd82f36d775`
+- 作業commit: `9a8b29486460195f84ecca672b2efbb60fbc4718`
+- Pull Request: [#329](https://github.com/mytemark2/hado_library/pull/329)
+- `feature/app-3.1.0.0`へのmerge commit: `8d3787012f611c967e3671f646e92ee58911e5d3`
+- merge-readiness: base `e4c7a3b87a0deee637c32ce8738c0fd82f36d775`、head `9a8b29486460195f84ecca672b2efbb60fbc4718`、競合なし。
 
 ## 9. GitHub Actions result
 
-実行後に記録する。
+- `App Validation / app-validation`: run `33087209905`、PASS。
+- `Notify Hado Library Preview`: run `33087256021`、success（1分34秒）。
+- 正本pushを契機とするイベント駆動同期であり、schedule・手動workflowは使用していない。
 
 ## 10. Preview synchronization result
 
-同期・公開Pages確認後に記録する。
+`feature/app-3.1.0.0`のmerge commitをPreview repositoryへ同期し、公開Pagesで実操作を確認した。
+
+### Preview confirmation
+
+- 公開URL: <https://mytemark2.github.io/hado_library-preview/>
+- 表示版: `覇道ライブラリ 3.1.0.0 r191`
+- Preview repository commit: `30d6eb4f4aa4b95a828e1815919348c6d76818b5`
+- marker: source commit `8d3787012f611c967e3671f646e92ee58911e5d3`、source branch `feature/app-3.1.0.0`、display version `3.1.0.0 r191`
+- 必須配置: `index.html`、`hado_formation.js`、`hado_styles.css`、`hado_skill_level_toggle.js`、`hadou_*.json`、`.nojekyll`、3 markerを確認。
+- DOM・asset: `hado_skill_level_toggle.js`、`hado_core.js`、`hado_formation.js`、`hado_styles.css`が`3.1.0.0-r191`で読み込まれ、技能レベルbuttonと対応panelが一対一で生成されることを確認。
+- 武将操作: LR馬良の技能タブで、白眉Ⅰ・克遂Ⅱ・警戒Ⅱなど現在レベルだけが初期表示されること、白眉Ⅱの追加表示と白眉Ⅰの非表示が独立して動作することを確認。
+- 部隊編成操作: LR袁紹の主将枠で、轟天Ⅲ・轟名Ⅰ・盟主Ⅱ・破撃Ⅰ・盟傑Ⅱ・奮檄Ⅰだけが初期表示されること、轟天Ⅱの追加表示とⅢの非表示が独立して動作することを確認。
+- PC 1280x720・スマートフォン390x844: 横方向overflow 0、スマートフォンのレベルbuttonは44x38px、表示崩れなし。
+- debug log: browser error 0件。
+- 判定: PASS。
 
 ## 11. Minimum user acceptance operation
 
-公開Previewで、武将の技能レベルタグと部隊編成の技能レベルタグを各1回押し、対応するレベル説明だけが開閉することを確認する。
+Codex側で公開Previewの武将・部隊編成を実操作済み。利用者が確認する場合は、各技能の別レベルタグを1回押して説明を追加表示し、現在レベルタグを1回押して非表示にする。
 
 ## 12. Remaining issues
 
-Preview確認完了まで未完了。
+none。正式公開は利用者の明示承認まで行わない。
 
 ## 確認事項
 
-Preview確認完了後に確定する。正式公開は利用者の明示承認まで行わない。
+なし。改修・Preview反映・実操作確認まで完了した。正式公開は利用者の明示承認まで行わない。
 
 推奨エンジン: GPT-5.6 Sol / reasoning High。
