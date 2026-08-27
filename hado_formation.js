@@ -2339,6 +2339,13 @@ function renderFormationSelectorDialogHtml(f){
   return `<div class="formation-mobile-dialog-overlay is-selector-top no-detail-linkify" data-formation-selector-backdrop="1"><div class="formation-mobile-dialog-card" role="dialog" aria-modal="true" aria-label="${esc(title)}"><div class="formation-mobile-dialog-head"><div class="formation-mobile-dialog-title">${esc(title)}</div><button type="button" class="formation-mobile-dialog-close" data-formation-selector-close="1">閉じる</button></div><div class="formation-selector-dialog-body">${fixedNotes.length?`<div class="formation-selector-fixed-note">${esc(fixedNotes.join(' '))}</div>`:''}${currentAdvisorSkillInfo}${filterHtml}${clearButton}<div data-formation-selector-results>${listHtml}</div></div></div></div>`;
 }
 
+function renderFormationSkillLevelToggleHtml(row){
+  const skillItem=typeof findSkillItemForLevelToggle==='function'?findSkillItemForLevelToggle(row?.name||''):null;
+  if(!skillItem||typeof renderSkillLevelToggleForItem!=='function')return '';
+  const currentNumber=Math.max(1,Number(row?.total||row?.max||row?.min||1)||1);
+  const currentLevel=ROMAN_LEVELS[Math.min(ROMAN_LEVELS.length,currentNumber)-1]||'';
+  return renderSkillLevelToggleForItem({skillName:row?.name||'',skillItem,currentLevel,presentationItem:skillItem,category:'skills',idPrefix:'formation-skill-level'});
+}
 function renderFormationSelectedSlotSkillSummaryHtml(f,spec,slot,data){
   if(!slot||!slot.general)return `<details class="formation-selected-skill-panel"${isResponsiveMobileMode()?'':' open'}><summary class="formation-selected-skill-title">この枠で有効な技能（0件）</summary><div class="formation-selected-skill-list"><div class="formation-selected-skill-empty">武将未設定です。</div></div></details>`;
   const holderNames=new Set();
@@ -2358,9 +2365,10 @@ function renderFormationSelectedSlotSkillSummaryHtml(f,spec,slot,data){
     const minLv=Math.max(1,Number(row.min||row.total||row.max||1)||1);
     const maxLv=Math.max(1,Number(row.max||row.total||row.min||1)||1);
     const lv=(minLv===maxLv)?(ROMAN_LEVELS[minLv-1]||String(minLv)):`${ROMAN_LEVELS[minLv-1]||minLv}〜${ROMAN_LEVELS[maxLv-1]||maxLv}`;
-    return `<div class="formation-selected-skill-row"><div class="formation-selected-skill-name"><span>${esc(row.name)}</span><span class="formation-badge">${esc(lv)}</span></div></div>`;
+    const levelHtml=renderFormationSkillLevelToggleHtml(row);
+    return `<div class="formation-selected-skill-row"><div class="formation-selected-skill-name"><span>${esc(row.name)}</span>${levelHtml?'':`<span class="formation-badge">${esc(lv)}</span>`}</div>${levelHtml}</div>`;
   }).join(''):`<div class="formation-selected-skill-empty">この武将・装備で有効な合算技能はありません。</div>`;
-  return `<details class="formation-selected-skill-panel"${isResponsiveMobileMode()?'':' open'}><summary class="formation-selected-skill-title">この枠で有効な技能（${visible.length}件）</summary><div class="formation-selected-skill-list">${body}</div></details>`;
+  return `<details class="formation-selected-skill-panel"${isResponsiveMobileMode()?'':' open'}><summary class="formation-selected-skill-title">この枠で有効な技能（${visible.length}件）</summary><div class="formation-selected-skill-list has-skill-descriptions">${body}</div></details>`;
 }
 
 function renderFormationSelectedSlotEditorHtml(f,data){
@@ -2446,6 +2454,7 @@ function renderFormationScreen(){
   try{
     const result=renderFormationScreenCore();
     injectFormationConditionPanel();
+    if(window.HADO_SKILL_LEVEL_TOGGLE?.bind)window.HADO_SKILL_LEVEL_TOGGLE.bind(els.formationRoot);
     state._formationScreenRendered=true;
     state._formationScreenStale=false;
     return result;
@@ -2626,6 +2635,7 @@ function renderDetail(){
   debugRenderedDetailIdentity(item,categoryKey,name,type,'renderDetail:after-hard-set');if(categoryKey==='skills')debugSkillDetailDomState(item,'renderDetail:after-hard-set');
   mark('debugIdentityAndSkillDom');
   setupDetailTabButtons();mark('setupDetailTabButtons');
+  if(window.HADO_SKILL_LEVEL_TOGGLE?.bind)window.HADO_SKILL_LEVEL_TOGGLE.bind(els.detail);mark('setupSkillLevelToggles');
   markDetailTwoColumnTables();mark('markDetailTwoColumnTables');
   els.detail.querySelectorAll('.hadou-extension-level-select').forEach(select=>{select.addEventListener('change',e=>{setHadouExtensionSelectedLevel(item,e.target.value);debugLog('hadouExtensionDetail:level-change',{category:categoryKey,name:getItemDisplayName(item),level:e.target.value});renderDetail();});});const detailWidthRange=document.getElementById('detailLabelWidthRange');if(detailWidthRange)detailWidthRange.addEventListener('input',e=>{state.detailLabelWidth=Number(e.target.value)||25;applyDetailTableColumnWidth();});renderDebugPanel(item,detailDebugText);const btn=document.getElementById('detailSaveToggleBtn');if(btn)btn.addEventListener('click',()=>toggleSavedName(categoryKey,name));setupFormationAddButton(item);els.detail.querySelectorAll('.general-current-ability-input').forEach(input=>{input.addEventListener('change',e=>{setCurrentGeneralAbilityValue(e.target.dataset.generalName,e.target.dataset.abilityName,e.target.value);});});els.detail.querySelectorAll('.general-five-element-input').forEach(input=>{input.addEventListener('change',e=>{setCurrentGeneralFiveElementValue(e.target.dataset.generalName,e.target.dataset.elementName,e.target.value);});});els.detail.querySelectorAll('.general-advisor-level-select').forEach(select=>{select.addEventListener('change',e=>{setCurrentGeneralAdvisorLevel(e.target.dataset.generalName,e.target.value);renderDetailPreservingScroll('advisor-level-change');if(state.mainTab==='formation')renderFormationScreen();});});els.detail.querySelectorAll('.general-skill-level-select').forEach(select=>{select.addEventListener('change',e=>{setCurrentGeneralSkillLevel(e.target.dataset.generalName,e.target.dataset.skillName,e.target.value);});});els.detail.querySelectorAll('.ethnic-research-enabled-input').forEach(input=>{input.addEventListener('change',e=>{setCurrentEthnicResearchSkillSetting(e.target.dataset.skillName,{enabled:e.target.checked});});});els.detail.querySelectorAll('.ethnic-research-level-select').forEach(select=>{select.addEventListener('change',e=>{setCurrentEthnicResearchSkillSetting(e.target.dataset.skillName,{level:e.target.value});});});els.detail.querySelectorAll('.star-rating-btn').forEach(btn=>{btn.addEventListener('click',e=>{const category=e.currentTarget.dataset.starCategory;const itemName=e.currentTarget.dataset.itemName;const maxStars=Number(e.currentTarget.dataset.starMax)||0;const clickedValue=Number(e.currentTarget.dataset.starValue)||0;const currentValue=getCurrentStarValue(category,itemName,maxStars);const nextValue=currentValue===clickedValue?0:clickedValue;setCurrentStarValue(category,itemName,nextValue,maxStars);renderDetailPreservingScroll('star-change');});});els.detail.querySelectorAll('.inherited-skill-select').forEach(select=>{select.addEventListener('change',e=>{setCurrentInheritedSkill(e.currentTarget.dataset.generalName,e.currentTarget.value,'detail');});});els.detail.querySelectorAll('.equipment-stage-setting-input').forEach(input=>{input.addEventListener('change',e=>{if(e.currentTarget.checked){beginPreserveDetailScroll('equipment-stage-change');setCurrentEquipmentStageValue(e.currentTarget.dataset.equipmentName,e.currentTarget.value);finishPreserveDetailScroll('equipment-stage-change');}});});
   mark('attachDetailEventHandlers',{inputCount:els.detail?els.detail.querySelectorAll('input,select,button').length:0});
