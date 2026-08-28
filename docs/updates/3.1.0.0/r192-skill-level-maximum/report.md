@@ -46,26 +46,39 @@
 
 ## 8. Git commit and pull request
 
-作成後に記録する。
+- 実装Commit: `5c72e9a45a6e922a51cda9931f18ed2434329b5e`
+- Pull Request: `#331`（base: `feature/app-3.1.0.0`）
+- Merge Commit: `1bcda0ff8699f769ac40cd3dc8b54ac98e805b8b`
+- merge-readiness: base `1f2dc8e8bd041f2def1c22bb8428654ee419a8d8`、head `5c72e9a45a6e922a51cda9931f18ed2434329b5e`、競合なし。
 
 ## 9. GitHub Actions result
 
-実行後に記録する。
+- `App Validation / app-validation`: run `33171311932`、job `98848903140`、success。
+- `Notify Preview Repository`: run `33171348832`、success（1分22秒）。`feature/app-3.1.0.0`へのmergeを契機に自動実行され、手動同期は使用していない。
 
 ## 10. Preview synchronization result
 
-同期・公開Pages確認後に記録する。
+- 公開URL: `https://mytemark2.github.io/hado_library-preview/`
+- 表示版: `3.1.0.0 r192`
+- 初回runtime同期後Preview repository `main`: `df3a2d3a390a6404762a1128584df5bf42dcbb96`
+- marker: source commit `1bcda0ff8699f769ac40cd3dc8b54ac98e805b8b`、source branch `feature/app-3.1.0.0`、display version `3.1.0.0 r192`。
+- 必須ファイル: `index.html`、`hado_formation.js`、`hado_styles.css`、`hadou_*.json`、`.nojekyll`、3 markerを確認した。
+- 公開Pages PC: 武将488件の起動、LR馬良の貞良Ⅰ、白眉Ⅰ・Ⅱ、克遂Ⅰ・Ⅱ、令徳Ⅰ、現在レベル初期表示、白眉Ⅰ・Ⅱの独立開閉、「説明なし」0件を確認した。
+- 公開Pages 部隊編成: LR袁紹の轟天Ⅰ〜Ⅴ、轟名Ⅰ、盟主Ⅰ〜Ⅳ、破撃Ⅰ〜Ⅴ、盟傑Ⅰ・Ⅱ、奮檄Ⅰと現在レベル初期表示を確認した。
+- 公開Pages 390x844: 同じレベル集合、横はみ出し0px、レベルボタン最小44x38pxを確認した。
+- debug log: error 0件。
+- 判定: PASS。
 
 ## 11. Minimum user acceptance operation
 
-公開PreviewでLR馬良の技能を開き、白眉・克遂がⅠ・Ⅱだけ、貞良・令徳がⅠだけであることを確認する。部隊編成では、選択枠の技能タグ数が技能ごとの実在最大レベルと一致することを確認する。
+必須の利用者確認はなし。任意確認として、公開PreviewでLR馬良の技能を開き、白眉・克遂がⅠ・Ⅱだけ、貞良・令徳がⅠだけであることを確認できる。部隊編成では、選択枠の技能タグ数が技能ごとの実在最大レベルと一致する。
 
 ## 12. Remaining issues
 
-Preview確認完了まで未完了。
+なし。
 
 ## 確認事項
 
-Preview確認完了後に確定する。正式公開は利用者の明示承認まで行わない。
+なし。正式公開は利用者の明示承認まで行わない。
 
 推奨エンジン: GPT-5.6 Sol / reasoning High。
