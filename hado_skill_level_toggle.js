@@ -23,6 +23,14 @@
       : source;
   }
 
+  function hasAvailableDescription(text, html) {
+    const plainText = String(text ?? '').trim();
+    const renderedHtml = String(html ?? '').trim();
+    const placeholderPattern = /^[-－—―‐‑‒–]+$/;
+    if (plainText && !placeholderPattern.test(plainText)) return true;
+    return !!renderedHtml;
+  }
+
   function normalizeRows(rows) {
     const seen = new Set();
     return (Array.isArray(rows) ? rows : []).map(row => {
@@ -31,11 +39,14 @@
         : (row || {});
       const level = normalizeLevel(source.level);
       if (!level || seen.has(level)) return null;
+      const text = String(source.text ?? '');
+      const html = String(source.html ?? '');
+      if (source.available === false || !hasAvailableDescription(text, html)) return null;
       seen.add(level);
       return {
         level,
-        text: String(source.text ?? ''),
-        html: String(source.html ?? '')
+        text,
+        html
       };
     }).filter(Boolean);
   }
@@ -103,6 +114,7 @@
     bind,
     normalizeLevel,
     normalizeRows,
-    resolveCurrentLevel
+    resolveCurrentLevel,
+    hasAvailableDescription
   });
 })();

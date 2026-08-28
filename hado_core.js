@@ -3597,15 +3597,20 @@ function findSkillItemForLevelToggle(skillName){
   if(!name)return null;
   return (state.skills||[]).find(item=>norm(item?.name||item?.title||'').replace(/^【三國志 覇道】/,'')===name.replace(/^【三國志 覇道】/,''))||null;
 }
+function isAvailableSkillLevelRow(row){
+  const level=norm(row?.[0]||'');
+  const text=norm(row?.[1]||'');
+  return !!level&&!!text&&!/^[-－—―‐‑‒–]+$/.test(text);
+}
 function getSkillLevelRowsForToggle(skillItem,fallbackLines=[]){
   const info=skillItem?getSkillLevelRowsForDetail(skillItem):{rows:[]};
-  const rows=(info.rows||[]).map(row=>[norm(row[0]||''),norm(row[1]||'')]).filter(row=>row[0]&&row[1]);
+  const rows=(info.rows||[]).map(row=>[norm(row[0]||''),norm(row[1]||'')]).filter(isAvailableSkillLevelRow);
   if(rows.length)return rows;
   const source=filterSkillContentLines(fallbackLines).join(' ');
   return extractAllRomanLevelBlocks(source).filter(block=>block.level).map(block=>{
     const text=norm(block.text||'');
     return [block.level,norm(text.startsWith(block.level)?text.slice(block.level.length):text)];
-  }).filter(row=>row[0]&&row[1]);
+  }).filter(isAvailableSkillLevelRow);
 }
 function renderSkillLevelToggleForItem(options={}){
   const api=window.HADO_SKILL_LEVEL_TOGGLE;
@@ -3622,7 +3627,7 @@ function renderSkillLevelToggleForItem(options={}){
     idPrefix:options.idPrefix||'skill-level',
     renderDescription:row=>{
       const text=norm(row.text||'');
-      if(!text||text==='-')return '<div class="skill-level-empty">説明なし</div>';
+      if(!text)return '';
       const condition=buildDetailConditionPresentation(presentationItem,category,[text]);
       const rawHtml=`<div class="general-text skill-level-raw">${fmtContent([text])}</div>`;
       return condition.grouped?condition.html:[condition.html,rawHtml].filter(Boolean).join('');

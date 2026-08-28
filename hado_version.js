@@ -4,11 +4,11 @@
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.1.0.0',
     updateNo: '',
-    revision: 191,
+    revision: 192,
     formalRelease: false,
     baseAppVersion: '3.0.2.0',
-    summary: 'Skill level tags toggle each level description; the current effective level is initially shown in search and formation views.',
-    updatedAt: '2026-08-28T00:00:00+09:00'
+    summary: 'Skill level toggles show only levels with real source descriptions and initially expand the current effective level.',
+    updatedAt: '2026-08-28T09:00:00+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;
 })();
