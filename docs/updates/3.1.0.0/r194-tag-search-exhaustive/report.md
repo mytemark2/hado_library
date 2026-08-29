@@ -38,21 +38,26 @@
 - 武将488件の通常検索用1,032タグ・10グループを1件ずつ照合し、0件タグ0、所有者不一致0。
 - `発動:交戦開始時`は明示原文105武将と完全一致し、`条件:交戦開始時`は候補なし。
 - 1,824件へ原文タグを適用し、4,654原文マーカー、条件38種、発動8種、正規状態変化参照5,930件を確認した。
-- Actionsと公開Previewの結果は同期完了後に追記する。
+- App Validationは157/157件PASS、PR #335はmerge済み、Preview同期もsuccess。
+- ただし公開Pagesの実操作で`発動:交戦開始時`が105件ではなく179件となり、画面投影キャッシュがLR・UR・通常版を混同している追加原因を検出した。
 
 ## 8. Git commit and pull request
 
-Actions・Preview確認後に追記する。
+- 実装commit: `eb1c4079217e0f93b0352f891b10d1e80af472b5`
+- Pull Request: `#335`（merge commit `2e3f105c957154168b3e4243e62ff3359c5cb35f`）
 
 ## 9. GitHub Actions result
 
-Actions完了後に追記する。
+- `App Validation / app-validation`: success（run `33236726026`）
+- `Notify Hado Library Preview`: success（run `33236744015`）
 
 ## 10. Preview synchronization result
 
 ### Preview confirmation
 
-イベント駆動同期と公開Pages実操作の完了後に追記する。
+- Preview repository commit: `8aa7103686879acbe924e38529220a2e4d3c890d`
+- markerはsource commit `2e3f105c957154168b3e4243e62ff3359c5cb35f`、source branch `feature/app-3.1.0.0`、display version `3.1.0.0 r194`で一致。
+- 公開実操作: FAIL。`発動:交戦開始時`が179件となったため、r194を完了扱いにしない。
 
 ## 11. Minimum user acceptance operation
 
@@ -60,7 +65,7 @@ Actions完了後に追記する。
 
 ## 12. Remaining issues
 
-Actions・Preview確認待ち。正式公開は未実施。
+r195で画面投影キャッシュを修正する。正式公開は未実施。
 
 ## 確認事項
 

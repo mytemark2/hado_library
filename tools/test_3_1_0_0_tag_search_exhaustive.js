@@ -4,6 +4,7 @@ const assert = require('assert');
 const fs = require('fs');
 const evaluator = require('../hado_formation_condition_evaluator.js');
 const integration = require('../hado_search_clause_integration.js');
+const bridge = require('../hado_clause_surface_bridge.js');
 
 const json = file => JSON.parse(fs.readFileSync(file, 'utf8'));
 const generalsData = json('hadou_generals.json');
@@ -23,6 +24,7 @@ const diagnostic = integration.indexData({
   relatedLinkIndex: relatedData,
   statusEffects: statusData
 });
+bridge.indexData({ effectClauses: clauseData });
 
 const displayGeneralName = value => String(value || '').trim().replace(/^【三國志 覇道】/, '');
 const generalNames = new Set((generalsData.items || generalsData).map(item => displayGeneralName(item.name)));
@@ -46,7 +48,7 @@ for (const skill of skillOwnerIndex.items || []) {
 }
 
 for (const name of generalNames) {
-  for (const tag of integration.getEntityTags('generals', name)) add(name, tag);
+  for (const tag of bridge.getEntityTags('generals', name)) add(name, tag);
 }
 
 for (const [tag, owners] of Object.entries(tagIndex.invertedTags || {})) {
@@ -79,6 +81,8 @@ const rawEngagementOwners = new Set((conditionBlocks.items || []).filter(item =>
 assert.strictEqual(engagementOwners.size, 105);
 assert.deepStrictEqual([...engagementOwners].sort(), [...rawEngagementOwners].sort(), 'engagement-start search must match every explicit source marker');
 assert(!ownersByTag.has('条件:交戦開始時'), 'engagement start belongs only to the trigger group');
+assert.strictEqual(bridge.getEntityTags('generals', 'LR馬良（ばりょう）').includes('発動:交戦開始時'), true);
+assert.strictEqual(bridge.getEntityTags('generals', 'UR馬良（ばりょう）').includes('発動:交戦開始時'), false, 'surface projection cache must not leak tags between rarity variants');
 
 for (const [name, tags] of tagsByGeneral) {
   for (const tag of tags) {
@@ -94,5 +98,8 @@ assert(statusSource.includes('rebuildAvailableTagCategoryIndex(all)'));
 assert(statusSource.includes('getVisibleTagOptionsForGroup(key)'));
 assert(statusSource.includes('tagAppliesToActiveCategories(row.tag)'));
 assert(statusSource.includes('ownerlessPrunedCount'));
+const bridgeSource = fs.readFileSync('hado_clause_surface_bridge.js', 'utf8');
+assert(bridgeSource.includes('function projectionKey(category, name)'));
+assert(bridgeSource.includes('projectionCache.set(cacheKey, projection)'));
 
 console.log(`tag search exhaustive ok: ${ownersByTag.size} general tags / ${auditedGroups.size} groups / ${generalNames.size} generals / engagement-start ${engagementOwners.size} owners / ${diagnostic.sourceMarkerBlockCount} source markers`);

@@ -29,6 +29,7 @@
   function comparableName(value) { return evaluator.comparableName ? evaluator.comparableName(value) : text(value).normalize('NFKC').replace(/（[^）]*）|\([^)]*\)/g, '').replace(/^(?:LR|UR|SSR|SR|R|N)\s*/i, '').replace(/[・･\s]/g, ''); }
   function normalizeCategory(value) { const key = text(value); return ({ status_effects: 'statusEffects', siege_weapons: 'siegeWeapons', ethnic_armaments: 'ethnicArmaments', warhorse_skills: 'warhorseSkills' })[key] || key; }
   function entityKey(category, name) { return `${normalizeCategory(category)}@@${comparableName(name)}`; }
+  function projectionKey(category, name) { return `${normalizeCategory(category)}@@${text(name).normalize('NFKC').replace(/\s+/g, '')}`; }
   function normalizedEvidence(value) { return text(value).normalize('NFKC').replace(/[\s■▼●→。、，,.（）()％%]/g, ''); }
   function evidenceMatches(left, right) {
     const a = normalizedEvidence(left), b = normalizedEvidence(right);
@@ -65,13 +66,14 @@
 
   function getEntityProjection(category, name) {
     const normalizedCategory = normalizeCategory(category);
-    const key = entityKey(normalizedCategory, name);
-    if (projectionCache.has(key)) return projectionCache.get(key);
+    const reviewedKey = entityKey(normalizedCategory, name);
+    const cacheKey = projectionKey(normalizedCategory, name);
+    if (projectionCache.has(cacheKey)) return projectionCache.get(cacheKey);
     const presenterView = presenter.buildViewModel({ category: normalizedCategory, name });
     const searchView = search.getEntitySummary(normalizedCategory, name);
     const displayByCase = new Map();
     for (const group of presenterView.groups || []) for (const row of group.rows || []) for (const caseId of row.caseIds || []) displayByCase.set(caseId, row);
-    const clauses = Object.freeze((reviewedByEntity.get(key) || []).map(row => freezeClause(row, displayByCase.get(text(row.caseId)))));
+    const clauses = Object.freeze((reviewedByEntity.get(reviewedKey) || []).map(row => freezeClause(row, displayByCase.get(text(row.caseId)))));
     const projection = Object.freeze({
       contractVersion: CONTRACT_VERSION, ready, category: normalizedCategory, name: text(name), clauses,
       reviewedCaseCount: clauses.length, generatedConditionalCount: Number(searchView?.generatedConditionalCount || 0),
@@ -79,7 +81,7 @@
       surfaceCounts: Object.freeze({ detail: Number(presenterView.reviewedCaseCount || 0), search: Number(searchView?.reviewedCaseCount || 0), canonical: clauses.length }),
       consistent: clauses.length === Number(presenterView.reviewedCaseCount || 0) && clauses.length === Number(searchView?.reviewedCaseCount || 0)
     });
-    projectionCache.set(key, projection);
+    projectionCache.set(cacheKey, projection);
     return projection;
   }
 
