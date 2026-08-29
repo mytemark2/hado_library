@@ -11,8 +11,9 @@ const skillData = JSON.parse(fs.readFileSync('hadou_skills.json', 'utf8'));
 const featureData = JSON.parse(fs.readFileSync('hadou_type_search_feature_index.json', 'utf8'));
 const relatedData = JSON.parse(fs.readFileSync('hadou_related_link_index.json', 'utf8'));
 const statusData = JSON.parse(fs.readFileSync('hadou_status_effects.json', 'utf8'));
+const conditionBlockData = JSON.parse(fs.readFileSync('hadou_effect_condition_blocks.json', 'utf8'));
 evaluator.indexClauseData(clauseData);
-integration.indexData({ effectClauses: clauseData, typeSearchFeatureIndex: featureData, relatedLinkIndex: relatedData, statusEffects: statusData });
+integration.indexData({ effectClauses: clauseData, effectConditionBlocks: conditionBlockData, typeSearchFeatureIndex: featureData, relatedLinkIndex: relatedData, statusEffects: statusData });
 
 const skill = skillData.items.find(item => item.name === '【三國志 覇道】克遂');
 assert(skill, '克遂 fixture is required');
@@ -62,7 +63,7 @@ assert(!statusSource.includes('renderResultHtml'));
 assert(css.includes('.detail-effect-group'));
 assert(css.includes('@media(max-width:760px)'));
 assert(!indexHtml.includes('hado_update06.css'));
-assert(indexHtml.includes('3.1.0.0-r193'));
+assert(indexHtml.includes('3.1.0.0-r194'));
 assert(!indexHtml.includes('06-r180'));
 
 console.log('Update06 user-facing cards ok: 克遂 LvⅡ 5 groups / compact labels / one raw toggle');

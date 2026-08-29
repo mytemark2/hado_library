@@ -39,7 +39,7 @@ assert(status.includes('options.hidden=!expanded'), 'tag-group options must be h
 assert(status.includes('state.expandedTagPickerGroups=[]'), 'opening the tag picker must start with all tag groups collapsed');
 assert(status.includes("['条件','発動'].forEach"), 'Update condition and trigger groups must be appended to the tag picker');
 assert(status.includes("groups:['条件','発動'].filter"), 'condition and trigger tag integration must be included in diagnostics');
-assert(status.includes("const keys=Object.keys(state.availableTagsByKey||{}).sort(compareTagGroupKeys)"), 'tag groups must use category-aware ordering');
+assert(status.includes("const keys=Object.keys(state.availableTagsByKey||{}).filter(key=>getVisibleTagOptionsForGroup(key).length>0).sort(compareTagGroupKeys)"), 'tag groups must use category-aware ordering and hide ownerless groups');
 
 const categoriesByTagGroup = new Map();
 for (const item of tagIndex.items || []) {

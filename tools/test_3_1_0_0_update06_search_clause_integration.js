@@ -10,8 +10,9 @@ const clauseData = JSON.parse(fs.readFileSync('hadou_effect_clauses.json', 'utf8
 const featureData = JSON.parse(fs.readFileSync('hadou_type_search_feature_index.json', 'utf8'));
 const relatedData = JSON.parse(fs.readFileSync('hadou_related_link_index.json', 'utf8'));
 const statusData = JSON.parse(fs.readFileSync('hadou_status_effects.json', 'utf8'));
+const conditionBlockData = JSON.parse(fs.readFileSync('hadou_effect_condition_blocks.json', 'utf8'));
 evaluator.indexClauseData(clauseData);
-const diagnostic = integration.indexData({ effectClauses: clauseData, typeSearchFeatureIndex: featureData, relatedLinkIndex: relatedData, statusEffects: statusData });
+const diagnostic = integration.indexData({ effectClauses: clauseData, effectConditionBlocks: conditionBlockData, typeSearchFeatureIndex: featureData, relatedLinkIndex: relatedData, statusEffects: statusData });
 
 assert.strictEqual(diagnostic.ready, true);
 assert.strictEqual(diagnostic.reviewedCaseCount, 44);
@@ -20,6 +21,8 @@ assert(diagnostic.conditionTagCount > 0);
 assert(diagnostic.triggerTagCount > 0);
 assert(diagnostic.canonicalStatusRefCount > 0);
 assert(diagnostic.canonicalStatusKeyCount > 0);
+assert.strictEqual(diagnostic.sourceTagItemCount, 1824);
+assert.strictEqual(diagnostic.sourceMarkerBlockCount, 4654);
 
 const yuan = integration.getEntitySummary('generals', 'LR袁紹（えんしょう）');
 assert.strictEqual(yuan.trust, 'reviewed');
@@ -29,7 +32,11 @@ assert(integration.getEntitySearchText('generals', 'LR袁紹（えんしょう�
 
 const unreviewed = integration.getEntitySummary('generals', 'UR沙摩柯（しゃまか）');
 assert.strictEqual(unreviewed.trust, 'generated');
-assert.deepStrictEqual([...unreviewed.tags], [], 'generated clauses must not become inferred search tags');
+assert(unreviewed.tags.includes('発動:交戦開始時'), 'explicit source markers must supply tags even when EffectClause evaluation is unreviewed');
+assert(!unreviewed.tags.includes('条件:交戦開始時'), 'event triggers must not be duplicated into the condition group');
+const engagementOwners = conditionBlockData.items.filter(item => item.category === 'generals' && integration.getEntityTags('generals', item.name).includes('発動:交戦開始時'));
+assert.strictEqual(engagementOwners.length, 105, 'all generals with an explicit engagement-start marker must be searchable');
+engagementOwners.forEach(item => assert((integration.getEntityTagEvidence('generals', item.name)['発動:交戦開始時'] || []).some(raw => /^▼.*交戦開始時/.test(raw))));
 
 const statusMatches = integration.getCanonicalStatusMatches({ category: 'generals', name: 'LR馬良（ばりょう）', statusName: '有利激攻', groupKey: 'selfAbilityBuff' });
 assert(statusMatches.length > 0);
@@ -51,6 +58,7 @@ const versionSource = fs.readFileSync('hado_version.js', 'utf8');
 const metaSource = fs.readFileSync('hado_update_meta.js', 'utf8');
 const indexHtml = fs.readFileSync('index.html', 'utf8');
 assert(bootstrapSource.includes('HADO_SEARCH_CLAUSE_INTEGRATION.indexData'));
+assert(bootstrapSource.includes('effectConditionBlocks:data?.effectConditionBlocks'));
 assert(searchSource.includes('getCanonicalStatusMatches'));
 assert(searchSource.includes("canonical-status-effect-id") || searchSource.includes('canonicalIdentity'));
 assert(statusSource.includes('mergeClauseSearchTags'));
@@ -60,11 +68,11 @@ assert(!statusSource.includes('正規ID一致'));
 assert(indexHtml.indexOf('hado_detail_condition_presenter.js') < indexHtml.indexOf('hado_search_clause_integration.js'));
 assert(indexHtml.indexOf('hado_search_clause_integration.js') < indexHtml.indexOf('hado_search.js'));
 assert(!indexHtml.includes('hado_update06.css'));
-assert(indexHtml.includes('hado_search_clause_integration.js?v=3.1.0.0-r193'));
+assert(indexHtml.includes('hado_search_clause_integration.js?v=3.1.0.0-r194'));
 assert(!indexHtml.includes('06-r180'));
 assert(!indexHtml.includes('07-r179'));
 assert(versionSource.includes("updateNo: ''"));
-assert(versionSource.includes('revision: 193'));
+assert(versionSource.includes('revision: 194'));
 assert(versionSource.includes('formalRelease: false'));
 
 const nodes = new Map();
@@ -75,6 +83,6 @@ context.window = context;
 vm.createContext(context);
 vm.runInContext(versionSource, context, { filename: 'hado_version.js' });
 vm.runInContext(metaSource, context, { filename: 'hado_update_meta.js' });
-assert.strictEqual(context.window.HADO_APP_DISPLAY_VERSION, '3.1.0.0 r193');
+assert.strictEqual(context.window.HADO_APP_DISPLAY_VERSION, '3.1.0.0 r194');
 
 console.log(`3.1.0.0 Update06 search internals ok: ${diagnostic.conditionTagCount} condition tags / ${diagnostic.triggerTagCount} trigger tags / ${diagnostic.canonicalStatusRefCount} canonical status refs / no internal result-card labels`);
