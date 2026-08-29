@@ -61,8 +61,9 @@ for (const forbidden of [
 
 assert(syncStep.includes("find \"${PREVIEW_DIR}\" -mindepth 1 -maxdepth 1 -not -name '.git' -not -name '.github' -exec rm -rf {} +"), 'sync step must preserve preview .github directory while replacing root runtime files');
 assert(syncStep.includes('rsync -a index.html HADO_DEV_INFO.json hado_*.js hado_*.css hadou_*.json'), 'sync step must copy only runtime assets from the app repo');
-assert(syncStep.includes('sha256sum index.html hado_clause_surface_bridge.js hado_formation.js hado_styles.css hado_update05.css hado_update08.css hado_version.js hado_web_json_cache.js hadou_bundle_manifest.json HADO_DEV_INFO.json'), 'sync step must hash the shared Clause bridge, Update08 CSS, cache policy, and JSON bundle manifest as required runtime assets');
+assert(syncStep.includes('sha256sum index.html hado_clause_surface_bridge.js hado_formation.js hado_tag_highlight.js hado_styles.css hado_update05.css hado_update08.css hado_version.js hado_web_json_cache.js hadou_bundle_manifest.json HADO_DEV_INFO.json'), 'sync step must hash the shared Clause bridge, tag highlighter, Update08 CSS, cache policy, and JSON bundle manifest as required runtime assets');
 assert(syncStep.includes('test -s "${PREVIEW_DIR}/hado_update05.css"'), 'sync step must fail when the Update05 stylesheet is absent');
+assert(syncStep.includes('test -s "${PREVIEW_DIR}/hado_tag_highlight.js"'), 'sync step must fail when the tag highlighter is absent');
 assert(syncStep.includes('test -s "${PREVIEW_DIR}/hado_web_json_cache.js"'), 'sync step must fail when the web cache policy is absent');
 assert(syncStep.includes('test -s "${PREVIEW_DIR}/hadou_bundle_manifest.json"'), 'sync step must fail when the JSON bundle manifest is absent');
 assert(syncStep.includes('sync_paths=('), 'sync step must build an explicit add list');

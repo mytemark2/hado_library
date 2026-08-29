@@ -61,7 +61,7 @@ assert(search.includes('tagWrap.hidden=false') && !search.includes('tagWrap.hidd
 assert(search.includes("if(!matchesSelectedTags(item))return;"), 'synchronous status owner search must apply tags');
 assert(search.includes("if(!matchesSelectedTags(item))continue;"), 'asynchronous status owner search must apply tags');
 assert(search.includes("const tagKey=[...(state.selectedTags||[])]"), 'status owner cache key must include selected tags');
-assert(search.includes('getTagGroupCategoryLabel(key)'), 'status condition chips must identify the tag category');
+assert(search.includes('renderSelectedTagConditionChipsHtml()') && status.includes('getTagGroupCategoryLabel(key)'), 'status condition chips must identify the tag category');
 assert(status.includes("runQuickStatusEffectOwnerSearchAsync(state.quickStatusEffectOwnerFilter,{reason:'tag-filter-change'})"), 'tag changes must restart active status-effect searches');
 
 assert(css.includes('.search-preset-row.has-tag-filter'), 'status/tag one-line layout CSS is required');
