@@ -25,12 +25,13 @@
   function comparableName(value) {
     return text(value).normalize('NFKC').replace(/（[^）]*）/g, '').replace(/\([^)]*\)/g, '').replace(/^(?:LR|UR|SSR|SR|R|N)\s*/i, '').replace(/[・･\s]/g, '');
   }
+  function recordName(value) { return text(value).normalize('NFKC').replace(/\s+/g, ''); }
   function normalizeCategory(value) {
     const key = text(value);
     return ({ status_effects: 'statusEffects', siege_weapons: 'siegeWeapons', ethnic_armaments: 'ethnicArmaments', warhorse_skills: 'warhorseSkills' })[key] || key;
   }
-  function entityKey(category, name) { return `${normalizeCategory(category)}@@${comparableName(name)}`; }
-  function sourceEntityKey(category, name) { return `${normalizeCategory(category)}@@${text(name).normalize('NFKC').replace(/\s+/g, '')}`; }
+  function entityKey(category, name) { return `${normalizeCategory(category)}@@${recordName(name)}`; }
+  function sourceEntityKey(category, name) { return entityKey(category, name); }
   function items(raw) { return Array.isArray(raw) ? raw : (Array.isArray(raw?.items) ? raw.items : []); }
   function addMapSet(map, key, value) {
     if (!key || !value) return;

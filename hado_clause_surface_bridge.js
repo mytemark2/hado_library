@@ -27,9 +27,10 @@
 
   function text(value) { return String(value == null ? '' : value).trim(); }
   function comparableName(value) { return evaluator.comparableName ? evaluator.comparableName(value) : text(value).normalize('NFKC').replace(/（[^）]*）|\([^)]*\)/g, '').replace(/^(?:LR|UR|SSR|SR|R|N)\s*/i, '').replace(/[・･\s]/g, ''); }
+  function recordName(value) { return text(value).normalize('NFKC').replace(/\s+/g, ''); }
   function normalizeCategory(value) { const key = text(value); return ({ status_effects: 'statusEffects', siege_weapons: 'siegeWeapons', ethnic_armaments: 'ethnicArmaments', warhorse_skills: 'warhorseSkills' })[key] || key; }
-  function entityKey(category, name) { return `${normalizeCategory(category)}@@${comparableName(name)}`; }
-  function projectionKey(category, name) { return `${normalizeCategory(category)}@@${text(name).normalize('NFKC').replace(/\s+/g, '')}`; }
+  function entityKey(category, name) { return `${normalizeCategory(category)}@@${recordName(name)}`; }
+  function projectionKey(category, name) { return entityKey(category, name); }
   function normalizedEvidence(value) { return text(value).normalize('NFKC').replace(/[\s■▼●→。、，,.（）()％%]/g, ''); }
   function evidenceMatches(left, right) {
     const a = normalizedEvidence(left), b = normalizedEvidence(right);
