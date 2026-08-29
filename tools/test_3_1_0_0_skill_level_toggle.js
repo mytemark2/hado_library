@@ -57,6 +57,8 @@ assert(html.includes('class="skill-level-toggle is-active"'));
 assert(html.includes('>Ⅱ</button>'));
 assert(html.match(/aria-expanded="true"[^>]*>Ⅱ<\/button>/), 'current level must be expanded initially');
 assert(html.match(/aria-expanded="false"[^>]*>Ⅰ<\/button>/), 'other levels must be collapsed initially');
+assert(html.includes('role="radiogroup"'), 'level choices must expose single-selection semantics');
+assert(html.match(/aria-checked="true"[^>]*>Ⅱ<\/button>/), 'current level must be the selected radio choice');
 assert(html.match(/data-skill-level="Ⅱ"><p>Lv2<\/p>/), 'current level panel must be visible');
 assert(html.match(/data-skill-level="Ⅰ" hidden>/), 'other level panel must be hidden');
 
@@ -74,30 +76,44 @@ const limitedHtml = api.build({
 assert.deepStrictEqual(Array.from(limitedHtml.matchAll(/class="skill-level-toggle(?: is-active)?"[^>]*>([^<]+)<\/button>/g), match => match[1]), ['Ⅰ', 'Ⅱ']);
 assert(!limitedHtml.includes('>Ⅲ</button>') && !limitedHtml.includes('>Ⅳ</button>') && !limitedHtml.includes('>Ⅴ</button>'), 'levels without real descriptions must not render');
 
-const attributes = new Map([
-  ['data-skill-level-target', 'skill-panel-test'],
-  ['aria-expanded', 'true'],
-  ['aria-pressed', 'true']
-]);
-const panel = { hidden: false };
-let clickHandler = null;
-const button = {
-  dataset: {},
-  getAttribute: name => attributes.get(name) || '',
-  setAttribute: (name, value) => attributes.set(name, value),
-  classList: { toggle: (_name, value) => { button.active = value; } },
-  addEventListener: (name, handler) => { if (name === 'click') clickHandler = handler; },
-  closest: () => ({ querySelector: selector => selector === '#skill-panel-test' ? panel : null })
+const makeButton = (id, selected) => {
+  const attributes = new Map([
+    ['data-skill-level-target', id],
+    ['aria-expanded', selected ? 'true' : 'false'],
+    ['aria-pressed', selected ? 'true' : 'false'],
+    ['aria-checked', selected ? 'true' : 'false']
+  ]);
+  const button = {
+    dataset: {},
+    attributes,
+    getAttribute: name => attributes.get(name) || '',
+    setAttribute: (name, value) => attributes.set(name, value),
+    classList: { toggle: (_name, value) => { button.active = value; } },
+    addEventListener: (name, handler) => { if (name === 'click') button.clickHandler = handler; }
+  };
+  return button;
 };
-const root = { querySelectorAll: () => [button] };
-assert.strictEqual(api.bind(root), 1);
-assert(clickHandler, 'toggle click handler must be bound');
-clickHandler();
-assert.strictEqual(panel.hidden, true, 'clicking an open level hides its description');
-assert.strictEqual(attributes.get('aria-expanded'), 'false');
-clickHandler();
-assert.strictEqual(panel.hidden, false, 'clicking a closed level shows its description');
-assert.strictEqual(attributes.get('aria-expanded'), 'true');
+const panelI = { hidden: false };
+const panelII = { hidden: true };
+const buttonI = makeButton('skill-panel-i', true);
+const buttonII = makeButton('skill-panel-ii', false);
+const buttons = [buttonI, buttonII];
+const scope = {
+  querySelectorAll: () => buttons,
+  querySelector: selector => selector === '#skill-panel-i' ? panelI : (selector === '#skill-panel-ii' ? panelII : null)
+};
+buttons.forEach(button => { button.closest = () => scope; });
+const root = { querySelectorAll: () => buttons };
+assert.strictEqual(api.bind(root), 2);
+assert(buttonI.clickHandler && buttonII.clickHandler, 'single-selection handlers must be bound');
+buttonII.clickHandler();
+assert.strictEqual(panelI.hidden, true, 'selecting level II hides level I');
+assert.strictEqual(panelII.hidden, false, 'selecting level II shows only level II');
+assert.strictEqual(buttonI.attributes.get('aria-checked'), 'false');
+assert.strictEqual(buttonII.attributes.get('aria-checked'), 'true');
+buttonII.clickHandler();
+assert.strictEqual(panelII.hidden, false, 'selecting the current level again must keep it visible');
+assert.strictEqual(buttonII.attributes.get('aria-expanded'), 'true');
 
 const core = fs.readFileSync(path.join(ROOT, 'hado_core.js'), 'utf8');
 const formation = fs.readFileSync(path.join(ROOT, 'hado_formation.js'), 'utf8');
@@ -106,7 +122,10 @@ const index = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 assert(core.includes('renderSkillLevelToggleForItem({skillName:sec.title'), 'general skill cards use shared level toggles');
 assert(core.includes("idPrefix:'referenced-skill-level'"), 'referenced skill cards use shared level toggles');
 assert(core.includes("idPrefix:'skill-detail-level'"), 'direct skill details use shared level toggles');
+assert(core.includes('renderGeneralSkillLevelBadge(currentLevel)'), 'general skill cards show the effective skill level at the top right');
+assert(core.includes("renderGeneralSkillLevelBadge(entry?.level||'','付与される技能レベル')"), 'referenced skill cards show the granted level at the top right');
 assert(formation.includes('renderFormationSkillLevelToggleHtml(row)'), 'formation selected-skill cards use shared level toggles');
+assert(formation.includes('aria-label="この枠の有効技能レベル">Lv${esc(lv)}'), 'formation selected-skill cards show their effective level beside the skill name');
 assert(formation.includes('HADO_SKILL_LEVEL_TOGGLE?.bind'), 'formation and detail rendering bind level toggles');
 assert(core.includes('.filter(isAvailableSkillLevelRow)'), 'all core display paths filter unavailable level rows before rendering');
 assert(css.includes('.skill-level-toggle.is-active'));
@@ -114,4 +133,4 @@ assert(css.includes('.formation-selected-skill-list.has-skill-descriptions'));
 assert(index.indexOf('hado_skill_level_toggle.js') < index.indexOf('hado_core.js'));
 assert(index.indexOf('hado_skill_level_toggle.js') < index.indexOf('hado_formation.js'));
 
-console.log(`skill level toggle ok: ${skills.length} skills / ${availableLevelRowCount} available levels / ${placeholderLevelRowCount} unavailable placeholders excluded / current-only initial display / general and formation shared`);
+console.log(`skill level selector ok: ${skills.length} skills / ${availableLevelRowCount} available levels / ${placeholderLevelRowCount} unavailable placeholders excluded / exactly one visible level / effective-level badges / general and formation shared`);

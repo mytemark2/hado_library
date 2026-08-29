@@ -1416,6 +1416,11 @@ body.formation-tab .formation-result-focus .formation-table{max-width:100%;overf
 .tag-picker-title{display:flex;align-items:center;gap:7px;flex-wrap:wrap;color:var(--text)}
 .tag-picker-category{display:inline-flex;align-items:center;border:1px solid #93c5fd;border-radius:999px;background:#dbeafe;color:#1e3a8a;padding:2px 7px;font-size:11px;font-weight:800;line-height:1.35}
 .tag-picker-group-name{font-size:13px;font-weight:700;color:var(--muted)}
+.tag-picker-title{width:100%;border:0;border-radius:8px;padding:7px 8px;background:#f1f5f9;text-align:left;cursor:pointer}
+.tag-picker-title:hover{background:#e2e8f0}
+.tag-picker-title:focus-visible{outline:3px solid rgba(59,130,246,.35);outline-offset:2px}
+.tag-picker-chevron{margin-left:auto;color:#64748b;font-size:11px}
+.tag-picker-options[hidden]{display:none!important}
 
 /* 状態変化検索では状態変化2選択＋解除＋タグを同じ1行に置き、候補パネルだけ次行へ展開する。 */
 .search-preset-row.has-tag-filter{display:grid!important;grid-template-columns:minmax(0,.85fr) minmax(0,1.25fr) 32px auto!important;gap:6px!important;align-items:center!important;overflow:visible!important}
@@ -1838,9 +1843,11 @@ body{font-feature-settings:"palt" 1,"kern" 1;text-rendering:optimizeLegibility}
 .skill-level-panel[hidden]{display:none!important}
 .skill-level-raw{margin-top:0!important}
 .skill-level-empty{border:1px dashed #cbd5e1;border-radius:9px;padding:9px;color:#64748b;font-size:12px;text-align:center}
+.general-skill-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.general-skill-level-badge{display:inline-flex;flex:0 0 auto;align-items:center;border:1px solid #bfdbfe;border-radius:999px;padding:3px 8px;background:#eff6ff;color:#1d4ed8;font-size:12px;font-weight:800;line-height:1.2}
 .formation-selected-skill-list.has-skill-descriptions{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:8px}
 .formation-selected-skill-list.has-skill-descriptions .formation-selected-skill-row{display:block!important;min-width:0;padding:9px!important}
-.formation-selected-skill-list.has-skill-descriptions .formation-selected-skill-name{display:block!important;width:100%;font-size:14px!important;line-height:1.4!important;white-space:normal}
+.formation-selected-skill-list.has-skill-descriptions .formation-selected-skill-name{display:flex!important;align-items:flex-start;justify-content:space-between;gap:8px;width:100%;font-size:14px!important;line-height:1.4!important;white-space:normal}
 .formation-selected-skill-list.has-skill-descriptions .formation-selected-skill-name>span:first-child{white-space:normal;overflow:visible;text-overflow:clip}
 .formation-selected-skill-list.has-skill-descriptions .detail-effect-group{padding:8px}
 @media(max-width:980px),(pointer:coarse){

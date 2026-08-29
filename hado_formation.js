@@ -2366,7 +2366,7 @@ function renderFormationSelectedSlotSkillSummaryHtml(f,spec,slot,data){
     const maxLv=Math.max(1,Number(row.max||row.total||row.min||1)||1);
     const lv=(minLv===maxLv)?(ROMAN_LEVELS[minLv-1]||String(minLv)):`${ROMAN_LEVELS[minLv-1]||minLv}〜${ROMAN_LEVELS[maxLv-1]||maxLv}`;
     const levelHtml=renderFormationSkillLevelToggleHtml(row);
-    return `<div class="formation-selected-skill-row"><div class="formation-selected-skill-name"><span>${esc(row.name)}</span>${levelHtml?'':`<span class="formation-badge">${esc(lv)}</span>`}</div>${levelHtml}</div>`;
+    return `<div class="formation-selected-skill-row"><div class="formation-selected-skill-name"><span>${esc(row.name)}</span><span class="formation-badge" aria-label="この枠の有効技能レベル">Lv${esc(lv)}</span></div>${levelHtml}</div>`;
   }).join(''):`<div class="formation-selected-skill-empty">この武将・装備で有効な合算技能はありません。</div>`;
   return `<details class="formation-selected-skill-panel"${isResponsiveMobileMode()?'':' open'}><summary class="formation-selected-skill-title">この枠で有効な技能（${visible.length}件）</summary><div class="formation-selected-skill-list has-skill-descriptions">${body}</div></details>`;
 }
