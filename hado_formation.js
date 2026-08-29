@@ -2643,6 +2643,8 @@ function renderDetail(){
   mark('linkifyDetailTextNodes');
   highlightDetailTextNodes(els.detail,q);
   mark('highlightDetailTextNodes',{keyword:norm(q)});
+  const tagHighlightCount=highlightSelectedTagTextNodes(els.detail,item);
+  mark('highlightSelectedTagTextNodes',{count:tagHighlightCount,selectedTags:[...(state.selectedTags||[])]});
   els.detail.removeEventListener('click',handleDetailEntityLinkClick);els.detail.addEventListener('click',handleDetailEntityLinkClick);if(!state._preserveDetailScrollSnapshot)els.detail.scrollTop=0;syncResultSelectSelection();
   mark('syncSelectionAndScroll');
   applyResponsiveLayout('renderDetail:after-detail');applyMobileDetailOverflowGuard('renderDetail:after-layout');
@@ -2689,12 +2691,13 @@ function renderMobileResultSummary(context=''){
   const subTitle=getResultCardSubtitle(row);
   const metricLabel=row.metric?.display||'';
   const cardBadges=getResultCardBadgesHtml(row);
+  const matchedTags=renderMatchedSelectedTagsHtml(row.item);
   const reasonText=row.metric?.reasonText||'';
   const typeReasons=formatTypeSearchReasonsHtml(row.typeSearchMatches||[]);
   const tacticBadges=(row.key==='tactics'||row.key==='generals')?renderTacticAttackResultBadges(row.item):'';
   summary.hidden=false;
-  summary.innerHTML=`<div class="mobile-result-summary-head"><span class="search-result-category">${esc(row.label)}</span><strong>${esc(displayName)}</strong>${metricLabel?`<span class="search-result-metric">${esc(metricLabel)}</span>`:''}</div>${subTitle?`<div class="mobile-result-summary-meta">${esc(subTitle)}</div>`:''}${cardBadges||tacticBadges?`<div class="mobile-result-summary-badges">${cardBadges}${tacticBadges}</div>`:''}${reasonText?`<div class="mobile-result-summary-reason"><strong>一致理由：</strong>${esc(reasonText)}</div>`:''}${typeReasons?`<div class="mobile-result-summary-reason"><strong>一致理由：</strong>${typeReasons}</div>`:''}`;
-  debugLog('mobileResultSummary:render',{context,category:row.key,name:displayName,hasBadges:!!(cardBadges||tacticBadges),hasReason:!!(reasonText||typeReasons)});
+  summary.innerHTML=`<div class="mobile-result-summary-head"><span class="search-result-category">${esc(row.label)}</span><strong>${highlightSelectedTagTextHtml(displayName,row.item)}</strong>${metricLabel?`<span class="search-result-metric">${highlightSelectedTagTextHtml(metricLabel,row.item)}</span>`:''}</div>${subTitle?`<div class="mobile-result-summary-meta">${highlightSelectedTagTextHtml(subTitle,row.item)}</div>`:''}${matchedTags?`<div class="search-result-tag-matches">${matchedTags}</div>`:''}${cardBadges||tacticBadges?`<div class="mobile-result-summary-badges">${cardBadges}${tacticBadges}</div>`:''}${reasonText?`<div class="mobile-result-summary-reason"><strong>一致理由：</strong>${highlightSelectedTagTextHtml(reasonText,row.item)}</div>`:''}${typeReasons?`<div class="mobile-result-summary-reason"><strong>一致理由：</strong>${typeReasons}</div>`:''}`;
+  debugLog('mobileResultSummary:render',{context,category:row.key,name:displayName,matchedTagCount:getMatchedSelectedTags(row.item).length,hasBadges:!!(cardBadges||tacticBadges),hasReason:!!(reasonText||typeReasons)});
 }
 
 function renderResultSelect(rows){
