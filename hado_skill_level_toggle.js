@@ -76,7 +76,7 @@
     const buttons = rows.map((row, index) => {
       const open = row.level === currentLevel;
       const panelId = `${instanceId}-panel-${index + 1}`;
-      return `<button type="button" class="skill-level-toggle${open ? ' is-active' : ''}" data-skill-level-target="${escapeHtml(panelId)}" aria-controls="${escapeHtml(panelId)}" aria-expanded="${open ? 'true' : 'false'}" aria-pressed="${open ? 'true' : 'false'}">${escapeHtml(row.level)}</button>`;
+      return `<button type="button" role="radio" class="skill-level-toggle${open ? ' is-active' : ''}" data-skill-level-target="${escapeHtml(panelId)}" aria-controls="${escapeHtml(panelId)}" aria-expanded="${open ? 'true' : 'false'}" aria-pressed="${open ? 'true' : 'false'}" aria-checked="${open ? 'true' : 'false'}">${escapeHtml(row.level)}</button>`;
     }).join('');
     const panels = rows.map((row, index) => {
       const open = row.level === currentLevel;
@@ -84,7 +84,7 @@
       const description = renderDescription(row) || '<div class="skill-level-empty">説明なし</div>';
       return `<div id="${escapeHtml(panelId)}" class="skill-level-panel" data-skill-level="${escapeHtml(row.level)}"${open ? '' : ' hidden'}>${description}</div>`;
     }).join('');
-    return `<div class="skill-level-disclosure" data-skill-name="${escapeHtml(skillName)}"><div class="skill-level-toggle-row" role="group" aria-label="${escapeHtml(skillName || '技能')}のレベル表示">${buttons}</div><div class="skill-level-panel-stack">${panels}</div></div>`;
+    return `<div class="skill-level-disclosure" data-skill-name="${escapeHtml(skillName)}"><div class="skill-level-toggle-row" role="radiogroup" aria-label="${escapeHtml(skillName || '技能')}のレベル表示">${buttons}</div><div class="skill-level-panel-stack">${panels}</div></div>`;
   }
 
   function bind(root) {
@@ -94,15 +94,17 @@
       if (button.dataset.skillLevelBound === '1') return;
       button.dataset.skillLevelBound = '1';
       button.addEventListener('click', () => {
-        const targetId = button.getAttribute('data-skill-level-target');
         const scope = button.closest('.skill-level-disclosure') || root;
-        const panel = scope.querySelector(`#${targetId}`);
-        if (!panel) return;
-        const nextOpen = button.getAttribute('aria-expanded') !== 'true';
-        button.setAttribute('aria-expanded', nextOpen ? 'true' : 'false');
-        button.setAttribute('aria-pressed', nextOpen ? 'true' : 'false');
-        button.classList.toggle('is-active', nextOpen);
-        panel.hidden = !nextOpen;
+        scope.querySelectorAll('.skill-level-toggle[data-skill-level-target]').forEach(candidate => {
+          const selected = candidate === button;
+          candidate.setAttribute('aria-expanded', selected ? 'true' : 'false');
+          candidate.setAttribute('aria-pressed', selected ? 'true' : 'false');
+          candidate.setAttribute('aria-checked', selected ? 'true' : 'false');
+          candidate.classList.toggle('is-active', selected);
+          const targetId = candidate.getAttribute('data-skill-level-target');
+          const panel = targetId ? scope.querySelector(`#${targetId}`) : null;
+          if (panel) panel.hidden = !selected;
+        });
       });
       count += 1;
     });

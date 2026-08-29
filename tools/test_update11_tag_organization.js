@@ -32,6 +32,13 @@ assert(status.includes('byKeyCategories[key].add(cat)'), 'derived tag index must
 assert(status.includes("status_effects:'statusEffects'"), 'derived status_effect category must normalize to the visible runtime category');
 assert(status.includes('getTagGroupCategoryLabel(key)'), 'tag UI must render category labels');
 assert(status.includes("category.className='tag-picker-category'"), 'tag picker must expose a visible category badge');
+assert(status.includes('getVisibleTagGroupCategoryKeys(key)'), 'tag category labels must follow the currently selected search categories');
+assert(status.includes("title=document.createElement('button')"), 'each tag-group heading must be an interactive disclosure button');
+assert(status.includes("title.setAttribute('aria-expanded',expanded?'true':'false')"), 'tag-group headings must expose their expanded state');
+assert(status.includes('options.hidden=!expanded'), 'tag-group options must be hidden initially');
+assert(status.includes('state.expandedTagPickerGroups=[]'), 'opening the tag picker must start with all tag groups collapsed');
+assert(status.includes("['条件','発動'].forEach"), 'Update condition and trigger groups must be appended to the tag picker');
+assert(status.includes("groups:['条件','発動'].filter"), 'condition and trigger tag integration must be included in diagnostics');
 assert(status.includes("const keys=Object.keys(state.availableTagsByKey||{}).sort(compareTagGroupKeys)"), 'tag groups must use category-aware ordering');
 
 const categoriesByTagGroup = new Map();
@@ -60,6 +67,8 @@ assert(status.includes("runQuickStatusEffectOwnerSearchAsync(state.quickStatusEf
 assert(css.includes('.search-preset-row.has-tag-filter'), 'status/tag one-line layout CSS is required');
 assert(css.includes('grid-template-columns:minmax(140px,.85fr) minmax(180px,1.25fr) 32px minmax(320px,1.35fr)!important'), 'desktop status/tag row must reserve a full tag-combobox column');
 assert(css.includes('.tag-picker-category'), 'tag category badge CSS is required');
+assert(css.includes('.tag-picker-options[hidden]'), 'collapsed tag groups must hide their option lists');
+assert(css.includes('.tag-picker-chevron'), 'tag groups must display an expand/collapse affordance');
 assert(/hado_search\.js\?v=\d+(?:\.\d+)*-r\d+/.test(html) && /hado_styles\.css\?v=\d+(?:\.\d+)*-r\d+/.test(html), 'runtime assets must use a versioned cache generation');
 assert(!html.includes('10.4-r159'), 'old Update10.4 cache keys must not remain');
 
