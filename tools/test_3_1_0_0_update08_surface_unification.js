@@ -14,6 +14,7 @@ const clauseData = readJson('hadou_effect_clauses.json');
 evaluator.indexClauseData(clauseData);
 searchIntegration.indexData({
   effectClauses: clauseData,
+  effectConditionBlocks: readJson('hadou_effect_condition_blocks.json'),
   typeSearchFeatureIndex: readJson('hadou_type_search_feature_index.json'),
   relatedLinkIndex: readJson('hadou_related_link_index.json'),
   statusEffects: readJson('hadou_status_effects.json')
@@ -96,12 +97,12 @@ const coreSource = fs.readFileSync(path.join(ROOT, 'hado_core.js'), 'utf8');
 const statusSource = fs.readFileSync(path.join(ROOT, 'hado_status_effects.js'), 'utf8');
 const searchSource = fs.readFileSync(path.join(ROOT, 'hado_search.js'), 'utf8');
 const formationSource = fs.readFileSync(path.join(ROOT, 'hado_formation.js'), 'utf8');
-assert(indexHtml.indexOf('hado_search_clause_integration.js?v=3.1.0.0-r193') < indexHtml.indexOf('hado_clause_surface_bridge.js?v=3.1.0.0-r193'));
-assert(indexHtml.indexOf('hado_clause_surface_bridge.js?v=3.1.0.0-r193') < indexHtml.indexOf('hado_formation.js?v=3.1.0.0-r193-mobile-parity'));
-assert(indexHtml.includes('hado_update08.css?v=3.1.0.0-r193'));
+assert(indexHtml.indexOf('hado_search_clause_integration.js?v=3.1.0.0-r194') < indexHtml.indexOf('hado_clause_surface_bridge.js?v=3.1.0.0-r194'));
+assert(indexHtml.indexOf('hado_clause_surface_bridge.js?v=3.1.0.0-r194') < indexHtml.indexOf('hado_formation.js?v=3.1.0.0-r194-mobile-parity'));
+assert(indexHtml.includes('hado_update08.css?v=3.1.0.0-r194'));
 assert(!indexHtml.includes('06-r187'));
 assert(versionSource.includes("updateNo: ''"));
-assert(versionSource.includes('revision: 193'));
+assert(versionSource.includes('revision: 194'));
 assert(coreSource.includes('bridge.buildDetailPresentation'));
 assert(statusSource.includes('HADO_CLAUSE_SURFACE_BRIDGE||rootApi.HADO_SEARCH_CLAUSE_INTEGRATION'));
 assert(searchSource.includes('bridge.annotateTypeSearchHits'));

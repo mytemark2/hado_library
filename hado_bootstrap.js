@@ -122,7 +122,7 @@ applyLoadedData=async function(data){
   if(!window.HADO_CLAUSE_SURFACE_BRIDGE)throw new Error('Update08 clause surface bridge is not loaded');
   state.effectClauseData=data?.effectClauses||null;
   state.diagnostics.effectClause=window.HADO_FORMATION_CONDITION_EVALUATOR.indexClauseData(state.effectClauseData);
-  state.diagnostics.searchClauseIntegration=window.HADO_SEARCH_CLAUSE_INTEGRATION.indexData({effectClauses:state.effectClauseData,typeSearchFeatureIndex:data?.typeSearchFeatureIndex,relatedLinkIndex:data?.relatedLinkIndex,statusEffects:data?.statusEffects});
+  state.diagnostics.searchClauseIntegration=window.HADO_SEARCH_CLAUSE_INTEGRATION.indexData({effectClauses:state.effectClauseData,effectConditionBlocks:data?.effectConditionBlocks,typeSearchFeatureIndex:data?.typeSearchFeatureIndex,relatedLinkIndex:data?.relatedLinkIndex,statusEffects:data?.statusEffects});
   state.diagnostics.clauseSurfaceBridge=window.HADO_CLAUSE_SURFACE_BRIDGE.indexData({effectClauses:state.effectClauseData});
   debugLog('effectClause:runtime-ready',state.diagnostics.effectClause);
   debugLog('searchClauseIntegration:runtime-ready',state.diagnostics.searchClauseIntegration);
