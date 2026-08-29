@@ -24,13 +24,16 @@
 
 ## 6. Validation commands executed
 
-- `node --check hado_skill_level_toggle.js hado_core.js hado_formation.js hado_status_effects.js`
+- `node --check hado_skill_level_toggle.js`
+- `node --check hado_core.js`
+- `node --check hado_formation.js`
+- `node --check hado_status_effects.js`
 - `node tools/test_3_1_0_0_skill_level_toggle.js`
 - `node tools/test_update11_tag_organization.js`
 - `node tools/test_3_1_0_0_update06_search_clause_integration.js`
 - `node tools/test_3_1_0_0_update06_referenced_skill_cards.js`
 - `node tools/test_3_1_0_0_update06_user_facing_cards.js`
-- `node tools/test_current_version_consistency.js`
+- `python -X utf8 tools/validate_update_version_consistency.py`
 - `node tools/test_json_index_contract.js`
 - `python -X utf8 tools/run_app_validation.py`
 
@@ -44,15 +47,32 @@
 
 ## 8. Git commit and pull request
 
-作成後に記録する。
+- 実装commit: `85ff99f1a76f6f9e3aaa1ea2924716acb778b0bb`
+- 開発ブランチ統合commit: `82d64bf8efb56a1c520cfae15790f98ea6779703`
+- Pull request: `#333`（base: `feature/app-3.1.0.0`、merged）
+- Merge readiness: base `a4e1b0d215d610357eba454ea9965e86dffcb1f0`、head `85ff99f1a76f6f9e3aaa1ea2924716acb778b0bb`、競合なし。
 
 ## 9. GitHub Actions result
 
-実行後に記録する。
+- `App Validation / app-validation`: success（PR #333）
+- `Notify Hado Library Preview`: success（run `33225229956`、source `82d64bf8efb56a1c520cfae15790f98ea6779703`）
 
 ## 10. Preview synchronization result
 
-同期・公開Pages確認後に記録する。
+### Preview confirmation
+
+- 公開URL: `https://mytemark2.github.io/hado_library-preview/`
+- 表示版: `3.1.0.0 r193`
+- Preview repository commit: `82b66311e771c2bc83c84f1f82dc2eab1f884c10`
+- `PREVIEW_SOURCE_COMMIT.txt`: `82d64bf8efb56a1c520cfae15790f98ea6779703`
+- `PREVIEW_SOURCE_BRANCH.txt`: `feature/app-3.1.0.0`
+- `PREVIEW_DISPLAY_VERSION.txt`: `3.1.0.0 r193`
+- 必須ファイル: `index.html`、`hado_formation.js`、`hado_styles.css`、`.nojekyll`、marker 3ファイル、`hadou_*.json` 36件を確認。
+- DOM・操作: 武将技能と部隊編成技能で有効レベルを右側表示し、レベル変更後も選択中1件・表示説明1件を維持した。選択中レベルの再クリックでも閉じない。
+- タグ: 初期全グループ非表示、見出しクリック開閉、武将カテゴリ表記、条件24件・発動7件、タグ選択・解除・絞り込みを確認。
+- 390×844: 技能レベル、タググループとも横はみ出しなし。
+- Debug log: 表示切替正常、ブラウザconsole warning/error 0件。
+- 判定: PASS。
 
 ## 11. Minimum user acceptance operation
 
@@ -60,8 +80,8 @@
 
 ## 12. Remaining issues
 
-Preview確認完了まで未完了。
+なし。正式公開は未実施。
 
 ## 確認事項
 
-Preview確認完了後に確定する。正式公開は利用者の明示承認まで行わない。
+なし。正式公開は利用者の明示承認まで行わない。
