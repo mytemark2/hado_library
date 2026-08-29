@@ -80,7 +80,8 @@
   function comparableName(value) {
     return text(value).replace(/（[^）]*）/g, '').replace(/\([^)]*\)/g, '').replace(/^(?:LR|UR|SSR|SR|R|N)\s*/i, '').replace(/[・･\s]/g, '');
   }
-  function entityKey(category, name) { return `${text(category)}@@${comparableName(name)}`; }
+  function recordName(value) { return text(value).normalize('NFKC').replace(/\s+/g, ''); }
+  function entityKey(category, name) { return `${text(category)}@@${recordName(name)}`; }
   function hasConditionalExpression(clause) {
     const contextType = clause?.context?.op === 'predicate' ? text(clause.context.type) : '';
     return !!clause?.trigger || !!clause?.when || (!!clause?.context && contextType !== 'context.always');
