@@ -28,6 +28,7 @@ bridge.indexData({ effectClauses: clauseData });
 
 const displayGeneralName = value => String(value || '').trim().replace(/^【三國志 覇道】/, '');
 const generalNames = new Set((generalsData.items || generalsData).map(item => displayGeneralName(item.name)));
+const selectableTags = new Set(Object.keys(tagIndex.invertedTags || {}));
 const tagsByGeneral = new Map([...generalNames].map(name => [name, new Set()]));
 const add = (name, tag) => {
   if (!generalNames.has(name) || !tag) return;
@@ -42,6 +43,7 @@ for (const item of tagIndex.items || []) {
 
 for (const skill of skillOwnerIndex.items || []) {
   const tag = skill.skillName ? `技能:${skill.skillName}` : '';
+  if (!selectableTags.has(tag)) continue;
   for (const owner of skill.owners || []) {
     if (owner.category === 'generals') add(displayGeneralName(owner.displayName || owner.name), tag);
   }

@@ -12,7 +12,7 @@ r194の公開確認で検出した画面投影キャッシュの武将版違い�
 
 ## 3. Impact scope checked
 
-武将488件、通常検索用1,032タグ・10グループ、LR・UR・覚醒・通常・ORIGINS・兵科違い、通常検索、タグ入力候補、タグ選択画面、PC、390x844。
+武将488件、通常検索で選択可能な939タグ・10グループ、LR・UR・覚醒・通常・ORIGINS・兵科違い、通常検索、タグ入力候補、タグ選択画面、PC、390x844。
 
 ## 4. Files changed
 
@@ -34,32 +34,48 @@ r194の公開確認で検出した画面投影キャッシュの武将版違い�
 
 ## 7. Validation results
 
-- 画面投影API経由で488武将・1,032タグを全件照合し、0件タグ0、所有者不一致0。
+- 画面投影API経由で488武将・選択可能939タグを全件照合し、0件タグ0、所有者不一致0。タグ索引にない参照用技能93件は画面選択肢ではないため対象外とした。
 - `発動:交戦開始時`は原文105武将と一致し、LR馬良からUR馬良への漏れがない。
-- Actionsと公開Preview結果は同期完了後に追記する。
+- 条件34タグ、発動8タグを含む10グループを公開画面で確認した。
+- JSON契約は21ファイル、App Validationは157/157件PASS。
 
 ## 8. Git commit and pull request
 
-Actions・Preview確認後に追記する。
+- 実装commit: `f50c62128db4a5be7fb13b8c980d00210ae0a7d5`
+- Pull Request: `#336`（base: `feature/app-3.1.0.0`、merged）
+- 開発ブランチ統合commit: `1a08ec39ea9c1a8a0ecdf4732a28102d6dcbad41`
+- Merge readiness: base `2e3f105c957154168b3e4243e62ff3359c5cb35f`、head `f50c62128db4a5be7fb13b8c980d00210ae0a7d5`、競合なし。
 
 ## 9. GitHub Actions result
 
-Actions完了後に追記する。
+- `App Validation / app-validation`: success（run `33237137296`）
+- `Notify Hado Library Preview`: success（run `33237154482`、1分15秒）
 
 ## 10. Preview synchronization result
 
 ### Preview confirmation
 
-イベント駆動同期と公開Pages実操作の完了後に追記する。
+- 公開URL: `https://mytemark2.github.io/hado_library-preview/`
+- 表示版: `3.1.0.0 r195`
+- Preview repository commit: `a8b690e7ebfff25601de9504a0b627f4cfbbd25e`
+- `PREVIEW_SOURCE_COMMIT.txt`: `1a08ec39ea9c1a8a0ecdf4732a28102d6dcbad41`
+- `PREVIEW_SOURCE_BRANCH.txt`: `feature/app-3.1.0.0`
+- `PREVIEW_DISPLAY_VERSION.txt`: `3.1.0.0 r195`
+- 必須ファイル: `index.html`、`hado_formation.js`、`hado_styles.css`、`.nojekyll`、marker 3ファイル、`hadou_*.json` 36件を確認。
+- 公開DOM: 武将488件、タグ939件・10グループ、条件34件、発動8件。
+- 実操作: `条件:交戦開始時`は選択肢0、`発動:交戦開始時`は選択肢1・ヒット105件。LR馬良は含み、UR馬良は含まず、UR沙摩柯を含む。
+- PC 1280幅・390x844: 横方向overflow 0。選択済みタグと105件表示を維持。
+- Debug log: validation OK、search results 105。console warning/error 0件。
+- 判定: PASS。
 
 ## 11. Minimum user acceptance operation
 
-通常検索の「発動」から「交戦開始時」を選び、105件になることを確認する。「条件」には「交戦開始時」が表示されないことも確認する。
+Codex側で公開PreviewのPC・390x844実操作まで確認済み。利用者による追加の必須確認はない。任意確認として「発動」から「交戦開始時」を選ぶと105件になる。
 
 ## 12. Remaining issues
 
-Actions・Preview確認待ち。正式公開は未実施。
+なし。正式公開は未実施。
 
 ## 確認事項
 
-現時点ではなし。正式公開は利用者の明示承認まで行わない。
+なし。正式公開は利用者の明示承認まで行わない。
