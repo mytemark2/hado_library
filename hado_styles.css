@@ -1856,18 +1856,18 @@ body{font-feature-settings:"palt" 1,"kern" 1;text-rendering:optimizeLegibility}
   .formation-selected-skill-list.has-skill-descriptions .formation-selected-skill-row{display:block!important}
 }
 /* 3.1.0.0 r196: selected tags keep the same color across filters, results, and details. */
-.tag-color-0{--tag-highlight-bg:#dbeafe;--tag-highlight-border:#60a5fa;--tag-highlight-text:#1e3a8a}
-.tag-color-1{--tag-highlight-bg:#fef3c7;--tag-highlight-border:#f59e0b;--tag-highlight-text:#92400e}
-.tag-color-2{--tag-highlight-bg:#dcfce7;--tag-highlight-border:#4ade80;--tag-highlight-text:#166534}
-.tag-color-3{--tag-highlight-bg:#ffe4e6;--tag-highlight-border:#fb7185;--tag-highlight-text:#9f1239}
-.tag-color-4{--tag-highlight-bg:#ede9fe;--tag-highlight-border:#a78bfa;--tag-highlight-text:#5b21b6}
-.tag-color-5{--tag-highlight-bg:#cffafe;--tag-highlight-border:#22d3ee;--tag-highlight-text:#155e75}
-.tag-color-6{--tag-highlight-bg:#ffedd5;--tag-highlight-border:#fb923c;--tag-highlight-text:#9a3412}
-.tag-color-7{--tag-highlight-bg:#fce7f3;--tag-highlight-border:#f472b6;--tag-highlight-text:#9d174d}
-.tag-color-8{--tag-highlight-bg:#ccfbf1;--tag-highlight-border:#2dd4bf;--tag-highlight-text:#115e59}
-.tag-color-9{--tag-highlight-bg:#e0e7ff;--tag-highlight-border:#818cf8;--tag-highlight-text:#3730a3}
-.tag-color-10{--tag-highlight-bg:#ecfccb;--tag-highlight-border:#a3e635;--tag-highlight-text:#3f6212}
-.tag-color-11{--tag-highlight-bg:#e2e8f0;--tag-highlight-border:#94a3b8;--tag-highlight-text:#334155}
+.tag-color-0{--tag-highlight-bg:#fef3c7;--tag-highlight-border:#d97706;--tag-highlight-text:#78350f}
+.tag-color-1{--tag-highlight-bg:#ffe4e6;--tag-highlight-border:#e11d48;--tag-highlight-text:#881337}
+.tag-color-2{--tag-highlight-bg:#f3e8ff;--tag-highlight-border:#a21caf;--tag-highlight-text:#581c87}
+.tag-color-3{--tag-highlight-bg:#ffedd5;--tag-highlight-border:#ea580c;--tag-highlight-text:#7c2d12}
+.tag-color-4{--tag-highlight-bg:#fae8ff;--tag-highlight-border:#c026d3;--tag-highlight-text:#701a75}
+.tag-color-5{--tag-highlight-bg:#fee2e2;--tag-highlight-border:#dc2626;--tag-highlight-text:#7f1d1d}
+.tag-color-6{--tag-highlight-bg:#fef9c3;--tag-highlight-border:#ca8a04;--tag-highlight-text:#713f12}
+.tag-color-7{--tag-highlight-bg:#fce7f3;--tag-highlight-border:#db2777;--tag-highlight-text:#831843}
+.tag-color-8{--tag-highlight-bg:#f7e8f3;--tag-highlight-border:#a63a74;--tag-highlight-text:#5e183e}
+.tag-color-9{--tag-highlight-bg:#fff0eb;--tag-highlight-border:#e85d3f;--tag-highlight-text:#7a271a}
+.tag-color-10{--tag-highlight-bg:#f3e8dc;--tag-highlight-border:#9a633f;--tag-highlight-text:#4b2e1d}
+.tag-color-11{--tag-highlight-bg:#f8e4ea;--tag-highlight-border:#a61b4d;--tag-highlight-text:#5c102f}
 .tag-highlight-token{border-color:var(--tag-highlight-border)!important;background:var(--tag-highlight-bg)!important;color:var(--tag-highlight-text)!important}
 .tag-highlight-token .selected-tag-remove{color:var(--tag-highlight-text)!important}
 .tag-picker-option.is-selected{font-weight:800;box-shadow:inset 3px 0 0 var(--tag-highlight-border)}

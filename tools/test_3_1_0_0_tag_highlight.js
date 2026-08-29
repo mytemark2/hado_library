@@ -36,6 +36,21 @@ const formation = fs.readFileSync('hado_formation.js', 'utf8');
 const css = fs.readFileSync('hado_styles.css', 'utf8');
 const index = fs.readFileSync('index.html', 'utf8');
 
+const approvedWarmPalette = [
+  ['#fef3c7', '#d97706', '#78350f'],
+  ['#ffe4e6', '#e11d48', '#881337'],
+  ['#f3e8ff', '#a21caf', '#581c87'],
+  ['#ffedd5', '#ea580c', '#7c2d12'],
+  ['#fae8ff', '#c026d3', '#701a75'],
+  ['#fee2e2', '#dc2626', '#7f1d1d'],
+  ['#fef9c3', '#ca8a04', '#713f12'],
+  ['#fce7f3', '#db2777', '#831843'],
+  ['#f7e8f3', '#a63a74', '#5e183e'],
+  ['#fff0eb', '#e85d3f', '#7a271a'],
+  ['#f3e8dc', '#9a633f', '#4b2e1d'],
+  ['#f8e4ea', '#a61b4d', '#5c102f']
+];
+
 assert(status.includes('renderMatchedSelectedTagsHtml(row.item)') || search.includes('renderMatchedSelectedTagsHtml(row.item)'));
 assert(status.includes("span.className=`selected-tag-badge tag-highlight-token ${getTagColorClass(tag)}`"));
 assert(status.includes('is-selected tag-highlight-token'));
@@ -45,8 +60,12 @@ assert(search.includes('search-result-tag-matches'));
 assert(formation.includes('highlightSelectedTagTextNodes(els.detail,item)'));
 assert(formation.includes('matchedTags=renderMatchedSelectedTagsHtml(row.item)'));
 assert(index.indexOf('hado_tag_highlight.js') < index.indexOf('hado_status_effects.js'), 'tag highlight helper must load before its consumers');
-for (let slot = 0; slot < api.PALETTE_SIZE; slot += 1) assert(css.includes(`.tag-color-${slot}{`), `CSS palette slot ${slot} is required`);
+for (let slot = 0; slot < api.PALETTE_SIZE; slot += 1) {
+  const [background, border, text] = approvedWarmPalette[slot];
+  const rule = `.tag-color-${slot}{--tag-highlight-bg:${background};--tag-highlight-border:${border};--tag-highlight-text:${text}}`;
+  assert(css.includes(rule), `CSS palette slot ${slot} must use the approved non-blue/non-green palette`);
+}
 assert(css.includes('.tag-text-highlight'));
 assert(css.includes('.search-result-matched-tag'));
 
-console.log('tag highlight ok: stable 12-color mapping / owned-tag filtering / safe multi-color text highlighting / desktop-mobile-detail integration');
+console.log('tag highlight ok: stable approved warm/purple 12-color mapping / owned-tag filtering / safe multi-color text highlighting / desktop-mobile-detail integration');
