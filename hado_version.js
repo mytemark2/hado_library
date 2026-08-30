@@ -4,11 +4,11 @@
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.1.0.0',
     updateNo: '',
-    revision: 198,
+    revision: 199,
     formalRelease: false,
     baseAppVersion: '3.0.2.0',
-    summary: 'Selected-tag highlights use a warm and purple palette that stays distinct from the app\'s blue and green interface colors.',
-    updatedAt: '2026-08-30T08:15:00+09:00'
+    summary: 'Manual validation accepts both idle and running button states without hiding real missing-label failures.',
+    updatedAt: '2026-08-30T13:21:37+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;
 })();

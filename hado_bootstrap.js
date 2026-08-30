@@ -390,15 +390,24 @@ const REGRESSION_SELF_CHECK_SPEC={
   ],
   requiredTexts:[
     '検索','名称のみ','型プリセット','中核','推奨','補助','部隊編成','スタートガイド','保存管理','ログ表示','JSONフォルダを選択して再読込','JSONファイルを選択して読込','全データ','保存データ','全データ武将','全データ装備','初期','SSR最大','UR最大','Export','Import',
-    '一覧コピー','検索パラコピー','全パラコピー','詳細コピー','検証実行','ログコピー','使い始める','部隊編成に追加','追加',
+    '一覧コピー','検索パラコピー','全パラコピー','詳細コピー','ログコピー','使い始める','部隊編成に追加','追加',
     // Lazy-rendered formation/detail labels are validated through their render functions and
     // interaction smoke checks. Requiring their text while the search tab is active creates a
     // false regression failure before those panels have been rendered.
     '新規作成','削除','保存','通常','所有武将','兵器','武装','主将','侍従','武将','軍馬','陣形'
+  ],
+  requiredElementTexts:[
+    {name:'runValidationBtn',allowedTexts:['検証実行','検証中…']}
   ]
 };
 function getFunctionByNameForRegression(name){try{return eval(name);}catch{return undefined;}}
 function getElementByNameForRegression(name){return els&&Object.prototype.hasOwnProperty.call(els,name)?els[name]:document.getElementById(name);}
+function getRegressionElementTextResult(spec){
+  const element=getElementByNameForRegression(spec?.name||'');
+  const actual=norm(element?.textContent||'');
+  const allowedTexts=(spec?.allowedTexts||[]).map(text=>norm(text));
+  return {name:spec?.name||'',ok:!!element&&allowedTexts.includes(actual),actual,allowedTexts};
+}
 
 function getValidationScriptText(){try{return Array.from(document.scripts||[]).map(script=>script.textContent||'').join('\n');}catch{return '';}}
 function getCurrentExpectedVersionLabel(){return `hado_library_${HADO_BUILD_INFO.version}`;}
@@ -1190,15 +1199,17 @@ function runRegressionSelfCheck(context='manual'){
   const elResults=REGRESSION_SELF_CHECK_SPEC.requiredElements.map(name=>({name,ok:!!getElementByNameForRegression(name)}));
   const html=document.documentElement?document.documentElement.textContent:'';
   const textResults=REGRESSION_SELF_CHECK_SPEC.requiredTexts.map(text=>({text,ok:html.includes(text)}));
+  const elementTextResults=(REGRESSION_SELF_CHECK_SPEC.requiredElementTexts||[]).map(getRegressionElementTextResult);
   const result={
     version:REGRESSION_SELF_CHECK_SPEC.version,
     context,
     timestamp:debugTimestamp(),
     functions:{ok:fnResults.every(r=>r.ok),missing:fnResults.filter(r=>!r.ok).map(r=>r.name),checked:fnResults.length},
     elements:{ok:elResults.every(r=>r.ok),missing:elResults.filter(r=>!r.ok).map(r=>r.name),checked:elResults.length},
-    texts:{ok:textResults.every(r=>r.ok),missing:textResults.filter(r=>!r.ok).map(r=>r.text),checked:textResults.length}
+    texts:{ok:textResults.every(r=>r.ok),missing:textResults.filter(r=>!r.ok).map(r=>r.text),checked:textResults.length},
+    elementTexts:{ok:elementTextResults.every(r=>r.ok),invalid:elementTextResults.filter(r=>!r.ok),checked:elementTextResults.length}
   };
-  result.ok=result.functions.ok&&result.elements.ok&&result.texts.ok;
+  result.ok=result.functions.ok&&result.elements.ok&&result.texts.ok&&result.elementTexts.ok;
   state.diagnostics.regression=result;
   debugStartup('regression self check',result);
   if(!result.ok)console.warn('[hado-debug] regression self check failed',result);
