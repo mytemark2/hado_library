@@ -30,21 +30,21 @@
 
 ## 7. Validation results
 
-実装・Preview確認後に記録する。
+専用回帰とApp Validation 161/161件は合格した。公開Previewでは実行中ボタン誤判定が解消した一方、旧検証契約3件が残りNGとなったため、r199は完了扱いにせずr200へ継続する。
 
 ## 8. Git commit and pull request
 
-実装・Preview確認後に記録する。
+実装commit `cc43126dfdf6c6eb09df793ca0f61f90df6f2cbb`、PR #344、merge commit `7d3e7bd615f295bca115909afe594dec118a2172`。
 
 ## 9. GitHub Actions result
 
-実装・Preview確認後に記録する。
+PR必須check `App Validation / app-validation`はsuccess（run `33292639341`）。push起点Preview同期はsuccess（run `33292658433`）。
 
 ## 10. Preview synchronization result
 
 ### Preview confirmation
 
-実装・Preview確認後に記録する。
+Preview repository commit `6950bd43ab4fa30d58788f4e4320eeee0ecd633f`、markerはsource commit `7d3e7bd615f295bca115909afe594dec118a2172`、source branch `feature/app-3.1.0.0`、display version `3.1.0.0 r199`。実行中ボタンは正しく許可されたが、残る旧契約3件により最終結果はNG。r200へ継続するため判定はFAIL。
 
 ## 11. Minimum user acceptance operation
 
@@ -52,8 +52,8 @@
 
 ## 12. Remaining issues
 
-実装・Preview確認後に記録する。
+公開Preview手動検証NGのため、r199単独では残件あり。r200で継続する。
 
 ## 確認事項
 
-実装・Preview確認後に記録する。
+確認事項あり。r199は中間Previewであり、r200の公開Preview手動検証OKを完了条件とする。
