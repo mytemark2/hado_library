@@ -69,9 +69,73 @@ const SEARCH_UX_EXTRA_RELATION_PRESETS=[
   {key:'relation:debuffImmuneRemove',group:'enemyResistanceDebuff',label:'弱化無効解除',statusName:'弱化無効',relationType:'解除'},
   {key:'relation:favorableIgnore',group:'enemyResistanceDebuff',label:'有利変化無視',statusName:'有利変化',relationType:'無視'}
 ];
-const SEARCH_UX_STATUS_EFFECT_ORDER=['戦法短縮','攻撃速度上昇','会心発生上昇','会心威力上昇','戦法速度上昇','攻撃上昇','防御上昇','知力上昇','対物特効上昇','戦法威力上昇','与ダメージ上昇','被ダメージ低下','兵科相性変化(強化)','猛奮','不敵','堅固','絶縁','弱化無効','不退','不滅','萎縮回避','攻撃低下回避','強化解除回避','弱化効果回避','弱化効果無効','弱化効果解除','能力弱化回避','不利変化無効','弱化反射','攻撃低下','防御低下','知力低下','攻撃速度低下','戦法速度低下','怯心','恐怖','同討','萎縮','疑心','連鎖不能','強化無効','戦法遅延','有利変化解除','強化打消','堅固無視','弱化無効解除','有利変化無視'];
+// HADO-3.1.0.0-r201: 2026-08-30時点の最新武将・最強編制で採用/対策優先度が高い状態変化を、6分類ごとに先頭へ置く。
+// 上位アンカー外は最新のstatus_effect_group_owner_indexにある重複除外所有者数で並べ、JSON更新に追随する。
+const SEARCH_UX_STATUS_EFFECT_TREND=Object.freeze({
+  reviewedAt:'2026-08-30',
+  groups:Object.freeze({
+    selfAbilityBuff:Object.freeze(['戦法短縮','戦法速度上昇','撃心発生上昇','撃心威力上昇','戦法威力上昇','強兵','豪昇','与ダメージ上昇','攻撃上昇','知力上昇','会心発生上昇','会心威力上昇','攻撃速度上昇','被ダメージ低下','防御上昇','対物特効上昇','兵科相性上昇','通常攻撃威力上昇','機動上昇']),
+    selfStateBuff:Object.freeze(['結束','強化促進','不退','快気','治癒','呼応・一','呼応・二','飲血','豪撃','借威','火属性付与']),
+    selfResistanceBuff:Object.freeze(['絶縁','弱化効果回避','弱化無効','弱化解除','戦法遅延回避','士気奪取回避','深恐回避','感電回避','強化奪取回避','強化解除回避','反転回避','連鎖無効回避','連鎖不能回避','攻撃無効','堅固','瞬影','泰然','物理耐性','知力耐性','会心耐性','不滅','弱化反射']),
+    enemyAbilityDebuff:Object.freeze(['弱化積鈍','鈍迷','戦法弱化','戦法速度低下','与ダメージ低下','被ダメージ上昇','攻撃低下','知力低下','防御低下','感電','戦慄','畏怖','連鎖累減','断道','攻撃速度低下','戦法威力低下']),
+    enemyStateDebuff:Object.freeze(['深恐','戦法遅延','戦法範囲縮小','連鎖無効','連鎖不能','封心','封撃','分断','強化無効','強化抑制','同討','恐怖','疑心','混乱','怯心','萎縮','火傷']),
+    enemyResistanceDebuff:Object.freeze(['強化奪取','強化解除','反転','強化時間短縮','穿撃','轟炎','武装破壊','火耐性低下'])
+  })
+});
 // FEATURE[HADO-2.5.5.18-QUICK-OWNER-FREEZE-FIX]: クイック検索では通常全文検索をスキップし、状態変化関連抽出をアイテム単位でキャッシュする。
-function quickStatusEffectSortValue(entry){const label=norm(entry?.label||'');const idx=SEARCH_UX_STATUS_EFFECT_ORDER.indexOf(label);return idx>=0?idx:1000+(label?label.charCodeAt(0):0);}
+let quickStatusEffectTrendOwnerCountCache={key:'',counts:new Map()};
+function normalizeQuickStatusEffectTrendLabel(value){
+  let label=norm(value||'').replace(/\[[^\]]+\]$/,'');
+  const exact={
+    '被ダメージ変化(強化)':'被ダメージ低下','被ダメージ変化(弱化)':'被ダメージ上昇',
+    '兵科相性変化(強化)':'兵科相性上昇','兵科相性変化(弱化)':'兵科相性低下'
+  };
+  if(exact[label])return exact[label];
+  label=label.replace(/変化\(強化\)$/,'上昇').replace(/変化\(弱化\)$/,'低下');
+  return label;
+}
+function getQuickStatusEffectTrendOwnerCountCacheKey(){
+  const source=state?.derivedData?.statusEffectGroupOwnerIndex||{};
+  const items=Array.isArray(source?.items)?source.items:[];
+  return [norm(source?.dataSetId||''),norm(source?.generatedAt||''),items.length].join('|');
+}
+function buildQuickStatusEffectTrendOwnerCountCache(){
+  const cache=new Map();
+  (SEARCH_UX_PRESET_GROUPS||[]).forEach(group=>{
+    if(!group?.key||group.key==='all')return;
+    const source=typeof getDerivedStatusEffectGroupOwnerIndex==='function'?getDerivedStatusEffectGroupOwnerIndex(group.key):null;
+    const ownersByLabel=new Map();
+    Object.entries(source?.owners||{}).forEach(([category,owners])=>{
+      (Array.isArray(owners)?owners:[]).forEach(owner=>{
+        const label=normalizeQuickStatusEffectTrendLabel(owner?.statusEffectName||'');
+        const ownerName=norm(owner?.displayName||owner?.name||owner?.sourceName||'');
+        if(!label||!ownerName)return;
+        if(!ownersByLabel.has(label))ownersByLabel.set(label,new Set());
+        ownersByLabel.get(label).add(`${category}@@${ownerName}`);
+      });
+    });
+    ownersByLabel.forEach((owners,label)=>cache.set(`${group.key}@@${label}`,owners.size));
+  });
+  return cache;
+}
+function getQuickStatusEffectTrendOwnerCount(entry){
+  const cacheKey=getQuickStatusEffectTrendOwnerCountCacheKey();
+  if(quickStatusEffectTrendOwnerCountCache.key!==cacheKey)quickStatusEffectTrendOwnerCountCache={key:cacheKey,counts:buildQuickStatusEffectTrendOwnerCountCache()};
+  const group=norm(entry?.group||'');
+  const labels=[entry?.label,entry?.statusName].map(normalizeQuickStatusEffectTrendLabel).filter(Boolean);
+  return labels.reduce((max,label)=>Math.max(max,Number(quickStatusEffectTrendOwnerCountCache.counts.get(`${group}@@${label}`)||0)),0);
+}
+function compareQuickStatusEffectTrend(a,b){
+  const groupA=norm(a?.group||''), groupB=norm(b?.group||'');
+  const labelA=normalizeQuickStatusEffectTrendLabel(a?.label||''), labelB=normalizeQuickStatusEffectTrendLabel(b?.label||'');
+  const orderA=SEARCH_UX_STATUS_EFFECT_TREND.groups[groupA]||[], orderB=SEARCH_UX_STATUS_EFFECT_TREND.groups[groupB]||[];
+  const indexA=orderA.indexOf(labelA), indexB=orderB.indexOf(labelB);
+  const anchoredA=indexA>=0, anchoredB=indexB>=0;
+  if(anchoredA!==anchoredB)return anchoredA?-1:1;
+  if(anchoredA&&indexA!==indexB)return indexA-indexB;
+  const ownerDiff=getQuickStatusEffectTrendOwnerCount(b)-getQuickStatusEffectTrendOwnerCount(a);
+  return ownerDiff||labelA.localeCompare(labelB,'ja');
+}
 function getQuickStatusEffectRelationCacheBucket(item){
   if(!item||typeof item!=='object')return null;
   if(!Object.prototype.hasOwnProperty.call(item,'_quickStatusEffectRelationCache')){
@@ -107,7 +171,7 @@ function buildQuickStatusEffectEntries(options={}){
       const gb=SEARCH_UX_PRESET_GROUPS.findIndex(g=>g.key===b.group);
       if(ga!==gb)return ga-gb;
     }
-    return quickStatusEffectSortValue(a)-quickStatusEffectSortValue(b)||norm(a.label).localeCompare(norm(b.label),'ja');
+    return compareQuickStatusEffectTrend(a,b);
   });
 }
 function getQuickStatusEffectEntryByKey(key){
