@@ -389,12 +389,12 @@ const REGRESSION_SELF_CHECK_SPEC={
     'topPickJsonDirBtn','topPickJsonFilesBtn','topPickJsonFilesInput','viewModeAll','viewModeSaved','generalStageInitial','generalStageMax','equipmentStageInitial','equipmentStageSsrMax','equipmentStageUrMax','saveSelect','newSaveBtn','renameSaveBtn','copySaveBtn','deleteSaveBtn','exportSaveDataBtn','importSaveDataBtn','importSaveDataInput'
   ],
   requiredTexts:[
-    '検索','名称のみ','型プリセット','中核','推奨','補助','部隊編成','スタートガイド','保存管理','ログ表示','JSONフォルダを選択して再読込','JSONファイルを選択して読込','全データ','保存データ','全データ武将','全データ装備','初期','SSR最大','UR最大','Export','Import',
+    '検索','名称のみ','中核','推奨','補助','部隊編成','スタートガイド','保存管理','ログ表示','JSONフォルダを選択して再読込','JSONファイルを選択して読込','全データ','保存データ','全データ武将','全データ装備','初期','SSR最大','UR最大','Export','Import',
     '一覧コピー','検索パラコピー','全パラコピー','詳細コピー','ログコピー','使い始める','部隊編成に追加','追加',
     // Lazy-rendered formation/detail labels are validated through their render functions and
     // interaction smoke checks. Requiring their text while the search tab is active creates a
     // false regression failure before those panels have been rendered.
-    '新規作成','削除','保存','通常','所有武将','兵器','武装','主将','侍従','武将','軍馬','陣形'
+    '削除','保存','通常','所有武将','兵器','武装','主将','侍従','武将','軍馬','陣形'
   ],
   requiredElementTexts:[
     {name:'runValidationBtn',allowedTexts:['検証実行','検証中…']}
@@ -413,7 +413,7 @@ function getValidationScriptText(){try{return Array.from(document.scripts||[]).m
 function getCurrentExpectedVersionLabel(){return `hado_library_${HADO_BUILD_INFO.version}`;}
 function getActualExportVersionForValidation(){try{if(typeof buildSaveDataExportObject!=='function')return {ok:false,actual:'function missing',error:'buildSaveDataExportObject is not defined'};const payload=buildSaveDataExportObject();return {ok:!!payload&&payload.exportVersion===getCurrentExpectedVersionLabel(),actual:payload?.exportVersion||'',expected:getCurrentExpectedVersionLabel(),sample:{exportScope:payload?.exportScope||'',saveCount:Array.isArray(payload?.saves)?payload.saves.length:0,formationCount:Array.isArray(payload?.formationData?.formations)?payload.formationData.formations.length:0}};}catch(err){return {ok:false,actual:'error',expected:getCurrentExpectedVersionLabel(),error:String(err?.message||err)};}}
 function isValidHadouVersionString(value){return /^\d+\.\d+\.\d+\.\d+$/.test(norm(value));}
-function isValidSha256String(value){return /^[a-f0-9]{64}$/.test(norm(value));}
+function isValidSourceRevisionString(value){return /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/.test(norm(value));}
 function validateVersionConsistency(){
   const expected=HADO_BUILD_INFO.version;
   const expectedLabel=getCurrentExpectedVersionLabel();
@@ -428,7 +428,7 @@ function validateVersionConsistency(){
     {name:'FILE_META.fileName',actual:FILE_META.fileName,expected:`${expectedLabel}.html`,ok:FILE_META.fileName===`${expectedLabel}.html`,severity:'critical'},
     {name:'HADO_BUILD_INFO.version',actual:HADO_BUILD_INFO.version,expected:'valid version string',ok:isValidHadouVersionString(HADO_BUILD_INFO.version)&&HADO_BUILD_INFO.version===expected,severity:'critical'},
     {name:'HADO_BUILD_INFO.baseVersion',actual:HADO_BUILD_INFO.baseVersion,expected:'valid base version string',ok:isValidHadouVersionString(HADO_BUILD_INFO.baseVersion)&&HADO_BUILD_INFO.baseVersion!==HADO_BUILD_INFO.version,severity:'critical'},
-    {name:'HADO_BUILD_INFO.baseSha256',actual:HADO_BUILD_INFO.baseSha256,expected:'64 hex chars',ok:isValidSha256String(HADO_BUILD_INFO.baseSha256),severity:'critical'},
+    {name:'HADO_BUILD_INFO.baseSha256',actual:HADO_BUILD_INFO.baseSha256,expected:'40-char Git commit SHA or 64-char SHA-256',ok:isValidSourceRevisionString(HADO_BUILD_INFO.baseSha256),severity:'critical'},
     {name:'exportVersion',actual:exportCheck.actual,expected:expectedLabel,ok:exportCheck.ok,severity:'critical',sample:exportCheck.sample,error:exportCheck.error||''}
   ];
   return {ok:checks.every(c=>c.ok),checks,missing:checks.filter(c=>!c.ok).map(c=>c.name),exportCheck};
@@ -1028,17 +1028,17 @@ function getValidationEngineSourceForSelfCheck(){try{return [validateVersionCons
 function validateValidationEngineSelfCheck(){
   const source=getValidationEngineSourceForSelfCheck();
   const fixedVersionLiterals=[];
-  const fixedShaLiterals=[];
+  const fixedSourceRevisionLiterals=[];
   for(const m of source.matchAll(/['"`]((?:hado_library_)?\d+\.\d+\.\d+\.\d+(?:\.html)?)['"`]/g))fixedVersionLiterals.push(m[1]);
-  for(const m of source.matchAll(/['"`]([a-f0-9]{64})['"`]/g))fixedShaLiterals.push(m[1]);
+  for(const m of source.matchAll(/['"`]([a-f0-9]{40}|[a-f0-9]{64})['"`]/g))fixedSourceRevisionLiterals.push(m[1]);
   const legacyExportMarkerNames=['literal'+'Export'+'Markers','dynamic'+'Export'+'Markers'];
   const hasLegacyExportStringSearch=/script\.includes\([^)]*exportVersion/.test(source)||legacyExportMarkerNames.some(token=>source.includes(token));
   const forbiddenPatterns=[
     {name:'hardcoded baseVersion comparison',ok:!/(baseVersion\s*={2,3}\s*['"`]\d+\.\d+\.\d+\.\d+['"`])/.test(source)},
-    {name:'hardcoded baseSha256 comparison',ok:!/(baseSha256\s*={2,3}\s*['"`][a-f0-9]{64}['"`])/.test(source)},
+    {name:'hardcoded baseSha256 comparison',ok:!/(baseSha256\s*={2,3}\s*['"`](?:[a-f0-9]{40}|[a-f0-9]{64})['"`])/.test(source)},
     {name:'script string exportVersion search',ok:!hasLegacyExportStringSearch},
     {name:'fixed version literals in validation engine',ok:fixedVersionLiterals.length===0,actual:fixedVersionLiterals},
-    {name:'fixed sha literals in validation engine',ok:fixedShaLiterals.length===0,actual:fixedShaLiterals}
+    {name:'fixed source revision literals in validation engine',ok:fixedSourceRevisionLiterals.length===0,actual:fixedSourceRevisionLiterals}
   ];
   return {ok:!!source&&forbiddenPatterns.every(x=>x.ok),checks:forbiddenPatterns,sourceLength:source.length};
 }

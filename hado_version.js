@@ -4,11 +4,11 @@
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.1.0.0',
     updateNo: '',
-    revision: 199,
+    revision: 200,
     formalRelease: false,
     baseAppVersion: '3.0.2.0',
-    summary: 'Manual validation accepts both idle and running button states without hiding real missing-label failures.',
-    updatedAt: '2026-08-30T13:21:37+09:00'
+    summary: 'Manual validation uses state-aware labels, current lazy-UI coverage, and compatible source revision metadata.',
+    updatedAt: '2026-08-30T13:39:00+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;
 })();
