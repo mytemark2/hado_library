@@ -20,7 +20,7 @@ r199 Previewで確認した遅延描画文言2件と起点commit形式1件の偽
 
 ## 5. HTML size change and externalization decision
 
-実装・Preview確認後に記録する。検証runtimeは既存の外部`hado_bootstrap.js`で修正し、インラインJavaScriptとHTML構造は追加しない。
+`index.html`: Git blob 28,885 bytes → 28,885 bytes、±0 bytes。HTML構造は変更せず、既存資産のr200 cache keyだけを更新した。検証runtimeは既存の外部`hado_bootstrap.js`で修正し、インラインJavaScriptを追加していない。
 
 ## 6. Validation commands executed
 
@@ -30,21 +30,36 @@ r199 Previewで確認した遅延描画文言2件と起点commit形式1件の偽
 
 ## 7. Validation results
 
-実装・Preview確認後に記録する。
+専用回帰は、ボタン通常時・実行中の許可、未知状態・要素欠落の拒否、40文字Git commit SHAと64文字SHA-256の許可、39文字・非16進値の拒否、遅延描画機能の要素・関数による代替検証に合格した。`python -X utf8 tools/run_app_validation.py`は161/161件合格し、21派生JSON契約、検索、詳細、編成、保存Export / Import、レスポンシブ、禁止queue不在を確認した。マージ準備検査はbase `7d3e7bd615f295bca115909afe594dec118a2172`、head `da24c7f0b01356f3ab360441a23a2d3e5a7667c2`で競合なしだった。
 
 ## 8. Git commit and pull request
 
-実装・Preview確認後に記録する。
+- 実装commit: `da24c7f0b01356f3ab360441a23a2d3e5a7667c2`
+- Pull request: #345（base: `feature/app-3.1.0.0`、merged）
+- 実装merge commit: `051a91720e38675a9bfe2adbad79f951810c361f`
+- 競合: なし
 
 ## 9. GitHub Actions result
 
-実装・Preview確認後に記録する。
+- PR必須check `App Validation / app-validation`: success（run `33293240849`）
+- push起点 `Notify Hado Library Preview`: success（run `33293259455`、1分17秒）
+- 通常同期は`feature/app-3.1.0.0`へのpushによるイベント駆動で、schedule・手動dispatchは使用していない。
 
 ## 10. Preview synchronization result
 
 ### Preview confirmation
 
-実装・Preview確認後に記録する。
+- URL: `https://mytemark2.github.io/hado_library-preview/`
+- 表示版: `3.1.0.0 r200`
+- 実装確認時Preview repository commit: `e5e6e49a2dfa36f25a0f0450bf423070db7e6612`
+- marker: source commit `051a91720e38675a9bfe2adbad79f951810c361f`、source branch `feature/app-3.1.0.0`、display version `3.1.0.0 r200`
+- 必須資産: `index.html`、`hado_formation.js`、`hado_styles.css`、rootの`hadou_*.json` 36件、`.nojekyll`、3 markerを確認した。派生JSON契約対象21件はApp Validationで合格した。
+- DOM・asset: title / h1 / 診断版表示が`3.1.0.0 r200`で一致し、`hado_bootstrap.js`、`hado_version.js`、`hado_styles.css`がr200 cache keyで実行された。
+- 操作: 「検証実行」→「検証中…」→「検証実行」の状態遷移を確認し、最終結果はOK、criticalFailures 0、warnings 0、info 0だった。
+- PC: clientWidth 1920px・scrollWidth 1920px、横方向overflow 0。console warning 0、error 0。
+- 390×844: 実clientWidth 375px・scrollWidth 375px、横方向overflow 0。検証ボタンは168.5×60pxで表示され、診断版表示は`3.1.0.0 r200`だった。
+- Debug Log: `validation: OK / warnings=0 / info=0`、手動検証SummaryもOKで一致した。
+- 判定: PASS。後続の本記録のみの統合ではmarkerだけが新しい文書merge commitへ進むため、runtime資産が実装確認時と同一であることを再確認する。
 
 ## 11. Minimum user acceptance operation
 
@@ -52,8 +67,8 @@ r199 Previewで確認した遅延描画文言2件と起点commit形式1件の偽
 
 ## 12. Remaining issues
 
-実装・Preview確認後に記録する。
+なし。正式公開は未実施であり、利用者の明示承認まで行わない。
 
 ## 確認事項
 
-実装・Preview確認後に記録する。
+確認事項なし。最低確認操作は、公開Previewの「？」から「検証実行」を押し、最終結果がOKになること。正式公開は利用者の明示承認まで行わない。
