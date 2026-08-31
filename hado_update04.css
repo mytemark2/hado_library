@@ -1,0 +1,24 @@
+/* Hado Library 3.1 Update04/06: user-facing condition to effect grouping. */
+.detail-condition-card{display:grid;gap:12px;color:#172033}
+.detail-condition-source{display:grid;gap:10px}
+.detail-condition-source+.detail-condition-source{padding-top:12px;border-top:1px solid #d9e1ec}
+.detail-condition-level{width:max-content;max-width:100%;padding:3px 9px;border-radius:999px;background:#edf3f8;color:#526173;font-size:12px;font-weight:700}
+.detail-effect-group{overflow:hidden;border:1px solid #dce5ef;border-radius:12px;background:#fff}
+.detail-effect-group>header{display:grid;gap:5px;padding:10px 12px;border-bottom:1px solid #dce5ef;background:#f4f7fb}
+.detail-effect-qualifier{min-width:0;padding-left:9px;border-left:3px solid #94a3b8}
+.detail-effect-qualifier>strong{min-width:0;line-height:1.55;overflow-wrap:anywhere}
+.detail-effect-qualifier.is-condition{border-left-color:#8b5cf6}
+.detail-effect-qualifier.is-trigger{border-left-color:#d99a00}
+.detail-effect-qualifier.is-context{border-left-color:#3b82f6}
+.detail-effect-group>ul{display:grid;gap:0;margin:0;padding:0;list-style:none}
+.detail-effect-group>ul>li{position:relative;padding:10px 12px 10px 31px;line-height:1.65;font-weight:600;overflow-wrap:anywhere}
+.detail-effect-group>ul>li+li{border-top:1px solid #edf1f5}
+.detail-effect-group>ul>li::before{content:'•';position:absolute;left:14px;top:10px;color:#64748b;font-weight:900}
+.detail-effect-note{margin-top:5px;color:#526173;font-size:12px;font-weight:500}
+.detail-condition-raw{border-top:1px dashed #cbd5e1;padding-top:7px;color:#526173}
+.detail-condition-raw>summary{cursor:pointer;width:max-content;max-width:100%;font-size:12px;font-weight:700;color:#475569}
+.detail-condition-raw>div{margin-top:8px;padding:9px;border-radius:8px;background:#f4f6f8;line-height:1.65;font-size:12px;white-space:normal;overflow-wrap:anywhere}
+.referenced-skill-list{display:grid;gap:12px;margin-top:12px}
+.referenced-skill-card{background:#f8fafc}
+.referenced-skill-raw{margin-top:12px}
+@media(max-width:760px){.detail-effect-group>header{padding:9px 10px}.detail-effect-group>ul>li{padding:10px 10px 10px 27px;font-size:14px}.detail-effect-group>ul>li::before{left:11px}.detail-condition-raw>summary{min-height:36px;display:flex;align-items:center}}

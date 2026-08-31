@@ -1,0 +1,158 @@
+{
+  "contractVersion": "hado-json-bundle-manifest-v1",
+  "bundleId": "3d030f8d4c3c823527f7f00455c5608a2f1569601fd13df34c96edfbb8051a19",
+  "dataUpdatedAt": "2026-08-24T16:58:10.882Z",
+  "dataRunId": "2026-08-24T16-57-46-091Z",
+  "files": {
+    "hadou_effect_clauses.json": {
+      "required": true,
+      "size": 33678483,
+      "sha256": "ae72064b59b5c1ccd51836abbfa62a56f0549c544e97d534a3e3d519f840a349"
+    },
+    "hadou_effect_condition_blocks.json": {
+      "required": true,
+      "size": 9898617,
+      "sha256": "1b355afc54ccad5e9967f9618ac188ff6c7319dae0a38755ae6cf17c1259a327"
+    },
+    "hadou_equipment_skill_stage_index.json": {
+      "required": true,
+      "size": 1093635,
+      "sha256": "1fbf261d73a03feed9c5611698e116c1191277d69cb00448f6a35d6f0017b177"
+    },
+    "hadou_equipments.json": {
+      "required": true,
+      "size": 3297633,
+      "sha256": "0ec3ecca5eb22d9189833bab96663f5768c6631cefa7097de82945b7d7ec650b"
+    },
+    "hadou_ethnic_armaments.json": {
+      "required": true,
+      "size": 17378,
+      "sha256": "4c1889b1d9032870bde27a02775ac34866f88e16d47a03fc34586045b8a072fd"
+    },
+    "hadou_ethnic_research_skills.json": {
+      "required": true,
+      "size": 93902,
+      "sha256": "848ea891173cb93fca04f6f52a1a888e447d154581012dba206c66cb26a6eaaf"
+    },
+    "hadou_five_elements.json": {
+      "required": true,
+      "size": 8396,
+      "sha256": "698daeb6782fc7df86339b478e6dfb7caf78a9f51e1e06e7651f2861b6995290"
+    },
+    "hadou_formation_candidate_index.json": {
+      "required": true,
+      "size": 473489,
+      "sha256": "15e2960bc0dd239258c1989abf88ffff77102e59abe75504d6b592738c58dffa"
+    },
+    "hadou_formations.json": {
+      "required": true,
+      "size": 92415,
+      "sha256": "815fabfe5dbe0d11c21fcb1624bd15e093c22b00b0ecb4cf730a6773ae91cd15"
+    },
+    "hadou_generals.json": {
+      "required": true,
+      "size": 21835372,
+      "sha256": "d9c847f5c0aa7122d84ac03af2940ea003f133ebb223c45f6d085b44b8454543"
+    },
+    "hadou_meta.json": {
+      "required": true,
+      "size": 1707,
+      "sha256": "13ad7f0e7b23435d5b7fa98e194f02be638814d3a82455bc3ad1f6688992a8db"
+    },
+    "hadou_parameter_summary_index.json": {
+      "required": true,
+      "size": 16201985,
+      "sha256": "7c7699ba9bdf30ff61fbc414e9be857b19042ed25e4b0f72b3675bada34bf5c9"
+    },
+    "hadou_related_link_index.json": {
+      "required": true,
+      "size": 29554748,
+      "sha256": "b85512d12321387984ad25386debdd78cd873d236dad7f114b916cf506fc8911"
+    },
+    "hadou_result_card_index.json": {
+      "required": true,
+      "size": 1528965,
+      "sha256": "b94ab788eb3de7f1c105f0a1e698ccbc2dbabb2b7ce3b45ce29900c9c810c7db"
+    },
+    "hadou_search_index.json": {
+      "required": true,
+      "size": 6548085,
+      "sha256": "6bc0d565193bb4a7b5cc0c3785cbced79b724d2bae1ff2e57bbe8e1050670cd7"
+    },
+    "hadou_siege_weapons.json": {
+      "required": true,
+      "size": 22201,
+      "sha256": "3cc07b07ee4a0758bfbb3ac0c576be4e110c041a18c73a56d4437da10e3f6a7a"
+    },
+    "hadou_skill_owner_index.json": {
+      "required": true,
+      "size": 1976736,
+      "sha256": "35b26052fd2cb47d5ead6067539c064021956d1eea53a9289783ea55bcd78b81"
+    },
+    "hadou_skills.json": {
+      "required": true,
+      "size": 3775583,
+      "sha256": "1f0192672b5f65f2174e4f53a73775af7a130530bb929399593494c4259c039c"
+    },
+    "hadou_status_effect_group_owner_index.json": {
+      "required": true,
+      "size": 2483387,
+      "sha256": "afe47e44a776738a7b8daa71a9575d5d47b404bdf18a2ebf8a4fc895b74b0274"
+    },
+    "hadou_status_effect_meta_index.json": {
+      "required": true,
+      "size": 211401,
+      "sha256": "86bbe7f3b883826317510fa2884a92047a0c83c201218abd55dd67fbb9aea739"
+    },
+    "hadou_status_effect_relations.json": {
+      "required": true,
+      "size": 1067675,
+      "sha256": "dc8927ace1c689d9520bc058026ea59cb1961d35148f036cf593da1884cf3a6e"
+    },
+    "hadou_status_effects.json": {
+      "required": true,
+      "size": 85349,
+      "sha256": "09cebb3af461f4ac07d8249c3fdf5b6384cd6af46436b914e01059a88accd13c"
+    },
+    "hadou_tactic_attack_index.json": {
+      "required": true,
+      "size": 2320199,
+      "sha256": "eca95846e3d29b8810c61fe2799ba288c306e2c6164219ad30fd4ef64645e554"
+    },
+    "hadou_tag_index.json": {
+      "required": true,
+      "size": 3757569,
+      "sha256": "b83496761894f5534aea025c4f806acb0e4e577f7d2b82d75985394a6f05a767"
+    },
+    "hadou_type_score_rules.json": {
+      "required": false,
+      "size": 34977,
+      "sha256": "47efbe4ec4d98602ef6cfa68ae93d3a58f969f3b5f22cf936392244334ec98b0"
+    },
+    "hadou_type_search_feature_index.json": {
+      "required": true,
+      "size": 10088485,
+      "sha256": "fd26f65574a31138140c10cdb0ceb24b7e08a487c08cf0f59afae5598b2dc420"
+    },
+    "hadou_type_search_presets.json": {
+      "required": true,
+      "size": 38330,
+      "sha256": "9976b4f318804db020af3e9919a9b621a33e5a0f6edc0d172d57d9138a7a84e6"
+    },
+    "hadou_type_search_regression_cases.json": {
+      "required": true,
+      "size": 16273,
+      "sha256": "e2217ccb41dda080d8a2cbcdf0d4869ea91739211f8712ff4b1ea774051d32c5"
+    },
+    "hadou_warhorse_skills.json": {
+      "required": true,
+      "size": 128495,
+      "sha256": "808b250f406a8a1aeac666ae0cf57b1a0e4fadfac06843ebe1b9596f82df44e0"
+    },
+    "hadou_warhorses.json": {
+      "required": true,
+      "size": 4588,
+      "sha256": "93289c069ac9d569dcd0971212024160c6af3f69f473cd82ca9d6a3f8109e29a"
+    }
+  }
+}

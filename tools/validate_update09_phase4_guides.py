@@ -45,8 +45,17 @@ def main() -> int:
     release_version = release_match.group(1)
     update_no = update_match.group(1)
     revision = int(revision_match.group(1))
-    if not update_no:
-        release_parts = tuple(int(part) for part in release_version.split("."))
+    release_parts = tuple(int(part) for part in release_version.split("."))
+    if release_parts >= (3, 1, 0, 0):
+        if revision < 171:
+            raise SystemExit(f"unexpected 3.1 development version: {release_version} Update{update_no} r{revision}")
+        if update_no:
+            if not re.fullmatch(r"\d+(?:\.\d+)*", update_no):
+                raise SystemExit(f"unexpected 3.1 development version: {release_version} Update{update_no} r{revision}")
+            require(version_js, f"Update{update_no}", "visible 3.1 Update version summary in hado_version.js")
+        elif revision < 190:
+            raise SystemExit(f"unexpected completed 3.1 preview version: {release_version} r{revision}")
+    elif not update_no:
         if release_parts < (3, 0, 1, 1) or revision < 165:
             raise SystemExit(f"unexpected post-Update release: {release_version} r{revision}")
     elif update_no == "09.4.21":

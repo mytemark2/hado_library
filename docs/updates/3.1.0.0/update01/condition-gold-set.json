@@ -1,0 +1,504 @@
+{
+  "schemaVersion": 1,
+  "releaseVersion": "3.1.0.0",
+  "updateNo": "01",
+  "itemCount": 44,
+  "items": [
+    {
+      "id": "yuan-main-double",
+      "category": "generals",
+      "entity": "LR袁紹（えんしょう）",
+      "sourceRecordId": "generals:49",
+      "sourceUnitId": "generals:49:0:0",
+      "sourceText": "自身を含む味方4部隊の攻撃と知力を150％上昇全ての兵科と物体に対して有利にする自身1部隊に25％の魁威を付与（この武将が主将の場合、魁威の効果量が2倍）対象を含む敵4部隊に自部隊の攻撃または知力の高い方の系統で250％の攻撃（同値の場合は知力系統）（この武将が主将で自部隊の現在兵力が50％以上の場合、威力を700％にして攻撃する）",
+      "expectedSemanticTags": [
+        "condition.placement_role",
+        "modifier.multiplier"
+      ]
+    },
+    {
+      "id": "yuan-troops-50",
+      "category": "generals",
+      "entity": "LR袁紹（えんしょう）",
+      "sourceRecordId": "generals:49",
+      "sourceUnitId": "generals:49:0:0",
+      "sourceText": "自身を含む味方4部隊の攻撃と知力を150％上昇全ての兵科と物体に対して有利にする自身1部隊に25％の魁威を付与（この武将が主将の場合、魁威の効果量が2倍）対象を含む敵4部隊に自部隊の攻撃または知力の高い方の系統で250％の攻撃（同値の場合は知力系統）（この武将が主将で自部隊の現在兵力が50％以上の場合、威力を700％にして攻撃する）",
+      "expectedSemanticTags": [
+        "condition.troop_threshold",
+        "modifier.conditional_adjustment"
+      ]
+    },
+    {
+      "id": "yuan-base-250-override-700",
+      "category": "generals",
+      "entity": "LR袁紹（えんしょう）",
+      "sourceRecordId": "generals:49",
+      "sourceUnitId": "generals:49:0:0",
+      "sourceText": "自身を含む味方4部隊の攻撃と知力を150％上昇全ての兵科と物体に対して有利にする自身1部隊に25％の魁威を付与（この武将が主将の場合、魁威の効果量が2倍）対象を含む敵4部隊に自部隊の攻撃または知力の高い方の系統で250％の攻撃（同値の場合は知力系統）（この武将が主将で自部隊の現在兵力が50％以上の場合、威力を700％にして攻撃する）",
+      "expectedSemanticTags": [
+        "modifier.override_fixed"
+      ]
+    },
+    {
+      "id": "yuan-kaii-25-to-50",
+      "category": "generals",
+      "entity": "LR袁紹（えんしょう）",
+      "sourceRecordId": "generals:49",
+      "sourceUnitId": "generals:49:0:0",
+      "sourceText": "自身を含む味方4部隊の攻撃と知力を150％上昇全ての兵科と物体に対して有利にする自身1部隊に25％の魁威を付与（この武将が主将の場合、魁威の効果量が2倍）対象を含む敵4部隊に自部隊の攻撃または知力の高い方の系統で250％の攻撃（同値の場合は知力系統）（この武将が主将で自部隊の現在兵力が50％以上の場合、威力を700％にして攻撃する）",
+      "expectedSemanticTags": [
+        "condition.placement_role",
+        "modifier.multiplier"
+      ]
+    },
+    {
+      "id": "yuan-50-to-100",
+      "category": "generals",
+      "entity": "LR袁紹（えんしょう）",
+      "sourceRecordId": "generals:49",
+      "sourceUnitId": "generals:49:5:6",
+      "sourceText": "→自身が主将の際は効果量が2倍（100％）",
+      "expectedSemanticTags": [
+        "condition.placement_role",
+        "modifier.multiplier"
+      ]
+    },
+    {
+      "id": "maliang-affinity",
+      "category": "generals",
+      "entity": "LR馬良（ばりょう）",
+      "sourceRecordId": "generals:2",
+      "sourceUnitId": "generals:2:3:0",
+      "sourceText": "■主将か、主将と自身が好相性の際",
+      "expectedSemanticTags": [
+        "condition.placement_role",
+        "condition.affinity"
+      ]
+    },
+    {
+      "id": "maliang-politics-ratio",
+      "category": "generals",
+      "entity": "LR馬良（ばりょう）",
+      "sourceRecordId": "generals:2",
+      "sourceUnitId": "generals:2:5:1",
+      "sourceText": "●自身の政治の20%を部隊の防御と知力に加算",
+      "expectedSemanticTags": [
+        "modifier.stat_scaling",
+        "modifier.additive"
+      ]
+    },
+    {
+      "id": "maliang-intelligence-compare",
+      "category": "generals",
+      "entity": "LR馬良（ばりょう）",
+      "sourceRecordId": "generals:2",
+      "sourceUnitId": "generals:2:5:6",
+      "sourceText": "●自部隊より低知力の敵部隊からの1回の通常攻撃、1回の戦法によるダメージの上限が5000になる（連鎖攻撃の場合、連鎖攻撃ごとに上限が5000になる）",
+      "expectedSemanticTags": [
+        "condition.stat_comparison"
+      ]
+    },
+    {
+      "id": "maliang-existing-effect-sum",
+      "category": "generals",
+      "entity": "LR馬良（ばりょう）",
+      "sourceRecordId": "generals:2",
+      "sourceUnitId": "generals:2:5:7",
+      "sourceText": "●自部隊に有利激攻/有利巧守が付与される際、既に発生している有利激攻/有利巧守の効果量をそれぞれ加算した状態で付与される（付与される際の効果量上限は有利激攻が250%、有利巧守が70%）",
+      "expectedSemanticTags": [
+        "condition.status_presence_count",
+        "modifier.additive"
+      ]
+    },
+    {
+      "id": "maliang-vice1-trigger",
+      "category": "generals",
+      "entity": "LR馬良（ばりょう）",
+      "sourceRecordId": "generals:2",
+      "sourceUnitId": "generals:2:7:6",
+      "sourceText": "▼副将1の戦法発動時",
+      "expectedSemanticTags": [
+        "trigger.tactic_activation"
+      ]
+    },
+    {
+      "id": "maliang-vice2-trigger",
+      "category": "generals",
+      "entity": "LR馬良（ばりょう）",
+      "sourceRecordId": "generals:2",
+      "sourceUnitId": "generals:2:7:8",
+      "sourceText": "▼副将2の戦法発動時",
+      "expectedSemanticTags": [
+        "trigger.tactic_activation"
+      ]
+    },
+    {
+      "id": "maliang-appointment",
+      "category": "generals",
+      "entity": "LR馬良（ばりょう）",
+      "sourceRecordId": "generals:2",
+      "sourceUnitId": "generals:2:6:0",
+      "sourceText": "■軍事府に任命時",
+      "expectedSemanticTags": [
+        "context.appointment"
+      ]
+    },
+    {
+      "id": "guanping-named-generals",
+      "category": "generals",
+      "entity": "LR関平（かんぺい）",
+      "sourceRecordId": "generals:3",
+      "sourceUnitId": "generals:3:1:0",
+      "sourceText": "自身1部隊に豪昇と50％の闘気を付与自身を含む味方3部隊の攻撃と会心威力を100％、通常攻撃威力を30%上昇（この武将が主将か、自部隊の主将が関羽/関興/関索/関銀屏の際、攻撃、会心威力、通常攻撃威力の上昇効果が1.5倍になる）対象を含む敵3部隊に400％の攻撃",
+      "expectedSemanticTags": [
+        "condition.general_identity_set"
+      ]
+    },
+    {
+      "id": "guanping-cavalry",
+      "category": "generals",
+      "entity": "LR関平（かんぺい）",
+      "sourceRecordId": "generals:3",
+      "sourceUnitId": "generals:3:5:2",
+      "sourceText": "→自部隊が騎兵の場合、効果が3倍（+3％）",
+      "expectedSemanticTags": [
+        "condition.troop_type"
+      ]
+    },
+    {
+      "id": "guanping-first-tactic",
+      "category": "generals",
+      "entity": "LR関平（かんぺい）",
+      "sourceRecordId": "generals:3",
+      "sourceUnitId": "generals:3:6:6",
+      "sourceText": "●出陣後、自部隊の最初の戦法発動まで攻撃速度+100%（出陣中に1度まで発動）",
+      "expectedSemanticTags": [
+        "limit.activation_count",
+        "limit.duration"
+      ]
+    },
+    {
+      "id": "guanping-buff-count",
+      "category": "generals",
+      "entity": "LR関平（かんぺい）",
+      "sourceRecordId": "generals:3",
+      "sourceUnitId": "generals:3:6:7",
+      "sourceText": "●自部隊に発生している強化効果の数×5％、敵部隊に対する会心威力が上昇（最大50%）",
+      "expectedSemanticTags": [
+        "condition.status_presence_count",
+        "condition.count_threshold"
+      ]
+    },
+    {
+      "id": "guanping-enemy-attack-compare",
+      "category": "generals",
+      "entity": "LR関平（かんぺい）",
+      "sourceRecordId": "generals:3",
+      "sourceUnitId": "generals:3:6:8",
+      "sourceText": "→自部隊より攻撃の低い敵部隊に対しては効果が2倍（強化効果の数×10％上昇。",
+      "expectedSemanticTags": [
+        "condition.stat_comparison"
+      ]
+    },
+    {
+      "id": "guanping-critical-trigger",
+      "category": "generals",
+      "entity": "LR関平（かんぺい）",
+      "sourceRecordId": "generals:3",
+      "sourceUnitId": "generals:3:8:7",
+      "sourceText": "▼会心攻撃でダメージを与えた時",
+      "expectedSemanticTags": [
+        "trigger.critical_hit",
+        "trigger.damage_event"
+      ]
+    },
+    {
+      "id": "sun-formation-defense",
+      "category": "generals",
+      "entity": "LR孫堅・盾兵（そんけん）",
+      "sourceRecordId": "generals:7",
+      "sourceUnitId": "generals:7:4:0",
+      "sourceText": "■主将で、編制時点の自部隊の防御が2750以上の際",
+      "expectedSemanticTags": [
+        "condition.formation_stat_threshold"
+      ]
+    },
+    {
+      "id": "sun-troops-50",
+      "category": "generals",
+      "entity": "LR孫堅・盾兵（そんけん）",
+      "sourceRecordId": "generals:7",
+      "sourceUnitId": "generals:7:6:5",
+      "sourceText": "▼兵力が50%以上の時",
+      "expectedSemanticTags": [
+        "condition.troop_threshold"
+      ]
+    },
+    {
+      "id": "sun-base-power-fixed",
+      "category": "generals",
+      "entity": "LR孫堅・盾兵（そんけん）",
+      "sourceRecordId": "generals:7",
+      "sourceUnitId": "generals:7:6:6",
+      "sourceText": "●通常攻撃を受ける際、通常攻撃の基礎威力を50%に固定した状態で被ダメージを計算する",
+      "expectedSemanticTags": [
+        "modifier.override_fixed"
+      ]
+    },
+    {
+      "id": "sun-target-priority",
+      "category": "generals",
+      "entity": "LR孫堅・盾兵（そんけん）",
+      "sourceRecordId": "generals:7",
+      "sourceUnitId": "generals:7:8:9",
+      "sourceText": "→この武将と主将が好相性の部隊が優先して対象となる",
+      "expectedSemanticTags": [
+        "targeting.priority"
+      ]
+    },
+    {
+      "id": "simazhao-named-set",
+      "category": "generals",
+      "entity": "LR司馬昭（しばしょう）",
+      "sourceRecordId": "generals:15",
+      "sourceUnitId": "generals:15:4:2",
+      "sourceText": "■部隊内（主将/副将/補佐）とその侍従に司馬師/王元姫/鍾会/鄧艾のうち1人以上いる際",
+      "expectedSemanticTags": [
+        "condition.general_identity_set",
+        "condition.count_threshold"
+      ]
+    },
+    {
+      "id": "simazhao-enemy-affinity",
+      "category": "generals",
+      "entity": "LR司馬昭（しばしょう）",
+      "sourceRecordId": "generals:15",
+      "sourceUnitId": "generals:15:4:3",
+      "sourceText": "●敵部隊の主将と諸葛亮の相性が良い場合、その部隊から受ける弱化効果と反転を避ける",
+      "expectedSemanticTags": [
+        "condition.affinity"
+      ]
+    },
+    {
+      "id": "simazhao-before-normal-attack",
+      "category": "generals",
+      "entity": "LR司馬昭（しばしょう）",
+      "sourceRecordId": "generals:15",
+      "sourceUnitId": "generals:15:4:4",
+      "sourceText": "●通常攻撃を受ける直前、50％の確率で攻撃してきた敵部隊の強化効果を1つ消滅させる",
+      "expectedSemanticTags": [
+        "trigger.pre_attack_or_hit"
+      ]
+    },
+    {
+      "id": "simazhao-before-tactic-attack",
+      "category": "generals",
+      "entity": "LR司馬昭（しばしょう）",
+      "sourceRecordId": "generals:15",
+      "sourceUnitId": "generals:15:6:3",
+      "sourceText": "●戦法攻撃を受ける直前、攻撃してきた敵部隊の強化効果を2つ消滅させる（連鎖している場合はそれぞれの戦法攻撃ごとに1回ずつ発生）（有利変化「絶縁」により攻撃の発生が無効化されている場合、この効果は発揮されない）",
+      "expectedSemanticTags": [
+        "trigger.pre_attack_or_hit"
+      ]
+    },
+    {
+      "id": "simazhao-insulation-suppression",
+      "category": "generals",
+      "entity": "LR司馬昭（しばしょう）",
+      "sourceRecordId": "generals:15",
+      "sourceUnitId": "generals:15:6:3",
+      "sourceText": "●戦法攻撃を受ける直前、攻撃してきた敵部隊の強化効果を2つ消滅させる（連鎖している場合はそれぞれの戦法攻撃ごとに1回ずつ発生）（有利変化「絶縁」により攻撃の発生が無効化されている場合、この効果は発揮されない）",
+      "expectedSemanticTags": [
+        "suppression.activation_suppression"
+      ]
+    },
+    {
+      "id": "huang-component-alive",
+      "category": "generals",
+      "entity": "LR黄月英（こうげつえい）",
+      "sourceRecordId": "generals:36",
+      "sourceUnitId": "generals:36:5:4",
+      "sourceText": "▼部隊が兵器を編制して健在の時",
+      "expectedSemanticTags": [
+        "condition.component_state"
+      ]
+    },
+    {
+      "id": "huang-siege-action",
+      "category": "generals",
+      "entity": "LR黄月英（こうげつえい）",
+      "sourceRecordId": "generals:36",
+      "sourceUnitId": "generals:36:7:3",
+      "sourceText": "●兵器行動時、自身1部隊の弱化効果を1つ打ち消す（1度の兵器行動につき1回まで発生）",
+      "expectedSemanticTags": [
+        "trigger.siege_action"
+      ]
+    },
+    {
+      "id": "huang-affinity-count",
+      "category": "generals",
+      "entity": "LR黄月英（こうげつえい）",
+      "sourceRecordId": "generals:36",
+      "sourceUnitId": "generals:36:5:1",
+      "sourceText": "●部隊内（主将/副将/補佐）の自身と好相性の武将数×3％、部隊の知力が上昇",
+      "expectedSemanticTags": [
+        "condition.affinity",
+        "condition.count_threshold"
+      ]
+    },
+    {
+      "id": "huang-intelligence-compare",
+      "category": "generals",
+      "entity": "LR黄月英（こうげつえい）",
+      "sourceRecordId": "generals:36",
+      "sourceUnitId": "generals:36:5:7",
+      "sourceText": "→自部隊の知力が敵より高い場合、確率が2倍（×20％）",
+      "expectedSemanticTags": [
+        "condition.stat_comparison"
+      ]
+    },
+    {
+      "id": "cross-skill-level",
+      "category": "generals",
+      "entity": "LR沮授（そじゅ）",
+      "sourceRecordId": "generals:0",
+      "sourceUnitId": "generals:0:16:2",
+      "sourceText": "●部隊の「執守」の技能Lv+1（上限2）",
+      "expectedSemanticTags": [
+        "condition.skill_level"
+      ]
+    },
+    {
+      "id": "cross-star-rank",
+      "category": "generals",
+      "entity": "UR卞氏（べんし）",
+      "sourceRecordId": "generals:4",
+      "sourceUnitId": "generals:4:0:0",
+      "sourceText": "自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）",
+      "expectedSemanticTags": [
+        "condition.star_rank"
+      ]
+    },
+    {
+      "id": "cross-sortie",
+      "category": "generals",
+      "entity": "LR沮授（そじゅ）",
+      "sourceRecordId": "generals:0",
+      "sourceUnitId": "generals:0:4:7",
+      "sourceText": "▼出陣時",
+      "expectedSemanticTags": [
+        "trigger.sortie"
+      ]
+    },
+    {
+      "id": "cross-engagement",
+      "category": "generals",
+      "entity": "LR馬良（ばりょう）",
+      "sourceRecordId": "generals:2",
+      "sourceUnitId": "generals:2:5:8",
+      "sourceText": "▼交戦開始時",
+      "expectedSemanticTags": [
+        "trigger.engagement_start"
+      ]
+    },
+    {
+      "id": "cross-count-limit",
+      "category": "generals",
+      "entity": "LR関平（かんぺい）",
+      "sourceRecordId": "generals:3",
+      "sourceUnitId": "generals:3:8:8",
+      "sourceText": "●自身1部隊の弱化効果を1つ打ち消す（1度の通常攻撃につき1回まで発生）",
+      "expectedSemanticTags": [
+        "limit.activation_count"
+      ]
+    },
+    {
+      "id": "cross-duration",
+      "category": "generals",
+      "entity": "LR関平（かんぺい）",
+      "sourceRecordId": "generals:3",
+      "sourceUnitId": "generals:3:8:2",
+      "sourceText": "●自身1部隊に付与される豪昇の効果時間+10秒",
+      "expectedSemanticTags": [
+        "limit.duration"
+      ]
+    },
+    {
+      "id": "cross-cumulative",
+      "category": "generals",
+      "entity": "LR馬良（ばりょう）",
+      "sourceRecordId": "generals:2",
+      "sourceUnitId": "generals:2:2:0",
+      "sourceText": "一定時間ごとに知力が累積して上昇さらに自部隊より知力の低い敵部隊から受ける被ダメージを50％軽減する",
+      "expectedSemanticTags": [
+        "reset.cumulative"
+      ]
+    },
+    {
+      "id": "cross-probability",
+      "category": "generals",
+      "entity": "LR闞沢（かんたく）",
+      "sourceRecordId": "generals:9",
+      "sourceUnitId": "generals:9:12:5",
+      "sourceText": "●戦法発動時の連鎖数に応じて自部隊の武将の戦法で撃心が発生するようになる（2連鎖時は25％、3連鎖時は50％の確率で撃心が発生する。",
+      "expectedSemanticTags": [
+        "condition.probability"
+      ]
+    },
+    {
+      "id": "cross-suppression",
+      "category": "generals",
+      "entity": "LR蒙恬（もうてん）",
+      "sourceRecordId": "generals:1",
+      "sourceUnitId": "generals:1:5:13",
+      "sourceText": "●この技能を持つ武将の戦法攻撃時、敵部隊に発生している全ての強化効果を無視してダメージを与える（有利変化「絶縁」により攻撃の発生が無効化されている場合、この効果は発揮されない）",
+      "expectedSemanticTags": [
+        "suppression.activation_suppression"
+      ]
+    },
+    {
+      "id": "cross-exception",
+      "category": "generals",
+      "entity": "UR越吉（えつきつ）",
+      "sourceRecordId": "generals:6",
+      "sourceUnitId": "generals:6:2:4",
+      "sourceText": "累積は200％まで）（交戦開始時に累積値は0になる）（主将戦法が非攻撃戦法の場合は効果なし）",
+      "expectedSemanticTags": [
+        "suppression.exception"
+      ]
+    },
+    {
+      "id": "status-periodic",
+      "category": "statusEffects",
+      "entity": "治癒",
+      "sourceRecordId": "statusEffects:0",
+      "sourceUnitId": "statusEffects:0:0:0",
+      "sourceText": "一定時間ごとに負傷兵を最大兵力に応じて回復する",
+      "expectedSemanticTags": [
+        "condition.entity_state_relation"
+      ]
+    },
+    {
+      "id": "status-condition-count",
+      "category": "statusEffects",
+      "entity": "豪昇",
+      "sourceRecordId": "statusEffects:43",
+      "sourceUnitId": "statusEffects:43:0:0",
+      "sourceText": "自部隊に発生している強化効果の数に応じて、部隊の与ダメージが上昇（強化効果1つにつき5％ずつ上昇。",
+      "expectedSemanticTags": [
+        "condition.status_presence_count"
+      ]
+    },
+    {
+      "id": "status-troops-threshold",
+      "category": "statusEffects",
+      "entity": "闘気",
+      "sourceRecordId": "statusEffects:29",
+      "sourceUnitId": "statusEffects:29:0:0",
+      "sourceText": "兵力が50％以上の時、部隊の被ダメージを効果量分軽減",
+      "expectedSemanticTags": [
+        "condition.troop_threshold"
+      ]
+    }
+  ]
+}

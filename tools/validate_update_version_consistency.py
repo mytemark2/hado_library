@@ -70,7 +70,7 @@ def main() -> int:
         "hado_update_meta.js",
         ".github/workflows/notify-preview.yml",
     )
-    allowed_current_version_literals = {display_version, update_no}
+    allowed_current_version_literals = {display_version, update_no, f"Update{update_no}" if update_no else ""}
     for relative_name in runtime_files:
         runtime_text = (ROOT / relative_name).read_text(encoding="utf-8")
         stale_literals = [

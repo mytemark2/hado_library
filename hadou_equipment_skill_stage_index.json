@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-08-13T09:30:02.893Z",
-  "dataSetId": "2026-08-13T06:28:33.208Z",
+  "generatedAt": "2026-08-25T13:39:09.184Z",
+  "dataSetId": "2026-08-24T16:58:10.882Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -33,26 +33,26 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 486,
-    "tactics": 465,
-    "equipments": 249,
-    "skills": 653,
+    "generals": 488,
+    "tactics": 467,
+    "equipments": 251,
+    "skills": 661,
     "statusEffects": 206,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
     "ethnicResearchSkills": 32,
-    "formations": 21,
+    "formations": 22,
     "fiveElements": 10,
     "warhorses": 5,
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "caa6a018",
-    "tactics": "19b2dc25",
-    "equipments": "504f8c1b",
-    "skills": "c7e8c8f5",
+    "generals": "c8a69cf2",
+    "tactics": "17b2d8ff",
+    "equipments": "4c51c466",
+    "skills": "55f06444",
     "statusEffects": "defa110c",
-    "formations": "9c5d2dae",
+    "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
     "ethnicArmaments": "c731a91c",
     "ethnicResearchSkills": "06d47d06",
@@ -61,12 +61,12 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "caa6a018",
-    "tactics": "19b2dc25",
-    "equipments": "504f8c1b",
-    "skills": "c7e8c8f5",
+    "generals": "c8a69cf2",
+    "tactics": "17b2d8ff",
+    "equipments": "4c51c466",
+    "skills": "55f06444",
     "statusEffects": "defa110c",
-    "formations": "9c5d2dae",
+    "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
     "ethnicArmaments": "c731a91c",
     "ethnicResearchSkills": "06d47d06",
@@ -77,8 +77,8 @@
   "hotfixVersion": "1.1.0.3",
   "kind": "equipment_skill_stage_index",
   "qualityAudit": {
-    "itemCount": 248,
-    "sourceItemCount": 249,
+    "itemCount": 250,
+    "sourceItemCount": 251,
     "duplicateEquipmentNameCount": 1,
     "duplicateEquipmentNames": [
       "青嚢書・名家医書"
@@ -87,8 +87,8 @@
       "ok": true,
       "policy": "同じ表示名の装備記事は段階・技能・根拠URLを統合し、先頭記事だけを採用しない。"
     },
-    "withSkills": 217,
-    "stageParameterEffectCount": 1192,
+    "withSkills": 219,
+    "stageParameterEffectCount": 1208,
     "suspiciousSkillNameCount": 0,
     "suspiciousSkillNameSamples": [],
     "suspiciousParameterEffectCount": 0,
@@ -97,6 +97,324 @@
     "missingDirectSignedEffectSamples": []
   },
   "items": [
+    {
+      "id": "equipments:name:心翠宝玉佩",
+      "category": "equipments",
+      "name": "心翠宝玉佩",
+      "displayName": "心翠宝玉佩",
+      "rawName": "【三國志 覇道】心翠宝玉佩",
+      "highestRarity": "UR",
+      "slot": "文物",
+      "troopType": "騎兵 歩兵 弓兵 盾兵",
+      "stages": {
+        "initial": {
+          "label": "初期",
+          "skills": [
+            {
+              "skillName": "執献才略",
+              "text": "■常に ●部隊の「執守」の技能Lv+1（上限2） ●部隊の知力+2%"
+            },
+            {
+              "skillName": "機才十全",
+              "text": "■常に▼兵力が50％以上の時 ●部隊の「機略」のLv×1%、部隊の撃心威力が上昇 ●出陣時の自部隊の知力に応じて、戦法による与ダメージが上昇（知力500につき1％上昇。最大10％）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+2%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+2%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "ssrMax": {
+          "label": "SSR最大",
+          "skills": [
+            {
+              "skillName": "執献才略",
+              "text": "■常に ●部隊の「執守」の技能Lv+1（上限2） ●部隊の知力+2%"
+            },
+            {
+              "skillName": "機才十全",
+              "text": "■常に▼兵力が50％以上の時 ●部隊の「機略」のLv×4%、部隊の撃心威力が上昇 ●出陣時の自部隊の知力に応じて、戦法による与ダメージが上昇（知力500につき2％上昇。最大20％）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+2%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+2%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "urMax": {
+          "label": "UR最大",
+          "skills": [
+            {
+              "skillName": "執献才略",
+              "text": "■常に ●部隊の「執守」の技能Lv+1（上限2） ●部隊の「機略」の技能Lv+1（上限5） ●部隊の知力+4%"
+            },
+            {
+              "skillName": "機才十全",
+              "text": "■常に▼兵力が50％以上の時 ●部隊の「機略」のLv×5%、部隊の撃心威力が上昇 ●出陣時の自部隊の知力に応じて、戦法による与ダメージが上昇（知力500につき2.5％上昇。最大25％）"
+            },
+            {
+              "skillName": "賢護壮昇",
+              "text": "■常に ●知力系統の通常攻撃・戦法による被ダメージ-5％ →自部隊の兵力が50％以上の際、効果が2倍（-10%）"
+            }
+          ],
+          "skillCount": 3,
+          "parameterEffects": [
+            {
+              "parameter": "被ダメージ",
+              "direction": "decrease",
+              "value": "-5％",
+              "targetSide": "self_or_ally",
+              "matchedText": "被ダメージ-5％",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+4%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        }
+      },
+      "stageCandidates": [
+        {
+          "tableIndex": 2,
+          "skillCount": 3,
+          "skillNames": [
+            "執献才略",
+            "機才十全",
+            "賢護壮昇"
+          ]
+        },
+        {
+          "tableIndex": 3,
+          "skillCount": 2,
+          "skillNames": [
+            "執献才略",
+            "機才十全"
+          ]
+        },
+        {
+          "tableIndex": 4,
+          "skillCount": 2,
+          "skillNames": [
+            "執献才略",
+            "機才十全"
+          ]
+        }
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572594",
+      "sourceUrls": [
+        "https://gamewith.jp/sangokushihadou/article/show/572594"
+      ]
+    },
+    {
+      "id": "equipments:name:万里安境矛",
+      "category": "equipments",
+      "name": "万里安境矛",
+      "displayName": "万里安境矛",
+      "rawName": "【三國志 覇道】万里安境矛",
+      "highestRarity": "UR",
+      "slot": "武器",
+      "troopType": "盾兵",
+      "stages": {
+        "initial": {
+          "label": "初期",
+          "skills": [
+            {
+              "skillName": "声威斥逐",
+              "text": "■常に ●部隊の「逐敵」の技能Lv+1（上限2） ●部隊の兵力+2%"
+            },
+            {
+              "skillName": "武慧凌撃",
+              "text": "■常に ●部隊の攻撃+3% ●部隊の知力+3% ●戦法による与ダメージ+5% →自部隊より最大兵力の低い敵部隊に対しては効果が2倍（+10%）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+5%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+5%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+3%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+3%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+3%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+3%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "兵力",
+              "direction": "increase",
+              "value": "+2%",
+              "targetSide": "self_or_ally",
+              "matchedText": "兵力+2%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "ssrMax": {
+          "label": "SSR最大",
+          "skills": [
+            {
+              "skillName": "声威斥逐",
+              "text": "■常に ●部隊の「逐敵」の技能Lv+1（上限2） ●部隊の兵力+2%"
+            },
+            {
+              "skillName": "武慧凌撃",
+              "text": "■常に ●部隊の攻撃+10% ●部隊の知力+10% ●戦法による与ダメージ+10% →自部隊より最大兵力の低い敵部隊に対しては効果が2倍（+20%）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+10%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+10%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+10%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+10%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+10%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+10%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "兵力",
+              "direction": "increase",
+              "value": "+2%",
+              "targetSide": "self_or_ally",
+              "matchedText": "兵力+2%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "urMax": {
+          "label": "UR最大",
+          "skills": [
+            {
+              "skillName": "声威斥逐",
+              "text": "■常に ●部隊の「逐敵」の技能Lv+1（上限2） ●部隊の「主導」の技能Lv+1（上限5） ●部隊の兵力+4%"
+            },
+            {
+              "skillName": "武慧凌撃",
+              "text": "■常に ●部隊の攻撃+10% ●部隊の知力+10% ●戦法による与ダメージ+10% →自部隊より最大兵力の低い敵部隊に対しては効果が2倍（+20%）"
+            },
+            {
+              "skillName": "倒撃援連",
+              "text": "■常に▼部隊撃破時 ●自身を含む味方2部隊の弱化効果を1つ打ち消す ●自身を含む味方2部隊の負傷兵を最大兵力の10％回復 ●自身を含む味方2部隊の攻撃+10%（15秒） ●自身を含む味方2部隊の知力+10%（15秒）"
+            }
+          ],
+          "skillCount": 3,
+          "parameterEffects": [
+            {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+10%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+10%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+10%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+10%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+10%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+10%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "兵力",
+              "direction": "increase",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "兵力+4%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        }
+      },
+      "stageCandidates": [
+        {
+          "tableIndex": 2,
+          "skillCount": 3,
+          "skillNames": [
+            "声威斥逐",
+            "武慧凌撃",
+            "倒撃援連"
+          ]
+        },
+        {
+          "tableIndex": 3,
+          "skillCount": 2,
+          "skillNames": [
+            "声威斥逐",
+            "武慧凌撃"
+          ]
+        },
+        {
+          "tableIndex": 4,
+          "skillCount": 2,
+          "skillNames": [
+            "声威斥逐",
+            "武慧凌撃"
+          ]
+        }
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572595",
+      "sourceUrls": [
+        "https://gamewith.jp/sangokushihadou/article/show/572595"
+      ]
+    },
     {
       "id": "equipments:name:亜父奇謀冠",
       "category": "equipments",

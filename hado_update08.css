@@ -1,0 +1,11 @@
+.formation-clause-state-list{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.formation-clause-state{display:inline-flex;align-items:center;border-radius:999px;padding:2px 7px;font-size:11px;font-weight:700;background:#eef2f7;color:#44546a}
+.formation-clause-state.is-met{background:#e4f7ec;color:#176b3a}
+.formation-clause-state.is-unmet{background:#fbe9e9;color:#9b2c2c}
+.formation-clause-state.is-deferred{background:#fff3d6;color:#8a5b00}
+.formation-clause-state.is-not_applicable{background:#edf0f4;color:#5a6472}
+.formation-clause-state.is-unknown{background:#f0e9fb;color:#6941a5}
+.formation-clause-meta{display:flex;flex-wrap:wrap;gap:4px 8px;margin-top:5px;font-size:12px;color:#5a6472}
+.formation-condition-qualifiers{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}
+.formation-condition-qualifier{border:1px solid #d4dbe5;border-radius:999px;padding:2px 7px;font-size:11px;color:#43536a;background:#fff}
+@media (max-width:600px){.formation-clause-meta{font-size:11px}.formation-clause-state{padding:2px 6px}.formation-condition-qualifier{padding:2px 6px}}

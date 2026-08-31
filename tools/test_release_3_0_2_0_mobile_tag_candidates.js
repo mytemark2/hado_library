@@ -20,7 +20,7 @@ assert(html.includes('autocomplete="off"'), 'native autocomplete must not cover 
 assert(status.includes('getMatchingTagCandidates(input,limit=16)'), 'candidate lookup must cap rendered options at 16');
 assert(status.includes("source:'precomputed'"), 'candidate lookup must use a precomputed searchable index');
 assert(status.includes('row.searchText.includes(q)'), 'input-time filtering must reuse precomputed searchable text');
-assert(status.includes('if(applyDerivedTagIndexToItems(all)){rebuildTagCandidateSearchIndex();'), 'derived tag-index loading must also build candidate search metadata');
+assert(status.includes('if(applyDerivedTagIndexToItems(all)){mergeClauseSearchTags(all);rebuildAvailableTagCategoryIndex(all);rebuildTagCandidateSearchIndex();'), 'derived tag-index loading must merge source tags, audit owners, and build candidate search metadata');
 assert(status.includes('state.tagCandidatePointerDown=true'), 'touch selection must retain the input/list relationship until click commits');
 assert(status.includes('seq!==state.tagCandidateBlurSeq'), 'a stale mobile blur timer must not close a newly focused candidate list');
 assert(status.includes("selectTagCandidate(tag,'candidate-tap')"), 'a candidate tap must select the canonical tag');
