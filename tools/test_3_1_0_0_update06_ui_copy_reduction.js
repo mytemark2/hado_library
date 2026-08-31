@@ -50,7 +50,7 @@ assert(!formation.includes('各部隊に兵器・武装を1つずつ指定でき
 assert(!formation.includes('現在の設定：'));
 assert(!formation.includes('編成による加算値・タップで根拠表示'));
 assert(formation.includes('title="選択すると根拠を表示"'));
-assert(version.includes('revision: 201'));
-assert(indexHtml.includes('3.1.0.0-r201'));
+assert(version.includes('revision: 202'));
+assert(indexHtml.includes('3.1.0.0-r202'));
 
 console.log('Update06 UI copy reduction ok: skill/search/data/formation default screens compact; guide, tooltips, and warning retained');

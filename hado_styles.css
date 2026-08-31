@@ -279,7 +279,7 @@ body.formation-tab .pc-search-history-panel{display:none!important}
 
 /* BUGFIX[HADO-2.5.1.1-MOBILE-SEARCH-UX]: スマホ検索UIの再整理 */
 .search-help-note{font-size:12px;color:var(--muted);line-height:1.5;margin-top:-2px}
-.results{border:none;background:transparent;display:grid;gap:8px;max-height:720px;overflow:auto}
+.results{border:none;background:#eff6ff;display:grid;gap:8px;max-height:720px;overflow:auto}
 .results li{border:1px solid var(--border)!important;border-radius:12px;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04);padding:11px 12px}
 .results li.active{border-color:#93c5fd!important;background:#eff6ff}
 .search-result-mini-badge.is-dataset{background:#f8fafc}.search-result-more-row{justify-content:center!important;background:#f8fafc!important}.search-result-more-row button{width:100%;font-weight:800}

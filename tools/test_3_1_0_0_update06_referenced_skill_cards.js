@@ -63,7 +63,7 @@ assert(!core.includes('fmtContent(entry.content)'), 'referenced cards must not b
 assert(!core.includes('技能データ参照'));
 assert(!core.includes('付与Lv:'));
 assert(css.includes('.referenced-skill-card{background:#f8fafc}'));
-assert(indexHtml.includes('hado_core.js?v=3.1.0.0-r201'));
+assert(indexHtml.includes('hado_core.js?v=3.1.0.0-r202'));
 assert(!indexHtml.includes('06-r182'));
 
 console.log(`Update06 referenced-skill cards ok: ${relations.size} relations / 白眉 2 groups / shared presenter / one granted level only`);
