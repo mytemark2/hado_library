@@ -1,6 +1,7 @@
 'use strict';
 
 const assert=require('assert');
+const crypto=require('crypto');
 const fs=require('fs');
 const path=require('path');
 const ROOT=path.resolve(__dirname,'..');
@@ -13,7 +14,7 @@ const entityHash=value=>{let h=2166136261;for(const ch of String(value??'')){h^=
 const flattenScalars=value=>{const out=[];const walk=v=>{if(v==null)return;if(['string','number','boolean'].includes(typeof v)){out.push(String(v));return;}if(Array.isArray(v)){v.forEach(walk);return;}if(typeof v==='object')Object.values(v).forEach(walk);};walk(value);return out.join(' ');};
 
 const generatedFiles=[
-  'hadou_effect_condition_blocks.json','hadou_equipment_skill_stage_index.json','hadou_formation_candidate_index.json',
+  'hadou_effect_clauses.json','hadou_effect_condition_blocks.json','hadou_equipment_skill_stage_index.json','hadou_formation_candidate_index.json',
   'hadou_parameter_summary_index.json','hadou_related_link_index.json','hadou_result_card_index.json','hadou_search_index.json',
   'hadou_skill_owner_index.json','hadou_status_effect_group_owner_index.json','hadou_status_effect_meta_index.json',
   'hadou_status_effect_relations.json','hadou_tactic_attack_index.json','hadou_tag_index.json','hadou_type_purpose_rules.json',
@@ -22,6 +23,39 @@ const generatedFiles=[
 ];
 generatedFiles.forEach(name=>assert.doesNotThrow(()=>read(name),`${name} must parse`));
 
+const effectClauseText=fs.readFileSync(path.join(ROOT,'hadou_effect_clauses.json'),'utf8');
+const effectClauses=JSON.parse(effectClauseText);
+assert.strictEqual(effectClauses.kind,'effect_clause_index');
+assert.strictEqual(effectClauses.contractVersion,'app-3.1.0.0-update05');
+assert(Number.isInteger(effectClauses.itemCount)&&effectClauses.itemCount>0);
+assert(Number.isInteger(effectClauses.clauseCount)&&effectClauses.clauseCount>=effectClauses.itemCount);
+assert.strictEqual(rows(effectClauses).length,effectClauses.itemCount);
+assert.strictEqual(effectClauses.qualityAudit.ok,true);
+assert.strictEqual(effectClauses.qualityAudit.unparsedSemanticUnitCount,0);
+assert.strictEqual(effectClauses.qualityAudit.invalidClauseCount,0);
+assert.strictEqual(effectClauses.qualityAudit.orphanConditionCount,0);
+assert.strictEqual(effectClauses.qualityAudit.orphanTriggerCount,0);
+assert.strictEqual(effectClauses.qualityAudit.orphanEffectCount,0);
+assert.strictEqual(effectClauses.qualityAudit.duplicateEffectIdentityCount,0);
+assert.strictEqual(effectClauses.qualityAudit.reviewedGoldCount,44);
+assert.strictEqual(effectClauses.qualityAudit.goldCaseCount,44);
+assert.deepStrictEqual(effectClauses.qualityAudit.unmatchedGoldCaseIds,[]);
+assert.strictEqual(effectClauses.reviewedCaseCount,44);
+assert.strictEqual(effectClauses.reviewedCases.length,44);
+assert(effectClauses.reviewedCases.every(row=>row?.clause?.trust?.state==='reviewed'));
+const clauseRows=rows(effectClauses).flatMap(item=>item.clauses||[]);
+assert.strictEqual(clauseRows.length,effectClauses.clauseCount);
+assert.strictEqual(new Set(rows(effectClauses).map(item=>item.id)).size,effectClauses.itemCount,'effect source record id must be unique');
+assert.strictEqual(new Set(clauseRows.map(clause=>clause.id)).size,effectClauses.clauseCount,'effect clause id must be unique');
+for(const clause of clauseRows){
+  assert.strictEqual(clause.schemaVersion,'1.0');
+  assert(clause.id&&clause.effect?.id&&clause.effect?.identity);
+  assert(clause.evidence?.rawText&&/^[0-9a-f]{64}$/.test(clause.evidence.rawTextSha256));
+  assert.strictEqual(crypto.createHash('sha256').update(clause.evidence.rawText).digest('hex'),clause.evidence.rawTextSha256);
+  for(const key of ['modifier','limit','reset','suppression'])for(const typed of clause[key]||[])assert.strictEqual(typed.effectId,clause.effect.id);
+  for(const typed of clause.target?.rules||[])assert.strictEqual(typed.effectId,clause.effect.id);
+  assert.strictEqual(clause.trust?.state,'generated','parser output must not be promoted to reviewed by approximate semantic overlap');
+}
 const parameter=read('hadou_parameter_summary_index.json');
 const related=read('hadou_related_link_index.json');
 const search=read('hadou_search_index.json');
@@ -118,7 +152,7 @@ assert(/getDerivedRelatedLinkIndexEntry\(item,category\)/m.test(relatedRuntimeSo
 assert(/getDerivedRelatedLinkIndexGroupsForItem\(item,\{trustedIndex:true,category,name:itemName\}\)/m.test(relatedRuntimeSource));
 const bootstrapSource=fs.readFileSync(path.join(ROOT,'hado_bootstrap.js'),'utf8');
 assert(/const requestToken=\[/m.test(bootstrapSource));
-assert(/loadJsonTextByXhr\(requestUrl\(file\)\)/m.test(bootstrapSource));
+assert(/loadJsonTextByXhr\(requestUrl\(file\),\{timeoutMs:/m.test(bootstrapSource));
 
 const parameterEffects=rows(parameter).flatMap(v=>v.effects||[]);
 assert(parameterEffects.length>0);

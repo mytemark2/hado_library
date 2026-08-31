@@ -279,7 +279,7 @@ body.formation-tab .pc-search-history-panel{display:none!important}
 
 /* BUGFIX[HADO-2.5.1.1-MOBILE-SEARCH-UX]: スマホ検索UIの再整理 */
 .search-help-note{font-size:12px;color:var(--muted);line-height:1.5;margin-top:-2px}
-.results{border:none;background:transparent;display:grid;gap:8px;max-height:720px;overflow:auto}
+.results{border:none;background:#eff6ff;display:grid;gap:8px;max-height:720px;overflow:auto}.layout>section.panel:has(>#results){background:#eff6ff}
 .results li{border:1px solid var(--border)!important;border-radius:12px;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04);padding:11px 12px}
 .results li.active{border-color:#93c5fd!important;background:#eff6ff}
 .search-result-mini-badge.is-dataset{background:#f8fafc}.search-result-more-row{justify-content:center!important;background:#f8fafc!important}.search-result-more-row button{width:100%;font-weight:800}
@@ -1376,7 +1376,8 @@ body.formation-tab .formation-result-focus .formation-table{max-width:100%;overf
 #typeSearchPanel[hidden],
 #searchQueryRow[hidden],
 #normalSearchInputRow[hidden],
-#tagSearchWrap[hidden]{display:none!important}
+#tagSearchWrap[hidden],
+.type-search-preset-info[hidden]{display:none!important}
 
 /* UI[HADO-2.9.5.1-TYPE-SEARCH-COMPACT]: 型検索を通常時3行へ圧縮。 */
 .type-search-panel-compact{padding:6px;margin:0 0 6px}.type-search-panel-compact .type-search-row{gap:4px;margin:2px 0;align-items:center}.type-search-panel-compact .type-search-row-label{min-width:36px;font-size:11px}.type-search-panel-compact .type-search-select{min-width:170px;padding:3px 5px;font-size:12px;height:27px}.type-search-panel-compact .type-search-preset-select{min-width:150px}.type-search-panel-compact .type-search-compact-btn{min-width:28px;min-height:25px;height:25px;padding:2px 6px;border-radius:6px;font-size:11px;line-height:1;white-space:nowrap}.type-search-panel-compact .type-search-selected{flex:1 1 240px;min-width:0;min-height:22px;gap:3px}.type-search-panel-compact .type-search-badge{padding:1px 5px;font-size:11px}.type-search-panel-compact .type-search-badge-label{font-size:9px}.type-search-panel-compact .type-search-badge-remove{font-size:13px}.type-search-preset-info{flex:1 1 280px;display:block;padding:3px 6px;margin:0;min-width:220px;font-size:11px;line-height:1.35}.type-search-preset-info summary{cursor:pointer;color:#334155;list-style-position:inside}.type-search-preset-detail{display:grid;gap:3px;padding:4px 2px 1px}.type-search-preset-condition-group{display:block}.type-search-help{position:relative;flex:0 0 auto}.type-search-help summary{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border:1px solid #cbd5e1;border-radius:999px;background:#fff;color:#475569;font-size:12px;font-weight:700;cursor:pointer;list-style:none}.type-search-help summary::-webkit-details-marker{display:none}.type-search-help-body{position:absolute;right:0;z-index:5;width:min(420px,calc(100vw - 48px));padding:7px 8px;margin-top:4px;border:1px solid #cbd5e1;border-radius:7px;background:#fff;box-shadow:0 4px 12px rgba(15,23,42,.14);color:#475569;font-size:11px;line-height:1.45}.type-search-help-body .type-search-importance-note{margin-top:4px}.type-search-row-preset{align-items:flex-start}@media(max-width:980px){.type-search-panel-compact .type-search-row-label{min-width:30px}.type-search-panel-compact .type-search-select{min-width:128px;flex:0 1 180px}.type-search-panel-compact .type-search-preset-select{flex:1 1 145px}.type-search-preset-info{order:5;flex-basis:100%;min-width:0}.type-search-panel-compact .type-search-selected{flex-basis:160px}.type-search-help-body{right:-2px}}
@@ -1415,6 +1416,11 @@ body.formation-tab .formation-result-focus .formation-table{max-width:100%;overf
 .tag-picker-title{display:flex;align-items:center;gap:7px;flex-wrap:wrap;color:var(--text)}
 .tag-picker-category{display:inline-flex;align-items:center;border:1px solid #93c5fd;border-radius:999px;background:#dbeafe;color:#1e3a8a;padding:2px 7px;font-size:11px;font-weight:800;line-height:1.35}
 .tag-picker-group-name{font-size:13px;font-weight:700;color:var(--muted)}
+.tag-picker-title{width:100%;border:0;border-radius:8px;padding:7px 8px;background:#f1f5f9;text-align:left;cursor:pointer}
+.tag-picker-title:hover{background:#e2e8f0}
+.tag-picker-title:focus-visible{outline:3px solid rgba(59,130,246,.35);outline-offset:2px}
+.tag-picker-chevron{margin-left:auto;color:#64748b;font-size:11px}
+.tag-picker-options[hidden]{display:none!important}
 
 /* 状態変化検索では状態変化2選択＋解除＋タグを同じ1行に置き、候補パネルだけ次行へ展開する。 */
 .search-preset-row.has-tag-filter{display:grid!important;grid-template-columns:minmax(0,.85fr) minmax(0,1.25fr) 32px auto!important;gap:6px!important;align-items:center!important;overflow:visible!important}
@@ -1824,3 +1830,50 @@ body{font-feature-settings:"palt" 1,"kern" 1;text-rendering:optimizeLegibility}
   .tag-candidate-option{min-height:44px;padding:9px 10px;font-size:14px;touch-action:manipulation}
   .tag-candidate-group{font-size:11px}
 }
+
+/* 3.1.0.0 r191: skill level tags control their own descriptions. */
+.skill-level-disclosure{display:grid;gap:8px;margin-top:10px;min-width:0}
+.skill-level-toggle-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.skill-level-toggle{min-width:38px;min-height:32px;border:1px solid #cbd5e1;border-radius:999px;padding:5px 10px;background:#fff;color:#475569;font-size:12px;font-weight:800;line-height:1;cursor:pointer}
+.skill-level-toggle:hover{border-color:#60a5fa;background:#eff6ff;color:#1d4ed8}
+.skill-level-toggle.is-active{border-color:#1d4ed8;background:#1d4ed8;color:#fff;box-shadow:0 2px 6px rgba(29,78,216,.2)}
+.skill-level-toggle:focus-visible{outline:3px solid rgba(59,130,246,.35);outline-offset:2px}
+.skill-level-panel-stack{display:grid;gap:8px;min-width:0}
+.skill-level-panel{min-width:0;border-top:1px solid #e2e8f0;padding-top:9px}
+.skill-level-panel[hidden]{display:none!important}
+.skill-level-raw{margin-top:0!important}
+.skill-level-empty{border:1px dashed #cbd5e1;border-radius:9px;padding:9px;color:#64748b;font-size:12px;text-align:center}
+.general-skill-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.general-skill-level-badge{display:inline-flex;flex:0 0 auto;align-items:center;border:1px solid #bfdbfe;border-radius:999px;padding:3px 8px;background:#eff6ff;color:#1d4ed8;font-size:12px;font-weight:800;line-height:1.2}
+.formation-selected-skill-list.has-skill-descriptions{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:8px}
+.formation-selected-skill-list.has-skill-descriptions .formation-selected-skill-row{display:block!important;min-width:0;padding:9px!important}
+.formation-selected-skill-list.has-skill-descriptions .formation-selected-skill-name{display:flex!important;align-items:flex-start;justify-content:space-between;gap:8px;width:100%;font-size:14px!important;line-height:1.4!important;white-space:normal}
+.formation-selected-skill-list.has-skill-descriptions .formation-selected-skill-name>span:first-child{white-space:normal;overflow:visible;text-overflow:clip}
+.formation-selected-skill-list.has-skill-descriptions .detail-effect-group{padding:8px}
+@media(max-width:980px),(pointer:coarse){
+  .skill-level-toggle{min-width:44px;min-height:38px;font-size:13px;touch-action:manipulation}
+  .formation-selected-skill-list.has-skill-descriptions{grid-template-columns:1fr}
+  .formation-selected-skill-list.has-skill-descriptions .formation-selected-skill-row{display:block!important}
+}
+/* 3.1.0.0 r196: selected tags keep the same color across filters, results, and details. */
+.tag-color-0{--tag-highlight-bg:#fef3c7;--tag-highlight-border:#d97706;--tag-highlight-text:#78350f}
+.tag-color-1{--tag-highlight-bg:#ffe4e6;--tag-highlight-border:#e11d48;--tag-highlight-text:#881337}
+.tag-color-2{--tag-highlight-bg:#f3e8ff;--tag-highlight-border:#a21caf;--tag-highlight-text:#581c87}
+.tag-color-3{--tag-highlight-bg:#ffedd5;--tag-highlight-border:#ea580c;--tag-highlight-text:#7c2d12}
+.tag-color-4{--tag-highlight-bg:#fae8ff;--tag-highlight-border:#c026d3;--tag-highlight-text:#701a75}
+.tag-color-5{--tag-highlight-bg:#fee2e2;--tag-highlight-border:#dc2626;--tag-highlight-text:#7f1d1d}
+.tag-color-6{--tag-highlight-bg:#fef9c3;--tag-highlight-border:#ca8a04;--tag-highlight-text:#713f12}
+.tag-color-7{--tag-highlight-bg:#fce7f3;--tag-highlight-border:#db2777;--tag-highlight-text:#831843}
+.tag-color-8{--tag-highlight-bg:#f7e8f3;--tag-highlight-border:#a63a74;--tag-highlight-text:#5e183e}
+.tag-color-9{--tag-highlight-bg:#fff0eb;--tag-highlight-border:#e85d3f;--tag-highlight-text:#7a271a}
+.tag-color-10{--tag-highlight-bg:#f3e8dc;--tag-highlight-border:#9a633f;--tag-highlight-text:#4b2e1d}
+.tag-color-11{--tag-highlight-bg:#f8e4ea;--tag-highlight-border:#a61b4d;--tag-highlight-text:#5c102f}
+.tag-highlight-token{border-color:var(--tag-highlight-border)!important;background:var(--tag-highlight-bg)!important;color:var(--tag-highlight-text)!important}
+.tag-highlight-token .selected-tag-remove{color:var(--tag-highlight-text)!important}
+.tag-picker-option.is-selected{font-weight:800;box-shadow:inset 3px 0 0 var(--tag-highlight-border)}
+.search-condition-chip.is-tag{font-weight:800}
+.search-result-tag-matches{display:flex;align-items:center;gap:5px;flex-wrap:wrap;min-width:0}
+.search-result-matched-tag{display:inline-flex;align-items:center;border:1px solid var(--tag-highlight-border);border-radius:999px;background:var(--tag-highlight-bg);color:var(--tag-highlight-text);font-size:11px;font-weight:800;line-height:1.35;padding:2px 7px;overflow-wrap:anywhere}
+.tag-text-highlight{display:inline;padding:0 .08em;border:0;border-bottom:2px solid var(--tag-highlight-border);border-radius:2px;background:var(--tag-highlight-bg);color:inherit;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+mark.search-hit.tag-text-highlight{background:var(--tag-highlight-bg);border-bottom-color:var(--tag-highlight-border);color:inherit}
+@media (max-width:520px){.search-result-tag-matches{gap:4px}.search-result-matched-tag{font-size:10px;padding:2px 6px}.search-condition-chip.is-tag{max-width:100%;overflow-wrap:anywhere}}

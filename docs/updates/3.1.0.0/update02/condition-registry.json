@@ -1,0 +1,466 @@
+{
+  "schemaVersion": "1.0",
+  "kind": "hado_condition_registry",
+  "releaseVersion": "3.1.0.0",
+  "updateNo": "02",
+  "evaluationStates": [
+    "met",
+    "unmet",
+    "deferred",
+    "not_applicable",
+    "unknown"
+  ],
+  "taxonomySha256": "af6bd5acbe8a5f61c4fe23f72ebe9af12378178ed56d6c41e05678f66c737056",
+  "itemCount": 44,
+  "items": [
+    {
+      "type": "condition.placement_role",
+      "group": "condition",
+      "phase": "formation",
+      "valueType": "enum",
+      "operators": [
+        "eq",
+        "in"
+      ],
+      "description": "編成内の配置役割"
+    },
+    {
+      "type": "condition.formation_membership",
+      "group": "condition",
+      "phase": "formation",
+      "valueType": "set",
+      "operators": [
+        "includes",
+        "includes_all",
+        "includes_any"
+      ],
+      "description": "部隊内の所属関係"
+    },
+    {
+      "type": "condition.troop_type",
+      "group": "condition",
+      "phase": "formation",
+      "valueType": "enum",
+      "operators": [
+        "eq",
+        "in"
+      ],
+      "description": "兵科・盾兵等の部隊種別"
+    },
+    {
+      "type": "condition.general_identity_set",
+      "group": "condition",
+      "phase": "formation",
+      "valueType": "set",
+      "operators": [
+        "includes",
+        "includes_all",
+        "includes_any"
+      ],
+      "description": "特定武将集合"
+    },
+    {
+      "type": "condition.affinity",
+      "group": "condition",
+      "phase": "formation",
+      "valueType": "enum",
+      "operators": [
+        "eq",
+        "in"
+      ],
+      "description": "武将間の相性関係"
+    },
+    {
+      "type": "condition.formation_stat_threshold",
+      "group": "condition",
+      "phase": "formation",
+      "valueType": "number",
+      "operators": [
+        "gt",
+        "gte",
+        "lt",
+        "lte"
+      ],
+      "description": "編制時能力値の閾値"
+    },
+    {
+      "type": "condition.component_state",
+      "group": "condition",
+      "phase": "formation",
+      "valueType": "structure",
+      "operators": [
+        "eq",
+        "exists"
+      ],
+      "description": "兵器等の編成要素と健在状態"
+    },
+    {
+      "type": "condition.troop_threshold",
+      "group": "condition",
+      "phase": "battle",
+      "valueType": "number",
+      "operators": [
+        "gt",
+        "gte",
+        "lt",
+        "lte"
+      ],
+      "description": "現在兵力・兵力割合の閾値"
+    },
+    {
+      "type": "condition.stat_comparison",
+      "group": "condition",
+      "phase": "battle",
+      "valueType": "number",
+      "operators": [
+        "gt",
+        "gte",
+        "lt",
+        "lte",
+        "eq"
+      ],
+      "description": "自部隊と対象部隊の能力比較"
+    },
+    {
+      "type": "condition.status_presence_count",
+      "group": "condition",
+      "phase": "battle",
+      "valueType": "number",
+      "operators": [
+        "gt",
+        "gte",
+        "lt",
+        "lte",
+        "eq"
+      ],
+      "description": "状態変化の有無・数"
+    },
+    {
+      "type": "condition.skill_level",
+      "group": "condition",
+      "phase": "formation",
+      "valueType": "number",
+      "operators": [
+        "gt",
+        "gte",
+        "lt",
+        "lte",
+        "eq"
+      ],
+      "description": "技能Lv"
+    },
+    {
+      "type": "condition.star_rank",
+      "group": "condition",
+      "phase": "formation",
+      "valueType": "number",
+      "operators": [
+        "gt",
+        "gte",
+        "lt",
+        "lte",
+        "eq"
+      ],
+      "description": "将星ランク"
+    },
+    {
+      "type": "condition.count_threshold",
+      "group": "condition",
+      "phase": "universal",
+      "valueType": "number",
+      "operators": [
+        "gt",
+        "gte",
+        "lt",
+        "lte",
+        "eq"
+      ],
+      "description": "人数・個数・連鎖数等の閾値"
+    },
+    {
+      "type": "condition.probability",
+      "group": "condition",
+      "phase": "battle",
+      "valueType": "number",
+      "operators": [
+        "gt",
+        "gte",
+        "lt",
+        "lte",
+        "eq"
+      ],
+      "description": "確率条件"
+    },
+    {
+      "type": "condition.target_relation",
+      "group": "condition",
+      "phase": "battle",
+      "valueType": "enum",
+      "operators": [
+        "eq",
+        "in"
+      ],
+      "description": "自身・味方・敵・対象との関係"
+    },
+    {
+      "type": "condition.entity_state_relation",
+      "group": "condition",
+      "phase": "battle",
+      "valueType": "structure",
+      "operators": [
+        "eq",
+        "exists"
+      ],
+      "description": "効果対象となる実体の状態関係"
+    },
+    {
+      "type": "trigger.sortie",
+      "group": "trigger",
+      "phase": "battle",
+      "valueType": "event",
+      "operators": [
+        "eq"
+      ],
+      "description": "出陣時"
+    },
+    {
+      "type": "trigger.engagement_start",
+      "group": "trigger",
+      "phase": "battle",
+      "valueType": "event",
+      "operators": [
+        "eq"
+      ],
+      "description": "交戦開始時"
+    },
+    {
+      "type": "trigger.tactic_activation",
+      "group": "trigger",
+      "phase": "battle",
+      "valueType": "event",
+      "operators": [
+        "eq"
+      ],
+      "description": "戦法発動時"
+    },
+    {
+      "type": "trigger.normal_attack",
+      "group": "trigger",
+      "phase": "battle",
+      "valueType": "event",
+      "operators": [
+        "eq"
+      ],
+      "description": "通常攻撃時"
+    },
+    {
+      "type": "trigger.pre_attack_or_hit",
+      "group": "trigger",
+      "phase": "battle",
+      "valueType": "event",
+      "operators": [
+        "eq"
+      ],
+      "description": "攻撃・被弾直前"
+    },
+    {
+      "type": "trigger.critical_hit",
+      "group": "trigger",
+      "phase": "battle",
+      "valueType": "event",
+      "operators": [
+        "eq"
+      ],
+      "description": "会心・撃心発生時"
+    },
+    {
+      "type": "trigger.siege_action",
+      "group": "trigger",
+      "phase": "battle",
+      "valueType": "event",
+      "operators": [
+        "eq"
+      ],
+      "description": "兵器行動時"
+    },
+    {
+      "type": "trigger.status_change",
+      "group": "trigger",
+      "phase": "battle",
+      "valueType": "event",
+      "operators": [
+        "eq"
+      ],
+      "description": "状態変化発生時"
+    },
+    {
+      "type": "trigger.damage_event",
+      "group": "trigger",
+      "phase": "battle",
+      "valueType": "event",
+      "operators": [
+        "eq"
+      ],
+      "description": "ダメージ発生時"
+    },
+    {
+      "type": "trigger.custom_event",
+      "group": "trigger",
+      "phase": "battle",
+      "valueType": "event",
+      "operators": [
+        "eq"
+      ],
+      "description": "固有の戦闘イベント"
+    },
+    {
+      "type": "context.always",
+      "group": "context",
+      "phase": "universal",
+      "valueType": "boolean",
+      "operators": [
+        "eq"
+      ],
+      "description": "常時適用"
+    },
+    {
+      "type": "context.appointment",
+      "group": "context",
+      "phase": "external",
+      "valueType": "enum",
+      "operators": [
+        "eq",
+        "in"
+      ],
+      "description": "施設任命コンテキスト"
+    },
+    {
+      "type": "modifier.multiplier",
+      "group": "modifier",
+      "phase": "metadata",
+      "valueType": "number",
+      "operators": [],
+      "description": "効果量の乗算"
+    },
+    {
+      "type": "modifier.stat_scaling",
+      "group": "modifier",
+      "phase": "metadata",
+      "valueType": "structure",
+      "operators": [],
+      "description": "能力値比例"
+    },
+    {
+      "type": "modifier.override_fixed",
+      "group": "modifier",
+      "phase": "metadata",
+      "valueType": "structure",
+      "operators": [],
+      "description": "base値の固定上書き"
+    },
+    {
+      "type": "modifier.additive",
+      "group": "modifier",
+      "phase": "metadata",
+      "valueType": "number",
+      "operators": [],
+      "description": "加算補正"
+    },
+    {
+      "type": "modifier.cap_floor",
+      "group": "modifier",
+      "phase": "metadata",
+      "valueType": "structure",
+      "operators": [],
+      "description": "上限・下限"
+    },
+    {
+      "type": "modifier.conditional_adjustment",
+      "group": "modifier",
+      "phase": "metadata",
+      "valueType": "structure",
+      "operators": [],
+      "description": "条件付き補正"
+    },
+    {
+      "type": "limit.activation_count",
+      "group": "limit",
+      "phase": "metadata",
+      "valueType": "number",
+      "operators": [],
+      "description": "発動回数制限"
+    },
+    {
+      "type": "limit.duration",
+      "group": "limit",
+      "phase": "metadata",
+      "valueType": "duration",
+      "operators": [],
+      "description": "効果時間・継続区間"
+    },
+    {
+      "type": "limit.upper_lower_bound",
+      "group": "limit",
+      "phase": "metadata",
+      "valueType": "structure",
+      "operators": [],
+      "description": "値の上下限"
+    },
+    {
+      "type": "reset.cumulative",
+      "group": "reset",
+      "phase": "metadata",
+      "valueType": "structure",
+      "operators": [],
+      "description": "累積規則"
+    },
+    {
+      "type": "reset.reset_or_expire",
+      "group": "reset",
+      "phase": "metadata",
+      "valueType": "event",
+      "operators": [],
+      "description": "リセット・失効契機"
+    },
+    {
+      "type": "suppression.activation_suppression",
+      "group": "suppression",
+      "phase": "battle",
+      "valueType": "structure",
+      "operators": [],
+      "description": "発動抑止"
+    },
+    {
+      "type": "suppression.exception",
+      "group": "suppression",
+      "phase": "metadata",
+      "valueType": "structure",
+      "operators": [],
+      "description": "適用除外"
+    },
+    {
+      "type": "suppression.ignore_or_avoid",
+      "group": "suppression",
+      "phase": "battle",
+      "valueType": "structure",
+      "operators": [],
+      "description": "無視・回避"
+    },
+    {
+      "type": "targeting.priority",
+      "group": "targeting",
+      "phase": "metadata",
+      "valueType": "structure",
+      "operators": [],
+      "description": "対象選択優先順位"
+    },
+    {
+      "type": "targeting.target_count",
+      "group": "targeting",
+      "phase": "metadata",
+      "valueType": "number",
+      "operators": [],
+      "description": "対象数"
+    }
+  ]
+}

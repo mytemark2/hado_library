@@ -217,7 +217,8 @@ assert(decisionRows[3].parts.length === 1 && decisionRows[3].parts[0].value === 
 assert.strictEqual(decisionRows[5].parts[0].value, '最大860%', 'tactic maximum multiplier must use the formation tactic calculator');
 const decisionHtml = context.renderFormationQuickResultSummary(decisionSummaryData, formation);
 assert.strictEqual((decisionHtml.match(/data-formation-summary-metric=/g) || []).length, 6, 'rendered decision result summary must contain exactly six cards on PC and mobile');
-assert(decisionHtml.includes('編成による加算値') && decisionHtml.includes('条件付き'), 'summary UI must explain delta values and expose conditional effects');
+assert(!decisionHtml.includes('編成による加算値'), 'summary UI must not repeat explanatory copy');
+assert(decisionHtml.includes('title="選択すると根拠を表示"') && decisionHtml.includes('条件付き'), 'summary UI must keep help in a tooltip and expose conditional effects');
 
 const html = context.renderFormationScoreSummaryHtml(formation, formationData);
 const typeScore = context.state.diagnostics.typeScore;

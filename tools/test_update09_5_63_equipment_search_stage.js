@@ -47,7 +47,7 @@ assert.strictEqual(search.qualityAudit.equipmentStageCoverage.missingSkillRefCou
 const expected={
   initial:['弘雅守信冠','金繍緑錦披風','双鉄戟','龍紋緑袍鎧'],
   ssrMax:['弘雅守信冠','炎帝神農茶譜','金繍緑錦披風','双鉄戟','龍紋緑袍鎧'],
-  urMax:['龍淵剣','龍紋鉄甲','弘雅守信冠','炎帝神農茶譜','奮勇燕尾牌','金繍緑錦披風','双鉄戟','龍紋緑袍鎧']
+  urMax:['万里安境矛','龍淵剣','龍紋鉄甲','弘雅守信冠','炎帝神農茶譜','奮勇燕尾牌','金繍緑錦披風','双鉄戟','龍紋緑袍鎧']
 };
 
 for(const stage of Object.keys(expected)){
