@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-08-25T13:39:09.184Z",
+  "generatedAt": "2026-08-31T15:31:23.721Z",
   "dataSetId": "2026-08-24T16:58:10.882Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
@@ -35,7 +35,7 @@
   "sourceCounts": {
     "generals": 488,
     "tactics": 467,
-    "equipments": 251,
+    "equipments": 255,
     "skills": 661,
     "statusEffects": 206,
     "siegeWeapons": 6,
@@ -49,7 +49,7 @@
   "sourceHashes": {
     "generals": "c8a69cf2",
     "tactics": "17b2d8ff",
-    "equipments": "4c51c466",
+    "equipments": "5051cab2",
     "skills": "55f06444",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
@@ -63,7 +63,7 @@
   "sourceSha256": {
     "generals": "c8a69cf2",
     "tactics": "17b2d8ff",
-    "equipments": "4c51c466",
+    "equipments": "5051cab2",
     "skills": "55f06444",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
@@ -77,8 +77,8 @@
   "hotfixVersion": "1.1.0.3",
   "kind": "equipment_skill_stage_index",
   "qualityAudit": {
-    "itemCount": 250,
-    "sourceItemCount": 251,
+    "itemCount": 254,
+    "sourceItemCount": 255,
     "duplicateEquipmentNameCount": 1,
     "duplicateEquipmentNames": [
       "青嚢書・名家医書"
@@ -87,8 +87,8 @@
       "ok": true,
       "policy": "同じ表示名の装備記事は段階・技能・根拠URLを統合し、先頭記事だけを採用しない。"
     },
-    "withSkills": 219,
-    "stageParameterEffectCount": 1208,
+    "withSkills": 223,
+    "stageParameterEffectCount": 1234,
     "suspiciousSkillNameCount": 0,
     "suspiciousSkillNameSamples": [],
     "suspiciousParameterEffectCount": 0,
@@ -98,35 +98,43 @@
   },
   "items": [
     {
-      "id": "equipments:name:心翠宝玉佩",
+      "id": "equipments:name:料敵制勝剣",
       "category": "equipments",
-      "name": "心翠宝玉佩",
-      "displayName": "心翠宝玉佩",
-      "rawName": "【三國志 覇道】心翠宝玉佩",
+      "name": "料敵制勝剣",
+      "displayName": "料敵制勝剣",
+      "rawName": "【三國志 覇道】料敵制勝剣",
       "highestRarity": "UR",
-      "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵 盾兵",
+      "slot": "武器",
+      "troopType": "騎兵",
       "stages": {
         "initial": {
           "label": "初期",
           "skills": [
             {
-              "skillName": "執献才略",
-              "text": "■常に ●部隊の「執守」の技能Lv+1（上限2） ●部隊の知力+2%"
+              "skillName": "理鋭才気",
+              "text": "■常に ●部隊の「理知」の技能Lv+1（上限4） ●部隊の「鋭敏」の技能Lv+1（上限3） ●部隊の知力+1%"
             },
             {
-              "skillName": "機才十全",
-              "text": "■常に▼兵力が50％以上の時 ●部隊の「機略」のLv×1%、部隊の撃心威力が上昇 ●出陣時の自部隊の知力に応じて、戦法による与ダメージが上昇（知力500につき1％上昇。最大10％）"
+              "skillName": "決策賢略",
+              "text": "■常に ●知力系統の攻撃による与ダメージ+5% →自部隊に弱化効果が発生していない場合、さらに+5% →敵部隊に弱化効果が発生している場合、さらに+5%"
             }
           ],
           "skillCount": 2,
           "parameterEffects": [
             {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+5%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+5%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
               "parameter": "知力",
               "direction": "increase",
-              "value": "+2%",
+              "value": "+1%",
               "targetSide": "self_or_ally",
-              "matchedText": "知力+2%",
+              "matchedText": "知力+1%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -135,22 +143,30 @@
           "label": "SSR最大",
           "skills": [
             {
-              "skillName": "執献才略",
-              "text": "■常に ●部隊の「執守」の技能Lv+1（上限2） ●部隊の知力+2%"
+              "skillName": "理鋭才気",
+              "text": "■常に ●部隊の「理知」の技能Lv+1（上限4） ●部隊の「鋭敏」の技能Lv+1（上限3） ●部隊の知力+1%"
             },
             {
-              "skillName": "機才十全",
-              "text": "■常に▼兵力が50％以上の時 ●部隊の「機略」のLv×4%、部隊の撃心威力が上昇 ●出陣時の自部隊の知力に応じて、戦法による与ダメージが上昇（知力500につき2％上昇。最大20％）"
+              "skillName": "決策賢略",
+              "text": "■常に ●知力系統の攻撃による与ダメージ+10% →自部隊に弱化効果が発生していない場合、さらに+10% →敵部隊に弱化効果が発生している場合、さらに+10%"
             }
           ],
           "skillCount": 2,
           "parameterEffects": [
             {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+10%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+10%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
               "parameter": "知力",
               "direction": "increase",
-              "value": "+2%",
+              "value": "+1%",
               "targetSide": "self_or_ally",
-              "matchedText": "知力+2%",
+              "matchedText": "知力+1%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -159,26 +175,26 @@
           "label": "UR最大",
           "skills": [
             {
-              "skillName": "執献才略",
-              "text": "■常に ●部隊の「執守」の技能Lv+1（上限2） ●部隊の「機略」の技能Lv+1（上限5） ●部隊の知力+4%"
+              "skillName": "理鋭才気",
+              "text": "■常に ●部隊の「理知」の技能Lv+1（上限4） ●部隊の「鋭敏」の技能Lv+1（上限3） ●部隊の「連慧」の技能Lv+1（上限5） ●部隊の知力+4%"
             },
             {
-              "skillName": "機才十全",
-              "text": "■常に▼兵力が50％以上の時 ●部隊の「機略」のLv×5%、部隊の撃心威力が上昇 ●出陣時の自部隊の知力に応じて、戦法による与ダメージが上昇（知力500につき2.5％上昇。最大25％）"
+              "skillName": "決策賢略",
+              "text": "■常に ●知力系統の攻撃による与ダメージ+35%"
             },
             {
-              "skillName": "賢護壮昇",
-              "text": "■常に ●知力系統の通常攻撃・戦法による被ダメージ-5％ →自部隊の兵力が50％以上の際、効果が2倍（-10%）"
+              "skillName": "慧士英知",
+              "text": "■常に▼主将戦法発動時 ●部隊の「連慧」のLv×4%、自身を含む味方3部隊の知力が上昇（15秒）"
             }
           ],
           "skillCount": 3,
           "parameterEffects": [
             {
-              "parameter": "被ダメージ",
-              "direction": "decrease",
-              "value": "-5％",
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+35%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ-5％",
+              "matchedText": "与ダメージ+35%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -197,31 +213,452 @@
           "tableIndex": 2,
           "skillCount": 3,
           "skillNames": [
-            "執献才略",
-            "機才十全",
-            "賢護壮昇"
+            "理鋭才気",
+            "決策賢略",
+            "慧士英知"
           ]
         },
         {
           "tableIndex": 3,
           "skillCount": 2,
           "skillNames": [
-            "執献才略",
-            "機才十全"
+            "理鋭才気",
+            "決策賢略"
           ]
         },
         {
           "tableIndex": 4,
           "skillCount": 2,
           "skillNames": [
-            "執献才略",
-            "機才十全"
+            "理鋭才気",
+            "決策賢略"
           ]
         }
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572594",
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/574351",
       "sourceUrls": [
-        "https://gamewith.jp/sangokushihadou/article/show/572594"
+        "https://gamewith.jp/sangokushihadou/article/show/574351"
+      ]
+    },
+    {
+      "id": "equipments:name:藤黄飄遥小青巾",
+      "category": "equipments",
+      "name": "藤黄飄遥小青巾",
+      "displayName": "藤黄飄遥小青巾",
+      "rawName": "【三國志 覇道】藤黄飄遥小青巾",
+      "highestRarity": "UR",
+      "slot": "防具",
+      "troopType": "騎兵 歩兵 弓兵 盾兵",
+      "stages": {
+        "initial": {
+          "label": "初期",
+          "skills": [
+            {
+              "skillName": "理鋭堅守",
+              "text": "■常に ●部隊の「理知」の技能Lv+1（上限4） ●部隊の「鋭敏」の技能Lv+1（上限3） ●部隊の防御+1%"
+            },
+            {
+              "skillName": "決策賢略",
+              "text": "■常に ●知力系統の攻撃による被ダメージ-5% →自部隊に弱化効果が発生していない場合、さらに-5% →敵部隊に弱化効果が発生している場合、さらに-5%"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "被ダメージ",
+              "direction": "decrease",
+              "value": "-5%",
+              "targetSide": "self_or_ally",
+              "matchedText": "被ダメージ-5%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "防御",
+              "direction": "decrease",
+              "value": "+1%",
+              "targetSide": "self_or_ally",
+              "matchedText": "防御+1%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "ssrMax": {
+          "label": "SSR最大",
+          "skills": [
+            {
+              "skillName": "理鋭堅守",
+              "text": "■常に ●部隊の「理知」の技能Lv+1（上限4） ●部隊の「鋭敏」の技能Lv+1（上限3） ●部隊の防御+1%"
+            },
+            {
+              "skillName": "決策賢略",
+              "text": "■常に ●知力系統の攻撃による被ダメージ-10% →自部隊に弱化効果が発生していない場合、さらに-10% →敵部隊に弱化効果が発生している場合、さらに-10%"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "被ダメージ",
+              "direction": "decrease",
+              "value": "-10%",
+              "targetSide": "self_or_ally",
+              "matchedText": "被ダメージ-10%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "防御",
+              "direction": "decrease",
+              "value": "+1%",
+              "targetSide": "self_or_ally",
+              "matchedText": "防御+1%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "urMax": {
+          "label": "UR最大",
+          "skills": [
+            {
+              "skillName": "理鋭堅守",
+              "text": "■常に ●部隊の「理知」の技能Lv+1（上限4） ●部隊の「鋭敏」の技能Lv+1（上限3） ●部隊の「機略」の技能Lv+1（上限5） ●部隊の防御+4%"
+            },
+            {
+              "skillName": "決策賢略",
+              "text": "■常に ●知力系統の攻撃による被ダメージ-35%"
+            },
+            {
+              "skillName": "慧士励護",
+              "text": "■常に▼主将戦法発動時 ●部隊の「連慧」のLv×4%、自身を含む味方3部隊の防御が上昇（15秒）"
+            }
+          ],
+          "skillCount": 3,
+          "parameterEffects": [
+            {
+              "parameter": "被ダメージ",
+              "direction": "decrease",
+              "value": "-35%",
+              "targetSide": "self_or_ally",
+              "matchedText": "被ダメージ-35%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "防御",
+              "direction": "decrease",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "防御+4%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        }
+      },
+      "stageCandidates": [
+        {
+          "tableIndex": 2,
+          "skillCount": 3,
+          "skillNames": [
+            "理鋭堅守",
+            "決策賢略",
+            "慧士励護"
+          ]
+        },
+        {
+          "tableIndex": 3,
+          "skillCount": 2,
+          "skillNames": [
+            "理鋭堅守",
+            "決策賢略"
+          ]
+        },
+        {
+          "tableIndex": 4,
+          "skillCount": 2,
+          "skillNames": [
+            "理鋭堅守",
+            "決策賢略"
+          ]
+        }
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/574352",
+      "sourceUrls": [
+        "https://gamewith.jp/sangokushihadou/article/show/574352"
+      ]
+    },
+    {
+      "id": "equipments:name:抗節相和冠",
+      "category": "equipments",
+      "name": "抗節相和冠",
+      "displayName": "抗節相和冠",
+      "rawName": "【三國志 覇道】抗節相和冠",
+      "highestRarity": "UR",
+      "slot": "防具",
+      "troopType": "騎兵 歩兵 弓兵 盾兵",
+      "stages": {
+        "initial": {
+          "label": "初期",
+          "skills": [
+            {
+              "skillName": "政鼓堅守",
+              "text": "■常に ●部隊の「政化」の技能Lv+1（上限4） ●部隊の「鼓励」の技能Lv+1（上限3） ●部隊の防御+1%"
+            },
+            {
+              "skillName": "万政喝破",
+              "text": "■常に ●政治を部隊能力に加算する技能の効果量+5%▼主将戦法発動時 ●対象を含む敵3部隊の強化効果を1つ打ち消す →50％の確率で効果が2倍（2つ）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "防御",
+              "direction": "increase",
+              "value": "+1%",
+              "targetSide": "self_or_ally",
+              "matchedText": "防御+1%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "ssrMax": {
+          "label": "SSR最大",
+          "skills": [
+            {
+              "skillName": "政鼓堅守",
+              "text": "■常に ●部隊の「政化」の技能Lv+1（上限4） ●部隊の「鼓励」の技能Lv+1（上限3） ●部隊の防御+1%"
+            },
+            {
+              "skillName": "万政喝破",
+              "text": "■常に ●政治を部隊能力に加算する技能の効果量+5%▼主将戦法発動時 ●対象を含む敵3部隊の強化効果を2つ打ち消す"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "防御",
+              "direction": "increase",
+              "value": "+1%",
+              "targetSide": "self_or_ally",
+              "matchedText": "防御+1%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "urMax": {
+          "label": "UR最大",
+          "skills": [
+            {
+              "skillName": "政鼓堅守",
+              "text": "■常に ●部隊の「政化」の技能Lv+1（上限4） ●部隊の「鼓励」の技能Lv+1（上限3） ●部隊の「敏活」の技能Lv+1（上限5） ●部隊の防御+4%"
+            },
+            {
+              "skillName": "万政喝破",
+              "text": "■常に ●政治を部隊能力に加算する技能の効果量+10%▼主将戦法発動時 ●対象を含む敵3部隊の強化効果を3つ打ち消す"
+            },
+            {
+              "skillName": "怒髪減衝",
+              "text": "■常に ●通常攻撃・戦法による被ダメージ-5% →物体を攻撃目標にしている時、効果が2倍（-10%）"
+            }
+          ],
+          "skillCount": 3,
+          "parameterEffects": [
+            {
+              "parameter": "被ダメージ",
+              "direction": "decrease",
+              "value": "-5%",
+              "targetSide": "self_or_ally",
+              "matchedText": "被ダメージ-5%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "防御",
+              "direction": "increase",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "防御+4%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        }
+      },
+      "stageCandidates": [
+        {
+          "tableIndex": 2,
+          "skillCount": 3,
+          "skillNames": [
+            "政鼓堅守",
+            "万政喝破",
+            "怒髪減衝"
+          ]
+        },
+        {
+          "tableIndex": 3,
+          "skillCount": 2,
+          "skillNames": [
+            "政鼓堅守",
+            "万政喝破"
+          ]
+        },
+        {
+          "tableIndex": 4,
+          "skillCount": 2,
+          "skillNames": [
+            "政鼓堅守",
+            "万政喝破"
+          ]
+        }
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/574353",
+      "sourceUrls": [
+        "https://gamewith.jp/sangokushihadou/article/show/574353"
+      ]
+    },
+    {
+      "id": "equipments:name:和氏の璧",
+      "category": "equipments",
+      "name": "和氏の璧",
+      "displayName": "和氏の璧",
+      "rawName": "【三國志 覇道】和氏の璧",
+      "highestRarity": "UR",
+      "slot": "文物",
+      "troopType": "騎兵 歩兵 弓兵 盾兵",
+      "stages": {
+        "initial": {
+          "label": "初期",
+          "skills": [
+            {
+              "skillName": "政鼓才気",
+              "text": "■常に ●部隊の「政化」の技能Lv+1（上限4） ●部隊の「鼓励」の技能Lv+1（上限3） ●部隊の知力+1%"
+            },
+            {
+              "skillName": "砕壁強建",
+              "text": "■常に ●部隊の対物体攻撃+5%▼主将戦法発動時 ●自身1部隊に1回の弱化無効を付与（60秒） →50％の確率で効果が2倍（2回）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+5%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+5%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+1%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+1%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "ssrMax": {
+          "label": "SSR最大",
+          "skills": [
+            {
+              "skillName": "政鼓才気",
+              "text": "■常に ●部隊の「政化」の技能Lv+1（上限4） ●部隊の「鼓励」の技能Lv+1（上限3） ●部隊の知力+1%"
+            },
+            {
+              "skillName": "砕壁強建",
+              "text": "■常に ●部隊の対物体攻撃+5%▼主将戦法発動時 ●自身1部隊に2回の弱化無効を付与（60秒）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+5%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+5%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+1%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+1%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "urMax": {
+          "label": "UR最大",
+          "skills": [
+            {
+              "skillName": "政鼓才気",
+              "text": "■常に ●部隊の「政化」の技能Lv+1（上限4） ●部隊の「鼓励」の技能Lv+1（上限3） ●部隊の「攻城」の技能Lv+1（上限5） ●部隊の知力+4%"
+            },
+            {
+              "skillName": "砕壁強建",
+              "text": "■常に ●部隊の対物体攻撃+10%▼主将戦法発動時 ●自身を含む味方3部隊に2回の弱化無効を付与（60秒）"
+            },
+            {
+              "skillName": "怒髪烈撃",
+              "text": "■常に ●通常攻撃・戦法による与ダメージ+5% →物体を攻撃目標にしている時、効果が2倍（+10%）"
+            }
+          ],
+          "skillCount": 3,
+          "parameterEffects": [
+            {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+5%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+5%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+10%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+10%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+4%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        }
+      },
+      "stageCandidates": [
+        {
+          "tableIndex": 2,
+          "skillCount": 3,
+          "skillNames": [
+            "政鼓才気",
+            "砕壁強建",
+            "怒髪烈撃"
+          ]
+        },
+        {
+          "tableIndex": 3,
+          "skillCount": 2,
+          "skillNames": [
+            "政鼓才気",
+            "砕壁強建"
+          ]
+        },
+        {
+          "tableIndex": 4,
+          "skillCount": 2,
+          "skillNames": [
+            "政鼓才気",
+            "砕壁強建"
+          ]
+        }
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/574354",
+      "sourceUrls": [
+        "https://gamewith.jp/sangokushihadou/article/show/574354"
       ]
     },
     {
@@ -416,51 +853,35 @@
       ]
     },
     {
-      "id": "equipments:name:亜父奇謀冠",
+      "id": "equipments:name:心翠宝玉佩",
       "category": "equipments",
-      "name": "亜父奇謀冠",
-      "displayName": "亜父奇謀冠",
-      "rawName": "【三國志 覇道】亜父奇謀冠",
+      "name": "心翠宝玉佩",
+      "displayName": "心翠宝玉佩",
+      "rawName": "【三國志 覇道】心翠宝玉佩",
       "highestRarity": "UR",
-      "slot": "防具",
+      "slot": "文物",
       "troopType": "騎兵 歩兵 弓兵 盾兵",
       "stages": {
         "initial": {
           "label": "初期",
           "skills": [
             {
-              "skillName": "老豎堅守",
-              "text": "■常に ●部隊の「老巧」の技能Lv+1（上限4） ●部隊の「倒豎」の技能Lv+1（上限3） ●部隊の防御+1%"
+              "skillName": "執献才略",
+              "text": "■常に ●部隊の「執守」の技能Lv+1（上限2） ●部隊の知力+2%"
             },
             {
-              "skillName": "対衰困迷",
-              "text": "■常に ●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ-5% ●通常攻撃時、25％の確率で対象を含む敵3部隊の知力-20%（10秒）（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回）"
+              "skillName": "機才十全",
+              "text": "■常に▼兵力が50％以上の時 ●部隊の「機略」のLv×1%、部隊の撃心威力が上昇 ●出陣時の自部隊の知力に応じて、戦法による与ダメージが上昇（知力500につき1％上昇。最大10％）"
             }
           ],
           "skillCount": 2,
           "parameterEffects": [
             {
-              "parameter": "被ダメージ",
-              "direction": "decrease",
-              "value": "-5%",
-              "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ-5%",
-              "sourcePartType": "equipment-skill-stage"
-            },
-            {
-              "parameter": "防御",
-              "direction": "increase",
-              "value": "+1%",
-              "targetSide": "self_or_ally",
-              "matchedText": "防御+1%",
-              "sourcePartType": "equipment-skill-stage"
-            },
-            {
               "parameter": "知力",
-              "direction": "decrease",
-              "value": "-20%",
-              "targetSide": "enemy",
-              "matchedText": "知力-20%",
+              "direction": "increase",
+              "value": "+2%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+2%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -469,38 +890,22 @@
           "label": "SSR最大",
           "skills": [
             {
-              "skillName": "老豎堅守",
-              "text": "■常に ●部隊の「老巧」の技能Lv+1（上限4） ●部隊の「倒豎」の技能Lv+1（上限3） ●部隊の防御+1%"
+              "skillName": "執献才略",
+              "text": "■常に ●部隊の「執守」の技能Lv+1（上限2） ●部隊の知力+2%"
             },
             {
-              "skillName": "対衰困迷",
-              "text": "■常に ●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ-10% ●通常攻撃時、40％の確率で対象を含む敵3部隊の知力-20%（10秒）（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回）"
+              "skillName": "機才十全",
+              "text": "■常に▼兵力が50％以上の時 ●部隊の「機略」のLv×4%、部隊の撃心威力が上昇 ●出陣時の自部隊の知力に応じて、戦法による与ダメージが上昇（知力500につき2％上昇。最大20％）"
             }
           ],
           "skillCount": 2,
           "parameterEffects": [
             {
-              "parameter": "被ダメージ",
-              "direction": "decrease",
-              "value": "-10%",
-              "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ-10%",
-              "sourcePartType": "equipment-skill-stage"
-            },
-            {
-              "parameter": "防御",
-              "direction": "increase",
-              "value": "+1%",
-              "targetSide": "self_or_ally",
-              "matchedText": "防御+1%",
-              "sourcePartType": "equipment-skill-stage"
-            },
-            {
               "parameter": "知力",
-              "direction": "decrease",
-              "value": "-20%",
-              "targetSide": "enemy",
-              "matchedText": "知力-20%",
+              "direction": "increase",
+              "value": "+2%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+2%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -509,16 +914,16 @@
           "label": "UR最大",
           "skills": [
             {
-              "skillName": "老豎堅守",
-              "text": "■常に ●部隊の「老巧」の技能Lv+1（上限4） ●部隊の「倒豎」の技能Lv+1（上限3） ●部隊の「深謀」の技能Lv+1（上限5） ●部隊の防御+4%"
+              "skillName": "執献才略",
+              "text": "■常に ●部隊の「執守」の技能Lv+1（上限2） ●部隊の「機略」の技能Lv+1（上限5） ●部隊の知力+4%"
             },
             {
-              "skillName": "対衰困迷",
-              "text": "■常に ●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ-15% ●通常攻撃時、50％の確率で対象を含む敵3部隊の知力-20%（10秒）（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回） ●通常攻撃時、50％の確率で対象を含む敵3部隊に50％の弱化残存を付与（10秒）（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回）"
+              "skillName": "機才十全",
+              "text": "■常に▼兵力が50％以上の時 ●部隊の「機略」のLv×5%、部隊の撃心威力が上昇 ●出陣時の自部隊の知力に応じて、戦法による与ダメージが上昇（知力500につき2.5％上昇。最大25％）"
             },
             {
-              "skillName": "離間流布",
-              "text": "■常に▼主将戦法発動時 ●敵1部隊に10％の疑心を付与（20秒） →50％の確率で上記効果の敵対象部隊数+2（加算後の上限4）"
+              "skillName": "賢護壮昇",
+              "text": "■常に ●知力系統の通常攻撃・戦法による被ダメージ-5％ →自部隊の兵力が50％以上の際、効果が2倍（-10%）"
             }
           ],
           "skillCount": 3,
@@ -526,25 +931,17 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "-15%",
+              "value": "-5％",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ-15%",
-              "sourcePartType": "equipment-skill-stage"
-            },
-            {
-              "parameter": "防御",
-              "direction": "increase",
-              "value": "+4%",
-              "targetSide": "self_or_ally",
-              "matchedText": "防御+4%",
+              "matchedText": "被ダメージ-5％",
               "sourcePartType": "equipment-skill-stage"
             },
             {
               "parameter": "知力",
-              "direction": "decrease",
-              "value": "-20%",
-              "targetSide": "enemy",
-              "matchedText": "知力-20%",
+              "direction": "increase",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+4%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -555,31 +952,31 @@
           "tableIndex": 2,
           "skillCount": 3,
           "skillNames": [
-            "老豎堅守",
-            "対衰困迷",
-            "離間流布"
+            "執献才略",
+            "機才十全",
+            "賢護壮昇"
           ]
         },
         {
           "tableIndex": 3,
           "skillCount": 2,
           "skillNames": [
-            "老豎堅守",
-            "対衰困迷"
+            "執献才略",
+            "機才十全"
           ]
         },
         {
           "tableIndex": 4,
           "skillCount": 2,
           "skillNames": [
-            "老豎堅守",
-            "対衰困迷"
+            "執献才略",
+            "機才十全"
           ]
         }
       ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/570300",
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572594",
       "sourceUrls": [
-        "https://gamewith.jp/sangokushihadou/article/show/570300"
+        "https://gamewith.jp/sangokushihadou/article/show/572594"
       ]
     },
     {
@@ -747,6 +1144,173 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/570301",
       "sourceUrls": [
         "https://gamewith.jp/sangokushihadou/article/show/570301"
+      ]
+    },
+    {
+      "id": "equipments:name:亜父奇謀冠",
+      "category": "equipments",
+      "name": "亜父奇謀冠",
+      "displayName": "亜父奇謀冠",
+      "rawName": "【三國志 覇道】亜父奇謀冠",
+      "highestRarity": "UR",
+      "slot": "防具",
+      "troopType": "騎兵 歩兵 弓兵 盾兵",
+      "stages": {
+        "initial": {
+          "label": "初期",
+          "skills": [
+            {
+              "skillName": "老豎堅守",
+              "text": "■常に ●部隊の「老巧」の技能Lv+1（上限4） ●部隊の「倒豎」の技能Lv+1（上限3） ●部隊の防御+1%"
+            },
+            {
+              "skillName": "対衰困迷",
+              "text": "■常に ●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ-5% ●通常攻撃時、25％の確率で対象を含む敵3部隊の知力-20%（10秒）（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "被ダメージ",
+              "direction": "decrease",
+              "value": "-5%",
+              "targetSide": "self_or_ally",
+              "matchedText": "被ダメージ-5%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "防御",
+              "direction": "increase",
+              "value": "+1%",
+              "targetSide": "self_or_ally",
+              "matchedText": "防御+1%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "decrease",
+              "value": "-20%",
+              "targetSide": "enemy",
+              "matchedText": "知力-20%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "ssrMax": {
+          "label": "SSR最大",
+          "skills": [
+            {
+              "skillName": "老豎堅守",
+              "text": "■常に ●部隊の「老巧」の技能Lv+1（上限4） ●部隊の「倒豎」の技能Lv+1（上限3） ●部隊の防御+1%"
+            },
+            {
+              "skillName": "対衰困迷",
+              "text": "■常に ●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ-10% ●通常攻撃時、40％の確率で対象を含む敵3部隊の知力-20%（10秒）（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "被ダメージ",
+              "direction": "decrease",
+              "value": "-10%",
+              "targetSide": "self_or_ally",
+              "matchedText": "被ダメージ-10%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "防御",
+              "direction": "increase",
+              "value": "+1%",
+              "targetSide": "self_or_ally",
+              "matchedText": "防御+1%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "decrease",
+              "value": "-20%",
+              "targetSide": "enemy",
+              "matchedText": "知力-20%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "urMax": {
+          "label": "UR最大",
+          "skills": [
+            {
+              "skillName": "老豎堅守",
+              "text": "■常に ●部隊の「老巧」の技能Lv+1（上限4） ●部隊の「倒豎」の技能Lv+1（上限3） ●部隊の「深謀」の技能Lv+1（上限5） ●部隊の防御+4%"
+            },
+            {
+              "skillName": "対衰困迷",
+              "text": "■常に ●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ-15% ●通常攻撃時、50％の確率で対象を含む敵3部隊の知力-20%（10秒）（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回） ●通常攻撃時、50％の確率で対象を含む敵3部隊に50％の弱化残存を付与（10秒）（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回）"
+            },
+            {
+              "skillName": "離間流布",
+              "text": "■常に▼主将戦法発動時 ●敵1部隊に10％の疑心を付与（20秒） →50％の確率で上記効果の敵対象部隊数+2（加算後の上限4）"
+            }
+          ],
+          "skillCount": 3,
+          "parameterEffects": [
+            {
+              "parameter": "被ダメージ",
+              "direction": "decrease",
+              "value": "-15%",
+              "targetSide": "self_or_ally",
+              "matchedText": "被ダメージ-15%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "防御",
+              "direction": "increase",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "防御+4%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "decrease",
+              "value": "-20%",
+              "targetSide": "enemy",
+              "matchedText": "知力-20%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        }
+      },
+      "stageCandidates": [
+        {
+          "tableIndex": 2,
+          "skillCount": 3,
+          "skillNames": [
+            "老豎堅守",
+            "対衰困迷",
+            "離間流布"
+          ]
+        },
+        {
+          "tableIndex": 3,
+          "skillCount": 2,
+          "skillNames": [
+            "老豎堅守",
+            "対衰困迷"
+          ]
+        },
+        {
+          "tableIndex": 4,
+          "skillCount": 2,
+          "skillNames": [
+            "老豎堅守",
+            "対衰困迷"
+          ]
+        }
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/570300",
+      "sourceUrls": [
+        "https://gamewith.jp/sangokushihadou/article/show/570300"
       ]
     },
     {
@@ -15257,7 +15821,7 @@
       "rawName": "【三國志 覇道】羊の遊泳圏",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -15308,11 +15872,11 @@
           "skills": [
             {
               "skillName": "活水旺盛",
-              "text": "■常に ●部隊の防御+3%"
+              "text": "■常に ●部隊の攻撃+4% ●部隊の防御+4% ●部隊の知力+4% ●技能「流水確守」で付与する効果の味方対象部隊数+2"
             },
             {
               "skillName": "流水確守",
-              "text": "■常に▼この技能を持つ武将が戦法を発動した時 ●自身1部隊に2回の弱化無効を付与（10秒） ●自身1部隊の火属性耐+50％（20秒） ●自身1部隊に2回の攻撃無効を付与（10秒） ●自身1部隊を全ての兵科と物体に対して有利にする（10秒）"
+              "text": "■常に▼主将戦法発動時 ●自身1部隊に3回の弱化無効を付与（10秒） ●自身1部隊の火属性耐+50％（20秒） ●自身1部隊に3回の攻撃無効を付与（10秒） ●自身1部隊を全ての兵科と物体に対して有利にする（10秒）"
             },
             {
               "skillName": "不乱活盛",
@@ -15330,11 +15894,27 @@
               "sourcePartType": "equipment-skill-stage"
             },
             {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+4%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
               "parameter": "防御",
               "direction": "increase",
-              "value": "+3%",
+              "value": "+4%",
               "targetSide": "self_or_ally",
-              "matchedText": "防御+3%",
+              "matchedText": "防御+4%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+4%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -15379,14 +15959,14 @@
       "rawName": "【三國志 覇道】龍の水槍",
       "highestRarity": "UR",
       "slot": "武器",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵",
       "stages": {
         "initial": {
           "label": "初期",
           "skills": [
             {
               "skillName": "活水旺盛",
-              "text": "■常に ●部隊の防御+3%"
+              "text": "■常に ●部隊の防御+2%"
             }
           ],
           "skillCount": 1,
@@ -15394,9 +15974,9 @@
             {
               "parameter": "防御",
               "direction": "increase",
-              "value": "+3%",
+              "value": "+2%",
               "targetSide": "self_or_ally",
-              "matchedText": "防御+3%",
+              "matchedText": "防御+2%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -15406,7 +15986,7 @@
           "skills": [
             {
               "skillName": "活水旺盛",
-              "text": "■常に ●部隊の防御+3%"
+              "text": "■常に ●部隊の防御+2%"
             }
           ],
           "skillCount": 1,
@@ -15414,9 +15994,9 @@
             {
               "parameter": "防御",
               "direction": "increase",
-              "value": "+3%",
+              "value": "+2%",
               "targetSide": "self_or_ally",
-              "matchedText": "防御+3%",
+              "matchedText": "防御+2%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -15427,10 +16007,22 @@
             {
               "skillName": "活水旺盛",
               "text": "■常に ●部隊の防御+3%"
+            },
+            {
+              "skillName": "不乱活盛",
+              "text": "■常に ●技能「流水確守」で付与する弱化無効の回数+1▼兵力が50％以上の時 ●部隊の攻撃速度+20％"
             }
           ],
-          "skillCount": 1,
+          "skillCount": 2,
           "parameterEffects": [
+            {
+              "parameter": "攻撃速度",
+              "direction": "increase",
+              "value": "+20％",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃速度+20％",
+              "sourcePartType": "equipment-skill-stage"
+            },
             {
               "parameter": "防御",
               "direction": "increase",
@@ -15445,6 +16037,14 @@
       "stageCandidates": [
         {
           "tableIndex": 2,
+          "skillCount": 2,
+          "skillNames": [
+            "活水旺盛",
+            "不乱活盛"
+          ]
+        },
+        {
+          "tableIndex": 3,
           "skillCount": 1,
           "skillNames": [
             "活水旺盛"

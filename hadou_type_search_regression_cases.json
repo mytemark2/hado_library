@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-08-25T13:39:09.184Z",
+  "generatedAt": "2026-08-31T15:31:23.721Z",
   "dataSetId": "2026-08-24T16:58:10.882Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
@@ -35,7 +35,7 @@
   "sourceCounts": {
     "generals": 488,
     "tactics": 467,
-    "equipments": 251,
+    "equipments": 255,
     "skills": 661,
     "statusEffects": 206,
     "siegeWeapons": 6,
@@ -49,7 +49,7 @@
   "sourceHashes": {
     "generals": "c8a69cf2",
     "tactics": "17b2d8ff",
-    "equipments": "4c51c466",
+    "equipments": "5051cab2",
     "skills": "55f06444",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
@@ -63,7 +63,7 @@
   "sourceSha256": {
     "generals": "c8a69cf2",
     "tactics": "17b2d8ff",
-    "equipments": "4c51c466",
+    "equipments": "5051cab2",
     "skills": "55f06444",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
@@ -103,8 +103,8 @@
       "detail": [
         {
           "groupKey": "selfAbilityBuff",
-          "ownerRelationCount": 4023,
-          "distinctOwnerCount": 1307
+          "ownerRelationCount": 4052,
+          "distinctOwnerCount": 1309
         },
         {
           "groupKey": "selfStateBuff",
@@ -113,18 +113,18 @@
         },
         {
           "groupKey": "selfResistanceBuff",
-          "ownerRelationCount": 1324,
-          "distinctOwnerCount": 451
+          "ownerRelationCount": 1345,
+          "distinctOwnerCount": 456
         },
         {
           "groupKey": "enemyAbilityDebuff",
-          "ownerRelationCount": 732,
-          "distinctOwnerCount": 424
+          "ownerRelationCount": 737,
+          "distinctOwnerCount": 425
         },
         {
           "groupKey": "enemyStateDebuff",
-          "ownerRelationCount": 260,
-          "distinctOwnerCount": 206
+          "ownerRelationCount": 259,
+          "distinctOwnerCount": 205
         },
         {
           "groupKey": "enemyResistanceDebuff",
@@ -139,7 +139,7 @@
       "ok": true,
       "detail": {
         "generals": 488,
-        "equipments": 251,
+        "equipments": 255,
         "siegeWeapons": 6,
         "warhorseSkills": 27
       }
@@ -437,7 +437,7 @@
       "ok": true,
       "detail": {
         "unresolvedCount": 0,
-        "applicationSkillCount": 1389
+        "applicationSkillCount": 1401
       }
     },
     {
@@ -449,7 +449,7 @@
         "unresolvedRefCount": 0,
         "droppedSourceItemCount": 0,
         "droppedTargetCount": 0,
-        "mechanicCount": 1054,
+        "mechanicCount": 1074,
         "policy": "Every app-visible source has one related-link row and every relatedRef uses a resolvable canonical target. Pseudo status labels remain explicit mechanics."
       }
     },
@@ -459,12 +459,12 @@
       "ok": true,
       "detail": {
         "ok": true,
-        "expectedDatasetItemCount": 2920,
-        "indexedItemCount": 2920,
+        "expectedDatasetItemCount": 2936,
+        "indexedItemCount": 2936,
         "missingCount": 0,
         "missingSourceEntityKeys": [],
-        "applicationSkillExpectedCount": 1389,
-        "applicationSkillIndexedCount": 1389,
+        "applicationSkillExpectedCount": 1401,
+        "applicationSkillIndexedCount": 1401,
         "missingApplicationSkillCount": 0,
         "missingApplicationSkillNames": [],
         "statusEffectExpectedCount": 206,
@@ -477,8 +477,8 @@
       "ok": true,
       "detail": {
         "ok": true,
-        "expectedEquipmentCount": 250,
-        "indexedEquipmentCount": 250,
+        "expectedEquipmentCount": 254,
+        "indexedEquipmentCount": 254,
         "missingEquipmentCount": 0,
         "missingStageCount": 0,
         "missingSkillRefCount": 0,
