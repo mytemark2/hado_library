@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-08-25T13:39:09.184Z",
+  "generatedAt": "2026-08-31T15:21:55.830Z",
   "dataSetId": "2026-08-24T16:58:10.882Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
@@ -35,7 +35,7 @@
   "sourceCounts": {
     "generals": 488,
     "tactics": 467,
-    "equipments": 251,
+    "equipments": 255,
     "skills": 661,
     "statusEffects": 206,
     "siegeWeapons": 6,
@@ -49,7 +49,7 @@
   "sourceHashes": {
     "generals": "c8a69cf2",
     "tactics": "17b2d8ff",
-    "equipments": "4c51c466",
+    "equipments": "5051cab2",
     "skills": "55f06444",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
@@ -63,7 +63,7 @@
   "sourceSha256": {
     "generals": "c8a69cf2",
     "tactics": "17b2d8ff",
-    "equipments": "4c51c466",
+    "equipments": "5051cab2",
     "skills": "55f06444",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
@@ -78,9 +78,9 @@
   "kind": "status_effect_group_owner_index",
   "qualityAudit": {
     "groupCount": 6,
-    "totalOwnerCount": 6475,
-    "ownerRelationCount": 6475,
-    "distinctOwnerCount": 2518,
+    "totalOwnerCount": 6529,
+    "ownerRelationCount": 6529,
+    "distinctOwnerCount": 2525,
     "countRecalculatedAfterRelatedLinkRebuild": true,
     "relatedLinkOwnerEnriched": true,
     "rebuildFromRelatedLinkIndex": true,
@@ -838,8 +838,26 @@
             "displayName": "LR郭嘉（かくか）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "戦法威力変化(強化)",
+            "matchedText": "戦法威力+50%"
+          },
+          {
+            "category": "generals",
+            "name": "LR郭嘉（かくか）",
+            "displayName": "LR郭嘉（かくか）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "戦法速度変化(強化)",
             "matchedText": "戦法速度を50%"
+          },
+          {
+            "category": "generals",
+            "name": "LR郭嘉（かくか）",
+            "displayName": "LR郭嘉（かくか）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージ+15%"
           },
           {
             "category": "generals",
@@ -5401,8 +5419,44 @@
             "displayName": "LR藺相如（りんしょうじょ）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "戦法威力変化(強化)",
+            "matchedText": "戦法威力）を避ける ●部隊の兵力+10％"
+          },
+          {
+            "category": "generals",
+            "name": "LR藺相如（りんしょうじょ）",
+            "displayName": "LR藺相如（りんしょうじょ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "戦法速度変化(強化)",
+            "matchedText": "戦法速度）を避ける ●部隊の兵力+5％"
+          },
+          {
+            "category": "generals",
+            "name": "LR藺相如（りんしょうじょ）",
+            "displayName": "LR藺相如（りんしょうじょ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
             "matchedText": "被ダメージ-2%"
+          },
+          {
+            "category": "generals",
+            "name": "LR藺相如（りんしょうじょ）",
+            "displayName": "LR藺相如（りんしょうじょ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃+50%"
+          },
+          {
+            "category": "generals",
+            "name": "LR藺相如（りんしょうじょ）",
+            "displayName": "LR藺相如（りんしょうじょ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力+50%"
           },
           {
             "category": "generals",
@@ -11224,8 +11278,26 @@
             "displayName": "覚醒黄蓋（こうがい）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "撃心威力変化(強化)",
+            "matchedText": "撃心威力が上昇（10"
+          },
+          {
+            "category": "generals",
+            "name": "覚醒黄蓋（こうがい）",
+            "displayName": "覚醒黄蓋（こうがい）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃変化(強化)",
             "matchedText": "攻撃を高める2"
+          },
+          {
+            "category": "generals",
+            "name": "覚醒黄蓋（こうがい）",
+            "displayName": "覚醒黄蓋（こうがい）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(強化)",
+            "matchedText": "防御+2%"
           },
           {
             "category": "generals",
@@ -26528,6 +26600,33 @@
             "displayName": "鋭敏",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージ+10%"
+          },
+          {
+            "category": "skills",
+            "name": "鋭敏",
+            "displayName": "鋭敏",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(強化)",
+            "matchedText": "被ダメージ-10%"
+          },
+          {
+            "category": "skills",
+            "name": "鋭敏",
+            "displayName": "鋭敏",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(強化)",
+            "matchedText": "防御+1%"
+          },
+          {
+            "category": "skills",
+            "name": "鋭敏",
+            "displayName": "鋭敏",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "知力変化(強化)",
             "matchedText": "知力+7%"
           },
@@ -28849,6 +28948,42 @@
             "name": "鼓励",
             "displayName": "鼓励",
             "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(強化)",
+            "matchedText": "被ダメージ-15%"
+          },
+          {
+            "category": "skills",
+            "name": "鼓励",
+            "displayName": "鼓励",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃+5%"
+          },
+          {
+            "category": "skills",
+            "name": "鼓励",
+            "displayName": "鼓励",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(強化)",
+            "matchedText": "防御+1%"
+          },
+          {
+            "category": "skills",
+            "name": "鼓励",
+            "displayName": "鼓励",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力+1%"
+          },
+          {
+            "category": "skills",
+            "name": "鼓励",
+            "displayName": "鼓励",
+            "source": "related_link_index",
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "有利巧守",
             "matchedText": "有利巧守"
@@ -30227,6 +30362,15 @@
             "displayName": "主導",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージ+10%"
+          },
+          {
+            "category": "skills",
+            "name": "主導",
+            "displayName": "主導",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
             "matchedText": "被ダメージ-20%"
           },
@@ -30256,6 +30400,15 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "知力変化(強化)",
             "matchedText": "知力+5%"
+          },
+          {
+            "category": "skills",
+            "name": "主導",
+            "displayName": "主導",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "機動変化(強化)",
+            "matchedText": "機動+10"
           },
           {
             "category": "skills",
@@ -31345,6 +31498,51 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "有利巧守",
             "matchedText": "有利巧守"
+          },
+          {
+            "category": "skills",
+            "name": "政化",
+            "displayName": "政化",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "戦法威力変化(強化)",
+            "matchedText": "戦法威力）を避ける ●部隊の兵力+10％"
+          },
+          {
+            "category": "skills",
+            "name": "政化",
+            "displayName": "政化",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "戦法速度変化(強化)",
+            "matchedText": "戦法速度）を避ける ●部隊の兵力+5％"
+          },
+          {
+            "category": "skills",
+            "name": "政化",
+            "displayName": "政化",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃+50%"
+          },
+          {
+            "category": "skills",
+            "name": "政化",
+            "displayName": "政化",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(強化)",
+            "matchedText": "防御+1%"
+          },
+          {
+            "category": "skills",
+            "name": "政化",
+            "displayName": "政化",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力+50%"
           },
           {
             "category": "skills",
@@ -34876,6 +35074,69 @@
           },
           {
             "category": "skills",
+            "name": "理知",
+            "displayName": "理知",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "戦法威力変化(強化)",
+            "matchedText": "戦法威力+50%"
+          },
+          {
+            "category": "skills",
+            "name": "理知",
+            "displayName": "理知",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "戦法速度変化(強化)",
+            "matchedText": "戦法速度+4%"
+          },
+          {
+            "category": "skills",
+            "name": "理知",
+            "displayName": "理知",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージ+15%"
+          },
+          {
+            "category": "skills",
+            "name": "理知",
+            "displayName": "理知",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(強化)",
+            "matchedText": "被ダメージ-10%"
+          },
+          {
+            "category": "skills",
+            "name": "理知",
+            "displayName": "理知",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(強化)",
+            "matchedText": "防御+1%"
+          },
+          {
+            "category": "skills",
+            "name": "理知",
+            "displayName": "理知",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力+500"
+          },
+          {
+            "category": "skills",
+            "name": "理知",
+            "displayName": "理知",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "閃襲",
+            "matchedText": "閃襲"
+          },
+          {
+            "category": "skills",
             "name": "離背",
             "displayName": "離背",
             "source": "related_link_index",
@@ -36314,17 +36575,17 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 1800,
+        "generals": 1808,
         "tactics": 1073,
-        "skills": 1134,
+        "skills": 1155,
         "equipments": 14,
         "statusEffects": 0,
         "warhorseSkills": 2
       },
-      "totalOwnerCount": 4023,
+      "totalOwnerCount": 4052,
       "source": "related_link_index",
-      "ownerRelationCount": 4023,
-      "distinctOwnerCount": 1307
+      "ownerRelationCount": 4052,
+      "distinctOwnerCount": 1309
     },
     {
       "groupKey": "selfStateBuff",
@@ -37809,6 +38070,15 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "弱化反射",
             "matchedText": "弱化反射"
+          },
+          {
+            "category": "generals",
+            "name": "LR郭嘉（かくか）",
+            "displayName": "LR郭嘉（かくか）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "同討回避[理知]",
+            "matchedText": "自身1部隊にかかる同討を避ける"
           },
           {
             "category": "generals",
@@ -40409,7 +40679,7 @@
             "source": "related_link_index",
             "sourcePartType": "self-countermeasure-skill",
             "statusEffectName": "対物特効低下回避[政化]",
-            "matchedText": "自身1部隊にかかる同討と分断と一部の能力弱化効果（対物特効/戦法速度）を避ける"
+            "matchedText": "自身1部隊にかかる同討、分断と一部の能力弱化効果（対物特効/戦法速度）を避ける"
           },
           {
             "category": "generals",
@@ -40418,7 +40688,25 @@
             "source": "related_link_index",
             "sourcePartType": "self-countermeasure-skill",
             "statusEffectName": "戦法速度低下回避[政化]",
-            "matchedText": "自身1部隊にかかる同討と分断と一部の能力弱化効果（対物特効/戦法速度）を避ける"
+            "matchedText": "自身1部隊にかかる同討、分断と一部の能力弱化効果（対物特効/戦法速度）を避ける"
+          },
+          {
+            "category": "generals",
+            "name": "LR藺相如（りんしょうじょ）",
+            "displayName": "LR藺相如（りんしょうじょ）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "反転回避[政化]",
+            "matchedText": "自身1部隊にかかる同討、分断、反転と一部の能力弱化効果（対物特効/戦法速度）を避ける"
+          },
+          {
+            "category": "generals",
+            "name": "LR藺相如（りんしょうじょ）",
+            "displayName": "LR藺相如（りんしょうじょ）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "戦法威力低下回避[政化]",
+            "matchedText": "自身1部隊にかかる同討、分断、反転と一部の能力弱化効果（兵科相性/対物特効/戦法速度/戦法威力）を避ける"
           },
           {
             "category": "generals",
@@ -45570,7 +45858,7 @@
             "source": "related_link_index",
             "sourcePartType": "self-countermeasure-skill",
             "statusEffectName": "対物特効低下回避[政化]",
-            "matchedText": "自身1部隊にかかる同討と分断と一部の能力弱化効果（対物特効/戦法速度）を避ける"
+            "matchedText": "自身1部隊にかかる同討、分断と一部の能力弱化効果（対物特効/戦法速度）を避ける"
           },
           {
             "category": "skills",
@@ -45579,7 +45867,25 @@
             "source": "related_link_index",
             "sourcePartType": "self-countermeasure-skill",
             "statusEffectName": "戦法速度低下回避[政化]",
-            "matchedText": "自身1部隊にかかる同討と分断と一部の能力弱化効果（対物特効/戦法速度）を避ける"
+            "matchedText": "自身1部隊にかかる同討、分断と一部の能力弱化効果（対物特効/戦法速度）を避ける"
+          },
+          {
+            "category": "skills",
+            "name": "政化",
+            "displayName": "政化",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "反転回避[政化]",
+            "matchedText": "自身1部隊にかかる同討、分断、反転と一部の能力弱化効果（対物特効/戦法速度）を避ける"
+          },
+          {
+            "category": "skills",
+            "name": "政化",
+            "displayName": "政化",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "戦法威力低下回避[政化]",
+            "matchedText": "自身1部隊にかかる同討、分断、反転と一部の能力弱化効果（兵科相性/対物特効/戦法速度/戦法威力）を避ける"
           },
           {
             "category": "skills",
@@ -47050,6 +47356,24 @@
           },
           {
             "category": "skills",
+            "name": "理知",
+            "displayName": "理知",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "献計",
+            "matchedText": "献計"
+          },
+          {
+            "category": "skills",
+            "name": "理知",
+            "displayName": "理知",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "同討回避[理知]",
+            "matchedText": "自身1部隊にかかる同討を避ける"
+          },
+          {
+            "category": "skills",
             "name": "留侯",
             "displayName": "留侯",
             "source": "related_link_index",
@@ -47862,6 +48186,60 @@
           },
           {
             "category": "equipments",
+            "name": "抗節相和冠",
+            "displayName": "抗節相和冠",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "同討回避[政化]",
+            "matchedText": "自身1部隊にかかる同討と分断を避ける"
+          },
+          {
+            "category": "equipments",
+            "name": "抗節相和冠",
+            "displayName": "抗節相和冠",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "分断回避[政化]",
+            "matchedText": "自身1部隊にかかる同討と分断を避ける"
+          },
+          {
+            "category": "equipments",
+            "name": "抗節相和冠",
+            "displayName": "抗節相和冠",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "対物特効低下回避[政化]",
+            "matchedText": "自身1部隊にかかる同討、分断と一部の能力弱化効果（対物特効/戦法速度）を避ける"
+          },
+          {
+            "category": "equipments",
+            "name": "抗節相和冠",
+            "displayName": "抗節相和冠",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "戦法速度低下回避[政化]",
+            "matchedText": "自身1部隊にかかる同討、分断と一部の能力弱化効果（対物特効/戦法速度）を避ける"
+          },
+          {
+            "category": "equipments",
+            "name": "抗節相和冠",
+            "displayName": "抗節相和冠",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "反転回避[政化]",
+            "matchedText": "自身1部隊にかかる同討、分断、反転と一部の能力弱化効果（対物特効/戦法速度）を避ける"
+          },
+          {
+            "category": "equipments",
+            "name": "抗節相和冠",
+            "displayName": "抗節相和冠",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "戦法威力低下回避[政化]",
+            "matchedText": "自身1部隊にかかる同討、分断、反転と一部の能力弱化効果（兵科相性/対物特効/戦法速度/戦法威力）を避ける"
+          },
+          {
+            "category": "equipments",
             "name": "克己光復剣",
             "displayName": "克己光復剣",
             "source": "related_link_index",
@@ -48471,6 +48849,15 @@
             "sourcePartType": "self-countermeasure-skill",
             "statusEffectName": "恐怖回避[栄華]",
             "matchedText": "自身1部隊にかかる一部の能力弱化効果（知力/攻撃速度）と恐怖を避ける"
+          },
+          {
+            "category": "equipments",
+            "name": "藤黄飄遥小青巾",
+            "displayName": "藤黄飄遥小青巾",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "同討回避[理知]",
+            "matchedText": "自身1部隊にかかる同討を避ける"
           },
           {
             "category": "equipments",
@@ -49212,6 +49599,15 @@
           },
           {
             "category": "equipments",
+            "name": "料敵制勝剣",
+            "displayName": "料敵制勝剣",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "同討回避[理知]",
+            "matchedText": "自身1部隊にかかる同討を避ける"
+          },
+          {
+            "category": "equipments",
             "name": "麟角槍",
             "displayName": "麟角槍",
             "source": "related_link_index",
@@ -49320,6 +49716,60 @@
           },
           {
             "category": "equipments",
+            "name": "和氏の璧",
+            "displayName": "和氏の璧",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "同討回避[政化]",
+            "matchedText": "自身1部隊にかかる同討と分断を避ける"
+          },
+          {
+            "category": "equipments",
+            "name": "和氏の璧",
+            "displayName": "和氏の璧",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "分断回避[政化]",
+            "matchedText": "自身1部隊にかかる同討と分断を避ける"
+          },
+          {
+            "category": "equipments",
+            "name": "和氏の璧",
+            "displayName": "和氏の璧",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "対物特効低下回避[政化]",
+            "matchedText": "自身1部隊にかかる同討、分断と一部の能力弱化効果（対物特効/戦法速度）を避ける"
+          },
+          {
+            "category": "equipments",
+            "name": "和氏の璧",
+            "displayName": "和氏の璧",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "戦法速度低下回避[政化]",
+            "matchedText": "自身1部隊にかかる同討、分断と一部の能力弱化効果（対物特効/戦法速度）を避ける"
+          },
+          {
+            "category": "equipments",
+            "name": "和氏の璧",
+            "displayName": "和氏の璧",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "反転回避[政化]",
+            "matchedText": "自身1部隊にかかる同討、分断、反転と一部の能力弱化効果（対物特効/戦法速度）を避ける"
+          },
+          {
+            "category": "equipments",
+            "name": "和氏の璧",
+            "displayName": "和氏の璧",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "戦法威力低下回避[政化]",
+            "matchedText": "自身1部隊にかかる同討、分断、反転と一部の能力弱化効果（兵科相性/対物特効/戦法速度/戦法威力）を避ける"
+          },
+          {
+            "category": "equipments",
             "name": "倚天の剣",
             "displayName": "倚天の剣",
             "source": "related_link_index",
@@ -49350,16 +49800,16 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 534,
+        "generals": 537,
         "tactics": 153,
-        "skills": 430,
-        "equipments": 207,
+        "skills": 434,
+        "equipments": 221,
         "statusEffects": 0
       },
-      "totalOwnerCount": 1324,
+      "totalOwnerCount": 1345,
       "source": "related_link_index",
-      "ownerRelationCount": 1324,
-      "distinctOwnerCount": 451
+      "ownerRelationCount": 1345,
+      "distinctOwnerCount": 456
     },
     {
       "groupKey": "enemyAbilityDebuff",
@@ -50393,6 +50843,15 @@
             "sourcePartType": "direct-ability-variation-row",
             "statusEffectName": "通常攻撃威力変化(弱化)",
             "matchedText": "通常攻撃威力変化 / 敵 / 広 15秒"
+          },
+          {
+            "category": "generals",
+            "name": "LR藺相如（りんしょうじょ）",
+            "displayName": "LR藺相如（りんしょうじょ）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(弱化)",
+            "matchedText": "被ダメージを計算する ※通常攻撃の基礎威力を変動させる効果を無視して100％"
           },
           {
             "category": "generals",
@@ -51959,6 +52418,15 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃変化(弱化)",
             "matchedText": "攻撃-9％"
+          },
+          {
+            "category": "generals",
+            "name": "覚醒黄蓋（こうがい）",
+            "displayName": "覚醒黄蓋（こうがい）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(弱化)",
+            "matchedText": "防御-9％"
           },
           {
             "category": "generals",
@@ -54850,6 +55318,15 @@
             "displayName": "機略",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "通常攻撃威力変化(弱化)",
+            "matchedText": "通常攻撃威力-15%"
+          },
+          {
+            "category": "skills",
+            "name": "機略",
+            "displayName": "機略",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "戦法威力変化(弱化)",
             "matchedText": "戦法威力-20%"
           },
@@ -55059,6 +55536,15 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(弱化)",
             "matchedText": "被ダメージを計算する▼交戦開始時 ●自身を含む味方3"
+          },
+          {
+            "category": "skills",
+            "name": "鼓励",
+            "displayName": "鼓励",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(弱化)",
+            "matchedText": "被ダメージを計算する（下限100％"
           },
           {
             "category": "skills",
@@ -55284,6 +55770,15 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "乱炎",
             "matchedText": "乱炎"
+          },
+          {
+            "category": "skills",
+            "name": "政化",
+            "displayName": "政化",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(弱化)",
+            "matchedText": "被ダメージを計算する ※通常攻撃の基礎威力を変動させる効果を無視して100％"
           },
           {
             "category": "skills",
@@ -55966,16 +56461,16 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 443,
+        "generals": 445,
         "tactics": 143,
-        "skills": 146,
+        "skills": 149,
         "equipments": 0,
         "statusEffects": 0
       },
-      "totalOwnerCount": 732,
+      "totalOwnerCount": 737,
       "source": "related_link_index",
-      "ownerRelationCount": 732,
-      "distinctOwnerCount": 424
+      "ownerRelationCount": 737,
+      "distinctOwnerCount": 425
     },
     {
       "groupKey": "enemyStateDebuff",
@@ -56460,15 +56955,6 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "封撃",
             "matchedText": "封撃"
-          },
-          {
-            "category": "generals",
-            "name": "LR藺相如（りんしょうじょ）",
-            "displayName": "LR藺相如（りんしょうじょ）",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-status",
-            "statusEffectName": "分断",
-            "matchedText": "分断"
           },
           {
             "category": "generals",
@@ -58334,16 +58820,16 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 120,
+        "generals": 119,
         "tactics": 82,
         "skills": 58,
         "equipments": 0,
         "statusEffects": 0
       },
-      "totalOwnerCount": 260,
+      "totalOwnerCount": 259,
       "source": "related_link_index",
-      "ownerRelationCount": 260,
-      "distinctOwnerCount": 206
+      "ownerRelationCount": 259,
+      "distinctOwnerCount": 205
     },
     {
       "groupKey": "enemyResistanceDebuff",

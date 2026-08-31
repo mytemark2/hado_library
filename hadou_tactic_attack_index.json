@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-08-25T13:39:09.184Z",
+  "generatedAt": "2026-08-31T15:21:55.830Z",
   "dataSetId": "2026-08-24T16:58:10.882Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
@@ -35,7 +35,7 @@
   "sourceCounts": {
     "generals": 488,
     "tactics": 467,
-    "equipments": 251,
+    "equipments": 255,
     "skills": 661,
     "statusEffects": 206,
     "siegeWeapons": 6,
@@ -49,7 +49,7 @@
   "sourceHashes": {
     "generals": "c8a69cf2",
     "tactics": "17b2d8ff",
-    "equipments": "4c51c466",
+    "equipments": "5051cab2",
     "skills": "55f06444",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
@@ -63,7 +63,7 @@
   "sourceSha256": {
     "generals": "c8a69cf2",
     "tactics": "17b2d8ff",
-    "equipments": "4c51c466",
+    "equipments": "5051cab2",
     "skills": "55f06444",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
@@ -78,8 +78,8 @@
   "kind": "tactic_attack_index",
   "qualityAudit": {
     "itemCount": 467,
-    "attackCount": 222,
-    "noAttackCount": 245,
+    "attackCount": 223,
+    "noAttackCount": 244,
     "withConditionBlocks": 462,
     "withRangeGate": 0,
     "withChainRate": 5,
@@ -263,175 +263,7 @@
       ]
     },
     {
-      "id": "tactics:2:白眉良実",
-      "category": "tactics",
-      "name": "白眉良実",
-      "displayName": "白眉良実",
-      "sourceGeneral": "LR馬良（ばりょう）",
-      "hasAttack": false,
-      "directAttack": false,
-      "basePower": 0,
-      "targetCount": 0,
-      "label": "直接攻撃なし",
-      "formula": "直接攻撃なし",
-      "modifiers": [],
-      "searchTokens": [
-        "直接攻撃なし",
-        "戦法攻撃なし",
-        "攻撃ダメージなし",
-        "攻撃補正なし"
-      ],
-      "attackBlocks": [],
-      "conditionBlocks": [
-        {
-          "blockId": "tactics:2:0",
-          "sourcePartType": "section",
-          "sourceTitle": "白眉良実",
-          "sourceIndex": "0",
-          "sentenceIndex": 0,
-          "conditionText": "の際 / 時 / ごと / 主将 / 好相性 / 兵科",
-          "effectText": "白眉良実 兵科効果系統攻撃属性なし回復なし効果自身を含む味方3部隊の弱化効果を3つ打ち消して、全ての兵科と物体に対して有利にする自身1部隊に30％の有利激攻と30％の有利巧守、50％の秀俊を付与（自部隊の主将とこの武将が好相性の際、有利激攻、有利巧守、秀俊の対象部隊数+2）さらに自身を含む味方3部隊の負傷兵を最大兵力の50％回復する発動間隔対象範囲発動率連鎖順20秒味方 / 中25％早い 白眉良実の追加効果 追加効果対象範囲継続弱化解除味方 / 中-対象に発生している弱化効果を打ち消す兵科相性変化味方 / 中30秒全ての兵科と物体に対して有利になる有利激攻自分 / 単30秒兵科相性が有利な敵に対する与ダメージが上昇する有利巧守自分 / 単30秒兵科相性が有利な敵からの被ダメージが低下する秀俊自分 / 単30秒一定時間ごとに知力が累積して上昇さらに自部隊より知力の低い敵部隊から受ける被ダメージを50％軽減する",
-          "sourceText": "白眉良実 兵科効果系統攻撃属性なし回復なし効果自身を含む味方3部隊の弱化効果を3つ打ち消して、全ての兵科と物体に対して有利にする自身1部隊に30％の有利激攻と30％の有利巧守、50％の秀俊を付与（自部隊の主将とこの武将が好相性の際、有利激攻、有利巧守、秀俊の対象部隊数+2）さらに自身を含む味方3部隊の負傷兵を最大兵力の50％回復する発動間隔対象範囲発動率連鎖順20秒味方 / 中25％早い 白眉良実の追加効果 追加効果対象範囲継続弱化解除味方 / 中-対象に発生している弱化効果を打ち消す兵科相性変化味方 / 中30秒全ての兵科と物体に対して有利になる有利激攻自分 / 単30秒兵科相性が有利な敵に対する与ダメージが上昇する有利巧守自分 / 単30秒兵科相性が有利な敵からの被ダメージが低下する秀俊自分 / 単30秒一定時間ごとに知力が累積して上昇さらに自部隊より知力の低い敵部隊から受ける被ダメージを50％軽減する",
-          "blockType": "conditionedEffect",
-          "effectKinds": [
-            "parameter",
-            "tacticAttack",
-            "statusEffect"
-          ],
-          "hasRangeGate": false,
-          "hasChainRate": false,
-          "hasSkillLevelReference": false
-        }
-      ],
-      "hasRangeGate": false,
-      "hasChainRate": false,
-      "sourceText": "白眉良実 白眉良実 白眉良実 LR馬良（ばりょう） 白眉良実 白眉良実 兵科効果系統攻撃属性なし回復なし効果自身を含む味方3部隊の弱化効果を3つ打ち消して、全ての兵科と物体に対して有利にする自身1部隊に30％の有利激攻と30％の有利巧守、50％の秀俊を付与（自部隊の主将とこの武将が好相性の際、有利激攻、有利巧守、秀俊の対象部隊数+2）さらに自身を含む味方3部隊の負傷兵を最大兵力の50％回復する発動間隔対象範囲発動率連鎖順20秒味方 / 中25％早い 白眉良実の追加効果 追加効果対象範囲継続弱化解除味方 / 中-対象に発生している弱化効果を打ち消す兵科相性変化味方 / 中30秒全ての兵科と物体に対して有利になる有利激攻自分 / 単30秒兵科相性が有利な敵に対する与ダメージが上昇する有利巧守自分 / 単30秒兵科相性が有利な敵からの被ダメージが低下する秀俊自分 / 単30秒一定時間ごとに知力が累積して上昇さらに自部隊より知力の低い敵部隊から受ける被ダメージを50％軽減する",
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/568456",
-      "sourceEntityKey": "tactics:article-568456",
-      "tacticAttackKey": "tactics:article-568456:attack:none",
-      "hasDirectDamage": false,
-      "hasAnyAttackEffect": false,
-      "hasConditionalAttack": false,
-      "hasCounterAttack": false,
-      "sourcePartType": "tactic_text",
-      "keywords": [
-        "白眉良実",
-        "攻撃",
-        "戦法攻撃"
-      ]
-    },
-    {
-      "id": "tactics:3:孝烈忠武",
-      "category": "tactics",
-      "name": "孝烈忠武",
-      "displayName": "孝烈忠武",
-      "sourceGeneral": "LR関平（かんぺい）",
-      "hasAttack": true,
-      "directAttack": true,
-      "basePower": 400,
-      "targetCount": 3,
-      "label": "戦法攻撃400%(3部隊)",
-      "formula": "400%",
-      "modifiers": [
-        {
-          "type": "additive",
-          "value": 30,
-          "text": "威力を30%上昇",
-          "evaluable": false
-        }
-      ],
-      "searchTokens": [
-        "戦法攻撃400%(3部隊)",
-        "戦法攻撃",
-        "戦法攻撃あり",
-        "戦法攻撃率:400",
-        "対象部隊数:3",
-        "対象3部隊",
-        "攻撃補正あり",
-        "威力+30%",
-        "攻撃補正あり"
-      ],
-      "attackBlocks": [
-        {
-          "blockId": "tactics:3:0",
-          "sourcePartType": "section",
-          "sourceTitle": "孝烈忠武",
-          "sourceIndex": "0",
-          "sentenceIndex": 0,
-          "conditionText": "の際 / 応じて / 主将 / 兵科",
-          "effectText": "孝烈忠武 兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に豪昇と50％の闘気を付与自身を含む味方3部隊の攻撃と会心威力を100％、通常攻撃威力を30%上昇（この武将が主将か、自部隊の主将が関羽/関興/関索/関銀屏の際、攻撃、会心威力、通常攻撃威力の上昇効果が1.5倍になる）対象を含む敵3部隊に400％の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 孝烈忠武の追加効果 追加効果対象範囲継続豪昇自分 / 単10秒自部隊に発生している強化効果の数に応じて、部隊の与ダメージが上昇（強化効果1つにつき5％ずつ上昇",
-          "sourceText": "孝烈忠武 兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に豪昇と50％の闘気を付与自身を含む味方3部隊の攻撃と会心威力を100％、通常攻撃威力を30%上昇（この武将が主将か、自部隊の主将が関羽/関興/関索/関銀屏の際、攻撃、会心威力、通常攻撃威力の上昇効果が1.5倍になる）対象を含む敵3部隊に400％の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 孝烈忠武の追加効果 追加効果対象範囲継続豪昇自分 / 単10秒自部隊に発生している強化効果の数に応じて、部隊の与ダメージが上昇（強化効果1つにつき5％ずつ上昇",
-          "blockType": "conditionedEffect",
-          "effectKinds": [
-            "parameter",
-            "tacticAttack",
-            "statusEffect"
-          ],
-          "hasRangeGate": false,
-          "hasChainRate": false,
-          "hasSkillLevelReference": false
-        }
-      ],
-      "conditionBlocks": [
-        {
-          "blockId": "tactics:3:0",
-          "sourcePartType": "section",
-          "sourceTitle": "孝烈忠武",
-          "sourceIndex": "0",
-          "sentenceIndex": 0,
-          "conditionText": "の際 / 応じて / 主将 / 兵科",
-          "effectText": "孝烈忠武 兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に豪昇と50％の闘気を付与自身を含む味方3部隊の攻撃と会心威力を100％、通常攻撃威力を30%上昇（この武将が主将か、自部隊の主将が関羽/関興/関索/関銀屏の際、攻撃、会心威力、通常攻撃威力の上昇効果が1.5倍になる）対象を含む敵3部隊に400％の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 孝烈忠武の追加効果 追加効果対象範囲継続豪昇自分 / 単10秒自部隊に発生している強化効果の数に応じて、部隊の与ダメージが上昇（強化効果1つにつき5％ずつ上昇",
-          "sourceText": "孝烈忠武 兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に豪昇と50％の闘気を付与自身を含む味方3部隊の攻撃と会心威力を100％、通常攻撃威力を30%上昇（この武将が主将か、自部隊の主将が関羽/関興/関索/関銀屏の際、攻撃、会心威力、通常攻撃威力の上昇効果が1.5倍になる）対象を含む敵3部隊に400％の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 孝烈忠武の追加効果 追加効果対象範囲継続豪昇自分 / 単10秒自部隊に発生している強化効果の数に応じて、部隊の与ダメージが上昇（強化効果1つにつき5％ずつ上昇",
-          "blockType": "conditionedEffect",
-          "effectKinds": [
-            "parameter",
-            "tacticAttack",
-            "statusEffect"
-          ],
-          "hasRangeGate": false,
-          "hasChainRate": false,
-          "hasSkillLevelReference": false
-        },
-        {
-          "blockId": "tactics:3:1",
-          "sourcePartType": "section",
-          "sourceTitle": "孝烈忠武",
-          "sourceIndex": "0",
-          "sentenceIndex": 1,
-          "conditionText": "時 / 以上",
-          "effectText": "最大50％上昇）闘気自分 / 単10秒兵力が50％以上の時、部隊の被ダメージを効果量分軽減攻撃変化味方 / 単10秒部隊の攻撃が上昇する会心威力変化味方 / 単10秒会心発生時の威力が上昇する通常攻撃威力変化味方 / 単10秒通常攻撃による攻撃の威力が上昇する",
-          "sourceText": "最大50％上昇）闘気自分 / 単10秒兵力が50％以上の時、部隊の被ダメージを効果量分軽減攻撃変化味方 / 単10秒部隊の攻撃が上昇する会心威力変化味方 / 単10秒会心発生時の威力が上昇する通常攻撃威力変化味方 / 単10秒通常攻撃による攻撃の威力が上昇する",
-          "blockType": "conditionedEffect",
-          "effectKinds": [
-            "parameter",
-            "statusEffect"
-          ],
-          "hasRangeGate": false,
-          "hasChainRate": false,
-          "hasSkillLevelReference": false
-        }
-      ],
-      "hasRangeGate": false,
-      "hasChainRate": false,
-      "sourceText": "孝烈忠武 孝烈忠武 孝烈忠武 LR関平（かんぺい） 孝烈忠武 孝烈忠武 兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に豪昇と50％の闘気を付与自身を含む味方3部隊の攻撃と会心威力を100％、通常攻撃威力を30%上昇（この武将が主将か、自部隊の主将が関羽/関興/関索/関銀屏の際、攻撃、会心威力、通常攻撃威力の上昇効果が1.5倍になる）対象を含む敵3部隊に400％の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 孝烈忠武の追加効果 追加効果対象範囲継続豪昇自分 / 単10秒自部隊に発生している強化効果の数に応じて、部隊の与ダメージが上昇（強化効果1つにつき5％ずつ上昇。最大50％上昇）闘気自分 / 単10秒兵力が50％以上の時、部隊の被ダメージを効果量分軽減攻撃変化味方 / 単10秒部隊の攻撃が上昇する会心威力変化味方 / 単10秒会心発生時の威力が上昇する通常攻撃威力変化味方 / 単10秒通常攻撃による攻撃の威力が上昇する",
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/568457",
-      "sourceEntityKey": "tactics:article-568457",
-      "tacticAttackKey": "tactics:article-568457:attack:direct",
-      "hasDirectDamage": true,
-      "hasAnyAttackEffect": true,
-      "hasConditionalAttack": true,
-      "hasCounterAttack": false,
-      "sourcePartType": "tactic_text",
-      "keywords": [
-        "孝烈忠武",
-        "攻撃",
-        "戦法攻撃",
-        "追加攻撃",
-        "400%"
-      ]
-    },
-    {
-      "id": "tactics:4:斉聖祥禎",
+      "id": "tactics:2:斉聖祥禎",
       "category": "tactics",
       "name": "斉聖祥禎",
       "displayName": "斉聖祥禎",
@@ -451,7 +283,7 @@
       ],
       "attackBlocks": [
         {
-          "blockId": "tactics:4:0",
+          "blockId": "tactics:2:0",
           "sourcePartType": "section",
           "sourceTitle": "斉聖祥禎",
           "sourceIndex": "0",
@@ -472,7 +304,7 @@
       ],
       "conditionBlocks": [
         {
-          "blockId": "tactics:4:0",
+          "blockId": "tactics:2:0",
           "sourcePartType": "section",
           "sourceTitle": "斉聖祥禎",
           "sourceIndex": "0",
@@ -510,7 +342,7 @@
       ]
     },
     {
-      "id": "tactics:5:彪壮烈打",
+      "id": "tactics:3:彪壮烈打",
       "category": "tactics",
       "name": "彪壮烈打",
       "displayName": "彪壮烈打",
@@ -533,7 +365,7 @@
       ],
       "attackBlocks": [
         {
-          "blockId": "tactics:5:0",
+          "blockId": "tactics:3:0",
           "sourcePartType": "section",
           "sourceTitle": "彪壮烈打",
           "sourceIndex": "0",
@@ -555,7 +387,7 @@
       ],
       "conditionBlocks": [
         {
-          "blockId": "tactics:5:0",
+          "blockId": "tactics:3:0",
           "sourcePartType": "section",
           "sourceTitle": "彪壮烈打",
           "sourceIndex": "0",
@@ -575,7 +407,7 @@
           "hasSkillLevelReference": true
         },
         {
-          "blockId": "tactics:5:1",
+          "blockId": "tactics:3:1",
           "sourcePartType": "section",
           "sourceTitle": "彪壮烈打",
           "sourceIndex": "0",
@@ -614,7 +446,7 @@
       ]
     },
     {
-      "id": "tactics:6:閃撃奔箭",
+      "id": "tactics:4:閃撃奔箭",
       "category": "tactics",
       "name": "閃撃奔箭",
       "displayName": "閃撃奔箭",
@@ -647,7 +479,7 @@
       "attackBlocks": [],
       "conditionBlocks": [
         {
-          "blockId": "tactics:6:0",
+          "blockId": "tactics:4:0",
           "sourcePartType": "section",
           "sourceTitle": "閃撃奔箭",
           "sourceIndex": "0",
@@ -685,11 +517,121 @@
       ]
     },
     {
-      "id": "tactics:7:忠壮烈虎",
+      "id": "tactics:5:孝烈忠武",
       "category": "tactics",
-      "name": "忠壮烈虎",
-      "displayName": "忠壮烈虎",
-      "sourceGeneral": "LR孫堅・盾兵（そんけん）",
+      "name": "孝烈忠武",
+      "displayName": "孝烈忠武",
+      "sourceGeneral": "LR関平（かんぺい）",
+      "hasAttack": true,
+      "directAttack": true,
+      "basePower": 400,
+      "targetCount": 3,
+      "label": "戦法攻撃400%(3部隊)",
+      "formula": "400%",
+      "modifiers": [
+        {
+          "type": "additive",
+          "value": 30,
+          "text": "威力を30%上昇",
+          "evaluable": false
+        }
+      ],
+      "searchTokens": [
+        "戦法攻撃400%(3部隊)",
+        "戦法攻撃",
+        "戦法攻撃あり",
+        "戦法攻撃率:400",
+        "対象部隊数:3",
+        "対象3部隊",
+        "攻撃補正あり",
+        "威力+30%",
+        "攻撃補正あり"
+      ],
+      "attackBlocks": [
+        {
+          "blockId": "tactics:5:0",
+          "sourcePartType": "section",
+          "sourceTitle": "孝烈忠武",
+          "sourceIndex": "0",
+          "sentenceIndex": 0,
+          "conditionText": "の際 / 応じて / 主将 / 兵科",
+          "effectText": "孝烈忠武 兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に豪昇と50％の闘気を付与自身を含む味方3部隊の攻撃と会心威力を100％、通常攻撃威力を30%上昇（この武将が主将か、自部隊の主将が関羽/関興/関索/関銀屏の際、攻撃、会心威力、通常攻撃威力の上昇効果が1.5倍になる）対象を含む敵3部隊に400％の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 孝烈忠武の追加効果 追加効果対象範囲継続豪昇自分 / 単10秒自部隊に発生している強化効果の数に応じて、部隊の与ダメージが上昇（強化効果1つにつき5％ずつ上昇",
+          "sourceText": "孝烈忠武 兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に豪昇と50％の闘気を付与自身を含む味方3部隊の攻撃と会心威力を100％、通常攻撃威力を30%上昇（この武将が主将か、自部隊の主将が関羽/関興/関索/関銀屏の際、攻撃、会心威力、通常攻撃威力の上昇効果が1.5倍になる）対象を含む敵3部隊に400％の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 孝烈忠武の追加効果 追加効果対象範囲継続豪昇自分 / 単10秒自部隊に発生している強化効果の数に応じて、部隊の与ダメージが上昇（強化効果1つにつき5％ずつ上昇",
+          "blockType": "conditionedEffect",
+          "effectKinds": [
+            "parameter",
+            "tacticAttack",
+            "statusEffect"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        }
+      ],
+      "conditionBlocks": [
+        {
+          "blockId": "tactics:5:0",
+          "sourcePartType": "section",
+          "sourceTitle": "孝烈忠武",
+          "sourceIndex": "0",
+          "sentenceIndex": 0,
+          "conditionText": "の際 / 応じて / 主将 / 兵科",
+          "effectText": "孝烈忠武 兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に豪昇と50％の闘気を付与自身を含む味方3部隊の攻撃と会心威力を100％、通常攻撃威力を30%上昇（この武将が主将か、自部隊の主将が関羽/関興/関索/関銀屏の際、攻撃、会心威力、通常攻撃威力の上昇効果が1.5倍になる）対象を含む敵3部隊に400％の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 孝烈忠武の追加効果 追加効果対象範囲継続豪昇自分 / 単10秒自部隊に発生している強化効果の数に応じて、部隊の与ダメージが上昇（強化効果1つにつき5％ずつ上昇",
+          "sourceText": "孝烈忠武 兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に豪昇と50％の闘気を付与自身を含む味方3部隊の攻撃と会心威力を100％、通常攻撃威力を30%上昇（この武将が主将か、自部隊の主将が関羽/関興/関索/関銀屏の際、攻撃、会心威力、通常攻撃威力の上昇効果が1.5倍になる）対象を含む敵3部隊に400％の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 孝烈忠武の追加効果 追加効果対象範囲継続豪昇自分 / 単10秒自部隊に発生している強化効果の数に応じて、部隊の与ダメージが上昇（強化効果1つにつき5％ずつ上昇",
+          "blockType": "conditionedEffect",
+          "effectKinds": [
+            "parameter",
+            "tacticAttack",
+            "statusEffect"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "tactics:5:1",
+          "sourcePartType": "section",
+          "sourceTitle": "孝烈忠武",
+          "sourceIndex": "0",
+          "sentenceIndex": 1,
+          "conditionText": "時 / 以上",
+          "effectText": "最大50％上昇）闘気自分 / 単10秒兵力が50％以上の時、部隊の被ダメージを効果量分軽減攻撃変化味方 / 単10秒部隊の攻撃が上昇する会心威力変化味方 / 単10秒会心発生時の威力が上昇する通常攻撃威力変化味方 / 単10秒通常攻撃による攻撃の威力が上昇する",
+          "sourceText": "最大50％上昇）闘気自分 / 単10秒兵力が50％以上の時、部隊の被ダメージを効果量分軽減攻撃変化味方 / 単10秒部隊の攻撃が上昇する会心威力変化味方 / 単10秒会心発生時の威力が上昇する通常攻撃威力変化味方 / 単10秒通常攻撃による攻撃の威力が上昇する",
+          "blockType": "conditionedEffect",
+          "effectKinds": [
+            "parameter",
+            "statusEffect"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        }
+      ],
+      "hasRangeGate": false,
+      "hasChainRate": false,
+      "sourceText": "孝烈忠武 孝烈忠武 孝烈忠武 LR関平（かんぺい） 孝烈忠武 孝烈忠武 兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に豪昇と50％の闘気を付与自身を含む味方3部隊の攻撃と会心威力を100％、通常攻撃威力を30%上昇（この武将が主将か、自部隊の主将が関羽/関興/関索/関銀屏の際、攻撃、会心威力、通常攻撃威力の上昇効果が1.5倍になる）対象を含む敵3部隊に400％の攻撃発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 孝烈忠武の追加効果 追加効果対象範囲継続豪昇自分 / 単10秒自部隊に発生している強化効果の数に応じて、部隊の与ダメージが上昇（強化効果1つにつき5％ずつ上昇。最大50％上昇）闘気自分 / 単10秒兵力が50％以上の時、部隊の被ダメージを効果量分軽減攻撃変化味方 / 単10秒部隊の攻撃が上昇する会心威力変化味方 / 単10秒会心発生時の威力が上昇する通常攻撃威力変化味方 / 単10秒通常攻撃による攻撃の威力が上昇する",
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/568457",
+      "sourceEntityKey": "tactics:article-568457",
+      "tacticAttackKey": "tactics:article-568457:attack:direct",
+      "hasDirectDamage": true,
+      "hasAnyAttackEffect": true,
+      "hasConditionalAttack": true,
+      "hasCounterAttack": false,
+      "sourcePartType": "tactic_text",
+      "keywords": [
+        "孝烈忠武",
+        "攻撃",
+        "戦法攻撃",
+        "追加攻撃",
+        "400%"
+      ]
+    },
+    {
+      "id": "tactics:6:白眉良実",
+      "category": "tactics",
+      "name": "白眉良実",
+      "displayName": "白眉良実",
+      "sourceGeneral": "LR馬良（ばりょう）",
       "hasAttack": false,
       "directAttack": false,
       "basePower": 0,
@@ -706,14 +648,14 @@
       "attackBlocks": [],
       "conditionBlocks": [
         {
-          "blockId": "tactics:7:0",
+          "blockId": "tactics:6:0",
           "sourcePartType": "section",
-          "sourceTitle": "忠壮烈虎",
+          "sourceTitle": "白眉良実",
           "sourceIndex": "0",
           "sentenceIndex": 0,
-          "conditionText": "場合 / 時 / 以上 / 応じて / 主将 / 兵科",
-          "effectText": "忠壮烈虎 兵科効果系統攻撃属性盾兵物理なし効果自身1部隊に50％の豪撃、50％の猛奮、豪昇を付与して、攻撃と対物特効を200％上昇（この武将が主将の場合、上記全ての効果の味方対象部隊数+3）発動間隔対象範囲発動率連鎖順20秒敵 / 広25％遅い 忠壮烈虎の追加効果 追加効果対象範囲継続豪撃自分 / 単10秒自部隊の戦法発動時、戦法の攻撃威力を効果量分上乗せした状態で戦法攻撃を行う（その武将の戦法が非攻撃戦法の場合は効果なし）※戦法による攻撃威力の変動計算後に上乗せされる猛奮自分 / 単10秒兵力が50％以上の時、部隊の与ダメージが効果量分上昇豪昇自分 / 単10秒自部隊に発生している強化効果の数に応じて、部隊の与ダメージが上昇（強化効果1つにつき5％ずつ上昇",
-          "sourceText": "忠壮烈虎 兵科効果系統攻撃属性盾兵物理なし効果自身1部隊に50％の豪撃、50％の猛奮、豪昇を付与して、攻撃と対物特効を200％上昇（この武将が主将の場合、上記全ての効果の味方対象部隊数+3）発動間隔対象範囲発動率連鎖順20秒敵 / 広25％遅い 忠壮烈虎の追加効果 追加効果対象範囲継続豪撃自分 / 単10秒自部隊の戦法発動時、戦法の攻撃威力を効果量分上乗せした状態で戦法攻撃を行う（その武将の戦法が非攻撃戦法の場合は効果なし）※戦法による攻撃威力の変動計算後に上乗せされる猛奮自分 / 単10秒兵力が50％以上の時、部隊の与ダメージが効果量分上昇豪昇自分 / 単10秒自部隊に発生している強化効果の数に応じて、部隊の与ダメージが上昇（強化効果1つにつき5％ずつ上昇",
+          "conditionText": "の際 / 時 / ごと / 主将 / 好相性 / 兵科",
+          "effectText": "白眉良実 兵科効果系統攻撃属性なし回復なし効果自身を含む味方3部隊の弱化効果を3つ打ち消して、全ての兵科と物体に対して有利にする自身1部隊に30％の有利激攻と30％の有利巧守、50％の秀俊を付与（自部隊の主将とこの武将が好相性の際、有利激攻、有利巧守、秀俊の対象部隊数+2）さらに自身を含む味方3部隊の負傷兵を最大兵力の50％回復する発動間隔対象範囲発動率連鎖順20秒味方 / 中25％早い 白眉良実の追加効果 追加効果対象範囲継続弱化解除味方 / 中-対象に発生している弱化効果を打ち消す兵科相性変化味方 / 中30秒全ての兵科と物体に対して有利になる有利激攻自分 / 単30秒兵科相性が有利な敵に対する与ダメージが上昇する有利巧守自分 / 単30秒兵科相性が有利な敵からの被ダメージが低下する秀俊自分 / 単30秒一定時間ごとに知力が累積して上昇さらに自部隊より知力の低い敵部隊から受ける被ダメージを50％軽減する",
+          "sourceText": "白眉良実 兵科効果系統攻撃属性なし回復なし効果自身を含む味方3部隊の弱化効果を3つ打ち消して、全ての兵科と物体に対して有利にする自身1部隊に30％の有利激攻と30％の有利巧守、50％の秀俊を付与（自部隊の主将とこの武将が好相性の際、有利激攻、有利巧守、秀俊の対象部隊数+2）さらに自身を含む味方3部隊の負傷兵を最大兵力の50％回復する発動間隔対象範囲発動率連鎖順20秒味方 / 中25％早い 白眉良実の追加効果 追加効果対象範囲継続弱化解除味方 / 中-対象に発生している弱化効果を打ち消す兵科相性変化味方 / 中30秒全ての兵科と物体に対して有利になる有利激攻自分 / 単30秒兵科相性が有利な敵に対する与ダメージが上昇する有利巧守自分 / 単30秒兵科相性が有利な敵からの被ダメージが低下する秀俊自分 / 単30秒一定時間ごとに知力が累積して上昇さらに自部隊より知力の低い敵部隊から受ける被ダメージを50％軽減する",
           "blockType": "conditionedEffect",
           "effectKinds": [
             "parameter",
@@ -727,19 +669,81 @@
       ],
       "hasRangeGate": false,
       "hasChainRate": false,
-      "sourceText": "忠壮烈虎 忠壮烈虎 忠壮烈虎 LR孫堅・盾兵（そんけん） 忠壮烈虎 忠壮烈虎 兵科効果系統攻撃属性盾兵物理なし効果自身1部隊に50％の豪撃、50％の猛奮、豪昇を付与して、攻撃と対物特効を200％上昇（この武将が主将の場合、上記全ての効果の味方対象部隊数+3）発動間隔対象範囲発動率連鎖順20秒敵 / 広25％遅い 忠壮烈虎の追加効果 追加効果対象範囲継続豪撃自分 / 単10秒自部隊の戦法発動時、戦法の攻撃威力を効果量分上乗せした状態で戦法攻撃を行う（その武将の戦法が非攻撃戦法の場合は効果なし）※戦法による攻撃威力の変動計算後に上乗せされる猛奮自分 / 単10秒兵力が50％以上の時、部隊の与ダメージが効果量分上昇豪昇自分 / 単10秒自部隊に発生している強化効果の数に応じて、部隊の与ダメージが上昇（強化効果1つにつき5％ずつ上昇。最大50％上昇）攻撃変化自分 / 単10秒部隊の攻撃が上昇する対物特効変化自分 / 単10秒物体に対して有利になる",
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/565572",
-      "sourceEntityKey": "tactics:article-565572",
-      "tacticAttackKey": "tactics:article-565572:attack:none",
+      "sourceText": "白眉良実 白眉良実 白眉良実 LR馬良（ばりょう） 白眉良実 白眉良実 兵科効果系統攻撃属性なし回復なし効果自身を含む味方3部隊の弱化効果を3つ打ち消して、全ての兵科と物体に対して有利にする自身1部隊に30％の有利激攻と30％の有利巧守、50％の秀俊を付与（自部隊の主将とこの武将が好相性の際、有利激攻、有利巧守、秀俊の対象部隊数+2）さらに自身を含む味方3部隊の負傷兵を最大兵力の50％回復する発動間隔対象範囲発動率連鎖順20秒味方 / 中25％早い 白眉良実の追加効果 追加効果対象範囲継続弱化解除味方 / 中-対象に発生している弱化効果を打ち消す兵科相性変化味方 / 中30秒全ての兵科と物体に対して有利になる有利激攻自分 / 単30秒兵科相性が有利な敵に対する与ダメージが上昇する有利巧守自分 / 単30秒兵科相性が有利な敵からの被ダメージが低下する秀俊自分 / 単30秒一定時間ごとに知力が累積して上昇さらに自部隊より知力の低い敵部隊から受ける被ダメージを50％軽減する",
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/568456",
+      "sourceEntityKey": "tactics:article-568456",
+      "tacticAttackKey": "tactics:article-568456:attack:none",
       "hasDirectDamage": false,
       "hasAnyAttackEffect": false,
       "hasConditionalAttack": false,
       "hasCounterAttack": false,
       "sourcePartType": "tactic_text",
       "keywords": [
-        "忠壮烈虎",
+        "白眉良実",
         "攻撃",
         "戦法攻撃"
+      ]
+    },
+    {
+      "id": "tactics:7:忠壮烈虎",
+      "category": "tactics",
+      "name": "忠壮烈虎",
+      "displayName": "忠壮烈虎",
+      "sourceGeneral": "LR孫堅・盾兵（そんけん）",
+      "hasAttack": true,
+      "directAttack": true,
+      "basePower": 450,
+      "targetCount": 4,
+      "label": "戦法攻撃450%(4部隊)",
+      "formula": "450%",
+      "modifiers": [],
+      "searchTokens": [
+        "戦法攻撃450%(4部隊)",
+        "戦法攻撃",
+        "戦法攻撃あり",
+        "戦法攻撃率:450",
+        "対象部隊数:4",
+        "対象4部隊",
+        "攻撃補正なし"
+      ],
+      "attackBlocks": [],
+      "conditionBlocks": [
+        {
+          "blockId": "tactics:7:0",
+          "sourcePartType": "section",
+          "sourceTitle": "忠壮烈虎",
+          "sourceIndex": "0",
+          "sentenceIndex": 0,
+          "conditionText": "場合 / 時 / 以上 / 応じて / 主将 / 好相性 / 兵科",
+          "effectText": "忠壮烈虎 兵科効果系統攻撃属性盾兵物理なし効果自身1部隊に50％の豪撃、50％の猛奮、豪昇を付与して、攻撃と対物特効を200％上昇（この武将が主将の場合、上記全ての効果の味方対象部隊数+3して、この武将と主将が好相性の部隊が優先して対象となる）対象を含む敵4部隊に450%の攻撃発動間隔対象範囲発動率連鎖順20秒敵 / 広25％遅い 忠壮烈虎の追加効果 追加効果対象範囲継続豪撃自分 / 単10秒自部隊の戦法発動時、戦法の攻撃威力を効果量分上乗せした状態で戦法攻撃を行う（その武将の戦法が非攻撃戦法の場合は効果なし）※戦法による攻撃威力の変動計算後に上乗せされる猛奮自分 / 単10秒兵力が50％以上の時、部隊の与ダメージが効果量分上昇豪昇自分 / 単10秒自部隊に発生している強化効果の数に応じて、部隊の与ダメージが上昇（強化効果1つにつき5％ずつ上昇",
+          "sourceText": "忠壮烈虎 兵科効果系統攻撃属性盾兵物理なし効果自身1部隊に50％の豪撃、50％の猛奮、豪昇を付与して、攻撃と対物特効を200％上昇（この武将が主将の場合、上記全ての効果の味方対象部隊数+3して、この武将と主将が好相性の部隊が優先して対象となる）対象を含む敵4部隊に450%の攻撃発動間隔対象範囲発動率連鎖順20秒敵 / 広25％遅い 忠壮烈虎の追加効果 追加効果対象範囲継続豪撃自分 / 単10秒自部隊の戦法発動時、戦法の攻撃威力を効果量分上乗せした状態で戦法攻撃を行う（その武将の戦法が非攻撃戦法の場合は効果なし）※戦法による攻撃威力の変動計算後に上乗せされる猛奮自分 / 単10秒兵力が50％以上の時、部隊の与ダメージが効果量分上昇豪昇自分 / 単10秒自部隊に発生している強化効果の数に応じて、部隊の与ダメージが上昇（強化効果1つにつき5％ずつ上昇",
+          "blockType": "conditionedEffect",
+          "effectKinds": [
+            "parameter",
+            "tacticAttack",
+            "statusEffect"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        }
+      ],
+      "hasRangeGate": false,
+      "hasChainRate": false,
+      "sourceText": "忠壮烈虎 忠壮烈虎 忠壮烈虎 LR孫堅・盾兵（そんけん） 忠壮烈虎 忠壮烈虎 兵科効果系統攻撃属性盾兵物理なし効果自身1部隊に50％の豪撃、50％の猛奮、豪昇を付与して、攻撃と対物特効を200％上昇（この武将が主将の場合、上記全ての効果の味方対象部隊数+3して、この武将と主将が好相性の部隊が優先して対象となる）対象を含む敵4部隊に450%の攻撃発動間隔対象範囲発動率連鎖順20秒敵 / 広25％遅い 忠壮烈虎の追加効果 追加効果対象範囲継続豪撃自分 / 単10秒自部隊の戦法発動時、戦法の攻撃威力を効果量分上乗せした状態で戦法攻撃を行う（その武将の戦法が非攻撃戦法の場合は効果なし）※戦法による攻撃威力の変動計算後に上乗せされる猛奮自分 / 単10秒兵力が50％以上の時、部隊の与ダメージが効果量分上昇豪昇自分 / 単10秒自部隊に発生している強化効果の数に応じて、部隊の与ダメージが上昇（強化効果1つにつき5％ずつ上昇。最大50％上昇）攻撃変化自分 / 単10秒部隊の攻撃が上昇する対物特効変化自分 / 単10秒物体に対して有利になる",
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/565572",
+      "sourceEntityKey": "tactics:article-565572",
+      "tacticAttackKey": "tactics:article-565572:attack:direct",
+      "hasDirectDamage": true,
+      "hasAnyAttackEffect": true,
+      "hasConditionalAttack": false,
+      "hasCounterAttack": false,
+      "sourcePartType": "tactic_text",
+      "keywords": [
+        "忠壮烈虎",
+        "攻撃",
+        "戦法攻撃",
+        "450%"
       ]
     },
     {
