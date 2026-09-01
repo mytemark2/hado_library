@@ -17,16 +17,31 @@ const manifest = readJson('hadou_bundle_manifest.json');
 const scan = census.scanSummary;
 const audit = clauses.qualityAudit;
 
-assert.strictEqual(scan.sourceRecordCount, 1822);
+const sourceFiles = {
+  generals: 'hadou_generals.json',
+  tactics: 'hadou_tactics.json',
+  skills: 'hadou_skills.json',
+  statusEffects: 'hadou_status_effects.json'
+};
+const expectedCategoryCounts = Object.fromEntries(Object.entries(sourceFiles).map(([category, file]) => {
+  const source = readJson(file);
+  return [category, Array.isArray(source) ? source.length : source.items.length];
+}));
+const expectedSourceRecordCount = Object.values(expectedCategoryCounts)
+  .reduce((sum, count) => sum + count, 0);
+assert.strictEqual(scan.sourceRecordCount, expectedSourceRecordCount);
 assert.strictEqual(scan.scannedRecordCount, scan.sourceRecordCount);
 assert.strictEqual(scan.unscannedRecordCount, 0);
-assert.strictEqual(scan.semanticUnitCount, 46362);
+const categorySemanticUnitCount = Object.values(scan.byCategory)
+  .reduce((sum, row) => sum + Number(row.semanticUnitCount || 0), 0);
+assert.strictEqual(scan.semanticUnitCount, categorySemanticUnitCount);
+assert.ok(scan.semanticUnitCount >= 46000);
 assert.strictEqual(scan.classifiedUnitCount, scan.semanticUnitCount);
 assert.strictEqual(scan.unresolvedUnitCount, 0);
 assert.strictEqual(census.unresolvedUnits.length, 0);
 assert.deepStrictEqual(
   Object.fromEntries(Object.entries(scan.byCategory).map(([key, row]) => [key, row.sourceRecords])),
-  { generals: 488, tactics: 467, skills: 661, statusEffects: 206 }
+  expectedCategoryCounts
 );
 
 assert.strictEqual(clauses.itemCount, scan.sourceRecordCount);
@@ -71,9 +86,10 @@ for (const row of reviewed) {
   for (const modifier of row.clause.modifier || []) assert.strictEqual(modifier.effectId, row.clause.effect.id);
 }
 
-// The 107 normalized-signature groups are review candidates across levels/stages,
-// not duplicated effect records. Identity and Clause ID are the double-count gates.
-assert.strictEqual(audit.duplicateBaseOverrideCount, 107);
+// Normalized-signature groups are review candidates across levels/stages, not
+// duplicated effect records. Their count can grow with data updates; identity
+// and Clause ID remain the fixed double-count gates.
+assert.ok(audit.duplicateBaseOverrideCount > 0);
 assert.strictEqual(audit.duplicateEffectIdentityCount, 0);
 
 const expectedManifest = manifestTool.buildManifest();
