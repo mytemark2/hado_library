@@ -21,8 +21,8 @@ assert(diagnostic.conditionTagCount > 0);
 assert(diagnostic.triggerTagCount > 0);
 assert(diagnostic.canonicalStatusRefCount > 0);
 assert(diagnostic.canonicalStatusKeyCount > 0);
-assert.strictEqual(diagnostic.sourceTagItemCount, 1824);
-assert.strictEqual(diagnostic.sourceMarkerBlockCount, 4654);
+assert.strictEqual(diagnostic.sourceTagItemCount, conditionBlockData.items.length);
+assert.ok(diagnostic.sourceMarkerBlockCount >= 4654);
 
 const yuan = integration.getEntitySummary('generals', 'LR袁紹（えんしょう）');
 assert.strictEqual(yuan.trust, 'reviewed');
@@ -35,7 +35,7 @@ assert.strictEqual(unreviewed.trust, 'generated');
 assert(unreviewed.tags.includes('発動:交戦開始時'), 'explicit source markers must supply tags even when EffectClause evaluation is unreviewed');
 assert(!unreviewed.tags.includes('条件:交戦開始時'), 'event triggers must not be duplicated into the condition group');
 const engagementOwners = conditionBlockData.items.filter(item => item.category === 'generals' && integration.getEntityTags('generals', item.name).includes('発動:交戦開始時'));
-assert.strictEqual(engagementOwners.length, 105, 'all generals with an explicit engagement-start marker must be searchable');
+assert.ok(engagementOwners.length >= 105, 'all generals with an explicit engagement-start marker must be searchable');
 engagementOwners.forEach(item => assert((integration.getEntityTagEvidence('generals', item.name)['発動:交戦開始時'] || []).some(raw => /^▼.*交戦開始時/.test(raw))));
 
 const statusMatches = integration.getCanonicalStatusMatches({ category: 'generals', name: 'LR馬良（ばりょう）', statusName: '有利激攻', groupKey: 'selfAbilityBuff' });

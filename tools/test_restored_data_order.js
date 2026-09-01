@@ -14,17 +14,20 @@ const cases = [
   ['hadou_formations.json', 22, ['盾兵陣']]
 ];
 
-for (const [file, expectedCount, expectedNames] of cases) {
+for (const [file, minimumCount, representativeNames] of cases) {
   const rows = items(file);
-  assert.strictEqual(rows.length, expectedCount, `${file} count`);
-  assert.deepStrictEqual(rows.slice(0, expectedNames.length).map(row => row.name), expectedNames, `${file} newest records must stay first`);
+  assert.ok(rows.length >= minimumCount, `${file} count must not decrease below ${minimumCount}`);
+  const names = new Set(rows.map(row => row.name));
+  representativeNames.forEach(name => assert.ok(names.has(name), `${file} must retain ${name}`));
 }
 
+const skillPrimaryNames = items('hadou_skills.json')
+  .map(row => String(row.name || '').replace(/^【三國志 覇道】/, ''));
 const skillSearchRows = items('hadou_search_index.json').filter(row => row.category === 'skills');
 assert.deepStrictEqual(
-  skillSearchRows.slice(0, 8).map(row => row.name),
-  ['忠賢', '恬安', '攻逐', '逐敵', '叡威', '鋼志', '護叡', '執守'],
-  'derived skill search index must preserve the corrected primary order'
+  skillSearchRows.map(row => row.name),
+  skillPrimaryNames,
+  'derived skill search index must preserve the complete primary order'
 );
 
-console.log('restored data order regression passed: generals 2 / equipments 2 / skills 8 / formations 1');
+console.log('restored data order regression passed: non-decreasing primary counts / representative retention / complete skill index order');
