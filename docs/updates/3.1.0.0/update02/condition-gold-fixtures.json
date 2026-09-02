@@ -3,7 +3,7 @@
   "kind": "hado_effect_clause_gold_fixtures",
   "releaseVersion": "3.1.0.0",
   "updateNo": "02",
-  "sourceGoldSha256": "1fa43a49caa96acd81cfbdad3e99cf278312ca09ce1645faaf905aac58ba63cc",
+  "sourceGoldSha256": "4a7c58ece166b6b9c671a18fed38426271f2ae23e6cd725ff59abe55c1f034ac",
   "itemCount": 44,
   "items": [
     {
@@ -293,7 +293,7 @@
       ],
       "clause": {
         "schemaVersion": "1.0",
-        "id": "generals:2:3:0:maliang-affinity",
+        "id": "generals:6:3:0:maliang-affinity",
         "context": null,
         "trigger": null,
         "when": {
@@ -321,7 +321,7 @@
         },
         "effect": {
           "id": "maliang-affinity:effect",
-          "identity": "generals:2:generals:2:3:0",
+          "identity": "generals:6:generals:6:3:0",
           "kind": "source_effect",
           "operation": "preserve",
           "baseValue": null,
@@ -335,8 +335,8 @@
         "evidence": {
           "category": "generals",
           "entity": "LR馬良（ばりょう）",
-          "sourceRecordId": "generals:2",
-          "sourceUnitId": "generals:2:3:0",
+          "sourceRecordId": "generals:6",
+          "sourceUnitId": "generals:6:3:0",
           "rawText": "■主将か、主将と自身が好相性の際",
           "rawTextSha256": "28281f4377b05b8e0d8c89cf53041b52cb2fce1a29d980e51b56ead1f8051f4e"
         },
@@ -354,7 +354,7 @@
       ],
       "clause": {
         "schemaVersion": "1.0",
-        "id": "generals:2:5:1:maliang-politics-ratio",
+        "id": "generals:6:5:1:maliang-politics-ratio",
         "context": null,
         "trigger": null,
         "when": null,
@@ -364,7 +364,7 @@
         },
         "effect": {
           "id": "maliang-politics-ratio:effect",
-          "identity": "generals:2:generals:2:5:1",
+          "identity": "generals:6:generals:6:5:1",
           "kind": "source_effect",
           "operation": "preserve",
           "baseValue": null,
@@ -394,8 +394,8 @@
         "evidence": {
           "category": "generals",
           "entity": "LR馬良（ばりょう）",
-          "sourceRecordId": "generals:2",
-          "sourceUnitId": "generals:2:5:1",
+          "sourceRecordId": "generals:6",
+          "sourceUnitId": "generals:6:5:1",
           "rawText": "●自身の政治の20%を部隊の防御と知力に加算",
           "rawTextSha256": "c92a472106df69972731aad85f5d72dc0185f2eb6da5776737ccf83d09d6381c"
         },
@@ -412,7 +412,7 @@
       ],
       "clause": {
         "schemaVersion": "1.0",
-        "id": "generals:2:5:6:maliang-intelligence-compare",
+        "id": "generals:6:5:6:maliang-intelligence-compare",
         "context": null,
         "trigger": null,
         "when": {
@@ -428,7 +428,7 @@
         },
         "effect": {
           "id": "maliang-intelligence-compare:effect",
-          "identity": "generals:2:generals:2:5:6",
+          "identity": "generals:6:generals:6:5:6",
           "kind": "source_effect",
           "operation": "preserve",
           "baseValue": null,
@@ -442,8 +442,8 @@
         "evidence": {
           "category": "generals",
           "entity": "LR馬良（ばりょう）",
-          "sourceRecordId": "generals:2",
-          "sourceUnitId": "generals:2:5:6",
+          "sourceRecordId": "generals:6",
+          "sourceUnitId": "generals:6:5:6",
           "rawText": "●自部隊より低知力の敵部隊からの1回の通常攻撃、1回の戦法によるダメージの上限が5000になる（連鎖攻撃の場合、連鎖攻撃ごとに上限が5000になる）",
           "rawTextSha256": "6287671574b451e6372d50f99343097e0367a2984ff8d49032de686ba23ef2a3"
         },
@@ -461,7 +461,7 @@
       ],
       "clause": {
         "schemaVersion": "1.0",
-        "id": "generals:2:5:7:maliang-existing-effect-sum",
+        "id": "generals:6:5:7:maliang-existing-effect-sum",
         "context": null,
         "trigger": null,
         "when": {
@@ -477,7 +477,7 @@
         },
         "effect": {
           "id": "maliang-existing-effect-sum:effect",
-          "identity": "generals:2:generals:2:5:7",
+          "identity": "generals:6:generals:6:5:7",
           "kind": "source_effect",
           "operation": "preserve",
           "baseValue": null,
@@ -498,8 +498,8 @@
         "evidence": {
           "category": "generals",
           "entity": "LR馬良（ばりょう）",
-          "sourceRecordId": "generals:2",
-          "sourceUnitId": "generals:2:5:7",
+          "sourceRecordId": "generals:6",
+          "sourceUnitId": "generals:6:5:7",
           "rawText": "●自部隊に有利激攻/有利巧守が付与される際、既に発生している有利激攻/有利巧守の効果量をそれぞれ加算した状態で付与される（付与される際の効果量上限は有利激攻が250%、有利巧守が70%）",
           "rawTextSha256": "a0d98dd7994307aa63acb6ae5fbcb28d54cde5a74ce3c9ff23960a8cdfd27e8b"
         },
@@ -516,7 +516,7 @@
       ],
       "clause": {
         "schemaVersion": "1.0",
-        "id": "generals:2:7:6:maliang-vice1-trigger",
+        "id": "generals:6:7:6:maliang-vice1-trigger",
         "context": null,
         "trigger": {
           "op": "predicate",
@@ -532,7 +532,7 @@
         },
         "effect": {
           "id": "maliang-vice1-trigger:effect",
-          "identity": "generals:2:generals:2:7:6",
+          "identity": "generals:6:generals:6:7:6",
           "kind": "source_effect",
           "operation": "preserve",
           "baseValue": null,
@@ -546,8 +546,8 @@
         "evidence": {
           "category": "generals",
           "entity": "LR馬良（ばりょう）",
-          "sourceRecordId": "generals:2",
-          "sourceUnitId": "generals:2:7:6",
+          "sourceRecordId": "generals:6",
+          "sourceUnitId": "generals:6:7:6",
           "rawText": "▼副将1の戦法発動時",
           "rawTextSha256": "1946f0f0e106ad03cbc60673b0e78a9413e73f5dcdc567e6a26a3e9e7585d524"
         },
@@ -564,7 +564,7 @@
       ],
       "clause": {
         "schemaVersion": "1.0",
-        "id": "generals:2:7:8:maliang-vice2-trigger",
+        "id": "generals:6:7:8:maliang-vice2-trigger",
         "context": null,
         "trigger": {
           "op": "predicate",
@@ -580,7 +580,7 @@
         },
         "effect": {
           "id": "maliang-vice2-trigger:effect",
-          "identity": "generals:2:generals:2:7:8",
+          "identity": "generals:6:generals:6:7:8",
           "kind": "source_effect",
           "operation": "preserve",
           "baseValue": null,
@@ -594,8 +594,8 @@
         "evidence": {
           "category": "generals",
           "entity": "LR馬良（ばりょう）",
-          "sourceRecordId": "generals:2",
-          "sourceUnitId": "generals:2:7:8",
+          "sourceRecordId": "generals:6",
+          "sourceUnitId": "generals:6:7:8",
           "rawText": "▼副将2の戦法発動時",
           "rawTextSha256": "3a31caba078af1a0ff6b560dbab99ea427841cd93cf47b76e29330ac55d30c0b"
         },
@@ -612,7 +612,7 @@
       ],
       "clause": {
         "schemaVersion": "1.0",
-        "id": "generals:2:6:0:maliang-appointment",
+        "id": "generals:6:6:0:maliang-appointment",
         "context": {
           "op": "predicate",
           "type": "context.appointment",
@@ -628,7 +628,7 @@
         },
         "effect": {
           "id": "maliang-appointment:effect",
-          "identity": "generals:2:generals:2:6:0",
+          "identity": "generals:6:generals:6:6:0",
           "kind": "source_effect",
           "operation": "preserve",
           "baseValue": null,
@@ -642,8 +642,8 @@
         "evidence": {
           "category": "generals",
           "entity": "LR馬良（ばりょう）",
-          "sourceRecordId": "generals:2",
-          "sourceUnitId": "generals:2:6:0",
+          "sourceRecordId": "generals:6",
+          "sourceUnitId": "generals:6:6:0",
           "rawText": "■軍事府に任命時",
           "rawTextSha256": "44f9ac42aa4e9592f78b5478ea890b90d98539700aa1d69d812c780182a4e289"
         },
@@ -660,7 +660,7 @@
       ],
       "clause": {
         "schemaVersion": "1.0",
-        "id": "generals:3:1:0:guanping-named-generals",
+        "id": "generals:5:1:0:guanping-named-generals",
         "context": null,
         "trigger": null,
         "when": {
@@ -681,7 +681,7 @@
         },
         "effect": {
           "id": "guanping-named-generals:effect",
-          "identity": "generals:3:generals:3:1:0",
+          "identity": "generals:5:generals:5:1:0",
           "kind": "source_effect",
           "operation": "preserve",
           "baseValue": null,
@@ -695,8 +695,8 @@
         "evidence": {
           "category": "generals",
           "entity": "LR関平（かんぺい）",
-          "sourceRecordId": "generals:3",
-          "sourceUnitId": "generals:3:1:0",
+          "sourceRecordId": "generals:5",
+          "sourceUnitId": "generals:5:1:0",
           "rawText": "自身1部隊に豪昇と50％の闘気を付与自身を含む味方3部隊の攻撃と会心威力を100％、通常攻撃威力を30%上昇（この武将が主将か、自部隊の主将が関羽/関興/関索/関銀屏の際、攻撃、会心威力、通常攻撃威力の上昇効果が1.5倍になる）対象を含む敵3部隊に400％の攻撃",
           "rawTextSha256": "8e0b4aad42a8498000938cb62c129e30d3e3b72fee6726968a73e4845ed74a69"
         },
@@ -713,7 +713,7 @@
       ],
       "clause": {
         "schemaVersion": "1.0",
-        "id": "generals:3:5:2:guanping-cavalry",
+        "id": "generals:5:5:2:guanping-cavalry",
         "context": null,
         "trigger": null,
         "when": {
@@ -729,7 +729,7 @@
         },
         "effect": {
           "id": "guanping-cavalry:effect",
-          "identity": "generals:3:generals:3:5:2",
+          "identity": "generals:5:generals:5:5:2",
           "kind": "source_effect",
           "operation": "preserve",
           "baseValue": null,
@@ -743,8 +743,8 @@
         "evidence": {
           "category": "generals",
           "entity": "LR関平（かんぺい）",
-          "sourceRecordId": "generals:3",
-          "sourceUnitId": "generals:3:5:2",
+          "sourceRecordId": "generals:5",
+          "sourceUnitId": "generals:5:5:2",
           "rawText": "→自部隊が騎兵の場合、効果が3倍（+3％）",
           "rawTextSha256": "abe624b1546facea0a26f68ad0e4738dfeb991f98ba5e01b634ee807f0d87f12"
         },
@@ -762,7 +762,7 @@
       ],
       "clause": {
         "schemaVersion": "1.0",
-        "id": "generals:3:6:6:guanping-first-tactic",
+        "id": "generals:5:6:6:guanping-first-tactic",
         "context": null,
         "trigger": null,
         "when": null,
@@ -772,7 +772,7 @@
         },
         "effect": {
           "id": "guanping-first-tactic:effect",
-          "identity": "generals:3:generals:3:6:6",
+          "identity": "generals:5:generals:5:6:6",
           "kind": "source_effect",
           "operation": "preserve",
           "baseValue": null,
@@ -799,8 +799,8 @@
         "evidence": {
           "category": "generals",
           "entity": "LR関平（かんぺい）",
-          "sourceRecordId": "generals:3",
-          "sourceUnitId": "generals:3:6:6",
+          "sourceRecordId": "generals:5",
+          "sourceUnitId": "generals:5:6:6",
           "rawText": "●出陣後、自部隊の最初の戦法発動まで攻撃速度+100%（出陣中に1度まで発動）",
           "rawTextSha256": "f161da181819dfee6da2cf73b8250705724df5f1e2d05168186ad7c6bd460328"
         },
@@ -818,7 +818,7 @@
       ],
       "clause": {
         "schemaVersion": "1.0",
-        "id": "generals:3:6:7:guanping-buff-count",
+        "id": "generals:5:6:7:guanping-buff-count",
         "context": null,
         "trigger": null,
         "when": {
@@ -846,7 +846,7 @@
         },
         "effect": {
           "id": "guanping-buff-count:effect",
-          "identity": "generals:3:generals:3:6:7",
+          "identity": "generals:5:generals:5:6:7",
           "kind": "source_effect",
           "operation": "preserve",
           "baseValue": null,
@@ -860,8 +860,8 @@
         "evidence": {
           "category": "generals",
           "entity": "LR関平（かんぺい）",
-          "sourceRecordId": "generals:3",
-          "sourceUnitId": "generals:3:6:7",
+          "sourceRecordId": "generals:5",
+          "sourceUnitId": "generals:5:6:7",
           "rawText": "●自部隊に発生している強化効果の数×5％、敵部隊に対する会心威力が上昇（最大50%）",
           "rawTextSha256": "318b56b7ca1d2bb1359e4d929586005c2e07bb6cb1f81088a16aa32411793d8f"
         },
@@ -878,7 +878,7 @@
       ],
       "clause": {
         "schemaVersion": "1.0",
-        "id": "generals:3:6:8:guanping-enemy-attack-compare",
+        "id": "generals:5:6:8:guanping-enemy-attack-compare",
         "context": null,
         "trigger": null,
         "when": {
@@ -894,7 +894,7 @@
         },
         "effect": {
           "id": "guanping-enemy-attack-compare:effect",
-          "identity": "generals:3:generals:3:6:8",
+          "identity": "generals:5:generals:5:6:8",
           "kind": "source_effect",
           "operation": "preserve",
           "baseValue": null,
@@ -908,8 +908,8 @@
         "evidence": {
           "category": "generals",
           "entity": "LR関平（かんぺい）",
-          "sourceRecordId": "generals:3",
-          "sourceUnitId": "generals:3:6:8",
+          "sourceRecordId": "generals:5",
+          "sourceUnitId": "generals:5:6:8",
           "rawText": "→自部隊より攻撃の低い敵部隊に対しては効果が2倍（強化効果の数×10％上昇。",
           "rawTextSha256": "e3e9495ce4d57f58e24c64d333564d5035927a8db32b11338ffedba967ec8988"
         },
@@ -927,7 +927,7 @@
       ],
       "clause": {
         "schemaVersion": "1.0",
-        "id": "generals:3:8:7:guanping-critical-trigger",
+        "id": "generals:5:8:7:guanping-critical-trigger",
         "context": null,
         "trigger": {
           "op": "all",
@@ -955,7 +955,7 @@
         },
         "effect": {
           "id": "guanping-critical-trigger:effect",
-          "identity": "generals:3:generals:3:8:7",
+          "identity": "generals:5:generals:5:8:7",
           "kind": "source_effect",
           "operation": "preserve",
           "baseValue": null,
@@ -969,8 +969,8 @@
         "evidence": {
           "category": "generals",
           "entity": "LR関平（かんぺい）",
-          "sourceRecordId": "generals:3",
-          "sourceUnitId": "generals:3:8:7",
+          "sourceRecordId": "generals:5",
+          "sourceUnitId": "generals:5:8:7",
           "rawText": "▼会心攻撃でダメージを与えた時",
           "rawTextSha256": "b5f54405a76657ca1c0eeaefe119976fc82895dc54bfcb480ecc78e0e1892fbb"
         },
@@ -1136,7 +1136,7 @@
       ],
       "clause": {
         "schemaVersion": "1.0",
-        "id": "generals:7:8:9:sun-target-priority",
+        "id": "generals:7:0:0:sun-target-priority",
         "context": null,
         "trigger": null,
         "when": null,
@@ -1153,7 +1153,7 @@
         },
         "effect": {
           "id": "sun-target-priority:effect",
-          "identity": "generals:7:generals:7:8:9",
+          "identity": "generals:7:generals:7:0:0",
           "kind": "source_effect",
           "operation": "preserve",
           "baseValue": null,
@@ -1168,9 +1168,9 @@
           "category": "generals",
           "entity": "LR孫堅・盾兵（そんけん）",
           "sourceRecordId": "generals:7",
-          "sourceUnitId": "generals:7:8:9",
-          "rawText": "→この武将と主将が好相性の部隊が優先して対象となる",
-          "rawTextSha256": "bfde638057fd2887855b9d9c108464895fdd502f206ed830455a207feac9c3ea"
+          "sourceUnitId": "generals:7:0:0",
+          "rawText": "自身1部隊に50％の豪撃、50％の猛奮、豪昇を付与して、攻撃と対物特効を200％上昇（この武将が主将の場合、上記全ての効果の味方対象部隊数+3して、この武将と主将が好相性の部隊が優先して対象となる）対象を含む敵4部隊に450%の攻撃",
+          "rawTextSha256": "751c991c92b72080f4a9fa5e1e9ea4362d7a07bb6841f0c9c986306d9d111db0"
         },
         "trust": {
           "state": "reviewed",
@@ -1697,7 +1697,7 @@
       ],
       "clause": {
         "schemaVersion": "1.0",
-        "id": "generals:4:0:0:cross-star-rank",
+        "id": "generals:2:0:0:cross-star-rank",
         "context": null,
         "trigger": null,
         "when": {
@@ -1713,7 +1713,7 @@
         },
         "effect": {
           "id": "cross-star-rank:effect",
-          "identity": "generals:4:generals:4:0:0",
+          "identity": "generals:2:generals:2:0:0",
           "kind": "source_effect",
           "operation": "preserve",
           "baseValue": null,
@@ -1727,8 +1727,8 @@
         "evidence": {
           "category": "generals",
           "entity": "UR卞氏（べんし）",
-          "sourceRecordId": "generals:4",
-          "sourceUnitId": "generals:4:0:0",
+          "sourceRecordId": "generals:2",
+          "sourceUnitId": "generals:2:0:0",
           "rawText": "自身を含む味方3部隊の能力弱化効果を3つ正転して15％の結束を付与さらに防御と知力を150％上昇30％の確率で自身1部隊に1度の絶縁を付与（この武将の将星ランクに応じて絶縁の発生する確率が10％ずつ上昇）",
           "rawTextSha256": "e5e09ef665600312d1df37ca536b38de7fb86dc29513e030d9ea3acd86cab320"
         },
@@ -1793,7 +1793,7 @@
       ],
       "clause": {
         "schemaVersion": "1.0",
-        "id": "generals:2:5:8:cross-engagement",
+        "id": "generals:2:5:5:cross-engagement",
         "context": null,
         "trigger": {
           "op": "predicate",
@@ -1809,7 +1809,7 @@
         },
         "effect": {
           "id": "cross-engagement:effect",
-          "identity": "generals:2:generals:2:5:8",
+          "identity": "generals:2:generals:2:5:5",
           "kind": "source_effect",
           "operation": "preserve",
           "baseValue": null,
@@ -1822,9 +1822,9 @@
         "suppression": [],
         "evidence": {
           "category": "generals",
-          "entity": "LR馬良（ばりょう）",
+          "entity": "UR卞氏（べんし）",
           "sourceRecordId": "generals:2",
-          "sourceUnitId": "generals:2:5:8",
+          "sourceUnitId": "generals:2:5:5",
           "rawText": "▼交戦開始時",
           "rawTextSha256": "8ebadc896778685cbc2fdcb1b740bc30920bb8a8325a3ce073548f4c2b7e53b4"
         },
@@ -1841,7 +1841,7 @@
       ],
       "clause": {
         "schemaVersion": "1.0",
-        "id": "generals:3:8:8:cross-count-limit",
+        "id": "generals:5:8:8:cross-count-limit",
         "context": null,
         "trigger": null,
         "when": null,
@@ -1851,7 +1851,7 @@
         },
         "effect": {
           "id": "cross-count-limit:effect",
-          "identity": "generals:3:generals:3:8:8",
+          "identity": "generals:5:generals:5:8:8",
           "kind": "source_effect",
           "operation": "preserve",
           "baseValue": null,
@@ -1872,8 +1872,8 @@
         "evidence": {
           "category": "generals",
           "entity": "LR関平（かんぺい）",
-          "sourceRecordId": "generals:3",
-          "sourceUnitId": "generals:3:8:8",
+          "sourceRecordId": "generals:5",
+          "sourceUnitId": "generals:5:8:8",
           "rawText": "●自身1部隊の弱化効果を1つ打ち消す（1度の通常攻撃につき1回まで発生）",
           "rawTextSha256": "3c8d39cbc7942e499200166389d351f386902fb12f7b11f0e82cadea7879b813"
         },
@@ -1890,7 +1890,7 @@
       ],
       "clause": {
         "schemaVersion": "1.0",
-        "id": "generals:3:8:2:cross-duration",
+        "id": "generals:5:8:2:cross-duration",
         "context": null,
         "trigger": null,
         "when": null,
@@ -1900,7 +1900,7 @@
         },
         "effect": {
           "id": "cross-duration:effect",
-          "identity": "generals:3:generals:3:8:2",
+          "identity": "generals:5:generals:5:8:2",
           "kind": "source_effect",
           "operation": "preserve",
           "baseValue": null,
@@ -1921,8 +1921,8 @@
         "evidence": {
           "category": "generals",
           "entity": "LR関平（かんぺい）",
-          "sourceRecordId": "generals:3",
-          "sourceUnitId": "generals:3:8:2",
+          "sourceRecordId": "generals:5",
+          "sourceUnitId": "generals:5:8:2",
           "rawText": "●自身1部隊に付与される豪昇の効果時間+10秒",
           "rawTextSha256": "886f80032a2c63c63814bb842981f8654fc80753c3b64dccc4199517c1344d53"
         },
@@ -1939,7 +1939,7 @@
       ],
       "clause": {
         "schemaVersion": "1.0",
-        "id": "generals:2:2:0:cross-cumulative",
+        "id": "generals:4:2:3:cross-cumulative",
         "context": null,
         "trigger": null,
         "when": null,
@@ -1949,7 +1949,7 @@
         },
         "effect": {
           "id": "cross-cumulative:effect",
-          "identity": "generals:2:generals:2:2:0",
+          "identity": "generals:4:generals:4:2:3",
           "kind": "source_effect",
           "operation": "preserve",
           "baseValue": null,
@@ -1969,11 +1969,11 @@
         "suppression": [],
         "evidence": {
           "category": "generals",
-          "entity": "LR馬良（ばりょう）",
-          "sourceRecordId": "generals:2",
-          "sourceUnitId": "generals:2:2:0",
-          "rawText": "一定時間ごとに知力が累積して上昇さらに自部隊より知力の低い敵部隊から受ける被ダメージを50％軽減する",
-          "rawTextSha256": "6f9c6f64f35893e0fb7077c2d4fcaaf1c9b188a469e088744a9949d274e18bb2"
+          "entity": "UR越吉（えつきつ）",
+          "sourceRecordId": "generals:4",
+          "sourceUnitId": "generals:4:2:3",
+          "rawText": "●主将が戦法を発動する度に、次回主将戦法の攻撃威力が累積して上昇（50％ずつ上昇。",
+          "rawTextSha256": "818cd54b9d1a7e67ccf84766cc427436c056e77b862c4851524809272af14451"
         },
         "trust": {
           "state": "reviewed",
@@ -2085,7 +2085,7 @@
       ],
       "clause": {
         "schemaVersion": "1.0",
-        "id": "generals:6:2:4:cross-exception",
+        "id": "generals:4:2:4:cross-exception",
         "context": null,
         "trigger": null,
         "when": null,
@@ -2095,7 +2095,7 @@
         },
         "effect": {
           "id": "cross-exception:effect",
-          "identity": "generals:6:generals:6:2:4",
+          "identity": "generals:4:generals:4:2:4",
           "kind": "source_effect",
           "operation": "preserve",
           "baseValue": null,
@@ -2116,8 +2116,8 @@
         "evidence": {
           "category": "generals",
           "entity": "UR越吉（えつきつ）",
-          "sourceRecordId": "generals:6",
-          "sourceUnitId": "generals:6:2:4",
+          "sourceRecordId": "generals:4",
+          "sourceUnitId": "generals:4:2:4",
           "rawText": "累積は200％まで）（交戦開始時に累積値は0になる）（主将戦法が非攻撃戦法の場合は効果なし）",
           "rawTextSha256": "7ad7aa68f122f09fd91b89c9eb903be627c819cf7d096ee71e3a6aef6464c5ad"
         },
