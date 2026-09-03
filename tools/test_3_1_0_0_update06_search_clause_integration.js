@@ -68,12 +68,12 @@ assert(!statusSource.includes('正規ID一致'));
 assert(indexHtml.indexOf('hado_detail_condition_presenter.js') < indexHtml.indexOf('hado_search_clause_integration.js'));
 assert(indexHtml.indexOf('hado_search_clause_integration.js') < indexHtml.indexOf('hado_search.js'));
 assert(!indexHtml.includes('hado_update06.css'));
-assert(indexHtml.includes('hado_search_clause_integration.js?v=3.1.0.0-r203'));
+assert(indexHtml.includes('hado_search_clause_integration.js?v=3.1.1.0-r204'));
 assert(!indexHtml.includes('06-r180'));
 assert(!indexHtml.includes('07-r179'));
 assert(versionSource.includes("updateNo: ''"));
-assert(versionSource.includes('revision: 203'));
-assert(versionSource.includes('formalRelease: true'));
+assert(versionSource.includes('revision: 204'));
+assert(versionSource.includes('formalRelease: false'));
 
 const nodes = new Map();
 const node = id => (nodes.has(id) ? nodes.get(id) : (nodes.set(id, { textContent: '' }), nodes.get(id)));
@@ -83,6 +83,6 @@ context.window = context;
 vm.createContext(context);
 vm.runInContext(versionSource, context, { filename: 'hado_version.js' });
 vm.runInContext(metaSource, context, { filename: 'hado_update_meta.js' });
-assert.strictEqual(context.window.HADO_APP_DISPLAY_VERSION, '3.1.0.0');
+assert.strictEqual(context.window.HADO_APP_DISPLAY_VERSION, '3.1.1.0 r204');
 
 console.log(`3.1.0.0 Update06 search internals ok: ${diagnostic.conditionTagCount} condition tags / ${diagnostic.triggerTagCount} trigger tags / ${diagnostic.canonicalStatusRefCount} canonical status refs / no internal result-card labels`);

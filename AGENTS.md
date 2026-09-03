@@ -17,7 +17,7 @@ Related repositories:
 - Preview repository: `mytemark2/hado_library-preview`
 
 Current canonical development branch:
-- Application: `feature/app-3.1.0.0`
+- Application: `feature/app-3.1.1.0`
 
 Do not assume that this branch remains current forever. Before editing, confirm the target branch from the user's task, the latest Roadmap, and the current repository state. Do not silently switch to `main`.
 
@@ -43,11 +43,11 @@ If the repository state, branch, or authoritative source is ambiguous, inspect t
 
 ### 3.1 Pull request base discipline
 
-For application changes, treat `feature/app-3.1.0.0` as the canonical development branch unless a newer repository document or explicit user instruction supersedes it. Do not base new work on `main`, `feature/app-3.0.0.0`, `hado-2.9.6.5`, stale `codex/...` branches, old pull request heads, or generated preview artifacts.
+For application changes, treat `feature/app-3.1.1.0` as the canonical development branch unless a newer repository document or explicit user instruction supersedes it. Do not base new work on `main`, retired feature branches such as `feature/app-3.1.0.0`, stale `codex/...` branches, old pull request heads, or generated preview artifacts.
 
-Before opening a pull request, run `python3 tools/check_pr_merge_readiness.py --base feature/app-3.1.0.0` and confirm/report:
+Before opening a pull request, run `python3 tools/check_pr_merge_readiness.py --base feature/app-3.1.1.0` and confirm/report:
 - canonical branch name and the commit SHA inspected before editing;
-- pull request base branch is `feature/app-3.1.0.0`;
+- pull request base branch is `feature/app-3.1.1.0`;
 - head branch is the single Codex work branch for the current task;
 - no old branch, old pull request diff, or unrelated generated artifact is mixed into the final diff;
 - the merge-readiness command, fetched base SHA, head SHA, and conflict-free result;

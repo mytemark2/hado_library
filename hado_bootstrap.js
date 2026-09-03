@@ -385,12 +385,12 @@ const REGRESSION_SELF_CHECK_SPEC={
     'fileSettingsPanel','fileSettingsToggleBtn','fileSettingsModeSummary','saveSelectSummary','mainTabSearchBtn','mainTabFormationBtn','mainTabWarhorseBtn','formationScreen','formationRoot','warhorseScreen','warhorseRoot',
     'rawJsonToggle','categoryBar','searchInput','nameOnlySearchToggle','clearKeywordBtn','typeSearchPresetSelect','typeSearchPresetInfo','typeSearchStatusEffectSelect','typeSearchFeatureSelect','typeSearchClearBtn','tagSearchInput','tagSearchCandidates','tagPickerToggleBtn','clearTagSearchBtn','selectedTagList','tagPickerPanel',
     'resultMeta','mobileSearchHistorySelect','mobileDeleteSearchHistoryBtn','resultSelect','mobileResultFavoriteBtn','opHistoryBackBtn','opHistoryForwardBtn',
-    'copyResultsBtn','copyParamResultsBtn','copyAllParamResultsBtn','copyDetailBtn','countStatus','results','detail','debugPanel','debugPanelContent','runValidationBtn','copyDebugLogBtn',
+    'copyResultsBtn','copySearchLinkBtn','copyDetailBtn','copyItemLinkBtn','countStatus','results','detail','debugPanel','debugPanelContent','runValidationBtn','copyDebugLogBtn',
     'topPickJsonDirBtn','topPickJsonFilesBtn','topPickJsonFilesInput','viewModeAll','viewModeSaved','generalStageInitial','generalStageMax','equipmentStageInitial','equipmentStageSsrMax','equipmentStageUrMax','saveSelect','newSaveBtn','renameSaveBtn','copySaveBtn','deleteSaveBtn','exportSaveDataBtn','importSaveDataBtn','importSaveDataInput'
   ],
   requiredTexts:[
     '検索','名称のみ','中核','推奨','補助','部隊編成','スタートガイド','保存管理','ログ表示','JSONフォルダを選択して再読込','JSONファイルを選択して読込','全データ','保存データ','全データ武将','全データ装備','初期','SSR最大','UR最大','Export','Import',
-    '一覧コピー','検索パラコピー','全パラコピー','詳細コピー','ログコピー','使い始める','部隊編成に追加','追加',
+    '一覧コピー','検索リンクコピー','詳細データコピー','項目リンクコピー','ログコピー','使い始める','部隊編成に追加','追加',
     // Lazy-rendered formation/detail labels are validated through their render functions and
     // interaction smoke checks. Requiring their text while the search tab is active creates a
     // false regression failure before those panels have been rendered.

@@ -10,8 +10,8 @@ WORKFLOW = ROOT / ".github" / "workflows" / "notify-preview.yml"
 CHECKOUT_ACTION_RE = re.compile(r"uses:\s*actions/checkout@v[45]\b")
 
 REQUIRED = (
-    "ALLOWED_PREVIEW_SOURCE_BRANCH: feature/app-3.1.0.0",
-    "github.ref == 'refs/heads/feature/app-3.1.0.0'",
+    "ALLOWED_PREVIEW_SOURCE_BRANCH: feature/app-3.1.1.0",
+    "github.ref == 'refs/heads/feature/app-3.1.1.0'",
     "SOURCE_COMMIT=\"$(git rev-parse HEAD)\"",
     "Checked-out source commit ${SOURCE_COMMIT} does not match GITHUB_SHA ${GITHUB_SHA}.",
     "group: hado-library-preview-sync",
@@ -25,7 +25,9 @@ REQUIRED = (
     "Preview repository main changed during push; retrying with a fresh clone.",
     "find \"${PREVIEW_DIR}\" -mindepth 1 -maxdepth 1 -not -name '.git' -not -name '.github' -exec rm -rf {} +",
     "rsync -a index.html HADO_DEV_INFO.json hado_*.js hado_*.css hadou_*.json",
-    "sha256sum index.html hado_clause_surface_bridge.js hado_formation.js hado_tag_highlight.js hado_styles.css hado_update05.css hado_update08.css hado_version.js hado_web_json_cache.js hadou_bundle_manifest.json HADO_DEV_INFO.json",
+    "sha256sum index.html hado_clause_surface_bridge.js hado_formation.js hado_share.js hado_tag_highlight.js hado_styles.css hado_share.css hado_update05.css hado_update08.css hado_version.js hado_web_json_cache.js hadou_bundle_manifest.json HADO_DEV_INFO.json",
+    'test -s "${PREVIEW_DIR}/hado_share.js"',
+    'test -s "${PREVIEW_DIR}/hado_share.css"',
     'test -s "${PREVIEW_DIR}/hado_update05.css"',
     'test -s "${PREVIEW_DIR}/hado_tag_highlight.js"',
     'test -s "${PREVIEW_DIR}/hado_web_json_cache.js"',

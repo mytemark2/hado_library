@@ -1,0 +1,95 @@
+/* HADO 3.1.1.0 copy/share controls */
+.hado-share-actions,
+.warhorse-header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+[data-hado-formation-share-actions] {
+  padding: 0 0 10px;
+}
+
+.hado-share-dialog[hidden] {
+  display: none;
+}
+
+.hado-share-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 10020;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.hado-share-dialog-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, .56);
+}
+
+.hado-share-dialog-card {
+  position: relative;
+  width: min(560px, 100%);
+  max-height: min(720px, calc(100vh - 36px));
+  overflow: auto;
+  padding: 20px;
+  border: 1px solid #d8dee9;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 18px 55px rgba(15, 23, 42, .24);
+}
+
+.hado-share-dialog-card h2 {
+  margin: 0 0 12px;
+}
+
+.hado-share-missing,
+.hado-share-ready {
+  margin: 14px 0;
+  padding: 12px;
+  border-radius: 10px;
+  background: #fff7ed;
+  color: #7c2d12;
+}
+
+.hado-share-ready {
+  background: #f8fafc;
+  color: #334155;
+}
+
+.hado-share-missing ul {
+  margin: 8px 0;
+  padding-left: 1.5em;
+}
+
+.hado-share-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+@media (max-width: 720px) {
+  .warhorse-card-header {
+    align-items: flex-start;
+  }
+
+  .warhorse-header-actions,
+  .hado-share-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .warhorse-header-actions > *,
+  .hado-share-actions > * {
+    flex: 1 1 auto;
+  }
+
+  .hado-share-dialog-card {
+    padding: 16px;
+  }
+}

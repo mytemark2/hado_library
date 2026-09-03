@@ -21,9 +21,9 @@ const updateNo = version.match(/updateNo:\s*'([^']*)'/)?.[1] || '';
 const revision = Number(version.match(/revision:\s*(\d+)/)?.[1] || 0);
 const cacheKey = `${updateNo || releaseVersion}-r${revision}`;
 assert(releaseVersion && revision >= 164, 'runtime must retain the accepted Update11.4 mobile parity behavior');
-assert(html.includes(`hado_status_effects.js?v=${cacheKey}-mobile-parity`), 'status runtime must use the current revisioned cache key');
-assert(html.includes(`hado_formation.js?v=${cacheKey}-mobile-parity`), 'formation runtime must use the current revisioned cache key');
-assert(html.includes(`hado_styles.css?v=${cacheKey}`), 'CSS must use the current revisioned cache key');
+assert(html.includes(`hado_status_effects.js?v=${cacheKey}`), 'status runtime must use the current revisioned cache key');
+assert(html.includes(`hado_formation.js?v=${cacheKey}`), 'formation runtime must use the current revisioned cache key');
+assert(html.includes(`hado_share.css?v=${cacheKey}`), 'the changed copy/share CSS must use the current revisioned cache key');
 
 assert(search.includes("const target=(mode==='status'&&statusBar)?statusBar:queryRow"), 'status search must move the complete tag combobox into the status row');
 assert(search.includes('tagWrap.hidden=false'), 'tag combobox must stay visible in status search');

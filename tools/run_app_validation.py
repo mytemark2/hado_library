@@ -31,6 +31,7 @@ COMMANDS: list[list[str]] = [
     ["node", "--check", "hado_type_entry.js"],
     ["node", "--check", "hado_type_data_store.js"],
     ["node", "--check", "hado_candidate_tray.js"],
+    ["node", "--check", "hado_share.js"],
     ["python3", "-m", "json.tool", "HADO_DEV_INFO.json"],
     ["python3", "-m", "json.tool", "hadou_bundle_manifest.json"],
 ]
@@ -45,6 +46,7 @@ COMMANDS.extend(
         ["python3", "tools/validate_preview_workflow.py"],
         ["python3", "tools/validate_production_pages_workflow.py"],
         ["node", "tools/test_notify_preview_workflow_no_preview_workflow_edit.js"],
+        ["node", "tools/test_3_1_1_0_copy_share.js"],
         ["node", "tools/test_3_1_0_0_update08_surface_unification.js"],
         ["node", "tools/test_3_1_0_0_skill_level_toggle.js"],
         ["node", "tools/test_3_1_0_0_update09_full_regression.js"],

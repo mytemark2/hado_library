@@ -7,7 +7,7 @@ permissions:
   contents: read
 
 env:
-  ALLOWED_PREVIEW_SOURCE_BRANCH: feature/app-3.1.0.0
+  ALLOWED_PREVIEW_SOURCE_BRANCH: feature/app-3.1.1.0
 
 concurrency:
   group: hado-library-preview-sync
@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   notify-preview:
-    if: ${{ github.event.deleted == false && github.ref == 'refs/heads/feature/app-3.1.0.0' }}
+    if: ${{ github.event.deleted == false && github.ref == 'refs/heads/feature/app-3.1.1.0' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
@@ -168,12 +168,14 @@ jobs:
             printf '%s\n' "${SOURCE_COMMIT}" > "${PREVIEW_DIR}/PREVIEW_SOURCE_COMMIT.txt"
             printf '%s\n' "${APP_REF}" > "${PREVIEW_DIR}/PREVIEW_SOURCE_BRANCH.txt"
             printf '%s\n' "${DISPLAY_VERSION}" > "${PREVIEW_DIR}/PREVIEW_DISPLAY_VERSION.txt"
-            sha256sum index.html hado_clause_surface_bridge.js hado_formation.js hado_tag_highlight.js hado_styles.css hado_update05.css hado_update08.css hado_version.js hado_web_json_cache.js hadou_bundle_manifest.json HADO_DEV_INFO.json > "${PREVIEW_DIR}/PREVIEW_SOURCE_FILES.txt"
+            sha256sum index.html hado_clause_surface_bridge.js hado_formation.js hado_share.js hado_tag_highlight.js hado_styles.css hado_share.css hado_update05.css hado_update08.css hado_version.js hado_web_json_cache.js hadou_bundle_manifest.json HADO_DEV_INFO.json > "${PREVIEW_DIR}/PREVIEW_SOURCE_FILES.txt"
 
             test -s "${PREVIEW_DIR}/hado_formation.js"
             test -s "${PREVIEW_DIR}/hado_clause_surface_bridge.js"
+            test -s "${PREVIEW_DIR}/hado_share.js"
             test -s "${PREVIEW_DIR}/hado_tag_highlight.js"
             test -s "${PREVIEW_DIR}/hado_styles.css"
+            test -s "${PREVIEW_DIR}/hado_share.css"
             test -s "${PREVIEW_DIR}/hado_update05.css"
             test -s "${PREVIEW_DIR}/hado_update08.css"
             test -s "${PREVIEW_DIR}/hado_web_json_cache.js"
