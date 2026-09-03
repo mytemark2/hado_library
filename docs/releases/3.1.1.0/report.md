@@ -2,7 +2,7 @@
 
 ## 状態
 
-実装・ローカル検証済み。GitHub Actionsと公開Previewの最終結果は、開発ブランチへのPush後に追記する。
+実装、ローカル検証、開発ブランチへのPush、Preview同期を完了した。
 
 ## 実装結果
 
@@ -18,13 +18,23 @@
 - 不足データは未設定にして利用者へ表示する。
 - 起動時のデータ読込が完了してから共有リンクを解釈する。
 
-## 検証
+## 検証結果
 
-- 総合検証: 実行後に結果を追記
-- GitHub Actions: Push後に結果を追記
-- Previewマーカー: Push後に結果を追記
-- 公開Preview PC・スマートフォン表示: Push後に結果を追記
+- 総合検証: `python -X utf8 tools/run_app_validation.py` 165/165合格
+- 追加契約検証: 8機能、単一GETパラメータ、圧縮・非圧縮往復、追加専用インポートを確認
+- 最新`main`との統合検証: base `2594e936ddcdb1b21a6242035ebffa4e3a0a1df5`、競合なし
+- 実装Commit: `44065dac28b2e40bbfdabf8e32c2f4f6ee13842d`
+- GitHub Actions: `Notify Hado Library Preview` run `33768486427` 成功
+- 同期処理: Previewリポジトリへ必要なHTML、JS、CSS、20系統の派生JSON、マーカーを一括同期し、SHA-256を照合
+- 公開マーカー: Actions内の実HTTP確認で source `44065dac28b2e40bbfdabf8e32c2f4f6ee13842d`、version `3.1.1.0 r204`、JSON bundle一致
+- PC操作: 検索条件付き一覧コピー、検索リンク復元、詳細コピー、項目リンク、部隊共有、新規部隊追加を確認
+- スマートフォン表示: 総合回帰のレスポンシブ契約および共有操作列の折返しを確認
+- デバッグログ: ローカル実ブラウザ確認でJavaScriptエラーなし
+
+## 利用者確認
+
+Previewで、検索・詳細・部隊編成・軍馬編成の各コピー名と出力内容を確認する。部隊・軍馬リンクは、確認画面で既存データを変更せず新規追加される旨を確認してから実行する。
 
 ## 未解決事項
 
-- Push前のため、Preview同期証跡のみ未確定。
+- なし。
