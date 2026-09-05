@@ -38,3 +38,17 @@ Previewで、検索・詳細・部隊編成・軍馬編成の各コピー名と�
 ## 未解決事項
 
 - なし。
+
+## r205 PC部隊編成レイアウト修正
+
+- 修正Commit: `954c996b0fa51f93810bc1cb8090e885d488161f`
+- 総合検証: `python -X utf8 tools/run_app_validation.py` 165/165合格
+- 最新`main`との統合検証: base `2594e936ddcdb1b21a6242035ebffa4e3a0a1df5`、競合なし
+- GitHub Actions: `Notify Hado Library Preview` run `33957376421` 成功
+- Preview repository: `e51ebac1f2c0cf09a7d379a218190c44b6690188`
+- 公開マーカー: source `954c996b0fa51f93810bc1cb8090e885d488161f`、branch `feature/app-3.1.1.0`、version `3.1.1.0 r205`
+- PC 1917×964: コピー操作を部隊編成メニュー行の右端へ統合し、編集領域の下端まで内部スクロールで到達できることを確認
+- スマートフォン 390×844: 両コピー操作を表示し、横方向のはみ出しなし
+- HTMLサイズ: Git blob 28,976 bytesから変更なし。DOM構造は増やさず、外部JavaScript/CSSのみを修正
+- Debug Log: 公開Previewでerror/warnなし
+- 未解決事項: なし
