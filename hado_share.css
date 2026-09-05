@@ -9,7 +9,20 @@
 }
 
 [data-hado-formation-share-actions] {
-  padding: 0 0 10px;
+  flex: 0 0 auto;
+  margin-left: auto;
+  min-width: 0;
+  padding: 0;
+}
+
+[data-hado-formation-share-actions] .hado-share-actions {
+  flex-wrap: nowrap;
+  gap: 6px;
+}
+
+[data-hado-formation-share-actions] .copy-btn {
+  padding: 7px 10px;
+  white-space: nowrap;
 }
 
 .hado-share-dialog[hidden] {
@@ -91,5 +104,22 @@
 
   .hado-share-dialog-card {
     padding: 16px;
+  }
+}
+
+@media (max-width: 980px), (pointer: coarse) {
+  .formation-work-tabs-has-share {
+    flex-wrap: wrap !important;
+    overflow: visible !important;
+  }
+
+  [data-hado-formation-share-actions] {
+    flex: 1 0 100%;
+    margin-left: 0;
+    padding-top: 3px;
+  }
+
+  [data-hado-formation-share-actions] .hado-share-actions {
+    width: 100%;
   }
 }

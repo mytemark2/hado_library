@@ -6,6 +6,7 @@ const vm = require('vm');
 
 const ROOT = path.resolve(__dirname, '..');
 const source = fs.readFileSync(path.join(ROOT, 'hado_share.js'), 'utf8');
+const styles = fs.readFileSync(path.join(ROOT, 'hado_styles.css'), 'utf8');
 const indexHtml = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const workflow = fs.readFileSync(path.join(ROOT, '.github', 'workflows', 'notify-preview.yml'), 'utf8');
 
@@ -69,9 +70,15 @@ vm.runInContext(source, context, {filename:'hado_share.js'});
   assert(source.includes('.slice(0, 3)'), 'warhorse copy/import must limit normal skills to three');
   assert(source.includes("source.formationName = '基本'"), 'missing formation masters must be blank-safe on import');
   assert(source.includes("document.getElementById('loadOverlay')?.classList.contains('is-visible')"), 'share import dialog must wait for startup loading to finish');
+  assert(source.includes("tabs.append(host)"), 'formation copy actions must share the existing formation menu row');
+  assert(!source.includes("panel.prepend(host)"), 'formation copy actions must not consume a separate row above the formation menu');
+  assert(fs.readFileSync(path.join(ROOT, 'hado_share.css'), 'utf8').includes("margin-left: auto"), 'formation copy actions must align to the right in the menu row');
+  assert(styles.includes('body.formation-tab .formation-compose-main-grid'), 'formation workspace must keep a scoped PC layout rule');
+  assert(styles.includes('overflow-y:auto!important'), 'lower formation content must remain reachable by scrolling');
 
-  assert(indexHtml.includes('hado_share.js?v=3.1.1.0-r204'));
-  assert(indexHtml.includes('hado_share.css?v=3.1.1.0-r204'));
+  assert(indexHtml.includes('hado_share.js?v=3.1.1.0-r205'));
+  assert(indexHtml.includes('hado_share.css?v=3.1.1.0-r205'));
+  assert(indexHtml.includes('hado_styles.css?v=3.1.1.0-r205'));
   assert(workflow.includes('ALLOWED_PREVIEW_SOURCE_BRANCH: feature/app-3.1.1.0'));
   console.log('3.1.1.0 copy/share contract passed: 8 user-facing functions, GET round-trip, append-only imports');
 })().catch(error => { console.error(error); process.exitCode = 1; });

@@ -454,11 +454,16 @@
   function installFormationShareActions() {
     const root = document.getElementById('formationRoot');
     const panel = root?.querySelector('.formation-detail-panel');
-    if (!panel || panel.querySelector('[data-hado-formation-share-actions]')) return;
+    const tabs = panel?.querySelector('.formation-work-tabs');
+    if (!panel || !tabs) return;
+    const installed = panel.querySelector('[data-hado-formation-share-actions]');
+    if (installed?.parentElement === tabs) return;
+    installed?.remove();
     const host = document.createElement('div');
     host.dataset.hadoFormationShareActions = '1';
     host.innerHTML = renderFormationActionsHtml();
-    panel.prepend(host);
+    tabs.classList.add('formation-work-tabs-has-share');
+    tabs.append(host);
   }
 
   function observeDynamicScreens() {
