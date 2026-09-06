@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-08-31T15:31:23.721Z",
-  "dataSetId": "2026-08-24T16:58:10.882Z",
+  "generatedAt": "2026-09-06T05:56:28.638Z",
+  "dataSetId": "2026-08-31T15:31:22.751Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -33,10 +33,10 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 488,
-    "tactics": 467,
+    "generals": 490,
+    "tactics": 469,
     "equipments": 255,
-    "skills": 661,
+    "skills": 665,
     "statusEffects": 206,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
@@ -47,10 +47,10 @@
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "c8a69cf2",
-    "tactics": "17b2d8ff",
+    "generals": "36a988b3",
+    "tactics": "1db2e271",
     "equipments": "5051cab2",
-    "skills": "55f06444",
+    "skills": "51f05df8",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
@@ -61,10 +61,10 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "c8a69cf2",
-    "tactics": "17b2d8ff",
+    "generals": "36a988b3",
+    "tactics": "1db2e271",
     "equipments": "5051cab2",
-    "skills": "55f06444",
+    "skills": "51f05df8",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
@@ -87,7 +87,7 @@
       "敵部隊能力低下": 46
     },
     "relationTypeCounts": {
-      "direct_grant": 1217
+      "direct_grant": 1229
     },
     "policy": "1.0.5.6: 状態変化詳細の逆引きは直接付与だけを正本化。全文一致・注記・条件参照・対策・効果調整を混ぜない。"
   },
@@ -10996,6 +10996,20 @@
             "direction": "buff"
           },
           {
+            "name": "LR李牧（りぼく）",
+            "ownerType": "general",
+            "category": "generals",
+            "matchedText": "弱化反射",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "LR郭嘉（かくか）",
             "ownerType": "general",
             "category": "generals",
@@ -11105,6 +11119,13 @@
         {
           "type": "generals",
           "name": "LR左慈（さじ）",
+          "matchedText": "弱化反射",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "generals",
+          "name": "LR李牧（りぼく）",
           "matchedText": "弱化反射",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -17345,6 +17366,20 @@
       "related": {
         "generals": [
           {
+            "name": "UR木鹿大王（ぼくろくだいおう）",
+            "ownerType": "general",
+            "category": "generals",
+            "matchedText": "剛憤",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "UR郭淮（かくわい）",
             "ownerType": "general",
             "category": "generals",
@@ -17388,6 +17423,20 @@
           }
         ],
         "tactics": [
+          {
+            "name": "念術踏舞",
+            "ownerType": "tactic",
+            "category": "tactics",
+            "matchedText": "剛憤",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
           {
             "name": "方策精詳",
             "ownerType": "tactic",
@@ -17466,6 +17515,13 @@
       "sourceRefs": [
         {
           "type": "generals",
+          "name": "UR木鹿大王（ぼくろくだいおう）",
+          "matchedText": "剛憤",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "generals",
           "name": "UR郭淮（かくわい）",
           "matchedText": "剛憤",
           "sourcePartType": "semantic-owner-status-grant",
@@ -17481,6 +17537,13 @@
         {
           "type": "generals",
           "name": "LR魏延（ぎえん）",
+          "matchedText": "剛憤",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "tactics",
+          "name": "念術踏舞",
           "matchedText": "剛憤",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -21119,6 +21182,20 @@
       "related": {
         "generals": [
           {
+            "name": "UR朶思大王（だしだいおう）",
+            "ownerType": "general",
+            "category": "generals",
+            "matchedText": "強化無効",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyStateDebuff",
+            "groupLabel": "敵部隊状態弱化",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          },
+          {
             "name": "LR呂蒙・盾兵（りょもう）",
             "ownerType": "general",
             "category": "generals",
@@ -21289,6 +21366,20 @@
         ],
         "tactics": [
           {
+            "name": "毒龍四泉",
+            "ownerType": "tactic",
+            "category": "tactics",
+            "matchedText": "強化無効",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyStateDebuff",
+            "groupLabel": "敵部隊状態弱化",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          },
+          {
             "name": "天香流芳",
             "ownerType": "tactic",
             "category": "tactics",
@@ -21417,6 +21508,20 @@
         ],
         "skills": [
           {
+            "name": "追毒",
+            "ownerType": "skill",
+            "category": "skills",
+            "matchedText": "強化無効",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyStateDebuff",
+            "groupLabel": "敵部隊状態弱化",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          },
+          {
             "name": "抑奪",
             "ownerType": "skill",
             "category": "skills",
@@ -21476,6 +21581,13 @@
         "equipments": []
       },
       "sourceRefs": [
+        {
+          "type": "generals",
+          "name": "UR朶思大王（だしだいおう）",
+          "matchedText": "強化無効",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
         {
           "type": "generals",
           "name": "LR呂蒙・盾兵（りょもう）",
@@ -21562,6 +21674,13 @@
         },
         {
           "type": "tactics",
+          "name": "毒龍四泉",
+          "matchedText": "強化無効",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "tactics",
           "name": "天香流芳",
           "matchedText": "強化無効",
           "sourcePartType": "semantic-owner-status-grant",
@@ -21625,6 +21744,13 @@
         },
         {
           "type": "skills",
+          "name": "追毒",
+          "matchedText": "強化無効",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "skills",
           "name": "抑奪",
           "matchedText": "強化無効",
           "sourcePartType": "semantic-owner-status-grant",
@@ -21666,6 +21792,20 @@
       "classificationReason": "type:不利変化",
       "related": {
         "generals": [
+          {
+            "name": "UR朶思大王（だしだいおう）",
+            "ownerType": "general",
+            "category": "generals",
+            "matchedText": "弱化残存",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyStateDebuff",
+            "groupLabel": "敵部隊状態弱化",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          },
           {
             "name": "LR甄氏（しんし）",
             "ownerType": "general",
@@ -21795,6 +21935,20 @@
         ],
         "tactics": [
           {
+            "name": "毒龍四泉",
+            "ownerType": "tactic",
+            "category": "tactics",
+            "matchedText": "弱化残存",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyStateDebuff",
+            "groupLabel": "敵部隊状態弱化",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          },
+          {
             "name": "天香流芳",
             "ownerType": "tactic",
             "category": "tactics",
@@ -21909,6 +22063,20 @@
         ],
         "skills": [
           {
+            "name": "追毒",
+            "ownerType": "skill",
+            "category": "skills",
+            "matchedText": "弱化残存",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyStateDebuff",
+            "groupLabel": "敵部隊状態弱化",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          },
+          {
             "name": "虚衝",
             "ownerType": "skill",
             "category": "skills",
@@ -21955,6 +22123,13 @@
         ]
       },
       "sourceRefs": [
+        {
+          "type": "generals",
+          "name": "UR朶思大王（だしだいおう）",
+          "matchedText": "弱化残存",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
         {
           "type": "generals",
           "name": "LR甄氏（しんし）",
@@ -22020,6 +22195,13 @@
         },
         {
           "type": "tactics",
+          "name": "毒龍四泉",
+          "matchedText": "弱化残存",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "tactics",
           "name": "天香流芳",
           "matchedText": "弱化残存",
           "sourcePartType": "semantic-owner-status-grant",
@@ -22070,6 +22252,13 @@
         {
           "type": "tactics",
           "name": "鳳鳴四海",
+          "matchedText": "弱化残存",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "skills",
+          "name": "追毒",
           "matchedText": "弱化残存",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -23640,6 +23829,20 @@
       "related": {
         "generals": [
           {
+            "name": "UR朶思大王（だしだいおう）",
+            "ownerType": "general",
+            "category": "generals",
+            "matchedText": "萎縮",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyStateDebuff",
+            "groupLabel": "敵部隊状態弱化",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          },
+          {
             "name": "LR呂蒙・盾兵（りょもう）",
             "ownerType": "general",
             "category": "generals",
@@ -23712,6 +23915,20 @@
         ],
         "tactics": [
           {
+            "name": "毒龍四泉",
+            "ownerType": "tactic",
+            "category": "tactics",
+            "matchedText": "萎縮",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyStateDebuff",
+            "groupLabel": "敵部隊状態弱化",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          },
+          {
             "name": "文武全才",
             "ownerType": "tactic",
             "category": "tactics",
@@ -23770,6 +23987,20 @@
         ],
         "skills": [
           {
+            "name": "追毒",
+            "ownerType": "skill",
+            "category": "skills",
+            "matchedText": "萎縮",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "enemyStateDebuff",
+            "groupLabel": "敵部隊状態弱化",
+            "targetSide": "enemy",
+            "direction": "debuff"
+          },
+          {
             "name": "暴勇",
             "ownerType": "skill",
             "category": "skills",
@@ -23787,6 +24018,13 @@
         "equipments": []
       },
       "sourceRefs": [
+        {
+          "type": "generals",
+          "name": "UR朶思大王（だしだいおう）",
+          "matchedText": "萎縮",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
         {
           "type": "generals",
           "name": "LR呂蒙・盾兵（りょもう）",
@@ -23824,6 +24062,13 @@
         },
         {
           "type": "tactics",
+          "name": "毒龍四泉",
+          "matchedText": "萎縮",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "tactics",
           "name": "文武全才",
           "matchedText": "萎縮",
           "sourcePartType": "semantic-owner-status-grant",
@@ -23846,6 +24091,13 @@
         {
           "type": "tactics",
           "name": "雄壮威猛",
+          "matchedText": "萎縮",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "skills",
+          "name": "追毒",
           "matchedText": "萎縮",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"

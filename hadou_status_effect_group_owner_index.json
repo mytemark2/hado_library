@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-08-31T15:31:23.721Z",
-  "dataSetId": "2026-08-24T16:58:10.882Z",
+  "generatedAt": "2026-09-06T05:56:28.638Z",
+  "dataSetId": "2026-08-31T15:31:22.751Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -33,10 +33,10 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 488,
-    "tactics": 467,
+    "generals": 490,
+    "tactics": 469,
     "equipments": 255,
-    "skills": 661,
+    "skills": 665,
     "statusEffects": 206,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
@@ -47,10 +47,10 @@
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "c8a69cf2",
-    "tactics": "17b2d8ff",
+    "generals": "36a988b3",
+    "tactics": "1db2e271",
     "equipments": "5051cab2",
-    "skills": "55f06444",
+    "skills": "51f05df8",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
@@ -61,10 +61,10 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "c8a69cf2",
-    "tactics": "17b2d8ff",
+    "generals": "36a988b3",
+    "tactics": "1db2e271",
     "equipments": "5051cab2",
-    "skills": "55f06444",
+    "skills": "51f05df8",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
@@ -78,9 +78,9 @@
   "kind": "status_effect_group_owner_index",
   "qualityAudit": {
     "groupCount": 6,
-    "totalOwnerCount": 6529,
-    "ownerRelationCount": 6529,
-    "distinctOwnerCount": 2525,
+    "totalOwnerCount": 6578,
+    "ownerRelationCount": 6578,
+    "distinctOwnerCount": 2542,
     "countRecalculatedAfterRelatedLinkRebuild": true,
     "relatedLinkOwnerEnriched": true,
     "rebuildFromRelatedLinkIndex": true,
@@ -9609,6 +9609,60 @@
           },
           {
             "category": "generals",
+            "name": "UR木鹿大王（ぼくろくだいおう）",
+            "displayName": "UR木鹿大王（ぼくろくだいおう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "戦法威力変化(強化)",
+            "matchedText": "戦法威力を50％"
+          },
+          {
+            "category": "generals",
+            "name": "UR木鹿大王（ぼくろくだいおう）",
+            "displayName": "UR木鹿大王（ぼくろくだいおう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "撃心発生変化(強化)",
+            "matchedText": "撃心発生が上昇（10"
+          },
+          {
+            "category": "generals",
+            "name": "UR木鹿大王（ぼくろくだいおう）",
+            "displayName": "UR木鹿大王（ぼくろくだいおう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "撃心威力変化(強化)",
+            "matchedText": "撃心威力が上昇（10"
+          },
+          {
+            "category": "generals",
+            "name": "UR木鹿大王（ぼくろくだいおう）",
+            "displayName": "UR木鹿大王（ぼくろくだいおう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージを効果量ずつ累積して上昇する（累積は50％"
+          },
+          {
+            "category": "generals",
+            "name": "UR木鹿大王（ぼくろくだいおう）",
+            "displayName": "UR木鹿大王（ぼくろくだいおう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃を100％"
+          },
+          {
+            "category": "generals",
+            "name": "UR木鹿大王（ぼくろくだいおう）",
+            "displayName": "UR木鹿大王（ぼくろくだいおう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "剛憤",
+            "matchedText": "剛憤"
+          },
+          {
+            "category": "generals",
             "name": "UR李典（りてん）",
             "displayName": "UR李典（りてん）",
             "source": "related_link_index",
@@ -10146,6 +10200,33 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "有利激攻",
             "matchedText": "有利激攻"
+          },
+          {
+            "category": "generals",
+            "name": "UR朶思大王（だしだいおう）",
+            "displayName": "UR朶思大王（だしだいおう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージ+30%"
+          },
+          {
+            "category": "generals",
+            "name": "UR朶思大王（だしだいおう）",
+            "displayName": "UR朶思大王（だしだいおう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(強化)",
+            "matchedText": "被ダメージを軽減（将星ランク1"
+          },
+          {
+            "category": "generals",
+            "name": "UR朶思大王（だしだいおう）",
+            "displayName": "UR朶思大王（だしだいおう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力が上昇する弱化残存敵 / 中10"
           },
           {
             "category": "generals",
@@ -22418,6 +22499,15 @@
           },
           {
             "category": "tactics",
+            "name": "毒龍四泉",
+            "displayName": "毒龍四泉",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力を100％"
+          },
+          {
+            "category": "tactics",
             "name": "日月乱舞",
             "displayName": "日月乱舞",
             "source": "related_link_index",
@@ -22469,6 +22559,42 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "閃護",
             "matchedText": "閃護"
+          },
+          {
+            "category": "tactics",
+            "name": "念術踏舞",
+            "displayName": "念術踏舞",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "戦法威力変化(強化)",
+            "matchedText": "戦法威力を50％"
+          },
+          {
+            "category": "tactics",
+            "name": "念術踏舞",
+            "displayName": "念術踏舞",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージを効果量ずつ累積して上昇する（累積は50％"
+          },
+          {
+            "category": "tactics",
+            "name": "念術踏舞",
+            "displayName": "念術踏舞",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃を100％"
+          },
+          {
+            "category": "tactics",
+            "name": "念術踏舞",
+            "displayName": "念術踏舞",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "剛憤",
+            "matchedText": "剛憤"
           },
           {
             "category": "tactics",
@@ -30619,6 +30745,24 @@
           },
           {
             "category": "skills",
+            "name": "象撃",
+            "displayName": "象撃",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "撃心発生変化(強化)",
+            "matchedText": "撃心発生が上昇（10"
+          },
+          {
+            "category": "skills",
+            "name": "象撃",
+            "displayName": "象撃",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "撃心威力変化(強化)",
+            "matchedText": "撃心威力が上昇（10"
+          },
+          {
+            "category": "skills",
             "name": "象堅",
             "displayName": "象堅",
             "source": "related_link_index",
@@ -32284,6 +32428,15 @@
           },
           {
             "category": "skills",
+            "name": "走獣",
+            "displayName": "走獣",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージが上昇（将星ランク1"
+          },
+          {
+            "category": "skills",
             "name": "速射",
             "displayName": "速射",
             "source": "related_link_index",
@@ -32653,6 +32806,24 @@
           },
           {
             "category": "skills",
+            "name": "追毒",
+            "displayName": "追毒",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージ+30%"
+          },
+          {
+            "category": "skills",
+            "name": "追毒",
+            "displayName": "追毒",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(強化)",
+            "matchedText": "被ダメージ-30%"
+          },
+          {
+            "category": "skills",
             "name": "通察",
             "displayName": "通察",
             "source": "related_link_index",
@@ -33001,6 +33172,24 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "戦法速度変化(強化)",
             "matchedText": "戦法速度+5%"
+          },
+          {
+            "category": "skills",
+            "name": "毒念",
+            "displayName": "毒念",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(強化)",
+            "matchedText": "被ダメージを軽減（将星ランク1"
+          },
+          {
+            "category": "skills",
+            "name": "毒念",
+            "displayName": "毒念",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力を400％"
           },
           {
             "category": "skills",
@@ -36575,17 +36764,17 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 1808,
-        "tactics": 1073,
-        "skills": 1155,
+        "generals": 1817,
+        "tactics": 1078,
+        "skills": 1162,
         "equipments": 14,
         "statusEffects": 0,
         "warhorseSkills": 2
       },
-      "totalOwnerCount": 4052,
+      "totalOwnerCount": 4073,
       "source": "related_link_index",
-      "ownerRelationCount": 4052,
-      "distinctOwnerCount": 1309
+      "ownerRelationCount": 4073,
+      "distinctOwnerCount": 1317
     },
     {
       "groupKey": "selfStateBuff",
@@ -39903,6 +40092,15 @@
             "name": "LR李牧（りぼく）",
             "displayName": "LR李牧（りぼく）",
             "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "弱化反射",
+            "matchedText": "弱化反射"
+          },
+          {
+            "category": "generals",
+            "name": "LR李牧（りぼく）",
+            "displayName": "LR李牧（りぼく）",
+            "source": "related_link_index",
             "sourcePartType": "self-countermeasure-skill",
             "statusEffectName": "萎縮回避[巧戦]",
             "matchedText": "自身1部隊にかかる萎縮を避ける"
@@ -41781,6 +41979,69 @@
           },
           {
             "category": "generals",
+            "name": "UR木鹿大王（ぼくろくだいおう）",
+            "displayName": "UR木鹿大王（ぼくろくだいおう）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "会心無効[象撃]",
+            "matchedText": "物理系統のダメージを受ける際に会心/撃心が発生しない（通常のダメージになる）Ⅱ-Ⅲ-Ⅳ-Ⅴ-"
+          },
+          {
+            "category": "generals",
+            "name": "UR木鹿大王（ぼくろくだいおう）",
+            "displayName": "UR木鹿大王（ぼくろくだいおう）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "撃心無効[象撃]",
+            "matchedText": "物理系統のダメージを受ける際に会心/撃心が発生しない（通常のダメージになる）Ⅱ-Ⅲ-Ⅳ-Ⅴ-"
+          },
+          {
+            "category": "generals",
+            "name": "UR木鹿大王（ぼくろくだいおう）",
+            "displayName": "UR木鹿大王（ぼくろくだいおう）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "弱化効果回避[走獣]",
+            "matchedText": "自身1部隊にかかる一部の不利変化（強化無効、通常攻撃縮小、戦法範囲縮小）を避ける"
+          },
+          {
+            "category": "generals",
+            "name": "UR木鹿大王（ぼくろくだいおう）",
+            "displayName": "UR木鹿大王（ぼくろくだいおう）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "強化無効回避[走獣]",
+            "matchedText": "自身1部隊にかかる一部の不利変化（強化無効、通常攻撃縮小、戦法範囲縮小）を避ける"
+          },
+          {
+            "category": "generals",
+            "name": "UR木鹿大王（ぼくろくだいおう）",
+            "displayName": "UR木鹿大王（ぼくろくだいおう）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "通常攻撃縮小回避[走獣]",
+            "matchedText": "自身1部隊にかかる一部の不利変化（強化無効、通常攻撃縮小、戦法範囲縮小）を避ける"
+          },
+          {
+            "category": "generals",
+            "name": "UR木鹿大王（ぼくろくだいおう）",
+            "displayName": "UR木鹿大王（ぼくろくだいおう）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "戦法範囲縮小回避[走獣]",
+            "matchedText": "自身1部隊にかかる一部の不利変化（強化無効、通常攻撃縮小、戦法範囲縮小）を避ける"
+          },
+          {
+            "category": "generals",
+            "name": "UR木鹿大王（ぼくろくだいおう）",
+            "displayName": "UR木鹿大王（ぼくろくだいおう）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "騎兵戦法抑圧回避[走獣]",
+            "matchedText": "自身1部隊にかかる一部の不利変化（強化無効、通常攻撃縮小、戦法範囲縮小、騎兵戦法抑圧）と全ての能力弱化効果を避ける"
+          },
+          {
+            "category": "generals",
             "name": "UR陸遜（りくそん）",
             "displayName": "UR陸遜（りくそん）",
             "source": "related_link_index",
@@ -41931,6 +42192,15 @@
             "sourcePartType": "self-countermeasure-skill",
             "statusEffectName": "知力低下回避[才腕]",
             "matchedText": "自身1部隊にかかる一部の能力弱化効果（攻撃/知力）を避ける"
+          },
+          {
+            "category": "generals",
+            "name": "UR朶思大王（だしだいおう）",
+            "displayName": "UR朶思大王（だしだいおう）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "病毒回避[追毒]",
+            "matchedText": "自身1部隊にかかる病毒と劇毒を避ける"
           },
           {
             "category": "generals",
@@ -45556,6 +45826,24 @@
           },
           {
             "category": "skills",
+            "name": "象撃",
+            "displayName": "象撃",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "会心無効[象撃]",
+            "matchedText": "物理系統のダメージを受ける際に会心/撃心が発生しない（通常のダメージになる）Ⅱ-Ⅲ-Ⅳ-Ⅴ-"
+          },
+          {
+            "category": "skills",
+            "name": "象撃",
+            "displayName": "象撃",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "撃心無効[象撃]",
+            "matchedText": "物理系統のダメージを受ける際に会心/撃心が発生しない（通常のダメージになる）Ⅱ-Ⅲ-Ⅳ-Ⅴ-"
+          },
+          {
+            "category": "skills",
             "name": "信義",
             "displayName": "信義",
             "source": "related_link_index",
@@ -46303,6 +46591,51 @@
           },
           {
             "category": "skills",
+            "name": "走獣",
+            "displayName": "走獣",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "弱化効果回避[走獣]",
+            "matchedText": "自身1部隊にかかる一部の不利変化（強化無効、通常攻撃縮小、戦法範囲縮小）を避ける"
+          },
+          {
+            "category": "skills",
+            "name": "走獣",
+            "displayName": "走獣",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "強化無効回避[走獣]",
+            "matchedText": "自身1部隊にかかる一部の不利変化（強化無効、通常攻撃縮小、戦法範囲縮小）を避ける"
+          },
+          {
+            "category": "skills",
+            "name": "走獣",
+            "displayName": "走獣",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "通常攻撃縮小回避[走獣]",
+            "matchedText": "自身1部隊にかかる一部の不利変化（強化無効、通常攻撃縮小、戦法範囲縮小）を避ける"
+          },
+          {
+            "category": "skills",
+            "name": "走獣",
+            "displayName": "走獣",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "戦法範囲縮小回避[走獣]",
+            "matchedText": "自身1部隊にかかる一部の不利変化（強化無効、通常攻撃縮小、戦法範囲縮小）を避ける"
+          },
+          {
+            "category": "skills",
+            "name": "走獣",
+            "displayName": "走獣",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "騎兵戦法抑圧回避[走獣]",
+            "matchedText": "自身1部隊にかかる一部の不利変化（強化無効、通常攻撃縮小、戦法範囲縮小、騎兵戦法抑圧）と全ての能力弱化効果を避ける"
+          },
+          {
+            "category": "skills",
             "name": "太公望",
             "displayName": "太公望",
             "source": "related_link_index",
@@ -46624,6 +46957,15 @@
             "sourcePartType": "self-countermeasure-skill",
             "statusEffectName": "弱化効果回避[鎮静]",
             "matchedText": "弱化効果を5%の確率で避ける（他技能と合算）Ⅱ"
+          },
+          {
+            "category": "skills",
+            "name": "追毒",
+            "displayName": "追毒",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "病毒回避[追毒]",
+            "matchedText": "自身1部隊にかかる病毒と劇毒を避ける"
           },
           {
             "category": "skills",
@@ -49800,16 +50142,16 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 537,
+        "generals": 546,
         "tactics": 153,
-        "skills": 434,
+        "skills": 442,
         "equipments": 221,
         "statusEffects": 0
       },
-      "totalOwnerCount": 1345,
+      "totalOwnerCount": 1362,
       "source": "related_link_index",
-      "ownerRelationCount": 1345,
-      "distinctOwnerCount": 456
+      "ownerRelationCount": 1362,
+      "distinctOwnerCount": 461
     },
     {
       "groupKey": "enemyAbilityDebuff",
@@ -51986,6 +52328,24 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "物理戦法弱点",
             "matchedText": "物理戦法弱点"
+          },
+          {
+            "category": "generals",
+            "name": "UR朶思大王（だしだいおう）",
+            "displayName": "UR朶思大王（だしだいおう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(弱化)",
+            "matchedText": "攻撃-6％"
+          },
+          {
+            "category": "generals",
+            "name": "UR朶思大王（だしだいおう）",
+            "displayName": "UR朶思大王（だしだいおう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(弱化)",
+            "matchedText": "知力低下）と一部の不利変化（弱化積鈍、不利消沈）を無視してダメージを与える指導2"
           },
           {
             "category": "generals",
@@ -56461,16 +56821,16 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 445,
+        "generals": 447,
         "tactics": 143,
         "skills": 149,
         "equipments": 0,
         "statusEffects": 0
       },
-      "totalOwnerCount": 737,
+      "totalOwnerCount": 739,
       "source": "related_link_index",
-      "ownerRelationCount": 737,
-      "distinctOwnerCount": 425
+      "ownerRelationCount": 739,
+      "distinctOwnerCount": 426
     },
     {
       "groupKey": "enemyStateDebuff",
@@ -57225,6 +57585,33 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "強化抑制",
             "matchedText": "強化抑制"
+          },
+          {
+            "category": "generals",
+            "name": "UR朶思大王（だしだいおう）",
+            "displayName": "UR朶思大王（だしだいおう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "強化無効",
+            "matchedText": "強化無効"
+          },
+          {
+            "category": "generals",
+            "name": "UR朶思大王（だしだいおう）",
+            "displayName": "UR朶思大王（だしだいおう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "弱化残存",
+            "matchedText": "弱化残存"
+          },
+          {
+            "category": "generals",
+            "name": "UR朶思大王（だしだいおう）",
+            "displayName": "UR朶思大王（だしだいおう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "萎縮",
+            "matchedText": "萎縮"
           },
           {
             "category": "generals",
@@ -58040,6 +58427,33 @@
           },
           {
             "category": "tactics",
+            "name": "毒龍四泉",
+            "displayName": "毒龍四泉",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "強化無効",
+            "matchedText": "強化無効"
+          },
+          {
+            "category": "tactics",
+            "name": "毒龍四泉",
+            "displayName": "毒龍四泉",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "弱化残存",
+            "matchedText": "弱化残存"
+          },
+          {
+            "category": "tactics",
+            "name": "毒龍四泉",
+            "displayName": "毒龍四泉",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "萎縮",
+            "matchedText": "萎縮"
+          },
+          {
+            "category": "tactics",
             "name": "八卦幽微",
             "displayName": "八卦幽微",
             "source": "related_link_index",
@@ -58582,6 +58996,33 @@
           },
           {
             "category": "skills",
+            "name": "追毒",
+            "displayName": "追毒",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "強化無効",
+            "matchedText": "強化無効"
+          },
+          {
+            "category": "skills",
+            "name": "追毒",
+            "displayName": "追毒",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "弱化残存",
+            "matchedText": "弱化残存"
+          },
+          {
+            "category": "skills",
+            "name": "追毒",
+            "displayName": "追毒",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "萎縮",
+            "matchedText": "萎縮"
+          },
+          {
+            "category": "skills",
             "name": "天衝",
             "displayName": "天衝",
             "source": "related_link_index",
@@ -58820,16 +59261,16 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 119,
-        "tactics": 82,
-        "skills": 58,
+        "generals": 122,
+        "tactics": 85,
+        "skills": 61,
         "equipments": 0,
         "statusEffects": 0
       },
-      "totalOwnerCount": 259,
+      "totalOwnerCount": 268,
       "source": "related_link_index",
-      "ownerRelationCount": 259,
-      "distinctOwnerCount": 205
+      "ownerRelationCount": 268,
+      "distinctOwnerCount": 208
     },
     {
       "groupKey": "enemyResistanceDebuff",
