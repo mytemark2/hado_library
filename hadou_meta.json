@@ -1,23 +1,23 @@
 {
-  "exportedAt": "2026-08-31T15:31:22.751Z",
+  "exportedAt": "2026-09-06T05:56:27.667Z",
   "collector": "hado_crawler_local_cli",
   "crawlerVersion": "1.1.0.6",
   "requestIntervalMs": 1000,
   "cacheMode": "standard",
   "cacheTtlMs": 7200000,
   "counts": {
-    "generals": 488,
+    "generals": 490,
     "equipments": 255,
-    "skills": 661,
+    "skills": 665,
     "formations": 22,
     "status_effects": 0
   },
   "urlStats": {
     "cacheMode": "standard",
-    "totalUrls": 1864,
-    "networkFetch": 1864,
+    "totalUrls": 1870,
+    "networkFetch": 1870,
     "conditionalHit304": 0,
-    "memoryCacheHit": 1595,
+    "memoryCacheHit": 1599,
     "persistentCacheHit": 0,
     "fastCacheHit": 0,
     "networkFetchByUrl": {
@@ -40,6 +40,8 @@
       "https://gamewith.jp/sangokushihadou/article/show/572687": 1,
       "https://gamewith.jp/sangokushihadou/article/show/572585": 1,
       "https://gamewith.jp/sangokushihadou/article/show/572688": 1,
+      "https://gamewith.jp/sangokushihadou/article/show/574571": 1,
+      "https://gamewith.jp/sangokushihadou/article/show/574572": 1,
       "https://gamewith.jp/sangokushihadou/article/show/574351": 1,
       "https://gamewith.jp/sangokushihadou/article/show/574352": 1,
       "https://gamewith.jp/sangokushihadou/article/show/574353": 1,
@@ -1444,6 +1446,10 @@
       "https://gamewith.jp/sangokushihadou/article/show/248390": 1,
       "https://gamewith.jp/sangokushihadou/article/show/248393": 1,
       "https://gamewith.jp/sangokushihadou/article/show/244555/comments": 1,
+      "https://gamewith.jp/sangokushihadou/article/show/574576": 1,
+      "https://gamewith.jp/sangokushihadou/article/show/574575": 1,
+      "https://gamewith.jp/sangokushihadou/article/show/574574": 1,
+      "https://gamewith.jp/sangokushihadou/article/show/574573": 1,
       "https://gamewith.jp/sangokushihadou/article/show/572593": 1,
       "https://gamewith.jp/sangokushihadou/article/show/572592": 1,
       "https://gamewith.jp/sangokushihadou/article/show/572590": 1,
@@ -1887,7 +1893,7 @@
       "https://gamewith.jp/sangokushihadou/article/show/261392": 1
     },
     "duplicateNetworkFetchUrls": [],
-    "records_count": 3459
+    "records_count": 3469
   },
   "source": {
     "generals": "https://gamewith.jp/sangokushihadou/article/show/240737",
@@ -1896,7 +1902,7 @@
     "formations": "https://gamewith.jp/sangokushihadou/article/show/261056"
   },
   "compatibilityScaleFix": {
-    "total": 488,
+    "total": 490,
     "converted": 0,
     "overRange": 0,
     "invalid": 0,
@@ -1904,18 +1910,18 @@
     "policy": "no automatic 120-to-150 conversion; parsed image values are kept as 0-149"
   },
   "recoveryMergeMode": "artifact-exact",
-  "processedAt": "2026-08-31T15:31:22.751Z",
-  "collectedAt": "2026-08-29T23:59:39.077Z",
-  "dataUpdatedAt": "2026-08-29T23:59:39.077Z",
-  "dataUpdatedAtJst": "2026-08-30 08:59:39 JST",
-  "runId": "2026-08-31T15-30-53-991Z",
-  "sourceCommit": "c0f21b3986697d7a69f2a9419c7ed90798ab7c4b",
-  "sourceBranch": "feature/app-3.1.0.0",
-  "recoverySourceRunId": "2026-08-29T22-47-46-393Z",
+  "processedAt": "2026-09-06T05:56:27.667Z",
+  "collectedAt": "2026-09-06T05:35:59.713Z",
+  "dataUpdatedAt": "2026-09-06T05:35:59.713Z",
+  "dataUpdatedAtJst": "2026-09-06 14:35:59 JST",
+  "runId": "2026-09-06T05-56-00-596Z",
+  "sourceCommit": "e303884f2da031f8ff1a3eb19aafa69d6f8736b5",
+  "sourceBranch": "feature/app-3.1.1.0",
+  "recoverySourceRunId": "2026-09-06T04-28-19-226Z",
   "recoveryExpectedCounts": {
-    "generals": 488,
+    "generals": 490,
     "equipments": 255,
-    "skills": 661,
+    "skills": 665,
     "formations": 22
   }
 }

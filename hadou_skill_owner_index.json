@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-08-31T15:31:23.721Z",
-  "dataSetId": "2026-08-24T16:58:10.882Z",
+  "generatedAt": "2026-09-06T05:56:28.638Z",
+  "dataSetId": "2026-08-31T15:31:22.751Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -33,10 +33,10 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 488,
-    "tactics": 467,
+    "generals": 490,
+    "tactics": 469,
     "equipments": 255,
-    "skills": 661,
+    "skills": 665,
     "statusEffects": 206,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
@@ -47,10 +47,10 @@
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "c8a69cf2",
-    "tactics": "17b2d8ff",
+    "generals": "36a988b3",
+    "tactics": "1db2e271",
     "equipments": "5051cab2",
-    "skills": "55f06444",
+    "skills": "51f05df8",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
@@ -61,10 +61,10 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "c8a69cf2",
-    "tactics": "17b2d8ff",
+    "generals": "36a988b3",
+    "tactics": "1db2e271",
     "equipments": "5051cab2",
-    "skills": "55f06444",
+    "skills": "51f05df8",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
@@ -91,11 +91,11 @@
     "skillDomainAudit": {
       "ok": true,
       "policy": "Application skill catalog includes general, advisor, equipment, ethnic research, five-element, and other derived skills displayed by the app.",
-      "masterGeneralSkillCount": 661,
-      "applicationSkillCount": 1401,
-      "indexedSkillCount": 1401,
+      "masterGeneralSkillCount": 665,
+      "applicationSkillCount": 1405,
+      "indexedSkillCount": 1405,
       "domainCounts": {
-        "generalSkill": 663,
+        "generalSkill": 667,
         "equipmentSkill": 829,
         "warhorseSkill": 3,
         "ethnicResearchSkill": 43,
@@ -1896,6 +1896,110 @@
         "generalSkill"
       ],
       "skillKey": "skills:article-261341"
+    },
+    {
+      "skillName": "象撃",
+      "owners": [
+        {
+          "name": "UR木鹿大王（ぼくろくだいおう）",
+          "displayName": "UR木鹿大王（ぼくろくだいおう）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-574576",
+          "ownerEntityKey": "generals:article-574572",
+          "skillOwnerKey": "generalSkill:skills:article-574576:generals:article-574572"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "象撃",
+      "sourceEntityKey": "skills:article-574576",
+      "skillDomain": "generalSkill",
+      "skillDomains": [
+        "generalSkill"
+      ],
+      "skillKey": "skills:article-574576"
+    },
+    {
+      "skillName": "走獣",
+      "owners": [
+        {
+          "name": "UR木鹿大王（ぼくろくだいおう）",
+          "displayName": "UR木鹿大王（ぼくろくだいおう）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-574575",
+          "ownerEntityKey": "generals:article-574572",
+          "skillOwnerKey": "generalSkill:skills:article-574575:generals:article-574572"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "走獣",
+      "sourceEntityKey": "skills:article-574575",
+      "skillDomain": "generalSkill",
+      "skillDomains": [
+        "generalSkill"
+      ],
+      "skillKey": "skills:article-574575"
+    },
+    {
+      "skillName": "追毒",
+      "owners": [
+        {
+          "name": "UR朶思大王（だしだいおう）",
+          "displayName": "UR朶思大王（だしだいおう）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-574574",
+          "ownerEntityKey": "generals:article-574571",
+          "skillOwnerKey": "generalSkill:skills:article-574574:generals:article-574571"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "追毒",
+      "sourceEntityKey": "skills:article-574574",
+      "skillDomain": "generalSkill",
+      "skillDomains": [
+        "generalSkill"
+      ],
+      "skillKey": "skills:article-574574"
+    },
+    {
+      "skillName": "毒念",
+      "owners": [
+        {
+          "name": "UR朶思大王（だしだいおう）",
+          "displayName": "UR朶思大王（だしだいおう）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-574573",
+          "ownerEntityKey": "generals:article-574571",
+          "skillOwnerKey": "generalSkill:skills:article-574573:generals:article-574571"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "毒念",
+      "sourceEntityKey": "skills:article-574573",
+      "skillDomain": "generalSkill",
+      "skillDomains": [
+        "generalSkill"
+      ],
+      "skillKey": "skills:article-574573"
     },
     {
       "skillName": "忠賢",
@@ -20816,6 +20920,19 @@
       "skillName": "探究",
       "owners": [
         {
+          "name": "UR木鹿大王（ぼくろくだいおう）",
+          "displayName": "UR木鹿大王（ぼくろくだいおう）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-288271",
+          "ownerEntityKey": "generals:article-574572",
+          "skillOwnerKey": "generalSkill:skills:article-288271:generals:article-574572"
+        },
+        {
           "name": "LR夏侯淵・盾兵（かこうえん）",
           "displayName": "LR夏侯淵・盾兵（かこうえん）",
           "ownerType": "general",
@@ -21063,7 +21180,7 @@
           "skillOwnerKey": "generalSkill:skills:article-288271:generals:article-288264"
         }
       ],
-      "ownerCount": 19,
+      "ownerCount": 20,
       "name": "探究",
       "sourceEntityKey": "skills:article-288271",
       "skillDomain": "generalSkill",
@@ -21075,6 +21192,32 @@
     {
       "skillName": "南蛮",
       "owners": [
+        {
+          "name": "UR朶思大王（だしだいおう）",
+          "displayName": "UR朶思大王（だしだいおう）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-288272",
+          "ownerEntityKey": "generals:article-574571",
+          "skillOwnerKey": "generalSkill:skills:article-288272:generals:article-574571"
+        },
+        {
+          "name": "UR木鹿大王（ぼくろくだいおう）",
+          "displayName": "UR木鹿大王（ぼくろくだいおう）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-288272",
+          "ownerEntityKey": "generals:article-574572",
+          "skillOwnerKey": "generalSkill:skills:article-288272:generals:article-574572"
+        },
         {
           "name": "UR兀突骨（ごつとつこつ）",
           "displayName": "UR兀突骨（ごつとつこつ）",
@@ -21355,7 +21498,7 @@
           "skillOwnerKey": "ethnicResearchSkill:skills:article-288272:ethnicResearchSkills:name-885110ee"
         }
       ],
-      "ownerCount": 23,
+      "ownerCount": 25,
       "name": "南蛮",
       "sourceEntityKey": "skills:article-288272",
       "skillDomain": "generalSkill",
@@ -30194,6 +30337,19 @@
           "skillOwnerKey": "generalSkill:skills:article-261371:generals:article-572584"
         },
         {
+          "name": "UR朶思大王（だしだいおう）",
+          "displayName": "UR朶思大王（だしだいおう）",
+          "ownerType": "general",
+          "category": "generals",
+          "source": "general-skill-table",
+          "isAdvisorSkill": false,
+          "usage": "normal",
+          "skillDomain": "generalSkill",
+          "skillKey": "skills:article-261371",
+          "ownerEntityKey": "generals:article-574571",
+          "skillOwnerKey": "generalSkill:skills:article-261371:generals:article-574571"
+        },
+        {
           "name": "LR張良（ちょうりょう）",
           "displayName": "LR張良（ちょうりょう）",
           "ownerType": "general",
@@ -30571,7 +30727,7 @@
           "skillOwnerKey": "generalSkill:skills:article-261371:generals:article-243491"
         }
       ],
-      "ownerCount": 30,
+      "ownerCount": 31,
       "name": "指導",
       "sourceEntityKey": "skills:article-261371",
       "skillDomain": "generalSkill",

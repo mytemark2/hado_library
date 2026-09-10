@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-08-31T15:31:23.721Z",
-  "dataSetId": "2026-08-24T16:58:10.882Z",
+  "generatedAt": "2026-09-06T05:56:28.638Z",
+  "dataSetId": "2026-08-31T15:31:22.751Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -33,10 +33,10 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 488,
-    "tactics": 467,
+    "generals": 490,
+    "tactics": 469,
     "equipments": 255,
-    "skills": 661,
+    "skills": 665,
     "statusEffects": 206,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
@@ -47,10 +47,10 @@
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "c8a69cf2",
-    "tactics": "17b2d8ff",
+    "generals": "36a988b3",
+    "tactics": "1db2e271",
     "equipments": "5051cab2",
-    "skills": "55f06444",
+    "skills": "51f05df8",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
@@ -61,10 +61,10 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "c8a69cf2",
-    "tactics": "17b2d8ff",
+    "generals": "36a988b3",
+    "tactics": "1db2e271",
     "equipments": "5051cab2",
-    "skills": "55f06444",
+    "skills": "51f05df8",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
@@ -77,9 +77,9 @@
   "hotfixVersion": "1.1.0.3",
   "kind": "formation_candidate_index",
   "qualityAudit": {
-    "itemCount": 831,
+    "itemCount": 833,
     "byCategory": {
-      "generals": 488,
+      "generals": 490,
       "equipments": 255,
       "formations": 22,
       "siege_weapons": 6,
@@ -149,7 +149,53 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/572585"
     },
     {
-      "id": "generals:2:UR卞氏（べんし）",
+      "id": "generals:2:UR朶思大王（だしだいおう）",
+      "category": "generals",
+      "name": "UR朶思大王（だしだいおう）",
+      "displayName": "UR朶思大王（だしだいおう）",
+      "rarity": "",
+      "talent": "1000（UR）",
+      "troopTypes": [
+        "弓兵"
+      ],
+      "roles": [
+        "main"
+      ],
+      "jijuPositions": [],
+      "skillNames": [
+        "南蛮",
+        "毒念",
+        "指導",
+        "追毒"
+      ],
+      "skillCount": 4,
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/574571"
+    },
+    {
+      "id": "generals:3:UR木鹿大王（ぼくろくだいおう）",
+      "category": "generals",
+      "name": "UR木鹿大王（ぼくろくだいおう）",
+      "displayName": "UR木鹿大王（ぼくろくだいおう）",
+      "rarity": "",
+      "talent": "1000（UR）",
+      "troopTypes": [
+        "騎兵"
+      ],
+      "roles": [
+        "main"
+      ],
+      "jijuPositions": [],
+      "skillNames": [
+        "南蛮",
+        "走獣",
+        "探究",
+        "象撃"
+      ],
+      "skillCount": 4,
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/574572"
+    },
+    {
+      "id": "generals:4:UR卞氏（べんし）",
       "category": "generals",
       "name": "UR卞氏（べんし）",
       "displayName": "UR卞氏（べんし）",
@@ -175,7 +221,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/570446"
     },
     {
-      "id": "generals:3:UR沙摩柯（しゃまか）",
+      "id": "generals:5:UR沙摩柯（しゃまか）",
       "category": "generals",
       "name": "UR沙摩柯（しゃまか）",
       "displayName": "UR沙摩柯（しゃまか）",
@@ -198,7 +244,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/568477"
     },
     {
-      "id": "generals:4:UR越吉（えつきつ）",
+      "id": "generals:6:UR越吉（えつきつ）",
       "category": "generals",
       "name": "UR越吉（えつきつ）",
       "displayName": "UR越吉（えつきつ）",
@@ -222,7 +268,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/568476"
     },
     {
-      "id": "generals:5:LR関平（かんぺい）",
+      "id": "generals:7:LR関平（かんぺい）",
       "category": "generals",
       "name": "LR関平（かんぺい）",
       "displayName": "LR関平（かんぺい）",
@@ -249,7 +295,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/568457"
     },
     {
-      "id": "generals:6:LR馬良（ばりょう）",
+      "id": "generals:8:LR馬良（ばりょう）",
       "category": "generals",
       "name": "LR馬良（ばりょう）",
       "displayName": "LR馬良（ばりょう）",
@@ -276,7 +322,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/568456"
     },
     {
-      "id": "generals:7:LR孫堅・盾兵（そんけん）",
+      "id": "generals:9:LR孫堅・盾兵（そんけん）",
       "category": "generals",
       "name": "LR孫堅・盾兵（そんけん）",
       "displayName": "LR孫堅・盾兵（そんけん）",
@@ -302,7 +348,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/565572"
     },
     {
-      "id": "generals:8:UR郭淮（かくわい）",
+      "id": "generals:10:UR郭淮（かくわい）",
       "category": "generals",
       "name": "UR郭淮（かくわい）",
       "displayName": "UR郭淮（かくわい）",
@@ -324,7 +370,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/564668"
     },
     {
-      "id": "generals:9:LR闞沢（かんたく）",
+      "id": "generals:11:LR闞沢（かんたく）",
       "category": "generals",
       "name": "LR闞沢（かんたく）",
       "displayName": "LR闞沢（かんたく）",
@@ -351,7 +397,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/564667"
     },
     {
-      "id": "generals:10:LR呂蒙・盾兵（りょもう）",
+      "id": "generals:12:LR呂蒙・盾兵（りょもう）",
       "category": "generals",
       "name": "LR呂蒙・盾兵（りょもう）",
       "displayName": "LR呂蒙・盾兵（りょもう）",
@@ -377,7 +423,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/564666"
     },
     {
-      "id": "generals:11:LR夏侯淵・盾兵（かこうえん）",
+      "id": "generals:13:LR夏侯淵・盾兵（かこうえん）",
       "category": "generals",
       "name": "LR夏侯淵・盾兵（かこうえん）",
       "displayName": "LR夏侯淵・盾兵（かこうえん）",
@@ -404,7 +450,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/564665"
     },
     {
-      "id": "generals:12:UR袁術（えんじゅつ）",
+      "id": "generals:14:UR袁術（えんじゅつ）",
       "category": "generals",
       "name": "UR袁術（えんじゅつ）",
       "displayName": "UR袁術（えんじゅつ）",
@@ -429,7 +475,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/562413"
     },
     {
-      "id": "generals:13:UR潘臨（はんりん）",
+      "id": "generals:15:UR潘臨（はんりん）",
       "category": "generals",
       "name": "UR潘臨（はんりん）",
       "displayName": "UR潘臨（はんりん）",
@@ -455,7 +501,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/560793"
     },
     {
-      "id": "generals:14:UR兀突骨（ごつとつこつ）",
+      "id": "generals:16:UR兀突骨（ごつとつこつ）",
       "category": "generals",
       "name": "UR兀突骨（ごつとつこつ）",
       "displayName": "UR兀突骨（ごつとつこつ）",
@@ -479,7 +525,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/560792"
     },
     {
-      "id": "generals:15:LR司馬昭（しばしょう）",
+      "id": "generals:17:LR司馬昭（しばしょう）",
       "category": "generals",
       "name": "LR司馬昭（しばしょう）",
       "displayName": "LR司馬昭（しばしょう）",
@@ -508,7 +554,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/560767"
     },
     {
-      "id": "generals:16:LR司馬師（しばし）",
+      "id": "generals:18:LR司馬師（しばし）",
       "category": "generals",
       "name": "LR司馬師（しばし）",
       "displayName": "LR司馬師（しばし）",
@@ -537,7 +583,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/560766"
     },
     {
-      "id": "generals:17:LR張良（ちょうりょう）",
+      "id": "generals:19:LR張良（ちょうりょう）",
       "category": "generals",
       "name": "LR張良（ちょうりょう）",
       "displayName": "LR張良（ちょうりょう）",
@@ -565,7 +611,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556164"
     },
     {
-      "id": "generals:18:LR華雄（かゆう）",
+      "id": "generals:20:LR華雄（かゆう）",
       "category": "generals",
       "name": "LR華雄（かゆう）",
       "displayName": "LR華雄（かゆう）",
@@ -594,7 +640,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/556163"
     },
     {
-      "id": "generals:19:UR蒋欽（しょうきん）",
+      "id": "generals:21:UR蒋欽（しょうきん）",
       "category": "generals",
       "name": "UR蒋欽（しょうきん）",
       "displayName": "UR蒋欽（しょうきん）",
@@ -618,7 +664,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/552057"
     },
     {
-      "id": "generals:20:UR軻比能（かひのう）",
+      "id": "generals:22:UR軻比能（かひのう）",
       "category": "generals",
       "name": "UR軻比能（かひのう）",
       "displayName": "UR軻比能（かひのう）",
@@ -642,7 +688,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/549873"
     },
     {
-      "id": "generals:21:UR蹋頓（とうとん）",
+      "id": "generals:23:UR蹋頓（とうとん）",
       "category": "generals",
       "name": "UR蹋頓（とうとん）",
       "displayName": "UR蹋頓（とうとん）",
@@ -666,7 +712,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/549872"
     },
     {
-      "id": "generals:22:LR于禁（うきん）",
+      "id": "generals:24:LR于禁（うきん）",
       "category": "generals",
       "name": "LR于禁（うきん）",
       "displayName": "LR于禁（うきん）",
@@ -693,7 +739,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/549838"
     },
     {
-      "id": "generals:23:LR文醜（ぶんしゅう）",
+      "id": "generals:25:LR文醜（ぶんしゅう）",
       "category": "generals",
       "name": "LR文醜（ぶんしゅう）",
       "displayName": "LR文醜（ぶんしゅう）",
@@ -721,7 +767,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/549837"
     },
     {
-      "id": "generals:24:LR顔良（がんりょう）",
+      "id": "generals:26:LR顔良（がんりょう）",
       "category": "generals",
       "name": "LR顔良（がんりょう）",
       "displayName": "LR顔良（がんりょう）",
@@ -749,7 +795,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/549836"
     },
     {
-      "id": "generals:25:UR花鬘（かまん）",
+      "id": "generals:27:UR花鬘（かまん）",
       "category": "generals",
       "name": "UR花鬘（かまん）",
       "displayName": "UR花鬘（かまん）",
@@ -775,7 +821,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/547818"
     },
     {
-      "id": "generals:26:LR祝融（しゅくゆう）",
+      "id": "generals:28:LR祝融（しゅくゆう）",
       "category": "generals",
       "name": "LR祝融（しゅくゆう）",
       "displayName": "LR祝融（しゅくゆう）",
@@ -801,7 +847,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/547817"
     },
     {
-      "id": "generals:27:LR孟獲（もうかく）",
+      "id": "generals:29:LR孟獲（もうかく）",
       "category": "generals",
       "name": "LR孟獲（もうかく）",
       "displayName": "LR孟獲（もうかく）",
@@ -827,7 +873,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/547816"
     },
     {
-      "id": "generals:28:LR項籍（こうせき）",
+      "id": "generals:30:LR項籍（こうせき）",
       "category": "generals",
       "name": "LR項籍（こうせき）",
       "displayName": "LR項籍（こうせき）",
@@ -855,7 +901,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/544970"
     },
     {
-      "id": "generals:29:LR荀攸（じゅんゆう）",
+      "id": "generals:31:LR荀攸（じゅんゆう）",
       "category": "generals",
       "name": "LR荀攸（じゅんゆう）",
       "displayName": "LR荀攸（じゅんゆう）",
@@ -884,7 +930,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/544969"
     },
     {
-      "id": "generals:30:UR鄒氏（すうし）",
+      "id": "generals:32:UR鄒氏（すうし）",
       "category": "generals",
       "name": "UR鄒氏（すうし）",
       "displayName": "UR鄒氏（すうし）",
@@ -910,7 +956,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/542408"
     },
     {
-      "id": "generals:31:LR諸葛恪（しょかつかく）",
+      "id": "generals:33:LR諸葛恪（しょかつかく）",
       "category": "generals",
       "name": "LR諸葛恪（しょかつかく）",
       "displayName": "LR諸葛恪（しょかつかく）",
@@ -939,7 +985,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/540452"
     },
     {
-      "id": "generals:32:LR周倉（しゅうそう）",
+      "id": "generals:34:LR周倉（しゅうそう）",
       "category": "generals",
       "name": "LR周倉（しゅうそう）",
       "displayName": "LR周倉（しゅうそう）",
@@ -968,7 +1014,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/540451"
     },
     {
-      "id": "generals:33:LR関羽（かんう）",
+      "id": "generals:35:LR関羽（かんう）",
       "category": "generals",
       "name": "LR関羽（かんう）",
       "displayName": "LR関羽（かんう）",
@@ -994,7 +1040,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/537936"
     },
     {
-      "id": "generals:34:LR左慈（さじ）",
+      "id": "generals:36:LR左慈（さじ）",
       "category": "generals",
       "name": "LR左慈（さじ）",
       "displayName": "LR左慈（さじ）",
@@ -1020,7 +1066,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/536559"
     },
     {
-      "id": "generals:35:LR白起（はくき）",
+      "id": "generals:37:LR白起（はくき）",
       "category": "generals",
       "name": "LR白起（はくき）",
       "displayName": "LR白起（はくき）",
@@ -1049,7 +1095,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/536558"
     },
     {
-      "id": "generals:36:LR黄月英（こうげつえい）",
+      "id": "generals:38:LR黄月英（こうげつえい）",
       "category": "generals",
       "name": "LR黄月英（こうげつえい）",
       "displayName": "LR黄月英（こうげつえい）",
@@ -1078,7 +1124,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/536557"
     },
     {
-      "id": "generals:37:UR歩練師（ほれんし）",
+      "id": "generals:39:UR歩練師（ほれんし）",
       "category": "generals",
       "name": "UR歩練師（ほれんし）",
       "displayName": "UR歩練師（ほれんし）",
@@ -1104,7 +1150,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/532230"
     },
     {
-      "id": "generals:38:LR夏侯惇(ORIGINS)（かこうとん）",
+      "id": "generals:40:LR夏侯惇(ORIGINS)（かこうとん）",
       "category": "generals",
       "name": "LR夏侯惇(ORIGINS)（かこうとん）",
       "displayName": "LR夏侯惇(ORIGINS)（かこうとん）",
@@ -1131,7 +1177,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/530638"
     },
     {
-      "id": "generals:39:LR孫尚香(ORIGINS)（そんしょうこう）",
+      "id": "generals:41:LR孫尚香(ORIGINS)（そんしょうこう）",
       "category": "generals",
       "name": "LR孫尚香(ORIGINS)（そんしょうこう）",
       "displayName": "LR孫尚香(ORIGINS)（そんしょうこう）",
@@ -1158,7 +1204,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/530633"
     },
     {
-      "id": "generals:40:LR張飛(ORIGINS)（ちょうひ）",
+      "id": "generals:42:LR張飛(ORIGINS)（ちょうひ）",
       "category": "generals",
       "name": "LR張飛(ORIGINS)（ちょうひ）",
       "displayName": "LR張飛(ORIGINS)（ちょうひ）",
@@ -1184,7 +1230,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/530627"
     },
     {
-      "id": "generals:41:LR朱桓（しゅかん）",
+      "id": "generals:43:LR朱桓（しゅかん）",
       "category": "generals",
       "name": "LR朱桓（しゅかん）",
       "displayName": "LR朱桓（しゅかん）",
@@ -1213,7 +1259,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/530622"
     },
     {
-      "id": "generals:42:LR楽進（がくしん）",
+      "id": "generals:44:LR楽進（がくしん）",
       "category": "generals",
       "name": "LR楽進（がくしん）",
       "displayName": "LR楽進（がくしん）",
@@ -1241,7 +1287,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/530615"
     },
     {
-      "id": "generals:43:LR項燕（こうえん）",
+      "id": "generals:45:LR項燕（こうえん）",
       "category": "generals",
       "name": "LR項燕（こうえん）",
       "displayName": "LR項燕（こうえん）",
@@ -1269,7 +1315,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/524482"
     },
     {
-      "id": "generals:44:LR馬騰（ばとう）",
+      "id": "generals:46:LR馬騰（ばとう）",
       "category": "generals",
       "name": "LR馬騰（ばとう）",
       "displayName": "LR馬騰（ばとう）",
@@ -1298,7 +1344,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/524481"
     },
     {
-      "id": "generals:45:UR厳顔（げんがん）",
+      "id": "generals:47:UR厳顔（げんがん）",
       "category": "generals",
       "name": "UR厳顔（げんがん）",
       "displayName": "UR厳顔（げんがん）",
@@ -1324,7 +1370,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/521786"
     },
     {
-      "id": "generals:46:LR甄氏（しんし）",
+      "id": "generals:48:LR甄氏（しんし）",
       "category": "generals",
       "name": "LR甄氏（しんし）",
       "displayName": "LR甄氏（しんし）",
@@ -1352,7 +1398,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/519378"
     },
     {
-      "id": "generals:47:LR田豊（でんぽう）",
+      "id": "generals:49:LR田豊（でんぽう）",
       "category": "generals",
       "name": "LR田豊（でんぽう）",
       "displayName": "LR田豊（でんぽう）",
@@ -1381,7 +1427,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/519377"
     },
     {
-      "id": "generals:48:LR荀彧（じゅんいく）",
+      "id": "generals:50:LR荀彧（じゅんいく）",
       "category": "generals",
       "name": "LR荀彧（じゅんいく）",
       "displayName": "LR荀彧（じゅんいく）",
@@ -1410,7 +1456,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/519376"
     },
     {
-      "id": "generals:49:LR袁紹（えんしょう）",
+      "id": "generals:51:LR袁紹（えんしょう）",
       "category": "generals",
       "name": "LR袁紹（えんしょう）",
       "displayName": "LR袁紹（えんしょう）",
@@ -1438,7 +1484,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/516626"
     },
     {
-      "id": "generals:50:LR曹操（そうそう）",
+      "id": "generals:52:LR曹操（そうそう）",
       "category": "generals",
       "name": "LR曹操（そうそう）",
       "displayName": "LR曹操（そうそう）",
@@ -1467,7 +1513,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/516625"
     },
     {
-      "id": "generals:51:LR鮑叔牙（ほうしゅくが）",
+      "id": "generals:53:LR鮑叔牙（ほうしゅくが）",
       "category": "generals",
       "name": "LR鮑叔牙（ほうしゅくが）",
       "displayName": "LR鮑叔牙（ほうしゅくが）",
@@ -1496,7 +1542,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/513866"
     },
     {
-      "id": "generals:52:LR姜維（きょうい）",
+      "id": "generals:54:LR姜維（きょうい）",
       "category": "generals",
       "name": "LR姜維（きょうい）",
       "displayName": "LR姜維（きょうい）",
@@ -1523,7 +1569,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/513865"
     },
     {
-      "id": "generals:53:UR辛憲英（しんけんえい）",
+      "id": "generals:55:UR辛憲英（しんけんえい）",
       "category": "generals",
       "name": "UR辛憲英（しんけんえい）",
       "displayName": "UR辛憲英（しんけんえい）",
@@ -1549,7 +1595,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/512650"
     },
     {
-      "id": "generals:54:LR呂玲綺（りょれいき）",
+      "id": "generals:56:LR呂玲綺（りょれいき）",
       "category": "generals",
       "name": "LR呂玲綺（りょれいき）",
       "displayName": "LR呂玲綺（りょれいき）",
@@ -1577,7 +1623,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/507824"
     },
     {
-      "id": "generals:55:LR黄蓋（こうがい）",
+      "id": "generals:57:LR黄蓋（こうがい）",
       "category": "generals",
       "name": "LR黄蓋（こうがい）",
       "displayName": "LR黄蓋（こうがい）",
@@ -1606,7 +1652,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/507825"
     },
     {
-      "id": "generals:56:LR馬岱（ばたい）",
+      "id": "generals:58:LR馬岱（ばたい）",
       "category": "generals",
       "name": "LR馬岱（ばたい）",
       "displayName": "LR馬岱（ばたい）",
@@ -1633,7 +1679,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/503945"
     },
     {
-      "id": "generals:57:LR管夷吾（かんいご）",
+      "id": "generals:59:LR管夷吾（かんいご）",
       "category": "generals",
       "name": "LR管夷吾（かんいご）",
       "displayName": "LR管夷吾（かんいご）",
@@ -1662,7 +1708,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/503944"
     },
     {
-      "id": "generals:58:LR魏延（ぎえん）",
+      "id": "generals:60:LR魏延（ぎえん）",
       "category": "generals",
       "name": "LR魏延（ぎえん）",
       "displayName": "LR魏延（ぎえん）",
@@ -1688,7 +1734,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/503943"
     },
     {
-      "id": "generals:59:LR阿奴（あぬ）",
+      "id": "generals:61:LR阿奴（あぬ）",
       "category": "generals",
       "name": "LR阿奴（あぬ）",
       "displayName": "LR阿奴（あぬ）",
@@ -1715,7 +1761,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/507420"
     },
     {
-      "id": "generals:60:LR林月如（りんげつにょ）",
+      "id": "generals:62:LR林月如（りんげつにょ）",
       "category": "generals",
       "name": "LR林月如（りんげつにょ）",
       "displayName": "LR林月如（りんげつにょ）",
@@ -1742,7 +1788,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/507419"
     },
     {
-      "id": "generals:61:LR趙霊児（ちょうれいじ）",
+      "id": "generals:63:LR趙霊児（ちょうれいじ）",
       "category": "generals",
       "name": "LR趙霊児（ちょうれいじ）",
       "displayName": "LR趙霊児（ちょうれいじ）",
@@ -1769,7 +1815,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/507418"
     },
     {
-      "id": "generals:62:LR李逍遥（りしょうよう）",
+      "id": "generals:64:LR李逍遥（りしょうよう）",
       "category": "generals",
       "name": "LR李逍遥（りしょうよう）",
       "displayName": "LR李逍遥（りしょうよう）",
@@ -1796,7 +1842,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/507417"
     },
     {
-      "id": "generals:63:UR司馬徽（しばき）",
+      "id": "generals:65:UR司馬徽（しばき）",
       "category": "generals",
       "name": "UR司馬徽（しばき）",
       "displayName": "UR司馬徽（しばき）",
@@ -1822,7 +1868,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/501565"
     },
     {
-      "id": "generals:64:LR劉備（りゅうび）",
+      "id": "generals:66:LR劉備（りゅうび）",
       "category": "generals",
       "name": "LR劉備（りゅうび）",
       "displayName": "LR劉備（りゅうび）",
@@ -1851,7 +1897,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/501244"
     },
     {
-      "id": "generals:65:LR羊祜（ようこ）",
+      "id": "generals:67:LR羊祜（ようこ）",
       "category": "generals",
       "name": "LR羊祜（ようこ）",
       "displayName": "LR羊祜（ようこ）",
@@ -1880,7 +1926,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/497506"
     },
     {
-      "id": "generals:66:LR陸抗（りくこう）",
+      "id": "generals:68:LR陸抗（りくこう）",
       "category": "generals",
       "name": "LR陸抗（りくこう）",
       "displayName": "LR陸抗（りくこう）",
@@ -1909,7 +1955,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/497505"
     },
     {
-      "id": "generals:67:LR呉起（ごき）",
+      "id": "generals:69:LR呉起（ごき）",
       "category": "generals",
       "name": "LR呉起（ごき）",
       "displayName": "LR呉起（ごき）",
@@ -1937,7 +1983,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/494432"
     },
     {
-      "id": "generals:68:LR公孫瓚（こうそんさん）",
+      "id": "generals:70:LR公孫瓚（こうそんさん）",
       "category": "generals",
       "name": "LR公孫瓚（こうそんさん）",
       "displayName": "LR公孫瓚（こうそんさん）",
@@ -1966,7 +2012,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/494431"
     },
     {
-      "id": "generals:69:UR呉国太（ごこくたい）",
+      "id": "generals:71:UR呉国太（ごこくたい）",
       "category": "generals",
       "name": "UR呉国太（ごこくたい）",
       "displayName": "UR呉国太（ごこくたい）",
@@ -1990,7 +2036,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/492678"
     },
     {
-      "id": "generals:70:UR張梁（ちょうりょう）",
+      "id": "generals:72:UR張梁（ちょうりょう）",
       "category": "generals",
       "name": "UR張梁（ちょうりょう）",
       "displayName": "UR張梁（ちょうりょう）",
@@ -2014,7 +2060,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/490355"
     },
     {
-      "id": "generals:71:UR張宝（ちょうほう）",
+      "id": "generals:73:UR張宝（ちょうほう）",
       "category": "generals",
       "name": "UR張宝（ちょうほう）",
       "displayName": "UR張宝（ちょうほう）",
@@ -2038,7 +2084,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/490354"
     },
     {
-      "id": "generals:72:LR張角（ちょうかく）",
+      "id": "generals:74:LR張角（ちょうかく）",
       "category": "generals",
       "name": "LR張角（ちょうかく）",
       "displayName": "LR張角（ちょうかく）",
@@ -2065,7 +2111,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/490353"
     },
     {
-      "id": "generals:73:LR鄧艾（とうがい）",
+      "id": "generals:75:LR鄧艾（とうがい）",
       "category": "generals",
       "name": "LR鄧艾（とうがい）",
       "displayName": "LR鄧艾（とうがい）",
@@ -2091,7 +2137,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/490352"
     },
     {
-      "id": "generals:74:LR魯粛（ろしゅく）",
+      "id": "generals:76:LR魯粛（ろしゅく）",
       "category": "generals",
       "name": "LR魯粛（ろしゅく）",
       "displayName": "LR魯粛（ろしゅく）",
@@ -2118,7 +2164,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/490351"
     },
     {
-      "id": "generals:75:LR典韋（てんい）",
+      "id": "generals:77:LR典韋（てんい）",
       "category": "generals",
       "name": "LR典韋（てんい）",
       "displayName": "LR典韋（てんい）",
@@ -2147,7 +2193,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/490350"
     },
     {
-      "id": "generals:76:LR李牧（りぼく）",
+      "id": "generals:78:LR李牧（りぼく）",
       "category": "generals",
       "name": "LR李牧（りぼく）",
       "displayName": "LR李牧（りぼく）",
@@ -2175,7 +2221,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/484961"
     },
     {
-      "id": "generals:77:LR華佗（かだ）",
+      "id": "generals:79:LR華佗（かだ）",
       "category": "generals",
       "name": "LR華佗（かだ）",
       "displayName": "LR華佗（かだ）",
@@ -2203,7 +2249,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/484960"
     },
     {
-      "id": "generals:78:UR岳飛（がくひ）",
+      "id": "generals:80:UR岳飛（がくひ）",
       "category": "generals",
       "name": "UR岳飛（がくひ）",
       "displayName": "UR岳飛（がくひ）",
@@ -2225,7 +2271,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/483825"
     },
     {
-      "id": "generals:79:LR鄭成功（ていせいこう）",
+      "id": "generals:81:LR鄭成功（ていせいこう）",
       "category": "generals",
       "name": "LR鄭成功（ていせいこう）",
       "displayName": "LR鄭成功（ていせいこう）",
@@ -2254,7 +2300,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/483824"
     },
     {
-      "id": "generals:80:LR鍾会（しょうかい）",
+      "id": "generals:82:LR鍾会（しょうかい）",
       "category": "generals",
       "name": "LR鍾会（しょうかい）",
       "displayName": "LR鍾会（しょうかい）",
@@ -2282,7 +2328,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/482293"
     },
     {
-      "id": "generals:81:LR関銀屏（かんぎんぺい）",
+      "id": "generals:83:LR関銀屏（かんぎんぺい）",
       "category": "generals",
       "name": "LR関銀屏（かんぎんぺい）",
       "displayName": "LR関銀屏（かんぎんぺい）",
@@ -2311,7 +2357,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/482292"
     },
     {
-      "id": "generals:82:UR董白（とうはく）",
+      "id": "generals:84:UR董白（とうはく）",
       "category": "generals",
       "name": "UR董白（とうはく）",
       "displayName": "UR董白（とうはく）",
@@ -2335,7 +2381,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/481148"
     },
     {
-      "id": "generals:83:LR董卓（とうたく）",
+      "id": "generals:85:LR董卓（とうたく）",
       "category": "generals",
       "name": "LR董卓（とうたく）",
       "displayName": "LR董卓（とうたく）",
@@ -2364,7 +2410,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/480973"
     },
     {
-      "id": "generals:84:UR高長恭（こうちょうきょう）",
+      "id": "generals:86:UR高長恭（こうちょうきょう）",
       "category": "generals",
       "name": "UR高長恭（こうちょうきょう）",
       "displayName": "UR高長恭（こうちょうきょう）",
@@ -2388,7 +2434,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/479487"
     },
     {
-      "id": "generals:85:UR鄭成功（ていせいこう）",
+      "id": "generals:87:UR鄭成功（ていせいこう）",
       "category": "generals",
       "name": "UR鄭成功（ていせいこう）",
       "displayName": "UR鄭成功（ていせいこう）",
@@ -2411,7 +2457,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/479486"
     },
     {
-      "id": "generals:86:LR小喬（しょうきょう）",
+      "id": "generals:88:LR小喬（しょうきょう）",
       "category": "generals",
       "name": "LR小喬（しょうきょう）",
       "displayName": "LR小喬（しょうきょう）",
@@ -2438,7 +2484,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/479485"
     },
     {
-      "id": "generals:87:LR英布（えいふ）",
+      "id": "generals:89:LR英布（えいふ）",
       "category": "generals",
       "name": "LR英布（えいふ）",
       "displayName": "LR英布（えいふ）",
@@ -2466,7 +2512,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/479484"
     },
     {
-      "id": "generals:88:LR皇甫嵩（こうほすう）",
+      "id": "generals:90:LR皇甫嵩（こうほすう）",
       "category": "generals",
       "name": "LR皇甫嵩（こうほすう）",
       "displayName": "LR皇甫嵩（こうほすう）",
@@ -2492,7 +2538,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/479483"
     },
     {
-      "id": "generals:89:UR孫魯班（そんろはん）",
+      "id": "generals:91:UR孫魯班（そんろはん）",
       "category": "generals",
       "name": "UR孫魯班（そんろはん）",
       "displayName": "UR孫魯班（そんろはん）",
@@ -2516,7 +2562,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/477608"
     },
     {
-      "id": "generals:90:UR朱然（しゅぜん）",
+      "id": "generals:92:UR朱然（しゅぜん）",
       "category": "generals",
       "name": "UR朱然（しゅぜん）",
       "displayName": "UR朱然（しゅぜん）",
@@ -2539,7 +2585,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/472708"
     },
     {
-      "id": "generals:91:LR馬超（ばちょう）",
+      "id": "generals:93:LR馬超（ばちょう）",
       "category": "generals",
       "name": "LR馬超（ばちょう）",
       "displayName": "LR馬超（ばちょう）",
@@ -2568,7 +2614,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/472707"
     },
     {
-      "id": "generals:92:LR孫権（そんけん）",
+      "id": "generals:94:LR孫権（そんけん）",
       "category": "generals",
       "name": "LR孫権（そんけん）",
       "displayName": "LR孫権（そんけん）",
@@ -2597,7 +2643,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/472706"
     },
     {
-      "id": "generals:93:UR郝昭（かくしょう）",
+      "id": "generals:95:UR郝昭（かくしょう）",
       "category": "generals",
       "name": "UR郝昭（かくしょう）",
       "displayName": "UR郝昭（かくしょう）",
@@ -2619,7 +2665,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/469237"
     },
     {
-      "id": "generals:94:LR范増（はんぞう）",
+      "id": "generals:96:LR范増（はんぞう）",
       "category": "generals",
       "name": "LR范増（はんぞう）",
       "displayName": "LR范増（はんぞう）",
@@ -2646,7 +2692,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/469236"
     },
     {
-      "id": "generals:95:LR徐晃（じょこう）",
+      "id": "generals:97:LR徐晃（じょこう）",
       "category": "generals",
       "name": "LR徐晃（じょこう）",
       "displayName": "LR徐晃（じょこう）",
@@ -2674,7 +2720,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/469235"
     },
     {
-      "id": "generals:96:UR馬謖（ばしょく）",
+      "id": "generals:98:UR馬謖（ばしょく）",
       "category": "generals",
       "name": "UR馬謖（ばしょく）",
       "displayName": "UR馬謖（ばしょく）",
@@ -2700,7 +2746,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/465945"
     },
     {
-      "id": "generals:97:UR曹真（そうしん）",
+      "id": "generals:99:UR曹真（そうしん）",
       "category": "generals",
       "name": "UR曹真（そうしん）",
       "displayName": "UR曹真（そうしん）",
@@ -2722,7 +2768,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/463689"
     },
     {
-      "id": "generals:98:UR張春華（ちょうしゅんか）",
+      "id": "generals:100:UR張春華（ちょうしゅんか）",
       "category": "generals",
       "name": "UR張春華（ちょうしゅんか）",
       "displayName": "UR張春華（ちょうしゅんか）",
@@ -2745,7 +2791,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/463688"
     },
     {
-      "id": "generals:99:LR徐庶（じょしょ）",
+      "id": "generals:101:LR徐庶（じょしょ）",
       "category": "generals",
       "name": "LR徐庶（じょしょ）",
       "displayName": "LR徐庶（じょしょ）",
@@ -2774,7 +2820,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/463687"
     },
     {
-      "id": "generals:100:LR周泰（しゅうたい）",
+      "id": "generals:102:LR周泰（しゅうたい）",
       "category": "generals",
       "name": "LR周泰（しゅうたい）",
       "displayName": "LR周泰（しゅうたい）",
@@ -2803,7 +2849,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/463686"
     },
     {
-      "id": "generals:101:LR司馬懿（しばい）",
+      "id": "generals:103:LR司馬懿（しばい）",
       "category": "generals",
       "name": "LR司馬懿（しばい）",
       "displayName": "LR司馬懿（しばい）",
@@ -2830,7 +2876,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/462238"
     },
     {
-      "id": "generals:102:LR諸葛亮（しょかつりょう）",
+      "id": "generals:104:LR諸葛亮（しょかつりょう）",
       "category": "generals",
       "name": "LR諸葛亮（しょかつりょう）",
       "displayName": "LR諸葛亮（しょかつりょう）",
@@ -2859,7 +2905,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/462237"
     },
     {
-      "id": "generals:103:UR諸葛瑾（しょかつきん）",
+      "id": "generals:105:UR諸葛瑾（しょかつきん）",
       "category": "generals",
       "name": "UR諸葛瑾（しょかつきん）",
       "displayName": "UR諸葛瑾（しょかつきん）",
@@ -2882,7 +2928,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/460279"
     },
     {
-      "id": "generals:104:LR王翦（おうせん）",
+      "id": "generals:106:LR王翦（おうせん）",
       "category": "generals",
       "name": "LR王翦（おうせん）",
       "displayName": "LR王翦（おうせん）",
@@ -2910,7 +2956,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/460278"
     },
     {
-      "id": "generals:105:LR高順（こうじゅん）",
+      "id": "generals:107:LR高順（こうじゅん）",
       "category": "generals",
       "name": "LR高順（こうじゅん）",
       "displayName": "LR高順（こうじゅん）",
@@ -2939,7 +2985,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/460277"
     },
     {
-      "id": "generals:106:UR虞翻（ぐほん）",
+      "id": "generals:108:UR虞翻（ぐほん）",
       "category": "generals",
       "name": "UR虞翻（ぐほん）",
       "displayName": "UR虞翻（ぐほん）",
@@ -2964,7 +3010,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/458739"
     },
     {
-      "id": "generals:107:UR満寵（まんちょう）",
+      "id": "generals:109:UR満寵（まんちょう）",
       "category": "generals",
       "name": "UR満寵（まんちょう）",
       "displayName": "UR満寵（まんちょう）",
@@ -2987,7 +3033,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/457310"
     },
     {
-      "id": "generals:108:LR張遼（ちょうりょう）",
+      "id": "generals:110:LR張遼（ちょうりょう）",
       "category": "generals",
       "name": "LR張遼（ちょうりょう）",
       "displayName": "LR張遼（ちょうりょう）",
@@ -3013,7 +3059,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/457311"
     },
     {
-      "id": "generals:109:LR孫尚香（そんしょうこう）",
+      "id": "generals:111:LR孫尚香（そんしょうこう）",
       "category": "generals",
       "name": "LR孫尚香（そんしょうこう）",
       "displayName": "LR孫尚香（そんしょうこう）",
@@ -3042,7 +3088,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/457312"
     },
     {
-      "id": "generals:110:UR廖化（りょうか）",
+      "id": "generals:112:UR廖化（りょうか）",
       "category": "generals",
       "name": "UR廖化（りょうか）",
       "displayName": "UR廖化（りょうか）",
@@ -3065,7 +3111,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/453618"
     },
     {
-      "id": "generals:111:UR程普（ていふ）",
+      "id": "generals:113:UR程普（ていふ）",
       "category": "generals",
       "name": "UR程普（ていふ）",
       "displayName": "UR程普（ていふ）",
@@ -3089,7 +3135,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/453619"
     },
     {
-      "id": "generals:112:LR藺相如（りんしょうじょ）",
+      "id": "generals:114:LR藺相如（りんしょうじょ）",
       "category": "generals",
       "name": "LR藺相如（りんしょうじょ）",
       "displayName": "LR藺相如（りんしょうじょ）",
@@ -3115,7 +3161,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/453620"
     },
     {
-      "id": "generals:113:LR大喬（だいきょう）",
+      "id": "generals:115:LR大喬（だいきょう）",
       "category": "generals",
       "name": "LR大喬（だいきょう）",
       "displayName": "LR大喬（だいきょう）",
@@ -3143,7 +3189,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/453621"
     },
     {
-      "id": "generals:114:UR李典（りてん）",
+      "id": "generals:116:UR李典（りてん）",
       "category": "generals",
       "name": "UR李典（りてん）",
       "displayName": "UR李典（りてん）",
@@ -3167,7 +3213,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/452102"
     },
     {
-      "id": "generals:115:LR孫策（そんさく）",
+      "id": "generals:117:LR孫策（そんさく）",
       "category": "generals",
       "name": "LR孫策（そんさく）",
       "displayName": "LR孫策（そんさく）",
@@ -3194,7 +3240,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/452044"
     },
     {
-      "id": "generals:116:UR王異（おうい）",
+      "id": "generals:118:UR王異（おうい）",
       "category": "generals",
       "name": "UR王異（おうい）",
       "displayName": "UR王異（おうい）",
@@ -3217,7 +3263,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/450343"
     },
     {
-      "id": "generals:117:LR呂蒙・歩兵（りょもう）",
+      "id": "generals:119:LR呂蒙・歩兵（りょもう）",
       "category": "generals",
       "name": "LR呂蒙・歩兵（りょもう）",
       "displayName": "LR呂蒙・歩兵（りょもう）",
@@ -3246,7 +3292,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/450342"
     },
     {
-      "id": "generals:118:LR張郃（ちょうこう）",
+      "id": "generals:120:LR張郃（ちょうこう）",
       "category": "generals",
       "name": "LR張郃（ちょうこう）",
       "displayName": "LR張郃（ちょうこう）",
@@ -3274,7 +3320,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/450341"
     },
     {
-      "id": "generals:119:UR関索（かんさく）",
+      "id": "generals:121:UR関索（かんさく）",
       "category": "generals",
       "name": "UR関索（かんさく）",
       "displayName": "UR関索（かんさく）",
@@ -3297,7 +3343,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/446469"
     },
     {
-      "id": "generals:120:LR廉頗（れんぱ）",
+      "id": "generals:122:LR廉頗（れんぱ）",
       "category": "generals",
       "name": "LR廉頗（れんぱ）",
       "displayName": "LR廉頗（れんぱ）",
@@ -3324,7 +3370,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/446470"
     },
     {
-      "id": "generals:121:LR龐徳（ほうとく）",
+      "id": "generals:123:LR龐徳（ほうとく）",
       "category": "generals",
       "name": "LR龐徳（ほうとく）",
       "displayName": "LR龐徳（ほうとく）",
@@ -3353,7 +3399,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/446471"
     },
     {
-      "id": "generals:122:UR張嶷（ちょうぎょく）",
+      "id": "generals:124:UR張嶷（ちょうぎょく）",
       "category": "generals",
       "name": "UR張嶷（ちょうぎょく）",
       "displayName": "UR張嶷（ちょうぎょく）",
@@ -3379,7 +3425,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/443457"
     },
     {
-      "id": "generals:123:URフレデリカ（）",
+      "id": "generals:125:URフレデリカ（）",
       "category": "generals",
       "name": "URフレデリカ（）",
       "displayName": "URフレデリカ（）",
@@ -3404,7 +3450,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/440924"
     },
     {
-      "id": "generals:124:URキルヒアイス（）",
+      "id": "generals:126:URキルヒアイス（）",
       "category": "generals",
       "name": "URキルヒアイス（）",
       "displayName": "URキルヒアイス（）",
@@ -3430,7 +3476,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/440925"
     },
     {
-      "id": "generals:125:LRヤン（）",
+      "id": "generals:127:LRヤン（）",
       "category": "generals",
       "name": "LRヤン（）",
       "displayName": "LRヤン（）",
@@ -3457,7 +3503,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/440926"
     },
     {
-      "id": "generals:126:LRラインハルト（）",
+      "id": "generals:128:LRラインハルト（）",
       "category": "generals",
       "name": "LRラインハルト（）",
       "displayName": "LRラインハルト（）",
@@ -3484,7 +3530,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/440927"
     },
     {
-      "id": "generals:127:UR張昭（ちょうしょう）",
+      "id": "generals:129:UR張昭（ちょうしょう）",
       "category": "generals",
       "name": "UR張昭（ちょうしょう）",
       "displayName": "UR張昭（ちょうしょう）",
@@ -3507,7 +3553,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/440901"
     },
     {
-      "id": "generals:128:UR張紘（ちょうこう）",
+      "id": "generals:130:UR張紘（ちょうこう）",
       "category": "generals",
       "name": "UR張紘（ちょうこう）",
       "displayName": "UR張紘（ちょうこう）",
@@ -3530,7 +3576,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/440900"
     },
     {
-      "id": "generals:129:LR夏侯惇（かこうとん）",
+      "id": "generals:131:LR夏侯惇（かこうとん）",
       "category": "generals",
       "name": "LR夏侯惇（かこうとん）",
       "displayName": "LR夏侯惇（かこうとん）",
@@ -3559,7 +3605,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/440899"
     },
     {
-      "id": "generals:130:LR陸遜（りくそん）",
+      "id": "generals:132:LR陸遜（りくそん）",
       "category": "generals",
       "name": "LR陸遜（りくそん）",
       "displayName": "LR陸遜（りくそん）",
@@ -3586,7 +3632,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/440898"
     },
     {
-      "id": "generals:131:UR曹洪（そうこう）",
+      "id": "generals:133:UR曹洪（そうこう）",
       "category": "generals",
       "name": "UR曹洪（そうこう）",
       "displayName": "UR曹洪（そうこう）",
@@ -3609,7 +3655,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/437011"
     },
     {
-      "id": "generals:132:LR韓信（かんしん）",
+      "id": "generals:134:LR韓信（かんしん）",
       "category": "generals",
       "name": "LR韓信（かんしん）",
       "displayName": "LR韓信（かんしん）",
@@ -3636,7 +3682,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/437012"
     },
     {
-      "id": "generals:133:LR賈詡（かく）",
+      "id": "generals:135:LR賈詡（かく）",
       "category": "generals",
       "name": "LR賈詡（かく）",
       "displayName": "LR賈詡（かく）",
@@ -3665,7 +3711,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/437013"
     },
     {
-      "id": "generals:134:UR丁奉（ていほう）",
+      "id": "generals:136:UR丁奉（ていほう）",
       "category": "generals",
       "name": "UR丁奉（ていほう）",
       "displayName": "UR丁奉（ていほう）",
@@ -3689,7 +3735,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/435255"
     },
     {
-      "id": "generals:135:UR関興（かんこう）",
+      "id": "generals:137:UR関興（かんこう）",
       "category": "generals",
       "name": "UR関興（かんこう）",
       "displayName": "UR関興（かんこう）",
@@ -3712,7 +3758,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/433277"
     },
     {
-      "id": "generals:136:LR甘寧（かんねい）",
+      "id": "generals:138:LR甘寧（かんねい）",
       "category": "generals",
       "name": "LR甘寧（かんねい）",
       "displayName": "LR甘寧（かんねい）",
@@ -3741,7 +3787,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/433276"
     },
     {
-      "id": "generals:137:LR法正（ほうせい）",
+      "id": "generals:139:LR法正（ほうせい）",
       "category": "generals",
       "name": "LR法正（ほうせい）",
       "displayName": "LR法正（ほうせい）",
@@ -3768,7 +3814,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/433275"
     },
     {
-      "id": "generals:138:LR趙雲（ちょううん）",
+      "id": "generals:140:LR趙雲（ちょううん）",
       "category": "generals",
       "name": "LR趙雲（ちょううん）",
       "displayName": "LR趙雲（ちょううん）",
@@ -3797,7 +3843,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/431989"
     },
     {
-      "id": "generals:139:UR程昱（ていいく）",
+      "id": "generals:141:UR程昱（ていいく）",
       "category": "generals",
       "name": "UR程昱（ていいく）",
       "displayName": "UR程昱（ていいく）",
@@ -3820,7 +3866,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/430024"
     },
     {
-      "id": "generals:140:UR蔡琰（さいえん）",
+      "id": "generals:142:UR蔡琰（さいえん）",
       "category": "generals",
       "name": "UR蔡琰（さいえん）",
       "displayName": "UR蔡琰（さいえん）",
@@ -3843,7 +3889,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/430023"
     },
     {
-      "id": "generals:141:LR呂不韋（りょふい）",
+      "id": "generals:143:LR呂不韋（りょふい）",
       "category": "generals",
       "name": "LR呂不韋（りょふい）",
       "displayName": "LR呂不韋（りょふい）",
@@ -3869,7 +3915,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/430022"
     },
     {
-      "id": "generals:142:LR黄忠（こうちゅう）",
+      "id": "generals:144:LR黄忠（こうちゅう）",
       "category": "generals",
       "name": "LR黄忠（こうちゅう）",
       "displayName": "LR黄忠（こうちゅう）",
@@ -3898,7 +3944,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/430021"
     },
     {
-      "id": "generals:143:UR曹叡（そうえい）",
+      "id": "generals:145:UR曹叡（そうえい）",
       "category": "generals",
       "name": "UR曹叡（そうえい）",
       "displayName": "UR曹叡（そうえい）",
@@ -3923,7 +3969,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/427347"
     },
     {
-      "id": "generals:144:UR凌統（りょうとう）",
+      "id": "generals:146:UR凌統（りょうとう）",
       "category": "generals",
       "name": "UR凌統（りょうとう）",
       "displayName": "UR凌統（りょうとう）",
@@ -3947,7 +3993,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/425703"
     },
     {
-      "id": "generals:145:LR孫堅・騎兵（そんけん）",
+      "id": "generals:147:LR孫堅・騎兵（そんけん）",
       "category": "generals",
       "name": "LR孫堅・騎兵（そんけん）",
       "displayName": "LR孫堅・騎兵（そんけん）",
@@ -3976,7 +4022,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/425702"
     },
     {
-      "id": "generals:146:LR許褚（きょちょ）",
+      "id": "generals:148:LR許褚（きょちょ）",
       "category": "generals",
       "name": "LR許褚（きょちょ）",
       "displayName": "LR許褚（きょちょ）",
@@ -4002,7 +4048,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/425701"
     },
     {
-      "id": "generals:147:UR周倉（しゅうそう）",
+      "id": "generals:149:UR周倉（しゅうそう）",
       "category": "generals",
       "name": "UR周倉（しゅうそう）",
       "displayName": "UR周倉（しゅうそう）",
@@ -4026,7 +4072,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/422730"
     },
     {
-      "id": "generals:148:LR孫臏（そんぴん）",
+      "id": "generals:150:LR孫臏（そんぴん）",
       "category": "generals",
       "name": "LR孫臏（そんぴん）",
       "displayName": "LR孫臏（そんぴん）",
@@ -4052,7 +4098,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/422729"
     },
     {
-      "id": "generals:149:LR龐統（ほうとう）",
+      "id": "generals:151:LR龐統（ほうとう）",
       "category": "generals",
       "name": "LR龐統（ほうとう）",
       "displayName": "LR龐統（ほうとう）",
@@ -4080,7 +4126,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/422728"
     },
     {
-      "id": "generals:150:夏侯氏（かこうし）",
+      "id": "generals:152:夏侯氏（かこうし）",
       "category": "generals",
       "name": "夏侯氏（かこうし）",
       "displayName": "夏侯氏（かこうし）",
@@ -4104,7 +4150,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/419997"
     },
     {
-      "id": "generals:151:UR王平（おうへい）",
+      "id": "generals:153:UR王平（おうへい）",
       "category": "generals",
       "name": "UR王平（おうへい）",
       "displayName": "UR王平（おうへい）",
@@ -4128,7 +4174,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/417590"
     },
     {
-      "id": "generals:152:UR陳宮（ちんきゅう）",
+      "id": "generals:154:UR陳宮（ちんきゅう）",
       "category": "generals",
       "name": "UR陳宮（ちんきゅう）",
       "displayName": "UR陳宮（ちんきゅう）",
@@ -4151,7 +4197,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/417592"
     },
     {
-      "id": "generals:153:LR貂蝉（ちょうせん）",
+      "id": "generals:155:LR貂蝉（ちょうせん）",
       "category": "generals",
       "name": "LR貂蝉（ちょうせん）",
       "displayName": "LR貂蝉（ちょうせん）",
@@ -4179,7 +4225,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/417589"
     },
     {
-      "id": "generals:154:LR太史慈（たいしじ）",
+      "id": "generals:156:LR太史慈（たいしじ）",
       "category": "generals",
       "name": "LR太史慈（たいしじ）",
       "displayName": "LR太史慈（たいしじ）",
@@ -4205,7 +4251,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/417588"
     },
     {
-      "id": "generals:155:LR呂布（りょふ）",
+      "id": "generals:157:LR呂布（りょふ）",
       "category": "generals",
       "name": "LR呂布（りょふ）",
       "displayName": "LR呂布（りょふ）",
@@ -4232,7 +4278,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/415628"
     },
     {
-      "id": "generals:156:UR曹仁（そうじん）",
+      "id": "generals:158:UR曹仁（そうじん）",
       "category": "generals",
       "name": "UR曹仁（そうじん）",
       "displayName": "UR曹仁（そうじん）",
@@ -4256,7 +4302,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/413009"
     },
     {
-      "id": "generals:157:LR李信（りしん）",
+      "id": "generals:159:LR李信（りしん）",
       "category": "generals",
       "name": "LR李信（りしん）",
       "displayName": "LR李信（りしん）",
@@ -4282,7 +4328,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/413010"
     },
     {
-      "id": "generals:158:LR夏侯淵・弓兵（かこうえん）",
+      "id": "generals:160:LR夏侯淵・弓兵（かこうえん）",
       "category": "generals",
       "name": "LR夏侯淵・弓兵（かこうえん）",
       "displayName": "LR夏侯淵・弓兵（かこうえん）",
@@ -4310,7 +4356,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/413011"
     },
     {
-      "id": "generals:159:張氏（ちょうし）",
+      "id": "generals:161:張氏（ちょうし）",
       "category": "generals",
       "name": "張氏（ちょうし）",
       "displayName": "張氏（ちょうし）",
@@ -4333,7 +4379,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/410407"
     },
     {
-      "id": "generals:160:UR黄蓋（こうがい）",
+      "id": "generals:162:UR黄蓋（こうがい）",
       "category": "generals",
       "name": "UR黄蓋（こうがい）",
       "displayName": "UR黄蓋（こうがい）",
@@ -4356,7 +4402,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/409647"
     },
     {
-      "id": "generals:161:LR郭嘉（かくか）",
+      "id": "generals:163:LR郭嘉（かくか）",
       "category": "generals",
       "name": "LR郭嘉（かくか）",
       "displayName": "LR郭嘉（かくか）",
@@ -4382,7 +4428,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/409645"
     },
     {
-      "id": "generals:162:LR周瑜（しゅうゆ）",
+      "id": "generals:164:LR周瑜（しゅうゆ）",
       "category": "generals",
       "name": "LR周瑜（しゅうゆ）",
       "displayName": "LR周瑜（しゅうゆ）",
@@ -4408,7 +4454,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/409644"
     },
     {
-      "id": "generals:163:覚醒盧植（ろしょく）",
+      "id": "generals:165:覚醒盧植（ろしょく）",
       "category": "generals",
       "name": "覚醒盧植（ろしょく）",
       "displayName": "覚醒盧植（ろしょく）",
@@ -4432,7 +4478,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/404348"
     },
     {
-      "id": "generals:164:覚醒張任（ちょうじん）",
+      "id": "generals:166:覚醒張任（ちょうじん）",
       "category": "generals",
       "name": "覚醒張任（ちょうじん）",
       "displayName": "覚醒張任（ちょうじん）",
@@ -4459,7 +4505,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/404349"
     },
     {
-      "id": "generals:165:LR呂尚（りょしょう）",
+      "id": "generals:167:LR呂尚（りょしょう）",
       "category": "generals",
       "name": "LR呂尚（りょしょう）",
       "displayName": "LR呂尚（りょしょう）",
@@ -4486,7 +4532,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/404350"
     },
     {
-      "id": "generals:166:LR張飛（ちょうひ）",
+      "id": "generals:168:LR張飛（ちょうひ）",
       "category": "generals",
       "name": "LR張飛（ちょうひ）",
       "displayName": "LR張飛（ちょうひ）",
@@ -4512,7 +4558,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/404351"
     },
     {
-      "id": "generals:167:UR文鴦（ぶんおう）",
+      "id": "generals:169:UR文鴦（ぶんおう）",
       "category": "generals",
       "name": "UR文鴦（ぶんおう）",
       "displayName": "UR文鴦（ぶんおう）",
@@ -4535,7 +4581,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/404352"
     },
     {
-      "id": "generals:168:UR張苞（ちょうほう）",
+      "id": "generals:170:UR張苞（ちょうほう）",
       "category": "generals",
       "name": "UR張苞（ちょうほう）",
       "displayName": "UR張苞（ちょうほう）",
@@ -4558,7 +4604,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/404353"
     },
     {
-      "id": "generals:169:UR祝融（しゅくゆう）",
+      "id": "generals:171:UR祝融（しゅくゆう）",
       "category": "generals",
       "name": "UR祝融（しゅくゆう）",
       "displayName": "UR祝融（しゅくゆう）",
@@ -4580,7 +4626,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/401084"
     },
     {
-      "id": "generals:170:UR孟獲（もうかく）",
+      "id": "generals:172:UR孟獲（もうかく）",
       "category": "generals",
       "name": "UR孟獲（もうかく）",
       "displayName": "UR孟獲（もうかく）",
@@ -4602,7 +4648,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/401085"
     },
     {
-      "id": "generals:171:劉曄（りゅうよう）",
+      "id": "generals:173:劉曄（りゅうよう）",
       "category": "generals",
       "name": "劉曄（りゅうよう）",
       "displayName": "劉曄（りゅうよう）",
@@ -4627,7 +4673,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/401013"
     },
     {
-      "id": "generals:172:UR楽進（がくしん）",
+      "id": "generals:174:UR楽進（がくしん）",
       "category": "generals",
       "name": "UR楽進（がくしん）",
       "displayName": "UR楽進（がくしん）",
@@ -4650,7 +4696,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/399527"
     },
     {
-      "id": "generals:173:UR馬雲騄（ばうんりょく）",
+      "id": "generals:175:UR馬雲騄（ばうんりょく）",
       "category": "generals",
       "name": "UR馬雲騄（ばうんりょく）",
       "displayName": "UR馬雲騄（ばうんりょく）",
@@ -4674,7 +4720,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/399528"
     },
     {
-      "id": "generals:174:UR于禁（うきん）",
+      "id": "generals:176:UR于禁（うきん）",
       "category": "generals",
       "name": "UR于禁（うきん）",
       "displayName": "UR于禁（うきん）",
@@ -4696,7 +4742,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/395921"
     },
     {
-      "id": "generals:175:UR諸葛恪（しょかつかく）",
+      "id": "generals:177:UR諸葛恪（しょかつかく）",
       "category": "generals",
       "name": "UR諸葛恪（しょかつかく）",
       "displayName": "UR諸葛恪（しょかつかく）",
@@ -4717,7 +4763,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/395922"
     },
     {
-      "id": "generals:176:曹節（そうせつ）",
+      "id": "generals:178:曹節（そうせつ）",
       "category": "generals",
       "name": "曹節（そうせつ）",
       "displayName": "曹節（そうせつ）",
@@ -4742,7 +4788,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/393312"
     },
     {
-      "id": "generals:177:覚醒馬岱（ばたい）",
+      "id": "generals:179:覚醒馬岱（ばたい）",
       "category": "generals",
       "name": "覚醒馬岱（ばたい）",
       "displayName": "覚醒馬岱（ばたい）",
@@ -4769,7 +4815,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/392396"
     },
     {
-      "id": "generals:178:覚醒文聘（ぶんぺい）",
+      "id": "generals:180:覚醒文聘（ぶんぺい）",
       "category": "generals",
       "name": "覚醒文聘（ぶんぺい）",
       "displayName": "覚醒文聘（ぶんぺい）",
@@ -4793,7 +4839,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/392395"
     },
     {
-      "id": "generals:179:覚醒沮授（そじゅ）",
+      "id": "generals:181:覚醒沮授（そじゅ）",
       "category": "generals",
       "name": "覚醒沮授（そじゅ）",
       "displayName": "覚醒沮授（そじゅ）",
@@ -4815,7 +4861,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/392394"
     },
     {
-      "id": "generals:180:UR魯粛（ろしゅく）",
+      "id": "generals:182:UR魯粛（ろしゅく）",
       "category": "generals",
       "name": "UR魯粛（ろしゅく）",
       "displayName": "UR魯粛（ろしゅく）",
@@ -4839,7 +4885,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/392393"
     },
     {
-      "id": "generals:181:UR曹丕（そうひ）",
+      "id": "generals:183:UR曹丕（そうひ）",
       "category": "generals",
       "name": "UR曹丕（そうひ）",
       "displayName": "UR曹丕（そうひ）",
@@ -4862,7 +4908,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/392392"
     },
     {
-      "id": "generals:182:UR黄月英（こうげつえい）",
+      "id": "generals:184:UR黄月英（こうげつえい）",
       "category": "generals",
       "name": "UR黄月英（こうげつえい）",
       "displayName": "UR黄月英（こうげつえい）",
@@ -4885,7 +4931,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/392391"
     },
     {
-      "id": "generals:183:UR鄧艾（とうがい）",
+      "id": "generals:185:UR鄧艾（とうがい）",
       "category": "generals",
       "name": "UR鄧艾（とうがい）",
       "displayName": "UR鄧艾（とうがい）",
@@ -4909,7 +4955,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/387832"
     },
     {
-      "id": "generals:184:UR鍾会（しょうかい）",
+      "id": "generals:186:UR鍾会（しょうかい）",
       "category": "generals",
       "name": "UR鍾会（しょうかい）",
       "displayName": "UR鍾会（しょうかい）",
@@ -4932,7 +4978,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/387833"
     },
     {
-      "id": "generals:185:麹義（きくぎ）",
+      "id": "generals:187:麹義（きくぎ）",
       "category": "generals",
       "name": "麹義（きくぎ）",
       "displayName": "麹義（きくぎ）",
@@ -4956,7 +5002,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/385120"
     },
     {
-      "id": "generals:186:UR文醜（ぶんしゅう）",
+      "id": "generals:188:UR文醜（ぶんしゅう）",
       "category": "generals",
       "name": "UR文醜（ぶんしゅう）",
       "displayName": "UR文醜（ぶんしゅう）",
@@ -4979,7 +5025,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/384940"
     },
     {
-      "id": "generals:187:UR顔良（がんりょう）",
+      "id": "generals:189:UR顔良（がんりょう）",
       "category": "generals",
       "name": "UR顔良（がんりょう）",
       "displayName": "UR顔良（がんりょう）",
@@ -5002,7 +5048,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/384941"
     },
     {
-      "id": "generals:188:UR袁紹（えんしょう）",
+      "id": "generals:190:UR袁紹（えんしょう）",
       "category": "generals",
       "name": "UR袁紹（えんしょう）",
       "displayName": "UR袁紹（えんしょう）",
@@ -5026,7 +5072,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/381752"
     },
     {
-      "id": "generals:189:覚醒馬良（ばりょう）",
+      "id": "generals:191:覚醒馬良（ばりょう）",
       "category": "generals",
       "name": "覚醒馬良（ばりょう）",
       "displayName": "覚醒馬良（ばりょう）",
@@ -5052,7 +5098,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/379985"
     },
     {
-      "id": "generals:190:覚醒高順（こうじゅん）",
+      "id": "generals:192:覚醒高順（こうじゅん）",
       "category": "generals",
       "name": "覚醒高順（こうじゅん）",
       "displayName": "覚醒高順（こうじゅん）",
@@ -5074,7 +5120,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/379984"
     },
     {
-      "id": "generals:191:UR魏延（ぎえん）",
+      "id": "generals:193:UR魏延（ぎえん）",
       "category": "generals",
       "name": "UR魏延（ぎえん）",
       "displayName": "UR魏延（ぎえん）",
@@ -5097,7 +5143,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/379983"
     },
     {
-      "id": "generals:192:UR甄氏（しんし）",
+      "id": "generals:194:UR甄氏（しんし）",
       "category": "generals",
       "name": "UR甄氏（しんし）",
       "displayName": "UR甄氏（しんし）",
@@ -5120,7 +5166,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/379982"
     },
     {
-      "id": "generals:193:UR王元姫（おうげんき）",
+      "id": "generals:195:UR王元姫（おうげんき）",
       "category": "generals",
       "name": "UR王元姫（おうげんき）",
       "displayName": "UR王元姫（おうげんき）",
@@ -5144,7 +5190,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/377271"
     },
     {
-      "id": "generals:194:UR陸抗（りくこう）",
+      "id": "generals:196:UR陸抗（りくこう）",
       "category": "generals",
       "name": "UR陸抗（りくこう）",
       "displayName": "UR陸抗（りくこう）",
@@ -5168,7 +5214,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/374341"
     },
     {
-      "id": "generals:195:UR華雄（かゆう）",
+      "id": "generals:197:UR華雄（かゆう）",
       "category": "generals",
       "name": "UR華雄（かゆう）",
       "displayName": "UR華雄（かゆう）",
@@ -5192,7 +5238,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/374342"
     },
     {
-      "id": "generals:196:UR公孫瓚（こうそんさん）",
+      "id": "generals:198:UR公孫瓚（こうそんさん）",
       "category": "generals",
       "name": "UR公孫瓚（こうそんさん）",
       "displayName": "UR公孫瓚（こうそんさん）",
@@ -5216,7 +5262,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/367390"
     },
     {
-      "id": "generals:197:UR馬騰（ばとう）",
+      "id": "generals:199:UR馬騰（ばとう）",
       "category": "generals",
       "name": "UR馬騰（ばとう）",
       "displayName": "UR馬騰（ばとう）",
@@ -5239,7 +5285,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/367391"
     },
     {
-      "id": "generals:198:覚醒韓遂（かんすい）",
+      "id": "generals:200:覚醒韓遂（かんすい）",
       "category": "generals",
       "name": "覚醒韓遂（かんすい）",
       "displayName": "覚醒韓遂（かんすい）",
@@ -5266,7 +5312,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/363361"
     },
     {
-      "id": "generals:199:覚醒曹植（そうしょく）",
+      "id": "generals:201:覚醒曹植（そうしょく）",
       "category": "generals",
       "name": "覚醒曹植（そうしょく）",
       "displayName": "覚醒曹植（そうしょく）",
@@ -5293,7 +5339,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/363360"
     },
     {
-      "id": "generals:200:覚醒朱桓（しゅかん）",
+      "id": "generals:202:覚醒朱桓（しゅかん）",
       "category": "generals",
       "name": "覚醒朱桓（しゅかん）",
       "displayName": "覚醒朱桓（しゅかん）",
@@ -5318,7 +5364,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/363359"
     },
     {
-      "id": "generals:201:UR徐庶（じょしょ）",
+      "id": "generals:203:UR徐庶（じょしょ）",
       "category": "generals",
       "name": "UR徐庶（じょしょ）",
       "displayName": "UR徐庶（じょしょ）",
@@ -5342,7 +5388,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/363358"
     },
     {
-      "id": "generals:202:UR典韋（てんい）",
+      "id": "generals:204:UR典韋（てんい）",
       "category": "generals",
       "name": "UR典韋（てんい）",
       "displayName": "UR典韋（てんい）",
@@ -5365,7 +5411,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/363356"
     },
     {
-      "id": "generals:203:UR曹操（そうそう）",
+      "id": "generals:205:UR曹操（そうそう）",
       "category": "generals",
       "name": "UR曹操（そうそう）",
       "displayName": "UR曹操（そうそう）",
@@ -5389,7 +5435,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/361669"
     },
     {
-      "id": "generals:204:管輅（かんろ）",
+      "id": "generals:206:管輅（かんろ）",
       "category": "generals",
       "name": "管輅（かんろ）",
       "displayName": "管輅（かんろ）",
@@ -5414,7 +5460,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/359860"
     },
     {
-      "id": "generals:205:覚醒満寵（まんちょう）",
+      "id": "generals:207:覚醒満寵（まんちょう）",
       "category": "generals",
       "name": "覚醒満寵（まんちょう）",
       "displayName": "覚醒満寵（まんちょう）",
@@ -5440,7 +5486,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/359482"
     },
     {
-      "id": "generals:206:UR徐晃（じょこう）",
+      "id": "generals:208:UR徐晃（じょこう）",
       "category": "generals",
       "name": "UR徐晃（じょこう）",
       "displayName": "UR徐晃（じょこう）",
@@ -5463,7 +5509,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/359483"
     },
     {
-      "id": "generals:207:UR関銀屏（かんぎんぺい）",
+      "id": "generals:209:UR関銀屏（かんぎんぺい）",
       "category": "generals",
       "name": "UR関銀屏（かんぎんぺい）",
       "displayName": "UR関銀屏（かんぎんぺい）",
@@ -5487,7 +5533,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/359484"
     },
     {
-      "id": "generals:208:張松（ちょうしょう）",
+      "id": "generals:210:張松（ちょうしょう）",
       "category": "generals",
       "name": "張松（ちょうしょう）",
       "displayName": "張松（ちょうしょう）",
@@ -5514,7 +5560,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/352672"
     },
     {
-      "id": "generals:209:覚醒呉懿（ごい）",
+      "id": "generals:211:覚醒呉懿（ごい）",
       "category": "generals",
       "name": "覚醒呉懿（ごい）",
       "displayName": "覚醒呉懿（ごい）",
@@ -5540,7 +5586,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/351944"
     },
     {
-      "id": "generals:210:UR荀彧（じゅんいく）",
+      "id": "generals:212:UR荀彧（じゅんいく）",
       "category": "generals",
       "name": "UR荀彧（じゅんいく）",
       "displayName": "UR荀彧（じゅんいく）",
@@ -5563,7 +5609,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/351946"
     },
     {
-      "id": "generals:211:UR荀攸（じゅんゆう）",
+      "id": "generals:213:UR荀攸（じゅんゆう）",
       "category": "generals",
       "name": "UR荀攸（じゅんゆう）",
       "displayName": "UR荀攸（じゅんゆう）",
@@ -5587,7 +5633,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/351945"
     },
     {
-      "id": "generals:212:UR張角（ちょうかく）",
+      "id": "generals:214:UR張角（ちょうかく）",
       "category": "generals",
       "name": "UR張角（ちょうかく）",
       "displayName": "UR張角（ちょうかく）",
@@ -5611,7 +5657,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/347548"
     },
     {
-      "id": "generals:213:卞氏（べんし）",
+      "id": "generals:215:卞氏（べんし）",
       "category": "generals",
       "name": "卞氏（べんし）",
       "displayName": "卞氏（べんし）",
@@ -5637,7 +5683,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/347344"
     },
     {
-      "id": "generals:214:覚醒顧雍（こよう）",
+      "id": "generals:216:覚醒顧雍（こよう）",
       "category": "generals",
       "name": "覚醒顧雍（こよう）",
       "displayName": "覚醒顧雍（こよう）",
@@ -5663,7 +5709,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/347112"
     },
     {
-      "id": "generals:215:UR呂蒙（りょもう）",
+      "id": "generals:217:UR呂蒙（りょもう）",
       "category": "generals",
       "name": "UR呂蒙（りょもう）",
       "displayName": "UR呂蒙（りょもう）",
@@ -5686,7 +5732,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/347114"
     },
     {
-      "id": "generals:216:UR周泰（しゅうたい）",
+      "id": "generals:218:UR周泰（しゅうたい）",
       "category": "generals",
       "name": "UR周泰（しゅうたい）",
       "displayName": "UR周泰（しゅうたい）",
@@ -5709,7 +5755,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/347113"
     },
     {
-      "id": "generals:217:袁術（えんじゅつ）",
+      "id": "generals:219:袁術（えんじゅつ）",
       "category": "generals",
       "name": "袁術（えんじゅつ）",
       "displayName": "袁術（えんじゅつ）",
@@ -5735,7 +5781,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/344554"
     },
     {
-      "id": "generals:218:覚醒諸葛瑾（しょかつきん）",
+      "id": "generals:220:覚醒諸葛瑾（しょかつきん）",
       "category": "generals",
       "name": "覚醒諸葛瑾（しょかつきん）",
       "displayName": "覚醒諸葛瑾（しょかつきん）",
@@ -5761,7 +5807,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/344400"
     },
     {
-      "id": "generals:219:UR皇甫嵩（こうほすう）",
+      "id": "generals:221:UR皇甫嵩（こうほすう）",
       "category": "generals",
       "name": "UR皇甫嵩（こうほすう）",
       "displayName": "UR皇甫嵩（こうほすう）",
@@ -5785,7 +5831,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/344401"
     },
     {
-      "id": "generals:220:UR呂玲綺（りょれいき）",
+      "id": "generals:222:UR呂玲綺（りょれいき）",
       "category": "generals",
       "name": "UR呂玲綺（りょれいき）",
       "displayName": "UR呂玲綺（りょれいき）",
@@ -5807,7 +5853,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/344402"
     },
     {
-      "id": "generals:221:費禕（ひい）",
+      "id": "generals:223:費禕（ひい）",
       "category": "generals",
       "name": "費禕（ひい）",
       "displayName": "費禕（ひい）",
@@ -5833,7 +5879,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/328289"
     },
     {
-      "id": "generals:222:覚醒郝昭（かくしょう）",
+      "id": "generals:224:覚醒郝昭（かくしょう）",
       "category": "generals",
       "name": "覚醒郝昭（かくしょう）",
       "displayName": "覚醒郝昭（かくしょう）",
@@ -5857,7 +5903,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/327770"
     },
     {
-      "id": "generals:223:UR孫権（そんけん）",
+      "id": "generals:225:UR孫権（そんけん）",
       "category": "generals",
       "name": "UR孫権（そんけん）",
       "displayName": "UR孫権（そんけん）",
@@ -5881,7 +5927,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/327771"
     },
     {
-      "id": "generals:224:UR張郃（ちょうこう）",
+      "id": "generals:226:UR張郃（ちょうこう）",
       "category": "generals",
       "name": "UR張郃（ちょうこう）",
       "displayName": "UR張郃（ちょうこう）",
@@ -5904,7 +5950,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/327772"
     },
     {
-      "id": "generals:225:韓当（かんとう）",
+      "id": "generals:227:韓当（かんとう）",
       "category": "generals",
       "name": "韓当（かんとう）",
       "displayName": "韓当（かんとう）",
@@ -5931,7 +5977,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/324780"
     },
     {
-      "id": "generals:226:覚醒徐盛（じょせい）",
+      "id": "generals:228:覚醒徐盛（じょせい）",
       "category": "generals",
       "name": "覚醒徐盛（じょせい）",
       "displayName": "覚醒徐盛（じょせい）",
@@ -5957,7 +6003,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/324328"
     },
     {
-      "id": "generals:227:覚醒郭淮（かくわい）",
+      "id": "generals:229:覚醒郭淮（かくわい）",
       "category": "generals",
       "name": "覚醒郭淮（かくわい）",
       "displayName": "覚醒郭淮（かくわい）",
@@ -5981,7 +6027,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/324329"
     },
     {
-      "id": "generals:228:UR馬超（ばちょう）",
+      "id": "generals:230:UR馬超（ばちょう）",
       "category": "generals",
       "name": "UR馬超（ばちょう）",
       "displayName": "UR馬超（ばちょう）",
@@ -6005,7 +6051,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/324330"
     },
     {
-      "id": "generals:229:UR夏侯惇（かこうとん）",
+      "id": "generals:231:UR夏侯惇（かこうとん）",
       "category": "generals",
       "name": "UR夏侯惇（かこうとん）",
       "displayName": "UR夏侯惇（かこうとん）",
@@ -6028,7 +6074,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/324331"
     },
     {
-      "id": "generals:230:蒋琬（しょうえん）",
+      "id": "generals:232:蒋琬（しょうえん）",
       "category": "generals",
       "name": "蒋琬（しょうえん）",
       "displayName": "蒋琬（しょうえん）",
@@ -6051,7 +6097,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/319803"
     },
     {
-      "id": "generals:231:覚醒厳顔（げんがん）",
+      "id": "generals:233:覚醒厳顔（げんがん）",
       "category": "generals",
       "name": "覚醒厳顔（げんがん）",
       "displayName": "覚醒厳顔（げんがん）",
@@ -6073,7 +6119,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/319193"
     },
     {
-      "id": "generals:232:覚醒夏侯覇（かこうは）",
+      "id": "generals:234:覚醒夏侯覇（かこうは）",
       "category": "generals",
       "name": "覚醒夏侯覇（かこうは）",
       "displayName": "覚醒夏侯覇（かこうは）",
@@ -6098,7 +6144,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/319194"
     },
     {
-      "id": "generals:233:UR龐徳（ほうとく）",
+      "id": "generals:235:UR龐徳（ほうとく）",
       "category": "generals",
       "name": "UR龐徳（ほうとく）",
       "displayName": "UR龐徳（ほうとく）",
@@ -6121,7 +6167,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/319195"
     },
     {
-      "id": "generals:234:UR黄忠（こうちゅう）",
+      "id": "generals:236:UR黄忠（こうちゅう）",
       "category": "generals",
       "name": "UR黄忠（こうちゅう）",
       "displayName": "UR黄忠（こうちゅう）",
@@ -6145,7 +6191,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/319196"
     },
     {
-      "id": "generals:235:鮑三娘（ほうさんじょう）",
+      "id": "generals:237:鮑三娘（ほうさんじょう）",
       "category": "generals",
       "name": "鮑三娘（ほうさんじょう）",
       "displayName": "鮑三娘（ほうさんじょう）",
@@ -6171,7 +6217,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/316249"
     },
     {
-      "id": "generals:236:覚醒李厳（りげん）",
+      "id": "generals:238:覚醒李厳（りげん）",
       "category": "generals",
       "name": "覚醒李厳（りげん）",
       "displayName": "覚醒李厳（りげん）",
@@ -6197,7 +6243,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/316075"
     },
     {
-      "id": "generals:237:覚醒杜預（どよ）",
+      "id": "generals:239:覚醒杜預（どよ）",
       "category": "generals",
       "name": "覚醒杜預（どよ）",
       "displayName": "覚醒杜預（どよ）",
@@ -6219,7 +6265,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/316076"
     },
     {
-      "id": "generals:238:UR龐統（ほうとう）",
+      "id": "generals:240:UR龐統（ほうとう）",
       "category": "generals",
       "name": "UR龐統（ほうとう）",
       "displayName": "UR龐統（ほうとう）",
@@ -6243,7 +6289,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/316077"
     },
     {
-      "id": "generals:239:UR夏侯淵（かこうえん）",
+      "id": "generals:241:UR夏侯淵（かこうえん）",
       "category": "generals",
       "name": "UR夏侯淵（かこうえん）",
       "displayName": "UR夏侯淵（かこうえん）",
@@ -6267,7 +6313,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/316078"
     },
     {
-      "id": "generals:240:UR関羽（かんう）",
+      "id": "generals:242:UR関羽（かんう）",
       "category": "generals",
       "name": "UR関羽（かんう）",
       "displayName": "UR関羽（かんう）",
@@ -6291,7 +6337,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/314403"
     },
     {
-      "id": "generals:241:歩練師（ほれんし）",
+      "id": "generals:243:歩練師（ほれんし）",
       "category": "generals",
       "name": "歩練師（ほれんし）",
       "displayName": "歩練師（ほれんし）",
@@ -6317,7 +6363,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/313071"
     },
     {
-      "id": "generals:242:覚醒李儒（りじゅ）",
+      "id": "generals:244:覚醒李儒（りじゅ）",
       "category": "generals",
       "name": "覚醒李儒（りじゅ）",
       "displayName": "覚醒李儒（りじゅ）",
@@ -6343,7 +6389,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/312270"
     },
     {
-      "id": "generals:243:覚醒曹真（そうしん）",
+      "id": "generals:245:覚醒曹真（そうしん）",
       "category": "generals",
       "name": "覚醒曹真（そうしん）",
       "displayName": "覚醒曹真（そうしん）",
@@ -6367,7 +6413,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/312271"
     },
     {
-      "id": "generals:244:UR陸遜（りくそん）",
+      "id": "generals:246:UR陸遜（りくそん）",
       "category": "generals",
       "name": "UR陸遜（りくそん）",
       "displayName": "UR陸遜（りくそん）",
@@ -6390,7 +6436,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/312272"
     },
     {
-      "id": "generals:245:UR小喬（しょうきょう）",
+      "id": "generals:247:UR小喬（しょうきょう）",
       "category": "generals",
       "name": "UR小喬（しょうきょう）",
       "displayName": "UR小喬（しょうきょう）",
@@ -6412,7 +6458,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/312273"
     },
     {
-      "id": "generals:246:鄧凱（とうかい）",
+      "id": "generals:248:鄧凱（とうかい）",
       "category": "generals",
       "name": "鄧凱（とうかい）",
       "displayName": "鄧凱（とうかい）",
@@ -6432,7 +6478,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310377"
     },
     {
-      "id": "generals:247:文布（ぶんふ）",
+      "id": "generals:249:文布（ぶんふ）",
       "category": "generals",
       "name": "文布（ぶんふ）",
       "displayName": "文布（ぶんふ）",
@@ -6452,7 +6498,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310378"
     },
     {
-      "id": "generals:248:費桟（ひさん）",
+      "id": "generals:250:費桟（ひさん）",
       "category": "generals",
       "name": "費桟（ひさん）",
       "displayName": "費桟（ひさん）",
@@ -6472,7 +6518,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310379"
     },
     {
-      "id": "generals:249:黄乱（こうらん）",
+      "id": "generals:251:黄乱（こうらん）",
       "category": "generals",
       "name": "黄乱（こうらん）",
       "displayName": "黄乱（こうらん）",
@@ -6492,7 +6538,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310380"
     },
     {
-      "id": "generals:250:弥加（びか）",
+      "id": "generals:252:弥加（びか）",
       "category": "generals",
       "name": "弥加（びか）",
       "displayName": "弥加（びか）",
@@ -6512,7 +6558,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310381"
     },
     {
-      "id": "generals:251:素利（そり）",
+      "id": "generals:253:素利（そり）",
       "category": "generals",
       "name": "素利（そり）",
       "displayName": "素利（そり）",
@@ -6532,7 +6578,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310382"
     },
     {
-      "id": "generals:252:骨進（こっしん）",
+      "id": "generals:254:骨進（こっしん）",
       "category": "generals",
       "name": "骨進（こっしん）",
       "displayName": "骨進（こっしん）",
@@ -6552,7 +6598,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310383"
     },
     {
-      "id": "generals:253:王同（おうどう）",
+      "id": "generals:255:王同（おうどう）",
       "category": "generals",
       "name": "王同（おうどう）",
       "displayName": "王同（おうどう）",
@@ -6572,7 +6618,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310384"
     },
     {
-      "id": "generals:254:俄何焼戈（がかしょうか）",
+      "id": "generals:256:俄何焼戈（がかしょうか）",
       "category": "generals",
       "name": "俄何焼戈（がかしょうか）",
       "displayName": "俄何焼戈（がかしょうか）",
@@ -6590,7 +6636,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310385"
     },
     {
-      "id": "generals:255:劉冑（りゅうちゅう）",
+      "id": "generals:257:劉冑（りゅうちゅう）",
       "category": "generals",
       "name": "劉冑（りゅうちゅう）",
       "displayName": "劉冑（りゅうちゅう）",
@@ -6610,7 +6656,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310386"
     },
     {
-      "id": "generals:256:土安（どあん）",
+      "id": "generals:258:土安（どあん）",
       "category": "generals",
       "name": "土安（どあん）",
       "displayName": "土安（どあん）",
@@ -6630,7 +6676,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310387"
     },
     {
-      "id": "generals:257:奚泥（けいでい）",
+      "id": "generals:259:奚泥（けいでい）",
       "category": "generals",
       "name": "奚泥（けいでい）",
       "displayName": "奚泥（けいでい）",
@@ -6650,7 +6696,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310388"
     },
     {
-      "id": "generals:258:朴胡（ふこ）",
+      "id": "generals:260:朴胡（ふこ）",
       "category": "generals",
       "name": "朴胡（ふこ）",
       "displayName": "朴胡（ふこ）",
@@ -6672,7 +6718,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310389"
     },
     {
-      "id": "generals:259:杜濩（とこ）",
+      "id": "generals:261:杜濩（とこ）",
       "category": "generals",
       "name": "杜濩（とこ）",
       "displayName": "杜濩（とこ）",
@@ -6694,7 +6740,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310390"
     },
     {
-      "id": "generals:260:張雅（ちょうが）",
+      "id": "generals:262:張雅（ちょうが）",
       "category": "generals",
       "name": "張雅（ちょうが）",
       "displayName": "張雅（ちょうが）",
@@ -6715,7 +6761,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310391"
     },
     {
-      "id": "generals:261:泄帰泥（せつきでい）",
+      "id": "generals:263:泄帰泥（せつきでい）",
       "category": "generals",
       "name": "泄帰泥（せつきでい）",
       "displayName": "泄帰泥（せつきでい）",
@@ -6736,7 +6782,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310392"
     },
     {
-      "id": "generals:262:烏延（うえん）",
+      "id": "generals:264:烏延（うえん）",
       "category": "generals",
       "name": "烏延（うえん）",
       "displayName": "烏延（うえん）",
@@ -6758,7 +6804,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310393"
     },
     {
-      "id": "generals:263:楼班（ろうはん）",
+      "id": "generals:265:楼班（ろうはん）",
       "category": "generals",
       "name": "楼班（ろうはん）",
       "displayName": "楼班（ろうはん）",
@@ -6779,7 +6825,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310394"
     },
     {
-      "id": "generals:264:迷当大王（めいとうだいおう）",
+      "id": "generals:266:迷当大王（めいとうだいおう）",
       "category": "generals",
       "name": "迷当大王（めいとうだいおう）",
       "displayName": "迷当大王（めいとうだいおう）",
@@ -6798,7 +6844,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310395"
     },
     {
-      "id": "generals:265:雅丹（がたん）",
+      "id": "generals:267:雅丹（がたん）",
       "category": "generals",
       "name": "雅丹（がたん）",
       "displayName": "雅丹（がたん）",
@@ -6817,7 +6863,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310396"
     },
     {
-      "id": "generals:266:董荼那（とうとな）",
+      "id": "generals:268:董荼那（とうとな）",
       "category": "generals",
       "name": "董荼那（とうとな）",
       "displayName": "董荼那（とうとな）",
@@ -6839,7 +6885,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310397"
     },
     {
-      "id": "generals:267:金環三結（きんかんさんけつ）",
+      "id": "generals:269:金環三結（きんかんさんけつ）",
       "category": "generals",
       "name": "金環三結（きんかんさんけつ）",
       "displayName": "金環三結（きんかんさんけつ）",
@@ -6862,7 +6908,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310398"
     },
     {
-      "id": "generals:268:強端（きょうたん）",
+      "id": "generals:270:強端（きょうたん）",
       "category": "generals",
       "name": "強端（きょうたん）",
       "displayName": "強端（きょうたん）",
@@ -6886,7 +6932,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310399"
     },
     {
-      "id": "generals:269:尤突（ゆうとつ）",
+      "id": "generals:271:尤突（ゆうとつ）",
       "category": "generals",
       "name": "尤突（ゆうとつ）",
       "displayName": "尤突（ゆうとつ）",
@@ -6910,7 +6956,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310400"
     },
     {
-      "id": "generals:270:歩度根（ほどこん）",
+      "id": "generals:272:歩度根（ほどこん）",
       "category": "generals",
       "name": "歩度根（ほどこん）",
       "displayName": "歩度根（ほどこん）",
@@ -6932,7 +6978,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310401"
     },
     {
-      "id": "generals:271:丘力居（きゅうりききょ）",
+      "id": "generals:273:丘力居（きゅうりききょ）",
       "category": "generals",
       "name": "丘力居（きゅうりききょ）",
       "displayName": "丘力居（きゅうりききょ）",
@@ -6954,7 +7000,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310402"
     },
     {
-      "id": "generals:272:徹里吉（てつりきつ）",
+      "id": "generals:274:徹里吉（てつりきつ）",
       "category": "generals",
       "name": "徹里吉（てつりきつ）",
       "displayName": "徹里吉（てつりきつ）",
@@ -6974,7 +7020,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310403"
     },
     {
-      "id": "generals:273:潘臨（はんりん）",
+      "id": "generals:275:潘臨（はんりん）",
       "category": "generals",
       "name": "潘臨（はんりん）",
       "displayName": "潘臨（はんりん）",
@@ -6997,7 +7043,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310404"
     },
     {
-      "id": "generals:274:軻比能（かひのう）",
+      "id": "generals:276:軻比能（かひのう）",
       "category": "generals",
       "name": "軻比能（かひのう）",
       "displayName": "軻比能（かひのう）",
@@ -7020,7 +7066,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310405"
     },
     {
-      "id": "generals:275:蹋頓（とうとん）",
+      "id": "generals:277:蹋頓（とうとん）",
       "category": "generals",
       "name": "蹋頓（とうとん）",
       "displayName": "蹋頓（とうとん）",
@@ -7043,7 +7089,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310406"
     },
     {
-      "id": "generals:276:越吉（えつきつ）",
+      "id": "generals:278:越吉（えつきつ）",
       "category": "generals",
       "name": "越吉（えつきつ）",
       "displayName": "越吉（えつきつ）",
@@ -7066,7 +7112,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310407"
     },
     {
-      "id": "generals:277:兀突骨（ごつとつこつ）",
+      "id": "generals:279:兀突骨（ごつとつこつ）",
       "category": "generals",
       "name": "兀突骨（ごつとつこつ）",
       "displayName": "兀突骨（ごつとつこつ）",
@@ -7090,7 +7136,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310408"
     },
     {
-      "id": "generals:278:花鬘（かまん）",
+      "id": "generals:280:花鬘（かまん）",
       "category": "generals",
       "name": "花鬘（かまん）",
       "displayName": "花鬘（かまん）",
@@ -7114,7 +7160,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/310376"
     },
     {
-      "id": "generals:279:董白（とうはく）",
+      "id": "generals:281:董白（とうはく）",
       "category": "generals",
       "name": "董白（とうはく）",
       "displayName": "董白（とうはく）",
@@ -7138,7 +7184,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/307963"
     },
     {
-      "id": "generals:280:覚醒蔡琰（さいえん）",
+      "id": "generals:282:覚醒蔡琰（さいえん）",
       "category": "generals",
       "name": "覚醒蔡琰（さいえん）",
       "displayName": "覚醒蔡琰（さいえん）",
@@ -7162,7 +7208,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/306180"
     },
     {
-      "id": "generals:281:覚醒呉国太（ごこくたい）",
+      "id": "generals:283:覚醒呉国太（ごこくたい）",
       "category": "generals",
       "name": "覚醒呉国太（ごこくたい）",
       "displayName": "覚醒呉国太（ごこくたい）",
@@ -7187,7 +7233,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/306181"
     },
     {
-      "id": "generals:282:UR孫堅（そんけん）",
+      "id": "generals:284:UR孫堅（そんけん）",
       "category": "generals",
       "name": "UR孫堅（そんけん）",
       "displayName": "UR孫堅（そんけん）",
@@ -7211,7 +7257,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/306182"
     },
     {
-      "id": "generals:283:UR董卓（とうたく）",
+      "id": "generals:285:UR董卓（とうたく）",
       "category": "generals",
       "name": "UR董卓（とうたく）",
       "displayName": "UR董卓（とうたく）",
@@ -7235,7 +7281,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/306183"
     },
     {
-      "id": "generals:284:鄒氏（すうし）",
+      "id": "generals:286:鄒氏（すうし）",
       "category": "generals",
       "name": "鄒氏（すうし）",
       "displayName": "鄒氏（すうし）",
@@ -7261,7 +7307,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/300372"
     },
     {
-      "id": "generals:285:覚醒程普（ていふ）",
+      "id": "generals:287:覚醒程普（ていふ）",
       "category": "generals",
       "name": "覚醒程普（ていふ）",
       "displayName": "覚醒程普（ていふ）",
@@ -7288,7 +7334,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/297886"
     },
     {
-      "id": "generals:286:覚醒曹丕（そうひ）",
+      "id": "generals:288:覚醒曹丕（そうひ）",
       "category": "generals",
       "name": "覚醒曹丕（そうひ）",
       "displayName": "覚醒曹丕（そうひ）",
@@ -7314,7 +7360,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/297887"
     },
     {
-      "id": "generals:287:UR貂蝉（ちょうせん）",
+      "id": "generals:289:UR貂蝉（ちょうせん）",
       "category": "generals",
       "name": "UR貂蝉（ちょうせん）",
       "displayName": "UR貂蝉（ちょうせん）",
@@ -7337,7 +7383,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/297888"
     },
     {
-      "id": "generals:288:UR司馬懿（しばい）",
+      "id": "generals:290:UR司馬懿（しばい）",
       "category": "generals",
       "name": "UR司馬懿（しばい）",
       "displayName": "UR司馬懿（しばい）",
@@ -7360,7 +7406,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/297889"
     },
     {
-      "id": "generals:289:覚醒陳宮（ちんきゅう）",
+      "id": "generals:291:覚醒陳宮（ちんきゅう）",
       "category": "generals",
       "name": "覚醒陳宮（ちんきゅう）",
       "displayName": "覚醒陳宮（ちんきゅう）",
@@ -7384,7 +7430,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/293939"
     },
     {
-      "id": "generals:290:覚醒王平（おうへい）",
+      "id": "generals:292:覚醒王平（おうへい）",
       "category": "generals",
       "name": "覚醒王平（おうへい）",
       "displayName": "覚醒王平（おうへい）",
@@ -7408,7 +7454,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/293940"
     },
     {
-      "id": "generals:291:UR呂布（りょふ）",
+      "id": "generals:293:UR呂布（りょふ）",
       "category": "generals",
       "name": "UR呂布（りょふ）",
       "displayName": "UR呂布（りょふ）",
@@ -7430,7 +7476,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/293941"
     },
     {
-      "id": "generals:292:UR諸葛亮（しょかつりょう）",
+      "id": "generals:294:UR諸葛亮（しょかつりょう）",
       "category": "generals",
       "name": "UR諸葛亮（しょかつりょう）",
       "displayName": "UR諸葛亮（しょかつりょう）",
@@ -7453,7 +7499,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/293942"
     },
     {
-      "id": "generals:293:UR孫尚香（そんしょうこう）",
+      "id": "generals:295:UR孫尚香（そんしょうこう）",
       "category": "generals",
       "name": "UR孫尚香（そんしょうこう）",
       "displayName": "UR孫尚香（そんしょうこう）",
@@ -7477,7 +7523,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/293701"
     },
     {
-      "id": "generals:294:周倉（しゅうそう）",
+      "id": "generals:296:周倉（しゅうそう）",
       "category": "generals",
       "name": "周倉（しゅうそう）",
       "displayName": "周倉（しゅうそう）",
@@ -7501,7 +7547,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/291933"
     },
     {
-      "id": "generals:295:覚醒曹仁（そうじん）",
+      "id": "generals:297:覚醒曹仁（そうじん）",
       "category": "generals",
       "name": "覚醒曹仁（そうじん）",
       "displayName": "覚醒曹仁（そうじん）",
@@ -7523,7 +7569,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/291875"
     },
     {
-      "id": "generals:296:覚醒黄蓋（こうがい）",
+      "id": "generals:298:覚醒黄蓋（こうがい）",
       "category": "generals",
       "name": "覚醒黄蓋（こうがい）",
       "displayName": "覚醒黄蓋（こうがい）",
@@ -7549,7 +7595,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/291876"
     },
     {
-      "id": "generals:297:UR太史慈（たいしじ）",
+      "id": "generals:299:UR太史慈（たいしじ）",
       "category": "generals",
       "name": "UR太史慈（たいしじ）",
       "displayName": "UR太史慈（たいしじ）",
@@ -7573,7 +7619,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/291877"
     },
     {
-      "id": "generals:298:UR姜維（きょうい）",
+      "id": "generals:300:UR姜維（きょうい）",
       "category": "generals",
       "name": "UR姜維（きょうい）",
       "displayName": "UR姜維（きょうい）",
@@ -7596,7 +7642,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/291878"
     },
     {
-      "id": "generals:299:沙摩柯（しゃまか）",
+      "id": "generals:301:沙摩柯（しゃまか）",
       "category": "generals",
       "name": "沙摩柯（しゃまか）",
       "displayName": "沙摩柯（しゃまか）",
@@ -7618,7 +7664,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/288263"
     },
     {
-      "id": "generals:300:祝融（しゅくゆう）",
+      "id": "generals:302:祝融（しゅくゆう）",
       "category": "generals",
       "name": "祝融（しゅくゆう）",
       "displayName": "祝融（しゅくゆう）",
@@ -7642,7 +7688,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/288264"
     },
     {
-      "id": "generals:301:孟獲（もうかく）",
+      "id": "generals:303:孟獲（もうかく）",
       "category": "generals",
       "name": "孟獲（もうかく）",
       "displayName": "孟獲（もうかく）",
@@ -7664,7 +7710,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/288265"
     },
     {
-      "id": "generals:302:張春華（ちょうしゅんか）",
+      "id": "generals:304:張春華（ちょうしゅんか）",
       "category": "generals",
       "name": "張春華（ちょうしゅんか）",
       "displayName": "張春華（ちょうしゅんか）",
@@ -7690,7 +7736,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/287891"
     },
     {
-      "id": "generals:303:覚醒司馬昭（しばしょう）",
+      "id": "generals:305:覚醒司馬昭（しばしょう）",
       "category": "generals",
       "name": "覚醒司馬昭（しばしょう）",
       "displayName": "覚醒司馬昭（しばしょう）",
@@ -7716,7 +7762,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/287567"
     },
     {
-      "id": "generals:304:覚醒司馬師（しばし）",
+      "id": "generals:306:覚醒司馬師（しばし）",
       "category": "generals",
       "name": "覚醒司馬師（しばし）",
       "displayName": "覚醒司馬師（しばし）",
@@ -7740,7 +7786,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/287568"
     },
     {
-      "id": "generals:305:UR大喬（だいきょう）",
+      "id": "generals:307:UR大喬（だいきょう）",
       "category": "generals",
       "name": "UR大喬（だいきょう）",
       "displayName": "UR大喬（だいきょう）",
@@ -7763,7 +7809,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/287569"
     },
     {
-      "id": "generals:306:UR孫策（そんさく）",
+      "id": "generals:308:UR孫策（そんさく）",
       "category": "generals",
       "name": "UR孫策（そんさく）",
       "displayName": "UR孫策（そんさく）",
@@ -7786,7 +7832,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/287570"
     },
     {
-      "id": "generals:307:司馬徽（しばき）",
+      "id": "generals:309:司馬徽（しばき）",
       "category": "generals",
       "name": "司馬徽（しばき）",
       "displayName": "司馬徽（しばき）",
@@ -7813,7 +7859,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/284345"
     },
     {
-      "id": "generals:308:覚醒関平（かんぺい）",
+      "id": "generals:310:覚醒関平（かんぺい）",
       "category": "generals",
       "name": "覚醒関平（かんぺい）",
       "displayName": "覚醒関平（かんぺい）",
@@ -7837,7 +7883,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/284346"
     },
     {
-      "id": "generals:309:覚醒関索（かんさく）",
+      "id": "generals:311:覚醒関索（かんさく）",
       "category": "generals",
       "name": "覚醒関索（かんさく）",
       "displayName": "覚醒関索（かんさく）",
@@ -7863,7 +7909,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/284347"
     },
     {
-      "id": "generals:310:UR賈詡（かく）",
+      "id": "generals:312:UR賈詡（かく）",
       "category": "generals",
       "name": "UR賈詡（かく）",
       "displayName": "UR賈詡（かく）",
@@ -7886,7 +7932,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/284348"
     },
     {
-      "id": "generals:311:UR張飛（ちょうひ）",
+      "id": "generals:313:UR張飛（ちょうひ）",
       "category": "generals",
       "name": "UR張飛（ちょうひ）",
       "displayName": "UR張飛（ちょうひ）",
@@ -7908,7 +7954,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/284349"
     },
     {
-      "id": "generals:312:覚醒凌統（りょうとう）",
+      "id": "generals:314:覚醒凌統（りょうとう）",
       "category": "generals",
       "name": "覚醒凌統（りょうとう）",
       "displayName": "覚醒凌統（りょうとう）",
@@ -7933,7 +7979,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/278387"
     },
     {
-      "id": "generals:313:覚醒蒋欽（しょうきん）",
+      "id": "generals:315:覚醒蒋欽（しょうきん）",
       "category": "generals",
       "name": "覚醒蒋欽（しょうきん）",
       "displayName": "覚醒蒋欽（しょうきん）",
@@ -7959,7 +8005,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/278386"
     },
     {
-      "id": "generals:314:UR甘寧（かんねい）",
+      "id": "generals:316:UR甘寧（かんねい）",
       "category": "generals",
       "name": "UR甘寧（かんねい）",
       "displayName": "UR甘寧（かんねい）",
@@ -7983,7 +8029,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/278385"
     },
     {
-      "id": "generals:315:UR周瑜（しゅうゆ）",
+      "id": "generals:317:UR周瑜（しゅうゆ）",
       "category": "generals",
       "name": "UR周瑜（しゅうゆ）",
       "displayName": "UR周瑜（しゅうゆ）",
@@ -8005,7 +8051,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/278384"
     },
     {
-      "id": "generals:316:何進（かしん）",
+      "id": "generals:318:何進（かしん）",
       "category": "generals",
       "name": "何進（かしん）",
       "displayName": "何進（かしん）",
@@ -8031,7 +8077,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/275546"
     },
     {
-      "id": "generals:317:朱儁（しゅしゅん）",
+      "id": "generals:319:朱儁（しゅしゅん）",
       "category": "generals",
       "name": "朱儁（しゅしゅん）",
       "displayName": "朱儁（しゅしゅん）",
@@ -8055,7 +8101,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/275547"
     },
     {
-      "id": "generals:318:皇甫嵩（こうほすう）",
+      "id": "generals:320:皇甫嵩（こうほすう）",
       "category": "generals",
       "name": "皇甫嵩（こうほすう）",
       "displayName": "皇甫嵩（こうほすう）",
@@ -8081,7 +8127,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/275548"
     },
     {
-      "id": "generals:319:覚醒曹彰（そうしょう）",
+      "id": "generals:321:覚醒曹彰（そうしょう）",
       "category": "generals",
       "name": "覚醒曹彰（そうしょう）",
       "displayName": "覚醒曹彰（そうしょう）",
@@ -8105,7 +8151,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/270396"
     },
     {
-      "id": "generals:320:覚醒楽進（がくしん）",
+      "id": "generals:322:覚醒楽進（がくしん）",
       "category": "generals",
       "name": "覚醒楽進（がくしん）",
       "displayName": "覚醒楽進（がくしん）",
@@ -8131,7 +8177,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/270397"
     },
     {
-      "id": "generals:321:UR郭嘉（かくか）",
+      "id": "generals:323:UR郭嘉（かくか）",
       "category": "generals",
       "name": "UR郭嘉（かくか）",
       "displayName": "UR郭嘉（かくか）",
@@ -8155,7 +8201,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/270398"
     },
     {
-      "id": "generals:322:UR張遼（ちょうりょう）",
+      "id": "generals:324:UR張遼（ちょうりょう）",
       "category": "generals",
       "name": "UR張遼（ちょうりょう）",
       "displayName": "UR張遼（ちょうりょう）",
@@ -8177,7 +8223,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/270399"
     },
     {
-      "id": "generals:323:陸抗（りくこう）",
+      "id": "generals:325:陸抗（りくこう）",
       "category": "generals",
       "name": "陸抗（りくこう）",
       "displayName": "陸抗（りくこう）",
@@ -8203,7 +8249,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/270132"
     },
     {
-      "id": "generals:324:馬騰（ばとう）",
+      "id": "generals:326:馬騰（ばとう）",
       "category": "generals",
       "name": "馬騰（ばとう）",
       "displayName": "馬騰（ばとう）",
@@ -8229,7 +8275,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/262737"
     },
     {
-      "id": "generals:325:于禁（うきん）",
+      "id": "generals:327:于禁（うきん）",
       "category": "generals",
       "name": "于禁（うきん）",
       "displayName": "于禁（うきん）",
@@ -8251,7 +8297,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/260985"
     },
     {
-      "id": "generals:326:荀攸（じゅんゆう）",
+      "id": "generals:328:荀攸（じゅんゆう）",
       "category": "generals",
       "name": "荀攸（じゅんゆう）",
       "displayName": "荀攸（じゅんゆう）",
@@ -8277,7 +8323,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/260986"
     },
     {
-      "id": "generals:327:徐晃（じょこう）",
+      "id": "generals:329:徐晃（じょこう）",
       "category": "generals",
       "name": "徐晃（じょこう）",
       "displayName": "徐晃（じょこう）",
@@ -8303,7 +8349,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/260988"
     },
     {
-      "id": "generals:328:UR趙雲（ちょううん）",
+      "id": "generals:330:UR趙雲（ちょううん）",
       "category": "generals",
       "name": "UR趙雲（ちょううん）",
       "displayName": "UR趙雲（ちょううん）",
@@ -8325,7 +8371,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/260987"
     },
     {
-      "id": "generals:329:UR劉備（りゅうび）",
+      "id": "generals:331:UR劉備（りゅうび）",
       "category": "generals",
       "name": "UR劉備（りゅうび）",
       "displayName": "UR劉備（りゅうび）",
@@ -8348,7 +8394,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/260989"
     },
     {
-      "id": "generals:330:覚醒張苞（ちょうほう）",
+      "id": "generals:332:覚醒張苞（ちょうほう）",
       "category": "generals",
       "name": "覚醒張苞（ちょうほう）",
       "displayName": "覚醒張苞（ちょうほう）",
@@ -8372,7 +8418,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/260991"
     },
     {
-      "id": "generals:331:覚醒関興（かんこう）",
+      "id": "generals:333:覚醒関興（かんこう）",
       "category": "generals",
       "name": "覚醒関興（かんこう）",
       "displayName": "覚醒関興（かんこう）",
@@ -8396,7 +8442,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/260990"
     },
     {
-      "id": "generals:332:甄氏（しんし）",
+      "id": "generals:334:甄氏（しんし）",
       "category": "generals",
       "name": "甄氏（しんし）",
       "displayName": "甄氏（しんし）",
@@ -8422,7 +8468,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/256186"
     },
     {
-      "id": "generals:333:董卓（とうたく）",
+      "id": "generals:335:董卓（とうたく）",
       "category": "generals",
       "name": "董卓（とうたく）",
       "displayName": "董卓（とうたく）",
@@ -8449,7 +8495,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/253118"
     },
     {
-      "id": "generals:334:袁紹（えんしょう）",
+      "id": "generals:336:袁紹（えんしょう）",
       "category": "generals",
       "name": "袁紹（えんしょう）",
       "displayName": "袁紹（えんしょう）",
@@ -8474,7 +8520,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/253119"
     },
     {
-      "id": "generals:335:典韋（てんい）",
+      "id": "generals:337:典韋（てんい）",
       "category": "generals",
       "name": "典韋（てんい）",
       "displayName": "典韋（てんい）",
@@ -8500,7 +8546,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/251225"
     },
     {
-      "id": "generals:336:徐庶（じょしょ）",
+      "id": "generals:338:徐庶（じょしょ）",
       "category": "generals",
       "name": "徐庶（じょしょ）",
       "displayName": "徐庶（じょしょ）",
@@ -8525,7 +8571,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/247104"
     },
     {
-      "id": "generals:337:張梁（ちょうりょう）",
+      "id": "generals:339:張梁（ちょうりょう）",
       "category": "generals",
       "name": "張梁（ちょうりょう）",
       "displayName": "張梁（ちょうりょう）",
@@ -8549,7 +8595,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/247080"
     },
     {
-      "id": "generals:338:張宝（ちょうほう）",
+      "id": "generals:340:張宝（ちょうほう）",
       "category": "generals",
       "name": "張宝（ちょうほう）",
       "displayName": "張宝（ちょうほう）",
@@ -8571,7 +8617,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/247081"
     },
     {
-      "id": "generals:339:張角（ちょうかく）",
+      "id": "generals:341:張角（ちょうかく）",
       "category": "generals",
       "name": "張角（ちょうかく）",
       "displayName": "張角（ちょうかく）",
@@ -8595,7 +8641,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/247082"
     },
     {
-      "id": "generals:340:曹植（そうしょく）",
+      "id": "generals:342:曹植（そうしょく）",
       "category": "generals",
       "name": "曹植（そうしょく）",
       "displayName": "曹植（そうしょく）",
@@ -8614,7 +8660,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243348"
     },
     {
-      "id": "generals:341:文聘（ぶんぺい）",
+      "id": "generals:343:文聘（ぶんぺい）",
       "category": "generals",
       "name": "文聘（ぶんぺい）",
       "displayName": "文聘（ぶんぺい）",
@@ -8635,7 +8681,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243349"
     },
     {
-      "id": "generals:342:孫堅（そんけん）",
+      "id": "generals:344:孫堅（そんけん）",
       "category": "generals",
       "name": "孫堅（そんけん）",
       "displayName": "孫堅（そんけん）",
@@ -8660,7 +8706,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243350"
     },
     {
-      "id": "generals:343:馬良（ばりょう）",
+      "id": "generals:345:馬良（ばりょう）",
       "category": "generals",
       "name": "馬良（ばりょう）",
       "displayName": "馬良（ばりょう）",
@@ -8683,7 +8729,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243351"
     },
     {
-      "id": "generals:344:盧植（ろしょく）",
+      "id": "generals:346:盧植（ろしょく）",
       "category": "generals",
       "name": "盧植（ろしょく）",
       "displayName": "盧植（ろしょく）",
@@ -8704,7 +8750,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243352"
     },
     {
-      "id": "generals:345:沮授（そじゅ）",
+      "id": "generals:347:沮授（そじゅ）",
       "category": "generals",
       "name": "沮授（そじゅ）",
       "displayName": "沮授（そじゅ）",
@@ -8725,7 +8771,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243353"
     },
     {
-      "id": "generals:346:羊祜（ようこ）",
+      "id": "generals:348:羊祜（ようこ）",
       "category": "generals",
       "name": "羊祜（ようこ）",
       "displayName": "羊祜（ようこ）",
@@ -8747,7 +8793,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243354"
     },
     {
-      "id": "generals:347:華佗（かだ）",
+      "id": "generals:349:華佗（かだ）",
       "category": "generals",
       "name": "華佗（かだ）",
       "displayName": "華佗（かだ）",
@@ -8769,7 +8815,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243355"
     },
     {
-      "id": "generals:348:魯粛（ろしゅく）",
+      "id": "generals:350:魯粛（ろしゅく）",
       "category": "generals",
       "name": "魯粛（ろしゅく）",
       "displayName": "魯粛（ろしゅく）",
@@ -8795,7 +8841,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243356"
     },
     {
-      "id": "generals:349:韓遂（かんすい）",
+      "id": "generals:351:韓遂（かんすい）",
       "category": "generals",
       "name": "韓遂（かんすい）",
       "displayName": "韓遂（かんすい）",
@@ -8818,7 +8864,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243357"
     },
     {
-      "id": "generals:350:馬岱（ばたい）",
+      "id": "generals:352:馬岱（ばたい）",
       "category": "generals",
       "name": "馬岱（ばたい）",
       "displayName": "馬岱（ばたい）",
@@ -8839,7 +8885,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243358"
     },
     {
-      "id": "generals:351:高順（こうじゅん）",
+      "id": "generals:353:高順（こうじゅん）",
       "category": "generals",
       "name": "高順（こうじゅん）",
       "displayName": "高順（こうじゅん）",
@@ -8858,7 +8904,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243359"
     },
     {
-      "id": "generals:352:朱桓（しゅかん）",
+      "id": "generals:354:朱桓（しゅかん）",
       "category": "generals",
       "name": "朱桓（しゅかん）",
       "displayName": "朱桓（しゅかん）",
@@ -8879,7 +8925,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243360"
     },
     {
-      "id": "generals:353:于吉（うきつ）",
+      "id": "generals:355:于吉（うきつ）",
       "category": "generals",
       "name": "于吉（うきつ）",
       "displayName": "于吉（うきつ）",
@@ -8903,7 +8949,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243361"
     },
     {
-      "id": "generals:354:許褚（きょちょ）",
+      "id": "generals:356:許褚（きょちょ）",
       "category": "generals",
       "name": "許褚（きょちょ）",
       "displayName": "許褚（きょちょ）",
@@ -8929,7 +8975,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243362"
     },
     {
-      "id": "generals:355:左慈（さじ）",
+      "id": "generals:357:左慈（さじ）",
       "category": "generals",
       "name": "左慈（さじ）",
       "displayName": "左慈（さじ）",
@@ -8953,7 +8999,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243363"
     },
     {
-      "id": "generals:356:程昱（ていいく）",
+      "id": "generals:358:程昱（ていいく）",
       "category": "generals",
       "name": "程昱（ていいく）",
       "displayName": "程昱（ていいく）",
@@ -8977,7 +9023,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243364"
     },
     {
-      "id": "generals:357:呂蒙（りょもう）",
+      "id": "generals:359:呂蒙（りょもう）",
       "category": "generals",
       "name": "呂蒙（りょもう）",
       "displayName": "呂蒙（りょもう）",
@@ -9002,7 +9048,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243365"
     },
     {
-      "id": "generals:358:文醜（ぶんしゅう）",
+      "id": "generals:360:文醜（ぶんしゅう）",
       "category": "generals",
       "name": "文醜（ぶんしゅう）",
       "displayName": "文醜（ぶんしゅう）",
@@ -9027,7 +9073,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243366"
     },
     {
-      "id": "generals:359:顔良（がんりょう）",
+      "id": "generals:361:顔良（がんりょう）",
       "category": "generals",
       "name": "顔良（がんりょう）",
       "displayName": "顔良（がんりょう）",
@@ -9051,7 +9097,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243367"
     },
     {
-      "id": "generals:360:荀彧（じゅんいく）",
+      "id": "generals:362:荀彧（じゅんいく）",
       "category": "generals",
       "name": "荀彧（じゅんいく）",
       "displayName": "荀彧（じゅんいく）",
@@ -9077,7 +9123,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243368"
     },
     {
-      "id": "generals:361:魏延（ぎえん）",
+      "id": "generals:363:魏延（ぎえん）",
       "category": "generals",
       "name": "魏延（ぎえん）",
       "displayName": "魏延（ぎえん）",
@@ -9101,7 +9147,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243369"
     },
     {
-      "id": "generals:362:鄧艾（とうがい）",
+      "id": "generals:364:鄧艾（とうがい）",
       "category": "generals",
       "name": "鄧艾（とうがい）",
       "displayName": "鄧艾（とうがい）",
@@ -9126,7 +9172,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243370"
     },
     {
-      "id": "generals:363:張任（ちょうじん）",
+      "id": "generals:365:張任（ちょうじん）",
       "category": "generals",
       "name": "張任（ちょうじん）",
       "displayName": "張任（ちょうじん）",
@@ -9145,7 +9191,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243371"
     },
     {
-      "id": "generals:364:劉禅（りゅうぜん）",
+      "id": "generals:366:劉禅（りゅうぜん）",
       "category": "generals",
       "name": "劉禅（りゅうぜん）",
       "displayName": "劉禅（りゅうぜん）",
@@ -9170,7 +9216,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243372"
     },
     {
-      "id": "generals:365:王元姫（おうげんき）",
+      "id": "generals:367:王元姫（おうげんき）",
       "category": "generals",
       "name": "王元姫（おうげんき）",
       "displayName": "王元姫（おうげんき）",
@@ -9196,7 +9242,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243373"
     },
     {
-      "id": "generals:366:廖化（りょうか）",
+      "id": "generals:368:廖化（りょうか）",
       "category": "generals",
       "name": "廖化（りょうか）",
       "displayName": "廖化（りょうか）",
@@ -9218,7 +9264,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243374"
     },
     {
-      "id": "generals:367:劉封（りゅうほう）",
+      "id": "generals:369:劉封（りゅうほう）",
       "category": "generals",
       "name": "劉封（りゅうほう）",
       "displayName": "劉封（りゅうほう）",
@@ -9238,7 +9284,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243375"
     },
     {
-      "id": "generals:368:李傕（りかく）",
+      "id": "generals:370:李傕（りかく）",
       "category": "generals",
       "name": "李傕（りかく）",
       "displayName": "李傕（りかく）",
@@ -9256,7 +9302,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243376"
     },
     {
-      "id": "generals:369:楊脩（ようしゅう）",
+      "id": "generals:371:楊脩（ようしゅう）",
       "category": "generals",
       "name": "楊脩（ようしゅう）",
       "displayName": "楊脩（ようしゅう）",
@@ -9274,7 +9320,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243377"
     },
     {
-      "id": "generals:370:卞喜（べんき）",
+      "id": "generals:372:卞喜（べんき）",
       "category": "generals",
       "name": "卞喜（べんき）",
       "displayName": "卞喜（べんき）",
@@ -9292,7 +9338,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243378"
     },
     {
-      "id": "generals:371:武安国（ぶあんこく）",
+      "id": "generals:373:武安国（ぶあんこく）",
       "category": "generals",
       "name": "武安国（ぶあんこく）",
       "displayName": "武安国（ぶあんこく）",
@@ -9312,7 +9358,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243379"
     },
     {
-      "id": "generals:372:潘鳳（はんぽう）",
+      "id": "generals:374:潘鳳（はんぽう）",
       "category": "generals",
       "name": "潘鳳（はんぽう）",
       "displayName": "潘鳳（はんぽう）",
@@ -9330,7 +9376,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243380"
     },
     {
-      "id": "generals:373:陳矯（ちんきょう）",
+      "id": "generals:375:陳矯（ちんきょう）",
       "category": "generals",
       "name": "陳矯（ちんきょう）",
       "displayName": "陳矯（ちんきょう）",
@@ -9348,7 +9394,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243381"
     },
     {
-      "id": "generals:374:祖茂（そも）",
+      "id": "generals:376:祖茂（そも）",
       "category": "generals",
       "name": "祖茂（そも）",
       "displayName": "祖茂（そも）",
@@ -9368,7 +9414,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243382"
     },
     {
-      "id": "generals:375:曹昂（そうこう）",
+      "id": "generals:377:曹昂（そうこう）",
       "category": "generals",
       "name": "曹昂（そうこう）",
       "displayName": "曹昂（そうこう）",
@@ -9386,7 +9432,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243383"
     },
     {
-      "id": "generals:376:曹休（そうきゅう）",
+      "id": "generals:378:曹休（そうきゅう）",
       "category": "generals",
       "name": "曹休（そうきゅう）",
       "displayName": "曹休（そうきゅう）",
@@ -9406,7 +9452,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243384"
     },
     {
-      "id": "generals:377:淳于瓊（じゅんうけい）",
+      "id": "generals:379:淳于瓊（じゅんうけい）",
       "category": "generals",
       "name": "淳于瓊（じゅんうけい）",
       "displayName": "淳于瓊（じゅんうけい）",
@@ -9424,7 +9470,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243385"
     },
     {
-      "id": "generals:378:朱治（しゅち）",
+      "id": "generals:380:朱治（しゅち）",
       "category": "generals",
       "name": "朱治（しゅち）",
       "displayName": "朱治（しゅち）",
@@ -9442,7 +9488,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243386"
     },
     {
-      "id": "generals:379:孔融（こうゆう）",
+      "id": "generals:381:孔融（こうゆう）",
       "category": "generals",
       "name": "孔融（こうゆう）",
       "displayName": "孔融（こうゆう）",
@@ -9460,7 +9506,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243387"
     },
     {
-      "id": "generals:380:黄祖（こうそ）",
+      "id": "generals:382:黄祖（こうそ）",
       "category": "generals",
       "name": "黄祖（こうそ）",
       "displayName": "黄祖（こうそ）",
@@ -9478,7 +9524,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243388"
     },
     {
-      "id": "generals:381:許攸（きょゆう）",
+      "id": "generals:383:許攸（きょゆう）",
       "category": "generals",
       "name": "許攸（きょゆう）",
       "displayName": "許攸（きょゆう）",
@@ -9496,7 +9542,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243389"
     },
     {
-      "id": "generals:382:簡雍（かんよう）",
+      "id": "generals:384:簡雍（かんよう）",
       "category": "generals",
       "name": "簡雍（かんよう）",
       "displayName": "簡雍（かんよう）",
@@ -9516,7 +9562,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243390"
     },
     {
-      "id": "generals:383:夏侯楙（かこうぼう）",
+      "id": "generals:385:夏侯楙（かこうぼう）",
       "category": "generals",
       "name": "夏侯楙（かこうぼう）",
       "displayName": "夏侯楙（かこうぼう）",
@@ -9536,7 +9582,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243391"
     },
     {
-      "id": "generals:384:夏侯恩（かこうおん）",
+      "id": "generals:386:夏侯恩（かこうおん）",
       "category": "generals",
       "name": "夏侯恩（かこうおん）",
       "displayName": "夏侯恩（かこうおん）",
@@ -9556,7 +9602,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243392"
     },
     {
-      "id": "generals:385:郭汜（かくし）",
+      "id": "generals:387:郭汜（かくし）",
       "category": "generals",
       "name": "郭汜（かくし）",
       "displayName": "郭汜（かくし）",
@@ -9574,7 +9620,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243393"
     },
     {
-      "id": "generals:386:凌操（りょうそう）",
+      "id": "generals:388:凌操（りょうそう）",
       "category": "generals",
       "name": "凌操（りょうそう）",
       "displayName": "凌操（りょうそう）",
@@ -9592,7 +9638,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243394"
     },
     {
-      "id": "generals:387:李典（りてん）",
+      "id": "generals:389:李典（りてん）",
       "category": "generals",
       "name": "李典（りてん）",
       "displayName": "李典（りてん）",
@@ -9613,7 +9659,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243395"
     },
     {
-      "id": "generals:388:孟達（もうたつ）",
+      "id": "generals:390:孟達（もうたつ）",
       "category": "generals",
       "name": "孟達（もうたつ）",
       "displayName": "孟達（もうたつ）",
@@ -9631,7 +9677,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243396"
     },
     {
-      "id": "generals:389:歩騭（ほしつ）",
+      "id": "generals:391:歩騭（ほしつ）",
       "category": "generals",
       "name": "歩騭（ほしつ）",
       "displayName": "歩騭（ほしつ）",
@@ -9649,7 +9695,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243397"
     },
     {
-      "id": "generals:390:潘璋（はんしょう）",
+      "id": "generals:392:潘璋（はんしょう）",
       "category": "generals",
       "name": "潘璋（はんしょう）",
       "displayName": "潘璋（はんしょう）",
@@ -9667,7 +9713,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243398"
     },
     {
-      "id": "generals:391:馬謖（ばしょく）",
+      "id": "generals:393:馬謖（ばしょく）",
       "category": "generals",
       "name": "馬謖（ばしょく）",
       "displayName": "馬謖（ばしょく）",
@@ -9685,7 +9731,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243399"
     },
     {
-      "id": "generals:392:鄧芝（とうし）",
+      "id": "generals:394:鄧芝（とうし）",
       "category": "generals",
       "name": "鄧芝（とうし）",
       "displayName": "鄧芝（とうし）",
@@ -9705,7 +9751,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243400"
     },
     {
-      "id": "generals:393:丁奉（ていほう）",
+      "id": "generals:395:丁奉（ていほう）",
       "category": "generals",
       "name": "丁奉（ていほう）",
       "displayName": "丁奉（ていほう）",
@@ -9725,7 +9771,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243401"
     },
     {
-      "id": "generals:394:張魯（ちょうろ）",
+      "id": "generals:396:張魯（ちょうろ）",
       "category": "generals",
       "name": "張魯（ちょうろ）",
       "displayName": "張魯（ちょうろ）",
@@ -9745,7 +9791,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243402"
     },
     {
-      "id": "generals:395:張繍（ちょうしゅう）",
+      "id": "generals:397:張繍（ちょうしゅう）",
       "category": "generals",
       "name": "張繍（ちょうしゅう）",
       "displayName": "張繍（ちょうしゅう）",
@@ -9763,7 +9809,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243403"
     },
     {
-      "id": "generals:396:曹純（そうじゅん）",
+      "id": "generals:398:曹純（そうじゅん）",
       "category": "generals",
       "name": "曹純（そうじゅん）",
       "displayName": "曹純（そうじゅん）",
@@ -9781,7 +9827,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243404"
     },
     {
-      "id": "generals:397:曹洪（そうこう）",
+      "id": "generals:399:曹洪（そうこう）",
       "category": "generals",
       "name": "曹洪（そうこう）",
       "displayName": "曹洪（そうこう）",
@@ -9799,7 +9845,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243405"
     },
     {
-      "id": "generals:398:審配（しんぱい）",
+      "id": "generals:400:審配（しんぱい）",
       "category": "generals",
       "name": "審配（しんぱい）",
       "displayName": "審配（しんぱい）",
@@ -9817,7 +9863,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243406"
     },
     {
-      "id": "generals:399:鍾繇（しょうよう）",
+      "id": "generals:401:鍾繇（しょうよう）",
       "category": "generals",
       "name": "鍾繇（しょうよう）",
       "displayName": "鍾繇（しょうよう）",
@@ -9835,7 +9881,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243407"
     },
     {
-      "id": "generals:400:朱然（しゅぜん）",
+      "id": "generals:402:朱然（しゅぜん）",
       "category": "generals",
       "name": "朱然（しゅぜん）",
       "displayName": "朱然（しゅぜん）",
@@ -9855,7 +9901,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243408"
     },
     {
-      "id": "generals:401:蔡瑁（さいぼう）",
+      "id": "generals:403:蔡瑁（さいぼう）",
       "category": "generals",
       "name": "蔡瑁（さいぼう）",
       "displayName": "蔡瑁（さいぼう）",
@@ -9873,7 +9919,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243409"
     },
     {
-      "id": "generals:402:胡車児（こしゃじ）",
+      "id": "generals:404:胡車児（こしゃじ）",
       "category": "generals",
       "name": "胡車児（こしゃじ）",
       "displayName": "胡車児（こしゃじ）",
@@ -9895,7 +9941,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243410"
     },
     {
-      "id": "generals:403:黄権（こうけん）",
+      "id": "generals:405:黄権（こうけん）",
       "category": "generals",
       "name": "黄権（こうけん）",
       "displayName": "黄権（こうけん）",
@@ -9913,7 +9959,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243411"
     },
     {
-      "id": "generals:404:虞翻（ぐほん）",
+      "id": "generals:406:虞翻（ぐほん）",
       "category": "generals",
       "name": "虞翻（ぐほん）",
       "displayName": "虞翻（ぐほん）",
@@ -9931,7 +9977,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243412"
     },
     {
-      "id": "generals:405:紀霊（きれい）",
+      "id": "generals:407:紀霊（きれい）",
       "category": "generals",
       "name": "紀霊（きれい）",
       "displayName": "紀霊（きれい）",
@@ -9949,7 +9995,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243413"
     },
     {
-      "id": "generals:406:牛金（ぎゅうきん）",
+      "id": "generals:408:牛金（ぎゅうきん）",
       "category": "generals",
       "name": "牛金（ぎゅうきん）",
       "displayName": "牛金（ぎゅうきん）",
@@ -9967,7 +10013,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243414"
     },
     {
-      "id": "generals:407:闞沢（かんたく）",
+      "id": "generals:409:闞沢（かんたく）",
       "category": "generals",
       "name": "闞沢（かんたく）",
       "displayName": "闞沢（かんたく）",
@@ -9985,7 +10031,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243415"
     },
     {
-      "id": "generals:408:華歆（かきん）",
+      "id": "generals:410:華歆（かきん）",
       "category": "generals",
       "name": "華歆（かきん）",
       "displayName": "華歆（かきん）",
@@ -10003,7 +10049,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243416"
     },
     {
-      "id": "generals:409:王朗（おうろう）",
+      "id": "generals:411:王朗（おうろう）",
       "category": "generals",
       "name": "王朗（おうろう）",
       "displayName": "王朗（おうろう）",
@@ -10021,7 +10067,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243417"
     },
     {
-      "id": "generals:410:王平（おうへい）",
+      "id": "generals:412:王平（おうへい）",
       "category": "generals",
       "name": "王平（おうへい）",
       "displayName": "王平（おうへい）",
@@ -10042,7 +10088,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243418"
     },
     {
-      "id": "generals:411:王双（おうそう）",
+      "id": "generals:413:王双（おうそう）",
       "category": "generals",
       "name": "王双（おうそう）",
       "displayName": "王双（おうそう）",
@@ -10060,7 +10106,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243419"
     },
     {
-      "id": "generals:412:王允（おういん）",
+      "id": "generals:414:王允（おういん）",
       "category": "generals",
       "name": "王允（おういん）",
       "displayName": "王允（おういん）",
@@ -10078,7 +10124,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243420"
     },
     {
-      "id": "generals:413:凌統（りょうとう）",
+      "id": "generals:415:凌統（りょうとう）",
       "category": "generals",
       "name": "凌統（りょうとう）",
       "displayName": "凌統（りょうとう）",
@@ -10100,7 +10146,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243421"
     },
     {
-      "id": "generals:414:李儒（りじゅ）",
+      "id": "generals:416:李儒（りじゅ）",
       "category": "generals",
       "name": "李儒（りじゅ）",
       "displayName": "李儒（りじゅ）",
@@ -10124,7 +10170,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243422"
     },
     {
-      "id": "generals:415:李厳（りげん）",
+      "id": "generals:417:李厳（りげん）",
       "category": "generals",
       "name": "李厳（りげん）",
       "displayName": "李厳（りげん）",
@@ -10144,7 +10190,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243423"
     },
     {
-      "id": "generals:416:満寵（まんちょう）",
+      "id": "generals:418:満寵（まんちょう）",
       "category": "generals",
       "name": "満寵（まんちょう）",
       "displayName": "満寵（まんちょう）",
@@ -10164,7 +10210,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243424"
     },
     {
-      "id": "generals:417:杜預（どよ）",
+      "id": "generals:419:杜預（どよ）",
       "category": "generals",
       "name": "杜預（どよ）",
       "displayName": "杜預（どよ）",
@@ -10184,7 +10230,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243425"
     },
     {
-      "id": "generals:418:程普（ていふ）",
+      "id": "generals:420:程普（ていふ）",
       "category": "generals",
       "name": "程普（ていふ）",
       "displayName": "程普（ていふ）",
@@ -10207,7 +10253,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243426"
     },
     {
-      "id": "generals:419:陳宮（ちんきゅう）",
+      "id": "generals:421:陳宮（ちんきゅう）",
       "category": "generals",
       "name": "陳宮（ちんきゅう）",
       "displayName": "陳宮（ちんきゅう）",
@@ -10231,7 +10277,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243427"
     },
     {
-      "id": "generals:420:張苞（ちょうほう）",
+      "id": "generals:422:張苞（ちょうほう）",
       "category": "generals",
       "name": "張苞（ちょうほう）",
       "displayName": "張苞（ちょうほう）",
@@ -10253,7 +10299,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243428"
     },
     {
-      "id": "generals:421:曹丕（そうひ）",
+      "id": "generals:423:曹丕（そうひ）",
       "category": "generals",
       "name": "曹丕（そうひ）",
       "displayName": "曹丕（そうひ）",
@@ -10275,7 +10321,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243429"
     },
     {
-      "id": "generals:422:曹仁（そうじん）",
+      "id": "generals:424:曹仁（そうじん）",
       "category": "generals",
       "name": "曹仁（そうじん）",
       "displayName": "曹仁（そうじん）",
@@ -10295,7 +10341,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243430"
     },
     {
-      "id": "generals:423:曹真（そうしん）",
+      "id": "generals:425:曹真（そうしん）",
       "category": "generals",
       "name": "曹真（そうしん）",
       "displayName": "曹真（そうしん）",
@@ -10315,7 +10361,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243431"
     },
     {
-      "id": "generals:424:曹彰（そうしょう）",
+      "id": "generals:426:曹彰（そうしょう）",
       "category": "generals",
       "name": "曹彰（そうしょう）",
       "displayName": "曹彰（そうしょう）",
@@ -10335,7 +10381,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243432"
     },
     {
-      "id": "generals:425:徐盛（じょせい）",
+      "id": "generals:427:徐盛（じょせい）",
       "category": "generals",
       "name": "徐盛（じょせい）",
       "displayName": "徐盛（じょせい）",
@@ -10357,7 +10403,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243433"
     },
     {
-      "id": "generals:426:諸葛瑾（しょかつきん）",
+      "id": "generals:428:諸葛瑾（しょかつきん）",
       "category": "generals",
       "name": "諸葛瑾（しょかつきん）",
       "displayName": "諸葛瑾（しょかつきん）",
@@ -10379,7 +10425,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243434"
     },
     {
-      "id": "generals:427:蒋欽（しょうきん）",
+      "id": "generals:429:蒋欽（しょうきん）",
       "category": "generals",
       "name": "蒋欽（しょうきん）",
       "displayName": "蒋欽（しょうきん）",
@@ -10401,7 +10447,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243435"
     },
     {
-      "id": "generals:428:司馬昭（しばしょう）",
+      "id": "generals:430:司馬昭（しばしょう）",
       "category": "generals",
       "name": "司馬昭（しばしょう）",
       "displayName": "司馬昭（しばしょう）",
@@ -10421,7 +10467,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243436"
     },
     {
-      "id": "generals:429:司馬師（しばし）",
+      "id": "generals:431:司馬師（しばし）",
       "category": "generals",
       "name": "司馬師（しばし）",
       "displayName": "司馬師（しばし）",
@@ -10444,7 +10490,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243437"
     },
     {
-      "id": "generals:430:蔡琰（さいえん）",
+      "id": "generals:432:蔡琰（さいえん）",
       "category": "generals",
       "name": "蔡琰（さいえん）",
       "displayName": "蔡琰（さいえん）",
@@ -10466,7 +10512,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243438"
     },
     {
-      "id": "generals:431:顧雍（こよう）",
+      "id": "generals:433:顧雍（こよう）",
       "category": "generals",
       "name": "顧雍（こよう）",
       "displayName": "顧雍（こよう）",
@@ -10486,7 +10532,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243439"
     },
     {
-      "id": "generals:432:呉国太（ごこくたい）",
+      "id": "generals:434:呉国太（ごこくたい）",
       "category": "generals",
       "name": "呉国太（ごこくたい）",
       "displayName": "呉国太（ごこくたい）",
@@ -10509,7 +10555,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243440"
     },
     {
-      "id": "generals:433:黄蓋（こうがい）",
+      "id": "generals:435:黄蓋（こうがい）",
       "category": "generals",
       "name": "黄蓋（こうがい）",
       "displayName": "黄蓋（こうがい）",
@@ -10529,7 +10575,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243441"
     },
     {
-      "id": "generals:434:呉懿（ごい）",
+      "id": "generals:436:呉懿（ごい）",
       "category": "generals",
       "name": "呉懿（ごい）",
       "displayName": "呉懿（ごい）",
@@ -10549,7 +10595,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243442"
     },
     {
-      "id": "generals:435:厳顔（げんがん）",
+      "id": "generals:437:厳顔（げんがん）",
       "category": "generals",
       "name": "厳顔（げんがん）",
       "displayName": "厳顔（げんがん）",
@@ -10571,7 +10617,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243443"
     },
     {
-      "id": "generals:436:関平（かんぺい）",
+      "id": "generals:438:関平（かんぺい）",
       "category": "generals",
       "name": "関平（かんぺい）",
       "displayName": "関平（かんぺい）",
@@ -10593,7 +10639,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243444"
     },
     {
-      "id": "generals:437:関索（かんさく）",
+      "id": "generals:439:関索（かんさく）",
       "category": "generals",
       "name": "関索（かんさく）",
       "displayName": "関索（かんさく）",
@@ -10617,7 +10663,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243445"
     },
     {
-      "id": "generals:438:関興（かんこう）",
+      "id": "generals:440:関興（かんこう）",
       "category": "generals",
       "name": "関興（かんこう）",
       "displayName": "関興（かんこう）",
@@ -10637,7 +10683,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243446"
     },
     {
-      "id": "generals:439:夏侯覇（かこうは）",
+      "id": "generals:441:夏侯覇（かこうは）",
       "category": "generals",
       "name": "夏侯覇（かこうは）",
       "displayName": "夏侯覇（かこうは）",
@@ -10657,7 +10703,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243447"
     },
     {
-      "id": "generals:440:郭淮（かくわい）",
+      "id": "generals:442:郭淮（かくわい）",
       "category": "generals",
       "name": "郭淮（かくわい）",
       "displayName": "郭淮（かくわい）",
@@ -10679,7 +10725,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243448"
     },
     {
-      "id": "generals:441:楽進（がくしん）",
+      "id": "generals:443:楽進（がくしん）",
       "category": "generals",
       "name": "楽進（がくしん）",
       "displayName": "楽進（がくしん）",
@@ -10703,7 +10749,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243449"
     },
     {
-      "id": "generals:442:郝昭（かくしょう）",
+      "id": "generals:444:郝昭（かくしょう）",
       "category": "generals",
       "name": "郝昭（かくしょう）",
       "displayName": "郝昭（かくしょう）",
@@ -10725,7 +10771,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243450"
     },
     {
-      "id": "generals:443:呂玲綺（りょれいき）",
+      "id": "generals:445:呂玲綺（りょれいき）",
       "category": "generals",
       "name": "呂玲綺（りょれいき）",
       "displayName": "呂玲綺（りょれいき）",
@@ -10749,7 +10795,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243451"
     },
     {
-      "id": "generals:444:龐徳（ほうとく）",
+      "id": "generals:446:龐徳（ほうとく）",
       "category": "generals",
       "name": "龐徳（ほうとく）",
       "displayName": "龐徳（ほうとく）",
@@ -10771,7 +10817,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243452"
     },
     {
-      "id": "generals:445:法正（ほうせい）",
+      "id": "generals:447:法正（ほうせい）",
       "category": "generals",
       "name": "法正（ほうせい）",
       "displayName": "法正（ほうせい）",
@@ -10797,7 +10843,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243453"
     },
     {
-      "id": "generals:446:文鴦（ぶんおう）",
+      "id": "generals:448:文鴦（ぶんおう）",
       "category": "generals",
       "name": "文鴦（ぶんおう）",
       "displayName": "文鴦（ぶんおう）",
@@ -10819,7 +10865,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243454"
     },
     {
-      "id": "generals:447:馬雲騄（ばうんりょく）",
+      "id": "generals:449:馬雲騄（ばうんりょく）",
       "category": "generals",
       "name": "馬雲騄（ばうんりょく）",
       "displayName": "馬雲騄（ばうんりょく）",
@@ -10845,7 +10891,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243455"
     },
     {
-      "id": "generals:448:田豊（でんぽう）",
+      "id": "generals:450:田豊（でんぽう）",
       "category": "generals",
       "name": "田豊（でんぽう）",
       "displayName": "田豊（でんぽう）",
@@ -10871,7 +10917,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243456"
     },
     {
-      "id": "generals:449:陳羣（ちんぐん）",
+      "id": "generals:451:陳羣（ちんぐん）",
       "category": "generals",
       "name": "陳羣（ちんぐん）",
       "displayName": "陳羣（ちんぐん）",
@@ -10896,7 +10942,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243457"
     },
     {
-      "id": "generals:450:張昭（ちょうしょう）",
+      "id": "generals:452:張昭（ちょうしょう）",
       "category": "generals",
       "name": "張昭（ちょうしょう）",
       "displayName": "張昭（ちょうしょう）",
@@ -10920,7 +10966,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243458"
     },
     {
-      "id": "generals:451:張紘（ちょうこう）",
+      "id": "generals:453:張紘（ちょうこう）",
       "category": "generals",
       "name": "張紘（ちょうこう）",
       "displayName": "張紘（ちょうこう）",
@@ -10944,7 +10990,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243459"
     },
     {
-      "id": "generals:452:張郃（ちょうこう）",
+      "id": "generals:454:張郃（ちょうこう）",
       "category": "generals",
       "name": "張郃（ちょうこう）",
       "displayName": "張郃（ちょうこう）",
@@ -10969,7 +11015,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243460"
     },
     {
-      "id": "generals:453:太史慈（たいしじ）",
+      "id": "generals:455:太史慈（たいしじ）",
       "category": "generals",
       "name": "太史慈（たいしじ）",
       "displayName": "太史慈（たいしじ）",
@@ -10993,7 +11039,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243461"
     },
     {
-      "id": "generals:454:大喬（だいきょう）",
+      "id": "generals:456:大喬（だいきょう）",
       "category": "generals",
       "name": "大喬（だいきょう）",
       "displayName": "大喬（だいきょう）",
@@ -11019,7 +11065,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243462"
     },
     {
-      "id": "generals:455:孫尚香（そんしょうこう）",
+      "id": "generals:457:孫尚香（そんしょうこう）",
       "category": "generals",
       "name": "孫尚香（そんしょうこう）",
       "displayName": "孫尚香（そんしょうこう）",
@@ -11045,7 +11091,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243463"
     },
     {
-      "id": "generals:456:諸葛恪（しょかつかく）",
+      "id": "generals:458:諸葛恪（しょかつかく）",
       "category": "generals",
       "name": "諸葛恪（しょかつかく）",
       "displayName": "諸葛恪（しょかつかく）",
@@ -11070,7 +11116,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243464"
     },
     {
-      "id": "generals:457:小喬（しょうきょう）",
+      "id": "generals:459:小喬（しょうきょう）",
       "category": "generals",
       "name": "小喬（しょうきょう）",
       "displayName": "小喬（しょうきょう）",
@@ -11095,7 +11141,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243465"
     },
     {
-      "id": "generals:458:鍾会（しょうかい）",
+      "id": "generals:460:鍾会（しょうかい）",
       "category": "generals",
       "name": "鍾会（しょうかい）",
       "displayName": "鍾会（しょうかい）",
@@ -11119,7 +11165,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243466"
     },
     {
-      "id": "generals:459:周泰（しゅうたい）",
+      "id": "generals:461:周泰（しゅうたい）",
       "category": "generals",
       "name": "周泰（しゅうたい）",
       "displayName": "周泰（しゅうたい）",
@@ -11145,7 +11191,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243467"
     },
     {
-      "id": "generals:460:黄忠（こうちゅう）",
+      "id": "generals:462:黄忠（こうちゅう）",
       "category": "generals",
       "name": "黄忠（こうちゅう）",
       "displayName": "黄忠（こうちゅう）",
@@ -11170,7 +11216,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243468"
     },
     {
-      "id": "generals:461:公孫瓚（こうそんさん）",
+      "id": "generals:463:公孫瓚（こうそんさん）",
       "category": "generals",
       "name": "公孫瓚（こうそんさん）",
       "displayName": "公孫瓚（こうそんさん）",
@@ -11194,7 +11240,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243469"
     },
     {
-      "id": "generals:462:黄月英（こうげつえい）",
+      "id": "generals:464:黄月英（こうげつえい）",
       "category": "generals",
       "name": "黄月英（こうげつえい）",
       "displayName": "黄月英（こうげつえい）",
@@ -11220,7 +11266,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243470"
     },
     {
-      "id": "generals:463:関銀屏（かんぎんぺい）",
+      "id": "generals:465:関銀屏（かんぎんぺい）",
       "category": "generals",
       "name": "関銀屏（かんぎんぺい）",
       "displayName": "関銀屏（かんぎんぺい）",
@@ -11245,7 +11291,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243471"
     },
     {
-      "id": "generals:464:華雄（かゆう）",
+      "id": "generals:466:華雄（かゆう）",
       "category": "generals",
       "name": "華雄（かゆう）",
       "displayName": "華雄（かゆう）",
@@ -11270,7 +11316,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243472"
     },
     {
-      "id": "generals:465:夏侯惇（かこうとん）",
+      "id": "generals:467:夏侯惇（かこうとん）",
       "category": "generals",
       "name": "夏侯惇（かこうとん）",
       "displayName": "夏侯惇（かこうとん）",
@@ -11296,7 +11342,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243473"
     },
     {
-      "id": "generals:466:夏侯淵（かこうえん）",
+      "id": "generals:468:夏侯淵（かこうえん）",
       "category": "generals",
       "name": "夏侯淵（かこうえん）",
       "displayName": "夏侯淵（かこうえん）",
@@ -11321,7 +11367,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243474"
     },
     {
-      "id": "generals:467:王異（おうい）",
+      "id": "generals:469:王異（おうい）",
       "category": "generals",
       "name": "王異（おうい）",
       "displayName": "王異（おうい）",
@@ -11347,7 +11393,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243475"
     },
     {
-      "id": "generals:468:劉備（りゅうび）",
+      "id": "generals:470:劉備（りゅうび）",
       "category": "generals",
       "name": "劉備（りゅうび）",
       "displayName": "劉備（りゅうび）",
@@ -11373,7 +11419,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243476"
     },
     {
-      "id": "generals:469:龐統（ほうとう）",
+      "id": "generals:471:龐統（ほうとう）",
       "category": "generals",
       "name": "龐統（ほうとう）",
       "displayName": "龐統（ほうとう）",
@@ -11397,7 +11443,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243477"
     },
     {
-      "id": "generals:470:馬超（ばちょう）",
+      "id": "generals:472:馬超（ばちょう）",
       "category": "generals",
       "name": "馬超（ばちょう）",
       "displayName": "馬超（ばちょう）",
@@ -11422,7 +11468,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243478"
     },
     {
-      "id": "generals:471:張遼（ちょうりょう）",
+      "id": "generals:473:張遼（ちょうりょう）",
       "category": "generals",
       "name": "張遼（ちょうりょう）",
       "displayName": "張遼（ちょうりょう）",
@@ -11447,7 +11493,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243479"
     },
     {
-      "id": "generals:472:貂蝉（ちょうせん）",
+      "id": "generals:474:貂蝉（ちょうせん）",
       "category": "generals",
       "name": "貂蝉（ちょうせん）",
       "displayName": "貂蝉（ちょうせん）",
@@ -11473,7 +11519,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243480"
     },
     {
-      "id": "generals:473:趙雲（ちょううん）",
+      "id": "generals:475:趙雲（ちょううん）",
       "category": "generals",
       "name": "趙雲（ちょううん）",
       "displayName": "趙雲（ちょううん）",
@@ -11499,7 +11545,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243481"
     },
     {
-      "id": "generals:474:孫権（そんけん）",
+      "id": "generals:476:孫権（そんけん）",
       "category": "generals",
       "name": "孫権（そんけん）",
       "displayName": "孫権（そんけん）",
@@ -11525,7 +11571,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243482"
     },
     {
-      "id": "generals:475:甘寧（かんねい）",
+      "id": "generals:477:甘寧（かんねい）",
       "category": "generals",
       "name": "甘寧（かんねい）",
       "displayName": "甘寧（かんねい）",
@@ -11550,7 +11596,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243483"
     },
     {
-      "id": "generals:476:郭嘉（かくか）",
+      "id": "generals:478:郭嘉（かくか）",
       "category": "generals",
       "name": "郭嘉（かくか）",
       "displayName": "郭嘉（かくか）",
@@ -11575,7 +11621,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243484"
     },
     {
-      "id": "generals:477:賈詡（かく）",
+      "id": "generals:479:賈詡（かく）",
       "category": "generals",
       "name": "賈詡（かく）",
       "displayName": "賈詡（かく）",
@@ -11601,7 +11647,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243485"
     },
     {
-      "id": "generals:478:呂布（りょふ）",
+      "id": "generals:480:呂布（りょふ）",
       "category": "generals",
       "name": "呂布（りょふ）",
       "displayName": "呂布（りょふ）",
@@ -11626,7 +11672,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243486"
     },
     {
-      "id": "generals:479:陸遜（りくそん）",
+      "id": "generals:481:陸遜（りくそん）",
       "category": "generals",
       "name": "陸遜（りくそん）",
       "displayName": "陸遜（りくそん）",
@@ -11648,7 +11694,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243487"
     },
     {
-      "id": "generals:480:張飛（ちょうひ）",
+      "id": "generals:482:張飛（ちょうひ）",
       "category": "generals",
       "name": "張飛（ちょうひ）",
       "displayName": "張飛（ちょうひ）",
@@ -11672,7 +11718,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243488"
     },
     {
-      "id": "generals:481:孫策（そんさく）",
+      "id": "generals:483:孫策（そんさく）",
       "category": "generals",
       "name": "孫策（そんさく）",
       "displayName": "孫策（そんさく）",
@@ -11697,7 +11743,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243489"
     },
     {
-      "id": "generals:482:曹操（そうそう）",
+      "id": "generals:484:曹操（そうそう）",
       "category": "generals",
       "name": "曹操（そうそう）",
       "displayName": "曹操（そうそう）",
@@ -11722,7 +11768,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243490"
     },
     {
-      "id": "generals:483:諸葛亮（しょかつりょう）",
+      "id": "generals:485:諸葛亮（しょかつりょう）",
       "category": "generals",
       "name": "諸葛亮（しょかつりょう）",
       "displayName": "諸葛亮（しょかつりょう）",
@@ -11746,7 +11792,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243491"
     },
     {
-      "id": "generals:484:周瑜（しゅうゆ）",
+      "id": "generals:486:周瑜（しゅうゆ）",
       "category": "generals",
       "name": "周瑜（しゅうゆ）",
       "displayName": "周瑜（しゅうゆ）",
@@ -11768,7 +11814,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243492"
     },
     {
-      "id": "generals:485:司馬懿（しばい）",
+      "id": "generals:487:司馬懿（しばい）",
       "category": "generals",
       "name": "司馬懿（しばい）",
       "displayName": "司馬懿（しばい）",
@@ -11792,7 +11838,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243493"
     },
     {
-      "id": "generals:486:姜維（きょうい）",
+      "id": "generals:488:姜維（きょうい）",
       "category": "generals",
       "name": "姜維（きょうい）",
       "displayName": "姜維（きょうい）",
@@ -11817,7 +11863,7 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/243494"
     },
     {
-      "id": "generals:487:関羽（かんう）",
+      "id": "generals:489:関羽（かんう）",
       "category": "generals",
       "name": "関羽（かんう）",
       "displayName": "関羽（かんう）",

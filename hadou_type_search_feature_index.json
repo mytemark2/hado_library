@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-08-31T15:31:23.721Z",
-  "dataSetId": "2026-08-24T16:58:10.882Z",
+  "generatedAt": "2026-09-06T05:56:28.638Z",
+  "dataSetId": "2026-08-31T15:31:22.751Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -33,10 +33,10 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 488,
-    "tactics": 467,
+    "generals": 490,
+    "tactics": 469,
     "equipments": 255,
-    "skills": 661,
+    "skills": 665,
     "statusEffects": 206,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
@@ -47,10 +47,10 @@
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "c8a69cf2",
-    "tactics": "17b2d8ff",
+    "generals": "36a988b3",
+    "tactics": "1db2e271",
     "equipments": "5051cab2",
-    "skills": "55f06444",
+    "skills": "51f05df8",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
@@ -61,10 +61,10 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "c8a69cf2",
-    "tactics": "17b2d8ff",
+    "generals": "36a988b3",
+    "tactics": "1db2e271",
     "equipments": "5051cab2",
-    "skills": "55f06444",
+    "skills": "51f05df8",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
@@ -2456,37 +2456,40 @@
   ],
   "qualityAudit": {
     "ok": true,
-    "itemCount": 776,
+    "itemCount": 778,
     "categoryCounts": {
-      "generals": 488,
+      "generals": 490,
       "equipments": 255,
       "siegeWeapons": 6,
       "warhorseSkills": 27
     },
-    "itemsWithAnyFeature": 591,
-    "statusEffectReferenceCount": 1224,
-    "typeFeatureReferenceCount": 2953,
+    "itemsWithAnyFeature": 593,
+    "statusEffectReferenceCount": 1237,
+    "typeFeatureReferenceCount": 2970,
     "featureCounts": {
-      "parameter:critical_tactic_rate": 14,
-      "parameter:critical_tactic_power": 21,
+      "parameter:critical_tactic_rate": 15,
+      "parameter:critical_tactic_power": 22,
       "skill_effect:wounded_survival": 41,
       "skill_effect:wounded_recovery": 57,
       "skill_effect:initial_tactic_gauge": 61,
-      "parameter:tactic_power": 85,
+      "parameter:tactic_power": 86,
       "skill_effect:healing": 57,
-      "skill_effect:damage_reduction": 209,
+      "skill_effect:damage_reduction": 211,
       "skill_effect:chain_rate": 134,
-      "skill_effect:enemy_target_count": 244,
-      "skill_effect:self_disadvantage_countermeasure": 114,
+      "skill_effect:enemy_target_count": 246,
+      "skill_effect:self_disadvantage_countermeasure": 116,
       "skill_effect:weakening_remove": 65,
       "skill_effect:combat_start_tactic_gauge": 17,
       "skill_effect:ally_buff_multi": 232,
-      "skill_effect:effect_duration": 100,
+      "skill_effect:effect_duration": 102,
       "skill_effect:ally_target_count": 253,
+      "skill_effect:annihilation_avoidance": 53,
+      "skill_effect:remaining_troops": 37,
+      "skill_effect:enemy_debuff_multi": 195,
+      "skill_effect:attack_nullify": 17,
       "parameter:normal_attack_power": 26,
       "skill_effect:weakening_nullify": 30,
       "skill_effect:ally_defense_buff": 73,
-      "skill_effect:enemy_debuff_multi": 194,
       "skill_effect:ally_non_damage_effect": 123,
       "skill_effect:normal_attack_target_count": 53,
       "parameter:critical_rate": 101,
@@ -2495,10 +2498,7 @@
       "skill_effect:strengthening_seize_avoid": 6,
       "skill_effect:ally_wounded_recovery": 26,
       "parameter:anti_object": 62,
-      "skill_effect:annihilation_avoidance": 51,
-      "skill_effect:remaining_troops": 35,
       "skill_effect:strengthening_remove_avoid": 12,
-      "skill_effect:attack_nullify": 16,
       "skill_effect:status_effect_rate": 10,
       "parameter:tactic_speed": 91,
       "skill_effect:chain_nullify": 8,
@@ -2515,8 +2515,8 @@
     "policy": "1.0.5.24: 型検索では既存状態変化JSONを参照し、補助索引は状態変化で表現できない型要素を保守的に追加する。対物抑制文脈は候補化しない。攻撃速度型と通常攻撃拡張型をJSON正本として生成する。",
     "evidenceContractAudit": {
       "ok": false,
-      "pseudoStatusRefCount": 631,
-      "droppedStatusRefCount": 725,
+      "pseudoStatusRefCount": 639,
+      "droppedStatusRefCount": 733,
       "droppedFeatureCount": 510,
       "requiredFields": [
         "sourceEntityKey",
@@ -3739,6 +3739,972 @@
       "statusEffectRefCount": 2,
       "typeFeatureCount": 20,
       "sourceEntityKey": "generals:article-572585"
+    },
+    {
+      "category": "generals",
+      "categoryLabel": "武将",
+      "name": "UR朶思大王（だしだいおう）",
+      "statusEffectRefs": [
+        {
+          "featureId": "status_effect:強化無効",
+          "label": "強化無効",
+          "featureType": "statusEffect",
+          "statusEffectName": "強化無効",
+          "groupKey": "enemyStateDebuff",
+          "groupLabel": "敵部隊状態弱化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "tactic_text",
+          "matchedText": "強化無効",
+          "sourceType": "tactic",
+          "statusEffectKey": "statusEffects:69",
+          "canonicalFeatureKey": "status_effect:強化無効",
+          "featureDomain": "statusEffect",
+          "sourceEntityKey": "generals:article-574571",
+          "evidencePath": "sections[1].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-574571:tactic_text:statusEffect:status_effect:強化無効:c7eac7a6"
+        },
+        {
+          "featureId": "status_effect:弱化残存",
+          "label": "弱化残存",
+          "featureType": "statusEffect",
+          "statusEffectName": "弱化残存",
+          "groupKey": "enemyStateDebuff",
+          "groupLabel": "敵部隊状態弱化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "tactic_text",
+          "matchedText": "弱化残存",
+          "sourceType": "tactic",
+          "statusEffectKey": "statusEffects:70",
+          "canonicalFeatureKey": "status_effect:弱化残存",
+          "featureDomain": "statusEffect",
+          "sourceEntityKey": "generals:article-574571",
+          "evidencePath": "sections[1].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-574571:tactic_text:statusEffect:status_effect:弱化残存:c27bf5ed"
+        },
+        {
+          "featureId": "status_effect:萎縮",
+          "label": "萎縮",
+          "featureType": "statusEffect",
+          "statusEffectName": "萎縮",
+          "groupKey": "enemyStateDebuff",
+          "groupLabel": "敵部隊状態弱化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性なし知力なし効果自身1部隊の知力を100％上昇（この武将の将星ランクに応じて、知力上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に50％の弱化残存、5％の劇毒、3回の強化無効、萎縮を付与して300％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇",
+          "sourceType": "tactic",
+          "statusEffectKey": "statusEffects:80",
+          "canonicalFeatureKey": "status_effect:萎縮",
+          "featureDomain": "statusEffect",
+          "sourceEntityKey": "generals:article-574571",
+          "evidencePath": "sections[2].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-574571:tactic_text:statusEffect:status_effect:萎縮:dc0ccec1"
+        }
+      ],
+      "typeFeatures": [
+        {
+          "featureId": "skill_effect:annihilation_avoidance",
+          "label": "壊滅回避",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性なし知力なし効果自身1部隊の知力を100％上昇（この武将の将星ランクに応じて、知力上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に50％の弱化残存、5％の劇毒、3回の強化無効、萎縮を付与して300％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 毒龍四泉の追…",
+          "rawText": "兵科効果系統攻撃属性なし知力なし効果自身1部隊の知力を100％上昇（この武将の将星ランクに応じて、知力上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に50％の弱化残存、5％の劇毒、3回の強化無効、萎縮を付与して300％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 毒龍四泉の追…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:annihilation_avoidance",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574571",
+          "evidencePath": "sections[1].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-574571:tactic_text:skillEffect:skill_effect:annihilation_avoidance:c6d37c62"
+        },
+        {
+          "featureId": "skill_effect:remaining_troops",
+          "label": "残存兵力",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性なし知力なし効果自身1部隊の知力を100％上昇（この武将の将星ランクに応じて、知力上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に50％の弱化残存、5％の劇毒、3回の強化無効、萎縮を付与して300％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 毒龍四泉の追…",
+          "rawText": "兵科効果系統攻撃属性なし知力なし効果自身1部隊の知力を100％上昇（この武将の将星ランクに応じて、知力上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に50％の弱化残存、5％の劇毒、3回の強化無効、萎縮を付与して300％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 毒龍四泉の追…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:remaining_troops",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574571",
+          "evidencePath": "sections[1].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-574571:tactic_text:skillEffect:skill_effect:remaining_troops:c6d37c62"
+        },
+        {
+          "featureId": "skill_effect:damage_reduction",
+          "label": "被ダメージ軽減",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性なし知力なし効果自身1部隊の知力を100％上昇（この武将の将星ランクに応じて、知力上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に50％の弱化残存、5％の劇毒、3回の強化無効、萎縮を付与して300％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 毒龍四泉の追…",
+          "rawText": "兵科効果系統攻撃属性なし知力なし効果自身1部隊の知力を100％上昇（この武将の将星ランクに応じて、知力上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に50％の弱化残存、5％の劇毒、3回の強化無効、萎縮を付与して300％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 毒龍四泉の追…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:damage_reduction",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574571",
+          "evidencePath": "sections[1].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-574571:tactic_text:skillEffect:skill_effect:damage_reduction:c6d37c62"
+        },
+        {
+          "featureId": "skill_effect:enemy_debuff_multi",
+          "label": "敵デバフ配布",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性なし知力なし効果自身1部隊の知力を100％上昇（この武将の将星ランクに応じて、知力上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に50％の弱化残存、5％の劇毒、3回の強化無効、萎縮を付与して300％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 毒龍四泉の追…",
+          "rawText": "兵科効果系統攻撃属性なし知力なし効果自身1部隊の知力を100％上昇（この武将の将星ランクに応じて、知力上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に50％の弱化残存、5％の劇毒、3回の強化無効、萎縮を付与して300％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 毒龍四泉の追…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:enemy_debuff_multi",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574571",
+          "evidencePath": "sections[1].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-574571:tactic_text:skillEffect:skill_effect:enemy_debuff_multi:c6d37c62"
+        },
+        {
+          "featureId": "skill_effect:effect_duration",
+          "label": "効果時間",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性なし知力なし効果自身1部隊の知力を100％上昇（この武将の将星ランクに応じて、知力上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に50％の弱化残存、5％の劇毒、3回の強化無効、萎縮を付与して300％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 毒龍四泉の追…",
+          "rawText": "兵科効果系統攻撃属性なし知力なし効果自身1部隊の知力を100％上昇（この武将の将星ランクに応じて、知力上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に50％の弱化残存、5％の劇毒、3回の強化無効、萎縮を付与して300％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 毒龍四泉の追…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:effect_duration",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574571",
+          "evidencePath": "sections[1].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-574571:tactic_text:skillEffect:skill_effect:effect_duration:c6d37c62"
+        },
+        {
+          "featureId": "skill_effect:enemy_target_count",
+          "label": "敵対象部隊数",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性なし知力なし効果自身1部隊の知力を100％上昇（この武将の将星ランクに応じて、知力上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に50％の弱化残存、5％の劇毒、3回の強化無効、萎縮を付与して300％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 毒龍四泉の追…",
+          "rawText": "兵科効果系統攻撃属性なし知力なし効果自身1部隊の知力を100％上昇（この武将の将星ランクに応じて、知力上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に50％の弱化残存、5％の劇毒、3回の強化無効、萎縮を付与して300％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 毒龍四泉の追…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:enemy_target_count",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574571",
+          "evidencePath": "sections[1].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-574571:tactic_text:skillEffect:skill_effect:enemy_target_count:c6d37c62"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性なし知力なし効果自身1部隊の知力を100％上昇（この武将の将星ランクに応じて、知力上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に50％の弱化残存、5％の劇毒、3回の強化無効、萎縮を付与して300％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 毒龍四泉の追…",
+          "rawText": "兵科効果系統攻撃属性なし知力なし効果自身1部隊の知力を100％上昇（この武将の将星ランクに応じて、知力上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に50％の弱化残存、5％の劇毒、3回の強化無効、萎縮を付与して300％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 毒龍四泉の追…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:self_disadvantage_countermeasure",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574571",
+          "evidencePath": "sections[1].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-574571:tactic_text:skillEffect:skill_effect:self_disadvantage_countermeasure:c6d37c62"
+        },
+        {
+          "featureId": "skill_effect:annihilation_avoidance",
+          "label": "壊滅回避",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "南蛮1■常に▼兵力が500以上の時 ●壊滅するダメージを受けても残存兵力の10%が残る毒念2■常に ●この技能を持つ武将の将星ランクに応じて、知力系統の通常攻撃・戦法による被ダメージを軽減（将星ランク1につき3％軽減）■主将か、自部隊の主将が孟獲/祝融/花鬘/兀突骨/木鹿大王の際 ●自部隊が弱化効果や即時効果を付与する際、自部隊の知力を400％上昇させた状態で劇毒の付与を行う（敵部隊との知力差による発生率の変動や、知力を条件とした発生率/効果時間の変動効果などに適用される）▼部隊が武装「藤甲」「戦象鞍」「南蛮羽箭」…",
+          "rawText": "南蛮1■常に▼兵力が500以上の時 ●壊滅するダメージを受けても残存兵力の10%が残る毒念2■常に ●この技能を持つ武将の将星ランクに応じて、知力系統の通常攻撃・戦法による被ダメージを軽減（将星ランク1につき3％軽減）■主将か、自部隊の主将が孟獲/祝融/花鬘/兀突骨/木鹿大王の際 ●自部隊が弱化効果や即時効果を付与する際、自部隊の知力を400％上昇させた状態で劇毒の付与を行う（敵部隊との知力差による発生率の変動や、知力を条件とした発生率/効果時間の変動効果などに適用される）▼部隊が武装「藤甲」「戦象鞍」「南蛮羽箭」…",
+          "canonicalFeatureKey": "skill_effect:annihilation_avoidance",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574571",
+          "evidencePath": "sections[3].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-574571:skill_text:skillEffect:skill_effect:annihilation_avoidance:6896268a"
+        },
+        {
+          "featureId": "skill_effect:remaining_troops",
+          "label": "残存兵力",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "壊滅するダメージを受けても残存兵力の10%が残る毒念2",
+          "rawText": "壊滅するダメージを受けても残存兵力の10%が残る毒念2",
+          "canonicalFeatureKey": "skill_effect:remaining_troops",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574571",
+          "evidencePath": "sections[3].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-574571:skill_text:skillEffect:skill_effect:remaining_troops:dd48ec67"
+        },
+        {
+          "featureId": "skill_effect:damage_reduction",
+          "label": "被ダメージ軽減",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "南蛮1■常に▼兵力が500以上の時 ●壊滅するダメージを受けても残存兵力の10%が残る毒念2■常に ●この技能を持つ武将の将星ランクに応じて、知力系統の通常攻撃・戦法による被ダメージを軽減（将星ランク1につき3％軽減）■主将か、自部隊の主将が孟獲/祝融/花鬘/兀突骨/木鹿大王の際 ●自部隊が弱化効果や即時効果を付与する際、自部隊の知力を400％上昇させた状態で劇毒の付与を行う（敵部隊との知力差による発生率の変動や、知力を条件とした発生率/効果時間の変動効果などに適用される）▼部隊が武装「藤甲」「戦象鞍」「南蛮羽箭」…",
+          "rawText": "南蛮1■常に▼兵力が500以上の時 ●壊滅するダメージを受けても残存兵力の10%が残る毒念2■常に ●この技能を持つ武将の将星ランクに応じて、知力系統の通常攻撃・戦法による被ダメージを軽減（将星ランク1につき3％軽減）■主将か、自部隊の主将が孟獲/祝融/花鬘/兀突骨/木鹿大王の際 ●自部隊が弱化効果や即時効果を付与する際、自部隊の知力を400％上昇させた状態で劇毒の付与を行う（敵部隊との知力差による発生率の変動や、知力を条件とした発生率/効果時間の変動効果などに適用される）▼部隊が武装「藤甲」「戦象鞍」「南蛮羽箭」…",
+          "canonicalFeatureKey": "skill_effect:damage_reduction",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574571",
+          "evidencePath": "sections[3].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-574571:skill_text:skillEffect:skill_effect:damage_reduction:6896268a"
+        },
+        {
+          "featureId": "skill_effect:effect_duration",
+          "label": "効果時間",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "自部隊が弱化効果や即時効果を付与する際、自部隊の知力を400％上昇させた状態で劇毒の付与を行う（敵部隊との知力差による発生率の変動や、知力を条件とした発生率/効果時間の変動効果などに適用される）",
+          "rawText": "自部隊が弱化効果や即時効果を付与する際、自部隊の知力を400％上昇させた状態で劇毒の付与を行う（敵部隊との知力差による発生率の変動や、知力を条件とした発生率/効果時間の変動効果などに適用される）",
+          "canonicalFeatureKey": "skill_effect:effect_duration",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574571",
+          "evidencePath": "sections[3].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-574571:skill_text:skillEffect:skill_effect:effect_duration:68702fa4"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "南蛮1■常に▼兵力が500以上の時 ●壊滅するダメージを受けても残存兵力の10%が残る毒念2■常に ●この技能を持つ武将の将星ランクに応じて、知力系統の通常攻撃・戦法による被ダメージを軽減（将星ランク1につき3％軽減）■主将か、自部隊の主将が孟獲/祝融/花鬘/兀突骨/木鹿大王の際 ●自部隊が弱化効果や即時効果を付与する際、自部隊の知力を400％上昇させた状態で劇毒の付与を行う（敵部隊との知力差による発生率の変動や、知力を条件とした発生率/効果時間の変動効果などに適用される）▼部隊が武装「藤甲」「戦象鞍」「南蛮羽箭」…",
+          "rawText": "南蛮1■常に▼兵力が500以上の時 ●壊滅するダメージを受けても残存兵力の10%が残る毒念2■常に ●この技能を持つ武将の将星ランクに応じて、知力系統の通常攻撃・戦法による被ダメージを軽減（将星ランク1につき3％軽減）■主将か、自部隊の主将が孟獲/祝融/花鬘/兀突骨/木鹿大王の際 ●自部隊が弱化効果や即時効果を付与する際、自部隊の知力を400％上昇させた状態で劇毒の付与を行う（敵部隊との知力差による発生率の変動や、知力を条件とした発生率/効果時間の変動効果などに適用される）▼部隊が武装「藤甲」「戦象鞍」「南蛮羽箭」…",
+          "canonicalFeatureKey": "skill_effect:self_disadvantage_countermeasure",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574571",
+          "evidencePath": "sections[3].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-574571:skill_text:skillEffect:skill_effect:self_disadvantage_countermeasure:6896268a"
+        }
+      ],
+      "statusEffectRefCount": 3,
+      "typeFeatureCount": 12,
+      "sourceEntityKey": "generals:article-574571"
+    },
+    {
+      "category": "generals",
+      "categoryLabel": "武将",
+      "name": "UR木鹿大王（ぼくろくだいおう）",
+      "statusEffectRefs": [
+        {
+          "featureId": "status_effect:剛憤",
+          "label": "剛憤",
+          "featureType": "statusEffect",
+          "statusEffectName": "剛憤",
+          "groupKey": "selfAbilityBuff",
+          "groupLabel": "自部隊能力強化",
+          "displayRole": "direct-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "tactic_text",
+          "matchedText": "追加効果対象範囲継続剛憤自分 / 単30秒効果時間中に攻撃を受ける度、部隊の与ダメージを効果量ずつ累積して上昇する（累積は50％まで）攻撃変化自分 / 単10秒部隊の攻撃が上昇する戦法威力変化自分 / 単10秒戦法による攻撃の威力が上昇する",
+          "sourceType": "tactic",
+          "statusEffectKey": "statusEffects:138",
+          "canonicalFeatureKey": "status_effect:剛憤",
+          "featureDomain": "statusEffect",
+          "sourceEntityKey": "generals:article-574572",
+          "evidencePath": "sections[2].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-574572:tactic_text:statusEffect:status_effect:剛憤:ba366377"
+        }
+      ],
+      "typeFeatures": [
+        {
+          "featureId": "parameter:critical_tactic_rate",
+          "label": "撃心発生",
+          "featureType": "parameter",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に5％の剛憤を付与して攻撃を100％、戦法威力を50％上昇（この武将の将星ランクに応じて、攻撃上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に350％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 念術踏舞の追加効果 追加効果対象範…",
+          "rawText": "兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に5％の剛憤を付与して攻撃を100％、戦法威力を50％上昇（この武将の将星ランクに応じて、攻撃上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に350％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 念術踏舞の追加効果 追加効果対象範…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "concept:critical_tactic_rate",
+          "featureDomain": "parameter",
+          "sourceEntityKey": "generals:article-574572",
+          "evidencePath": "sections[1].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-574572:tactic_text:parameter:concept:critical_tactic_rate:27174620"
+        },
+        {
+          "featureId": "parameter:critical_tactic_power",
+          "label": "撃心威力",
+          "featureType": "parameter",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に5％の剛憤を付与して攻撃を100％、戦法威力を50％上昇（この武将の将星ランクに応じて、攻撃上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に350％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 念術踏舞の追加効果 追加効果対象範…",
+          "rawText": "兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に5％の剛憤を付与して攻撃を100％、戦法威力を50％上昇（この武将の将星ランクに応じて、攻撃上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に350％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 念術踏舞の追加効果 追加効果対象範…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "concept:critical_tactic_power",
+          "featureDomain": "parameter",
+          "sourceEntityKey": "generals:article-574572",
+          "evidencePath": "sections[1].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-574572:tactic_text:parameter:concept:critical_tactic_power:27174620"
+        },
+        {
+          "featureId": "skill_effect:annihilation_avoidance",
+          "label": "壊滅回避",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に5％の剛憤を付与して攻撃を100％、戦法威力を50％上昇（この武将の将星ランクに応じて、攻撃上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に350％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 念術踏舞の追加効果 追加効果対象範…",
+          "rawText": "兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に5％の剛憤を付与して攻撃を100％、戦法威力を50％上昇（この武将の将星ランクに応じて、攻撃上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に350％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 念術踏舞の追加効果 追加効果対象範…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:annihilation_avoidance",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574572",
+          "evidencePath": "sections[1].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-574572:tactic_text:skillEffect:skill_effect:annihilation_avoidance:27174620"
+        },
+        {
+          "featureId": "skill_effect:remaining_troops",
+          "label": "残存兵力",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に5％の剛憤を付与して攻撃を100％、戦法威力を50％上昇（この武将の将星ランクに応じて、攻撃上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に350％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 念術踏舞の追加効果 追加効果対象範…",
+          "rawText": "兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に5％の剛憤を付与して攻撃を100％、戦法威力を50％上昇（この武将の将星ランクに応じて、攻撃上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に350％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 念術踏舞の追加効果 追加効果対象範…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:remaining_troops",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574572",
+          "evidencePath": "sections[1].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-574572:tactic_text:skillEffect:skill_effect:remaining_troops:27174620"
+        },
+        {
+          "featureId": "parameter:tactic_power",
+          "label": "戦法威力",
+          "featureType": "parameter",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に5％の剛憤を付与して攻撃を100％、戦法威力を50％上昇（この武将の将星ランクに応じて、攻撃上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に350％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 念術踏舞の追加効果 追加効果対象範…",
+          "rawText": "兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に5％の剛憤を付与して攻撃を100％、戦法威力を50％上昇（この武将の将星ランクに応じて、攻撃上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に350％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 念術踏舞の追加効果 追加効果対象範…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "parameter:tactic_power",
+          "featureDomain": "parameter",
+          "sourceEntityKey": "generals:article-574572",
+          "evidencePath": "sections[1].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-574572:tactic_text:parameter:parameter:tactic_power:27174620"
+        },
+        {
+          "featureId": "skill_effect:attack_nullify",
+          "label": "攻撃無効",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に5％の剛憤を付与して攻撃を100％、戦法威力を50％上昇（この武将の将星ランクに応じて、攻撃上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に350％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 念術踏舞の追加効果 追加効果対象範…",
+          "rawText": "兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に5％の剛憤を付与して攻撃を100％、戦法威力を50％上昇（この武将の将星ランクに応じて、攻撃上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に350％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 念術踏舞の追加効果 追加効果対象範…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:attack_nullify",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574572",
+          "evidencePath": "sections[1].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-574572:tactic_text:skillEffect:skill_effect:attack_nullify:27174620"
+        },
+        {
+          "featureId": "skill_effect:damage_reduction",
+          "label": "被ダメージ軽減",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に5％の剛憤を付与して攻撃を100％、戦法威力を50％上昇（この武将の将星ランクに応じて、攻撃上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に350％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 念術踏舞の追加効果 追加効果対象範…",
+          "rawText": "兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に5％の剛憤を付与して攻撃を100％、戦法威力を50％上昇（この武将の将星ランクに応じて、攻撃上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に350％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 念術踏舞の追加効果 追加効果対象範…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:damage_reduction",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574572",
+          "evidencePath": "sections[1].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-574572:tactic_text:skillEffect:skill_effect:damage_reduction:27174620"
+        },
+        {
+          "featureId": "skill_effect:effect_duration",
+          "label": "効果時間",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に5％の剛憤を付与して攻撃を100％、戦法威力を50％上昇（この武将の将星ランクに応じて、攻撃上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に350％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 念術踏舞の追加効果 追加効果対象範…",
+          "rawText": "兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に5％の剛憤を付与して攻撃を100％、戦法威力を50％上昇（この武将の将星ランクに応じて、攻撃上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に350％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 念術踏舞の追加効果 追加効果対象範…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:effect_duration",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574572",
+          "evidencePath": "sections[1].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-574572:tactic_text:skillEffect:skill_effect:effect_duration:27174620"
+        },
+        {
+          "featureId": "skill_effect:enemy_target_count",
+          "label": "敵対象部隊数",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に5％の剛憤を付与して攻撃を100％、戦法威力を50％上昇（この武将の将星ランクに応じて、攻撃上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に350％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 念術踏舞の追加効果 追加効果対象範…",
+          "rawText": "兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に5％の剛憤を付与して攻撃を100％、戦法威力を50％上昇（この武将の将星ランクに応じて、攻撃上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に350％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 念術踏舞の追加効果 追加効果対象範…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:enemy_target_count",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574572",
+          "evidencePath": "sections[1].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-574572:tactic_text:skillEffect:skill_effect:enemy_target_count:27174620"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に5％の剛憤を付与して攻撃を100％、戦法威力を50％上昇（この武将の将星ランクに応じて、攻撃上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に350％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 念術踏舞の追加効果 追加効果対象範…",
+          "rawText": "兵科効果系統攻撃属性騎兵物理なし効果自身1部隊に5％の剛憤を付与して攻撃を100％、戦法威力を50％上昇（この武将の将星ランクに応じて、攻撃上昇の効果量が10％ずつ上昇）対象を含む敵3部隊に350％の攻撃（自部隊の「南蛮」の技能Lv×20%、威力が上昇 最大+100%）発動間隔対象範囲発動率連鎖順25秒敵 / 中25％早い 念術踏舞の追加効果 追加効果対象範…",
+          "sourceType": "tactic",
+          "canonicalFeatureKey": "skill_effect:self_disadvantage_countermeasure",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574572",
+          "evidencePath": "sections[1].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general"
+            ],
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
+          },
+          "typeFeatureKey": "generals:article-574572:tactic_text:skillEffect:skill_effect:self_disadvantage_countermeasure:27174620"
+        },
+        {
+          "featureId": "parameter:critical_tactic_rate",
+          "label": "撃心発生",
+          "featureType": "parameter",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "部隊の「南蛮」のLv×10%、自身1部隊の撃心発生が上昇（10秒）",
+          "rawText": "部隊の「南蛮」のLv×10%、自身1部隊の撃心発生が上昇（10秒）",
+          "canonicalFeatureKey": "concept:critical_tactic_rate",
+          "featureDomain": "parameter",
+          "sourceEntityKey": "generals:article-574572",
+          "evidencePath": "sections[3].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-574572:skill_text:parameter:concept:critical_tactic_rate:1f56e4f1"
+        },
+        {
+          "featureId": "parameter:critical_tactic_power",
+          "label": "撃心威力",
+          "featureType": "parameter",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "部隊の「南蛮」のLv×10%、部隊の撃心威力が上昇（10秒）",
+          "rawText": "部隊の「南蛮」のLv×10%、部隊の撃心威力が上昇（10秒）",
+          "canonicalFeatureKey": "concept:critical_tactic_power",
+          "featureDomain": "parameter",
+          "sourceEntityKey": "generals:article-574572",
+          "evidencePath": "sections[3].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-574572:skill_text:parameter:concept:critical_tactic_power:723c774e"
+        },
+        {
+          "featureId": "skill_effect:annihilation_avoidance",
+          "label": "壊滅回避",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "南蛮1■常に▼兵力が500以上の時 ●壊滅するダメージを受けても残存兵力の10%が残る走獣2■常に ●この技能を持つ武将の将星ランクに応じて、物理系統の通常攻撃・戦法の与ダメージが上昇（将星ランク1につき3％上昇） ●自身1部隊にかかる一部の不利変化（強化無効、通常攻撃縮小、戦法範囲縮小、騎兵戦法抑圧）と全ての能力弱化効果を避ける▼自部隊の孟獲/祝融/花鬘/兀突骨/朶思大王/木鹿大王が戦法を発動した時 ●その武将の戦法の攻撃威力を200％上乗せした状態で戦法攻撃を行う（その武将の戦法が非攻撃戦法の場合は効果なし） …",
+          "rawText": "南蛮1■常に▼兵力が500以上の時 ●壊滅するダメージを受けても残存兵力の10%が残る走獣2■常に ●この技能を持つ武将の将星ランクに応じて、物理系統の通常攻撃・戦法の与ダメージが上昇（将星ランク1につき3％上昇） ●自身1部隊にかかる一部の不利変化（強化無効、通常攻撃縮小、戦法範囲縮小、騎兵戦法抑圧）と全ての能力弱化効果を避ける▼自部隊の孟獲/祝融/花鬘/兀突骨/朶思大王/木鹿大王が戦法を発動した時 ●その武将の戦法の攻撃威力を200％上乗せした状態で戦法攻撃を行う（その武将の戦法が非攻撃戦法の場合は効果なし） …",
+          "canonicalFeatureKey": "skill_effect:annihilation_avoidance",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574572",
+          "evidencePath": "sections[3].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-574572:skill_text:skillEffect:skill_effect:annihilation_avoidance:b45b60bb"
+        },
+        {
+          "featureId": "skill_effect:remaining_troops",
+          "label": "残存兵力",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "壊滅するダメージを受けても残存兵力の10%が残る走獣2",
+          "rawText": "壊滅するダメージを受けても残存兵力の10%が残る走獣2",
+          "canonicalFeatureKey": "skill_effect:remaining_troops",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574572",
+          "evidencePath": "sections[3].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-574572:skill_text:skillEffect:skill_effect:remaining_troops:d6a006f7"
+        },
+        {
+          "featureId": "skill_effect:attack_nullify",
+          "label": "攻撃無効",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "自部隊の通常攻撃・戦法攻撃時、敵部隊の一部の有利変化（取込、攻撃無効、堅固）を無視してダメージを与える探究2",
+          "rawText": "自部隊の通常攻撃・戦法攻撃時、敵部隊の一部の有利変化（取込、攻撃無効、堅固）を無視してダメージを与える探究2",
+          "canonicalFeatureKey": "skill_effect:attack_nullify",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574572",
+          "evidencePath": "sections[3].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-574572:skill_text:skillEffect:skill_effect:attack_nullify:17217eee"
+        },
+        {
+          "featureId": "skill_effect:damage_reduction",
+          "label": "被ダメージ軽減",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "南蛮1■常に▼兵力が500以上の時 ●壊滅するダメージを受けても残存兵力の10%が残る走獣2■常に ●この技能を持つ武将の将星ランクに応じて、物理系統の通常攻撃・戦法の与ダメージが上昇（将星ランク1につき3％上昇） ●自身1部隊にかかる一部の不利変化（強化無効、通常攻撃縮小、戦法範囲縮小、騎兵戦法抑圧）と全ての能力弱化効果を避ける▼自部隊の孟獲/祝融/花鬘/兀突骨/朶思大王/木鹿大王が戦法を発動した時 ●その武将の戦法の攻撃威力を200％上乗せした状態で戦法攻撃を行う（その武将の戦法が非攻撃戦法の場合は効果なし） …",
+          "rawText": "南蛮1■常に▼兵力が500以上の時 ●壊滅するダメージを受けても残存兵力の10%が残る走獣2■常に ●この技能を持つ武将の将星ランクに応じて、物理系統の通常攻撃・戦法の与ダメージが上昇（将星ランク1につき3％上昇） ●自身1部隊にかかる一部の不利変化（強化無効、通常攻撃縮小、戦法範囲縮小、騎兵戦法抑圧）と全ての能力弱化効果を避ける▼自部隊の孟獲/祝融/花鬘/兀突骨/朶思大王/木鹿大王が戦法を発動した時 ●その武将の戦法の攻撃威力を200％上乗せした状態で戦法攻撃を行う（その武将の戦法が非攻撃戦法の場合は効果なし） …",
+          "canonicalFeatureKey": "skill_effect:damage_reduction",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574572",
+          "evidencePath": "sections[3].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-574572:skill_text:skillEffect:skill_effect:damage_reduction:b45b60bb"
+        },
+        {
+          "featureId": "skill_effect:effect_duration",
+          "label": "効果時間",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "自身1部隊にかかる弱化効果の効果時間を25％減少",
+          "rawText": "自身1部隊にかかる弱化効果の効果時間を25％減少",
+          "canonicalFeatureKey": "skill_effect:effect_duration",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574572",
+          "evidencePath": "sections[3].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-574572:skill_text:skillEffect:skill_effect:effect_duration:daa69c13"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "南蛮1■常に▼兵力が500以上の時 ●壊滅するダメージを受けても残存兵力の10%が残る走獣2■常に ●この技能を持つ武将の将星ランクに応じて、物理系統の通常攻撃・戦法の与ダメージが上昇（将星ランク1につき3％上昇） ●自身1部隊にかかる一部の不利変化（強化無効、通常攻撃縮小、戦法範囲縮小、騎兵戦法抑圧）と全ての能力弱化効果を避ける▼自部隊の孟獲/祝融/花鬘/兀突骨/朶思大王/木鹿大王が戦法を発動した時 ●その武将の戦法の攻撃威力を200％上乗せした状態で戦法攻撃を行う（その武将の戦法が非攻撃戦法の場合は効果なし） …",
+          "rawText": "南蛮1■常に▼兵力が500以上の時 ●壊滅するダメージを受けても残存兵力の10%が残る走獣2■常に ●この技能を持つ武将の将星ランクに応じて、物理系統の通常攻撃・戦法の与ダメージが上昇（将星ランク1につき3％上昇） ●自身1部隊にかかる一部の不利変化（強化無効、通常攻撃縮小、戦法範囲縮小、騎兵戦法抑圧）と全ての能力弱化効果を避ける▼自部隊の孟獲/祝融/花鬘/兀突骨/朶思大王/木鹿大王が戦法を発動した時 ●その武将の戦法の攻撃威力を200％上乗せした状態で戦法攻撃を行う（その武将の戦法が非攻撃戦法の場合は効果なし） …",
+          "canonicalFeatureKey": "skill_effect:self_disadvantage_countermeasure",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-574572",
+          "evidencePath": "sections[3].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-574572:skill_text:skillEffect:skill_effect:self_disadvantage_countermeasure:b45b60bb"
+        }
+      ],
+      "statusEffectRefCount": 1,
+      "typeFeatureCount": 18,
+      "sourceEntityKey": "generals:article-574572"
     },
     {
       "category": "generals",
@@ -43574,6 +44540,36 @@
             "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
           "typeFeatureKey": "generals:article-484961:tactic_text:statusEffect:status_effect:砕心:c129d5c6"
+        },
+        {
+          "featureId": "status_effect:弱化反射",
+          "label": "弱化反射",
+          "featureType": "statusEffect",
+          "statusEffectName": "弱化反射",
+          "groupKey": "selfResistanceBuff",
+          "groupLabel": "自部隊不利対策",
+          "displayRole": "granted-status",
+          "source": "hadou_related_link_index.json",
+          "sourcePartType": "skill_text",
+          "matchedText": "弱化反射",
+          "sourceType": "skill",
+          "statusEffectKey": "statusEffects:32",
+          "canonicalFeatureKey": "status_effect:弱化反射",
+          "featureDomain": "statusEffect",
+          "sourceEntityKey": "generals:article-484961",
+          "evidencePath": "sections[5].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-484961:skill_text:statusEffect:status_effect:弱化反射:e260523b"
         }
       ],
       "typeFeatures": [
@@ -43936,7 +44932,7 @@
           "typeFeatureKey": "generals:article-484961:skill_text:skillEffect:skill_effect:effect_duration:dbcf3bec"
         }
       ],
-      "statusEffectRefCount": 2,
+      "statusEffectRefCount": 3,
       "typeFeatureCount": 13,
       "sourceEntityKey": "generals:article-484961"
     },
