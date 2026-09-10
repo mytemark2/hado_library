@@ -80,7 +80,9 @@ for (const [tag, expectedOwners] of ownersByTag) {
 
 const engagementOwners = ownersByTag.get('発動:交戦開始時') || new Set();
 const rawEngagementOwners = new Set((conditionBlocks.items || []).filter(item => item.category === 'generals' && (item.blocks || []).some(block => /^\s*▼[^\n]*交戦開始時/.test(block.sourceText || ''))).map(item => item.name));
-assert.strictEqual(engagementOwners.size, 105);
+// Live data can add owners or change an existing skill without a schema change.
+// Keep a non-empty source gate and exact identity parity below, not a dated count.
+assert(rawEngagementOwners.size > 0, 'explicit source markers must not be empty');
 assert.deepStrictEqual([...engagementOwners].sort(), [...rawEngagementOwners].sort(), 'engagement-start search must match every explicit source marker');
 assert(!ownersByTag.has('条件:交戦開始時'), 'engagement start belongs only to the trigger group');
 assert.strictEqual(bridge.getEntityTags('generals', 'LR馬良（ばりょう）').includes('発動:交戦開始時'), true);
