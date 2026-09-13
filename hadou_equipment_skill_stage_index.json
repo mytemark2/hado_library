@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-09-06T05:56:28.638Z",
-  "dataSetId": "2026-08-31T15:31:22.751Z",
+  "generatedAt": "2026-09-13T02:14:52.583Z",
+  "dataSetId": "2026-09-06T05:56:27.667Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -88,7 +88,7 @@
       "policy": "同じ表示名の装備記事は段階・技能・根拠URLを統合し、先頭記事だけを採用しない。"
     },
     "withSkills": 223,
-    "stageParameterEffectCount": 1234,
+    "stageParameterEffectCount": 1238,
     "suspiciousSkillNameCount": 0,
     "suspiciousSkillNameSamples": [],
     "suspiciousParameterEffectCount": 0,
@@ -15405,9 +15405,9 @@
       "name": "興起嵩峻兜",
       "displayName": "興起嵩峻兜",
       "rawName": "【三國志 覇道】興起嵩峻兜",
-      "highestRarity": "SSR",
+      "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -15494,15 +15494,27 @@
           "skills": [
             {
               "skillName": "活命相克",
-              "text": "■常に ●部隊の「活路」の技能Lv+1（上限5） ●部隊の「克槍」の技能Lv+1（上限3）"
+              "text": "■常に ●部隊の「活路」の技能Lv+2（上限5） ●部隊の「克槍」の技能Lv+1（上限3）▼兵力が50％以下の時 ●通常攻撃・戦法による被ダメージ-10%"
             },
             {
               "skillName": "昂然敏達",
-              "text": "■常に ●部隊の「敏活」の技能Lv+1（上限5）▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊の攻撃+35%（10秒） ●自身を含む味方3部隊の防御+35%（10秒） ●自身を含む味方3部隊の知力+35%（10秒）"
+              "text": "■常に ●部隊の「敏活」の技能Lv+1（上限5）▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊の攻撃+35%（10秒） ●自身を含む味方3部隊の防御+35%（10秒） ●自身を含む味方3部隊の知力+35%（10秒） ●自身1部隊に20%の窮策を付与（10秒）"
+            },
+            {
+              "skillName": "討守断槍",
+              "text": "■常に ●部隊の対歩兵攻撃+15% ●部隊の対歩兵防御+15%"
             }
           ],
-          "skillCount": 2,
+          "skillCount": 3,
           "parameterEffects": [
+            {
+              "parameter": "被ダメージ",
+              "direction": "decrease",
+              "value": "-10%",
+              "targetSide": "self_or_ally",
+              "matchedText": "被ダメージ-10%",
+              "sourcePartType": "equipment-skill-stage"
+            },
             {
               "parameter": "攻撃",
               "direction": "increase",
@@ -15512,11 +15524,27 @@
               "sourcePartType": "equipment-skill-stage"
             },
             {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+15%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+15%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
               "parameter": "防御",
               "direction": "increase",
               "value": "+35%",
               "targetSide": "self_or_ally",
               "matchedText": "防御+35%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "防御",
+              "direction": "increase",
+              "value": "+15%",
+              "targetSide": "self_or_ally",
+              "matchedText": "防御+15%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -15533,6 +15561,15 @@
       "stageCandidates": [
         {
           "tableIndex": 2,
+          "skillCount": 3,
+          "skillNames": [
+            "活命相克",
+            "昂然敏達",
+            "討守断槍"
+          ]
+        },
+        {
+          "tableIndex": 3,
           "skillCount": 2,
           "skillNames": [
             "活命相克",
@@ -15540,7 +15577,7 @@
           ]
         },
         {
-          "tableIndex": 3,
+          "tableIndex": 4,
           "skillCount": 2,
           "skillNames": [
             "活命相克",
@@ -16693,7 +16730,7 @@
       "name": "亢龍鋼鞭",
       "displayName": "亢龍鋼鞭",
       "rawName": "【三國志 覇道】亢龍鋼鞭",
-      "highestRarity": "SSR",
+      "highestRarity": "UR",
       "slot": "武器",
       "troopType": "騎兵",
       "stages": {
@@ -16774,37 +16811,49 @@
           "skills": [
             {
               "skillName": "掃滅豪勇",
-              "text": "■常に ●部隊の「掃討」の技能Lv+1（上限5） ●部隊の「豪傑」の技能Lv+1（上限5）"
+              "text": "■常に ●部隊の「掃討」の技能Lv+2（上限5） ●部隊の「豪傑」の技能Lv+1（上限5） ●部隊の攻撃速度+15%"
             },
             {
               "skillName": "鎮撫騎駆",
-              "text": "■常に ●部隊の「鎮定」の技能Lv+1（上限3）▼主将戦法発動時 ●自身を含む味方3部隊の攻撃+20%（10秒） ●自身を含む味方3部隊の防御+20%（10秒） ●自身1部隊の会心発生+15%（10秒）"
+              "text": "■常に ●部隊の「鎮定」の技能Lv+1（上限3）▼主将戦法発動時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身1部隊の会心発生+20%（10秒） ●自身1部隊に1回の威槍を付与（10秒）"
+            },
+            {
+              "skillName": "掃定会覇",
+              "text": "■常に ●部隊の「相討」のLv×4%、部隊の会心威力が上昇"
             }
           ],
-          "skillCount": 2,
+          "skillCount": 3,
           "parameterEffects": [
             {
-              "parameter": "会心発生",
+              "parameter": "攻撃速度",
               "direction": "increase",
               "value": "+15%",
               "targetSide": "self_or_ally",
-              "matchedText": "会心発生+15%",
+              "matchedText": "攻撃速度+15%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "会心発生",
+              "direction": "increase",
+              "value": "+20%",
+              "targetSide": "self_or_ally",
+              "matchedText": "会心発生+20%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
               "parameter": "攻撃",
               "direction": "increase",
-              "value": "+20%",
+              "value": "+25%",
               "targetSide": "self_or_ally",
-              "matchedText": "攻撃+20%",
+              "matchedText": "攻撃+25%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
               "parameter": "防御",
               "direction": "increase",
-              "value": "+20%",
+              "value": "+25%",
               "targetSide": "self_or_ally",
-              "matchedText": "防御+20%",
+              "matchedText": "防御+25%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -16813,6 +16862,15 @@
       "stageCandidates": [
         {
           "tableIndex": 2,
+          "skillCount": 3,
+          "skillNames": [
+            "掃滅豪勇",
+            "鎮撫騎駆",
+            "掃定会覇"
+          ]
+        },
+        {
+          "tableIndex": 3,
           "skillCount": 2,
           "skillNames": [
             "掃滅豪勇",
@@ -16820,7 +16878,7 @@
           ]
         },
         {
-          "tableIndex": 3,
+          "tableIndex": 4,
           "skillCount": 2,
           "skillNames": [
             "掃滅豪勇",

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-09-06T05:56:28.638Z",
-  "dataSetId": "2026-08-31T15:31:22.751Z",
+  "generatedAt": "2026-09-13T02:14:52.583Z",
+  "dataSetId": "2026-09-06T05:56:27.667Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -14450,7 +14450,7 @@
       "category": "equipments",
       "name": "興起嵩峻兜",
       "displayName": "興起嵩峻兜",
-      "highestRarity": "SSR",
+      "highestRarity": "UR",
       "slot": "防具",
       "troopTypes": [
         "歩兵",
@@ -14459,13 +14459,14 @@
       ],
       "skillNames": [
         "活命相克",
-        "昂然敏達"
+        "昂然敏達",
+        "討守断槍"
       ],
-      "skillCount": 2,
+      "skillCount": 3,
       "stageSkillCounts": {
         "initial": 2,
         "ssrMax": 2,
-        "urMax": 2
+        "urMax": 3
       },
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/417593"
     },
@@ -14695,20 +14696,21 @@
       "category": "equipments",
       "name": "亢龍鋼鞭",
       "displayName": "亢龍鋼鞭",
-      "highestRarity": "SSR",
+      "highestRarity": "UR",
       "slot": "武器",
       "troopTypes": [
         "騎兵"
       ],
       "skillNames": [
         "掃滅豪勇",
-        "鎮撫騎駆"
+        "鎮撫騎駆",
+        "掃定会覇"
       ],
-      "skillCount": 2,
+      "skillCount": 3,
       "stageSkillCounts": {
         "initial": 2,
         "ssrMax": 2,
-        "urMax": 2
+        "urMax": 3
       },
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/405123"
     },

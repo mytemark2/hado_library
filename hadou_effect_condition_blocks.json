@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-09-06T05:56:28.638Z",
-  "dataSetId": "2026-08-31T15:31:22.751Z",
+  "generatedAt": "2026-09-13T02:14:52.583Z",
+  "dataSetId": "2026-09-06T05:56:27.667Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -78,7 +78,7 @@
   "kind": "effect_condition_blocks",
   "qualityAudit": {
     "itemCount": 1836,
-    "blockCount": 14337,
+    "blockCount": 14359,
     "byCategory": {
       "generals": 485,
       "tactics": 464,
@@ -88,21 +88,21 @@
       "siege_weapons": 5
     },
     "byBlockType": {
-      "condition": 4905,
-      "effect": 6136,
-      "conditionedEffect": 3296
+      "condition": 4907,
+      "effect": 6155,
+      "conditionedEffect": 3297
     },
     "byEffectKind": {
-      "statusEffect": 2797,
-      "parameter": 5823,
+      "statusEffect": 2799,
+      "parameter": 5835,
       "chainRate": 510,
       "tacticAttack": 584,
-      "skillLevelReference": 1064,
+      "skillLevelReference": 1070,
       "rangeGate": 4
     },
     "rangeGateCount": 4,
     "chainRateCount": 510,
-    "skillLevelReferenceCount": 1064,
+    "skillLevelReferenceCount": 1070,
     "excludedSourceBlockCount": 0
   },
   "items": [
@@ -915,7 +915,7 @@
           "blockId": "generals:2:0",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "南蛮",
-          "sourceIndex": "4:0",
+          "sourceIndex": "5:0",
           "sentenceIndex": 1,
           "conditionText": "時 / 以上",
           "effectText": "▼兵力が500以上の時",
@@ -932,7 +932,7 @@
           "blockId": "generals:2:1",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "毒念",
-          "sourceIndex": "4:1",
+          "sourceIndex": "5:1",
           "sentenceIndex": 1,
           "conditionText": "応じて",
           "effectText": "●この技能を持つ武将の将星ランクに応じて、知力系統の通常攻撃・戦法による被ダメージを軽減（将星ランク1につき3％軽減）",
@@ -949,7 +949,7 @@
           "blockId": "generals:2:2",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "毒念",
-          "sourceIndex": "4:1",
+          "sourceIndex": "5:1",
           "sentenceIndex": 2,
           "conditionText": "の際 / 主将",
           "effectText": "■主将か、自部隊の主将が孟獲/祝融/花鬘/兀突骨/木鹿大王の際",
@@ -964,7 +964,7 @@
           "blockId": "generals:2:3",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "毒念",
-          "sourceIndex": "4:1",
+          "sourceIndex": "5:1",
           "sentenceIndex": 3,
           "conditionText": "時",
           "effectText": "●自部隊が弱化効果や即時効果を付与する際、自部隊の知力を400％上昇させた状態で劇毒の付与を行う（敵部隊との知力差による発生率の変動や、知力を条件とした発生率/効果時間の変動効果などに適用される）",
@@ -982,7 +982,7 @@
           "blockId": "generals:2:4",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "毒念",
-          "sourceIndex": "4:1",
+          "sourceIndex": "5:1",
           "sentenceIndex": 4,
           "conditionText": "時",
           "effectText": "▼部隊が武装「藤甲」「戦象鞍」「南蛮羽箭」を編制して健在の時",
@@ -997,7 +997,7 @@
           "blockId": "generals:2:5",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "毒念",
-          "sourceIndex": "4:1",
+          "sourceIndex": "5:1",
           "sentenceIndex": 5,
           "conditionText": "時",
           "effectText": "●部隊の知力+1000（編制時点の知力に加算）",
@@ -1014,7 +1014,7 @@
           "blockId": "generals:2:6",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "毒念",
-          "sourceIndex": "4:1",
+          "sourceIndex": "5:1",
           "sentenceIndex": 6,
           "conditionText": "",
           "effectText": "●通常攻撃でダメージを与えた際、3％の劇毒を付与（8秒）",
@@ -1031,7 +1031,7 @@
           "blockId": "generals:2:7",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "毒念",
-          "sourceIndex": "4:1",
+          "sourceIndex": "5:1",
           "sentenceIndex": 7,
           "conditionText": "時",
           "effectText": "●自部隊の通常攻撃・戦法攻撃時、自部隊の一部の能力弱化効果（攻撃低下、知力低下）と一部の不利変化（弱化積鈍、不利消沈）を無視してダメージを与える",
@@ -1049,7 +1049,7 @@
           "blockId": "generals:2:8",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "指導",
-          "sourceIndex": "4:2",
+          "sourceIndex": "5:2",
           "sentenceIndex": 0,
           "conditionText": "時",
           "effectText": "■研究所に任命時",
@@ -1064,7 +1064,7 @@
           "blockId": "generals:2:9",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "追毒",
-          "sourceIndex": "4:3",
+          "sourceIndex": "5:3",
           "sentenceIndex": 2,
           "conditionText": "の際 / 主将",
           "effectText": "■主将か、自部隊の主将が孟獲/祝融/花鬘/兀突骨/木鹿大王の際",
@@ -1079,7 +1079,7 @@
           "blockId": "generals:2:10",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "追毒",
-          "sourceIndex": "4:3",
+          "sourceIndex": "5:3",
           "sentenceIndex": 3,
           "conditionText": "",
           "effectText": "●劇毒状態の敵部隊に対する通常攻撃・戦法による与ダメージ+30%、被ダメージ-30%",
@@ -1097,7 +1097,7 @@
           "blockId": "generals:2:11",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "追毒",
-          "sourceIndex": "4:3",
+          "sourceIndex": "5:3",
           "sentenceIndex": 4,
           "conditionText": "時",
           "effectText": "▼部隊が武装「藤甲」「戦象鞍」「南蛮羽箭」を編制して健在の時",
@@ -1112,7 +1112,7 @@
           "blockId": "generals:2:12",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "追毒",
-          "sourceIndex": "4:3",
+          "sourceIndex": "5:3",
           "sentenceIndex": 5,
           "conditionText": "時",
           "effectText": "●通常攻撃でダメージを与えた際、敵部隊にすでに発生している強化効果のうち3つの効果時間を4秒短縮",
@@ -1129,7 +1129,7 @@
           "blockId": "generals:2:13",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "追毒",
-          "sourceIndex": "4:3",
+          "sourceIndex": "5:3",
           "sentenceIndex": 6,
           "conditionText": "",
           "effectText": "●通常攻撃でダメージを与えた際、弱化残存（30％）/強化無効（2回）/萎縮のうちランダムに1つ付与（10秒）",
@@ -1156,7 +1156,7 @@
           "blockId": "generals:3:0",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "南蛮",
-          "sourceIndex": "4:0",
+          "sourceIndex": "5:0",
           "sentenceIndex": 1,
           "conditionText": "時 / 以上",
           "effectText": "▼兵力が500以上の時",
@@ -1173,7 +1173,7 @@
           "blockId": "generals:3:1",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "走獣",
-          "sourceIndex": "4:1",
+          "sourceIndex": "5:1",
           "sentenceIndex": 1,
           "conditionText": "応じて",
           "effectText": "●この技能を持つ武将の将星ランクに応じて、物理系統の通常攻撃・戦法の与ダメージが上昇（将星ランク1につき3％上昇）",
@@ -1190,7 +1190,7 @@
           "blockId": "generals:3:2",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "走獣",
-          "sourceIndex": "4:1",
+          "sourceIndex": "5:1",
           "sentenceIndex": 2,
           "conditionText": "",
           "effectText": "●自身1部隊にかかる一部の不利変化（強化無効、通常攻撃縮小、戦法範囲縮小、騎兵戦法抑圧）と全ての能力弱化効果を避ける",
@@ -1207,7 +1207,7 @@
           "blockId": "generals:3:3",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "走獣",
-          "sourceIndex": "4:1",
+          "sourceIndex": "5:1",
           "sentenceIndex": 3,
           "conditionText": "時 / 戦法を発動",
           "effectText": "▼自部隊の孟獲/祝融/花鬘/兀突骨/朶思大王/木鹿大王が戦法を発動した時",
@@ -1222,7 +1222,7 @@
           "blockId": "generals:3:4",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "走獣",
-          "sourceIndex": "4:1",
+          "sourceIndex": "5:1",
           "sentenceIndex": 4,
           "conditionText": "場合",
           "effectText": "●その武将の戦法の攻撃威力を200％上乗せした状態で戦法攻撃を行う（その武将の戦法が非攻撃戦法の場合は効果なし） ※戦法による攻撃威力の変動計算後に上乗せされる",
@@ -1240,7 +1240,7 @@
           "blockId": "generals:3:5",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "走獣",
-          "sourceIndex": "4:1",
+          "sourceIndex": "5:1",
           "sentenceIndex": 5,
           "conditionText": "の際 / 主将",
           "effectText": "■主将か、自部隊の主将が孟獲/祝融/花鬘/兀突骨/朶思大王の際",
@@ -1255,7 +1255,7 @@
           "blockId": "generals:3:6",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "走獣",
-          "sourceIndex": "4:1",
+          "sourceIndex": "5:1",
           "sentenceIndex": 6,
           "conditionText": "時 / 出陣時",
           "effectText": "●敵部隊を攻撃する際、通常攻撃のダメージに出陣時の自部隊の攻撃の10％分を加算する（加算後の上限は1000）",
@@ -1270,7 +1270,7 @@
           "blockId": "generals:3:7",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "走獣",
-          "sourceIndex": "4:1",
+          "sourceIndex": "5:1",
           "sentenceIndex": 7,
           "conditionText": "時",
           "effectText": "●自部隊の通常攻撃・戦法攻撃時、敵部隊の一部の有利変化（取込、攻撃無効、堅固）を無視してダメージを与える",
@@ -1287,7 +1287,7 @@
           "blockId": "generals:3:8",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "探究",
-          "sourceIndex": "4:2",
+          "sourceIndex": "5:2",
           "sentenceIndex": 0,
           "conditionText": "時",
           "effectText": "■文化府に任命時",
@@ -1302,7 +1302,7 @@
           "blockId": "generals:3:9",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "象撃",
-          "sourceIndex": "4:3",
+          "sourceIndex": "5:3",
           "sentenceIndex": 1,
           "conditionText": "",
           "effectText": "●部隊の「南蛮」のLv×3%、部隊の兵力が上昇",
@@ -1319,7 +1319,7 @@
           "blockId": "generals:3:10",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "象撃",
-          "sourceIndex": "4:3",
+          "sourceIndex": "5:3",
           "sentenceIndex": 3,
           "conditionText": "時 / 戦法を発動",
           "effectText": "▼自部隊の孟獲/祝融/花鬘/兀突骨/朶思大王/木鹿大王が戦法を発動した時",
@@ -1334,7 +1334,7 @@
           "blockId": "generals:3:11",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "象撃",
-          "sourceIndex": "4:3",
+          "sourceIndex": "5:3",
           "sentenceIndex": 4,
           "conditionText": "",
           "effectText": "●部隊の「南蛮」のLv×10%、自身1部隊の撃心発生が上昇（10秒）",
@@ -1351,7 +1351,7 @@
           "blockId": "generals:3:12",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "象撃",
-          "sourceIndex": "4:3",
+          "sourceIndex": "5:3",
           "sentenceIndex": 5,
           "conditionText": "",
           "effectText": "●部隊の「南蛮」のLv×10%、部隊の撃心威力が上昇（10秒）",
@@ -1368,7 +1368,7 @@
           "blockId": "generals:3:13",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "象撃",
-          "sourceIndex": "4:3",
+          "sourceIndex": "5:3",
           "sentenceIndex": 6,
           "conditionText": "の際 / 主将",
           "effectText": "■主将か、自部隊の主将が孟獲/祝融/花鬘/兀突骨/朶思大王の際",
@@ -1383,7 +1383,7 @@
           "blockId": "generals:3:14",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "象撃",
-          "sourceIndex": "4:3",
+          "sourceIndex": "5:3",
           "sentenceIndex": 7,
           "conditionText": "時",
           "effectText": "▼部隊が武装「戦象鞍」を編制して健在の時",
@@ -1398,7 +1398,7 @@
           "blockId": "generals:3:15",
           "sourcePartType": "general-skill-table",
           "sourceTitle": "象撃",
-          "sourceIndex": "4:3",
+          "sourceIndex": "5:3",
           "sentenceIndex": 8,
           "conditionText": "時",
           "effectText": "●自身1部隊にかかる弱化効果の効果時間を25％減少",
@@ -223154,7 +223154,7 @@
       "category": "equipments",
       "name": "興起嵩峻兜",
       "displayName": "興起嵩峻兜",
-      "blockCount": 13,
+      "blockCount": 25,
       "blocks": [
         {
           "blockId": "equipments:106:0",
@@ -223163,8 +223163,8 @@
           "sourceIndex": "2:0",
           "sentenceIndex": 1,
           "conditionText": "",
-          "effectText": "●部隊の「活路」の技能Lv+1（上限5）",
-          "sourceText": "●部隊の「活路」の技能Lv+1（上限5）",
+          "effectText": "●部隊の「活路」の技能Lv+2（上限5）",
+          "sourceText": "●部隊の「活路」の技能Lv+2（上限5）",
           "blockType": "effect",
           "effectKinds": [
             "skillLevelReference"
@@ -223193,6 +223193,40 @@
         {
           "blockId": "equipments:106:2",
           "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "活命相克",
+          "sourceIndex": "2:0",
+          "sentenceIndex": 3,
+          "conditionText": "時 / 以下",
+          "effectText": "▼兵力が50％以下の時",
+          "sourceText": "▼兵力が50％以下の時",
+          "blockType": "conditionedEffect",
+          "effectKinds": [
+            "parameter"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:106:3",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "活命相克",
+          "sourceIndex": "2:0",
+          "sentenceIndex": 4,
+          "conditionText": "",
+          "effectText": "●通常攻撃・戦法による被ダメージ-10%",
+          "sourceText": "●通常攻撃・戦法による被ダメージ-10%",
+          "blockType": "effect",
+          "effectKinds": [
+            "parameter"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:106:4",
+          "sourcePartType": "equipment-skill-table",
           "sourceTitle": "昂然敏達",
           "sourceIndex": "2:1",
           "sentenceIndex": 1,
@@ -223208,7 +223242,7 @@
           "hasSkillLevelReference": true
         },
         {
-          "blockId": "equipments:106:3",
+          "blockId": "equipments:106:5",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "昂然敏達",
           "sourceIndex": "2:1",
@@ -223223,7 +223257,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "equipments:106:4",
+          "blockId": "equipments:106:6",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "昂然敏達",
           "sourceIndex": "2:1",
@@ -223240,7 +223274,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "equipments:106:5",
+          "blockId": "equipments:106:7",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "昂然敏達",
           "sourceIndex": "2:1",
@@ -223257,7 +223291,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "equipments:106:6",
+          "blockId": "equipments:106:8",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "昂然敏達",
           "sourceIndex": "2:1",
@@ -223274,7 +223308,58 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "equipments:106:7",
+          "blockId": "equipments:106:9",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "昂然敏達",
+          "sourceIndex": "2:1",
+          "sentenceIndex": 6,
+          "conditionText": "",
+          "effectText": "●自身1部隊に20%の窮策を付与（10秒）",
+          "sourceText": "●自身1部隊に20%の窮策を付与（10秒）",
+          "blockType": "effect",
+          "effectKinds": [
+            "statusEffect"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:106:10",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "討守断槍",
+          "sourceIndex": "2:2",
+          "sentenceIndex": 1,
+          "conditionText": "",
+          "effectText": "●部隊の対歩兵攻撃+15%",
+          "sourceText": "●部隊の対歩兵攻撃+15%",
+          "blockType": "effect",
+          "effectKinds": [
+            "parameter"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:106:11",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "討守断槍",
+          "sourceIndex": "2:2",
+          "sentenceIndex": 2,
+          "conditionText": "",
+          "effectText": "●部隊の対歩兵防御+15%",
+          "sourceText": "●部隊の対歩兵防御+15%",
+          "blockType": "effect",
+          "effectKinds": [
+            "parameter"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:106:12",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "活命相克",
           "sourceIndex": "3:0",
@@ -223291,7 +223376,7 @@
           "hasSkillLevelReference": true
         },
         {
-          "blockId": "equipments:106:8",
+          "blockId": "equipments:106:13",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "活命相克",
           "sourceIndex": "3:0",
@@ -223308,10 +223393,127 @@
           "hasSkillLevelReference": true
         },
         {
-          "blockId": "equipments:106:9",
+          "blockId": "equipments:106:14",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "昂然敏達",
           "sourceIndex": "3:1",
+          "sentenceIndex": 1,
+          "conditionText": "",
+          "effectText": "●部隊の「敏活」の技能Lv+1（上限5）",
+          "sourceText": "●部隊の「敏活」の技能Lv+1（上限5）",
+          "blockType": "effect",
+          "effectKinds": [
+            "skillLevelReference"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": true
+        },
+        {
+          "blockId": "equipments:106:15",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "昂然敏達",
+          "sourceIndex": "3:1",
+          "sentenceIndex": 2,
+          "conditionText": "時 / 戦法を発動",
+          "effectText": "▼この技能を持つ武将が戦法を発動した時",
+          "sourceText": "▼この技能を持つ武将が戦法を発動した時",
+          "blockType": "condition",
+          "effectKinds": [],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:106:16",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "昂然敏達",
+          "sourceIndex": "3:1",
+          "sentenceIndex": 3,
+          "conditionText": "",
+          "effectText": "●自身を含む味方3部隊の攻撃+35%（10秒）",
+          "sourceText": "●自身を含む味方3部隊の攻撃+35%（10秒）",
+          "blockType": "effect",
+          "effectKinds": [
+            "parameter"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:106:17",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "昂然敏達",
+          "sourceIndex": "3:1",
+          "sentenceIndex": 4,
+          "conditionText": "",
+          "effectText": "●自身を含む味方3部隊の防御+35%（10秒）",
+          "sourceText": "●自身を含む味方3部隊の防御+35%（10秒）",
+          "blockType": "effect",
+          "effectKinds": [
+            "parameter"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:106:18",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "昂然敏達",
+          "sourceIndex": "3:1",
+          "sentenceIndex": 5,
+          "conditionText": "",
+          "effectText": "●自身を含む味方3部隊の知力+35%（10秒）",
+          "sourceText": "●自身を含む味方3部隊の知力+35%（10秒）",
+          "blockType": "effect",
+          "effectKinds": [
+            "parameter"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:106:19",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "活命相克",
+          "sourceIndex": "4:0",
+          "sentenceIndex": 1,
+          "conditionText": "",
+          "effectText": "●部隊の「活路」の技能Lv+1（上限5）",
+          "sourceText": "●部隊の「活路」の技能Lv+1（上限5）",
+          "blockType": "effect",
+          "effectKinds": [
+            "skillLevelReference"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": true
+        },
+        {
+          "blockId": "equipments:106:20",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "活命相克",
+          "sourceIndex": "4:0",
+          "sentenceIndex": 2,
+          "conditionText": "",
+          "effectText": "●部隊の「克槍」の技能Lv+1（上限3）",
+          "sourceText": "●部隊の「克槍」の技能Lv+1（上限3）",
+          "blockType": "effect",
+          "effectKinds": [
+            "skillLevelReference"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": true
+        },
+        {
+          "blockId": "equipments:106:21",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "昂然敏達",
+          "sourceIndex": "4:1",
           "sentenceIndex": 1,
           "conditionText": "時 / 戦法を発動",
           "effectText": "▼この技能を持つ武将が戦法を発動した時",
@@ -223323,10 +223525,10 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "equipments:106:10",
+          "blockId": "equipments:106:22",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "昂然敏達",
-          "sourceIndex": "3:1",
+          "sourceIndex": "4:1",
           "sentenceIndex": 2,
           "conditionText": "",
           "effectText": "●自身1部隊の攻撃+10%（10秒）",
@@ -223340,10 +223542,10 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "equipments:106:11",
+          "blockId": "equipments:106:23",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "昂然敏達",
-          "sourceIndex": "3:1",
+          "sourceIndex": "4:1",
           "sentenceIndex": 3,
           "conditionText": "",
           "effectText": "●自身1部隊の防御+10%（10秒）",
@@ -223357,10 +223559,10 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "equipments:106:12",
+          "blockId": "equipments:106:24",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "昂然敏達",
-          "sourceIndex": "3:1",
+          "sourceIndex": "4:1",
           "sentenceIndex": 4,
           "conditionText": "",
           "effectText": "●自身1部隊の知力+10%（10秒）",
@@ -225569,7 +225771,7 @@
       "category": "equipments",
       "name": "亢龍鋼鞭",
       "displayName": "亢龍鋼鞭",
-      "blockCount": 12,
+      "blockCount": 22,
       "blocks": [
         {
           "blockId": "equipments:116:0",
@@ -225578,8 +225780,8 @@
           "sourceIndex": "2:0",
           "sentenceIndex": 1,
           "conditionText": "",
-          "effectText": "●部隊の「掃討」の技能Lv+1（上限5）",
-          "sourceText": "●部隊の「掃討」の技能Lv+1（上限5）",
+          "effectText": "●部隊の「掃討」の技能Lv+2（上限5）",
+          "sourceText": "●部隊の「掃討」の技能Lv+2（上限5）",
           "blockType": "effect",
           "effectKinds": [
             "skillLevelReference"
@@ -225608,6 +225810,23 @@
         {
           "blockId": "equipments:116:2",
           "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "掃滅豪勇",
+          "sourceIndex": "2:0",
+          "sentenceIndex": 3,
+          "conditionText": "",
+          "effectText": "●部隊の攻撃速度+15%",
+          "sourceText": "●部隊の攻撃速度+15%",
+          "blockType": "effect",
+          "effectKinds": [
+            "parameter"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:116:3",
+          "sourcePartType": "equipment-skill-table",
           "sourceTitle": "鎮撫騎駆",
           "sourceIndex": "2:1",
           "sentenceIndex": 1,
@@ -225623,7 +225842,7 @@
           "hasSkillLevelReference": true
         },
         {
-          "blockId": "equipments:116:3",
+          "blockId": "equipments:116:4",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "鎮撫騎駆",
           "sourceIndex": "2:1",
@@ -225638,31 +225857,14 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "equipments:116:4",
+          "blockId": "equipments:116:5",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "鎮撫騎駆",
           "sourceIndex": "2:1",
           "sentenceIndex": 3,
           "conditionText": "",
-          "effectText": "●自身を含む味方3部隊の攻撃+20%（10秒）",
-          "sourceText": "●自身を含む味方3部隊の攻撃+20%（10秒）",
-          "blockType": "effect",
-          "effectKinds": [
-            "parameter"
-          ],
-          "hasRangeGate": false,
-          "hasChainRate": false,
-          "hasSkillLevelReference": false
-        },
-        {
-          "blockId": "equipments:116:5",
-          "sourcePartType": "equipment-skill-table",
-          "sourceTitle": "鎮撫騎駆",
-          "sourceIndex": "2:1",
-          "sentenceIndex": 4,
-          "conditionText": "",
-          "effectText": "●自身を含む味方3部隊の防御+20%（10秒）",
-          "sourceText": "●自身を含む味方3部隊の防御+20%（10秒）",
+          "effectText": "●自身を含む味方3部隊の攻撃+25%（10秒）",
+          "sourceText": "●自身を含む味方3部隊の攻撃+25%（10秒）",
           "blockType": "effect",
           "effectKinds": [
             "parameter"
@@ -225676,10 +225878,10 @@
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "鎮撫騎駆",
           "sourceIndex": "2:1",
-          "sentenceIndex": 5,
+          "sentenceIndex": 4,
           "conditionText": "",
-          "effectText": "●自身1部隊の会心発生+15%（10秒）",
-          "sourceText": "●自身1部隊の会心発生+15%（10秒）",
+          "effectText": "●自身を含む味方3部隊の防御+25%（10秒）",
+          "sourceText": "●自身を含む味方3部隊の防御+25%（10秒）",
           "blockType": "effect",
           "effectKinds": [
             "parameter"
@@ -225690,6 +225892,57 @@
         },
         {
           "blockId": "equipments:116:7",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "鎮撫騎駆",
+          "sourceIndex": "2:1",
+          "sentenceIndex": 5,
+          "conditionText": "",
+          "effectText": "●自身1部隊の会心発生+20%（10秒）",
+          "sourceText": "●自身1部隊の会心発生+20%（10秒）",
+          "blockType": "effect",
+          "effectKinds": [
+            "parameter"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:116:8",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "鎮撫騎駆",
+          "sourceIndex": "2:1",
+          "sentenceIndex": 6,
+          "conditionText": "",
+          "effectText": "●自身1部隊に1回の威槍を付与（10秒）",
+          "sourceText": "●自身1部隊に1回の威槍を付与（10秒）",
+          "blockType": "effect",
+          "effectKinds": [
+            "statusEffect"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:116:9",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "掃定会覇",
+          "sourceIndex": "2:2",
+          "sentenceIndex": 1,
+          "conditionText": "",
+          "effectText": "●部隊の「相討」のLv×4%、部隊の会心威力が上昇",
+          "sourceText": "●部隊の「相討」のLv×4%、部隊の会心威力が上昇",
+          "blockType": "effect",
+          "effectKinds": [
+            "parameter"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:116:10",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "掃滅豪勇",
           "sourceIndex": "3:0",
@@ -225706,7 +225959,7 @@
           "hasSkillLevelReference": true
         },
         {
-          "blockId": "equipments:116:8",
+          "blockId": "equipments:116:11",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "掃滅豪勇",
           "sourceIndex": "3:0",
@@ -225723,10 +225976,127 @@
           "hasSkillLevelReference": true
         },
         {
-          "blockId": "equipments:116:9",
+          "blockId": "equipments:116:12",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "鎮撫騎駆",
           "sourceIndex": "3:1",
+          "sentenceIndex": 1,
+          "conditionText": "",
+          "effectText": "●部隊の「鎮定」の技能Lv+1（上限3）",
+          "sourceText": "●部隊の「鎮定」の技能Lv+1（上限3）",
+          "blockType": "effect",
+          "effectKinds": [
+            "skillLevelReference"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": true
+        },
+        {
+          "blockId": "equipments:116:13",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "鎮撫騎駆",
+          "sourceIndex": "3:1",
+          "sentenceIndex": 2,
+          "conditionText": "時 / 主将",
+          "effectText": "▼主将戦法発動時",
+          "sourceText": "▼主将戦法発動時",
+          "blockType": "condition",
+          "effectKinds": [],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:116:14",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "鎮撫騎駆",
+          "sourceIndex": "3:1",
+          "sentenceIndex": 3,
+          "conditionText": "",
+          "effectText": "●自身を含む味方3部隊の攻撃+20%（10秒）",
+          "sourceText": "●自身を含む味方3部隊の攻撃+20%（10秒）",
+          "blockType": "effect",
+          "effectKinds": [
+            "parameter"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:116:15",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "鎮撫騎駆",
+          "sourceIndex": "3:1",
+          "sentenceIndex": 4,
+          "conditionText": "",
+          "effectText": "●自身を含む味方3部隊の防御+20%（10秒）",
+          "sourceText": "●自身を含む味方3部隊の防御+20%（10秒）",
+          "blockType": "effect",
+          "effectKinds": [
+            "parameter"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:116:16",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "鎮撫騎駆",
+          "sourceIndex": "3:1",
+          "sentenceIndex": 5,
+          "conditionText": "",
+          "effectText": "●自身1部隊の会心発生+15%（10秒）",
+          "sourceText": "●自身1部隊の会心発生+15%（10秒）",
+          "blockType": "effect",
+          "effectKinds": [
+            "parameter"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:116:17",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "掃滅豪勇",
+          "sourceIndex": "4:0",
+          "sentenceIndex": 1,
+          "conditionText": "",
+          "effectText": "●部隊の「掃討」の技能Lv+1（上限5）",
+          "sourceText": "●部隊の「掃討」の技能Lv+1（上限5）",
+          "blockType": "effect",
+          "effectKinds": [
+            "skillLevelReference"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": true
+        },
+        {
+          "blockId": "equipments:116:18",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "掃滅豪勇",
+          "sourceIndex": "4:0",
+          "sentenceIndex": 2,
+          "conditionText": "",
+          "effectText": "●部隊の「豪傑」の技能Lv+1（上限5）",
+          "sourceText": "●部隊の「豪傑」の技能Lv+1（上限5）",
+          "blockType": "effect",
+          "effectKinds": [
+            "skillLevelReference"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": true
+        },
+        {
+          "blockId": "equipments:116:19",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "鎮撫騎駆",
+          "sourceIndex": "4:1",
           "sentenceIndex": 1,
           "conditionText": "時 / 主将",
           "effectText": "▼主将戦法発動時",
@@ -225738,10 +226108,10 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "equipments:116:10",
+          "blockId": "equipments:116:20",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "鎮撫騎駆",
-          "sourceIndex": "3:1",
+          "sourceIndex": "4:1",
           "sentenceIndex": 2,
           "conditionText": "",
           "effectText": "●自身1部隊の攻撃+15%（10秒）",
@@ -225755,10 +226125,10 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "equipments:116:11",
+          "blockId": "equipments:116:21",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "鎮撫騎駆",
-          "sourceIndex": "3:1",
+          "sourceIndex": "4:1",
           "sentenceIndex": 3,
           "conditionText": "",
           "effectText": "●自身1部隊の防御+15%（10秒）",

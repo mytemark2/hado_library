@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-09-06T05:56:28.638Z",
-  "dataSetId": "2026-08-31T15:31:22.751Z",
+  "generatedAt": "2026-09-13T02:14:52.583Z",
+  "dataSetId": "2026-09-06T05:56:27.667Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -2465,7 +2465,7 @@
     },
     "itemsWithAnyFeature": 593,
     "statusEffectReferenceCount": 1237,
-    "typeFeatureReferenceCount": 2970,
+    "typeFeatureReferenceCount": 2973,
     "featureCounts": {
       "parameter:critical_tactic_rate": 15,
       "parameter:critical_tactic_power": 22,
@@ -2480,7 +2480,7 @@
       "skill_effect:self_disadvantage_countermeasure": 116,
       "skill_effect:weakening_remove": 65,
       "skill_effect:combat_start_tactic_gauge": 17,
-      "skill_effect:ally_buff_multi": 232,
+      "skill_effect:ally_buff_multi": 233,
       "skill_effect:effect_duration": 102,
       "skill_effect:ally_target_count": 253,
       "skill_effect:annihilation_avoidance": 53,
@@ -2493,8 +2493,8 @@
       "skill_effect:ally_non_damage_effect": 123,
       "skill_effect:normal_attack_target_count": 53,
       "parameter:critical_rate": 101,
-      "parameter:critical_power": 84,
-      "parameter:attack_speed": 166,
+      "parameter:critical_power": 85,
+      "parameter:attack_speed": 167,
       "skill_effect:strengthening_seize_avoid": 6,
       "skill_effect:ally_wounded_recovery": 26,
       "parameter:anti_object": 62,
@@ -2517,7 +2517,7 @@
       "ok": false,
       "pseudoStatusRefCount": 639,
       "droppedStatusRefCount": 733,
-      "droppedFeatureCount": 510,
+      "droppedFeatureCount": 511,
       "requiredFields": [
         "sourceEntityKey",
         "sourcePartType",
@@ -147919,13 +147919,36 @@
           "typeFeatureKey": "equipments:article-417593:equipment_skill_text:skillEffect:skill_effect:ally_buff_multi:c769bb0e"
         },
         {
+          "featureId": "skill_effect:damage_reduction",
+          "label": "被ダメージ軽減",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "UR時の最大技能活命相克■常に ●部隊の「活路」の技能Lv+2（上限5） ●部隊の「克槍」の技能Lv+1（上限3）▼兵力が50％以下の時 ●通常攻撃・戦法による被ダメージ-10%昂然敏達■常に ●部隊の「敏活」の技能Lv+1（上限5）▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊の攻撃+35%（10秒） ●自身を含む味方3部隊の防御+35%（10秒） ●自身を含む味方3部隊の知力+35%（10秒） ●自身1部隊に20%の窮策を付与（10秒）討守断槍■常に ●部隊の対歩兵攻撃+15% ●部隊の対歩兵防…",
+          "rawText": "UR時の最大技能活命相克■常に ●部隊の「活路」の技能Lv+2（上限5） ●部隊の「克槍」の技能Lv+1（上限3）▼兵力が50％以下の時 ●通常攻撃・戦法による被ダメージ-10%昂然敏達■常に ●部隊の「敏活」の技能Lv+1（上限5）▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊の攻撃+35%（10秒） ●自身を含む味方3部隊の防御+35%（10秒） ●自身を含む味方3部隊の知力+35%（10秒） ●自身1部隊に20%の窮策を付与（10秒）討守断槍■常に ●部隊の対歩兵攻撃+15% ●部隊の対歩兵防…",
+          "canonicalFeatureKey": "skill_effect:damage_reduction",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-417593",
+          "evidencePath": "sections[4].content[0]",
+          "sourceType": "equipmentSkill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-417593:equipment_skill_text:skillEffect:skill_effect:damage_reduction:9ca5760d"
+        },
+        {
           "featureId": "skill_effect:ally_target_count",
           "label": "味方対象部隊数",
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "equipment_skill_text",
-          "matchedText": "活命相克■常に ●部隊の「活路」の技能Lv+1（上限5） ●部隊の「克槍」の技能Lv+1（上限3）昂然敏達■常に ●部隊の「敏活」の技能Lv+1（上限5）▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊の攻撃+35%（10秒） ●自身を含む味方3部隊の防御+35%（10秒） ●自身を含む味方3部隊の知力+35%（10秒）",
-          "rawText": "活命相克■常に ●部隊の「活路」の技能Lv+1（上限5） ●部隊の「克槍」の技能Lv+1（上限3）昂然敏達■常に ●部隊の「敏活」の技能Lv+1（上限5）▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊の攻撃+35%（10秒） ●自身を含む味方3部隊の防御+35%（10秒） ●自身を含む味方3部隊の知力+35%（10秒）",
+          "matchedText": "UR時の最大技能活命相克■常に ●部隊の「活路」の技能Lv+2（上限5） ●部隊の「克槍」の技能Lv+1（上限3）▼兵力が50％以下の時 ●通常攻撃・戦法による被ダメージ-10%昂然敏達■常に ●部隊の「敏活」の技能Lv+1（上限5）▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊の攻撃+35%（10秒） ●自身を含む味方3部隊の防御+35%（10秒） ●自身を含む味方3部隊の知力+35%（10秒） ●自身1部隊に20%の窮策を付与（10秒）討守断槍■常に ●部隊の対歩兵攻撃+15% ●部隊の対歩兵防…",
+          "rawText": "UR時の最大技能活命相克■常に ●部隊の「活路」の技能Lv+2（上限5） ●部隊の「克槍」の技能Lv+1（上限3）▼兵力が50％以下の時 ●通常攻撃・戦法による被ダメージ-10%昂然敏達■常に ●部隊の「敏活」の技能Lv+1（上限5）▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊の攻撃+35%（10秒） ●自身を含む味方3部隊の防御+35%（10秒） ●自身を含む味方3部隊の知力+35%（10秒） ●自身1部隊に20%の窮策を付与（10秒）討守断槍■常に ●部隊の対歩兵攻撃+15% ●部隊の対歩兵防…",
           "canonicalFeatureKey": "skill_effect:ally_target_count",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "equipments:article-417593",
@@ -147939,7 +147962,7 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "equipments:article-417593:equipment_skill_text:skillEffect:skill_effect:ally_target_count:a5d4874f"
+          "typeFeatureKey": "equipments:article-417593:equipment_skill_text:skillEffect:skill_effect:ally_target_count:9ca5760d"
         },
         {
           "featureId": "skill_effect:ally_non_damage_effect",
@@ -147947,8 +147970,8 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "equipment_skill_text",
-          "matchedText": "活命相克■常に ●部隊の「活路」の技能Lv+1（上限5） ●部隊の「克槍」の技能Lv+1（上限3）昂然敏達■常に ●部隊の「敏活」の技能Lv+1（上限5）▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊の攻撃+35%（10秒） ●自身を含む味方3部隊の防御+35%（10秒） ●自身を含む味方3部隊の知力+35%（10秒）",
-          "rawText": "活命相克■常に ●部隊の「活路」の技能Lv+1（上限5） ●部隊の「克槍」の技能Lv+1（上限3）昂然敏達■常に ●部隊の「敏活」の技能Lv+1（上限5）▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊の攻撃+35%（10秒） ●自身を含む味方3部隊の防御+35%（10秒） ●自身を含む味方3部隊の知力+35%（10秒）",
+          "matchedText": "UR時の最大技能活命相克■常に ●部隊の「活路」の技能Lv+2（上限5） ●部隊の「克槍」の技能Lv+1（上限3）▼兵力が50％以下の時 ●通常攻撃・戦法による被ダメージ-10%昂然敏達■常に ●部隊の「敏活」の技能Lv+1（上限5）▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊の攻撃+35%（10秒） ●自身を含む味方3部隊の防御+35%（10秒） ●自身を含む味方3部隊の知力+35%（10秒） ●自身1部隊に20%の窮策を付与（10秒）討守断槍■常に ●部隊の対歩兵攻撃+15% ●部隊の対歩兵防…",
+          "rawText": "UR時の最大技能活命相克■常に ●部隊の「活路」の技能Lv+2（上限5） ●部隊の「克槍」の技能Lv+1（上限3）▼兵力が50％以下の時 ●通常攻撃・戦法による被ダメージ-10%昂然敏達■常に ●部隊の「敏活」の技能Lv+1（上限5）▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊の攻撃+35%（10秒） ●自身を含む味方3部隊の防御+35%（10秒） ●自身を含む味方3部隊の知力+35%（10秒） ●自身1部隊に20%の窮策を付与（10秒）討守断槍■常に ●部隊の対歩兵攻撃+15% ●部隊の対歩兵防…",
           "canonicalFeatureKey": "skill_effect:ally_non_damage_effect",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "equipments:article-417593",
@@ -147962,11 +147985,11 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "equipments:article-417593:equipment_skill_text:skillEffect:skill_effect:ally_non_damage_effect:a5d4874f"
+          "typeFeatureKey": "equipments:article-417593:equipment_skill_text:skillEffect:skill_effect:ally_non_damage_effect:9ca5760d"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 3,
+      "typeFeatureCount": 4,
       "sourceEntityKey": "equipments:article-417593"
     },
     {
@@ -148741,18 +148764,18 @@
       "statusEffectRefs": [],
       "typeFeatures": [
         {
-          "featureId": "parameter:critical_rate",
-          "label": "会心発生",
+          "featureId": "parameter:attack_speed",
+          "label": "攻撃速度",
           "featureType": "parameter",
           "source": "effect-text",
           "sourcePartType": "equipment_skill_text",
-          "matchedText": "自身1部隊の会心発生+15%（10秒）",
-          "rawText": "【三國志 覇道】亢龍鋼鞭 【三國志 覇道】亢龍鋼鞭の能力と技能 各レアリティの能力 レア統率武力知力政治魅力SSR186186000 亢龍鋼鞭の技能 掃滅豪勇 常に 部隊の「掃討」の技能Lv+1（上限5） 部隊の「豪傑」の技能Lv+1（上限5）鎮撫騎駆 常に 部隊の「鎮定」の技能Lv+1（上限3） 主将戦法発動時 自身を含む味方3部隊の攻撃+20%（10秒）…",
+          "matchedText": "部隊の攻撃速度+15%鎮撫騎駆",
+          "rawText": "【三國志 覇道】亢龍鋼鞭 【三國志 覇道】亢龍鋼鞭の能力と技能 各レアリティの能力 レア統率武力知力政治魅力UR288288000SSR186186000 亢龍鋼鞭の技能 UR時の最大技能掃滅豪勇 常に 部隊の「掃討」の技能Lv+2（上限5） 部隊の「豪傑」の技能Lv+1（上限5） 部隊の攻撃速度+15%鎮撫騎駆 常に 部隊の「鎮定」の技能Lv+1（上限3）…",
           "sourceType": "equipmentSkill",
-          "canonicalFeatureKey": "concept:critical_rate",
+          "canonicalFeatureKey": "concept:attack_speed",
           "featureDomain": "parameter",
           "sourceEntityKey": "equipments:article-405123",
-          "evidencePath": "sections[4].content[0]",
+          "evidencePath": "sections[5].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -148761,7 +148784,53 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "equipments:article-405123:equipment_skill_text:parameter:concept:critical_rate:393e3074"
+          "typeFeatureKey": "equipments:article-405123:equipment_skill_text:parameter:concept:attack_speed:5a3f7f39"
+        },
+        {
+          "featureId": "parameter:critical_rate",
+          "label": "会心発生",
+          "featureType": "parameter",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "自身1部隊の会心発生+15%（10秒）",
+          "rawText": "【三國志 覇道】亢龍鋼鞭 【三國志 覇道】亢龍鋼鞭の能力と技能 各レアリティの能力 レア統率武力知力政治魅力UR288288000SSR186186000 亢龍鋼鞭の技能 UR時の最大技能掃滅豪勇 常に 部隊の「掃討」の技能Lv+2（上限5） 部隊の「豪傑」の技能Lv+1（上限5） 部隊の攻撃速度+15%鎮撫騎駆 常に 部隊の「鎮定」の技能Lv+1（上限3）…",
+          "sourceType": "equipmentSkill",
+          "canonicalFeatureKey": "concept:critical_rate",
+          "featureDomain": "parameter",
+          "sourceEntityKey": "equipments:article-405123",
+          "evidencePath": "sections[6].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-405123:equipment_skill_text:parameter:concept:critical_rate:ee3484ae"
+        },
+        {
+          "featureId": "parameter:critical_power",
+          "label": "会心威力",
+          "featureType": "parameter",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "部隊の「相討」のLv×4%、部隊の会心威力が上昇",
+          "rawText": "【三國志 覇道】亢龍鋼鞭 【三國志 覇道】亢龍鋼鞭の能力と技能 各レアリティの能力 レア統率武力知力政治魅力UR288288000SSR186186000 亢龍鋼鞭の技能 UR時の最大技能掃滅豪勇 常に 部隊の「掃討」の技能Lv+2（上限5） 部隊の「豪傑」の技能Lv+1（上限5） 部隊の攻撃速度+15%鎮撫騎駆 常に 部隊の「鎮定」の技能Lv+1（上限3）…",
+          "sourceType": "equipmentSkill",
+          "canonicalFeatureKey": "concept:critical_power",
+          "featureDomain": "parameter",
+          "sourceEntityKey": "equipments:article-405123",
+          "evidencePath": "sections[5].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-405123:equipment_skill_text:parameter:concept:critical_power:94793579"
         },
         {
           "featureId": "skill_effect:ally_target_count",
@@ -148769,8 +148838,8 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "equipment_skill_text",
-          "matchedText": "掃滅豪勇■常に ●部隊の「掃討」の技能Lv+1（上限5） ●部隊の「豪傑」の技能Lv+1（上限5）鎮撫騎駆■常に ●部隊の「鎮定」の技能Lv+1（上限3）▼主将戦法発動時 ●自身を含む味方3部隊の攻撃+20%（10秒） ●自身を含む味方3部隊の防御+20%（10秒） ●自身1部隊の会心発生+15%（10秒）",
-          "rawText": "掃滅豪勇■常に ●部隊の「掃討」の技能Lv+1（上限5） ●部隊の「豪傑」の技能Lv+1（上限5）鎮撫騎駆■常に ●部隊の「鎮定」の技能Lv+1（上限3）▼主将戦法発動時 ●自身を含む味方3部隊の攻撃+20%（10秒） ●自身を含む味方3部隊の防御+20%（10秒） ●自身1部隊の会心発生+15%（10秒）",
+          "matchedText": "UR時の最大技能掃滅豪勇■常に ●部隊の「掃討」の技能Lv+2（上限5） ●部隊の「豪傑」の技能Lv+1（上限5） ●部隊の攻撃速度+15%鎮撫騎駆■常に ●部隊の「鎮定」の技能Lv+1（上限3）▼主将戦法発動時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身1部隊の会心発生+20%（10秒） ●自身1部隊に1回の威槍を付与（10秒）掃定会覇■常に ●部隊の「相討」のLv×4%、部隊の会心威力が上昇SSR時の最大技能掃滅豪勇■常に ●部隊の「掃討」の技能Lv+…",
+          "rawText": "UR時の最大技能掃滅豪勇■常に ●部隊の「掃討」の技能Lv+2（上限5） ●部隊の「豪傑」の技能Lv+1（上限5） ●部隊の攻撃速度+15%鎮撫騎駆■常に ●部隊の「鎮定」の技能Lv+1（上限3）▼主将戦法発動時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身1部隊の会心発生+20%（10秒） ●自身1部隊に1回の威槍を付与（10秒）掃定会覇■常に ●部隊の「相討」のLv×4%、部隊の会心威力が上昇SSR時の最大技能掃滅豪勇■常に ●部隊の「掃討」の技能Lv+…",
           "canonicalFeatureKey": "skill_effect:ally_target_count",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "equipments:article-405123",
@@ -148784,7 +148853,7 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "equipments:article-405123:equipment_skill_text:skillEffect:skill_effect:ally_target_count:3d63f946"
+          "typeFeatureKey": "equipments:article-405123:equipment_skill_text:skillEffect:skill_effect:ally_target_count:e106791e"
         },
         {
           "featureId": "skill_effect:ally_non_damage_effect",
@@ -148792,8 +148861,8 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "equipment_skill_text",
-          "matchedText": "掃滅豪勇■常に ●部隊の「掃討」の技能Lv+1（上限5） ●部隊の「豪傑」の技能Lv+1（上限5）鎮撫騎駆■常に ●部隊の「鎮定」の技能Lv+1（上限3）▼主将戦法発動時 ●自身を含む味方3部隊の攻撃+20%（10秒） ●自身を含む味方3部隊の防御+20%（10秒） ●自身1部隊の会心発生+15%（10秒）",
-          "rawText": "掃滅豪勇■常に ●部隊の「掃討」の技能Lv+1（上限5） ●部隊の「豪傑」の技能Lv+1（上限5）鎮撫騎駆■常に ●部隊の「鎮定」の技能Lv+1（上限3）▼主将戦法発動時 ●自身を含む味方3部隊の攻撃+20%（10秒） ●自身を含む味方3部隊の防御+20%（10秒） ●自身1部隊の会心発生+15%（10秒）",
+          "matchedText": "UR時の最大技能掃滅豪勇■常に ●部隊の「掃討」の技能Lv+2（上限5） ●部隊の「豪傑」の技能Lv+1（上限5） ●部隊の攻撃速度+15%鎮撫騎駆■常に ●部隊の「鎮定」の技能Lv+1（上限3）▼主将戦法発動時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身1部隊の会心発生+20%（10秒） ●自身1部隊に1回の威槍を付与（10秒）掃定会覇■常に ●部隊の「相討」のLv×4%、部隊の会心威力が上昇SSR時の最大技能掃滅豪勇■常に ●部隊の「掃討」の技能Lv+…",
+          "rawText": "UR時の最大技能掃滅豪勇■常に ●部隊の「掃討」の技能Lv+2（上限5） ●部隊の「豪傑」の技能Lv+1（上限5） ●部隊の攻撃速度+15%鎮撫騎駆■常に ●部隊の「鎮定」の技能Lv+1（上限3）▼主将戦法発動時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身1部隊の会心発生+20%（10秒） ●自身1部隊に1回の威槍を付与（10秒）掃定会覇■常に ●部隊の「相討」のLv×4%、部隊の会心威力が上昇SSR時の最大技能掃滅豪勇■常に ●部隊の「掃討」の技能Lv+…",
           "canonicalFeatureKey": "skill_effect:ally_non_damage_effect",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "equipments:article-405123",
@@ -148807,11 +148876,11 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "equipments:article-405123:equipment_skill_text:skillEffect:skill_effect:ally_non_damage_effect:3d63f946"
+          "typeFeatureKey": "equipments:article-405123:equipment_skill_text:skillEffect:skill_effect:ally_non_damage_effect:e106791e"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 3,
+      "typeFeatureCount": 5,
       "sourceEntityKey": "equipments:article-405123"
     },
     {

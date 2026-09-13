@@ -7,17 +7,17 @@
     "generals": {
       "file": "hadou_generals.json",
       "itemCount": 490,
-      "sha256": "92053a0a8f5dcdb667334552971e8b74e041433dd0a01e8a13b254096a6dd527"
+      "sha256": "8229ccbbad2324d9241cbb3f09f6f1efaffb1620c1abb3d77097147e59a4246e"
     },
     "tactics": {
       "file": "hadou_tactics.json",
       "itemCount": 469,
-      "sha256": "06ab453a8e6e2ef04f15b79648743b6be947136dc2bc9f50f2446a7cc213e6b1"
+      "sha256": "749ec91bfade242dc0d56423c2095fad7ea98bdcd2bf1c434860bb1608087f2c"
     },
     "skills": {
       "file": "hadou_skills.json",
       "itemCount": 665,
-      "sha256": "a6f74bf7e02dd822620cadaf1ca66ddf34e648359b865abba001088eaf9c93cd"
+      "sha256": "237487a56a92bb3195cfff47cfdffa6d60364fc874554bda36f359e292c3f195"
     },
     "statusEffects": {
       "file": "hadou_status_effects.json",
@@ -1212,9 +1212,9 @@
   "unresolvedUnits": [],
   "existingConditionBlocksAudit": {
     "sourceFile": "hadou_effect_condition_blocks.json",
-    "sourceSha256": "e48dd59ad5da9f818e041467ceea1333d70ea7ab90c2eea3f37d661a63481af4",
+    "sourceSha256": "73f74a1378eb3860f3d082f1c7e9ff3ff696c7014b82c845533f88a949dcf98d",
     "sourceItemCount": 1836,
-    "sourceBlockCount": 14337,
+    "sourceBlockCount": 14359,
     "byCategory": {
       "generals": {
         "sourceRecords": 490,
@@ -2380,7 +2380,7 @@
         "disposition": "independently_scanned_by_update01"
       }
     ],
-    "likelyMisclassificationCount": 2254,
+    "likelyMisclassificationCount": 2257,
     "likelyMisclassifications": [
       {
         "blockId": "generals:0:10",
@@ -30404,7 +30404,21 @@
         "reason": "trigger_is_collapsed_into_condition"
       },
       {
-        "blockId": "equipments:106:3",
+        "blockId": "equipments:106:2",
+        "category": "equipments",
+        "entity": "興起嵩峻兜",
+        "currentType": "conditionedEffect",
+        "suggestedRole": "condition",
+        "tags": [
+          "condition.entity_state_relation",
+          "condition.troop_threshold",
+          "limit.upper_lower_bound"
+        ],
+        "sourceText": "▼兵力が50％以下の時",
+        "reason": "condition_heading_is_collapsed_into_conditioned_effect"
+      },
+      {
+        "blockId": "equipments:106:5",
         "category": "equipments",
         "entity": "興起嵩峻兜",
         "currentType": "condition",
@@ -30417,7 +30431,20 @@
         "reason": "trigger_is_collapsed_into_condition"
       },
       {
-        "blockId": "equipments:106:9",
+        "blockId": "equipments:106:15",
+        "category": "equipments",
+        "entity": "興起嵩峻兜",
+        "currentType": "condition",
+        "suggestedRole": "trigger",
+        "tags": [
+          "trigger.custom_event",
+          "trigger.tactic_activation"
+        ],
+        "sourceText": "▼この技能を持つ武将が戦法を発動した時",
+        "reason": "trigger_is_collapsed_into_condition"
+      },
+      {
+        "blockId": "equipments:106:21",
         "category": "equipments",
         "entity": "興起嵩峻兜",
         "currentType": "condition",
@@ -30751,7 +30778,7 @@
         "reason": "inline_condition_or_trigger_is_classified_as_plain_effect"
       },
       {
-        "blockId": "equipments:116:3",
+        "blockId": "equipments:116:4",
         "category": "equipments",
         "entity": "亢龍鋼鞭",
         "currentType": "condition",
@@ -30764,7 +30791,20 @@
         "reason": "trigger_is_collapsed_into_condition"
       },
       {
-        "blockId": "equipments:116:9",
+        "blockId": "equipments:116:13",
+        "category": "equipments",
+        "entity": "亢龍鋼鞭",
+        "currentType": "condition",
+        "suggestedRole": "trigger",
+        "tags": [
+          "condition.placement_role",
+          "trigger.tactic_activation"
+        ],
+        "sourceText": "▼主将戦法発動時",
+        "reason": "trigger_is_collapsed_into_condition"
+      },
+      {
+        "blockId": "equipments:116:19",
         "category": "equipments",
         "entity": "亢龍鋼鞭",
         "currentType": "condition",
@@ -55650,7 +55690,7 @@
         "reason": "condition_marker_word_without_explicit_parent_link"
       }
     ],
-    "conditionBlocksWithoutParentEffectLinkCount": 4905,
+    "conditionBlocksWithoutParentEffectLinkCount": 4907,
     "reuseDecision": "diagnostic_input_only",
     "limitations": [
       "statusEffects are not included in the current generator category list.",
@@ -55819,7 +55859,7 @@
         "condition": 16,
         "effect": 21
       },
-      "unitDigest": "435d0ee425ae90a782f9b1d819b2f70705b18050a73fd1ad2f014a57440c4487"
+      "unitDigest": "cb209439698e8e0704e7b83c70babb246274e70fb609fb767363800912b638e5"
     },
     {
       "id": "generals:3",
@@ -55871,7 +55911,7 @@
         "effect": 21,
         "explanation": 3
       },
-      "unitDigest": "d10b2991d6ee304d8bbff68a5b5a6f1221d061724881229b28267efe749d2243"
+      "unitDigest": "1032fe573b29b385d79575d417291ef2eda62bd6c5c88d0efa97fd51e03a5767"
     },
     {
       "id": "generals:4",
