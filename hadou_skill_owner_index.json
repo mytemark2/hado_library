@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-09-06T05:56:28.638Z",
-  "dataSetId": "2026-08-31T15:31:22.751Z",
+  "generatedAt": "2026-09-13T02:14:52.583Z",
+  "dataSetId": "2026-09-06T05:56:27.667Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -92,11 +92,11 @@
       "ok": true,
       "policy": "Application skill catalog includes general, advisor, equipment, ethnic research, five-element, and other derived skills displayed by the app.",
       "masterGeneralSkillCount": 665,
-      "applicationSkillCount": 1405,
-      "indexedSkillCount": 1405,
+      "applicationSkillCount": 1407,
+      "indexedSkillCount": 1407,
       "domainCounts": {
         "generalSkill": 667,
-        "equipmentSkill": 829,
+        "equipmentSkill": 831,
         "warhorseSkill": 3,
         "ethnicResearchSkill": 43,
         "advisorSkill": 92,
@@ -48247,6 +48247,30 @@
       "skillKey": "skills:name-6bc3b592"
     },
     {
+      "skillName": "討守断槍",
+      "owners": [
+        {
+          "name": "興起嵩峻兜",
+          "displayName": "興起嵩峻兜",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table",
+          "skillDomain": "equipmentSkill",
+          "skillKey": "skills:name-f15f8e1d",
+          "ownerEntityKey": "equipments:article-417593",
+          "skillOwnerKey": "equipmentSkill:skills:name-f15f8e1d:equipments:article-417593"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "討守断槍",
+      "sourceEntityKey": "skills:name-f15f8e1d",
+      "skillDomain": "equipmentSkill",
+      "skillDomains": [
+        "equipmentSkill"
+      ],
+      "skillKey": "skills:name-f15f8e1d"
+    },
+    {
       "skillName": "後顧鬼想",
       "owners": [
         {
@@ -48867,6 +48891,30 @@
         "equipmentSkill"
       ],
       "skillKey": "skills:name-da721b52"
+    },
+    {
+      "skillName": "掃定会覇",
+      "owners": [
+        {
+          "name": "亢龍鋼鞭",
+          "displayName": "亢龍鋼鞭",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table",
+          "skillDomain": "equipmentSkill",
+          "skillKey": "skills:name-3c6c36d3",
+          "ownerEntityKey": "equipments:article-405123",
+          "skillOwnerKey": "equipmentSkill:skills:name-3c6c36d3:equipments:article-405123"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "掃定会覇",
+      "sourceEntityKey": "skills:name-3c6c36d3",
+      "skillDomain": "equipmentSkill",
+      "skillDomains": [
+        "equipmentSkill"
+      ],
+      "skillKey": "skills:name-3c6c36d3"
     },
     {
       "skillName": "轟鳴雄主",

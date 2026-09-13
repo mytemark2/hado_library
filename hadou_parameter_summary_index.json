@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-09-06T05:56:28.638Z",
-  "dataSetId": "2026-08-31T15:31:22.751Z",
+  "generatedAt": "2026-09-13T02:14:52.583Z",
+  "dataSetId": "2026-09-06T05:56:27.667Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -77,7 +77,7 @@
   "hotfixVersion": "1.1.0.3",
   "kind": "parameter_summary_index",
   "qualityAudit": {
-    "rejectedCount": 45412,
+    "rejectedCount": 45452,
     "rejectedSamples": [
       {
         "parameter": "撃心威力",
@@ -480,12 +480,12 @@
         "matchedText": "知力に応じて、戦法による与ダメージが上昇（知力500"
       }
     ],
-    "acceptedCount": 44753,
+    "acceptedCount": 44785,
     "contractAudit": {
       "ok": true,
-      "originalEffectCount": 19480,
-      "keptEffectCount": 18093,
-      "droppedEffectCount": 1387,
+      "originalEffectCount": 19488,
+      "keptEffectCount": 18109,
+      "droppedEffectCount": 1379,
       "arrayFragmentCount": 0,
       "keywordSource": "canonical parameterKey"
     }
@@ -363502,15 +363502,15 @@
       "title": "【三國志 覇道】興起嵩峻兜の能力と技能",
       "effects": [
         {
-          "parameter": "攻撃速度",
+          "parameter": "戦法威力",
           "direction": "increase",
-          "value": "7",
-          "targetSide": "self_or_ally",
-          "matchedText": "さらに★7まで上げると追加効果のバフが味方部隊にも付与されるようになるので、機会があれば素材を入手して鍛錬を進めておこう",
-          "parameterKey": "attack_speed",
+          "value": "4",
+          "targetSide": "enemy",
+          "matchedText": "鍛錬を進めて★4まで上げると、技能「敏活」を強化できるようになる",
+          "parameterKey": "tactic_power",
           "keywords": [
-            "攻撃速度",
-            "通常攻撃速度"
+            "戦法威力",
+            "戦法ダメージ"
           ],
           "sourceEntityKey": "equipments:article-417593",
           "sourcePartType": "equipment_skill_text",
@@ -363523,18 +363523,43 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "parameterFeatureKey": "equipments:article-417593:equipment_skill_text:attack_speed:increase:self_or_ally:91946048"
+          "parameterFeatureKey": "equipments:article-417593:equipment_skill_text:tactic_power:increase:enemy:40f55298"
         },
         {
-          "parameter": "戦法速度",
+          "parameter": "戦法威力",
+          "direction": "increase",
+          "value": "50％",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵力が50％以下の時",
+          "parameterKey": "tactic_power",
+          "keywords": [
+            "戦法威力",
+            "戦法ダメージ"
+          ],
+          "sourceEntityKey": "equipments:article-417593",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[5].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-417593:equipment_skill_text:tactic_power:increase:self_or_ally:b0ef6a79"
+        },
+        {
+          "parameter": "会心発生",
           "direction": "increase",
           "value": "7",
           "targetSide": "self_or_ally",
           "matchedText": "さらに★7まで上げると追加効果のバフが味方部隊にも付与されるようになるので、機会があれば素材を入手して鍛錬を進めておこう",
-          "parameterKey": "tactic_speed",
+          "parameterKey": "critical_rate",
           "keywords": [
-            "戦法速度",
-            "戦法発動速度"
+            "会心発生",
+            "会心発生率",
+            "会心率"
           ],
           "sourceEntityKey": "equipments:article-417593",
           "sourcePartType": "equipment_skill_text",
@@ -363547,14 +363572,37 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "parameterFeatureKey": "equipments:article-417593:equipment_skill_text:tactic_speed:increase:self_or_ally:91946048"
+          "parameterFeatureKey": "equipments:article-417593:equipment_skill_text:critical_rate:increase:self_or_ally:91946048"
+        },
+        {
+          "parameter": "会心威力",
+          "direction": "increase",
+          "value": "7",
+          "targetSide": "self_or_ally",
+          "matchedText": "さらに★7まで上げると追加効果のバフが味方部隊にも付与されるようになるので、機会があれば素材を入手して鍛錬を進めておこう",
+          "parameterKey": "critical_power",
+          "keywords": [
+            "会心威力"
+          ],
+          "sourceEntityKey": "equipments:article-417593",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[2].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-417593:equipment_skill_text:critical_power:increase:self_or_ally:91946048"
         },
         {
           "parameter": "被ダメージ",
           "direction": "decrease",
-          "value": "3",
+          "value": "-10%",
           "targetSide": "self_or_ally",
-          "matchedText": "部隊の「克槍」の技能Lv+1（上限3）昂然敏達",
+          "matchedText": "被ダメージ-10%",
           "parameterKey": "damage_received",
           "keywords": [
             "被ダメージ",
@@ -363562,7 +363610,7 @@
           ],
           "sourceEntityKey": "equipments:article-417593",
           "sourcePartType": "equipment_skill_text",
-          "evidencePath": "sections[4].content[2]",
+          "evidencePath": "sections[4].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -363571,7 +363619,55 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "parameterFeatureKey": "equipments:article-417593:equipment_skill_text:damage_received:decrease:self_or_ally:c8ca1a61"
+          "parameterFeatureKey": "equipments:article-417593:equipment_skill_text:damage_received:decrease:self_or_ally:78cba84f"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "increase",
+          "value": "5000",
+          "targetSide": "self_or_ally",
+          "matchedText": "通常攻撃・戦法による被ダメージ-10%昂然敏達",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "equipments:article-417593",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[5].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-417593:equipment_skill_text:damage_received:increase:self_or_ally:8f040993"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "10％",
+          "targetSide": "self_or_ally",
+          "matchedText": "通常攻撃・戦法による被ダメージ-10%昂然敏達",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "equipments:article-417593",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[5].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-417593:equipment_skill_text:damage_received:decrease:self_or_ally:8f040993"
         },
         {
           "parameter": "攻撃",
@@ -363599,6 +363695,29 @@
         {
           "parameter": "攻撃",
           "direction": "increase",
+          "value": "+15%",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃+15%",
+          "parameterKey": "attack",
+          "keywords": [
+            "攻撃"
+          ],
+          "sourceEntityKey": "equipments:article-417593",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[4].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-417593:equipment_skill_text:attack:increase:self_or_ally:85bb00d4"
+        },
+        {
+          "parameter": "攻撃",
+          "direction": "increase",
           "value": "+10%",
           "targetSide": "self_or_ally",
           "matchedText": "攻撃+10%",
@@ -363618,29 +363737,6 @@
             "reason": "Structured primary evidence for the matching source role."
           },
           "parameterFeatureKey": "equipments:article-417593:equipment_skill_text:attack:increase:self_or_ally:7c435a13"
-        },
-        {
-          "parameter": "攻撃",
-          "direction": "increase",
-          "value": "50%",
-          "targetSide": "self_or_ally",
-          "matchedText": "自身1部隊の攻撃+10%（10秒）",
-          "parameterKey": "attack",
-          "keywords": [
-            "攻撃"
-          ],
-          "sourceEntityKey": "equipments:article-417593",
-          "sourcePartType": "equipment_skill_text",
-          "evidencePath": "sections[4].content[2]",
-          "roleGate": {
-            "scoreEligible": true,
-            "allowedRoleIds": [
-              "equipment"
-            ],
-            "allowedSlots": [],
-            "reason": "Structured primary evidence for the matching source role."
-          },
-          "parameterFeatureKey": "equipments:article-417593:equipment_skill_text:attack:increase:self_or_ally:94f8e687"
         },
         {
           "parameter": "防御",
@@ -363668,6 +363764,29 @@
         {
           "parameter": "防御",
           "direction": "increase",
+          "value": "+15%",
+          "targetSide": "self_or_ally",
+          "matchedText": "防御+15%",
+          "parameterKey": "defense",
+          "keywords": [
+            "防御"
+          ],
+          "sourceEntityKey": "equipments:article-417593",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[4].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-417593:equipment_skill_text:defense:increase:self_or_ally:75870cbf"
+        },
+        {
+          "parameter": "防御",
+          "direction": "increase",
           "value": "+10%",
           "targetSide": "self_or_ally",
           "matchedText": "防御+10%",
@@ -363687,52 +363806,6 @@
             "reason": "Structured primary evidence for the matching source role."
           },
           "parameterFeatureKey": "equipments:article-417593:equipment_skill_text:defense:increase:self_or_ally:793d0f78"
-        },
-        {
-          "parameter": "防御",
-          "direction": "increase",
-          "value": "7",
-          "targetSide": "self_or_ally",
-          "matchedText": "さらに★7まで上げると追加効果のバフが味方部隊にも付与されるようになるので、機会があれば素材を入手して鍛錬を進めておこう",
-          "parameterKey": "defense",
-          "keywords": [
-            "防御"
-          ],
-          "sourceEntityKey": "equipments:article-417593",
-          "sourcePartType": "equipment_skill_text",
-          "evidencePath": "sections[2].content[0]",
-          "roleGate": {
-            "scoreEligible": true,
-            "allowedRoleIds": [
-              "equipment"
-            ],
-            "allowedSlots": [],
-            "reason": "Structured primary evidence for the matching source role."
-          },
-          "parameterFeatureKey": "equipments:article-417593:equipment_skill_text:defense:increase:self_or_ally:91946048"
-        },
-        {
-          "parameter": "防御",
-          "direction": "increase",
-          "value": "300％",
-          "targetSide": "self_or_ally",
-          "matchedText": "自身1部隊の防御+10%（10秒）",
-          "parameterKey": "defense",
-          "keywords": [
-            "防御"
-          ],
-          "sourceEntityKey": "equipments:article-417593",
-          "sourcePartType": "equipment_skill_text",
-          "evidencePath": "sections[4].content[2]",
-          "roleGate": {
-            "scoreEligible": true,
-            "allowedRoleIds": [
-              "equipment"
-            ],
-            "allowedSlots": [],
-            "reason": "Structured primary evidence for the matching source role."
-          },
-          "parameterFeatureKey": "equipments:article-417593:equipment_skill_text:defense:increase:self_or_ally:1709326e"
         },
         {
           "parameter": "知力",
@@ -363783,7 +363856,7 @@
         {
           "parameter": "知力",
           "direction": "increase",
-          "value": "100％",
+          "value": "7",
           "targetSide": "self_or_ally",
           "matchedText": "興起嵩峻兜は武力と知力の上昇量に偏りがない防具",
           "parameterKey": "intelligence",
@@ -363802,9 +363875,81 @@
             "reason": "Structured primary evidence for the matching source role."
           },
           "parameterFeatureKey": "equipments:article-417593:equipment_skill_text:intelligence:increase:self_or_ally:1d5a2639"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "50％",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵力が50％",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "equipments:article-417593",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[4].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-417593:equipment_skill_text:troops:increase:self_or_ally:28c0838c"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "3",
+          "targetSide": "self_or_ally",
+          "matchedText": "部隊の「克槍」の技能Lv+1（上限3）昂然敏達",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "equipments:article-417593",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[4].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-417593:equipment_skill_text:troops:increase:self_or_ally:c8ca1a61"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "7",
+          "targetSide": "self_or_ally",
+          "matchedText": "さらに★7まで上げると追加効果のバフが味方部隊にも付与されるようになるので、機会があれば素材を入手して鍛錬を進めておこう",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "equipments:article-417593",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[2].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-417593:equipment_skill_text:troops:increase:self_or_ally:91946048"
         }
       ],
-      "effectCount": 13,
+      "effectCount": 19,
       "sourceEntityKey": "equipments:article-417593"
     },
     {
@@ -365889,6 +366034,103 @@
       "title": "【三國志 覇道】亢龍鋼鞭の能力と技能",
       "effects": [
         {
+          "parameter": "通常攻撃威力",
+          "direction": "increase",
+          "value": "3",
+          "targetSide": "enemy",
+          "matchedText": "部隊の「鎮定」の技能Lv+1（上限3）",
+          "parameterKey": "normal_attack_power",
+          "keywords": [
+            "通常攻撃威力",
+            "通常攻撃ダメージ"
+          ],
+          "sourceEntityKey": "equipments:article-405123",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[6].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-405123:equipment_skill_text:normal_attack_power:increase:enemy:44251da6"
+        },
+        {
+          "parameter": "攻撃速度",
+          "direction": "increase",
+          "value": "+15%",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃速度+15%",
+          "parameterKey": "attack_speed",
+          "keywords": [
+            "攻撃速度",
+            "通常攻撃速度"
+          ],
+          "sourceEntityKey": "equipments:article-405123",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[4].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-405123:equipment_skill_text:attack_speed:increase:self_or_ally:9fe25075"
+        },
+        {
+          "parameter": "攻撃速度",
+          "direction": "increase",
+          "value": "100％",
+          "targetSide": "self_or_ally",
+          "matchedText": "部隊の攻撃速度+15%鎮撫騎駆",
+          "parameterKey": "attack_speed",
+          "keywords": [
+            "攻撃速度",
+            "通常攻撃速度"
+          ],
+          "sourceEntityKey": "equipments:article-405123",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[5].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-405123:equipment_skill_text:attack_speed:increase:self_or_ally:5a3f7f39"
+        },
+        {
+          "parameter": "会心発生",
+          "direction": "increase",
+          "value": "+20%",
+          "targetSide": "self_or_ally",
+          "matchedText": "会心発生+20%",
+          "parameterKey": "critical_rate",
+          "keywords": [
+            "会心発生",
+            "会心発生率",
+            "会心率"
+          ],
+          "sourceEntityKey": "equipments:article-405123",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[4].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-405123:equipment_skill_text:critical_rate:increase:self_or_ally:b5f5ece6"
+        },
+        {
           "parameter": "会心発生",
           "direction": "increase",
           "value": "+15%",
@@ -365916,32 +366158,7 @@
         {
           "parameter": "会心発生",
           "direction": "increase",
-          "value": "3",
-          "targetSide": "self_or_ally",
-          "matchedText": "部隊の「鎮定」の技能Lv+1（上限3）",
-          "parameterKey": "critical_rate",
-          "keywords": [
-            "会心発生",
-            "会心発生率",
-            "会心率"
-          ],
-          "sourceEntityKey": "equipments:article-405123",
-          "sourcePartType": "equipment_skill_text",
-          "evidencePath": "sections[4].content[0]",
-          "roleGate": {
-            "scoreEligible": true,
-            "allowedRoleIds": [
-              "equipment"
-            ],
-            "allowedSlots": [],
-            "reason": "Structured primary evidence for the matching source role."
-          },
-          "parameterFeatureKey": "equipments:article-405123:equipment_skill_text:critical_rate:increase:self_or_ally:27303de0"
-        },
-        {
-          "parameter": "会心発生",
-          "direction": "increase",
-          "value": "50%",
+          "value": "7",
           "targetSide": "self_or_ally",
           "matchedText": "自身1部隊の会心発生+15%（10秒）",
           "parameterKey": "critical_rate",
@@ -365952,6 +366169,29 @@
           ],
           "sourceEntityKey": "equipments:article-405123",
           "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[6].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-405123:equipment_skill_text:critical_rate:increase:self_or_ally:ee3484ae"
+        },
+        {
+          "parameter": "会心威力",
+          "direction": "increase",
+          "value": "+1",
+          "targetSide": "self_or_ally",
+          "matchedText": "会心威力が上昇SSR時の最大技能掃滅豪勇■常に ●部隊の「掃討」の技能Lv+1",
+          "parameterKey": "critical_power",
+          "keywords": [
+            "会心威力"
+          ],
+          "sourceEntityKey": "equipments:article-405123",
+          "sourcePartType": "equipment_skill_text",
           "evidencePath": "sections[4].content[0]",
           "roleGate": {
             "scoreEligible": true,
@@ -365961,46 +366201,21 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "parameterFeatureKey": "equipments:article-405123:equipment_skill_text:critical_rate:increase:self_or_ally:393e3074"
-        },
-        {
-          "parameter": "会心発生",
-          "direction": "increase",
-          "value": "2",
-          "targetSide": "self_or_ally",
-          "matchedText": "鎮定がLv2以上になると、UR文鴦を主将以外に編制しても発動するようになるため、編制の幅が大きく広がる",
-          "parameterKey": "critical_rate",
-          "keywords": [
-            "会心発生",
-            "会心発生率",
-            "会心率"
-          ],
-          "sourceEntityKey": "equipments:article-405123",
-          "sourcePartType": "equipment_skill_text",
-          "evidencePath": "sections[2].content[0]",
-          "roleGate": {
-            "scoreEligible": true,
-            "allowedRoleIds": [
-              "equipment"
-            ],
-            "allowedSlots": [],
-            "reason": "Structured primary evidence for the matching source role."
-          },
-          "parameterFeatureKey": "equipments:article-405123:equipment_skill_text:critical_rate:increase:self_or_ally:150c7a1c"
+          "parameterFeatureKey": "equipments:article-405123:equipment_skill_text:critical_power:increase:self_or_ally:9bcb823e"
         },
         {
           "parameter": "会心威力",
           "direction": "increase",
-          "value": "2",
+          "value": "+1",
           "targetSide": "self_or_ally",
-          "matchedText": "鎮定がLv2以上になると、UR文鴦を主将以外に編制しても発動するようになるため、編制の幅が大きく広がる",
+          "matchedText": "会心威力が上昇 SSR時の最大技能 掃滅豪勇■常に ●部隊の「掃討」の技能Lv+1",
           "parameterKey": "critical_power",
           "keywords": [
             "会心威力"
           ],
           "sourceEntityKey": "equipments:article-405123",
           "sourcePartType": "equipment_skill_text",
-          "evidencePath": "sections[2].content[0]",
+          "evidencePath": "sections[4].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -366009,7 +366224,100 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "parameterFeatureKey": "equipments:article-405123:equipment_skill_text:critical_power:increase:self_or_ally:150c7a1c"
+          "parameterFeatureKey": "equipments:article-405123:equipment_skill_text:critical_power:increase:self_or_ally:ee55149a"
+        },
+        {
+          "parameter": "会心威力",
+          "direction": "increase",
+          "value": "3",
+          "targetSide": "enemy",
+          "matchedText": "部隊の「鎮定」の技能Lv+1（上限3）",
+          "parameterKey": "critical_power",
+          "keywords": [
+            "会心威力"
+          ],
+          "sourceEntityKey": "equipments:article-405123",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[6].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-405123:equipment_skill_text:critical_power:increase:enemy:44251da6"
+        },
+        {
+          "parameter": "会心威力",
+          "direction": "increase",
+          "value": "3",
+          "targetSide": "self_or_ally",
+          "matchedText": "部隊の「鎮定」の技能Lv+1（上限3）",
+          "parameterKey": "critical_power",
+          "keywords": [
+            "会心威力"
+          ],
+          "sourceEntityKey": "equipments:article-405123",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[6].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-405123:equipment_skill_text:critical_power:increase:self_or_ally:44251da6"
+        },
+        {
+          "parameter": "与ダメージ",
+          "direction": "increase",
+          "value": "1",
+          "targetSide": "self_or_ally",
+          "matchedText": "武将特徴 / 所持技能UR文鴦天賦1000 / 騎兵 / 掃討 / 鎮定 / 鍛造 / 豪傑 / -",
+          "parameterKey": "damage_dealt",
+          "keywords": [
+            "与ダメージ",
+            "与えるダメージ"
+          ],
+          "sourceEntityKey": "equipments:article-405123",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[7].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-405123:equipment_skill_text:damage_dealt:increase:self_or_ally:60110ad8"
+        },
+        {
+          "parameter": "攻撃",
+          "direction": "increase",
+          "value": "+25%",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃+25%",
+          "parameterKey": "attack",
+          "keywords": [
+            "攻撃"
+          ],
+          "sourceEntityKey": "equipments:article-405123",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[4].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-405123:equipment_skill_text:attack:increase:self_or_ally:ed327c45"
         },
         {
           "parameter": "攻撃",
@@ -366060,7 +366368,7 @@
         {
           "parameter": "攻撃",
           "direction": "increase",
-          "value": "2500",
+          "value": "3",
           "targetSide": "self_or_ally",
           "matchedText": "自身1部隊の攻撃+15%（10秒）",
           "parameterKey": "attack",
@@ -366079,6 +366387,29 @@
             "reason": "Structured primary evidence for the matching source role."
           },
           "parameterFeatureKey": "equipments:article-405123:equipment_skill_text:attack:increase:self_or_ally:6a321644"
+        },
+        {
+          "parameter": "防御",
+          "direction": "increase",
+          "value": "+25%",
+          "targetSide": "self_or_ally",
+          "matchedText": "防御+25%",
+          "parameterKey": "defense",
+          "keywords": [
+            "防御"
+          ],
+          "sourceEntityKey": "equipments:article-405123",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[4].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-405123:equipment_skill_text:defense:increase:self_or_ally:c2d77fca"
         },
         {
           "parameter": "防御",
@@ -366129,7 +366460,30 @@
         {
           "parameter": "防御",
           "direction": "increase",
-          "value": "100%",
+          "value": "+1",
+          "targetSide": "self_or_ally",
+          "matchedText": "部隊の「掃討」の技能Lv+1（上限5）",
+          "parameterKey": "defense",
+          "keywords": [
+            "防御"
+          ],
+          "sourceEntityKey": "equipments:article-405123",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[4].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-405123:equipment_skill_text:defense:increase:self_or_ally:bab7b257"
+        },
+        {
+          "parameter": "防御",
+          "direction": "increase",
+          "value": "7",
           "targetSide": "self_or_ally",
           "matchedText": "自身1部隊の防御+15%（10秒）",
           "parameterKey": "defense",
@@ -366150,7 +366504,7 @@
           "parameterFeatureKey": "equipments:article-405123:equipment_skill_text:defense:increase:self_or_ally:93903419"
         }
       ],
-      "effectCount": 11,
+      "effectCount": 20,
       "sourceEntityKey": "equipments:article-405123"
     },
     {

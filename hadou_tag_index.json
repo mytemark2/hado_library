@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-09-06T05:56:28.638Z",
-  "dataSetId": "2026-08-31T15:31:22.751Z",
+  "generatedAt": "2026-09-13T02:14:52.583Z",
+  "dataSetId": "2026-09-06T05:56:27.667Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -5875,6 +5875,11 @@
         "name": "九華扇"
       },
       {
+        "id": "equipments:106:興起嵩峻兜",
+        "category": "equipments",
+        "name": "興起嵩峻兜"
+      },
+      {
         "id": "equipments:107:司馬氏兵記",
         "category": "equipments",
         "name": "司馬氏兵記"
@@ -5913,6 +5918,11 @@
         "id": "equipments:114:富春孫氏家伝",
         "category": "equipments",
         "name": "富春孫氏家伝"
+      },
+      {
+        "id": "equipments:116:亢龍鋼鞭",
+        "category": "equipments",
+        "name": "亢龍鋼鞭"
       },
       {
         "id": "equipments:117:思紹",
@@ -14821,19 +14831,9 @@
         "name": "奉天銀灰冠"
       },
       {
-        "id": "equipments:106:興起嵩峻兜",
-        "category": "equipments",
-        "name": "興起嵩峻兜"
-      },
-      {
         "id": "equipments:115:奔走の算盤",
         "category": "equipments",
         "name": "奔走の算盤"
-      },
-      {
-        "id": "equipments:116:亢龍鋼鞭",
-        "category": "equipments",
-        "name": "亢龍鋼鞭"
       },
       {
         "id": "equipments:141:青嚢書・名家医書",
@@ -17979,6 +17979,11 @@
         "name": "九華扇"
       },
       {
+        "id": "equipments:106:興起嵩峻兜",
+        "category": "equipments",
+        "name": "興起嵩峻兜"
+      },
+      {
         "id": "equipments:107:司馬氏兵記",
         "category": "equipments",
         "name": "司馬氏兵記"
@@ -18017,6 +18022,11 @@
         "id": "equipments:114:富春孫氏家伝",
         "category": "equipments",
         "name": "富春孫氏家伝"
+      },
+      {
+        "id": "equipments:116:亢龍鋼鞭",
+        "category": "equipments",
+        "name": "亢龍鋼鞭"
       },
       {
         "id": "equipments:117:思紹",
@@ -19912,19 +19922,9 @@
         "name": "奉天銀灰冠"
       },
       {
-        "id": "equipments:106:興起嵩峻兜",
-        "category": "equipments",
-        "name": "興起嵩峻兜"
-      },
-      {
         "id": "equipments:115:奔走の算盤",
         "category": "equipments",
         "name": "奔走の算盤"
-      },
-      {
-        "id": "equipments:116:亢龍鋼鞭",
-        "category": "equipments",
-        "name": "亢龍鋼鞭"
       },
       {
         "id": "equipments:141:青嚢書・名家医書",
@@ -57588,14 +57588,14 @@
     "状態変化:与ダメージ変化(強化)": 372,
     "状態変化:被ダメージ変化(強化)": 368,
     "兵科:弓兵": 328,
+    "レアリティ:UR": 324,
     "兵科:歩兵": 324,
-    "レアリティ:UR": 322,
     "状態変化:攻撃速度変化(強化)": 320,
     "兵科:騎兵": 314,
-    "最高レア:UR": 201,
+    "最高レア:UR": 203,
     "状態変化:会心発生変化(強化)": 199,
     "状態変化:戦法威力変化(強化)": 189,
-    "レアリティ:SSR": 180,
+    "レアリティ:SSR": 178,
     "状態変化:会心威力変化(強化)": 153,
     "状態変化:対物特効変化(強化)": 139,
     "状態変化:戦法速度変化(強化)": 138,
@@ -57644,9 +57644,9 @@
     "状態変化:対物特効変化(弱化)": 31,
     "状態変化:結束": 30,
     "侍従位置:上": 29,
-    "最高レア:SSR": 29,
     "状態変化:戦法威力変化(弱化)": 29,
     "おすすめ編制:貫通駐屯サポート": 27,
+    "最高レア:SSR": 27,
     "状態変化:攻撃無効": 27,
     "状態変化:強化無効": 27,
     "状態変化:命中変化(弱化)": 27,
@@ -109521,8 +109521,8 @@
       "category": "equipments",
       "name": "興起嵩峻兜",
       "tags": [
-        "レアリティ:SSR",
-        "最高レア:SSR",
+        "レアリティ:UR",
+        "最高レア:UR",
         "種類:防具",
         "兵科:騎兵",
         "兵科:歩兵",
@@ -109531,13 +109531,13 @@
       "tagObjects": [
         {
           "key": "レアリティ",
-          "value": "SSR",
-          "tag": "レアリティ:SSR"
+          "value": "UR",
+          "tag": "レアリティ:UR"
         },
         {
           "key": "最高レア",
-          "value": "SSR",
-          "tag": "最高レア:SSR"
+          "value": "UR",
+          "tag": "最高レア:UR"
         },
         {
           "key": "種類",
@@ -109965,21 +109965,21 @@
       "category": "equipments",
       "name": "亢龍鋼鞭",
       "tags": [
-        "レアリティ:SSR",
-        "最高レア:SSR",
+        "レアリティ:UR",
+        "最高レア:UR",
         "種類:武器",
         "兵科:騎兵"
       ],
       "tagObjects": [
         {
           "key": "レアリティ",
-          "value": "SSR",
-          "tag": "レアリティ:SSR"
+          "value": "UR",
+          "tag": "レアリティ:UR"
         },
         {
           "key": "最高レア",
-          "value": "SSR",
-          "tag": "最高レア:SSR"
+          "value": "UR",
+          "tag": "最高レア:UR"
         },
         {
           "key": "種類",
