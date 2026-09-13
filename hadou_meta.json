@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-09-06T05:56:27.667Z",
+  "exportedAt": "2026-09-13T02:14:51.028Z",
   "collector": "hado_crawler_local_cli",
   "crawlerVersion": "1.1.0.6",
   "requestIntervalMs": 1000,
@@ -14,10 +14,10 @@
   },
   "urlStats": {
     "cacheMode": "standard",
-    "totalUrls": 1870,
-    "networkFetch": 1870,
+    "totalUrls": 1872,
+    "networkFetch": 1872,
     "conditionalHit304": 0,
-    "memoryCacheHit": 1599,
+    "memoryCacheHit": 1603,
     "persistentCacheHit": 0,
     "fastCacheHit": 0,
     "networkFetchByUrl": {
@@ -41,7 +41,9 @@
       "https://gamewith.jp/sangokushihadou/article/show/572585": 1,
       "https://gamewith.jp/sangokushihadou/article/show/572688": 1,
       "https://gamewith.jp/sangokushihadou/article/show/574571": 1,
+      "https://gamewith.jp/sangokushihadou/article/show/575248": 1,
       "https://gamewith.jp/sangokushihadou/article/show/574572": 1,
+      "https://gamewith.jp/sangokushihadou/article/show/575247": 1,
       "https://gamewith.jp/sangokushihadou/article/show/574351": 1,
       "https://gamewith.jp/sangokushihadou/article/show/574352": 1,
       "https://gamewith.jp/sangokushihadou/article/show/574353": 1,
@@ -1893,7 +1895,7 @@
       "https://gamewith.jp/sangokushihadou/article/show/261392": 1
     },
     "duplicateNetworkFetchUrls": [],
-    "records_count": 3469
+    "records_count": 3475
   },
   "source": {
     "generals": "https://gamewith.jp/sangokushihadou/article/show/240737",
@@ -1909,19 +1911,11 @@
     "scale": "0-149_clockwise_from_12",
     "policy": "no automatic 120-to-150 conversion; parsed image values are kept as 0-149"
   },
-  "recoveryMergeMode": "artifact-exact",
-  "processedAt": "2026-09-06T05:56:27.667Z",
-  "collectedAt": "2026-09-06T05:35:59.713Z",
-  "dataUpdatedAt": "2026-09-06T05:35:59.713Z",
-  "dataUpdatedAtJst": "2026-09-06 14:35:59 JST",
-  "runId": "2026-09-06T05-56-00-596Z",
-  "sourceCommit": "e303884f2da031f8ff1a3eb19aafa69d6f8736b5",
-  "sourceBranch": "feature/app-3.1.1.0",
-  "recoverySourceRunId": "2026-09-06T04-28-19-226Z",
-  "recoveryExpectedCounts": {
-    "generals": 490,
-    "equipments": 255,
-    "skills": 665,
-    "formations": 22
-  }
+  "processedAt": "2026-09-13T02:14:51.028Z",
+  "collectedAt": "2026-09-13T02:14:24.255Z",
+  "dataUpdatedAt": "2026-09-13T02:14:24.255Z",
+  "dataUpdatedAtJst": "2026-09-13 11:14:24 JST",
+  "runId": "2026-09-13T01-04-46-696Z",
+  "sourceCommit": "1c6ddce379d3767b15d86971023db04c8b0d55e3",
+  "sourceBranch": "feature/app-3.1.1.0"
 }
