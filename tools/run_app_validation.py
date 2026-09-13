@@ -46,6 +46,7 @@ COMMANDS.extend(
         ["python3", "tools/validate_preview_workflow.py"],
         ["python3", "tools/validate_production_pages_workflow.py"],
         ["node", "tools/test_notify_preview_workflow_no_preview_workflow_edit.js"],
+        ["node", "tools/test_preview_token_preflight.js"],
         ["node", "tools/test_3_1_1_0_copy_share.js"],
         ["node", "tools/test_3_1_0_0_update08_surface_unification.js"],
         ["node", "tools/test_3_1_0_0_skill_level_toggle.js"],
