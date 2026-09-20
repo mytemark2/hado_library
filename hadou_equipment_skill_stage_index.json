@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-09-13T02:14:52.583Z",
-  "dataSetId": "2026-09-06T05:56:27.667Z",
+  "generatedAt": "2026-09-20T09:58:10.988Z",
+  "dataSetId": "2026-09-13T02:14:51.028Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -33,10 +33,10 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 490,
-    "tactics": 469,
-    "equipments": 255,
-    "skills": 665,
+    "generals": 494,
+    "tactics": 473,
+    "equipments": 260,
+    "skills": 681,
     "statusEffects": 206,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
@@ -47,10 +47,10 @@
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "36a988b3",
-    "tactics": "1db2e271",
-    "equipments": "5051cab2",
-    "skills": "51f05df8",
+    "generals": "3aa98eff",
+    "tactics": "1bb51de2",
+    "equipments": "d354d782",
+    "skills": "41cdb286",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
@@ -61,10 +61,10 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "36a988b3",
-    "tactics": "1db2e271",
-    "equipments": "5051cab2",
-    "skills": "51f05df8",
+    "generals": "3aa98eff",
+    "tactics": "1bb51de2",
+    "equipments": "d354d782",
+    "skills": "41cdb286",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
@@ -77,8 +77,8 @@
   "hotfixVersion": "1.1.0.3",
   "kind": "equipment_skill_stage_index",
   "qualityAudit": {
-    "itemCount": 254,
-    "sourceItemCount": 255,
+    "itemCount": 259,
+    "sourceItemCount": 260,
     "duplicateEquipmentNameCount": 1,
     "duplicateEquipmentNames": [
       "青嚢書・名家医書"
@@ -87,8 +87,8 @@
       "ok": true,
       "policy": "同じ表示名の装備記事は段階・技能・根拠URLを統合し、先頭記事だけを採用しない。"
     },
-    "withSkills": 223,
-    "stageParameterEffectCount": 1238,
+    "withSkills": 227,
+    "stageParameterEffectCount": 1251,
     "suspiciousSkillNameCount": 0,
     "suspiciousSkillNameSamples": [],
     "suspiciousParameterEffectCount": 0,
@@ -97,6 +97,903 @@
     "missingDirectSignedEffectSamples": []
   },
   "items": [
+    {
+      "id": "equipments:name:獅冠銀尖槍",
+      "category": "equipments",
+      "name": "獅冠銀尖槍",
+      "displayName": "獅冠銀尖槍",
+      "rawName": "【三國志 覇道】獅冠銀尖槍",
+      "highestRarity": "UR",
+      "slot": "武器",
+      "troopType": "工兵",
+      "stages": {
+        "initial": {
+          "label": "初期",
+          "skills": [
+            {
+              "skillName": "錦投強撃",
+              "text": "■常に ●部隊の「錦武」の技能Lv+1（上限2） ●部隊の攻撃+2%"
+            },
+            {
+              "skillName": "猛鬼鋭撃",
+              "text": "■常に ●通常攻撃・戦法・兵器攻撃による与ダメージ+5% →主将の際は効果が2倍（+10%）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+5%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+5%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+2%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+2%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "ssrMax": {
+          "label": "SSR最大",
+          "skills": [
+            {
+              "skillName": "錦投強撃",
+              "text": "■常に ●部隊の「錦武」の技能Lv+1（上限2） ●部隊の攻撃+2%"
+            },
+            {
+              "skillName": "猛鬼鋭撃",
+              "text": "■常に ●通常攻撃・戦法・兵器攻撃による与ダメージ+15% →主将の際は効果が2倍（+30%）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+15%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+15%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+2%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+2%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "urMax": {
+          "label": "UR最大",
+          "skills": [
+            {
+              "skillName": "錦投強撃",
+              "text": "■常に ●部隊の「錦武」の技能Lv+1（上限2） ●部隊の「投合」の技能Lv+1（上限5） ●部隊の攻撃+4%"
+            },
+            {
+              "skillName": "猛鬼鋭撃",
+              "text": "■常に ●通常攻撃・戦法・兵器攻撃による与ダメージ+15% →主将の際は効果が2倍（+30%）▼この技能を持つ武将が戦法を発動した時 ●自身1部隊に15％の鬼迫を付与（10秒）"
+            },
+            {
+              "skillName": "合心躍動",
+              "text": "■常に ●部隊の「投合」のLv×4%、部隊の攻撃速度が上昇"
+            }
+          ],
+          "skillCount": 3,
+          "parameterEffects": [
+            {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+15%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+15%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+4%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        }
+      },
+      "stageCandidates": [
+        {
+          "tableIndex": 2,
+          "skillCount": 3,
+          "skillNames": [
+            "錦投強撃",
+            "猛鬼鋭撃",
+            "合心躍動"
+          ]
+        },
+        {
+          "tableIndex": 3,
+          "skillCount": 2,
+          "skillNames": [
+            "錦投強撃",
+            "猛鬼鋭撃"
+          ]
+        },
+        {
+          "tableIndex": 4,
+          "skillCount": 2,
+          "skillNames": [
+            "錦投強撃",
+            "猛鬼鋭撃"
+          ]
+        }
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/577579",
+      "sourceUrls": [
+        "https://gamewith.jp/sangokushihadou/article/show/577579"
+      ]
+    },
+    {
+      "id": "equipments:name:敬天柱国兜",
+      "category": "equipments",
+      "name": "敬天柱国兜",
+      "displayName": "敬天柱国兜",
+      "rawName": "【三國志 覇道】敬天柱国兜",
+      "highestRarity": "UR",
+      "slot": "防具",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
+      "stages": {
+        "initial": {
+          "label": "初期",
+          "skills": [
+            {
+              "skillName": "焦術才気",
+              "text": "■常に ●部隊の「焦火」の技能Lv+1（上限2） ●部隊の知力+2%"
+            },
+            {
+              "skillName": "優知壁叡",
+              "text": "■常に ●出陣時の自部隊の知力に応じて、戦法による被ダメージを軽減（知力500につき1％軽減。最大10％） →自身が主将か副将の際は効果が2倍（知力500につき2％軽減。最大20％）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+2%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+2%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "ssrMax": {
+          "label": "SSR最大",
+          "skills": [
+            {
+              "skillName": "焦術才気",
+              "text": "■常に ●部隊の「焦火」の技能Lv+1（上限2） ●部隊の知力+2%"
+            },
+            {
+              "skillName": "優知壁叡",
+              "text": "■常に ●出陣時の自部隊の知力に応じて、戦法による被ダメージを軽減（知力500につき2％軽減。最大20％） →自身が主将か副将の際は効果が2倍（知力500につき4％軽減。最大40％）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+2%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+2%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "urMax": {
+          "label": "UR最大",
+          "skills": [
+            {
+              "skillName": "焦術才気",
+              "text": "■常に ●部隊の「焦火」の技能Lv+1（上限2） ●部隊の「火術」の技能Lv+1（上限5） ●部隊の知力+4%"
+            },
+            {
+              "skillName": "優知壁叡",
+              "text": "■常に ●出陣時の自部隊の知力に応じて、戦法による被ダメージを軽減（知力500につき2％軽減。最大20％） →自身が主将か副将の際は効果が2倍（知力500につき4％軽減。最大40％）▼この技能を持つ武将が戦法を発動した時 ●自身1部隊に15％の慧叡を付与（10秒）"
+            },
+            {
+              "skillName": "灼器炎討",
+              "text": "■常に ●部隊の火攻撃威力+4% ●兵器による与ダメージ+4%"
+            }
+          ],
+          "skillCount": 3,
+          "parameterEffects": [
+            {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+4%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+4%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        }
+      },
+      "stageCandidates": [
+        {
+          "tableIndex": 2,
+          "skillCount": 3,
+          "skillNames": [
+            "焦術才気",
+            "優知壁叡",
+            "灼器炎討"
+          ]
+        },
+        {
+          "tableIndex": 3,
+          "skillCount": 2,
+          "skillNames": [
+            "焦術才気",
+            "優知壁叡"
+          ]
+        },
+        {
+          "tableIndex": 4,
+          "skillCount": 2,
+          "skillNames": [
+            "焦術才気",
+            "優知壁叡"
+          ]
+        }
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/577580",
+      "sourceUrls": [
+        "https://gamewith.jp/sangokushihadou/article/show/577580"
+      ]
+    },
+    {
+      "id": "equipments:name:瑞獣の硯",
+      "category": "equipments",
+      "name": "瑞獣の硯",
+      "displayName": "瑞獣の硯",
+      "rawName": "【三國志 覇道】瑞獣の硯",
+      "highestRarity": "SSR",
+      "slot": "文物",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
+      "stages": {
+        "initial": {
+          "label": "初期",
+          "skills": [
+            {
+              "skillName": "仁恵堅命",
+              "text": "■常に ●部隊の「仁援」の技能Lv+1（上限3） ●部隊の「堅実」の技能Lv+1（上限5）"
+            },
+            {
+              "skillName": "伸能敏賢",
+              "text": "■常に ●部隊の「敏活」のLv×1%、部隊の攻撃が上昇 ●部隊の「敏活」のLv×1%、部隊の防御が上昇 ●部隊の「敏活」のLv×1%、部隊の知力が上昇"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": []
+        },
+        "ssrMax": {
+          "label": "SSR最大",
+          "skills": [
+            {
+              "skillName": "仁恵堅命",
+              "text": "■常に ●部隊の「仁援」の技能Lv+1（上限3） ●部隊の「堅実」の技能Lv+1（上限5）"
+            },
+            {
+              "skillName": "伸能敏賢",
+              "text": "■常に ●部隊の「敏活」の技能Lv+1（上限5） ●部隊の「任賢」の技能Lv+1（上限2） ●部隊の「敏活」のLv×3%、部隊の攻撃が上昇 ●部隊の「敏活」のLv×3%、部隊の防御が上昇 ●部隊の「敏活」のLv×3%、部隊の知力が上昇▼出陣時 ●戦法ゲージを部隊の「敏活」のLvに応じて上昇（Lv×2%上昇。最大10％）（上限50%）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": []
+        },
+        "urMax": {
+          "label": "UR最大",
+          "skills": [
+            {
+              "skillName": "仁恵堅命",
+              "text": "■常に ●部隊の「仁援」の技能Lv+1（上限3） ●部隊の「堅実」の技能Lv+1（上限5）"
+            },
+            {
+              "skillName": "伸能敏賢",
+              "text": "■常に ●部隊の「敏活」の技能Lv+1（上限5） ●部隊の「任賢」の技能Lv+1（上限2） ●部隊の「敏活」のLv×3%、部隊の攻撃が上昇 ●部隊の「敏活」のLv×3%、部隊の防御が上昇 ●部隊の「敏活」のLv×3%、部隊の知力が上昇▼出陣時 ●戦法ゲージを部隊の「敏活」のLvに応じて上昇（Lv×2%上昇。最大10％）（上限50%）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": []
+        }
+      },
+      "stageCandidates": [
+        {
+          "tableIndex": 2,
+          "skillCount": 2,
+          "skillNames": [
+            "仁恵堅命",
+            "伸能敏賢"
+          ]
+        },
+        {
+          "tableIndex": 3,
+          "skillCount": 2,
+          "skillNames": [
+            "仁恵堅命",
+            "伸能敏賢"
+          ]
+        }
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/577581",
+      "sourceUrls": [
+        "https://gamewith.jp/sangokushihadou/article/show/577581"
+      ]
+    },
+    {
+      "id": "equipments:name:精鋼双鎚・鉄双鎚",
+      "category": "equipments",
+      "name": "精鋼双鎚・鉄双鎚",
+      "displayName": "精鋼双鎚・鉄双鎚",
+      "rawName": "【三國志 覇道】精鋼双鎚・鉄双鎚",
+      "highestRarity": "UR",
+      "slot": "武器",
+      "troopType": "工兵",
+      "stages": {
+        "initial": {
+          "label": "初期",
+          "skills": [
+            {
+              "skillName": "戦撃怒涛",
+              "text": "■常に ●戦法による与ダメージ+2%"
+            }
+          ],
+          "skillCount": 1,
+          "parameterEffects": [
+            {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+2%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+2%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "ssrMax": {
+          "label": "SSR最大",
+          "skills": [
+            {
+              "skillName": "戦撃怒涛",
+              "text": "■常に ●戦法による与ダメージ+2%"
+            }
+          ],
+          "skillCount": 1,
+          "parameterEffects": [
+            {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+2%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+2%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "urMax": {
+          "label": "UR最大",
+          "skills": [
+            {
+              "skillName": "戦撃怒涛",
+              "text": "■常に ●戦法による与ダメージ+4%"
+            }
+          ],
+          "skillCount": 1,
+          "parameterEffects": [
+            {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+4%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        }
+      },
+      "stageCandidates": [
+        {
+          "tableIndex": 2,
+          "skillCount": 1,
+          "skillNames": [
+            "戦撃怒涛"
+          ]
+        },
+        {
+          "tableIndex": 3,
+          "skillCount": 1,
+          "skillNames": [
+            "戦撃怒涛"
+          ]
+        }
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/577583",
+      "sourceUrls": [
+        "https://gamewith.jp/sangokushihadou/article/show/577583"
+      ]
+    },
+    {
+      "id": "equipments:name:精鋼大鎚・鉄大鎚",
+      "category": "equipments",
+      "name": "精鋼大鎚・鉄大鎚",
+      "displayName": "精鋼大鎚・鉄大鎚",
+      "rawName": "【三國志 覇道】精鋼大鎚・鉄大鎚",
+      "highestRarity": "UR",
+      "slot": "武器",
+      "troopType": "工兵",
+      "stages": {
+        "initial": {
+          "label": "初期",
+          "skills": [],
+          "skillCount": 0,
+          "parameterEffects": []
+        },
+        "ssrMax": {
+          "label": "SSR最大",
+          "skills": [],
+          "skillCount": 0,
+          "parameterEffects": []
+        },
+        "urMax": {
+          "label": "UR最大",
+          "skills": [],
+          "skillCount": 0,
+          "parameterEffects": []
+        }
+      },
+      "stageCandidates": [],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/577582",
+      "sourceUrls": [
+        "https://gamewith.jp/sangokushihadou/article/show/577582"
+      ]
+    },
+    {
+      "id": "equipments:name:和氏の璧",
+      "category": "equipments",
+      "name": "和氏の璧",
+      "displayName": "和氏の璧",
+      "rawName": "【三國志 覇道】和氏の璧",
+      "highestRarity": "UR",
+      "slot": "文物",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
+      "stages": {
+        "initial": {
+          "label": "初期",
+          "skills": [
+            {
+              "skillName": "政鼓才気",
+              "text": "■常に ●部隊の「政化」の技能Lv+1（上限4） ●部隊の「鼓励」の技能Lv+1（上限3） ●部隊の知力+1%"
+            },
+            {
+              "skillName": "砕壁強建",
+              "text": "■常に ●部隊の対物体攻撃+5%▼主将戦法発動時 ●自身1部隊に1回の弱化無効を付与（60秒） →50％の確率で効果が2倍（2回）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+5%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+5%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+1%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+1%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "ssrMax": {
+          "label": "SSR最大",
+          "skills": [
+            {
+              "skillName": "政鼓才気",
+              "text": "■常に ●部隊の「政化」の技能Lv+1（上限4） ●部隊の「鼓励」の技能Lv+1（上限3） ●部隊の知力+1%"
+            },
+            {
+              "skillName": "砕壁強建",
+              "text": "■常に ●部隊の対物体攻撃+5%▼主将戦法発動時 ●自身1部隊に2回の弱化無効を付与（60秒）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+5%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+5%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+1%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+1%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "urMax": {
+          "label": "UR最大",
+          "skills": [
+            {
+              "skillName": "政鼓才気",
+              "text": "■常に ●部隊の「政化」の技能Lv+1（上限4） ●部隊の「鼓励」の技能Lv+1（上限3） ●部隊の「攻城」の技能Lv+1（上限5） ●部隊の知力+4%"
+            },
+            {
+              "skillName": "砕壁強建",
+              "text": "■常に ●部隊の対物体攻撃+10%▼主将戦法発動時 ●自身を含む味方3部隊に2回の弱化無効を付与（60秒）"
+            },
+            {
+              "skillName": "怒髪烈撃",
+              "text": "■常に ●通常攻撃・戦法による与ダメージ+5% →物体を攻撃目標にしている時、効果が2倍（+10%）"
+            }
+          ],
+          "skillCount": 3,
+          "parameterEffects": [
+            {
+              "parameter": "与ダメージ",
+              "direction": "increase",
+              "value": "+5%",
+              "targetSide": "self_or_ally",
+              "matchedText": "与ダメージ+5%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+10%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+10%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+4%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        }
+      },
+      "stageCandidates": [
+        {
+          "tableIndex": 2,
+          "skillCount": 3,
+          "skillNames": [
+            "政鼓才気",
+            "砕壁強建",
+            "怒髪烈撃"
+          ]
+        },
+        {
+          "tableIndex": 3,
+          "skillCount": 2,
+          "skillNames": [
+            "政鼓才気",
+            "砕壁強建"
+          ]
+        },
+        {
+          "tableIndex": 4,
+          "skillCount": 2,
+          "skillNames": [
+            "政鼓才気",
+            "砕壁強建"
+          ]
+        }
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/574354",
+      "sourceUrls": [
+        "https://gamewith.jp/sangokushihadou/article/show/574354"
+      ]
+    },
+    {
+      "id": "equipments:name:抗節相和冠",
+      "category": "equipments",
+      "name": "抗節相和冠",
+      "displayName": "抗節相和冠",
+      "rawName": "【三國志 覇道】抗節相和冠",
+      "highestRarity": "UR",
+      "slot": "防具",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
+      "stages": {
+        "initial": {
+          "label": "初期",
+          "skills": [
+            {
+              "skillName": "政鼓堅守",
+              "text": "■常に ●部隊の「政化」の技能Lv+1（上限4） ●部隊の「鼓励」の技能Lv+1（上限3） ●部隊の防御+1%"
+            },
+            {
+              "skillName": "万政喝破",
+              "text": "■常に ●政治を部隊能力に加算する技能の効果量+5%▼主将戦法発動時 ●対象を含む敵3部隊の強化効果を1つ打ち消す →50％の確率で効果が2倍（2つ）"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "防御",
+              "direction": "increase",
+              "value": "+1%",
+              "targetSide": "self_or_ally",
+              "matchedText": "防御+1%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "ssrMax": {
+          "label": "SSR最大",
+          "skills": [
+            {
+              "skillName": "政鼓堅守",
+              "text": "■常に ●部隊の「政化」の技能Lv+1（上限4） ●部隊の「鼓励」の技能Lv+1（上限3） ●部隊の防御+1%"
+            },
+            {
+              "skillName": "万政喝破",
+              "text": "■常に ●政治を部隊能力に加算する技能の効果量+5%▼主将戦法発動時 ●対象を含む敵3部隊の強化効果を2つ打ち消す"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "防御",
+              "direction": "increase",
+              "value": "+1%",
+              "targetSide": "self_or_ally",
+              "matchedText": "防御+1%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "urMax": {
+          "label": "UR最大",
+          "skills": [
+            {
+              "skillName": "政鼓堅守",
+              "text": "■常に ●部隊の「政化」の技能Lv+1（上限4） ●部隊の「鼓励」の技能Lv+1（上限3） ●部隊の「敏活」の技能Lv+1（上限5） ●部隊の防御+4%"
+            },
+            {
+              "skillName": "万政喝破",
+              "text": "■常に ●政治を部隊能力に加算する技能の効果量+10%▼主将戦法発動時 ●対象を含む敵3部隊の強化効果を3つ打ち消す"
+            },
+            {
+              "skillName": "怒髪減衝",
+              "text": "■常に ●通常攻撃・戦法による被ダメージ-5% →物体を攻撃目標にしている時、効果が2倍（-10%）"
+            }
+          ],
+          "skillCount": 3,
+          "parameterEffects": [
+            {
+              "parameter": "被ダメージ",
+              "direction": "decrease",
+              "value": "-5%",
+              "targetSide": "self_or_ally",
+              "matchedText": "被ダメージ-5%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "防御",
+              "direction": "increase",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "防御+4%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        }
+      },
+      "stageCandidates": [
+        {
+          "tableIndex": 2,
+          "skillCount": 3,
+          "skillNames": [
+            "政鼓堅守",
+            "万政喝破",
+            "怒髪減衝"
+          ]
+        },
+        {
+          "tableIndex": 3,
+          "skillCount": 2,
+          "skillNames": [
+            "政鼓堅守",
+            "万政喝破"
+          ]
+        },
+        {
+          "tableIndex": 4,
+          "skillCount": 2,
+          "skillNames": [
+            "政鼓堅守",
+            "万政喝破"
+          ]
+        }
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/574353",
+      "sourceUrls": [
+        "https://gamewith.jp/sangokushihadou/article/show/574353"
+      ]
+    },
+    {
+      "id": "equipments:name:藤黄飄遥小青巾",
+      "category": "equipments",
+      "name": "藤黄飄遥小青巾",
+      "displayName": "藤黄飄遥小青巾",
+      "rawName": "【三國志 覇道】藤黄飄遥小青巾",
+      "highestRarity": "UR",
+      "slot": "防具",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
+      "stages": {
+        "initial": {
+          "label": "初期",
+          "skills": [
+            {
+              "skillName": "理鋭堅守",
+              "text": "■常に ●部隊の「理知」の技能Lv+1（上限4） ●部隊の「鋭敏」の技能Lv+1（上限3） ●部隊の防御+1%"
+            },
+            {
+              "skillName": "決策賢略",
+              "text": "■常に ●知力系統の攻撃による被ダメージ-5% →自部隊に弱化効果が発生していない場合、さらに-5% →敵部隊に弱化効果が発生している場合、さらに-5%"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "被ダメージ",
+              "direction": "decrease",
+              "value": "-5%",
+              "targetSide": "self_or_ally",
+              "matchedText": "被ダメージ-5%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "防御",
+              "direction": "decrease",
+              "value": "+1%",
+              "targetSide": "self_or_ally",
+              "matchedText": "防御+1%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "ssrMax": {
+          "label": "SSR最大",
+          "skills": [
+            {
+              "skillName": "理鋭堅守",
+              "text": "■常に ●部隊の「理知」の技能Lv+1（上限4） ●部隊の「鋭敏」の技能Lv+1（上限3） ●部隊の防御+1%"
+            },
+            {
+              "skillName": "決策賢略",
+              "text": "■常に ●知力系統の攻撃による被ダメージ-10% →自部隊に弱化効果が発生していない場合、さらに-10% →敵部隊に弱化効果が発生している場合、さらに-10%"
+            }
+          ],
+          "skillCount": 2,
+          "parameterEffects": [
+            {
+              "parameter": "被ダメージ",
+              "direction": "decrease",
+              "value": "-10%",
+              "targetSide": "self_or_ally",
+              "matchedText": "被ダメージ-10%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "防御",
+              "direction": "decrease",
+              "value": "+1%",
+              "targetSide": "self_or_ally",
+              "matchedText": "防御+1%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        },
+        "urMax": {
+          "label": "UR最大",
+          "skills": [
+            {
+              "skillName": "理鋭堅守",
+              "text": "■常に ●部隊の「理知」の技能Lv+1（上限4） ●部隊の「鋭敏」の技能Lv+1（上限3） ●部隊の「機略」の技能Lv+1（上限5） ●部隊の防御+4%"
+            },
+            {
+              "skillName": "決策賢略",
+              "text": "■常に ●知力系統の攻撃による被ダメージ-35%"
+            },
+            {
+              "skillName": "慧士励護",
+              "text": "■常に▼主将戦法発動時 ●部隊の「連慧」のLv×4%、自身を含む味方3部隊の防御が上昇（15秒）"
+            }
+          ],
+          "skillCount": 3,
+          "parameterEffects": [
+            {
+              "parameter": "被ダメージ",
+              "direction": "decrease",
+              "value": "-35%",
+              "targetSide": "self_or_ally",
+              "matchedText": "被ダメージ-35%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "防御",
+              "direction": "decrease",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "防御+4%",
+              "sourcePartType": "equipment-skill-stage"
+            }
+          ]
+        }
+      },
+      "stageCandidates": [
+        {
+          "tableIndex": 2,
+          "skillCount": 3,
+          "skillNames": [
+            "理鋭堅守",
+            "決策賢略",
+            "慧士励護"
+          ]
+        },
+        {
+          "tableIndex": 3,
+          "skillCount": 2,
+          "skillNames": [
+            "理鋭堅守",
+            "決策賢略"
+          ]
+        },
+        {
+          "tableIndex": 4,
+          "skillCount": 2,
+          "skillNames": [
+            "理鋭堅守",
+            "決策賢略"
+          ]
+        }
+      ],
+      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/574352",
+      "sourceUrls": [
+        "https://gamewith.jp/sangokushihadou/article/show/574352"
+      ]
+    },
     {
       "id": "equipments:name:料敵制勝剣",
       "category": "equipments",
@@ -238,427 +1135,6 @@
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/574351",
       "sourceUrls": [
         "https://gamewith.jp/sangokushihadou/article/show/574351"
-      ]
-    },
-    {
-      "id": "equipments:name:藤黄飄遥小青巾",
-      "category": "equipments",
-      "name": "藤黄飄遥小青巾",
-      "displayName": "藤黄飄遥小青巾",
-      "rawName": "【三國志 覇道】藤黄飄遥小青巾",
-      "highestRarity": "UR",
-      "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵 盾兵",
-      "stages": {
-        "initial": {
-          "label": "初期",
-          "skills": [
-            {
-              "skillName": "理鋭堅守",
-              "text": "■常に ●部隊の「理知」の技能Lv+1（上限4） ●部隊の「鋭敏」の技能Lv+1（上限3） ●部隊の防御+1%"
-            },
-            {
-              "skillName": "決策賢略",
-              "text": "■常に ●知力系統の攻撃による被ダメージ-5% →自部隊に弱化効果が発生していない場合、さらに-5% →敵部隊に弱化効果が発生している場合、さらに-5%"
-            }
-          ],
-          "skillCount": 2,
-          "parameterEffects": [
-            {
-              "parameter": "被ダメージ",
-              "direction": "decrease",
-              "value": "-5%",
-              "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ-5%",
-              "sourcePartType": "equipment-skill-stage"
-            },
-            {
-              "parameter": "防御",
-              "direction": "decrease",
-              "value": "+1%",
-              "targetSide": "self_or_ally",
-              "matchedText": "防御+1%",
-              "sourcePartType": "equipment-skill-stage"
-            }
-          ]
-        },
-        "ssrMax": {
-          "label": "SSR最大",
-          "skills": [
-            {
-              "skillName": "理鋭堅守",
-              "text": "■常に ●部隊の「理知」の技能Lv+1（上限4） ●部隊の「鋭敏」の技能Lv+1（上限3） ●部隊の防御+1%"
-            },
-            {
-              "skillName": "決策賢略",
-              "text": "■常に ●知力系統の攻撃による被ダメージ-10% →自部隊に弱化効果が発生していない場合、さらに-10% →敵部隊に弱化効果が発生している場合、さらに-10%"
-            }
-          ],
-          "skillCount": 2,
-          "parameterEffects": [
-            {
-              "parameter": "被ダメージ",
-              "direction": "decrease",
-              "value": "-10%",
-              "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ-10%",
-              "sourcePartType": "equipment-skill-stage"
-            },
-            {
-              "parameter": "防御",
-              "direction": "decrease",
-              "value": "+1%",
-              "targetSide": "self_or_ally",
-              "matchedText": "防御+1%",
-              "sourcePartType": "equipment-skill-stage"
-            }
-          ]
-        },
-        "urMax": {
-          "label": "UR最大",
-          "skills": [
-            {
-              "skillName": "理鋭堅守",
-              "text": "■常に ●部隊の「理知」の技能Lv+1（上限4） ●部隊の「鋭敏」の技能Lv+1（上限3） ●部隊の「機略」の技能Lv+1（上限5） ●部隊の防御+4%"
-            },
-            {
-              "skillName": "決策賢略",
-              "text": "■常に ●知力系統の攻撃による被ダメージ-35%"
-            },
-            {
-              "skillName": "慧士励護",
-              "text": "■常に▼主将戦法発動時 ●部隊の「連慧」のLv×4%、自身を含む味方3部隊の防御が上昇（15秒）"
-            }
-          ],
-          "skillCount": 3,
-          "parameterEffects": [
-            {
-              "parameter": "被ダメージ",
-              "direction": "decrease",
-              "value": "-35%",
-              "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ-35%",
-              "sourcePartType": "equipment-skill-stage"
-            },
-            {
-              "parameter": "防御",
-              "direction": "decrease",
-              "value": "+4%",
-              "targetSide": "self_or_ally",
-              "matchedText": "防御+4%",
-              "sourcePartType": "equipment-skill-stage"
-            }
-          ]
-        }
-      },
-      "stageCandidates": [
-        {
-          "tableIndex": 2,
-          "skillCount": 3,
-          "skillNames": [
-            "理鋭堅守",
-            "決策賢略",
-            "慧士励護"
-          ]
-        },
-        {
-          "tableIndex": 3,
-          "skillCount": 2,
-          "skillNames": [
-            "理鋭堅守",
-            "決策賢略"
-          ]
-        },
-        {
-          "tableIndex": 4,
-          "skillCount": 2,
-          "skillNames": [
-            "理鋭堅守",
-            "決策賢略"
-          ]
-        }
-      ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/574352",
-      "sourceUrls": [
-        "https://gamewith.jp/sangokushihadou/article/show/574352"
-      ]
-    },
-    {
-      "id": "equipments:name:抗節相和冠",
-      "category": "equipments",
-      "name": "抗節相和冠",
-      "displayName": "抗節相和冠",
-      "rawName": "【三國志 覇道】抗節相和冠",
-      "highestRarity": "UR",
-      "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵 盾兵",
-      "stages": {
-        "initial": {
-          "label": "初期",
-          "skills": [
-            {
-              "skillName": "政鼓堅守",
-              "text": "■常に ●部隊の「政化」の技能Lv+1（上限4） ●部隊の「鼓励」の技能Lv+1（上限3） ●部隊の防御+1%"
-            },
-            {
-              "skillName": "万政喝破",
-              "text": "■常に ●政治を部隊能力に加算する技能の効果量+5%▼主将戦法発動時 ●対象を含む敵3部隊の強化効果を1つ打ち消す →50％の確率で効果が2倍（2つ）"
-            }
-          ],
-          "skillCount": 2,
-          "parameterEffects": [
-            {
-              "parameter": "防御",
-              "direction": "increase",
-              "value": "+1%",
-              "targetSide": "self_or_ally",
-              "matchedText": "防御+1%",
-              "sourcePartType": "equipment-skill-stage"
-            }
-          ]
-        },
-        "ssrMax": {
-          "label": "SSR最大",
-          "skills": [
-            {
-              "skillName": "政鼓堅守",
-              "text": "■常に ●部隊の「政化」の技能Lv+1（上限4） ●部隊の「鼓励」の技能Lv+1（上限3） ●部隊の防御+1%"
-            },
-            {
-              "skillName": "万政喝破",
-              "text": "■常に ●政治を部隊能力に加算する技能の効果量+5%▼主将戦法発動時 ●対象を含む敵3部隊の強化効果を2つ打ち消す"
-            }
-          ],
-          "skillCount": 2,
-          "parameterEffects": [
-            {
-              "parameter": "防御",
-              "direction": "increase",
-              "value": "+1%",
-              "targetSide": "self_or_ally",
-              "matchedText": "防御+1%",
-              "sourcePartType": "equipment-skill-stage"
-            }
-          ]
-        },
-        "urMax": {
-          "label": "UR最大",
-          "skills": [
-            {
-              "skillName": "政鼓堅守",
-              "text": "■常に ●部隊の「政化」の技能Lv+1（上限4） ●部隊の「鼓励」の技能Lv+1（上限3） ●部隊の「敏活」の技能Lv+1（上限5） ●部隊の防御+4%"
-            },
-            {
-              "skillName": "万政喝破",
-              "text": "■常に ●政治を部隊能力に加算する技能の効果量+10%▼主将戦法発動時 ●対象を含む敵3部隊の強化効果を3つ打ち消す"
-            },
-            {
-              "skillName": "怒髪減衝",
-              "text": "■常に ●通常攻撃・戦法による被ダメージ-5% →物体を攻撃目標にしている時、効果が2倍（-10%）"
-            }
-          ],
-          "skillCount": 3,
-          "parameterEffects": [
-            {
-              "parameter": "被ダメージ",
-              "direction": "decrease",
-              "value": "-5%",
-              "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ-5%",
-              "sourcePartType": "equipment-skill-stage"
-            },
-            {
-              "parameter": "防御",
-              "direction": "increase",
-              "value": "+4%",
-              "targetSide": "self_or_ally",
-              "matchedText": "防御+4%",
-              "sourcePartType": "equipment-skill-stage"
-            }
-          ]
-        }
-      },
-      "stageCandidates": [
-        {
-          "tableIndex": 2,
-          "skillCount": 3,
-          "skillNames": [
-            "政鼓堅守",
-            "万政喝破",
-            "怒髪減衝"
-          ]
-        },
-        {
-          "tableIndex": 3,
-          "skillCount": 2,
-          "skillNames": [
-            "政鼓堅守",
-            "万政喝破"
-          ]
-        },
-        {
-          "tableIndex": 4,
-          "skillCount": 2,
-          "skillNames": [
-            "政鼓堅守",
-            "万政喝破"
-          ]
-        }
-      ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/574353",
-      "sourceUrls": [
-        "https://gamewith.jp/sangokushihadou/article/show/574353"
-      ]
-    },
-    {
-      "id": "equipments:name:和氏の璧",
-      "category": "equipments",
-      "name": "和氏の璧",
-      "displayName": "和氏の璧",
-      "rawName": "【三國志 覇道】和氏の璧",
-      "highestRarity": "UR",
-      "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵 盾兵",
-      "stages": {
-        "initial": {
-          "label": "初期",
-          "skills": [
-            {
-              "skillName": "政鼓才気",
-              "text": "■常に ●部隊の「政化」の技能Lv+1（上限4） ●部隊の「鼓励」の技能Lv+1（上限3） ●部隊の知力+1%"
-            },
-            {
-              "skillName": "砕壁強建",
-              "text": "■常に ●部隊の対物体攻撃+5%▼主将戦法発動時 ●自身1部隊に1回の弱化無効を付与（60秒） →50％の確率で効果が2倍（2回）"
-            }
-          ],
-          "skillCount": 2,
-          "parameterEffects": [
-            {
-              "parameter": "攻撃",
-              "direction": "increase",
-              "value": "+5%",
-              "targetSide": "self_or_ally",
-              "matchedText": "攻撃+5%",
-              "sourcePartType": "equipment-skill-stage"
-            },
-            {
-              "parameter": "知力",
-              "direction": "increase",
-              "value": "+1%",
-              "targetSide": "self_or_ally",
-              "matchedText": "知力+1%",
-              "sourcePartType": "equipment-skill-stage"
-            }
-          ]
-        },
-        "ssrMax": {
-          "label": "SSR最大",
-          "skills": [
-            {
-              "skillName": "政鼓才気",
-              "text": "■常に ●部隊の「政化」の技能Lv+1（上限4） ●部隊の「鼓励」の技能Lv+1（上限3） ●部隊の知力+1%"
-            },
-            {
-              "skillName": "砕壁強建",
-              "text": "■常に ●部隊の対物体攻撃+5%▼主将戦法発動時 ●自身1部隊に2回の弱化無効を付与（60秒）"
-            }
-          ],
-          "skillCount": 2,
-          "parameterEffects": [
-            {
-              "parameter": "攻撃",
-              "direction": "increase",
-              "value": "+5%",
-              "targetSide": "self_or_ally",
-              "matchedText": "攻撃+5%",
-              "sourcePartType": "equipment-skill-stage"
-            },
-            {
-              "parameter": "知力",
-              "direction": "increase",
-              "value": "+1%",
-              "targetSide": "self_or_ally",
-              "matchedText": "知力+1%",
-              "sourcePartType": "equipment-skill-stage"
-            }
-          ]
-        },
-        "urMax": {
-          "label": "UR最大",
-          "skills": [
-            {
-              "skillName": "政鼓才気",
-              "text": "■常に ●部隊の「政化」の技能Lv+1（上限4） ●部隊の「鼓励」の技能Lv+1（上限3） ●部隊の「攻城」の技能Lv+1（上限5） ●部隊の知力+4%"
-            },
-            {
-              "skillName": "砕壁強建",
-              "text": "■常に ●部隊の対物体攻撃+10%▼主将戦法発動時 ●自身を含む味方3部隊に2回の弱化無効を付与（60秒）"
-            },
-            {
-              "skillName": "怒髪烈撃",
-              "text": "■常に ●通常攻撃・戦法による与ダメージ+5% →物体を攻撃目標にしている時、効果が2倍（+10%）"
-            }
-          ],
-          "skillCount": 3,
-          "parameterEffects": [
-            {
-              "parameter": "与ダメージ",
-              "direction": "increase",
-              "value": "+5%",
-              "targetSide": "self_or_ally",
-              "matchedText": "与ダメージ+5%",
-              "sourcePartType": "equipment-skill-stage"
-            },
-            {
-              "parameter": "攻撃",
-              "direction": "increase",
-              "value": "+10%",
-              "targetSide": "self_or_ally",
-              "matchedText": "攻撃+10%",
-              "sourcePartType": "equipment-skill-stage"
-            },
-            {
-              "parameter": "知力",
-              "direction": "increase",
-              "value": "+4%",
-              "targetSide": "self_or_ally",
-              "matchedText": "知力+4%",
-              "sourcePartType": "equipment-skill-stage"
-            }
-          ]
-        }
-      },
-      "stageCandidates": [
-        {
-          "tableIndex": 2,
-          "skillCount": 3,
-          "skillNames": [
-            "政鼓才気",
-            "砕壁強建",
-            "怒髪烈撃"
-          ]
-        },
-        {
-          "tableIndex": 3,
-          "skillCount": 2,
-          "skillNames": [
-            "政鼓才気",
-            "砕壁強建"
-          ]
-        },
-        {
-          "tableIndex": 4,
-          "skillCount": 2,
-          "skillNames": [
-            "政鼓才気",
-            "砕壁強建"
-          ]
-        }
-      ],
-      "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/574354",
-      "sourceUrls": [
-        "https://gamewith.jp/sangokushihadou/article/show/574354"
       ]
     },
     {
@@ -860,7 +1336,7 @@
       "rawName": "【三國志 覇道】心翠宝玉佩",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵 盾兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -987,7 +1463,7 @@
       "rawName": "【三國志 覇道】鴻門宴玉玦",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵 盾兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -1154,7 +1630,7 @@
       "rawName": "【三國志 覇道】亜父奇謀冠",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵 盾兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -1488,7 +1964,7 @@
       "rawName": "【三國志 覇道】荊南征定図",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵 盾兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -1631,7 +2107,7 @@
       "rawName": "【三國志 覇道】尚武丹紅披風",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵 盾兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -2124,7 +2600,7 @@
       "rawName": "【三國志 覇道】乾象暦注",
       "highestRarity": "SSR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵 盾兵 盾兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵 盾兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -2556,7 +3032,7 @@
       "rawName": "【三國志 覇道】太平辟邪霊符",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -2683,7 +3159,7 @@
       "rawName": "【三國志 覇道】蜀科",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -2694,7 +3170,7 @@
             },
             {
               "skillName": "堪撃滞衝",
-              "text": "■常に ●知力系統の攻撃の被ダメージ₋5%▼戦法のダメージを受けて壊滅しなかった時 ●50％の確率で攻撃部隊の通常攻撃威力₋20%（10秒）"
+              "text": "■常に ●知力系統の攻撃の被ダメージ-5%▼戦法のダメージを受けて壊滅しなかった時 ●50％の確率で攻撃部隊の通常攻撃威力-20%（10秒）"
             }
           ],
           "skillCount": 2,
@@ -2702,17 +3178,17 @@
             {
               "parameter": "通常攻撃威力",
               "direction": "decrease",
-              "value": "₋20%",
+              "value": "-20%",
               "targetSide": "self_or_ally",
-              "matchedText": "通常攻撃威力₋20%",
+              "matchedText": "通常攻撃威力-20%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋5%",
+              "value": "-5%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋5%",
+              "matchedText": "被ダメージ-5%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -2734,7 +3210,7 @@
             },
             {
               "skillName": "堪撃滞衝",
-              "text": "■常に ●知力系統の攻撃の被ダメージ₋10%▼戦法のダメージを受けて壊滅しなかった時 ●攻撃部隊の通常攻撃威力₋20%（10秒）"
+              "text": "■常に ●知力系統の攻撃の被ダメージ-10%▼戦法のダメージを受けて壊滅しなかった時 ●攻撃部隊の通常攻撃威力-20%（10秒）"
             }
           ],
           "skillCount": 2,
@@ -2742,17 +3218,17 @@
             {
               "parameter": "通常攻撃威力",
               "direction": "decrease",
-              "value": "₋20%",
+              "value": "-20%",
               "targetSide": "self_or_ally",
-              "matchedText": "通常攻撃威力₋20%",
+              "matchedText": "通常攻撃威力-20%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋10%",
+              "value": "-10%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋10%",
+              "matchedText": "被ダメージ-10%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -2774,11 +3250,11 @@
             },
             {
               "skillName": "堪撃滞衝",
-              "text": "■常に ●知力系統の攻撃の被ダメージ₋15%▼戦法のダメージを受けて壊滅しなかった時 ●攻撃部隊を含む敵3部隊の強化効果を2つ打ち消す ●攻撃対象を含む敵3部隊の通常攻撃威力₋20%（10秒）"
+              "text": "■常に ●知力系統の攻撃の被ダメージ-15%▼戦法のダメージを受けて壊滅しなかった時 ●攻撃部隊を含む敵3部隊の強化効果を2つ打ち消す ●攻撃対象を含む敵3部隊の通常攻撃威力-20%（10秒）"
             },
             {
               "skillName": "英計抑敵",
-              "text": "■常に▼主将戦法発動時 ●対象を含む敵3部隊の攻撃₋25%（10秒）"
+              "text": "■常に▼主将戦法発動時 ●対象を含む敵3部隊の攻撃-25%（10秒）"
             }
           ],
           "skillCount": 3,
@@ -2786,25 +3262,25 @@
             {
               "parameter": "通常攻撃威力",
               "direction": "decrease",
-              "value": "₋20%",
+              "value": "-20%",
               "targetSide": "enemy",
-              "matchedText": "通常攻撃威力₋20%",
+              "matchedText": "通常攻撃威力-20%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋15%",
+              "value": "-15%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋15%",
+              "matchedText": "被ダメージ-15%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
               "parameter": "攻撃",
               "direction": "decrease",
-              "value": "₋25%",
+              "value": "-25%",
               "targetSide": "enemy",
-              "matchedText": "攻撃₋25%",
+              "matchedText": "攻撃-25%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -3033,7 +3509,7 @@
       "rawName": "【三國志 覇道】堅壁獣面兜",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -3287,7 +3763,7 @@
       "rawName": "【三國志 覇道】踞虎峻厳兜",
       "highestRarity": "SSR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -3298,7 +3774,7 @@
             },
             {
               "skillName": "整鋼鈍滞",
-              "text": "■常に ●統率の部隊能力に加算する技能の効果量+5% ●通常攻撃でダメージを与えた際、50％の確率で攻撃速度₋5%（10秒） →自部隊が駐屯/防衛中の場合、効果が2倍（₋10%） ●通常攻撃でダメージを与えた際、50％の確率で戦法速度₋5%（10秒） →自部隊が駐屯/防衛中の場合、効果が2倍（₋10%）"
+              "text": "■常に ●統率の部隊能力に加算する技能の効果量+5% ●通常攻撃でダメージを与えた際、50％の確率で攻撃速度-5%（10秒） →自部隊が駐屯/防衛中の場合、効果が2倍（-10%） ●通常攻撃でダメージを与えた際、50％の確率で戦法速度-5%（10秒） →自部隊が駐屯/防衛中の場合、効果が2倍（-10%）"
             }
           ],
           "skillCount": 2,
@@ -3306,17 +3782,17 @@
             {
               "parameter": "攻撃速度",
               "direction": "decrease",
-              "value": "₋5%",
+              "value": "-5%",
               "targetSide": "self_or_ally",
-              "matchedText": "攻撃速度₋5%",
+              "matchedText": "攻撃速度-5%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
               "parameter": "戦法速度",
               "direction": "decrease",
-              "value": "₋5%",
+              "value": "-5%",
               "targetSide": "self_or_ally",
-              "matchedText": "戦法速度₋5%",
+              "matchedText": "戦法速度-5%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -3338,7 +3814,7 @@
             },
             {
               "skillName": "整鋼鈍滞",
-              "text": "■常に ●部隊の「整厳」の技能Lv+1（上限2） ●部隊の兵力+7% ●統率の部隊能力に加算する技能の効果量+10% ●通常攻撃でダメージを与えた際、50％の確率で攻撃速度₋10%（10秒） →自部隊が駐屯/防衛中の場合、効果が2倍（₋20%） ●通常攻撃でダメージを与えた際、50％の確率で戦法速度₋10%（10秒） →自部隊が駐屯/防衛中の場合、効果が2倍（₋20%） ●出陣時の自部隊の防御に応じて、戦法による被ダメージが軽減（防御500につき1％軽減。最大10％） →自部隊が駐屯/防衛中の場合、効果が2倍（防御500につき2％軽減。最大20％）"
+              "text": "■常に ●部隊の「整厳」の技能Lv+1（上限2） ●部隊の兵力+7% ●統率の部隊能力に加算する技能の効果量+10% ●通常攻撃でダメージを与えた際、50％の確率で攻撃速度-10%（10秒） →自部隊が駐屯/防衛中の場合、効果が2倍（-20%） ●通常攻撃でダメージを与えた際、50％の確率で戦法速度-10%（10秒） →自部隊が駐屯/防衛中の場合、効果が2倍（-20%） ●出陣時の自部隊の防御に応じて、戦法による被ダメージが軽減（防御500につき1％軽減。最大10％） →自部隊が駐屯/防衛中の場合、効果が2倍（防御500につき2％軽減。最大20％）"
             }
           ],
           "skillCount": 2,
@@ -3346,17 +3822,17 @@
             {
               "parameter": "攻撃速度",
               "direction": "decrease",
-              "value": "₋10%",
+              "value": "-10%",
               "targetSide": "self_or_ally",
-              "matchedText": "攻撃速度₋10%",
+              "matchedText": "攻撃速度-10%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
               "parameter": "戦法速度",
               "direction": "decrease",
-              "value": "₋10%",
+              "value": "-10%",
               "targetSide": "self_or_ally",
-              "matchedText": "戦法速度₋10%",
+              "matchedText": "戦法速度-10%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -3386,7 +3862,7 @@
             },
             {
               "skillName": "整鋼鈍滞",
-              "text": "■常に ●部隊の「整厳」の技能Lv+1（上限2） ●部隊の兵力+7% ●統率の部隊能力に加算する技能の効果量+10% ●通常攻撃でダメージを与えた際、50％の確率で攻撃速度₋10%（10秒） →自部隊が駐屯/防衛中の場合、効果が2倍（₋20%） ●通常攻撃でダメージを与えた際、50％の確率で戦法速度₋10%（10秒） →自部隊が駐屯/防衛中の場合、効果が2倍（₋20%） ●出陣時の自部隊の防御に応じて、戦法による被ダメージが軽減（防御500につき1％軽減。最大10％） →自部隊が駐屯/防衛中の場合、効果が2倍（防御500につき2％軽減。最大20％）"
+              "text": "■常に ●部隊の「整厳」の技能Lv+1（上限2） ●部隊の兵力+7% ●統率の部隊能力に加算する技能の効果量+10% ●通常攻撃でダメージを与えた際、50％の確率で攻撃速度-10%（10秒） →自部隊が駐屯/防衛中の場合、効果が2倍（-20%） ●通常攻撃でダメージを与えた際、50％の確率で戦法速度-10%（10秒） →自部隊が駐屯/防衛中の場合、効果が2倍（-20%） ●出陣時の自部隊の防御に応じて、戦法による被ダメージが軽減（防御500につき1％軽減。最大10％） →自部隊が駐屯/防衛中の場合、効果が2倍（防御500につき2％軽減。最大20％）"
             }
           ],
           "skillCount": 2,
@@ -3394,17 +3870,17 @@
             {
               "parameter": "攻撃速度",
               "direction": "decrease",
-              "value": "₋10%",
+              "value": "-10%",
               "targetSide": "self_or_ally",
-              "matchedText": "攻撃速度₋10%",
+              "matchedText": "攻撃速度-10%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
               "parameter": "戦法速度",
               "direction": "decrease",
-              "value": "₋10%",
+              "value": "-10%",
               "targetSide": "self_or_ally",
-              "matchedText": "戦法速度₋10%",
+              "matchedText": "戦法速度-10%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -3457,7 +3933,7 @@
       "rawName": "【三國志 覇道】紫金白羽炎冠",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -3743,7 +4219,7 @@
       "rawName": "【三國志 覇道】黄天頭巾",
       "highestRarity": "SSR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -3849,14 +4325,14 @@
       "rawName": "【三國志 覇道】西方の銀杯",
       "highestRarity": "SSR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
           "skills": [
             {
               "skillName": "滋養烈衛",
-              "text": "■常に ●自身1部隊にかかる病毒、火傷、凶兆、禍兆を避ける ●魅力を部隊能力に加算する技能の効果量+5%▼兵力が50％以下の時 ●通常攻撃・戦法による与ダメージ+15%、被ダメージ₋15%"
+              "text": "■常に ●自身1部隊にかかる病毒、火傷、凶兆、禍兆を避ける ●魅力を部隊能力に加算する技能の効果量+5%▼兵力が50％以下の時 ●通常攻撃・戦法による与ダメージ+15%、被ダメージ-15%"
             },
             {
               "skillName": "調養快活",
@@ -3876,9 +4352,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋15%",
+              "value": "-15%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋15%",
+              "matchedText": "被ダメージ-15%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -3888,7 +4364,7 @@
           "skills": [
             {
               "skillName": "滋養烈衛",
-              "text": "■常に ●自身1部隊にかかる病毒、火傷、凶兆、禍兆を避ける ●魅力を部隊能力に加算する技能の効果量+5%▼兵力が50％以下の時 ●通常攻撃・戦法による与ダメージ+15%、被ダメージ₋15%"
+              "text": "■常に ●自身1部隊にかかる病毒、火傷、凶兆、禍兆を避ける ●魅力を部隊能力に加算する技能の効果量+5%▼兵力が50％以下の時 ●通常攻撃・戦法による与ダメージ+15%、被ダメージ-15%"
             },
             {
               "skillName": "調養快活",
@@ -3908,9 +4384,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋15%",
+              "value": "-15%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋15%",
+              "matchedText": "被ダメージ-15%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -3920,7 +4396,7 @@
           "skills": [
             {
               "skillName": "滋養烈衛",
-              "text": "■常に ●自身1部隊にかかる病毒、火傷、凶兆、禍兆を避ける ●魅力を部隊能力に加算する技能の効果量+5%▼兵力が50％以下の時 ●通常攻撃・戦法による与ダメージ+15%、被ダメージ₋15%"
+              "text": "■常に ●自身1部隊にかかる病毒、火傷、凶兆、禍兆を避ける ●魅力を部隊能力に加算する技能の効果量+5%▼兵力が50％以下の時 ●通常攻撃・戦法による与ダメージ+15%、被ダメージ-15%"
             },
             {
               "skillName": "調養快活",
@@ -3940,9 +4416,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋15%",
+              "value": "-15%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋15%",
+              "matchedText": "被ダメージ-15%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -3979,7 +4455,7 @@
       "rawName": "【三國志 覇道】武略冠世兜",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -4225,7 +4701,7 @@
       "rawName": "【三國志 覇道】龍紋護臂甲",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -4236,7 +4712,7 @@
             },
             {
               "skillName": "突護一体",
-              "text": "■常に ●通常攻撃時、25％の確率で自身1部隊の攻撃+10%（10秒）（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回） ●自部隊より攻撃の低い敵部隊からの通常攻撃による被ダメージ₋20%"
+              "text": "■常に ●通常攻撃時、25％の確率で自身1部隊の攻撃+10%（10秒）（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回） ●自部隊より攻撃の低い敵部隊からの通常攻撃による被ダメージ-20%"
             }
           ],
           "skillCount": 2,
@@ -4244,9 +4720,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋20%",
+              "value": "-20%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋20%",
+              "matchedText": "被ダメージ-20%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -4276,7 +4752,7 @@
             },
             {
               "skillName": "突護一体",
-              "text": "■常に ●通常攻撃時、40％の確率で自身1部隊の攻撃+15%（10秒）（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回） ●自部隊より攻撃の低い敵部隊からの通常攻撃による被ダメージ₋40%"
+              "text": "■常に ●通常攻撃時、40％の確率で自身1部隊の攻撃+15%（10秒）（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回） ●自部隊より攻撃の低い敵部隊からの通常攻撃による被ダメージ-40%"
             }
           ],
           "skillCount": 2,
@@ -4284,9 +4760,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋40%",
+              "value": "-40%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋40%",
+              "matchedText": "被ダメージ-40%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -4316,7 +4792,7 @@
             },
             {
               "skillName": "突護一体",
-              "text": "■常に ●通常攻撃時、50％の確率で自身1部隊の攻撃+20%（10秒）（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回） ●自部隊より攻撃の低い敵部隊からの通常攻撃による被ダメージ₋50%▼主将戦法発動時 ●自身1部隊の通常攻撃威力+30%（10秒）"
+              "text": "■常に ●通常攻撃時、50％の確率で自身1部隊の攻撃+20%（10秒）（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回） ●自部隊より攻撃の低い敵部隊からの通常攻撃による被ダメージ-50%▼主将戦法発動時 ●自身1部隊の通常攻撃威力+30%（10秒）"
             },
             {
               "skillName": "豪心烈撃",
@@ -4336,9 +4812,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋50%",
+              "value": "-50%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋50%",
+              "matchedText": "被ダメージ-50%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -4519,7 +4995,7 @@
       "rawName": "【三國志 覇道】遁甲天書",
       "highestRarity": "SSR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -4598,7 +5074,7 @@
       "rawName": "【三國志 覇道】三國志40周年の書",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -4765,7 +5241,7 @@
       "rawName": "【三國志 覇道】三國志40周年の盾",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -4860,7 +5336,7 @@
             },
             {
               "skillName": "四旬減衝",
-              "text": "■常に ●通常攻撃・戦法による被ダメージ₋4%"
+              "text": "■常に ●通常攻撃・戦法による被ダメージ-4%"
             }
           ],
           "skillCount": 3,
@@ -4868,9 +5344,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋4%",
+              "value": "-4%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋4%",
+              "matchedText": "被ダメージ-4%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -4940,7 +5416,7 @@
       "rawName": "【三國志 覇道】三國志40周年の旗",
       "highestRarity": "UR",
       "slot": "武器",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -5067,7 +5543,7 @@
       "rawName": "【三國志 覇道】呂氏春秋",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -5078,7 +5554,7 @@
             },
             {
               "skillName": "声威制動",
-              "text": "■常に ●部隊の兵力+1%▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊の攻撃速度₋10%（10秒）"
+              "text": "■常に ●部隊の兵力+1%▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊の攻撃速度-10%（10秒）"
             }
           ],
           "skillCount": 2,
@@ -5086,9 +5562,9 @@
             {
               "parameter": "攻撃速度",
               "direction": "decrease",
-              "value": "₋10%",
+              "value": "-10%",
               "targetSide": "enemy",
-              "matchedText": "攻撃速度₋10%",
+              "matchedText": "攻撃速度-10%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -5118,7 +5594,7 @@
             },
             {
               "skillName": "声威制動",
-              "text": "■常に ●部隊の兵力+4%▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊の攻撃速度₋20%（10秒）"
+              "text": "■常に ●部隊の兵力+4%▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊の攻撃速度-20%（10秒）"
             }
           ],
           "skillCount": 2,
@@ -5126,9 +5602,9 @@
             {
               "parameter": "攻撃速度",
               "direction": "decrease",
-              "value": "₋20%",
+              "value": "-20%",
               "targetSide": "enemy",
-              "matchedText": "攻撃速度₋20%",
+              "matchedText": "攻撃速度-20%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -5158,7 +5634,7 @@
             },
             {
               "skillName": "声威制動",
-              "text": "■常に ●部隊の兵力+5% ●政治を部隊能力に加算する技能の効果量+10%▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊の攻撃速度₋30%（10秒）"
+              "text": "■常に ●部隊の兵力+5% ●政治を部隊能力に加算する技能の効果量+10%▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊の攻撃速度-30%（10秒）"
             },
             {
               "skillName": "堅守槍舞",
@@ -5170,9 +5646,9 @@
             {
               "parameter": "攻撃速度",
               "direction": "decrease",
-              "value": "₋30%",
+              "value": "-30%",
               "targetSide": "enemy",
-              "matchedText": "攻撃速度₋30%",
+              "matchedText": "攻撃速度-30%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -5242,7 +5718,7 @@
       "rawName": "【三國志 覇道】万機相輔冠",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -5253,7 +5729,7 @@
             },
             {
               "skillName": "連繫滞勢",
-              "text": "■常に ●副将の連鎖確率+0.5%▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊の戦法速度₋10%（10秒）"
+              "text": "■常に ●副将の連鎖確率+0.5%▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊の戦法速度-10%（10秒）"
             }
           ],
           "skillCount": 2,
@@ -5261,9 +5737,9 @@
             {
               "parameter": "戦法速度",
               "direction": "decrease",
-              "value": "₋10%",
+              "value": "-10%",
               "targetSide": "enemy",
-              "matchedText": "戦法速度₋10%",
+              "matchedText": "戦法速度-10%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -5285,7 +5761,7 @@
             },
             {
               "skillName": "連繫滞勢",
-              "text": "■常に ●副将の連鎖確率+2%▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊の戦法速度₋20%（10秒）"
+              "text": "■常に ●副将の連鎖確率+2%▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊の戦法速度-20%（10秒）"
             }
           ],
           "skillCount": 2,
@@ -5293,9 +5769,9 @@
             {
               "parameter": "戦法速度",
               "direction": "decrease",
-              "value": "₋20%",
+              "value": "-20%",
               "targetSide": "enemy",
-              "matchedText": "戦法速度₋20%",
+              "matchedText": "戦法速度-20%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -5317,7 +5793,7 @@
             },
             {
               "skillName": "連繫滞勢",
-              "text": "■常に ●副将の連鎖確率+3% ●政治を部隊能力に加算する技能の効果量+10%▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊の戦法速度₋30%（10秒）"
+              "text": "■常に ●副将の連鎖確率+3% ●政治を部隊能力に加算する技能の効果量+10%▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊の戦法速度-30%（10秒）"
             },
             {
               "skillName": "才導槍舞",
@@ -5329,9 +5805,9 @@
             {
               "parameter": "戦法速度",
               "direction": "decrease",
-              "value": "₋30%",
+              "value": "-30%",
               "targetSide": "enemy",
-              "matchedText": "戦法速度₋30%",
+              "matchedText": "戦法速度-30%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -5552,14 +6028,14 @@
       "rawName": "【三國志 覇道】夏侯惇の眼帯",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
           "skills": [
             {
               "skillName": "隻眼統刃",
-              "text": "■常に ●部隊の兵力+2% ●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ₋2%"
+              "text": "■常に ●部隊の兵力+2% ●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ-2%"
             },
             {
               "skillName": "瑞牙威武",
@@ -5571,9 +6047,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋2%",
+              "value": "-2%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋2%",
+              "matchedText": "被ダメージ-2%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -5591,7 +6067,7 @@
           "skills": [
             {
               "skillName": "隻眼統刃",
-              "text": "■常に ●部隊の兵力+5% ●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ₋5%"
+              "text": "■常に ●部隊の兵力+5% ●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ-5%"
             },
             {
               "skillName": "瑞牙威武",
@@ -5611,9 +6087,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋5%",
+              "value": "-5%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋5%",
+              "matchedText": "被ダメージ-5%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -5631,7 +6107,7 @@
           "skills": [
             {
               "skillName": "隻眼統刃",
-              "text": "■常に ●部隊の兵力+5% ●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ₋5%"
+              "text": "■常に ●部隊の兵力+5% ●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ-5%"
             },
             {
               "skillName": "瑞牙威武",
@@ -5663,9 +6139,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋5%",
+              "value": "-5%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋5%",
+              "matchedText": "被ダメージ-5%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -5719,7 +6195,7 @@
       "rawName": "【三國志 覇道】張飛の頭巾",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -5762,7 +6238,7 @@
             },
             {
               "skillName": "剛将調練",
-              "text": "■常に ●部隊の「剛乱矛」の技能Lv+1（上限3） ●部隊の「練兵」の技能Lv+1（上限5） ●物理系統の通常攻撃・戦法による被ダメージ₋7% →自身が主将の際は効果が2倍（14％）"
+              "text": "■常に ●部隊の「剛乱矛」の技能Lv+1（上限3） ●部隊の「練兵」の技能Lv+1（上限5） ●物理系統の通常攻撃・戦法による被ダメージ-7% →自身が主将の際は効果が2倍（14％）"
             }
           ],
           "skillCount": 2,
@@ -5778,9 +6254,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋7%",
+              "value": "-7%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋7%",
+              "matchedText": "被ダメージ-7%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -5802,7 +6278,7 @@
             },
             {
               "skillName": "剛将調練",
-              "text": "■常に ●部隊の「剛乱矛」の技能Lv+1（上限3） ●部隊の「練兵」の技能Lv+1（上限5） ●物理系統の通常攻撃・戦法による被ダメージ₋7% →自身が主将の際は効果が2倍（14％）"
+              "text": "■常に ●部隊の「剛乱矛」の技能Lv+1（上限3） ●部隊の「練兵」の技能Lv+1（上限5） ●物理系統の通常攻撃・戦法による被ダメージ-7% →自身が主将の際は効果が2倍（14％）"
             },
             {
               "skillName": "嵐矛無双",
@@ -5822,9 +6298,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋7%",
+              "value": "-7%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋7%",
+              "matchedText": "被ダメージ-7%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -5878,7 +6354,7 @@
       "rawName": "【三國志 覇道】飛鳥装束",
       "highestRarity": "SSR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -5889,7 +6365,7 @@
             },
             {
               "skillName": "太平盤石",
-              "text": "■常に▼自部隊に強化効果が発生している時 ●通常攻撃・戦法による被ダメージ₋1%"
+              "text": "■常に▼自部隊に強化効果が発生している時 ●通常攻撃・戦法による被ダメージ-1%"
             }
           ],
           "skillCount": 2,
@@ -5905,9 +6381,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋1%",
+              "value": "-1%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋1%",
+              "matchedText": "被ダメージ-1%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -5921,7 +6397,7 @@
             },
             {
               "skillName": "太平盤石",
-              "text": "■常に▼自部隊に強化効果が発生している時 ●通常攻撃・戦法による被ダメージ₋4%"
+              "text": "■常に▼自部隊に強化効果が発生している時 ●通常攻撃・戦法による被ダメージ-4%"
             }
           ],
           "skillCount": 2,
@@ -5937,9 +6413,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋4%",
+              "value": "-4%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋4%",
+              "matchedText": "被ダメージ-4%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -5994,7 +6470,7 @@
       "rawName": "【三國志 覇道】猛鋭黒革帯",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -6177,7 +6653,7 @@
       "rawName": "【三國志 覇道】緋紅尖晶石首飾",
       "highestRarity": "SSR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -6188,7 +6664,7 @@
             },
             {
               "skillName": "才妃絢爛",
-              "text": "■常に▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊の戦法威力₋10%（10秒） →この技能を持つ武将が女性の場合、効果が2倍（₋20%） ●対象を含む敵3部隊の対物特効₋10%（10秒） →この技能を持つ武将が女性の場合、効果が2倍（₋20%）"
+              "text": "■常に▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊の戦法威力-10%（10秒） →この技能を持つ武将が女性の場合、効果が2倍（-20%） ●対象を含む敵3部隊の対物特効-10%（10秒） →この技能を持つ武将が女性の場合、効果が2倍（-20%）"
             }
           ],
           "skillCount": 2,
@@ -6196,17 +6672,17 @@
             {
               "parameter": "戦法威力",
               "direction": "decrease",
-              "value": "₋10%",
+              "value": "-10%",
               "targetSide": "enemy",
-              "matchedText": "戦法威力₋10%",
+              "matchedText": "戦法威力-10%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
               "parameter": "対物特効",
               "direction": "decrease",
-              "value": "₋10%",
+              "value": "-10%",
               "targetSide": "enemy",
-              "matchedText": "対物特効₋10%",
+              "matchedText": "対物特効-10%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -6228,7 +6704,7 @@
             },
             {
               "skillName": "才妃絢爛",
-              "text": "■常に ●部隊の「洛妃」の技能Lv+1（上限2） ●この技能を持つ武将の戦法で付与する強化無効の回数+2▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊の戦法威力₋25%（10秒） →この技能を持つ武将が女性の場合、効果が2倍（₋50%） ●対象を含む敵3部隊の対物特効₋25%（10秒） →この技能を持つ武将が女性の場合、効果が2倍（₋50%）"
+              "text": "■常に ●部隊の「洛妃」の技能Lv+1（上限2） ●この技能を持つ武将の戦法で付与する強化無効の回数+2▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊の戦法威力-25%（10秒） →この技能を持つ武将が女性の場合、効果が2倍（-50%） ●対象を含む敵3部隊の対物特効-25%（10秒） →この技能を持つ武将が女性の場合、効果が2倍（-50%）"
             }
           ],
           "skillCount": 2,
@@ -6236,17 +6712,17 @@
             {
               "parameter": "戦法威力",
               "direction": "decrease",
-              "value": "₋25%",
+              "value": "-25%",
               "targetSide": "enemy",
-              "matchedText": "戦法威力₋25%",
+              "matchedText": "戦法威力-25%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
               "parameter": "対物特効",
               "direction": "decrease",
-              "value": "₋25%",
+              "value": "-25%",
               "targetSide": "enemy",
-              "matchedText": "対物特効₋25%",
+              "matchedText": "対物特効-25%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -6268,7 +6744,7 @@
             },
             {
               "skillName": "才妃絢爛",
-              "text": "■常に ●部隊の「洛妃」の技能Lv+1（上限2） ●この技能を持つ武将の戦法で付与する強化無効の回数+2▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊の戦法威力₋25%（10秒） →この技能を持つ武将が女性の場合、効果が2倍（₋50%） ●対象を含む敵3部隊の対物特効₋25%（10秒） →この技能を持つ武将が女性の場合、効果が2倍（₋50%）"
+              "text": "■常に ●部隊の「洛妃」の技能Lv+1（上限2） ●この技能を持つ武将の戦法で付与する強化無効の回数+2▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊の戦法威力-25%（10秒） →この技能を持つ武将が女性の場合、効果が2倍（-50%） ●対象を含む敵3部隊の対物特効-25%（10秒） →この技能を持つ武将が女性の場合、効果が2倍（-50%）"
             }
           ],
           "skillCount": 2,
@@ -6276,17 +6752,17 @@
             {
               "parameter": "戦法威力",
               "direction": "decrease",
-              "value": "₋25%",
+              "value": "-25%",
               "targetSide": "enemy",
-              "matchedText": "戦法威力₋25%",
+              "matchedText": "戦法威力-25%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
               "parameter": "対物特効",
               "direction": "decrease",
-              "value": "₋25%",
+              "value": "-25%",
               "targetSide": "enemy",
-              "matchedText": "対物特効₋25%",
+              "matchedText": "対物特効-25%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -6331,7 +6807,7 @@
       "rawName": "【三國志 覇道】武衛虎侯頭巾",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -6342,7 +6818,7 @@
             },
             {
               "skillName": "耐騎不抜",
-              "text": "■常に ●物理系統の攻撃による被ダメージ₋5% →敵部隊が騎兵の場合さらに₋5％ →攻撃部隊が自部隊より最大兵力の低い部隊の場合さらに₋5％"
+              "text": "■常に ●物理系統の攻撃による被ダメージ-5% →敵部隊が騎兵の場合さらに-5％ →攻撃部隊が自部隊より最大兵力の低い部隊の場合さらに-5％"
             }
           ],
           "skillCount": 2,
@@ -6350,9 +6826,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋5%",
+              "value": "-5%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋5%",
+              "matchedText": "被ダメージ-5%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -6374,7 +6850,7 @@
             },
             {
               "skillName": "耐騎不抜",
-              "text": "■常に ●物理系統の攻撃による被ダメージ₋10% →敵部隊が騎兵の場合さらに₋10％ →攻撃部隊が自部隊より最大兵力の低い部隊の場合さらに₋10％"
+              "text": "■常に ●物理系統の攻撃による被ダメージ-10% →敵部隊が騎兵の場合さらに-10％ →攻撃部隊が自部隊より最大兵力の低い部隊の場合さらに-10％"
             }
           ],
           "skillCount": 2,
@@ -6382,9 +6858,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋10%",
+              "value": "-10%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋10%",
+              "matchedText": "被ダメージ-10%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -6406,7 +6882,7 @@
             },
             {
               "skillName": "耐騎不抜",
-              "text": "■常に ●物理系統の攻撃による被ダメージ₋35%"
+              "text": "■常に ●物理系統の攻撃による被ダメージ-35%"
             },
             {
               "skillName": "守護煥虎",
@@ -6418,9 +6894,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋35%",
+              "value": "-35%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋35%",
+              "matchedText": "被ダメージ-35%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -6617,7 +7093,7 @@
       "rawName": "【三國志 覇道】麒龍志継鎧",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -6628,7 +7104,7 @@
             },
             {
               "skillName": "知勇盤石",
-              "text": "■常に ●通常攻撃・戦法による被ダメージ₋5% →自部隊より攻撃の低い敵部隊から受ける場合さらに₋5% →自部隊より知力の低い敵部隊から受ける場合さらに₋5%"
+              "text": "■常に ●通常攻撃・戦法による被ダメージ-5% →自部隊より攻撃の低い敵部隊から受ける場合さらに-5% →自部隊より知力の低い敵部隊から受ける場合さらに-5%"
             }
           ],
           "skillCount": 2,
@@ -6636,9 +7112,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋5%",
+              "value": "-5%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋5%",
+              "matchedText": "被ダメージ-5%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -6652,7 +7128,7 @@
             },
             {
               "skillName": "知勇盤石",
-              "text": "■常に ●通常攻撃・戦法による被ダメージ₋10% →自部隊より攻撃の低い敵部隊から受ける場合さらに₋10% →自部隊より知力の低い敵部隊から受ける場合さらに₋10%"
+              "text": "■常に ●通常攻撃・戦法による被ダメージ-10% →自部隊より攻撃の低い敵部隊から受ける場合さらに-10% →自部隊より知力の低い敵部隊から受ける場合さらに-10%"
             }
           ],
           "skillCount": 2,
@@ -6660,9 +7136,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋10%",
+              "value": "-10%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋10%",
+              "matchedText": "被ダメージ-10%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -6676,7 +7152,7 @@
             },
             {
               "skillName": "知勇盤石",
-              "text": "■常に ●通常攻撃・戦法による被ダメージ₋10% →自部隊より攻撃の低い敵部隊から受ける場合さらに₋10% →自部隊より知力の低い敵部隊から受ける場合さらに₋10%"
+              "text": "■常に ●通常攻撃・戦法による被ダメージ-10% →自部隊より攻撃の低い敵部隊から受ける場合さらに-10% →自部隊より知力の低い敵部隊から受ける場合さらに-10%"
             },
             {
               "skillName": "活発烈撃",
@@ -6688,9 +7164,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋10%",
+              "value": "-10%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋10%",
+              "matchedText": "被ダメージ-10%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -6744,7 +7220,7 @@
       "rawName": "【三國志 覇道】蜀山武功秘籍",
       "highestRarity": "SSR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -6853,7 +7329,7 @@
       "rawName": "【三國志 覇道】雄俊光錦袍鎧",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -6864,7 +7340,7 @@
             },
             {
               "skillName": "賢護躍動",
-              "text": "■常に ●知力系統の攻撃の被ダメージ₋5%▼この技能を持つ武将が戦法を発動した時 ●自身1部隊の攻撃速度+20%（15秒）"
+              "text": "■常に ●知力系統の攻撃の被ダメージ-5%▼この技能を持つ武将が戦法を発動した時 ●自身1部隊の攻撃速度+20%（15秒）"
             }
           ],
           "skillCount": 2,
@@ -6880,9 +7356,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋5%",
+              "value": "-5%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋5%",
+              "matchedText": "被ダメージ-5%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -6904,7 +7380,7 @@
             },
             {
               "skillName": "賢護躍動",
-              "text": "■常に ●知力系統の攻撃の被ダメージ₋10%▼この技能を持つ武将が戦法を発動した時 ●自身1部隊の攻撃速度+35%（15秒）"
+              "text": "■常に ●知力系統の攻撃の被ダメージ-10%▼この技能を持つ武将が戦法を発動した時 ●自身1部隊の攻撃速度+35%（15秒）"
             }
           ],
           "skillCount": 2,
@@ -6920,9 +7396,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋10%",
+              "value": "-10%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋10%",
+              "matchedText": "被ダメージ-10%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -6944,11 +7420,11 @@
             },
             {
               "skillName": "賢護躍動",
-              "text": "■常に ●知力系統の攻撃の被ダメージ₋15%▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊の攻撃速度+50%（15秒）"
+              "text": "■常に ●知力系統の攻撃の被ダメージ-15%▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊の攻撃速度+50%（15秒）"
             },
             {
               "skillName": "対衛盤石",
-              "text": "■常に ●駐屯/防衛中の部隊から受ける通常攻撃・戦法による被ダメージ₋10％"
+              "text": "■常に ●駐屯/防衛中の部隊から受ける通常攻撃・戦法による被ダメージ-10％"
             }
           ],
           "skillCount": 3,
@@ -6964,17 +7440,17 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋15%",
+              "value": "-15%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋15%",
+              "matchedText": "被ダメージ-15%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋10％",
+              "value": "-10％",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋10％",
+              "matchedText": "被ダメージ-10％",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -7179,7 +7655,7 @@
       "rawName": "【三國志 覇道】岱斗帽沿兜",
       "highestRarity": "SSR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -7419,7 +7895,7 @@
       "rawName": "【三國志 覇道】煉蠱皿",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -7657,7 +8133,7 @@
             },
             {
               "skillName": "柔若棉絮",
-              "text": "■常に ●部隊の「斬龍訣」の技能Lv+1（上限2）▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵4部隊の命中₋20%（10秒） ●対象を含む敵4部隊を全ての兵科と物体に対して不利にする（10秒）"
+              "text": "■常に ●部隊の「斬龍訣」の技能Lv+1（上限2）▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵4部隊の命中-20%（10秒） ●対象を含む敵4部隊を全ての兵科と物体に対して不利にする（10秒）"
             }
           ],
           "skillCount": 3,
@@ -7673,9 +8149,9 @@
             {
               "parameter": "命中",
               "direction": "decrease",
-              "value": "₋20%",
+              "value": "-20%",
               "targetSide": "enemy",
-              "matchedText": "命中₋20%",
+              "matchedText": "命中-20%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -7721,7 +8197,7 @@
       "rawName": "【三國志 覇道】聖霊披風",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -7865,7 +8341,7 @@
             },
             {
               "skillName": "無塵正気",
-              "text": "■常に ●部隊の「合体気功」の技能Lv+1（上限4） ●部隊の攻撃+5% ●通常攻撃・戦法による与ダメージ+4%、被ダメージ₋4%"
+              "text": "■常に ●部隊の「合体気功」の技能Lv+1（上限4） ●部隊の攻撃+5% ●通常攻撃・戦法による与ダメージ+4%、被ダメージ-4%"
             }
           ],
           "skillCount": 2,
@@ -7897,9 +8373,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋4%",
+              "value": "-4%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋4%",
+              "matchedText": "被ダメージ-4%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -7921,7 +8397,7 @@
             },
             {
               "skillName": "無塵正気",
-              "text": "■常に ●部隊の「合体気功」の技能Lv+1（上限4） ●部隊の攻撃+5% ●通常攻撃・戦法による与ダメージ+4%、被ダメージ₋4%"
+              "text": "■常に ●部隊の「合体気功」の技能Lv+1（上限4） ●部隊の攻撃+5% ●通常攻撃・戦法による与ダメージ+4%、被ダメージ-4%"
             },
             {
               "skillName": "地烈天崩",
@@ -7965,9 +8441,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋4%",
+              "value": "-4%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋4%",
+              "matchedText": "被ダメージ-4%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -8037,7 +8513,7 @@
       "rawName": "【三國志 覇道】龍淵剣",
       "highestRarity": "UR",
       "slot": "武器",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -8068,7 +8544,7 @@
             },
             {
               "skillName": "祈福",
-              "text": "■常に ●戦法による被ダメージ₋6%"
+              "text": "■常に ●戦法による被ダメージ-6%"
             }
           ],
           "skillCount": 2,
@@ -8084,9 +8560,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋6%",
+              "value": "-6%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋6%",
+              "matchedText": "被ダメージ-6%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -8108,7 +8584,7 @@
             },
             {
               "skillName": "祈福",
-              "text": "■常に ●戦法による被ダメージ₋6%"
+              "text": "■常に ●戦法による被ダメージ-6%"
             },
             {
               "skillName": "輪廻暴撃",
@@ -8136,9 +8612,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋6%",
+              "value": "-6%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋6%",
+              "matchedText": "被ダメージ-6%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -8199,14 +8675,14 @@
       "rawName": "【三國志 覇道】五色線",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
           "skills": [
             {
               "skillName": "祈福",
-              "text": "■常に ●戦法による被ダメージ₋6%"
+              "text": "■常に ●戦法による被ダメージ-6%"
             }
           ],
           "skillCount": 1,
@@ -8214,9 +8690,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋6%",
+              "value": "-6%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋6%",
+              "matchedText": "被ダメージ-6%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -8226,7 +8702,7 @@
           "skills": [
             {
               "skillName": "祈福",
-              "text": "■常に ●戦法による被ダメージ₋6%"
+              "text": "■常に ●戦法による被ダメージ-6%"
             }
           ],
           "skillCount": 1,
@@ -8234,9 +8710,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋6%",
+              "value": "-6%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋6%",
+              "matchedText": "被ダメージ-6%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -8246,7 +8722,7 @@
           "skills": [
             {
               "skillName": "祈福",
-              "text": "■常に ●戦法による被ダメージ₋6%"
+              "text": "■常に ●戦法による被ダメージ-6%"
             }
           ],
           "skillCount": 1,
@@ -8254,9 +8730,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋6%",
+              "value": "-6%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋6%",
+              "matchedText": "被ダメージ-6%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -8284,7 +8760,7 @@
       "rawName": "【三國志 覇道】孫臏兵法",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -8435,7 +8911,7 @@
       "rawName": "【三國志 覇道】報讐克勝冠",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -8514,7 +8990,7 @@
             },
             {
               "skillName": "対衰堅導",
-              "text": "■常に ●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ₋5% →自身が主将か副将の際は効果が2倍（₋10%）"
+              "text": "■常に ●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ-5% →自身が主将か副将の際は効果が2倍（-10%）"
             }
           ],
           "skillCount": 3,
@@ -8530,9 +9006,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋5%",
+              "value": "-5%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋5%",
+              "matchedText": "被ダメージ-5%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -8586,7 +9062,7 @@
       "rawName": "【三國志 覇道】劉家伝来の宝剣",
       "highestRarity": "SSR",
       "slot": "武器",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -8788,7 +9264,7 @@
       "rawName": "【三國志 覇道】躬先越嶺笠兜",
       "highestRarity": "SSR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -8867,7 +9343,7 @@
       "rawName": "【三國志 覇道】果勇金銅鎧",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -9129,7 +9605,7 @@
       "rawName": "【三國志 覇道】紅纓帥兜",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -9415,7 +9891,7 @@
       "rawName": "【三國志 覇道】大紅柘榴石首飾",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -9516,7 +9992,7 @@
       "rawName": "【三國志 覇道】黄天大道旗槍",
       "highestRarity": "UR",
       "slot": "武器",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -9667,7 +10143,7 @@
       "rawName": "【三國志 覇道】獠牙鬼面",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -9834,7 +10310,7 @@
       "rawName": "【三國志 覇道】百保鮮卑重甲",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -9905,7 +10381,7 @@
           "skills": [
             {
               "skillName": "雄弁練達",
-              "text": "■常に ●部隊の「雄弁」の技能Lv+1（上限3） ●部隊の会心威力+10% ●通常攻撃・戦法による被ダメージ₋4%"
+              "text": "■常に ●部隊の「雄弁」の技能Lv+1（上限3） ●部隊の会心威力+10% ●通常攻撃・戦法による被ダメージ-4%"
             },
             {
               "skillName": "重騎入陣",
@@ -9945,9 +10421,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋4%",
+              "value": "-4%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋4%",
+              "matchedText": "被ダメージ-4%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -10123,7 +10599,7 @@
       "rawName": "【三國志 覇道】龍紋鉄甲",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -10472,7 +10948,7 @@
       "rawName": "【三國志 覇道】勢焔雷紋兜",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -10483,7 +10959,7 @@
             },
             {
               "skillName": "灼降盤石",
-              "text": "■常に ●通常攻撃・戦法による被ダメージ₋5% →火属性の通常攻撃・戦法によるダメージの場合、さらに₋5% →攻撃してきた敵部隊に火傷が発生している場合、さらに₋5%"
+              "text": "■常に ●通常攻撃・戦法による被ダメージ-5% →火属性の通常攻撃・戦法によるダメージの場合、さらに-5% →攻撃してきた敵部隊に火傷が発生している場合、さらに-5%"
             }
           ],
           "skillCount": 2,
@@ -10491,9 +10967,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋5%",
+              "value": "-5%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋5%",
+              "matchedText": "被ダメージ-5%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -10507,7 +10983,7 @@
             },
             {
               "skillName": "灼降盤石",
-              "text": "■常に ●通常攻撃・戦法による被ダメージ₋10% →火属性の通常攻撃・戦法によるダメージの場合、さらに₋10% →攻撃してきた敵部隊に火傷が発生している場合、さらに₋10%"
+              "text": "■常に ●通常攻撃・戦法による被ダメージ-10% →火属性の通常攻撃・戦法によるダメージの場合、さらに-10% →攻撃してきた敵部隊に火傷が発生している場合、さらに-10%"
             }
           ],
           "skillCount": 2,
@@ -10515,9 +10991,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋10%",
+              "value": "-10%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋10%",
+              "matchedText": "被ダメージ-10%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -10531,7 +11007,7 @@
             },
             {
               "skillName": "灼降盤石",
-              "text": "■常に ●通常攻撃・戦法による被ダメージ₋10% →火属性の通常攻撃・戦法によるダメージの場合、さらに₋10% →攻撃してきた敵部隊に火傷が発生している場合、さらに₋10%"
+              "text": "■常に ●通常攻撃・戦法による被ダメージ-10% →火属性の通常攻撃・戦法によるダメージの場合、さらに-10% →攻撃してきた敵部隊に火傷が発生している場合、さらに-10%"
             },
             {
               "skillName": "優勢双撃",
@@ -10567,9 +11043,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋10%",
+              "value": "-10%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋10%",
+              "matchedText": "被ダメージ-10%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -10615,7 +11091,7 @@
       "rawName": "【三國志 覇道】彩漆鳳龍紋盾",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -10724,7 +11200,7 @@
       "rawName": "【三國志 覇道】玄漆紫玉金冠",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -10867,7 +11343,7 @@
       "rawName": "【三國志 覇道】虎豹元帥兜",
       "highestRarity": "SSR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -11021,7 +11497,7 @@
       "rawName": "【三國志 覇道】弘雅守信冠",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -11371,7 +11847,7 @@
       "rawName": "【三國志 覇道】赤心硬殻兜",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -11806,7 +12282,7 @@
       "rawName": "【三國志 覇道】黄焔柳緑披風",
       "highestRarity": "SSR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -11936,7 +12412,7 @@
       "rawName": "【三國志 覇道】貞烈弓籠手",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -12087,7 +12563,7 @@
       "rawName": "【三國志 覇道】春秋左氏伝",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -12222,7 +12698,7 @@
       "rawName": "【三國志 覇道】緑絹金花抹額",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -12357,7 +12833,7 @@
       "rawName": "【三國志 覇道】炎帝神農茶譜",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -12508,7 +12984,7 @@
       "rawName": "【三國志 覇道】賢佐治道笏",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -12650,7 +13126,7 @@
       "rawName": "【三國志 覇道】魔術師の帽子",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -12808,7 +13284,7 @@
       "rawName": "【三國志 覇道】星間航路図",
       "highestRarity": "SSR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -12991,7 +13467,7 @@
       "rawName": "【三國志 覇道】金色のロケット",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -13190,7 +13666,7 @@
       "rawName": "【三國志 覇道】励志方正冠",
       "highestRarity": "SSR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -13296,7 +13772,7 @@
       "rawName": "【三國志 覇道】鋭師飛鵠兜",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -13413,7 +13889,7 @@
       "rawName": "【三國志 覇道】鳳鳴双飛金冠",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -13564,7 +14040,7 @@
       "rawName": "【三國志 覇道】朝陽仁恵玉冠",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -13665,7 +14141,7 @@
       "rawName": "【三國志 覇道】碧緑双翼兜",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -13824,7 +14300,7 @@
       "rawName": "【三國志 覇道】焦尾琴",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -13933,7 +14409,7 @@
       "rawName": "【三國志 覇道】西方の紅帽",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -14028,7 +14504,7 @@
           "skills": [
             {
               "skillName": "贈物運送",
-              "text": "■常に ●部隊の「剛力」の技能Lv+1（上限5） ●部隊の「機略」の技能Lv+1（上限5） ●部隊の「運搬」の技能Lv+2（上限5） ●自部隊より攻撃の低い敵部隊からの物理系統の通常攻撃・戦法による被ダメージ₋10% ●自部隊より知力の低い敵部隊からの知力系統の通常攻撃・戦法による被ダメージ₋10%"
+              "text": "■常に ●部隊の「剛力」の技能Lv+1（上限5） ●部隊の「機略」の技能Lv+1（上限5） ●部隊の「運搬」の技能Lv+2（上限5） ●自部隊より攻撃の低い敵部隊からの物理系統の通常攻撃・戦法による被ダメージ-10% ●自部隊より知力の低い敵部隊からの知力系統の通常攻撃・戦法による被ダメージ-10%"
             },
             {
               "skillName": "祝福寄贈",
@@ -14068,9 +14544,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋10%",
+              "value": "-10%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋10%",
+              "matchedText": "被ダメージ-10%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -14132,7 +14608,7 @@
       "rawName": "【三國志 覇道】奉天銀灰冠",
       "highestRarity": "SSR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -14254,7 +14730,7 @@
       "rawName": "【三國志 覇道】先登承志頭巾",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -14556,7 +15032,7 @@
       "rawName": "【三國志 覇道】南天羽飾兜",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -14715,7 +15191,7 @@
       "rawName": "【三國志 覇道】威福笠兜",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -14866,7 +15342,7 @@
       "rawName": "【三國志 覇道】諸葛巾",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -15240,7 +15716,7 @@
       "rawName": "【三國志 覇道】九華扇",
       "highestRarity": "UR",
       "slot": "武器",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -15407,7 +15883,7 @@
       "rawName": "【三國志 覇道】興起嵩峻兜",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵 盾兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -15598,7 +16074,7 @@
       "rawName": "【三國志 覇道】司馬氏兵記",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -15699,7 +16175,7 @@
       "rawName": "【三國志 覇道】奮勇燕尾牌",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -15778,7 +16254,7 @@
             },
             {
               "skillName": "常剛雄健",
-              "text": "■常に ●物理系統の通常攻撃による被ダメージ₋5% →自部隊に弱化効果が発生していない時、効果が2倍（₋10%）"
+              "text": "■常に ●物理系統の通常攻撃による被ダメージ-5% →自部隊に弱化効果が発生していない時、効果が2倍（-10%）"
             }
           ],
           "skillCount": 3,
@@ -15794,9 +16270,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋5%",
+              "value": "-5%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋5%",
+              "matchedText": "被ダメージ-5%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -15858,7 +16334,7 @@
       "rawName": "【三國志 覇道】羊の遊泳圏",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵 盾兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -15996,7 +16472,7 @@
       "rawName": "【三國志 覇道】龍の水槍",
       "highestRarity": "UR",
       "slot": "武器",
-      "troopType": "騎兵 歩兵 弓兵 盾兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -16210,7 +16686,7 @@
       "rawName": "【三國志 覇道】燦金赤纓兜",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -16265,7 +16741,7 @@
           "skills": [
             {
               "skillName": "弓妙連携",
-              "text": "■常に ●部隊の「弓神」の技能Lv+1（上限4） ●部隊の「連帯」の技能Lv+1（上限5） ●通常攻撃・戦法による被ダメージ₋4%"
+              "text": "■常に ●部隊の「弓神」の技能Lv+1（上限4） ●部隊の「連帯」の技能Lv+1（上限5） ●通常攻撃・戦法による被ダメージ-4%"
             },
             {
               "skillName": "弓心十全",
@@ -16297,9 +16773,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋4%",
+              "value": "-4%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋4%",
+              "matchedText": "被ダメージ-4%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -16353,7 +16829,7 @@
       "rawName": "【三國志 覇道】雄豪肩呑鎧",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -16398,7 +16874,7 @@
             },
             {
               "skillName": "不抜雄健",
-              "text": "■常に ●物理系統の通常攻撃・戦法による被ダメージ₋10% →自部隊に弱化効果が発生していない時、効果が2倍（₋20%）"
+              "text": "■常に ●物理系統の通常攻撃・戦法による被ダメージ-10% →自部隊に弱化効果が発生していない時、効果が2倍（-20%）"
             }
           ],
           "skillCount": 3,
@@ -16414,9 +16890,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋10%",
+              "value": "-10%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋10%",
+              "matchedText": "被ダメージ-10%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -16470,7 +16946,7 @@
       "rawName": "【三國志 覇道】富春孫氏家伝",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -16653,7 +17129,7 @@
       "rawName": "【三國志 覇道】奔走の算盤",
       "highestRarity": "SSR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -17199,7 +17675,7 @@
       "rawName": "【三國志 覇道】銀山雪海鎧",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -17262,7 +17738,7 @@
             },
             {
               "skillName": "令女盤石",
-              "text": "■常に ●通常攻撃・戦法による被ダメージ₋4% ●副将の女性の連鎖確率+3%"
+              "text": "■常に ●通常攻撃・戦法による被ダメージ-4% ●副将の女性の連鎖確率+3%"
             }
           ],
           "skillCount": 3,
@@ -17286,9 +17762,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋4%",
+              "value": "-4%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋4%",
+              "matchedText": "被ダメージ-4%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -17421,7 +17897,7 @@
             },
             {
               "skillName": "抑敵壮雄",
-              "text": "■常に▼主将戦法発動時 ●対象を含む敵3部隊の攻撃₋25%（10秒） →自部隊が駐屯/防衛中の場合、効果が2倍（₋50％） ●自身を含む味方3部隊に強固を付与（10秒）"
+              "text": "■常に▼主将戦法発動時 ●対象を含む敵3部隊の攻撃-25%（10秒） →自部隊が駐屯/防衛中の場合、効果が2倍（-50％） ●自身を含む味方3部隊に強固を付与（10秒）"
             }
           ],
           "skillCount": 3,
@@ -17437,9 +17913,9 @@
             {
               "parameter": "攻撃",
               "direction": "decrease",
-              "value": "₋25%",
+              "value": "-25%",
               "targetSide": "enemy",
-              "matchedText": "攻撃₋25%",
+              "matchedText": "攻撃-25%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -17493,7 +17969,7 @@
       "rawName": "【三國志 覇道】藍田玉軍令牌",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -17628,7 +18104,7 @@
       "rawName": "【三國志 覇道】狼毛紫纓兜",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵 盾兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -17729,7 +18205,7 @@
       "rawName": "【三國志 覇道】疾風護臂甲",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -17872,7 +18348,7 @@
       "rawName": "【三國志 覇道】登極龍紋金觚",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -17951,7 +18427,7 @@
             },
             {
               "skillName": "対衰断庸",
-              "text": "■常に ●弱化効果が発生している敵部隊からの通常攻撃による被ダメージ₋20%"
+              "text": "■常に ●弱化効果が発生している敵部隊からの通常攻撃による被ダメージ-20%"
             }
           ],
           "skillCount": 3,
@@ -17983,9 +18459,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋20%",
+              "value": "-20%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋20%",
+              "matchedText": "被ダメージ-20%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -18039,7 +18515,7 @@
       "rawName": "【三國志 覇道】木牛試作模型",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -18174,7 +18650,7 @@
       "rawName": "【三國志 覇道】白銀龍胆鎧",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -18253,7 +18729,7 @@
             },
             {
               "skillName": "龍心完勢",
-              "text": "■常に ●部隊の「龍胆」の技能Lv+1（上限5） ●兵科相性が有利な敵からの被ダメージ₋5% →自部隊に弱化効果が発生していない時、効果が2倍（₋10%）"
+              "text": "■常に ●部隊の「龍胆」の技能Lv+1（上限5） ●兵科相性が有利な敵からの被ダメージ-5% →自部隊に弱化効果が発生していない時、効果が2倍（-10%）"
             }
           ],
           "skillCount": 3,
@@ -18269,17 +18745,17 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋5%",
+              "value": "-5%",
               "targetSide": "enemy",
-              "matchedText": "被ダメージ₋5%",
+              "matchedText": "被ダメージ-5%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
               "parameter": "兵科相性",
               "direction": "decrease",
-              "value": "₋5%",
+              "value": "-5%",
               "targetSide": "enemy",
-              "matchedText": "兵科相性が有利な敵からの被ダメージ₋5%",
+              "matchedText": "兵科相性が有利な敵からの被ダメージ-5%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -18357,7 +18833,7 @@
       "rawName": "【三國志 覇道】錦帆鈴飾",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -18508,7 +18984,7 @@
       "rawName": "【三國志 覇道】明道方略冠",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵 盾兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -18675,7 +19151,7 @@
       "rawName": "【三國志 覇道】平蜀地理図",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -18818,7 +19294,7 @@
       "rawName": "【三國志 覇道】道論",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -18877,11 +19353,11 @@
             },
             {
               "skillName": "避撃優賢",
-              "text": "■常に▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊の対物特効-25%（15秒） →敵部隊の知力が自部隊より低い場合は効果量が2倍（-50%） ●対象を含む敵3部隊の戦法威力₋25%（15秒） →敵部隊の知力が自部隊より低い場合は効果量が2倍（₋50%）"
+              "text": "■常に▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊の対物特効-25%（15秒） →敵部隊の知力が自部隊より低い場合は効果量が2倍（-50%） ●対象を含む敵3部隊の戦法威力-25%（15秒） →敵部隊の知力が自部隊より低い場合は効果量が2倍（-50%）"
             },
             {
               "skillName": "対衰堅衛",
-              "text": "■常に ●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ₋5% →自部隊が駐屯/防衛中の場合、効果が3倍（₋15%）"
+              "text": "■常に ●弱化効果が発生している敵部隊からの通常攻撃・戦法による被ダメージ-5% →自部隊が駐屯/防衛中の場合、効果が3倍（-15%）"
             }
           ],
           "skillCount": 3,
@@ -18889,9 +19365,9 @@
             {
               "parameter": "戦法威力",
               "direction": "decrease",
-              "value": "₋25%",
+              "value": "-25%",
               "targetSide": "enemy",
-              "matchedText": "戦法威力₋25%",
+              "matchedText": "戦法威力-25%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -18905,9 +19381,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋5%",
+              "value": "-5%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋5%",
+              "matchedText": "被ダメージ-5%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -19255,7 +19731,7 @@
       "rawName": "【三國志 覇道】西方の鞭",
       "highestRarity": "UR",
       "slot": "武器",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -19417,7 +19893,7 @@
       "rawName": "【三國志 覇道】西方の盾",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -19502,7 +19978,7 @@
       "rawName": "【三國志 覇道】天禄一角兜",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -19764,7 +20240,7 @@
       "rawName": "【三國志 覇道】純和青金石首飾",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -19891,7 +20367,7 @@
       "rawName": "【三國志 覇道】瑠璃珠金花冠",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -20026,7 +20502,7 @@
       "rawName": "【三國志 覇道】驍悍傲骨鎧",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -20105,7 +20581,7 @@
             },
             {
               "skillName": "有利強盤",
-              "text": "■常に ●兵科相性が有利な敵からの被ダメージ₋5% →自部隊に強化効果が発生している時、効果が2倍（₋10%）"
+              "text": "■常に ●兵科相性が有利な敵からの被ダメージ-5% →自部隊に強化効果が発生している時、効果が2倍（-10%）"
             }
           ],
           "skillCount": 3,
@@ -20113,17 +20589,17 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋5%",
+              "value": "-5%",
               "targetSide": "enemy",
-              "matchedText": "被ダメージ₋5%",
+              "matchedText": "被ダメージ-5%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
               "parameter": "兵科相性",
               "direction": "decrease",
-              "value": "₋5%",
+              "value": "-5%",
               "targetSide": "enemy",
-              "matchedText": "兵科相性が有利な敵からの被ダメージ₋5%",
+              "matchedText": "兵科相性が有利な敵からの被ダメージ-5%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -20193,7 +20669,7 @@
       "rawName": "【三國志 覇道】鷹揚玄冥兜",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -20238,7 +20714,7 @@
             },
             {
               "skillName": "有利堪興",
-              "text": "■主将か副将の際 ●兵科相性が有利な敵からの被ダメージ₋15% ●通常攻撃時、50％の確率で自身を含む味方4部隊の弱化効果を1つ打ち消す（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回）"
+              "text": "■主将か副将の際 ●兵科相性が有利な敵からの被ダメージ-15% ●通常攻撃時、50％の確率で自身を含む味方4部隊の弱化効果を1つ打ち消す（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回）"
             }
           ],
           "skillCount": 3,
@@ -20254,17 +20730,17 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋15%",
+              "value": "-15%",
               "targetSide": "enemy",
-              "matchedText": "被ダメージ₋15%",
+              "matchedText": "被ダメージ-15%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
               "parameter": "兵科相性",
               "direction": "decrease",
-              "value": "₋15%",
+              "value": "-15%",
               "targetSide": "enemy",
-              "matchedText": "兵科相性が有利な敵からの被ダメージ₋15%",
+              "matchedText": "兵科相性が有利な敵からの被ダメージ-15%",
               "sourcePartType": "equipment-skill-stage"
             }
           ]
@@ -20310,7 +20786,7 @@
       "rawName": "【三國志 覇道】青嚢書・名家医書",
       "highestRarity": "SSR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -20460,7 +20936,7 @@
       "rawName": "【三國志 覇道】太平賢良黄金冠",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -20579,7 +21055,7 @@
       "rawName": "【三國志 覇道】黄幡豹尾",
       "highestRarity": "SSR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -20709,7 +21185,7 @@
       "rawName": "【三國志 覇道】玄熊毛銀黄兜",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -20754,7 +21230,7 @@
             },
             {
               "skillName": "戦剛壮昇",
-              "text": "■常に ●物理系統の戦法による被ダメージ₋10% →自部隊の兵力が50％以上の際、効果が2倍（₋20%）"
+              "text": "■常に ●物理系統の戦法による被ダメージ-10% →自部隊の兵力が50％以上の際、効果が2倍（-20%）"
             }
           ],
           "skillCount": 3,
@@ -20770,9 +21246,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋10%",
+              "value": "-10%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋10%",
+              "matchedText": "被ダメージ-10%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -20826,7 +21302,7 @@
       "rawName": "【三國志 覇道】金繍緑錦披風",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -20953,7 +21429,7 @@
       "rawName": "【三國志 覇道】神獣面白纓兜",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -21024,7 +21500,7 @@
           "skills": [
             {
               "skillName": "万騎梟勇",
-              "text": "■常に ●部隊の「連騎」の技能Lv+1（上限3） ●部隊の「梟騎」の技能Lv+1（上限4） ●物理系統の戦法による被ダメージ₋5% →この部隊が騎兵の場合、効果が2倍（₋10%）"
+              "text": "■常に ●部隊の「連騎」の技能Lv+1（上限3） ●部隊の「梟騎」の技能Lv+1（上限4） ●物理系統の戦法による被ダメージ-5% →この部隊が騎兵の場合、効果が2倍（-10%）"
             },
             {
               "skillName": "騎虎無尽",
@@ -21040,9 +21516,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋5%",
+              "value": "-5%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋5%",
+              "matchedText": "被ダメージ-5%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -21104,7 +21580,7 @@
       "rawName": "【三國志 覇道】白狐毛皮披風",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -21231,7 +21707,7 @@
       "rawName": "【三國志 覇道】大喬琵琶",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -21323,7 +21799,7 @@
       "rawName": "【三國志 覇道】与韓将軍書",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -21382,11 +21858,11 @@
             },
             {
               "skillName": "戦撃追略",
-              "text": "■常に ●知力系統の被ダメージ-10% ●騎兵部隊への戦法による与ダメージ+10% ●戦法による与ダメージが、敵部隊に付与されている弱化効果の数×5%上昇（最大50%） ●通常攻撃時、50％の確率で対象を含む敵3部隊の通常攻撃の対象部隊数₋2（下限1）（10秒）（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回）"
+              "text": "■常に ●知力系統の被ダメージ-10% ●騎兵部隊への戦法による与ダメージ+10% ●戦法による与ダメージが、敵部隊に付与されている弱化効果の数×5%上昇（最大50%） ●通常攻撃時、50％の確率で対象を含む敵3部隊の通常攻撃の対象部隊数-2（下限1）（10秒）（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回）"
             },
             {
               "skillName": "堪騎盤石",
-              "text": "■常に ●騎兵部隊から受ける通常攻撃・戦法による被ダメージ₋15%"
+              "text": "■常に ●騎兵部隊から受ける通常攻撃・戦法による被ダメージ-15%"
             }
           ],
           "skillCount": 3,
@@ -21410,9 +21886,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋15%",
+              "value": "-15%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋15%",
+              "matchedText": "被ダメージ-15%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -21466,7 +21942,7 @@
       "rawName": "【三國志 覇道】南瓜の灯燈",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -21571,7 +22047,7 @@
       "rawName": "【三國志 覇道】蝙蝠披風",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -21706,7 +22182,7 @@
       "rawName": "【三國志 覇道】西方の杖",
       "highestRarity": "UR",
       "slot": "武器",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -21937,7 +22413,7 @@
       "rawName": "【三國志 覇道】朱襟白絹半臂",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -22080,7 +22556,7 @@
       "rawName": "【三國志 覇道】孔明の木像",
       "highestRarity": "SSR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -22202,7 +22678,7 @@
       "rawName": "【三國志 覇道】紅玉珍珠金耳墜",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -22446,7 +22922,7 @@
       "rawName": "【三國志 覇道】孟徳新書",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -22565,7 +23041,7 @@
       "rawName": "【三國志 覇道】烈志蒼驥鎧",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -22851,7 +23327,7 @@
       "rawName": "【三國志 覇道】羅綺香嚢",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵 盾兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -23026,7 +23502,7 @@
       "rawName": "【三國志 覇道】荀氏春秋要論",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -23105,7 +23581,7 @@
             },
             {
               "skillName": "耐窮活衛",
-              "text": "■常に ●自身を対象としない範囲攻撃の被ダメージ₋5% →駐屯/防衛中は効果が3倍（₋15%）▼戦法のダメージを受けて壊滅しなかった時に一度だけ ●自身1部隊の戦法ゲージを5%増加 →自部隊が駐屯/防衛中は効果が3倍（15％）"
+              "text": "■常に ●自身を対象としない範囲攻撃の被ダメージ-5% →駐屯/防衛中は効果が3倍（-15%）▼戦法のダメージを受けて壊滅しなかった時に一度だけ ●自身1部隊の戦法ゲージを5%増加 →自部隊が駐屯/防衛中は効果が3倍（15％）"
             }
           ],
           "skillCount": 3,
@@ -23113,9 +23589,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋5%",
+              "value": "-5%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋5%",
+              "matchedText": "被ダメージ-5%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -23328,7 +23804,7 @@
       "rawName": "【三國志 覇道】千創玄英鎧",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -23391,7 +23867,7 @@
             },
             {
               "skillName": "戦剛防備",
-              "text": "■常に ●物理系統の戦法による被ダメージ₋15%"
+              "text": "■常に ●物理系統の戦法による被ダメージ-15%"
             }
           ],
           "skillCount": 3,
@@ -23399,9 +23875,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋15%",
+              "value": "-15%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋15%",
+              "matchedText": "被ダメージ-15%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -23463,7 +23939,7 @@
       "rawName": "【三國志 覇道】克己猟龍兜",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -23518,7 +23994,7 @@
           "skills": [
             {
               "skillName": "勉励聡慧",
-              "text": "■常に ●部隊の「励学」の技能Lv+1（上限2） ●部隊の「連慧」の技能Lv+1（上限5） ●自部隊より知力の低い敵部隊からの通常攻撃・戦法による被ダメージ₋7% ●自部隊より攻撃の低い敵部隊からの通常攻撃・戦法による被ダメージ−7%"
+              "text": "■常に ●部隊の「励学」の技能Lv+1（上限2） ●部隊の「連慧」の技能Lv+1（上限5） ●自部隊より知力の低い敵部隊からの通常攻撃・戦法による被ダメージ-7% ●自部隊より攻撃の低い敵部隊からの通常攻撃・戦法による被ダメージ−7%"
             },
             {
               "skillName": "文武双撃",
@@ -23558,9 +24034,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋7%",
+              "value": "-7%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋7%",
+              "matchedText": "被ダメージ-7%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -23706,7 +24182,7 @@
       "rawName": "【三國志 覇道】金系帯紫錦披風",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -23785,7 +24261,7 @@
             },
             {
               "skillName": "不乱盤石",
-              "text": "■常に▼兵力が50%以上の時 ●通常攻撃・戦法による被ダメージ₋7%"
+              "text": "■常に▼兵力が50%以上の時 ●通常攻撃・戦法による被ダメージ-7%"
             }
           ],
           "skillCount": 3,
@@ -23793,9 +24269,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋7%",
+              "value": "-7%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋7%",
+              "matchedText": "被ダメージ-7%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -23857,7 +24333,7 @@
       "rawName": "【三國志 覇道】玲瓏獅蛮帯",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -24000,7 +24476,7 @@
       "rawName": "【三國志 覇道】金繍紅錦半臂",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -24188,7 +24664,7 @@
             },
             {
               "skillName": "有利活戦",
-              "text": "■常に ●兵科相性が有利な敵に対する与ダメージ+5%、被ダメージ₋5％"
+              "text": "■常に ●兵科相性が有利な敵に対する与ダメージ+5%、被ダメージ-5％"
             }
           ],
           "skillCount": 3,
@@ -24212,9 +24688,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋5％",
+              "value": "-5％",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋5％",
+              "matchedText": "被ダメージ-5％",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -24268,7 +24744,7 @@
       "rawName": "【三國志 覇道】古錠刀",
       "highestRarity": "UR",
       "slot": "武器",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -24546,7 +25022,7 @@
       "rawName": "【三國志 覇道】獅子頭の兜",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -24681,7 +25157,7 @@
       "rawName": "【三國志 覇道】商君書",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵 盾兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -24773,7 +25249,7 @@
       "rawName": "【三國志 覇道】才捷弓",
       "highestRarity": "UR",
       "slot": "武器",
-      "troopType": "SSR：弓兵UR：騎兵 歩兵 弓兵",
+      "troopType": "SSR：弓兵UR：騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -25109,7 +25585,7 @@
       "rawName": "【三國志 覇道】玉帯",
       "highestRarity": "SR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -25174,7 +25650,7 @@
       "rawName": "【三國志 覇道】冕冠",
       "highestRarity": "SSR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -25253,7 +25729,7 @@
       "rawName": "【三國志 覇道】軍師錦羅袍",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -25515,7 +25991,7 @@
       "rawName": "【三國志 覇道】龍紋緑袍鎧",
       "highestRarity": "SSR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -25621,7 +26097,7 @@
       "rawName": "【三國志 覇道】翡翠玉笛",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -25857,7 +26333,7 @@
       "rawName": "【三國志 覇道】武弁大冠",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -25966,7 +26442,7 @@
       "rawName": "【三國志 覇道】太師黄金爵",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -26093,7 +26569,7 @@
       "rawName": "【三國志 覇道】紫藤紗錦披帛",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -26236,7 +26712,7 @@
       "rawName": "【三國志 覇道】黒紗金飾冠",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -26345,7 +26821,7 @@
       "rawName": "【三國志 覇道】だんだら羽織",
       "highestRarity": "SSR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -26356,7 +26832,7 @@
             },
             {
               "skillName": "誠衛士道",
-              "text": "■常に ●物理系統の戦法による被ダメージ₋3%"
+              "text": "■常に ●物理系統の戦法による被ダメージ-3%"
             }
           ],
           "skillCount": 2,
@@ -26364,9 +26840,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋3%",
+              "value": "-3%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋3%",
+              "matchedText": "被ダメージ-3%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -26388,7 +26864,7 @@
             },
             {
               "skillName": "誠衛士道",
-              "text": "■常に ●物理系統の戦法による被ダメージ₋6%"
+              "text": "■常に ●物理系統の戦法による被ダメージ-6%"
             }
           ],
           "skillCount": 2,
@@ -26396,9 +26872,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋6%",
+              "value": "-6%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋6%",
+              "matchedText": "被ダメージ-6%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -26420,7 +26896,7 @@
             },
             {
               "skillName": "誠衛士道",
-              "text": "■常に ●物理系統の戦法による被ダメージ₋6%"
+              "text": "■常に ●物理系統の戦法による被ダメージ-6%"
             }
           ],
           "skillCount": 2,
@@ -26428,9 +26904,9 @@
             {
               "parameter": "被ダメージ",
               "direction": "decrease",
-              "value": "₋6%",
+              "value": "-6%",
               "targetSide": "self_or_ally",
-              "matchedText": "被ダメージ₋6%",
+              "matchedText": "被ダメージ-6%",
               "sourcePartType": "equipment-skill-stage"
             },
             {
@@ -26475,7 +26951,7 @@
       "rawName": "【三國志 覇道】和泉守兼定",
       "highestRarity": "SSR",
       "slot": "武器",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -26605,7 +27081,7 @@
       "rawName": "【三國志 覇道】三叉束髪紫金冠",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -26873,7 +27349,7 @@
       "rawName": "【三國志 覇道】羌毛領披風・黒革披風",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -26974,7 +27450,7 @@
       "rawName": "【三國志 覇道】烏桓貂毛兜・黒羊兜",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -27109,7 +27585,7 @@
       "rawName": "【三國志 覇道】南蛮獣牙首飾・洞主首飾",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -27570,7 +28046,7 @@
       "rawName": "【三國志 覇道】狐白裘・狐裘",
       "highestRarity": "SSR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -27649,7 +28125,7 @@
       "rawName": "【三國志 覇道】太平要術の書・経国要術",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -27750,7 +28226,7 @@
       "rawName": "【三國志 覇道】虎皮披風",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -28449,7 +28925,7 @@
       "rawName": "【三國志 覇道】虎臣瓢箪",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -28592,7 +29068,7 @@
       "rawName": "【三國志 覇道】太尉冠",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -28684,7 +29160,7 @@
       "rawName": "【三國志 覇道】周郎琵琶",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -28920,7 +29396,7 @@
       "rawName": "【三國志 覇道】郭子兵略",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -29055,7 +29531,7 @@
       "rawName": "【三國志 覇道】召虎兜",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -29392,7 +29868,7 @@
       "rawName": "【三國志 覇道】孫子の兵法書",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -29511,7 +29987,7 @@
       "rawName": "【三國志 覇道】七星宝刀",
       "highestRarity": "UR",
       "slot": "武器",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -30032,7 +30508,7 @@
       "rawName": "【三國志 覇道】呂氏鏡・羽人獣文鏡",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -30097,7 +30573,7 @@
       "rawName": "【三國志 覇道】戦国策・名家史書",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -30162,7 +30638,7 @@
       "rawName": "【三國志 覇道】易経・名家経書",
       "highestRarity": "UR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -30197,7 +30673,7 @@
       "rawName": "【三國志 覇道】桐琴",
       "highestRarity": "SR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -30232,7 +30708,7 @@
       "rawName": "【三國志 覇道】史学伝書",
       "highestRarity": "SR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -30267,7 +30743,7 @@
       "rawName": "【三國志 覇道】瑪瑙",
       "highestRarity": "SR",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -30302,7 +30778,7 @@
       "rawName": "【三國志 覇道】銅鏡",
       "highestRarity": "R",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -30337,7 +30813,7 @@
       "rawName": "【三國志 覇道】史書抄本",
       "highestRarity": "R",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -30372,7 +30848,7 @@
       "rawName": "【三國志 覇道】経書抄本",
       "highestRarity": "R",
       "slot": "文物",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -30407,7 +30883,7 @@
       "rawName": "【三國志 覇道】委貌冠・小冠",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -30442,7 +30918,7 @@
       "rawName": "【三國志 覇道】黒光鎧・黒鉄鎧",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -30477,7 +30953,7 @@
       "rawName": "【三國志 覇道】明光鎧・明鉄鎧",
       "highestRarity": "UR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -30551,7 +31027,7 @@
       "rawName": "【三國志 覇道】鉄牌",
       "highestRarity": "SR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -30586,7 +31062,7 @@
       "rawName": "【三國志 覇道】鉄兜",
       "highestRarity": "SR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -30621,7 +31097,7 @@
       "rawName": "【三國志 覇道】筒袖鎧",
       "highestRarity": "SR",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -30656,7 +31132,7 @@
       "rawName": "【三國志 覇道】銅牌",
       "highestRarity": "R",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -30691,7 +31167,7 @@
       "rawName": "【三國志 覇道】銅兜",
       "highestRarity": "R",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
@@ -30726,7 +31202,7 @@
       "rawName": "【三國志 覇道】銅鎧",
       "highestRarity": "R",
       "slot": "防具",
-      "troopType": "騎兵 歩兵 弓兵",
+      "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
         "initial": {
           "label": "初期",
