@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-09-13T02:14:52.583Z",
-  "dataSetId": "2026-09-06T05:56:27.667Z",
+  "generatedAt": "2026-09-20T09:58:10.988Z",
+  "dataSetId": "2026-09-13T02:14:51.028Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -33,10 +33,10 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 490,
-    "tactics": 469,
-    "equipments": 255,
-    "skills": 665,
+    "generals": 494,
+    "tactics": 473,
+    "equipments": 260,
+    "skills": 681,
     "statusEffects": 206,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
@@ -47,10 +47,10 @@
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "36a988b3",
-    "tactics": "1db2e271",
-    "equipments": "5051cab2",
-    "skills": "51f05df8",
+    "generals": "3aa98eff",
+    "tactics": "1bb51de2",
+    "equipments": "d354d782",
+    "skills": "41cdb286",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
@@ -61,10 +61,10 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "36a988b3",
-    "tactics": "1db2e271",
-    "equipments": "5051cab2",
-    "skills": "51f05df8",
+    "generals": "3aa98eff",
+    "tactics": "1bb51de2",
+    "equipments": "d354d782",
+    "skills": "41cdb286",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
@@ -78,9 +78,9 @@
   "kind": "status_effect_group_owner_index",
   "qualityAudit": {
     "groupCount": 6,
-    "totalOwnerCount": 6578,
-    "ownerRelationCount": 6578,
-    "distinctOwnerCount": 2542,
+    "totalOwnerCount": 6704,
+    "ownerRelationCount": 6704,
+    "distinctOwnerCount": 2586,
     "countRecalculatedAfterRelatedLinkRebuild": true,
     "relatedLinkOwnerEnriched": true,
     "rebuildFromRelatedLinkIndex": true,
@@ -3687,8 +3687,8 @@
           },
           {
             "category": "generals",
-            "name": "LR馬超（ばちょう）",
-            "displayName": "LR馬超（ばちょう）",
+            "name": "LR馬超・騎兵（ばちょう）",
+            "displayName": "LR馬超・騎兵（ばちょう）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃速度変化(強化)",
@@ -3696,8 +3696,8 @@
           },
           {
             "category": "generals",
-            "name": "LR馬超（ばちょう）",
-            "displayName": "LR馬超（ばちょう）",
+            "name": "LR馬超・騎兵（ばちょう）",
+            "displayName": "LR馬超・騎兵（ばちょう）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "会心発生変化(強化)",
@@ -3705,8 +3705,8 @@
           },
           {
             "category": "generals",
-            "name": "LR馬超（ばちょう）",
-            "displayName": "LR馬超（ばちょう）",
+            "name": "LR馬超・騎兵（ばちょう）",
+            "displayName": "LR馬超・騎兵（ばちょう）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "会心威力変化(強化)",
@@ -3714,8 +3714,8 @@
           },
           {
             "category": "generals",
-            "name": "LR馬超（ばちょう）",
-            "displayName": "LR馬超（ばちょう）",
+            "name": "LR馬超・騎兵（ばちょう）",
+            "displayName": "LR馬超・騎兵（ばちょう）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "与ダメージ変化(強化)",
@@ -3723,8 +3723,8 @@
           },
           {
             "category": "generals",
-            "name": "LR馬超（ばちょう）",
-            "displayName": "LR馬超（ばちょう）",
+            "name": "LR馬超・騎兵（ばちょう）",
+            "displayName": "LR馬超・騎兵（ばちょう）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
@@ -3732,8 +3732,8 @@
           },
           {
             "category": "generals",
-            "name": "LR馬超（ばちょう）",
-            "displayName": "LR馬超（ばちょう）",
+            "name": "LR馬超・騎兵（ばちょう）",
+            "displayName": "LR馬超・騎兵（ばちょう）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃変化(強化)",
@@ -3741,12 +3741,84 @@
           },
           {
             "category": "generals",
-            "name": "LR馬超（ばちょう）",
-            "displayName": "LR馬超（ばちょう）",
+            "name": "LR馬超・騎兵（ばちょう）",
+            "displayName": "LR馬超・騎兵（ばちょう）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-status",
             "statusEffectName": "猛奮",
             "matchedText": "猛奮"
+          },
+          {
+            "category": "generals",
+            "name": "LR馬超・工兵（ばちょう）",
+            "displayName": "LR馬超・工兵（ばちょう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "戦法威力変化(強化)",
+            "matchedText": "戦法威力を50％"
+          },
+          {
+            "category": "generals",
+            "name": "LR馬超・工兵（ばちょう）",
+            "displayName": "LR馬超・工兵（ばちょう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃速度変化(強化)",
+            "matchedText": "攻撃速度+10%"
+          },
+          {
+            "category": "generals",
+            "name": "LR馬超・工兵（ばちょう）",
+            "displayName": "LR馬超・工兵（ばちょう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "会心発生変化(強化)",
+            "matchedText": "会心発生が上昇（上限50％"
+          },
+          {
+            "category": "generals",
+            "name": "LR馬超・工兵（ばちょう）",
+            "displayName": "LR馬超・工兵（ばちょう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージが効果量分上昇攻撃変化自分 / 単10"
+          },
+          {
+            "category": "generals",
+            "name": "LR馬超・工兵（ばちょう）",
+            "displayName": "LR馬超・工兵（ばちょう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(強化)",
+            "matchedText": "被ダメージ-25％"
+          },
+          {
+            "category": "generals",
+            "name": "LR馬超・工兵（ばちょう）",
+            "displayName": "LR馬超・工兵（ばちょう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃を150％"
+          },
+          {
+            "category": "generals",
+            "name": "LR馬超・工兵（ばちょう）",
+            "displayName": "LR馬超・工兵（ばちょう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status",
+            "statusEffectName": "猛奮",
+            "matchedText": "猛奮"
+          },
+          {
+            "category": "generals",
+            "name": "LR馬超・工兵（ばちょう）",
+            "displayName": "LR馬超・工兵（ばちょう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "威槍",
+            "matchedText": "威槍"
           },
           {
             "category": "generals",
@@ -4461,8 +4533,8 @@
           },
           {
             "category": "generals",
-            "name": "LR陸遜（りくそん）",
-            "displayName": "LR陸遜（りくそん）",
+            "name": "LR陸遜・弓兵（りくそん）",
+            "displayName": "LR陸遜・弓兵（りくそん）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
@@ -4470,8 +4542,8 @@
           },
           {
             "category": "generals",
-            "name": "LR陸遜（りくそん）",
-            "displayName": "LR陸遜（りくそん）",
+            "name": "LR陸遜・弓兵（りくそん）",
+            "displayName": "LR陸遜・弓兵（りくそん）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "防御変化(強化)",
@@ -4479,8 +4551,8 @@
           },
           {
             "category": "generals",
-            "name": "LR陸遜（りくそん）",
-            "displayName": "LR陸遜（りくそん）",
+            "name": "LR陸遜・弓兵（りくそん）",
+            "displayName": "LR陸遜・弓兵（りくそん）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "知力変化(強化)",
@@ -4488,12 +4560,129 @@
           },
           {
             "category": "generals",
-            "name": "LR陸遜（りくそん）",
-            "displayName": "LR陸遜（りくそん）",
+            "name": "LR陸遜・弓兵（りくそん）",
+            "displayName": "LR陸遜・弓兵（りくそん）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter-hotfix",
             "statusEffectName": "対物特効変化(強化)",
             "matchedText": "対物特効を50%上昇"
+          },
+          {
+            "category": "generals",
+            "name": "LR陸遜・工兵（りくそん）",
+            "displayName": "LR陸遜・工兵（りくそん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "撃心発生変化(強化)",
+            "matchedText": "撃心発生+25%"
+          },
+          {
+            "category": "generals",
+            "name": "LR陸遜・工兵（りくそん）",
+            "displayName": "LR陸遜・工兵（りくそん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "撃心威力変化(強化)",
+            "matchedText": "撃心威力+25%"
+          },
+          {
+            "category": "generals",
+            "name": "LR陸遜・工兵（りくそん）",
+            "displayName": "LR陸遜・工兵（りくそん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージが累積して上昇（10％"
+          },
+          {
+            "category": "generals",
+            "name": "LR陸遜・工兵（りくそん）",
+            "displayName": "LR陸遜・工兵（りくそん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(強化)",
+            "matchedText": "防御が上昇する知力変化味方 / 中10"
+          },
+          {
+            "category": "generals",
+            "name": "LR陸遜・工兵（りくそん）",
+            "displayName": "LR陸遜・工兵（りくそん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力を150％"
+          },
+          {
+            "category": "generals",
+            "name": "LR陸遜・工兵（りくそん）",
+            "displayName": "LR陸遜・工兵（りくそん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "火属性強化",
+            "matchedText": "火属性強化"
+          },
+          {
+            "category": "generals",
+            "name": "LR劉禅（りゅうぜん）",
+            "displayName": "LR劉禅（りゅうぜん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージ+50%"
+          },
+          {
+            "category": "generals",
+            "name": "LR劉禅（りゅうぜん）",
+            "displayName": "LR劉禅（りゅうぜん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(強化)",
+            "matchedText": "被ダメージ-50%"
+          },
+          {
+            "category": "generals",
+            "name": "LR劉禅（りゅうぜん）",
+            "displayName": "LR劉禅（りゅうぜん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃が上昇する知力変化味方 / 中10"
+          },
+          {
+            "category": "generals",
+            "name": "LR劉禅（りゅうぜん）",
+            "displayName": "LR劉禅（りゅうぜん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力を150％"
+          },
+          {
+            "category": "generals",
+            "name": "LR劉禅（りゅうぜん）",
+            "displayName": "LR劉禅（りゅうぜん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "龍鎧",
+            "matchedText": "龍鎧"
+          },
+          {
+            "category": "generals",
+            "name": "LR劉禅（りゅうぜん）",
+            "displayName": "LR劉禅（りゅうぜん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "恵守",
+            "matchedText": "恵守"
+          },
+          {
+            "category": "generals",
+            "name": "LR劉禅（りゅうぜん）",
+            "displayName": "LR劉禅（りゅうぜん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "焔風",
+            "matchedText": "焔風"
           },
           {
             "category": "generals",
@@ -9453,6 +9642,60 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "通常攻撃拡張",
             "matchedText": "通常攻撃拡張"
+          },
+          {
+            "category": "generals",
+            "name": "UR文聘（ぶんぺい）",
+            "displayName": "UR文聘（ぶんぺい）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "兵器速度変化(強化)",
+            "matchedText": "兵器速度+50%"
+          },
+          {
+            "category": "generals",
+            "name": "UR文聘（ぶんぺい）",
+            "displayName": "UR文聘（ぶんぺい）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージ+10％"
+          },
+          {
+            "category": "generals",
+            "name": "UR文聘（ぶんぺい）",
+            "displayName": "UR文聘（ぶんぺい）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃を受ける度、主将戦法の基礎威力が効果量ずつ累積して上昇する（累積は300％"
+          },
+          {
+            "category": "generals",
+            "name": "UR文聘（ぶんぺい）",
+            "displayName": "UR文聘（ぶんぺい）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(強化)",
+            "matchedText": "防御が上昇する知力変化味方 / 中10"
+          },
+          {
+            "category": "generals",
+            "name": "UR文聘（ぶんぺい）",
+            "displayName": "UR文聘（ぶんぺい）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力を100％"
+          },
+          {
+            "category": "generals",
+            "name": "UR文聘（ぶんぺい）",
+            "displayName": "UR文聘（ぶんぺい）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "憤撃",
+            "matchedText": "憤撃"
           },
           {
             "category": "generals",
@@ -16550,6 +16793,42 @@
           },
           {
             "category": "tactics",
+            "name": "威天穿心",
+            "displayName": "威天穿心",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "戦法威力変化(強化)",
+            "matchedText": "戦法威力を50％"
+          },
+          {
+            "category": "tactics",
+            "name": "威天穿心",
+            "displayName": "威天穿心",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージが効果量分上昇攻撃変化自分 / 単10"
+          },
+          {
+            "category": "tactics",
+            "name": "威天穿心",
+            "displayName": "威天穿心",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃を150％"
+          },
+          {
+            "category": "tactics",
+            "name": "威天穿心",
+            "displayName": "威天穿心",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status",
+            "statusEffectName": "猛奮",
+            "matchedText": "猛奮"
+          },
+          {
+            "category": "tactics",
             "name": "威武大震",
             "displayName": "威武大震",
             "source": "related_link_index",
@@ -16952,6 +17231,33 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "防御変化(強化)",
             "matchedText": "防御を100%"
+          },
+          {
+            "category": "tactics",
+            "name": "焔騰翼衛",
+            "displayName": "焔騰翼衛",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(強化)",
+            "matchedText": "防御が上昇する知力変化味方 / 中10"
+          },
+          {
+            "category": "tactics",
+            "name": "焔騰翼衛",
+            "displayName": "焔騰翼衛",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力を150％"
+          },
+          {
+            "category": "tactics",
+            "name": "焔騰翼衛",
+            "displayName": "焔騰翼衛",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "火属性強化",
+            "matchedText": "火属性強化"
           },
           {
             "category": "tactics",
@@ -22157,6 +22463,42 @@
           },
           {
             "category": "tactics",
+            "name": "鎮衛威恩",
+            "displayName": "鎮衛威恩",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃を受ける度、主将戦法の基礎威力が効果量ずつ累積して上昇する（累積は300％"
+          },
+          {
+            "category": "tactics",
+            "name": "鎮衛威恩",
+            "displayName": "鎮衛威恩",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(強化)",
+            "matchedText": "防御が上昇する知力変化味方 / 中10"
+          },
+          {
+            "category": "tactics",
+            "name": "鎮衛威恩",
+            "displayName": "鎮衛威恩",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力を100％"
+          },
+          {
+            "category": "tactics",
+            "name": "鎮衛威恩",
+            "displayName": "鎮衛威恩",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "憤撃",
+            "matchedText": "憤撃"
+          },
+          {
+            "category": "tactics",
             "name": "貞亮謀幹",
             "displayName": "貞亮謀幹",
             "source": "related_link_index",
@@ -22235,6 +22577,69 @@
             "sourcePartType": "semantic-owner-parameter-hotfix",
             "statusEffectName": "対物特効変化(強化)",
             "matchedText": "対物特効変化味方 / 中10秒物体に対して有利になる"
+          },
+          {
+            "category": "tactics",
+            "name": "天衣無縫",
+            "displayName": "天衣無縫",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージ+50%"
+          },
+          {
+            "category": "tactics",
+            "name": "天衣無縫",
+            "displayName": "天衣無縫",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(強化)",
+            "matchedText": "被ダメージ-50%"
+          },
+          {
+            "category": "tactics",
+            "name": "天衣無縫",
+            "displayName": "天衣無縫",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃が上昇する知力変化味方 / 中10"
+          },
+          {
+            "category": "tactics",
+            "name": "天衣無縫",
+            "displayName": "天衣無縫",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力を150％"
+          },
+          {
+            "category": "tactics",
+            "name": "天衣無縫",
+            "displayName": "天衣無縫",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "龍鎧",
+            "matchedText": "龍鎧"
+          },
+          {
+            "category": "tactics",
+            "name": "天衣無縫",
+            "displayName": "天衣無縫",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "恵守",
+            "matchedText": "恵守"
+          },
+          {
+            "category": "tactics",
+            "name": "天衣無縫",
+            "displayName": "天衣無縫",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "焔風",
+            "matchedText": "焔風"
           },
           {
             "category": "tactics",
@@ -26241,7 +26646,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋10%"
+            "matchedText": "被ダメージ-10%"
           },
           {
             "category": "skills",
@@ -26380,6 +26785,15 @@
           },
           {
             "category": "skills",
+            "name": "威風",
+            "displayName": "威風",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "機動変化(強化)",
+            "matchedText": "機動が自部隊より低い場合は効果が2"
+          },
+          {
+            "category": "skills",
             "name": "威望",
             "displayName": "威望",
             "source": "related_link_index",
@@ -26457,7 +26871,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋75%"
+            "matchedText": "被ダメージ-75%"
           },
           {
             "category": "skills",
@@ -26529,7 +26943,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋10%"
+            "matchedText": "被ダメージ-10%"
           },
           {
             "category": "skills",
@@ -26610,7 +27024,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋50%"
+            "matchedText": "被ダメージ-50%"
           },
           {
             "category": "skills",
@@ -26655,7 +27069,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋15%"
+            "matchedText": "被ダメージ-15%"
           },
           {
             "category": "skills",
@@ -26691,7 +27105,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋10%"
+            "matchedText": "被ダメージ-10%"
           },
           {
             "category": "skills",
@@ -26719,6 +27133,24 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "防御変化(強化)",
             "matchedText": "防御が上昇▼交戦開始時 ●自身1"
+          },
+          {
+            "category": "skills",
+            "name": "鋭穿",
+            "displayName": "鋭穿",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージ+10%"
+          },
+          {
+            "category": "skills",
+            "name": "鋭穿",
+            "displayName": "鋭穿",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(強化)",
+            "matchedText": "被ダメージ-15%"
           },
           {
             "category": "skills",
@@ -26988,7 +27420,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋30%"
+            "matchedText": "被ダメージ-30%"
           },
           {
             "category": "skills",
@@ -27060,16 +27492,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋10%"
-          },
-          {
-            "category": "skills",
-            "name": "火術",
-            "displayName": "火術",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "防御変化(強化)",
-            "matchedText": "防御が上昇勢焔雷紋兜騎兵 歩兵 弓兵火熾戦撃■常に ●部隊の「熾盛」の技能Lv+1"
+            "matchedText": "被ダメージ-10%"
           },
           {
             "category": "skills",
@@ -27132,7 +27555,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋25％"
+            "matchedText": "被ダメージ-25％"
           },
           {
             "category": "skills",
@@ -27159,7 +27582,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋20%"
+            "matchedText": "被ダメージ-20%"
           },
           {
             "category": "skills",
@@ -27385,6 +27808,42 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "火炮",
             "matchedText": "火炮"
+          },
+          {
+            "category": "skills",
+            "name": "貫迅",
+            "displayName": "貫迅",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃速度変化(強化)",
+            "matchedText": "攻撃速度+50%"
+          },
+          {
+            "category": "skills",
+            "name": "貫迅",
+            "displayName": "貫迅",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "会心発生変化(強化)",
+            "matchedText": "会心発生が上昇（上限50％"
+          },
+          {
+            "category": "skills",
+            "name": "貫迅",
+            "displayName": "貫迅",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃+750"
+          },
+          {
+            "category": "skills",
+            "name": "貫迅",
+            "displayName": "貫迅",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "威槍",
+            "matchedText": "威槍"
           },
           {
             "category": "skills",
@@ -28072,6 +28531,24 @@
           },
           {
             "category": "skills",
+            "name": "協工",
+            "displayName": "協工",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "兵器速度変化(強化)",
+            "matchedText": "兵器速度+50%"
+          },
+          {
+            "category": "skills",
+            "name": "協工",
+            "displayName": "協工",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "憤撃",
+            "matchedText": "憤撃"
+          },
+          {
+            "category": "skills",
             "name": "強勢",
             "displayName": "強勢",
             "source": "related_link_index",
@@ -28333,6 +28810,33 @@
           },
           {
             "category": "skills",
+            "name": "錦武",
+            "displayName": "錦武",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージ+15%"
+          },
+          {
+            "category": "skills",
+            "name": "錦武",
+            "displayName": "錦武",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃+2%"
+          },
+          {
+            "category": "skills",
+            "name": "錦武",
+            "displayName": "錦武",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "豪昇",
+            "matchedText": "豪昇"
+          },
+          {
+            "category": "skills",
             "name": "金剛",
             "displayName": "金剛",
             "source": "related_link_index",
@@ -28410,7 +28914,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋5%"
+            "matchedText": "被ダメージ-5%"
           },
           {
             "category": "skills",
@@ -28437,7 +28941,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋10%"
+            "matchedText": "被ダメージ-10%"
           },
           {
             "category": "skills",
@@ -28662,7 +29166,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋10%"
+            "matchedText": "被ダメージ-10%"
           },
           {
             "category": "skills",
@@ -28681,6 +29185,24 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "防御変化(強化)",
             "matchedText": "防御+15%"
+          },
+          {
+            "category": "skills",
+            "name": "堅実",
+            "displayName": "堅実",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃が上昇 ●部隊の「敏活」のLv×3%"
+          },
+          {
+            "category": "skills",
+            "name": "堅実",
+            "displayName": "堅実",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(強化)",
+            "matchedText": "防御が上昇 ●部隊の「敏活」のLv×3%"
           },
           {
             "category": "skills",
@@ -28788,7 +29310,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋15%"
+            "matchedText": "被ダメージ-15%"
           },
           {
             "category": "skills",
@@ -28923,7 +29445,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋15%"
+            "matchedText": "被ダメージ-15%"
           },
           {
             "category": "skills",
@@ -28986,7 +29508,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋10%"
+            "matchedText": "被ダメージ-10%"
           },
           {
             "category": "skills",
@@ -29049,7 +29571,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋25%"
+            "matchedText": "被ダメージ-25%"
           },
           {
             "category": "skills",
@@ -29206,12 +29728,84 @@
           },
           {
             "category": "skills",
+            "name": "工威",
+            "displayName": "工威",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃+3%"
+          },
+          {
+            "category": "skills",
+            "name": "工威",
+            "displayName": "工威",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(強化)",
+            "matchedText": "防御+3%"
+          },
+          {
+            "category": "skills",
+            "name": "工威",
+            "displayName": "工威",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力+3%"
+          },
+          {
+            "category": "skills",
+            "name": "工勢",
+            "displayName": "工勢",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージ+5%"
+          },
+          {
+            "category": "skills",
+            "name": "工勢",
+            "displayName": "工勢",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃+250"
+          },
+          {
+            "category": "skills",
+            "name": "工勢",
+            "displayName": "工勢",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(強化)",
+            "matchedText": "防御+250"
+          },
+          {
+            "category": "skills",
+            "name": "工勢",
+            "displayName": "工勢",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力+250"
+          },
+          {
+            "category": "skills",
+            "name": "工勢",
+            "displayName": "工勢",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "憤撃",
+            "matchedText": "憤撃"
+          },
+          {
+            "category": "skills",
             "name": "巧戦",
             "displayName": "巧戦",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋10％"
+            "matchedText": "被ダメージ-10％"
           },
           {
             "category": "skills",
@@ -29418,7 +30012,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋20%"
+            "matchedText": "被ダメージ-20%"
           },
           {
             "category": "skills",
@@ -29445,7 +30039,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋20%"
+            "matchedText": "被ダメージ-20%"
           },
           {
             "category": "skills",
@@ -29472,7 +30066,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋7%"
+            "matchedText": "被ダメージ-7%"
           },
           {
             "category": "skills",
@@ -29507,8 +30101,8 @@
             "displayName": "剛力",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "攻撃速度変化(強化)",
-            "matchedText": "攻撃速度+25%"
+            "statusEffectName": "戦法威力変化(強化)",
+            "matchedText": "戦法威力が上昇（10"
           },
           {
             "category": "skills",
@@ -29534,15 +30128,6 @@
             "displayName": "剛力",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "対物特効+15%"
-          },
-          {
-            "category": "skills",
-            "name": "剛力",
-            "displayName": "剛力",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "与ダメージ変化(強化)",
             "matchedText": "与ダメージ+10%"
           },
@@ -29554,15 +30139,6 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃変化(強化)",
             "matchedText": "攻撃+3%"
-          },
-          {
-            "category": "skills",
-            "name": "剛力",
-            "displayName": "剛力",
-            "source": "related_link_index",
-            "sourcePartType": "semantic-owner-parameter",
-            "statusEffectName": "知力変化(強化)",
-            "matchedText": "知力+15%"
           },
           {
             "category": "skills",
@@ -29581,6 +30157,24 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "与ダメージ変化(強化)",
             "matchedText": "与ダメージ+10%"
+          },
+          {
+            "category": "skills",
+            "name": "剛烈",
+            "displayName": "剛烈",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃速度変化(強化)",
+            "matchedText": "攻撃速度+10%"
+          },
+          {
+            "category": "skills",
+            "name": "剛烈",
+            "displayName": "剛烈",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃+1%"
           },
           {
             "category": "skills",
@@ -29661,7 +30255,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋4%"
+            "matchedText": "被ダメージ-4%"
           },
           {
             "category": "skills",
@@ -29814,7 +30408,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋15%"
+            "matchedText": "被ダメージ-15%"
           },
           {
             "category": "skills",
@@ -29877,7 +30471,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋20%"
+            "matchedText": "被ダメージ-20%"
           },
           {
             "category": "skills",
@@ -30084,7 +30678,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋10%"
+            "matchedText": "被ダメージ-10%"
           },
           {
             "category": "skills",
@@ -30102,7 +30696,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋50%"
+            "matchedText": "被ダメージ-50%"
           },
           {
             "category": "skills",
@@ -30120,7 +30714,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋10%"
+            "matchedText": "被ダメージ-10%"
           },
           {
             "category": "skills",
@@ -30183,7 +30777,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋10%"
+            "matchedText": "被ダメージ-10%"
           },
           {
             "category": "skills",
@@ -30246,7 +30840,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋20%"
+            "matchedText": "被ダメージ-20%"
           },
           {
             "category": "skills",
@@ -30454,6 +31048,15 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "盤石",
             "matchedText": "盤石"
+          },
+          {
+            "category": "skills",
+            "name": "灼箭",
+            "displayName": "灼箭",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力が敵より高い場合、確率が2"
           },
           {
             "category": "skills",
@@ -30700,6 +31303,60 @@
           },
           {
             "category": "skills",
+            "name": "昇炎",
+            "displayName": "昇炎",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "撃心発生変化(強化)",
+            "matchedText": "撃心発生+25%"
+          },
+          {
+            "category": "skills",
+            "name": "昇炎",
+            "displayName": "昇炎",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "撃心威力変化(強化)",
+            "matchedText": "撃心威力+25%"
+          },
+          {
+            "category": "skills",
+            "name": "昇炎",
+            "displayName": "昇炎",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージが累積して上昇（10％"
+          },
+          {
+            "category": "skills",
+            "name": "昇炎",
+            "displayName": "昇炎",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力を50％"
+          },
+          {
+            "category": "skills",
+            "name": "焦火",
+            "displayName": "焦火",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(強化)",
+            "matchedText": "被ダメージを軽減（知力500"
+          },
+          {
+            "category": "skills",
+            "name": "焦火",
+            "displayName": "焦火",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力+500"
+          },
+          {
+            "category": "skills",
             "name": "衝陣",
             "displayName": "衝陣",
             "source": "related_link_index",
@@ -30876,7 +31533,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋50%"
+            "matchedText": "被ダメージ-50%"
           },
           {
             "category": "skills",
@@ -30912,7 +31569,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋10%"
+            "matchedText": "被ダメージ-10%"
           },
           {
             "category": "skills",
@@ -30993,7 +31650,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋20％"
+            "matchedText": "被ダメージ-20％"
           },
           {
             "category": "skills",
@@ -31083,7 +31740,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋50％"
+            "matchedText": "被ダメージ-50％"
           },
           {
             "category": "skills",
@@ -31344,7 +32001,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋15%"
+            "matchedText": "被ダメージ-15%"
           },
           {
             "category": "skills",
@@ -31372,6 +32029,33 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
             "matchedText": "被ダメージを軽減▼交戦開始時 ●自身1"
+          },
+          {
+            "category": "skills",
+            "name": "仁援",
+            "displayName": "仁援",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃が上昇 ●部隊の「敏活」のLv×3%"
+          },
+          {
+            "category": "skills",
+            "name": "仁援",
+            "displayName": "仁援",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(強化)",
+            "matchedText": "防御が上昇 ●部隊の「敏活」のLv×3%"
+          },
+          {
+            "category": "skills",
+            "name": "仁援",
+            "displayName": "仁援",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力が上昇 →主将の際は効果が2"
           },
           {
             "category": "skills",
@@ -31533,7 +32217,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋3%"
+            "matchedText": "被ダメージ-3%"
           },
           {
             "category": "skills",
@@ -31569,7 +32253,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋4%"
+            "matchedText": "被ダメージ-4%"
           },
           {
             "category": "skills",
@@ -31695,7 +32379,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋10%"
+            "matchedText": "被ダメージ-10%"
           },
           {
             "category": "skills",
@@ -31839,7 +32523,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋30%"
+            "matchedText": "被ダメージ-30%"
           },
           {
             "category": "skills",
@@ -32325,7 +33009,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋10％"
+            "matchedText": "被ダメージ-10％"
           },
           {
             "category": "skills",
@@ -32334,7 +33018,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋15%"
+            "matchedText": "被ダメージ-15%"
           },
           {
             "category": "skills",
@@ -32487,7 +33171,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋50%"
+            "matchedText": "被ダメージ-50%"
           },
           {
             "category": "skills",
@@ -32640,7 +33324,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋3%"
+            "matchedText": "被ダメージ-3%"
           },
           {
             "category": "skills",
@@ -32712,7 +33396,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋3%"
+            "matchedText": "被ダメージ-3%"
           },
           {
             "category": "skills",
@@ -32776,6 +33460,33 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "戦法威力変化(強化)",
             "matchedText": "戦法威力+10%"
+          },
+          {
+            "category": "skills",
+            "name": "鎮静",
+            "displayName": "鎮静",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(強化)",
+            "matchedText": "攻撃+2%"
+          },
+          {
+            "category": "skills",
+            "name": "鎮静",
+            "displayName": "鎮静",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(強化)",
+            "matchedText": "防御+2%"
+          },
+          {
+            "category": "skills",
+            "name": "鎮静",
+            "displayName": "鎮静",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力+2%"
           },
           {
             "category": "skills",
@@ -32847,7 +33558,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋30%"
+            "matchedText": "被ダメージ-30%"
           },
           {
             "category": "skills",
@@ -33360,7 +34071,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋25%"
+            "matchedText": "被ダメージ-25%"
           },
           {
             "category": "skills",
@@ -33459,7 +34170,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋5%"
+            "matchedText": "被ダメージ-5%"
           },
           {
             "category": "skills",
@@ -33505,6 +34216,42 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "会心発生変化(強化)",
             "matchedText": "会心発生+3%"
+          },
+          {
+            "category": "skills",
+            "name": "発奮",
+            "displayName": "発奮",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "撃心威力変化(強化)",
+            "matchedText": "撃心威力+25%"
+          },
+          {
+            "category": "skills",
+            "name": "発奮",
+            "displayName": "発奮",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "与ダメージ変化(強化)",
+            "matchedText": "与ダメージが上昇（最大30％"
+          },
+          {
+            "category": "skills",
+            "name": "発奮",
+            "displayName": "発奮",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(強化)",
+            "matchedText": "被ダメージを軽減（最大30％"
+          },
+          {
+            "category": "skills",
+            "name": "発奮",
+            "displayName": "発奮",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "知力変化(強化)",
+            "matchedText": "知力+5%"
           },
           {
             "category": "skills",
@@ -33828,7 +34575,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "与ダメージ変化(強化)",
-            "matchedText": "与ダメージ+5%"
+            "matchedText": "与ダメージ+10%"
           },
           {
             "category": "skills",
@@ -33918,7 +34665,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋40%"
+            "matchedText": "被ダメージ-40%"
           },
           {
             "category": "skills",
@@ -34026,7 +34773,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋7%"
+            "matchedText": "被ダメージ-7%"
           },
           {
             "category": "skills",
@@ -34332,7 +35079,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋15%"
+            "matchedText": "被ダメージ-15%"
           },
           {
             "category": "skills",
@@ -34467,7 +35214,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋10%"
+            "matchedText": "被ダメージ-10%"
           },
           {
             "category": "skills",
@@ -34548,7 +35295,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋20%"
+            "matchedText": "被ダメージ-20%"
           },
           {
             "category": "skills",
@@ -34665,7 +35412,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋5%"
+            "matchedText": "被ダメージ-5%"
           },
           {
             "category": "skills",
@@ -35160,7 +35907,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋10%"
+            "matchedText": "被ダメージ-10%"
           },
           {
             "category": "skills",
@@ -35187,7 +35934,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋10%"
+            "matchedText": "被ダメージ-10%"
           },
           {
             "category": "skills",
@@ -35358,7 +36105,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋10%"
+            "matchedText": "被ダメージ-10%"
           },
           {
             "category": "skills",
@@ -35394,7 +36141,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋30%"
+            "matchedText": "被ダメージ-30%"
           },
           {
             "category": "skills",
@@ -36069,7 +36816,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋10%"
+            "matchedText": "被ダメージ-10%"
           },
           {
             "category": "skills",
@@ -36087,7 +36834,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋3%"
+            "matchedText": "被ダメージ-3%"
           },
           {
             "category": "skills",
@@ -36168,7 +36915,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋10％"
+            "matchedText": "被ダメージ-10％"
           },
           {
             "category": "skills",
@@ -36366,7 +37113,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋10%"
+            "matchedText": "被ダメージ-10%"
           },
           {
             "category": "skills",
@@ -36492,7 +37239,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "被ダメージ変化(強化)",
-            "matchedText": "被ダメージ₋10%"
+            "matchedText": "被ダメージ-10%"
           },
           {
             "category": "skills",
@@ -36620,7 +37367,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "【三國志 覇道】金系帯紫錦披風 【三國志 覇道】金系帯紫錦披風の能力と技能 各レアリティの能力 レア統率武力知力政治魅力UR192038500SSR111026100 金系帯紫錦披風の技能 UR時の最大技能圧倒練達 常に 部隊の「圧倒」の技能Lv+1（上限3） 部隊の「攻城」の技能Lv+1（上限5） 部隊の火攻撃威力+7%策応賢守 常に 部隊の「策士」の技能Lv+1（上限5） 自部隊に対物特効上昇の効果が付与されるたび 自身1部隊の防御+20%（10秒） 自身1部隊の知力+20%（10秒）不乱盤石 常に 兵力が50%以上の時 通常攻撃・戦法による被ダメージ₋7%SSR時の最大技能圧倒練達 主将の際 部隊の「圧倒」の技能Lv+1（上限4）策応賢守 常に 部隊の「策士」の技能Lv+1（上限5） 自部隊に対物特効上昇の効果が付与されるたび 自身1部隊の防御+20%（10秒） 自身1部隊の知力+20%（10秒） 鍛錬前の初期技能はこちら 圧倒練達 主将の際 部隊の「圧倒」の技能Lv+1（上限4）策応賢守 常に 部隊の「策士」の技能Lv+1（上限5） 自部隊に対物特効上昇の効果が付与されるたび 自身1部隊の防御+10%（10秒） 自身1部隊の知力+10%（10秒） UR時の最大技能 圧倒練達 常に 部隊の「圧倒」の技能Lv+1（上限3） 部隊の「攻城」の技能Lv+1（上限5） 部隊の火攻撃威力+7%策応賢守 常に 部隊の「策士」の技能Lv+1（上限5） 自部隊に対物特効上昇の効果が付与されるたび 自身1部隊の防御+20%（10秒） 自身1部隊の知力+20%（10秒）不乱盤石 常に 兵力が50%以上の時 通常攻撃・戦法による被ダメージ₋7% SSR時の最大技能 圧倒練達 主将の際 部隊の「圧倒」の技能Lv+1（上限4）策応賢守 常に 部隊の「策士」の技能Lv+1（上限5） 自部隊に対物特効上昇の効果が付与されるたび 自身1部隊の防御+20%（10秒） 自身1部隊の知力+20%（10秒）"
+            "matchedText": "【三國志 覇道】金系帯紫錦披風 【三國志 覇道】金系帯紫錦披風の能力と技能 各レアリティの能力 レア統率武力知力政治魅力UR192038500SSR111026100 金系帯紫錦披風の技能 UR時の最大技能圧倒練達 常に 部隊の「圧倒」の技能Lv+1（上限3） 部隊の「攻城」の技能Lv+1（上限5） 部隊の火攻撃威力+7%策応賢守 常に 部隊の「策士」の技能Lv+1（上限5） 自部隊に対物特効上昇の効果が付与されるたび 自身1部隊の防御+20%（10秒） 自身1部隊の知力+20%（10秒）不乱盤石 常に 兵力が50%以上の時 通常攻撃・戦法による被ダメージ-7%SSR時の最大技能圧倒練達 主将の際 部隊の「圧倒」の技能Lv+1（上限4）策応賢守 常に 部隊の「策士」の技能Lv+1（上限5） 自部隊に対物特効上昇の効果が付与されるたび 自身1部隊の防御+20%（10秒） 自身1部隊の知力+20%（10秒） 鍛錬前の初期技能はこちら 圧倒練達 主将の際 部隊の「圧倒」の技能Lv+1（上限4）策応賢守 常に 部隊の「策士」の技能Lv+1（上限5） 自部隊に対物特効上昇の効果が付与されるたび 自身1部隊の防御+10%（10秒） 自身1部隊の知力+10%（10秒） UR時の最大技能 圧倒練達 常に 部隊の「圧倒」の技能Lv+1（上限3） 部隊の「攻城」の技能Lv+1（上限5） 部隊の火攻撃威力+7%策応賢守 常に 部隊の「策士」の技能Lv+1（上限5） 自部隊に対物特効上昇の効果が付与されるたび 自身1部隊の防御+20%（10秒） 自身1部隊の知力+20%（10秒）不乱盤石 常に 兵力が50%以上の時 通常攻撃・戦法による被ダメージ-7% SSR時の最大技能 圧倒練達 主将の際 部隊の「圧倒」の技能Lv+1（上限4）策応賢守 常に 部隊の「策士」の技能Lv+1（上限5） 自部隊に対物特効上昇の効果が付与されるたび 自身1部隊の防御+20%（10秒） 自身1部隊の知力+20%（10秒）"
           },
           {
             "category": "equipments",
@@ -36638,7 +37385,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "対物特効変化(強化)",
-            "matchedText": "【三國志 覇道】西方の紅帽 【三國志 覇道】西方の紅帽の能力と技能 各レアリティの能力 レア統率武力知力政治魅力UR210878700SSR160646400 西方の紅帽の技能 UR時の最大技能贈物運送 常に 部隊の「剛力」の技能Lv+1（上限5） 部隊の「機略」の技能Lv+1（上限5） 部隊の「運搬」の技能Lv+2（上限5） 自部隊より攻撃の低い敵部隊からの物理系統の通常攻撃・戦法による被ダメージ₋10% 自部隊より知力の低い敵部隊からの知力系統の通常攻撃・戦法による被ダメージ₋10%祝福寄贈 常に 主将戦法発動時 自身を含む味方1〜3部隊の攻撃+15%（10秒） 自身を含む味方1〜3部隊の知力+15%（10秒） 自身を含む味方1〜3部隊の対物特効+15%（10秒） 自身を含む味方1〜3部隊の会心発生+25%（10秒） 自身を含む味方1〜3部隊の攻撃速度+25%（10秒）聖夜烈撃 常に 自部隊に発生している強化効果の数×1.5%、通常攻撃・戦法による与ダメージが上昇（最大15％）SSR時の最大技能贈物運送 常に 部隊の「剛力」の技能Lv+1（上限5） 部隊の「機略」の技能Lv+1（上限5） 部隊の「運搬」の技能Lv+1（上限5）祝福寄贈 常に 主将戦法発動時 自身を含む味方1〜3部隊の攻撃+15%（10秒） 自身を含む味方1〜3部隊の知力+15%（10秒） 自身を含む味方1〜3部隊の対物特効+15%（10秒） 自身を含む味方1〜3部隊の会心発生+25%（10秒） 自身を含む味方1〜3部隊の攻撃速度+25%（10秒） 鍛錬前の初期技能はこちら 贈物運送 常に 部隊の「剛力」の技能Lv+1（上限5） 部隊の「機略」の技能Lv+1（上限5） 部隊の「運搬」の技能Lv+1（上限5）祝福寄贈 常に 主将戦法発動時 自身を含む味方1〜3部隊の攻撃+10%（10秒） 自身を含む味方1〜3部隊の知力+10%（10秒） UR時の最大技能 贈物運送 常に 部隊の「剛力」の技能Lv+1（上限5） 部隊の「機略」の技能Lv+1（上限5） 部隊の「運搬」の技能Lv+2（上限5） 自部隊より攻撃の低い敵部隊からの物理系統の通常攻撃・戦法による被ダメージ₋10% 自部隊より知力の低い敵部隊からの知力系統の通常攻撃・戦法による被ダメージ₋10%祝福寄贈 常に 主将戦法発動時 自身を含む味方1〜3部隊の攻撃+15%（10秒） 自身を含む味方1〜3部隊の知力+15%（10秒） 自身を含む味方1〜3部隊の対物特効+15%（10秒） 自身を含む味方1〜3部隊の会心発生+25%（10秒） 自身を含む味方1〜3部隊の攻撃速度+25%（10秒）聖夜烈撃 常に 自部隊に発生している強化効果の数×1.5%、通常攻撃・戦法による与ダメージが上昇（最大15％） SSR時の最大技能 贈物運送 常に 部隊の「剛力」の技能Lv+1（上限5） 部隊の「機略」の技能Lv+1（上限5） 部隊の「運搬」の技能Lv+1（上限5）祝福寄贈 常に 主将戦法発動時 自身を含む味方1〜3部隊の攻撃+15%（10秒） 自身を含む味方1〜3部隊の知力+15%（10秒） 自身を含む味方1〜3部隊の対物特効+15%（10秒） 自身を含む味方1〜3部隊の会心発生+25%（10秒） 自身を含む味方1〜3部隊の攻撃速度+25%（10秒）"
+            "matchedText": "【三國志 覇道】西方の紅帽 【三國志 覇道】西方の紅帽の能力と技能 各レアリティの能力 レア統率武力知力政治魅力UR210878700SSR160646400 西方の紅帽の技能 UR時の最大技能贈物運送 常に 部隊の「剛力」の技能Lv+1（上限5） 部隊の「機略」の技能Lv+1（上限5） 部隊の「運搬」の技能Lv+2（上限5） 自部隊より攻撃の低い敵部隊からの物理系統の通常攻撃・戦法による被ダメージ-10% 自部隊より知力の低い敵部隊からの知力系統の通常攻撃・戦法による被ダメージ-10%祝福寄贈 常に 主将戦法発動時 自身を含む味方1〜3部隊の攻撃+15%（10秒） 自身を含む味方1〜3部隊の知力+15%（10秒） 自身を含む味方1〜3部隊の対物特効+15%（10秒） 自身を含む味方1〜3部隊の会心発生+25%（10秒） 自身を含む味方1〜3部隊の攻撃速度+25%（10秒）聖夜烈撃 常に 自部隊に発生している強化効果の数×1.5%、通常攻撃・戦法による与ダメージが上昇（最大15％）SSR時の最大技能贈物運送 常に 部隊の「剛力」の技能Lv+1（上限5） 部隊の「機略」の技能Lv+1（上限5） 部隊の「運搬」の技能Lv+1（上限5）祝福寄贈 常に 主将戦法発動時 自身を含む味方1〜3部隊の攻撃+15%（10秒） 自身を含む味方1〜3部隊の知力+15%（10秒） 自身を含む味方1〜3部隊の対物特効+15%（10秒） 自身を含む味方1〜3部隊の会心発生+25%（10秒） 自身を含む味方1〜3部隊の攻撃速度+25%（10秒） 鍛錬前の初期技能はこちら 贈物運送 常に 部隊の「剛力」の技能Lv+1（上限5） 部隊の「機略」の技能Lv+1（上限5） 部隊の「運搬」の技能Lv+1（上限5）祝福寄贈 常に 主将戦法発動時 自身を含む味方1〜3部隊の攻撃+10%（10秒） 自身を含む味方1〜3部隊の知力+10%（10秒） UR時の最大技能 贈物運送 常に 部隊の「剛力」の技能Lv+1（上限5） 部隊の「機略」の技能Lv+1（上限5） 部隊の「運搬」の技能Lv+2（上限5） 自部隊より攻撃の低い敵部隊からの物理系統の通常攻撃・戦法による被ダメージ-10% 自部隊より知力の低い敵部隊からの知力系統の通常攻撃・戦法による被ダメージ-10%祝福寄贈 常に 主将戦法発動時 自身を含む味方1〜3部隊の攻撃+15%（10秒） 自身を含む味方1〜3部隊の知力+15%（10秒） 自身を含む味方1〜3部隊の対物特効+15%（10秒） 自身を含む味方1〜3部隊の会心発生+25%（10秒） 自身を含む味方1〜3部隊の攻撃速度+25%（10秒）聖夜烈撃 常に 自部隊に発生している強化効果の数×1.5%、通常攻撃・戦法による与ダメージが上昇（最大15％） SSR時の最大技能 贈物運送 常に 部隊の「剛力」の技能Lv+1（上限5） 部隊の「機略」の技能Lv+1（上限5） 部隊の「運搬」の技能Lv+1（上限5）祝福寄贈 常に 主将戦法発動時 自身を含む味方1〜3部隊の攻撃+15%（10秒） 自身を含む味方1〜3部隊の知力+15%（10秒） 自身を含む味方1〜3部隊の対物特効+15%（10秒） 自身を含む味方1〜3部隊の会心発生+25%（10秒） 自身を含む味方1〜3部隊の攻撃速度+25%（10秒）"
           },
           {
             "category": "equipments",
@@ -36764,17 +37511,17 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 1817,
-        "tactics": 1078,
-        "skills": 1162,
+        "generals": 1844,
+        "tactics": 1096,
+        "skills": 1200,
         "equipments": 14,
         "statusEffects": 0,
         "warhorseSkills": 2
       },
-      "totalOwnerCount": 4073,
+      "totalOwnerCount": 4156,
       "source": "related_link_index",
-      "ownerRelationCount": 4073,
-      "distinctOwnerCount": 1317
+      "ownerRelationCount": 4156,
+      "distinctOwnerCount": 1339
     },
     {
       "groupKey": "selfStateBuff",
@@ -37106,6 +37853,15 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "呼応・一",
             "matchedText": "呼応・一"
+          },
+          {
+            "category": "generals",
+            "name": "UR文聘（ぶんぺい）",
+            "displayName": "UR文聘（ぶんぺい）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "不退",
+            "matchedText": "不退"
           },
           {
             "category": "generals",
@@ -37468,6 +38224,15 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "豪撃",
             "matchedText": "豪撃"
+          },
+          {
+            "category": "tactics",
+            "name": "鎮衛威恩",
+            "displayName": "鎮衛威恩",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "不退",
+            "matchedText": "不退"
           },
           {
             "category": "tactics",
@@ -37855,16 +38620,16 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 51,
-        "tactics": 37,
+        "generals": 52,
+        "tactics": 38,
         "skills": 30,
         "equipments": 0,
         "statusEffects": 0
       },
-      "totalOwnerCount": 118,
+      "totalOwnerCount": 120,
       "source": "related_link_index",
-      "ownerRelationCount": 118,
-      "distinctOwnerCount": 112
+      "ownerRelationCount": 120,
+      "distinctOwnerCount": 114
     },
     {
       "groupKey": "selfResistanceBuff",
@@ -39828,6 +40593,60 @@
           },
           {
             "category": "generals",
+            "name": "LR馬超・工兵（ばちょう）",
+            "displayName": "LR馬超・工兵（ばちょう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "絶縁",
+            "matchedText": "絶縁"
+          },
+          {
+            "category": "generals",
+            "name": "LR馬超・工兵（ばちょう）",
+            "displayName": "LR馬超・工兵（ばちょう）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "強化奪取回避[鋭穿]",
+            "matchedText": "自身1部隊にかかる強化奪取、弱化積鈍、戦法弱化を避ける"
+          },
+          {
+            "category": "generals",
+            "name": "LR馬超・工兵（ばちょう）",
+            "displayName": "LR馬超・工兵（ばちょう）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "弱化積鈍回避[鋭穿]",
+            "matchedText": "自身1部隊にかかる強化奪取、弱化積鈍、戦法弱化を避ける"
+          },
+          {
+            "category": "generals",
+            "name": "LR馬超・工兵（ばちょう）",
+            "displayName": "LR馬超・工兵（ばちょう）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "戦法弱化回避[鋭穿]",
+            "matchedText": "自身1部隊にかかる強化奪取、弱化積鈍、戦法弱化を避ける"
+          },
+          {
+            "category": "generals",
+            "name": "LR馬超・工兵（ばちょう）",
+            "displayName": "LR馬超・工兵（ばちょう）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill-via-granted-skill",
+            "statusEffectName": "強化解除回避[錦武]",
+            "matchedText": "自身1部隊にかかる強化解除と戦法遅延を避ける"
+          },
+          {
+            "category": "generals",
+            "name": "LR馬超・工兵（ばちょう）",
+            "displayName": "LR馬超・工兵（ばちょう）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill-via-granted-skill",
+            "statusEffectName": "戦法遅延回避[錦武]",
+            "matchedText": "自身1部隊にかかる強化解除と戦法遅延を避ける"
+          },
+          {
+            "category": "generals",
             "name": "LR馬騰（ばとう）",
             "displayName": "LR馬騰（ばとう）",
             "source": "related_link_index",
@@ -40197,12 +41016,75 @@
           },
           {
             "category": "generals",
-            "name": "LR陸遜（りくそん）",
-            "displayName": "LR陸遜（りくそん）",
+            "name": "LR陸遜・弓兵（りくそん）",
+            "displayName": "LR陸遜・弓兵（りくそん）",
             "source": "related_link_index",
             "sourcePartType": "self-countermeasure-skill",
             "statusEffectName": "火傷回避[極炎]",
             "matchedText": "自身1部隊にかかる火傷を避ける"
+          },
+          {
+            "category": "generals",
+            "name": "LR陸遜・工兵（りくそん）",
+            "displayName": "LR陸遜・工兵（りくそん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "取込",
+            "matchedText": "取込"
+          },
+          {
+            "category": "generals",
+            "name": "LR陸遜・工兵（りくそん）",
+            "displayName": "LR陸遜・工兵（りくそん）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "会心無効[灼箭]",
+            "matchedText": "主将が劉備と相性の良い部隊から通常攻撃を受ける際、会心が発生しない（通常のダメージになる）"
+          },
+          {
+            "category": "generals",
+            "name": "LR陸遜・工兵（りくそん）",
+            "displayName": "LR陸遜・工兵（りくそん）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "弱化効果回避[灼箭]",
+            "matchedText": "自身1部隊にかかる弱化効果を、部隊内（主将/副将/補佐）の自身と好相性の武将数×5%の確率で避ける（確率は他効果と合算） →自部隊の知力が敵より高い場合、確率が2倍（×10%）Ⅱ"
+          },
+          {
+            "category": "generals",
+            "name": "LR陸遜・工兵（りくそん）",
+            "displayName": "LR陸遜・工兵（りくそん）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill-via-granted-skill",
+            "statusEffectName": "火傷回避[極炎]",
+            "matchedText": "自身1部隊にかかる火傷を避ける"
+          },
+          {
+            "category": "generals",
+            "name": "LR劉禅（りゅうぜん）",
+            "displayName": "LR劉禅（りゅうぜん）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "強化解除回避[任賢]",
+            "matchedText": "自身1部隊にかかる一部の即時効果（強化解除、負傷兵数変化）を部隊内（主将/副将/補佐）の自身と好相性の武将数×20%の確率で避ける"
+          },
+          {
+            "category": "generals",
+            "name": "LR劉禅（りゅうぜん）",
+            "displayName": "LR劉禅（りゅうぜん）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "強化奪取回避[任賢]",
+            "matchedText": "自身1部隊にかかる一部の即時効果（強化解除、負傷兵数変化、強化奪取）を部隊内（主将/副将/補佐）の自身と好相性の武将数×20%の確率で避ける"
+          },
+          {
+            "category": "generals",
+            "name": "LR劉禅（りゅうぜん）",
+            "displayName": "LR劉禅（りゅうぜん）",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "弱化効果回避[仁援]",
+            "matchedText": "自部隊にかかる弱化効果を100％の確率で避ける"
           },
           {
             "category": "generals",
@@ -42854,6 +43736,15 @@
           },
           {
             "category": "tactics",
+            "name": "焔騰翼衛",
+            "displayName": "焔騰翼衛",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "取込",
+            "matchedText": "取込"
+          },
+          {
+            "category": "tactics",
             "name": "王師訓導",
             "displayName": "王師訓導",
             "source": "related_link_index",
@@ -44404,12 +45295,57 @@
           },
           {
             "category": "skills",
+            "name": "鋭穿",
+            "displayName": "鋭穿",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "絶縁",
+            "matchedText": "絶縁"
+          },
+          {
+            "category": "skills",
+            "name": "鋭穿",
+            "displayName": "鋭穿",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "強化奪取回避[鋭穿]",
+            "matchedText": "自身1部隊にかかる強化奪取、弱化積鈍、戦法弱化を避ける"
+          },
+          {
+            "category": "skills",
+            "name": "鋭穿",
+            "displayName": "鋭穿",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "弱化積鈍回避[鋭穿]",
+            "matchedText": "自身1部隊にかかる強化奪取、弱化積鈍、戦法弱化を避ける"
+          },
+          {
+            "category": "skills",
+            "name": "鋭穿",
+            "displayName": "鋭穿",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "戦法弱化回避[鋭穿]",
+            "matchedText": "自身1部隊にかかる強化奪取、弱化積鈍、戦法弱化を避ける"
+          },
+          {
+            "category": "skills",
             "name": "鋭敏",
             "displayName": "鋭敏",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "弱化反射",
             "matchedText": "弱化反射"
+          },
+          {
+            "category": "skills",
+            "name": "炎焦",
+            "displayName": "炎焦",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill-via-granted-skill",
+            "statusEffectName": "火傷回避[極炎]",
+            "matchedText": "自身1部隊にかかる火傷を避ける"
           },
           {
             "category": "skills",
@@ -45049,6 +45985,42 @@
             "sourcePartType": "self-granted-status-nullify",
             "statusEffectName": "状態変化無効[絶縁]",
             "matchedText": "自身1部隊に1度の絶縁を付与（30秒）Ⅱ-Ⅲ-Ⅳ-Ⅴ-"
+          },
+          {
+            "category": "skills",
+            "name": "錦合",
+            "displayName": "錦合",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill-via-granted-skill",
+            "statusEffectName": "強化解除回避[錦武]",
+            "matchedText": "自身1部隊にかかる強化解除と戦法遅延を避ける"
+          },
+          {
+            "category": "skills",
+            "name": "錦合",
+            "displayName": "錦合",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill-via-granted-skill",
+            "statusEffectName": "戦法遅延回避[錦武]",
+            "matchedText": "自身1部隊にかかる強化解除と戦法遅延を避ける"
+          },
+          {
+            "category": "skills",
+            "name": "錦武",
+            "displayName": "錦武",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "強化解除回避[錦武]",
+            "matchedText": "自身1部隊にかかる強化解除と戦法遅延を避ける"
+          },
+          {
+            "category": "skills",
+            "name": "錦武",
+            "displayName": "錦武",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "戦法遅延回避[錦武]",
+            "matchedText": "自身1部隊にかかる強化解除と戦法遅延を避ける"
           },
           {
             "category": "skills",
@@ -45736,6 +46708,24 @@
           },
           {
             "category": "skills",
+            "name": "灼箭",
+            "displayName": "灼箭",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "会心無効[灼箭]",
+            "matchedText": "主将が劉備と相性の良い部隊から通常攻撃を受ける際、会心が発生しない（通常のダメージになる）"
+          },
+          {
+            "category": "skills",
+            "name": "灼箭",
+            "displayName": "灼箭",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "弱化効果回避[灼箭]",
+            "matchedText": "自身1部隊にかかる弱化効果を、部隊内（主将/副将/補佐）の自身と好相性の武将数×5%の確率で避ける（確率は他効果と合算） →自部隊の知力が敵より高い場合、確率が2倍（×10%）Ⅱ"
+          },
+          {
+            "category": "skills",
             "name": "守衛",
             "displayName": "守衛",
             "source": "related_link_index",
@@ -45787,6 +46777,15 @@
             "sourcePartType": "self-countermeasure-skill",
             "statusEffectName": "戦法遅延回避[熟練]",
             "matchedText": "敵部隊の主将と曹操の相性が良い場合、その敵部隊から受ける弱化効果と戦法遅延を避ける"
+          },
+          {
+            "category": "skills",
+            "name": "俊英",
+            "displayName": "俊英",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-status-grant",
+            "statusEffectName": "弱化反射",
+            "matchedText": "弱化反射"
           },
           {
             "category": "skills",
@@ -46030,6 +47029,15 @@
             "sourcePartType": "self-countermeasure-skill",
             "statusEffectName": "状態変化無効[震天]",
             "matchedText": "自部隊以外の味方部隊が付与する状態変化の対象にならなくなり、自部隊以外の味方部隊に状態変化を付与できなくなる ※対象にならないため1部隊分として消費されない ※分断などの「自部隊以外の味方部隊から受ける状態変化を無効化する状態変化」発生中も、味方部隊が付与する状態変化の対象にならない ※分断などの「自部隊以外の味方部隊から受ける状態変化を無効化する状態変化」自体は敵部隊から付与されうるⅡ"
+          },
+          {
+            "category": "skills",
+            "name": "仁援",
+            "displayName": "仁援",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "弱化効果回避[仁援]",
+            "matchedText": "自部隊にかかる弱化効果を100％の確率で避ける"
           },
           {
             "category": "skills",
@@ -47182,6 +48190,24 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "龍吟",
             "matchedText": "龍吟"
+          },
+          {
+            "category": "skills",
+            "name": "任賢",
+            "displayName": "任賢",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "強化解除回避[任賢]",
+            "matchedText": "自身1部隊にかかる一部の即時効果（強化解除、負傷兵数変化）を部隊内（主将/副将/補佐）の自身と好相性の武将数×20%の確率で避ける"
+          },
+          {
+            "category": "skills",
+            "name": "任賢",
+            "displayName": "任賢",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "強化奪取回避[任賢]",
+            "matchedText": "自身1部隊にかかる一部の即時効果（強化解除、負傷兵数変化、強化奪取）を部隊内（主将/副将/補佐）の自身と好相性の武将数×20%の確率で避ける"
           },
           {
             "category": "skills",
@@ -48627,6 +49653,24 @@
           },
           {
             "category": "equipments",
+            "name": "獅冠銀尖槍",
+            "displayName": "獅冠銀尖槍",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "強化解除回避[錦武]",
+            "matchedText": "自身1部隊にかかる強化解除と戦法遅延を避ける"
+          },
+          {
+            "category": "equipments",
+            "name": "獅冠銀尖槍",
+            "displayName": "獅冠銀尖槍",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "戦法遅延回避[錦武]",
+            "matchedText": "自身1部隊にかかる強化解除と戦法遅延を避ける"
+          },
+          {
+            "category": "equipments",
             "name": "紫金白羽炎冠",
             "displayName": "紫金白羽炎冠",
             "source": "related_link_index",
@@ -48768,6 +49812,33 @@
             "sourcePartType": "self-countermeasure-skill",
             "statusEffectName": "士気奪取回避[快覇]",
             "matchedText": "兵科相性が有利な敵から受ける士気奪取と負傷兵変化を避ける"
+          },
+          {
+            "category": "equipments",
+            "name": "瑞獣の硯",
+            "displayName": "瑞獣の硯",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "強化解除回避[任賢]",
+            "matchedText": "自身1部隊にかかる一部の即時効果（強化解除、負傷兵数変化）を部隊内（主将/副将/補佐）の自身と好相性の武将数×20%の確率で避ける"
+          },
+          {
+            "category": "equipments",
+            "name": "瑞獣の硯",
+            "displayName": "瑞獣の硯",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "強化奪取回避[任賢]",
+            "matchedText": "自身1部隊にかかる一部の即時効果（強化解除、負傷兵数変化、強化奪取）を部隊内（主将/副将/補佐）の自身と好相性の武将数×20%の確率で避ける"
+          },
+          {
+            "category": "equipments",
+            "name": "瑞獣の硯",
+            "displayName": "瑞獣の硯",
+            "source": "related_link_index",
+            "sourcePartType": "self-countermeasure-skill",
+            "statusEffectName": "弱化効果回避[仁援]",
+            "matchedText": "自部隊にかかる弱化効果を100％の確率で避ける"
           },
           {
             "category": "equipments",
@@ -50142,16 +51213,16 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 546,
-        "tactics": 153,
-        "skills": 442,
-        "equipments": 221,
+        "generals": 559,
+        "tactics": 154,
+        "skills": 457,
+        "equipments": 226,
         "statusEffects": 0
       },
-      "totalOwnerCount": 1362,
+      "totalOwnerCount": 1396,
       "source": "related_link_index",
-      "ownerRelationCount": 1362,
-      "distinctOwnerCount": 461
+      "ownerRelationCount": 1396,
+      "distinctOwnerCount": 475
     },
     {
       "groupKey": "enemyAbilityDebuff",
@@ -50909,8 +51980,8 @@
           },
           {
             "category": "generals",
-            "name": "LR馬超（ばちょう）",
-            "displayName": "LR馬超（ばちょう）",
+            "name": "LR馬超・騎兵（ばちょう）",
+            "displayName": "LR馬超・騎兵（ばちょう）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃変化(弱化)",
@@ -50918,12 +51989,21 @@
           },
           {
             "category": "generals",
-            "name": "LR馬超（ばちょう）",
-            "displayName": "LR馬超（ばちょう）",
+            "name": "LR馬超・騎兵（ばちょう）",
+            "displayName": "LR馬超・騎兵（ばちょう）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "戦慄",
             "matchedText": "戦慄"
+          },
+          {
+            "category": "generals",
+            "name": "LR馬超・工兵（ばちょう）",
+            "displayName": "LR馬超・工兵（ばちょう）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(弱化)",
+            "matchedText": "被ダメージを計算する▼出陣時 ●自身1"
           },
           {
             "category": "generals",
@@ -50990,12 +52070,39 @@
           },
           {
             "category": "generals",
-            "name": "LR陸遜（りくそん）",
-            "displayName": "LR陸遜（りくそん）",
+            "name": "LR陸遜・弓兵（りくそん）",
+            "displayName": "LR陸遜・弓兵（りくそん）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "防御変化(弱化)",
             "matchedText": "防御-2%"
+          },
+          {
+            "category": "generals",
+            "name": "LR陸遜・工兵（りくそん）",
+            "displayName": "LR陸遜・工兵（りくそん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(弱化)",
+            "matchedText": "被ダメージを計算する ※通常攻撃の基礎威力を変動させる効果を無視して50％"
+          },
+          {
+            "category": "generals",
+            "name": "LR陸遜・工兵（りくそん）",
+            "displayName": "LR陸遜・工兵（りくそん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(弱化)",
+            "matchedText": "防御-2%"
+          },
+          {
+            "category": "generals",
+            "name": "LR劉禅（りゅうぜん）",
+            "displayName": "LR劉禅（りゅうぜん）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "攻撃変化(弱化)",
+            "matchedText": "攻撃-2%"
           },
           {
             "category": "generals",
@@ -52229,6 +53336,15 @@
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "戦法威力変化(弱化)",
             "matchedText": "戦法威力低下付与自分 / 単10"
+          },
+          {
+            "category": "generals",
+            "name": "UR文聘（ぶんぺい）",
+            "displayName": "UR文聘（ぶんぺい）",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "防御変化(弱化)",
+            "matchedText": "防御-5%"
           },
           {
             "category": "generals",
@@ -55490,7 +56606,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "通常攻撃威力変化(弱化)",
-            "matchedText": "通常攻撃威力₋20%"
+            "matchedText": "通常攻撃威力-20%"
           },
           {
             "category": "skills",
@@ -55535,7 +56651,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃速度変化(弱化)",
-            "matchedText": "攻撃速度₋10%"
+            "matchedText": "攻撃速度-10%"
           },
           {
             "category": "skills",
@@ -55544,7 +56660,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "戦法速度変化(弱化)",
-            "matchedText": "戦法速度₋10%"
+            "matchedText": "戦法速度-10%"
           },
           {
             "category": "skills",
@@ -55563,6 +56679,15 @@
             "sourcePartType": "semantic-owner-status-grant",
             "statusEffectName": "困憊",
             "matchedText": "困憊"
+          },
+          {
+            "category": "skills",
+            "name": "鋭穿",
+            "displayName": "鋭穿",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(弱化)",
+            "matchedText": "被ダメージを計算する▼出陣時 ●自身1"
           },
           {
             "category": "skills",
@@ -55877,7 +57002,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃変化(弱化)",
-            "matchedText": "攻撃部隊の攻撃₋10％"
+            "matchedText": "攻撃部隊の攻撃-10％"
           },
           {
             "category": "skills",
@@ -55886,7 +57011,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "知力変化(弱化)",
-            "matchedText": "知力−10%"
+            "matchedText": "知力-10%"
           },
           {
             "category": "skills",
@@ -56025,6 +57150,15 @@
           },
           {
             "category": "skills",
+            "name": "灼箭",
+            "displayName": "灼箭",
+            "source": "related_link_index",
+            "sourcePartType": "semantic-owner-parameter",
+            "statusEffectName": "被ダメージ変化(弱化)",
+            "matchedText": "被ダメージを計算する ※通常攻撃の基礎威力を変動させる効果を無視して100％"
+          },
+          {
+            "category": "skills",
             "name": "守衛",
             "displayName": "守衛",
             "source": "related_link_index",
@@ -56156,7 +57290,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃速度変化(弱化)",
-            "matchedText": "攻撃速度₋10%"
+            "matchedText": "攻撃速度-10%"
           },
           {
             "category": "skills",
@@ -56165,7 +57299,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "戦法速度変化(弱化)",
-            "matchedText": "戦法速度₋10%"
+            "matchedText": "戦法速度-10%"
           },
           {
             "category": "skills",
@@ -56183,7 +57317,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "通常攻撃威力変化(弱化)",
-            "matchedText": "通常攻撃威力₋20%"
+            "matchedText": "通常攻撃威力-20%"
           },
           {
             "category": "skills",
@@ -56273,7 +57407,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "対物特効変化(弱化)",
-            "matchedText": "対物特効）と分断を避ける ●兵科相性が有利な敵からの知力系統の被ダメージ₋50%"
+            "matchedText": "対物特効）と分断を避ける ●兵科相性が有利な敵からの知力系統の被ダメージ-50%"
           },
           {
             "category": "skills",
@@ -56282,7 +57416,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃速度変化(弱化)",
-            "matchedText": "攻撃速度₋20%"
+            "matchedText": "攻撃速度-20%"
           },
           {
             "category": "skills",
@@ -56291,7 +57425,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "戦法速度変化(弱化)",
-            "matchedText": "戦法速度₋20%"
+            "matchedText": "戦法速度-20%"
           },
           {
             "category": "skills",
@@ -56408,7 +57542,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "機動変化(弱化)",
-            "matchedText": "機動₋25%"
+            "matchedText": "機動-25%"
           },
           {
             "category": "skills",
@@ -56417,7 +57551,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "防御変化(弱化)",
-            "matchedText": "防御₋25%"
+            "matchedText": "防御-25%"
           },
           {
             "category": "skills",
@@ -56426,7 +57560,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "知力変化(弱化)",
-            "matchedText": "知力₋25%"
+            "matchedText": "知力-25%"
           },
           {
             "category": "skills",
@@ -56471,7 +57605,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "攻撃速度変化(弱化)",
-            "matchedText": "攻撃速度₋20%"
+            "matchedText": "攻撃速度-20%"
           },
           {
             "category": "skills",
@@ -56480,7 +57614,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "戦法速度変化(弱化)",
-            "matchedText": "戦法速度₋20%"
+            "matchedText": "戦法速度-20%"
           },
           {
             "category": "skills",
@@ -56579,7 +57713,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "戦法威力変化(弱化)",
-            "matchedText": "戦法威力₋25%"
+            "matchedText": "戦法威力-25%"
           },
           {
             "category": "skills",
@@ -56588,7 +57722,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "対物特効変化(弱化)",
-            "matchedText": "対物特効₋25%"
+            "matchedText": "対物特効-25%"
           },
           {
             "category": "skills",
@@ -56660,7 +57794,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "戦法威力変化(弱化)",
-            "matchedText": "戦法威力₋25%"
+            "matchedText": "戦法威力-25%"
           },
           {
             "category": "skills",
@@ -56669,7 +57803,7 @@
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-parameter",
             "statusEffectName": "対物特効変化(弱化)",
-            "matchedText": "対物特効₋25%"
+            "matchedText": "対物特効-25%"
           },
           {
             "category": "skills",
@@ -56821,16 +57955,16 @@
       },
       "sourceRefs": [],
       "ownerCounts": {
-        "generals": 447,
+        "generals": 452,
         "tactics": 143,
-        "skills": 149,
+        "skills": 151,
         "equipments": 0,
         "statusEffects": 0
       },
-      "totalOwnerCount": 739,
+      "totalOwnerCount": 746,
       "source": "related_link_index",
-      "ownerRelationCount": 739,
-      "distinctOwnerCount": 426
+      "ownerRelationCount": 746,
+      "distinctOwnerCount": 432
     },
     {
       "groupKey": "enemyStateDebuff",
@@ -57120,8 +58254,8 @@
           },
           {
             "category": "generals",
-            "name": "LR馬超（ばちょう）",
-            "displayName": "LR馬超（ばちょう）",
+            "name": "LR馬超・騎兵（ばちょう）",
+            "displayName": "LR馬超・騎兵（ばちょう）",
             "source": "related_link_index",
             "sourcePartType": "semantic-owner-status",
             "statusEffectName": "怯心",

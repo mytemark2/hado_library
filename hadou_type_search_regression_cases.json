@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-09-13T02:14:52.583Z",
-  "dataSetId": "2026-09-06T05:56:27.667Z",
+  "generatedAt": "2026-09-20T09:58:10.988Z",
+  "dataSetId": "2026-09-13T02:14:51.028Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -33,10 +33,10 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 490,
-    "tactics": 469,
-    "equipments": 255,
-    "skills": 665,
+    "generals": 494,
+    "tactics": 473,
+    "equipments": 260,
+    "skills": 681,
     "statusEffects": 206,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
@@ -47,10 +47,10 @@
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "36a988b3",
-    "tactics": "1db2e271",
-    "equipments": "5051cab2",
-    "skills": "51f05df8",
+    "generals": "3aa98eff",
+    "tactics": "1bb51de2",
+    "equipments": "d354d782",
+    "skills": "41cdb286",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
@@ -61,10 +61,10 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "36a988b3",
-    "tactics": "1db2e271",
-    "equipments": "5051cab2",
-    "skills": "51f05df8",
+    "generals": "3aa98eff",
+    "tactics": "1bb51de2",
+    "equipments": "d354d782",
+    "skills": "41cdb286",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
@@ -103,23 +103,23 @@
       "detail": [
         {
           "groupKey": "selfAbilityBuff",
-          "ownerRelationCount": 4073,
-          "distinctOwnerCount": 1317
+          "ownerRelationCount": 4156,
+          "distinctOwnerCount": 1339
         },
         {
           "groupKey": "selfStateBuff",
-          "ownerRelationCount": 118,
-          "distinctOwnerCount": 112
+          "ownerRelationCount": 120,
+          "distinctOwnerCount": 114
         },
         {
           "groupKey": "selfResistanceBuff",
-          "ownerRelationCount": 1362,
-          "distinctOwnerCount": 461
+          "ownerRelationCount": 1396,
+          "distinctOwnerCount": 475
         },
         {
           "groupKey": "enemyAbilityDebuff",
-          "ownerRelationCount": 739,
-          "distinctOwnerCount": 426
+          "ownerRelationCount": 746,
+          "distinctOwnerCount": 432
         },
         {
           "groupKey": "enemyStateDebuff",
@@ -138,8 +138,8 @@
       "description": "型検索補助索引が4カテゴリを全件収録する",
       "ok": true,
       "detail": {
-        "generals": 490,
-        "equipments": 255,
+        "generals": 494,
+        "equipments": 260,
         "siegeWeapons": 6,
         "warhorseSkills": 27
       }
@@ -420,7 +420,7 @@
       "description": "戦法本文由来parameterはtactic_textである",
       "ok": true,
       "detail": {
-        "rowCount": 2875
+        "rowCount": 2905
       }
     },
     {
@@ -437,7 +437,7 @@
       "ok": true,
       "detail": {
         "unresolvedCount": 0,
-        "applicationSkillCount": 1407
+        "applicationSkillCount": 1432
       }
     },
     {
@@ -449,7 +449,7 @@
         "unresolvedRefCount": 0,
         "droppedSourceItemCount": 0,
         "droppedTargetCount": 0,
-        "mechanicCount": 1090,
+        "mechanicCount": 1119,
         "policy": "Every app-visible source has one related-link row and every relatedRef uses a resolvable canonical target. Pseudo status labels remain explicit mechanics."
       }
     },
@@ -459,12 +459,12 @@
       "ok": true,
       "detail": {
         "ok": true,
-        "expectedDatasetItemCount": 2946,
-        "indexedItemCount": 2946,
+        "expectedDatasetItemCount": 2984,
+        "indexedItemCount": 2984,
         "missingCount": 0,
         "missingSourceEntityKeys": [],
-        "applicationSkillExpectedCount": 1407,
-        "applicationSkillIndexedCount": 1407,
+        "applicationSkillExpectedCount": 1432,
+        "applicationSkillIndexedCount": 1432,
         "missingApplicationSkillCount": 0,
         "missingApplicationSkillNames": [],
         "statusEffectExpectedCount": 206,
@@ -477,8 +477,8 @@
       "ok": true,
       "detail": {
         "ok": true,
-        "expectedEquipmentCount": 254,
-        "indexedEquipmentCount": 254,
+        "expectedEquipmentCount": 259,
+        "indexedEquipmentCount": 259,
         "missingEquipmentCount": 0,
         "missingStageCount": 0,
         "missingSkillRefCount": 0,
