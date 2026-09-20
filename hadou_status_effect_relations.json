@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-09-13T02:14:52.583Z",
-  "dataSetId": "2026-09-06T05:56:27.667Z",
+  "generatedAt": "2026-09-20T09:58:10.988Z",
+  "dataSetId": "2026-09-13T02:14:51.028Z",
   "crawlerVersion": "1.1.0.3",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
@@ -33,10 +33,10 @@
     "warhorseSkills": "hadou_warhorse_skills.json"
   },
   "sourceCounts": {
-    "generals": 490,
-    "tactics": 469,
-    "equipments": 255,
-    "skills": 665,
+    "generals": 494,
+    "tactics": 473,
+    "equipments": 260,
+    "skills": 681,
     "statusEffects": 206,
     "siegeWeapons": 6,
     "ethnicArmaments": 18,
@@ -47,10 +47,10 @@
     "warhorseSkills": 27
   },
   "sourceHashes": {
-    "generals": "36a988b3",
-    "tactics": "1db2e271",
-    "equipments": "5051cab2",
-    "skills": "51f05df8",
+    "generals": "3aa98eff",
+    "tactics": "1bb51de2",
+    "equipments": "d354d782",
+    "skills": "41cdb286",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
@@ -61,10 +61,10 @@
     "warhorseSkills": "fac49238"
   },
   "sourceSha256": {
-    "generals": "36a988b3",
-    "tactics": "1db2e271",
-    "equipments": "5051cab2",
-    "skills": "51f05df8",
+    "generals": "3aa98eff",
+    "tactics": "1bb51de2",
+    "equipments": "d354d782",
+    "skills": "41cdb286",
     "statusEffects": "defa110c",
     "formations": "9b5d2c1b",
     "siegeWeapons": "5742664a",
@@ -87,7 +87,7 @@
       "敵部隊能力低下": 46
     },
     "relationTypeCounts": {
-      "direct_grant": 1230
+      "direct_grant": 1254
     },
     "policy": "1.0.5.6: 状態変化詳細の逆引きは直接付与だけを正本化。全文一致・注記・条件参照・対策・効果調整を混ぜない。"
   },
@@ -1792,12 +1792,57 @@
       "direction": "buff",
       "classificationReason": "type:有利変化+能力/火力/回復/速度/軽減系",
       "related": {
-        "generals": [],
-        "tactics": [],
+        "generals": [
+          {
+            "name": "LR陸遜・工兵（りくそん）",
+            "ownerType": "general",
+            "category": "generals",
+            "matchedText": "火属性強化",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          }
+        ],
+        "tactics": [
+          {
+            "name": "焔騰翼衛",
+            "ownerType": "tactic",
+            "category": "tactics",
+            "matchedText": "火属性強化",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          }
+        ],
         "skills": [],
         "equipments": []
       },
-      "sourceRefs": []
+      "sourceRefs": [
+        {
+          "type": "generals",
+          "name": "LR陸遜・工兵（りくそん）",
+          "matchedText": "火属性強化",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "tactics",
+          "name": "焔騰翼衛",
+          "matchedText": "火属性強化",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        }
+      ]
     },
     {
       "statusEffectName": "火属性付与",
@@ -2654,6 +2699,20 @@
       "related": {
         "generals": [
           {
+            "name": "LR陸遜・工兵（りくそん）",
+            "ownerType": "general",
+            "category": "generals",
+            "matchedText": "取込",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "LR張良（ちょうりょう）",
             "ownerType": "general",
             "category": "generals",
@@ -2781,6 +2840,20 @@
           }
         ],
         "tactics": [
+          {
+            "name": "焔騰翼衛",
+            "ownerType": "tactic",
+            "category": "tactics",
+            "matchedText": "取込",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "targetSide": "self",
+            "direction": "buff"
+          },
           {
             "name": "決勝千里",
             "ownerType": "tactic",
@@ -2930,6 +3003,13 @@
       "sourceRefs": [
         {
           "type": "generals",
+          "name": "LR陸遜・工兵（りくそん）",
+          "matchedText": "取込",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "generals",
           "name": "LR張良（ちょうりょう）",
           "matchedText": "取込",
           "sourcePartType": "semantic-owner-status-grant",
@@ -2987,6 +3067,13 @@
         {
           "type": "generals",
           "name": "左慈（さじ）",
+          "matchedText": "取込",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "tactics",
+          "name": "焔騰翼衛",
           "matchedText": "取込",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -7150,6 +7237,20 @@
       "related": {
         "generals": [
           {
+            "name": "LR馬超・工兵（ばちょう）",
+            "ownerType": "general",
+            "category": "generals",
+            "matchedText": "絶縁",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "LR蒙恬（もうてん）",
             "ownerType": "general",
             "category": "generals",
@@ -7448,6 +7549,20 @@
         ],
         "skills": [
           {
+            "name": "鋭穿",
+            "ownerType": "skill",
+            "category": "skills",
+            "matchedText": "絶縁",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "恬安",
             "ownerType": "skill",
             "category": "skills",
@@ -7536,6 +7651,13 @@
         ]
       },
       "sourceRefs": [
+        {
+          "type": "generals",
+          "name": "LR馬超・工兵（ばちょう）",
+          "matchedText": "絶縁",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
         {
           "type": "generals",
           "name": "LR蒙恬（もうてん）",
@@ -7679,6 +7801,13 @@
         {
           "type": "tactics",
           "name": "国士無双",
+          "matchedText": "絶縁",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "skills",
+          "name": "鋭穿",
           "matchedText": "絶縁",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -8610,6 +8739,20 @@
       "related": {
         "generals": [
           {
+            "name": "UR文聘（ぶんぺい）",
+            "ownerType": "general",
+            "category": "generals",
+            "matchedText": "不退",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfStateBuff",
+            "groupLabel": "自部隊状態強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "UR鄒氏（すうし）",
             "ownerType": "general",
             "category": "generals",
@@ -8695,6 +8838,20 @@
           }
         ],
         "tactics": [
+          {
+            "name": "鎮衛威恩",
+            "ownerType": "tactic",
+            "category": "tactics",
+            "matchedText": "不退",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfStateBuff",
+            "groupLabel": "自部隊状態強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
           {
             "name": "婉然惑媚",
             "ownerType": "tactic",
@@ -8801,6 +8958,13 @@
       "sourceRefs": [
         {
           "type": "generals",
+          "name": "UR文聘（ぶんぺい）",
+          "matchedText": "不退",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "generals",
           "name": "UR鄒氏（すうし）",
           "matchedText": "不退",
           "sourcePartType": "semantic-owner-status-grant",
@@ -8837,6 +9001,13 @@
         {
           "type": "generals",
           "name": "UR魏延（ぎえん）",
+          "matchedText": "不退",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "tactics",
+          "name": "鎮衛威恩",
           "matchedText": "不退",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -10409,6 +10580,20 @@
       "related": {
         "generals": [
           {
+            "name": "UR文聘（ぶんぺい）",
+            "ownerType": "general",
+            "category": "generals",
+            "matchedText": "憤撃",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "LR英布（えいふ）",
             "ownerType": "general",
             "category": "generals",
@@ -10439,6 +10624,20 @@
         ],
         "tactics": [
           {
+            "name": "鎮衛威恩",
+            "ownerType": "tactic",
+            "category": "tactics",
+            "matchedText": "憤撃",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "桿勇虎翼",
             "ownerType": "tactic",
             "category": "tactics",
@@ -10454,6 +10653,34 @@
           }
         ],
         "skills": [
+          {
+            "name": "協工",
+            "ownerType": "skill",
+            "category": "skills",
+            "matchedText": "憤撃",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
+            "name": "工勢",
+            "ownerType": "skill",
+            "category": "skills",
+            "matchedText": "憤撃",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
           {
             "name": "黥陣",
             "ownerType": "skill",
@@ -10488,6 +10715,13 @@
       "sourceRefs": [
         {
           "type": "generals",
+          "name": "UR文聘（ぶんぺい）",
+          "matchedText": "憤撃",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "generals",
           "name": "LR英布（えいふ）",
           "matchedText": "憤撃",
           "sourcePartType": "semantic-owner-status-grant",
@@ -10502,7 +10736,28 @@
         },
         {
           "type": "tactics",
+          "name": "鎮衛威恩",
+          "matchedText": "憤撃",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "tactics",
           "name": "桿勇虎翼",
+          "matchedText": "憤撃",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "skills",
+          "name": "協工",
+          "matchedText": "憤撃",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "skills",
+          "name": "工勢",
           "matchedText": "憤撃",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -11070,6 +11325,20 @@
         ],
         "skills": [
           {
+            "name": "俊英",
+            "ownerType": "skill",
+            "category": "skills",
+            "matchedText": "弱化反射",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "鋭敏",
             "ownerType": "skill",
             "category": "skills",
@@ -11154,6 +11423,13 @@
         {
           "type": "tactics",
           "name": "運謀決策",
+          "matchedText": "弱化反射",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "skills",
+          "name": "俊英",
           "matchedText": "弱化反射",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -12214,6 +12490,20 @@
       "related": {
         "generals": [
           {
+            "name": "LR馬超・工兵（ばちょう）",
+            "ownerType": "general",
+            "category": "generals",
+            "matchedText": "猛奮",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "UR沙摩柯（しゃまか）",
             "ownerType": "general",
             "category": "generals",
@@ -12298,7 +12588,7 @@
             "direction": "buff"
           },
           {
-            "name": "LR馬超（ばちょう）",
+            "name": "LR馬超・騎兵（ばちょう）",
             "ownerType": "general",
             "category": "generals",
             "matchedText": "猛奮",
@@ -12327,6 +12617,20 @@
           }
         ],
         "tactics": [
+          {
+            "name": "威天穿心",
+            "ownerType": "tactic",
+            "category": "tactics",
+            "matchedText": "猛奮",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
           {
             "name": "彪壮烈打",
             "ownerType": "tactic",
@@ -12504,6 +12808,13 @@
       "sourceRefs": [
         {
           "type": "generals",
+          "name": "LR馬超・工兵（ばちょう）",
+          "matchedText": "猛奮",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "generals",
           "name": "UR沙摩柯（しゃまか）",
           "matchedText": "猛奮",
           "sourcePartType": "semantic-owner-status-grant",
@@ -12546,7 +12857,7 @@
         },
         {
           "type": "generals",
-          "name": "LR馬超（ばちょう）",
+          "name": "LR馬超・騎兵（ばちょう）",
           "matchedText": "猛奮",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -12554,6 +12865,13 @@
         {
           "type": "generals",
           "name": "LR孫堅・騎兵（そんけん）",
+          "matchedText": "猛奮",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "tactics",
+          "name": "威天穿心",
           "matchedText": "猛奮",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -13083,6 +13401,20 @@
       "related": {
         "generals": [
           {
+            "name": "LR劉禅（りゅうぜん）",
+            "ownerType": "general",
+            "category": "generals",
+            "matchedText": "龍鎧",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "LR趙雲（ちょううん）",
             "ownerType": "general",
             "category": "generals",
@@ -13098,6 +13430,20 @@
           }
         ],
         "tactics": [
+          {
+            "name": "天衣無縫",
+            "ownerType": "tactic",
+            "category": "tactics",
+            "matchedText": "龍鎧",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
           {
             "name": "満身是胆",
             "ownerType": "tactic",
@@ -13119,7 +13465,21 @@
       "sourceRefs": [
         {
           "type": "generals",
+          "name": "LR劉禅（りゅうぜん）",
+          "matchedText": "龍鎧",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "generals",
           "name": "LR趙雲（ちょううん）",
+          "matchedText": "龍鎧",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "tactics",
+          "name": "天衣無縫",
           "matchedText": "龍鎧",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -13670,7 +14030,22 @@
             "direction": "buff"
           }
         ],
-        "skills": [],
+        "skills": [
+          {
+            "name": "錦武",
+            "ownerType": "skill",
+            "category": "skills",
+            "matchedText": "豪昇",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          }
+        ],
         "equipments": []
       },
       "sourceRefs": [
@@ -13782,6 +14157,13 @@
         {
           "type": "tactics",
           "name": "烈気震天",
+          "matchedText": "豪昇",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "skills",
+          "name": "錦武",
           "matchedText": "豪昇",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -14225,6 +14607,20 @@
       "related": {
         "generals": [
           {
+            "name": "LR劉禅（りゅうぜん）",
+            "ownerType": "general",
+            "category": "generals",
+            "matchedText": "恵守",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "LR沮授（そじゅ）",
             "ownerType": "general",
             "category": "generals",
@@ -14296,6 +14692,20 @@
           }
         ],
         "tactics": [
+          {
+            "name": "天衣無縫",
+            "ownerType": "tactic",
+            "category": "tactics",
+            "matchedText": "恵守",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
           {
             "name": "嬌傑徳行",
             "ownerType": "tactic",
@@ -14403,6 +14813,13 @@
       "sourceRefs": [
         {
           "type": "generals",
+          "name": "LR劉禅（りゅうぜん）",
+          "matchedText": "恵守",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "generals",
           "name": "LR沮授（そじゅ）",
           "matchedText": "恵守",
           "sourcePartType": "semantic-owner-status-grant",
@@ -14432,6 +14849,13 @@
         {
           "type": "generals",
           "name": "LR大喬（だいきょう）",
+          "matchedText": "恵守",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "tactics",
+          "name": "天衣無縫",
           "matchedText": "恵守",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -14989,6 +15413,20 @@
       "related": {
         "generals": [
           {
+            "name": "LR劉禅（りゅうぜん）",
+            "ownerType": "general",
+            "category": "generals",
+            "matchedText": "焔風",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "LR諸葛亮（しょかつりょう）",
             "ownerType": "general",
             "category": "generals",
@@ -15004,6 +15442,20 @@
           }
         ],
         "tactics": [
+          {
+            "name": "天衣無縫",
+            "ownerType": "tactic",
+            "category": "tactics",
+            "matchedText": "焔風",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
           {
             "name": "臥龍天舞",
             "ownerType": "tactic",
@@ -15025,7 +15477,21 @@
       "sourceRefs": [
         {
           "type": "generals",
+          "name": "LR劉禅（りゅうぜん）",
+          "matchedText": "焔風",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "generals",
           "name": "LR諸葛亮（しょかつりょう）",
+          "matchedText": "焔風",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "tactics",
+          "name": "天衣無縫",
           "matchedText": "焔風",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -18133,6 +18599,20 @@
       "related": {
         "generals": [
           {
+            "name": "LR馬超・工兵（ばちょう）",
+            "ownerType": "general",
+            "category": "generals",
+            "matchedText": "威槍",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
             "name": "LR文醜（ぶんしゅう）",
             "ownerType": "general",
             "category": "generals",
@@ -18192,6 +18672,20 @@
           }
         ],
         "skills": [
+          {
+            "name": "貫迅",
+            "ownerType": "skill",
+            "category": "skills",
+            "matchedText": "威槍",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
           {
             "name": "壮威",
             "ownerType": "skill",
@@ -18255,6 +18749,13 @@
       "sourceRefs": [
         {
           "type": "generals",
+          "name": "LR馬超・工兵（ばちょう）",
+          "matchedText": "威槍",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "generals",
           "name": "LR文醜（ぶんしゅう）",
           "matchedText": "威槍",
           "sourcePartType": "semantic-owner-status-grant",
@@ -18277,6 +18778,13 @@
         {
           "type": "tactics",
           "name": "驍胆猛迅",
+          "matchedText": "威槍",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "skills",
+          "name": "貫迅",
           "matchedText": "威槍",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -24352,7 +24860,7 @@
             "direction": "debuff"
           },
           {
-            "name": "LR馬超（ばちょう）",
+            "name": "LR馬超・騎兵（ばちょう）",
             "ownerType": "general",
             "category": "generals",
             "matchedText": "怯心",
@@ -24466,7 +24974,7 @@
         },
         {
           "type": "generals",
-          "name": "LR馬超（ばちょう）",
+          "name": "LR馬超・騎兵（ばちょう）",
           "matchedText": "怯心",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
@@ -26250,7 +26758,7 @@
       "related": {
         "generals": [
           {
-            "name": "LR馬超（ばちょう）",
+            "name": "LR馬超・騎兵（ばちょう）",
             "ownerType": "general",
             "category": "generals",
             "matchedText": "戦慄",
@@ -26329,7 +26837,7 @@
       "sourceRefs": [
         {
           "type": "generals",
-          "name": "LR馬超（ばちょう）",
+          "name": "LR馬超・騎兵（ばちょう）",
           "matchedText": "戦慄",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"
