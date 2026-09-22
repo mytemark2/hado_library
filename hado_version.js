@@ -4,7 +4,7 @@
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.1.2.0',
     updateNo: '',
-    revision: 206,
+    revision: 207,
     formalRelease: false,
     baseAppVersion: '3.1.1.0',
     summary: 'Searchable troop skills and user-facing Clause Shadow removal.',
