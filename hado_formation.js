@@ -722,11 +722,8 @@ function handleFormationScoreDetailClick(btn,event){if(event){event.preventDefau
 function renderFormationScoreCandidateRowsHtml(candidates){if(!candidates||candidates.length<=1)return '';return `<div class="formation-score-breakdown formation-score-candidates">${candidates.map(c=>`<span class="formation-score-chip"><span class="formation-score-label">${esc(c.typeName||c.typeId||'型候補')}</span><span class="value">${esc(c.totalScore)}</span></span>`).join('')}</div>`;}
 const FORMATION_UPDATE07_SHADOW_REASON_LABELS={ambiguous_effect_identity:'同一効果の候補が複数',effect_family_unmapped:'評価項目へ未対応',base_override_duplicate:'同一起源の重複',condition_met:'成立',condition_unmet:'不成立',condition_battle_only:'戦闘中判定',condition_deferred:'判定保留',condition_unresolved:'判定不可'};
 function renderUpdate07ScoreShadowHtml(shadow){
-  if(!shadow)return '';
-  const status=shadow.switchReady?'切替可能':'切替保留';
-  const reasons=Object.entries(shadow.excludedReasonCounts||{}).map(([key,value])=>`${FORMATION_UPDATE07_SHADOW_REASON_LABELS[key]||key} ${value}`).join(' / ');
-  const note=shadow.switchReady?'全Clauseが一意に評価項目へ変換できました。現行スコアとの回帰確認後に切替できます。':`現行トータルは変更していません。除外理由: ${reasons||'未分類'}${shadow.unresolvedGeneratedClauseCount?` / 未レビューClause ${shadow.unresolvedGeneratedClauseCount}`:''}`;
-  return `<aside class="formation-score-shadow" aria-label="Update07 Clause Shadow比較" data-update07-score-shadow="1"><div class="formation-score-shadow-head"><span>Clause Shadow（比較表示）</span><span class="formation-score-shadow-status">${esc(status)}</span></div><div class="formation-score-shadow-grid"><span>現行スコア<strong>${esc(shadow.legacyTotalScore)}</strong></span><span>Shadowスコア<strong>${esc(shadow.shadowTotalScore)}</strong></span><span>レビュー済み<strong>${esc(shadow.reviewedRowCount)}件</strong></span><span>除外<strong>${esc(shadow.excludedEvidenceCount)}件</strong></span></div><div class="formation-score-shadow-note">${esc(note)}</div></aside>`;
+  // Shadow calculation stays in diagnostics; the comparison card is no longer user-facing.
+  return '';
 }
 function renderFormationScoreSummaryHtml(f,data){
   const scores=calculateFormationAutoScores(f,data);

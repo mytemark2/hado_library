@@ -81,12 +81,14 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Fail closed unless the current HEAD can merge cleanly into the canonical app base branch.")
     parser.add_argument("--remote", default="origin", help="Git remote name to fetch from")
     parser.add_argument("--remote-url", default=DEFAULT_REMOTE_URL, help="Remote URL to add if the remote is missing; use an empty value to disable auto-add")
-    parser.add_argument("--base", default="feature/app-3.1.1.0", help="Canonical base branch for application PRs")
+    parser.add_argument("--base", default="feature/app-3.1.2.0", help="Canonical base branch for application PRs")
     args = parser.parse_args()
 
     require_clean_worktree()
     ensure_remote(args.remote, args.remote_url)
-    run(["git", "fetch", args.remote, args.base, "--prune"])
+    remote_ref = f"refs/remotes/{args.remote}/{args.base}"
+    source_ref = f"refs/heads/{args.base}"
+    run(["git", "fetch", args.remote, f"+{source_ref}:{remote_ref}", "--prune"])
     check_merge(args.remote, args.base)
     return 0
 
