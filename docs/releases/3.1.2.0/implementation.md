@@ -23,7 +23,7 @@
 - `hado_bootstrap.js`: 起動時の兵科技能組み込みと索引対象追加
 - `hado_formation.js`: Clause Shadow比較カードの非表示
 - `index.html`: 新規外部JavaScriptの読込みとPreviewキャッシュキー更新
-- `hado_version.js` / `HADO_DEV_INFO.json`: `3.1.2.0 r206`の開発Preview識別
+- `hado_version.js` / `HADO_DEV_INFO.json`: `3.1.2.0 r207`の開発Preview識別
 - Preview workflow、検証スクリプト、回帰テスト: 新ブランチと契約の検証
 
 ## HTML肥大化と外部化判定

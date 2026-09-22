@@ -2621,7 +2621,7 @@ function renderDetail(){
   const detailTagsHtml=buildDetailTagsHtml(item);
   mark('buildDetailTagsHtml',{htmlLength:String(detailTagsHtml||'').length});
   debugLog('renderDetail:phase',{phase:'after-tags',categoryKey,name,tagsLength:String(detailTagsHtml||'').length});
-  const relatedLinksHtml=categoryKey==='generals'?'':safeBuildRelatedLinksHtml(item,categoryKey,name);
+  const relatedLinksHtml=(categoryKey==='generals'||categoryKey==='troopSkills')?'':safeBuildRelatedLinksHtml(item,categoryKey,name);
   mark('safeBuildRelatedLinksHtml',{htmlLength:String(relatedLinksHtml||'').length,groupCount:state.diagnostics?.relatedLinks?.groupCount||0});
   if(state.diagnostics?.relatedLinks?.profile)profile.relatedLinksProfile=safeCloneForDebug(state.diagnostics.relatedLinks.profile);
   debugLog('renderDetail:phase',{phase:'after-related-links',categoryKey,name,relatedLinksLength:String(relatedLinksHtml||'').length});

@@ -49,11 +49,12 @@ assert(search.includes("['troopSkills','兵科']"));
 assert(statusEffects.includes('troopSkills:state.troopSkills'));
 assert(bootstrap.includes('...state.troopSkills'));
 assert(bootstrap.indexOf('window.HADO_TROOP_SKILLS?.install?.();') < bootstrap.lastIndexOf('startup();'));
-assert(indexHtml.includes('hado_troop_skills.js?v=3.1.2.0-r206'));
+assert(formation.includes("categoryKey==='generals'||categoryKey==='troopSkills'"), 'troop skill detail must not require a derived related-link index');
+assert(indexHtml.includes('hado_troop_skills.js?v=3.1.2.0-r207'));
 assert(indexHtml.indexOf('hado_status_effects.js') < indexHtml.indexOf('hado_troop_skills.js'));
 assert(indexHtml.indexOf('hado_troop_skills.js') < indexHtml.indexOf('hado_bootstrap.js'));
 assert(version.includes("releaseVersion: '3.1.2.0'"));
-assert(version.includes('revision: 206'));
+assert(version.includes('revision: 207'));
 
 const shadowRenderer = formation.match(/function renderUpdate07ScoreShadowHtml\(shadow\)\{[\s\S]*?\n\}/)?.[0] || '';
 assert(shadowRenderer.includes("return '';"), 'Clause Shadow renderer must remain hidden');
