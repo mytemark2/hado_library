@@ -2,7 +2,7 @@
 
 ## 状態
 
-`3.1.2.0 r208`の実装とローカル検証を完了した。PRマージ、Preview自動同期、公開URLの実操作確認後に完了状態へ更新する。
+`3.1.2.0 r208`の実装、ローカル検証、PRマージ、Preview自動同期、公開URLの実操作確認を完了した。
 
 ## 実装結果
 
@@ -37,25 +37,28 @@
 - Clause Shadow回帰検証: 計算と診断ログが維持され、利用者向け描画関数が空文字を返すことを確認
 - 最新ブランチとの統合検証: `origin/main` `996bfbe`を統合、競合なし
 - 実ブラウザ確認: 兵科の5件表示、`兵器速度+30%`から`操器`が1件ヒット、`走撃`詳細、不要な関連リンクエラーがないことを確認
+- リンク境界監査: 主要11カテゴリの名称と構造ラベルを照合し、衝突は`formations:基本`の1件。構造ラベル除外と一般語抑止後に専用回帰テスト合格
 
 ## Git / Actions / Preview
 
 - 実装PR: [#371](https://github.com/mytemark2/hado_library/pull/371)、マージCommit `6bf8647b26af684a851e0de1bbec1e5705c43d4e`
 - Preview検出不具合修正PR: [#372](https://github.com/mytemark2/hado_library/pull/372)、マージCommit `38b2bb74133df9da0b60e94f2ea6514e59c0af08`
+- カテゴリ順・詳細リンク修正PR: [#374](https://github.com/mytemark2/hado_library/pull/374)、マージCommit `4409cd8957dc7b3339f7093cd05e7732f9936ff6`
 - PR自動検証: `App Validation / app-validation`合格
-- Preview同期: `Notify Hado Library Preview` run `35673219470`成功
-- Preview repository: `8c9cd2d7e511a9c0d9e83ce0b439b70a6971ca75`
+- r208 Preview同期: `Notify Hado Library Preview` run `35808886677`成功
+- r208 runtime確認時のPreview repository: `4f251cdff21e737f4e65e914fba8d7a467379439`
 
 ## Preview confirmation
 
 - 公開URL: <https://mytemark2.github.io/hado_library-preview/>
 - 表示バージョン: `3.1.2.0 r208`
-- `PREVIEW_SOURCE_COMMIT.txt`: `38b2bb74133df9da0b60e94f2ea6514e59c0af08`
+- `PREVIEW_SOURCE_COMMIT.txt`: `4409cd8957dc7b3339f7093cd05e7732f9936ff6`（r208 runtime確認時）
 - `PREVIEW_SOURCE_BRANCH.txt`: `feature/app-3.1.2.0`
 - `PREVIEW_DISPLAY_VERSION.txt`: `3.1.2.0 r208`
 - 必須ファイル: `index.html`、`hado_formation.js`、`hado_styles.css`、`hado_troop_skills.js`、`hadou_generals.json`、`.nojekyll`と3種のPreviewマーカーを確認
-- DOM確認: 検索カテゴリ`兵科`、表示件数`兵科技能5`、対象5技能の一覧と詳細を確認
+- DOM確認: 検索カテゴリ`兵科`が`軍馬技能`の右端、表示件数`兵科技能5`、対象5技能の一覧と詳細を確認
 - 操作確認: `兵科`のみで5件、効果文検索で`操器`が1件ヒット
+- 誤リンク確認: 陣形`基本`の詳細で、タイトルの`基本`と`基本情報`がリンクにならないことを確認
 - Clause Shadow: 部隊編成に`Clause Shadow`と`切替保留`が表示されないことを確認
 - Debug log: ブラウザのerror/warn 0件
 - 結果: PASS
