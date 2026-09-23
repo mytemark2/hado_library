@@ -88,7 +88,7 @@ const formationSource = fs.readFileSync('hado_formation.js', 'utf8');
 const css = fs.readFileSync('hado_update07.css', 'utf8');
 assert(versionSource.includes("updateNo: ''"));
 assert(versionSource.includes('revision: 208'));
-assert(versionSource.includes('formalRelease: false'));
+assert(versionSource.includes('formalRelease: true'));
 
 const nodes = new Map();
 const node = id => (nodes.has(id) ? nodes.get(id) : (nodes.set(id, { textContent: '' }), nodes.get(id)));
@@ -98,7 +98,7 @@ context.window = context;
 vm.createContext(context);
 vm.runInContext(versionSource, context, { filename: 'hado_version.js' });
 vm.runInContext(metaSource, context, { filename: 'hado_update_meta.js' });
-assert.strictEqual(context.window.HADO_APP_DISPLAY_VERSION, '3.1.2.0 r208');
+assert.strictEqual(context.window.HADO_APP_DISPLAY_VERSION, '3.1.2.0');
 
 for (const asset of ['hado_update04.css', 'hado_update05.css', 'hado_update07.css', 'hado_condition_model.js', 'hado_formation_condition_evaluator.js', 'hado_detail_condition_presenter.js', 'hado_version.js', 'hado_type_score.js', 'hado_type_score_evidence.js', 'hado_update07_score_shadow.js', 'hado_type_data_store.js']) {
   assert(indexHtml.includes(`${asset}?v=3.1.2.0-r208`), `${asset} must use the current preview cache key`);

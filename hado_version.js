@@ -5,7 +5,7 @@
     releaseVersion: '3.1.2.0',
     updateNo: '',
     revision: 208,
-    formalRelease: false,
+    formalRelease: true,
     baseAppVersion: '3.1.1.0',
     summary: 'Searchable troop skills, category-order refinement, and safe detail links.',
     updatedAt: '2026-09-23T00:00:00+09:00'

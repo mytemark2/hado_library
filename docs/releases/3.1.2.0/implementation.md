@@ -26,7 +26,7 @@
 - `hado_bootstrap.js`: 起動時の兵科技能組み込みと索引対象追加
 - `hado_formation.js`: Clause Shadow比較カードの非表示
 - `index.html`: 新規外部JavaScriptの読込みとPreviewキャッシュキー更新
-- `hado_version.js` / `HADO_DEV_INFO.json`: `3.1.2.0 r208`の開発Preview識別
+- `hado_version.js`: Previewでは`3.1.2.0 r208`、正式版では`3.1.2.0`と表示する単一バージョン定義
 - Preview workflow、検証スクリプト、回帰テスト: 新ブランチと契約の検証
 - `tools/test_3_1_2_0_detail_link_boundaries.js`: カテゴリ順、構造ラベルのリンク境界、データ名称との衝突を総点検
 
