@@ -87,7 +87,7 @@ const indexHtml = fs.readFileSync('index.html', 'utf8');
 const formationSource = fs.readFileSync('hado_formation.js', 'utf8');
 const css = fs.readFileSync('hado_update07.css', 'utf8');
 assert(versionSource.includes("updateNo: ''"));
-assert(versionSource.includes('revision: 203'));
+assert(versionSource.includes('revision: 208'));
 assert(versionSource.includes('formalRelease: true'));
 
 const nodes = new Map();
@@ -98,10 +98,10 @@ context.window = context;
 vm.createContext(context);
 vm.runInContext(versionSource, context, { filename: 'hado_version.js' });
 vm.runInContext(metaSource, context, { filename: 'hado_update_meta.js' });
-assert.strictEqual(context.window.HADO_APP_DISPLAY_VERSION, '3.1.0.0');
+assert.strictEqual(context.window.HADO_APP_DISPLAY_VERSION, '3.1.2.0');
 
 for (const asset of ['hado_update04.css', 'hado_update05.css', 'hado_update07.css', 'hado_condition_model.js', 'hado_formation_condition_evaluator.js', 'hado_detail_condition_presenter.js', 'hado_version.js', 'hado_type_score.js', 'hado_type_score_evidence.js', 'hado_update07_score_shadow.js', 'hado_type_data_store.js']) {
-  assert(indexHtml.includes(`${asset}?v=3.1.0.0-r203`), `${asset} must use the current preview cache key`);
+  assert(indexHtml.includes(`${asset}?v=3.1.2.0-r208`), `${asset} must use the current preview cache key`);
 }
 assert(indexHtml.indexOf('hado_type_score.js') < indexHtml.indexOf('hado_type_score_evidence.js'));
 assert(indexHtml.indexOf('hado_type_score_evidence.js') < indexHtml.indexOf('hado_update07_score_shadow.js'));
@@ -109,7 +109,9 @@ assert(indexHtml.indexOf('hado_update07_score_shadow.js') < indexHtml.indexOf('h
 assert(formationSource.includes('activeScoreUnchanged:true'));
 assert(formationSource.includes('formationScore:update07-shadow'));
 assert(formationSource.includes('evaluateFormationScoreClauses'));
-assert(formationSource.includes('data-update07-score-shadow="1"'));
+const shadowRenderer = formationSource.match(/function renderUpdate07ScoreShadowHtml\(shadow\)\{[\s\S]*?\n\}/)?.[0] || '';
+assert(shadowRenderer.includes("return '';"), 'Clause Shadow card must stay hidden in Preview');
+assert(!shadowRenderer.includes('data-update07-score-shadow="1"'), 'hidden renderer must not expose the comparison card');
 assert(css.includes('@media (max-width:600px)'));
 
-console.log('3.1.0.0 Update07 score shadow regression ok');
+console.log('3.1.0.0 Update07 score shadow calculation retained and user-facing card hidden');

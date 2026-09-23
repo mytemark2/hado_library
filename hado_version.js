@@ -2,13 +2,13 @@
 (() => {
   'use strict';
   const HADO_VERSION = Object.freeze({
-    releaseVersion: '3.1.0.0',
+    releaseVersion: '3.1.2.0',
     updateNo: '',
-    revision: 203,
+    revision: 208,
     formalRelease: true,
-    baseAppVersion: '3.0.2.0',
-    summary: '3.1.0.0 formal release after Update01-Update10 and final Preview adjustments.',
-    updatedAt: '2026-08-31T11:00:00+09:00'
+    baseAppVersion: '3.1.1.0',
+    summary: 'Searchable troop skills, category-order refinement, and safe detail links.',
+    updatedAt: '2026-09-23T00:00:00+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;
 })();

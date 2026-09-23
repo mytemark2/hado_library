@@ -1877,3 +1877,13 @@ body{font-feature-settings:"palt" 1,"kern" 1;text-rendering:optimizeLegibility}
 .tag-text-highlight{display:inline;padding:0 .08em;border:0;border-bottom:2px solid var(--tag-highlight-border);border-radius:2px;background:var(--tag-highlight-bg);color:inherit;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 mark.search-hit.tag-text-highlight{background:var(--tag-highlight-bg);border-bottom-color:var(--tag-highlight-border);color:inherit}
 @media (max-width:520px){.search-result-tag-matches{gap:4px}.search-result-matched-tag{font-size:10px;padding:2px 6px}.search-condition-chip.is-tag{max-width:100%;overflow-wrap:anywhere}}
+
+/* FIX[HADO-3.1.1.0-r205-PC-FORMATION-COMPLETE-SCROLL]: keep the full lower formation content reachable inside the fixed-height PC workspace. */
+@media (min-width:981px){
+  body.formation-tab .formation-compose-main-grid{
+    overflow-x:hidden!important;
+    overflow-y:auto!important;
+    overscroll-behavior:contain;
+    scrollbar-gutter:stable;
+  }
+}

@@ -2,7 +2,7 @@
 
 ## 正本
 - `main`: 正式公開済みソース。直接Pushしない。
-- `feature/app-3.1.0.0`: 現在のアプリ開発中正本。
+- `feature/app-3.1.1.0`: 現在のアプリ開発中正本。
 - `mytemark2/hado_library-preview`: ブラウザ動作確認専用。修正元にしない。
 
 ## 作業開始時
@@ -28,10 +28,10 @@ CodexはPRを作成する前に、必ず最新の開発正本ブランチに対�
 標準チェック:
 
 ```bash
-python3 tools/check_pr_merge_readiness.py --base feature/app-3.1.0.0
+python3 tools/check_pr_merge_readiness.py --base feature/app-3.1.1.0
 ```
 
-このチェックはGitHubから最新の `feature/app-3.1.0.0` を取得し、一時worktreeで `git merge --no-commit --no-ff` を実行して、PRのHEADが正本ブランチへ競合なく取り込めることを確認する。
+このチェックはGitHubから最新の `feature/app-3.1.1.0` を取得し、一時worktreeで `git merge --no-commit --no-ff` を実行して、PRのHEADが正本ブランチへ競合なく取り込めることを確認する。
 
 - チェックが成功した場合のみPRを作成する。
 - `origin` が存在しない場合は標準URLを登録してから取得を試みる。
@@ -53,7 +53,7 @@ python3 tools/check_pr_merge_readiness.py --base feature/app-3.1.0.0
 大型開発でUpdate計画を使用する場合だけ、`docs/updates/<update>/roadmap.md`、`implementation.md`、`report.md` に記録する。大型開発完了後の通常改善は4桁バージョンで管理し、完了済みUpdate文書は履歴として保持する。`docs/updates/README.md` も原則としてコードと同じCommitで更新する。
 
 ## プレビュー
-正本の`feature/app-3.1.0.0`へのPush後、`.github/workflows/notify-preview.yml` によりプレビュー同期を自動起動する。3.0系やCodex作業ブランチから同じPreviewを上書きしない。通常運用で手動Workflow Dispatchを要求しない。開発ブランチ反映とプレビュー同期結果は分けて報告する。正式公開用の `main` はプレビュー通知の対象外とする。
+正本の`feature/app-3.1.1.0`へのPush後、`.github/workflows/notify-preview.yml` によりプレビュー同期を自動起動する。旧開発ブランチやCodex作業ブランチから同じPreviewを上書きしない。通常運用で手動Workflow Dispatchを要求しない。開発ブランチ反映とプレビュー同期結果は分けて報告する。正式公開用の `main` はプレビュー通知の対象外とする。
 
 ## HTML肥大化防止
 HTMLへ大規模JavaScriptを直接追記しない。独立責務は外部JSを新設し、既存責務と一致する場合のみ既存JSへ追記する。HTML側はDOM骨格、最小限の初期化、`<script src="...">` 読込に留める。外部JS追加時は読込順、依存関係、`file://`、`https://`、プレビュー同期対象を確認する。HTMLサイズ制限に近づいた場合は既存インラインJSの外部化を優先する。
