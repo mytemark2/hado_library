@@ -49,6 +49,7 @@ COMMANDS.extend(
         ["node", "tools/test_notify_preview_workflow_no_preview_workflow_edit.js"],
         ["node", "tools/test_3_1_1_0_copy_share.js"],
         ["node", "tools/test_3_1_2_0_troop_skill_search.js"],
+        ["node", "tools/test_3_1_2_0_detail_link_boundaries.js"],
         ["node", "tools/test_3_1_0_0_update08_surface_unification.js"],
         ["node", "tools/test_3_1_0_0_skill_level_toggle.js"],
         ["node", "tools/test_3_1_0_0_update09_full_regression.js"],
