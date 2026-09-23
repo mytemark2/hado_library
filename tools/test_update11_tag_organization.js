@@ -25,7 +25,7 @@ assert(revisionMatch && Number(revisionMatch[1]) >= 160, 'revision must be r160 
 assert(core.includes("version:\"3.1.2.0\""), 'runtime build version must match 3.1.2.0');
 assert(core.includes("fileName:\"hado_library_3.1.2.0.html\""), 'runtime file metadata must match 3.1.2.0');
 
-const expectedCategoryOrder = "['generals','tactics','skills','troopSkills','equipments','statusEffects','siegeWeapons','ethnicArmaments','formations','warhorses','warhorseSkills']";
+const expectedCategoryOrder = "['generals','tactics','skills','equipments','statusEffects','siegeWeapons','ethnicArmaments','formations','warhorses','warhorseSkills','troopSkills']";
 assert(core.includes(`SEARCH_CATEGORY_DISPLAY_ORDER=Object.freeze(${expectedCategoryOrder})`), 'tag order must share the visible search category order');
 assert(core.includes('availableTagCategoriesByKey:{}') && core.includes('availableTagGroupOrder:[]'), 'tag category metadata must be stored in shared state');
 assert(status.includes('byKeyCategories[key].add(cat)'), 'derived tag index must collect each tag group target category');

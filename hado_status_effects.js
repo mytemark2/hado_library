@@ -1552,11 +1552,13 @@ function getCategoryLabel(category){return DATASET_LABELS[category]||category||'
 function getItemDisplayName(item){if(detailCategory(item)==='statusEffects'&&norm(item?.statusDisplayName||item?.title||''))return norm(item?.statusDisplayName||item?.title||'');return norm(item?.name||item?.title||'');}
 function cleanArticleTitleForLink(rawTitle){let s=norm(rawTitle);if(!s)return '';s=s.replace(/^【三國志 覇道】/,'');s=s.replace(/の戦法と技能.*$/,'').replace(/の能力と技能.*$/,'').replace(/の効果と所持武将.*$/,'').replace(/の効果.*$/,'').replace(/の基本情報.*$/,'');s=s.replace(/（[^）]*）/g,'');return norm(s);}
 function isSuppressedStatusEffectDetailLinkName(name){return norm(name)==='戦法ゲージ';}
+const SUPPRESSED_GENERIC_DETAIL_LINK_NAMES=new Set(['基本']);
 function isSuppressedDetailLinkAlias(category,name){
   const n=norm(name);
   // FIX[HADO-2.9.0.0-NO-TACTIC-GAUGE-LINK]: 戦法ゲージは状態変化率の内部項目として頻出するため、自動リンク化しない。
   // 戦法短縮・戦法遅延など実体のある状態変化リンクは維持し、完全一致の「戦法ゲージ」だけを抑止する。
-  return category==='statusEffects'&&isSuppressedStatusEffectDetailLinkName(n);
+  // FIX[HADO-3.1.2.0-GENERIC-DETAIL-LINK]: 実体名と一致しても、構造ラベルとして常用する一般語は自動リンク化しない。
+  return SUPPRESSED_GENERIC_DETAIL_LINK_NAMES.has(n)||(category==='statusEffects'&&isSuppressedStatusEffectDetailLinkName(n));
 }
 function getDetailLinkAliasesForItem(item){const aliases=[];const category=detailCategory(item);const add=(v,rank)=>{const n=norm(v);if(!n||n.length<2)return;if(isSuppressedDetailLinkAlias(category,n))return;if(!aliases.some(x=>x.name===n))aliases.push({name:n,rank});};const display=getItemDisplayName(item);add(display,3);const cleaned=cleanArticleTitleForLink(display);add(cleaned,3);if(category==='statusEffects'){const profile=getStatusEffectProfile(item);add(profile.originalName,3);add(profile.displayName,3);(profile.aliases||[]).forEach(a=>add(a,2));}if(category==='generals'&&cleaned){const noRarity=norm(cleaned.replace(/^(LR|UR|SSR|SR\+?|R\+?)/,''));add(noRarity,1);}return aliases;}
 function getDetailLinkNamesForItem(item){return getDetailLinkAliasesForItem(item).map(x=>x.name);}

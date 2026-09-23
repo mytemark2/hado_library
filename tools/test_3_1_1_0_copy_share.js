@@ -76,9 +76,9 @@ vm.runInContext(source, context, {filename:'hado_share.js'});
   assert(styles.includes('body.formation-tab .formation-compose-main-grid'), 'formation workspace must keep a scoped PC layout rule');
   assert(styles.includes('overflow-y:auto!important'), 'lower formation content must remain reachable by scrolling');
 
-  assert(indexHtml.includes('hado_share.js?v=3.1.2.0-r207'));
-  assert(indexHtml.includes('hado_share.css?v=3.1.2.0-r207'));
-  assert(indexHtml.includes('hado_styles.css?v=3.1.2.0-r207'));
+  assert(indexHtml.includes('hado_share.js?v=3.1.2.0-r208'));
+  assert(indexHtml.includes('hado_share.css?v=3.1.2.0-r208'));
+  assert(indexHtml.includes('hado_styles.css?v=3.1.2.0-r208'));
   assert(workflow.includes('ALLOWED_PREVIEW_SOURCE_BRANCH: feature/app-3.1.2.0'));
   console.log('3.1.1.0 copy/share contract passed: 8 user-facing functions, GET round-trip, append-only imports');
 })().catch(error => { console.error(error); process.exitCode = 1; });
