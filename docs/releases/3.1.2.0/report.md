@@ -2,7 +2,7 @@
 
 ## 状態
 
-`3.1.2.0 r208`の実装、ローカル検証、PRマージ、Preview自動同期、公開URLの実操作確認を完了した。
+`3.1.2.0 r208`のPreview確認を経て、`3.1.2.0`の正式公開、公開ファイル照合、公開URLの実操作確認まで完了した。
 
 ## 実装結果
 
@@ -44,15 +44,18 @@
 - 実装PR: [#371](https://github.com/mytemark2/hado_library/pull/371)、マージCommit `6bf8647b26af684a851e0de1bbec1e5705c43d4e`
 - Preview検出不具合修正PR: [#372](https://github.com/mytemark2/hado_library/pull/372)、マージCommit `38b2bb74133df9da0b60e94f2ea6514e59c0af08`
 - カテゴリ順・詳細リンク修正PR: [#374](https://github.com/mytemark2/hado_library/pull/374)、マージCommit `4409cd8957dc7b3339f7093cd05e7732f9936ff6`
+- Preview完了記録PR: [#375](https://github.com/mytemark2/hado_library/pull/375)、マージCommit `d84064f434852b497bd5eab80643e94b45d9f3da`
 - PR自動検証: `App Validation / app-validation`合格
 - r208 Preview同期: `Notify Hado Library Preview` run `35808886677`成功
 - r208 runtime確認時のPreview repository: `4f251cdff21e737f4e65e914fba8d7a467379439`
+- 最終Preview同期: `Notify Hado Library Preview` run `35809380762`成功
+- 最終Preview repository: `d0e535c65c4b86e59954fbe4d2705a3aa97a4c11`
 
 ## Preview confirmation
 
 - 公開URL: <https://mytemark2.github.io/hado_library-preview/>
 - 表示バージョン: `3.1.2.0 r208`
-- `PREVIEW_SOURCE_COMMIT.txt`: `4409cd8957dc7b3339f7093cd05e7732f9936ff6`（r208 runtime確認時）
+- `PREVIEW_SOURCE_COMMIT.txt`: `d84064f434852b497bd5eab80643e94b45d9f3da`
 - `PREVIEW_SOURCE_BRANCH.txt`: `feature/app-3.1.2.0`
 - `PREVIEW_DISPLAY_VERSION.txt`: `3.1.2.0 r208`
 - 必須ファイル: `index.html`、`hado_formation.js`、`hado_styles.css`、`hado_troop_skills.js`、`hadou_generals.json`、`.nojekyll`と3種のPreviewマーカーを確認
@@ -63,9 +66,27 @@
 - Debug log: ブラウザのerror/warn 0件
 - 結果: PASS
 
+## Production confirmation
+
+- 正式版反映承認: 2026-09-23
+- 正式版PR: [#376](https://github.com/mytemark2/hado_library/pull/376)
+- 正式版切替Commit: `adc2beeaad3631773ea7f2605c94d834f89da5f3`
+- `main`マージCommit: `1a474f2613cee6165516aa7ca24d5bc7ec1e4e73`
+- PR検証: `App Validation / app-validation` run `35812707650`成功
+- 正式公開: `Deploy Hado Library Production Pages` run `35812791125`成功
+- 公開URL: <https://mytemark2.github.io/hado_library/>
+- 表示バージョン: `3.1.2.0`。内部revision `208`は保持し、正式版画面には表示しない。
+- 公開バージョン定義: `releaseVersion=3.1.2.0`、`revision=208`、`formalRelease=true`
+- 公開ファイル照合: `index.html`、`hado_version.js`、`hado_search.js`、`hado_troop_skills.js`、`hadou_generals.json`のSHA-256が`main`のGit blobと一致
+- DOM・操作確認: `兵科`がカテゴリ末尾、兵科技能のみで5件、`走撃`詳細を表示
+- 誤リンク確認: 陣形`基本`の詳細内リンクは0件で、タイトルの`基本`と`基本情報`はいずれもリンクではない
+- Clause Shadow: 部隊編成に`Clause Shadow`と`切替保留`が表示されない
+- 起動状態: 公開JSON読込完了、可視エラー・警告なし
+- 結果: PASS
+
 ## 利用者確認
 
-最小確認操作は、Previewの通常検索で`兵科`だけを選択し、`走撃`を選択して兵科・付与文・効果文を確認する。
+Previewで利用者確認済み。正式版でも通常検索で`兵科`だけを選択し、5件表示と`走撃`の兵科・付与文・効果文を確認済み。
 
 ## 未解決事項
 
