@@ -68,11 +68,11 @@ assert(!statusSource.includes('正規ID一致'));
 assert(indexHtml.indexOf('hado_detail_condition_presenter.js') < indexHtml.indexOf('hado_search_clause_integration.js'));
 assert(indexHtml.indexOf('hado_search_clause_integration.js') < indexHtml.indexOf('hado_search.js'));
 assert(!indexHtml.includes('hado_update06.css'));
-assert(indexHtml.includes('hado_search_clause_integration.js?v=3.1.0.0-r203'));
+assert(indexHtml.includes('hado_search_clause_integration.js?v=3.1.0.0-r204'));
 assert(!indexHtml.includes('06-r180'));
 assert(!indexHtml.includes('07-r179'));
 assert(versionSource.includes("updateNo: ''"));
-assert(versionSource.includes('revision: 203'));
+assert(versionSource.includes('revision: 204'));
 assert(versionSource.includes('formalRelease: true'));
 
 const nodes = new Map();

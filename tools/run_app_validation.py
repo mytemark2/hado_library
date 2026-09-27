@@ -93,6 +93,8 @@ COMMANDS.extend(
         ["node", "tools/test_3_1_0_0_entity_identity_isolation.js"],
         ["node", "tools/test_3_1_0_0_tag_highlight.js"],
         ["node", "tools/test_3_1_0_0_status_effect_trend_order.js"],
+        ["node", "--check", "tools/test_individual_status_effect_max_level_owner_index.js"],
+        ["node", "tools/test_individual_status_effect_max_level_owner_index.js"],
         ["node", "tools/test_3_1_0_0_manual_validation_button_state.js"],
         ["node", "tools/test_3_1_0_0_update06_search_clause_integration.js"],
         ["node", "tools/test_3_1_0_0_update06_user_facing_cards.js"],
