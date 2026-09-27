@@ -5,7 +5,7 @@ const path = require('path');
 const crypto = require('crypto');
 
 const ROOT = path.resolve(__dirname, '..');
-const OUT_DIR = path.join(ROOT, 'docs', 'updates', '3.1.0.0', 'update01');
+const OUT_DIR = process.env.HADO_CENSUS_OUTPUT_DIR || path.join(ROOT, 'docs', 'updates', '3.1.0.0', 'update01');
 const CENSUS_FILE = path.join(OUT_DIR, 'condition-census.json');
 const GOLD_FILE = path.join(OUT_DIR, 'condition-gold-set.json');
 
