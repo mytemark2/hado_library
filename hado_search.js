@@ -372,6 +372,37 @@ function buildQuickStatusEffectGroupOwnerRowsFromIndex(filter){
   state.diagnostics.quickStatusEffectGroupFilterCache=safeCloneForDebug(state.quickStatusEffectGroupFilterCacheDiag);
   return {rows,stats,ms,source:index.source,cacheHit:!!index.cacheHit,indexBuildMs:index.buildMs};
 }
+function collectQuickStatusEffectOwnersFromGeneratedIndexForMaxAllData(item,categoryKey,filter){
+  if(!item||!filter||!['status','countermeasure'].includes(norm(filter.kind||'')))return [];
+  if(state.viewMode!=='all'||normalizeGeneralStage(state.generalStage)!=='max')return [];
+  const group=norm(filter.group||'');
+  const target=normalizeQuickStatusEffectTrendLabel(filter.label||filter.statusName||'');
+  if(!group||!target||typeof getDerivedStatusEffectGroupOwnerIndex!=='function')return [];
+  const source=getDerivedStatusEffectGroupOwnerIndex(group);
+  if(!source?.owners)return [];
+  const index=buildQuickStatusEffectGroupOwnerNameIndex({kind:'group',group,label:filter.label||target});
+  const ownerMap=index?.bucket?.[categoryKey];
+  if(!ownerMap)return [];
+  const names=[getItemDisplayName(item),item?.name,item?.title,item?.rawName,item?.raw?.name,item?.raw?.title,item?.raw?.rawName].map(norm).filter(Boolean);
+  let record=null;
+  for(const name of names){if(ownerMap.has(name)){record=ownerMap.get(name);break;}}
+  if(!Array.isArray(record?.hits))return [];
+  return record.hits.filter(hit=>{
+    if(normalizeQuickStatusEffectTrendLabel(hit?.name||'')!==target)return false;
+    const wantedRelation=norm(filter.relationType||'');
+    const hitRelation=norm(hit?.relationType||'');
+    return !wantedRelation||!hitRelation||wantedRelation===hitRelation;
+  }).map(hit=>({...hit,reason:'generated-status-individual-owner-index',groupFilter:group,groupFilterLabel:filter.label||target,groupIndexSource:index.source,groupIndexCacheHit:!!index.cacheHit}));
+}
+function mergeQuickStatusEffectOwnersFromGeneratedIndexForMaxAllData(out,item,categoryKey,filter){
+  collectQuickStatusEffectOwnersFromGeneratedIndexForMaxAllData(item,categoryKey,filter).forEach(hit=>{
+    const target=normalizeQuickStatusEffectTrendLabel(hit.name||'');
+    const relation=norm(hit.relationType||filter?.relationType||'');
+    const duplicate=(out||[]).some(existing=>normalizeQuickStatusEffectTrendLabel(existing?.name||'')===target&&norm(existing?.groupKey||'')===norm(hit.groupKey||'')&&(!relation||!norm(existing?.relationType||'')||norm(existing?.relationType||'')===relation));
+    if(!duplicate)out.push({...hit,relationType:relation});
+  });
+  return out;
+}
 function collectQuickStatusEffectOwnersFromRelatedLinkIndex(item,categoryKey,filter){
   if(!item||!filter)return [];
   if(!['generals','tactics','skills','equipments','statusEffects'].includes(categoryKey))return [];
@@ -398,7 +429,7 @@ function collectQuickStatusEffectOwnersForItem(item,categoryKey,filter,statusEff
   const options=categoryKey==='tactics'?{includeTacticAdditionalEffects:true,suppressDebug:true}:{suppressDebug:true};
   const bucket=getQuickStatusEffectRelationCacheBucket(item);
   const filterKey=[filter?.kind||'',filter?.key||'',filter?.group||'',filter?.label||'',filter?.statusName||'',filter?.relationType||'',getQuickStatusEffectFilterProfileKey(filter,statusEffectNames)].map(norm).join('@@');
-  const rootApi=(typeof window!=='undefined'?window:globalThis);const clauseApi=rootApi.HADO_CLAUSE_SURFACE_BRIDGE||rootApi.HADO_SEARCH_CLAUSE_INTEGRATION;const clauseCacheKey=clauseApi&&typeof clauseApi.getCacheKey==='function'?clauseApi.getCacheKey():'';const stageKey=categoryKey==='equipments'?getEffectiveEquipmentStageForItem(item):'';const cacheKey=`${categoryKey}|${options.includeTacticAdditionalEffects?'withTacticEffects':'default'}|${filterKey}|stage:${stageKey}|view:${state.viewMode||''}|seq:${state.savedSearchCacheSeq||0}|clause:${clauseCacheKey}`;
+  const rootApi=(typeof window!=='undefined'?window:globalThis);const clauseApi=rootApi.HADO_CLAUSE_SURFACE_BRIDGE||rootApi.HADO_SEARCH_CLAUSE_INTEGRATION;const clauseCacheKey=clauseApi&&typeof clauseApi.getCacheKey==='function'?clauseApi.getCacheKey():'';const stageKey=categoryKey==='equipments'?getEffectiveEquipmentStageForItem(item):'';const cacheKey=`${categoryKey}|${options.includeTacticAdditionalEffects?'withTacticEffects':'default'}|${filterKey}|stage:${stageKey}|generalStage:${state.generalStage||''}|view:${state.viewMode||''}|seq:${state.savedSearchCacheSeq||0}|clause:${clauseCacheKey}`;
   if(bucket&&bucket[cacheKey])return bucket[cacheKey];
   const profiles=getQuickStatusEffectFilterProfiles(filter,statusEffectNames);
   const out=[];
@@ -445,6 +476,7 @@ function collectQuickStatusEffectOwnersForItem(item,categoryKey,filter,statusEff
       seen.add(key);
       out.push({name:rel.name,groupKey:rel.groupKey,relationType:rel.relation,reason:'countermeasure-index',targetSide:rel.groupKey==='selfResistanceBuff'?'self':'enemy',sourceText:rel.sourceText,matchedText:rel.sourceText,alias:rel.target||'',direction:''});
     });
+    mergeQuickStatusEffectOwnersFromGeneratedIndexForMaxAllData(out,item,categoryKey,filter);
     if(bucket)bucket[cacheKey]=out;
     return out;
   }
@@ -510,6 +542,7 @@ function collectQuickStatusEffectOwnersForItem(item,categoryKey,filter,statusEff
       out.push(rel);
     }
   }
+  mergeQuickStatusEffectOwnersFromGeneratedIndexForMaxAllData(out,item,categoryKey,filter);
   const canonicalIdentity=new Set(out.filter(hit=>hit?.canonical).map(hit=>[norm(hit.name),norm(hit.groupKey),norm(hit.relationType)].join('@@')));if(canonicalIdentity.size){const preferred=[];const preferredSeen=new Set();out.forEach(hit=>{const key=[norm(hit.name),norm(hit.groupKey),norm(hit.relationType)].join('@@');if(canonicalIdentity.has(key)&&!hit?.canonical)return;if(preferredSeen.has(key)&&hit?.canonical)return;preferredSeen.add(key);preferred.push(hit);});out.splice(0,out.length,...preferred);}
   if(bucket)bucket[cacheKey]=out;
   return out;
@@ -574,7 +607,7 @@ function getQuickOwnerFilterCacheKey(filter){
   if(!filter)return '';
   // カテゴリ・表示範囲・タグ条件をすべてキャッシュ世代へ反映する。
   const tagKey=[...(state.selectedTags||[])].map(norm).filter(Boolean).sort((a,b)=>a.localeCompare(b,'ja')).join('|');
-  return [filter.kind||'',filter.key||'',filter.group||'',filter.label||'',filter.statusName||'',filter.relationType||'',state.viewMode||'',state.equipmentStage||'',state.savedSearchCacheSeq||0,'equipmentSkillStageFilter:v1',[...getQuickOwnerActiveDatasetKeys()].join('|'),tagKey].map(norm).join('@@');
+  return [filter.kind||'',filter.key||'',filter.group||'',filter.label||'',filter.statusName||'',filter.relationType||'',state.viewMode||'',state.generalStage||'',state.equipmentStage||'',state.savedSearchCacheSeq||0,'equipmentSkillStageFilter:v1',[...getQuickOwnerActiveDatasetKeys()].join('|'),tagKey].map(norm).join('@@');
 }
 function runQuickStatusEffectOwnerSearchAsync(filter,options={}){
   if(!filter)return;
