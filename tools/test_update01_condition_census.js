@@ -4,24 +4,30 @@ const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
 const childProcess = require('child_process');
+const os = require('os');
 
 const ROOT = path.resolve(__dirname, '..');
 const CENSUS_PATH = path.join(ROOT, 'docs', 'updates', '3.1.0.0', 'update01', 'condition-census.json');
 const GOLD_PATH = path.join(ROOT, 'docs', 'updates', '3.1.0.0', 'update01', 'condition-gold-set.json');
 
-const beforeCensus = fs.readFileSync(CENSUS_PATH);
-const beforeGold = fs.readFileSync(GOLD_PATH);
+const expectedCensus = fs.readFileSync(CENSUS_PATH);
+const expectedGold = fs.readFileSync(GOLD_PATH);
 const normalizeLineEndings = buffer => buffer.toString('utf8').replace(/\r\n/g, '\n');
+const generatedDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hado-update01-census-'));
 const build = childProcess.spawnSync(process.execPath, ['tools/build_update01_condition_census.js'], {
   cwd: ROOT,
+  env: { ...process.env, HADO_CENSUS_OUTPUT_DIR: generatedDir },
   encoding: 'utf8'
 });
 assert.strictEqual(build.status, 0, build.stderr || build.stdout || 'condition census regeneration failed');
-assert.strictEqual(normalizeLineEndings(fs.readFileSync(CENSUS_PATH)), normalizeLineEndings(beforeCensus), 'condition census must regenerate deterministically');
-assert.strictEqual(normalizeLineEndings(fs.readFileSync(GOLD_PATH)), normalizeLineEndings(beforeGold), 'condition gold set must regenerate deterministically');
+const generatedCensus = fs.readFileSync(path.join(generatedDir, path.basename(CENSUS_PATH)));
+const generatedGold = fs.readFileSync(path.join(generatedDir, path.basename(GOLD_PATH)));
+fs.rmSync(generatedDir, { recursive: true, force: true });
+assert.strictEqual(normalizeLineEndings(generatedCensus), normalizeLineEndings(expectedCensus), 'condition census must regenerate deterministically');
+assert.strictEqual(normalizeLineEndings(generatedGold), normalizeLineEndings(expectedGold), 'condition gold set must regenerate deterministically');
 
-const census = JSON.parse(beforeCensus.toString('utf8'));
-const gold = JSON.parse(beforeGold.toString('utf8'));
+const census = JSON.parse(generatedCensus.toString('utf8'));
+const gold = JSON.parse(generatedGold.toString('utf8'));
 const sourceFiles = { generals: 'hadou_generals.json', tactics: 'hadou_tactics.json', skills: 'hadou_skills.json', statusEffects: 'hadou_status_effects.json' };
 const expectedCounts = Object.fromEntries(Object.entries(sourceFiles).map(([category, file]) => {
   const source = JSON.parse(fs.readFileSync(path.join(ROOT, file), 'utf8'));

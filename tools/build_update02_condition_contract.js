@@ -6,7 +6,7 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 const UPDATE01_DIR = path.join(ROOT, 'docs', 'updates', '3.1.0.0', 'update01');
-const UPDATE02_DIR = path.join(ROOT, 'docs', 'updates', '3.1.0.0', 'update02');
+const UPDATE02_DIR = process.env.HADO_UPDATE02_OUTPUT_DIR || path.join(ROOT, 'docs', 'updates', '3.1.0.0', 'update02');
 const CENSUS_PATH = path.join(UPDATE01_DIR, 'condition-census.json');
 const GOLD_PATH = path.join(UPDATE01_DIR, 'condition-gold-set.json');
 
