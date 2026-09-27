@@ -5,6 +5,7 @@ const childProcess = require('child_process');
 const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 const model = require('../hado_condition_model.js');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -13,10 +14,13 @@ const UPDATE02_DIR = path.join(ROOT, 'docs', 'updates', '3.1.0.0', 'update02');
 const FILES = ['condition-registry.json', 'effect-clause.schema.json', 'condition-gold-fixtures.json'];
 const normalize = buffer => buffer.toString('utf8').replace(/\r\n/g, '\n');
 const before = Object.fromEntries(FILES.map(file => [file, normalize(fs.readFileSync(path.join(UPDATE02_DIR, file)))]));
-const built = childProcess.spawnSync(process.execPath, ['tools/build_update02_condition_contract.js'], { cwd: ROOT, encoding: 'utf8' });
+const generatedDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hado-update02-contract-'));
+const built = childProcess.spawnSync(process.execPath, ['tools/build_update02_condition_contract.js'], { cwd: ROOT, env: { ...process.env, HADO_UPDATE02_OUTPUT_DIR: generatedDir }, encoding: 'utf8' });
 assert.strictEqual(built.status, 0, built.stderr || built.stdout || 'Update02 contract regeneration failed');
+const generated = Object.fromEntries(FILES.map(file => [file, normalize(fs.readFileSync(path.join(generatedDir, file)))]));
+fs.rmSync(generatedDir, { recursive: true, force: true });
 for (const file of FILES) {
-  assert.strictEqual(normalize(fs.readFileSync(path.join(UPDATE02_DIR, file))), before[file], `${file} must regenerate deterministically`);
+  assert.strictEqual(generated[file], before[file], `${file} must regenerate deterministically`);
 }
 
 const registry = JSON.parse(before['condition-registry.json']);
