@@ -1,18 +1,23 @@
 # 覇道ライブラリ アプリUpdate記録
 
-開発ブランチ: なし（3.1.0.0正式公開後にクローズ。次回開発時にmainから新規作成）
+開発ブランチ: なし（3.1.0.0正式公開後にクローズ。次回開発時に`main`から新規作成）
 
-現在の到達点: 公開版 3.1.0.0（3.1.0.0のUpdate計画・最終調整・正式公開を完了）
+現在の到達点: 公開版 `3.1.0.0`（3.1.0.0のUpdate計画・最終調整・正式公開を完了）
 
 3.1全体計画: [3.1.0.0 開発ロードマップ](3.1.0.0/roadmap.md)
+
+現在のUpdate: なし
 
 ## 次期大型開発: 3.2.0.0
 
 状態: 計画資料を作成。実装未開始。正式版の起点、main HEAD、Preview設定はUpdate01開始時に再確認する。
 
-全体計画: [3.2.0.0 開発ロードマップ](3.2.0.0/roadmap.md)  
-現在の計画Update: [Update01 最新仕様・データ差分の全件監査](3.2.0.0/update01/roadmap.md)  
-実装記録: [Update01 implementation](3.2.0.0/update01/implementation.md)  
+全体計画: [3.2.0.0 開発ロードマップ](3.2.0.0/roadmap.md)
+
+現在の計画Update: [Update01 最新仕様・データ差分の全件監査](3.2.0.0/update01/roadmap.md)
+
+実装記録: [Update01 implementation](3.2.0.0/update01/implementation.md)
+
 完了報告: [Update01 report](3.2.0.0/update01/report.md)
 
 ## 3.1.0.0 開発記録
@@ -37,6 +42,6 @@
 
 通常更新は、開発ブランチの作業ツリーで実ソースを直接修正し、関連ファイルをまとめて1つの変更セットとしてコミット・Pull Request化する。
 
-updates/queue/*.json に検索置換命令を置く方式、GitHub Actions内でアプリソースを文字列置換する方式、Update固有の使い捨て適用スクリプト/Workflowは廃止済みであり、再導入しない。
+`updates/queue/*.json` に検索置換命令を置く方式、GitHub Actions内でアプリソースを文字列置換する方式、Update固有の使い捨て適用スクリプト/Workflowは廃止済みであり、再導入しない。
 
-旧形式の仕様書とJSON報告はdocs/およびreport/に保持する。Updateは大型開発の分割計画でのみ使用し、完了後の通常改善は4桁バージョンで管理する。
+旧形式の仕様書とJSON報告は `docs/` および `report/` に保持する。Updateは大型開発の分割計画でのみ使用し、完了後の通常改善は4桁バージョンで管理する。
