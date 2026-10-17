@@ -2265,11 +2265,99 @@
       "source_url": "",
       "index": 205,
       "category": ""
+    },
+    {
+      "name": "意気",
+      "base_name": "意気",
+      "type": "",
+      "description": "効果時間中、不利変化を効果回数に応じて無効化するこの効果で不利変化を無効化する度に攻撃が25％ずつ累積して上昇する",
+      "description_source": "additional-effect-table",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/577559",
+      "tooltip_id": "",
+      "index": 206,
+      "category": ""
+    },
+    {
+      "name": "焔計",
+      "base_name": "焔計",
+      "type": "",
+      "description": "通常攻撃・戦法攻撃が火属性になるさらに、火属性の戦法の攻撃威力を効果量分上乗せした状態で戦法攻撃を行う（その戦法が非攻撃戦法の場合は効果なし）※戦法による攻撃威力の変動計算後に上乗せされる",
+      "description_source": "additional-effect-table",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/577560",
+      "tooltip_id": "",
+      "index": 207,
+      "category": ""
+    },
+    {
+      "name": "火属性威力変化",
+      "base_name": "火属性威力変化",
+      "type": "",
+      "description": "火属性攻撃の威力を上げる",
+      "description_source": "additional-effect-table",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/392391",
+      "tooltip_id": "",
+      "index": 208,
+      "category": ""
+    },
+    {
+      "name": "劇毒",
+      "base_name": "劇毒",
+      "type": "",
+      "description": "一定時間ごとに残存兵力と効果量に応じて兵力が減るさらに、一定時間ごとに自部隊の戦法ゲージが効果量分消滅する（下限0）※消滅は即時効果を避ける/発生させなくする効果の影響を受けない（消滅は即時効果ではないため）",
+      "description_source": "additional-effect-table",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/574571",
+      "tooltip_id": "",
+      "index": 209,
+      "category": ""
+    },
+    {
+      "name": "相性変化",
+      "base_name": "相性変化",
+      "type": "",
+      "description": "すべての兵科と対物に対して不利になる",
+      "description_source": "additional-effect-table",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/297889",
+      "tooltip_id": "",
+      "index": 210,
+      "category": ""
+    },
+    {
+      "name": "即時攻撃",
+      "base_name": "即時攻撃",
+      "type": "",
+      "description": "通常攻撃の待ち時間を短縮する",
+      "description_source": "additional-effect-table",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/243364",
+      "tooltip_id": "",
+      "index": 211,
+      "category": ""
+    },
+    {
+      "name": "即時戦法",
+      "base_name": "即時戦法",
+      "type": "",
+      "description": "戦法の待ち時間を短縮する",
+      "description_source": "additional-effect-table",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/310385",
+      "tooltip_id": "",
+      "index": 212,
+      "category": ""
+    },
+    {
+      "name": "即時兵器行動",
+      "base_name": "即時兵器行動",
+      "type": "",
+      "description": "兵器の待ち時間を短縮する",
+      "description_source": "additional-effect-table",
+      "source_url": "https://gamewith.jp/sangokushihadou/article/show/392391",
+      "tooltip_id": "",
+      "index": 213,
+      "category": ""
     }
   ],
   "meta": {
-    "count": 206,
-    "exportedAt": "2026-07-20T00:00:00.000Z",
+    "count": 214,
+    "exportedAt": "2026-10-17T01:56:42.204Z",
     "collector": "chrome_extension_status_effects_collector",
     "crawlerVersion": "1.0.5.25"
   }
