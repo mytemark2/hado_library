@@ -61,7 +61,21 @@ assert(context.metricMatchesSearchQuery({ matches: positive }, exactQuery), 'exa
 assert(!context.metricMatchesSearchQuery({ matches: context.collectMetricMatchesFromSegment('部隊の兵力+10%', ['兵力'], 0) }, exactQuery), 'exact numeric query must reject another value');
 
 const searchIndex = JSON.parse(fs.readFileSync('hadou_search_index.json', 'utf8')).items;
-const luBu = searchIndex.find(item => String(item?.name || '').startsWith('LR呂布（'));
+// Display names can gain troop qualifiers when another variant is released.
+// Bind this real-data case to its source article, never to mutable name text.
+function findLuBuFixture(items) {
+  const matches = items.filter(item => item.category === 'generals' && item.sourceEntityKey === 'generals:article-415628');
+  assert.strictEqual(matches.length, 1, 'numeric search fixture article must be unique');
+  return matches[0];
+}
+const luBu = findLuBuFixture(searchIndex);
+for (const name of ['LR呂布（りょふ）', 'LR呂布・弓兵（りょふ）']) {
+  const fixture = {...luBu, name};
+  const differentVariant = {...luBu, name:'LR呂布・工兵（りょふ）', sourceEntityKey:'generals:article-579215'};
+  assert.strictEqual(findLuBuFixture([differentVariant, fixture]), fixture, 'name changes must not select another troop variant');
+}
+assert.throws(() => findLuBuFixture([]), /unique/);
+assert.throws(() => findLuBuFixture([luBu, luBu]), /unique/);
 assert(luBu, 'real LR呂布 search fixture must exist');
 assert(String(luBu.searchText || '').includes('兵力を決定'), 'real LR呂布 fixture must keep the text-only troop reference');
 const luBuMatches = context.collectMetricMatchesFromSegment(String(luBu.searchText || ''), ['兵力'], 0);
