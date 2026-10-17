@@ -51,8 +51,30 @@ const training = (ownerIndex.items || []).find(entry => entry.skillName === '練
 assert(training, '練兵 must exist in the skill-owner index');
 const trainingGenerals = (training.owners || []).filter(owner => owner.category === 'generals').map(owner => owner.displayName || owner.name);
 const trainingEquipments = (training.owners || []).filter(owner => owner.category === 'equipments').map(owner => owner.displayName || owner.name);
-assert(trainingGenerals.length === 5, `練兵 must have 5 generals, got ${trainingGenerals.length}`);
-assert(trainingEquipments.length === 5, `練兵 must have 5 equipments, got ${trainingEquipments.length}`);
+// New owners are valid data updates. Compare identities with the saved source
+// roster instead of pinning this live-data fixture to an old population count.
+const trainingSource = JSON.parse(read('hadou_skills.json')).items.find(entry => /\/433279\/?$/.test(entry.url || ''));
+assert(trainingSource, '練兵 source article must exist');
+const ownerName = name => String(name).split(' / ')[0].replace(/（[^）]*）/g, '').trim();
+function checkOwners(actual, expected, label) {
+  const normalized = actual.map(ownerName).sort();
+  const source = expected.map(ownerName).sort();
+  assert(source.length > 0, `${label}: source roster must not be empty`);
+  assert(new Set(normalized).size === normalized.length, `${label}: duplicate owner`);
+  assert(JSON.stringify(normalized) === JSON.stringify(source), `${label}: owner identities differ from source roster`);
+}
+for (const [heading, owners] of [['武将', trainingGenerals], ['装備品', trainingEquipments]]) {
+  const tables = trainingSource.tables.filter(table => table.rows?.[0]?.[0] === heading);
+  assert(tables.length === 1, `${heading}: unique source roster required`);
+  checkOwners(owners, tables[0].rows.slice(1).map(row => row[0]), heading);
+}
+for (const count of [5, 6]) {
+  const names = Array.from({length: count}, (_, i) => `owner${i}`);
+  checkOwners([...names].reverse(), names, 'growth fixture');
+}
+require('assert').throws(() => checkOwners(['a'], ['a', 'b'], 'missing'), /differ/);
+require('assert').throws(() => checkOwners(['a', 'a'], ['a', 'b'], 'duplicate'), /duplicate/);
+require('assert').throws(() => checkOwners(['a', 'c'], ['a', 'b'], 'wrong owner'), /differ/);
 assert(trainingGenerals.includes('UR関興（かんこう）'), '練兵 general owners must include UR関興');
 assert(trainingEquipments.includes('張飛の頭巾'), '練兵 equipment owners must include 張飛の頭巾');
 
