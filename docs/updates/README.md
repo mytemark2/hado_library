@@ -1,5 +1,15 @@
 # 覇道ライブラリ アプリUpdate記録
 
+## 現在の大型開発: 3.2.0.0
+
+正本: `feature/app-3.2.0.0`。起点main: `e9153a954a998ad346c6ad7beb876056c11c52fb`（正式版3.1.2.1）。
+[全体ロードマップ](3.2.0.0/roadmap.md) / [Update01](3.2.0.0/update01/roadmap.md) / [実装記録](3.2.0.0/update01/implementation.md) / [報告](3.2.0.0/update01/report.md)
+
+状態: Update01監査・ローカル回帰実施、マージ承認・公開Preview検証待ち。未完了。正式公開なし。
+
+## 以前の開発記録
+
+
 開発ブランチ: `feature/app-3.1.1.0`（3.1.0.0正式公開済み`main`から新規作成）
 
 現在の到達点: 公開版 `3.1.0.0` / 開発Preview `3.1.1.0 r205`

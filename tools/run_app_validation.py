@@ -116,6 +116,8 @@ COMMANDS.extend(
         ["node", "tools/test_release_3_0_2_0_explicit_tag_selection.js"],
         ["node", "tools/test_data_update_metadata.js"],
         ["node", "tools/test_json_index_contract.js"],
+        ["node", "tools/test_3_2_0_0_update01_audit.js"],
+        ["node", "tools/test_preview_token_preflight.js"],
         ["python3", "tools/validate_legacy_hado_app_not_loaded.py"],
         ["python3", "tools/validate_update_version_consistency.py"],
         ["python3", "tools/validate_update09_phase4_guides.py"],

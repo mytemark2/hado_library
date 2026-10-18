@@ -17,7 +17,7 @@ Related repositories:
 - Preview repository: `mytemark2/hado_library-preview`
 
 Current canonical development branch:
-- Application: `feature/app-3.1.2.0`
+- Application: `feature/app-3.2.0.0`
 
 Do not assume that this branch remains current forever. Before editing, confirm the target branch from the user's task, the latest Roadmap, and the current repository state. Do not silently switch to `main`.
 
@@ -43,11 +43,11 @@ If the repository state, branch, or authoritative source is ambiguous, inspect t
 
 ### 3.1 Pull request base discipline
 
-For application changes, treat `feature/app-3.1.2.0` as the canonical development branch unless a newer repository document or explicit user instruction supersedes it. Do not base new work on `main`, retired feature branches such as `feature/app-3.1.1.0`, `feature/app-3.1.0.0`, stale `codex/...` branches, old pull request heads, or generated preview artifacts.
+For application changes, treat `feature/app-3.2.0.0` as the canonical development branch unless a newer repository document or explicit user instruction supersedes it. Do not base new work on `main`, retired feature branches such as `feature/app-3.1.1.0`, `feature/app-3.1.0.0`, stale `codex/...` branches, old pull request heads, or generated preview artifacts.
 
-Before opening a pull request, run `python3 tools/check_pr_merge_readiness.py --base feature/app-3.1.2.0` and confirm/report:
+Before opening a pull request, run `python3 tools/check_pr_merge_readiness.py --base feature/app-3.2.0.0` and confirm/report:
 - canonical branch name and the commit SHA inspected before editing;
-- pull request base branch is `feature/app-3.1.2.0`;
+- pull request base branch is `feature/app-3.2.0.0`;
 - head branch is the single Codex work branch for the current task;
 - no old branch, old pull request diff, or unrelated generated artifact is mixed into the final diff;
 - the merge-readiness command, fetched base SHA, head SHA, and conflict-free result;
@@ -190,7 +190,7 @@ At minimum, perform all applicable checks:
 - version and metadata consistency
 - absence of prohibited queue-based source mutation mechanisms
 
-When a derived JSON contract or its runtime consumer changes, run `node tools/test_json_index_contract.js`. The 20 derived `hadou_*.json` files covered by that test must be regenerated from the crawler source and copied as one coherent output set; do not hand-edit individual generated JSON files.
+When a derived JSON contract or its runtime consumer changes, run `node tools/test_json_index_contract.js`. The 21 derived `hadou_*.json` files covered by that test must be regenerated from the crawler source and copied as one coherent output set; do not hand-edit individual generated JSON files.
 
 ### 9.2 Functional regression
 Check the areas affected by the change and the related shared paths. Unless the task is strictly documentation-only, include the applicable core paths:
@@ -317,3 +317,5 @@ When preview matters, include a dedicated **Preview confirmation** subsection wi
 If repository inspection reveals that a path, command, workflow name, or record location is stable and important, update this `AGENTS.md` or an existing linked repository document in the same pull request.
 
 Keep this file concise and actionable. Put Update-specific requirements in the Update document or task prompt rather than accumulating them here.
+
+For 3.2.0.0, see `docs/updates/3.2.0.0/roadmap.md`. Its explicitly approved starting policy is the latest formal main; branch `feature/app-3.2.0.0` was initialized at e9153a954a998ad346c6ad7beb876056c11c52fb. Do not use the old planning PR base as the implementation base. Update01 audit/fixture records require review when a new bundle is introduced.
