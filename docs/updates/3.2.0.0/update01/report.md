@@ -2,7 +2,7 @@
 
 ## 1. Summary
 
-**未完了。** 全件監査、回帰fixture、Update01 r210のローカル実装を用意した。明示的保留、マージ承認、公開Preview実動作、fileブラウザ検証が残る。正式版と既存ユーザー変更は無変更。
+**未完了。** 全件監査・回帰fixture・Update01 r210を2026-10-18に開発正本へマージし、公開Previewの基本操作を確認した。明示的保留と残存回帰がある。最新結果は第14節を参照。正式版と既存ユーザー変更は無変更。
 
 ## 2. データ監査結果
 
@@ -77,7 +77,7 @@ raw変更は取得時刻・ページ内容等を含む。意味変更458武将�
 
 ## 8. 確認事項
 
-- 監査PRのレビューとマージ・Preview切替の承認。正式公開の承認ではない。
+- Preview反映に再承認は不要（2026-10-18のユーザー指示を再確認）。正式公開のみ別承認。
 - 保留一覧の解決または根拠付き取り扱い確定。元クローラーcommit不明・file実ブラウザ未確認を隠さない。
 
 ## 9. Update02の確定対象・受入条件
@@ -114,3 +114,30 @@ GitHubを再fetchし、mainと3.2正本のHEADはともにe9153a954a998ad346c6ad
 - 旧同期停止も --base feature/app-3.1.2.0 で実行。fetchしたbase dbad5ed909f4a0acb2c5d4e8fcd40db5091e43f1、head 2717435a53efccdeb6cfbef3155beb5bb1c3831c、競合なし。
 - 既存ユーザー変更5件は保持。再取得、正式公開、PRマージは行っていない。
 - この節は提出後の検証証跡の追記。記録commit後の最終CIはPR checksで確認する。Update01とPreviewは引き続き未完了。
+
+
+## 14. 公開Preview反映・実動作確認（2026-10-18）
+
+Preview反映は許可済みで再確認不要とするユーザー指示を再確認し、AGENTS.mdに記録した。正式公開は別承認のまま。
+
+- PR #386を先にマージ: 08d1dbeac24e34528dedf7823d77a5daece052cd。旧通知run 39086107921はskip。
+- PR #387をマージ: feature/app-3.2.0.0 / b2de5d0bd9be640c6040e8dc7245428466d80235。
+- Notify Hado Library Preview: https://github.com/mytemark2/hado_library/actions/runs/39086122804 成功。
+- Deploy Hado Library Preview: https://github.com/mytemark2/hado_library-preview/actions/runs/39086156471 成功。
+- Preview main: ad2b8ebf22fe20b3e83f1f4ca80b0ec8d90163b4。index.html、hado_formation.js、hado_styles.css、hadou_*.json、.nojekyll、marker3件の存在を確認。実行ファイル70件のGit blob一致、差分0。
+- 公開URL: https://mytemark2.github.io/hado_library-preview/
+- 公開marker: PREVIEW_SOURCE_COMMIT=b2de5d0bd9be640c6040e8dc7245428466d80235、PREVIEW_SOURCE_BRANCH=feature/app-3.2.0.0、PREVIEW_DISPLAY_VERSION=3.2.0.0 Update01 r210。公開URLからも同値を取得。
+- 実画面: h1/title/Preview表示がr210。全JSON読込、LR李典検索・詳細、工兵→操器、盾兵→列盾の1件表示・効果本文を確認。既存保存編成3件と主将・スコアの表示を確認し、保存データは編集しない。
+- PC実測1101px、スマートフォン実測360px（375px指定に対する実測値）、clientWidth=scrollWidthで横はみ出しなし。viewport指定は解除。
+- 通常操作時console warn/error 0。Debug LogのONと要約表示が動作。
+- **アプリ内診断はFAIL**: r210にversionConsistency/baseSha256欠落と、兵科技能詳細のregression失敗。再現では武将詳細のregressionは合格、兵科技能詳細で必須語「部隊編成に追加」「追加」が不在。隠さずr211修正の対象とする。
+- Export/Importは既存自動回帰合格、公開ブラウザでのroundtripは未実施。file://実ブラウザは既報のツール制限で未確認。
+- 配信確認はPASS、Update01全体とPreview総合検証は未完了。第6・13節の承認待ち記述は当時の記録であり、現在の停止理由ではない。
+
+## 15. r211診断修正
+
+実装記録の「公開診断修正」を参照。確認済みの基準正式版commitを中央定義に保持し、条件付きボタンを全文必須語にする誤判定を修正。実機能を削除して検証を通す変更ではない。実build定義と兵科技能詳細の再発防止テストを追加し、総合検証・PR・再配信を実施する。基準HEADはb2de5d0bd9be640c6040e8dc7245428466d80235。
+
+確認事項: Preview修正の再承認は不要。正式公開は未実施。監査保留一覧とfile://・公開Export/Import回帰は残る。
+
+検証結果: node tools/test_3_1_0_0_manual_validation_button_state.js 合格。python -X utf8 tools/run_app_validation.py の最終172項目すべて合格。初回の版固定テスト残存210は211へ整合し、全体を再実行して合格を確認。テスト生成の無関係なsample JSONは復元。

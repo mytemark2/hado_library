@@ -61,3 +61,36 @@ assert.strictEqual(context.isValidSourceRevisionString('not-a-revision'), false,
 assert(source.includes("ok:isValidSourceRevisionString(HADO_BUILD_INFO.baseSha256)"), 'version validation must use the source revision compatibility contract');
 
 console.log('3.1.0.0 manual validation button state regression: passed');
+
+// Exercise the actual runtime metadata rather than a synthetic revision string alone.
+const versionSource = fs.readFileSync(path.join(root, 'hado_version.js'), 'utf8');
+const coreSource = fs.readFileSync(path.join(root, 'hado_core.js'), 'utf8');
+const runtime = { window: {} };
+vm.runInNewContext(versionSource, runtime);
+const buildDeclaration = coreSource.match(/const HADO_BUILD_INFO=([^;]+);/)[0];
+vm.runInNewContext(`${buildDeclaration};this.build=HADO_BUILD_INFO;`, runtime);
+assert(context.isValidSourceRevisionString(runtime.build.baseSha256), 'actual build metadata must retain its source revision');
+assert.strictEqual(runtime.build.baseSha256, runtime.window.HADO_VERSION.baseSourceRevision);
+
+// Troop-skill details cannot be added as a general: no add-to-formation label is expected.
+const specSource = source.slice(source.indexOf('const REGRESSION_SELF_CHECK_SPEC='), source.indexOf('function getFunctionByNameForRegression'));
+const page = { textContent: '' };
+const regressionContext = {
+  HADO_BUILD_INFO: runtime.build,
+  document: { documentElement: page },
+  state: { diagnostics: {} },
+  debugTimestamp: () => 'fixture', debugStartup: () => {}, console: { warn: () => {} },
+  getFunctionByNameForRegression: () => () => {},
+  getElementByNameForRegression: () => ({ textContent: '検証中…' }),
+  getRegressionElementTextResult: () => ({ ok: true })
+};
+vm.runInNewContext(`${specSource};this.spec=REGRESSION_SELF_CHECK_SPEC;${regressionBody};this.run=runRegressionSelfCheck;`, regressionContext);
+assert(!regressionContext.spec.requiredTexts.includes('部隊編成に追加'));
+assert(!regressionContext.spec.requiredTexts.includes('追加'));
+assert(regressionContext.spec.requiredFunctions.includes('renderFormationAddButton'));
+assert(regressionContext.spec.requiredFunctions.includes('applyFormationQuickAdd'));
+page.textContent = regressionContext.spec.requiredTexts.join(' / ');
+assert.strictEqual(regressionContext.run('troop-detail').ok, true);
+regressionContext.getFunctionByNameForRegression = name => name === 'applyFormationQuickAdd' ? undefined : () => {};
+assert.strictEqual(regressionContext.run('broken-add-function').ok, false, 'real feature removal must still fail');
+console.log('actual build provenance and troop-detail regression contracts: passed');

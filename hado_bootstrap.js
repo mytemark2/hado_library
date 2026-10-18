@@ -390,7 +390,7 @@ const REGRESSION_SELF_CHECK_SPEC={
   ],
   requiredTexts:[
     '検索','名称のみ','中核','推奨','補助','部隊編成','スタートガイド','保存管理','ログ表示','JSONフォルダを選択して再読込','JSONファイルを選択して読込','全データ','保存データ','全データ武将','全データ装備','初期','SSR最大','UR最大','Export','Import',
-    '一覧コピー','検索リンクコピー','詳細データコピー','項目リンクコピー','ログコピー','使い始める','部隊編成に追加','追加',
+    '一覧コピー','検索リンクコピー','詳細データコピー','項目リンクコピー','ログコピー','使い始める',
     // Lazy-rendered formation/detail labels are validated through their render functions and
     // interaction smoke checks. Requiring their text while the search tab is active creates a
     // false regression failure before those panels have been rendered.
