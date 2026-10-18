@@ -15,7 +15,8 @@ concurrency:
 
 jobs:
   notify-preview:
-    if: ${{ github.event.deleted == false && github.ref == 'refs/heads/feature/app-3.1.2.0' }}
+    # Retired Preview source. Merge before activating feature/app-3.2.0.0.
+    if: ${{ false && github.event.deleted == false && github.ref == 'refs/heads/feature/app-3.1.2.0' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
