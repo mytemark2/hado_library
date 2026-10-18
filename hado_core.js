@@ -40,7 +40,7 @@ const startupDebugLines=[];
 const MAX_DEBUG_LINES=220;
 const FILE_META={fileName:`hado_library_${window.HADO_VERSION?.releaseVersion || ""}.html`,createdAt:window.HADO_VERSION?.updatedAt || ""};
 // FEATURE[HADO-VERSIONING]: 2.x.x.y バージョン管理。メジャー/マイナーはユーザー採番、x は機能追加、y は不具合修正。
-const HADO_BUILD_INFO={version:window.HADO_VERSION?.releaseVersion || "",baseVersion:window.HADO_VERSION?.baseAppVersion || "",changeType:"development",summary:window.HADO_VERSION?.summary || ""};
+const HADO_BUILD_INFO={version:window.HADO_VERSION?.releaseVersion || "",baseVersion:window.HADO_VERSION?.baseAppVersion || "",baseSha256:window.HADO_VERSION?.baseSourceRevision || "",changeType:"development",summary:window.HADO_VERSION?.summary || ""};
 
 // FEATURE[HADO-2.9.6.3-WEB-DEPLOYMENT]: HTTP(S)配信時は公開JSONを自動取得し、手動JSONロードUIを表示しない。
 const IS_WEB_DEPLOYMENT=/^https?:$/.test(location.protocol);

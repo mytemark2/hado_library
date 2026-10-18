@@ -229,6 +229,10 @@ If network, credentials, GitHub Actions visibility, or browser automation preven
 
 Keep `.github/workflows/app-validation.yml` compatible with GitHub merge queue by including both `pull_request` and `merge_group` triggers. The required GitHub status check for branch protection should be `App Validation / app-validation`. Repository-level settings such as `Allow auto-merge` and `Require merge queue` must be enabled by a repository administrator; do not replace real conflict resolution with blanket `ours`/`theirs` rules.
 
+### 9.5 Preview authorization
+
+The user has authorized development-branch merges needed for Preview, event-driven Preview deployment, and its verification without repeated confirmation. Proceed after required checks. This authorization does not include merging into the formal-release branch or publishing a formal release; those require separate approval.
+
 ## 10. Preview synchronization design
 
 Maintain an event-driven preview synchronization path from the application development branch to the preview repository.
