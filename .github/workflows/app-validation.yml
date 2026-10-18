@@ -12,7 +12,36 @@ jobs:
     name: app-validation
     runs-on: ubuntu-latest
     steps:
-      - name: Validation handled by local Python self-check
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Run application regression checks
+        run: python3 tools/run_app_validation.py
+
+      - name: Preflight Preview repository token for crawler data PR
+        if: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository && startsWith(github.head_ref, 'automation/hado-data-') }}
         shell: bash
+        env:
+          PREVIEW_REPO_TOKEN: ${{ secrets.PREVIEW_REPO_TOKEN }}
         run: |
-          echo "Source validation is performed locally with: python3 tools/run_app_validation.py"
+          set -euo pipefail
+          if [ -z "${PREVIEW_REPO_TOKEN}" ]; then
+            echo "PREVIEW_REPO_TOKEN is missing; refusing to merge a crawler data PR that cannot reach Preview." >&2
+            exit 1
+          fi
+          api_root="https://api.github.com/repos/mytemark2/hado_library-preview"
+          for endpoint in "${api_root}" "${api_root}/actions/workflows/deploy-preview.yml"; do
+            http_code="$(curl -sS -o /dev/null -w '%{http_code}' \
+              -H "Authorization: Bearer ${PREVIEW_REPO_TOKEN}" \
+              -H 'Accept: application/vnd.github+json' \
+              -H 'X-GitHub-Api-Version: 2022-11-28' "${endpoint}" || true)"
+            if [ "${http_code}" != "200" ]; then
+              echo "Preview credential preflight failed; expected HTTP 200, got ${http_code}." >&2
+              exit 1
+            fi
+          done
+          echo "Preview credential preflight passed before crawler data PR merge."

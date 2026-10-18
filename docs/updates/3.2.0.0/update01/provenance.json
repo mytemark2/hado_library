@@ -1,0 +1,212 @@
+{
+  "acquisitionRunId": "2026-10-17T00-41-45-707Z",
+  "recoveryRunId": "2026-10-17T02-12-44-246Z",
+  "dataUpdatedAt": "2026-10-17T01:56:42.204Z",
+  "appGenerationBaseline": "8239d70ed4d43f2b762858a1c14c21f221c9757b",
+  "crawlerRevalidationCommit": "59b53668e41db6e2e5619a75c68a5dd6df3d21e9",
+  "originalCrawlerCommit": null,
+  "originalCrawlerCommitStatus": "not recorded in retained run metadata; do not confuse app sourceCommit with crawler commit",
+  "preservedFailure": "Both runs completed collection, then failed application validation. PR 384 repaired tests and validated the unchanged set; PR 385 promoted it. Original failure logs retained.",
+  "evidenceFiles": [
+    {
+      "run": "2026-10-17T00-41-45-707Z",
+      "file": "progress.log",
+      "sha256": "7361533b7a89ca58cbbf03c1aa9a28178d1a960979531544f934297419fc1e62"
+    },
+    {
+      "run": "2026-10-17T00-41-45-707Z",
+      "file": "run-state.json",
+      "sha256": "97541b84770e73ee83fc9ad7374701916a853a18ef51b9d83bb4fa6229311969"
+    },
+    {
+      "run": "2026-10-17T02-12-44-246Z",
+      "file": "run-state.json",
+      "sha256": "8c6be2a51ef933ce031a125a32ed435ceb80cab4a3fa543219c3323c5412412c"
+    },
+    {
+      "run": "2026-10-17T02-12-44-246Z",
+      "file": "crawl-counts.json",
+      "sha256": "76e185ecfc258409e9a652a0f159cecb61fea3703bd77789f1519d28b6516023"
+    },
+    {
+      "run": "2026-10-17T02-12-44-246Z",
+      "file": "derived-json-report.json",
+      "sha256": "fe0224c6fd268c6cec15aa0253601dd6827bb12f1c069a23bd1cb269e68da61f"
+    },
+    {
+      "run": "2026-10-17T02-12-44-246Z",
+      "file": "semantic-review.json",
+      "sha256": "0f891127dc5b92fcb78a1c25f01daba760737e6dfc924459306b793e8b33ef1e"
+    },
+    {
+      "run": "2026-10-17T02-12-44-246Z",
+      "file": "status-effects-report.json",
+      "sha256": "b38cdc91861a1464f5b8edecbbf2725b8241ff67a70c8fd1ed9dede9d20aed7d"
+    }
+  ],
+  "completionLogLines": [
+    "2026-10-17T01:04:51.104Z [HADO CLI] [武将] 実取得 965件 / 取得後除外 466件 / 保持 499件 / ネットワーク取得 966件 / 重複取得 0件",
+    "2026-10-17T01:25:41.598Z [HADO CLI] [装備] 実取得 1033件 / 取得後除外 767件 / 保持 266件 / ネットワーク取得 1465件 / 重複取得 0件",
+    "2026-10-17T01:56:28.838Z [HADO CLI] [技能] 実取得 1576件 / 取得後除外 875件 / 保持 701件 / ネットワーク取得 1936件 / 重複取得 0件",
+    "2026-10-17T01:56:29.618Z [HADO CLI] [陣形] 22件"
+  ],
+  "collectedEquality": {
+    "generals": {
+      "count": 499,
+      "equal": true
+    },
+    "equipments": {
+      "count": 266,
+      "equal": true
+    },
+    "skills": {
+      "count": 701,
+      "equal": true
+    },
+    "formations": {
+      "count": 22,
+      "equal": true
+    }
+  },
+  "semanticReview": {
+    "required": true,
+    "disposition": "draft-data-pr",
+    "warnings": [
+      "generals material changes require review: changed=458, advisoryLimit=371",
+      "Status effects require review: added=8, unresolved=0, parseErrors=0. See status-effects-report.json."
+    ]
+  },
+  "statusReview": {
+    "baselineCount": 206,
+    "currentCount": 214,
+    "added": [
+      "意気",
+      "焔計",
+      "火属性威力変化",
+      "劇毒",
+      "相性変化",
+      "即時攻撃",
+      "即時戦法",
+      "即時兵器行動"
+    ],
+    "unresolved": [],
+    "reviews": [
+      {
+        "name": "意気",
+        "reason": "unconfirmed-type",
+        "evidence": [
+          {
+            "description": "効果時間中、不利変化を効果回数に応じて無効化するこの効果で不利変化を無効化する度に攻撃が25％ずつ累積して上昇する",
+            "source_url": "https://gamewith.jp/sangokushihadou/article/show/577559",
+            "source": "additional-effect-table",
+            "target": "自分 / 単"
+          }
+        ]
+      },
+      {
+        "name": "焔計",
+        "reason": "unconfirmed-type",
+        "evidence": [
+          {
+            "description": "通常攻撃・戦法攻撃が火属性になるさらに、火属性の戦法の攻撃威力を効果量分上乗せした状態で戦法攻撃を行う（その戦法が非攻撃戦法の場合は効果なし）※戦法による攻撃威力の変動計算後に上乗せされる",
+            "source_url": "https://gamewith.jp/sangokushihadou/article/show/577560",
+            "source": "additional-effect-table",
+            "target": "自分 / 単"
+          }
+        ]
+      },
+      {
+        "name": "火属性威力変化",
+        "reason": "unconfirmed-type",
+        "evidence": [
+          {
+            "description": "火属性攻撃の威力を上げる",
+            "source_url": "https://gamewith.jp/sangokushihadou/article/show/392391",
+            "source": "additional-effect-table",
+            "target": "味方 / 中"
+          },
+          {
+            "description": "火属性攻撃の威力を上げる",
+            "source_url": "https://gamewith.jp/sangokushihadou/article/show/312272",
+            "source": "additional-effect-table",
+            "target": "味方 / 中"
+          }
+        ]
+      },
+      {
+        "name": "劇毒",
+        "reason": "unconfirmed-type",
+        "evidence": [
+          {
+            "description": "一定時間ごとに残存兵力と効果量に応じて兵力が減るさらに、一定時間ごとに自部隊の戦法ゲージが効果量分消滅する（下限0）※消滅は即時効果を避ける/発生させなくする効果の影響を受けない（消滅は即時効果ではないため）",
+            "source_url": "https://gamewith.jp/sangokushihadou/article/show/574571",
+            "source": "additional-effect-table",
+            "target": "敵 / 中"
+          }
+        ]
+      },
+      {
+        "name": "相性変化",
+        "reason": "unconfirmed-type",
+        "evidence": [
+          {
+            "description": "すべての兵科と対物に対して不利になる",
+            "source_url": "https://gamewith.jp/sangokushihadou/article/show/297889",
+            "source": "additional-effect-table",
+            "target": "敵 / 中"
+          }
+        ]
+      },
+      {
+        "name": "即時攻撃",
+        "reason": "unconfirmed-type",
+        "evidence": [
+          {
+            "description": "通常攻撃の待ち時間を短縮する",
+            "source_url": "https://gamewith.jp/sangokushihadou/article/show/243364",
+            "source": "additional-effect-table",
+            "target": "味方 / 中"
+          },
+          {
+            "description": "通常攻撃の待ち時間を短縮する",
+            "source_url": "https://gamewith.jp/sangokushihadou/article/show/243476",
+            "source": "additional-effect-table",
+            "target": "味方 / 中"
+          }
+        ]
+      },
+      {
+        "name": "即時戦法",
+        "reason": "unconfirmed-type",
+        "evidence": [
+          {
+            "description": "戦法の待ち時間を短縮する",
+            "source_url": "https://gamewith.jp/sangokushihadou/article/show/310385",
+            "source": "additional-effect-table",
+            "target": "味方 / 中"
+          },
+          {
+            "description": "戦法の待ち時間を短縮する",
+            "source_url": "https://gamewith.jp/sangokushihadou/article/show/243483",
+            "source": "additional-effect-table",
+            "target": "味方 / 狭"
+          }
+        ]
+      },
+      {
+        "name": "即時兵器行動",
+        "reason": "unconfirmed-type",
+        "evidence": [
+          {
+            "description": "兵器の待ち時間を短縮する",
+            "source_url": "https://gamewith.jp/sangokushihadou/article/show/392391",
+            "source": "additional-effect-table",
+            "target": "自分 / 単"
+          }
+        ]
+      }
+    ],
+    "parseErrors": [],
+    "reviewRequired": true
+  }
+}
