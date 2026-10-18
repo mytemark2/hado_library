@@ -141,3 +141,25 @@ Preview反映は許可済みで再確認不要とするユーザー指示を再�
 確認事項: Preview修正の再承認は不要。正式公開は未実施。監査保留一覧とfile://・公開Export/Import回帰は残る。
 
 検証結果: node tools/test_3_1_0_0_manual_validation_button_state.js 合格。python -X utf8 tools/run_app_validation.py の最終172項目すべて合格。初回の版固定テスト残存210は211へ整合し、全体を再実行して合格を確認。テスト生成の無関係なsample JSONは復元。
+
+## 16. r211配信確認（2026-10-18）
+
+- 修正PR #388: https://github.com/mytemark2/hado_library/pull/388 、マージ済み。実装commit d07193e6c510ce95c0237f737ab1c3bf70775fb0。
+- 正本commit: 7ddc4d195b27b94a3a422302e8300da3162816df / feature/app-3.2.0.0。
+- App Validation: https://github.com/mytemark2/hado_library/actions/runs/39102383095 成功。
+- Notify Hado Library Preview: https://github.com/mytemark2/hado_library/actions/runs/39102485759 成功。
+- Deploy Hado Library Preview: https://github.com/mytemark2/hado_library-preview/actions/runs/39102522228 成功。
+- Preview main: ce2acfbf7b581600785d2a5e161c8ff0c4762504。実行ファイル70件のGit blobは正本と一致、差分0。.nojekyllも確認。
+- 公開marker: PREVIEW_SOURCE_COMMIT=7ddc4d195b27b94a3a422302e8300da3162816df、PREVIEW_SOURCE_BRANCH=feature/app-3.2.0.0、PREVIEW_DISPLAY_VERSION=3.2.0.0 Update01 r211。公開URLから取得して照合。
+- title・h1・Preview表示のr211、盾兵→列盾の検索と効果本文を実画面で確認。
+- 盾兵詳細からアプリ内診断を再実行。regressionはfunctions 118、elements 63、texts 37、elementTexts 1の全項目が合格（公開console証跡）。
+- merge-readiness: --base feature/app-3.2.0.0、base b2de5d0bd9be640c6040e8dc7245428466d80235、head d07193e6c510ce95c0237f737ab1c3bf70775fb0で競合なし。
+
+- 最終アプリ内診断: 2026-10-18 21:03 JST、検証実行結果OK、criticalFailures 0、warnings 1、info 0。console warn/errorは0。今回修正した2失敗は解消。
+- 警告1件の詳細取得はブラウザのログ読取機能が異常終了したため未確認。警告0件とは報告しない。公開Export/Import roundtripとfile://実ブラウザも未確認として維持。
+- Debug LogのON・表示・OFF、兵科技能詳細を表示した状態の検証開始・完了を確認。ユーザーの既存保存データは編集しない。
+- 今回の修正・配信確認は実施済み。Update01全体は監査保留と残存回帰があるため未完了、Update02実装は未開始。
+
+### 現在の確認事項
+
+追加のPreview反映承認は不要。利用者への新たな承認依頼はなし。警告1件の詳細、公開Export/Import roundtrip、file://実ブラウザ、監査保留一覧が残る。正式公開は実施していない。
