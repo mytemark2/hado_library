@@ -102,3 +102,15 @@ raw変更は取得時刻・ページ内容等を含む。意味変更458武将�
 ## 12. 再開時確認（2026-10-18）
 
 GitHubを再fetchし、mainと3.2正本のHEADはともにe9153a954a998ad346c6ad7beb876056c11c52fb、PR #382はOPENを再確認。既存ユーザー変更5件も保持。旧3.1.2系統の同期停止は異なるbase branchへの変更が必要なため、本体とは別の小さな移行PRとして準備する。これはUpdate分割やファイル転送のためではなく、古いworkflowが新Previewを上書きしないための移行処置である。
+
+## 13. PR提出・CI確認（2026-10-18）
+
+- 本体PR: https://github.com/mytemark2/hado_library/pull/387 （draft、未マージ）。実装commit: d14237cedb6defdd77c303964074367da3b5e7c8。
+- 旧同期停止PR: https://github.com/mytemark2/hado_library/pull/386 （draft、未マージ）。実装commit: 2717435a53efccdeb6cfbef3155beb5bb1c3831c。
+- 本体App Validation: https://github.com/mytemark2/hado_library/actions/runs/39082607645 、実装commitで成功。総合回帰を実行するworkflowを確認。
+- 旧同期停止App Validation: https://github.com/mytemark2/hado_library/actions/runs/39082582238 、成功。ただし旧baseのCIは総合回帰を実行しないため、ローカル172項目合格と区別する。
+- 両作業branchのnotify-previewはskip。正本へ未マージのため公開Previewは更新していない。
+- merge-readiness: python -X utf8 tools/check_pr_merge_readiness.py --base feature/app-3.2.0.0 を実行。fetchしたbase e9153a954a998ad346c6ad7beb876056c11c52fb、head d14237cedb6defdd77c303964074367da3b5e7c8、競合なし。
+- 旧同期停止も --base feature/app-3.1.2.0 で実行。fetchしたbase dbad5ed909f4a0acb2c5d4e8fcd40db5091e43f1、head 2717435a53efccdeb6cfbef3155beb5bb1c3831c、競合なし。
+- 既存ユーザー変更5件は保持。再取得、正式公開、PRマージは行っていない。
+- この節は提出後の検証証跡の追記。記録commit後の最終CIはPR checksで確認する。Update01とPreviewは引き続き未完了。
