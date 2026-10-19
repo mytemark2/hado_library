@@ -4,7 +4,7 @@
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.2.0.0',
     updateNo: '01',
-    revision: 212,
+    revision: 213,
     formalRelease: false,
     baseAppVersion: '3.1.2.1',
     baseSourceRevision: 'e9153a954a998ad346c6ad7beb876056c11c52fb',

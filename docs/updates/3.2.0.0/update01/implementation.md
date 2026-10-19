@@ -71,3 +71,8 @@ PR #388をマージし、公開Preview r211で兵科技能詳細からの診断�
 ## r212 残作業対応
 
 基準c313fe4から隔離branch codex/3200-update01-remaining。診断警告の種類と理由をbounded表示し、コピー機能に依存せず調査できるようにした。判定基準と機能は変更しない。既存外部hado_bootstrap.jsを変更、HTMLサイズ差0。hado_version.jsのrevision212とcache key・関連テストを同期し、HADO_DEV_INFO.jsonは日付を整合。変更ファイルは上記4ファイル、版固定/診断回帰テスト10ファイル、全体/Update01 roadmap・本記録・report。172項目合格、ローカル診断0失敗0警告、Export/Importと再起動後のLR李典保持を確認。監査保留6件はreport第17節で根拠・影響・対応Update・受入条件を固定した。公開結果はreportへ追記する。
+
+
+## r213 保存データ表示で編成が消える問題
+
+基準bc1d9a1から隔離branch codex/3200-update01-save-preservation。r212公開Export/Import検証で、未登録武将が描画時に全編成から削除されることを検出。hado_formation.jsの破壊的pruneを読取専用検査へ置換し注意表示、追加候補の所有制約は維持。主将・侍従・装備・参軍、セーブ切替、繰返し検査の不変性テストを追加しApp Validationへ登録。173項目合格。r213へ版/cache key/既存テストを整合、HTMLサイズ差0。HADO_DEV_INFO.jsonは今回は変更なし。公開復元結果はreportへ追記する。
