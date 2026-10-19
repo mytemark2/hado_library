@@ -201,3 +201,30 @@ CI案内echoのみの問題は172項目の実CI実行へ修正済みで、保留
 ### 次の作業順序
 
 2026-10-19のユーザー指示により、Update01残作業の次、Update02より先に「キーワード検索の結果一覧へ一致した一文を理由として表示」を実装する。検索自体の判定と根拠文を一致させ、名称一致・複数一致・空検索・表示の安全性を検証する。推奨エンジンはGPT-6 Astra / reasoning high（検索判定と表示根拠の整合、既存検索経路の回帰が必要なため）。
+
+
+## 18. r212公開検証と保存互換修正r213（2026-10-19）
+
+- PR #390マージ済み。実装925500af50a4c3ed94765407dc6431a8a37c3366、正本bc1d9a119577ddf39898dfbbca6486c84e664480。
+- App Validation run 39210688484、Notify run 39213477750、Preview Pages run 39213533578は成功。
+- Preview main 2e9cf33ec51fad398225fd012db0671f13f06723。公開marker source=bc1d9a119577ddf39898dfbbca6486c84e664480 / branch=feature/app-3.2.0.0 / version=3.2.0.0 Update01 r212。70実行ファイル一致・差分0、.nojekyllあり。
+- 公開URL https://mytemark2.github.io/hado_library-preview/ のtitle/h1/r212、盾兵→列盾、工兵→操器の本文を確認。PC1280/scroll1280、mobile実測360/scroll360（375指定）、viewport解除。console warn/error 0。
+- 公開診断は武将詳細・盾兵詳細でOK、重大失敗0・警告0・info0。r211警告1件は再現せず、歴史的原因を特定/解消したとは断定しない。以後はr212の詳細表示で追跡可能。
+- r211公開Exportをr212へImportし、検証専用セーブのLR李典1件・★保持を確認。ただし編成まで照合すると未登録LR袁紹等が外れる不具合を検出。**この時点でExport/Import全体はFAIL。** 元Exportには編成3件・主将LR関羽/LR袁紹・元更新日時が残り、復元元を確保した。
+
+### 根本原因・恒久対策
+
+分類は保存互換/非破壊表示の不具合。Importのmerge後、renderFormationScreenCoreが全編成にpruneFormationUnavailableItemsForSavedModeを適用し、選択セーブに未登録の武将・侍従・装備を空欄化していた。Import後だけでなくセーブ切替後の描画全般に影響する。
+
+r213では所有状況を読み取り専用で検査し、配置を保持して注意文を表示する。参軍も未登録検査に含め、追加候補の所有条件は既存のまま維持。再発防止として未所有の主将・侍従・装備・参軍、セーブ切替、繰返し検査で編成内容・dirty状態が不変となるテストを追加。既存Export/Import mergeテストも合格。
+
+- 変更: hado_formation.js、専用テストtools/test_3_2_0_0_saved_formation_preservation.js、App Validation登録、hado_version.js（r213）、index.html cache key、版固定テスト、関連記録。
+- HTMLサイズ差0、既存外部JSを拡張。HADO_DEV_INFO.jsonはr212で更新済みの同日付のため今回は変更なし。
+- node tools/test_3_2_0_0_saved_formation_preservation.js、node tools/test_update09_5_59_save_roundtrip.js、node --check hado_formation.js合格。
+- python -X utf8 tools/run_app_validation.py: **173/173合格**。テスト生成の無関係なsample JSON差分は復元。
+
+### 確認事項
+
+公開r213で元Exportの編成復元と保存互換の再検証が必要。file://実ブラウザも未確認。Preview再承認は不要、正式公開なし。Update01は未完了。割込みの検索一致理由表示はこの残作業の後とする。
+
+ローカルr213実確認: 元Exportを保存データモードでImportし、未登録1件の注意文と主将LR袁紹の保持を確認した。

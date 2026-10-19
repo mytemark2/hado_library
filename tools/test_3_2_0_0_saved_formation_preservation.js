@@ -1,0 +1,25 @@
+const assert=require('assert');
+const fs=require('fs');
+const vm=require('vm');
+const source=fs.readFileSync('hado_formation.js','utf8');
+const block=source.slice(source.indexOf('function getFormationUnavailableItemsForSavedMode(){'),source.indexOf('function getFormationSavedSkillLevelNumber'));
+const formation={id:'keep',name:'保持対象',slots:{main:{general:'LR袁紹',attendant:'未所有侍従',equipments:{weapon:'未所有武器',armor:'所有防具',treasure:''}}},advisorSlots:{war:'未所有参軍'}};
+const ctx={state:{viewMode:'saved',formations:[formation],formationDirty:false},getCurrentSave:()=>({generals:['LR李典'],equipments:['所有防具']}),normalizeSaveItemName:value=>String(value||'').trim(),FORMATION_SLOT_SPECS:[{key:'main'}],EQUIP_SLOT_SPECS:[{key:'weapon'},{key:'armor'},{key:'treasure'}],ADVISOR_SLOT_SPECS:[{key:'war'}]};
+vm.runInNewContext(block+';this.inspect=getFormationUnavailableItemsForSavedMode;',ctx);
+const before=JSON.stringify(ctx.state);
+for(let i=0;i<3;i++)assert.equal(ctx.inspect().length,4);
+assert.equal(JSON.stringify(ctx.state),before,'render inspection must not remove imported/previous rosters or dirty them');
+ctx.getCurrentSave=()=>({generals:[],equipments:[]});
+assert.equal(ctx.inspect().length,5);
+assert.equal(JSON.stringify(ctx.state),before,'changing saves must preserve the roster');
+ctx.state.viewMode='all';assert.equal(ctx.inspect().length,0);
+assert(!source.includes('pruneFormationUnavailableItemsForSavedMode('));
+assert(source.includes('const unavailableSavedItems=getFormationUnavailableItemsForSavedMode();'));
+assert(source.includes('${savedOwnershipNotice}${formationTabsHtml}'));
+// Existing selection eligibility remains independent from display inspection.
+const allowed=source.slice(source.indexOf('function isFormationCandidateAllowed('),source.indexOf('// Saved-mode ownership'));
+ctx.detailCategory=item=>item.category;ctx.getItemDisplayName=item=>item.name;
+vm.runInNewContext(allowed+';this.allowed=isFormationCandidateAllowed;',ctx);
+ctx.state.viewMode='saved';assert.equal(ctx.allowed({category:'generals',name:'LR袁紹'}),false);
+ctx.state.viewMode='all';assert.equal(ctx.allowed({category:'generals',name:'LR袁紹'}),true);
+console.log('saved formation read-only inspection and candidate gate: passed');
