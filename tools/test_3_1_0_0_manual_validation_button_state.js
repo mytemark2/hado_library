@@ -94,3 +94,14 @@ assert.strictEqual(regressionContext.run('troop-detail').ok, true);
 regressionContext.getFunctionByNameForRegression = name => name === 'applyFormationQuickAdd' ? undefined : () => {};
 assert.strictEqual(regressionContext.run('broken-add-function').ok, false, 'real feature removal must still fail');
 console.log('actual build provenance and troop-detail regression contracts: passed');
+
+const warningContext = { HADO_BUILD_INFO: runtime.build, debugTimestamp: () => 'fixture' };
+vm.runInNewContext(`${extractFunction('buildValidationDialogMessage')};this.message=buildValidationDialogMessage;`, warningContext);
+const warningResult = warningContext.message({ok:true,context:'fixture',warnings:[{name:'horizontal overflow',amount:17},{name:'hadou extension dataset check skipped',reason:'fixture reason'}],criticalFailures:[]});
+assert(warningResult.includes('horizontal overflow / 17px'));
+assert(warningResult.includes('hadou extension dataset check skipped / fixture reason'));
+assert(warningResult.includes('warnings: 2'));
+const longWarningResult=warningContext.message({ok:true,warnings:Array.from({length:20},()=>({name:'n'.repeat(2000),reason:'r'.repeat(2000)})),criticalFailures:[]});
+assert(longWarningResult.length<6000,'warning summary must stay bounded');
+assert(longWarningResult.includes('8件省略'));
+console.log('bounded diagnostic warning details: passed');
