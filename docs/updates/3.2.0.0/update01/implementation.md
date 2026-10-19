@@ -66,3 +66,8 @@ PR #386で旧同期を停止してからPR #387を開発正本へマージ。正
 ## r211最終確認
 
 PR #388をマージし、公開Preview r211で兵科技能詳細からの診断がOK（重大失敗0、警告1）となることを確認。配信元commit、marker、実行ファイル70件一致とworkflow結果はreport第16節に記録。残存警告の詳細と未実施回帰は隠さず保留し、Update01全体は未完了。
+
+
+## r212 残作業対応
+
+基準c313fe4から隔離branch codex/3200-update01-remaining。診断警告の種類と理由をbounded表示し、コピー機能に依存せず調査できるようにした。判定基準と機能は変更しない。既存外部hado_bootstrap.jsを変更、HTMLサイズ差0。hado_version.jsのrevision212とcache key・関連テストを同期し、HADO_DEV_INFO.jsonは日付を整合。変更ファイルは上記4ファイル、版固定/診断回帰テスト10ファイル、全体/Update01 roadmap・本記録・report。172項目合格、ローカル診断0失敗0警告、Export/Importと再起動後のLR李典保持を確認。監査保留6件はreport第17節で根拠・影響・対応Update・受入条件を固定した。公開結果はreportへ追記する。

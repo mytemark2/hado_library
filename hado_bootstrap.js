@@ -1106,7 +1106,15 @@ function buildValidationDialogMessage(result){
     lines.push('- '+name+missing+error+diag);
   });
   if(failures.length>12)lines.push('- ... '+(failures.length-12)+'件省略');
-  lines.push('warnings: '+(Array.isArray(result.warnings)?result.warnings.length:0));
+  const warnings=Array.isArray(result.warnings)?result.warnings:[];
+  lines.push('warnings: '+warnings.length);
+  warnings.slice(0,12).forEach(warning=>{
+    const name=String(warning?.name||'unknown').slice(0,160);
+    const reason=warning?.reason?' / '+String(warning.reason).slice(0,240):'';
+    const amount=Number.isFinite(warning?.amount)?' / '+warning.amount+'px':'';
+    lines.push('- '+name+reason+amount);
+  });
+  if(warnings.length>12)lines.push('- ... '+(warnings.length-12)+'件省略');
   lines.push('info: '+(Array.isArray(result.info)?result.info.length:0));
   lines.push('');
   lines.push('詳細は「ログコピー」で取得してください。画面には巨大JSONを描画しません。');
