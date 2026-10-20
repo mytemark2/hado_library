@@ -1048,6 +1048,63 @@ function keepSearchProgressIndicatorPending(seq){
   if(seq!==state._searchProgressSeq)return;
   // beginSearchProgressIndicator() の interval を維持し、95%で待機する。
 }
+function splitKeywordReasonSentences(value){
+  const text=norm(value||'');
+  if(!text)return [];
+  return text.split(/(?<=[。！？!?])\s*|[\r\n]+|(?=[■●▼])/).map(part=>norm(part)).filter(Boolean);
+}
+function cropKeywordReasonSentence(sentence,keyword,maxLength=180){
+  const text=norm(sentence||'');
+  const query=norm(keyword||'');
+  if(!text||!query)return '';
+  const index=text.toLowerCase().indexOf(query.toLowerCase());
+  if(index<0)return '';
+  if(text.length<=maxLength)return text;
+  const side=Math.max(30,Math.floor((maxLength-query.length)/2));
+  let start=Math.max(0,index-side);
+  let end=Math.min(text.length,index+query.length+side);
+  if(end-start<maxLength){start=Math.max(0,end-maxLength);end=Math.min(text.length,start+maxLength);}
+  return `${start>0?'…':''}${text.slice(start,end)}${end<text.length?'…':''}`;
+}
+function collectKeywordReasonValues(item){
+  if(!item||typeof item!=='object')return [];
+  const values=[];
+  const add=value=>{if(typeof value==='string'&&norm(value))values.push(norm(value));};
+  add(item.description);
+  (Array.isArray(item.sections)?item.sections:[]).map(section=>typeof sanitizeSectionForSearch==='function'?sanitizeSectionForSearch(item,section):section).filter(Boolean).forEach(section=>{
+    add(section.title);
+    (Array.isArray(section.content)?section.content:[]).forEach(add);
+  });
+  (Array.isArray(item.tables)?item.tables:[]).filter(table=>typeof isSearchExcludedTable!=='function'||!isSearchExcludedTable(item,table)).forEach(table=>{
+    const rows=Array.isArray(table)?table:(Array.isArray(table?.rows)?table.rows:[]);
+    rows.forEach(row=>(Array.isArray(row)?row:[row]).forEach(add));
+  });
+  const raw=typeof sanitizeRawForSearch==='function'?sanitizeRawForSearch(item,item.raw):item.raw;
+  const visit=(value,key='',depth=0)=>{
+    if(depth>5||value===null||value===undefined)return;
+    if(typeof value==='string'){if(!/url|href|image|icon/i.test(key))add(value);return;}
+    if(Array.isArray(value)){value.forEach(entry=>visit(entry,key,depth+1));return;}
+    if(typeof value==='object')Object.entries(value).forEach(([childKey,child])=>{if(childKey!=='textSample')visit(child,childKey,depth+1);});
+  };
+  visit(raw);
+  return [...new Set(values)];
+}
+function buildKeywordMatchReason(item,keyword,nameOnlySearch=false){
+  const query=norm(keyword||'');
+  if(!query)return '';
+  const displayName=getItemDisplayName(item);
+  if(norm(displayName).toLowerCase().includes(query.toLowerCase()))return `一致理由：名称「${displayName}」に「${query}」が一致。`;
+  if(nameOnlySearch)return '';
+  for(const value of collectKeywordReasonValues(item)){
+    for(const sentence of splitKeywordReasonSentences(value)){
+      const excerpt=cropKeywordReasonSentence(sentence,query);
+      if(excerpt)return `一致理由：${excerpt}`;
+    }
+  }
+  const searchable=typeof getFastSearchableText==='function'?getFastSearchableText(item):'';
+  const fallback=cropKeywordReasonSentence(searchable,query);
+  return fallback?`一致理由：${fallback}`:`一致理由：「${query}」を含む情報に一致。`;
+}
 function renderSearchResults(){
   if(isTypeSearchMode())return renderTypeSearchResults();
   const searchableMasterCount=(Array.isArray(state.generals)?state.generals.length:0)+(Array.isArray(state.equipments)?state.equipments.length:0);
@@ -1132,7 +1189,7 @@ function renderSearchResults(){
         const metric=(!searchContext||nameOnlySearch)?null:extractMetricFromItem(item,searchContext);
         {const e=performance.now()-t;metricMs+=e;cat.metricMs+=e;}
         if(searchContext&&!nameOnlySearch&&searchContext.mode!=='plain'&&!metricMatchesSearchQuery(metric,searchContext))keywordMatched=false;
-        if(keywordMatched){rows.push({key,label,item,metric});datasetMatched++;}
+        if(keywordMatched){rows.push({key,label,item,metric,keywordReason:buildKeywordMatchReason(item,effectiveKeyword,nameOnlySearch)});datasetMatched++;}
       }
     });
     cat.matched=datasetMatched;cat.ms=performance.now()-catStart;
@@ -1214,7 +1271,7 @@ function renderSearchResults(){
   els.results.innerHTML='';
   updateSearchDiagnosticSnapshot({keyword:currentKeyword(),effectiveKeyword,nameOnlySearch,hasActive,activeCategories:state.activeCategories,uiCategoryState,datasetStats,results:rows.length,skillDatasetCount:Array.isArray(state.skills)?state.skills.length:0,hasBushoInSkills:Array.isArray(state.skills)?state.skills.some(item=>norm(item?.name||'')==='武聖'):false});
   let domMetricRowCount=0;const domMetricSamples=[];
-  const renderLimit=getSearchResultRenderLimit(rows,q,nameOnlySearch);rows.slice(0,renderLimit).forEach(row=>{const li=document.createElement('li');if(state.selectedItem===row.item)li.classList.add('active');const displayName=getResultCardDisplayName(row);const subTitle=getResultCardSubtitle(row);const metricLabel=row.metric?row.metric.display:'';const useCompactCard=!!getResultCardIndexForRow(row)&&!metricLabel&&!q;const tacticAttackBadges=useCompactCard?'':((row.key==='tactics'||row.key==='generals')?renderTacticAttackResultBadges(row.item):'');const saved=(row.key==='generals'||row.key==='equipments')&&isSavedName(row.key,displayName);const cardBadges=getResultCardBadgesHtml(row);const matchedTags=renderMatchedSelectedTagsHtml(row.item);const main=document.createElement('div');main.className='search-result-card-main';const reasonText=row.metric&&row.metric.reasonText?row.metric.reasonText:'';main.innerHTML=`<div class="search-result-top"><span class="search-result-category">${esc(row.label)}</span><span class="search-result-title">${highlightSelectedTagTextHtml(displayName,row.item)}</span>${metricLabel?`<span class="search-result-metric">${highlightSelectedTagTextHtml(metricLabel,row.item)}</span>`:''}</div>${subTitle?`<div class="search-result-meta">${highlightSelectedTagTextHtml(subTitle,row.item)}</div>`:''}${matchedTags?`<div class="search-result-tag-matches">${matchedTags}</div>`:''}${cardBadges?`<div class="search-result-subrow">${cardBadges}</div>`:''}${reasonText?`<div class="search-result-reason">${highlightSelectedTagTextHtml(reasonText,row.item)}</div>`:''}${tacticAttackBadges?`<div class="search-result-subrow">${tacticAttackBadges}</div>`:''}`;if(metricLabel){domMetricRowCount++;if(domMetricSamples.length<10)domMetricSamples.push({name:norm(displayName),metricLabel,html:main.innerHTML});}main.addEventListener('click',()=>{selectItemAndRender(row.item,row.label,{reason:'result-click',preserveListScroll:true});});li.appendChild(main);if(row.key==='generals'||row.key==='equipments'){const btn=document.createElement('button');btn.type='button';btn.className=`save-star ${saved?'is-saved':''}`;btn.textContent=saved?'★':'☆';btn.addEventListener('click',e=>{e.stopPropagation();toggleSavedName(row.key,displayName);});li.appendChild(btn);}els.results.appendChild(li);});if(renderLimit<rows.length){const moreLi=document.createElement('li');moreLi.className='search-result-more-row';const btn=document.createElement('button');btn.type='button';btn.className='copy-btn';btn.textContent=`さらに表示（${renderLimit}/${rows.length}件）`;btn.addEventListener('click',e=>{e.stopPropagation();increaseSearchResultRenderLimit();});moreLi.appendChild(btn);els.results.appendChild(moreLi);}if(quickWaitingForCategory){els.results.innerHTML=`<li class="search-initial-empty"><div class="detail-empty">状態変化フィルター「${esc(state.quickStatusEffectOwnerFilter?.label||'')}」を選択中です。対象カテゴリを選択すると絞り込みます。</div></li>`;}
+  const renderLimit=getSearchResultRenderLimit(rows,q,nameOnlySearch);rows.slice(0,renderLimit).forEach(row=>{const li=document.createElement('li');if(state.selectedItem===row.item)li.classList.add('active');const displayName=getResultCardDisplayName(row);const subTitle=getResultCardSubtitle(row);const metricLabel=row.metric?row.metric.display:'';const useCompactCard=!!getResultCardIndexForRow(row)&&!metricLabel&&!q;const tacticAttackBadges=useCompactCard?'':((row.key==='tactics'||row.key==='generals')?renderTacticAttackResultBadges(row.item):'');const saved=(row.key==='generals'||row.key==='equipments')&&isSavedName(row.key,displayName);const cardBadges=getResultCardBadgesHtml(row);const matchedTags=renderMatchedSelectedTagsHtml(row.item);const main=document.createElement('div');main.className='search-result-card-main';const reasonText=row.metric&&row.metric.reasonText?row.metric.reasonText:'';const keywordReason=norm(row.keywordReason||'');main.innerHTML=`<div class="search-result-top"><span class="search-result-category">${esc(row.label)}</span><span class="search-result-title">${highlightSelectedTagTextHtml(displayName,row.item)}</span>${metricLabel?`<span class="search-result-metric">${highlightSelectedTagTextHtml(metricLabel,row.item)}</span>`:''}</div>${subTitle?`<div class="search-result-meta">${highlightSelectedTagTextHtml(subTitle,row.item)}</div>`:''}${matchedTags?`<div class="search-result-tag-matches">${matchedTags}</div>`:''}${cardBadges?`<div class="search-result-subrow">${cardBadges}</div>`:''}${keywordReason?`<div class="search-result-reason search-result-keyword-reason">${esc(keywordReason)}</div>`:''}${reasonText?`<div class="search-result-reason">${highlightSelectedTagTextHtml(reasonText,row.item)}</div>`:''}${tacticAttackBadges?`<div class="search-result-subrow">${tacticAttackBadges}</div>`:''}`;if(metricLabel){domMetricRowCount++;if(domMetricSamples.length<10)domMetricSamples.push({name:norm(displayName),metricLabel,html:main.innerHTML});}main.addEventListener('click',()=>{selectItemAndRender(row.item,row.label,{reason:'result-click',preserveListScroll:true});});li.appendChild(main);if(row.key==='generals'||row.key==='equipments'){const btn=document.createElement('button');btn.type='button';btn.className=`save-star ${saved?'is-saved':''}`;btn.textContent=saved?'★':'☆';btn.addEventListener('click',e=>{e.stopPropagation();toggleSavedName(row.key,displayName);});li.appendChild(btn);}els.results.appendChild(li);});if(renderLimit<rows.length){const moreLi=document.createElement('li');moreLi.className='search-result-more-row';const btn=document.createElement('button');btn.type='button';btn.className='copy-btn';btn.textContent=`さらに表示（${renderLimit}/${rows.length}件）`;btn.addEventListener('click',e=>{e.stopPropagation();increaseSearchResultRenderLimit();});moreLi.appendChild(btn);els.results.appendChild(moreLi);}if(quickWaitingForCategory){els.results.innerHTML=`<li class="search-initial-empty"><div class="detail-empty">状態変化フィルター「${esc(state.quickStatusEffectOwnerFilter?.label||'')}」を選択中です。対象カテゴリを選択すると絞り込みます。</div></li>`;}
   domRenderMs=performance.now()-t;
   const stats=state._searchCacheStats||makeSearchCacheStats();
   Object.keys(categoryCount).forEach(k=>{const c=categoryCount[k];c.ms=Number((c.ms||0).toFixed(1));c.buildTextMs=Number((c.buildTextMs||0).toFixed(1));c.savedFilterMs=Number((c.savedFilterMs||0).toFixed(1));c.tagFilterMs=Number((c.tagFilterMs||0).toFixed(1));c.keywordMatchMs=Number((c.keywordMatchMs||0).toFixed(1));c.metricMs=Number((c.metricMs||0).toFixed(1));c.parameterSearchTextCache=safeCloneForDebug(stats.byCategory?.[k]?.parameterSearchText||{hit:0,miss:0,bypass:0});c.metricSourceCache=safeCloneForDebug(stats.byCategory?.[k]?.metricSource||{hit:0,miss:0,bypass:0});debugLog('categorySearch:profile',{key:k,label:(datasets.find(d=>d[0]===k)||[])[1]||k,...c});});

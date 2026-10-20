@@ -270,6 +270,7 @@ body.formation-tab .pc-search-history-panel{display:none!important}
 .search-result-meta{font-size:12px;color:var(--muted);line-height:1.45;overflow-wrap:anywhere;word-break:break-word}
 .search-result-reason{font-size:12px;color:#334155;line-height:1.45;margin-top:3px;overflow-wrap:anywhere;word-break:break-word}
 .search-result-reason strong{color:#0f172a}
+.search-result-keyword-reason{border-left:3px solid #0f766e;padding-left:7px;color:#0f5132}
 .search-result-subrow{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
 .search-result-mini-badge{display:inline-flex;border:1px solid var(--border);border-radius:999px;background:#fff;color:#475569;font-size:11px;padding:2px 7px;line-height:1.35}
 .search-result-mini-badge.is-saved{border-color:#fbbf24;background:#fffbeb;color:#b45309;font-weight:800}
