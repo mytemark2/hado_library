@@ -2,7 +2,7 @@
 
 ## 状態・起点
 
-監査・ローカル検証実施。**未完了**（明示的保留、PRマージ承認、3.2公開Preview検証待ち）。
+監査・ローカル検証・公開Preview・file://実機確認を実施。**2026-10-21完了**。明示的保留6件は根拠と後続Updateの受入条件を固定した。
 
 - 正本開発ブランチ: `feature/app-3.2.0.0`。作成時HEAD: `e9153a954a998ad346c6ad7beb876056c11c52fb`。
 - 起点: 同SHAの最新main、正式版`3.1.2.1`。計画資料の明示的な起点方針を採用。
@@ -76,3 +76,8 @@ PR #388をマージし、公開Preview r211で兵科技能詳細からの診断�
 ## r213 保存データ表示で編成が消える問題
 
 基準bc1d9a1から隔離branch codex/3200-update01-save-preservation。r212公開Export/Import検証で、未登録武将が描画時に全編成から削除されることを検出。hado_formation.jsの破壊的pruneを読取専用検査へ置換し注意表示、追加候補の所有制約は維持。主将・侍従・装備・参軍、セーブ切替、繰返し検査の不変性テストを追加しApp Validationへ登録。173項目合格。r213へ版/cache key/既存テストを整合、HTMLサイズ差0。HADO_DEV_INFO.jsonは今回は変更なし。公開復元結果はreportへ追記する。
+
+
+2026-10-19 r213公開最終確認: PR #391・173項目CI・自動同期・70実行ファイル一致、診断0失敗0警告、Importした編成3件の復元と切替/再起動後の主将保持を確認。file://実機結果待ちで未完了。検証専用セーブ1件の残置を含む最新確認事項はreport第19節。
+
+2026-10-21利用者実機確認: `C:\Users\mytem\.codex\worktrees\hado-3200-preview-evidence\hado_library\index.html`をブラウザーで直接開き、同フォルダーJSON読込、LR李典検索、工兵から操器の詳細表示がすべて正常。これによりfile://必須ゲートを閉じ、Update01を完了とした。HTML・JavaScript・JSONの追加変更はなく、HTMLサイズ差0 bytes、外部化判断の変更なし。

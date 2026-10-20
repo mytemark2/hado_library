@@ -2,7 +2,7 @@
 
 ## 1. Summary
 
-**未完了。** 全件監査・回帰fixture・Update01 r210を2026-10-18に開発正本へマージし、公開Previewの基本操作を確認した。明示的保留と残存回帰がある。最新結果は第17節以降を参照。正式版と既存ユーザー変更は無変更。
+**完了（2026-10-21）。** 監査保留の引継ぎ先を確定し、診断警告の詳細表示と、Import後に既存編成が削除される不具合を修正。公開r213で173項目のCI、配信、診断0失敗0警告、編成復元・切替・再起動後の保持を確認し、利用者実機でfile://読込・検索・詳細表示も確認した。最新結果は第20節。正式版mainと元作業ツリーの未コミットJSON5件は無変更。
 
 ## 2. データ監査結果
 
@@ -228,3 +228,47 @@ r213では所有状況を読み取り専用で検査し、配置を保持して�
 公開r213で元Exportの編成復元と保存互換の再検証が必要。file://実ブラウザも未確認。Preview再承認は不要、正式公開なし。Update01は未完了。割込みの検索一致理由表示はこの残作業の後とする。
 
 ローカルr213実確認: 元Exportを保存データモードでImportし、未登録1件の注意文と主将LR袁紹の保持を確認した。
+
+
+## 19. r213公開結果・現在の残件（2026-10-19）
+
+### Git / Actions / Preview confirmation: PASS（HTTPS）
+
+- PR #391: https://github.com/mytemark2/hado_library/pull/391 、マージ済み。実装c0aefbdf1dc4a28cad1d9a4d59feccc3edec07a8、正本7c0df67e2de2300510d7c61572fc560f358b9a0f。
+- merge-readiness: python -X utf8 tools/check_pr_merge_readiness.py --base feature/app-3.2.0.0。base bc1d9a119577ddf39898dfbbca6486c84e664480、head c0aefbdf1dc4a28cad1d9a4d59feccc3edec07a8、競合なし。旧PR差分やユーザー変更の混入なし。
+- App Validation: https://github.com/mytemark2/hado_library/actions/runs/39249504237 成功（173項目）。
+- Notify: https://github.com/mytemark2/hado_library/actions/runs/39249693560 成功。
+- Pages: https://github.com/mytemark2/hado_library-preview/actions/runs/39249765135 成功。
+- Preview main: c04a7170cf5093256ef4cd3894990cce77605e11。
+- 公開URL: https://mytemark2.github.io/hado_library-preview/
+- 公開marker: PREVIEW_SOURCE_COMMIT.txt=7c0df67e2de2300510d7c61572fc560f358b9a0f、PREVIEW_SOURCE_BRANCH.txt=feature/app-3.2.0.0、PREVIEW_DISPLAY_VERSION.txt=3.2.0.0 Update01 r213。
+- index.html / hado_formation.js / hado_styles.css / hadou_*.jsonを含む70実行ファイルのGit blob一致、差分0。.nojekyllあり。
+- DOM: title/h1/Preview表示r213、未登録の配置を保持する注意文を確認。
+- 操作: r211でExportした検証セーブをr213にImport。保存データモードで編成3件を復元し、LR関羽・LR袁紹を確認。部隊切替・全データ/保存データ切替・ページ再起動後もLR袁紹を保持。既存編成のスロット復元を確認したが、再計算によるスコア・更新時刻は変わり得るためExportとの全byte同一性とはしない。
+- 診断: 保存データモードの編成画面で検証実行結果OK、criticalFailures 0 / warnings 0 / info 0。console warn/error 0。r212ではDebug Log表示ON/OFFも確認済み。
+- HTML Git blobサイズ28,889 bytes、前版比0。修正は外部JS。正式mainはe9153a954a998ad346c6ad7beb876056c11c52fbのまま。
+- 計画PR #382はOPEN、base feature/app-3.1.0.0、head codex/roadmap-3-2-0-0。実装正本は3.2であり、旧baseの実装は取り込まない。
+
+### 確認事項 / Remaining issues
+
+1. **file://実ブラウザ確認待ち（必須）**。操作ツールがhttp/https以外を拒否するため未確認。利用者へr213のindex.htmlを直接開き、同フォルダーJSON読込・LR李典検索・工兵→操器詳細の確認を依頼した。回答未受領。これをHTTP確認で代用して完了扱いにしない。
+2. **検証用セーブ1件を残置**。公開側の「Update01検証専用20261019」は検証で作成したもの。削除操作のnative confirmがブラウザツールで応答せず、別タブで残存を確認。既存編成3件は復元済み。検証用ExportはDownloads/hado_library_save_data_2026-10-19-07-01-54.jsonに保持。不要になったらデータ管理の保存データからこの検証用セーブだけ削除する。
+3. 監査6保留は第17節の対応先・受入条件で追跡。兵科タグ151件はUpdate02。過去r211警告1件の原因は不明、r212/r213では非再現・現在0警告と区別。
+
+追加のPreview承認依頼はなし。正式公開はしていない。Update01はfileゲート待ちのため未完了。次の実装はユーザー指定の「検索結果にキーワード一致した一文を理由表示」で、Update02より先。推奨GPT-6 Astra / reasoning high（検索判定と根拠文の整合を既存の複数検索経路で検証するため）。
+
+## 20. file://利用者確認・Update01完了（2026-10-21）
+
+- 対象: `C:\Users\mytem\.codex\worktrees\hado-3200-preview-evidence\hado_library\index.html`
+- 利用者確認結果: ブラウザーで直接開き、同フォルダーのJSON読込、LR李典検索、工兵から操器の詳細表示がすべて正常。
+- 第19節1のfile://必須ゲートを合格とし、Update01を完了とする。
+- 第19節2の検証専用セーブ1件は、検証環境内の整理対象であり、ソース・Preview配信・保存互換の不具合ではない。既存利用者データと混同せず、当該環境を次に操作できる際に検証用セーブだけを削除する。
+- 監査保留6件は未説明残差ではなく、根拠・影響・後続Update・受入条件を第17節へ固定済み。Update01完了後も指定先で追跡する。
+- HTMLサイズ差: 0 bytes。今回は文書のみを更新し、外部化判断の変更なし。
+- 正式公開: 未実施。
+
+### 確認事項
+
+なし。次はUpdate02より先に、ユーザー指定の「検索結果にキーワード一致した一文を理由表示」を実装する。
+
+本節は実装commitの公開検証証跡。後続の資料のみのmergeでは表示版r213を維持し、source markerは最新正本commitへ追従する。

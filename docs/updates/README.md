@@ -5,7 +5,7 @@
 正本: `feature/app-3.2.0.0`。起点main: `e9153a954a998ad346c6ad7beb876056c11c52fb`（正式版3.1.2.1）。
 [全体ロードマップ](3.2.0.0/roadmap.md) / [Update01](3.2.0.0/update01/roadmap.md) / [実装記録](3.2.0.0/update01/implementation.md) / [報告](3.2.0.0/update01/report.md)
 
-状態: Update01監査・ローカル回帰実施、マージ承認・公開Preview検証待ち。未完了。正式公開なし。
+状態: Update01 r213完了。公開Preview・診断・保存互換・file://実機動作を確認済み。監査保留6件は根拠と後続Updateの受入条件を固定。次は割込みの検索一致理由表示を実装する。正式公開なし。
 
 ## 以前の開発記録
 
