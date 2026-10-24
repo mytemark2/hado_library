@@ -119,6 +119,7 @@ COMMANDS.extend(
         ["node", "tools/test_3_2_0_0_update01_audit.js"],
         ["node", "tools/test_3_2_0_0_saved_formation_preservation.js"],
         ["node", "tools/test_3_2_0_0_keyword_match_reason.js"],
+        ["node", "tools/test_3_2_0_0_update02_troop_cross_search.js"],
         ["node", "tools/test_preview_token_preflight.js"],
         ["python3", "tools/validate_legacy_hado_app_not_loaded.py"],
         ["python3", "tools/validate_update_version_consistency.py"],
