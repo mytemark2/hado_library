@@ -2,7 +2,7 @@
 
 ## 1. Summary
 
-5兵科、5兵科技能、499主将候補の横断検索と詳細リンクを実装し、App Validation 175/175件を完了した。公開PreviewではPC・375px幅、工兵・盾兵検索、兵科技能詳細、主将候補リンク、自己診断を確認した。
+5兵科、5兵科技能、499主将候補の横断検索と詳細リンクを実装し、App Validation 175/175件を完了した。公開PreviewではPC・375px幅、工兵・盾兵検索、兵科技能詳細、主将候補リンク、自己診断を確認し、現行r215の `file://` 実機確認も合格した。
 
 ## 2. Bug classification and root cause
 
@@ -48,11 +48,11 @@ PR #395の `App Validation / app-validation` は成功（run `40078906521`）。
 
 ## 11. Minimum user acceptance operation
 
-公開Previewでは実施済み。完了に必要な残りの最小操作は、現行r215の `index.html` を `file://` で開き、同フォルダーのJSON読込後に `工兵`→「操器」詳細と主将候補5名が表示されることを確認すること。
+公開Previewでは実施済み。2026-10-24に利用者が現行r215の `index.html` を `file://` で開き、同フォルダーのJSON読込、`工兵`検索、「操器」詳細、主将候補5名の表示が正常であることを確認した。
 
 ## 12. Remaining issues
 
-現行r215の `file://` 実機確認のみ未実施。操作ツールは `file://` をセキュリティポリシーで拒否した。Update01 r213では利用者確認済みだが、現行r215の完了証跡には代用しない。
+なし。Update02の実装、回帰、Actions、Preview同期、公開実動作、現行r215の `file://` 実機確認を完了した。
 
 ## Preview confirmation
 
@@ -63,8 +63,9 @@ PR #395の `App Validation / app-validation` は成功（run `40078906521`）。
 - marker: source commit・source branch・display versionの3件一致
 - DOM・操作: PCと375px幅で横はみ出しなし。全カテゴリ `工兵` は199件で一致理由を表示。兵科技能のみでは「操器」1件、主将候補5名と根拠文を表示。`盾兵`→「列盾」もPCで確認。
 - 診断: manual-button `criticalFailures: 0`、`warnings: 0`、`info: 0`。ブラウザーconsoleのwarning/error 0件。
-- 状態: Preview合格。`file://` の現行r215実機確認待ち。
+- `file://`: 現行r215で同フォルダーJSON読込、`工兵`→「操器」、主将候補5名を利用者確認済み。
+- 状態: 合格。
 
 ## 確認事項
 
-現行r215の `file://` 実機確認のみ必要。Preview反映は既承認。正式公開は別途承認が必要。
+なし。次はUpdate03「データ更新差分と反映状態」へ進む。正式公開は別途承認が必要。
