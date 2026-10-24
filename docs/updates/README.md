@@ -5,7 +5,7 @@
 正本: `feature/app-3.2.0.0`。起点main: `e9153a954a998ad346c6ad7beb876056c11c52fb`（正式版3.1.2.1）。
 [全体ロードマップ](3.2.0.0/roadmap.md) / [Update01](3.2.0.0/update01/roadmap.md) / [Update02](3.2.0.0/update02/roadmap.md) / [Update02実装](3.2.0.0/update02/implementation.md) / [Update02報告](3.2.0.0/update02/report.md)
 
-状態: Update01と割込みr214は完了。Update02 r215を実装・検証中。正式公開なし。
+状態: Update01と割込みr214は完了。Update02 r215は実装・公開Preview検証完了、`file://` 現行版確認待ち。正式公開なし。
 
 ## 以前の開発記録
 

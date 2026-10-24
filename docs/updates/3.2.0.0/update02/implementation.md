@@ -8,6 +8,7 @@
 - 隔離branch: `codex/3200-update02-troop-cross-search`、`codex/3200-update02-troop-tags`
 - 一次データ再取得: なし。2026-10-17取得済み一式を再利用。
 - 表示版: `3.2.0.0 Update02 r215`
+- アプリ実装: PR #395 / head `a062aee443f7ca296c31de3ec55182264c01d957` / merge `a318201d687723f96eff485f901c31fc69f28bda`
 
 ## 不具合分類・根本原因
 
@@ -52,4 +53,4 @@
 
 ## 確認事項
 
-なし。Preview反映は既承認。正式公開は行わない。
+現行r215を `file://` で開いた実機確認のみ必要。Preview反映は既承認。正式公開は行わない。
