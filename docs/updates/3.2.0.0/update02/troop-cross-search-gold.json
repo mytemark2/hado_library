@@ -1,0 +1,2545 @@
+{
+  "schemaVersion": 1,
+  "update": "3.2.0.0 Update02",
+  "sourceAppBaseCommit": "abd1d390a4785e420fb430396df588940fb9d34a",
+  "sourceDataset": "hadou_generals.json",
+  "relationPolicy": "兵科・相性セルで武将自身の兵科を確定し、兵科技能を主将時付与として通常技能所有と区別する。",
+  "totalCommanders": 499,
+  "troopRelations": [
+    {
+      "troopType": "騎兵",
+      "skillName": "走撃",
+      "grantText": "攻撃命令時に自身1部隊に3度の走撃を付与",
+      "commanderCount": 160,
+      "commanders": [
+        {
+          "stableId": "article-243357",
+          "name": "韓遂（かんすい）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243358",
+          "name": "馬岱（ばたい）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243359",
+          "name": "高順（こうじゅん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243366",
+          "name": "文醜（ぶんしゅう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243367",
+          "name": "顔良（がんりょう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243376",
+          "name": "李傕（りかく）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243380",
+          "name": "潘鳳（はんぽう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243383",
+          "name": "曹昂（そうこう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243385",
+          "name": "淳于瓊（じゅんうけい）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243393",
+          "name": "郭汜（かくし）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243394",
+          "name": "凌操（りょうそう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243398",
+          "name": "潘璋（はんしょう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243399",
+          "name": "馬謖（ばしょく）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243403",
+          "name": "張繍（ちょうしゅう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243404",
+          "name": "曹純（そうじゅん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243405",
+          "name": "曹洪（そうこう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243413",
+          "name": "紀霊（きれい）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243414",
+          "name": "牛金（ぎゅうきん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243419",
+          "name": "王双（おうそう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243420",
+          "name": "王允（おういん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243421",
+          "name": "凌統（りょうとう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243424",
+          "name": "満寵（まんちょう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243427",
+          "name": "陳宮（ちんきゅう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243430",
+          "name": "曹仁（そうじん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243431",
+          "name": "曹真（そうしん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243432",
+          "name": "曹彰（そうしょう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243438",
+          "name": "蔡琰（さいえん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243444",
+          "name": "関平（かんぺい）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243445",
+          "name": "関索（かんさく）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243446",
+          "name": "関興（かんこう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243447",
+          "name": "夏侯覇（かこうは）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243451",
+          "name": "呂玲綺（りょれいき）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243452",
+          "name": "龐徳（ほうとく）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243454",
+          "name": "文鴦（ぶんおう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243455",
+          "name": "馬雲騄（ばうんりょく）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243460",
+          "name": "張郃（ちょうこう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243469",
+          "name": "公孫瓚（こうそんさん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243471",
+          "name": "関銀屏（かんぎんぺい）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243472",
+          "name": "華雄（かゆう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243473",
+          "name": "夏侯惇（かこうとん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243478",
+          "name": "馬超（ばちょう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243479",
+          "name": "張遼（ちょうりょう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243481",
+          "name": "趙雲（ちょううん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243484",
+          "name": "郭嘉（かくか）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243486",
+          "name": "呂布（りょふ）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243490",
+          "name": "曹操（そうそう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243493",
+          "name": "司馬懿（しばい）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-243495",
+          "name": "関羽（かんう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-247080",
+          "name": "張梁（ちょうりょう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-253119",
+          "name": "袁紹（えんしょう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-260985",
+          "name": "于禁（うきん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-260987",
+          "name": "UR趙雲（ちょううん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-260988",
+          "name": "徐晃（じょこう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-260989",
+          "name": "UR劉備（りゅうび）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-260990",
+          "name": "覚醒関興（かんこう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-262737",
+          "name": "馬騰（ばとう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-270396",
+          "name": "覚醒曹彰（そうしょう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-275546",
+          "name": "何進（かしん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-278387",
+          "name": "覚醒凌統（りょうとう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-284346",
+          "name": "覚醒関平（かんぺい）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-284347",
+          "name": "覚醒関索（かんさく）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-287569",
+          "name": "UR大喬（だいきょう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-287570",
+          "name": "UR孫策（そんさく）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-287891",
+          "name": "張春華（ちょうしゅんか）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-291875",
+          "name": "覚醒曹仁（そうじん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-293701",
+          "name": "UR孫尚香（そんしょうこう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-293939",
+          "name": "覚醒陳宮（ちんきゅう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-293941",
+          "name": "UR呂布（りょふ）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-297888",
+          "name": "UR貂蝉（ちょうせん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-297889",
+          "name": "UR司馬懿（しばい）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-300372",
+          "name": "鄒氏（すうし）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-306180",
+          "name": "覚醒蔡琰（さいえん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-310376",
+          "name": "花鬘（かまん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-310383",
+          "name": "骨進（こっしん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-310384",
+          "name": "王同（おうどう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-310393",
+          "name": "烏延（うえん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-310394",
+          "name": "楼班（ろうはん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-310402",
+          "name": "丘力居（きゅうりききょ）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-310406",
+          "name": "蹋頓（とうとん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-312271",
+          "name": "覚醒曹真（そうしん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-314403",
+          "name": "UR関羽（かんう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-319194",
+          "name": "覚醒夏侯覇（かこうは）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-319195",
+          "name": "UR龐徳（ほうとく）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-324330",
+          "name": "UR馬超（ばちょう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-327771",
+          "name": "UR孫権（そんけん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-351945",
+          "name": "UR荀攸（じゅんゆう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-359482",
+          "name": "覚醒満寵（まんちょう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-359484",
+          "name": "UR関銀屏（かんぎんぺい）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-361669",
+          "name": "UR曹操（そうそう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-363361",
+          "name": "覚醒韓遂（かんすい）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-367390",
+          "name": "UR公孫瓚（こうそんさん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-367391",
+          "name": "UR馬騰（ばとう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-374342",
+          "name": "UR華雄（かゆう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-377271",
+          "name": "UR王元姫（おうげんき）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-379982",
+          "name": "UR甄氏（しんし）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-379984",
+          "name": "覚醒高順（こうじゅん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-384940",
+          "name": "UR文醜（ぶんしゅう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-384941",
+          "name": "UR顔良（がんりょう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-392392",
+          "name": "UR曹丕（そうひ）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-392396",
+          "name": "覚醒馬岱（ばたい）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-399527",
+          "name": "UR楽進（がくしん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-399528",
+          "name": "UR馬雲騄（ばうんりょく）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-401013",
+          "name": "劉曄（りゅうよう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-401084",
+          "name": "UR祝融（しゅくゆう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-401085",
+          "name": "UR孟獲（もうかく）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-404351",
+          "name": "LR張飛（ちょうひ）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-404352",
+          "name": "UR文鴦（ぶんおう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-404353",
+          "name": "UR張苞（ちょうほう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-409645",
+          "name": "LR郭嘉（かくか）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-410407",
+          "name": "張氏（ちょうし）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-417592",
+          "name": "UR陳宮（ちんきゅう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-425702",
+          "name": "LR孫堅・騎兵（そんけん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-425703",
+          "name": "UR凌統（りょうとう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-427347",
+          "name": "UR曹叡（そうえい）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-430023",
+          "name": "UR蔡琰（さいえん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-431989",
+          "name": "LR趙雲（ちょううん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-433277",
+          "name": "UR関興（かんこう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-437011",
+          "name": "UR曹洪（そうこう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-440899",
+          "name": "LR夏侯惇（かこうとん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-446469",
+          "name": "UR関索（かんさく）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-450341",
+          "name": "LR張郃（ちょうこう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-453618",
+          "name": "UR廖化（りょうか）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-457310",
+          "name": "UR満寵（まんちょう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-457311",
+          "name": "LR張遼・騎兵（ちょうりょう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-460277",
+          "name": "LR高順（こうじゅん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-462238",
+          "name": "LR司馬懿（しばい）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-463688",
+          "name": "UR張春華（ちょうしゅんか）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-469235",
+          "name": "LR徐晃（じょこう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-469237",
+          "name": "UR郝昭（かくしょう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-472707",
+          "name": "LR馬超・騎兵（ばちょう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-479484",
+          "name": "LR英布（えいふ）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-479486",
+          "name": "UR鄭成功（ていせいこう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-479487",
+          "name": "UR高長恭（こうちょうきょう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-482292",
+          "name": "LR関銀屏（かんぎんぺい）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-490355",
+          "name": "UR張梁（ちょうりょう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-494431",
+          "name": "LR公孫瓚（こうそんさん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-503945",
+          "name": "LR馬岱（ばたい）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-507417",
+          "name": "LR李逍遥（りしょうよう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-507419",
+          "name": "LR林月如（りんげつにょ）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-507824",
+          "name": "LR呂玲綺（りょれいき）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-513865",
+          "name": "LR姜維（きょうい）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-516626",
+          "name": "LR袁紹（えんしょう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-519378",
+          "name": "LR甄氏（しんし）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-524481",
+          "name": "LR馬騰（ばとう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-530615",
+          "name": "LR楽進（がくしん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-530638",
+          "name": "LR夏侯惇(ORIGINS)（かこうとん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-537936",
+          "name": "LR関羽（かんう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-544969",
+          "name": "LR荀攸（じゅんゆう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-544970",
+          "name": "LR項籍（こうせき）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-547816",
+          "name": "LR孟獲（もうかく）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-547817",
+          "name": "LR祝融（しゅくゆう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-547818",
+          "name": "UR花鬘（かまん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-549836",
+          "name": "LR顔良（がんりょう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-549837",
+          "name": "LR文醜（ぶんしゅう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-549872",
+          "name": "UR蹋頓（とうとん）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-556163",
+          "name": "LR華雄（かゆう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-560792",
+          "name": "UR兀突骨（ごつとつこつ）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-568457",
+          "name": "LR関平（かんぺい）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-570446",
+          "name": "UR卞氏（べんし）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        },
+        {
+          "stableId": "article-574572",
+          "name": "UR木鹿大王（ぼくろくだいおう）",
+          "sourceCell": "騎兵 / 騎兵アイコン / 騎兵アイコン"
+        }
+      ]
+    },
+    {
+      "troopType": "弓兵",
+      "skillName": "射襲",
+      "grantText": "出陣時に自身1部隊に射襲を付与",
+      "commanderCount": 166,
+      "commanders": [
+        {
+          "stableId": "article-243348",
+          "name": "曹植（そうしょく）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243351",
+          "name": "馬良（ばりょう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243352",
+          "name": "盧植（ろしょく）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243353",
+          "name": "沮授（そじゅ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243354",
+          "name": "羊祜（ようこ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243355",
+          "name": "華佗（かだ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243356",
+          "name": "魯粛（ろしゅく）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243368",
+          "name": "荀彧（じゅんいく）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243371",
+          "name": "張任（ちょうじん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243372",
+          "name": "劉禅（りゅうぜん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243373",
+          "name": "王元姫（おうげんき）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243377",
+          "name": "楊脩（ようしゅう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243378",
+          "name": "卞喜（べんき）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243381",
+          "name": "陳矯（ちんきょう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243384",
+          "name": "曹休（そうきゅう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243386",
+          "name": "朱治（しゅち）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243387",
+          "name": "孔融（こうゆう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243388",
+          "name": "黄祖（こうそ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243389",
+          "name": "許攸（きょゆう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243396",
+          "name": "孟達（もうたつ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243397",
+          "name": "歩騭（ほしつ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243400",
+          "name": "鄧芝（とうし）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243406",
+          "name": "審配（しんぱい）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243407",
+          "name": "鍾繇（しょうよう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243408",
+          "name": "朱然（しゅぜん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243409",
+          "name": "蔡瑁（さいぼう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243411",
+          "name": "黄権（こうけん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243412",
+          "name": "虞翻（ぐほん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243415",
+          "name": "闞沢（かんたく）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243416",
+          "name": "華歆（かきん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243417",
+          "name": "王朗（おうろう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243422",
+          "name": "李儒（りじゅ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243423",
+          "name": "李厳（りげん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243425",
+          "name": "杜預（どよ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243434",
+          "name": "諸葛瑾（しょかつきん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243436",
+          "name": "司馬昭（しばしょう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243439",
+          "name": "顧雍（こよう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243441",
+          "name": "黄蓋（こうがい）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243442",
+          "name": "呉懿（ごい）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243443",
+          "name": "厳顔（げんがん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243453",
+          "name": "法正（ほうせい）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243457",
+          "name": "陳羣（ちんぐん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243458",
+          "name": "張昭（ちょうしょう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243459",
+          "name": "張紘（ちょうこう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243461",
+          "name": "太史慈（たいしじ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243462",
+          "name": "大喬（だいきょう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243463",
+          "name": "孫尚香（そんしょうこう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243464",
+          "name": "諸葛恪（しょかつかく）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243465",
+          "name": "小喬（しょうきょう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243466",
+          "name": "鍾会（しょうかい）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243468",
+          "name": "黄忠（こうちゅう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243470",
+          "name": "黄月英（こうげつえい）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243474",
+          "name": "夏侯淵（かこうえん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243480",
+          "name": "貂蝉（ちょうせん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243487",
+          "name": "陸遜（りくそん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243491",
+          "name": "諸葛亮（しょかつりょう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-243492",
+          "name": "周瑜（しゅうゆ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-247081",
+          "name": "張宝（ちょうほう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-253118",
+          "name": "董卓（とうたく）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-260986",
+          "name": "荀攸（じゅんゆう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-270132",
+          "name": "陸抗（りくこう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-278384",
+          "name": "UR周瑜（しゅうゆ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-278385",
+          "name": "UR甘寧（かんねい）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-284345",
+          "name": "司馬徽（しばき）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-284348",
+          "name": "UR賈詡（かく）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-287567",
+          "name": "覚醒司馬昭（しばしょう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-288264",
+          "name": "祝融（しゅくゆう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-291876",
+          "name": "覚醒黄蓋（こうがい）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-291877",
+          "name": "UR太史慈（たいしじ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-306183",
+          "name": "UR董卓（とうたく）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-307963",
+          "name": "董白（とうはく）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-310381",
+          "name": "弥加（びか）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-310382",
+          "name": "素利（そり）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-310385",
+          "name": "俄何焼戈（がかしょうか）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-310392",
+          "name": "泄帰泥（せつきでい）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-310395",
+          "name": "迷当大王（めいとうだいおう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-310396",
+          "name": "雅丹（がたん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-310401",
+          "name": "歩度根（ほどこん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-310403",
+          "name": "徹里吉（てつりきつ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-310405",
+          "name": "軻比能（かひのう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-310407",
+          "name": "越吉（えつきつ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-312270",
+          "name": "覚醒李儒（りじゅ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-312272",
+          "name": "UR陸遜（りくそん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-312273",
+          "name": "UR小喬（しょうきょう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-313071",
+          "name": "歩練師（ほれんし）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-316075",
+          "name": "覚醒李厳（りげん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-316076",
+          "name": "覚醒杜預（どよ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-316077",
+          "name": "UR龐統（ほうとう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-316078",
+          "name": "UR夏侯淵（かこうえん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-319193",
+          "name": "覚醒厳顔（げんがん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-319196",
+          "name": "UR黄忠（こうちゅう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-328289",
+          "name": "費禕（ひい）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-344400",
+          "name": "覚醒諸葛瑾（しょかつきん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-344401",
+          "name": "UR皇甫嵩（こうほすう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-344554",
+          "name": "袁術（えんじゅつ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-347112",
+          "name": "覚醒顧雍（こよう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-351944",
+          "name": "覚醒呉懿（ごい）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-351946",
+          "name": "UR荀彧（じゅんいく）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-359860",
+          "name": "管輅（かんろ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-363358",
+          "name": "UR徐庶（じょしょ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-363360",
+          "name": "覚醒曹植（そうしょく）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-379985",
+          "name": "覚醒馬良（ばりょう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-385120",
+          "name": "麹義（きくぎ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-387833",
+          "name": "UR鍾会（しょうかい）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-392393",
+          "name": "UR魯粛（ろしゅく）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-392394",
+          "name": "覚醒沮授（そじゅ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-393312",
+          "name": "曹節（そうせつ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-404348",
+          "name": "覚醒盧植（ろしょく）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-404349",
+          "name": "覚醒張任（ちょうじん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-409644",
+          "name": "LR周瑜（しゅうゆ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-409647",
+          "name": "UR黄蓋（こうがい）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-413011",
+          "name": "LR夏侯淵・弓兵（かこうえん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-415628",
+          "name": "LR呂布・弓兵（りょふ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-417588",
+          "name": "LR太史慈（たいしじ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-417589",
+          "name": "LR貂蝉（ちょうせん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-419997",
+          "name": "夏侯氏（かこうし）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-422729",
+          "name": "LR孫臏（そんぴん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-430021",
+          "name": "LR黄忠（こうちゅう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-433275",
+          "name": "LR法正（ほうせい）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-437012",
+          "name": "LR韓信（かんしん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-440898",
+          "name": "LR陸遜・弓兵（りくそん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-440900",
+          "name": "UR張紘（ちょうこう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-440901",
+          "name": "UR張昭（ちょうしょう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-440924",
+          "name": "URフレデリカ（）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-440926",
+          "name": "LRヤン（）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-446471",
+          "name": "LR龐徳（ほうとく）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-457312",
+          "name": "LR孫尚香（そんしょうこう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-458739",
+          "name": "UR虞翻（ぐほん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-460279",
+          "name": "UR諸葛瑾（しょかつきん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-463689",
+          "name": "UR曹真（そうしん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-469236",
+          "name": "LR范増（はんぞう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-472706",
+          "name": "LR孫権（そんけん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-472708",
+          "name": "UR朱然（しゅぜん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-477608",
+          "name": "UR孫魯班（そんろはん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-479485",
+          "name": "LR小喬（しょうきょう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-480973",
+          "name": "LR董卓（とうたく）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-481148",
+          "name": "UR董白（とうはく）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-482293",
+          "name": "LR鍾会（しょうかい）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-483824",
+          "name": "LR鄭成功（ていせいこう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-484960",
+          "name": "LR華佗（かだ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-490351",
+          "name": "LR魯粛（ろしゅく）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-490354",
+          "name": "UR張宝（ちょうほう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-492678",
+          "name": "UR呉国太（ごこくたい）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-497505",
+          "name": "LR陸抗（りくこう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-497506",
+          "name": "LR羊祜（ようこ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-501565",
+          "name": "UR司馬徽（しばき）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-507420",
+          "name": "LR阿奴（あぬ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-507825",
+          "name": "LR黄蓋（こうがい）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-512650",
+          "name": "UR辛憲英（しんけんえい）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-519376",
+          "name": "LR荀彧（じゅんいく）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-521786",
+          "name": "UR厳顔（げんがん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-524482",
+          "name": "LR項燕（こうえん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-530633",
+          "name": "LR孫尚香(ORIGINS)（そんしょうこう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-532230",
+          "name": "UR歩練師（ほれんし）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-540452",
+          "name": "LR諸葛恪（しょかつかく）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-542408",
+          "name": "UR鄒氏（すうし）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-549873",
+          "name": "UR軻比能（かひのう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-556164",
+          "name": "LR張良（ちょうりょう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-560766",
+          "name": "LR司馬師（しばし）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-562413",
+          "name": "UR袁術（えんじゅつ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-564667",
+          "name": "LR闞沢（かんたく）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-568476",
+          "name": "UR越吉（えつきつ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-572584",
+          "name": "LR沮授（そじゅ）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-574571",
+          "name": "UR朶思大王（だしだいおう）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-577561",
+          "name": "LR劉禅（りゅうぜん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        },
+        {
+          "stableId": "article-582918",
+          "name": "LR田文（でんぶん）",
+          "sourceCell": "弓兵 / 弓兵アイコン / 弓兵アイコン"
+        }
+      ]
+    },
+    {
+      "troopType": "工兵",
+      "skillName": "操器",
+      "grantText": "出陣時に自身1部隊に操器を付与",
+      "commanderCount": 5,
+      "commanders": [
+        {
+          "stableId": "article-577559",
+          "name": "LR馬超・工兵（ばちょう）",
+          "sourceCell": "工兵 / 工兵アイコン / 工兵アイコン"
+        },
+        {
+          "stableId": "article-577560",
+          "name": "LR陸遜・工兵（りくそん）",
+          "sourceCell": "工兵 / 工兵アイコン / 工兵アイコン"
+        },
+        {
+          "stableId": "article-577562",
+          "name": "UR文聘（ぶんぺい）",
+          "sourceCell": "工兵 / 工兵アイコン / 工兵アイコン"
+        },
+        {
+          "stableId": "article-579215",
+          "name": "LR呂布・工兵（りょふ）",
+          "sourceCell": "工兵 / 工兵アイコン / 工兵アイコン"
+        },
+        {
+          "stableId": "article-582917",
+          "name": "LR李典（りてん）",
+          "sourceCell": "工兵 / 工兵アイコン / 工兵アイコン"
+        }
+      ]
+    },
+    {
+      "troopType": "盾兵",
+      "skillName": "列盾",
+      "grantText": "出陣時に自身1部隊に1回の列盾を付与さらに通常攻撃を行うたびに、自身1部隊に1度の列盾を付与",
+      "commanderCount": 7,
+      "commanders": [
+        {
+          "stableId": "article-564665",
+          "name": "LR夏侯淵・盾兵（かこうえん）",
+          "sourceCell": "盾兵 / 盾兵アイコン / 盾兵アイコン"
+        },
+        {
+          "stableId": "article-564666",
+          "name": "LR呂蒙・盾兵（りょもう）",
+          "sourceCell": "盾兵 / 盾兵アイコン / 盾兵アイコン"
+        },
+        {
+          "stableId": "article-564668",
+          "name": "UR郭淮（かくわい）",
+          "sourceCell": "盾兵 / 盾兵アイコン / 盾兵アイコン"
+        },
+        {
+          "stableId": "article-565572",
+          "name": "LR孫堅・盾兵（そんけん）",
+          "sourceCell": "盾兵 / 盾兵アイコン / 盾兵アイコン"
+        },
+        {
+          "stableId": "article-568456",
+          "name": "LR馬良（ばりょう）",
+          "sourceCell": "盾兵 / 盾兵アイコン / 盾兵アイコン"
+        },
+        {
+          "stableId": "article-572585",
+          "name": "LR蒙恬（もうてん）",
+          "sourceCell": "盾兵 / 盾兵アイコン / 盾兵アイコン"
+        },
+        {
+          "stableId": "article-579216",
+          "name": "LR張遼・盾兵（ちょうりょう）",
+          "sourceCell": "盾兵 / 盾兵アイコン / 盾兵アイコン"
+        }
+      ]
+    },
+    {
+      "troopType": "歩兵",
+      "skillName": "反槍",
+      "grantText": "出陣時に自身1部隊に3度の反槍を付与さらに、主将戦法発動時に自身1部隊に1度の反槍を付与",
+      "commanderCount": 161,
+      "commanders": [
+        {
+          "stableId": "article-243349",
+          "name": "文聘（ぶんぺい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243350",
+          "name": "孫堅（そんけん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243360",
+          "name": "朱桓（しゅかん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243361",
+          "name": "于吉（うきつ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243362",
+          "name": "許褚（きょちょ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243363",
+          "name": "左慈（さじ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243364",
+          "name": "程昱（ていいく）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243365",
+          "name": "呂蒙（りょもう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243369",
+          "name": "魏延（ぎえん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243370",
+          "name": "鄧艾（とうがい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243374",
+          "name": "廖化（りょうか）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243375",
+          "name": "劉封（りゅうほう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243379",
+          "name": "武安国（ぶあんこく）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243382",
+          "name": "祖茂（そも）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243390",
+          "name": "簡雍（かんよう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243391",
+          "name": "夏侯楙（かこうぼう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243392",
+          "name": "夏侯恩（かこうおん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243395",
+          "name": "李典（りてん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243401",
+          "name": "丁奉（ていほう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243402",
+          "name": "張魯（ちょうろ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243410",
+          "name": "胡車児（こしゃじ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243418",
+          "name": "王平（おうへい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243426",
+          "name": "程普（ていふ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243428",
+          "name": "張苞（ちょうほう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243429",
+          "name": "曹丕（そうひ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243433",
+          "name": "徐盛（じょせい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243435",
+          "name": "蒋欽（しょうきん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243437",
+          "name": "司馬師（しばし）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243440",
+          "name": "呉国太（ごこくたい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243448",
+          "name": "郭淮（かくわい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243449",
+          "name": "楽進（がくしん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243450",
+          "name": "郝昭（かくしょう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243456",
+          "name": "田豊（でんぽう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243467",
+          "name": "周泰（しゅうたい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243475",
+          "name": "王異（おうい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243476",
+          "name": "劉備（りゅうび）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243477",
+          "name": "龐統（ほうとう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243482",
+          "name": "孫権（そんけん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243483",
+          "name": "甘寧（かんねい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243485",
+          "name": "賈詡（かく）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243488",
+          "name": "張飛（ちょうひ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243489",
+          "name": "孫策（そんさく）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-243494",
+          "name": "姜維（きょうい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-247082",
+          "name": "張角（ちょうかく）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-247104",
+          "name": "徐庶（じょしょ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-251225",
+          "name": "典韋（てんい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-256186",
+          "name": "甄氏（しんし）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-260991",
+          "name": "覚醒張苞（ちょうほう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-270397",
+          "name": "覚醒楽進（がくしん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-270398",
+          "name": "UR郭嘉（かくか）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-270399",
+          "name": "UR張遼（ちょうりょう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-275547",
+          "name": "朱儁（しゅしゅん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-275548",
+          "name": "皇甫嵩（こうほすう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-278386",
+          "name": "覚醒蒋欽（しょうきん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-284349",
+          "name": "UR張飛（ちょうひ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-287568",
+          "name": "覚醒司馬師（しばし）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-288263",
+          "name": "沙摩柯（しゃまか）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-288265",
+          "name": "孟獲（もうかく）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-291878",
+          "name": "UR姜維（きょうい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-291933",
+          "name": "周倉（しゅうそう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-293940",
+          "name": "覚醒王平（おうへい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-293942",
+          "name": "UR諸葛亮（しょかつりょう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-297886",
+          "name": "覚醒程普（ていふ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-297887",
+          "name": "覚醒曹丕（そうひ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-306181",
+          "name": "覚醒呉国太（ごこくたい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-306182",
+          "name": "UR孫堅（そんけん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-310377",
+          "name": "鄧凱（とうかい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-310378",
+          "name": "文布（ぶんふ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-310379",
+          "name": "費桟（ひさん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-310380",
+          "name": "黄乱（こうらん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-310386",
+          "name": "劉冑（りゅうちゅう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-310387",
+          "name": "土安（どあん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-310388",
+          "name": "奚泥（けいでい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-310389",
+          "name": "朴胡（ふこ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-310390",
+          "name": "杜濩（とこ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-310391",
+          "name": "張雅（ちょうが）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-310397",
+          "name": "董荼那（とうとな）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-310398",
+          "name": "金環三結（きんかんさんけつ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-310399",
+          "name": "強端（きょうたん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-310400",
+          "name": "尤突（ゆうとつ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-310404",
+          "name": "潘臨（はんりん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-310408",
+          "name": "兀突骨（ごつとつこつ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-316249",
+          "name": "鮑三娘（ほうさんじょう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-319803",
+          "name": "蒋琬（しょうえん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-324328",
+          "name": "覚醒徐盛（じょせい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-324329",
+          "name": "覚醒郭淮（かくわい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-324331",
+          "name": "UR夏侯惇（かこうとん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-324780",
+          "name": "韓当（かんとう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-327770",
+          "name": "覚醒郝昭（かくしょう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-327772",
+          "name": "UR張郃（ちょうこう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-344402",
+          "name": "UR呂玲綺（りょれいき）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-347113",
+          "name": "UR周泰（しゅうたい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-347114",
+          "name": "UR呂蒙（りょもう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-347344",
+          "name": "卞氏（べんし）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-347548",
+          "name": "UR張角（ちょうかく）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-352672",
+          "name": "張松（ちょうしょう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-359483",
+          "name": "UR徐晃（じょこう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-363356",
+          "name": "UR典韋（てんい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-363359",
+          "name": "覚醒朱桓（しゅかん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-374341",
+          "name": "UR陸抗（りくこう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-379983",
+          "name": "UR魏延（ぎえん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-381752",
+          "name": "UR袁紹（えんしょう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-387832",
+          "name": "UR鄧艾（とうがい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-392391",
+          "name": "UR黄月英（こうげつえい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-392395",
+          "name": "覚醒文聘（ぶんぺい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-395921",
+          "name": "UR于禁（うきん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-395922",
+          "name": "UR諸葛恪（しょかつかく）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-404350",
+          "name": "LR呂尚（りょしょう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-413009",
+          "name": "UR曹仁（そうじん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-413010",
+          "name": "LR李信（りしん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-417590",
+          "name": "UR王平（おうへい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-422728",
+          "name": "LR龐統（ほうとう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-422730",
+          "name": "UR周倉（しゅうそう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-425701",
+          "name": "LR許褚（きょちょ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-430022",
+          "name": "LR呂不韋（りょふい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-430024",
+          "name": "UR程昱（ていいく）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-433276",
+          "name": "LR甘寧（かんねい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-435255",
+          "name": "UR丁奉（ていほう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-437013",
+          "name": "LR賈詡（かく）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-440925",
+          "name": "URキルヒアイス（）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-440927",
+          "name": "LRラインハルト（）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-443457",
+          "name": "UR張嶷（ちょうぎょく）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-446470",
+          "name": "LR廉頗（れんぱ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-450342",
+          "name": "LR呂蒙・歩兵（りょもう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-450343",
+          "name": "UR王異（おうい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-452044",
+          "name": "LR孫策（そんさく）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-452102",
+          "name": "UR李典（りてん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-453619",
+          "name": "UR程普（ていふ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-453620",
+          "name": "LR藺相如（りんしょうじょ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-453621",
+          "name": "LR大喬（だいきょう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-460278",
+          "name": "LR王翦（おうせん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-462237",
+          "name": "LR諸葛亮（しょかつりょう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-463686",
+          "name": "LR周泰（しゅうたい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-463687",
+          "name": "LR徐庶（じょしょ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-465945",
+          "name": "UR馬謖（ばしょく）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-479483",
+          "name": "LR皇甫嵩（こうほすう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-483825",
+          "name": "UR岳飛（がくひ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-484961",
+          "name": "LR李牧（りぼく）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-490350",
+          "name": "LR典韋（てんい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-490352",
+          "name": "LR鄧艾（とうがい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-490353",
+          "name": "LR張角（ちょうかく）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-494432",
+          "name": "LR呉起（ごき）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-501244",
+          "name": "LR劉備（りゅうび）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-503943",
+          "name": "LR魏延（ぎえん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-503944",
+          "name": "LR管夷吾（かんいご）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-507418",
+          "name": "LR趙霊児（ちょうれいじ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-513866",
+          "name": "LR鮑叔牙（ほうしゅくが）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-516625",
+          "name": "LR曹操（そうそう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-519377",
+          "name": "LR田豊（でんぽう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-530622",
+          "name": "LR朱桓（しゅかん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-530627",
+          "name": "LR張飛(ORIGINS)（ちょうひ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-536557",
+          "name": "LR黄月英（こうげつえい）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-536558",
+          "name": "LR白起（はくき）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-536559",
+          "name": "LR左慈（さじ）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-540451",
+          "name": "LR周倉（しゅうそう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-549838",
+          "name": "LR于禁（うきん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-552057",
+          "name": "UR蒋欽（しょうきん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-560767",
+          "name": "LR司馬昭（しばしょう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-560793",
+          "name": "UR潘臨（はんりん）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-568477",
+          "name": "UR沙摩柯（しゃまか）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        },
+        {
+          "stableId": "article-583086",
+          "name": "UR韓当（かんとう）",
+          "sourceCell": "歩兵 / 歩兵アイコン / 歩兵アイコン"
+        }
+      ]
+    }
+  ]
+}

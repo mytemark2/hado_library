@@ -1,6 +1,6 @@
 'use strict';
 /* HADO core, shared state, UI shell, parsing and common helpers */
-const DATASET_LABELS={generals:'武将',tactics:'戦法',skills:'技能',troopSkills:'兵科',equipments:'装備',statusEffects:'状態変化',siegeWeapons:'兵器',ethnicArmaments:'武装',formations:'陣形',warhorses:'名馬',warhorseSkills:'軍馬技能'};
+const DATASET_LABELS={generals:'武将',tactics:'戦法',skills:'技能',troopSkills:'兵科技能',equipments:'装備',statusEffects:'状態変化',siegeWeapons:'兵器',ethnicArmaments:'武装',formations:'陣形',warhorses:'名馬',warhorseSkills:'軍馬技能'};
 const SEARCH_CATEGORY_DISPLAY_ORDER=Object.freeze(['generals','tactics','skills','equipments','statusEffects','siegeWeapons','ethnicArmaments','formations','warhorses','warhorseSkills','troopSkills']);
 const DETAIL_BLOCKLIST=['宇宙SF戦略RPG『ファウンデーション','Text Sample','技能別武将一覧はこちら','参軍技能別武将一覧はこちら'];
 const DETAIL_SECTION_STOP_TITLES=['三國志 覇道の関連リンク','同じ五行適正の高い武将'];

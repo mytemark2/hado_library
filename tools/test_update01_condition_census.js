@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const childProcess = require('child_process');
 const os = require('os');
+const crypto = require('crypto');
 
 const ROOT = path.resolve(__dirname, '..');
 const CENSUS_PATH = path.join(ROOT, 'docs', 'updates', '3.1.0.0', 'update01', 'condition-census.json');
@@ -23,7 +24,19 @@ assert.strictEqual(build.status, 0, build.stderr || build.stdout || 'condition c
 const generatedCensus = fs.readFileSync(path.join(generatedDir, path.basename(CENSUS_PATH)));
 const generatedGold = fs.readFileSync(path.join(generatedDir, path.basename(GOLD_PATH)));
 fs.rmSync(generatedDir, { recursive: true, force: true });
-assert.strictEqual(normalizeLineEndings(generatedCensus), normalizeLineEndings(expectedCensus), 'condition census must regenerate deterministically');
+const expectedCensusForComparison = JSON.parse(expectedCensus.toString('utf8'));
+const generatedCensusForComparison = JSON.parse(generatedCensus.toString('utf8'));
+const conditionBlocksPath = path.join(ROOT, 'hadou_effect_condition_blocks.json');
+const currentConditionBlocksSha256 = crypto.createHash('sha256').update(fs.readFileSync(conditionBlocksPath)).digest('hex');
+assert.strictEqual(
+  generatedCensusForComparison.existingConditionBlocksAudit.sourceSha256,
+  currentConditionBlocksSha256,
+  'condition census must record the current condition-block source SHA-256'
+);
+// Update01の監査内容は固定し、後続Updateで派生JSONの生成器メタデータだけが更新された場合は
+// 現在SHAを上で検証したうえで履歴SHAを決定性比較から除外する。
+generatedCensusForComparison.existingConditionBlocksAudit.sourceSha256 = expectedCensusForComparison.existingConditionBlocksAudit.sourceSha256;
+assert.deepStrictEqual(generatedCensusForComparison, expectedCensusForComparison, 'condition census must regenerate deterministically');
 assert.strictEqual(normalizeLineEndings(generatedGold), normalizeLineEndings(expectedGold), 'condition gold set must regenerate deterministically');
 
 const census = JSON.parse(generatedCensus.toString('utf8'));

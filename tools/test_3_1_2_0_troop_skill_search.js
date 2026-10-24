@@ -42,19 +42,19 @@ assert(sousha.searchTokens.join(' ').includes('兵器速度+30%'), 'effect text 
 assert(troopSkills.renderDetailHtml(sousha).includes('自部隊の兵器の被ダメージ-70%'));
 assert(troopSkills.buildCopyLines(sousha).includes('兵科：工兵'));
 
-assert(core.includes("troopSkills:'兵科'"));
+assert(core.includes("troopSkills:'兵科技能'"));
 assert(core.includes('troopSkills:[]'));
-assert(search.includes("['troopSkills','兵科',state.troopSkills]"));
-assert(search.includes("['troopSkills','兵科']"));
+assert(search.includes("['troopSkills','兵科技能',state.troopSkills]"));
+assert(search.includes("['troopSkills','兵科技能']"));
 assert(statusEffects.includes('troopSkills:state.troopSkills'));
 assert(bootstrap.includes('...state.troopSkills'));
 assert(bootstrap.indexOf('window.HADO_TROOP_SKILLS?.install?.();') < bootstrap.lastIndexOf('startup();'));
 assert(formation.includes("categoryKey==='generals'||categoryKey==='troopSkills'"), 'troop skill detail must not require a derived related-link index');
-assert(indexHtml.includes('hado_troop_skills.js?v=01-r214'));
+assert(indexHtml.includes('hado_troop_skills.js?v=02-r215'));
 assert(indexHtml.indexOf('hado_status_effects.js') < indexHtml.indexOf('hado_troop_skills.js'));
 assert(indexHtml.indexOf('hado_troop_skills.js') < indexHtml.indexOf('hado_bootstrap.js'));
 assert(version.includes("releaseVersion: '3.2.0.0'"));
-assert(version.includes('revision: 214'));
+assert(version.includes('revision: 215'));
 
 const shadowRenderer = formation.match(/function renderUpdate07ScoreShadowHtml\(shadow\)\{[\s\S]*?\n\}/)?.[0] || '';
 assert(shadowRenderer.includes("return '';"), 'Clause Shadow renderer must remain hidden');

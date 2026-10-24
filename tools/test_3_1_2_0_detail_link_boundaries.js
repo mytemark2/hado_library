@@ -17,8 +17,8 @@ const statusEffects = read('hado_status_effects.js');
 
 const expectedOrder = "['generals','tactics','skills','equipments','statusEffects','siegeWeapons','ethnicArmaments','formations','warhorses','warhorseSkills','troopSkills']";
 assert(core.includes(`SEARCH_CATEGORY_DISPLAY_ORDER=Object.freeze(${expectedOrder})`), '兵科 must be the final visible search category');
-assert(search.includes("['warhorseSkills','軍馬技能',state.warhorseSkills],['troopSkills','兵科',state.troopSkills]"), '兵科 result order must follow 軍馬技能');
-assert(search.includes("['warhorseSkills','軍馬技能'],['troopSkills','兵科']"), '兵科 category button must follow 軍馬技能');
+assert(search.includes("['warhorseSkills','軍馬技能',state.warhorseSkills],['troopSkills','兵科技能',state.troopSkills]"), '兵科 result order must follow 軍馬技能');
+assert(search.includes("['warhorseSkills','軍馬技能'],['troopSkills','兵科技能']"), '兵科 category button must follow 軍馬技能');
 
 assert(core.includes('class="detail-structure-label no-detail-linkify"'), 'key/value labels must opt out of automatic entity links');
 assert(core.includes('class="merge-cell no-detail-linkify"'), 'merged section headings must opt out of automatic entity links');

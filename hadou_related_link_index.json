@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-17T02:13:25.248Z",
-  "dataSetId": "2026-09-20T09:58:09.111Z",
-  "crawlerVersion": "1.1.0.3",
+  "generatedAt": "2026-10-24T08:10:21.420Z",
+  "dataSetId": "2026-10-17T02:13:23.899Z",
+  "crawlerVersion": "1.1.0.8",
   "generator": "hado_crawler_extension",
   "sourceFiles": [
     "hadou_generals.json",
@@ -74,7 +74,7 @@
     "warhorses": "c5edd890",
     "warhorseSkills": "fac49238"
   },
-  "hotfixVersion": "1.1.0.3",
+  "hotfixVersion": "1.1.0.8",
   "kind": "related_link_index",
   "qualityAudit": {
     "itemCount": 3050,
@@ -139,7 +139,7 @@
     },
     "displayRoleAudit": {
       "ok": true,
-      "version": "1.1.0.6",
+      "version": "1.1.0.8",
       "functionalSummaryCount": 1201,
       "grantedStatusCount": 295,
       "directStatusCount": 5331,
@@ -658,12 +658,12 @@
     },
     "appSupplementMigration": {
       "ok": true,
-      "version": "1.1.0.6",
+      "version": "1.1.0.8",
       "policy": "アプリ側で補完していた自部隊不利対策はself_countermeasure_indexとしてrelated_link_indexへ生成済み。アプリは表示のみ担当し、異常検知は診断で可視化する。"
     },
     "selfCountermeasureFullAudit": {
       "ok": true,
-      "version": "1.1.0.6",
+      "version": "1.1.0.8",
       "skillCount": 112,
       "grantingSkillCount": 28,
       "grantOnlySkillCount": 27,

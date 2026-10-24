@@ -3,9 +3,9 @@
 ## 現在の大型開発: 3.2.0.0
 
 正本: `feature/app-3.2.0.0`。起点main: `e9153a954a998ad346c6ad7beb876056c11c52fb`（正式版3.1.2.1）。
-[全体ロードマップ](3.2.0.0/roadmap.md) / [Update01](3.2.0.0/update01/roadmap.md) / [実装記録](3.2.0.0/update01/implementation.md) / [報告](3.2.0.0/update01/report.md)
+[全体ロードマップ](3.2.0.0/roadmap.md) / [Update01](3.2.0.0/update01/roadmap.md) / [Update02](3.2.0.0/update02/roadmap.md) / [Update02実装](3.2.0.0/update02/implementation.md) / [Update02報告](3.2.0.0/update02/report.md)
 
-状態: Update01 r213完了。割込みの検索一致理由表示もr214で完了し、公開Preview・診断・PC/375px幅・名称/本文/空検索を確認済み。次はUpdate02。正式公開なし。
+状態: Update01と割込みr214は完了。Update02 r215を実装・検証中。正式公開なし。
 
 ## 以前の開発記録
 
