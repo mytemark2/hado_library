@@ -2,7 +2,7 @@
 
 ## 1. Summary
 
-5兵科、5兵科技能、499主将候補の横断検索と詳細リンクを実装し、App Validation 175/175件を完了した。Preview結果は配信後に追記する。
+5兵科、5兵科技能、499主将候補の横断検索と詳細リンクを実装し、App Validation 175/175件を完了した。公開PreviewではPC・375px幅、工兵・盾兵検索、兵科技能詳細、主将候補リンク、自己診断を確認し、現行r215の `file://` 実機確認も合格した。
 
 ## 2. Bug classification and root cause
 
@@ -36,29 +36,36 @@
 
 ## 8. Git commit and pull request
 
-クローラーPR #39（head `41b93692ac150e02bc12850b8f280528463865ef`、merge `f0907fcc30fa2396ac8a14cc0ec6de73a04c2e9f`）を `feature/crawler-1.1.0.0` へマージ済み。アプリPRは作成後に追記する。
+クローラーPR #39（head `41b93692ac150e02bc12850b8f280528463865ef`、merge `f0907fcc30fa2396ac8a14cc0ec6de73a04c2e9f`）を `feature/crawler-1.1.0.0` へマージ済み。アプリPR #395（head `a062aee443f7ca296c31de3ec55182264c01d957`、merge `a318201d687723f96eff485f901c31fc69f28bda`）を `feature/app-3.2.0.0` へマージ済み。
 
 ## 9. GitHub Actions result
 
-PR作成後に追記する。
+PR #395の `App Validation / app-validation` は成功（run `40078906521`）。PR上のPreview通知は設計どおりskipし、正本ブランチへのmerge後にpushイベントの `Notify Hado Library Preview` run `40079010313` が成功した。
 
 ## 10. Preview synchronization result
 
-配信後にworkflow、source commit/branch/display version marker、preview repository HEAD、公開URLを追記する。
+イベント駆動配信は成功。Preview repository `main` は `371723b477aca16e31b4868ca80909171a8b76c5`。markerはsource commit `a318201d687723f96eff485f901c31fc69f28bda`、source branch `feature/app-3.2.0.0`、display version `3.2.0.0 Update02 r215` で一致した。公開URLはHTTP 200で、必須runtime、36件の `hadou_*.json`、marker 3件を確認した。
 
 ## 11. Minimum user acceptance operation
 
-公開Previewで `工兵` を検索し、兵科技能「操器」と工兵武将が別カテゴリで表示されること、「操器」詳細の主将候補からLR李典へ移動できることを確認する。`盾兵`→`列盾`も同様に確認する。
+公開Previewでは実施済み。2026-10-24に利用者が現行r215の `index.html` を `file://` で開き、同フォルダーのJSON読込、`工兵`検索、「操器」詳細、主将候補5名の表示が正常であることを確認した。
 
 ## 12. Remaining issues
 
-Preview配信と公開実動作確認が未実施のため、Update02は未完了。
+なし。Update02の実装、回帰、Actions、Preview同期、公開実動作、現行r215の `file://` 実機確認を完了した。
 
 ## Preview confirmation
 
 - 公開URL: https://mytemark2.github.io/hado_library-preview/
-- 状態: 未確認
+- 表示版: `3.2.0.0 Update02 r215`
+- アプリ正本commit: `a318201d687723f96eff485f901c31fc69f28bda`
+- Preview repository commit: `371723b477aca16e31b4868ca80909171a8b76c5`
+- marker: source commit・source branch・display versionの3件一致
+- DOM・操作: PCと375px幅で横はみ出しなし。全カテゴリ `工兵` は199件で一致理由を表示。兵科技能のみでは「操器」1件、主将候補5名と根拠文を表示。`盾兵`→「列盾」もPCで確認。
+- 診断: manual-button `criticalFailures: 0`、`warnings: 0`、`info: 0`。ブラウザーconsoleのwarning/error 0件。
+- `file://`: 現行r215で同フォルダーJSON読込、`工兵`→「操器」、主将候補5名を利用者確認済み。
+- 状態: 合格。
 
 ## 確認事項
 
-なし。Preview反映は既承認。正式公開は別途承認が必要。
+なし。次はUpdate03「データ更新差分と反映状態」へ進む。正式公開は別途承認が必要。
