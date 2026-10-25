@@ -21,4 +21,4 @@ const search=structuredClone(result.files['hadou_search_index.json']);search.ite
 assert(audit(root,{'hadou_search_index.json':search}).summary.issues.some(x=>x.code==='primary-not-in-search'&&x.key==='generals:article-582917'));
 const owners=structuredClone(result.files['hadou_skill_owner_index.json']);owners.items[0].owners[0].ownerEntityKey='generals:missing-fixture';
 assert(audit(root,{'hadou_skill_owner_index.json':owners}).summary.issues.some(x=>x.code==='dangling-owner'&&x.key==='generals:missing-fixture'));
-console.log(`Update01 audit: ${Object.values(s.sourceCounts).reduce((a,b)=>a+b,0)} source rows; ${s.relatedLinkCount} related links; 499 troop identities; ${gold.addedEntities.length} additions; 2 explicit alias holds; mutation guards passed`);
+console.log(`Update01 audit: ${Object.values(s.sourceCounts).reduce((a,b)=>a+b,0)} source rows; ${s.relatedLinkCount} related links; 499 troop identities; ${gold.addedEntities.length} additions; same-name articles independently indexed; mutation guards passed`);

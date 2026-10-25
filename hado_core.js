@@ -1267,6 +1267,12 @@ function setupSaveManagerPanel(){
 // FEATURE[HADO-2.5.2.2-DATA-BAR]: 通常時は1行データバー、切替時だけモード別設定を表示
 function dataContextLoadedCount(){return (state.generals?.length||0)+(state.tactics?.length||0)+(state.skills?.length||0)+(state.equipments?.length||0)+(state.statusEffects?.length||0)+(state.siegeWeapons?.length||0)+(state.ethnicArmaments?.length||0)+(state.ethnicResearchSkills?.length||0)+(state.formationMasters?.length||0)+(state.warhorses?.length||0)+(state.warhorseSkills?.length||0);}
 function dataUpdatedAtDisplay(){const value=norm(state.dataUpdateMeta?.dataUpdatedAtJst||'');return value||'未記録';}
+function ensureDataUpdateStatusPanel(){
+  let panel=document.getElementById('dataUpdateStatusPanel');if(panel)return panel;
+  const fileStatus=document.getElementById('dataFileStatusText');if(!fileStatus?.parentElement)return null;
+  panel=document.createElement('section');panel.id='dataUpdateStatusPanel';panel.className='data-update-panel';panel.setAttribute('aria-label','データ更新状態');
+  fileStatus.insertAdjacentElement('afterend',panel);return panel;
+}
 function getDataContextSummaryText(){
   const current=getCurrentSave?getCurrentSave():null;
   const jsonOk=dataContextLoadedCount()>0;
@@ -1287,6 +1293,7 @@ function updateDataContextBar(context=''){
       fileStatus.textContent=loaded?(IS_WEB_DEPLOYMENT?`${webPrefix}｜武将${state.generals.length} / 戦法${state.tactics.length} / 技能${state.skills.length} / 装備${state.equipments.length} / 陣形${state.formationMasters.length}`:`JSON読込済：武将${state.generals.length} / 戦法${state.tactics.length} / 技能${state.skills.length} / 装備${state.equipments.length} / 陣形${state.formationMasters.length}`):(IS_WEB_DEPLOYMENT?'ウェブ版：公開JSONを確認中です。':'JSON未読込：JSONフォルダまたはJSONファイルを選択してください。');
       if(loaded)fileStatus.textContent+=`｜データ更新日：${dataUpdatedAtDisplay()}`;
     }
+    const updatePanel=ensureDataUpdateStatusPanel();if(window.HADO_DATA_UPDATE?.render)window.HADO_DATA_UPDATE.render(updatePanel,window.HADO_DATA_UPDATE_STATUS||null);
     syncDataManagementSheet(context);
     debugLog('dataContext:update',{context,summary:summary?summary.textContent:'',viewMode:state.viewMode,generalStage:state.generalStage,equipmentStage:state.equipmentStage});
   }catch(err){try{debugLog('dataContext:update-error',{context,message:err?.message||String(err)});}catch{}}

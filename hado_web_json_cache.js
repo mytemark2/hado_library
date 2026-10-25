@@ -38,7 +38,7 @@
     'hadou_type_search_presets.json',
     'hadou_type_search_regression_cases.json'
   ]);
-  const OPTIONAL_FILE_NAMES = Object.freeze(['hadou_type_score_rules.json']);
+  const OPTIONAL_FILE_NAMES = Object.freeze(['hadou_tactics.json', 'hadou_type_score_rules.json']);
   const SHA256_RE = /^[0-9a-f]{64}$/;
 
   function normalizeManifest(raw) {
