@@ -1888,3 +1888,20 @@ mark.search-hit.tag-text-highlight{background:var(--tag-highlight-bg);border-bot
     scrollbar-gutter:stable;
   }
 }
+
+/* Hado Library 3.2.0.0 Update03: separate acquisition, validation, reflection and data diff. */
+.data-update-panel{display:grid;gap:10px;border:1px solid #bfdbfe;border-radius:14px;background:#f8fbff;padding:10px;color:#334155;font-size:12px}
+.data-update-stage-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.data-update-stage-grid>div{display:grid;gap:3px;border:1px solid #dbeafe;border-radius:10px;background:#fff;padding:8px}
+.data-update-stage-grid span,.data-update-provenance span{font-size:10px;font-weight:800;color:#64748b}
+.data-update-stage-grid strong{font-size:13px;color:#1d4ed8}.data-update-stage-grid strong[data-stage="failed"]{color:#b91c1c}.data-update-stage-grid strong[data-stage="pending"]{color:#92400e}
+.data-update-provenance{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.data-update-provenance>div{display:grid;gap:2px;min-width:0;border-bottom:1px solid #e2e8f0;padding:4px 2px}
+.data-update-provenance strong{font-size:11px;overflow-wrap:anywhere}
+.data-update-warning{border:1px solid #fca5a5;border-radius:10px;background:#fef2f2;color:#991b1b;padding:8px;line-height:1.6}
+.data-update-summary{font-weight:900;color:#0f172a;margin:7px 0}
+.data-update-details{border-top:1px solid #dbeafe;padding-top:7px}.data-update-details>summary{cursor:pointer;font-weight:900;color:#1e3a8a}
+.data-update-change-group,.data-update-audit{margin-top:8px}.data-update-change-group ul,.data-update-audit ul{display:grid;gap:3px;margin:5px 0 0;padding-left:18px;max-height:190px;overflow:auto}
+.data-update-change-group li,.data-update-audit li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px;align-items:start}.data-update-change-group code,.data-update-audit code{font-size:9px;color:#64748b;overflow-wrap:anywhere}
+.data-update-audit p{margin:3px 0;color:#64748b;line-height:1.55}.data-update-empty{color:#64748b;line-height:1.55}
+@media (max-width:520px){.data-update-provenance{grid-template-columns:1fr}.data-update-stage-grid{gap:4px}.data-update-stage-grid>div{padding:7px 5px}.data-update-change-group li,.data-update-audit li{grid-template-columns:1fr}.data-update-change-group code,.data-update-audit code{font-size:8px}}

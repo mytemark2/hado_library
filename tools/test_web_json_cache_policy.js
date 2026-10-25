@@ -34,6 +34,10 @@ for (const snippet of [
   "useCached('auto-cache-update-check-failed'",
   "useCached('auto-cache-refresh-failed'",
   'bundleManifest:remoteManifest',
+  'stageJsonCacheCandidate',
+  "cacheSave:'staged-until-reflection-passes'",
+  'pendingJsonCacheCandidate?.data===data',
+  'updateStatus:status',
   'xhr.timeout=timeoutMs',
   'webJson:sha256-mismatch'
 ]) assert(bootstrap.includes(snippet), `missing web cache behavior: ${snippet}`);

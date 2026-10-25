@@ -1,8 +1,39 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-24T08:10:21.420Z",
-  "dataSetId": "2026-10-17T02:13:23.899Z",
+  "generatedAt": "2026-10-25T04:24:02.726Z",
+  "dataSetId": "2026-10-17T02-12-44-246Z",
   "generator": "hado_crawler_extension",
+  "acquiredAt": "2026-10-17T01:56:42.204Z",
+  "processedAt": "2026-10-17T02:13:23.899Z",
+  "sourceRunId": "2026-10-17T02-12-44-246Z",
+  "sourceCrawlerVersion": "1.1.0.6",
+  "sourceCommit": "8239d70ed4d43f2b762858a1c14c21f221c9757b",
+  "sourceCommitRole": "application-generation-base",
+  "sourceBranch": "feature/app-3.1.2.0",
+  "crawlerSourceCommit": "",
+  "crawlerSourceBranch": "",
+  "crawlerSourceCommitStatus": "unknown-in-source-run",
+  "provenance": {
+    "acquisition": {
+      "acquiredAt": "2026-10-17T01:56:42.204Z",
+      "dataUpdatedAt": "2026-10-17T01:56:42.204Z",
+      "runId": "2026-10-17T02-12-44-246Z",
+      "recoverySourceRunId": "2026-10-17T00-41-45-707Z"
+    },
+    "processing": {
+      "processedAt": "2026-10-17T02:13:23.899Z",
+      "sourceExportedAt": "2026-10-17T02:13:23.899Z",
+      "generatedAt": "2026-10-25T04:24:02.726Z"
+    },
+    "source": {
+      "recordedCommit": "8239d70ed4d43f2b762858a1c14c21f221c9757b",
+      "recordedCommitRole": "application-generation-base",
+      "sourceBranch": "feature/app-3.1.2.0",
+      "crawlerSourceCommit": "",
+      "crawlerSourceBranch": "",
+      "crawlerSourceCommitStatus": "unknown-in-source-run"
+    }
+  },
   "sourceFiles": [
     "hadou_generals.json",
     "hadou_tactics.json",
@@ -73,7 +104,7 @@
     "warhorses": "c5edd890",
     "warhorseSkills": "fac49238"
   },
-  "crawlerVersion": "1.1.0.8",
+  "crawlerVersion": "1.1.0.9",
   "milestone": "crawler-1.1.0.0 / app-3.0.0.0",
   "updateNo": "01",
   "status": "design-fixed-for-update02-generator",
