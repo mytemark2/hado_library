@@ -35,7 +35,14 @@
 
 - HTML変更は外部スクリプト読込とキャッシュキー更新のみ。
 - 実装は `hado_data_update.js`、`hado_bootstrap.js`、`hado_core.js`、`hado_styles.css` に外部化した。
-- HTMLサイズ差は最終報告で起点SHAと比較して記録する。
+- 起点 `cfbc31862d0536666e01c71f6ec26c90ee3dd8e1` 比で `index.html` は28,889 bytesから28,988 bytesへ99 bytes増加。増分は外部スクリプト読込のみ。
+
+## 完了証跡
+
+- アプリPR #397を `feature/app-3.2.0.0` へ統合。App Validation 175/175件に合格した。
+- 正本pushからPreviewが自動同期され、公開版 `3.2.0.0 Update03 r216`、marker、runtime 71件の一致を確認した。
+- 公開画面でデータ管理、差分・監査情報、検索、詳細、手動診断0失敗0警告を確認した。
+- 実動作確認はUpdate固有roadmapに従い公開Previewを正本とした。`file://` はUpdate08の全体回帰で確認する。
 
 ## 確認事項
 
