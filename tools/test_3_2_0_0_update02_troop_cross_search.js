@@ -57,9 +57,9 @@ assert(formation.includes("categoryKey==='troopSkills'?(window.HADO_TROOP_SKILLS
 assert(core.includes("troopSkills:'兵科技能'"));
 assert(search.includes("['troopSkills','兵科技能',state.troopSkills]"));
 assert(search.includes("['troopSkills','兵科技能']"));
-assert(index.includes('hado_troop_skills.js?v=03-r216'));
-assert(version.includes("updateNo: '03'"));
-assert(version.includes('revision: 216'));
+assert(index.includes('hado_troop_skills.js?v=04-r217'));
+assert(version.includes("updateNo: '04'"));
+assert(version.includes('revision: 217'));
 
 const derivedNames=['hadou_status_effect_relations.json','hadou_skill_owner_index.json','hadou_search_index.json','hadou_parameter_summary_index.json','hadou_result_card_index.json','hadou_tag_index.json','hadou_status_effect_meta_index.json','hadou_status_effect_group_owner_index.json','hadou_related_link_index.json','hadou_equipment_skill_stage_index.json','hadou_tactic_attack_index.json','hadou_formation_candidate_index.json','hadou_effect_condition_blocks.json','hadou_type_search_feature_index.json','hadou_type_search_presets.json','hadou_type_search_regression_cases.json','hadou_type_score_rules.json','hadou_type_purpose_rules.json','hadou_type_search_role_rules.json','hadou_type_search_role_index.json'];
 for(const name of derivedNames)assert.strictEqual(read(name).crawlerVersion,'1.1.0.9',`${name}: crawlerVersion`);

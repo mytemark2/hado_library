@@ -485,7 +485,7 @@
         button.className = 'copy-btn';
         button.id = 'copySearchLinkBtn';
         button.dataset.hadoShareAction = 'search-link';
-        button.textContent = '検索リンクコピー';
+        button.textContent = '検索条件リンクをコピー';
         resultActions.appendChild(button);
       }
       els.copySearchLinkBtn = button;

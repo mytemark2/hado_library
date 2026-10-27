@@ -1905,3 +1905,25 @@ mark.search-hit.tag-text-highlight{background:var(--tag-highlight-bg);border-bot
 .data-update-change-group li,.data-update-audit li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px;align-items:start}.data-update-change-group code,.data-update-audit code{font-size:9px;color:#64748b;overflow-wrap:anywhere}
 .data-update-audit p{margin:3px 0;color:#64748b;line-height:1.55}.data-update-empty{color:#64748b;line-height:1.55}
 @media (max-width:520px){.data-update-provenance{grid-template-columns:1fr}.data-update-stage-grid{gap:4px}.data-update-stage-grid>div{padding:7px 5px}.data-update-change-group li,.data-update-audit li{grid-template-columns:1fr}.data-update-change-group code,.data-update-audit code{font-size:8px}}
+
+/* Hado Library 3.2.0.0 Update04: removable conditions and reason-first result cards. */
+.search-condition-chip{max-width:100%;min-width:0;padding:3px 4px 3px 7px}
+.search-condition-chip-label{min-width:0;overflow-wrap:anywhere;word-break:break-word}
+.search-condition-chip-remove{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;width:24px;height:24px;border:0;border-radius:5px;background:transparent;padding:0;color:currentColor;font-size:15px;font-weight:900;line-height:1}
+.search-condition-chip-remove:hover{background:rgba(15,23,42,.08)}
+.search-condition-chip-remove:focus-visible{outline:2px solid #475569;outline-offset:1px}
+.search-result-primary-reason{border-left:3px solid #7c3aed;background:#faf5ff;padding:5px 7px;color:#3b0764;font-weight:700;line-height:1.5;overflow-wrap:anywhere;word-break:break-word}
+.search-result-primary-reason.search-result-keyword-reason{border-left-color:#0f766e;background:#f0fdfa;color:#0f5132}
+.search-result-secondary{color:#64748b}
+.result-copy-actions{align-items:stretch}
+.result-copy-actions .copy-btn{min-height:34px}
+@media (max-width:980px),(pointer:coarse){
+  .search-condition-chips,.search-condition-chips.search-condition-chips-header{max-width:100%;overflow-x:hidden}
+  .search-condition-chip{max-width:100%;padding:3px 3px 3px 7px}
+  .search-condition-chip-remove{width:32px;height:32px;margin:-3px -3px -3px 0;touch-action:manipulation}
+  .search-result-top{align-items:flex-start}
+  .search-result-metric{max-width:100%;white-space:normal;overflow-wrap:anywhere}
+  .result-copy-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}
+  .result-copy-actions .copy-btn{width:100%;min-width:0;min-height:44px}
+}
+@media (max-width:420px){.result-copy-actions{grid-template-columns:1fr}}
