@@ -21,6 +21,10 @@ assert(!index.includes('03-r216'));
 
 assert(search.includes('function renderSearchConditionChip('));
 assert(search.includes('function bindSearchConditionChipActions('));
+assert(search.includes('function clearKeywordSearchCondition('));
+assert(search.includes("if(action==='keyword'){clearKeywordSearchCondition('keyword-condition-chip');return;}"));
+assert(!search.includes('els.clearKeywordBtn.click()'), 'condition chip must not depend on a nested synthetic button click');
+assert(bootstrap.includes("clearKeywordSearchCondition('keyword-clear-button')"), 'button and condition chip must share the same keyword-clear implementation');
 for (const action of ['keyword', 'category', 'view', 'name-range', 'quick-status', 'search-mode', 'type-clear', 'type-status', 'type-feature', 'tag']) {
   assert(search.includes(`action==='${action}'`), `missing chip action: ${action}`);
 }

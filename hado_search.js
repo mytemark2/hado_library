@@ -739,6 +739,16 @@ function renderSearchConditionChip(label,options={}){
   const removeButton=action?`<button type="button" class="search-condition-chip-remove" data-search-condition-action="${esc(action)}"${value?` data-search-condition-value="${esc(value)}"`:''} aria-label="${esc(label)}を解除">×</button>`:'';
   return `<span class="search-condition-chip${className?` ${esc(className)}`:''}"><span class="search-condition-chip-label">${esc(label)}</span>${removeButton}</span>`;
 }
+function clearKeywordSearchCondition(reason='keyword-clear'){
+  cancelScheduledSearchRender();
+  clearQuickStatusEffectOwnerFilter({skipRender:true});
+  if(els.searchInput)els.searchInput.value='';
+  resetMobileResultSelectLimit();
+  debugLog('keywordSearch:clear',{reason});
+  renderSearchResults();
+  renderDetail();
+  pushOperationHistory(reason);
+}
 function bindSearchConditionChipActions(){
   const wrap=document.getElementById('searchConditionChips');
   if(!wrap||wrap.dataset.conditionActionBound==='1')return;
@@ -748,7 +758,7 @@ function bindSearchConditionChipActions(){
     if(!button||!wrap.contains(button))return;
     const action=norm(button.dataset.searchConditionAction||'');
     const value=norm(button.dataset.searchConditionValue||'');
-    if(action==='keyword'){if(els.clearKeywordBtn)els.clearKeywordBtn.click();return;}
+    if(action==='keyword'){clearKeywordSearchCondition('keyword-condition-chip');return;}
     if(action==='category'){if(value)toggleCategory(value);return;}
     if(action==='view'){try{localStorage.setItem('hado_library_view_mode_v1_2','all');}catch{}setViewMode('all');return;}
     if(action==='name-range'){
