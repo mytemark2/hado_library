@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-25T04:24:02.726Z",
+  "generatedAt": "2026-10-31T05:17:16.170Z",
   "dataSetId": "2026-10-17T02-12-44-246Z",
   "generator": "hado_crawler_extension",
   "acquiredAt": "2026-10-17T01:56:42.204Z",
@@ -23,7 +23,7 @@
     "processing": {
       "processedAt": "2026-10-17T02:13:23.899Z",
       "sourceExportedAt": "2026-10-17T02:13:23.899Z",
-      "generatedAt": "2026-10-25T04:24:02.726Z"
+      "generatedAt": "2026-10-31T05:17:16.170Z"
     },
     "source": {
       "recordedCommit": "8239d70ed4d43f2b762858a1c14c21f221c9757b",
@@ -65,7 +65,7 @@
   "sourceCounts": {
     "generals": 499,
     "tactics": 478,
-    "equipments": 266,
+    "equipments": 268,
     "skills": 701,
     "statusEffects": 214,
     "siegeWeapons": 6,
@@ -79,7 +79,7 @@
   "sourceHashes": {
     "generals": "3da993b8",
     "tactics": "22b528e7",
-    "equipments": "cd54ce10",
+    "equipments": "db54e41a",
     "skills": "d549f069",
     "statusEffects": "5efd1923",
     "formations": "9b5d2c1b",
@@ -93,7 +93,7 @@
   "sourceSha256": {
     "generals": "3da993b8",
     "tactics": "22b528e7",
-    "equipments": "cd54ce10",
+    "equipments": "db54e41a",
     "skills": "d549f069",
     "statusEffects": "5efd1923",
     "formations": "9b5d2c1b",
@@ -104,7 +104,7 @@
     "warhorses": "c5edd890",
     "warhorseSkills": "fac49238"
   },
-  "crawlerVersion": "1.1.0.9",
+  "crawlerVersion": "1.1.0.11",
   "milestone": "crawler-1.1.0.0 / app-3.0.0.0",
   "updateNo": "01",
   "status": "design-fixed-for-update02-generator",

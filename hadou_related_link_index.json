@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-25T04:24:02.726Z",
+  "generatedAt": "2026-10-31T05:17:16.170Z",
   "dataSetId": "2026-10-17T02-12-44-246Z",
-  "crawlerVersion": "1.1.0.9",
+  "crawlerVersion": "1.1.0.11",
   "generator": "hado_crawler_extension",
   "acquiredAt": "2026-10-17T01:56:42.204Z",
   "processedAt": "2026-10-17T02:13:23.899Z",
@@ -24,7 +24,7 @@
     "processing": {
       "processedAt": "2026-10-17T02:13:23.899Z",
       "sourceExportedAt": "2026-10-17T02:13:23.899Z",
-      "generatedAt": "2026-10-25T04:24:02.726Z"
+      "generatedAt": "2026-10-31T05:17:16.170Z"
     },
     "source": {
       "recordedCommit": "8239d70ed4d43f2b762858a1c14c21f221c9757b",
@@ -66,7 +66,7 @@
   "sourceCounts": {
     "generals": 499,
     "tactics": 478,
-    "equipments": 266,
+    "equipments": 268,
     "skills": 701,
     "statusEffects": 214,
     "siegeWeapons": 6,
@@ -80,7 +80,7 @@
   "sourceHashes": {
     "generals": "3da993b8",
     "tactics": "22b528e7",
-    "equipments": "cd54ce10",
+    "equipments": "db54e41a",
     "skills": "d549f069",
     "statusEffects": "5efd1923",
     "formations": "9b5d2c1b",
@@ -94,7 +94,7 @@
   "sourceSha256": {
     "generals": "3da993b8",
     "tactics": "22b528e7",
-    "equipments": "cd54ce10",
+    "equipments": "db54e41a",
     "skills": "d549f069",
     "statusEffects": "5efd1923",
     "formations": "9b5d2c1b",
@@ -105,16 +105,16 @@
     "warhorses": "c5edd890",
     "warhorseSkills": "fac49238"
   },
-  "hotfixVersion": "1.1.0.9",
+  "hotfixVersion": "1.1.0.11",
   "kind": "related_link_index",
   "qualityAudit": {
-    "itemCount": 3050,
-    "totalRelatedCount": 14273,
+    "itemCount": 3058,
+    "totalRelatedCount": 14309,
     "categoryCounts": {
       "generals": 499,
       "tactics": 478,
-      "equipments": 265,
-      "skills": 1474,
+      "equipments": 267,
+      "skills": 1480,
       "statusEffects": 214,
       "siegeWeapons": 6,
       "ethnicArmaments": 18,
@@ -126,12 +126,12 @@
     },
     "coverageAudit": {
       "ok": true,
-      "expectedDatasetItemCount": 3050,
-      "indexedItemCount": 3050,
+      "expectedDatasetItemCount": 3058,
+      "indexedItemCount": 3058,
       "missingCount": 0,
       "missingSourceEntityKeys": [],
-      "applicationSkillExpectedCount": 1474,
-      "applicationSkillIndexedCount": 1474,
+      "applicationSkillExpectedCount": 1480,
+      "applicationSkillIndexedCount": 1480,
       "missingApplicationSkillCount": 0,
       "missingApplicationSkillNames": [],
       "statusEffectExpectedCount": 214,
@@ -163,15 +163,15 @@
     },
     "annotationLeakAudit": {
       "ok": true,
-      "checkedItemCount": 3008,
+      "checkedItemCount": 3016,
       "ngCount": 0,
       "items": [],
       "policy": "1.0.5.13: 生成時に採用した直接付与句をsourceText/directGrantVerifiedで監査する。局所証拠に注記・例外説明・条件参照が混入した場合、または直接付与根拠のない二段階派生が1件でもあれば派生JSON出力を停止する。条件参照の「状態変化名が発生している場合」は直接付与として採用しない。"
     },
     "displayRoleAudit": {
       "ok": true,
-      "version": "1.1.0.9",
-      "functionalSummaryCount": 1201,
+      "version": "1.1.0.11",
+      "functionalSummaryCount": 1213,
       "grantedStatusCount": 295,
       "directStatusCount": 5331,
       "coveredGrantedStatusCount": 107,
@@ -689,19 +689,19 @@
     },
     "appSupplementMigration": {
       "ok": true,
-      "version": "1.1.0.9",
+      "version": "1.1.0.11",
       "policy": "アプリ側で補完していた自部隊不利対策はself_countermeasure_indexとしてrelated_link_indexへ生成済み。アプリは表示のみ担当し、異常検知は診断で可視化する。"
     },
     "selfCountermeasureFullAudit": {
       "ok": true,
-      "version": "1.1.0.9",
+      "version": "1.1.0.11",
       "skillCount": 112,
       "grantingSkillCount": 28,
       "grantOnlySkillCount": 27,
       "advisorSupplementalSkillCount": 95,
       "generatedCount": 501,
       "grantedExpansionCount": 102,
-      "ownerAppliedCount": 701,
+      "ownerAppliedCount": 713,
       "tacticGrantedStatusCount": 431,
       "tacticCountermeasureCount": 66,
       "policy": "1.0.5.11: 通常技能に加え武将JSON内の参軍技能セクションも自部隊不利対策の派生展開対象にする。参軍技能由来リンクは技能名の後ろに(参)を付与し、能力限定の弱化回避は知力低下回避等へ個別化する。専用名宝は装備カテゴリのソースであり、武将本人の戦法/技能として扱わない。アプリ側補完を不要にするためfinalDisplayName/linkTarget/precomputedByCrawlerを付与。",
@@ -722,7 +722,7 @@
       "unresolvedRefCount": 0,
       "droppedSourceItemCount": 0,
       "droppedTargetCount": 0,
-      "mechanicCount": 1205,
+      "mechanicCount": 1217,
       "policy": "Every app-visible source has one related-link row and every relatedRef uses a resolvable canonical target. Pseudo status labels remain explicit mechanics."
     }
   },
@@ -123870,7 +123870,8 @@
             "sourcePartType": "general-skill-table",
             "skillDomain": "generalSkill",
             "skillDomains": [
-              "generalSkill"
+              "generalSkill",
+              "equipmentSkill"
             ],
             "skillKey": "skills:article-440911",
             "targetDomain": "skill",
@@ -123891,7 +123892,8 @@
             "sourcePartType": "general-skill-table",
             "skillDomain": "generalSkill",
             "skillDomains": [
-              "generalSkill"
+              "generalSkill",
+              "equipmentSkill"
             ],
             "skillKey": "skills:article-440910",
             "targetDomain": "skill",
@@ -124383,7 +124385,8 @@
               "sourcePartType": "general-skill-table",
               "skillDomain": "generalSkill",
               "skillDomains": [
-                "generalSkill"
+                "generalSkill",
+                "equipmentSkill"
               ],
               "skillKey": "skills:article-440911",
               "targetDomain": "skill",
@@ -124409,7 +124412,8 @@
               "sourcePartType": "general-skill-table",
               "skillDomain": "generalSkill",
               "skillDomains": [
-                "generalSkill"
+                "generalSkill",
+                "equipmentSkill"
               ],
               "skillKey": "skills:article-440910",
               "targetDomain": "skill",
@@ -408647,18 +408651,18 @@
     },
     {
       "category": "equipments",
-      "name": "鋒利典雅剣",
+      "name": "江淮水利灌漑図",
       "related": {
         "generals": [],
         "tactics": [],
         "skills": [
           {
             "category": "skills",
-            "name": "才勇",
+            "name": "天衝",
             "source": "skill_owner_index",
-            "skillName": "才勇",
-            "displayName": "才勇",
-            "linkTarget": "才勇",
+            "skillName": "天衝",
+            "displayName": "天衝",
+            "linkTarget": "天衝",
             "isAdvisorSkill": false,
             "usage": "normal",
             "ownerType": "equipment",
@@ -408668,19 +408672,19 @@
               "generalSkill",
               "equipmentSkill"
             ],
-            "skillKey": "skills:article-582920",
+            "skillKey": "skills:article-440911",
             "targetDomain": "skill",
-            "targetKey": "skills:article-582920",
+            "targetKey": "skills:article-440911",
             "qualifierKey": "",
-            "relatedRef": "skill:skills:article-582920"
+            "relatedRef": "skill:skills:article-440911"
           },
           {
             "category": "skills",
-            "name": "威風",
+            "name": "雄猛",
             "source": "skill_owner_index",
-            "skillName": "威風",
-            "displayName": "威風",
-            "linkTarget": "威風",
+            "skillName": "雄猛",
+            "displayName": "雄猛",
+            "linkTarget": "雄猛",
             "isAdvisorSkill": false,
             "usage": "normal",
             "ownerType": "equipment",
@@ -408690,19 +408694,41 @@
               "generalSkill",
               "equipmentSkill"
             ],
-            "skillKey": "skills:article-261391",
+            "skillKey": "skills:article-440910",
             "targetDomain": "skill",
-            "targetKey": "skills:article-261391",
+            "targetKey": "skills:article-440910",
             "qualifierKey": "",
-            "relatedRef": "skill:skills:article-261391"
+            "relatedRef": "skill:skills:article-440910"
           },
           {
             "category": "skills",
-            "name": "才威武慧",
+            "name": "投合",
             "source": "skill_owner_index",
-            "skillName": "才威武慧",
-            "displayName": "才威武慧",
-            "linkTarget": "才威武慧",
+            "skillName": "投合",
+            "displayName": "投合",
+            "linkTarget": "投合",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "skillDomain": "generalSkill",
+            "skillDomains": [
+              "generalSkill",
+              "equipmentSkill"
+            ],
+            "skillKey": "skills:article-261358",
+            "targetDomain": "skill",
+            "targetKey": "skills:article-261358",
+            "qualifierKey": "",
+            "relatedRef": "skill:skills:article-261358"
+          },
+          {
+            "category": "skills",
+            "name": "雄天強撃",
+            "source": "skill_owner_index",
+            "skillName": "雄天強撃",
+            "displayName": "雄天強撃",
+            "linkTarget": "雄天強撃",
             "isAdvisorSkill": false,
             "usage": "normal",
             "ownerType": "equipment",
@@ -408711,19 +408737,19 @@
             "skillDomains": [
               "equipmentSkill"
             ],
-            "skillKey": "skills:name-6ad31520",
+            "skillKey": "skills:name-6ce28fe8",
             "targetDomain": "skill",
-            "targetKey": "skills:name-6ad31520",
+            "targetKey": "skills:name-6ce28fe8",
             "qualifierKey": "",
-            "relatedRef": "skill:skills:name-6ad31520"
+            "relatedRef": "skill:skills:name-6ce28fe8"
           },
           {
             "category": "skills",
-            "name": "知勇機術",
+            "name": "昇剛激成",
             "source": "skill_owner_index",
-            "skillName": "知勇機術",
-            "displayName": "知勇機術",
-            "linkTarget": "知勇機術",
+            "skillName": "昇剛激成",
+            "displayName": "昇剛激成",
+            "linkTarget": "昇剛激成",
             "isAdvisorSkill": false,
             "usage": "normal",
             "ownerType": "equipment",
@@ -408732,19 +408758,19 @@
             "skillDomains": [
               "equipmentSkill"
             ],
-            "skillKey": "skills:name-de1c3127",
+            "skillKey": "skills:name-6ac3e1cf",
             "targetDomain": "skill",
-            "targetKey": "skills:name-de1c3127",
+            "targetKey": "skills:name-6ac3e1cf",
             "qualifierKey": "",
-            "relatedRef": "skill:skills:name-de1c3127"
+            "relatedRef": "skill:skills:name-6ac3e1cf"
           },
           {
             "category": "skills",
-            "name": "兵装鋭撃",
+            "name": "合心速逐",
             "source": "skill_owner_index",
-            "skillName": "兵装鋭撃",
-            "displayName": "兵装鋭撃",
-            "linkTarget": "兵装鋭撃",
+            "skillName": "合心速逐",
+            "displayName": "合心速逐",
+            "linkTarget": "合心速逐",
             "isAdvisorSkill": false,
             "usage": "normal",
             "ownerType": "equipment",
@@ -408753,11 +408779,11 @@
             "skillDomains": [
               "equipmentSkill"
             ],
-            "skillKey": "skills:name-cbab725f",
+            "skillKey": "skills:name-44d7d68b",
             "targetDomain": "skill",
-            "targetKey": "skills:name-cbab725f",
+            "targetKey": "skills:name-44d7d68b",
             "qualifierKey": "",
-            "relatedRef": "skill:skills:name-cbab725f"
+            "relatedRef": "skill:skills:name-44d7d68b"
           }
         ],
         "equipments": [],
@@ -408770,19 +408796,242 @@
         "siegeWeapons": [],
         "parameterEffects": [],
         "statusGroups": [],
-        "mechanics": [],
+        "mechanics": [
+          {
+            "category": "statusEffects",
+            "name": "恐怖回避[天衝]",
+            "source": "self_countermeasure_index",
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "target": "恐怖",
+            "relationType": "回避",
+            "skillName": "天衝",
+            "sourceText": "自身1部隊にかかる恐怖、畏怖、命中低下を避ける",
+            "sourceType": "skill",
+            "sourcePartType": "self-countermeasure-skill",
+            "displayName": "恐怖回避[天衝]",
+            "finalDisplayName": "恐怖回避[天衝]",
+            "linkTarget": "恐怖",
+            "precomputedByCrawler": true,
+            "sourceSkillName": "天衝",
+            "ownerName": "江淮水利灌漑図",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "sourceSkillDisplayName": "天衝",
+            "displayRole": "functional-summary",
+            "sourceName": "天衝",
+            "sourceKind": "skill",
+            "mechanic": "derived_status_reference",
+            "baseStatusGroup": "selfResistanceBuff",
+            "qualifierSkillKey": "天衝",
+            "keywords": [
+              "恐怖回避",
+              "天衝",
+              "恐怖回避[天衝]"
+            ],
+            "targetDomain": "mechanic",
+            "targetKey": "derived_status_reference",
+            "qualifierKey": "天衝",
+            "relatedRef": "mechanic:derived_status_reference:天衝"
+          },
+          {
+            "category": "statusEffects",
+            "name": "畏怖回避[天衝]",
+            "source": "self_countermeasure_index",
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "target": "畏怖",
+            "relationType": "回避",
+            "skillName": "天衝",
+            "sourceText": "自身1部隊にかかる恐怖、畏怖、命中低下を避ける",
+            "sourceType": "skill",
+            "sourcePartType": "self-countermeasure-skill",
+            "displayName": "畏怖回避[天衝]",
+            "finalDisplayName": "畏怖回避[天衝]",
+            "linkTarget": "畏怖",
+            "precomputedByCrawler": true,
+            "sourceSkillName": "天衝",
+            "ownerName": "江淮水利灌漑図",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "sourceSkillDisplayName": "天衝",
+            "displayRole": "functional-summary",
+            "sourceName": "天衝",
+            "sourceKind": "skill",
+            "mechanic": "derived_status_reference",
+            "baseStatusGroup": "selfResistanceBuff",
+            "qualifierSkillKey": "天衝",
+            "keywords": [
+              "畏怖回避",
+              "天衝",
+              "畏怖回避[天衝]"
+            ],
+            "targetDomain": "mechanic",
+            "targetKey": "derived_status_reference",
+            "qualifierKey": "天衝",
+            "relatedRef": "mechanic:derived_status_reference:天衝"
+          },
+          {
+            "category": "statusEffects",
+            "name": "命中低下回避[天衝]",
+            "source": "self_countermeasure_index",
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "target": "命中低下",
+            "relationType": "回避",
+            "skillName": "天衝",
+            "sourceText": "自身1部隊にかかる恐怖、畏怖、命中低下を避ける",
+            "sourceType": "skill",
+            "sourcePartType": "self-countermeasure-skill",
+            "displayName": "命中低下回避[天衝]",
+            "finalDisplayName": "命中低下回避[天衝]",
+            "linkTarget": "命中低下",
+            "precomputedByCrawler": true,
+            "sourceSkillName": "天衝",
+            "ownerName": "江淮水利灌漑図",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "sourceSkillDisplayName": "天衝",
+            "displayRole": "functional-summary",
+            "sourceName": "天衝",
+            "sourceKind": "skill",
+            "mechanic": "avoid_parameter_debuff",
+            "baseStatusGroup": "selfResistanceBuff",
+            "qualifierSkillKey": "天衝",
+            "keywords": [
+              "命中低下回避",
+              "天衝",
+              "命中低下回避[天衝]"
+            ],
+            "targetDomain": "mechanic",
+            "targetKey": "avoid_parameter_debuff",
+            "qualifierKey": "天衝",
+            "relatedRef": "mechanic:avoid_parameter_debuff:天衝"
+          },
+          {
+            "category": "statusEffects",
+            "name": "萎縮回避[天衝]",
+            "source": "self_countermeasure_index",
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "target": "萎縮",
+            "relationType": "回避",
+            "skillName": "天衝",
+            "sourceText": "自身1部隊にかかる萎縮、疑心、怯心を避ける",
+            "sourceType": "skill",
+            "sourcePartType": "self-countermeasure-skill",
+            "displayName": "萎縮回避[天衝]",
+            "finalDisplayName": "萎縮回避[天衝]",
+            "linkTarget": "萎縮",
+            "precomputedByCrawler": true,
+            "sourceSkillName": "天衝",
+            "ownerName": "江淮水利灌漑図",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "sourceSkillDisplayName": "天衝",
+            "displayRole": "functional-summary",
+            "sourceName": "天衝",
+            "sourceKind": "skill",
+            "mechanic": "derived_status_reference",
+            "baseStatusGroup": "selfResistanceBuff",
+            "qualifierSkillKey": "天衝",
+            "keywords": [
+              "萎縮回避",
+              "天衝",
+              "萎縮回避[天衝]"
+            ],
+            "targetDomain": "mechanic",
+            "targetKey": "derived_status_reference",
+            "qualifierKey": "天衝",
+            "relatedRef": "mechanic:derived_status_reference:天衝"
+          },
+          {
+            "category": "statusEffects",
+            "name": "疑心回避[天衝]",
+            "source": "self_countermeasure_index",
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "target": "疑心",
+            "relationType": "回避",
+            "skillName": "天衝",
+            "sourceText": "自身1部隊にかかる萎縮、疑心、怯心を避ける",
+            "sourceType": "skill",
+            "sourcePartType": "self-countermeasure-skill",
+            "displayName": "疑心回避[天衝]",
+            "finalDisplayName": "疑心回避[天衝]",
+            "linkTarget": "疑心",
+            "precomputedByCrawler": true,
+            "sourceSkillName": "天衝",
+            "ownerName": "江淮水利灌漑図",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "sourceSkillDisplayName": "天衝",
+            "displayRole": "functional-summary",
+            "sourceName": "天衝",
+            "sourceKind": "skill",
+            "mechanic": "derived_status_reference",
+            "baseStatusGroup": "selfResistanceBuff",
+            "qualifierSkillKey": "天衝",
+            "keywords": [
+              "疑心回避",
+              "天衝",
+              "疑心回避[天衝]"
+            ],
+            "targetDomain": "mechanic",
+            "targetKey": "derived_status_reference",
+            "qualifierKey": "天衝",
+            "relatedRef": "mechanic:derived_status_reference:天衝"
+          },
+          {
+            "category": "statusEffects",
+            "name": "怯心回避[天衝]",
+            "source": "self_countermeasure_index",
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "target": "怯心",
+            "relationType": "回避",
+            "skillName": "天衝",
+            "sourceText": "自身1部隊にかかる萎縮、疑心、怯心を避ける",
+            "sourceType": "skill",
+            "sourcePartType": "self-countermeasure-skill",
+            "displayName": "怯心回避[天衝]",
+            "finalDisplayName": "怯心回避[天衝]",
+            "linkTarget": "怯心",
+            "precomputedByCrawler": true,
+            "sourceSkillName": "天衝",
+            "ownerName": "江淮水利灌漑図",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "sourceSkillDisplayName": "天衝",
+            "displayRole": "functional-summary",
+            "sourceName": "天衝",
+            "sourceKind": "skill",
+            "mechanic": "derived_status_reference",
+            "baseStatusGroup": "selfResistanceBuff",
+            "qualifierSkillKey": "天衝",
+            "keywords": [
+              "怯心回避",
+              "天衝",
+              "怯心回避[天衝]"
+            ],
+            "targetDomain": "mechanic",
+            "targetKey": "derived_status_reference",
+            "qualifierKey": "天衝",
+            "relatedRef": "mechanic:derived_status_reference:天衝"
+          }
+        ],
         "sourceRefs": [
           {
             "category": "skills",
-            "name": "才勇",
+            "name": "天衝",
             "source": "skill_owner_index",
             "detail": {
               "category": "skills",
-              "name": "才勇",
+              "name": "天衝",
               "source": "skill_owner_index",
-              "skillName": "才勇",
-              "displayName": "才勇",
-              "linkTarget": "才勇",
+              "skillName": "天衝",
+              "displayName": "天衝",
+              "linkTarget": "天衝",
               "isAdvisorSkill": false,
               "usage": "normal",
               "ownerType": "equipment",
@@ -408792,24 +409041,24 @@
                 "generalSkill",
                 "equipmentSkill"
               ],
-              "skillKey": "skills:article-582920",
+              "skillKey": "skills:article-440911",
               "targetDomain": "skill",
-              "targetKey": "skills:article-582920",
+              "targetKey": "skills:article-440911",
               "qualifierKey": "",
-              "relatedRef": "skill:skills:article-582920"
+              "relatedRef": "skill:skills:article-440911"
             }
           },
           {
             "category": "skills",
-            "name": "威風",
+            "name": "雄猛",
             "source": "skill_owner_index",
             "detail": {
               "category": "skills",
-              "name": "威風",
+              "name": "雄猛",
               "source": "skill_owner_index",
-              "skillName": "威風",
-              "displayName": "威風",
-              "linkTarget": "威風",
+              "skillName": "雄猛",
+              "displayName": "雄猛",
+              "linkTarget": "雄猛",
               "isAdvisorSkill": false,
               "usage": "normal",
               "ownerType": "equipment",
@@ -408819,24 +409068,51 @@
                 "generalSkill",
                 "equipmentSkill"
               ],
-              "skillKey": "skills:article-261391",
+              "skillKey": "skills:article-440910",
               "targetDomain": "skill",
-              "targetKey": "skills:article-261391",
+              "targetKey": "skills:article-440910",
               "qualifierKey": "",
-              "relatedRef": "skill:skills:article-261391"
+              "relatedRef": "skill:skills:article-440910"
             }
           },
           {
             "category": "skills",
-            "name": "才威武慧",
+            "name": "投合",
             "source": "skill_owner_index",
             "detail": {
               "category": "skills",
-              "name": "才威武慧",
+              "name": "投合",
               "source": "skill_owner_index",
-              "skillName": "才威武慧",
-              "displayName": "才威武慧",
-              "linkTarget": "才威武慧",
+              "skillName": "投合",
+              "displayName": "投合",
+              "linkTarget": "投合",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "skillDomain": "generalSkill",
+              "skillDomains": [
+                "generalSkill",
+                "equipmentSkill"
+              ],
+              "skillKey": "skills:article-261358",
+              "targetDomain": "skill",
+              "targetKey": "skills:article-261358",
+              "qualifierKey": "",
+              "relatedRef": "skill:skills:article-261358"
+            }
+          },
+          {
+            "category": "skills",
+            "name": "雄天強撃",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "skills",
+              "name": "雄天強撃",
+              "source": "skill_owner_index",
+              "skillName": "雄天強撃",
+              "displayName": "雄天強撃",
+              "linkTarget": "雄天強撃",
               "isAdvisorSkill": false,
               "usage": "normal",
               "ownerType": "equipment",
@@ -408845,24 +409121,24 @@
               "skillDomains": [
                 "equipmentSkill"
               ],
-              "skillKey": "skills:name-6ad31520",
+              "skillKey": "skills:name-6ce28fe8",
               "targetDomain": "skill",
-              "targetKey": "skills:name-6ad31520",
+              "targetKey": "skills:name-6ce28fe8",
               "qualifierKey": "",
-              "relatedRef": "skill:skills:name-6ad31520"
+              "relatedRef": "skill:skills:name-6ce28fe8"
             }
           },
           {
             "category": "skills",
-            "name": "知勇機術",
+            "name": "昇剛激成",
             "source": "skill_owner_index",
             "detail": {
               "category": "skills",
-              "name": "知勇機術",
+              "name": "昇剛激成",
               "source": "skill_owner_index",
-              "skillName": "知勇機術",
-              "displayName": "知勇機術",
-              "linkTarget": "知勇機術",
+              "skillName": "昇剛激成",
+              "displayName": "昇剛激成",
+              "linkTarget": "昇剛激成",
               "isAdvisorSkill": false,
               "usage": "normal",
               "ownerType": "equipment",
@@ -408871,24 +409147,24 @@
               "skillDomains": [
                 "equipmentSkill"
               ],
-              "skillKey": "skills:name-de1c3127",
+              "skillKey": "skills:name-6ac3e1cf",
               "targetDomain": "skill",
-              "targetKey": "skills:name-de1c3127",
+              "targetKey": "skills:name-6ac3e1cf",
               "qualifierKey": "",
-              "relatedRef": "skill:skills:name-de1c3127"
+              "relatedRef": "skill:skills:name-6ac3e1cf"
             }
           },
           {
             "category": "skills",
-            "name": "兵装鋭撃",
+            "name": "合心速逐",
             "source": "skill_owner_index",
             "detail": {
               "category": "skills",
-              "name": "兵装鋭撃",
+              "name": "合心速逐",
               "source": "skill_owner_index",
-              "skillName": "兵装鋭撃",
-              "displayName": "兵装鋭撃",
-              "linkTarget": "兵装鋭撃",
+              "skillName": "合心速逐",
+              "displayName": "合心速逐",
+              "linkTarget": "合心速逐",
               "isAdvisorSkill": false,
               "usage": "normal",
               "ownerType": "equipment",
@@ -408897,11 +409173,263 @@
               "skillDomains": [
                 "equipmentSkill"
               ],
-              "skillKey": "skills:name-cbab725f",
+              "skillKey": "skills:name-44d7d68b",
               "targetDomain": "skill",
-              "targetKey": "skills:name-cbab725f",
+              "targetKey": "skills:name-44d7d68b",
               "qualifierKey": "",
-              "relatedRef": "skill:skills:name-cbab725f"
+              "relatedRef": "skill:skills:name-44d7d68b"
+            }
+          },
+          {
+            "category": "mechanics",
+            "name": "恐怖回避[天衝]",
+            "source": "self_countermeasure_index",
+            "detail": {
+              "category": "statusEffects",
+              "name": "恐怖回避[天衝]",
+              "source": "self_countermeasure_index",
+              "groupKey": "selfResistanceBuff",
+              "groupLabel": "自部隊不利対策",
+              "target": "恐怖",
+              "relationType": "回避",
+              "skillName": "天衝",
+              "sourceText": "自身1部隊にかかる恐怖、畏怖、命中低下を避ける",
+              "sourceType": "skill",
+              "sourcePartType": "self-countermeasure-skill",
+              "displayName": "恐怖回避[天衝]",
+              "finalDisplayName": "恐怖回避[天衝]",
+              "linkTarget": "恐怖",
+              "precomputedByCrawler": true,
+              "sourceSkillName": "天衝",
+              "ownerName": "江淮水利灌漑図",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "sourceSkillDisplayName": "天衝",
+              "displayRole": "functional-summary",
+              "sourceName": "天衝",
+              "sourceKind": "skill",
+              "mechanic": "derived_status_reference",
+              "baseStatusGroup": "selfResistanceBuff",
+              "qualifierSkillKey": "天衝",
+              "keywords": [
+                "恐怖回避",
+                "天衝",
+                "恐怖回避[天衝]"
+              ],
+              "targetDomain": "mechanic",
+              "targetKey": "derived_status_reference",
+              "qualifierKey": "天衝",
+              "relatedRef": "mechanic:derived_status_reference:天衝"
+            }
+          },
+          {
+            "category": "mechanics",
+            "name": "畏怖回避[天衝]",
+            "source": "self_countermeasure_index",
+            "detail": {
+              "category": "statusEffects",
+              "name": "畏怖回避[天衝]",
+              "source": "self_countermeasure_index",
+              "groupKey": "selfResistanceBuff",
+              "groupLabel": "自部隊不利対策",
+              "target": "畏怖",
+              "relationType": "回避",
+              "skillName": "天衝",
+              "sourceText": "自身1部隊にかかる恐怖、畏怖、命中低下を避ける",
+              "sourceType": "skill",
+              "sourcePartType": "self-countermeasure-skill",
+              "displayName": "畏怖回避[天衝]",
+              "finalDisplayName": "畏怖回避[天衝]",
+              "linkTarget": "畏怖",
+              "precomputedByCrawler": true,
+              "sourceSkillName": "天衝",
+              "ownerName": "江淮水利灌漑図",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "sourceSkillDisplayName": "天衝",
+              "displayRole": "functional-summary",
+              "sourceName": "天衝",
+              "sourceKind": "skill",
+              "mechanic": "derived_status_reference",
+              "baseStatusGroup": "selfResistanceBuff",
+              "qualifierSkillKey": "天衝",
+              "keywords": [
+                "畏怖回避",
+                "天衝",
+                "畏怖回避[天衝]"
+              ],
+              "targetDomain": "mechanic",
+              "targetKey": "derived_status_reference",
+              "qualifierKey": "天衝",
+              "relatedRef": "mechanic:derived_status_reference:天衝"
+            }
+          },
+          {
+            "category": "mechanics",
+            "name": "命中低下回避[天衝]",
+            "source": "self_countermeasure_index",
+            "detail": {
+              "category": "statusEffects",
+              "name": "命中低下回避[天衝]",
+              "source": "self_countermeasure_index",
+              "groupKey": "selfResistanceBuff",
+              "groupLabel": "自部隊不利対策",
+              "target": "命中低下",
+              "relationType": "回避",
+              "skillName": "天衝",
+              "sourceText": "自身1部隊にかかる恐怖、畏怖、命中低下を避ける",
+              "sourceType": "skill",
+              "sourcePartType": "self-countermeasure-skill",
+              "displayName": "命中低下回避[天衝]",
+              "finalDisplayName": "命中低下回避[天衝]",
+              "linkTarget": "命中低下",
+              "precomputedByCrawler": true,
+              "sourceSkillName": "天衝",
+              "ownerName": "江淮水利灌漑図",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "sourceSkillDisplayName": "天衝",
+              "displayRole": "functional-summary",
+              "sourceName": "天衝",
+              "sourceKind": "skill",
+              "mechanic": "avoid_parameter_debuff",
+              "baseStatusGroup": "selfResistanceBuff",
+              "qualifierSkillKey": "天衝",
+              "keywords": [
+                "命中低下回避",
+                "天衝",
+                "命中低下回避[天衝]"
+              ],
+              "targetDomain": "mechanic",
+              "targetKey": "avoid_parameter_debuff",
+              "qualifierKey": "天衝",
+              "relatedRef": "mechanic:avoid_parameter_debuff:天衝"
+            }
+          },
+          {
+            "category": "mechanics",
+            "name": "萎縮回避[天衝]",
+            "source": "self_countermeasure_index",
+            "detail": {
+              "category": "statusEffects",
+              "name": "萎縮回避[天衝]",
+              "source": "self_countermeasure_index",
+              "groupKey": "selfResistanceBuff",
+              "groupLabel": "自部隊不利対策",
+              "target": "萎縮",
+              "relationType": "回避",
+              "skillName": "天衝",
+              "sourceText": "自身1部隊にかかる萎縮、疑心、怯心を避ける",
+              "sourceType": "skill",
+              "sourcePartType": "self-countermeasure-skill",
+              "displayName": "萎縮回避[天衝]",
+              "finalDisplayName": "萎縮回避[天衝]",
+              "linkTarget": "萎縮",
+              "precomputedByCrawler": true,
+              "sourceSkillName": "天衝",
+              "ownerName": "江淮水利灌漑図",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "sourceSkillDisplayName": "天衝",
+              "displayRole": "functional-summary",
+              "sourceName": "天衝",
+              "sourceKind": "skill",
+              "mechanic": "derived_status_reference",
+              "baseStatusGroup": "selfResistanceBuff",
+              "qualifierSkillKey": "天衝",
+              "keywords": [
+                "萎縮回避",
+                "天衝",
+                "萎縮回避[天衝]"
+              ],
+              "targetDomain": "mechanic",
+              "targetKey": "derived_status_reference",
+              "qualifierKey": "天衝",
+              "relatedRef": "mechanic:derived_status_reference:天衝"
+            }
+          },
+          {
+            "category": "mechanics",
+            "name": "疑心回避[天衝]",
+            "source": "self_countermeasure_index",
+            "detail": {
+              "category": "statusEffects",
+              "name": "疑心回避[天衝]",
+              "source": "self_countermeasure_index",
+              "groupKey": "selfResistanceBuff",
+              "groupLabel": "自部隊不利対策",
+              "target": "疑心",
+              "relationType": "回避",
+              "skillName": "天衝",
+              "sourceText": "自身1部隊にかかる萎縮、疑心、怯心を避ける",
+              "sourceType": "skill",
+              "sourcePartType": "self-countermeasure-skill",
+              "displayName": "疑心回避[天衝]",
+              "finalDisplayName": "疑心回避[天衝]",
+              "linkTarget": "疑心",
+              "precomputedByCrawler": true,
+              "sourceSkillName": "天衝",
+              "ownerName": "江淮水利灌漑図",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "sourceSkillDisplayName": "天衝",
+              "displayRole": "functional-summary",
+              "sourceName": "天衝",
+              "sourceKind": "skill",
+              "mechanic": "derived_status_reference",
+              "baseStatusGroup": "selfResistanceBuff",
+              "qualifierSkillKey": "天衝",
+              "keywords": [
+                "疑心回避",
+                "天衝",
+                "疑心回避[天衝]"
+              ],
+              "targetDomain": "mechanic",
+              "targetKey": "derived_status_reference",
+              "qualifierKey": "天衝",
+              "relatedRef": "mechanic:derived_status_reference:天衝"
+            }
+          },
+          {
+            "category": "mechanics",
+            "name": "怯心回避[天衝]",
+            "source": "self_countermeasure_index",
+            "detail": {
+              "category": "statusEffects",
+              "name": "怯心回避[天衝]",
+              "source": "self_countermeasure_index",
+              "groupKey": "selfResistanceBuff",
+              "groupLabel": "自部隊不利対策",
+              "target": "怯心",
+              "relationType": "回避",
+              "skillName": "天衝",
+              "sourceText": "自身1部隊にかかる萎縮、疑心、怯心を避ける",
+              "sourceType": "skill",
+              "sourcePartType": "self-countermeasure-skill",
+              "displayName": "怯心回避[天衝]",
+              "finalDisplayName": "怯心回避[天衝]",
+              "linkTarget": "怯心",
+              "precomputedByCrawler": true,
+              "sourceSkillName": "天衝",
+              "ownerName": "江淮水利灌漑図",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "sourceSkillDisplayName": "天衝",
+              "displayRole": "functional-summary",
+              "sourceName": "天衝",
+              "sourceKind": "skill",
+              "mechanic": "derived_status_reference",
+              "baseStatusGroup": "selfResistanceBuff",
+              "qualifierSkillKey": "天衝",
+              "keywords": [
+                "怯心回避",
+                "天衝",
+                "怯心回避[天衝]"
+              ],
+              "targetDomain": "mechanic",
+              "targetKey": "derived_status_reference",
+              "qualifierKey": "天衝",
+              "relatedRef": "mechanic:derived_status_reference:天衝"
             }
           }
         ]
@@ -408909,7 +409437,7 @@
       "relatedCounts": {
         "generals": 0,
         "tactics": 0,
-        "skills": 5,
+        "skills": 6,
         "equipments": 0,
         "statusEffects": 0,
         "formations": 0,
@@ -408920,11 +409448,816 @@
         "siegeWeapons": 0,
         "parameterEffects": 0,
         "statusGroups": 0,
-        "mechanics": 0,
-        "sourceRefs": 5
+        "mechanics": 6,
+        "sourceRefs": 12
       },
-      "totalRelatedCount": 5,
-      "sourceEntityKey": "equipments:article-582928"
+      "totalRelatedCount": 12,
+      "sourceEntityKey": "equipments:article-585771"
+    },
+    {
+      "category": "equipments",
+      "name": "孤月照耀兜",
+      "related": {
+        "generals": [],
+        "tactics": [],
+        "skills": [
+          {
+            "category": "skills",
+            "name": "天衝",
+            "source": "skill_owner_index",
+            "skillName": "天衝",
+            "displayName": "天衝",
+            "linkTarget": "天衝",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "skillDomain": "generalSkill",
+            "skillDomains": [
+              "generalSkill",
+              "equipmentSkill"
+            ],
+            "skillKey": "skills:article-440911",
+            "targetDomain": "skill",
+            "targetKey": "skills:article-440911",
+            "qualifierKey": "",
+            "relatedRef": "skill:skills:article-440911"
+          },
+          {
+            "category": "skills",
+            "name": "雄猛",
+            "source": "skill_owner_index",
+            "skillName": "雄猛",
+            "displayName": "雄猛",
+            "linkTarget": "雄猛",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "skillDomain": "generalSkill",
+            "skillDomains": [
+              "generalSkill",
+              "equipmentSkill"
+            ],
+            "skillKey": "skills:article-440910",
+            "targetDomain": "skill",
+            "targetKey": "skills:article-440910",
+            "qualifierKey": "",
+            "relatedRef": "skill:skills:article-440910"
+          },
+          {
+            "category": "skills",
+            "name": "投合",
+            "source": "skill_owner_index",
+            "skillName": "投合",
+            "displayName": "投合",
+            "linkTarget": "投合",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "skillDomain": "generalSkill",
+            "skillDomains": [
+              "generalSkill",
+              "equipmentSkill"
+            ],
+            "skillKey": "skills:article-261358",
+            "targetDomain": "skill",
+            "targetKey": "skills:article-261358",
+            "qualifierKey": "",
+            "relatedRef": "skill:skills:article-261358"
+          },
+          {
+            "category": "skills",
+            "name": "雄天堅守",
+            "source": "skill_owner_index",
+            "skillName": "雄天堅守",
+            "displayName": "雄天堅守",
+            "linkTarget": "雄天堅守",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "skillDomain": "equipmentSkill",
+            "skillDomains": [
+              "equipmentSkill"
+            ],
+            "skillKey": "skills:name-ab0a5e5b",
+            "targetDomain": "skill",
+            "targetKey": "skills:name-ab0a5e5b",
+            "qualifierKey": "",
+            "relatedRef": "skill:skills:name-ab0a5e5b"
+          },
+          {
+            "category": "skills",
+            "name": "昇守滅傷",
+            "source": "skill_owner_index",
+            "skillName": "昇守滅傷",
+            "displayName": "昇守滅傷",
+            "linkTarget": "昇守滅傷",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "skillDomain": "equipmentSkill",
+            "skillDomains": [
+              "equipmentSkill"
+            ],
+            "skillKey": "skills:name-3891d0be",
+            "targetDomain": "skill",
+            "targetKey": "skills:name-3891d0be",
+            "qualifierKey": "",
+            "relatedRef": "skill:skills:name-3891d0be"
+          },
+          {
+            "category": "skills",
+            "name": "合心勇撃",
+            "source": "skill_owner_index",
+            "skillName": "合心勇撃",
+            "displayName": "合心勇撃",
+            "linkTarget": "合心勇撃",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "skillDomain": "equipmentSkill",
+            "skillDomains": [
+              "equipmentSkill"
+            ],
+            "skillKey": "skills:name-c4c5a866",
+            "targetDomain": "skill",
+            "targetKey": "skills:name-c4c5a866",
+            "qualifierKey": "",
+            "relatedRef": "skill:skills:name-c4c5a866"
+          }
+        ],
+        "equipments": [],
+        "statusEffects": [],
+        "formations": [],
+        "warhorses": [],
+        "warhorseSkills": [],
+        "ethnicArmaments": [],
+        "ethnicResearchSkills": [],
+        "siegeWeapons": [],
+        "parameterEffects": [],
+        "statusGroups": [],
+        "mechanics": [
+          {
+            "category": "statusEffects",
+            "name": "恐怖回避[天衝]",
+            "source": "self_countermeasure_index",
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "target": "恐怖",
+            "relationType": "回避",
+            "skillName": "天衝",
+            "sourceText": "自身1部隊にかかる恐怖、畏怖、命中低下を避ける",
+            "sourceType": "skill",
+            "sourcePartType": "self-countermeasure-skill",
+            "displayName": "恐怖回避[天衝]",
+            "finalDisplayName": "恐怖回避[天衝]",
+            "linkTarget": "恐怖",
+            "precomputedByCrawler": true,
+            "sourceSkillName": "天衝",
+            "ownerName": "孤月照耀兜",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "sourceSkillDisplayName": "天衝",
+            "displayRole": "functional-summary",
+            "sourceName": "天衝",
+            "sourceKind": "skill",
+            "mechanic": "derived_status_reference",
+            "baseStatusGroup": "selfResistanceBuff",
+            "qualifierSkillKey": "天衝",
+            "keywords": [
+              "恐怖回避",
+              "天衝",
+              "恐怖回避[天衝]"
+            ],
+            "targetDomain": "mechanic",
+            "targetKey": "derived_status_reference",
+            "qualifierKey": "天衝",
+            "relatedRef": "mechanic:derived_status_reference:天衝"
+          },
+          {
+            "category": "statusEffects",
+            "name": "畏怖回避[天衝]",
+            "source": "self_countermeasure_index",
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "target": "畏怖",
+            "relationType": "回避",
+            "skillName": "天衝",
+            "sourceText": "自身1部隊にかかる恐怖、畏怖、命中低下を避ける",
+            "sourceType": "skill",
+            "sourcePartType": "self-countermeasure-skill",
+            "displayName": "畏怖回避[天衝]",
+            "finalDisplayName": "畏怖回避[天衝]",
+            "linkTarget": "畏怖",
+            "precomputedByCrawler": true,
+            "sourceSkillName": "天衝",
+            "ownerName": "孤月照耀兜",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "sourceSkillDisplayName": "天衝",
+            "displayRole": "functional-summary",
+            "sourceName": "天衝",
+            "sourceKind": "skill",
+            "mechanic": "derived_status_reference",
+            "baseStatusGroup": "selfResistanceBuff",
+            "qualifierSkillKey": "天衝",
+            "keywords": [
+              "畏怖回避",
+              "天衝",
+              "畏怖回避[天衝]"
+            ],
+            "targetDomain": "mechanic",
+            "targetKey": "derived_status_reference",
+            "qualifierKey": "天衝",
+            "relatedRef": "mechanic:derived_status_reference:天衝"
+          },
+          {
+            "category": "statusEffects",
+            "name": "命中低下回避[天衝]",
+            "source": "self_countermeasure_index",
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "target": "命中低下",
+            "relationType": "回避",
+            "skillName": "天衝",
+            "sourceText": "自身1部隊にかかる恐怖、畏怖、命中低下を避ける",
+            "sourceType": "skill",
+            "sourcePartType": "self-countermeasure-skill",
+            "displayName": "命中低下回避[天衝]",
+            "finalDisplayName": "命中低下回避[天衝]",
+            "linkTarget": "命中低下",
+            "precomputedByCrawler": true,
+            "sourceSkillName": "天衝",
+            "ownerName": "孤月照耀兜",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "sourceSkillDisplayName": "天衝",
+            "displayRole": "functional-summary",
+            "sourceName": "天衝",
+            "sourceKind": "skill",
+            "mechanic": "avoid_parameter_debuff",
+            "baseStatusGroup": "selfResistanceBuff",
+            "qualifierSkillKey": "天衝",
+            "keywords": [
+              "命中低下回避",
+              "天衝",
+              "命中低下回避[天衝]"
+            ],
+            "targetDomain": "mechanic",
+            "targetKey": "avoid_parameter_debuff",
+            "qualifierKey": "天衝",
+            "relatedRef": "mechanic:avoid_parameter_debuff:天衝"
+          },
+          {
+            "category": "statusEffects",
+            "name": "萎縮回避[天衝]",
+            "source": "self_countermeasure_index",
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "target": "萎縮",
+            "relationType": "回避",
+            "skillName": "天衝",
+            "sourceText": "自身1部隊にかかる萎縮、疑心、怯心を避ける",
+            "sourceType": "skill",
+            "sourcePartType": "self-countermeasure-skill",
+            "displayName": "萎縮回避[天衝]",
+            "finalDisplayName": "萎縮回避[天衝]",
+            "linkTarget": "萎縮",
+            "precomputedByCrawler": true,
+            "sourceSkillName": "天衝",
+            "ownerName": "孤月照耀兜",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "sourceSkillDisplayName": "天衝",
+            "displayRole": "functional-summary",
+            "sourceName": "天衝",
+            "sourceKind": "skill",
+            "mechanic": "derived_status_reference",
+            "baseStatusGroup": "selfResistanceBuff",
+            "qualifierSkillKey": "天衝",
+            "keywords": [
+              "萎縮回避",
+              "天衝",
+              "萎縮回避[天衝]"
+            ],
+            "targetDomain": "mechanic",
+            "targetKey": "derived_status_reference",
+            "qualifierKey": "天衝",
+            "relatedRef": "mechanic:derived_status_reference:天衝"
+          },
+          {
+            "category": "statusEffects",
+            "name": "疑心回避[天衝]",
+            "source": "self_countermeasure_index",
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "target": "疑心",
+            "relationType": "回避",
+            "skillName": "天衝",
+            "sourceText": "自身1部隊にかかる萎縮、疑心、怯心を避ける",
+            "sourceType": "skill",
+            "sourcePartType": "self-countermeasure-skill",
+            "displayName": "疑心回避[天衝]",
+            "finalDisplayName": "疑心回避[天衝]",
+            "linkTarget": "疑心",
+            "precomputedByCrawler": true,
+            "sourceSkillName": "天衝",
+            "ownerName": "孤月照耀兜",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "sourceSkillDisplayName": "天衝",
+            "displayRole": "functional-summary",
+            "sourceName": "天衝",
+            "sourceKind": "skill",
+            "mechanic": "derived_status_reference",
+            "baseStatusGroup": "selfResistanceBuff",
+            "qualifierSkillKey": "天衝",
+            "keywords": [
+              "疑心回避",
+              "天衝",
+              "疑心回避[天衝]"
+            ],
+            "targetDomain": "mechanic",
+            "targetKey": "derived_status_reference",
+            "qualifierKey": "天衝",
+            "relatedRef": "mechanic:derived_status_reference:天衝"
+          },
+          {
+            "category": "statusEffects",
+            "name": "怯心回避[天衝]",
+            "source": "self_countermeasure_index",
+            "groupKey": "selfResistanceBuff",
+            "groupLabel": "自部隊不利対策",
+            "target": "怯心",
+            "relationType": "回避",
+            "skillName": "天衝",
+            "sourceText": "自身1部隊にかかる萎縮、疑心、怯心を避ける",
+            "sourceType": "skill",
+            "sourcePartType": "self-countermeasure-skill",
+            "displayName": "怯心回避[天衝]",
+            "finalDisplayName": "怯心回避[天衝]",
+            "linkTarget": "怯心",
+            "precomputedByCrawler": true,
+            "sourceSkillName": "天衝",
+            "ownerName": "孤月照耀兜",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "sourceSkillDisplayName": "天衝",
+            "displayRole": "functional-summary",
+            "sourceName": "天衝",
+            "sourceKind": "skill",
+            "mechanic": "derived_status_reference",
+            "baseStatusGroup": "selfResistanceBuff",
+            "qualifierSkillKey": "天衝",
+            "keywords": [
+              "怯心回避",
+              "天衝",
+              "怯心回避[天衝]"
+            ],
+            "targetDomain": "mechanic",
+            "targetKey": "derived_status_reference",
+            "qualifierKey": "天衝",
+            "relatedRef": "mechanic:derived_status_reference:天衝"
+          }
+        ],
+        "sourceRefs": [
+          {
+            "category": "skills",
+            "name": "天衝",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "skills",
+              "name": "天衝",
+              "source": "skill_owner_index",
+              "skillName": "天衝",
+              "displayName": "天衝",
+              "linkTarget": "天衝",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "skillDomain": "generalSkill",
+              "skillDomains": [
+                "generalSkill",
+                "equipmentSkill"
+              ],
+              "skillKey": "skills:article-440911",
+              "targetDomain": "skill",
+              "targetKey": "skills:article-440911",
+              "qualifierKey": "",
+              "relatedRef": "skill:skills:article-440911"
+            }
+          },
+          {
+            "category": "skills",
+            "name": "雄猛",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "skills",
+              "name": "雄猛",
+              "source": "skill_owner_index",
+              "skillName": "雄猛",
+              "displayName": "雄猛",
+              "linkTarget": "雄猛",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "skillDomain": "generalSkill",
+              "skillDomains": [
+                "generalSkill",
+                "equipmentSkill"
+              ],
+              "skillKey": "skills:article-440910",
+              "targetDomain": "skill",
+              "targetKey": "skills:article-440910",
+              "qualifierKey": "",
+              "relatedRef": "skill:skills:article-440910"
+            }
+          },
+          {
+            "category": "skills",
+            "name": "投合",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "skills",
+              "name": "投合",
+              "source": "skill_owner_index",
+              "skillName": "投合",
+              "displayName": "投合",
+              "linkTarget": "投合",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "skillDomain": "generalSkill",
+              "skillDomains": [
+                "generalSkill",
+                "equipmentSkill"
+              ],
+              "skillKey": "skills:article-261358",
+              "targetDomain": "skill",
+              "targetKey": "skills:article-261358",
+              "qualifierKey": "",
+              "relatedRef": "skill:skills:article-261358"
+            }
+          },
+          {
+            "category": "skills",
+            "name": "雄天堅守",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "skills",
+              "name": "雄天堅守",
+              "source": "skill_owner_index",
+              "skillName": "雄天堅守",
+              "displayName": "雄天堅守",
+              "linkTarget": "雄天堅守",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "skillDomain": "equipmentSkill",
+              "skillDomains": [
+                "equipmentSkill"
+              ],
+              "skillKey": "skills:name-ab0a5e5b",
+              "targetDomain": "skill",
+              "targetKey": "skills:name-ab0a5e5b",
+              "qualifierKey": "",
+              "relatedRef": "skill:skills:name-ab0a5e5b"
+            }
+          },
+          {
+            "category": "skills",
+            "name": "昇守滅傷",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "skills",
+              "name": "昇守滅傷",
+              "source": "skill_owner_index",
+              "skillName": "昇守滅傷",
+              "displayName": "昇守滅傷",
+              "linkTarget": "昇守滅傷",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "skillDomain": "equipmentSkill",
+              "skillDomains": [
+                "equipmentSkill"
+              ],
+              "skillKey": "skills:name-3891d0be",
+              "targetDomain": "skill",
+              "targetKey": "skills:name-3891d0be",
+              "qualifierKey": "",
+              "relatedRef": "skill:skills:name-3891d0be"
+            }
+          },
+          {
+            "category": "skills",
+            "name": "合心勇撃",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "skills",
+              "name": "合心勇撃",
+              "source": "skill_owner_index",
+              "skillName": "合心勇撃",
+              "displayName": "合心勇撃",
+              "linkTarget": "合心勇撃",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "skillDomain": "equipmentSkill",
+              "skillDomains": [
+                "equipmentSkill"
+              ],
+              "skillKey": "skills:name-c4c5a866",
+              "targetDomain": "skill",
+              "targetKey": "skills:name-c4c5a866",
+              "qualifierKey": "",
+              "relatedRef": "skill:skills:name-c4c5a866"
+            }
+          },
+          {
+            "category": "mechanics",
+            "name": "恐怖回避[天衝]",
+            "source": "self_countermeasure_index",
+            "detail": {
+              "category": "statusEffects",
+              "name": "恐怖回避[天衝]",
+              "source": "self_countermeasure_index",
+              "groupKey": "selfResistanceBuff",
+              "groupLabel": "自部隊不利対策",
+              "target": "恐怖",
+              "relationType": "回避",
+              "skillName": "天衝",
+              "sourceText": "自身1部隊にかかる恐怖、畏怖、命中低下を避ける",
+              "sourceType": "skill",
+              "sourcePartType": "self-countermeasure-skill",
+              "displayName": "恐怖回避[天衝]",
+              "finalDisplayName": "恐怖回避[天衝]",
+              "linkTarget": "恐怖",
+              "precomputedByCrawler": true,
+              "sourceSkillName": "天衝",
+              "ownerName": "孤月照耀兜",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "sourceSkillDisplayName": "天衝",
+              "displayRole": "functional-summary",
+              "sourceName": "天衝",
+              "sourceKind": "skill",
+              "mechanic": "derived_status_reference",
+              "baseStatusGroup": "selfResistanceBuff",
+              "qualifierSkillKey": "天衝",
+              "keywords": [
+                "恐怖回避",
+                "天衝",
+                "恐怖回避[天衝]"
+              ],
+              "targetDomain": "mechanic",
+              "targetKey": "derived_status_reference",
+              "qualifierKey": "天衝",
+              "relatedRef": "mechanic:derived_status_reference:天衝"
+            }
+          },
+          {
+            "category": "mechanics",
+            "name": "畏怖回避[天衝]",
+            "source": "self_countermeasure_index",
+            "detail": {
+              "category": "statusEffects",
+              "name": "畏怖回避[天衝]",
+              "source": "self_countermeasure_index",
+              "groupKey": "selfResistanceBuff",
+              "groupLabel": "自部隊不利対策",
+              "target": "畏怖",
+              "relationType": "回避",
+              "skillName": "天衝",
+              "sourceText": "自身1部隊にかかる恐怖、畏怖、命中低下を避ける",
+              "sourceType": "skill",
+              "sourcePartType": "self-countermeasure-skill",
+              "displayName": "畏怖回避[天衝]",
+              "finalDisplayName": "畏怖回避[天衝]",
+              "linkTarget": "畏怖",
+              "precomputedByCrawler": true,
+              "sourceSkillName": "天衝",
+              "ownerName": "孤月照耀兜",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "sourceSkillDisplayName": "天衝",
+              "displayRole": "functional-summary",
+              "sourceName": "天衝",
+              "sourceKind": "skill",
+              "mechanic": "derived_status_reference",
+              "baseStatusGroup": "selfResistanceBuff",
+              "qualifierSkillKey": "天衝",
+              "keywords": [
+                "畏怖回避",
+                "天衝",
+                "畏怖回避[天衝]"
+              ],
+              "targetDomain": "mechanic",
+              "targetKey": "derived_status_reference",
+              "qualifierKey": "天衝",
+              "relatedRef": "mechanic:derived_status_reference:天衝"
+            }
+          },
+          {
+            "category": "mechanics",
+            "name": "命中低下回避[天衝]",
+            "source": "self_countermeasure_index",
+            "detail": {
+              "category": "statusEffects",
+              "name": "命中低下回避[天衝]",
+              "source": "self_countermeasure_index",
+              "groupKey": "selfResistanceBuff",
+              "groupLabel": "自部隊不利対策",
+              "target": "命中低下",
+              "relationType": "回避",
+              "skillName": "天衝",
+              "sourceText": "自身1部隊にかかる恐怖、畏怖、命中低下を避ける",
+              "sourceType": "skill",
+              "sourcePartType": "self-countermeasure-skill",
+              "displayName": "命中低下回避[天衝]",
+              "finalDisplayName": "命中低下回避[天衝]",
+              "linkTarget": "命中低下",
+              "precomputedByCrawler": true,
+              "sourceSkillName": "天衝",
+              "ownerName": "孤月照耀兜",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "sourceSkillDisplayName": "天衝",
+              "displayRole": "functional-summary",
+              "sourceName": "天衝",
+              "sourceKind": "skill",
+              "mechanic": "avoid_parameter_debuff",
+              "baseStatusGroup": "selfResistanceBuff",
+              "qualifierSkillKey": "天衝",
+              "keywords": [
+                "命中低下回避",
+                "天衝",
+                "命中低下回避[天衝]"
+              ],
+              "targetDomain": "mechanic",
+              "targetKey": "avoid_parameter_debuff",
+              "qualifierKey": "天衝",
+              "relatedRef": "mechanic:avoid_parameter_debuff:天衝"
+            }
+          },
+          {
+            "category": "mechanics",
+            "name": "萎縮回避[天衝]",
+            "source": "self_countermeasure_index",
+            "detail": {
+              "category": "statusEffects",
+              "name": "萎縮回避[天衝]",
+              "source": "self_countermeasure_index",
+              "groupKey": "selfResistanceBuff",
+              "groupLabel": "自部隊不利対策",
+              "target": "萎縮",
+              "relationType": "回避",
+              "skillName": "天衝",
+              "sourceText": "自身1部隊にかかる萎縮、疑心、怯心を避ける",
+              "sourceType": "skill",
+              "sourcePartType": "self-countermeasure-skill",
+              "displayName": "萎縮回避[天衝]",
+              "finalDisplayName": "萎縮回避[天衝]",
+              "linkTarget": "萎縮",
+              "precomputedByCrawler": true,
+              "sourceSkillName": "天衝",
+              "ownerName": "孤月照耀兜",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "sourceSkillDisplayName": "天衝",
+              "displayRole": "functional-summary",
+              "sourceName": "天衝",
+              "sourceKind": "skill",
+              "mechanic": "derived_status_reference",
+              "baseStatusGroup": "selfResistanceBuff",
+              "qualifierSkillKey": "天衝",
+              "keywords": [
+                "萎縮回避",
+                "天衝",
+                "萎縮回避[天衝]"
+              ],
+              "targetDomain": "mechanic",
+              "targetKey": "derived_status_reference",
+              "qualifierKey": "天衝",
+              "relatedRef": "mechanic:derived_status_reference:天衝"
+            }
+          },
+          {
+            "category": "mechanics",
+            "name": "疑心回避[天衝]",
+            "source": "self_countermeasure_index",
+            "detail": {
+              "category": "statusEffects",
+              "name": "疑心回避[天衝]",
+              "source": "self_countermeasure_index",
+              "groupKey": "selfResistanceBuff",
+              "groupLabel": "自部隊不利対策",
+              "target": "疑心",
+              "relationType": "回避",
+              "skillName": "天衝",
+              "sourceText": "自身1部隊にかかる萎縮、疑心、怯心を避ける",
+              "sourceType": "skill",
+              "sourcePartType": "self-countermeasure-skill",
+              "displayName": "疑心回避[天衝]",
+              "finalDisplayName": "疑心回避[天衝]",
+              "linkTarget": "疑心",
+              "precomputedByCrawler": true,
+              "sourceSkillName": "天衝",
+              "ownerName": "孤月照耀兜",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "sourceSkillDisplayName": "天衝",
+              "displayRole": "functional-summary",
+              "sourceName": "天衝",
+              "sourceKind": "skill",
+              "mechanic": "derived_status_reference",
+              "baseStatusGroup": "selfResistanceBuff",
+              "qualifierSkillKey": "天衝",
+              "keywords": [
+                "疑心回避",
+                "天衝",
+                "疑心回避[天衝]"
+              ],
+              "targetDomain": "mechanic",
+              "targetKey": "derived_status_reference",
+              "qualifierKey": "天衝",
+              "relatedRef": "mechanic:derived_status_reference:天衝"
+            }
+          },
+          {
+            "category": "mechanics",
+            "name": "怯心回避[天衝]",
+            "source": "self_countermeasure_index",
+            "detail": {
+              "category": "statusEffects",
+              "name": "怯心回避[天衝]",
+              "source": "self_countermeasure_index",
+              "groupKey": "selfResistanceBuff",
+              "groupLabel": "自部隊不利対策",
+              "target": "怯心",
+              "relationType": "回避",
+              "skillName": "天衝",
+              "sourceText": "自身1部隊にかかる萎縮、疑心、怯心を避ける",
+              "sourceType": "skill",
+              "sourcePartType": "self-countermeasure-skill",
+              "displayName": "怯心回避[天衝]",
+              "finalDisplayName": "怯心回避[天衝]",
+              "linkTarget": "怯心",
+              "precomputedByCrawler": true,
+              "sourceSkillName": "天衝",
+              "ownerName": "孤月照耀兜",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "sourceSkillDisplayName": "天衝",
+              "displayRole": "functional-summary",
+              "sourceName": "天衝",
+              "sourceKind": "skill",
+              "mechanic": "derived_status_reference",
+              "baseStatusGroup": "selfResistanceBuff",
+              "qualifierSkillKey": "天衝",
+              "keywords": [
+                "怯心回避",
+                "天衝",
+                "怯心回避[天衝]"
+              ],
+              "targetDomain": "mechanic",
+              "targetKey": "derived_status_reference",
+              "qualifierKey": "天衝",
+              "relatedRef": "mechanic:derived_status_reference:天衝"
+            }
+          }
+        ]
+      },
+      "relatedCounts": {
+        "generals": 0,
+        "tactics": 0,
+        "skills": 6,
+        "equipments": 0,
+        "statusEffects": 0,
+        "formations": 0,
+        "warhorses": 0,
+        "warhorseSkills": 0,
+        "ethnicArmaments": 0,
+        "ethnicResearchSkills": 0,
+        "siegeWeapons": 0,
+        "parameterEffects": 0,
+        "statusGroups": 0,
+        "mechanics": 6,
+        "sourceRefs": 12
+      },
+      "totalRelatedCount": 12,
+      "sourceEntityKey": "equipments:article-585770"
     },
     {
       "category": "equipments",
@@ -409525,6 +410858,287 @@
       },
       "totalRelatedCount": 9,
       "sourceEntityKey": "equipments:article-582929"
+    },
+    {
+      "category": "equipments",
+      "name": "鋒利典雅剣",
+      "related": {
+        "generals": [],
+        "tactics": [],
+        "skills": [
+          {
+            "category": "skills",
+            "name": "才勇",
+            "source": "skill_owner_index",
+            "skillName": "才勇",
+            "displayName": "才勇",
+            "linkTarget": "才勇",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "skillDomain": "generalSkill",
+            "skillDomains": [
+              "generalSkill",
+              "equipmentSkill"
+            ],
+            "skillKey": "skills:article-582920",
+            "targetDomain": "skill",
+            "targetKey": "skills:article-582920",
+            "qualifierKey": "",
+            "relatedRef": "skill:skills:article-582920"
+          },
+          {
+            "category": "skills",
+            "name": "威風",
+            "source": "skill_owner_index",
+            "skillName": "威風",
+            "displayName": "威風",
+            "linkTarget": "威風",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "skillDomain": "generalSkill",
+            "skillDomains": [
+              "generalSkill",
+              "equipmentSkill"
+            ],
+            "skillKey": "skills:article-261391",
+            "targetDomain": "skill",
+            "targetKey": "skills:article-261391",
+            "qualifierKey": "",
+            "relatedRef": "skill:skills:article-261391"
+          },
+          {
+            "category": "skills",
+            "name": "才威武慧",
+            "source": "skill_owner_index",
+            "skillName": "才威武慧",
+            "displayName": "才威武慧",
+            "linkTarget": "才威武慧",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "skillDomain": "equipmentSkill",
+            "skillDomains": [
+              "equipmentSkill"
+            ],
+            "skillKey": "skills:name-6ad31520",
+            "targetDomain": "skill",
+            "targetKey": "skills:name-6ad31520",
+            "qualifierKey": "",
+            "relatedRef": "skill:skills:name-6ad31520"
+          },
+          {
+            "category": "skills",
+            "name": "知勇機術",
+            "source": "skill_owner_index",
+            "skillName": "知勇機術",
+            "displayName": "知勇機術",
+            "linkTarget": "知勇機術",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "skillDomain": "equipmentSkill",
+            "skillDomains": [
+              "equipmentSkill"
+            ],
+            "skillKey": "skills:name-de1c3127",
+            "targetDomain": "skill",
+            "targetKey": "skills:name-de1c3127",
+            "qualifierKey": "",
+            "relatedRef": "skill:skills:name-de1c3127"
+          },
+          {
+            "category": "skills",
+            "name": "兵装鋭撃",
+            "source": "skill_owner_index",
+            "skillName": "兵装鋭撃",
+            "displayName": "兵装鋭撃",
+            "linkTarget": "兵装鋭撃",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "skillDomain": "equipmentSkill",
+            "skillDomains": [
+              "equipmentSkill"
+            ],
+            "skillKey": "skills:name-cbab725f",
+            "targetDomain": "skill",
+            "targetKey": "skills:name-cbab725f",
+            "qualifierKey": "",
+            "relatedRef": "skill:skills:name-cbab725f"
+          }
+        ],
+        "equipments": [],
+        "statusEffects": [],
+        "formations": [],
+        "warhorses": [],
+        "warhorseSkills": [],
+        "ethnicArmaments": [],
+        "ethnicResearchSkills": [],
+        "siegeWeapons": [],
+        "parameterEffects": [],
+        "statusGroups": [],
+        "mechanics": [],
+        "sourceRefs": [
+          {
+            "category": "skills",
+            "name": "才勇",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "skills",
+              "name": "才勇",
+              "source": "skill_owner_index",
+              "skillName": "才勇",
+              "displayName": "才勇",
+              "linkTarget": "才勇",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "skillDomain": "generalSkill",
+              "skillDomains": [
+                "generalSkill",
+                "equipmentSkill"
+              ],
+              "skillKey": "skills:article-582920",
+              "targetDomain": "skill",
+              "targetKey": "skills:article-582920",
+              "qualifierKey": "",
+              "relatedRef": "skill:skills:article-582920"
+            }
+          },
+          {
+            "category": "skills",
+            "name": "威風",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "skills",
+              "name": "威風",
+              "source": "skill_owner_index",
+              "skillName": "威風",
+              "displayName": "威風",
+              "linkTarget": "威風",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "skillDomain": "generalSkill",
+              "skillDomains": [
+                "generalSkill",
+                "equipmentSkill"
+              ],
+              "skillKey": "skills:article-261391",
+              "targetDomain": "skill",
+              "targetKey": "skills:article-261391",
+              "qualifierKey": "",
+              "relatedRef": "skill:skills:article-261391"
+            }
+          },
+          {
+            "category": "skills",
+            "name": "才威武慧",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "skills",
+              "name": "才威武慧",
+              "source": "skill_owner_index",
+              "skillName": "才威武慧",
+              "displayName": "才威武慧",
+              "linkTarget": "才威武慧",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "skillDomain": "equipmentSkill",
+              "skillDomains": [
+                "equipmentSkill"
+              ],
+              "skillKey": "skills:name-6ad31520",
+              "targetDomain": "skill",
+              "targetKey": "skills:name-6ad31520",
+              "qualifierKey": "",
+              "relatedRef": "skill:skills:name-6ad31520"
+            }
+          },
+          {
+            "category": "skills",
+            "name": "知勇機術",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "skills",
+              "name": "知勇機術",
+              "source": "skill_owner_index",
+              "skillName": "知勇機術",
+              "displayName": "知勇機術",
+              "linkTarget": "知勇機術",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "skillDomain": "equipmentSkill",
+              "skillDomains": [
+                "equipmentSkill"
+              ],
+              "skillKey": "skills:name-de1c3127",
+              "targetDomain": "skill",
+              "targetKey": "skills:name-de1c3127",
+              "qualifierKey": "",
+              "relatedRef": "skill:skills:name-de1c3127"
+            }
+          },
+          {
+            "category": "skills",
+            "name": "兵装鋭撃",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "skills",
+              "name": "兵装鋭撃",
+              "source": "skill_owner_index",
+              "skillName": "兵装鋭撃",
+              "displayName": "兵装鋭撃",
+              "linkTarget": "兵装鋭撃",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "skillDomain": "equipmentSkill",
+              "skillDomains": [
+                "equipmentSkill"
+              ],
+              "skillKey": "skills:name-cbab725f",
+              "targetDomain": "skill",
+              "targetKey": "skills:name-cbab725f",
+              "qualifierKey": "",
+              "relatedRef": "skill:skills:name-cbab725f"
+            }
+          }
+        ]
+      },
+      "relatedCounts": {
+        "generals": 0,
+        "tactics": 0,
+        "skills": 5,
+        "equipments": 0,
+        "statusEffects": 0,
+        "formations": 0,
+        "warhorses": 0,
+        "warhorseSkills": 0,
+        "ethnicArmaments": 0,
+        "ethnicResearchSkills": 0,
+        "siegeWeapons": 0,
+        "parameterEffects": 0,
+        "statusGroups": 0,
+        "mechanics": 0,
+        "sourceRefs": 5
+      },
+      "totalRelatedCount": 5,
+      "sourceEntityKey": "equipments:article-582928"
     },
     {
       "category": "equipments",
@@ -598479,7 +600093,36 @@
         ],
         "tactics": [],
         "skills": [],
-        "equipments": [],
+        "equipments": [
+          {
+            "category": "equipments",
+            "name": "江淮水利灌漑図",
+            "source": "skill_owner_index",
+            "skillName": "天衝",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "targetDomain": "equipments",
+            "targetKey": "equipments:article-585771",
+            "qualifierKey": "",
+            "relatedRef": "equipments:equipments:article-585771"
+          },
+          {
+            "category": "equipments",
+            "name": "孤月照耀兜",
+            "source": "skill_owner_index",
+            "skillName": "天衝",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "targetDomain": "equipments",
+            "targetKey": "equipments:article-585770",
+            "qualifierKey": "",
+            "relatedRef": "equipments:equipments:article-585770"
+          }
+        ],
         "statusEffects": [
           {
             "category": "statusEffects",
@@ -598730,6 +600373,44 @@
               "targetKey": "generals:article-440899",
               "qualifierKey": "",
               "relatedRef": "generals:generals:article-440899"
+            }
+          },
+          {
+            "category": "equipments",
+            "name": "江淮水利灌漑図",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "equipments",
+              "name": "江淮水利灌漑図",
+              "source": "skill_owner_index",
+              "skillName": "天衝",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "targetDomain": "equipments",
+              "targetKey": "equipments:article-585771",
+              "qualifierKey": "",
+              "relatedRef": "equipments:equipments:article-585771"
+            }
+          },
+          {
+            "category": "equipments",
+            "name": "孤月照耀兜",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "equipments",
+              "name": "孤月照耀兜",
+              "source": "skill_owner_index",
+              "skillName": "天衝",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "targetDomain": "equipments",
+              "targetKey": "equipments:article-585770",
+              "qualifierKey": "",
+              "relatedRef": "equipments:equipments:article-585770"
             }
           },
           {
@@ -598993,7 +600674,7 @@
         "generals": 1,
         "tactics": 0,
         "skills": 0,
-        "equipments": 0,
+        "equipments": 2,
         "statusEffects": 1,
         "formations": 0,
         "warhorses": 0,
@@ -599004,9 +600685,9 @@
         "parameterEffects": 0,
         "statusGroups": 0,
         "mechanics": 6,
-        "sourceRefs": 8
+        "sourceRefs": 10
       },
-      "totalRelatedCount": 8,
+      "totalRelatedCount": 10,
       "sourceEntityKey": "skills:article-440911"
     },
     {
@@ -599031,7 +600712,36 @@
         ],
         "tactics": [],
         "skills": [],
-        "equipments": [],
+        "equipments": [
+          {
+            "category": "equipments",
+            "name": "江淮水利灌漑図",
+            "source": "skill_owner_index",
+            "skillName": "雄猛",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "targetDomain": "equipments",
+            "targetKey": "equipments:article-585771",
+            "qualifierKey": "",
+            "relatedRef": "equipments:equipments:article-585771"
+          },
+          {
+            "category": "equipments",
+            "name": "孤月照耀兜",
+            "source": "skill_owner_index",
+            "skillName": "雄猛",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "targetDomain": "equipments",
+            "targetKey": "equipments:article-585770",
+            "qualifierKey": "",
+            "relatedRef": "equipments:equipments:article-585770"
+          }
+        ],
         "statusEffects": [],
         "formations": [],
         "warhorses": [],
@@ -599061,6 +600771,44 @@
               "qualifierKey": "",
               "relatedRef": "generals:generals:article-440899"
             }
+          },
+          {
+            "category": "equipments",
+            "name": "江淮水利灌漑図",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "equipments",
+              "name": "江淮水利灌漑図",
+              "source": "skill_owner_index",
+              "skillName": "雄猛",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "targetDomain": "equipments",
+              "targetKey": "equipments:article-585771",
+              "qualifierKey": "",
+              "relatedRef": "equipments:equipments:article-585771"
+            }
+          },
+          {
+            "category": "equipments",
+            "name": "孤月照耀兜",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "equipments",
+              "name": "孤月照耀兜",
+              "source": "skill_owner_index",
+              "skillName": "雄猛",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "targetDomain": "equipments",
+              "targetKey": "equipments:article-585770",
+              "qualifierKey": "",
+              "relatedRef": "equipments:equipments:article-585770"
+            }
           }
         ]
       },
@@ -599068,7 +600816,7 @@
         "generals": 1,
         "tactics": 0,
         "skills": 0,
-        "equipments": 0,
+        "equipments": 2,
         "statusEffects": 0,
         "formations": 0,
         "warhorses": 0,
@@ -599079,9 +600827,9 @@
         "parameterEffects": 0,
         "statusGroups": 0,
         "mechanics": 0,
-        "sourceRefs": 1
+        "sourceRefs": 3
       },
-      "totalRelatedCount": 1,
+      "totalRelatedCount": 3,
       "sourceEntityKey": "skills:article-440910"
     },
     {
@@ -672754,6 +674502,34 @@
         "equipments": [
           {
             "category": "equipments",
+            "name": "江淮水利灌漑図",
+            "source": "skill_owner_index",
+            "skillName": "投合",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "targetDomain": "equipments",
+            "targetKey": "equipments:article-585771",
+            "qualifierKey": "",
+            "relatedRef": "equipments:equipments:article-585771"
+          },
+          {
+            "category": "equipments",
+            "name": "孤月照耀兜",
+            "source": "skill_owner_index",
+            "skillName": "投合",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "targetDomain": "equipments",
+            "targetKey": "equipments:article-585770",
+            "qualifierKey": "",
+            "relatedRef": "equipments:equipments:article-585770"
+          },
+          {
+            "category": "equipments",
             "name": "獅冠銀尖槍",
             "source": "skill_owner_index",
             "skillName": "投合",
@@ -673362,6 +675138,44 @@
           },
           {
             "category": "equipments",
+            "name": "江淮水利灌漑図",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "equipments",
+              "name": "江淮水利灌漑図",
+              "source": "skill_owner_index",
+              "skillName": "投合",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "targetDomain": "equipments",
+              "targetKey": "equipments:article-585771",
+              "qualifierKey": "",
+              "relatedRef": "equipments:equipments:article-585771"
+            }
+          },
+          {
+            "category": "equipments",
+            "name": "孤月照耀兜",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "equipments",
+              "name": "孤月照耀兜",
+              "source": "skill_owner_index",
+              "skillName": "投合",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "targetDomain": "equipments",
+              "targetKey": "equipments:article-585770",
+              "qualifierKey": "",
+              "relatedRef": "equipments:equipments:article-585770"
+            }
+          },
+          {
+            "category": "equipments",
             "name": "獅冠銀尖槍",
             "source": "skill_owner_index",
             "detail": {
@@ -673795,7 +675609,7 @@
         "generals": 14,
         "tactics": 0,
         "skills": 0,
-        "equipments": 13,
+        "equipments": 15,
         "statusEffects": 7,
         "formations": 0,
         "warhorses": 0,
@@ -673806,9 +675620,9 @@
         "parameterEffects": 0,
         "statusGroups": 0,
         "mechanics": 0,
-        "sourceRefs": 34
+        "sourceRefs": 36
       },
-      "totalRelatedCount": 34,
+      "totalRelatedCount": 36,
       "sourceEntityKey": "skills:article-261358"
     },
     {
@@ -732104,7 +733918,7 @@
     },
     {
       "category": "skills",
-      "name": "才威武慧",
+      "name": "雄天強撃",
       "related": {
         "generals": [],
         "tactics": [],
@@ -732112,17 +733926,17 @@
         "equipments": [
           {
             "category": "equipments",
-            "name": "鋒利典雅剣",
+            "name": "江淮水利灌漑図",
             "source": "skill_owner_index",
-            "skillName": "才威武慧",
+            "skillName": "雄天強撃",
             "isAdvisorSkill": false,
             "usage": "normal",
             "ownerType": "equipment",
             "sourcePartType": "equipment-skill-table",
             "targetDomain": "equipments",
-            "targetKey": "equipments:article-582928",
+            "targetKey": "equipments:article-585771",
             "qualifierKey": "",
-            "relatedRef": "equipments:equipments:article-582928"
+            "relatedRef": "equipments:equipments:article-585771"
           }
         ],
         "statusEffects": [],
@@ -732138,21 +733952,21 @@
         "sourceRefs": [
           {
             "category": "equipments",
-            "name": "鋒利典雅剣",
+            "name": "江淮水利灌漑図",
             "source": "skill_owner_index",
             "detail": {
               "category": "equipments",
-              "name": "鋒利典雅剣",
+              "name": "江淮水利灌漑図",
               "source": "skill_owner_index",
-              "skillName": "才威武慧",
+              "skillName": "雄天強撃",
               "isAdvisorSkill": false,
               "usage": "normal",
               "ownerType": "equipment",
               "sourcePartType": "equipment-skill-table",
               "targetDomain": "equipments",
-              "targetKey": "equipments:article-582928",
+              "targetKey": "equipments:article-585771",
               "qualifierKey": "",
-              "relatedRef": "equipments:equipments:article-582928"
+              "relatedRef": "equipments:equipments:article-585771"
             }
           }
         ]
@@ -732175,11 +733989,11 @@
         "sourceRefs": 1
       },
       "totalRelatedCount": 1,
-      "sourceEntityKey": "skills:name-6ad31520"
+      "sourceEntityKey": "skills:name-6ce28fe8"
     },
     {
       "category": "skills",
-      "name": "知勇機術",
+      "name": "昇剛激成",
       "related": {
         "generals": [],
         "tactics": [],
@@ -732187,17 +734001,17 @@
         "equipments": [
           {
             "category": "equipments",
-            "name": "鋒利典雅剣",
+            "name": "江淮水利灌漑図",
             "source": "skill_owner_index",
-            "skillName": "知勇機術",
+            "skillName": "昇剛激成",
             "isAdvisorSkill": false,
             "usage": "normal",
             "ownerType": "equipment",
             "sourcePartType": "equipment-skill-table",
             "targetDomain": "equipments",
-            "targetKey": "equipments:article-582928",
+            "targetKey": "equipments:article-585771",
             "qualifierKey": "",
-            "relatedRef": "equipments:equipments:article-582928"
+            "relatedRef": "equipments:equipments:article-585771"
           }
         ],
         "statusEffects": [],
@@ -732213,21 +734027,21 @@
         "sourceRefs": [
           {
             "category": "equipments",
-            "name": "鋒利典雅剣",
+            "name": "江淮水利灌漑図",
             "source": "skill_owner_index",
             "detail": {
               "category": "equipments",
-              "name": "鋒利典雅剣",
+              "name": "江淮水利灌漑図",
               "source": "skill_owner_index",
-              "skillName": "知勇機術",
+              "skillName": "昇剛激成",
               "isAdvisorSkill": false,
               "usage": "normal",
               "ownerType": "equipment",
               "sourcePartType": "equipment-skill-table",
               "targetDomain": "equipments",
-              "targetKey": "equipments:article-582928",
+              "targetKey": "equipments:article-585771",
               "qualifierKey": "",
-              "relatedRef": "equipments:equipments:article-582928"
+              "relatedRef": "equipments:equipments:article-585771"
             }
           }
         ]
@@ -732250,11 +734064,11 @@
         "sourceRefs": 1
       },
       "totalRelatedCount": 1,
-      "sourceEntityKey": "skills:name-de1c3127"
+      "sourceEntityKey": "skills:name-6ac3e1cf"
     },
     {
       "category": "skills",
-      "name": "兵装鋭撃",
+      "name": "合心速逐",
       "related": {
         "generals": [],
         "tactics": [],
@@ -732262,17 +734076,17 @@
         "equipments": [
           {
             "category": "equipments",
-            "name": "鋒利典雅剣",
+            "name": "江淮水利灌漑図",
             "source": "skill_owner_index",
-            "skillName": "兵装鋭撃",
+            "skillName": "合心速逐",
             "isAdvisorSkill": false,
             "usage": "normal",
             "ownerType": "equipment",
             "sourcePartType": "equipment-skill-table",
             "targetDomain": "equipments",
-            "targetKey": "equipments:article-582928",
+            "targetKey": "equipments:article-585771",
             "qualifierKey": "",
-            "relatedRef": "equipments:equipments:article-582928"
+            "relatedRef": "equipments:equipments:article-585771"
           }
         ],
         "statusEffects": [],
@@ -732288,21 +734102,21 @@
         "sourceRefs": [
           {
             "category": "equipments",
-            "name": "鋒利典雅剣",
+            "name": "江淮水利灌漑図",
             "source": "skill_owner_index",
             "detail": {
               "category": "equipments",
-              "name": "鋒利典雅剣",
+              "name": "江淮水利灌漑図",
               "source": "skill_owner_index",
-              "skillName": "兵装鋭撃",
+              "skillName": "合心速逐",
               "isAdvisorSkill": false,
               "usage": "normal",
               "ownerType": "equipment",
               "sourcePartType": "equipment-skill-table",
               "targetDomain": "equipments",
-              "targetKey": "equipments:article-582928",
+              "targetKey": "equipments:article-585771",
               "qualifierKey": "",
-              "relatedRef": "equipments:equipments:article-582928"
+              "relatedRef": "equipments:equipments:article-585771"
             }
           }
         ]
@@ -732325,7 +734139,232 @@
         "sourceRefs": 1
       },
       "totalRelatedCount": 1,
-      "sourceEntityKey": "skills:name-cbab725f"
+      "sourceEntityKey": "skills:name-44d7d68b"
+    },
+    {
+      "category": "skills",
+      "name": "雄天堅守",
+      "related": {
+        "generals": [],
+        "tactics": [],
+        "skills": [],
+        "equipments": [
+          {
+            "category": "equipments",
+            "name": "孤月照耀兜",
+            "source": "skill_owner_index",
+            "skillName": "雄天堅守",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "targetDomain": "equipments",
+            "targetKey": "equipments:article-585770",
+            "qualifierKey": "",
+            "relatedRef": "equipments:equipments:article-585770"
+          }
+        ],
+        "statusEffects": [],
+        "formations": [],
+        "warhorses": [],
+        "warhorseSkills": [],
+        "ethnicArmaments": [],
+        "ethnicResearchSkills": [],
+        "siegeWeapons": [],
+        "parameterEffects": [],
+        "statusGroups": [],
+        "mechanics": [],
+        "sourceRefs": [
+          {
+            "category": "equipments",
+            "name": "孤月照耀兜",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "equipments",
+              "name": "孤月照耀兜",
+              "source": "skill_owner_index",
+              "skillName": "雄天堅守",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "targetDomain": "equipments",
+              "targetKey": "equipments:article-585770",
+              "qualifierKey": "",
+              "relatedRef": "equipments:equipments:article-585770"
+            }
+          }
+        ]
+      },
+      "relatedCounts": {
+        "generals": 0,
+        "tactics": 0,
+        "skills": 0,
+        "equipments": 1,
+        "statusEffects": 0,
+        "formations": 0,
+        "warhorses": 0,
+        "warhorseSkills": 0,
+        "ethnicArmaments": 0,
+        "ethnicResearchSkills": 0,
+        "siegeWeapons": 0,
+        "parameterEffects": 0,
+        "statusGroups": 0,
+        "mechanics": 0,
+        "sourceRefs": 1
+      },
+      "totalRelatedCount": 1,
+      "sourceEntityKey": "skills:name-ab0a5e5b"
+    },
+    {
+      "category": "skills",
+      "name": "昇守滅傷",
+      "related": {
+        "generals": [],
+        "tactics": [],
+        "skills": [],
+        "equipments": [
+          {
+            "category": "equipments",
+            "name": "孤月照耀兜",
+            "source": "skill_owner_index",
+            "skillName": "昇守滅傷",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "targetDomain": "equipments",
+            "targetKey": "equipments:article-585770",
+            "qualifierKey": "",
+            "relatedRef": "equipments:equipments:article-585770"
+          }
+        ],
+        "statusEffects": [],
+        "formations": [],
+        "warhorses": [],
+        "warhorseSkills": [],
+        "ethnicArmaments": [],
+        "ethnicResearchSkills": [],
+        "siegeWeapons": [],
+        "parameterEffects": [],
+        "statusGroups": [],
+        "mechanics": [],
+        "sourceRefs": [
+          {
+            "category": "equipments",
+            "name": "孤月照耀兜",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "equipments",
+              "name": "孤月照耀兜",
+              "source": "skill_owner_index",
+              "skillName": "昇守滅傷",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "targetDomain": "equipments",
+              "targetKey": "equipments:article-585770",
+              "qualifierKey": "",
+              "relatedRef": "equipments:equipments:article-585770"
+            }
+          }
+        ]
+      },
+      "relatedCounts": {
+        "generals": 0,
+        "tactics": 0,
+        "skills": 0,
+        "equipments": 1,
+        "statusEffects": 0,
+        "formations": 0,
+        "warhorses": 0,
+        "warhorseSkills": 0,
+        "ethnicArmaments": 0,
+        "ethnicResearchSkills": 0,
+        "siegeWeapons": 0,
+        "parameterEffects": 0,
+        "statusGroups": 0,
+        "mechanics": 0,
+        "sourceRefs": 1
+      },
+      "totalRelatedCount": 1,
+      "sourceEntityKey": "skills:name-3891d0be"
+    },
+    {
+      "category": "skills",
+      "name": "合心勇撃",
+      "related": {
+        "generals": [],
+        "tactics": [],
+        "skills": [],
+        "equipments": [
+          {
+            "category": "equipments",
+            "name": "孤月照耀兜",
+            "source": "skill_owner_index",
+            "skillName": "合心勇撃",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "targetDomain": "equipments",
+            "targetKey": "equipments:article-585770",
+            "qualifierKey": "",
+            "relatedRef": "equipments:equipments:article-585770"
+          }
+        ],
+        "statusEffects": [],
+        "formations": [],
+        "warhorses": [],
+        "warhorseSkills": [],
+        "ethnicArmaments": [],
+        "ethnicResearchSkills": [],
+        "siegeWeapons": [],
+        "parameterEffects": [],
+        "statusGroups": [],
+        "mechanics": [],
+        "sourceRefs": [
+          {
+            "category": "equipments",
+            "name": "孤月照耀兜",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "equipments",
+              "name": "孤月照耀兜",
+              "source": "skill_owner_index",
+              "skillName": "合心勇撃",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "targetDomain": "equipments",
+              "targetKey": "equipments:article-585770",
+              "qualifierKey": "",
+              "relatedRef": "equipments:equipments:article-585770"
+            }
+          }
+        ]
+      },
+      "relatedCounts": {
+        "generals": 0,
+        "tactics": 0,
+        "skills": 0,
+        "equipments": 1,
+        "statusEffects": 0,
+        "formations": 0,
+        "warhorses": 0,
+        "warhorseSkills": 0,
+        "ethnicArmaments": 0,
+        "ethnicResearchSkills": 0,
+        "siegeWeapons": 0,
+        "parameterEffects": 0,
+        "statusGroups": 0,
+        "mechanics": 0,
+        "sourceRefs": 1
+      },
+      "totalRelatedCount": 1,
+      "sourceEntityKey": "skills:name-c4c5a866"
     },
     {
       "category": "skills",
@@ -732551,6 +734590,231 @@
       },
       "totalRelatedCount": 1,
       "sourceEntityKey": "skills:name-13205717"
+    },
+    {
+      "category": "skills",
+      "name": "才威武慧",
+      "related": {
+        "generals": [],
+        "tactics": [],
+        "skills": [],
+        "equipments": [
+          {
+            "category": "equipments",
+            "name": "鋒利典雅剣",
+            "source": "skill_owner_index",
+            "skillName": "才威武慧",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "targetDomain": "equipments",
+            "targetKey": "equipments:article-582928",
+            "qualifierKey": "",
+            "relatedRef": "equipments:equipments:article-582928"
+          }
+        ],
+        "statusEffects": [],
+        "formations": [],
+        "warhorses": [],
+        "warhorseSkills": [],
+        "ethnicArmaments": [],
+        "ethnicResearchSkills": [],
+        "siegeWeapons": [],
+        "parameterEffects": [],
+        "statusGroups": [],
+        "mechanics": [],
+        "sourceRefs": [
+          {
+            "category": "equipments",
+            "name": "鋒利典雅剣",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "equipments",
+              "name": "鋒利典雅剣",
+              "source": "skill_owner_index",
+              "skillName": "才威武慧",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "targetDomain": "equipments",
+              "targetKey": "equipments:article-582928",
+              "qualifierKey": "",
+              "relatedRef": "equipments:equipments:article-582928"
+            }
+          }
+        ]
+      },
+      "relatedCounts": {
+        "generals": 0,
+        "tactics": 0,
+        "skills": 0,
+        "equipments": 1,
+        "statusEffects": 0,
+        "formations": 0,
+        "warhorses": 0,
+        "warhorseSkills": 0,
+        "ethnicArmaments": 0,
+        "ethnicResearchSkills": 0,
+        "siegeWeapons": 0,
+        "parameterEffects": 0,
+        "statusGroups": 0,
+        "mechanics": 0,
+        "sourceRefs": 1
+      },
+      "totalRelatedCount": 1,
+      "sourceEntityKey": "skills:name-6ad31520"
+    },
+    {
+      "category": "skills",
+      "name": "知勇機術",
+      "related": {
+        "generals": [],
+        "tactics": [],
+        "skills": [],
+        "equipments": [
+          {
+            "category": "equipments",
+            "name": "鋒利典雅剣",
+            "source": "skill_owner_index",
+            "skillName": "知勇機術",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "targetDomain": "equipments",
+            "targetKey": "equipments:article-582928",
+            "qualifierKey": "",
+            "relatedRef": "equipments:equipments:article-582928"
+          }
+        ],
+        "statusEffects": [],
+        "formations": [],
+        "warhorses": [],
+        "warhorseSkills": [],
+        "ethnicArmaments": [],
+        "ethnicResearchSkills": [],
+        "siegeWeapons": [],
+        "parameterEffects": [],
+        "statusGroups": [],
+        "mechanics": [],
+        "sourceRefs": [
+          {
+            "category": "equipments",
+            "name": "鋒利典雅剣",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "equipments",
+              "name": "鋒利典雅剣",
+              "source": "skill_owner_index",
+              "skillName": "知勇機術",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "targetDomain": "equipments",
+              "targetKey": "equipments:article-582928",
+              "qualifierKey": "",
+              "relatedRef": "equipments:equipments:article-582928"
+            }
+          }
+        ]
+      },
+      "relatedCounts": {
+        "generals": 0,
+        "tactics": 0,
+        "skills": 0,
+        "equipments": 1,
+        "statusEffects": 0,
+        "formations": 0,
+        "warhorses": 0,
+        "warhorseSkills": 0,
+        "ethnicArmaments": 0,
+        "ethnicResearchSkills": 0,
+        "siegeWeapons": 0,
+        "parameterEffects": 0,
+        "statusGroups": 0,
+        "mechanics": 0,
+        "sourceRefs": 1
+      },
+      "totalRelatedCount": 1,
+      "sourceEntityKey": "skills:name-de1c3127"
+    },
+    {
+      "category": "skills",
+      "name": "兵装鋭撃",
+      "related": {
+        "generals": [],
+        "tactics": [],
+        "skills": [],
+        "equipments": [
+          {
+            "category": "equipments",
+            "name": "鋒利典雅剣",
+            "source": "skill_owner_index",
+            "skillName": "兵装鋭撃",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "targetDomain": "equipments",
+            "targetKey": "equipments:article-582928",
+            "qualifierKey": "",
+            "relatedRef": "equipments:equipments:article-582928"
+          }
+        ],
+        "statusEffects": [],
+        "formations": [],
+        "warhorses": [],
+        "warhorseSkills": [],
+        "ethnicArmaments": [],
+        "ethnicResearchSkills": [],
+        "siegeWeapons": [],
+        "parameterEffects": [],
+        "statusGroups": [],
+        "mechanics": [],
+        "sourceRefs": [
+          {
+            "category": "equipments",
+            "name": "鋒利典雅剣",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "equipments",
+              "name": "鋒利典雅剣",
+              "source": "skill_owner_index",
+              "skillName": "兵装鋭撃",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "targetDomain": "equipments",
+              "targetKey": "equipments:article-582928",
+              "qualifierKey": "",
+              "relatedRef": "equipments:equipments:article-582928"
+            }
+          }
+        ]
+      },
+      "relatedCounts": {
+        "generals": 0,
+        "tactics": 0,
+        "skills": 0,
+        "equipments": 1,
+        "statusEffects": 0,
+        "formations": 0,
+        "warhorses": 0,
+        "warhorseSkills": 0,
+        "ethnicArmaments": 0,
+        "ethnicResearchSkills": 0,
+        "siegeWeapons": 0,
+        "parameterEffects": 0,
+        "statusGroups": 0,
+        "mechanics": 0,
+        "sourceRefs": 1
+      },
+      "totalRelatedCount": 1,
+      "sourceEntityKey": "skills:name-cbab725f"
     },
     {
       "category": "skills",
