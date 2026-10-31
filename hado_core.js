@@ -2237,15 +2237,17 @@ function addGrantedSkillParameterRecordsFromLines(lines,parentSkillName,add,extr
 }
 function getReferencedSkillLevelContent(entry){const rawContent=(Array.isArray(entry?.content)?entry.content:[]).filter(line=>!isOwnerListContentLine(line)).join(' ');return extractRomanLevelBlockText(rawContent,entry?.level)||rawContent;}
 function renderGeneralSkillLevelBadge(level,label='この武将の技能レベル'){const normalized=normalizeSkillLevelValue(level);return normalized?`<span class="general-skill-level-badge" aria-label="${esc(label)}">Lv${esc(normalized)}</span>`:'';}
-function renderReferencedSkillCard(entry){
+function renderReferencedSkillCard(entry,parentSkillName=''){
   const selectedContent=getReferencedSkillLevelContent(entry);
   const condition=buildDetailConditionPresentation(entry?.item||{name:entry?.name||''},'skills',selectedContent?[selectedContent]:[]);
   const rawHtml=selectedContent?`<div class="general-text referenced-skill-raw">${fmtContent([selectedContent])}</div>`:'';
   const fallbackHtml=condition.grouped?condition.html:[condition.html,rawHtml].filter(Boolean).join('');
   const levelHtml=renderSkillLevelToggleForItem({skillName:entry?.name||'',skillItem:entry?.item||null,fallbackLines:entry?.content||[],currentLevel:entry?.level||'',presentationItem:entry?.item||{name:entry?.name||''},category:'skills',idPrefix:'referenced-skill-level'});
-  return `<div class="general-skill-card referenced-skill-card" data-referenced-skill="1" data-referenced-skill-name="${esc(entry?.name||'')}"><div class="general-skill-heading"><div class="general-skill-name" style="margin-bottom:0">${esc(entry?.name||'')}</div>${renderGeneralSkillLevelBadge(entry?.level||'','付与される技能レベル')}</div>${levelHtml||fallbackHtml}</div>`;
+  const relation=parentSkillName?`<div class="referenced-skill-relation">${esc(parentSkillName)}から付与</div>`:'';
+  return `<div class="general-skill-card referenced-skill-card" data-referenced-skill="1" data-referenced-skill-name="${esc(entry?.name||'')}" data-referenced-from="${esc(parentSkillName)}">${relation}<div class="general-skill-heading"><div class="general-skill-name" style="margin-bottom:0">${esc(entry?.name||'')}</div>${renderGeneralSkillLevelBadge(entry?.level||'','付与される技能レベル')}</div>${levelHtml||fallbackHtml}</div>`;
 }
-function renderEmbeddedSkillCards(lines){const entries=getReferencedSkillEntriesFromLines(lines).filter(entry=>entry.found);if(!entries.length)return '';return `<div class="referenced-skill-list">${entries.map(renderReferencedSkillCard).join('')}</div>`;}
+function renderReferencedSkillGroup(entries,parentSkillName){const rows=(Array.isArray(entries)?entries:[]).filter(entry=>entry?.found);if(!rows.length)return '';return `<section class="general-skill-reference-group" role="group" aria-label="${esc(parentSkillName||'技能')}から付与される参照技能"><div class="general-skill-reference-title">参照技能</div><div class="referenced-skill-list">${rows.map(entry=>renderReferencedSkillCard(entry,parentSkillName)).join('')}</div></section>`;}
+function renderEmbeddedSkillCards(lines,parentSkillName=''){const entries=getReferencedSkillEntriesFromLines(lines).filter(entry=>entry.found);return renderReferencedSkillGroup(entries,parentSkillName);}
 function buildEmbeddedSkillDebugInfo(item){const sections=(Array.isArray(item?.sections)?item.sections:[]).filter(sec=>isGeneralSkillSection(item,sec));const logs=[];logs.push(`selected=${norm(item?.name||item?.title||'')}`);logs.push(`skillsDatasetCount=${Array.isArray(state.skills)?state.skills.length:0}`);sections.forEach(sec=>{const filteredContent=filterSkillContentLines(sec?.content||[]);logs.push(`--- skill:${norm(sec?.title||'')} ---`);logs.push(`filteredLineCount=${filteredContent.length}`);const refs=[];(filteredContent||[]).forEach((line,idx)=>{const found=extractEmbeddedSkillRefsFromText(line);logs.push(`line[${idx}]=${norm(line)}`);logs.push(`line[${idx}] refs=${JSON.stringify(found.map(v=>({name:v.name,level:v.level,matchedText:v.matchedText})))}`);refs.push(...found);});if(!refs.length){logs.push('resolvedRefs=[]');return;}const resolved=getReferencedSkillEntriesFromLines(filteredContent);resolved.forEach(entry=>{if(entry.found){logs.push(`resolved ${entry.name} Lv${entry.level}: FOUND sourceGeneral=${entry.sourceGeneral||''} contentLines=${Array.isArray(entry.content)?entry.content.length:0}`);}else{logs.push(`resolved ${entry.name} Lv${entry.level}: NOT_FOUND reason=${entry.reason||''}`);}});});return logs.join('\n');}
 function collectReferencedSkillNamesFromText(text,out){const s=String(text||'');if(!s)return;for(const m of s.matchAll(/「([^」]+)」/g)){const n=norm(m[1]);if(n)out.add(n);}for(const m of s.matchAll(/([一-鿿々ぁ-んァ-ヶーA-Za-z0-9]+)を持つ武将/g)){const n=norm(m[1]);if(n)out.add(n);}for(const m of s.matchAll(/([一-鿿々ぁ-んァ-ヶーA-Za-z0-9]+)を習得/g)){const n=norm(m[1]);if(n)out.add(n);}}
 function collectSkillNamesFromGeneralItem(item){
@@ -3399,7 +3401,42 @@ function collectGeneralSkillCardSections(item){const sourceSections=Array.isArra
 function isAppointmentSkillText(text){return /(?:^|[■●▼\s　])[^。■●▼]*に任命時|任命時/.test(norm(text||''));}
 function getSkillUsageBadgesHtml(isAdvisorSkill,isAppointmentSkill){let html='';if(isAdvisorSkill)html+='<span class="badge advisor-skill-badge">参軍技能</span>';if(isAppointmentSkill)html+='<span class="badge appointment-skill-badge">任命技能</span>';return html;}
 function renderGeneralSkillContentForLevel(lines,currentLevel){const filtered=filterSkillContentLines(lines);if(state.viewMode==='saved'){if(!currentLevel)return {content:['この保存データでは未解放です。'],selected:false};const joined=filtered.join(' ');const selected=extractRomanLevelBlockText(joined,currentLevel);if(selected&&selected!==joined)return {content:[selected],selected:true};}return {content:filtered,selected:!!currentLevel};}
-function renderGeneralSkills(item){const sourceSections=Array.isArray(item?.sections)?item.sections:[];const advisorStart=sourceSections.findIndex(sec=>norm(sec?.title||'')==='参軍技能');let advisorEnd=sourceSections.length;if(advisorStart>=0){const foundEnd=sourceSections.findIndex((sec,idx)=>idx>advisorStart&&isAdvisorSkillStopTitle(norm(sec?.title||'')));if(foundEnd>=0)advisorEnd=foundEnd;}const advisorRangeCount=advisorStart>=0?Math.max(0,advisorEnd-advisorStart):0;const advisorSkillNames=new Set(extractAdvisorSkillEntries(item,getItemDisplayName(item)).map(e=>norm(e.name)));const skillCoverage=collectGeneralSkillCardSections(item);const sections=skillCoverage.sections;debugLog('renderGeneralSkills:coverage',{name:getItemDisplayName(item),advisorStart,advisorEnd,advisorRangeCount,advisorSkillNames:[...advisorSkillNames],listedSkillNames:skillCoverage.listedSkillNames,relatedSkillNames:skillCoverage.relatedSkillNames,renderedSkillNames:skillCoverage.renderedNames,missingSkillNames:skillCoverage.missingSkillNames,renderedCount:sections.length,sectionSources:sections.map(sec=>({title:norm(sec?.title||''),source:sec?._source||'section'})).slice(0,50)});if(!sections.length)return '';const resolvedSkillMap=getResolvedGeneralSkillLevelMap(item);const cards=[];sections.forEach(sec=>{const rawFilteredContent=filterSkillContentLines(sec?.content||[]);const currentLevel=resolvedSkillMap.get(norm(sec.title))||'';const renderedContentInfo=renderGeneralSkillContentForLevel(sec?.content||[],currentLevel);const filteredContent=renderedContentInfo.content;const isAdvisorSkill=advisorSkillNames.has(norm(sec.title));const isAppointmentSkill=isAppointmentSkillText(rawFilteredContent.join(' '));if(isAdvisorSkill)debugLog('advisorSkill:render',{general:getItemDisplayName(item),skillName:norm(sec.title),source:sec?._source||'section'});if(isAppointmentSkill)debugLog('appointmentSkill:render',{general:getItemDisplayName(item),skillName:norm(sec.title),source:sec?._source||'section'});const badges=getSkillUsageBadgesHtml(isAdvisorSkill,isAppointmentSkill);const condition=buildDetailConditionPresentation(item,'generals',rawFilteredContent);const rawHtml=`<div class="general-text" style="margin-top:12px">${fmtContent(filteredContent)}</div>`;const fallbackHtml=condition.grouped?condition.html:[condition.html,rawHtml].filter(Boolean).join('');const skillItem=findSkillItemForLevelToggle(sec.title);const levelHtml=renderSkillLevelToggleForItem({skillName:sec.title,skillItem,fallbackLines:rawFilteredContent,currentLevel,presentationItem:item,category:'generals',idPrefix:'general-skill-level'});cards.push(`<div class="general-skill-card ${isAdvisorSkill?'advisor-skill-card ':''}${isAppointmentSkill?'appointment-skill-card':''}"><div class="general-skill-heading"><div class="general-skill-name" style="margin-bottom:0">${esc(sec.title)}${badges?' '+badges:''}</div>${renderGeneralSkillLevelBadge(currentLevel)}</div>${levelHtml||fallbackHtml}</div>`);const embeddedEntries=(currentLevel&&!isAdvisorSkill&&!isAppointmentSkill)?getReferencedSkillEntriesFromLines(rawFilteredContent).filter(entry=>entry.found):[];embeddedEntries.forEach(entry=>cards.push(renderReferencedSkillCard(entry)));});return `<div class="general-card"><div class="general-card-header">技能</div><div class="general-card-body"><div class="general-skill-grid">${cards.join('')}</div></div></div>`;}
+function renderGeneralSkills(item){
+  const sourceSections=Array.isArray(item?.sections)?item.sections:[];
+  const advisorStart=sourceSections.findIndex(sec=>norm(sec?.title||'')==='参軍技能');
+  let advisorEnd=sourceSections.length;
+  if(advisorStart>=0){const foundEnd=sourceSections.findIndex((sec,idx)=>idx>advisorStart&&isAdvisorSkillStopTitle(norm(sec?.title||'')));if(foundEnd>=0)advisorEnd=foundEnd;}
+  const advisorRangeCount=advisorStart>=0?Math.max(0,advisorEnd-advisorStart):0;
+  const advisorSkillNames=new Set(extractAdvisorSkillEntries(item,getItemDisplayName(item)).map(e=>norm(e.name)));
+  const skillCoverage=collectGeneralSkillCardSections(item);
+  const sections=skillCoverage.sections;
+  debugLog('renderGeneralSkills:coverage',{name:getItemDisplayName(item),advisorStart,advisorEnd,advisorRangeCount,advisorSkillNames:[...advisorSkillNames],listedSkillNames:skillCoverage.listedSkillNames,relatedSkillNames:skillCoverage.relatedSkillNames,renderedSkillNames:skillCoverage.renderedNames,missingSkillNames:skillCoverage.missingSkillNames,renderedCount:sections.length,sectionSources:sections.map(sec=>({title:norm(sec?.title||''),source:sec?._source||'section'})).slice(0,50)});
+  if(!sections.length)return '';
+  const resolvedSkillMap=getResolvedGeneralSkillLevelMap(item);
+  const cards=[];
+  sections.forEach(sec=>{
+    const rawFilteredContent=filterSkillContentLines(sec?.content||[]);
+    const currentLevel=resolvedSkillMap.get(norm(sec.title))||'';
+    const renderedContentInfo=renderGeneralSkillContentForLevel(sec?.content||[],currentLevel);
+    const filteredContent=renderedContentInfo.content;
+    const isAdvisorSkill=advisorSkillNames.has(norm(sec.title));
+    const isAppointmentSkill=isAppointmentSkillText(rawFilteredContent.join(' '));
+    if(isAdvisorSkill)debugLog('advisorSkill:render',{general:getItemDisplayName(item),skillName:norm(sec.title),source:sec?._source||'section'});
+    if(isAppointmentSkill)debugLog('appointmentSkill:render',{general:getItemDisplayName(item),skillName:norm(sec.title),source:sec?._source||'section'});
+    const badges=getSkillUsageBadgesHtml(isAdvisorSkill,isAppointmentSkill);
+    const condition=buildDetailConditionPresentation(item,'generals',filteredContent);
+    const rawHtml=`<div class="general-text" style="margin-top:12px">${fmtContent(filteredContent)}</div>`;
+    const fallbackHtml=condition.grouped?condition.html:[condition.html,rawHtml].filter(Boolean).join('');
+    const skillItem=findSkillItemForLevelToggle(sec.title);
+    const parentSkillName=norm(sec.title);
+    const mayRenderReferences=currentLevel&&!isAdvisorSkill&&!isAppointmentSkill;
+    const levelHtml=renderSkillLevelToggleForItem({skillName:sec.title,skillItem,fallbackLines:rawFilteredContent,currentLevel,presentationItem:item,category:'generals',idPrefix:'general-skill-level',renderAfterDescription:row=>mayRenderReferences?renderEmbeddedSkillCards([row.text],parentSkillName):''});
+    const embeddedEntries=mayRenderReferences&&!levelHtml?getReferencedSkillEntriesFromLines(filteredContent).filter(entry=>entry.found):[];
+    const referencedHtml=renderReferencedSkillGroup(embeddedEntries,parentSkillName);
+    cards.push(`<div class="general-skill-card ${isAdvisorSkill?'advisor-skill-card ':''}${isAppointmentSkill?'appointment-skill-card':''}" data-parent-skill="${esc(norm(sec.title))}"><div class="general-skill-heading"><div class="general-skill-name" style="margin-bottom:0">${esc(sec.title)}${badges?' '+badges:''}</div>${renderGeneralSkillLevelBadge(currentLevel)}</div>${levelHtml||fallbackHtml}${referencedHtml}</div>`);
+  });
+  return `<div class="general-card"><div class="general-card-header">技能</div><div class="general-card-body"><div class="general-skill-grid">${cards.join('')}</div></div></div>`;
+}
 const EQUIPMENT_STAGE_OPTIONS=['initial','ssrMax','urMax'];
 function normalizeEquipmentStage(stage){return EQUIPMENT_STAGE_OPTIONS.includes(stage)?stage:'urMax';}
 
@@ -3640,7 +3677,9 @@ function renderSkillLevelToggleForItem(options={}){
       if(!text)return '';
       const condition=buildDetailConditionPresentation(presentationItem,category,[text]);
       const rawHtml=`<div class="general-text skill-level-raw">${fmtContent([text])}</div>`;
-      return condition.grouped?condition.html:[condition.html,rawHtml].filter(Boolean).join('');
+      const descriptionHtml=condition.grouped?condition.html:[condition.html,rawHtml].filter(Boolean).join('');
+      const afterHtml=typeof options.renderAfterDescription==='function'?options.renderAfterDescription(row):'';
+      return [descriptionHtml,afterHtml].filter(Boolean).join('');
     }
   });
 }
@@ -3679,7 +3718,8 @@ function renderSkillLevelTableCard(item){
   const rows=info.rows||[];
   if(!rows.length)return '';
   const scoped=getSkillRelatedLinkLevelRowsForCurrentStage(item);
-  const levelHtml=renderSkillLevelToggleForItem({skillName:getItemDisplayName(item),skillItem:item,currentLevel:scoped.targetLevel||'',presentationItem:item,category:'skills',idPrefix:'skill-detail-level'});
+  const skillName=getItemDisplayName(item);
+  const levelHtml=renderSkillLevelToggleForItem({skillName,skillItem:item,currentLevel:scoped.targetLevel||'',presentationItem:item,category:'skills',idPrefix:'skill-detail-level',renderAfterDescription:row=>renderEmbeddedSkillCards([row.text],skillName)});
   debugLog('skillDetail:level-table',{name:getItemDisplayName(item),rowCount:rows.length,source:info.source,sectionTitle:info.sectionTitle||''});
   return `<div class="general-card"><div class="general-card-header">技能説明</div><div class="general-card-body">${levelHtml}</div></div>`;
 }
@@ -3712,7 +3752,9 @@ function renderSkillDetail(item){
   }
   const sourceTexts=[...(Array.isArray(item?.sections)?item.sections:[]).flatMap(sec=>Array.isArray(sec?.content)?sec.content:[]),...(Array.isArray(item?.raw?.sections)?item.raw.sections:[]).flatMap(sec=>Array.isArray(sec?.content)?sec.content:[])];
   const condition=buildDetailConditionPresentation(item,'skills',sourceTexts);
-  const html=[condition.html,levelHtml,baseHtml,stageHtml].filter(Boolean).join('');
+  const primaryConditionHtml=levelHtml?'':condition.html;
+  const supplementalHtml=levelHtml&&baseHtml?`<details class="detail-supplement"><summary>補足情報</summary><div class="detail-supplement-body">${baseHtml}</div></details>`:baseHtml;
+  const html=[levelHtml,primaryConditionHtml,stageHtml,supplementalHtml].filter(Boolean).join('');
   const derivedOwnerDiagnostic=buildDerivedSkillOwnerDiagnosticForItem(item);
   if(derivedOwnerDiagnostic)state.diagnostics.derivedSkillOwnerForCurrentSkill=derivedOwnerDiagnostic;
   debugLog('skillDetail:render',{name:getItemDisplayName(item),hasLevelTable:!!levelHtml,levelTableSource:levelInfo.source,levelRowCount:(levelInfo.rows||[]).length,sectionCount:(Array.isArray(item?.sections)?item.sections:[]).length,renderedSectionCount:sections.length,rawSectionCount:(Array.isArray(item?.raw?.sections)?item.raw.sections:[]).length,stageHtml:!!stageHtml,htmlLength:String(html||'').length,derivedOwnerDiagnostic,policy:'2.7.3.33: レベル表はtable優先。本文末尾の所有者一覧は復活させず、所有者参照はhadou_skill_owner_index.json由来の関連リンク/診断へ分離。'});
@@ -3721,11 +3763,11 @@ function renderSkillDetail(item){
 
 function getDetailTabSpecs(categoryKey){
   if(categoryKey==='generals')return [
-    {key:'related',label:'概要'},
-    {key:'parameter',label:'変化率'},
     {key:'basic',label:'基礎'},
     {key:'tactic',label:'戦法'},
     {key:'skill',label:'技能'},
+    {key:'related',label:'関連'},
+    {key:'parameter',label:'変化率'},
     {key:'other',label:'その他'}
   ];
   if(categoryKey==='equipments')return [
@@ -3735,12 +3777,12 @@ function getDetailTabSpecs(categoryKey){
     {key:'other',label:'その他'}
   ];
   if(categoryKey==='skills')return [
-    {key:'parameter',label:'変化率'},
-    {key:'skillDetail',label:'内容詳細'}
+    {key:'skillDetail',label:'内容詳細'},
+    {key:'parameter',label:'変化率'}
   ];
   return [{key:'parameter',label:'変化率'}];
 }
-function getDefaultDetailTabForCategory(categoryKey){return categoryKey==='generals'?'related':(categoryKey==='skills'?'skillDetail':'parameter');}
+function getDefaultDetailTabForCategory(categoryKey){return categoryKey==='generals'?'basic':(categoryKey==='skills'?'skillDetail':'parameter');}
 function normalizeDetailActiveTab(categoryKey){
   const specs=getDetailTabSpecs(categoryKey);
   const allowed=new Set(specs.map(t=>t.key));

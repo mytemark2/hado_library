@@ -1851,10 +1851,20 @@ body{font-feature-settings:"palt" 1,"kern" 1;text-rendering:optimizeLegibility}
 .formation-selected-skill-list.has-skill-descriptions .formation-selected-skill-name{display:flex!important;align-items:flex-start;justify-content:space-between;gap:8px;width:100%;font-size:14px!important;line-height:1.4!important;white-space:normal}
 .formation-selected-skill-list.has-skill-descriptions .formation-selected-skill-name>span:first-child{white-space:normal;overflow:visible;text-overflow:clip}
 .formation-selected-skill-list.has-skill-descriptions .detail-effect-group{padding:8px}
+.general-skill-reference-group{margin-top:12px;padding:10px;border-left:4px solid #8b5cf6;border-radius:10px;background:#f5f3ff;min-width:0}
+.general-skill-reference-title{margin-bottom:8px;color:#6d28d9;font-size:12px;font-weight:900;letter-spacing:.04em}
+.general-skill-reference-group .referenced-skill-list{margin-top:0;gap:10px}
+.general-skill-reference-group .referenced-skill-card{margin:0;border-color:#ddd6fe;background:#fff;box-shadow:none}
+.referenced-skill-relation{margin-bottom:6px;color:#7c3aed;font-size:11px;font-weight:800}
+.detail-supplement{border:1px solid #dbe3ee;border-radius:12px;background:#f8fafc;min-width:0;overflow:hidden}
+.detail-supplement>summary{cursor:pointer;padding:10px 12px;color:#475569;font-weight:800}
+.detail-supplement-body{padding:0 12px 12px;min-width:0;overflow-wrap:anywhere}
 @media(max-width:980px),(pointer:coarse){
   .skill-level-toggle{min-width:44px;min-height:38px;font-size:13px;touch-action:manipulation}
   .formation-selected-skill-list.has-skill-descriptions{grid-template-columns:1fr}
   .formation-selected-skill-list.has-skill-descriptions .formation-selected-skill-row{display:block!important}
+  .general-skill-reference-group{padding:8px;margin-top:10px}
+  .detail-supplement>summary{min-height:44px;display:flex;align-items:center}
 }
 /* 3.1.0.0 r196: selected tags keep the same color across filters, results, and details. */
 .tag-color-0{--tag-highlight-bg:#fef3c7;--tag-highlight-border:#d97706;--tag-highlight-text:#78350f}

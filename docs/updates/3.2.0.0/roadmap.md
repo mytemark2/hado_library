@@ -9,7 +9,7 @@
 - 起点: main e9153a954a998ad346c6ad7beb876056c11c52fb / 正式版3.1.2.1
 - Preview表示: 3.2.0.0 UpdateNN rNNN
 - 正式版表示: 3.2.0.0
-- 開発状態: Update01、割込みr214、Update02 r215、Update03 r216、Update04 r218完了。Update05開始準備。正式公開なし。
+- 開発状態: Update01、割込みr214、Update02 r215、Update03 r216、Update04 r218完了。Update05 r219実装・検証中。正式公開なし。
 - 公式情報確認日: 2026-10-17
 
 Update番号は大型開発を段階管理する計画識別子であり、通常の機能改善では使用しない。3.2.0.0の全Update完了後はUpdate番号を終了し、正式版では4桁版のみを表示する。rNNNはPreviewビルド識別子であり、番号は開始時に現行revisionを確認して連番で決定する。
@@ -100,9 +100,9 @@ Update番号は大型開発を段階管理する計画識別子であり、通�
 
 ### Update05 — 内容詳細・技能表示の情報階層
 
-**予定表示版:** 3.2.0.0 Update05 rNNN
+**現在表示版:** 3.2.0.0 Update05 r219
 
-**状態:** 計画
+**状態:** 実装・検証中。詳細は `update05/roadmap.md`、`update05/implementation.md`、`update05/report.md` を参照。
 
 - 基本情報、戦法、技能、関連効果の表示順と階層を整える。
 - 長文の原文・補足は必要時に展開する。
