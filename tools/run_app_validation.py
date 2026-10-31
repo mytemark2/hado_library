@@ -15,6 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 COMMANDS: list[list[str]] = [
+    ["node", "tools/test_crawler_data_contract.js"],
     ["node", "--check", "hado_version.js"],
     ["node", "--check", "hado_condition_model.js"],
     ["node", "--check", "hado_search_clause_integration.js"],
