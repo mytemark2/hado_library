@@ -113,6 +113,8 @@ Do not silently build a brittle workaround.
 
 ### 6.2 Preserve compatibility
 
+Crawler producer versions are provenance, not a fixed acceptance rule. Validate supported schema, required structure, quality audits and references using `tools/crawler_data_contract.js`; do not require an exact crawler release in current-data regression tests. Keep historical versions in fixtures and records as history. Run `node tools/test_crawler_data_contract.js` when changing this boundary.
+
 Do not break:
 - existing UI behavior,
 - existing DOM contracts used by scripts,

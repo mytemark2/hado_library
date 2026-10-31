@@ -57,7 +57,7 @@ try {
 
     $crawlerReport = ReadJson (Join-Path $temp 'report/crawler_report.json')
     $derivedReport = ReadJson (Join-Path $temp 'report/derived_json_report.json')
-    Equal $crawlerReport.meta.crawlerVersion '1.1.0.0' 'crawlerVersion'
+    if ([string]::IsNullOrWhiteSpace([string]$crawlerReport.meta.crawlerVersion)) { throw 'crawlerVersion が未記録です。' }
     Equal ([int]$crawlerReport.errorsCount) 0 'errorsCount'
     Equal ([bool]$crawlerReport.fastJsonGenerated) $true 'fastJsonGenerated'
     Equal @($derivedReport.missingFiles).Count 0 'missingFiles件数'
@@ -118,6 +118,8 @@ try {
       $obj = ReadJson $_.FullName
       $kind = Prop $obj 'kind'
       if ($null -ne $kind) {
+        Equal (Prop $obj 'schemaVersion') '1.0' '派生JSON schemaVersion'
+        if ((Prop $obj 'items') -isnot [System.Array]) { throw "派生JSON items配列が不正です: $($_.Name)" }
         $dataSetId = Prop $obj 'dataSetId'
         $crawlerVersion = Prop $obj 'crawlerVersion'
         $sourceFiles = Prop $obj 'sourceFiles'
@@ -138,7 +140,7 @@ try {
     Equal @($derivedRows.CrawlerVersion | Sort-Object -Unique).Count 1 'crawlerVersion種類数'
     Equal @($derivedRows.SourceFiles | Sort-Object -Unique).Count 1 'sourceFiles種類数'
     Equal @($derivedRows.SourceSha256 | Sort-Object -Unique).Count 1 'sourceSha256種類数'
-    Equal ($derivedRows.CrawlerVersion | Select-Object -First 1) '1.1.0.0' '派生JSON crawlerVersion'
+    Equal ($derivedRows.CrawlerVersion | Select-Object -First 1) ([string]$crawlerReport.meta.crawlerVersion) '派生JSONと取得報告のcrawlerVersion'
 
     Step 'COPY JSON TO APP SOURCE'
     $mappings = @()
@@ -157,7 +159,7 @@ try {
     $devInfo.updateNo = '02'
     $devInfo.revision = 2
     $devInfo.displayVersion = '3.0.0.0 Update02.2'
-    $devInfo.summary = 'Update02.2: import validated crawler 1.1.0.0 JSON set using data > previous > inherited priority.'
+    $devInfo.summary = "Update02.2: import validated crawler $($crawlerReport.meta.crawlerVersion) JSON set using data > previous > inherited priority."
     $devInfo.updatedAt = (Get-Date).ToString('yyyy-MM-ddTHH:mm:sszzz')
     $devInfo | ConvertTo-Json -Depth 20 | Set-Content -LiteralPath $devInfoPath -Encoding UTF8
 
@@ -190,7 +192,7 @@ try {
     Write-Host 'JSON反映と監査が完了しました。次のコマンドで確認・Commit・Pushしてください。' -ForegroundColor Green
     Write-Host 'git status -sb'
     Write-Host 'git add *.json HADO_DEV_INFO.json report/HADO_APP_3.0.0.0_UPDATE02.2_JSON_IMPORT_AUDIT.json'
-    Write-Host "git commit -m 'data: import crawler 1.1.0.0 JSON set for app Update02.2'"
+    Write-Host "git commit -m 'data: import crawler $($crawlerReport.meta.crawlerVersion) JSON set for app Update02.2'"
     Write-Host 'git push origin future/app-3.0.0.0'
   }
   finally {
