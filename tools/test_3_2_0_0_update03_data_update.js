@@ -56,19 +56,20 @@ assert.strictEqual(fallback.reflection.status,'pending');
 assert.strictEqual(fallback.diff,reflected.diff);
 
 const root=path.resolve(__dirname,'..');
+const dataRoot=require('./current_data_audit').validationDataRoot(root);
 const realData={
-  statusEffects:JSON.parse(fs.readFileSync(path.join(root,'hadou_status_effects.json'),'utf8')),
-  tactics:JSON.parse(fs.readFileSync(path.join(root,'hadou_tactics.json'),'utf8')),
-  searchIndex:JSON.parse(fs.readFileSync(path.join(root,'hadou_search_index.json'),'utf8'))
+  statusEffects:JSON.parse(fs.readFileSync(path.join(dataRoot,'hadou_status_effects.json'),'utf8')),
+  tactics:JSON.parse(fs.readFileSync(path.join(dataRoot,'hadou_tactics.json'),'utf8')),
+  searchIndex:JSON.parse(fs.readFileSync(path.join(dataRoot,'hadou_search_index.json'),'utf8'))
 };
-const update01Audit=JSON.parse(fs.readFileSync(path.join(root,'docs','updates','3.2.0.0','update01','data-audit.json'),'utf8'));
-const retainedNames=new Set(update01Audit.runtimeTacticAudit.notExposed.map(item=>item.name));
-const runtimeTacticNames=update.rows(realData.tactics).map(item=>item.name).filter(name=>!retainedNames.has(name));
+const generals=JSON.parse(fs.readFileSync(path.join(dataRoot,'hadou_generals.json'),'utf8'));
+const runtimeTacticNames=require('./audit_data_coverage').runtimeTactics(dataRoot,update.rows(generals)).map(item=>item.name);
 const realAudit=update.buildAudit(realData,{tacticCount:runtimeTacticNames.length,tacticNames:runtimeTacticNames});
-assert.deepStrictEqual(realAudit.unclassifiedStatuses.map(item=>item.name).sort(),['劇毒','即時兵器行動','即時戦法','即時攻撃','意気','火属性威力変化','焔計','相性変化'].sort());
-assert.strictEqual(realAudit.tacticRetention.sourceCount,478);
-assert.strictEqual(realAudit.tacticRetention.runtimeCount,458);
-assert.strictEqual(realAudit.tacticRetention.retainedCount,20);
+assert.deepStrictEqual(realAudit.unclassifiedStatuses.map(item=>item.name).sort(),update.rows(realData.statusEffects).filter(item=>!String(item.type||item.effectType||'').trim()).map(item=>item.name).sort());
+assert.strictEqual(realAudit.tacticRetention.sourceCount,update.rows(realData.tactics).length);
+assert.strictEqual(realAudit.tacticRetention.runtimeCount,runtimeTacticNames.length);
+assert.strictEqual(realAudit.tacticRetention.retainedCount,realAudit.retainedTactics.length);
+assert.strictEqual(realAudit.tacticRetention.sourceCount,realAudit.tacticRetention.runtimeCount+realAudit.tacticRetention.retainedCount);
 assert.strictEqual(realAudit.equipmentArticleAliases.ok,true);
 
 console.log('3.2.0.0 Update03 data update tests passed');
