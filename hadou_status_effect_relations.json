@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-25T04:24:02.726Z",
+  "generatedAt": "2026-10-31T05:17:16.170Z",
   "dataSetId": "2026-10-17T02-12-44-246Z",
-  "crawlerVersion": "1.1.0.9",
+  "crawlerVersion": "1.1.0.11",
   "generator": "hado_crawler_extension",
   "acquiredAt": "2026-10-17T01:56:42.204Z",
   "processedAt": "2026-10-17T02:13:23.899Z",
@@ -24,7 +24,7 @@
     "processing": {
       "processedAt": "2026-10-17T02:13:23.899Z",
       "sourceExportedAt": "2026-10-17T02:13:23.899Z",
-      "generatedAt": "2026-10-25T04:24:02.726Z"
+      "generatedAt": "2026-10-31T05:17:16.170Z"
     },
     "source": {
       "recordedCommit": "8239d70ed4d43f2b762858a1c14c21f221c9757b",
@@ -66,7 +66,7 @@
   "sourceCounts": {
     "generals": 499,
     "tactics": 478,
-    "equipments": 266,
+    "equipments": 268,
     "skills": 701,
     "statusEffects": 214,
     "siegeWeapons": 6,
@@ -80,7 +80,7 @@
   "sourceHashes": {
     "generals": "3da993b8",
     "tactics": "22b528e7",
-    "equipments": "cd54ce10",
+    "equipments": "db54e41a",
     "skills": "d549f069",
     "statusEffects": "5efd1923",
     "formations": "9b5d2c1b",
@@ -94,7 +94,7 @@
   "sourceSha256": {
     "generals": "3da993b8",
     "tactics": "22b528e7",
-    "equipments": "cd54ce10",
+    "equipments": "db54e41a",
     "skills": "d549f069",
     "statusEffects": "5efd1923",
     "formations": "9b5d2c1b",
@@ -105,7 +105,7 @@
     "warhorses": "c5edd890",
     "warhorseSkills": "fac49238"
   },
-  "hotfixVersion": "1.1.0.9",
+  "hotfixVersion": "1.1.0.11",
   "kind": "status_effect_relations",
   "qualityAudit": {
     "total": 214,
@@ -118,7 +118,7 @@
       "敵部隊能力低下": 46
     },
     "relationTypeCounts": {
-      "direct_grant": 1316
+      "direct_grant": 1318
     },
     "policy": "1.0.5.6: 状態変化詳細の逆引きは直接付与だけを正本化。全文一致・注記・条件参照・対策・効果調整を混ぜない。"
   },
@@ -14546,7 +14546,36 @@
             "direction": "buff"
           }
         ],
-        "equipments": []
+        "equipments": [
+          {
+            "name": "江淮水利灌漑図",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "豪昇",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          },
+          {
+            "name": "孤月照耀兜",
+            "ownerType": "equipment",
+            "category": "equipments",
+            "matchedText": "豪昇",
+            "source": "semantic-owner-status-grant",
+            "sourcePartType": "semantic-owner-status-grant",
+            "relationType": "direct_grant",
+            "directGrantVerified": true,
+            "groupKey": "selfAbilityBuff",
+            "groupLabel": "自部隊能力強化",
+            "targetSide": "self",
+            "direction": "buff"
+          }
+        ]
       },
       "sourceRefs": [
         {
@@ -14678,6 +14707,20 @@
         {
           "type": "skills",
           "name": "錦武",
+          "matchedText": "豪昇",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
+          "name": "江淮水利灌漑図",
+          "matchedText": "豪昇",
+          "sourcePartType": "semantic-owner-status-grant",
+          "relationType": "direct_grant"
+        },
+        {
+          "type": "equipments",
+          "name": "孤月照耀兜",
           "matchedText": "豪昇",
           "sourcePartType": "semantic-owner-status-grant",
           "relationType": "direct_grant"

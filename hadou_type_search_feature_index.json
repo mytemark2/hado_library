@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-25T04:24:02.726Z",
+  "generatedAt": "2026-10-31T05:17:16.170Z",
   "dataSetId": "2026-10-17T02-12-44-246Z",
-  "crawlerVersion": "1.1.0.9",
+  "crawlerVersion": "1.1.0.11",
   "generator": "hado_crawler_extension",
   "acquiredAt": "2026-10-17T01:56:42.204Z",
   "processedAt": "2026-10-17T02:13:23.899Z",
@@ -24,7 +24,7 @@
     "processing": {
       "processedAt": "2026-10-17T02:13:23.899Z",
       "sourceExportedAt": "2026-10-17T02:13:23.899Z",
-      "generatedAt": "2026-10-25T04:24:02.726Z"
+      "generatedAt": "2026-10-31T05:17:16.170Z"
     },
     "source": {
       "recordedCommit": "8239d70ed4d43f2b762858a1c14c21f221c9757b",
@@ -66,7 +66,7 @@
   "sourceCounts": {
     "generals": 499,
     "tactics": 478,
-    "equipments": 266,
+    "equipments": 268,
     "skills": 701,
     "statusEffects": 214,
     "siegeWeapons": 6,
@@ -80,7 +80,7 @@
   "sourceHashes": {
     "generals": "3da993b8",
     "tactics": "22b528e7",
-    "equipments": "cd54ce10",
+    "equipments": "db54e41a",
     "skills": "d549f069",
     "statusEffects": "5efd1923",
     "formations": "9b5d2c1b",
@@ -94,7 +94,7 @@
   "sourceSha256": {
     "generals": "3da993b8",
     "tactics": "22b528e7",
-    "equipments": "cd54ce10",
+    "equipments": "db54e41a",
     "skills": "d549f069",
     "statusEffects": "5efd1923",
     "formations": "9b5d2c1b",
@@ -105,7 +105,7 @@
     "warhorses": "c5edd890",
     "warhorseSkills": "fac49238"
   },
-  "hotfixVersion": "1.1.0.9",
+  "hotfixVersion": "1.1.0.11",
   "kind": "type_search_feature_index",
   "targetCategories": {
     "generals": "武将",
@@ -2567,28 +2567,28 @@
   ],
   "qualityAudit": {
     "ok": true,
-    "itemCount": 798,
+    "itemCount": 800,
     "categoryCounts": {
       "generals": 499,
-      "equipments": 266,
+      "equipments": 268,
       "siegeWeapons": 6,
       "warhorseSkills": 27
     },
-    "itemsWithAnyFeature": 614,
-    "statusEffectReferenceCount": 1327,
-    "typeFeatureReferenceCount": 3091,
+    "itemsWithAnyFeature": 616,
+    "statusEffectReferenceCount": 1339,
+    "typeFeatureReferenceCount": 3098,
     "featureCounts": {
       "skill_effect:wounded_survival": 43,
       "skill_effect:wounded_recovery": 61,
       "skill_effect:attack_nullify": 18,
       "skill_effect:healing": 61,
-      "skill_effect:damage_reduction": 243,
-      "skill_effect:ally_buff_multi": 238,
-      "skill_effect:effect_duration": 107,
-      "skill_effect:enemy_target_count": 254,
-      "skill_effect:ally_target_count": 259,
+      "skill_effect:damage_reduction": 244,
+      "skill_effect:ally_buff_multi": 239,
+      "skill_effect:effect_duration": 108,
+      "skill_effect:enemy_target_count": 255,
+      "skill_effect:ally_target_count": 260,
       "skill_effect:initial_tactic_gauge": 65,
-      "parameter:attack_speed": 170,
+      "parameter:attack_speed": 171,
       "skill_effect:weakening_remove": 69,
       "skill_effect:chain_rate": 139,
       "skill_effect:enemy_debuff_multi": 199,
@@ -2596,7 +2596,7 @@
       "parameter:critical_tactic_rate": 17,
       "parameter:critical_tactic_power": 24,
       "skill_effect:normal_attack_target_count": 55,
-      "skill_effect:ally_non_damage_effect": 126,
+      "skill_effect:ally_non_damage_effect": 127,
       "skill_effect:annihilation_avoidance": 57,
       "parameter:normal_attack_power": 27,
       "skill_effect:combat_start_tactic_gauge": 19,
@@ -2626,9 +2626,9 @@
     "policy": "1.0.5.24: 型検索では既存状態変化JSONを参照し、補助索引は状態変化で表現できない型要素を保守的に追加する。対物抑制文脈は候補化しない。攻撃速度型と通常攻撃拡張型をJSON正本として生成する。",
     "evidenceContractAudit": {
       "ok": false,
-      "pseudoStatusRefCount": 699,
-      "droppedStatusRefCount": 793,
-      "droppedFeatureCount": 536,
+      "pseudoStatusRefCount": 711,
+      "droppedStatusRefCount": 805,
+      "droppedFeatureCount": 541,
       "requiredFields": [
         "sourceEntityKey",
         "sourcePartType",
@@ -3886,7 +3886,7 @@
           "canonicalFeatureKey": "status_effect:有利激攻",
           "featureDomain": "statusEffect",
           "sourceEntityKey": "generals:article-583086",
-          "evidencePath": "sections[1].content[0]",
+          "evidencePath": "sections[3].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -3900,7 +3900,7 @@
             ],
             "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
-          "typeFeatureKey": "generals:article-583086:tactic_text:statusEffect:status_effect:有利激攻:5286b252"
+          "typeFeatureKey": "generals:article-583086:tactic_text:statusEffect:status_effect:有利激攻:a1e5346c"
         },
         {
           "featureId": "status_effect:絶縁",
@@ -3918,7 +3918,7 @@
           "canonicalFeatureKey": "status_effect:絶縁",
           "featureDomain": "statusEffect",
           "sourceEntityKey": "generals:article-583086",
-          "evidencePath": "sections[7].content[0]",
+          "evidencePath": "sections[9].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -3930,7 +3930,7 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "generals:article-583086:skill_text:statusEffect:status_effect:絶縁:fc946e42"
+          "typeFeatureKey": "generals:article-583086:skill_text:statusEffect:status_effect:絶縁:b85dd5cc"
         },
         {
           "featureId": "status_effect:憤怒",
@@ -3948,7 +3948,7 @@
           "canonicalFeatureKey": "status_effect:憤怒",
           "featureDomain": "statusEffect",
           "sourceEntityKey": "generals:article-583086",
-          "evidencePath": "sections[2].content[0]",
+          "evidencePath": "sections[4].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -3962,7 +3962,7 @@
             ],
             "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
-          "typeFeatureKey": "generals:article-583086:tactic_text:statusEffect:status_effect:憤怒:02dd0548"
+          "typeFeatureKey": "generals:article-583086:tactic_text:statusEffect:status_effect:憤怒:6232e33a"
         }
       ],
       "typeFeatures": [
@@ -3978,7 +3978,7 @@
           "canonicalFeatureKey": "concept:critical_tactic_rate",
           "featureDomain": "parameter",
           "sourceEntityKey": "generals:article-583086",
-          "evidencePath": "sections[1].content[0]",
+          "evidencePath": "sections[3].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -3992,7 +3992,7 @@
             ],
             "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
-          "typeFeatureKey": "generals:article-583086:tactic_text:parameter:concept:critical_tactic_rate:18e1a777"
+          "typeFeatureKey": "generals:article-583086:tactic_text:parameter:concept:critical_tactic_rate:eacaada9"
         },
         {
           "featureId": "parameter:critical_tactic_power",
@@ -4006,7 +4006,7 @@
           "canonicalFeatureKey": "concept:critical_tactic_power",
           "featureDomain": "parameter",
           "sourceEntityKey": "generals:article-583086",
-          "evidencePath": "sections[1].content[0]",
+          "evidencePath": "sections[3].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -4020,7 +4020,7 @@
             ],
             "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
-          "typeFeatureKey": "generals:article-583086:tactic_text:parameter:concept:critical_tactic_power:18e1a777"
+          "typeFeatureKey": "generals:article-583086:tactic_text:parameter:concept:critical_tactic_power:eacaada9"
         },
         {
           "featureId": "skill_effect:initial_tactic_gauge",
@@ -4034,7 +4034,7 @@
           "canonicalFeatureKey": "skill_effect:initial_tactic_gauge",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "generals:article-583086",
-          "evidencePath": "sections[1].content[0]",
+          "evidencePath": "sections[3].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -4048,7 +4048,7 @@
             ],
             "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
-          "typeFeatureKey": "generals:article-583086:tactic_text:skillEffect:skill_effect:initial_tactic_gauge:18e1a777"
+          "typeFeatureKey": "generals:article-583086:tactic_text:skillEffect:skill_effect:initial_tactic_gauge:eacaada9"
         },
         {
           "featureId": "skill_effect:weakening_remove",
@@ -4062,7 +4062,7 @@
           "canonicalFeatureKey": "concept:weakening_remove",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "generals:article-583086",
-          "evidencePath": "sections[1].content[0]",
+          "evidencePath": "sections[3].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -4076,7 +4076,7 @@
             ],
             "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
-          "typeFeatureKey": "generals:article-583086:tactic_text:skillEffect:concept:weakening_remove:18e1a777"
+          "typeFeatureKey": "generals:article-583086:tactic_text:skillEffect:concept:weakening_remove:eacaada9"
         },
         {
           "featureId": "skill_effect:damage_reduction",
@@ -4090,7 +4090,7 @@
           "canonicalFeatureKey": "skill_effect:damage_reduction",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "generals:article-583086",
-          "evidencePath": "sections[1].content[0]",
+          "evidencePath": "sections[3].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -4104,7 +4104,7 @@
             ],
             "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
-          "typeFeatureKey": "generals:article-583086:tactic_text:skillEffect:skill_effect:damage_reduction:18e1a777"
+          "typeFeatureKey": "generals:article-583086:tactic_text:skillEffect:skill_effect:damage_reduction:eacaada9"
         },
         {
           "featureId": "skill_effect:chain_rate",
@@ -4118,7 +4118,7 @@
           "canonicalFeatureKey": "skill_effect:chain_rate",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "generals:article-583086",
-          "evidencePath": "sections[1].content[0]",
+          "evidencePath": "sections[3].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -4132,7 +4132,7 @@
             ],
             "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
-          "typeFeatureKey": "generals:article-583086:tactic_text:skillEffect:skill_effect:chain_rate:18e1a777"
+          "typeFeatureKey": "generals:article-583086:tactic_text:skillEffect:skill_effect:chain_rate:eacaada9"
         },
         {
           "featureId": "skill_effect:enemy_debuff_multi",
@@ -4146,7 +4146,7 @@
           "canonicalFeatureKey": "skill_effect:enemy_debuff_multi",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "generals:article-583086",
-          "evidencePath": "sections[1].content[0]",
+          "evidencePath": "sections[3].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -4160,7 +4160,7 @@
             ],
             "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
-          "typeFeatureKey": "generals:article-583086:tactic_text:skillEffect:skill_effect:enemy_debuff_multi:18e1a777"
+          "typeFeatureKey": "generals:article-583086:tactic_text:skillEffect:skill_effect:enemy_debuff_multi:eacaada9"
         },
         {
           "featureId": "skill_effect:enemy_target_count",
@@ -4174,7 +4174,7 @@
           "canonicalFeatureKey": "skill_effect:enemy_target_count",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "generals:article-583086",
-          "evidencePath": "sections[1].content[0]",
+          "evidencePath": "sections[3].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -4188,7 +4188,7 @@
             ],
             "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
-          "typeFeatureKey": "generals:article-583086:tactic_text:skillEffect:skill_effect:enemy_target_count:18e1a777"
+          "typeFeatureKey": "generals:article-583086:tactic_text:skillEffect:skill_effect:enemy_target_count:eacaada9"
         },
         {
           "featureId": "skill_effect:self_disadvantage_countermeasure",
@@ -4202,7 +4202,7 @@
           "canonicalFeatureKey": "skill_effect:self_disadvantage_countermeasure",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "generals:article-583086",
-          "evidencePath": "sections[1].content[0]",
+          "evidencePath": "sections[3].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -4216,7 +4216,7 @@
             ],
             "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
-          "typeFeatureKey": "generals:article-583086:tactic_text:skillEffect:skill_effect:self_disadvantage_countermeasure:18e1a777"
+          "typeFeatureKey": "generals:article-583086:tactic_text:skillEffect:skill_effect:self_disadvantage_countermeasure:eacaada9"
         },
         {
           "featureId": "parameter:critical_tactic_power",
@@ -4229,7 +4229,7 @@
           "canonicalFeatureKey": "concept:critical_tactic_power",
           "featureDomain": "parameter",
           "sourceEntityKey": "generals:article-583086",
-          "evidencePath": "sections[3].content[0]",
+          "evidencePath": "sections[5].content[0]",
           "sourceType": "skill",
           "roleGate": {
             "scoreEligible": true,
@@ -4242,7 +4242,7 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "generals:article-583086:skill_text:parameter:concept:critical_tactic_power:19935007"
+          "typeFeatureKey": "generals:article-583086:skill_text:parameter:concept:critical_tactic_power:66725de5"
         },
         {
           "featureId": "skill_effect:weakening_remove",
@@ -4255,7 +4255,7 @@
           "canonicalFeatureKey": "concept:weakening_remove",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "generals:article-583086",
-          "evidencePath": "sections[3].content[0]",
+          "evidencePath": "sections[5].content[0]",
           "sourceType": "skill",
           "roleGate": {
             "scoreEligible": true,
@@ -4268,7 +4268,7 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "generals:article-583086:skill_text:skillEffect:concept:weakening_remove:9ee36a72"
+          "typeFeatureKey": "generals:article-583086:skill_text:skillEffect:concept:weakening_remove:f66ee260"
         },
         {
           "featureId": "skill_effect:damage_reduction",
@@ -4281,7 +4281,7 @@
           "canonicalFeatureKey": "skill_effect:damage_reduction",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "generals:article-583086",
-          "evidencePath": "sections[3].content[0]",
+          "evidencePath": "sections[5].content[0]",
           "sourceType": "skill",
           "roleGate": {
             "scoreEligible": true,
@@ -4294,7 +4294,7 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "generals:article-583086:skill_text:skillEffect:skill_effect:damage_reduction:9ee36a72"
+          "typeFeatureKey": "generals:article-583086:skill_text:skillEffect:skill_effect:damage_reduction:f66ee260"
         },
         {
           "featureId": "skill_effect:self_disadvantage_countermeasure",
@@ -4307,7 +4307,7 @@
           "canonicalFeatureKey": "skill_effect:self_disadvantage_countermeasure",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "generals:article-583086",
-          "evidencePath": "sections[3].content[0]",
+          "evidencePath": "sections[5].content[0]",
           "sourceType": "skill",
           "roleGate": {
             "scoreEligible": true,
@@ -4320,7 +4320,7 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "generals:article-583086:skill_text:skillEffect:skill_effect:self_disadvantage_countermeasure:9ee36a72"
+          "typeFeatureKey": "generals:article-583086:skill_text:skillEffect:skill_effect:self_disadvantage_countermeasure:f66ee260"
         }
       ],
       "statusEffectRefCount": 3,
@@ -74976,26 +74976,28 @@
           "groupLabel": "自部隊能力強化",
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
-          "sourcePartType": "skill_text",
-          "matchedText": "この技能を持つ武将の戦法で付与する豪昇と闘気の効果時間を5秒増加",
-          "sourceType": "skill",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊に豪昇と50%の闘気を付与自身1部隊の攻撃と攻撃速度を100%上昇対象を含む敵3部隊の戦法ゲージを10%減少（下限0%）（この武将が自部隊の主将と副将全員と好相性の場合、減少量が1.5倍",
+          "sourceType": "tactic",
           "statusEffectKey": "statusEffects:30",
           "canonicalFeatureKey": "status_effect:闘気",
           "featureDomain": "statusEffect",
           "sourceEntityKey": "generals:article-440899",
-          "evidencePath": "sections[10].content[0]",
+          "evidencePath": "sections[4].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
               "main_general",
-              "vice_general",
-              "support_general",
-              "attendant"
+              "vice_general"
             ],
-            "allowedSlots": [],
-            "reason": "Structured primary evidence for the matching source role."
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
-          "typeFeatureKey": "generals:article-440899:skill_text:statusEffect:status_effect:闘気:3c2ab008"
+          "typeFeatureKey": "generals:article-440899:tactic_text:statusEffect:status_effect:闘気:e4674b19"
         },
         {
           "featureId": "status_effect:豪昇",
@@ -75006,26 +75008,28 @@
           "groupLabel": "自部隊能力強化",
           "displayRole": "direct-status",
           "source": "hadou_related_link_index.json",
-          "sourcePartType": "skill_text",
-          "matchedText": "この技能を持つ武将の戦法で付与する豪昇と闘気の効果時間を5秒増加",
-          "sourceType": "skill",
+          "sourcePartType": "tactic_text",
+          "matchedText": "兵科効果系統攻撃属性なしなしなし効果自身を含む味方3部隊に豪昇と50%の闘気を付与自身1部隊の攻撃と攻撃速度を100%上昇対象を含む敵3部隊の戦法ゲージを10%減少（下限0%）（この武将が自部隊の主将と副将全員と好相性の場合、減少量が1.5倍",
+          "sourceType": "tactic",
           "statusEffectKey": "statusEffects:44",
           "canonicalFeatureKey": "status_effect:豪昇",
           "featureDomain": "statusEffect",
           "sourceEntityKey": "generals:article-440899",
-          "evidencePath": "sections[10].content[0]",
+          "evidencePath": "sections[4].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
               "main_general",
-              "vice_general",
-              "support_general",
-              "attendant"
+              "vice_general"
             ],
-            "allowedSlots": [],
-            "reason": "Structured primary evidence for the matching source role."
+            "allowedSlots": [
+              "main",
+              "deputy1",
+              "deputy2"
+            ],
+            "reason": "Only main/deputy1/deputy2 tactics contribute to type score."
           },
-          "typeFeatureKey": "generals:article-440899:skill_text:statusEffect:status_effect:豪昇:3c2ab008"
+          "typeFeatureKey": "generals:article-440899:tactic_text:statusEffect:status_effect:豪昇:e4674b19"
         },
         {
           "featureId": "status_effect:強化無効",
@@ -75386,10 +75390,218 @@
             "reason": "Structured primary evidence for the matching source role."
           },
           "typeFeatureKey": "generals:article-440899:skill_text:skillEffect:skill_effect:enemy_target_count:c13e54d7"
+        },
+        {
+          "featureId": "parameter:attack_speed",
+          "label": "攻撃速度",
+          "featureType": "parameter",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "出陣後、自部隊の最初の戦法発動まで攻撃速度+100%（出陣中に1まで発動）",
+          "rawText": "出陣後、自部隊の最初の戦法発動まで攻撃速度+100%（出陣中に1まで発動）",
+          "canonicalFeatureKey": "concept:attack_speed",
+          "featureDomain": "parameter",
+          "sourceEntityKey": "generals:article-440899",
+          "evidencePath": "sections[8].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-440899:skill_text:parameter:concept:attack_speed:fab740f7"
+        },
+        {
+          "featureId": "skill_effect:damage_reduction",
+          "label": "被ダメージ軽減",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "Ⅰ■常に ●技能を持つ武将は歩兵専用の装備品を装着可（侍従によってこの技能が発動している武将を除く）■主将か副将の際 ●通常攻撃時、50%の確率で対象を含む敵3部隊の強化効果を1つ打ち消す（1度の通常攻撃につき1回まで発動）Ⅱ■常に ●技能を持つ武将は歩兵専用の装備品を装着可（侍従によってこの技能が発動している武将を除く）■主将か副将の際 ●通常攻撃時、50%の確率で対象を含む敵3部隊の強化効果を2つ打ち消す（1度の通常攻撃につき1回まで発動）■主将の際 ●歩兵の副将と補佐を兵科一致として兵力を決定Ⅲ■常に ●技能…",
+          "rawText": "Ⅰ■常に ●技能を持つ武将は歩兵専用の装備品を装着可（侍従によってこの技能が発動している武将を除く）■主将か副将の際 ●通常攻撃時、50%の確率で対象を含む敵3部隊の強化効果を1つ打ち消す（1度の通常攻撃につき1回まで発動）Ⅱ■常に ●技能を持つ武将は歩兵専用の装備品を装着可（侍従によってこの技能が発動している武将を除く）■主将か副将の際 ●通常攻撃時、50%の確率で対象を含む敵3部隊の強化効果を2つ打ち消す（1度の通常攻撃につき1回まで発動）■主将の際 ●歩兵の副将と補佐を兵科一致として兵力を決定Ⅲ■常に ●技能…",
+          "canonicalFeatureKey": "skill_effect:damage_reduction",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-440899",
+          "evidencePath": "sections[8].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-440899:skill_text:skillEffect:skill_effect:damage_reduction:34fd16f8"
+        },
+        {
+          "featureId": "skill_effect:ally_target_count",
+          "label": "味方対象部隊数",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "自身1部隊に豪昇を15秒付与 →戦法発動時の連鎖数に応じて、上記効果の味方対象部隊数が増加（2連鎖時は自身を含む味方2部隊、3連鎖時は自身を含む味方3部隊）",
+          "rawText": "自身1部隊に豪昇を15秒付与 →戦法発動時の連鎖数に応じて、上記効果の味方対象部隊数が増加（2連鎖時は自身を含む味方2部隊、3連鎖時は自身を含む味方3部隊）",
+          "canonicalFeatureKey": "skill_effect:ally_target_count",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-440899",
+          "evidencePath": "sections[8].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-440899:skill_text:skillEffect:skill_effect:ally_target_count:a52c4468"
+        },
+        {
+          "featureId": "skill_effect:normal_attack_target_count",
+          "label": "通常攻撃対象数",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "Ⅰ■常に ●自身1部隊にかかる恐怖、畏怖、命中低下を避ける ●この技能を持つ武将の戦法で付与する豪昇と闘気の効果時間を5秒増加■主将の際 ●自身1部隊にかかる萎縮、疑心、怯心を避ける▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊に2回の強化無効を15秒付与Ⅱ■常に ●自身1部隊にかかる一部の不利変化（恐怖、畏怖、萎縮、疑心、怯心）と命中低下、強化解除を避ける ●自部隊が付与する豪昇と闘気の効果時間を5秒増加▼主将戦法発動時 ●対象を含む敵3部隊に2回の強化無効を15秒付与■主将か、主将と自身が好相性の…",
+          "rawText": "Ⅰ■常に ●自身1部隊にかかる恐怖、畏怖、命中低下を避ける ●この技能を持つ武将の戦法で付与する豪昇と闘気の効果時間を5秒増加■主将の際 ●自身1部隊にかかる萎縮、疑心、怯心を避ける▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊に2回の強化無効を15秒付与Ⅱ■常に ●自身1部隊にかかる一部の不利変化（恐怖、畏怖、萎縮、疑心、怯心）と命中低下、強化解除を避ける ●自部隊が付与する豪昇と闘気の効果時間を5秒増加▼主将戦法発動時 ●対象を含む敵3部隊に2回の強化無効を15秒付与■主将か、主将と自身が好相性の…",
+          "canonicalFeatureKey": "concept:normal_attack_expansion",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-440899",
+          "evidencePath": "sections[10].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-440899:skill_text:skillEffect:concept:normal_attack_expansion:6bc4c607"
+        },
+        {
+          "featureId": "skill_effect:strengthening_remove_avoid",
+          "label": "強化解除回避",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "Ⅰ■常に ●自身1部隊にかかる恐怖、畏怖、命中低下を避ける ●この技能を持つ武将の戦法で付与する豪昇と闘気の効果時間を5秒増加■主将の際 ●自身1部隊にかかる萎縮、疑心、怯心を避ける▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊に2回の強化無効を15秒付与Ⅱ■常に ●自身1部隊にかかる一部の不利変化（恐怖、畏怖、萎縮、疑心、怯心）と命中低下、強化解除を避ける ●自部隊が付与する豪昇と闘気の効果時間を5秒増加▼主将戦法発動時 ●対象を含む敵3部隊に2回の強化無効を15秒付与■主将か、主将と自身が好相性の…",
+          "rawText": "Ⅰ■常に ●自身1部隊にかかる恐怖、畏怖、命中低下を避ける ●この技能を持つ武将の戦法で付与する豪昇と闘気の効果時間を5秒増加■主将の際 ●自身1部隊にかかる萎縮、疑心、怯心を避ける▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊に2回の強化無効を15秒付与Ⅱ■常に ●自身1部隊にかかる一部の不利変化（恐怖、畏怖、萎縮、疑心、怯心）と命中低下、強化解除を避ける ●自部隊が付与する豪昇と闘気の効果時間を5秒増加▼主将戦法発動時 ●対象を含む敵3部隊に2回の強化無効を15秒付与■主将か、主将と自身が好相性の…",
+          "canonicalFeatureKey": "skill_effect:strengthening_remove_avoid",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-440899",
+          "evidencePath": "sections[10].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-440899:skill_text:skillEffect:skill_effect:strengthening_remove_avoid:6bc4c607"
+        },
+        {
+          "featureId": "skill_effect:self_disadvantage_countermeasure",
+          "label": "自部隊不利対策",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "Ⅰ■常に ●自身1部隊にかかる恐怖、畏怖、命中低下を避ける ●この技能を持つ武将の戦法で付与する豪昇と闘気の効果時間を5秒増加■主将の際 ●自身1部隊にかかる萎縮、疑心、怯心を避ける▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊に2回の強化無効を15秒付与Ⅱ■常に ●自身1部隊にかかる一部の不利変化（恐怖、畏怖、萎縮、疑心、怯心）と命中低下、強化解除を避ける ●自部隊が付与する豪昇と闘気の効果時間を5秒増加▼主将戦法発動時 ●対象を含む敵3部隊に2回の強化無効を15秒付与■主将か、主将と自身が好相性の…",
+          "rawText": "Ⅰ■常に ●自身1部隊にかかる恐怖、畏怖、命中低下を避ける ●この技能を持つ武将の戦法で付与する豪昇と闘気の効果時間を5秒増加■主将の際 ●自身1部隊にかかる萎縮、疑心、怯心を避ける▼この技能を持つ武将が戦法を発動した時 ●対象を含む敵3部隊に2回の強化無効を15秒付与Ⅱ■常に ●自身1部隊にかかる一部の不利変化（恐怖、畏怖、萎縮、疑心、怯心）と命中低下、強化解除を避ける ●自部隊が付与する豪昇と闘気の効果時間を5秒増加▼主将戦法発動時 ●対象を含む敵3部隊に2回の強化無効を15秒付与■主将か、主将と自身が好相性の…",
+          "canonicalFeatureKey": "skill_effect:self_disadvantage_countermeasure",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-440899",
+          "evidencePath": "sections[10].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-440899:skill_text:skillEffect:skill_effect:self_disadvantage_countermeasure:6bc4c607"
+        },
+        {
+          "featureId": "skill_effect:ally_buff_multi",
+          "label": "味方バフ配布",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "名宝技能効果孤月照耀兜防具専用武将LR夏侯惇技能1雄天堅守■常に ●部隊の「雄猛」の技能Lv+1（上限4） ●部隊の「天衝」の技能Lv+1（上限3） ●部隊の「投合」の技能Lv+1（上限5） ●部隊の防御+4%技能2昇守滅傷■常に ●通常攻撃時、50％の確率で対象を含む敵3部隊の負傷兵を50％消滅させる（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回） ●物理系統の攻撃による被ダメージ-15%技能3合心勇撃■常に▼主将戦法発動時 ●部隊の「投合」のLv×5%、自身1部隊の攻撃が上昇（…",
+          "rawText": "名宝技能効果孤月照耀兜防具専用武将LR夏侯惇技能1雄天堅守■常に ●部隊の「雄猛」の技能Lv+1（上限4） ●部隊の「天衝」の技能Lv+1（上限3） ●部隊の「投合」の技能Lv+1（上限5） ●部隊の防御+4%技能2昇守滅傷■常に ●通常攻撃時、50％の確率で対象を含む敵3部隊の負傷兵を50％消滅させる（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回） ●物理系統の攻撃による被ダメージ-15%技能3合心勇撃■常に▼主将戦法発動時 ●部隊の「投合」のLv×5%、自身1部隊の攻撃が上昇（…",
+          "canonicalFeatureKey": "skill_effect:ally_buff_multi",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-440899",
+          "evidencePath": "sections[16].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-440899:skill_text:skillEffect:skill_effect:ally_buff_multi:bc78887d"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "名宝技能効果孤月照耀兜防具専用武将LR夏侯惇技能1雄天堅守■常に ●部隊の「雄猛」の技能Lv+1（上限4） ●部隊の「天衝」の技能Lv+1（上限3） ●部隊の「投合」の技能Lv+1（上限5） ●部隊の防御+4%技能2昇守滅傷■常に ●通常攻撃時、50％の確率で対象を含む敵3部隊の負傷兵を50％消滅させる（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回） ●物理系統の攻撃による被ダメージ-15%技能3合心勇撃■常に▼主将戦法発動時 ●部隊の「投合」のLv×5%、自身1部隊の攻撃が上昇（…",
+          "rawText": "名宝技能効果孤月照耀兜防具専用武将LR夏侯惇技能1雄天堅守■常に ●部隊の「雄猛」の技能Lv+1（上限4） ●部隊の「天衝」の技能Lv+1（上限3） ●部隊の「投合」の技能Lv+1（上限5） ●部隊の防御+4%技能2昇守滅傷■常に ●通常攻撃時、50％の確率で対象を含む敵3部隊の負傷兵を50％消滅させる（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回） ●物理系統の攻撃による被ダメージ-15%技能3合心勇撃■常に▼主将戦法発動時 ●部隊の「投合」のLv×5%、自身1部隊の攻撃が上昇（…",
+          "canonicalFeatureKey": "skill_effect:ally_non_damage_effect",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-440899",
+          "evidencePath": "sections[16].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "generals:article-440899:skill_text:skillEffect:skill_effect:ally_non_damage_effect:bc78887d"
         }
       ],
       "statusEffectRefCount": 3,
-      "typeFeatureCount": 12,
+      "typeFeatureCount": 20,
       "sourceEntityKey": "generals:article-440899"
     },
     {
@@ -143777,20 +143989,146 @@
     {
       "category": "equipments",
       "categoryLabel": "装備",
-      "name": "鋒利典雅剣",
+      "name": "江淮水利灌漑図",
       "statusEffectRefs": [],
       "typeFeatures": [
+        {
+          "featureId": "parameter:attack_speed",
+          "label": "攻撃速度",
+          "featureType": "parameter",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "部隊の「投合」のLv×5%、自身1部隊の攻撃速度が上昇（15秒）",
+          "rawText": "【三國志 覇道】江淮水利灌漑図 【三國志 覇道】江淮水利灌漑図の能力と技能 各レアリティの能力 レア統率武力知力政治魅力UR288288000SSR186186000 江淮水利灌漑図の技能 UR時の最大技能雄天強撃 常に 部隊の「雄猛」の技能Lv+1（上限4） 部隊の「天衝」の技能Lv+1（上限3） 部隊の「投合」の技能Lv+1（上限5） 部隊の攻撃+4%昇…",
+          "sourceType": "equipmentSkill",
+          "canonicalFeatureKey": "concept:attack_speed",
+          "featureDomain": "parameter",
+          "sourceEntityKey": "equipments:article-585771",
+          "evidencePath": "sections[4].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-585771:equipment_skill_text:parameter:concept:attack_speed:b78856d9"
+        },
+        {
+          "featureId": "skill_effect:effect_duration",
+          "label": "効果時間",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "通常攻撃時、25％の確率で自身1部隊にすでに発生している強化効果のうち、ランダムに2つの効果時間を4秒延長（1度の通常攻撃につき1回発生判定を行う",
+          "rawText": "【三國志 覇道】江淮水利灌漑図 【三國志 覇道】江淮水利灌漑図の能力と技能 各レアリティの能力 レア統率武力知力政治魅力UR288288000SSR186186000 江淮水利灌漑図の技能 UR時の最大技能雄天強撃 常に 部隊の「雄猛」の技能Lv+1（上限4） 部隊の「天衝」の技能Lv+1（上限3） 部隊の「投合」の技能Lv+1（上限5） 部隊の攻撃+4%昇…",
+          "sourceType": "equipmentSkill",
+          "canonicalFeatureKey": "skill_effect:effect_duration",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-585771",
+          "evidencePath": "sections[3].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-585771:equipment_skill_text:skillEffect:skill_effect:effect_duration:72de5598"
+        },
+        {
+          "featureId": "skill_effect:ally_buff_multi",
+          "label": "味方バフ配布",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "UR時の最大技能雄天強撃■常に ●部隊の「雄猛」の技能Lv+1（上限4） ●部隊の「天衝」の技能Lv+1（上限3） ●部隊の「投合」の技能Lv+1（上限5） ●部隊の攻撃+4%昇剛激成■常に ●通常攻撃時、50％の確率で自身を含む味方2部隊にすでに発生している強化効果のうち、ランダムに2つの効果時間を4秒延長（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回） ●物理系統の攻撃による与ダメージ+15%合心速逐■常に▼主将戦法発動時 ●部隊の「投合」のLv×5%、自身1部隊の攻撃速度が上…",
+          "rawText": "UR時の最大技能雄天強撃■常に ●部隊の「雄猛」の技能Lv+1（上限4） ●部隊の「天衝」の技能Lv+1（上限3） ●部隊の「投合」の技能Lv+1（上限5） ●部隊の攻撃+4%昇剛激成■常に ●通常攻撃時、50％の確率で自身を含む味方2部隊にすでに発生している強化効果のうち、ランダムに2つの効果時間を4秒延長（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回） ●物理系統の攻撃による与ダメージ+15%合心速逐■常に▼主将戦法発動時 ●部隊の「投合」のLv×5%、自身1部隊の攻撃速度が上…",
+          "canonicalFeatureKey": "skill_effect:ally_buff_multi",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-585771",
+          "evidencePath": "sections[3].content[0]",
+          "sourceType": "equipmentSkill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-585771:equipment_skill_text:skillEffect:skill_effect:ally_buff_multi:4596b294"
+        },
         {
           "featureId": "skill_effect:ally_target_count",
           "label": "味方対象部隊数",
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "equipment_skill_text",
-          "matchedText": "UR時の最大技能才威武慧■常に ●部隊の「才勇」の技能Lv+1（上限2） ●部隊の「威風」の技能Lv+1（上限5） ●部隊の攻撃+3% ●部隊の知力+3%知勇機術■常に ●兵器行動時、50％の確率で自身を含む味方3部隊の攻撃+25％（10秒）（1度の兵器行動につき1回まで発生） ●兵器行動時、50％の確率で自身を含む味方3部隊の知力+25％（10秒）（1度の兵器行動につき1回まで発生）兵装鋭撃■常に ●通常攻撃・戦法・兵器攻撃による与ダメージ+4% →部隊が兵器を編制して健在の時は効果が2倍（+8%）SSR時の最大…",
-          "rawText": "UR時の最大技能才威武慧■常に ●部隊の「才勇」の技能Lv+1（上限2） ●部隊の「威風」の技能Lv+1（上限5） ●部隊の攻撃+3% ●部隊の知力+3%知勇機術■常に ●兵器行動時、50％の確率で自身を含む味方3部隊の攻撃+25％（10秒）（1度の兵器行動につき1回まで発生） ●兵器行動時、50％の確率で自身を含む味方3部隊の知力+25％（10秒）（1度の兵器行動につき1回まで発生）兵装鋭撃■常に ●通常攻撃・戦法・兵器攻撃による与ダメージ+4% →部隊が兵器を編制して健在の時は効果が2倍（+8%）SSR時の最大…",
+          "matchedText": "UR時の最大技能雄天強撃■常に ●部隊の「雄猛」の技能Lv+1（上限4） ●部隊の「天衝」の技能Lv+1（上限3） ●部隊の「投合」の技能Lv+1（上限5） ●部隊の攻撃+4%昇剛激成■常に ●通常攻撃時、50％の確率で自身を含む味方2部隊にすでに発生している強化効果のうち、ランダムに2つの効果時間を4秒延長（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回） ●物理系統の攻撃による与ダメージ+15%合心速逐■常に▼主将戦法発動時 ●部隊の「投合」のLv×5%、自身1部隊の攻撃速度が上…",
+          "rawText": "UR時の最大技能雄天強撃■常に ●部隊の「雄猛」の技能Lv+1（上限4） ●部隊の「天衝」の技能Lv+1（上限3） ●部隊の「投合」の技能Lv+1（上限5） ●部隊の攻撃+4%昇剛激成■常に ●通常攻撃時、50％の確率で自身を含む味方2部隊にすでに発生している強化効果のうち、ランダムに2つの効果時間を4秒延長（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回） ●物理系統の攻撃による与ダメージ+15%合心速逐■常に▼主将戦法発動時 ●部隊の「投合」のLv×5%、自身1部隊の攻撃速度が上…",
           "canonicalFeatureKey": "skill_effect:ally_target_count",
           "featureDomain": "skillEffect",
-          "sourceEntityKey": "equipments:article-582928",
+          "sourceEntityKey": "equipments:article-585771",
+          "evidencePath": "sections[3].content[0]",
+          "sourceType": "equipmentSkill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-585771:equipment_skill_text:skillEffect:skill_effect:ally_target_count:4596b294"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "UR時の最大技能雄天強撃■常に ●部隊の「雄猛」の技能Lv+1（上限4） ●部隊の「天衝」の技能Lv+1（上限3） ●部隊の「投合」の技能Lv+1（上限5） ●部隊の攻撃+4%昇剛激成■常に ●通常攻撃時、50％の確率で自身を含む味方2部隊にすでに発生している強化効果のうち、ランダムに2つの効果時間を4秒延長（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回） ●物理系統の攻撃による与ダメージ+15%合心速逐■常に▼主将戦法発動時 ●部隊の「投合」のLv×5%、自身1部隊の攻撃速度が上…",
+          "rawText": "UR時の最大技能雄天強撃■常に ●部隊の「雄猛」の技能Lv+1（上限4） ●部隊の「天衝」の技能Lv+1（上限3） ●部隊の「投合」の技能Lv+1（上限5） ●部隊の攻撃+4%昇剛激成■常に ●通常攻撃時、50％の確率で自身を含む味方2部隊にすでに発生している強化効果のうち、ランダムに2つの効果時間を4秒延長（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回） ●物理系統の攻撃による与ダメージ+15%合心速逐■常に▼主将戦法発動時 ●部隊の「投合」のLv×5%、自身1部隊の攻撃速度が上…",
+          "canonicalFeatureKey": "skill_effect:ally_non_damage_effect",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-585771",
+          "evidencePath": "sections[3].content[0]",
+          "sourceType": "equipmentSkill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-585771:equipment_skill_text:skillEffect:skill_effect:ally_non_damage_effect:4596b294"
+        }
+      ],
+      "statusEffectRefCount": 0,
+      "typeFeatureCount": 5,
+      "sourceEntityKey": "equipments:article-585771"
+    },
+    {
+      "category": "equipments",
+      "categoryLabel": "装備",
+      "name": "孤月照耀兜",
+      "statusEffectRefs": [],
+      "typeFeatures": [
+        {
+          "featureId": "skill_effect:enemy_target_count",
+          "label": "敵対象部隊数",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "技能「昇守滅傷」で、通常攻撃時に敵3部隊の負傷兵を消滅させる。この効果は装備者が補佐でも発動するため、貫通編制や駐屯編制の補佐用防具として使える。",
+          "rawText": "技能「昇守滅傷」で、通常攻撃時に敵3部隊の負傷兵を消滅させる。この効果は装備者が補佐でも発動するため、貫通編制や駐屯編制の補佐用防具として使える。",
+          "canonicalFeatureKey": "skill_effect:enemy_target_count",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-585770",
           "evidencePath": "sections[2].content[0]",
           "sourceType": "equipmentSkill",
           "roleGate": {
@@ -143801,12 +144139,35 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "equipments:article-582928:equipment_skill_text:skillEffect:skill_effect:ally_target_count:1e486889"
+          "typeFeatureKey": "equipments:article-585770:equipment_skill_text:skillEffect:skill_effect:enemy_target_count:fd9b23b7"
+        },
+        {
+          "featureId": "skill_effect:damage_reduction",
+          "label": "被ダメージ軽減",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "UR時の最大技能雄天堅守■常に ●部隊の「雄猛」の技能Lv+1（上限4） ●部隊の「天衝」の技能Lv+1（上限3） ●部隊の「投合」の技能Lv+1（上限5） ●部隊の防御+4%昇守滅傷■常に ●通常攻撃時、50％の確率で対象を含む敵3部隊の負傷兵を50％消滅させる（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回） ●物理系統の攻撃による被ダメージ-15%合心勇撃■常に▼主将戦法発動時 ●部隊の「投合」のLv×5%、自身1部隊の攻撃が上昇（15秒）SSR時の最大技能雄天堅守■常に ●部…",
+          "rawText": "UR時の最大技能雄天堅守■常に ●部隊の「雄猛」の技能Lv+1（上限4） ●部隊の「天衝」の技能Lv+1（上限3） ●部隊の「投合」の技能Lv+1（上限5） ●部隊の防御+4%昇守滅傷■常に ●通常攻撃時、50％の確率で対象を含む敵3部隊の負傷兵を50％消滅させる（1度の通常攻撃につき1回発生判定を行う。複数部隊に同時攻撃しても発生判定は1回） ●物理系統の攻撃による被ダメージ-15%合心勇撃■常に▼主将戦法発動時 ●部隊の「投合」のLv×5%、自身1部隊の攻撃が上昇（15秒）SSR時の最大技能雄天堅守■常に ●部…",
+          "canonicalFeatureKey": "skill_effect:damage_reduction",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-585770",
+          "evidencePath": "sections[4].content[0]",
+          "sourceType": "equipmentSkill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-585770:equipment_skill_text:skillEffect:skill_effect:damage_reduction:fbf0912a"
         }
       ],
       "statusEffectRefCount": 0,
-      "typeFeatureCount": 1,
-      "sourceEntityKey": "equipments:article-582928"
+      "typeFeatureCount": 2,
+      "sourceEntityKey": "equipments:article-585770"
     },
     {
       "category": "equipments",
@@ -143825,7 +144186,7 @@
           "canonicalFeatureKey": "skill_effect:damage_reduction",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "equipments:article-582929",
-          "evidencePath": "sections[2].content[0]",
+          "evidencePath": "sections[4].content[0]",
           "sourceType": "equipmentSkill",
           "roleGate": {
             "scoreEligible": true,
@@ -143835,12 +144196,69 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "typeFeatureKey": "equipments:article-582929:equipment_skill_text:skillEffect:skill_effect:damage_reduction:75e9c011"
+          "typeFeatureKey": "equipments:article-582929:equipment_skill_text:skillEffect:skill_effect:damage_reduction:cbafb977"
         }
       ],
       "statusEffectRefCount": 0,
       "typeFeatureCount": 1,
       "sourceEntityKey": "equipments:article-582929"
+    },
+    {
+      "category": "equipments",
+      "categoryLabel": "装備",
+      "name": "鋒利典雅剣",
+      "statusEffectRefs": [],
+      "typeFeatures": [
+        {
+          "featureId": "skill_effect:initial_tactic_gauge",
+          "label": "出陣時戦法ゲージ",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "鋒利典雅剣はLR李典の技能「才勇」と「威風」を強化する工兵武器。才勇がLv2の場合、出陣時の戦法ゲージ上昇が15％に増え、交戦開始時の結束が味方3部隊になるので、LR李典を使うなら購入しておきたい。",
+          "rawText": "鋒利典雅剣はLR李典の技能「才勇」と「威風」を強化する工兵武器。才勇がLv2の場合、出陣時の戦法ゲージ上昇が15％に増え、交戦開始時の結束が味方3部隊になるので、LR李典を使うなら購入しておきたい。",
+          "canonicalFeatureKey": "skill_effect:initial_tactic_gauge",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-582928",
+          "evidencePath": "sections[1].content[0]",
+          "sourceType": "equipmentSkill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-582928:equipment_skill_text:skillEffect:skill_effect:initial_tactic_gauge:1c4c295e"
+        },
+        {
+          "featureId": "skill_effect:ally_target_count",
+          "label": "味方対象部隊数",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "鋒利典雅剣はLR李典の技能「才勇」と「威風」を強化する工兵武器。才勇がLv2の場合、出陣時の戦法ゲージ上昇が15％に増え、交戦開始時の結束が味方3部隊になるので、LR李典を使うなら購入しておきたい。",
+          "rawText": "鋒利典雅剣はLR李典の技能「才勇」と「威風」を強化する工兵武器。才勇がLv2の場合、出陣時の戦法ゲージ上昇が15％に増え、交戦開始時の結束が味方3部隊になるので、LR李典を使うなら購入しておきたい。",
+          "canonicalFeatureKey": "skill_effect:ally_target_count",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-582928",
+          "evidencePath": "sections[1].content[0]",
+          "sourceType": "equipmentSkill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "typeFeatureKey": "equipments:article-582928:equipment_skill_text:skillEffect:skill_effect:ally_target_count:1c4c295e"
+        }
+      ],
+      "statusEffectRefCount": 0,
+      "typeFeatureCount": 2,
+      "sourceEntityKey": "equipments:article-582928"
     },
     {
       "category": "equipments",
