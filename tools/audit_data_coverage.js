@@ -3,6 +3,7 @@
 const fs=require('fs'), path=require('path'), crypto=require('crypto'), cp=require('child_process');
 const ROOT=path.resolve(__dirname,'..');
 const SOURCES={generals:'generals',tactics:'tactics',equipments:'equipments',skills:'skills',statusEffects:'status_effects',siegeWeapons:'siege_weapons',ethnicArmaments:'ethnic_armaments',ethnicResearchSkills:'ethnic_research_skills',formations:'formations',fiveElements:'five_elements',warhorses:'warhorses',warhorseSkills:'warhorse_skills'};
+const CLASSIFIED_STATUS_TYPES=['有利変化','不利変化','能力変化(強化)','能力変化(弱化)','即時効果'];
 const rows=x=>Array.isArray(x)?x:(x?.items||x?.status_effects||[]);
 const read=(dir,f)=>JSON.parse(fs.readFileSync(path.join(dir,f),'utf8'));
 const hash=x=>crypto.createHash('sha256').update(x).digest('hex');
@@ -58,15 +59,15 @@ function audit(dir, overrides={}){
  const unclassifiedTroops=[];const tags=rows(files['hadou_tag_index.json']);
  for(const x of sources.generals){
   // Only the biography's labeled troop cell establishes the general's own troop.
-  const cells=(x.raw.tables||[]).flatMap(t=>t.rows||[]).filter(r=>r.includes('兵科')&&r.includes('相性'));
+  const cells=(x.raw.tables||[]).flatMap(t=>t.rows||[]).filter(r=>r.includes('兵科')&&(r.includes('相性')||r.includes('輸送')));
   const value=cells.map(r=>r[r.indexOf('兵科')+1]);const matches=troopRelations.filter(t=>value.some(v=>String(v).split(/[\s/]+/)[0]===t.troopType));
-  if(matches.length!==1){unclassifiedTroops.push({key:x.key,name:x.name,cells:value});continue;}
-  const t=matches[0], tag=tags.find(z=>z.category==='generals'&&z.name===x.name);
-  t.eligibleCommanders.push({key:x.key,name:x.name,sourceUrl:x.raw.url,sourceCell:value[0],searchPresent:sk.has(x.key),troopTagPresent:(tag?.tags||[]).includes('兵科:'+t.troopType)});
+  if(new Set(matches.map(t=>t.troopType)).size!==1){unclassifiedTroops.push({key:x.key,name:x.name,cells:value});continue;}
+  const tag=tags.find(z=>z.category==='generals'&&z.name===x.name);
+  for(const t of matches)t.eligibleCommanders.push({key:x.key,name:x.name,sourceUrl:x.raw.url,sourceCell:value[0],searchPresent:sk.has(x.key),troopTagPresent:(tag?.tags||[]).includes('兵科:'+t.troopType)});
  }
  const tactics=runtimeTactics(dir,rows(files['hadou_generals.json']));const tacticNames=new Set(tactics.map(x=>x.name));
  const runtimeTacticAudit={count:tactics.length,notExposed:sources.tactics.filter(x=>!tacticNames.has(x.raw.name)).map(x=>({key:x.key,name:x.name,url:x.raw.url,sourceGeneral:x.raw.sourceGeneral})),policy:'hado_bootstrap.js builds runtime tactics from general sections; retained hadou_tactics records are not loaded directly'};
- const unclassifiedStatuses=rows(files['hadou_status_effects.json']).filter(x=>!x.type||!['有利変化','不利変化','能力変化(強化)','能力変化(弱化)','即時効果'].includes(x.type)).map(x=>({name:x.name,type:x.type,description:x.description,sourceUrl:x.source_url}));
+ const unclassifiedStatuses=rows(files['hadou_status_effects.json']).filter(x=>!x.type||!CLASSIFIED_STATUS_TYPES.includes(x.type)).map(x=>({name:x.name,type:x.type,description:x.description,sourceUrl:x.source_url}));
  return {sources,files,summary:{fileInventory:Object.entries(files).map(([f,d])=>({file:f,count:rows(d).length,sha256:hash(Buffer.from(fs.readFileSync(path.join(dir,f),'utf8').replace(/\r\n/g,'\n'))),dataSetId:d.dataSetId||null,generatedAt:d.generatedAt||null})),sourceCounts:Object.fromEntries(Object.entries(sources).map(([c,a])=>[c,a.length])),searchCount:s.length,skillCount:owners.length,ownerLinkCount:owners.reduce((n,x)=>n+x.owners.length,0),relatedLinkCount:refs,runtimeTacticAudit,bundleId:manifest.bundleId,issues,troopRelations,unclassifiedTroops,unclassifiedStatuses}};
 }
 function main(){
@@ -92,4 +93,4 @@ function main(){
  const target=path.join(ROOT,'docs/updates/3.2.0.0/update01/data-audit.json');fs.writeFileSync(target,JSON.stringify(out,null,2)+'\n');
  console.log(JSON.stringify({issueCount:out.issues.length,issues:out.issues.slice(0,10),counts:out.sourceCounts,changes:Object.fromEntries(Object.entries(changes).map(([c,d])=>[c,Object.fromEntries(Object.entries(d).map(([k,v])=>[k,v.length]))])),troops:out.troopRelations.map(x=>({troop:x.troopType,count:x.eligibleCommanders.length,missingTags:x.eligibleCommanders.filter(z=>!z.troopTagPresent).length})),unclassifiedTroops:out.unclassifiedTroops.length,unclassifiedStatuses:out.unclassifiedStatuses.map(x=>[x.name,x.type])},null,2));
 }
-module.exports={audit,catalog,difference,duplicates,digest};if(require.main===module)main();
+module.exports={SOURCES,CLASSIFIED_STATUS_TYPES,audit,catalog,difference,duplicates,digest,runtimeTactics};if(require.main===module)main();

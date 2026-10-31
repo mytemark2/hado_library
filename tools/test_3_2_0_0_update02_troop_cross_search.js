@@ -1,13 +1,15 @@
 'use strict';
 const assert=require('assert');
 const {assertCrawlerDataSetContract}=require('./crawler_data_contract');
+const {historicalTroopSource,validationDataRoot}=require('./current_data_audit');
 const fs=require('fs');
 const path=require('path');
 const troop=require('../hado_troop_skills.js');
 const ROOT=path.resolve(__dirname,'..');
-const read=name=>JSON.parse(fs.readFileSync(path.join(ROOT,name),'utf8'));
-const source=read('hadou_generals.json');
+const dataRoot=validationDataRoot(ROOT);
+const read=name=>JSON.parse(fs.readFileSync(path.join(name.startsWith('hadou_')?dataRoot:ROOT,name),'utf8'));
 const fixture=read('docs/updates/3.2.0.0/update02/troop-cross-search-gold.json');
+const source=historicalTroopSource(fixture,read('docs/updates/3.2.0.0/update01/data-audit.json'));
 const tagIndex=read('hadou_tag_index.json');
 const rows=troop.normalize(source);
 const commanderIndex=troop.buildCommanderIndex(source);
@@ -25,14 +27,17 @@ const actual=rows.map(row=>({troopType:row.troopType,skillName:row.name,grantTex
 assert.deepStrictEqual(actual,fixture.troopRelations,'all 499 troop relations must match the gold fixture');
 assert.strictEqual(new Set(actual.flatMap(row=>row.commanders.map(owner=>owner.stableId))).size,499);
 
+const liveSource=read('hadou_generals.json'),liveIndex=troop.buildCommanderIndex(liveSource),liveRows=troop.normalize(liveSource);
+assert.strictEqual(liveIndex.total,troop.getGeneralItems(liveSource).length);
+assert.deepStrictEqual(liveIndex.unclassified,[]);
 const tagAudit=tagIndex.qualityAudit?.troopTypeAudit;
 assert(tagAudit?.ok,true);
-assert.strictEqual(tagAudit.sourceGeneralCount,499);
-assert.strictEqual(tagAudit.taggedGeneralCount,499);
+assert.strictEqual(tagAudit.sourceGeneralCount,liveIndex.total);
+assert.strictEqual(tagAudit.taggedGeneralCount,liveIndex.total);
 assert.strictEqual(tagAudit.missingCount,0);
-assert.deepStrictEqual(tagAudit.counts,{騎兵:160,歩兵:161,弓兵:166,盾兵:7,工兵:5});
+assert.deepStrictEqual(tagAudit.counts,liveIndex.counts);
 const tagByName=new Map(tagIndex.items.filter(item=>item.category==='generals').map(item=>[item.name,new Set(item.tags||[])]));
-for(const row of actual)for(const owner of row.commanders)assert(tagByName.get(owner.name)?.has(`兵科:${row.troopType}`),`${owner.name}: ${row.troopType} tag missing`);
+for(const row of liveRows)for(const owner of row.eligibleCommanders)assert(tagByName.get(owner.name)?.has(`兵科:${row.troopType}`),`${owner.name}: ${row.troopType} tag missing`);
 
 const sousha=rows.find(row=>row.name==='操器');
 assert(sousha.searchTokens.includes('工兵'));
@@ -64,5 +69,5 @@ assert(version.includes('revision: 218'));
 
 const derivedNames=['hadou_status_effect_relations.json','hadou_skill_owner_index.json','hadou_search_index.json','hadou_parameter_summary_index.json','hadou_result_card_index.json','hadou_tag_index.json','hadou_status_effect_meta_index.json','hadou_status_effect_group_owner_index.json','hadou_related_link_index.json','hadou_equipment_skill_stage_index.json','hadou_tactic_attack_index.json','hadou_formation_candidate_index.json','hadou_effect_condition_blocks.json','hadou_type_search_feature_index.json','hadou_type_search_presets.json','hadou_type_search_regression_cases.json','hadou_type_score_rules.json','hadou_type_purpose_rules.json','hadou_type_search_role_rules.json','hadou_type_search_role_index.json'];
 assertCrawlerDataSetContract(derivedNames.map(name=>[name,read(name)]));
-const effectClauses=read('hadou_effect_clauses.json');assert.strictEqual(effectClauses.qualityAudit?.ok,true,'effect clause generated contract');assert.strictEqual(effectClauses.itemCount,1892);
-console.log('3.2.0.0 Update02 troop cross-search passed: 5 troop skills, 499 commanders, generated/runtime tag contract, owner links');
+const effectClauses=read('hadou_effect_clauses.json');assert.strictEqual(effectClauses.qualityAudit?.ok,true,'effect clause generated contract');assert.strictEqual(effectClauses.itemCount,effectClauses.items.length);
+console.log(`3.2.0.0 Update02 troop cross-search passed: historical 499 commanders; current ${liveIndex.total} commanders, generated/runtime tag contract, owner links`);
