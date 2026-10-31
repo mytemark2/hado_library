@@ -34,14 +34,22 @@
 
 ## HTMLと外部化
 
-- `index.html` は28,988 bytesから28,997 bytesへ9 bytes増加した。変更はコピー名称と `04-r217` キャッシュキーのみ。
+- `index.html` は28,988 bytesから28,997 bytesへ9 bytes増加した。変更はコピー名称と版付きアセットキーで、最終キーは `04-r218`。
 - 新規の検索処理は外部JavaScript、表示は外部CSSへ実装した。インラインJavaScriptは追加していない。
 
-## 検証状況
+## 検証結果
 
 - JavaScript構文、専用Update04回帰、`git diff --check`: 合格。
 - `python -X utf8 tools/run_app_validation.py`: 176/176合格。保存Export/Import、検索モード分離、詳細、編成、JSON契約、Preview同期設定を含む。
-- PR、Actions、自動Preview同期、公開Preview実動作: 実施中。
+- PR #399（実装）、#400（キーワード解除修正）、#401（r218キャッシュ更新）を `feature/app-3.2.0.0` へ反映した。
+- App Validation: #399 run `40529945929`、#400 run `40531625228`、#401 run `40533272429` はすべて成功した。
+- r218の自動Preview同期 run `40533533477` は成功した。その後の検証規約・データ更新を含む最新正本HEAD `e3beb62731ccaa5b4fb551549f8ae2b177a639d7` も run `41172700158` で自動同期に成功した。
+- Preview repository `main` は `2009ea6f6102f268291bb12b4b373d0b7d31086d`、markerはsource commit `e3beb62731ccaa5b4fb551549f8ae2b177a639d7`、source branch `feature/app-3.2.0.0`、display version `3.2.0.0 Update04 r218` だった。
+- 公開Previewで、工兵検索5件、一致理由の一次表示、キーワード解除後499件、カテゴリ・タグ・状態変化・型条件の個別解除、コピー完了表示を確認した。
+- 公開Previewの読込件数は武将499、戦法458、技能1480、兵科技能5、装備268、状態変化214、兵器6、武装18、専用技能32、陣形22、軍馬5、軍馬技能27だった。
+- 375px幅で文書幅360px／scroll幅360px、条件チップの内部はみ出しなし、検索領域とコピー2ボタンが表示幅内であることを確認した。
+- 公開画面は対象JavaScript/CSSを `04-r218` で31件読み込み、コンソール警告・エラーは0件だった。
+- 完了記録時の最新178件検証で、自動データ更新後の `hadou_effect_condition_blocks.json` がCRLFの場合に、監査生成器の正規化SHAと回帰テストの生バイトSHAが一致しない問題を検出した。回帰テストもLF正規化後の論理内容を比較するよう統一し、178/178へ復旧した。監査JSONは生成器の正本出力であり、手修正していない。
 
 ## 確認事項
 

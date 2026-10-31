@@ -27,7 +27,11 @@ fs.rmSync(generatedDir, { recursive: true, force: true });
 const expectedCensusForComparison = JSON.parse(expectedCensus.toString('utf8'));
 const generatedCensusForComparison = JSON.parse(generatedCensus.toString('utf8'));
 const conditionBlocksPath = path.join(ROOT, 'hadou_effect_condition_blocks.json');
-const currentConditionBlocksSha256 = crypto.createHash('sha256').update(fs.readFileSync(conditionBlocksPath)).digest('hex');
+// The census builder records a content hash after normalizing line endings.
+// Compare the same logical content so a Windows checkout does not fail only because JSON uses CRLF.
+const currentConditionBlocksSha256 = crypto.createHash('sha256')
+  .update(normalizeLineEndings(fs.readFileSync(conditionBlocksPath)))
+  .digest('hex');
 assert.strictEqual(
   generatedCensusForComparison.existingConditionBlocksAudit.sourceSha256,
   currentConditionBlocksSha256,
