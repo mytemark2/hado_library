@@ -49,3 +49,10 @@
 ## 5. 確認事項
 
 なし。
+
+## 6. 配信結果
+
+- PR #406を`feature/app-3.2.0.0`へマージした。
+- merge commit `82b9f23cd5f7bd96be423de5ff20cfb79c9b6b3f` からイベント駆動Preview同期が成功した。
+- 公開Preview `3.2.0.0 Update05 r219` で親子表示、レベル同期、重複抑止、PC・スマートフォン表示、アプリ内診断を確認した。
+- Production・正式版・`main` は変更していない。
