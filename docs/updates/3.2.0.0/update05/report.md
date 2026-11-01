@@ -2,7 +2,7 @@
 
 ## 1. Summary
 
-実装とローカル検証は完了した。公開Preview確認後にUpdate05の完了判定を記録する。
+Update05は完了した。詳細画面の確認順、参照技能の親子関係、技能レベルとの同期、重複説明を是正し、ローカル回帰、PR、Actions、自動Preview同期、公開サイトのPC・スマートフォン実操作まで合格した。Production・正式版には反映していない。
 
 ## 2. Bug classification and root cause
 
@@ -48,34 +48,45 @@
 
 ## 8. Git commit and pull request
 
-実装完了後に追記する。
+- 実装commit: `3fa5c17a59dacb87cbc11678f64e067d1d1f3173`
+- PR: [#406](https://github.com/mytemark2/hado_library/pull/406)
+- PR base: `feature/app-3.2.0.0`
+- 開始・取得base SHA: `173e87c057e8f6a30aa085b0bb27775b769ada41`
+- merge commit: `82b9f23cd5f7bd96be423de5ff20cfb79c9b6b3f`
+- merge readiness: head `3fa5c17a59dacb87cbc11678f64e067d1d1f3173`、base `173e87c057e8f6a30aa085b0bb27775b769ada41`、競合なし。旧PR・旧ブランチ・無関係な生成物の混入なし。
 
 ## 9. GitHub Actions result
 
-未実施。
+- PR App Validation: success（run `41254385710`、52秒）
+- Notify Hado Library Preview: success（run `41254457163`、1分17秒）
+- 通常のpush起点・イベント駆動同期で実行し、手動dispatch・定期pollingは使用していない。
 
 ## 10. Preview synchronization result
 
-未実施。現時点ではPreview完了ではない。
+Preview同期と公開実動作を確認済み。Update05はPreview完了。
 
 ### Preview confirmation
 
-- 公開URL: https://mytemark2.github.io/hado_library-preview/
-- 表示版: 未確認
-- marker: 未確認
-- Preview repository commit: 未確認
-- DOM checks: 未確認
-- operation checks: 未確認
-- debug-log checks: 未確認
-- 判定: BLOCKED（実装・検証中）
+- 公開URL: https://mytemark2.github.io/hado_library-preview/?v=05-r219&source=82b9f23
+- 表示版: `3.2.0.0 Update05 r219`
+- 実装Preview確認時のapp repository branch / HEAD: `feature/app-3.2.0.0` / `82b9f23cd5f7bd96be423de5ff20cfb79c9b6b3f`
+- 実装Preview確認時のPreview repository `main` HEAD: `0fcfd2f0216e249ad22c235e441d768334c82a78`
+- marker: `PREVIEW_SOURCE_COMMIT.txt=82b9f23cd5f7bd96be423de5ff20cfb79c9b6b3f`、`PREVIEW_SOURCE_BRANCH.txt=feature/app-3.2.0.0`、`PREVIEW_DISPLAY_VERSION.txt=3.2.0.0 Update05 r219`
+- required files: `index.html`、`hado_formation.js`、`hado_styles.css`、`.nojekyll`、marker 3件、`hadou_*.json` 36件を確認。
+- Runtime assets: `hado_core.js?v=05-r219`、`hado_styles.css?v=05-r219`、`hado_skill_level_toggle.js?v=05-r219` の参照を公開DOMで確認。
+- DOM checks: 武将詳細タブは `基礎 → 戦法 → 技能 → 関連 → 変化率 → その他`、初期選択は `基礎`。技能詳細は `内容詳細 → 変化率`。
+- operation checks: `LR袁紹 → 轟名` 内に `参照技能`、`轟名から付与`、`轟天Lv3`、`盟主Lv2` を確認。`轟名` 直接詳細の同一条件文は1回のみ。`壮望` の選択をLvⅠからLvⅡへ切り替えると参照技能 `壮志` もLvⅠからLvⅡへ同期。親技能の可視レベルパネルは常に1件。
+- responsive checks: PC 1280×720、スマートフォン390×844で文書・参照技能カードの横はみ出し0。
+- debug-log checks: 公開アプリ内検証 `OK`、`criticalFailures=0`、`warnings=0`、`info=0`。ブラウザconsoleのwarn/error 0件。
+- 判定: PASS
 
 ## 11. Minimum user acceptance operation
 
-公開Previewで `LR袁紹` を検索し、詳細の `技能` タブで `轟名` 内に `轟天Lv3` と `盟主Lv2` が表示されること、`轟名` の直接詳細で同じ説明が二重表示されないことを確認する。
+公開Previewで `LR袁紹` を検索し、詳細の `技能` タブで `轟名` 内に `轟天Lv3` と `盟主Lv2` が表示されること、`轟名` の直接詳細で同じ説明が二重表示されないことを確認した。追加の利用者確認は不要。
 
 ## 12. Remaining issues
 
-PR、Actions、Preview同期、公開実動作確認が未完了。ローカル回帰は完了。
+なし。`file://` 全体回帰は既定計画どおりUpdate08で実施し、Update05の未完了ゲートには含めない。
 
 ## 13. 確認事項
 
