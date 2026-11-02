@@ -6,6 +6,8 @@ const root = path.resolve(__dirname, '..');
 const read = (name) => fs.readFileSync(path.join(root, name), 'utf8');
 const core = read('hado_core.js');
 const formation = read('hado_formation.js');
+const search = read('hado_search.js');
+const status = read('hado_status_effects.js');
 const styles = read('hado_styles.css');
 const index = read('index.html');
 const version = read('hado_version.js');
@@ -21,39 +23,53 @@ function inOrder(source, tokens, label) {
 }
 
 assert(/updateNo:\s*'05'/.test(version), 'Update05 must be visible in Preview');
-assert(/revision:\s*219/.test(version), 'Update05 Preview must use r219');
-assert(index.includes('05-r219'), 'runtime assets must use the Update05 cache key');
+assert(/revision:\s*220/.test(version), 'Update05 usability correction Preview must use r220');
+assert(index.includes('05-r220'), 'runtime assets must use the Update05 usability correction cache key');
 assert(!index.includes('04-r218'), 'stale Update04 cache keys must be absent');
 
 const generalTabsStart = core.indexOf("if(categoryKey==='generals')return [");
 const generalTabsEnd = core.indexOf('];', generalTabsStart);
 assert(generalTabsStart >= 0 && generalTabsEnd > generalTabsStart, 'general detail tabs must exist');
 inOrder(core.slice(generalTabsStart, generalTabsEnd), [
+  "key:'related'",
+  "key:'parameter'",
   "key:'basic'",
   "key:'tactic'",
   "key:'skill'",
-  "key:'related'",
-  "key:'parameter'",
   "key:'other'"
 ], 'general detail order');
-assert(core.includes("getDefaultDetailTabForCategory(categoryKey){return categoryKey==='generals'?'basic'"), 'general detail must open on basic information');
+assert(core.includes("getDefaultDetailTabForCategory(categoryKey){return categoryKey==='generals'?'related'"), 'general detail must restore the Update04 overview default');
+assert(core.slice(generalTabsStart, generalTabsEnd).includes("key:'related',label:'概要'"), 'the restored first tab must retain the familiar overview label');
 
-assert(core.includes('const referencedHtml=renderReferencedSkillGroup(embeddedEntries,parentSkillName);'), 'referenced skills must be grouped under their parent skill');
+assert(core.includes('renderReferencedSkillCardsFlat'), 'referenced skills must be rendered as peer cards');
+assert(core.includes('general-skill-flat-scope'), 'parent and granted skills must share one visual list');
+assert.strictEqual((core.match(/renderReferencedSkillGroup\(/g) || []).length, 0, 'nested reference group renderer must be removed');
 assert(core.includes('data-parent-skill='), 'parent skill cards must expose their hierarchy');
 assert(core.includes('data-referenced-from='), 'referenced skill cards must expose their parent');
-assert(core.includes('general-skill-reference-title'), 'referenced skills must have an explicit group label');
 assert(core.includes('getReferencedSkillEntriesFromLines(filteredContent)'), 'references must follow the selected skill-level content');
-assert(core.includes("renderAfterDescription:row=>renderEmbeddedSkillCards([row.text],skillName)"), 'direct skill references must switch with the selected level');
-assert(core.includes("renderAfterDescription:row=>mayRenderReferences?renderEmbeddedSkillCards([row.text],parentSkillName):''"), 'general skill references must switch with the inspected level');
+assert(core.includes('renderReferencedSkillLevelPanels(rows,scoped.targetLevel'), 'direct skill references must provide level-linked peer panels');
+assert(core.includes('renderReferencedSkillLevelPanels(levelRows,currentLevel'), 'general skill references must provide level-linked peer panels');
+assert(core.includes('bindFlatReferencedSkillLevelPanels'), 'level buttons must synchronize the peer reference cards');
+
+assert(core.includes('renderGeneralDecisionSummary'), 'general identity must remain visible above tabs');
+assert(formation.includes('detailDecisionSummaryHtml'), 'general decision summary must be rendered in the detail header');
+assert(formation.includes('detailMatchContextHtml'), 'keyword match reason must be rendered in the detail header');
+assert(search.includes('keywordMatchTab'), 'search result rows must retain the matching destination tab');
+assert(status.includes('resolveDetailTabForSelection'), 'selection flow must resolve the user-purpose tab');
+assert(status.includes('detailLastTabByCategory'), 'manual tab choice must be remembered by category');
+assert(status.includes('detailActiveTab:state.detailActiveTab'), 'operation history must retain the active detail tab');
+assert(core.includes("pushOperationHistory('detail-tab')"), 'manual tab changes must create a restorable history step');
 
 assert(core.includes("const primaryConditionHtml=levelHtml?'':condition.html;"), 'direct skill details must suppress the duplicate condition block');
 assert(core.includes("<details class=\"detail-supplement\"><summary>補足情報</summary>"), 'secondary source information must be collapsed');
 assert(core.includes("[levelHtml,primaryConditionHtml,stageHtml,supplementalHtml]"), 'direct skill details must render level-scoped description and references before supplements');
 
 [
-  '.general-skill-reference-group',
-  '.general-skill-reference-title',
+  '.general-skill-flat-scope',
+  '.skill-reference-level-panel',
   '.referenced-skill-relation',
+  '.detail-match-context',
+  '.detail-decision-summary',
   '.detail-supplement',
   '.detail-supplement-body'
 ].forEach((selector) => assert(styles.includes(selector), `missing Update05 style ${selector}`));

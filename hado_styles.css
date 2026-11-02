@@ -1851,11 +1851,17 @@ body{font-feature-settings:"palt" 1,"kern" 1;text-rendering:optimizeLegibility}
 .formation-selected-skill-list.has-skill-descriptions .formation-selected-skill-name{display:flex!important;align-items:flex-start;justify-content:space-between;gap:8px;width:100%;font-size:14px!important;line-height:1.4!important;white-space:normal}
 .formation-selected-skill-list.has-skill-descriptions .formation-selected-skill-name>span:first-child{white-space:normal;overflow:visible;text-overflow:clip}
 .formation-selected-skill-list.has-skill-descriptions .detail-effect-group{padding:8px}
-.general-skill-reference-group{margin-top:12px;padding:10px;border-left:4px solid #8b5cf6;border-radius:10px;background:#f5f3ff;min-width:0}
-.general-skill-reference-title{margin-bottom:8px;color:#6d28d9;font-size:12px;font-weight:900;letter-spacing:.04em}
-.general-skill-reference-group .referenced-skill-list{margin-top:0;gap:10px}
-.general-skill-reference-group .referenced-skill-card{margin:0;border-color:#ddd6fe;background:#fff;box-shadow:none}
 .referenced-skill-relation{margin-bottom:6px;color:#7c3aed;font-size:11px;font-weight:800}
+.general-skill-flat-scope,.skill-reference-level-panel{display:contents}
+.skill-reference-level-panel[hidden]{display:none!important}
+.general-skill-grid>.general-skill-flat-scope>.referenced-skill-card,.general-skill-grid .skill-reference-level-panel>.referenced-skill-card{margin:0;border-color:#ddd6fe;background:#fff;box-shadow:none}
+.detail-match-context{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:8px;border:1px solid #bfdbfe;border-left:4px solid #2563eb;border-radius:10px;padding:9px 10px;background:#eff6ff;color:#1e3a8a;min-width:0}
+.detail-match-context-label{font-size:12px;font-weight:900;white-space:nowrap}
+.detail-match-context-reason{font-size:13px;line-height:1.55;overflow-wrap:anywhere}
+.detail-match-open-btn{min-height:32px;border:1px solid #93c5fd;border-radius:8px;padding:5px 9px;background:#fff;color:#1d4ed8;font-size:12px;font-weight:800;cursor:pointer;white-space:nowrap}
+.detail-decision-summary{display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-width:0}
+.detail-decision-summary-item{display:inline-flex;align-items:center;gap:4px;border:1px solid #dbe3ee;border-radius:999px;padding:4px 8px;background:#f8fafc;color:#334155;font-size:12px;line-height:1.35}
+.detail-decision-summary-label{color:#64748b;font-weight:800}
 .detail-supplement{border:1px solid #dbe3ee;border-radius:12px;background:#f8fafc;min-width:0;overflow:hidden}
 .detail-supplement>summary{cursor:pointer;padding:10px 12px;color:#475569;font-weight:800}
 .detail-supplement-body{padding:0 12px 12px;min-width:0;overflow-wrap:anywhere}
@@ -1863,7 +1869,9 @@ body{font-feature-settings:"palt" 1,"kern" 1;text-rendering:optimizeLegibility}
   .skill-level-toggle{min-width:44px;min-height:38px;font-size:13px;touch-action:manipulation}
   .formation-selected-skill-list.has-skill-descriptions{grid-template-columns:1fr}
   .formation-selected-skill-list.has-skill-descriptions .formation-selected-skill-row{display:block!important}
-  .general-skill-reference-group{padding:8px;margin-top:10px}
+  .detail-match-context{grid-template-columns:1fr;align-items:stretch}
+  .detail-match-open-btn{min-height:44px;width:100%}
+  .detail-decision-summary-item{font-size:11px}
   .detail-supplement>summary{min-height:44px;display:flex;align-items:center}
 }
 /* 3.1.0.0 r196: selected tags keep the same color across filters, results, and details. */
