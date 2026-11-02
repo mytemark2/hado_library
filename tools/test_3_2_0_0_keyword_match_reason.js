@@ -26,13 +26,16 @@ const context = {
   String,
   norm: value => String(value ?? '').replace(/\s+/g, ' ').trim(),
   getItemDisplayName: item => String(item?.name || item?.title || ''),
+  detailCategory: item => String(item?.category || ''),
+  getDefaultDetailTabForCategory: category => category === 'generals' ? 'related' : (category === 'skills' ? 'skillDetail' : 'parameter'),
+  isGeneralSkillSection: (_item, section) => String(section?.title || '').includes('技能'),
   sanitizeSectionForSearch: (_item, section) => section,
   isSearchExcludedTable: () => false,
   sanitizeRawForSearch: (_item, raw) => raw,
   getFastSearchableText: item => String(item?._searchableText || '').toLowerCase(),
 };
 vm.createContext(context);
-for (const name of ['splitKeywordReasonSentences', 'cropKeywordReasonSentence', 'collectKeywordReasonValues', 'buildKeywordMatchReason']) {
+for (const name of ['splitKeywordReasonSentences', 'cropKeywordReasonSentence', 'classifyKeywordReasonDetailTab', 'collectKeywordReasonEntries', 'collectKeywordReasonValues', 'buildKeywordMatchDetail', 'buildKeywordMatchReason']) {
   vm.runInContext(`${extractFunction(name)}; this.${name} = ${name};`, context);
 }
 
@@ -40,6 +43,7 @@ const nameReason = context.buildKeywordMatchReason({ name: 'LR李典' }, '李典
 if (nameReason !== '一致理由：名称「LR李典」に「李典」が一致。') throw new Error(`unexpected name reason: ${nameReason}`);
 
 const effectItem = {
+  category: 'skills',
   name: 'テスト技能',
   sections: [{ title: '効果', content: ['自身の攻撃を上昇する。', '交戦開始時に味方3部隊へ結束を付与する。', '防御も上昇する。'] }],
   tables: [],
@@ -48,6 +52,21 @@ const effectItem = {
 const effectReason = context.buildKeywordMatchReason(effectItem, '結束', false);
 if (effectReason !== '一致理由：交戦開始時に味方3部隊へ結束を付与する。') throw new Error(`unexpected effect reason: ${effectReason}`);
 if (effectReason.includes('防御も上昇')) throw new Error('reason included a sentence after the matching sentence');
+const effectDetail = context.buildKeywordMatchDetail(effectItem, '結束', false);
+if (effectDetail.tab !== 'skillDetail') throw new Error(`skill match did not select content detail: ${effectDetail.tab}`);
+
+const generalItem = {
+  category: 'generals',
+  name: 'LR検証武将',
+  sections: [
+    { title: 'LR検証武将の戦法', content: ['敵3部隊に火属性攻撃を行う。'] },
+    { title: 'LR検証武将の技能', content: ['技能「検証」を所持する。'] }
+  ],
+  tables: [],
+  raw: {}
+};
+if (context.buildKeywordMatchDetail(generalItem, '火属性', false).tab !== 'tactic') throw new Error('tactic keyword did not select the tactic tab');
+if (context.buildKeywordMatchDetail(generalItem, '検証」を所持', false).tab !== 'skill') throw new Error('skill keyword did not select the skill tab');
 
 const unsafeItem = { name: '安全確認', description: '<img src=x onerror=alert(1)>で工兵を強化する。', raw: {} };
 const unsafeReason = context.buildKeywordMatchReason(unsafeItem, '工兵', false);
@@ -58,6 +77,7 @@ const longReason = context.buildKeywordMatchReason({ name: '長文', description
 if (longReason.length > 190 || !longReason.includes('結束') || !longReason.includes('…')) throw new Error(`long reason was not cropped safely: ${longReason.length}`);
 
 if (context.buildKeywordMatchReason(effectItem, '', false) !== '') throw new Error('blank keyword produced a reason');
-if (!source.includes('keywordReason:buildKeywordMatchReason(item,effectiveKeyword,nameOnlySearch)')) throw new Error('normal search rows do not retain keyword reasons');
+if (!source.includes('keywordReason:keywordMatch.text,keywordMatchTab:')) throw new Error('normal search rows do not retain keyword reason and target tab');
+if (!source.includes("applyResultRowDetailSelection(rows[0],'search-auto-first'")) throw new Error('first search result does not apply the matching tab automatically');
 
 console.log('PASS 3.2.0.0 keyword match reason: name, matching sentence, escaping, crop and blank query');

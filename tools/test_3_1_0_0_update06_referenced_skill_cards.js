@@ -58,13 +58,15 @@ assert(core.includes("function renderReferencedSkillCard(entry,parentSkillName='
 assert(core.includes("buildDetailConditionPresentation(entry?.item||{name:entry?.name||''},'skills'"));
 assert(core.includes('getReferencedSkillLevelContent(entry)'));
 assert(core.includes('condition.grouped?condition.html'));
-assert(core.includes('renderReferencedSkillGroup(entries,parentSkillName)'));
-assert(core.includes('rows.map(entry=>renderReferencedSkillCard(entry,parentSkillName))'));
+assert(core.includes("function renderReferencedSkillCardsFlat(entries,parentSkillName='')"));
+assert(core.includes('.map(entry=>renderReferencedSkillCard(entry,parentSkillName))'));
+assert(core.includes('data-referenced-from='), 'flat referenced cards must retain their granting skill');
+assert(!core.includes('renderReferencedSkillGroup('), 'referenced skills must not return to a nested group');
 assert(!core.includes('fmtContent(entry.content)'), 'referenced cards must not bypass the shared presenter with all-level raw content');
 assert(!core.includes('技能データ参照'));
 assert(!core.includes('付与Lv:'));
 assert(css.includes('.referenced-skill-card{background:#f8fafc}'));
-assert(indexHtml.includes('hado_core.js?v=05-r219'));
+assert(indexHtml.includes('hado_core.js?v=05-r220'));
 assert(!indexHtml.includes('06-r182'));
 
 console.log(`Update06 referenced-skill cards ok: ${relations.size} relations / 白眉 2 groups / shared presenter / one granted level only`);

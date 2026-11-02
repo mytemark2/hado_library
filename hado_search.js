@@ -1112,45 +1112,67 @@ function cropKeywordReasonSentence(sentence,keyword,maxLength=180){
   if(end-start<maxLength){start=Math.max(0,end-maxLength);end=Math.min(text.length,start+maxLength);}
   return `${start>0?'…':''}${text.slice(start,end)}${end<text.length?'…':''}`;
 }
-function collectKeywordReasonValues(item){
+function classifyKeywordReasonDetailTab(item,section,value=''){
+  const category=detailCategory(item);
+  if(category==='skills')return 'skillDetail';
+  if(category==='equipments'){
+    const text=`${norm(section?.title||'')} ${norm(value||'')}`;
+    if(/技能/.test(text))return 'skill';
+    if(/基本|能力|兵科|装備品/.test(text))return 'basic';
+    return 'parameter';
+  }
+  if(category!=='generals')return getDefaultDetailTabForCategory(category);
+  if(section&&typeof isGeneralSkillSection==='function'&&isGeneralSkillSection(item,section))return 'skill';
+  const title=norm(section?.title||'');
+  if(/戦法|追加効果/.test(title))return 'tactic';
+  if(/技能|参軍/.test(title))return 'skill';
+  if(/基本情報|能力|五行|兵科/.test(title))return 'basic';
+  return 'related';
+}
+function collectKeywordReasonEntries(item){
   if(!item||typeof item!=='object')return [];
-  const values=[];
-  const add=value=>{if(typeof value==='string'&&norm(value))values.push(norm(value));};
-  add(item.description);
+  const entries=[];
+  const add=(value,tab)=>{if(typeof value==='string'&&norm(value))entries.push({value:norm(value),tab:norm(tab||'')});};
+  add(item.description,getDefaultDetailTabForCategory(detailCategory(item)));
   (Array.isArray(item.sections)?item.sections:[]).map(section=>typeof sanitizeSectionForSearch==='function'?sanitizeSectionForSearch(item,section):section).filter(Boolean).forEach(section=>{
-    add(section.title);
-    (Array.isArray(section.content)?section.content:[]).forEach(add);
+    const tab=classifyKeywordReasonDetailTab(item,section,section.title);
+    add(section.title,tab);
+    (Array.isArray(section.content)?section.content:[]).forEach(value=>add(value,tab));
   });
   (Array.isArray(item.tables)?item.tables:[]).filter(table=>typeof isSearchExcludedTable!=='function'||!isSearchExcludedTable(item,table)).forEach(table=>{
     const rows=Array.isArray(table)?table:(Array.isArray(table?.rows)?table.rows:[]);
-    rows.forEach(row=>(Array.isArray(row)?row:[row]).forEach(add));
+    rows.forEach(row=>(Array.isArray(row)?row:[row]).forEach(value=>add(value,classifyKeywordReasonDetailTab(item,null,value))));
   });
   const raw=typeof sanitizeRawForSearch==='function'?sanitizeRawForSearch(item,item.raw):item.raw;
   const visit=(value,key='',depth=0)=>{
     if(depth>5||value===null||value===undefined)return;
-    if(typeof value==='string'){if(!/url|href|image|icon/i.test(key))add(value);return;}
+    if(typeof value==='string'){if(!/url|href|image|icon/i.test(key))add(value,getDefaultDetailTabForCategory(detailCategory(item)));return;}
     if(Array.isArray(value)){value.forEach(entry=>visit(entry,key,depth+1));return;}
     if(typeof value==='object')Object.entries(value).forEach(([childKey,child])=>{if(childKey!=='textSample')visit(child,childKey,depth+1);});
   };
   visit(raw);
-  return [...new Set(values)];
+  const seen=new Set();
+  return entries.filter(entry=>{const key=`${entry.tab}\u0000${entry.value}`;if(seen.has(key))return false;seen.add(key);return true;});
 }
-function buildKeywordMatchReason(item,keyword,nameOnlySearch=false){
+function collectKeywordReasonValues(item){return collectKeywordReasonEntries(item).map(entry=>entry.value);}
+function buildKeywordMatchDetail(item,keyword,nameOnlySearch=false){
   const query=norm(keyword||'');
-  if(!query)return '';
+  if(!query)return {text:'',tab:''};
   const displayName=getItemDisplayName(item);
-  if(norm(displayName).toLowerCase().includes(query.toLowerCase()))return `一致理由：名称「${displayName}」に「${query}」が一致。`;
-  if(nameOnlySearch)return '';
-  for(const value of collectKeywordReasonValues(item)){
-    for(const sentence of splitKeywordReasonSentences(value)){
+  const fallbackTab=getDefaultDetailTabForCategory(detailCategory(item));
+  if(norm(displayName).toLowerCase().includes(query.toLowerCase()))return {text:`一致理由：名称「${displayName}」に「${query}」が一致。`,tab:fallbackTab};
+  if(nameOnlySearch)return {text:'',tab:''};
+  for(const entry of collectKeywordReasonEntries(item)){
+    for(const sentence of splitKeywordReasonSentences(entry.value)){
       const excerpt=cropKeywordReasonSentence(sentence,query);
-      if(excerpt)return `一致理由：${excerpt}`;
+      if(excerpt)return {text:`一致理由：${excerpt}`,tab:entry.tab||fallbackTab};
     }
   }
   const searchable=typeof getFastSearchableText==='function'?getFastSearchableText(item):'';
   const fallback=cropKeywordReasonSentence(searchable,query);
-  return fallback?`一致理由：${fallback}`:`一致理由：「${query}」を含む情報に一致。`;
+  return {text:fallback?`一致理由：${fallback}`:`一致理由：「${query}」を含む情報に一致。`,tab:fallbackTab};
 }
+function buildKeywordMatchReason(item,keyword,nameOnlySearch=false){return buildKeywordMatchDetail(item,keyword,nameOnlySearch).text;}
 function renderSearchResults(){
   if(isTypeSearchMode())return renderTypeSearchResults();
   const searchableMasterCount=(Array.isArray(state.generals)?state.generals.length:0)+(Array.isArray(state.equipments)?state.equipments.length:0);
@@ -1235,7 +1257,7 @@ function renderSearchResults(){
         const metric=(!searchContext||nameOnlySearch)?null:extractMetricFromItem(item,searchContext);
         {const e=performance.now()-t;metricMs+=e;cat.metricMs+=e;}
         if(searchContext&&!nameOnlySearch&&searchContext.mode!=='plain'&&!metricMatchesSearchQuery(metric,searchContext))keywordMatched=false;
-        if(keywordMatched){rows.push({key,label,item,metric,keywordReason:buildKeywordMatchReason(item,effectiveKeyword,nameOnlySearch)});datasetMatched++;}
+        if(keywordMatched){const keywordMatch=buildKeywordMatchDetail(item,effectiveKeyword,nameOnlySearch);rows.push({key,label,item,metric,keywordReason:keywordMatch.text,keywordMatchTab:searchContext&&!nameOnlySearch&&searchContext.mode!=='plain'?'parameter':keywordMatch.tab});datasetMatched++;}
       }
     });
     cat.matched=datasetMatched;cat.ms=performance.now()-catStart;
@@ -1277,14 +1299,10 @@ function renderSearchResults(){
     const currentName=state.selectedItem?norm(getItemDisplayName(state.selectedItem)).toLowerCase():'';
     const exactRow=normalSearchMode&&q?rows.find(row=>norm(getItemDisplayName(row.item)).toLowerCase()===q):null;
     if(pendingRow){
-      state.selectedItem=pendingRow.item;
-      state.selectedLabel=pendingRow.label;
-      state.detailActiveTab=getDetailInitialTabForItem(pendingRow.item);
+      applyResultRowDetailSelection(pendingRow,'pending-detail-link',{keyword:''});
       debugLog('search:auto-select-pending-detail-link',{name:getItemDisplayName(pendingRow.item),label:pendingRow.label,resultCount:rows.length,requested:pendingSelection.name||''});
     }else if(exactRow&&currentName!==q){
-      state.selectedItem=exactRow.item;
-      state.selectedLabel=exactRow.label;
-      state.detailActiveTab=getDetailInitialTabForItem(exactRow.item);
+      applyResultRowDetailSelection(exactRow,'search-auto-exact',{keyword:effectiveKeyword});
       debugLog('search:auto-select-exact-name',{name:getItemDisplayName(exactRow.item),label:exactRow.label,resultCount:rows.length,keyword:q,previous:currentName});
     }else if(!currentRow){
       if(shouldDeferAutoDetailForBroadSearch(rows,q,nameOnlySearch)){
@@ -1293,11 +1311,13 @@ function renderSearchResults(){
         state.detailActiveTab='';
         debugLog('search:auto-select-deferred-broad-category',{resultCount:rows.length,reason:'blank broad category browse',activeCategories:state.activeCategories});
       }else{
-        state.selectedItem=rows[0].item;
-        state.selectedLabel=rows[0].label;
-        state.detailActiveTab=getDetailInitialTabForItem(rows[0].item);
+        applyResultRowDetailSelection(rows[0],'search-auto-first',{keyword:effectiveKeyword});
         debugLog('search:auto-select-first',{name:getItemDisplayName(rows[0].item),label:rows[0].label,resultCount:rows.length,reason:(q||nameOnlySearch||((state.selectedTags||[]).length))?'filtered-search':'initial-first-result'});
       }
+    }else if(effectiveKeyword&&norm(state.detailSelectionContext?.keyword||'')!==norm(effectiveKeyword)){
+      applyResultRowDetailSelection(currentRow,'search-keyword-change',{keyword:effectiveKeyword});
+    }else if(!effectiveKeyword){
+      state.detailSelectionContext=null;
     }
   }else if(state.selectedItem&&!(state.quickStatusEffectOwnerFilter&&(!state._quickOwnerRowsCache||state._quickOwnerRowsCache.pending))){
     state.selectedItem=null;
@@ -1317,7 +1337,7 @@ function renderSearchResults(){
   els.results.innerHTML='';
   updateSearchDiagnosticSnapshot({keyword:currentKeyword(),effectiveKeyword,nameOnlySearch,hasActive,activeCategories:state.activeCategories,uiCategoryState,datasetStats,results:rows.length,skillDatasetCount:Array.isArray(state.skills)?state.skills.length:0,hasBushoInSkills:Array.isArray(state.skills)?state.skills.some(item=>norm(item?.name||'')==='武聖'):false});
   let domMetricRowCount=0;const domMetricSamples=[];
-  const renderLimit=getSearchResultRenderLimit(rows,q,nameOnlySearch);rows.slice(0,renderLimit).forEach(row=>{const li=document.createElement('li');if(state.selectedItem===row.item)li.classList.add('active');const displayName=getResultCardDisplayName(row);const subTitle=getResultCardSubtitle(row);const metricLabel=row.metric?row.metric.display:'';const useCompactCard=!!getResultCardIndexForRow(row)&&!metricLabel&&!q;const tacticAttackBadges=useCompactCard?'':((row.key==='tactics'||row.key==='generals')?renderTacticAttackResultBadges(row.item):'');const saved=(row.key==='generals'||row.key==='equipments')&&isSavedName(row.key,displayName);const cardBadges=getResultCardBadgesHtml(row);const matchedTags=renderMatchedSelectedTagsHtml(row.item);const main=document.createElement('div');main.className='search-result-card-main';const reasonText=row.metric&&row.metric.reasonText?row.metric.reasonText:'';const keywordReason=norm(row.keywordReason||'');main.innerHTML=`<div class="search-result-top"><span class="search-result-category">${esc(row.label)}</span><span class="search-result-title">${highlightSelectedTagTextHtml(displayName,row.item)}</span>${metricLabel?`<span class="search-result-metric">${highlightSelectedTagTextHtml(metricLabel,row.item)}</span>`:''}</div>${keywordReason?`<div class="search-result-primary-reason search-result-reason search-result-keyword-reason">${esc(keywordReason)}</div>`:''}${reasonText?`<div class="search-result-primary-reason search-result-reason">${highlightSelectedTagTextHtml(reasonText,row.item)}</div>`:''}${matchedTags?`<div class="search-result-tag-matches">${matchedTags}</div>`:''}${subTitle?`<div class="search-result-secondary search-result-meta">${highlightSelectedTagTextHtml(subTitle,row.item)}</div>`:''}${cardBadges?`<div class="search-result-secondary search-result-subrow">${cardBadges}</div>`:''}${tacticAttackBadges?`<div class="search-result-secondary search-result-subrow">${tacticAttackBadges}</div>`:''}`;if(metricLabel){domMetricRowCount++;if(domMetricSamples.length<10)domMetricSamples.push({name:norm(displayName),metricLabel,html:main.innerHTML});}main.addEventListener('click',()=>{selectItemAndRender(row.item,row.label,{reason:'result-click',preserveListScroll:true});});li.appendChild(main);if(row.key==='generals'||row.key==='equipments'){const btn=document.createElement('button');btn.type='button';btn.className=`save-star ${saved?'is-saved':''}`;btn.textContent=saved?'★':'☆';btn.addEventListener('click',e=>{e.stopPropagation();toggleSavedName(row.key,displayName);});li.appendChild(btn);}els.results.appendChild(li);});if(renderLimit<rows.length){const moreLi=document.createElement('li');moreLi.className='search-result-more-row';const btn=document.createElement('button');btn.type='button';btn.className='copy-btn';btn.textContent=`さらに表示（${renderLimit}/${rows.length}件）`;btn.addEventListener('click',e=>{e.stopPropagation();increaseSearchResultRenderLimit();});moreLi.appendChild(btn);els.results.appendChild(moreLi);}if(quickWaitingForCategory){els.results.innerHTML=`<li class="search-initial-empty"><div class="detail-empty">状態変化フィルター「${esc(state.quickStatusEffectOwnerFilter?.label||'')}」を選択中です。対象カテゴリを選択すると絞り込みます。</div></li>`;}
+  const renderLimit=getSearchResultRenderLimit(rows,q,nameOnlySearch);rows.slice(0,renderLimit).forEach(row=>{const li=document.createElement('li');if(state.selectedItem===row.item)li.classList.add('active');const displayName=getResultCardDisplayName(row);const subTitle=getResultCardSubtitle(row);const metricLabel=row.metric?row.metric.display:'';const useCompactCard=!!getResultCardIndexForRow(row)&&!metricLabel&&!q;const tacticAttackBadges=useCompactCard?'':((row.key==='tactics'||row.key==='generals')?renderTacticAttackResultBadges(row.item):'');const saved=(row.key==='generals'||row.key==='equipments')&&isSavedName(row.key,displayName);const cardBadges=getResultCardBadgesHtml(row);const matchedTags=renderMatchedSelectedTagsHtml(row.item);const main=document.createElement('div');main.className='search-result-card-main';const reasonText=row.metric&&row.metric.reasonText?row.metric.reasonText:'';const keywordReason=norm(row.keywordReason||'');main.innerHTML=`<div class="search-result-top"><span class="search-result-category">${esc(row.label)}</span><span class="search-result-title">${highlightSelectedTagTextHtml(displayName,row.item)}</span>${metricLabel?`<span class="search-result-metric">${highlightSelectedTagTextHtml(metricLabel,row.item)}</span>`:''}</div>${keywordReason?`<div class="search-result-primary-reason search-result-reason search-result-keyword-reason">${esc(keywordReason)}</div>`:''}${reasonText?`<div class="search-result-primary-reason search-result-reason">${highlightSelectedTagTextHtml(reasonText,row.item)}</div>`:''}${matchedTags?`<div class="search-result-tag-matches">${matchedTags}</div>`:''}${subTitle?`<div class="search-result-secondary search-result-meta">${highlightSelectedTagTextHtml(subTitle,row.item)}</div>`:''}${cardBadges?`<div class="search-result-secondary search-result-subrow">${cardBadges}</div>`:''}${tacticAttackBadges?`<div class="search-result-secondary search-result-subrow">${tacticAttackBadges}</div>`:''}`;if(metricLabel){domMetricRowCount++;if(domMetricSamples.length<10)domMetricSamples.push({name:norm(displayName),metricLabel,html:main.innerHTML});}main.addEventListener('click',()=>{selectItemAndRender(row.item,row.label,{reason:'result-click',preserveListScroll:true,resultRow:row,keyword:effectiveKeyword});});li.appendChild(main);if(row.key==='generals'||row.key==='equipments'){const btn=document.createElement('button');btn.type='button';btn.className=`save-star ${saved?'is-saved':''}`;btn.textContent=saved?'★':'☆';btn.addEventListener('click',e=>{e.stopPropagation();toggleSavedName(row.key,displayName);});li.appendChild(btn);}els.results.appendChild(li);});if(renderLimit<rows.length){const moreLi=document.createElement('li');moreLi.className='search-result-more-row';const btn=document.createElement('button');btn.type='button';btn.className='copy-btn';btn.textContent=`さらに表示（${renderLimit}/${rows.length}件）`;btn.addEventListener('click',e=>{e.stopPropagation();increaseSearchResultRenderLimit();});moreLi.appendChild(btn);els.results.appendChild(moreLi);}if(quickWaitingForCategory){els.results.innerHTML=`<li class="search-initial-empty"><div class="detail-empty">状態変化フィルター「${esc(state.quickStatusEffectOwnerFilter?.label||'')}」を選択中です。対象カテゴリを選択すると絞り込みます。</div></li>`;}
   domRenderMs=performance.now()-t;
   const stats=state._searchCacheStats||makeSearchCacheStats();
   Object.keys(categoryCount).forEach(k=>{const c=categoryCount[k];c.ms=Number((c.ms||0).toFixed(1));c.buildTextMs=Number((c.buildTextMs||0).toFixed(1));c.savedFilterMs=Number((c.savedFilterMs||0).toFixed(1));c.tagFilterMs=Number((c.tagFilterMs||0).toFixed(1));c.keywordMatchMs=Number((c.keywordMatchMs||0).toFixed(1));c.metricMs=Number((c.metricMs||0).toFixed(1));c.parameterSearchTextCache=safeCloneForDebug(stats.byCategory?.[k]?.parameterSearchText||{hit:0,miss:0,bypass:0});c.metricSourceCache=safeCloneForDebug(stats.byCategory?.[k]?.metricSource||{hit:0,miss:0,bypass:0});debugLog('categorySearch:profile',{key:k,label:(datasets.find(d=>d[0]===k)||[])[1]||k,...c});});
