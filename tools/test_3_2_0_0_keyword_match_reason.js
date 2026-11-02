@@ -35,7 +35,7 @@ const context = {
   getFastSearchableText: item => String(item?._searchableText || '').toLowerCase(),
 };
 vm.createContext(context);
-for (const name of ['splitKeywordReasonSentences', 'cropKeywordReasonSentence', 'classifyKeywordReasonDetailTab', 'collectKeywordReasonEntries', 'collectKeywordReasonValues', 'buildKeywordMatchDetail', 'buildKeywordMatchReason']) {
+for (const name of ['splitKeywordReasonSentences', 'cropKeywordReasonSentence', 'classifyKeywordReasonDetailTab', 'classifyKeywordReasonTableTab', 'collectKeywordReasonEntries', 'collectKeywordReasonValues', 'buildKeywordMatchDetail', 'buildKeywordMatchReason']) {
   vm.runInContext(`${extractFunction(name)}; this.${name} = ${name};`, context);
 }
 
@@ -67,6 +67,16 @@ const generalItem = {
 };
 if (context.buildKeywordMatchDetail(generalItem, '火属性', false).tab !== 'tactic') throw new Error('tactic keyword did not select the tactic tab');
 if (context.buildKeywordMatchDetail(generalItem, '検証」を所持', false).tab !== 'skill') throw new Error('skill keyword did not select the skill tab');
+
+const descriptionCollisionItem = {
+  category: 'generals',
+  name: 'LR一致優先武将',
+  description: '技能名は轟名。',
+  sections: [{ title: 'LR一致優先武将の技能', content: ['轟名1■主将の際 ●付与技能を得る'] }],
+  tables: [{ rows: [['轟名1', '■主将の際 ●付与技能を得る']] }],
+  raw: {}
+};
+if (context.buildKeywordMatchDetail(descriptionCollisionItem, '轟名', false).tab !== 'skill') throw new Error('search-only description incorrectly outranked the visible skill section');
 
 const unsafeItem = { name: '安全確認', description: '<img src=x onerror=alert(1)>で工兵を強化する。', raw: {} };
 const unsafeReason = context.buildKeywordMatchReason(unsafeItem, '工兵', false);

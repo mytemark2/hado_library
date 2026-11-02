@@ -1129,11 +1129,24 @@ function classifyKeywordReasonDetailTab(item,section,value=''){
   if(/基本情報|能力|五行|兵科/.test(title))return 'basic';
   return 'related';
 }
+function classifyKeywordReasonTableTab(item,table){
+  const category=detailCategory(item);
+  if(category==='skills')return 'skillDetail';
+  const rows=Array.isArray(table)?table:(Array.isArray(table?.rows)?table.rows:[]);
+  const cells=rows.flatMap(row=>Array.isArray(row)?row:[row]).map(value=>norm(value)).filter(Boolean);
+  const joined=cells.join(' ');
+  if(category==='generals'){
+    if(rows.some(row=>Array.isArray(row)&&/^.+?(?:10|[1-9])$/.test(norm(row[0]||''))&&/[■●]/.test(norm(row.slice(1).join(' ')))))return 'skill';
+    if(/発動間隔|効果系統|連鎖順|追加効果/.test(joined))return 'tactic';
+    if((cells.includes('名')&&cells.includes('天賦'))||cells.some(value=>/^(?:統率|武力|知力|政治|魅力)$/.test(value)))return 'basic';
+    return 'related';
+  }
+  return classifyKeywordReasonDetailTab(item,null,joined);
+}
 function collectKeywordReasonEntries(item){
   if(!item||typeof item!=='object')return [];
   const entries=[];
   const add=(value,tab)=>{if(typeof value==='string'&&norm(value))entries.push({value:norm(value),tab:norm(tab||'')});};
-  add(item.description,getDefaultDetailTabForCategory(detailCategory(item)));
   (Array.isArray(item.sections)?item.sections:[]).map(section=>typeof sanitizeSectionForSearch==='function'?sanitizeSectionForSearch(item,section):section).filter(Boolean).forEach(section=>{
     const tab=classifyKeywordReasonDetailTab(item,section,section.title);
     add(section.title,tab);
@@ -1141,8 +1154,11 @@ function collectKeywordReasonEntries(item){
   });
   (Array.isArray(item.tables)?item.tables:[]).filter(table=>typeof isSearchExcludedTable!=='function'||!isSearchExcludedTable(item,table)).forEach(table=>{
     const rows=Array.isArray(table)?table:(Array.isArray(table?.rows)?table.rows:[]);
-    rows.forEach(row=>(Array.isArray(row)?row:[row]).forEach(value=>add(value,classifyKeywordReasonDetailTab(item,null,value))));
+    const tab=classifyKeywordReasonTableTab(item,table);
+    rows.forEach(row=>(Array.isArray(row)?row:[row]).forEach(value=>add(value,tab)));
   });
+  // 詳細画面に表示できる節・表を優先し、検索用の要約文は一致箇所がない場合だけ使う。
+  add(item.description,getDefaultDetailTabForCategory(detailCategory(item)));
   const raw=typeof sanitizeRawForSearch==='function'?sanitizeRawForSearch(item,item.raw):item.raw;
   const visit=(value,key='',depth=0)=>{
     if(depth>5||value===null||value===undefined)return;
