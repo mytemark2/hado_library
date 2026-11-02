@@ -5,7 +5,7 @@
 正本: `feature/app-3.2.0.0`。起点main: `e9153a954a998ad346c6ad7beb876056c11c52fb`（正式版3.1.2.1）。
 [全体ロードマップ](3.2.0.0/roadmap.md) / [Update01](3.2.0.0/update01/roadmap.md) / [Update02](3.2.0.0/update02/roadmap.md) / [Update03](3.2.0.0/update03/roadmap.md) / [Update04](3.2.0.0/update04/roadmap.md) / [Update05](3.2.0.0/update05/roadmap.md) / [Update05実装](3.2.0.0/update05/implementation.md) / [Update05報告](3.2.0.0/update05/report.md)
 
-状態: Update01、割込みr214、Update02 r215、Update03 r216、Update04 r218は完了。Update05はr222公開Previewの内蔵検証で旧実装文字列依存の誤判定を検出し、r223で検証経路を補正・再検証中。Update06未開始。正式公開なし。
+状態: Update01、割込みr214、Update02 r215、Update03 r216、Update04 r218、Update05 r223は完了。Update06未開始。正式公開なし。
 
 ## 以前の開発記録
 
