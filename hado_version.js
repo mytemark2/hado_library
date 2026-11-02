@@ -4,12 +4,12 @@
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.2.0.0',
     updateNo: '05',
-    revision: 222,
+    revision: 223,
     formalRelease: false,
     baseAppVersion: '3.1.2.1',
     baseSourceRevision: 'e9153a954a998ad346c6ad7beb876056c11c52fb',
-    summary: 'Update05: named tactic and owned-skill sections resolve to their actual detail tabs.',
-    updatedAt: '2026-11-02T13:20:00+09:00'
+    summary: 'Update05: search selection validation now follows the functional tab resolver.',
+    updatedAt: '2026-11-02T17:42:21+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;
 })();

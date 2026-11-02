@@ -23,8 +23,8 @@ function inOrder(source, tokens, label) {
 }
 
 assert(/updateNo:\s*'05'/.test(version), 'Update05 must be visible in Preview');
-assert(/revision:\s*222/.test(version), 'Update05 usability correction Preview must use r222');
-assert(index.includes('05-r222'), 'runtime assets must use the Update05 usability correction cache key');
+assert(/revision:\s*223/.test(version), 'Update05 validation correction Preview must use r223');
+assert(index.includes('05-r223'), 'runtime assets must use the Update05 validation correction cache key');
 assert(!index.includes('04-r218'), 'stale Update04 cache keys must be absent');
 
 const generalTabsStart = core.indexOf("if(categoryKey==='generals')return [");
@@ -59,6 +59,12 @@ assert(status.includes('resolveDetailTabForSelection'), 'selection flow must res
 assert(status.includes('detailLastTabByCategory'), 'manual tab choice must be remembered by category');
 assert(status.includes('detailActiveTab:state.detailActiveTab'), 'operation history must retain the active detail tab');
 assert(core.includes("pushOperationHistory('detail-tab')"), 'manual tab changes must create a restorable history step');
+const autoSelectValidationStart = core.indexOf('function validateSkillDetailAutoSelectTabPolicySmoke(){');
+const autoSelectValidationEnd = core.indexOf('\nfunction renderTacticDetail(', autoSelectValidationStart);
+const autoSelectValidation = core.slice(autoSelectValidationStart, autoSelectValidationEnd);
+assert(autoSelectValidation.includes('applyResultRowDetailSelection'), 'browser validation must exercise the functional search selection path');
+assert(autoSelectValidation.includes("keyword auto select outranks remembered parameter tab"), 'browser validation must cover keyword priority over remembered tabs');
+assert(!autoSelectValidation.includes('String(renderSearchResults'), 'browser validation must not infer behavior from stale function-source strings');
 
 assert(core.includes("const primaryConditionHtml=levelHtml?'':condition.html;"), 'direct skill details must suppress the duplicate condition block');
 assert(core.includes("<details class=\"detail-supplement\"><summary>補足情報</summary>"), 'secondary source information must be collapsed');
