@@ -1122,8 +1122,13 @@ function classifyKeywordReasonDetailTab(item,section,value=''){
     return 'parameter';
   }
   if(category!=='generals')return getDefaultDetailTabForCategory(category);
-  if(section&&typeof isGeneralSkillSection==='function'&&isGeneralSkillSection(item,section))return 'skill';
   const title=norm(section?.title||'');
+  if(title&&typeof findTacticName==='function'&&norm(findTacticName(item))===title)return 'tactic';
+  if(title&&typeof getOwnedSkillLevelMapFromTables==='function'){
+    const ownedSkills=getOwnedSkillLevelMapFromTables(item);
+    if(ownedSkills instanceof Map&&ownedSkills.has(title))return 'skill';
+  }
+  if(section&&typeof isGeneralSkillSection==='function'&&isGeneralSkillSection(item,section))return 'skill';
   if(/戦法|追加効果/.test(title))return 'tactic';
   if(/技能|参軍/.test(title))return 'skill';
   if(/基本情報|能力|五行|兵科/.test(title))return 'basic';
