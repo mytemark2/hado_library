@@ -21,6 +21,7 @@ function extractFunction(name) {
 const context = {
   Object,
   Array,
+  Map,
   Set,
   Math,
   String,
@@ -29,6 +30,8 @@ const context = {
   detailCategory: item => String(item?.category || ''),
   getDefaultDetailTabForCategory: category => category === 'generals' ? 'related' : (category === 'skills' ? 'skillDetail' : 'parameter'),
   isGeneralSkillSection: (_item, section) => String(section?.title || '').includes('技能'),
+  findTacticName: item => String(item?._tacticName || ''),
+  getOwnedSkillLevelMapFromTables: item => new Map((item?._ownedSkillNames || []).map(name => [name, 'Ⅰ'])),
   sanitizeSectionForSearch: (_item, section) => section,
   isSearchExcludedTable: () => false,
   sanitizeRawForSearch: (_item, raw) => raw,
@@ -67,6 +70,21 @@ const generalItem = {
 };
 if (context.buildKeywordMatchDetail(generalItem, '火属性', false).tab !== 'tactic') throw new Error('tactic keyword did not select the tactic tab');
 if (context.buildKeywordMatchDetail(generalItem, '検証」を所持', false).tab !== 'skill') throw new Error('skill keyword did not select the skill tab');
+
+const namedSectionItem = {
+  category: 'generals',
+  name: 'LR固有名武将',
+  _tacticName: '強盛莫敵',
+  _ownedSkillNames: ['轟名'],
+  sections: [
+    { title: '強盛莫敵', content: ['敵4部隊を攻撃する'] },
+    { title: '轟名', content: ['Ⅰ■主将の際 ●付与技能を得る'] }
+  ],
+  tables: [],
+  raw: {}
+};
+if (context.buildKeywordMatchDetail(namedSectionItem, '強盛莫敵', false).tab !== 'tactic') throw new Error('named tactic section did not select the tactic tab');
+if (context.buildKeywordMatchDetail(namedSectionItem, '轟名', false).tab !== 'skill') throw new Error('owned-skill named section did not select the skill tab');
 
 const descriptionCollisionItem = {
   category: 'generals',

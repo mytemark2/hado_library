@@ -15,8 +15,8 @@ const index = read('index.html');
 const version = read('hado_version.js');
 
 assert(version.includes("updateNo: '05'"));
-assert(version.includes('revision: 221'));
-assert(index.includes('hado_version.js?v=05-r221'));
+assert(version.includes('revision: 222'));
+assert(index.includes('hado_version.js?v=05-r222'));
 assert(!index.includes('03-r216'));
 
 assert(search.includes('function renderSearchConditionChip('));
