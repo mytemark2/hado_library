@@ -4,12 +4,12 @@
   const HADO_VERSION = Object.freeze({
     releaseVersion: '3.2.0.0',
     updateNo: '05',
-    revision: 220,
+    revision: 221,
     formalRelease: false,
     baseAppVersion: '3.1.2.1',
     baseSourceRevision: 'e9153a954a998ad346c6ad7beb876056c11c52fb',
-    summary: 'Update05: user-purpose detail tabs, visible match reasons, and flat granted-skill lists.',
-    updatedAt: '2026-11-02T00:00:00+09:00'
+    summary: 'Update05: visible match sources take priority when selecting the destination detail tab.',
+    updatedAt: '2026-11-02T13:00:00+09:00'
   });
   window.HADO_VERSION = HADO_VERSION;
 })();
