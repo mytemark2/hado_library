@@ -3408,14 +3408,42 @@ function validateSkillDetailTabRenderedHtmlSmoke(){
 
 function validateSkillDetailAutoSelectTabPolicySmoke(){
   const sample=(state.skills||[]).find(item=>getItemDisplayName(item)==='剛塁')||null;
-  const source=String(renderSearchResults||'');
+  if(!sample)return {ok:false,reason:'sample skill 剛塁 not found'};
+  const previous={
+    selectedItem:state.selectedItem,
+    selectedLabel:state.selectedLabel,
+    detailActiveTab:state.detailActiveTab,
+    detailSelectionContext:state.detailSelectionContext,
+    detailLastTabByCategory:state.detailLastTabByCategory
+  };
+  let keywordMatch=null;
+  let applied=false;
+  let keywordResolved='';
+  let keywordContextTab='';
+  let rememberedResolved='';
+  try{
+    state.detailLastTabByCategory={...(state.detailLastTabByCategory||{}),skills:'parameter'};
+    keywordMatch=typeof buildKeywordMatchDetail==='function'?buildKeywordMatchDetail(sample,'剛塁',false):null;
+    const row={item:sample,label:'技能',keywordReason:keywordMatch?.text||'',keywordMatchTab:keywordMatch?.tab||''};
+    applied=typeof applyResultRowDetailSelection==='function'&&applyResultRowDetailSelection(row,'search-auto-exact',{keyword:'剛塁'});
+    keywordResolved=state.detailActiveTab||'';
+    keywordContextTab=state.detailSelectionContext?.matchTab||'';
+    rememberedResolved=resolveDetailTabForSelection(sample,{reason:'detail-link'});
+  }finally{
+    state.selectedItem=previous.selectedItem;
+    state.selectedLabel=previous.selectedLabel;
+    state.detailActiveTab=previous.detailActiveTab;
+    state.detailSelectionContext=previous.detailSelectionContext;
+    state.detailLastTabByCategory=previous.detailLastTabByCategory;
+  }
   const checks=[
-    {name:'pending detail link keeps category default tab',ok:source.includes('getDetailInitialTabForItem(pendingRow.item)')},
-    {name:'exact name auto select keeps category default tab',ok:source.includes('getDetailInitialTabForItem(exactRow.item)')},
-    {name:'first auto select keeps category default tab',ok:source.includes('getDetailInitialTabForItem(rows[0].item)')},
-    {name:'skill default tab is content detail',ok:sample&&getDetailInitialTabForItem(sample)==='skillDetail'}
+    {name:'skill default tab is content detail',ok:getDetailInitialTabForItem(sample)==='skillDetail'},
+    {name:'skill name match targets content detail',ok:keywordMatch?.tab==='skillDetail',actual:keywordMatch?.tab||''},
+    {name:'keyword auto select outranks remembered parameter tab',ok:applied&&keywordResolved==='skillDetail',actual:keywordResolved},
+    {name:'keyword match context retains destination tab',ok:keywordContextTab==='skillDetail',actual:keywordContextTab},
+    {name:'direct navigation retains the remembered skill tab',ok:rememberedResolved==='parameter',actual:rememberedResolved}
   ];
-  return {ok:checks.every(c=>c.ok),checks,policy:'renderSearchResults must not force skill detail selections back to parameter'};
+  return {ok:checks.every(c=>c.ok),checks,policy:'functional selection validation: keyword match first, then remembered tab, then category default'};
 }
 
 function renderTacticDetail(item,options={}){const source=findSourceGeneralForTacticDetail(item)||item;const tactic=renderGeneralTactic(source);const add=renderGeneralAdditionalEffects(source);const blocks=[tactic,add].filter(Boolean).join('');const html=blocks?`<div class="general-detail-stack tactic-detail-stack">${blocks}</div>`:'';const diag=getTacticDetailDebugInfo(item,source,html);if(!blocks)diag.reason='tactic/additional-effect blocks empty; check derived tactic tables and source general lookup';state.diagnostics.tacticDetail=diag;if(!options.validation)debugLog('tacticDetail:render',diag);return html;}
