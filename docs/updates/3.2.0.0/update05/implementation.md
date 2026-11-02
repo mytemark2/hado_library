@@ -75,4 +75,6 @@
 
 ## 6. 配信状態
 
-r220からr222まではApp Validation 179項目と配信同期に合格したが、公開実操作と内蔵検証で残件を順次検出した。r223はローカルApp Validation 179項目、Update05詳細階層回帰、キーワード一致理由、参照技能カード、`git diff --check` に合格した。PR、Actions、公開Previewの再実行結果は完了報告へ追記する。Production・正式版・`main` は変更しない。
+r220からr222まではApp Validation 179項目と配信同期に合格したが、公開実操作と内蔵検証で残件を順次検出した。r223はローカルApp Validation 179項目、Update05詳細階層回帰、キーワード一致理由、参照技能カード、`git diff --check` に合格した。PR #411を開発正本へマージし、正本SHA `b9bc7d531b859793e8ba314f9e49b76a6d22323e` からPreview同期run `41438904971` が自動実行され成功した。
+
+PreviewリポジトリHEADは `31d6970b89f298123d21e2c25ae39c4a01c66429`。markerはsource commit `b9bc7d531b859793e8ba314f9e49b76a6d22323e`、source branch `feature/app-3.2.0.0`、display version `3.2.0.0 Update05 r223` で一致した。公開URLの内蔵検証は重大失敗0・警告0・情報0、`轟名`と`強盛莫敵`の検索、参照技能2件、PC・スマートフォン表示、ブラウザー警告・エラー0件を確認した。Production・正式版・`main` は変更していない。
