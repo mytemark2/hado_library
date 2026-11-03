@@ -103,8 +103,8 @@ const indexHtml = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 assert(source.includes('activeScoreUnchanged:true'));
 assert(source.includes('HADO_UPDATE07_SCORE_SHADOW'));
 assert(versionSource.includes("updateNo: '05'"));
-assert(versionSource.includes('revision: 224'));
-assert(indexHtml.includes('hado_version.js?v=05-r224'));
+assert(versionSource.includes('revision: 225'));
+assert(indexHtml.includes('hado_version.js?v=05-r225'));
 assert(!indexHtml.includes('08-r189'));
 
 console.log(

@@ -23,8 +23,8 @@ function inOrder(source, tokens, label) {
 }
 
 assert(/updateNo:\s*'05'/.test(version), 'Update05 must be visible in Preview');
-assert(/revision:\s*224/.test(version), 'Update05 match-scroll correction Preview must use r224');
-assert(index.includes('05-r224'), 'runtime assets must use the Update05 match-scroll cache key');
+assert(/revision:\s*225/.test(version), 'Update05 detail-pane-scroll correction Preview must use r225');
+assert(index.includes('05-r225'), 'runtime assets must use the Update05 detail-pane-scroll cache key');
 assert(!index.includes('04-r218'), 'stale Update04 cache keys must be absent');
 
 const generalTabsStart = core.indexOf("if(categoryKey==='generals')return [");
