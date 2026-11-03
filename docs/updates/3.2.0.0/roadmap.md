@@ -9,7 +9,7 @@
 - 起点: main e9153a954a998ad346c6ad7beb876056c11c52fb / 正式版3.1.2.1
 - Preview表示: 3.2.0.0 UpdateNN rNNN
 - 正式版表示: 3.2.0.0
-- 開発状態: Update01、割込みr214、Update02 r215、Update03 r216、Update04 r218完了。Update05はr224公開確認で内部スクロール不成立を検出し、r225で修正中。Update06未開始。正式公開なし。
+- 開発状態: Update01、割込みr214、Update02 r215、Update03 r216、Update04 r218、Update05 r225完了。Update06未開始。正式公開なし。
 - 公式情報確認日: 2026-10-17
 
 Update番号は大型開発を段階管理する計画識別子であり、通常の機能改善では使用しない。3.2.0.0の全Update完了後はUpdate番号を終了し、正式版では4桁版のみを表示する。rNNNはPreviewビルド識別子であり、番号は開始時に現行revisionを確認して連番で決定する。
@@ -102,7 +102,7 @@ Update番号は大型開発を段階管理する計画識別子であり、通�
 
 **現在開発版:** 3.2.0.0 Update05 r225
 
-**状態:** r225修正中（2026-11-03）。r224は一致語の特定と強調までは動作したが、公開Previewの内部スクロール領域では `scrollIntoView` による移動が成立せず、`scrollTop=0` のままだった。r225で詳細領域と一致語の実座標から中央位置を計算し、詳細領域を直接スクロールする。Update06は未開始。詳細は `update05/roadmap.md`、`update05/implementation.md`、`update05/report.md` を参照。
+**状態:** r225完了（2026-11-03）。PCは詳細領域を直接、スマートフォンは文書をスクロールし、公開Previewで一致語が表示領域内へ移動することを確認した。内蔵検証、App Validation、Actions、marker、公開PC・スマートフォン実操作まで合格。Update06は未開始。詳細は `update05/roadmap.md`、`update05/implementation.md`、`update05/report.md` を参照。
 
 - 基本情報、戦法、技能、関連効果の表示順と階層を整える。
 - 長文の原文・補足は必要時に展開する。

@@ -69,4 +69,4 @@
 
 ## 8. 完了
 
-2026-11-03、r224公開確認でタブ切替と一致語強調は成功したが、PC詳細欄の `scrollTop` は0、一致語は表示領域外のままだったため完了扱いにしなかった。`3.2.0.0 Update05 r225`で直接スクロール方式へ修正中。App Validation、PR、Actions、Preview同期、公開URLのPC・スマートフォン実操作が完了するまでUpdate05を完了扱いにしない。Update06は未開始であり、Production・正式版・`main` は変更しない。
+2026-11-03、`3.2.0.0 Update05 r225`を完了した。r224公開確認で検出した内部スクロール不成立に対し、PCは詳細欄の実座標から中央位置を計算して直接スクロールし、スマートフォンは文書スクロールへ切り替えた。ローカルApp Validation 180/180、PR #414 App Validation、Preview同期、marker、公開URLのPC・390×844実操作、内蔵検証、console確認に合格した。Update06は未開始であり、Production・正式版・`main` は変更していない。
