@@ -1794,15 +1794,28 @@ function scrollDetailMatchTargetIntoView(tab,keyword,options={}){
   let ancestor=target.parentElement;
   while(ancestor&&ancestor!==panel){if(ancestor.tagName==='DETAILS'&&!ancestor.open)ancestor.open=true;ancestor=ancestor.parentElement;}
   target.classList?.add('detail-match-scroll-focus');
-  const reduceMotion=typeof window.matchMedia==='function'&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const behavior=options.behavior||(reduceMotion?'auto':'smooth');
-  try{target.scrollIntoView({behavior,block:'center',inline:'nearest'});}catch{target.scrollIntoView();}
-  debugLog('detail-match:scroll',{tab:norm(tab),keyword:norm(keyword),targetText:norm(target.textContent||''),behavior});
+  const behavior=options.behavior||'auto';
+  const detail=els.detail;
+  const canScrollDetail=detail&&detail.scrollHeight>detail.clientHeight+16&&typeof detail.getBoundingClientRect==='function'&&typeof target.getBoundingClientRect==='function';
+  let scrollMode='document';
+  let scrollTop=null;
+  if(canScrollDetail){
+    const detailRect=detail.getBoundingClientRect();
+    const targetRect=target.getBoundingClientRect();
+    scrollTop=Math.max(0,detail.scrollTop+(targetRect.top-detailRect.top)-Math.max(0,(detail.clientHeight-targetRect.height)/2));
+    if(typeof detail.scrollTo==='function')detail.scrollTo({top:scrollTop,behavior});
+    else detail.scrollTop=scrollTop;
+    scrollMode='detail';
+  }else{
+    try{target.scrollIntoView({behavior,block:'center',inline:'nearest'});}catch{target.scrollIntoView();}
+  }
+  debugLog('detail-match:scroll',{tab:norm(tab),keyword:norm(keyword),targetText:norm(target.textContent||''),behavior,scrollMode,scrollTop});
   return true;
 }
 function scheduleDetailMatchTargetScroll(tab,keyword){
-  const run=()=>scrollDetailMatchTargetIntoView(tab,keyword);
-  if(typeof requestAnimationFrame==='function'){requestAnimationFrame(run);return;}
+  let completed=false;
+  const run=()=>{if(completed)return;completed=scrollDetailMatchTargetIntoView(tab,keyword);};
+  if(typeof requestAnimationFrame==='function')requestAnimationFrame(run);
   setTimeout(run,0);
 }
 function setupDetailMatchContextButton(item){
