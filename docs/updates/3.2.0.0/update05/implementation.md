@@ -100,4 +100,6 @@ r220からr222まではApp Validation 179項目と配信同期に合格したが
 
 PreviewリポジトリHEADは `31d6970b89f298123d21e2c25ae39c4a01c66429`。markerはsource commit `b9bc7d531b859793e8ba314f9e49b76a6d22323e`、source branch `feature/app-3.2.0.0`、display version `3.2.0.0 Update05 r223` で一致した。公開URLの内蔵検証は重大失敗0・警告0・情報0、`轟名`と`強盛莫敵`の検索、参照技能2件、PC・スマートフォン表示、ブラウザー警告・エラー0件を確認した。Production・正式版・`main` は変更していない。
 
-r224はPR #413、App Validation run `41571144194`、Preview同期run `41571316403` に合格し、markerも正本 `ada7c2b9f11afe46fa3eefdbd65c49c028ed1ef8` と一致した。しかし公開PC実操作で詳細欄がスクロールしないことを確認したため完了扱いにしなかった。r225はローカルApp Validation 180/180に合格。公開前ブラウザー確認ではPCが `scrollTop 0 → 2172`、スマートフォン390×844が文書スクロール `1195 → 4082` となり、いずれも `奮檄` が表示領域内、スマートフォン横はみ出し0だった。PR、Actions、Preview同期、公開URL実操作は未完了。
+r224はPR #413、App Validation run `41571144194`、Preview同期run `41571316403` に合格し、markerも正本 `ada7c2b9f11afe46fa3eefdbd65c49c028ed1ef8` と一致した。しかし公開PC実操作で詳細欄がスクロールしないことを確認したため完了扱いにしなかった。
+
+r225はローカルApp Validation 180/180、PR #414 App Validation run `41573574419`、正本merge `a8f6dc9f00b778e090aa81cf14ba9ca698143b53`、Preview同期run `41573705561` に合格した。PreviewリポジトリHEADは `73ed725668526cd121bb1779af42c9bba320b61b`、markerは正本commit、`feature/app-3.2.0.0`、`3.2.0.0 Update05 r225` と一致した。公開URLではPCが `scrollTop 0 → 2172`、スマートフォン390×844が文書スクロール `1213 → 4099` となり、いずれも `奮檄` が表示領域内、横はみ出し0だった。内蔵検証は重大0・警告0・情報0、console警告・エラー0。Production・正式版・`main` は変更していない。
