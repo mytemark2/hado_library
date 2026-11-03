@@ -1774,18 +1774,51 @@ function renderDetailMatchContextHtml(item){
   const button=allowed.has(context.matchTab)?`<button type="button" class="detail-match-open-btn" data-detail-match-tab-open="${esc(context.matchTab)}">一致箇所を表示</button>`:'';
   return `<div class="detail-match-context" data-detail-match-tab="${esc(context.matchTab||'')}"><div class="detail-match-context-label">検索一致</div><div class="detail-match-context-reason">${esc(context.keywordReason)}</div>${button}</div>`;
 }
+function getDetailMatchScrollTarget(root,tab,keyword){
+  if(!root)return null;
+  const normalizedTab=norm(tab);
+  const panel=[...root.querySelectorAll('.detail-tab-content[data-active-tab]')].find(node=>norm(node?.dataset?.activeTab||'')===normalizedTab)||null;
+  if(!panel)return null;
+  const hits=[...panel.querySelectorAll('mark.search-hit')];
+  const normalizedKeyword=norm(keyword).toLocaleLowerCase('ja-JP');
+  if(!normalizedKeyword)return hits[0]||panel;
+  return hits.find(node=>norm(node?.textContent||'').toLocaleLowerCase('ja-JP')===normalizedKeyword)
+    ||hits.find(node=>norm(node?.textContent||'').toLocaleLowerCase('ja-JP').includes(normalizedKeyword))
+    ||hits[0]
+    ||panel;
+}
+function scrollDetailMatchTargetIntoView(tab,keyword,options={}){
+  const target=getDetailMatchScrollTarget(els.detail,tab,keyword);
+  if(!target)return false;
+  const panel=target.matches?.('.detail-tab-content[data-active-tab]')?target:target.closest?.('.detail-tab-content[data-active-tab]');
+  let ancestor=target.parentElement;
+  while(ancestor&&ancestor!==panel){if(ancestor.tagName==='DETAILS'&&!ancestor.open)ancestor.open=true;ancestor=ancestor.parentElement;}
+  target.classList?.add('detail-match-scroll-focus');
+  const reduceMotion=typeof window.matchMedia==='function'&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const behavior=options.behavior||(reduceMotion?'auto':'smooth');
+  try{target.scrollIntoView({behavior,block:'center',inline:'nearest'});}catch{target.scrollIntoView();}
+  debugLog('detail-match:scroll',{tab:norm(tab),keyword:norm(keyword),targetText:norm(target.textContent||''),behavior});
+  return true;
+}
+function scheduleDetailMatchTargetScroll(tab,keyword){
+  const run=()=>scrollDetailMatchTargetIntoView(tab,keyword);
+  if(typeof requestAnimationFrame==='function'){requestAnimationFrame(run);return;}
+  setTimeout(run,0);
+}
 function setupDetailMatchContextButton(item){
   const button=els.detail?.querySelector('[data-detail-match-tab-open]');
   if(!button)return;
   button.addEventListener('click',()=>{
     const category=detailCategory(item);
     const tab=norm(button.dataset.detailMatchTabOpen||'');
+    const keyword=norm(state.detailSelectionContext?.keyword||'');
     if(!getDetailTabSpecs(category).some(spec=>spec.key===tab))return;
     state.detailActiveTab=tab;
     if(!state.detailLastTabByCategory||typeof state.detailLastTabByCategory!=='object')state.detailLastTabByCategory={};
     state.detailLastTabByCategory[category]=tab;
     if(typeof pushOperationHistory==='function')pushOperationHistory('detail-match-tab');
     renderDetail();
+    scheduleDetailMatchTargetScroll(tab,keyword);
   });
 }
 function selectItemAndRender(item,label,options={}){if(!item)return;const resultListScrollSnapshot=options.preserveListScroll?captureResultListScrollSnapshot():null;const row=options.resultRow&&options.resultRow.item===item?options.resultRow:null;if(row)applyResultRowDetailSelection(row,options.reason||'select',options);else{state.selectedItem=item;state.selectedLabel=label||getCategoryLabel(detailCategory(item));state.detailActiveTab=resolveDetailTabForSelection(item,options);state.detailSelectionContext=null;}renderSearchResults();if(resultListScrollSnapshot)restoreResultListScrollSnapshotStable(resultListScrollSnapshot,options.reason||'select');else if(options.scrollListToSelectedTop)scheduleScrollSelectedResultToListTop(options.reason||'select');renderDetail();if(!options.skipHistory)pushOperationHistory(options.reason||'select');}
