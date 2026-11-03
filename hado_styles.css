@@ -1859,6 +1859,9 @@ body{font-feature-settings:"palt" 1,"kern" 1;text-rendering:optimizeLegibility}
 .detail-match-context-label{font-size:12px;font-weight:900;white-space:nowrap}
 .detail-match-context-reason{font-size:13px;line-height:1.55;overflow-wrap:anywhere}
 .detail-match-open-btn{min-height:32px;border:1px solid #93c5fd;border-radius:8px;padding:5px 9px;background:#fff;color:#1d4ed8;font-size:12px;font-weight:800;cursor:pointer;white-space:nowrap}
+mark.detail-match-scroll-focus{scroll-margin-block:30vh;outline:3px solid #2563eb;outline-offset:2px;animation:detail-match-scroll-pulse 1.2s ease-out}
+@keyframes detail-match-scroll-pulse{0%{box-shadow:0 0 0 0 rgba(37,99,235,.45)}100%{box-shadow:0 0 0 10px rgba(37,99,235,0)}}
+@media(prefers-reduced-motion:reduce){mark.detail-match-scroll-focus{animation:none}}
 .detail-decision-summary{display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-width:0}
 .detail-decision-summary-item{display:inline-flex;align-items:center;gap:4px;border:1px solid #dbe3ee;border-radius:999px;padding:4px 8px;background:#f8fafc;color:#334155;font-size:12px;line-height:1.35}
 .detail-decision-summary-label{color:#64748b;font-weight:800}

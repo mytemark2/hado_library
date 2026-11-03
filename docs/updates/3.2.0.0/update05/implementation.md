@@ -2,7 +2,7 @@
 
 ## 1. 実装方針
 
-既存の分割済みランタイムを拡張し、HTMLへ新規ロジックを埋め込まない。派生JSONと保存形式は変更しない。r219の重複説明抑止と共通技能レベル解釈を維持し、利用者動線をr220、一致元優先順位をr221、固有名節の分類をr222で修正した。r223では公開Previewの内蔵検証が旧実装の関数文字列へ依存していた問題を修正する。
+既存の分割済みランタイムを拡張し、HTMLへ新規ロジックを埋め込まない。派生JSONと保存形式は変更しない。r219の重複説明抑止と共通技能レベル解釈を維持し、利用者動線をr220、一致元優先順位をr221、固有名節の分類をr222、内蔵検証をr223で修正した。r224では「一致箇所を表示」後のスクロール欠落を修正する。
 
 ## 2. r220 利用者動線修正
 
@@ -55,17 +55,26 @@
 - 記憶済みの変化率タブがあってもキーワード一致時は内容詳細を優先し、キーワードなしの直接遷移では記憶タブを維持する両方の規則を検証する。
 - 静的回帰に、関数文字列依存へ戻っていないことと実選択経路を実行していることの検査を追加した。
 
+### 2.8 r224 一致箇所へのスクロール
+
+- 修正前公開Previewで `奮檄` を検索し、概要タブから「一致箇所を表示」を押すと技能タブへ移動するが、詳細欄の `scrollTop` は0、一致語は表示領域上端から2,271px下、表示領域外であることを確認した。
+- 原因はボタン処理が `renderDetail()` でタブを再描画するだけで、再描画後の一致語を取得・スクロールする処理を持たなかったことにある。
+- 対象タブ内だけから `mark.search-hit` を探索し、完全一致を優先して表示領域中央へ `scrollIntoView` する処理を追加した。
+- 一致語が `details` 内にある場合は祖先の折り畳みを開いてから移動する。
+- 移動先へ青いアウトラインと短いパルスを表示し、動きを減らすOS設定ではアニメーションを無効にする。
+- 実際の対象選択、中央スクロール指定、再描画後の実行順を検証する `tools/test_3_2_0_0_update05_match_scroll.js` をApp Validationへ追加した。
+
 ## 3. 変更範囲
 
 - 実装: `hado_core.js`、`hado_search.js`、`hado_status_effects.js`、`hado_formation.js`、`hado_bootstrap.js`
 - 表示: `hado_styles.css`
 - 版・キャッシュ: `hado_version.js`、`HADO_DEV_INFO.json`、`index.html`
-- 回帰: `tools/test_3_2_0_0_keyword_match_reason.js`、`tools/test_3_2_0_0_update05_detail_hierarchy.js`、関連する現行版・参照技能回帰
+- 回帰: `tools/test_3_2_0_0_keyword_match_reason.js`、`tools/test_3_2_0_0_update05_detail_hierarchy.js`、`tools/test_3_2_0_0_update05_match_scroll.js`、関連する現行版・参照技能回帰
 - 一次JSON・派生JSON・保存形式: 変更なし
 
 ## 4. HTMLサイズと外部化
 
-- `index.html`: Git正規化後 28,954 bytes → 28,954 bytes（0 bytes）。変更は外部アセットのキャッシュ識別子 `05-r223` への更新のみ。
+- `index.html`: Git正規化後 28,954 bytes → 28,954 bytes（0 bytes）。r224変更は外部アセットのキャッシュ識別子 `05-r224` への更新のみ。
 - 新規動作は既存外部JavaScript、表示は外部CSS、回帰は外部テストへ実装した。
 - HTMLへの大型スクリプト追加はない。
 
@@ -78,3 +87,5 @@
 r220からr222まではApp Validation 179項目と配信同期に合格したが、公開実操作と内蔵検証で残件を順次検出した。r223はローカルApp Validation 179項目、Update05詳細階層回帰、キーワード一致理由、参照技能カード、`git diff --check` に合格した。PR #411を開発正本へマージし、正本SHA `b9bc7d531b859793e8ba314f9e49b76a6d22323e` からPreview同期run `41438904971` が自動実行され成功した。
 
 PreviewリポジトリHEADは `31d6970b89f298123d21e2c25ae39c4a01c66429`。markerはsource commit `b9bc7d531b859793e8ba314f9e49b76a6d22323e`、source branch `feature/app-3.2.0.0`、display version `3.2.0.0 Update05 r223` で一致した。公開URLの内蔵検証は重大失敗0・警告0・情報0、`轟名`と`強盛莫敵`の検索、参照技能2件、PC・スマートフォン表示、ブラウザー警告・エラー0件を確認した。Production・正式版・`main` は変更していない。
+
+r224はローカルApp Validation 180/180項目、専用スクロール回帰、既存の詳細階層・一致理由・参照技能・保存Export / Import往復、版整合、`git diff --check` に合格した。PR、Actions、Preview同期、marker、公開URLのPC・スマートフォン実操作は未完了であり、完了後に本節を更新する。
