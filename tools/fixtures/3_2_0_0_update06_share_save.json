@@ -1,0 +1,44 @@
+{
+  "exportScope": "currentSave",
+  "currentSaveId": "update06-fixture-save",
+  "saves": [{
+    "id": "update06-fixture-save",
+    "name": "Update06共有検証",
+    "generals": ["LR袁紹", "UR袁紹", "LR李典"],
+    "equipments": ["鋒利典雅剣", "孤月照耀兜", "江淮水利灌漑図"],
+    "warhorses": {
+      "owned": {
+        "u06-horse": {
+          "id": "u06-horse",
+          "name": "共有確認馬",
+          "horseMasterId": "白龍",
+          "star": 3,
+          "baseStats": {"兵力": 100, "攻撃": 200, "防御": 300, "知力": 400, "輸送": 500, "探索": 600, "機動": 700},
+          "skills": [{"skillId": "騎・重撃", "level": 3, "slotIndex": 2}, {"skillId": "騎・大固", "level": 1, "slotIndex": 0}, {"skillId": "歩・大固", "level": 2, "slotIndex": 1}]
+        }
+      },
+      "activeSlots": ["u06-horse", null, null]
+    }
+  }],
+  "formationData": {
+    "groups": [{"id": "update06-fixture-group", "name": "Update06共有検証"}],
+    "currentFormationGroupId": "update06-fixture-group",
+    "currentFormationId": "update06-fixture-formation",
+    "formations": [{
+      "id": "update06-fixture-formation",
+      "groupId": "update06-fixture-group",
+      "name": "Update06共有確認部隊",
+      "formationName": "基本",
+      "deploymentType": "normal",
+      "slots": {
+        "main": {"general": "LR袁紹", "attendant": "UR袁紹", "attendantPosition": "右下", "equipments": {"weapon": "鋒利典雅剣", "armor": "孤月照耀兜", "treasure": "江淮水利灌漑図"}},
+        "deputy1": {"general": "LR李典", "equipments": {}},
+        "deputy2": {},
+        "support1": {},
+        "support2": {}
+      },
+      "advisorSlots": {},
+      "memo": "Update06専用の実操作確認データ。"
+    }]
+  }
+}

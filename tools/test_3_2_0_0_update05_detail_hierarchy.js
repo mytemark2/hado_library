@@ -22,9 +22,9 @@ function inOrder(source, tokens, label) {
   });
 }
 
-assert(/updateNo:\s*'05'/.test(version), 'Update05 must be visible in Preview');
-assert(/revision:\s*225/.test(version), 'Update05 detail-pane-scroll correction Preview must use r225');
-assert(index.includes('05-r225'), 'runtime assets must use the Update05 detail-pane-scroll cache key');
+assert(/updateNo:\s*'06'/.test(version), 'the current development stage must be visible in Preview');
+assert(/revision:\s*226/.test(version), 'the current Preview revision must be r226');
+assert(index.includes('06-r226'), 'runtime assets must use the current Preview cache key');
 assert(!index.includes('04-r218'), 'stale Update04 cache keys must be absent');
 
 const generalTabsStart = core.indexOf("if(categoryKey==='generals')return [");
