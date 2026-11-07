@@ -63,6 +63,7 @@
     }
     const payload = JSON.parse(new TextDecoder().decode(bytes));
     if (!payload || payload.v !== SHARE_SCHEMA_VERSION || !['search','item','formation','warhorse'].includes(payload.kind)) throw new Error('共有データの形式が一致しません。');
+    if (!payload.data || typeof payload.data !== 'object' || Array.isArray(payload.data)) throw new Error('共有内容の形式が不正です。');
     return payload;
   }
 
@@ -74,6 +75,7 @@
   async function buildShareUrl(kind, data) {
     const payload = {v: SHARE_SCHEMA_VERSION, kind, app: currentVersion(), data};
     const encoded = await encodePayload(payload);
+    if (encoded.length > MAX_SHARE_PARAM_LENGTH) throw new Error('共有内容がリンクの上限を超えています。編成共有コピーをご利用ください。');
     const url = new URL(baseShareUrl());
     url.searchParams.set(SHARE_PARAM, encoded);
     return url.toString();
@@ -190,6 +192,18 @@
     return `${label}：${name}${Number.isFinite(level) && level > 0 ? ` Lv${level}` : ''}`;
   }
 
+  // Sharing is read-only: getCurrentWarhorseData() normalizes back into the save.
+  function readWarhorseDataForShare() {
+    const save = typeof getCurrentSave === 'function' ? getCurrentSave() : null;
+    return sanitizeWarhorseSaveData(clone(save?.warhorses || {}));
+  }
+
+  function shareWarhorseSkills(entry) {
+    return (Array.isArray(entry?.skills) ? entry.skills : [])
+      .map((skill, index) => ({...skill, order:Number.isFinite(Number(skill.slotIndex)) ? Number(skill.slotIndex) : index}))
+      .sort((a, b) => a.order - b.order).slice(0, 3);
+  }
+
   function warhorseTextLines(entry, heading = true) {
     if (!entry) return ['軍馬：未設定'];
     const master = getWarhorseMasterById(entry.horseMasterId);
@@ -199,19 +213,31 @@
     lines.push(`種類：${isFamous ? '名馬' : '通常馬'}${isFamous ? ` / 将星${normalizeWarhorseFamousStarValue(entry.star ?? 0)}` : ''}`);
     const statParts = warhorseBaseStatKeys().map(key => `${key}${Number(entry.baseStats?.[key]) || 0}`).filter(Boolean);
     lines.push(`基本能力：${statParts.join(' / ')}`);
-    const skills = (Array.isArray(entry.skills) ? entry.skills : []).slice(0, 3).map(skill => `${getWarhorseSkillDisplayName(skill.skillId)} Lv${normalizeWarhorseSkillLevel(skill.level)}`);
+    const skills = shareWarhorseSkills(entry).map(skill => `${getWarhorseSkillDisplayName(skill.skillId)} Lv${normalizeWarhorseSkillLevel(skill.level)}`);
     lines.push(`通常技能：${skills.length ? skills.join(' / ') : '未設定'}`);
     if (isFamous) lines.push(`固有技能：${getWarhorseFixedSkillName(master) || '未設定'} Lv${getFamousHorseFixedSkillLevel(master, entry.star ?? 0)}`);
     return lines;
   }
 
-  function buildFormationCopyText() {
+  function captureFormationShareData() {
     const formation = getCurrentFormation();
+    if (!formation) return null;
+    const snapshot = compactFormationForShare(formation);
+    const horseData = readWarhorseDataForShare();
+    snapshot.warhorseReference = Array.from({length:3}, (_, index) => {
+      const horse = horseData.owned?.[clean(horseData.activeSlots?.[index] || '')];
+      return horse ? compactWarhorseForShare(horse) : null;
+    });
+    return snapshot;
+  }
+
+  function buildFormationCopyText(formation = captureFormationShareData()) {
     if (!formation) return '部隊が選択されていません。';
     const lines = [
       `【部隊編成】${formation.name || '名称未設定'}`,
       `陣形：${formation.formationName || '基本'} / ${typeof formationDeploymentTypeLabel === 'function' ? formationDeploymentTypeLabel(formation.deploymentType) : (formation.deploymentType || '通常')}`,
-      `用途：${formation.evaluationTypeName || '未指定'}`
+      `用途：${clean(formation.evaluationTypeName) || '未指定'}`,
+      '', '【武将・侍従・装備】'
     ];
     FORMATION_SLOT_SPECS.forEach(spec => {
       const slot = formation.slots?.[spec.key] || {};
@@ -219,24 +245,28 @@
       const attendant = slot.attendant ? `${slot.attendant}${slot.attendantPosition ? `（${slot.attendantPosition}）` : '（位置未設定）'}` : '未設定';
       lines.push(`${spec.label}：${slot.general || '未設定'}｜侍従：${attendant}｜武器：${equipment.weapon || '未設定'}｜防具：${equipment.armor || '未設定'}｜文物：${equipment.treasure || '未設定'}`);
     });
+    lines.push('', '【参軍】');
+    ADVISOR_SLOT_SPECS.forEach(spec => lines.push(`${spec.label}：${formation.advisorSlots?.[spec.key] || '未設定'}`));
+    lines.push('', '【兵器・武装】');
     lines.push(formationExtensionLine('兵器', formation.siegeWeapon));
     lines.push(formationExtensionLine('武装', formation.ethnicArmament));
-    const horseData = getCurrentWarhorseData();
-    const active = Array.isArray(horseData.activeSlots) ? horseData.activeSlots.slice(0, 3) : [];
-    active.forEach((id, index) => {
-      const horse = horseData.owned?.[clean(id || '')];
+    if (formation.ethnicArmament?.ethnicGeneralName) lines.push(`武装の異民族武将：${formation.ethnicArmament.ethnicGeneralName}`);
+    lines.push('', '【軍馬（保存データ内の全編成共通）】');
+    const active = Array.isArray(formation.warhorseReference) ? formation.warhorseReference : [];
+    if (!Array.isArray(formation.warhorseReference)) lines.push('軍馬情報：このリンクには含まれていません');
+    else Array.from({length:3}, (_, index) => active[index] || null).forEach((horse, index) => {
       if (!horse) lines.push(`軍馬${index + 1}：未設定`);
       else {
-        const skills = (horse.skills || []).slice(0, 3).map(skill => `${getWarhorseSkillDisplayName(skill.skillId)} Lv${normalizeWarhorseSkillLevel(skill.level)}`).join(' / ') || '通常技能なし';
-        lines.push(`軍馬${index + 1}：${horse.name || horse.id}｜${skills}`);
+        lines.push(`軍馬${index + 1}：${clean(horse.name || horse.id)}`);
+        warhorseTextLines(horse, false).forEach(line => lines.push(`  ${line}`));
       }
     });
-    if (formation.memo) lines.push(`メモ：${formation.memo}`);
+    if (formation.memo) lines.push('', `メモ：${formation.memo}`);
     return lines.join('\n');
   }
 
   function selectedWarhorse() {
-    const data = getCurrentWarhorseData();
+    const data = readWarhorseDataForShare();
     const id = clean(state._warhorseEditDialogId || state.warhorseSelectedId || '');
     return data.owned?.[id] || Object.values(data.owned || {})[0] || null;
   }
@@ -255,11 +285,11 @@
   }
 
   function compactWarhorseForShare(entry) {
-    return {name: clean(entry.name || entry.customName || '共有軍馬'), horseMasterId: clean(entry.horseMasterId || ''), star: entry.star, skills: clone((entry.skills || []).slice(0, 3)), baseStats: clone(entry.baseStats || {})};
+    return {name: clean(entry.name || entry.customName || '共有軍馬'), horseMasterId: clean(entry.horseMasterId || ''), star: entry.star, skills: clone(shareWarhorseSkills(entry).map(({order, ...skill}) => skill)), baseStats: clone(entry.baseStats || {})};
   }
 
   function renderFormationActionsHtml() {
-    return '<div class="hado-share-actions" aria-label="部隊編成のコピー"><button type="button" class="copy-btn" data-hado-share-action="formation-copy">編成共有コピー</button><button type="button" class="copy-btn" data-hado-share-action="formation-link">新規部隊作成リンクコピー</button></div>';
+    return '<div class="hado-share-actions" aria-label="部隊編成のコピー"><button type="button" class="copy-btn" title="現在の部隊と軍馬技能を文章でコピーします" data-hado-share-action="formation-copy">編成共有コピー</button><button type="button" class="copy-btn" title="確認後に部隊を新規追加するリンク。既存部隊と軍馬配置は保持します" data-hado-share-action="formation-link">新規部隊作成リンクコピー</button></div>';
   }
 
   function renderWarhorseActionsHtml(hasSave, hasHorse) {
@@ -278,6 +308,10 @@
     if (data?.formationName && !(state.formationMasters || []).some(item => clean(getItemDisplayName(item)) === clean(data.formationName))) missing.push(`陣形：${data.formationName}`);
     if (data?.siegeWeapon?.name && !findItemByDisplayName('siegeWeapons', data.siegeWeapon.name)) missing.push(`兵器：${data.siegeWeapon.name}`);
     if (data?.ethnicArmament?.name && !findItemByDisplayName('ethnicArmaments', data.ethnicArmament.name)) missing.push(`武装：${data.ethnicArmament.name}`);
+    ADVISOR_SLOT_SPECS.forEach(spec => {
+      const name = data?.advisorSlots?.[spec.key];
+      if (name && !findItemByDisplayName('generals', name)) missing.push(`参軍 ${spec.label}：${name}`);
+    });
     return missing;
   }
 
@@ -306,7 +340,8 @@
     const title = isFormation ? '共有部隊を新規作成' : '共有軍馬を新規作成';
     const name = clean(payload.data?.name || (isFormation ? '共有部隊' : '共有軍馬'));
     const missingHtml = missing.length ? `<div class="hado-share-missing"><strong>現在のデータにない項目</strong><ul>${missing.map(value => `<li>${html(value)}</li>`).join('')}</ul><div>不足項目は未設定として作成します。</div></div>` : '<div class="hado-share-ready">必要なデータを確認できました。</div>';
-    dialog.innerHTML = `<div class="hado-share-dialog-backdrop" data-hado-share-cancel="1"></div><section class="hado-share-dialog-card" role="dialog" aria-modal="true" aria-labelledby="hadoShareDialogTitle"><h2 id="hadoShareDialogTitle">${html(title)}</h2><p><strong>${html(name)}</strong></p><p>既存データは変更せず、新しいデータとして追加します。</p>${missingHtml}<div class="hado-share-dialog-actions"><button type="button" class="copy-btn" data-hado-share-cancel="1">キャンセル</button><button type="button" class="btn-select-all" data-hado-share-confirm="1">新規作成</button></div></section>`;
+    const preview = isFormation ? `<details class="hado-share-import-preview" open><summary>共有された編成を確認</summary><pre>${html(buildFormationCopyText(payload.data))}</pre></details><p class="hado-share-scope-note">新規作成するのは部隊です。軍馬は参照情報として表示し、現在の保存データの登録軍馬・配置は変更しません。</p>` : '';
+    dialog.innerHTML = `<div class="hado-share-dialog-backdrop" data-hado-share-cancel="1"></div><section class="hado-share-dialog-card" role="dialog" aria-modal="true" aria-labelledby="hadoShareDialogTitle"><h2 id="hadoShareDialogTitle">${html(title)}</h2><p><strong>${html(name)}</strong></p><p>既存データは変更せず、新しいデータとして追加します。</p>${preview}${missingHtml}<div class="hado-share-dialog-actions"><button type="button" class="copy-btn" data-hado-share-cancel="1">キャンセル</button><button type="button" class="btn-select-all" data-hado-share-confirm="1">新規作成</button></div></section>`;
     dialog.hidden = false;
     state._pendingHadoShareImport = {payload, missing};
   }
@@ -333,6 +368,9 @@
       });
       if (source.siegeWeapon?.name && !findItemByDisplayName('siegeWeapons', source.siegeWeapon.name)) source.siegeWeapon = {};
       if (source.ethnicArmament?.name && !findItemByDisplayName('ethnicArmaments', source.ethnicArmament.name)) source.ethnicArmament = {};
+      ADVISOR_SLOT_SPECS.forEach(spec => {
+        if (source.advisorSlots?.[spec.key] && !findItemByDisplayName('generals', source.advisorSlots[spec.key])) source.advisorSlots[spec.key] = '';
+      });
       source.memo = [source.memo, `共有リンクで未設定：${missing.join(' / ')}`].filter(Boolean).join('\n');
     }
     const record = sanitizeFormationRecord({...source, id:createFormationId(), groupId:group.id, name:`${clean(source.name || '共有部隊')}（共有）`, history:[], candidateTray:[], updatedAt:new Date().toISOString()});
@@ -429,7 +467,7 @@
     if (action === 'formation-link') {
       const formation = getCurrentFormation();
       if (!formation) throw new Error('共有する部隊を選択してください。');
-      return copyUrl('formation', compactFormationForShare(formation), button, 'リンクコピー済み');
+      return copyUrl('formation', captureFormationShareData(), button, 'リンクコピー済み');
     }
     if (action === 'warhorse-copy') {
       const horse = selectedWarhorse();
@@ -551,6 +589,7 @@
   window.HadoShare = Object.freeze({
     buildResultsCopyText, buildFormationCopyText, buildWarhorseCopyText, buildShareUrl,
     encodePayload, decodePayload, captureSearchState, itemIdentity, findSharedItem,
-    renderFormationActionsHtml, renderWarhorseActionsHtml, applyIncomingShareLink
+    renderFormationActionsHtml, renderWarhorseActionsHtml, applyIncomingShareLink,
+    captureFormationShareData
   });
 })();

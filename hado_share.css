@@ -86,6 +86,32 @@
   margin-top: 18px;
 }
 
+.hado-share-import-preview summary {
+  cursor: pointer;
+  font-weight: 600;
+  min-height: 36px;
+  padding: 8px 0;
+}
+
+.hado-share-import-preview pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.65;
+  margin: 0;
+  padding: 12px;
+  border: 1px solid #d8dee9;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.hado-share-scope-note {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #475569;
+}
+
 @media (max-width: 720px) {
   .warhorse-card-header {
     align-items: flex-start;
@@ -104,6 +130,17 @@
 
   .hado-share-dialog-card {
     padding: 16px;
+  }
+
+  [data-hado-formation-share-actions] .hado-share-actions {
+    flex-wrap: wrap;
+  }
+
+  [data-hado-formation-share-actions] .copy-btn,
+  .hado-share-dialog-actions button {
+    min-height: 44px;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 }
 
