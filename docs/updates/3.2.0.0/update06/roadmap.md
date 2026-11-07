@@ -41,7 +41,7 @@ GPT-6.1 Sol / high。共有内容と保存互換、受信画面、PC・スマー
 
 ## 状態
 
-実装中。ローカルApp Validation 181/181合格。PR・公開Previewは未完了。Update07未開始。正式公開なし。
+完了（2026-11-07）。ローカルApp Validation 181/181、PR #416 App Validation、開発正本merge `97bf37378071388701f0061400cf901d1ee8f19b`、Preview同期run `42357948559`、marker、公開PC/390×844のコピー・受信・新規追加・キャンセル、内蔵検証重大0/警告0/情報0、console警告/エラー0に合格。Update07未開始。正式公開なし。
 
 ## 確認事項
 
