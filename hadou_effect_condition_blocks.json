@@ -1,38 +1,38 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-31T05:17:16.170Z",
-  "dataSetId": "2026-10-17T02-12-44-246Z",
-  "crawlerVersion": "1.1.0.11",
+  "generatedAt": "2026-11-08T09:53:21.902Z",
+  "dataSetId": "2026-10-31T05-16-29-474Z",
+  "crawlerVersion": "1.1.0.12",
   "generator": "hado_crawler_extension",
-  "acquiredAt": "2026-10-17T01:56:42.204Z",
-  "processedAt": "2026-10-17T02:13:23.899Z",
-  "sourceRunId": "2026-10-17T02-12-44-246Z",
-  "sourceCrawlerVersion": "1.1.0.6",
-  "sourceCommit": "8239d70ed4d43f2b762858a1c14c21f221c9757b",
+  "acquiredAt": "2026-10-31T03:56:14.654Z",
+  "processedAt": "2026-10-31T05:17:14.250Z",
+  "sourceRunId": "2026-10-31T05-16-29-474Z",
+  "sourceCrawlerVersion": "1.1.0.11",
+  "sourceCommit": "0a10c86ea11f0fd1bb2515ec57883a4c75c22e74",
   "sourceCommitRole": "application-generation-base",
-  "sourceBranch": "feature/app-3.1.2.0",
-  "crawlerSourceCommit": "",
-  "crawlerSourceBranch": "",
-  "crawlerSourceCommitStatus": "unknown-in-source-run",
+  "sourceBranch": "feature/app-3.2.0.0",
+  "crawlerSourceCommit": "c14aff14a3265835f770881be68130ccc545ee28",
+  "crawlerSourceBranch": "codex/category-skip-20261031",
+  "crawlerSourceCommitStatus": "recorded",
   "provenance": {
     "acquisition": {
-      "acquiredAt": "2026-10-17T01:56:42.204Z",
-      "dataUpdatedAt": "2026-10-17T01:56:42.204Z",
-      "runId": "2026-10-17T02-12-44-246Z",
-      "recoverySourceRunId": "2026-10-17T00-41-45-707Z"
+      "acquiredAt": "2026-10-31T03:56:14.654Z",
+      "dataUpdatedAt": "2026-10-31T03:56:14.654Z",
+      "runId": "2026-10-31T05-16-29-474Z",
+      "recoverySourceRunId": "2026-10-31T03-27-46-736Z"
     },
     "processing": {
-      "processedAt": "2026-10-17T02:13:23.899Z",
-      "sourceExportedAt": "2026-10-17T02:13:23.899Z",
-      "generatedAt": "2026-10-31T05:17:16.170Z"
+      "processedAt": "2026-10-31T05:17:14.250Z",
+      "sourceExportedAt": "2026-10-31T05:17:14.250Z",
+      "generatedAt": "2026-11-08T09:53:21.902Z"
     },
     "source": {
-      "recordedCommit": "8239d70ed4d43f2b762858a1c14c21f221c9757b",
+      "recordedCommit": "0a10c86ea11f0fd1bb2515ec57883a4c75c22e74",
       "recordedCommitRole": "application-generation-base",
-      "sourceBranch": "feature/app-3.1.2.0",
-      "crawlerSourceCommit": "",
-      "crawlerSourceBranch": "",
-      "crawlerSourceCommitStatus": "unknown-in-source-run"
+      "sourceBranch": "feature/app-3.2.0.0",
+      "crawlerSourceCommit": "c14aff14a3265835f770881be68130ccc545ee28",
+      "crawlerSourceBranch": "codex/category-skip-20261031",
+      "crawlerSourceCommitStatus": "recorded"
     }
   },
   "sourceFiles": [
@@ -105,11 +105,11 @@
     "warhorses": "c5edd890",
     "warhorseSkills": "fac49238"
   },
-  "hotfixVersion": "1.1.0.11",
+  "hotfixVersion": "1.1.0.12",
   "kind": "effect_condition_blocks",
   "qualityAudit": {
     "itemCount": 1902,
-    "blockCount": 15244,
+    "blockCount": 15267,
     "byCategory": {
       "generals": 494,
       "tactics": 473,
@@ -119,21 +119,21 @@
       "siege_weapons": 5
     },
     "byBlockType": {
-      "condition": 5195,
-      "effect": 6510,
-      "conditionedEffect": 3539
+      "condition": 5200,
+      "effect": 6527,
+      "conditionedEffect": 3540
     },
     "byEffectKind": {
-      "statusEffect": 3003,
-      "parameter": 6171,
+      "statusEffect": 3007,
+      "parameter": 6180,
       "tacticAttack": 604,
       "chainRate": 532,
-      "skillLevelReference": 1134,
+      "skillLevelReference": 1140,
       "rangeGate": 4
     },
     "rangeGateCount": 4,
     "chainRateCount": 532,
-    "skillLevelReferenceCount": 1134,
+    "skillLevelReferenceCount": 1140,
     "excludedSourceBlockCount": 0
   },
   "items": [
@@ -230399,7 +230399,7 @@
       "category": "equipments",
       "name": "黄焔柳緑披風",
       "displayName": "黄焔柳緑披風",
-      "blockCount": 13,
+      "blockCount": 24,
       "blocks": [
         {
           "blockId": "equipments:95:0",
@@ -230438,6 +230438,40 @@
         {
           "blockId": "equipments:95:2",
           "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "誠心敬仰",
+          "sourceIndex": "2:0",
+          "sentenceIndex": 3,
+          "conditionText": "",
+          "effectText": "●部隊の兵力+4％",
+          "sourceText": "●部隊の兵力+4％",
+          "blockType": "effect",
+          "effectKinds": [
+            "parameter"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:95:3",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "誠心敬仰",
+          "sourceIndex": "2:0",
+          "sentenceIndex": 4,
+          "conditionText": "",
+          "effectText": "●部隊の攻撃+4%",
+          "sourceText": "●部隊の攻撃+4%",
+          "blockType": "effect",
+          "effectKinds": [
+            "parameter"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:95:4",
+          "sourcePartType": "equipment-skill-table",
           "sourceTitle": "勇升壮烈",
           "sourceIndex": "2:1",
           "sentenceIndex": 1,
@@ -230453,14 +230487,14 @@
           "hasSkillLevelReference": true
         },
         {
-          "blockId": "equipments:95:3",
+          "blockId": "equipments:95:5",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "勇升壮烈",
           "sourceIndex": "2:1",
           "sentenceIndex": 2,
-          "conditionText": "時 / 戦法を発動",
-          "effectText": "▼この技能を持つ武将が戦法を発動した時",
-          "sourceText": "▼この技能を持つ武将が戦法を発動した時",
+          "conditionText": "時 / 主将",
+          "effectText": "▼主将戦法発動時",
+          "sourceText": "▼主将戦法発動時",
           "blockType": "condition",
           "effectKinds": [],
           "hasRangeGate": false,
@@ -230468,7 +230502,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "equipments:95:4",
+          "blockId": "equipments:95:6",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "勇升壮烈",
           "sourceIndex": "2:1",
@@ -230485,7 +230519,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "equipments:95:5",
+          "blockId": "equipments:95:7",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "勇升壮烈",
           "sourceIndex": "2:1",
@@ -230502,7 +230536,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "equipments:95:6",
+          "blockId": "equipments:95:8",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "勇升壮烈",
           "sourceIndex": "2:1",
@@ -230519,7 +230553,39 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "equipments:95:7",
+          "blockId": "equipments:95:9",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "勇升壮烈",
+          "sourceIndex": "2:1",
+          "sentenceIndex": 6,
+          "conditionText": "",
+          "effectText": "●自身1部隊に5％の憤撃を付与（30秒）",
+          "sourceText": "●自身1部隊に5％の憤撃を付与（30秒）",
+          "blockType": "effect",
+          "effectKinds": [
+            "statusEffect"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:95:10",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "堪撃癒術",
+          "sourceIndex": "2:2",
+          "sentenceIndex": 1,
+          "conditionText": "時",
+          "effectText": "▼戦法のダメージを受けて壊滅しなかった時",
+          "sourceText": "▼戦法のダメージを受けて壊滅しなかった時",
+          "blockType": "condition",
+          "effectKinds": [],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:95:11",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "誠心敬仰",
           "sourceIndex": "3:0",
@@ -230536,7 +230602,7 @@
           "hasSkillLevelReference": true
         },
         {
-          "blockId": "equipments:95:8",
+          "blockId": "equipments:95:12",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "誠心敬仰",
           "sourceIndex": "3:0",
@@ -230553,10 +230619,127 @@
           "hasSkillLevelReference": true
         },
         {
-          "blockId": "equipments:95:9",
+          "blockId": "equipments:95:13",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "勇升壮烈",
           "sourceIndex": "3:1",
+          "sentenceIndex": 1,
+          "conditionText": "",
+          "effectText": "●部隊の「勇進」の技能Lv+1（上限2）",
+          "sourceText": "●部隊の「勇進」の技能Lv+1（上限2）",
+          "blockType": "effect",
+          "effectKinds": [
+            "skillLevelReference"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": true
+        },
+        {
+          "blockId": "equipments:95:14",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "勇升壮烈",
+          "sourceIndex": "3:1",
+          "sentenceIndex": 2,
+          "conditionText": "時 / 戦法を発動",
+          "effectText": "▼この技能を持つ武将が戦法を発動した時",
+          "sourceText": "▼この技能を持つ武将が戦法を発動した時",
+          "blockType": "condition",
+          "effectKinds": [],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:95:15",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "勇升壮烈",
+          "sourceIndex": "3:1",
+          "sentenceIndex": 3,
+          "conditionText": "",
+          "effectText": "●自身を含む味方3部隊の攻撃+25%（10秒）",
+          "sourceText": "●自身を含む味方3部隊の攻撃+25%（10秒）",
+          "blockType": "effect",
+          "effectKinds": [
+            "parameter"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:95:16",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "勇升壮烈",
+          "sourceIndex": "3:1",
+          "sentenceIndex": 4,
+          "conditionText": "",
+          "effectText": "●自身を含む味方3部隊の防御+25%（10秒）",
+          "sourceText": "●自身を含む味方3部隊の防御+25%（10秒）",
+          "blockType": "effect",
+          "effectKinds": [
+            "parameter"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:95:17",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "勇升壮烈",
+          "sourceIndex": "3:1",
+          "sentenceIndex": 5,
+          "conditionText": "",
+          "effectText": "●自身を含む味方3部隊に15%の有利巧守を付与（10秒）",
+          "sourceText": "●自身を含む味方3部隊に15%の有利巧守を付与（10秒）",
+          "blockType": "effect",
+          "effectKinds": [
+            "statusEffect"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:95:18",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "誠心敬仰",
+          "sourceIndex": "4:0",
+          "sentenceIndex": 1,
+          "conditionText": "",
+          "effectText": "●部隊の「耐心」の技能Lv+1（上限2）",
+          "sourceText": "●部隊の「耐心」の技能Lv+1（上限2）",
+          "blockType": "effect",
+          "effectKinds": [
+            "skillLevelReference"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": true
+        },
+        {
+          "blockId": "equipments:95:19",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "誠心敬仰",
+          "sourceIndex": "4:0",
+          "sentenceIndex": 2,
+          "conditionText": "",
+          "effectText": "●部隊の「仰信」の技能Lv+1（上限3）",
+          "sourceText": "●部隊の「仰信」の技能Lv+1（上限3）",
+          "blockType": "effect",
+          "effectKinds": [
+            "skillLevelReference"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": true
+        },
+        {
+          "blockId": "equipments:95:20",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "勇升壮烈",
+          "sourceIndex": "4:1",
           "sentenceIndex": 1,
           "conditionText": "時 / 戦法を発動",
           "effectText": "▼この技能を持つ武将が戦法を発動した時",
@@ -230568,10 +230751,10 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "equipments:95:10",
+          "blockId": "equipments:95:21",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "勇升壮烈",
-          "sourceIndex": "3:1",
+          "sourceIndex": "4:1",
           "sentenceIndex": 2,
           "conditionText": "",
           "effectText": "●自身1部隊の攻撃+15%（10秒）",
@@ -230585,10 +230768,10 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "equipments:95:11",
+          "blockId": "equipments:95:22",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "勇升壮烈",
-          "sourceIndex": "3:1",
+          "sourceIndex": "4:1",
           "sentenceIndex": 3,
           "conditionText": "",
           "effectText": "●自身1部隊の防御+15%（10秒）",
@@ -230602,10 +230785,10 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "equipments:95:12",
+          "blockId": "equipments:95:23",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "勇升壮烈",
-          "sourceIndex": "3:1",
+          "sourceIndex": "4:1",
           "sentenceIndex": 4,
           "conditionText": "",
           "effectText": "●自身1部隊に10%の有利巧守を付与（10秒）",
@@ -233181,7 +233364,7 @@
       "category": "equipments",
       "name": "励志方正冠",
       "displayName": "励志方正冠",
-      "blockCount": 12,
+      "blockCount": 24,
       "blocks": [
         {
           "blockId": "equipments:104:0",
@@ -233190,8 +233373,8 @@
           "sourceIndex": "2:0",
           "sentenceIndex": 1,
           "conditionText": "",
-          "effectText": "●部隊の「教督」の技能Lv+1（上限5）",
-          "sourceText": "●部隊の「教督」の技能Lv+1（上限5）",
+          "effectText": "●部隊の「教督」の技能Lv+2（上限5）",
+          "sourceText": "●部隊の「教督」の技能Lv+2（上限5）",
           "blockType": "effect",
           "effectKinds": [
             "skillLevelReference"
@@ -233220,6 +233403,23 @@
         {
           "blockId": "equipments:104:2",
           "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "統督奮走",
+          "sourceIndex": "2:0",
+          "sentenceIndex": 3,
+          "conditionText": "",
+          "effectText": "●部隊の知力+4％",
+          "sourceText": "●部隊の知力+4％",
+          "blockType": "effect",
+          "effectKinds": [
+            "parameter"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:104:3",
+          "sourcePartType": "equipment-skill-table",
           "sourceTitle": "万政連躍",
           "sourceIndex": "2:1",
           "sentenceIndex": 1,
@@ -233235,7 +233435,7 @@
           "hasSkillLevelReference": true
         },
         {
-          "blockId": "equipments:104:3",
+          "blockId": "equipments:104:4",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "万政連躍",
           "sourceIndex": "2:1",
@@ -233250,7 +233450,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "equipments:104:4",
+          "blockId": "equipments:104:5",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "万政連躍",
           "sourceIndex": "2:1",
@@ -233267,7 +233467,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "equipments:104:5",
+          "blockId": "equipments:104:6",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "万政連躍",
           "sourceIndex": "2:1",
@@ -233284,7 +233484,7 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "equipments:104:6",
+          "blockId": "equipments:104:7",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "万政連躍",
           "sourceIndex": "2:1",
@@ -233299,7 +233499,74 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "equipments:104:7",
+          "blockId": "equipments:104:8",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "連志聡励",
+          "sourceIndex": "2:2",
+          "sentenceIndex": 1,
+          "conditionText": "",
+          "effectText": "●自部隊に発生している強化効果の数×1％、通常攻撃・戦法による被ダメージを軽減（最大10％）",
+          "sourceText": "●自部隊に発生している強化効果の数×1％、通常攻撃・戦法による被ダメージを軽減（最大10％）",
+          "blockType": "effect",
+          "effectKinds": [
+            "parameter",
+            "statusEffect"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:104:9",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "連志聡励",
+          "sourceIndex": "2:2",
+          "sentenceIndex": 2,
+          "conditionText": "副将 / 戦法を発動",
+          "effectText": "▼自部隊の副将が戦法を発動する度",
+          "sourceText": "▼自部隊の副将が戦法を発動する度",
+          "blockType": "condition",
+          "effectKinds": [],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:104:10",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "連志聡励",
+          "sourceIndex": "2:2",
+          "sentenceIndex": 3,
+          "conditionText": "",
+          "effectText": "●自身を含む味方3部隊の知力+25％（10秒）",
+          "sourceText": "●自身を含む味方3部隊の知力+25％（10秒）",
+          "blockType": "effect",
+          "effectKinds": [
+            "parameter"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:104:11",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "連志聡励",
+          "sourceIndex": "2:2",
+          "sentenceIndex": 4,
+          "conditionText": "",
+          "effectText": "●自身を含む味方3部隊の防御+25%（10秒）",
+          "sourceText": "●自身を含む味方3部隊の防御+25%（10秒）",
+          "blockType": "effect",
+          "effectKinds": [
+            "parameter"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:104:12",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "統督奮走",
           "sourceIndex": "3:0",
@@ -233316,7 +233583,7 @@
           "hasSkillLevelReference": true
         },
         {
-          "blockId": "equipments:104:8",
+          "blockId": "equipments:104:13",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "統督奮走",
           "sourceIndex": "3:0",
@@ -233333,10 +233600,125 @@
           "hasSkillLevelReference": true
         },
         {
-          "blockId": "equipments:104:9",
+          "blockId": "equipments:104:14",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "万政連躍",
           "sourceIndex": "3:1",
+          "sentenceIndex": 1,
+          "conditionText": "",
+          "effectText": "●部隊の「発檄」の技能Lv+1（上限2）",
+          "sourceText": "●部隊の「発檄」の技能Lv+1（上限2）",
+          "blockType": "effect",
+          "effectKinds": [
+            "skillLevelReference"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": true
+        },
+        {
+          "blockId": "equipments:104:15",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "万政連躍",
+          "sourceIndex": "3:1",
+          "sentenceIndex": 3,
+          "conditionText": "時 / 戦法を発動",
+          "effectText": "▼この技能を持つ武将が戦法を発動した時",
+          "sourceText": "▼この技能を持つ武将が戦法を発動した時",
+          "blockType": "condition",
+          "effectKinds": [],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:104:16",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "万政連躍",
+          "sourceIndex": "3:1",
+          "sentenceIndex": 4,
+          "conditionText": "時 / 応じて",
+          "effectText": "●自身を含む味方3部隊に1回の攻撃無効を付与（15秒） →戦法発動時の連鎖数に応じて、付与する回数が増加（2連鎖時は2回、3連鎖時は3回）",
+          "sourceText": "●自身を含む味方3部隊に1回の攻撃無効を付与（15秒） →戦法発動時の連鎖数に応じて、付与する回数が増加（2連鎖時は2回、3連鎖時は3回）",
+          "blockType": "conditionedEffect",
+          "effectKinds": [
+            "statusEffect"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:104:17",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "万政連躍",
+          "sourceIndex": "3:1",
+          "sentenceIndex": 5,
+          "conditionText": "",
+          "effectText": "●自身を含む味方3部隊の攻撃速度+50%（15秒）",
+          "sourceText": "●自身を含む味方3部隊の攻撃速度+50%（15秒）",
+          "blockType": "effect",
+          "effectKinds": [
+            "parameter"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:104:18",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "万政連躍",
+          "sourceIndex": "3:1",
+          "sentenceIndex": 6,
+          "conditionText": "兵科",
+          "effectText": "●自身を含む味方3部隊を全ての兵科と物体に対して有利にする（15秒）",
+          "sourceText": "●自身を含む味方3部隊を全ての兵科と物体に対して有利にする（15秒）",
+          "blockType": "condition",
+          "effectKinds": [],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": false
+        },
+        {
+          "blockId": "equipments:104:19",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "統督奮走",
+          "sourceIndex": "4:0",
+          "sentenceIndex": 1,
+          "conditionText": "",
+          "effectText": "●部隊の「教督」の技能Lv+1（上限5）",
+          "sourceText": "●部隊の「教督」の技能Lv+1（上限5）",
+          "blockType": "effect",
+          "effectKinds": [
+            "skillLevelReference"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": true
+        },
+        {
+          "blockId": "equipments:104:20",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "統督奮走",
+          "sourceIndex": "4:0",
+          "sentenceIndex": 2,
+          "conditionText": "",
+          "effectText": "●部隊の「活奮」の技能Lv+1（上限3）",
+          "sourceText": "●部隊の「活奮」の技能Lv+1（上限3）",
+          "blockType": "effect",
+          "effectKinds": [
+            "skillLevelReference"
+          ],
+          "hasRangeGate": false,
+          "hasChainRate": false,
+          "hasSkillLevelReference": true
+        },
+        {
+          "blockId": "equipments:104:21",
+          "sourcePartType": "equipment-skill-table",
+          "sourceTitle": "万政連躍",
+          "sourceIndex": "4:1",
           "sentenceIndex": 2,
           "conditionText": "時 / 戦法を発動",
           "effectText": "▼この技能を持つ武将が戦法を発動した時",
@@ -233348,10 +233730,10 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "equipments:104:10",
+          "blockId": "equipments:104:22",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "万政連躍",
-          "sourceIndex": "3:1",
+          "sourceIndex": "4:1",
           "sentenceIndex": 3,
           "conditionText": "時 / 応じて",
           "effectText": "●自身1部隊に1回の攻撃無効を付与（15秒） →戦法発動時の連鎖数に応じて、付与する回数が増加（2連鎖時は2回、3連鎖時は3回）",
@@ -233365,10 +233747,10 @@
           "hasSkillLevelReference": false
         },
         {
-          "blockId": "equipments:104:11",
+          "blockId": "equipments:104:23",
           "sourcePartType": "equipment-skill-table",
           "sourceTitle": "万政連躍",
-          "sourceIndex": "3:1",
+          "sourceIndex": "4:1",
           "sentenceIndex": 4,
           "conditionText": "",
           "effectText": "●自身1部隊の攻撃速度+20%（15秒）",

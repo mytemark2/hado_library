@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-10-31T05:17:14.250Z",
+  "exportedAt": "2026-11-08T09:53:20.583Z",
   "collector": "hado_crawler_local_cli",
   "crawlerVersion": "1.1.0.11",
   "requestIntervalMs": 1000,
@@ -14,8 +14,8 @@
   },
   "urlStats": {
     "cacheMode": "standard",
-    "totalUrls": 1234,
-    "networkFetch": 1234,
+    "totalUrls": 1233,
+    "networkFetch": 1233,
     "conditionalHit304": 0,
     "memoryCacheHit": 6,
     "persistentCacheHit": 0,
@@ -988,7 +988,6 @@
       "https://gamewith.jp/sangokushihadou/article/show/243494": 1,
       "https://gamewith.jp/sangokushihadou/article/show/243495": 1,
       "https://gamewith.jp/sangokushihadou/article/show/405308": 1,
-      "https://gamewith.jp/sangokushihadou/article/show/288272": 1,
       "https://gamewith.jp/sangokushihadou/article/show/582929": 1,
       "https://gamewith.jp/sangokushihadou/article/show/582928": 1,
       "https://gamewith.jp/sangokushihadou/article/show/579220": 1,
@@ -1257,7 +1256,7 @@
       "https://gamewith.jp/sangokushihadou/article/show/248393": 1
     },
     "duplicateNetworkFetchUrls": [],
-    "records_count": 1240
+    "records_count": 1239
   },
   "source": {
     "generals": "https://gamewith.jp/sangokushihadou/article/show/240737",
@@ -1293,12 +1292,12 @@
     "generals": {
       "status": "collected",
       "count": 499,
-      "acquiredAt": "2026-10-31T03:56:14.654Z"
+      "acquiredAt": "2026-11-08T08:46:37.190Z"
     },
     "equipments": {
       "status": "collected",
       "count": 268,
-      "acquiredAt": "2026-10-31T03:56:14.654Z"
+      "acquiredAt": "2026-11-08T08:46:37.190Z"
     },
     "skills": {
       "status": "skipped",
@@ -1322,23 +1321,23 @@
     "formations": {
       "status": "collected",
       "count": 22,
-      "acquiredAt": "2026-10-31T03:56:14.654Z"
+      "acquiredAt": "2026-11-08T08:46:37.190Z"
     }
   },
   "partial": true,
   "recoveryMergeMode": "artifact-exact",
-  "processedAt": "2026-10-31T05:17:14.250Z",
-  "collectedAt": "2026-10-31T03:56:14.654Z",
-  "dataUpdatedAt": "2026-10-31T03:56:14.654Z",
-  "dataUpdatedAtJst": "2026-10-31 12:56:14 JST",
-  "runId": "2026-10-31T05-16-29-474Z",
-  "sourceCommit": "0a10c86ea11f0fd1bb2515ec57883a4c75c22e74",
+  "processedAt": "2026-11-08T09:53:20.583Z",
+  "collectedAt": "2026-11-08T08:46:37.190Z",
+  "dataUpdatedAt": "2026-11-08T08:46:37.190Z",
+  "dataUpdatedAtJst": "2026-11-08 17:46:37 JST",
+  "runId": "2026-11-08T09-52-44-553Z",
+  "sourceCommit": "2242bc76c77c04a70ce673fdccb9548f1816b189",
   "sourceCommitRole": "application-generation-base",
-  "crawlerSourceCommit": "c14aff14a3265835f770881be68130ccc545ee28",
-  "crawlerSourceBranch": "codex/category-skip-20261031",
+  "crawlerSourceCommit": "b28fd8aed2951858adb385f2c8045f54047129cc",
+  "crawlerSourceBranch": "codex/live-validation-20261108",
   "crawlerSourceCommitStatus": "recorded",
   "sourceBranch": "feature/app-3.2.0.0",
-  "recoverySourceRunId": "2026-10-31T03-27-46-736Z",
+  "recoverySourceRunId": "2026-11-08T08-12-26-162Z",
   "recoveryExpectedCounts": {
     "generals": 499,
     "equipments": 268,

@@ -1,37 +1,37 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-31T05:17:16.170Z",
-  "dataSetId": "2026-10-17T02-12-44-246Z",
+  "generatedAt": "2026-11-08T09:53:21.902Z",
+  "dataSetId": "2026-10-31T05-16-29-474Z",
   "generator": "hado_crawler_extension",
-  "acquiredAt": "2026-10-17T01:56:42.204Z",
-  "processedAt": "2026-10-17T02:13:23.899Z",
-  "sourceRunId": "2026-10-17T02-12-44-246Z",
-  "sourceCrawlerVersion": "1.1.0.6",
-  "sourceCommit": "8239d70ed4d43f2b762858a1c14c21f221c9757b",
+  "acquiredAt": "2026-10-31T03:56:14.654Z",
+  "processedAt": "2026-10-31T05:17:14.250Z",
+  "sourceRunId": "2026-10-31T05-16-29-474Z",
+  "sourceCrawlerVersion": "1.1.0.11",
+  "sourceCommit": "0a10c86ea11f0fd1bb2515ec57883a4c75c22e74",
   "sourceCommitRole": "application-generation-base",
-  "sourceBranch": "feature/app-3.1.2.0",
-  "crawlerSourceCommit": "",
-  "crawlerSourceBranch": "",
-  "crawlerSourceCommitStatus": "unknown-in-source-run",
+  "sourceBranch": "feature/app-3.2.0.0",
+  "crawlerSourceCommit": "c14aff14a3265835f770881be68130ccc545ee28",
+  "crawlerSourceBranch": "codex/category-skip-20261031",
+  "crawlerSourceCommitStatus": "recorded",
   "provenance": {
     "acquisition": {
-      "acquiredAt": "2026-10-17T01:56:42.204Z",
-      "dataUpdatedAt": "2026-10-17T01:56:42.204Z",
-      "runId": "2026-10-17T02-12-44-246Z",
-      "recoverySourceRunId": "2026-10-17T00-41-45-707Z"
+      "acquiredAt": "2026-10-31T03:56:14.654Z",
+      "dataUpdatedAt": "2026-10-31T03:56:14.654Z",
+      "runId": "2026-10-31T05-16-29-474Z",
+      "recoverySourceRunId": "2026-10-31T03-27-46-736Z"
     },
     "processing": {
-      "processedAt": "2026-10-17T02:13:23.899Z",
-      "sourceExportedAt": "2026-10-17T02:13:23.899Z",
-      "generatedAt": "2026-10-31T05:17:16.170Z"
+      "processedAt": "2026-10-31T05:17:14.250Z",
+      "sourceExportedAt": "2026-10-31T05:17:14.250Z",
+      "generatedAt": "2026-11-08T09:53:21.902Z"
     },
     "source": {
-      "recordedCommit": "8239d70ed4d43f2b762858a1c14c21f221c9757b",
+      "recordedCommit": "0a10c86ea11f0fd1bb2515ec57883a4c75c22e74",
       "recordedCommitRole": "application-generation-base",
-      "sourceBranch": "feature/app-3.1.2.0",
-      "crawlerSourceCommit": "",
-      "crawlerSourceBranch": "",
-      "crawlerSourceCommitStatus": "unknown-in-source-run"
+      "sourceBranch": "feature/app-3.2.0.0",
+      "crawlerSourceCommit": "c14aff14a3265835f770881be68130ccc545ee28",
+      "crawlerSourceBranch": "codex/category-skip-20261031",
+      "crawlerSourceCommitStatus": "recorded"
     }
   },
   "sourceFiles": [
@@ -104,7 +104,7 @@
     "warhorses": "c5edd890",
     "warhorseSkills": "fac49238"
   },
-  "crawlerVersion": "1.1.0.11",
+  "crawlerVersion": "1.1.0.12",
   "kind": "type_search_role_index",
   "items": [
     {
@@ -78843,6 +78843,62 @@
           },
           "typeFeatureKey": "generals:article-440901:skill_text:skillEffect:skill_effect:attack_nullify:b7a8f1a6",
           "roleFeatureKey": "main_general:generals:article-440901:skillEffect:skill_effect:attack_nullify:f6f2bd12"
+        },
+        {
+          "featureId": "skill_effect:damage_reduction",
+          "label": "被ダメージ軽減",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "名宝技能効果励志方正冠防具専用武将UR張昭技能1統督奮走■常に ●部隊の「教督」の技能Lv+2（上限5） ●部隊の「活奮」の技能Lv+1（上限3） ●部隊の知力+4％技能2万政連躍■常に ●部隊の「発檄」の技能Lv+1（上限2） ●政治を部隊能力に加算する技能の効果量+5%▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊に1回の攻撃無効を付与（15秒） →戦法発動時の連鎖数に応じて、付与する回数が増加（2連鎖時は2回、3連鎖時は3回） ●自身を含む味方3部隊の攻撃速度+50%（15秒） ●自身を含む味…",
+          "rawText": "名宝技能効果励志方正冠防具専用武将UR張昭技能1統督奮走■常に ●部隊の「教督」の技能Lv+2（上限5） ●部隊の「活奮」の技能Lv+1（上限3） ●部隊の知力+4％技能2万政連躍■常に ●部隊の「発檄」の技能Lv+1（上限2） ●政治を部隊能力に加算する技能の効果量+5%▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊に1回の攻撃無効を付与（15秒） →戦法発動時の連鎖数に応じて、付与する回数が増加（2連鎖時は2回、3連鎖時は3回） ●自身を含む味方3部隊の攻撃速度+50%（15秒） ●自身を含む味…",
+          "canonicalFeatureKey": "skill_effect:damage_reduction",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-440901",
+          "evidencePath": "sections[15].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role.",
+            "appliedRoleId": "main_general"
+          },
+          "typeFeatureKey": "generals:article-440901:skill_text:skillEffect:skill_effect:damage_reduction:39b29c6a",
+          "roleFeatureKey": "main_general:generals:article-440901:skillEffect:skill_effect:damage_reduction:f6f2bd12"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "名宝技能効果励志方正冠防具専用武将UR張昭技能1統督奮走■常に ●部隊の「教督」の技能Lv+2（上限5） ●部隊の「活奮」の技能Lv+1（上限3） ●部隊の知力+4％技能2万政連躍■常に ●部隊の「発檄」の技能Lv+1（上限2） ●政治を部隊能力に加算する技能の効果量+5%▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊に1回の攻撃無効を付与（15秒） →戦法発動時の連鎖数に応じて、付与する回数が増加（2連鎖時は2回、3連鎖時は3回） ●自身を含む味方3部隊の攻撃速度+50%（15秒） ●自身を含む味…",
+          "rawText": "名宝技能効果励志方正冠防具専用武将UR張昭技能1統督奮走■常に ●部隊の「教督」の技能Lv+2（上限5） ●部隊の「活奮」の技能Lv+1（上限3） ●部隊の知力+4％技能2万政連躍■常に ●部隊の「発檄」の技能Lv+1（上限2） ●政治を部隊能力に加算する技能の効果量+5%▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊に1回の攻撃無効を付与（15秒） →戦法発動時の連鎖数に応じて、付与する回数が増加（2連鎖時は2回、3連鎖時は3回） ●自身を含む味方3部隊の攻撃速度+50%（15秒） ●自身を含む味…",
+          "canonicalFeatureKey": "skill_effect:ally_non_damage_effect",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-440901",
+          "evidencePath": "sections[15].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role.",
+            "appliedRoleId": "main_general"
+          },
+          "typeFeatureKey": "generals:article-440901:skill_text:skillEffect:skill_effect:ally_non_damage_effect:39b29c6a",
+          "roleFeatureKey": "main_general:generals:article-440901:skillEffect:skill_effect:ally_non_damage_effect:f6f2bd12"
         }
       ],
       "statusEffectRefs": [
@@ -78915,9 +78971,9 @@
           "roleFeatureKey": "main_general:generals:article-440901:statusEffect:status_effect:盤石:7a652280"
         }
       ],
-      "typeFeatureCount": 10,
+      "typeFeatureCount": 12,
       "statusEffectRefCount": 2,
-      "scoreEligibleTypeFeatureCount": 10,
+      "scoreEligibleTypeFeatureCount": 12,
       "scoreEligibleStatusEffectRefCount": 2,
       "sortKeys": [
         "typeMetricScore",
@@ -236483,6 +236539,62 @@
           },
           "typeFeatureKey": "generals:article-440901:skill_text:skillEffect:skill_effect:attack_nullify:b7a8f1a6",
           "roleFeatureKey": "vice_general:generals:article-440901:skillEffect:skill_effect:attack_nullify:f6f2bd12"
+        },
+        {
+          "featureId": "skill_effect:damage_reduction",
+          "label": "被ダメージ軽減",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "名宝技能効果励志方正冠防具専用武将UR張昭技能1統督奮走■常に ●部隊の「教督」の技能Lv+2（上限5） ●部隊の「活奮」の技能Lv+1（上限3） ●部隊の知力+4％技能2万政連躍■常に ●部隊の「発檄」の技能Lv+1（上限2） ●政治を部隊能力に加算する技能の効果量+5%▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊に1回の攻撃無効を付与（15秒） →戦法発動時の連鎖数に応じて、付与する回数が増加（2連鎖時は2回、3連鎖時は3回） ●自身を含む味方3部隊の攻撃速度+50%（15秒） ●自身を含む味…",
+          "rawText": "名宝技能効果励志方正冠防具専用武将UR張昭技能1統督奮走■常に ●部隊の「教督」の技能Lv+2（上限5） ●部隊の「活奮」の技能Lv+1（上限3） ●部隊の知力+4％技能2万政連躍■常に ●部隊の「発檄」の技能Lv+1（上限2） ●政治を部隊能力に加算する技能の効果量+5%▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊に1回の攻撃無効を付与（15秒） →戦法発動時の連鎖数に応じて、付与する回数が増加（2連鎖時は2回、3連鎖時は3回） ●自身を含む味方3部隊の攻撃速度+50%（15秒） ●自身を含む味…",
+          "canonicalFeatureKey": "skill_effect:damage_reduction",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-440901",
+          "evidencePath": "sections[15].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role.",
+            "appliedRoleId": "vice_general"
+          },
+          "typeFeatureKey": "generals:article-440901:skill_text:skillEffect:skill_effect:damage_reduction:39b29c6a",
+          "roleFeatureKey": "vice_general:generals:article-440901:skillEffect:skill_effect:damage_reduction:f6f2bd12"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "名宝技能効果励志方正冠防具専用武将UR張昭技能1統督奮走■常に ●部隊の「教督」の技能Lv+2（上限5） ●部隊の「活奮」の技能Lv+1（上限3） ●部隊の知力+4％技能2万政連躍■常に ●部隊の「発檄」の技能Lv+1（上限2） ●政治を部隊能力に加算する技能の効果量+5%▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊に1回の攻撃無効を付与（15秒） →戦法発動時の連鎖数に応じて、付与する回数が増加（2連鎖時は2回、3連鎖時は3回） ●自身を含む味方3部隊の攻撃速度+50%（15秒） ●自身を含む味…",
+          "rawText": "名宝技能効果励志方正冠防具専用武将UR張昭技能1統督奮走■常に ●部隊の「教督」の技能Lv+2（上限5） ●部隊の「活奮」の技能Lv+1（上限3） ●部隊の知力+4％技能2万政連躍■常に ●部隊の「発檄」の技能Lv+1（上限2） ●政治を部隊能力に加算する技能の効果量+5%▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊に1回の攻撃無効を付与（15秒） →戦法発動時の連鎖数に応じて、付与する回数が増加（2連鎖時は2回、3連鎖時は3回） ●自身を含む味方3部隊の攻撃速度+50%（15秒） ●自身を含む味…",
+          "canonicalFeatureKey": "skill_effect:ally_non_damage_effect",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-440901",
+          "evidencePath": "sections[15].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role.",
+            "appliedRoleId": "vice_general"
+          },
+          "typeFeatureKey": "generals:article-440901:skill_text:skillEffect:skill_effect:ally_non_damage_effect:39b29c6a",
+          "roleFeatureKey": "vice_general:generals:article-440901:skillEffect:skill_effect:ally_non_damage_effect:f6f2bd12"
         }
       ],
       "statusEffectRefs": [
@@ -236555,9 +236667,9 @@
           "roleFeatureKey": "vice_general:generals:article-440901:statusEffect:status_effect:盤石:7a652280"
         }
       ],
-      "typeFeatureCount": 10,
+      "typeFeatureCount": 12,
       "statusEffectRefCount": 2,
-      "scoreEligibleTypeFeatureCount": 10,
+      "scoreEligibleTypeFeatureCount": 12,
       "scoreEligibleStatusEffectRefCount": 2,
       "sortKeys": [
         "typeMetricScore",
@@ -393985,6 +394097,62 @@
           },
           "typeFeatureKey": "generals:article-440901:skill_text:skillEffect:skill_effect:attack_nullify:b7a8f1a6",
           "roleFeatureKey": "support_general:generals:article-440901:skillEffect:skill_effect:attack_nullify:f6f2bd12"
+        },
+        {
+          "featureId": "skill_effect:damage_reduction",
+          "label": "被ダメージ軽減",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "名宝技能効果励志方正冠防具専用武将UR張昭技能1統督奮走■常に ●部隊の「教督」の技能Lv+2（上限5） ●部隊の「活奮」の技能Lv+1（上限3） ●部隊の知力+4％技能2万政連躍■常に ●部隊の「発檄」の技能Lv+1（上限2） ●政治を部隊能力に加算する技能の効果量+5%▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊に1回の攻撃無効を付与（15秒） →戦法発動時の連鎖数に応じて、付与する回数が増加（2連鎖時は2回、3連鎖時は3回） ●自身を含む味方3部隊の攻撃速度+50%（15秒） ●自身を含む味…",
+          "rawText": "名宝技能効果励志方正冠防具専用武将UR張昭技能1統督奮走■常に ●部隊の「教督」の技能Lv+2（上限5） ●部隊の「活奮」の技能Lv+1（上限3） ●部隊の知力+4％技能2万政連躍■常に ●部隊の「発檄」の技能Lv+1（上限2） ●政治を部隊能力に加算する技能の効果量+5%▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊に1回の攻撃無効を付与（15秒） →戦法発動時の連鎖数に応じて、付与する回数が増加（2連鎖時は2回、3連鎖時は3回） ●自身を含む味方3部隊の攻撃速度+50%（15秒） ●自身を含む味…",
+          "canonicalFeatureKey": "skill_effect:damage_reduction",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-440901",
+          "evidencePath": "sections[15].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role.",
+            "appliedRoleId": "support_general"
+          },
+          "typeFeatureKey": "generals:article-440901:skill_text:skillEffect:skill_effect:damage_reduction:39b29c6a",
+          "roleFeatureKey": "support_general:generals:article-440901:skillEffect:skill_effect:damage_reduction:f6f2bd12"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "名宝技能効果励志方正冠防具専用武将UR張昭技能1統督奮走■常に ●部隊の「教督」の技能Lv+2（上限5） ●部隊の「活奮」の技能Lv+1（上限3） ●部隊の知力+4％技能2万政連躍■常に ●部隊の「発檄」の技能Lv+1（上限2） ●政治を部隊能力に加算する技能の効果量+5%▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊に1回の攻撃無効を付与（15秒） →戦法発動時の連鎖数に応じて、付与する回数が増加（2連鎖時は2回、3連鎖時は3回） ●自身を含む味方3部隊の攻撃速度+50%（15秒） ●自身を含む味…",
+          "rawText": "名宝技能効果励志方正冠防具専用武将UR張昭技能1統督奮走■常に ●部隊の「教督」の技能Lv+2（上限5） ●部隊の「活奮」の技能Lv+1（上限3） ●部隊の知力+4％技能2万政連躍■常に ●部隊の「発檄」の技能Lv+1（上限2） ●政治を部隊能力に加算する技能の効果量+5%▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊に1回の攻撃無効を付与（15秒） →戦法発動時の連鎖数に応じて、付与する回数が増加（2連鎖時は2回、3連鎖時は3回） ●自身を含む味方3部隊の攻撃速度+50%（15秒） ●自身を含む味…",
+          "canonicalFeatureKey": "skill_effect:ally_non_damage_effect",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-440901",
+          "evidencePath": "sections[15].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role.",
+            "appliedRoleId": "support_general"
+          },
+          "typeFeatureKey": "generals:article-440901:skill_text:skillEffect:skill_effect:ally_non_damage_effect:39b29c6a",
+          "roleFeatureKey": "support_general:generals:article-440901:skillEffect:skill_effect:ally_non_damage_effect:f6f2bd12"
         }
       ],
       "statusEffectRefs": [
@@ -394057,9 +394225,9 @@
           "roleFeatureKey": "support_general:generals:article-440901:statusEffect:status_effect:盤石:7a652280"
         }
       ],
-      "typeFeatureCount": 10,
+      "typeFeatureCount": 12,
       "statusEffectRefCount": 2,
-      "scoreEligibleTypeFeatureCount": 5,
+      "scoreEligibleTypeFeatureCount": 7,
       "scoreEligibleStatusEffectRefCount": 0,
       "sortKeys": [
         "typeMetricScore",
@@ -551402,6 +551570,62 @@
           },
           "typeFeatureKey": "generals:article-440901:skill_text:skillEffect:skill_effect:attack_nullify:b7a8f1a6",
           "roleFeatureKey": "attendant:generals:article-440901:skillEffect:skill_effect:attack_nullify:f6f2bd12"
+        },
+        {
+          "featureId": "skill_effect:damage_reduction",
+          "label": "被ダメージ軽減",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "名宝技能効果励志方正冠防具専用武将UR張昭技能1統督奮走■常に ●部隊の「教督」の技能Lv+2（上限5） ●部隊の「活奮」の技能Lv+1（上限3） ●部隊の知力+4％技能2万政連躍■常に ●部隊の「発檄」の技能Lv+1（上限2） ●政治を部隊能力に加算する技能の効果量+5%▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊に1回の攻撃無効を付与（15秒） →戦法発動時の連鎖数に応じて、付与する回数が増加（2連鎖時は2回、3連鎖時は3回） ●自身を含む味方3部隊の攻撃速度+50%（15秒） ●自身を含む味…",
+          "rawText": "名宝技能効果励志方正冠防具専用武将UR張昭技能1統督奮走■常に ●部隊の「教督」の技能Lv+2（上限5） ●部隊の「活奮」の技能Lv+1（上限3） ●部隊の知力+4％技能2万政連躍■常に ●部隊の「発檄」の技能Lv+1（上限2） ●政治を部隊能力に加算する技能の効果量+5%▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊に1回の攻撃無効を付与（15秒） →戦法発動時の連鎖数に応じて、付与する回数が増加（2連鎖時は2回、3連鎖時は3回） ●自身を含む味方3部隊の攻撃速度+50%（15秒） ●自身を含む味…",
+          "canonicalFeatureKey": "skill_effect:damage_reduction",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-440901",
+          "evidencePath": "sections[15].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role.",
+            "appliedRoleId": "attendant"
+          },
+          "typeFeatureKey": "generals:article-440901:skill_text:skillEffect:skill_effect:damage_reduction:39b29c6a",
+          "roleFeatureKey": "attendant:generals:article-440901:skillEffect:skill_effect:damage_reduction:f6f2bd12"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "skill_text",
+          "matchedText": "名宝技能効果励志方正冠防具専用武将UR張昭技能1統督奮走■常に ●部隊の「教督」の技能Lv+2（上限5） ●部隊の「活奮」の技能Lv+1（上限3） ●部隊の知力+4％技能2万政連躍■常に ●部隊の「発檄」の技能Lv+1（上限2） ●政治を部隊能力に加算する技能の効果量+5%▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊に1回の攻撃無効を付与（15秒） →戦法発動時の連鎖数に応じて、付与する回数が増加（2連鎖時は2回、3連鎖時は3回） ●自身を含む味方3部隊の攻撃速度+50%（15秒） ●自身を含む味…",
+          "rawText": "名宝技能効果励志方正冠防具専用武将UR張昭技能1統督奮走■常に ●部隊の「教督」の技能Lv+2（上限5） ●部隊の「活奮」の技能Lv+1（上限3） ●部隊の知力+4％技能2万政連躍■常に ●部隊の「発檄」の技能Lv+1（上限2） ●政治を部隊能力に加算する技能の効果量+5%▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊に1回の攻撃無効を付与（15秒） →戦法発動時の連鎖数に応じて、付与する回数が増加（2連鎖時は2回、3連鎖時は3回） ●自身を含む味方3部隊の攻撃速度+50%（15秒） ●自身を含む味…",
+          "canonicalFeatureKey": "skill_effect:ally_non_damage_effect",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "generals:article-440901",
+          "evidencePath": "sections[15].content[0]",
+          "sourceType": "skill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role.",
+            "appliedRoleId": "attendant"
+          },
+          "typeFeatureKey": "generals:article-440901:skill_text:skillEffect:skill_effect:ally_non_damage_effect:39b29c6a",
+          "roleFeatureKey": "attendant:generals:article-440901:skillEffect:skill_effect:ally_non_damage_effect:f6f2bd12"
         }
       ],
       "statusEffectRefs": [
@@ -551474,9 +551698,9 @@
           "roleFeatureKey": "attendant:generals:article-440901:statusEffect:status_effect:盤石:7a652280"
         }
       ],
-      "typeFeatureCount": 10,
+      "typeFeatureCount": 12,
       "statusEffectRefCount": 2,
-      "scoreEligibleTypeFeatureCount": 5,
+      "scoreEligibleTypeFeatureCount": 7,
       "scoreEligibleStatusEffectRefCount": 0,
       "sortKeys": [
         "typeMetricScore",
@@ -639934,13 +640158,88 @@
       "sourceEntityKey": "equipments:article-453622",
       "typeFeatures": [
         {
+          "featureId": "skill_effect:annihilation_avoidance",
+          "label": "壊滅回避",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "UR時の最大技能誠心敬仰■常に ●部隊の「耐心」の技能Lv+1（上限2） ●部隊の「仰信」の技能Lv+1（上限3） ●部隊の兵力+4％ ●部隊の攻撃+4%勇升壮烈■常に ●部隊の「勇進」の技能Lv+1（上限2）▼主将戦法発動時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身を含む味方3部隊に15%の有利巧守を付与（10秒） ●自身1部隊に5％の憤撃を付与（30秒）堪撃癒術■常に▼戦法のダメージを受けて壊滅しなかった時 ●自身1部隊の負傷兵を最大兵力の20％回復…",
+          "rawText": "UR時の最大技能誠心敬仰■常に ●部隊の「耐心」の技能Lv+1（上限2） ●部隊の「仰信」の技能Lv+1（上限3） ●部隊の兵力+4％ ●部隊の攻撃+4%勇升壮烈■常に ●部隊の「勇進」の技能Lv+1（上限2）▼主将戦法発動時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身を含む味方3部隊に15%の有利巧守を付与（10秒） ●自身1部隊に5％の憤撃を付与（30秒）堪撃癒術■常に▼戦法のダメージを受けて壊滅しなかった時 ●自身1部隊の負傷兵を最大兵力の20％回復…",
+          "canonicalFeatureKey": "skill_effect:annihilation_avoidance",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-453622",
+          "evidencePath": "sections[4].content[0]",
+          "sourceType": "equipmentSkill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role.",
+            "appliedRoleId": "equipment"
+          },
+          "typeFeatureKey": "equipments:article-453622:equipment_skill_text:skillEffect:skill_effect:annihilation_avoidance:ba0627fa",
+          "roleFeatureKey": "equipment:equipments:article-453622:skillEffect:skill_effect:annihilation_avoidance:7a652280"
+        },
+        {
+          "featureId": "skill_effect:wounded_recovery",
+          "label": "負傷兵回復",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "UR時の最大技能誠心敬仰■常に ●部隊の「耐心」の技能Lv+1（上限2） ●部隊の「仰信」の技能Lv+1（上限3） ●部隊の兵力+4％ ●部隊の攻撃+4%勇升壮烈■常に ●部隊の「勇進」の技能Lv+1（上限2）▼主将戦法発動時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身を含む味方3部隊に15%の有利巧守を付与（10秒） ●自身1部隊に5％の憤撃を付与（30秒）堪撃癒術■常に▼戦法のダメージを受けて壊滅しなかった時 ●自身1部隊の負傷兵を最大兵力の20％回復…",
+          "rawText": "UR時の最大技能誠心敬仰■常に ●部隊の「耐心」の技能Lv+1（上限2） ●部隊の「仰信」の技能Lv+1（上限3） ●部隊の兵力+4％ ●部隊の攻撃+4%勇升壮烈■常に ●部隊の「勇進」の技能Lv+1（上限2）▼主将戦法発動時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身を含む味方3部隊に15%の有利巧守を付与（10秒） ●自身1部隊に5％の憤撃を付与（30秒）堪撃癒術■常に▼戦法のダメージを受けて壊滅しなかった時 ●自身1部隊の負傷兵を最大兵力の20％回復…",
+          "canonicalFeatureKey": "skill_effect:wounded_recovery",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-453622",
+          "evidencePath": "sections[4].content[0]",
+          "sourceType": "equipmentSkill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role.",
+            "appliedRoleId": "equipment"
+          },
+          "typeFeatureKey": "equipments:article-453622:equipment_skill_text:skillEffect:skill_effect:wounded_recovery:ba0627fa",
+          "roleFeatureKey": "equipment:equipments:article-453622:skillEffect:skill_effect:wounded_recovery:7a652280"
+        },
+        {
+          "featureId": "skill_effect:healing",
+          "label": "兵力回復",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "UR時の最大技能誠心敬仰■常に ●部隊の「耐心」の技能Lv+1（上限2） ●部隊の「仰信」の技能Lv+1（上限3） ●部隊の兵力+4％ ●部隊の攻撃+4%勇升壮烈■常に ●部隊の「勇進」の技能Lv+1（上限2）▼主将戦法発動時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身を含む味方3部隊に15%の有利巧守を付与（10秒） ●自身1部隊に5％の憤撃を付与（30秒）堪撃癒術■常に▼戦法のダメージを受けて壊滅しなかった時 ●自身1部隊の負傷兵を最大兵力の20％回復…",
+          "rawText": "UR時の最大技能誠心敬仰■常に ●部隊の「耐心」の技能Lv+1（上限2） ●部隊の「仰信」の技能Lv+1（上限3） ●部隊の兵力+4％ ●部隊の攻撃+4%勇升壮烈■常に ●部隊の「勇進」の技能Lv+1（上限2）▼主将戦法発動時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身を含む味方3部隊に15%の有利巧守を付与（10秒） ●自身1部隊に5％の憤撃を付与（30秒）堪撃癒術■常に▼戦法のダメージを受けて壊滅しなかった時 ●自身1部隊の負傷兵を最大兵力の20％回復…",
+          "canonicalFeatureKey": "skill_effect:healing",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-453622",
+          "evidencePath": "sections[4].content[0]",
+          "sourceType": "equipmentSkill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role.",
+            "appliedRoleId": "equipment"
+          },
+          "typeFeatureKey": "equipments:article-453622:equipment_skill_text:skillEffect:skill_effect:healing:ba0627fa",
+          "roleFeatureKey": "equipment:equipments:article-453622:skillEffect:skill_effect:healing:7a652280"
+        },
+        {
           "featureId": "skill_effect:ally_buff_multi",
           "label": "味方バフ配布",
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "equipment_skill_text",
-          "matchedText": "誠心敬仰■常に ●部隊の「耐心」の技能Lv+1（上限2） ●部隊の「仰信」の技能Lv+1（上限3）勇升壮烈■常に ●部隊の「勇進」の技能Lv+1（上限2）▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身を含む味方3部隊に15%の有利巧守を付与（10秒）",
-          "rawText": "誠心敬仰■常に ●部隊の「耐心」の技能Lv+1（上限2） ●部隊の「仰信」の技能Lv+1（上限3）勇升壮烈■常に ●部隊の「勇進」の技能Lv+1（上限2）▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身を含む味方3部隊に15%の有利巧守を付与（10秒）",
+          "matchedText": "UR時の最大技能誠心敬仰■常に ●部隊の「耐心」の技能Lv+1（上限2） ●部隊の「仰信」の技能Lv+1（上限3） ●部隊の兵力+4％ ●部隊の攻撃+4%勇升壮烈■常に ●部隊の「勇進」の技能Lv+1（上限2）▼主将戦法発動時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身を含む味方3部隊に15%の有利巧守を付与（10秒） ●自身1部隊に5％の憤撃を付与（30秒）堪撃癒術■常に▼戦法のダメージを受けて壊滅しなかった時 ●自身1部隊の負傷兵を最大兵力の20％回復…",
+          "rawText": "UR時の最大技能誠心敬仰■常に ●部隊の「耐心」の技能Lv+1（上限2） ●部隊の「仰信」の技能Lv+1（上限3） ●部隊の兵力+4％ ●部隊の攻撃+4%勇升壮烈■常に ●部隊の「勇進」の技能Lv+1（上限2）▼主将戦法発動時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身を含む味方3部隊に15%の有利巧守を付与（10秒） ●自身1部隊に5％の憤撃を付与（30秒）堪撃癒術■常に▼戦法のダメージを受けて壊滅しなかった時 ●自身1部隊の負傷兵を最大兵力の20％回復…",
           "canonicalFeatureKey": "skill_effect:ally_buff_multi",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "equipments:article-453622",
@@ -639955,7 +640254,7 @@
             "reason": "Structured primary evidence for the matching source role.",
             "appliedRoleId": "equipment"
           },
-          "typeFeatureKey": "equipments:article-453622:equipment_skill_text:skillEffect:skill_effect:ally_buff_multi:964337e4",
+          "typeFeatureKey": "equipments:article-453622:equipment_skill_text:skillEffect:skill_effect:ally_buff_multi:ba0627fa",
           "roleFeatureKey": "equipment:equipments:article-453622:skillEffect:skill_effect:ally_buff_multi:7a652280"
         },
         {
@@ -639964,8 +640263,8 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "equipment_skill_text",
-          "matchedText": "誠心敬仰■常に ●部隊の「耐心」の技能Lv+1（上限2） ●部隊の「仰信」の技能Lv+1（上限3）勇升壮烈■常に ●部隊の「勇進」の技能Lv+1（上限2）▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身を含む味方3部隊に15%の有利巧守を付与（10秒）",
-          "rawText": "誠心敬仰■常に ●部隊の「耐心」の技能Lv+1（上限2） ●部隊の「仰信」の技能Lv+1（上限3）勇升壮烈■常に ●部隊の「勇進」の技能Lv+1（上限2）▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身を含む味方3部隊に15%の有利巧守を付与（10秒）",
+          "matchedText": "UR時の最大技能誠心敬仰■常に ●部隊の「耐心」の技能Lv+1（上限2） ●部隊の「仰信」の技能Lv+1（上限3） ●部隊の兵力+4％ ●部隊の攻撃+4%勇升壮烈■常に ●部隊の「勇進」の技能Lv+1（上限2）▼主将戦法発動時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身を含む味方3部隊に15%の有利巧守を付与（10秒） ●自身1部隊に5％の憤撃を付与（30秒）堪撃癒術■常に▼戦法のダメージを受けて壊滅しなかった時 ●自身1部隊の負傷兵を最大兵力の20％回復…",
+          "rawText": "UR時の最大技能誠心敬仰■常に ●部隊の「耐心」の技能Lv+1（上限2） ●部隊の「仰信」の技能Lv+1（上限3） ●部隊の兵力+4％ ●部隊の攻撃+4%勇升壮烈■常に ●部隊の「勇進」の技能Lv+1（上限2）▼主将戦法発動時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身を含む味方3部隊に15%の有利巧守を付与（10秒） ●自身1部隊に5％の憤撃を付与（30秒）堪撃癒術■常に▼戦法のダメージを受けて壊滅しなかった時 ●自身1部隊の負傷兵を最大兵力の20％回復…",
           "canonicalFeatureKey": "skill_effect:ally_target_count",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "equipments:article-453622",
@@ -639980,7 +640279,7 @@
             "reason": "Structured primary evidence for the matching source role.",
             "appliedRoleId": "equipment"
           },
-          "typeFeatureKey": "equipments:article-453622:equipment_skill_text:skillEffect:skill_effect:ally_target_count:964337e4",
+          "typeFeatureKey": "equipments:article-453622:equipment_skill_text:skillEffect:skill_effect:ally_target_count:ba0627fa",
           "roleFeatureKey": "equipment:equipments:article-453622:skillEffect:skill_effect:ally_target_count:7a652280"
         },
         {
@@ -639989,8 +640288,8 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "equipment_skill_text",
-          "matchedText": "誠心敬仰■常に ●部隊の「耐心」の技能Lv+1（上限2） ●部隊の「仰信」の技能Lv+1（上限3）勇升壮烈■常に ●部隊の「勇進」の技能Lv+1（上限2）▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身を含む味方3部隊に15%の有利巧守を付与（10秒）",
-          "rawText": "誠心敬仰■常に ●部隊の「耐心」の技能Lv+1（上限2） ●部隊の「仰信」の技能Lv+1（上限3）勇升壮烈■常に ●部隊の「勇進」の技能Lv+1（上限2）▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身を含む味方3部隊に15%の有利巧守を付与（10秒）",
+          "matchedText": "UR時の最大技能誠心敬仰■常に ●部隊の「耐心」の技能Lv+1（上限2） ●部隊の「仰信」の技能Lv+1（上限3） ●部隊の兵力+4％ ●部隊の攻撃+4%勇升壮烈■常に ●部隊の「勇進」の技能Lv+1（上限2）▼主将戦法発動時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身を含む味方3部隊に15%の有利巧守を付与（10秒） ●自身1部隊に5％の憤撃を付与（30秒）堪撃癒術■常に▼戦法のダメージを受けて壊滅しなかった時 ●自身1部隊の負傷兵を最大兵力の20％回復…",
+          "rawText": "UR時の最大技能誠心敬仰■常に ●部隊の「耐心」の技能Lv+1（上限2） ●部隊の「仰信」の技能Lv+1（上限3） ●部隊の兵力+4％ ●部隊の攻撃+4%勇升壮烈■常に ●部隊の「勇進」の技能Lv+1（上限2）▼主将戦法発動時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身を含む味方3部隊に15%の有利巧守を付与（10秒） ●自身1部隊に5％の憤撃を付与（30秒）堪撃癒術■常に▼戦法のダメージを受けて壊滅しなかった時 ●自身1部隊の負傷兵を最大兵力の20％回復…",
           "canonicalFeatureKey": "skill_effect:ally_non_damage_effect",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "equipments:article-453622",
@@ -640005,14 +640304,14 @@
             "reason": "Structured primary evidence for the matching source role.",
             "appliedRoleId": "equipment"
           },
-          "typeFeatureKey": "equipments:article-453622:equipment_skill_text:skillEffect:skill_effect:ally_non_damage_effect:964337e4",
+          "typeFeatureKey": "equipments:article-453622:equipment_skill_text:skillEffect:skill_effect:ally_non_damage_effect:ba0627fa",
           "roleFeatureKey": "equipment:equipments:article-453622:skillEffect:skill_effect:ally_non_damage_effect:7a652280"
         }
       ],
       "statusEffectRefs": [],
-      "typeFeatureCount": 3,
+      "typeFeatureCount": 6,
       "statusEffectRefCount": 0,
-      "scoreEligibleTypeFeatureCount": 3,
+      "scoreEligibleTypeFeatureCount": 6,
       "scoreEligibleStatusEffectRefCount": 0,
       "sortKeys": [
         "typeMetricScore",
@@ -641161,8 +641460,8 @@
           "featureType": "skillEffect",
           "source": "effect-text",
           "sourcePartType": "equipment_skill_text",
-          "matchedText": "励志方正冠は技能「教督」とUR張昭の専用技能「活奮」と「発檄」を強化する知力防具。発檄がLv2になると出陣時の戦法ゲージ上昇量が10%から15%になるのでかなり強力。",
-          "rawText": "励志方正冠は技能「教督」とUR張昭の専用技能「活奮」と「発檄」を強化する知力防具。発檄がLv2になると出陣時の戦法ゲージ上昇量が10%から15%になるのでかなり強力。",
+          "matchedText": "励志方正冠はUR張昭の技能「教督」と技能「活奮」と「発檄」を強化する知力防具。発檄がLv2になると出陣時の戦法ゲージ上昇量が10%から15%になるので強力。",
+          "rawText": "励志方正冠はUR張昭の技能「教督」と技能「活奮」と「発檄」を強化する知力防具。発檄がLv2になると出陣時の戦法ゲージ上昇量が10%から15%になるので強力。",
           "canonicalFeatureKey": "skill_effect:initial_tactic_gauge",
           "featureDomain": "skillEffect",
           "sourceEntityKey": "equipments:article-440903",
@@ -641177,7 +641476,7 @@
             "reason": "Structured primary evidence for the matching source role.",
             "appliedRoleId": "equipment"
           },
-          "typeFeatureKey": "equipments:article-440903:equipment_skill_text:skillEffect:skill_effect:initial_tactic_gauge:d86a3d3a",
+          "typeFeatureKey": "equipments:article-440903:equipment_skill_text:skillEffect:skill_effect:initial_tactic_gauge:9604eb37",
           "roleFeatureKey": "equipment:equipments:article-440903:skillEffect:skill_effect:initial_tactic_gauge:799180f3"
         },
         {
@@ -641279,12 +641578,62 @@
           },
           "typeFeatureKey": "equipments:article-440903:equipment_skill_text:skillEffect:skill_effect:ally_target_count:619660ae",
           "roleFeatureKey": "equipment:equipments:article-440903:skillEffect:skill_effect:ally_target_count:4a9f4ed6"
+        },
+        {
+          "featureId": "skill_effect:damage_reduction",
+          "label": "被ダメージ軽減",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "UR時の最大技能統督奮走■常に ●部隊の「教督」の技能Lv+2（上限5） ●部隊の「活奮」の技能Lv+1（上限3） ●部隊の知力+4％万政連躍■常に ●部隊の「発檄」の技能Lv+1（上限2） ●政治を部隊能力に加算する技能の効果量+5%▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊に1回の攻撃無効を付与（15秒） →戦法発動時の連鎖数に応じて、付与する回数が増加（2連鎖時は2回、3連鎖時は3回） ●自身を含む味方3部隊の攻撃速度+50%（15秒） ●自身を含む味方3部隊を全ての兵科と物体に対して有利…",
+          "rawText": "UR時の最大技能統督奮走■常に ●部隊の「教督」の技能Lv+2（上限5） ●部隊の「活奮」の技能Lv+1（上限3） ●部隊の知力+4％万政連躍■常に ●部隊の「発檄」の技能Lv+1（上限2） ●政治を部隊能力に加算する技能の効果量+5%▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊に1回の攻撃無効を付与（15秒） →戦法発動時の連鎖数に応じて、付与する回数が増加（2連鎖時は2回、3連鎖時は3回） ●自身を含む味方3部隊の攻撃速度+50%（15秒） ●自身を含む味方3部隊を全ての兵科と物体に対して有利…",
+          "canonicalFeatureKey": "skill_effect:damage_reduction",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-440903",
+          "evidencePath": "sections[4].content[0]",
+          "sourceType": "equipmentSkill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role.",
+            "appliedRoleId": "equipment"
+          },
+          "typeFeatureKey": "equipments:article-440903:equipment_skill_text:skillEffect:skill_effect:damage_reduction:6072807a",
+          "roleFeatureKey": "equipment:equipments:article-440903:skillEffect:skill_effect:damage_reduction:7a652280"
+        },
+        {
+          "featureId": "skill_effect:ally_non_damage_effect",
+          "label": "味方非ダメージ効果",
+          "featureType": "skillEffect",
+          "source": "effect-text",
+          "sourcePartType": "equipment_skill_text",
+          "matchedText": "UR時の最大技能統督奮走■常に ●部隊の「教督」の技能Lv+2（上限5） ●部隊の「活奮」の技能Lv+1（上限3） ●部隊の知力+4％万政連躍■常に ●部隊の「発檄」の技能Lv+1（上限2） ●政治を部隊能力に加算する技能の効果量+5%▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊に1回の攻撃無効を付与（15秒） →戦法発動時の連鎖数に応じて、付与する回数が増加（2連鎖時は2回、3連鎖時は3回） ●自身を含む味方3部隊の攻撃速度+50%（15秒） ●自身を含む味方3部隊を全ての兵科と物体に対して有利…",
+          "rawText": "UR時の最大技能統督奮走■常に ●部隊の「教督」の技能Lv+2（上限5） ●部隊の「活奮」の技能Lv+1（上限3） ●部隊の知力+4％万政連躍■常に ●部隊の「発檄」の技能Lv+1（上限2） ●政治を部隊能力に加算する技能の効果量+5%▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊に1回の攻撃無効を付与（15秒） →戦法発動時の連鎖数に応じて、付与する回数が増加（2連鎖時は2回、3連鎖時は3回） ●自身を含む味方3部隊の攻撃速度+50%（15秒） ●自身を含む味方3部隊を全ての兵科と物体に対して有利…",
+          "canonicalFeatureKey": "skill_effect:ally_non_damage_effect",
+          "featureDomain": "skillEffect",
+          "sourceEntityKey": "equipments:article-440903",
+          "evidencePath": "sections[4].content[0]",
+          "sourceType": "equipmentSkill",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role.",
+            "appliedRoleId": "equipment"
+          },
+          "typeFeatureKey": "equipments:article-440903:equipment_skill_text:skillEffect:skill_effect:ally_non_damage_effect:6072807a",
+          "roleFeatureKey": "equipment:equipments:article-440903:skillEffect:skill_effect:ally_non_damage_effect:7a652280"
         }
       ],
       "statusEffectRefs": [],
-      "typeFeatureCount": 5,
+      "typeFeatureCount": 7,
       "statusEffectRefCount": 0,
-      "scoreEligibleTypeFeatureCount": 5,
+      "scoreEligibleTypeFeatureCount": 7,
       "scoreEligibleStatusEffectRefCount": 0,
       "sortKeys": [
         "typeMetricScore",
@@ -657735,7 +658084,7 @@
       ]
     }
   },
-  "hotfixVersion": "1.1.0.11",
+  "hotfixVersion": "1.1.0.12",
   "targetCategories": {
     "generals": "武将",
     "equipments": "装備",

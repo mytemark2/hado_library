@@ -1,38 +1,38 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-31T05:17:16.170Z",
-  "dataSetId": "2026-10-17T02-12-44-246Z",
-  "crawlerVersion": "1.1.0.11",
+  "generatedAt": "2026-11-08T09:53:21.902Z",
+  "dataSetId": "2026-10-31T05-16-29-474Z",
+  "crawlerVersion": "1.1.0.12",
   "generator": "hado_crawler_extension",
-  "acquiredAt": "2026-10-17T01:56:42.204Z",
-  "processedAt": "2026-10-17T02:13:23.899Z",
-  "sourceRunId": "2026-10-17T02-12-44-246Z",
-  "sourceCrawlerVersion": "1.1.0.6",
-  "sourceCommit": "8239d70ed4d43f2b762858a1c14c21f221c9757b",
+  "acquiredAt": "2026-10-31T03:56:14.654Z",
+  "processedAt": "2026-10-31T05:17:14.250Z",
+  "sourceRunId": "2026-10-31T05-16-29-474Z",
+  "sourceCrawlerVersion": "1.1.0.11",
+  "sourceCommit": "0a10c86ea11f0fd1bb2515ec57883a4c75c22e74",
   "sourceCommitRole": "application-generation-base",
-  "sourceBranch": "feature/app-3.1.2.0",
-  "crawlerSourceCommit": "",
-  "crawlerSourceBranch": "",
-  "crawlerSourceCommitStatus": "unknown-in-source-run",
+  "sourceBranch": "feature/app-3.2.0.0",
+  "crawlerSourceCommit": "c14aff14a3265835f770881be68130ccc545ee28",
+  "crawlerSourceBranch": "codex/category-skip-20261031",
+  "crawlerSourceCommitStatus": "recorded",
   "provenance": {
     "acquisition": {
-      "acquiredAt": "2026-10-17T01:56:42.204Z",
-      "dataUpdatedAt": "2026-10-17T01:56:42.204Z",
-      "runId": "2026-10-17T02-12-44-246Z",
-      "recoverySourceRunId": "2026-10-17T00-41-45-707Z"
+      "acquiredAt": "2026-10-31T03:56:14.654Z",
+      "dataUpdatedAt": "2026-10-31T03:56:14.654Z",
+      "runId": "2026-10-31T05-16-29-474Z",
+      "recoverySourceRunId": "2026-10-31T03-27-46-736Z"
     },
     "processing": {
-      "processedAt": "2026-10-17T02:13:23.899Z",
-      "sourceExportedAt": "2026-10-17T02:13:23.899Z",
-      "generatedAt": "2026-10-31T05:17:16.170Z"
+      "processedAt": "2026-10-31T05:17:14.250Z",
+      "sourceExportedAt": "2026-10-31T05:17:14.250Z",
+      "generatedAt": "2026-11-08T09:53:21.902Z"
     },
     "source": {
-      "recordedCommit": "8239d70ed4d43f2b762858a1c14c21f221c9757b",
+      "recordedCommit": "0a10c86ea11f0fd1bb2515ec57883a4c75c22e74",
       "recordedCommitRole": "application-generation-base",
-      "sourceBranch": "feature/app-3.1.2.0",
-      "crawlerSourceCommit": "",
-      "crawlerSourceBranch": "",
-      "crawlerSourceCommitStatus": "unknown-in-source-run"
+      "sourceBranch": "feature/app-3.2.0.0",
+      "crawlerSourceCommit": "c14aff14a3265835f770881be68130ccc545ee28",
+      "crawlerSourceBranch": "codex/category-skip-20261031",
+      "crawlerSourceCommitStatus": "recorded"
     }
   },
   "sourceFiles": [
@@ -105,7 +105,7 @@
     "warhorses": "c5edd890",
     "warhorseSkills": "fac49238"
   },
-  "hotfixVersion": "1.1.0.11",
+  "hotfixVersion": "1.1.0.12",
   "kind": "skill_owner_index",
   "qualityAudit": {
     "advisorSkillOwnerAudit": {
@@ -123,11 +123,11 @@
       "ok": true,
       "policy": "Application skill catalog includes general, advisor, equipment, ethnic research, five-element, and other derived skills displayed by the app.",
       "masterGeneralSkillCount": 701,
-      "applicationSkillCount": 1480,
-      "indexedSkillCount": 1480,
+      "applicationSkillCount": 1482,
+      "indexedSkillCount": 1482,
       "domainCounts": {
         "generalSkill": 703,
-        "equipmentSkill": 878,
+        "equipmentSkill": 880,
         "warhorseSkill": 3,
         "ethnicResearchSkill": 43,
         "advisorSkill": 95,
@@ -34510,6 +34510,17 @@
           "skillOwnerKey": "equipmentSkill:skills:article-261381:equipments:article-471309"
         },
         {
+          "name": "励志方正冠",
+          "displayName": "励志方正冠",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table",
+          "skillDomain": "equipmentSkill",
+          "skillKey": "skills:article-261381",
+          "ownerEntityKey": "equipments:article-440903",
+          "skillOwnerKey": "equipmentSkill:skills:article-261381:equipments:article-440903"
+        },
+        {
           "name": "奉天銀灰冠",
           "displayName": "奉天銀灰冠",
           "ownerType": "equipment",
@@ -34620,7 +34631,7 @@
           "skillOwnerKey": "warhorseSkill:skills:article-261381:warhorseSkills:name-b0f74d3b"
         }
       ],
-      "ownerCount": 27,
+      "ownerCount": 28,
       "name": "軽減",
       "sourceEntityKey": "skills:article-261381",
       "skillDomain": "generalSkill",
@@ -48916,6 +48927,30 @@
       "skillKey": "skills:name-efcc1a7d"
     },
     {
+      "skillName": "堪撃癒術",
+      "owners": [
+        {
+          "name": "黄焔柳緑披風",
+          "displayName": "黄焔柳緑披風",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table",
+          "skillDomain": "equipmentSkill",
+          "skillKey": "skills:name-a0c89e51",
+          "ownerEntityKey": "equipments:article-453622",
+          "skillOwnerKey": "equipmentSkill:skills:name-a0c89e51:equipments:article-453622"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "堪撃癒術",
+      "sourceEntityKey": "skills:name-a0c89e51",
+      "skillDomain": "equipmentSkill",
+      "skillDomains": [
+        "equipmentSkill"
+      ],
+      "skillKey": "skills:name-a0c89e51"
+    },
+    {
       "skillName": "倒騎聡慧",
       "owners": [
         {
@@ -49538,6 +49573,30 @@
         "equipmentSkill"
       ],
       "skillKey": "skills:name-8f729abf"
+    },
+    {
+      "skillName": "連志聡励",
+      "owners": [
+        {
+          "name": "励志方正冠",
+          "displayName": "励志方正冠",
+          "ownerType": "equipment",
+          "category": "equipments",
+          "source": "equipment-skill-table",
+          "skillDomain": "equipmentSkill",
+          "skillKey": "skills:name-1805ddf1",
+          "ownerEntityKey": "equipments:article-440903",
+          "skillOwnerKey": "equipmentSkill:skills:name-1805ddf1:equipments:article-440903"
+        }
+      ],
+      "ownerCount": 1,
+      "name": "連志聡励",
+      "sourceEntityKey": "skills:name-1805ddf1",
+      "skillDomain": "equipmentSkill",
+      "skillDomains": [
+        "equipmentSkill"
+      ],
+      "skillKey": "skills:name-1805ddf1"
     },
     {
       "skillName": "鋭志調練",

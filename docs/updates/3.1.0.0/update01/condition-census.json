@@ -7,12 +7,12 @@
     "generals": {
       "file": "hadou_generals.json",
       "itemCount": 499,
-      "sha256": "03628a5c3fdfb3778b2c41bfcf64dc38fd9d75124bee311cc759fed2e628c718"
+      "sha256": "2b83e2ccd031e6fc863c94bfdaf0dad1d4126992900f7554f033f78df4dc1022"
     },
     "tactics": {
       "file": "hadou_tactics.json",
       "itemCount": 478,
-      "sha256": "cc261b317371acfce7feb00c05ab5ad400e6bf59863d10528061c8551eda48ba"
+      "sha256": "723e1e0cf8be54bdafab6055ee9fca79c80e5a7ac0242edea428d2d974cd35c3"
     },
     "skills": {
       "file": "hadou_skills.json",
@@ -28,8 +28,8 @@
   "scanSummary": {
     "sourceRecordCount": 1892,
     "scannedRecordCount": 1892,
-    "semanticUnitCount": 49223,
-    "classifiedUnitCount": 49223,
+    "semanticUnitCount": 49235,
+    "classifiedUnitCount": 49235,
     "unresolvedUnitCount": 0,
     "unscannedRecordCount": 0,
     "byCategory": {
@@ -38,7 +38,7 @@
         "scannedRecords": 499,
         "recordsWithSemanticUnits": 499,
         "recordsWithoutConditionLanguage": 0,
-        "semanticUnitCount": 27534
+        "semanticUnitCount": 27546
       },
       "tactics": {
         "sourceRecords": 478,
@@ -68,7 +68,7 @@
       "group": "condition",
       "id": "placement_role",
       "label": "配置役割",
-      "unitCount": 8858,
+      "unitCount": 8860,
       "examples": [
         {
           "category": "generals",
@@ -250,7 +250,7 @@
       "group": "condition",
       "id": "troop_threshold",
       "label": "現在兵力",
-      "unitCount": 2122,
+      "unitCount": 2124,
       "examples": [
         {
           "category": "generals",
@@ -302,7 +302,7 @@
       "group": "condition",
       "id": "status_presence_count",
       "label": "状態変化の有無・個数",
-      "unitCount": 784,
+      "unitCount": 785,
       "examples": [
         {
           "category": "generals",
@@ -380,7 +380,7 @@
       "group": "condition",
       "id": "count_threshold",
       "label": "人数・部隊数・回数",
-      "unitCount": 3304,
+      "unitCount": 3305,
       "examples": [
         {
           "category": "generals",
@@ -432,7 +432,7 @@
       "group": "condition",
       "id": "target_relation",
       "label": "対象・攻撃元との関係",
-      "unitCount": 5424,
+      "unitCount": 5428,
       "examples": [
         {
           "category": "generals",
@@ -536,7 +536,7 @@
       "group": "trigger",
       "id": "tactic_activation",
       "label": "戦法発動",
-      "unitCount": 1730,
+      "unitCount": 1731,
       "examples": [
         {
           "category": "generals",
@@ -562,7 +562,7 @@
       "group": "trigger",
       "id": "normal_attack",
       "label": "通常攻撃",
-      "unitCount": 2735,
+      "unitCount": 2736,
       "examples": [
         {
           "category": "generals",
@@ -692,7 +692,7 @@
       "group": "trigger",
       "id": "damage_event",
       "label": "ダメージイベント",
-      "unitCount": 1016,
+      "unitCount": 1017,
       "examples": [
         {
           "category": "generals",
@@ -718,7 +718,7 @@
       "group": "trigger",
       "id": "custom_event",
       "label": "その他の明示イベント",
-      "unitCount": 1699,
+      "unitCount": 1698,
       "examples": [
         {
           "category": "generals",
@@ -744,7 +744,7 @@
       "group": "context",
       "id": "always",
       "label": "常時",
-      "unitCount": 7251,
+      "unitCount": 7253,
       "examples": [
         {
           "category": "generals",
@@ -796,7 +796,7 @@
       "group": "modifier",
       "id": "multiplier",
       "label": "倍率変更",
-      "unitCount": 2487,
+      "unitCount": 2488,
       "examples": [
         {
           "category": "generals",
@@ -900,7 +900,7 @@
       "group": "modifier",
       "id": "cap_floor",
       "label": "上限・下限",
-      "unitCount": 2237,
+      "unitCount": 2239,
       "examples": [
         {
           "category": "generals",
@@ -978,7 +978,7 @@
       "group": "limit",
       "id": "duration",
       "label": "期間・効果時間",
-      "unitCount": 4508,
+      "unitCount": 4511,
       "examples": [
         {
           "category": "generals",
@@ -1004,7 +1004,7 @@
       "group": "limit",
       "id": "upper_lower_bound",
       "label": "数値上限・下限",
-      "unitCount": 2883,
+      "unitCount": 2884,
       "examples": [
         {
           "category": "generals",
@@ -1186,7 +1186,7 @@
       "group": "targeting",
       "id": "target_count",
       "label": "対象数",
-      "unitCount": 4922,
+      "unitCount": 4926,
       "examples": [
         {
           "category": "generals",
@@ -1212,9 +1212,9 @@
   "unresolvedUnits": [],
   "existingConditionBlocksAudit": {
     "sourceFile": "hadou_effect_condition_blocks.json",
-    "sourceSha256": "fc8af30849a5abf3bde933fbff59a7d8dfc1b72f7cd0bf0569e0b3942df046c1",
+    "sourceSha256": "68f0dcb1e6c40bcfc47e8ef9defb8588c500d720ed627d7ff7b24d561f50761e",
     "sourceItemCount": 1902,
-    "sourceBlockCount": 15244,
+    "sourceBlockCount": 15267,
     "byCategory": {
       "generals": {
         "sourceRecords": 499,
@@ -2420,7 +2420,7 @@
         "disposition": "independently_scanned_by_update01"
       }
     ],
-    "likelyMisclassificationCount": 2393,
+    "likelyMisclassificationCount": 2397,
     "likelyMisclassifications": [
       {
         "blockId": "generals:0:9",
@@ -31370,7 +31370,32 @@
         "reason": "condition_heading_is_collapsed_into_conditioned_effect"
       },
       {
-        "blockId": "equipments:95:3",
+        "blockId": "equipments:95:5",
+        "category": "equipments",
+        "entity": "黄焔柳緑披風",
+        "currentType": "condition",
+        "suggestedRole": "trigger",
+        "tags": [
+          "condition.placement_role",
+          "trigger.tactic_activation"
+        ],
+        "sourceText": "▼主将戦法発動時",
+        "reason": "trigger_is_collapsed_into_condition"
+      },
+      {
+        "blockId": "equipments:95:10",
+        "category": "equipments",
+        "entity": "黄焔柳緑披風",
+        "currentType": "condition",
+        "suggestedRole": "trigger",
+        "tags": [
+          "trigger.damage_event"
+        ],
+        "sourceText": "▼戦法のダメージを受けて壊滅しなかった時",
+        "reason": "trigger_is_collapsed_into_condition"
+      },
+      {
+        "blockId": "equipments:95:14",
         "category": "equipments",
         "entity": "黄焔柳緑披風",
         "currentType": "condition",
@@ -31383,7 +31408,7 @@
         "reason": "trigger_is_collapsed_into_condition"
       },
       {
-        "blockId": "equipments:95:9",
+        "blockId": "equipments:95:20",
         "category": "equipments",
         "entity": "黄焔柳緑披風",
         "currentType": "condition",
@@ -31733,7 +31758,7 @@
         "reason": "trigger_is_collapsed_into_condition"
       },
       {
-        "blockId": "equipments:104:3",
+        "blockId": "equipments:104:4",
         "category": "equipments",
         "entity": "励志方正冠",
         "currentType": "condition",
@@ -31747,6 +31772,33 @@
       },
       {
         "blockId": "equipments:104:9",
+        "category": "equipments",
+        "entity": "励志方正冠",
+        "currentType": "condition",
+        "suggestedRole": "trigger",
+        "tags": [
+          "condition.placement_role",
+          "condition.target_relation",
+          "trigger.tactic_activation"
+        ],
+        "sourceText": "▼自部隊の副将が戦法を発動する度",
+        "reason": "trigger_is_collapsed_into_condition"
+      },
+      {
+        "blockId": "equipments:104:15",
+        "category": "equipments",
+        "entity": "励志方正冠",
+        "currentType": "condition",
+        "suggestedRole": "trigger",
+        "tags": [
+          "trigger.custom_event",
+          "trigger.tactic_activation"
+        ],
+        "sourceText": "▼この技能を持つ武将が戦法を発動した時",
+        "reason": "trigger_is_collapsed_into_condition"
+      },
+      {
+        "blockId": "equipments:104:21",
         "category": "equipments",
         "entity": "励志方正冠",
         "currentType": "condition",
@@ -59029,7 +59081,7 @@
         "reason": "condition_marker_word_without_explicit_parent_link"
       }
     ],
-    "conditionBlocksWithoutParentEffectLinkCount": 5195,
+    "conditionBlocksWithoutParentEffectLinkCount": 5200,
     "reuseDecision": "diagnostic_input_only",
     "limitations": [
       "statusEffects are not included in the current generator category list.",
@@ -64684,7 +64736,7 @@
       "sourceIndex": 121,
       "name": "UR廖化（りょうか）",
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/453618",
-      "unitCount": 61,
+      "unitCount": 67,
       "tags": [
         "condition.count_threshold",
         "condition.entity_state_relation",
@@ -64711,16 +64763,16 @@
         "trigger.tactic_activation"
       ],
       "disposition": "semantic_units_scanned",
-      "conditionalUnitCount": 17,
+      "conditionalUnitCount": 18,
       "primaryRoleCounts": {
         "conditionedEffect": 3,
-        "context": 12,
-        "effect": 29,
+        "context": 13,
+        "effect": 33,
         "condition": 7,
-        "trigger": 7,
+        "trigger": 8,
         "description": 3
       },
-      "unitDigest": "7ab7a93b2078c0c758167beeeaaa708afe1a668d472d7569e8f0814e94fd2f05"
+      "unitDigest": "cfc7ae27a57c0eb7f8b0ab29a745bba3cce53ad9b9eda71bab216a8dc77e9434"
     },
     {
       "id": "generals:122",
@@ -65464,7 +65516,7 @@
       "sourceIndex": 138,
       "name": "UR張昭（ちょうしょう）",
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/440901",
-      "unitCount": 68,
+      "unitCount": 74,
       "tags": [
         "condition.affinity",
         "condition.count_threshold",
@@ -65472,6 +65524,7 @@
         "condition.placement_role",
         "condition.skill_level",
         "condition.star_rank",
+        "condition.status_presence_count",
         "condition.target_relation",
         "condition.troop_type",
         "context.always",
@@ -65481,24 +65534,26 @@
         "modifier.additive",
         "modifier.cap_floor",
         "modifier.conditional_adjustment",
+        "modifier.multiplier",
         "targeting.target_count",
         "trigger.custom_event",
         "trigger.engagement_start",
+        "trigger.normal_attack",
         "trigger.sortie",
         "trigger.tactic_activation"
       ],
       "disposition": "semantic_units_scanned",
-      "conditionalUnitCount": 23,
+      "conditionalUnitCount": 24,
       "primaryRoleCounts": {
         "conditionedEffect": 1,
         "condition": 15,
-        "effect": 37,
-        "context": 7,
-        "trigger": 6,
+        "effect": 41,
+        "context": 8,
+        "trigger": 7,
         "description": 1,
         "modifier": 1
       },
-      "unitDigest": "9aa517a05c32736d983a645bbfdba383ce4d9133575fc1c9b040c025733092b1"
+      "unitDigest": "0354acd7645221d317f1181af0de1475cd263502e2ac67fff369eea4b64ee645"
     },
     {
       "id": "generals:139",

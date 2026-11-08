@@ -1,38 +1,38 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-31T05:17:16.170Z",
-  "dataSetId": "2026-10-17T02-12-44-246Z",
-  "crawlerVersion": "1.1.0.11",
+  "generatedAt": "2026-11-08T09:53:21.902Z",
+  "dataSetId": "2026-10-31T05-16-29-474Z",
+  "crawlerVersion": "1.1.0.12",
   "generator": "hado_crawler_extension",
-  "acquiredAt": "2026-10-17T01:56:42.204Z",
-  "processedAt": "2026-10-17T02:13:23.899Z",
-  "sourceRunId": "2026-10-17T02-12-44-246Z",
-  "sourceCrawlerVersion": "1.1.0.6",
-  "sourceCommit": "8239d70ed4d43f2b762858a1c14c21f221c9757b",
+  "acquiredAt": "2026-10-31T03:56:14.654Z",
+  "processedAt": "2026-10-31T05:17:14.250Z",
+  "sourceRunId": "2026-10-31T05-16-29-474Z",
+  "sourceCrawlerVersion": "1.1.0.11",
+  "sourceCommit": "0a10c86ea11f0fd1bb2515ec57883a4c75c22e74",
   "sourceCommitRole": "application-generation-base",
-  "sourceBranch": "feature/app-3.1.2.0",
-  "crawlerSourceCommit": "",
-  "crawlerSourceBranch": "",
-  "crawlerSourceCommitStatus": "unknown-in-source-run",
+  "sourceBranch": "feature/app-3.2.0.0",
+  "crawlerSourceCommit": "c14aff14a3265835f770881be68130ccc545ee28",
+  "crawlerSourceBranch": "codex/category-skip-20261031",
+  "crawlerSourceCommitStatus": "recorded",
   "provenance": {
     "acquisition": {
-      "acquiredAt": "2026-10-17T01:56:42.204Z",
-      "dataUpdatedAt": "2026-10-17T01:56:42.204Z",
-      "runId": "2026-10-17T02-12-44-246Z",
-      "recoverySourceRunId": "2026-10-17T00-41-45-707Z"
+      "acquiredAt": "2026-10-31T03:56:14.654Z",
+      "dataUpdatedAt": "2026-10-31T03:56:14.654Z",
+      "runId": "2026-10-31T05-16-29-474Z",
+      "recoverySourceRunId": "2026-10-31T03-27-46-736Z"
     },
     "processing": {
-      "processedAt": "2026-10-17T02:13:23.899Z",
-      "sourceExportedAt": "2026-10-17T02:13:23.899Z",
-      "generatedAt": "2026-10-31T05:17:16.170Z"
+      "processedAt": "2026-10-31T05:17:14.250Z",
+      "sourceExportedAt": "2026-10-31T05:17:14.250Z",
+      "generatedAt": "2026-11-08T09:53:21.902Z"
     },
     "source": {
-      "recordedCommit": "8239d70ed4d43f2b762858a1c14c21f221c9757b",
+      "recordedCommit": "0a10c86ea11f0fd1bb2515ec57883a4c75c22e74",
       "recordedCommitRole": "application-generation-base",
-      "sourceBranch": "feature/app-3.1.2.0",
-      "crawlerSourceCommit": "",
-      "crawlerSourceBranch": "",
-      "crawlerSourceCommitStatus": "unknown-in-source-run"
+      "sourceBranch": "feature/app-3.2.0.0",
+      "crawlerSourceCommit": "c14aff14a3265835f770881be68130ccc545ee28",
+      "crawlerSourceBranch": "codex/category-skip-20261031",
+      "crawlerSourceCommitStatus": "recorded"
     }
   },
   "sourceFiles": [
@@ -105,7 +105,7 @@
     "warhorses": "c5edd890",
     "warhorseSkills": "fac49238"
   },
-  "hotfixVersion": "1.1.0.11",
+  "hotfixVersion": "1.1.0.12",
   "kind": "equipment_skill_stage_index",
   "qualityAudit": {
     "itemCount": 267,
@@ -119,7 +119,7 @@
       "policy": "同じ表示名の装備記事は段階・技能・根拠URLを統合し、先頭記事だけを採用しない。"
     },
     "withSkills": 235,
-    "stageParameterEffectCount": 1318,
+    "stageParameterEffectCount": 1323,
     "suspiciousSkillNameCount": 0,
     "suspiciousSkillNameSamples": [],
     "suspiciousParameterEffectCount": 0,
@@ -13591,7 +13591,7 @@
       "name": "黄焔柳緑披風",
       "displayName": "黄焔柳緑披風",
       "rawName": "【三國志 覇道】黄焔柳緑披風",
-      "highestRarity": "SSR",
+      "highestRarity": "UR",
       "slot": "防具",
       "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
@@ -13664,15 +13664,27 @@
           "skills": [
             {
               "skillName": "誠心敬仰",
-              "text": "■常に ●部隊の「耐心」の技能Lv+1（上限2） ●部隊の「仰信」の技能Lv+1（上限3）"
+              "text": "■常に ●部隊の「耐心」の技能Lv+1（上限2） ●部隊の「仰信」の技能Lv+1（上限3） ●部隊の兵力+4％ ●部隊の攻撃+4%"
             },
             {
               "skillName": "勇升壮烈",
-              "text": "■常に ●部隊の「勇進」の技能Lv+1（上限2）▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身を含む味方3部隊に15%の有利巧守を付与（10秒）"
+              "text": "■常に ●部隊の「勇進」の技能Lv+1（上限2）▼主将戦法発動時 ●自身を含む味方3部隊の攻撃+25%（10秒） ●自身を含む味方3部隊の防御+25%（10秒） ●自身を含む味方3部隊に15%の有利巧守を付与（10秒） ●自身1部隊に5％の憤撃を付与（30秒）"
+            },
+            {
+              "skillName": "堪撃癒術",
+              "text": "■常に▼戦法のダメージを受けて壊滅しなかった時 ●自身1部隊の負傷兵を最大兵力の20％回復"
             }
           ],
-          "skillCount": 2,
+          "skillCount": 3,
           "parameterEffects": [
+            {
+              "parameter": "攻撃",
+              "direction": "increase",
+              "value": "+4%",
+              "targetSide": "self_or_ally",
+              "matchedText": "攻撃+4%",
+              "sourcePartType": "equipment-skill-stage"
+            },
             {
               "parameter": "攻撃",
               "direction": "increase",
@@ -13688,6 +13700,14 @@
               "targetSide": "self_or_ally",
               "matchedText": "防御+25%",
               "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "兵力",
+              "direction": "increase",
+              "value": "+4％",
+              "targetSide": "self_or_ally",
+              "matchedText": "兵力+4％",
+              "sourcePartType": "equipment-skill-stage"
             }
           ]
         }
@@ -13695,6 +13715,15 @@
       "stageCandidates": [
         {
           "tableIndex": 2,
+          "skillCount": 3,
+          "skillNames": [
+            "誠心敬仰",
+            "勇升壮烈",
+            "堪撃癒術"
+          ]
+        },
+        {
+          "tableIndex": 3,
           "skillCount": 2,
           "skillNames": [
             "誠心敬仰",
@@ -13702,7 +13731,7 @@
           ]
         },
         {
-          "tableIndex": 3,
+          "tableIndex": 4,
           "skillCount": 2,
           "skillNames": [
             "誠心敬仰",
@@ -14975,7 +15004,7 @@
       "name": "励志方正冠",
       "displayName": "励志方正冠",
       "rawName": "【三國志 覇道】励志方正冠",
-      "highestRarity": "SSR",
+      "highestRarity": "UR",
       "slot": "防具",
       "troopType": "騎兵 歩兵 弓兵 盾兵 工兵",
       "stages": {
@@ -15032,14 +15061,18 @@
           "skills": [
             {
               "skillName": "統督奮走",
-              "text": "■常に ●部隊の「教督」の技能Lv+1（上限5） ●部隊の「活奮」の技能Lv+1（上限3）"
+              "text": "■常に ●部隊の「教督」の技能Lv+2（上限5） ●部隊の「活奮」の技能Lv+1（上限3） ●部隊の知力+4％"
             },
             {
               "skillName": "万政連躍",
               "text": "■常に ●部隊の「発檄」の技能Lv+1（上限2） ●政治を部隊能力に加算する技能の効果量+5%▼この技能を持つ武将が戦法を発動した時 ●自身を含む味方3部隊に1回の攻撃無効を付与（15秒） →戦法発動時の連鎖数に応じて、付与する回数が増加（2連鎖時は2回、3連鎖時は3回） ●自身を含む味方3部隊の攻撃速度+50%（15秒） ●自身を含む味方3部隊を全ての兵科と物体に対して有利にする（15秒）"
+            },
+            {
+              "skillName": "連志聡励",
+              "text": "■常に ●自部隊に発生している強化効果の数×1％、通常攻撃・戦法による被ダメージを軽減（最大10％）▼自部隊の副将が戦法を発動する度 ●自身を含む味方3部隊の知力+25％（10秒） ●自身を含む味方3部隊の防御+25%（10秒）"
             }
           ],
-          "skillCount": 2,
+          "skillCount": 3,
           "parameterEffects": [
             {
               "parameter": "攻撃速度",
@@ -15048,6 +15081,30 @@
               "targetSide": "self_or_ally",
               "matchedText": "攻撃速度+50%",
               "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "防御",
+              "direction": "increase",
+              "value": "+25%",
+              "targetSide": "self_or_ally",
+              "matchedText": "防御+25%",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+4％",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+4％",
+              "sourcePartType": "equipment-skill-stage"
+            },
+            {
+              "parameter": "知力",
+              "direction": "increase",
+              "value": "+25％",
+              "targetSide": "self_or_ally",
+              "matchedText": "知力+25％",
+              "sourcePartType": "equipment-skill-stage"
             }
           ]
         }
@@ -15055,6 +15112,15 @@
       "stageCandidates": [
         {
           "tableIndex": 2,
+          "skillCount": 3,
+          "skillNames": [
+            "統督奮走",
+            "万政連躍",
+            "連志聡励"
+          ]
+        },
+        {
+          "tableIndex": 3,
           "skillCount": 2,
           "skillNames": [
             "統督奮走",
@@ -15062,7 +15128,7 @@
           ]
         },
         {
-          "tableIndex": 3,
+          "tableIndex": 4,
           "skillCount": 2,
           "skillNames": [
             "統督奮走",
