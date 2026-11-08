@@ -30,6 +30,8 @@ COMMANDS: list[list[str]] = [
     ["node", "--check", "hado_tag_highlight.js"],
     ["node", "--check", "hado_bootstrap.js"],
     ["node", "--check", "hado_formation.js"],
+    ["node", "--check", "hado_formation_compare.js"],
+    ["node", "tools/test_3_2_0_0_update07_formation_compare.js"],
     ["node", "--check", "hado_type_candidates.js"],
     ["node", "--check", "hado_type_entry.js"],
     ["node", "--check", "hado_type_data_store.js"],
