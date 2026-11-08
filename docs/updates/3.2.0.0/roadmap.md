@@ -9,7 +9,7 @@
 - 起点: main e9153a954a998ad346c6ad7beb876056c11c52fb / 正式版3.1.2.1
 - Preview表示: 3.2.0.0 UpdateNN rNNN
 - 正式版表示: 3.2.0.0
-- 開発状態: Update01、割込みr214、Update02 r215、Update03 r216、Update04 r218、Update05 r225、Update06 r226完了。Update07未開始。正式公開なし。
+- 開発状態: Update01、割込みr214、Update02 r215、Update03 r216、Update04 r218、Update05 r225、Update06 r226完了。Update07 r227開発・検証中。正式公開なし。
 - 公式情報確認日: 2026-10-17
 
 Update番号は大型開発を段階管理する計画識別子であり、通常の機能改善では使用しない。3.2.0.0の全Update完了後はUpdate番号を終了し、正式版では4桁版のみを表示する。rNNNはPreviewビルド識別子であり、番号は開始時に現行revisionを確認して連番で決定する。
@@ -128,9 +128,9 @@ Update番号は大型開発を段階管理する計画識別子であり、通�
 
 ### Update07 — 保存編成比較・整理
 
-**予定表示版:** 3.2.0.0 Update07 rNNN
+**現在開発版:** 3.2.0.0 Update07 r227
 
-**状態:** 計画
+**状態:** 開発・検証中。[計画](update07/roadmap.md) / [実装](update07/implementation.md) / [報告](update07/report.md)。Preview未完了。
 
 - 2つの保存編成について武将、配置、侍従、装備、軍馬技能、評価の差分を表示する。
 - 比較は読み取り専用または複製を基本にし、元データを上書きしない。
