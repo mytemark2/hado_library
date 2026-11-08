@@ -1,75 +1,27 @@
 'use strict';
-
-const assert=require('assert');
-const fs=require('fs');
-const path=require('path');
-
-const ROOT=path.resolve(__dirname,'..');
-const read=name=>JSON.parse(fs.readFileSync(path.join(ROOT,name),'utf8'));
-const rows=obj=>Array.isArray(obj)?obj:(Array.isArray(obj?.items)?obj.items:[]);
-const source=fs.readFileSync(path.join(ROOT,'hado_status_effects.js'),'utf8');
-
-function extractFunction(name){
-  const start=source.indexOf(`function ${name}(`);
-  assert(start>=0,`${name} source`);
-  const bodyStart=source.indexOf('{',start);
-  let depth=0;
-  for(let index=bodyStart;index<source.length;index++){
-    if(source[index]==='{')depth++;
-    else if(source[index]==='}'&&--depth===0)return source.slice(start,index+1);
-  }
-  throw new Error(`${name} closing brace`);
-}
-
-const norm=value=>String(value??'').replace(/\s+/g,' ').trim();
-const state={viewMode:'all',stage:'urMax',savedSearchCacheKey:''};
-const helpers={
-  state,
-  getEffectiveEquipmentStageForItem:()=>state.stage,
-  buildSavedSearchCacheKey:()=>'',
-  getCurrentSave:()=>null,
-  getItemDisplayName:item=>item?.name||'',
-  findFirstTableValue:()=>'',
-  equipmentStageLabel:stage=>stage==='initial'?'初期':(stage==='ssrMax'?'SSR最大':'UR最大'),
-  selectEquipmentSkillStageBlock:()=>({block:null}),
-  norm
-};
-const helperNames=Object.keys(helpers);
-const buildEquipmentStageAwareSearchableText=Function(...helperNames,`return (${extractFunction('buildEquipmentStageAwareSearchableText')});`)(...helperNames.map(key=>helpers[key]));
-const getFastSearchableText=Function(...helperNames,'buildEquipmentStageAwareSearchableText','normalizeDerivedSearchCategory','detailCategory','buildSearchableText',`return (${extractFunction('getFastSearchableText')});`)(...helperNames.map(key=>helpers[key]),buildEquipmentStageAwareSearchableText,value=>value,item=>item?.sourceDataset||'',()=> '');
-
-const search=read('hadou_search_index.json');
-const equipmentRows=rows(search).filter(row=>row.category==='equipments');
-assert.strictEqual(equipmentRows.length,rows(read('hadou_equipments.json')).length);
-assert.strictEqual(search.qualityAudit?.equipmentStageCoverage?.ok,true);
-assert.strictEqual(search.qualityAudit.equipmentStageCoverage.missingSkillRefCount,0);
-
-const expected={
-  initial:['弘雅守信冠','金繍緑錦披風','双鉄戟','龍紋緑袍鎧'],
-  ssrMax:['弘雅守信冠','炎帝神農茶譜','金繍緑錦披風','双鉄戟','龍紋緑袍鎧'],
-  urMax:['万里安境矛','龍淵剣','龍紋鉄甲','弘雅守信冠','炎帝神農茶譜','奮勇燕尾牌','金繍緑錦披風','双鉄戟','龍紋緑袍鎧']
-};
-
-for(const stage of Object.keys(expected)){
-  state.stage=stage;
-  const hits=equipmentRows.filter(entry=>getFastSearchableText({name:entry.name,sourceDataset:'equipments',_derivedSearchIndexEntry:entry}).includes('回復')).map(entry=>entry.name);
-  assert.deepStrictEqual(hits,expected[stage],`${stage} 回復 hits`);
-}
-
-const twin=equipmentRows.find(entry=>entry.name==='双鉄戟');
-const item={name:'双鉄戟',sourceDataset:'equipments',_derivedSearchIndexEntry:twin};
-state.stage='initial';
-assert(getFastSearchableText(item).includes('5%回復'));
-assert(!getFastSearchableText(item).includes('25%回復'));
-state.stage='urMax';
-assert(getFastSearchableText(item).includes('25%回復'));
-assert(!getFastSearchableText(item).includes('おすすめ武将'));
-for(const entry of equipmentRows){
-  assert(!Object.values(entry.equipmentStageSearchText||{}).some(text=>String(text).includes('おすすめ武将')),entry.name+' recommendation leak');
-}
-
-assert(/item\._derivedSearchIndexEntry=entry\|\|null/.test(source));
-assert(/normalizeDerivedSearchCategory\(detailCategory\(item\)\)===['"]equipments['"]/.test(source));
-assert(/return buildEquipmentStageAwareSearchableText\(item\)/.test(source));
-
-console.log(JSON.stringify({ok:true,equipmentCount:equipmentRows.length,recoveryHits:Object.fromEntries(Object.entries(expected).map(([stage,names])=>[stage,names.length])),representative:'双鉄戟'},null,2));
+const assert=require('assert'),path=require('path');
+const {runtimeHarness,expectedStageText,assertEquipmentSearchContract}=require('./equipment_search_contract');
+const runtime=runtimeHarness(path.resolve(__dirname,'..'));
+// Owned examples, independent of the current game data.
+const fixture=[
+ {name:'段階検証A',baseSearchText:'武器',equipmentStageSearchText:{initial:'初期 技能a 5%回復',ssrMax:'ssr最大 技能a 15%回復',urMax:'ur最大 技能a 25%回復'}},
+ {name:'UR追加検証B',baseSearchText:'防具',equipmentStageSearchText:{initial:'初期 技能b 攻撃上昇',ssrMax:'ssr最大 技能b 防御上昇',urMax:'ur最大 技能b 負傷兵を20%回復'}}
+];
+for(const stage of ['initial','ssrMax','urMax']){runtime.state.stage=stage;assert.deepStrictEqual(fixture.filter(row=>runtime.getText(row).includes('回復')).map(row=>row.name),stage==='urMax'?['段階検証A','UR追加検証B']:['段階検証A']);}
+runtime.state.stage='initial';assert(runtime.getText(fixture[0]).includes('5%回復'));assert(!runtime.getText(fixture[0]).includes('25%回復'));
+runtime.state.stage='urMax';assert(runtime.getText(fixture[0]).includes('25%回復'));
+const changed=structuredClone(fixture[1]);changed.name='改名された装備';changed.equipmentStageSearchText.urMax='ur最大 技能c 30%回復';assert(runtime.getText(changed).includes('30%回復'));
+changed.equipmentStageSearchText.urMax='ur最大 技能c 攻撃上昇';assert(!runtime.getText(changed).includes('回復'));
+const primary={items:[{url:'https://example.invalid/1'}]};
+const source={items:[{name:'検証',stages:Object.fromEntries(['initial','ssrMax','urMax'].map(key=>[key,{label:key,skills:[{skillName:'検証技能',text:key==='urMax'?'20%回復':'攻撃上昇'}]}]))}],qualityAudit:{duplicateMergeAudit:{ok:true}}};
+const search={items:[{category:'equipments',name:'検証',sourceUrl:primary.items[0].url,equipmentStageSearchText:Object.fromEntries(Object.entries(source.items[0].stages).map(([key,stage])=>[key,expectedStageText(stage,key)]))}],qualityAudit:{equipmentStageCoverage:{ok:true}}};
+assertEquipmentSearchContract(primary,source,search);
+for(const corrupt of [
+ value=>{delete value.items[0].equipmentStageSearchText.urMax;},
+ value=>{value.items[0].equipmentStageSearchText.initial+=' 20%回復';},
+ value=>{value.items[0].equipmentStageSearchText.urMax='urMax 技能欠落';},
+ value=>{value.items=[];}
+]){const broken=structuredClone(search);corrupt(broken);assert.throws(()=>assertEquipmentSearchContract(primary,source,broken));}
+const brokenSource=structuredClone(source);delete brokenSource.items[0].stages.urMax;
+assert.throws(()=>assertEquipmentSearchContract(primary,brokenSource,search));
+console.log('equipment fixture: additions, UR upgrades, renames, ability changes/removal and stage isolation passed');

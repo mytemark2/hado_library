@@ -15,6 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 COMMANDS: list[list[str]] = [
+    ["node", "tools/test_validation_data_boundaries.js"],
     ["node", "tools/test_current_data_audit.js"],
     ["node", "tools/test_crawler_data_contract.js"],
     ["node", "--check", "hado_version.js"],
@@ -87,6 +88,7 @@ COMMANDS.extend(
         ["node", "tools/test_update09_5_60_search_mode_isolation.js"],
         ["node", "tools/test_update09_5_61_candidate_workspace.js"],
         ["node", "tools/test_update09_5_63_equipment_search_stage.js"],
+        ["node", "tools/test_equipment_stage_live_contract.js"],
         ["node", "tools/test_restored_data_order.js"],
         ["node", "tools/test_update09_5_64_candidate_workspace_flow.js"],
         ["node", "tools/test_update09_5_65_candidate_draft_resume.js"],
@@ -176,6 +178,8 @@ COMMANDS.extend(
 def main() -> int:
     for idx, cmd in enumerate(COMMANDS, 1):
         resolved_cmd = [sys.executable, *cmd[1:]] if cmd and cmd[0] == "python3" else cmd
+        if cmd[0] == "node" and len(cmd) > 1 and (cmd[1].startswith("tools/test") or cmd[1] == "hado_status_effect_regression.js"):
+            resolved_cmd = ["node", "--require", str(ROOT / "tools/validation_data_access.js"), *cmd[1:]]
         print(f"[{idx}/{len(COMMANDS)}] $ {' '.join(resolved_cmd)}", flush=True)
         quiet_json = len(cmd) >= 3 and cmd[1:3] == ["-m", "json.tool"]
         result = subprocess.run(

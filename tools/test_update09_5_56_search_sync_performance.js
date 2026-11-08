@@ -52,7 +52,7 @@ for (const excluded of ['解説専用語', '兵科能力専用語', '兵科ラ�
 }
 assert(searchable.includes('実効果専用語'), 'actual tactic effect must remain searchable');
 
-const generals = require('../hadou_generals.json').items;
+const generals = require('./fixtures/search_boundaries').generals.items;
 function runtimeItem(item) {
   const tables = searchContext.normalizeHadouTables(item.tables);
   return { ...item, sourceDataset: 'generals', tables, raw: { ...item, tables } };

@@ -321,6 +321,8 @@ When preview matters, include a dedicated **Preview confirmation** subsection wi
 
 ## 15. Maintain this file
 
+Validation data boundary: `tools/validation_data_access.js` is preloaded by `tools/run_app_validation.py` for Node regression tests. Tests not registered as current-data contracts must not read root `hadou_*.json`. Use owned fixtures for fixed names/abilities/search-result sets, and current primary-to-index parity for live acceptance; registering a reader requires reviewing every assertion for mutable game semantics. Run `node tools/test_validation_data_boundaries.js` and `node tools/test_equipment_stage_live_contract.js`. Keep loss floors, retained article identities, schema, source evidence and hash gates intact.
+
 If repository inspection reveals that a path, command, workflow name, or record location is stable and important, update this `AGENTS.md` or an existing linked repository document in the same pull request.
 
 Keep this file concise and actionable. Put Update-specific requirements in the Update document or task prompt rather than accumulating them here.

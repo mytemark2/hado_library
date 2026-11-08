@@ -7,11 +7,9 @@ const vm = require('vm');
 
 const searchSource = fs.readFileSync('hado_search.js', 'utf8');
 const coreSource = fs.readFileSync('hado_core.js', 'utf8');
-const ownerIndex = JSON.parse(fs.readFileSync('hadou_status_effect_group_owner_index.json', 'utf8'));
-const group = (ownerIndex.items || []).find(item => item.groupKey === 'selfResistanceBuff');
-assert(group, 'self-disadvantage owner index must exist');
-const sourceOwner = (group.owners?.generals || []).find(owner => owner.name === 'LR張角（ちょうかく）' && owner.statusEffectName === '感電回避[大賢]');
-assert(sourceOwner, 'the generated owner index must contain LR張角 through 大賢');
+// Owned shape fixture: actual owners/abilities may change without a schema change.
+const sourceOwner = {name: 'LR張角（ちょうかく）', statusEffectName: '感電回避[大賢]', source: '検証技能', matchedText: '感電を回避'};
+const group = {groupKey: 'selfResistanceBuff', owners: {generals: [sourceOwner]}};
 
 function extractFunction(source, name) {
   const start = source.indexOf(`function ${name}(`);

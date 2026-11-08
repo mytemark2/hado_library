@@ -12,7 +12,8 @@ const equipment = ['weapon','armor','treasure'];
 const advisors = ['leadership','war','intelligence','politics','charm'];
 const troopApi = require('../hado_troop_skills.js');
 const generals = JSON.parse(fs.readFileSync('hadou_generals.json','utf8')).items;
-const findGeneral = name => generals.find(item => (item.name || '').replace(/^【[^】]*】/,'').split('（')[0] === name) || null;
+const fixtureGenerals = [['LR袁紹','騎兵'],['LR李典','工兵']].map(([name,troop])=>({name,tables:[{rows:[['兵科',troop,'相性','A']]}]}));
+const findGeneral = name => fixtureGenerals.find(item => item.name === name) || null;
 const state = {saveData:freeze(clone(fixture)),formations:freeze(clone([a,b])),formationGroups:fixture.formationData.groups,
   currentFormationId:a.id,currentFormationGroupId:a.groupId,formationDirty:false,viewMode:'saved',diagnostics:{original:true},_formationClauseSurface:{original:true}};
 const ctx = {state,window:{},console,document:{},setTimeout,clearTimeout,

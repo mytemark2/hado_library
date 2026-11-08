@@ -75,7 +75,6 @@ for (const count of [5, 6]) {
 require('assert').throws(() => checkOwners(['a'], ['a', 'b'], 'missing'), /differ/);
 require('assert').throws(() => checkOwners(['a', 'a'], ['a', 'b'], 'duplicate'), /duplicate/);
 require('assert').throws(() => checkOwners(['a', 'c'], ['a', 'b'], 'wrong owner'), /differ/);
-assert(trainingGenerals.includes('UR関興（かんこう）'), '練兵 general owners must include UR関興');
-assert(trainingEquipments.includes('張飛の頭巾'), '練兵 equipment owners must include 張飛の頭巾');
+// Complete source-roster equality above, not dated owner names, is authoritative.
 
 console.log(`update11.1 skill-owner tag regression ok: ${coveredSkillEntries} skills / ${generalLinks} general links / ${equipmentLinks} equipment links`);

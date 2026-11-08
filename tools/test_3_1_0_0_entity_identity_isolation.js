@@ -76,12 +76,9 @@ const generalNames = rows(relatedData).filter(item => normalizeCategory(item?.ca
 const criticalResistanceOwners = generalNames.filter(name => integration.getCanonicalStatusMatches({
   category: 'generals', name, statusName: '会心耐性', groupKey: 'selfResistanceBuff'
 }).some(row => row.statusEffectKey === 'statusEffects:13')).sort();
-assert.deepStrictEqual(criticalResistanceOwners, [
-  'UR兀突骨（ごつとつこつ）',
-  'UR曹洪（そうこう）',
-  'UR張角（ちょうかく）'
-].sort(), '会心耐性 must belong only to the three source generals');
-assert(!integration.getEntitySearchText('generals', 'LR張角（ちょうかく）').includes('会心耐性'), 'normal search text must not inherit UR張角 status effects');
+assert.deepStrictEqual(criticalResistanceOwners,
+  generalNames.filter(name => expectedStatusKeys.get(entityKey('generals', name))?.has('statusEffects:13')).sort(),
+  'resistance owners must exactly match current canonical source references');
 
 const reviewedCasesByEntity = new Map();
 for (const row of clauseData.reviewedCases || []) {
@@ -110,4 +107,4 @@ assert(bridge.getEntityProjection('generals', 'LR袁紹（えんしょう）').c
 assert.strictEqual(bridge.getEntityProjection('generals', 'UR袁紹（えんしょう）').clauses.length, 0, 'surface clauses must retain exact rarity identity');
 assert(presenter, 'detail presenter must remain loadable');
 
-console.log(`3.1.0.0 entity identity isolation ok: ${entityInfo.size} status entities / ${auditedStatusAssociations} status associations / ${collidedStatusEntities} collision-prone records / ${auditedClauseEntities} Clause entities / 会心耐性 owners=3`);
+console.log(`3.1.0.0 entity identity isolation ok: ${entityInfo.size} status entities / ${auditedStatusAssociations} status associations / ${collidedStatusEntities} collision-prone records / ${auditedClauseEntities} Clause entities / resistance owners=${criticalResistanceOwners.length}`);
