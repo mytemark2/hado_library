@@ -1,38 +1,38 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-31T05:17:16.170Z",
-  "dataSetId": "2026-10-17T02-12-44-246Z",
-  "crawlerVersion": "1.1.0.11",
+  "generatedAt": "2026-11-08T09:53:21.902Z",
+  "dataSetId": "2026-10-31T05-16-29-474Z",
+  "crawlerVersion": "1.1.0.12",
   "generator": "hado_crawler_extension",
-  "acquiredAt": "2026-10-17T01:56:42.204Z",
-  "processedAt": "2026-10-17T02:13:23.899Z",
-  "sourceRunId": "2026-10-17T02-12-44-246Z",
-  "sourceCrawlerVersion": "1.1.0.6",
-  "sourceCommit": "8239d70ed4d43f2b762858a1c14c21f221c9757b",
+  "acquiredAt": "2026-10-31T03:56:14.654Z",
+  "processedAt": "2026-10-31T05:17:14.250Z",
+  "sourceRunId": "2026-10-31T05-16-29-474Z",
+  "sourceCrawlerVersion": "1.1.0.11",
+  "sourceCommit": "0a10c86ea11f0fd1bb2515ec57883a4c75c22e74",
   "sourceCommitRole": "application-generation-base",
-  "sourceBranch": "feature/app-3.1.2.0",
-  "crawlerSourceCommit": "",
-  "crawlerSourceBranch": "",
-  "crawlerSourceCommitStatus": "unknown-in-source-run",
+  "sourceBranch": "feature/app-3.2.0.0",
+  "crawlerSourceCommit": "c14aff14a3265835f770881be68130ccc545ee28",
+  "crawlerSourceBranch": "codex/category-skip-20261031",
+  "crawlerSourceCommitStatus": "recorded",
   "provenance": {
     "acquisition": {
-      "acquiredAt": "2026-10-17T01:56:42.204Z",
-      "dataUpdatedAt": "2026-10-17T01:56:42.204Z",
-      "runId": "2026-10-17T02-12-44-246Z",
-      "recoverySourceRunId": "2026-10-17T00-41-45-707Z"
+      "acquiredAt": "2026-10-31T03:56:14.654Z",
+      "dataUpdatedAt": "2026-10-31T03:56:14.654Z",
+      "runId": "2026-10-31T05-16-29-474Z",
+      "recoverySourceRunId": "2026-10-31T03-27-46-736Z"
     },
     "processing": {
-      "processedAt": "2026-10-17T02:13:23.899Z",
-      "sourceExportedAt": "2026-10-17T02:13:23.899Z",
-      "generatedAt": "2026-10-31T05:17:16.170Z"
+      "processedAt": "2026-10-31T05:17:14.250Z",
+      "sourceExportedAt": "2026-10-31T05:17:14.250Z",
+      "generatedAt": "2026-11-08T09:53:21.902Z"
     },
     "source": {
-      "recordedCommit": "8239d70ed4d43f2b762858a1c14c21f221c9757b",
+      "recordedCommit": "0a10c86ea11f0fd1bb2515ec57883a4c75c22e74",
       "recordedCommitRole": "application-generation-base",
-      "sourceBranch": "feature/app-3.1.2.0",
-      "crawlerSourceCommit": "",
-      "crawlerSourceBranch": "",
-      "crawlerSourceCommitStatus": "unknown-in-source-run"
+      "sourceBranch": "feature/app-3.2.0.0",
+      "crawlerSourceCommit": "c14aff14a3265835f770881be68130ccc545ee28",
+      "crawlerSourceBranch": "codex/category-skip-20261031",
+      "crawlerSourceCommitStatus": "recorded"
     }
   },
   "sourceFiles": [
@@ -105,7 +105,7 @@
     "warhorses": "c5edd890",
     "warhorseSkills": "fac49238"
   },
-  "hotfixVersion": "1.1.0.11",
+  "hotfixVersion": "1.1.0.12",
   "kind": "formation_candidate_index",
   "qualityAudit": {
     "itemCount": 855,
@@ -14425,7 +14425,7 @@
       "category": "equipments",
       "name": "黄焔柳緑披風",
       "displayName": "黄焔柳緑披風",
-      "highestRarity": "SSR",
+      "highestRarity": "UR",
       "slot": "防具",
       "troopTypes": [
         "歩兵",
@@ -14434,13 +14434,14 @@
       ],
       "skillNames": [
         "誠心敬仰",
-        "勇升壮烈"
+        "勇升壮烈",
+        "堪撃癒術"
       ],
-      "skillCount": 2,
+      "skillCount": 3,
       "stageSkillCounts": {
         "initial": 2,
         "ssrMax": 2,
-        "urMax": 2
+        "urMax": 3
       },
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/453622"
     },
@@ -14649,7 +14650,7 @@
       "category": "equipments",
       "name": "励志方正冠",
       "displayName": "励志方正冠",
-      "highestRarity": "SSR",
+      "highestRarity": "UR",
       "slot": "防具",
       "troopTypes": [
         "歩兵",
@@ -14658,13 +14659,14 @@
       ],
       "skillNames": [
         "統督奮走",
-        "万政連躍"
+        "万政連躍",
+        "連志聡励"
       ],
-      "skillCount": 2,
+      "skillCount": 3,
       "stageSkillCounts": {
         "initial": 2,
         "ssrMax": 2,
-        "urMax": 2
+        "urMax": 3
       },
       "sourceUrl": "https://gamewith.jp/sangokushihadou/article/show/440903"
     },

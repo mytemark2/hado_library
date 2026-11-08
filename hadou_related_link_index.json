@@ -1,38 +1,38 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-31T05:17:16.170Z",
-  "dataSetId": "2026-10-17T02-12-44-246Z",
-  "crawlerVersion": "1.1.0.11",
+  "generatedAt": "2026-11-08T09:53:21.902Z",
+  "dataSetId": "2026-10-31T05-16-29-474Z",
+  "crawlerVersion": "1.1.0.12",
   "generator": "hado_crawler_extension",
-  "acquiredAt": "2026-10-17T01:56:42.204Z",
-  "processedAt": "2026-10-17T02:13:23.899Z",
-  "sourceRunId": "2026-10-17T02-12-44-246Z",
-  "sourceCrawlerVersion": "1.1.0.6",
-  "sourceCommit": "8239d70ed4d43f2b762858a1c14c21f221c9757b",
+  "acquiredAt": "2026-10-31T03:56:14.654Z",
+  "processedAt": "2026-10-31T05:17:14.250Z",
+  "sourceRunId": "2026-10-31T05-16-29-474Z",
+  "sourceCrawlerVersion": "1.1.0.11",
+  "sourceCommit": "0a10c86ea11f0fd1bb2515ec57883a4c75c22e74",
   "sourceCommitRole": "application-generation-base",
-  "sourceBranch": "feature/app-3.1.2.0",
-  "crawlerSourceCommit": "",
-  "crawlerSourceBranch": "",
-  "crawlerSourceCommitStatus": "unknown-in-source-run",
+  "sourceBranch": "feature/app-3.2.0.0",
+  "crawlerSourceCommit": "c14aff14a3265835f770881be68130ccc545ee28",
+  "crawlerSourceBranch": "codex/category-skip-20261031",
+  "crawlerSourceCommitStatus": "recorded",
   "provenance": {
     "acquisition": {
-      "acquiredAt": "2026-10-17T01:56:42.204Z",
-      "dataUpdatedAt": "2026-10-17T01:56:42.204Z",
-      "runId": "2026-10-17T02-12-44-246Z",
-      "recoverySourceRunId": "2026-10-17T00-41-45-707Z"
+      "acquiredAt": "2026-10-31T03:56:14.654Z",
+      "dataUpdatedAt": "2026-10-31T03:56:14.654Z",
+      "runId": "2026-10-31T05-16-29-474Z",
+      "recoverySourceRunId": "2026-10-31T03-27-46-736Z"
     },
     "processing": {
-      "processedAt": "2026-10-17T02:13:23.899Z",
-      "sourceExportedAt": "2026-10-17T02:13:23.899Z",
-      "generatedAt": "2026-10-31T05:17:16.170Z"
+      "processedAt": "2026-10-31T05:17:14.250Z",
+      "sourceExportedAt": "2026-10-31T05:17:14.250Z",
+      "generatedAt": "2026-11-08T09:53:21.902Z"
     },
     "source": {
-      "recordedCommit": "8239d70ed4d43f2b762858a1c14c21f221c9757b",
+      "recordedCommit": "0a10c86ea11f0fd1bb2515ec57883a4c75c22e74",
       "recordedCommitRole": "application-generation-base",
-      "sourceBranch": "feature/app-3.1.2.0",
-      "crawlerSourceCommit": "",
-      "crawlerSourceBranch": "",
-      "crawlerSourceCommitStatus": "unknown-in-source-run"
+      "sourceBranch": "feature/app-3.2.0.0",
+      "crawlerSourceCommit": "c14aff14a3265835f770881be68130ccc545ee28",
+      "crawlerSourceBranch": "codex/category-skip-20261031",
+      "crawlerSourceCommitStatus": "recorded"
     }
   },
   "sourceFiles": [
@@ -105,16 +105,16 @@
     "warhorses": "c5edd890",
     "warhorseSkills": "fac49238"
   },
-  "hotfixVersion": "1.1.0.11",
+  "hotfixVersion": "1.1.0.12",
   "kind": "related_link_index",
   "qualityAudit": {
-    "itemCount": 3058,
-    "totalRelatedCount": 14309,
+    "itemCount": 3060,
+    "totalRelatedCount": 14315,
     "categoryCounts": {
       "generals": 499,
       "tactics": 478,
       "equipments": 267,
-      "skills": 1480,
+      "skills": 1482,
       "statusEffects": 214,
       "siegeWeapons": 6,
       "ethnicArmaments": 18,
@@ -126,12 +126,12 @@
     },
     "coverageAudit": {
       "ok": true,
-      "expectedDatasetItemCount": 3058,
-      "indexedItemCount": 3058,
+      "expectedDatasetItemCount": 3060,
+      "indexedItemCount": 3060,
       "missingCount": 0,
       "missingSourceEntityKeys": [],
-      "applicationSkillExpectedCount": 1480,
-      "applicationSkillIndexedCount": 1480,
+      "applicationSkillExpectedCount": 1482,
+      "applicationSkillIndexedCount": 1482,
       "missingApplicationSkillCount": 0,
       "missingApplicationSkillNames": [],
       "statusEffectExpectedCount": 214,
@@ -163,14 +163,14 @@
     },
     "annotationLeakAudit": {
       "ok": true,
-      "checkedItemCount": 3016,
+      "checkedItemCount": 3018,
       "ngCount": 0,
       "items": [],
       "policy": "1.0.5.13: 生成時に採用した直接付与句をsourceText/directGrantVerifiedで監査する。局所証拠に注記・例外説明・条件参照が混入した場合、または直接付与根拠のない二段階派生が1件でもあれば派生JSON出力を停止する。条件参照の「状態変化名が発生している場合」は直接付与として採用しない。"
     },
     "displayRoleAudit": {
       "ok": true,
-      "version": "1.1.0.11",
+      "version": "1.1.0.12",
       "functionalSummaryCount": 1213,
       "grantedStatusCount": 295,
       "directStatusCount": 5331,
@@ -689,12 +689,12 @@
     },
     "appSupplementMigration": {
       "ok": true,
-      "version": "1.1.0.11",
+      "version": "1.1.0.12",
       "policy": "アプリ側で補完していた自部隊不利対策はself_countermeasure_indexとしてrelated_link_indexへ生成済み。アプリは表示のみ担当し、異常検知は診断で可視化する。"
     },
     "selfCountermeasureFullAudit": {
       "ok": true,
-      "version": "1.1.0.11",
+      "version": "1.1.0.12",
       "skillCount": 112,
       "grantingSkillCount": 28,
       "grantOnlySkillCount": 27,
@@ -450592,6 +450592,27 @@
             "targetKey": "skills:name-efcc1a7d",
             "qualifierKey": "",
             "relatedRef": "skill:skills:name-efcc1a7d"
+          },
+          {
+            "category": "skills",
+            "name": "堪撃癒術",
+            "source": "skill_owner_index",
+            "skillName": "堪撃癒術",
+            "displayName": "堪撃癒術",
+            "linkTarget": "堪撃癒術",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "skillDomain": "equipmentSkill",
+            "skillDomains": [
+              "equipmentSkill"
+            ],
+            "skillKey": "skills:name-a0c89e51",
+            "targetDomain": "skill",
+            "targetKey": "skills:name-a0c89e51",
+            "qualifierKey": "",
+            "relatedRef": "skill:skills:name-a0c89e51"
           }
         ],
         "equipments": [],
@@ -450738,13 +450759,39 @@
               "qualifierKey": "",
               "relatedRef": "skill:skills:name-efcc1a7d"
             }
+          },
+          {
+            "category": "skills",
+            "name": "堪撃癒術",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "skills",
+              "name": "堪撃癒術",
+              "source": "skill_owner_index",
+              "skillName": "堪撃癒術",
+              "displayName": "堪撃癒術",
+              "linkTarget": "堪撃癒術",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "skillDomain": "equipmentSkill",
+              "skillDomains": [
+                "equipmentSkill"
+              ],
+              "skillKey": "skills:name-a0c89e51",
+              "targetDomain": "skill",
+              "targetKey": "skills:name-a0c89e51",
+              "qualifierKey": "",
+              "relatedRef": "skill:skills:name-a0c89e51"
+            }
           }
         ]
       },
       "relatedCounts": {
         "generals": 0,
         "tactics": 0,
-        "skills": 5,
+        "skills": 6,
         "equipments": 0,
         "statusEffects": 0,
         "formations": 0,
@@ -450756,9 +450803,9 @@
         "parameterEffects": 0,
         "statusGroups": 0,
         "mechanics": 0,
-        "sourceRefs": 5
+        "sourceRefs": 6
       },
-      "totalRelatedCount": 5,
+      "totalRelatedCount": 6,
       "sourceEntityKey": "equipments:article-453622"
     },
     {
@@ -453177,6 +453224,29 @@
           },
           {
             "category": "skills",
+            "name": "軽減",
+            "source": "skill_owner_index",
+            "skillName": "軽減",
+            "displayName": "軽減",
+            "linkTarget": "軽減",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "skillDomain": "generalSkill",
+            "skillDomains": [
+              "generalSkill",
+              "equipmentSkill",
+              "warhorseSkill"
+            ],
+            "skillKey": "skills:article-261381",
+            "targetDomain": "skill",
+            "targetKey": "skills:article-261381",
+            "qualifierKey": "",
+            "relatedRef": "skill:skills:article-261381"
+          },
+          {
+            "category": "skills",
             "name": "統督奮走",
             "source": "skill_owner_index",
             "skillName": "統督奮走",
@@ -453216,6 +453286,27 @@
             "targetKey": "skills:name-8f729abf",
             "qualifierKey": "",
             "relatedRef": "skill:skills:name-8f729abf"
+          },
+          {
+            "category": "skills",
+            "name": "連志聡励",
+            "source": "skill_owner_index",
+            "skillName": "連志聡励",
+            "displayName": "連志聡励",
+            "linkTarget": "連志聡励",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "skillDomain": "equipmentSkill",
+            "skillDomains": [
+              "equipmentSkill"
+            ],
+            "skillKey": "skills:name-1805ddf1",
+            "targetDomain": "skill",
+            "targetKey": "skills:name-1805ddf1",
+            "qualifierKey": "",
+            "relatedRef": "skill:skills:name-1805ddf1"
           }
         ],
         "equipments": [],
@@ -453313,6 +453404,34 @@
           },
           {
             "category": "skills",
+            "name": "軽減",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "skills",
+              "name": "軽減",
+              "source": "skill_owner_index",
+              "skillName": "軽減",
+              "displayName": "軽減",
+              "linkTarget": "軽減",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "skillDomain": "generalSkill",
+              "skillDomains": [
+                "generalSkill",
+                "equipmentSkill",
+                "warhorseSkill"
+              ],
+              "skillKey": "skills:article-261381",
+              "targetDomain": "skill",
+              "targetKey": "skills:article-261381",
+              "qualifierKey": "",
+              "relatedRef": "skill:skills:article-261381"
+            }
+          },
+          {
+            "category": "skills",
             "name": "統督奮走",
             "source": "skill_owner_index",
             "detail": {
@@ -453362,13 +453481,39 @@
               "qualifierKey": "",
               "relatedRef": "skill:skills:name-8f729abf"
             }
+          },
+          {
+            "category": "skills",
+            "name": "連志聡励",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "skills",
+              "name": "連志聡励",
+              "source": "skill_owner_index",
+              "skillName": "連志聡励",
+              "displayName": "連志聡励",
+              "linkTarget": "連志聡励",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "skillDomain": "equipmentSkill",
+              "skillDomains": [
+                "equipmentSkill"
+              ],
+              "skillKey": "skills:name-1805ddf1",
+              "targetDomain": "skill",
+              "targetKey": "skills:name-1805ddf1",
+              "qualifierKey": "",
+              "relatedRef": "skill:skills:name-1805ddf1"
+            }
           }
         ]
       },
       "relatedCounts": {
         "generals": 0,
         "tactics": 0,
-        "skills": 5,
+        "skills": 7,
         "equipments": 0,
         "statusEffects": 0,
         "formations": 0,
@@ -453380,9 +453525,9 @@
         "parameterEffects": 0,
         "statusGroups": 0,
         "mechanics": 0,
-        "sourceRefs": 5
+        "sourceRefs": 7
       },
-      "totalRelatedCount": 5,
+      "totalRelatedCount": 7,
       "sourceEntityKey": "equipments:article-440903"
     },
     {
@@ -694613,6 +694758,20 @@
           },
           {
             "category": "equipments",
+            "name": "励志方正冠",
+            "source": "skill_owner_index",
+            "skillName": "軽減",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "targetDomain": "equipments",
+            "targetKey": "equipments:article-440903",
+            "qualifierKey": "",
+            "relatedRef": "equipments:equipments:article-440903"
+          },
+          {
+            "category": "equipments",
             "name": "奉天銀灰冠",
             "source": "skill_owner_index",
             "skillName": "軽減",
@@ -695089,6 +695248,25 @@
           },
           {
             "category": "equipments",
+            "name": "励志方正冠",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "equipments",
+              "name": "励志方正冠",
+              "source": "skill_owner_index",
+              "skillName": "軽減",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "targetDomain": "equipments",
+              "targetKey": "equipments:article-440903",
+              "qualifierKey": "",
+              "relatedRef": "equipments:equipments:article-440903"
+            }
+          },
+          {
+            "category": "equipments",
             "name": "奉天銀灰冠",
             "source": "skill_owner_index",
             "detail": {
@@ -695283,7 +695461,7 @@
         "generals": 4,
         "tactics": 0,
         "skills": 0,
-        "equipments": 21,
+        "equipments": 22,
         "statusEffects": 0,
         "formations": 0,
         "warhorses": 0,
@@ -695294,9 +695472,9 @@
         "parameterEffects": 0,
         "statusGroups": 0,
         "mechanics": 0,
-        "sourceRefs": 27
+        "sourceRefs": 28
       },
-      "totalRelatedCount": 27,
+      "totalRelatedCount": 28,
       "sourceEntityKey": "skills:article-261381"
     },
     {
@@ -753442,6 +753620,81 @@
     },
     {
       "category": "skills",
+      "name": "堪撃癒術",
+      "related": {
+        "generals": [],
+        "tactics": [],
+        "skills": [],
+        "equipments": [
+          {
+            "category": "equipments",
+            "name": "黄焔柳緑披風",
+            "source": "skill_owner_index",
+            "skillName": "堪撃癒術",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "targetDomain": "equipments",
+            "targetKey": "equipments:article-453622",
+            "qualifierKey": "",
+            "relatedRef": "equipments:equipments:article-453622"
+          }
+        ],
+        "statusEffects": [],
+        "formations": [],
+        "warhorses": [],
+        "warhorseSkills": [],
+        "ethnicArmaments": [],
+        "ethnicResearchSkills": [],
+        "siegeWeapons": [],
+        "parameterEffects": [],
+        "statusGroups": [],
+        "mechanics": [],
+        "sourceRefs": [
+          {
+            "category": "equipments",
+            "name": "黄焔柳緑披風",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "equipments",
+              "name": "黄焔柳緑披風",
+              "source": "skill_owner_index",
+              "skillName": "堪撃癒術",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "targetDomain": "equipments",
+              "targetKey": "equipments:article-453622",
+              "qualifierKey": "",
+              "relatedRef": "equipments:equipments:article-453622"
+            }
+          }
+        ]
+      },
+      "relatedCounts": {
+        "generals": 0,
+        "tactics": 0,
+        "skills": 0,
+        "equipments": 1,
+        "statusEffects": 0,
+        "formations": 0,
+        "warhorses": 0,
+        "warhorseSkills": 0,
+        "ethnicArmaments": 0,
+        "ethnicResearchSkills": 0,
+        "siegeWeapons": 0,
+        "parameterEffects": 0,
+        "statusGroups": 0,
+        "mechanics": 0,
+        "sourceRefs": 1
+      },
+      "totalRelatedCount": 1,
+      "sourceEntityKey": "skills:name-a0c89e51"
+    },
+    {
+      "category": "skills",
       "name": "倒騎聡慧",
       "related": {
         "generals": [],
@@ -755389,6 +755642,81 @@
       },
       "totalRelatedCount": 1,
       "sourceEntityKey": "skills:name-8f729abf"
+    },
+    {
+      "category": "skills",
+      "name": "連志聡励",
+      "related": {
+        "generals": [],
+        "tactics": [],
+        "skills": [],
+        "equipments": [
+          {
+            "category": "equipments",
+            "name": "励志方正冠",
+            "source": "skill_owner_index",
+            "skillName": "連志聡励",
+            "isAdvisorSkill": false,
+            "usage": "normal",
+            "ownerType": "equipment",
+            "sourcePartType": "equipment-skill-table",
+            "targetDomain": "equipments",
+            "targetKey": "equipments:article-440903",
+            "qualifierKey": "",
+            "relatedRef": "equipments:equipments:article-440903"
+          }
+        ],
+        "statusEffects": [],
+        "formations": [],
+        "warhorses": [],
+        "warhorseSkills": [],
+        "ethnicArmaments": [],
+        "ethnicResearchSkills": [],
+        "siegeWeapons": [],
+        "parameterEffects": [],
+        "statusGroups": [],
+        "mechanics": [],
+        "sourceRefs": [
+          {
+            "category": "equipments",
+            "name": "励志方正冠",
+            "source": "skill_owner_index",
+            "detail": {
+              "category": "equipments",
+              "name": "励志方正冠",
+              "source": "skill_owner_index",
+              "skillName": "連志聡励",
+              "isAdvisorSkill": false,
+              "usage": "normal",
+              "ownerType": "equipment",
+              "sourcePartType": "equipment-skill-table",
+              "targetDomain": "equipments",
+              "targetKey": "equipments:article-440903",
+              "qualifierKey": "",
+              "relatedRef": "equipments:equipments:article-440903"
+            }
+          }
+        ]
+      },
+      "relatedCounts": {
+        "generals": 0,
+        "tactics": 0,
+        "skills": 0,
+        "equipments": 1,
+        "statusEffects": 0,
+        "formations": 0,
+        "warhorses": 0,
+        "warhorseSkills": 0,
+        "ethnicArmaments": 0,
+        "ethnicResearchSkills": 0,
+        "siegeWeapons": 0,
+        "parameterEffects": 0,
+        "statusGroups": 0,
+        "mechanics": 0,
+        "sourceRefs": 1
+      },
+      "totalRelatedCount": 1,
+      "sourceEntityKey": "skills:name-1805ddf1"
     },
     {
       "category": "skills",

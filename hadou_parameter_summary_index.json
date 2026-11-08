@@ -1,38 +1,38 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-31T05:17:16.170Z",
-  "dataSetId": "2026-10-17T02-12-44-246Z",
-  "crawlerVersion": "1.1.0.11",
+  "generatedAt": "2026-11-08T09:53:21.902Z",
+  "dataSetId": "2026-10-31T05-16-29-474Z",
+  "crawlerVersion": "1.1.0.12",
   "generator": "hado_crawler_extension",
-  "acquiredAt": "2026-10-17T01:56:42.204Z",
-  "processedAt": "2026-10-17T02:13:23.899Z",
-  "sourceRunId": "2026-10-17T02-12-44-246Z",
-  "sourceCrawlerVersion": "1.1.0.6",
-  "sourceCommit": "8239d70ed4d43f2b762858a1c14c21f221c9757b",
+  "acquiredAt": "2026-10-31T03:56:14.654Z",
+  "processedAt": "2026-10-31T05:17:14.250Z",
+  "sourceRunId": "2026-10-31T05-16-29-474Z",
+  "sourceCrawlerVersion": "1.1.0.11",
+  "sourceCommit": "0a10c86ea11f0fd1bb2515ec57883a4c75c22e74",
   "sourceCommitRole": "application-generation-base",
-  "sourceBranch": "feature/app-3.1.2.0",
-  "crawlerSourceCommit": "",
-  "crawlerSourceBranch": "",
-  "crawlerSourceCommitStatus": "unknown-in-source-run",
+  "sourceBranch": "feature/app-3.2.0.0",
+  "crawlerSourceCommit": "c14aff14a3265835f770881be68130ccc545ee28",
+  "crawlerSourceBranch": "codex/category-skip-20261031",
+  "crawlerSourceCommitStatus": "recorded",
   "provenance": {
     "acquisition": {
-      "acquiredAt": "2026-10-17T01:56:42.204Z",
-      "dataUpdatedAt": "2026-10-17T01:56:42.204Z",
-      "runId": "2026-10-17T02-12-44-246Z",
-      "recoverySourceRunId": "2026-10-17T00-41-45-707Z"
+      "acquiredAt": "2026-10-31T03:56:14.654Z",
+      "dataUpdatedAt": "2026-10-31T03:56:14.654Z",
+      "runId": "2026-10-31T05-16-29-474Z",
+      "recoverySourceRunId": "2026-10-31T03-27-46-736Z"
     },
     "processing": {
-      "processedAt": "2026-10-17T02:13:23.899Z",
-      "sourceExportedAt": "2026-10-17T02:13:23.899Z",
-      "generatedAt": "2026-10-31T05:17:16.170Z"
+      "processedAt": "2026-10-31T05:17:14.250Z",
+      "sourceExportedAt": "2026-10-31T05:17:14.250Z",
+      "generatedAt": "2026-11-08T09:53:21.902Z"
     },
     "source": {
-      "recordedCommit": "8239d70ed4d43f2b762858a1c14c21f221c9757b",
+      "recordedCommit": "0a10c86ea11f0fd1bb2515ec57883a4c75c22e74",
       "recordedCommitRole": "application-generation-base",
-      "sourceBranch": "feature/app-3.1.2.0",
-      "crawlerSourceCommit": "",
-      "crawlerSourceBranch": "",
-      "crawlerSourceCommitStatus": "unknown-in-source-run"
+      "sourceBranch": "feature/app-3.2.0.0",
+      "crawlerSourceCommit": "c14aff14a3265835f770881be68130ccc545ee28",
+      "crawlerSourceBranch": "codex/category-skip-20261031",
+      "crawlerSourceCommitStatus": "recorded"
     }
   },
   "sourceFiles": [
@@ -105,10 +105,10 @@
     "warhorses": "c5edd890",
     "warhorseSkills": "fac49238"
   },
-  "hotfixVersion": "1.1.0.11",
+  "hotfixVersion": "1.1.0.12",
   "kind": "parameter_summary_index",
   "qualityAudit": {
-    "rejectedCount": 46939,
+    "rejectedCount": 46967,
     "rejectedSamples": [
       {
         "parameter": "攻撃",
@@ -511,12 +511,12 @@
         "matchedText": "知力系統） 兼才を持つ武将LR李典 運搬 Ⅰ■常に ●部隊の輸送力+3%"
       }
     ],
-    "acceptedCount": 45981,
+    "acceptedCount": 46023,
     "contractAudit": {
       "ok": true,
-      "originalEffectCount": 19965,
-      "keptEffectCount": 18678,
-      "droppedEffectCount": 1287,
+      "originalEffectCount": 19975,
+      "keptEffectCount": 18687,
+      "droppedEffectCount": 1288,
       "arrayFragmentCount": 0,
       "keywordSource": "canonical parameterKey"
     }
@@ -77465,6 +77465,32 @@
         {
           "parameter": "攻撃",
           "direction": "increase",
+          "value": "+4%",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃+4%",
+          "parameterKey": "attack",
+          "keywords": [
+            "攻撃"
+          ],
+          "sourceEntityKey": "generals:article-453618",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[15].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-453618:skill_text:attack:increase:self_or_ally:a4898b4e"
+        },
+        {
+          "parameter": "攻撃",
+          "direction": "increase",
           "value": "10",
           "targetSide": "self_or_ally",
           "matchedText": "兵科効果攻撃命令時に自身1部隊に3度の走撃を付与",
@@ -77593,9 +77619,36 @@
             "reason": "Structured primary evidence for the matching source role."
           },
           "parameterFeatureKey": "generals:article-453618:skill_text:troops:increase:self_or_ally:c7414c38"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "+4％",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵力+4％",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "generals:article-453618",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[15].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-453618:skill_text:troops:increase:self_or_ally:a8380558"
         }
       ],
-      "effectCount": 23,
+      "effectCount": 25,
       "sourceEntityKey": "generals:article-453618"
     },
     {
@@ -89305,6 +89358,33 @@
         },
         {
           "parameter": "被ダメージ",
+          "direction": "decrease",
+          "value": "10％",
+          "targetSide": "self_or_ally",
+          "matchedText": "被ダメージを軽減（最大10％",
+          "parameterKey": "damage_received",
+          "keywords": [
+            "被ダメージ",
+            "受けるダメージ"
+          ],
+          "sourceEntityKey": "generals:article-440901",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[15].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-440901:skill_text:damage_received:decrease:self_or_ally:0d56ff41"
+        },
+        {
+          "parameter": "被ダメージ",
           "direction": "increase",
           "value": "15",
           "targetSide": "self_or_ally",
@@ -89598,6 +89678,32 @@
         },
         {
           "parameter": "防御",
+          "direction": "increase",
+          "value": "+25%",
+          "targetSide": "self_or_ally",
+          "matchedText": "防御+25%",
+          "parameterKey": "defense",
+          "keywords": [
+            "防御"
+          ],
+          "sourceEntityKey": "generals:article-440901",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[15].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-440901:skill_text:defense:increase:self_or_ally:7ba197b4"
+        },
+        {
+          "parameter": "防御",
           "direction": "decrease",
           "value": "-6％",
           "targetSide": "self_or_ally",
@@ -89863,6 +89969,58 @@
         {
           "parameter": "知力",
           "direction": "increase",
+          "value": "+4％",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+4％",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "generals:article-440901",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[15].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-440901:skill_text:intelligence:increase:self_or_ally:63d6bfa8"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+25％",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+25％",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "generals:article-440901",
+          "sourcePartType": "skill_text",
+          "evidencePath": "sections[15].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "main_general",
+              "vice_general",
+              "support_general",
+              "attendant"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "generals:article-440901:skill_text:intelligence:increase:self_or_ally:dcd1248d"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
           "value": "30",
           "targetSide": "self_or_ally",
           "matchedText": "任命効果+30%Ⅲ",
@@ -89887,7 +90045,7 @@
           "parameterFeatureKey": "generals:article-440901:skill_text:intelligence:increase:self_or_ally:4766b23e"
         }
       ],
-      "effectCount": 25,
+      "effectCount": 29,
       "sourceEntityKey": "generals:article-440901"
     },
     {
@@ -368796,19 +368954,19 @@
       "title": "【三國志 覇道】黄焔柳緑披風の能力と技能",
       "effects": [
         {
-          "parameter": "攻撃速度",
+          "parameter": "通常攻撃威力",
           "direction": "increase",
-          "value": "7",
-          "targetSide": "self_or_ally",
-          "matchedText": "特にUR廖化が将星★7で習得する勇進の戦法ゲージ上昇量を増やせる点が強力",
-          "parameterKey": "attack_speed",
+          "value": "3",
+          "targetSide": "enemy",
+          "matchedText": "部隊の「仰信」の技能Lv+1（上限3）勇升壮烈",
+          "parameterKey": "normal_attack_power",
           "keywords": [
-            "攻撃速度",
-            "通常攻撃速度"
+            "通常攻撃威力",
+            "通常攻撃ダメージ"
           ],
           "sourceEntityKey": "equipments:article-453622",
           "sourcePartType": "equipment_skill_text",
-          "evidencePath": "sections[1].content[0]",
+          "evidencePath": "sections[4].content[2]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -368817,18 +368975,64 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "parameterFeatureKey": "equipments:article-453622:equipment_skill_text:attack_speed:increase:self_or_ally:4d41052f"
+          "parameterFeatureKey": "equipments:article-453622:equipment_skill_text:normal_attack_power:increase:enemy:ff9afc8f"
         },
         {
-          "parameter": "与ダメージ",
+          "parameter": "会心威力",
           "direction": "increase",
+          "value": "3",
+          "targetSide": "enemy",
+          "matchedText": "部隊の「仰信」の技能Lv+1（上限3）勇升壮烈",
+          "parameterKey": "critical_power",
+          "keywords": [
+            "会心威力"
+          ],
+          "sourceEntityKey": "equipments:article-453622",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[4].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-453622:equipment_skill_text:critical_power:increase:enemy:ff9afc8f"
+        },
+        {
+          "parameter": "会心威力",
+          "direction": "increase",
+          "value": "2",
+          "targetSide": "self_or_ally",
+          "matchedText": "部隊の「耐心」の技能Lv+1（上限2）",
+          "parameterKey": "critical_power",
+          "keywords": [
+            "会心威力"
+          ],
+          "sourceEntityKey": "equipments:article-453622",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[4].content[2]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-453622:equipment_skill_text:critical_power:increase:self_or_ally:559499a0"
+        },
+        {
+          "parameter": "被ダメージ",
+          "direction": "decrease",
           "value": "7",
           "targetSide": "self_or_ally",
           "matchedText": "特にUR廖化が将星★7で習得する勇進の戦法ゲージ上昇量を増やせる点が強力",
-          "parameterKey": "damage_dealt",
+          "parameterKey": "damage_received",
           "keywords": [
-            "与ダメージ",
-            "与えるダメージ"
+            "被ダメージ",
+            "受けるダメージ"
           ],
           "sourceEntityKey": "equipments:article-453622",
           "sourcePartType": "equipment_skill_text",
@@ -368841,7 +369045,30 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "parameterFeatureKey": "equipments:article-453622:equipment_skill_text:damage_dealt:increase:self_or_ally:4d41052f"
+          "parameterFeatureKey": "equipments:article-453622:equipment_skill_text:damage_received:decrease:self_or_ally:4d41052f"
+        },
+        {
+          "parameter": "攻撃",
+          "direction": "increase",
+          "value": "+4%",
+          "targetSide": "self_or_ally",
+          "matchedText": "攻撃+4%",
+          "parameterKey": "attack",
+          "keywords": [
+            "攻撃"
+          ],
+          "sourceEntityKey": "equipments:article-453622",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[4].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-453622:equipment_skill_text:attack:increase:self_or_ally:15aeaf50"
         },
         {
           "parameter": "攻撃",
@@ -368892,9 +369119,9 @@
         {
           "parameter": "攻撃",
           "direction": "increase",
-          "value": "2750",
+          "value": "3",
           "targetSide": "self_or_ally",
-          "matchedText": "自身1部隊の攻撃+15%（10秒）",
+          "matchedText": "部隊の「仰信」の技能Lv+1（上限3）勇升壮烈",
           "parameterKey": "attack",
           "keywords": [
             "攻撃"
@@ -368910,53 +369137,7 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "parameterFeatureKey": "equipments:article-453622:equipment_skill_text:attack:increase:self_or_ally:6a321644"
-        },
-        {
-          "parameter": "攻撃",
-          "direction": "increase",
-          "value": "1.2",
-          "targetSide": "enemy",
-          "matchedText": "自身1部隊の攻撃+15%（10秒）",
-          "parameterKey": "attack",
-          "keywords": [
-            "攻撃"
-          ],
-          "sourceEntityKey": "equipments:article-453622",
-          "sourcePartType": "equipment_skill_text",
-          "evidencePath": "sections[4].content[2]",
-          "roleGate": {
-            "scoreEligible": true,
-            "allowedRoleIds": [
-              "equipment"
-            ],
-            "allowedSlots": [],
-            "reason": "Structured primary evidence for the matching source role."
-          },
-          "parameterFeatureKey": "equipments:article-453622:equipment_skill_text:attack:increase:enemy:6a321644"
-        },
-        {
-          "parameter": "攻撃",
-          "direction": "increase",
-          "value": "2",
-          "targetSide": "self_or_ally",
-          "matchedText": "部隊の「耐心」の技能Lv+1（上限2）",
-          "parameterKey": "attack",
-          "keywords": [
-            "攻撃"
-          ],
-          "sourceEntityKey": "equipments:article-453622",
-          "sourcePartType": "equipment_skill_text",
-          "evidencePath": "sections[4].content[2]",
-          "roleGate": {
-            "scoreEligible": true,
-            "allowedRoleIds": [
-              "equipment"
-            ],
-            "allowedSlots": [],
-            "reason": "Structured primary evidence for the matching source role."
-          },
-          "parameterFeatureKey": "equipments:article-453622:equipment_skill_text:attack:increase:self_or_ally:559499a0"
+          "parameterFeatureKey": "equipments:article-453622:equipment_skill_text:attack:increase:self_or_ally:ff9afc8f"
         },
         {
           "parameter": "攻撃",
@@ -368980,6 +369161,29 @@
             "reason": "Structured primary evidence for the matching source role."
           },
           "parameterFeatureKey": "equipments:article-453622:equipment_skill_text:attack:increase:self_or_ally:4d41052f"
+        },
+        {
+          "parameter": "攻撃",
+          "direction": "decrease",
+          "value": "7",
+          "targetSide": "self_or_ally",
+          "matchedText": "特にUR廖化が将星★7で習得する勇進の戦法ゲージ上昇量を増やせる点が強力",
+          "parameterKey": "attack",
+          "keywords": [
+            "攻撃"
+          ],
+          "sourceEntityKey": "equipments:article-453622",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[1].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-453622:equipment_skill_text:attack:decrease:self_or_ally:4d41052f"
         },
         {
           "parameter": "防御",
@@ -369030,9 +369234,9 @@
         {
           "parameter": "防御",
           "direction": "increase",
-          "value": "50％",
+          "value": "+1",
           "targetSide": "self_or_ally",
-          "matchedText": "自身1部隊の防御+15%（10秒）",
+          "matchedText": "部隊の「耐心」の技能Lv+1（上限2）",
           "parameterKey": "defense",
           "keywords": [
             "防御"
@@ -369048,69 +369252,21 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "parameterFeatureKey": "equipments:article-453622:equipment_skill_text:defense:increase:self_or_ally:93903419"
+          "parameterFeatureKey": "equipments:article-453622:equipment_skill_text:defense:increase:self_or_ally:559499a0"
         },
         {
-          "parameter": "命中",
-          "direction": "decrease",
-          "value": "3",
-          "targetSide": "enemy",
-          "matchedText": "部隊の「仰信」の技能Lv+1（上限3）勇升壮烈",
-          "parameterKey": "accuracy",
-          "keywords": [
-            "命中"
-          ],
-          "sourceEntityKey": "equipments:article-453622",
-          "sourcePartType": "equipment_skill_text",
-          "evidencePath": "sections[4].content[2]",
-          "roleGate": {
-            "scoreEligible": true,
-            "allowedRoleIds": [
-              "equipment"
-            ],
-            "allowedSlots": [],
-            "reason": "Structured primary evidence for the matching source role."
-          },
-          "parameterFeatureKey": "equipments:article-453622:equipment_skill_text:accuracy:decrease:enemy:ff9afc8f"
-        },
-        {
-          "parameter": "兵力",
+          "parameter": "知力",
           "direction": "increase",
-          "value": "3",
-          "targetSide": "enemy",
-          "matchedText": "部隊の「仰信」の技能Lv+1（上限3）勇升壮烈",
-          "parameterKey": "troops",
-          "keywords": [
-            "兵力",
-            "最大兵力"
-          ],
-          "sourceEntityKey": "equipments:article-453622",
-          "sourcePartType": "equipment_skill_text",
-          "evidencePath": "sections[4].content[2]",
-          "roleGate": {
-            "scoreEligible": true,
-            "allowedRoleIds": [
-              "equipment"
-            ],
-            "allowedSlots": [],
-            "reason": "Structured primary evidence for the matching source role."
-          },
-          "parameterFeatureKey": "equipments:article-453622:equipment_skill_text:troops:increase:enemy:ff9afc8f"
-        },
-        {
-          "parameter": "兵力",
-          "direction": "increase",
-          "value": "4",
+          "value": "7",
           "targetSide": "self_or_ally",
-          "matchedText": "勇進のLv上昇効果は鍛錬段階★4で追加される",
-          "parameterKey": "troops",
+          "matchedText": "特にUR廖化が将星★7で習得する勇進の戦法ゲージ上昇量を増やせる点が強力",
+          "parameterKey": "intelligence",
           "keywords": [
-            "兵力",
-            "最大兵力"
+            "知力"
           ],
           "sourceEntityKey": "equipments:article-453622",
           "sourcePartType": "equipment_skill_text",
-          "evidencePath": "sections[2].content[0]",
+          "evidencePath": "sections[1].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -369119,11 +369275,58 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "parameterFeatureKey": "equipments:article-453622:equipment_skill_text:troops:increase:self_or_ally:63149213"
+          "parameterFeatureKey": "equipments:article-453622:equipment_skill_text:intelligence:increase:self_or_ally:4d41052f"
+        },
+        {
+          "parameter": "機動",
+          "direction": "increase",
+          "value": "7",
+          "targetSide": "self_or_ally",
+          "matchedText": "特にUR廖化が将星★7で習得する勇進の戦法ゲージ上昇量を増やせる点が強力",
+          "parameterKey": "mobility",
+          "keywords": [
+            "機動"
+          ],
+          "sourceEntityKey": "equipments:article-453622",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[1].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-453622:equipment_skill_text:mobility:increase:self_or_ally:4d41052f"
         },
         {
           "parameter": "兵力",
           "direction": "increase",
+          "value": "+4％",
+          "targetSide": "self_or_ally",
+          "matchedText": "兵力+4％",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "equipments:article-453622",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[4].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-453622:equipment_skill_text:troops:increase:self_or_ally:e2c75e26"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "decrease",
           "value": "7",
           "targetSide": "self_or_ally",
           "matchedText": "特にUR廖化が将星★7で習得する勇進の戦法ゲージ上昇量を増やせる点が強力",
@@ -369143,10 +369346,34 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "parameterFeatureKey": "equipments:article-453622:equipment_skill_text:troops:increase:self_or_ally:4d41052f"
+          "parameterFeatureKey": "equipments:article-453622:equipment_skill_text:troops:decrease:self_or_ally:4d41052f"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "decrease",
+          "value": "1",
+          "targetSide": "self_or_ally",
+          "matchedText": "武将特徴 / 所持技能UR廖化天賦1000 / 騎兵 / 耐心 / 仰信 / 巡察 / 勇進 / -",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "equipments:article-453622",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[7].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-453622:equipment_skill_text:troops:decrease:self_or_ally:a38d752d"
         }
       ],
-      "effectCount": 15,
+      "effectCount": 18,
       "sourceEntityKey": "equipments:article-453622"
     },
     {
@@ -371937,30 +372164,6 @@
       "title": "【三國志 覇道】励志方正冠の能力と技能",
       "effects": [
         {
-          "parameter": "戦法威力",
-          "direction": "increase",
-          "value": "50%",
-          "targetSide": "self_or_ally",
-          "matchedText": "自身を含む味方3部隊の攻撃速度+50%（15秒）",
-          "parameterKey": "tactic_power",
-          "keywords": [
-            "戦法威力",
-            "戦法ダメージ"
-          ],
-          "sourceEntityKey": "equipments:article-440903",
-          "sourcePartType": "equipment_skill_text",
-          "evidencePath": "sections[4].content[0]",
-          "roleGate": {
-            "scoreEligible": true,
-            "allowedRoleIds": [
-              "equipment"
-            ],
-            "allowedSlots": [],
-            "reason": "Structured primary evidence for the matching source role."
-          },
-          "parameterFeatureKey": "equipments:article-440903:equipment_skill_text:tactic_power:increase:self_or_ally:3ee65752"
-        },
-        {
           "parameter": "攻撃速度",
           "direction": "increase",
           "value": "+50%",
@@ -372009,39 +372212,15 @@
           "parameterFeatureKey": "equipments:article-440903:equipment_skill_text:attack_speed:increase:self_or_ally:20bae59f"
         },
         {
-          "parameter": "戦法速度",
+          "parameter": "攻撃速度",
           "direction": "increase",
-          "value": "50%",
-          "targetSide": "self_or_ally",
-          "matchedText": "自身を含む味方3部隊の攻撃速度+50%（15秒）",
-          "parameterKey": "tactic_speed",
-          "keywords": [
-            "戦法速度",
-            "戦法発動速度"
-          ],
-          "sourceEntityKey": "equipments:article-440903",
-          "sourcePartType": "equipment_skill_text",
-          "evidencePath": "sections[4].content[0]",
-          "roleGate": {
-            "scoreEligible": true,
-            "allowedRoleIds": [
-              "equipment"
-            ],
-            "allowedSlots": [],
-            "reason": "Structured primary evidence for the matching source role."
-          },
-          "parameterFeatureKey": "equipments:article-440903:equipment_skill_text:tactic_speed:increase:self_or_ally:3ee65752"
-        },
-        {
-          "parameter": "与ダメージ",
-          "direction": "increase",
-          "value": "3",
+          "value": "20％",
           "targetSide": "self_or_ally",
           "matchedText": "鍛錬を進めると発檄が強化されるようになり、戦法発動時に味方3部隊へ攻撃無効と攻撃速度上昇を付与した上で全兵科有利にするので、十分に使いこなすには鍛錬を進める必要がある",
-          "parameterKey": "damage_dealt",
+          "parameterKey": "attack_speed",
           "keywords": [
-            "与ダメージ",
-            "与えるダメージ"
+            "攻撃速度",
+            "通常攻撃速度"
           ],
           "sourceEntityKey": "equipments:article-440903",
           "sourcePartType": "equipment_skill_text",
@@ -372054,22 +372233,22 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "parameterFeatureKey": "equipments:article-440903:equipment_skill_text:damage_dealt:increase:self_or_ally:a36e0b3f"
+          "parameterFeatureKey": "equipments:article-440903:equipment_skill_text:attack_speed:increase:self_or_ally:a36e0b3f"
         },
         {
-          "parameter": "与ダメージ",
+          "parameter": "被ダメージ",
           "direction": "decrease",
-          "value": "1",
+          "value": "10％",
           "targetSide": "self_or_ally",
-          "matchedText": "武将特徴 / 所持技能UR張昭天賦1000 / 弓兵 / 教督 / 活奮 / 監督 / 発檄 / -",
-          "parameterKey": "damage_dealt",
+          "matchedText": "被ダメージを軽減（最大10％",
+          "parameterKey": "damage_received",
           "keywords": [
-            "与ダメージ",
-            "与えるダメージ"
+            "被ダメージ",
+            "受けるダメージ"
           ],
           "sourceEntityKey": "equipments:article-440903",
           "sourcePartType": "equipment_skill_text",
-          "evidencePath": "sections[5].content[0]",
+          "evidencePath": "sections[4].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -372078,14 +372257,14 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "parameterFeatureKey": "equipments:article-440903:equipment_skill_text:damage_dealt:decrease:self_or_ally:0632847c"
+          "parameterFeatureKey": "equipments:article-440903:equipment_skill_text:damage_received:decrease:self_or_ally:99c94663"
         },
         {
           "parameter": "被ダメージ",
           "direction": "decrease",
-          "value": "1",
+          "value": "10％",
           "targetSide": "self_or_ally",
-          "matchedText": "武将特徴 / 所持技能UR張昭天賦1000 / 弓兵 / 教督 / 活奮 / 監督 / 発檄 / -",
+          "matchedText": "自部隊に発生している強化効果の数×1％、通常攻撃・戦法による被ダメージを軽減（最大10％）",
           "parameterKey": "damage_received",
           "keywords": [
             "被ダメージ",
@@ -372102,21 +372281,22 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "parameterFeatureKey": "equipments:article-440903:equipment_skill_text:damage_received:decrease:self_or_ally:0632847c"
+          "parameterFeatureKey": "equipments:article-440903:equipment_skill_text:damage_received:decrease:self_or_ally:af42e2f3"
         },
         {
-          "parameter": "攻撃",
+          "parameter": "被ダメージ",
           "direction": "increase",
-          "value": "7",
+          "value": "5000",
           "targetSide": "self_or_ally",
-          "matchedText": "鍛錬を進めると発檄が強化されるようになり、戦法発動時に味方3部隊へ攻撃無効と攻撃速度上昇を付与した上で全兵科有利にするので、十分に使いこなすには鍛錬を進める必要がある",
-          "parameterKey": "attack",
+          "matchedText": "自部隊に発生している強化効果の数×1％、通常攻撃・戦法による被ダメージを軽減（最大10％）",
+          "parameterKey": "damage_received",
           "keywords": [
-            "攻撃"
+            "被ダメージ",
+            "受けるダメージ"
           ],
           "sourceEntityKey": "equipments:article-440903",
           "sourcePartType": "equipment_skill_text",
-          "evidencePath": "sections[2].content[0]",
+          "evidencePath": "sections[5].content[0]",
           "roleGate": {
             "scoreEligible": true,
             "allowedRoleIds": [
@@ -372125,14 +372305,83 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "parameterFeatureKey": "equipments:article-440903:equipment_skill_text:attack:increase:self_or_ally:a36e0b3f"
+          "parameterFeatureKey": "equipments:article-440903:equipment_skill_text:damage_received:increase:self_or_ally:af42e2f3"
+        },
+        {
+          "parameter": "防御",
+          "direction": "increase",
+          "value": "+25%",
+          "targetSide": "self_or_ally",
+          "matchedText": "防御+25%",
+          "parameterKey": "defense",
+          "keywords": [
+            "防御"
+          ],
+          "sourceEntityKey": "equipments:article-440903",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[4].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-440903:equipment_skill_text:defense:increase:self_or_ally:c2d77fca"
         },
         {
           "parameter": "知力",
           "direction": "increase",
-          "value": "100%",
+          "value": "+4％",
           "targetSide": "self_or_ally",
-          "matchedText": "励志方正冠は技能「教督」とUR張昭の専用技能「活奮」と「発檄」を強化する知力防具",
+          "matchedText": "知力+4％",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "equipments:article-440903",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[4].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-440903:equipment_skill_text:intelligence:increase:self_or_ally:1e78f1d6"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "+25％",
+          "targetSide": "self_or_ally",
+          "matchedText": "知力+25％",
+          "parameterKey": "intelligence",
+          "keywords": [
+            "知力"
+          ],
+          "sourceEntityKey": "equipments:article-440903",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[4].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-440903:equipment_skill_text:intelligence:increase:self_or_ally:8570922b"
+        },
+        {
+          "parameter": "知力",
+          "direction": "increase",
+          "value": "100％",
+          "targetSide": "self_or_ally",
+          "matchedText": "励志方正冠はUR張昭の技能「教督」と技能「活奮」と「発檄」を強化する知力防具",
           "parameterKey": "intelligence",
           "keywords": [
             "知力"
@@ -372148,10 +372397,34 @@
             "allowedSlots": [],
             "reason": "Structured primary evidence for the matching source role."
           },
-          "parameterFeatureKey": "equipments:article-440903:equipment_skill_text:intelligence:increase:self_or_ally:415e4803"
+          "parameterFeatureKey": "equipments:article-440903:equipment_skill_text:intelligence:increase:self_or_ally:e8ac05c7"
+        },
+        {
+          "parameter": "兵力",
+          "direction": "increase",
+          "value": "3",
+          "targetSide": "self_or_ally",
+          "matchedText": "鍛錬を進めると発檄が強化されるようになり、戦法発動時に味方3部隊へ攻撃無効と攻撃速度上昇を付与した上で全兵科有利にするので、十分に使いこなすには鍛錬を進める必要がある",
+          "parameterKey": "troops",
+          "keywords": [
+            "兵力",
+            "最大兵力"
+          ],
+          "sourceEntityKey": "equipments:article-440903",
+          "sourcePartType": "equipment_skill_text",
+          "evidencePath": "sections[2].content[0]",
+          "roleGate": {
+            "scoreEligible": true,
+            "allowedRoleIds": [
+              "equipment"
+            ],
+            "allowedSlots": [],
+            "reason": "Structured primary evidence for the matching source role."
+          },
+          "parameterFeatureKey": "equipments:article-440903:equipment_skill_text:troops:increase:self_or_ally:a36e0b3f"
         }
       ],
-      "effectCount": 9,
+      "effectCount": 11,
       "sourceEntityKey": "equipments:article-440903"
     },
     {
