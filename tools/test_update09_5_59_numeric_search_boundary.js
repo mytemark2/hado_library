@@ -60,9 +60,8 @@ const exactQuery = context.parseMetricSearchKeyword('兵力+15%');
 assert(context.metricMatchesSearchQuery({ matches: positive }, exactQuery), 'exact signed numeric query must match');
 assert(!context.metricMatchesSearchQuery({ matches: context.collectMetricMatchesFromSegment('部隊の兵力+10%', ['兵力'], 0) }, exactQuery), 'exact numeric query must reject another value');
 
-const searchIndex = JSON.parse(fs.readFileSync('hadou_search_index.json', 'utf8')).items;
-// Display names can gain troop qualifiers when another variant is released.
-// Bind this real-data case to its source article, never to mutable name text.
+const searchIndex = [require('./fixtures/search_boundaries').luBuSearch];
+// Owned source-shape fixture: mutable live abilities must not define this case.
 function findLuBuFixture(items) {
   const matches = items.filter(item => item.category === 'generals' && item.sourceEntityKey === 'generals:article-415628');
   assert.strictEqual(matches.length, 1, 'numeric search fixture article must be unique');

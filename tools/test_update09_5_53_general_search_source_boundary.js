@@ -1,6 +1,6 @@
 const fs = require('fs');
 const vm = require('vm');
-const generals = require('../hadou_generals.json');
+const { generals } = require('./fixtures/search_boundaries');
 
 const source = fs.readFileSync('hado_status_effects.js', 'utf8');
 

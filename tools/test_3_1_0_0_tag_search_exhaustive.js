@@ -85,8 +85,20 @@ const rawEngagementOwners = new Set((conditionBlocks.items || []).filter(item =>
 assert(rawEngagementOwners.size > 0, 'explicit source markers must not be empty');
 assert.deepStrictEqual([...engagementOwners].sort(), [...rawEngagementOwners].sort(), 'engagement-start search must match every explicit source marker');
 assert(!ownersByTag.has('条件:交戦開始時'), 'engagement start belongs only to the trigger group');
-assert.strictEqual(bridge.getEntityTags('generals', 'LR馬良（ばりょう）').includes('発動:交戦開始時'), true);
-assert.strictEqual(bridge.getEntityTags('generals', 'UR馬良（ばりょう）').includes('発動:交戦開始時'), false, 'surface projection cache must not leak tags between rarity variants');
+// Variant cache isolation is tested independently with owned data below.
+const vm = require('vm');
+const fixtureContext = {
+  module: {exports: {}},
+  HADO_FORMATION_CONDITION_EVALUATOR: {},
+  HADO_DETAIL_CONDITION_PRESENTER: {buildViewModel: () => ({groups: [], reviewedCaseCount: 0})},
+  HADO_SEARCH_CLAUSE_INTEGRATION: {getEntitySummary: (_category, name) => ({tags: name === 'LR検証' ? ['発動:交戦開始時'] : []})}
+};
+vm.runInNewContext(fs.readFileSync('hado_clause_surface_bridge.js', 'utf8'), fixtureContext);
+const fixtureBridge = fixtureContext.module.exports;
+fixtureBridge.indexData({effectClauses: {kind: 'effect_clause_index', reviewedCases: []}});
+assert(fixtureBridge.getEntityTags('generals', 'LR検証').includes('発動:交戦開始時'));
+assert(!fixtureBridge.getEntityTags('generals', 'UR検証').includes('発動:交戦開始時'), 'fixture cache must preserve rarity identity');
+assert(fixtureBridge.getEntityTags('generals', 'LR検証').includes('発動:交戦開始時'), 'repeat access must retain the original variant');
 
 for (const [name, tags] of tagsByGeneral) {
   for (const tag of tags) {

@@ -116,10 +116,8 @@ assert.strictEqual(related.qualityAudit.coverageAudit.ok,true);
 assert.strictEqual(related.qualityAudit.coverageAudit.applicationSkillExpectedCount,rows(skillOwner).length);
 assert.strictEqual(related.qualityAudit.coverageAudit.applicationSkillIndexedCount,rows(skillOwner).length);
 assert.strictEqual(related.qualityAudit.coverageAudit.missingApplicationSkillCount,0);
-for(const [name,domain] of [['堅固打破','equipmentSkill'],['啓蒙','advisorSkill'],['烏桓堅装','ethnicResearchSkill'],['火行','fiveElementSkill'],['奮戦','generalSkill'],['窮地戦威','equipmentSkill']]){
-  const owner=rows(skillOwner).find(v=>v.skillName===name);assert(owner,name+' skill owner row');assert.strictEqual(owner.skillDomain,domain,name+' domain');
-  assert(rows(related).some(v=>v.category==='skills'&&v.name===name),name+' related row');
-}
+// All current application skills must be represented, not six dated examples.
+for(const owner of rows(skillOwner))assert(rows(related).some(v=>v.category==='skills'&&v.name===owner.skillName),owner.skillName+' related row');
 const equipmentStage=read('hadou_equipment_skill_stage_index.json');
 const equipmentSearchAudit=search.qualityAudit?.equipmentStageCoverage||{};
 assert.strictEqual(equipmentSearchAudit.ok,true);
@@ -134,13 +132,7 @@ equipmentSearchRows.forEach(row=>{
   assert.strictEqual(typeof row.baseSearchText,'string',row.name+' baseSearchText');
   for(const stage of ['initial','ssrMax','urMax'])assert.strictEqual(typeof row.equipmentStageSearchText?.[stage],'string',`${row.name} ${stage}`);
 });
-const twinHalberdSearch=equipmentSearchRows.find(v=>v.name==='双鉄戟');
-assert(twinHalberdSearch,'双鉄戟 search row');
-assert(twinHalberdSearch.equipmentStageSearchText.urMax.includes('回復'));
-assert(!Object.values(twinHalberdSearch.equipmentStageSearchText).some(text=>text.includes('おすすめ武将')));
-const medicalBooks=rows(equipmentStage).filter(v=>v.name==='青嚢書・名家医書');
-assert.strictEqual(medicalBooks.length,1);
-assert(Object.values(medicalBooks[0].stages||{}).flatMap(v=>v.skills||[]).some(v=>v.skillName==='窮地戦威'));
+require('./equipment_search_contract').assertEquipmentSearchContract(read('hadou_equipments.json'),equipmentStage,search);
 assert.strictEqual(equipmentStage.qualityAudit.duplicateMergeAudit.ok,true);
 
 // Runtime skills assembled from equipment/advisor/etc. retain their sourceDataset.
