@@ -75,10 +75,22 @@
       return new Map(getAllDataItemsByCategory(category).map(item => [name(getItemDisplayName(item)),item])
         .filter(([key]) => set.has(key)));
     };
-    const formations = array(state.formations).map((row,i) => ({id:String(i+1), original:row, formation:publicFormation(row)}));
+    const generals = owned(generalCategory,save.generals);
+    const equipments = owned(equipmentCategory,save.equipments);
+    const allFormations = array(state.formations).map(row => ({original:row, formation:publicFormation(row)}));
+    // Legacy formation storage is shared across saves. Only show builds that can
+    // be matched entirely to the selected save's ownership.
+    const belongs = ({formation}) =>
+      formation.slots.main.general && entityNames(formation).every(value=>generals.has(value)) &&
+      slotKeys.every(key=>Object.values(formation.slots[key].equipments).every(value=>!value||equipments.has(value)));
+    const formations = [], unrelated = [];
+    for (const row of allFormations) {
+      if (belongs(row)) formations.push({...row,id:String(formations.length+1)});
+      else unrelated.push(row);
+    }
     const unique = (items, key) => [...new Map(items.map(item => [key(item),item])).values()];
     const layouts = new Set(array(state.formationMasters).map(row=>name(row.name || row.title)));
-    return {save, formations, generals:owned(generalCategory,save.generals), equipments:owned(equipmentCategory,save.equipments),
+    return {formations, unrelated, generals, equipments,
       layouts:unique(['基本',...formations.map(row => row.formation.formationName)],value=>value)
         .filter(value => layouts.has(value) || value === '基本'),
       siege:unique(formations.map(row=>row.formation.siegeWeapon)
@@ -94,7 +106,7 @@
     if (!Array.isArray(protectedIds) || protectedIds.some(id=>!catalog.formations.some(row=>row.id===id && row!==base))) {
       throw new Error('保護対象の編成IDを確認してください。');
     }
-    const protectedRows = catalog.formations.filter(row=>protectedIds.includes(row.id));
+    const protectedRows = [...catalog.unrelated,...catalog.formations.filter(row=>protectedIds.includes(row.id))];
     const reservedGenerals = new Set(protectedRows.flatMap(row=>entityNames(row.formation).map(generalIdentity)));
     const reservedEquipment = new Set(protectedRows.flatMap(row=>equipmentNames(row.formation)));
     // An already shared unit/equipment in the baseline may be preserved; it cannot be moved to a different slot.
@@ -430,15 +442,12 @@
     }
   }
 
-  let button, status, panel, method, args, output;
+  let button, status;
   function revoke() {
     session=null;
     controller?.abort();
     controller=null;
     clearTimeout(expiryTimer);
-    if (panel) panel.hidden=true;
-    if (output) output.textContent='';
-    if (args) args.value='{}';
     if (button) button.textContent='選択中のセーブの参照を許可';
     if (status) status.textContent='未接続';
   }
@@ -451,56 +460,47 @@
       status.textContent='セーブを選択し、データ読み込み完了後に許可してください。';
       return;
     }
+    const modelContext=document.modelContext || navigator.modelContext;
+    if (typeof modelContext?.registerTool!=='function') {
+      status.textContent='ChatGPTのブラウザーでこのページを開いてください。';
+      return;
+    }
     session={saveId:save.id,expires:Date.now()+sessionDuration};
     expiryTimer=setTimeout(revoke,sessionDuration);
     button.textContent='接続を終了';
     status.textContent='選択中のセーブを参照できます。';
-    const modelContext=document.modelContext || navigator.modelContext;
-    if (typeof modelContext?.registerTool==='function') {
-      const current = session;
-      const registration=new AbortController();
-      controller=registration;
-      try {
-        for (const [key,tool] of Object.entries(tools)) {
-          if (session!==current) return;
-          await modelContext.registerTool({
-            name:key,description:tool.description,inputSchema:tool.schema,
-            annotations:{readOnlyHint:true,untrustedContentHint:true},
-            execute:async input=>JSON.stringify(session===current?execute(key,input):{ok:false,error:'接続は終了しました。'})
-          },{signal:registration.signal});
-        }
-        return;
-      } catch {
-        registration.abort();
+    const current = session;
+    const registration=new AbortController();
+    controller=registration;
+    try {
+      for (const [key,tool] of Object.entries(tools)) {
         if (session!==current) return;
+        await modelContext.registerTool({
+          name:key,description:tool.description,inputSchema:tool.schema,
+          annotations:{readOnlyHint:true,untrustedContentHint:true},
+          execute:async input=>JSON.stringify(session===current?execute(key,input):{ok:false,error:'接続は終了しました。'})
+        },{signal:registration.signal});
+      }
+    } catch {
+      if (session===current) {
+        revoke();
+        status.textContent='ChatGPTへの接続に失敗しました。ページを開き直してお試しください。';
       }
     }
-    panel.hidden=false;
   }
 
   function mount() {
     const host=document.createElement('section');
     host.id='hadoChatgptConnection';
     host.className='panel no-detail-linkify';
-    host.innerHTML='<h2>ChatGPT接続の確認</h2><p>ChatGPTが選択中のセーブの所持情報と保存編成を、このタブで20分間、読み取り専用で参照します。</p>' +
-      '<button type="button">選択中のセーブの参照を許可</button><p role="status">未接続</p>' +
-      '<form hidden aria-label="ブラウザー連携の入力"><label>操作<select name="tool"></select></label>' +
-      '<label>引数<textarea name="args" rows="3">{}</textarea></label><button type="submit">照会</button>' +
-      '<pre aria-label="照会結果" class="hado-chatgpt-result"></pre></form>';
+    host.innerHTML='<h2>ChatGPT接続の確認</h2><p>選択中のセーブの所持情報と、それで組める保存編成を、このタブで20分間、読み取り専用で参照します。</p>' +
+      '<button type="button">選択中のセーブの参照を許可</button><p role="status">未接続</p>';
     button=host.querySelector('button');
     status=host.querySelector('[role="status"]');
-    panel=host.querySelector('form');
-    method=panel.elements.tool;
-    args=panel.elements.args;
-    output=panel.querySelector('pre');
-    for (const key of Object.keys(tools)) method.add(new Option(key,key));
     button.addEventListener('click',authorize);
-    panel.addEventListener('submit',event=>{
-      event.preventDefault();
-      try {output.textContent=JSON.stringify(execute(method.value,JSON.parse(args.value)));}
-      catch {output.textContent='入力JSONを確認してください。';}
-    });
-    document.getElementById('saveSelect')?.addEventListener('change',revoke);
+    for (const id of ['saveSelect','dataSheetSaveSelect']) {
+      document.getElementById(id)?.addEventListener('change',revoke);
+    }
     window.addEventListener('pagehide',revoke);
     document.getElementById('appTitlePanel')?.after(host);
   }

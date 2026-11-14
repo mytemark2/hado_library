@@ -40,7 +40,9 @@ const save={id:'test-save',name:'DO NOT SHARE',generals:['LR李典','LR曹仁','
 const privateSave={id:'other-save',generals:[],equipments:[]};
 const state={viewMode:'all',showRawJson:false,diagnostics:{preserved:true},
   saveData:{currentSaveId:save.id,saves:[save,privateSave]},currentFormationId:initialFormation.id,
-  formations:[initialFormation],formationGroups:[{id:'group1'}],generals:save.generals.map(name=>({name})),equipments:[],
+  formations:[initialFormation,{...initialFormation,id:'foreign',slots:{...initialFormation.slots,main:{...createSlot(),general:'未所持武将'}},
+    siegeWeapon:{name:'非公開兵器',level:5}}],
+  formationGroups:[{id:'group1'}],generals:save.generals.map(name=>({name})),equipments:[],
   formationMasters:[{name:'基本'}],siegeWeapons:[{name:'木獣'}],skills:[]};
 
 function element() {
@@ -102,6 +104,9 @@ const snapshot = () => JSON.stringify(state);
   assert.equal(info.data.ready,true);
   assert.equal(info.coverage[0].owned,true);
   assert.equal(info.coverage[1].inGameData,false);
+  assert.equal(info.save.formations.length,1);
+  assert(!JSON.stringify(info).includes('未所持武将'));
+  assert(!JSON.stringify(info).includes('非公開兵器'));
   assert(!JSON.stringify(info).includes('DO NOT SHARE'));
   const result=await rpc('search',{baseId:'1',fixedMain:'LR李典',purpose:'defense'});
   assert.equal(result.ok,true,JSON.stringify(result));
@@ -127,17 +132,12 @@ const snapshot = () => JSON.stringify(state);
   assert.equal(native.size,0);
   state.saveData.currentSaveId=save.id;
 
-  // The opt-in tab works in the browser even when native WebMCP is unavailable.
+  // Ordinary browsers have no form that exposes save data.
   document.modelContext=undefined;
   await nodes.button.events.click({isTrusted:true});
-  assert.equal(nodes.form.hidden,false);
-  nodes.select.value='hado_formation_context';
-  nodes.args.value='{}';
-  nodes.form.events.submit({preventDefault(){}});
-  assert.equal(JSON.parse(nodes.pre.textContent).ok,true);
+  assert.match(nodes.status.textContent,/ChatGPTのブラウザー/);
+  assert.equal(native.size,0);
   nodes.save.events.change();
-  assert.equal(nodes.form.hidden,true);
-  assert.equal(nodes.pre.textContent,'');
   assert.equal(snapshot(),before);
   const html=readFileSync('index.html','utf8');
   assert(html.indexOf('hado_formation.js?') < html.indexOf('hado_formation_advice.js?'));
