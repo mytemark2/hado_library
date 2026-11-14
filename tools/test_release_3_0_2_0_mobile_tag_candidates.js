@@ -8,12 +8,9 @@ const status = fs.readFileSync('hado_status_effects.js', 'utf8');
 const css = fs.readFileSync('hado_styles.css', 'utf8');
 const tagIndex = JSON.parse(fs.readFileSync('hadou_tag_index.json', 'utf8'));
 
-const soutouTags = Object.keys(tagIndex.invertedTags || {}).filter(tag => {
-  const value = String(tag).split(':').slice(1).join(':').trim();
-  return value === '掃討';
-});
-
-assert.deepStrictEqual(soutouTags, ['技能:掃討'], '掃討 must remain a unique display-name alias for 技能:掃討');
+assert.deepStrictEqual(Object.keys(tagIndex.invertedTags || {}).sort(),
+  [...new Set((tagIndex.items || []).flatMap(row => row.tags || []))].sort(),
+  'candidate keys must match all current canonical tags without dated alias names');
 assert(!html.includes('<datalist'), 'mobile tag selection must not use a browser-native datalist');
 assert(html.includes('role="listbox"'), 'custom candidates must expose a listbox');
 assert(html.includes('autocomplete="off"'), 'native autocomplete must not cover the custom candidate list');

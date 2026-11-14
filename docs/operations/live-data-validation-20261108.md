@@ -17,6 +17,8 @@ No runtime JS/CSS/HTML, visible app version, JSON schema, manual master or histo
 
 ## Checks and completion evidence
 
+横断確認追補（基準2242bc76、PR #420後）: 兵科技能検索の5名称/30%/70%の現行固定も、全収集effectのname/description/troop/grant/search/detail/copy一致へ置換した。所有fixtureで追加・改名・効果変更の正例、欠落・古い効果の負例を検証する。全技能のplaceholderがなくなる正当更新も拒否しない（固定placeholder例の検査は継続）。モバイル候補の掃討1名称固定を全現行tagキーの一致へ変更した。取得・runtime・schema・gold・manifestを変更せず、全体185検査と統合/GitHub検査の結果は追補PRへ記録する。
+
 Run `python -X utf8 tools/run_app_validation.py`, focused fixture/boundary/live-contract tests, and `python -X utf8 tools/check_pr_merge_readiness.py --base feature/app-3.2.0.0`. Full new-data validation, GitHub checks, Preview source/hash/UI results and resulting commits are recorded on the PR after execution; this document does not claim those pending operations succeeded.
 
 ## 確認事項

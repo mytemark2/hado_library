@@ -40,7 +40,8 @@ for (const skill of skills) {
 }
 assert.strictEqual(skills.length, Number(skillsDocument.meta?.count), 'all canonical skill definitions must be audited, including future crawler additions');
 assert.strictEqual(sourceLevelRowCount, availableLevelRowCount + placeholderLevelRowCount, 'every source level row must be classified as available or unavailable');
-assert(placeholderSkillCount > 0 && placeholderLevelRowCount > 0, 'the full-data audit must include unavailable level placeholders');
+// A legitimate update may fill every formerly unavailable level. Placeholder
+// filtering remains tested with owned limitedHtml examples below.
 
 const html = api.build({
   skillName: '白眉',
