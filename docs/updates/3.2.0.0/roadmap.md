@@ -11,7 +11,7 @@
 - 起点: main e9153a954a998ad346c6ad7beb876056c11c52fb / 正式版3.1.2.1
 - Preview表示: 3.2.0.0 UpdateNN rNNN
 - 正式版表示: 3.2.0.0
-- 開発状態: Update01、割込みr214、Update02 r215、Update03 r216、Update04 r218、Update05 r225、Update06 r226、Update07 r227完了。Update08未開始。正式公開なし。
+- 開発状態: Update01、割込みr214、Update02 r215、Update03 r216、Update04 r218、Update05 r225、Update06 r226、Update07 r227完了。Update08 r228の候補を検証中。
 - 公式情報確認日: 2026-10-17
 
 Update番号は大型開発を段階管理する計画識別子であり、通常の機能改善では使用しない。3.2.0.0の全Update完了後はUpdate番号を終了し、正式版では4桁版のみを表示する。rNNNはPreviewビルド識別子であり、番号は開始時に現行revisionを確認して連番で決定する。
@@ -143,9 +143,9 @@ Update番号は大型開発を段階管理する計画識別子であり、通�
 
 ### Update08 — 全体回帰・3.2.0.0正式版候補
 
-**予定表示版:** 3.2.0.0 Update08 rNNN
+**候補表示版:** 3.2.0.0 Update08 r228
 
-**状態:** 計画
+**状態:** 2026-11-14着手。[計画](update08/roadmap.md) / [実装記録](update08/implementation.md) / [検証報告](update08/report.md)
 
 - Update01〜07のデータ、検索、表示、コピー、比較を全件回帰する。
 - 公開HTTPS PreviewでPC・スマートフォンの実操作を検証する。
