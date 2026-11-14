@@ -14,9 +14,9 @@ const bootstrap = read('hado_bootstrap.js');
 const index = read('index.html');
 const version = read('hado_version.js');
 
-assert(version.includes("updateNo: '08'"));
-assert(version.includes('revision: 228'));
-assert(index.includes('hado_version.js?v=08-r228'));
+assert(version.includes("updateNo: '09'"));
+assert(version.includes('revision: 229'));
+assert(index.includes('hado_version.js?v=09-r229'));
 assert(!index.includes('03-r216'));
 
 assert(search.includes('function renderSearchConditionChip('));

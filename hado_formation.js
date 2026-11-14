@@ -900,8 +900,7 @@ function collectEquipmentSkillTextForWeaponTroopPermission(item){
   // HADO-2.7.3.56: 武器装着可否は武将本人の有効技能だけで決める。装備スキル由来の許可は循環条件になるため採用しない。
   return '';
 }
-function getFormationSlotWeaponPermissionDetail(ctx){
-  const f=ensureCurrentFormation();
+function getFormationSlotWeaponPermissionDetail(ctx,f=ensureCurrentFormation()){
   const slot=f?.slots?.[ctx.slotKey]||{};
   const out=new Set();
   const permissions=[];
@@ -910,12 +909,12 @@ function getFormationSlotWeaponPermissionDetail(ctx){
   collectGeneralSkillPermissionRecordsForWeaponTroop(generalItem).forEach(rec=>{out.add(rec.troopType);permissions.push({...rec,source:'本人技能',label:`技能「${rec.skillName||'不明'}」により${rec.troopType}専用装備品を装着可`});});
   return {allowedTroopTypes:[...out],permissions};
 }
-function getFormationSlotAllowedWeaponTroopTypes(ctx){return getFormationSlotWeaponPermissionDetail(ctx).allowedTroopTypes;}
-function formationWeaponCandidateMatchesTroop(row,ctx){
+function getFormationSlotAllowedWeaponTroopTypes(ctx,f){return getFormationSlotWeaponPermissionDetail(ctx,f).allowedTroopTypes;}
+function formationWeaponCandidateMatchesTroop(row,ctx,f){
   if(ctx.type!=='equipment')return true;
   const fixedType=ctx.equipSpec?.type||ctx.equipmentType||'';
   if(fixedType!=='武器')return true;
-  const allowed=getFormationSlotAllowedWeaponTroopTypes(ctx);
+  const allowed=getFormationSlotAllowedWeaponTroopTypes(ctx,f);
   if(!allowed.length)return false;
   const equipTroops=getEquipmentTroopTypes(row.item);
   const normalizedEquipTroops=equipTroops.length?equipTroops:['歩兵','騎兵','弓兵'];

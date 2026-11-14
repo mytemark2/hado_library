@@ -1948,3 +1948,7 @@ mark.search-hit.tag-text-highlight{background:var(--tag-highlight-bg);border-bot
   .result-copy-actions .copy-btn{width:100%;min-width:0;min-height:44px}
 }
 @media (max-width:420px){.result-copy-actions{grid-template-columns:1fr}}
+.hado-chatgpt-result {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
