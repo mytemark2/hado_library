@@ -1,36 +1,36 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-08T09:53:21.902Z",
-  "dataSetId": "2026-10-31T05-16-29-474Z",
+  "generatedAt": "2026-11-14T03:22:41.649Z",
+  "dataSetId": "2026-11-14T02-58-33-598Z",
   "generator": "hado_crawler_extension",
-  "acquiredAt": "2026-10-31T03:56:14.654Z",
-  "processedAt": "2026-10-31T05:17:14.250Z",
-  "sourceRunId": "2026-10-31T05-16-29-474Z",
+  "acquiredAt": "2026-11-08T08:46:37.190Z",
+  "processedAt": "2026-11-14T03:22:36.694Z",
+  "sourceRunId": "2026-11-14T02-58-33-598Z",
   "sourceCrawlerVersion": "1.1.0.11",
-  "sourceCommit": "0a10c86ea11f0fd1bb2515ec57883a4c75c22e74",
+  "sourceCommit": "6663a667c10c96cd57199c902fa7ae9e02e272f4",
   "sourceCommitRole": "application-generation-base",
   "sourceBranch": "feature/app-3.2.0.0",
-  "crawlerSourceCommit": "c14aff14a3265835f770881be68130ccc545ee28",
-  "crawlerSourceBranch": "codex/category-skip-20261031",
+  "crawlerSourceCommit": "786e924c1e0e25afbe2e0932813fc704119a6999",
+  "crawlerSourceBranch": "codex/live-validation-20261108",
   "crawlerSourceCommitStatus": "recorded",
   "provenance": {
     "acquisition": {
-      "acquiredAt": "2026-10-31T03:56:14.654Z",
-      "dataUpdatedAt": "2026-10-31T03:56:14.654Z",
-      "runId": "2026-10-31T05-16-29-474Z",
-      "recoverySourceRunId": "2026-10-31T03-27-46-736Z"
+      "acquiredAt": "2026-11-08T08:46:37.190Z",
+      "dataUpdatedAt": "2026-11-08T08:46:37.190Z",
+      "runId": "2026-11-14T02-58-33-598Z",
+      "recoverySourceRunId": "2026-11-08T08-12-26-162Z"
     },
     "processing": {
-      "processedAt": "2026-10-31T05:17:14.250Z",
-      "sourceExportedAt": "2026-10-31T05:17:14.250Z",
-      "generatedAt": "2026-11-08T09:53:21.902Z"
+      "processedAt": "2026-11-14T03:22:36.694Z",
+      "sourceExportedAt": "2026-11-14T03:22:36.694Z",
+      "generatedAt": "2026-11-14T03:22:41.649Z"
     },
     "source": {
-      "recordedCommit": "0a10c86ea11f0fd1bb2515ec57883a4c75c22e74",
+      "recordedCommit": "6663a667c10c96cd57199c902fa7ae9e02e272f4",
       "recordedCommitRole": "application-generation-base",
       "sourceBranch": "feature/app-3.2.0.0",
-      "crawlerSourceCommit": "c14aff14a3265835f770881be68130ccc545ee28",
-      "crawlerSourceBranch": "codex/category-skip-20261031",
+      "crawlerSourceCommit": "786e924c1e0e25afbe2e0932813fc704119a6999",
+      "crawlerSourceBranch": "codex/live-validation-20261108",
       "crawlerSourceCommitStatus": "recorded"
     }
   },
