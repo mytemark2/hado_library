@@ -106,7 +106,7 @@ Do not silently build a brittle workaround.
 - Prefer extending an existing JavaScript module when it has the same responsibility.
 - Keep the HTML focused on DOM structure, minimal `<script src>` declarations, and initialization calls.
 - When adding or changing external JavaScript, verify load order and dependencies.
-- Verify both `file://` local execution and `https://` preview execution when applicable.
+- Verify runtime changes on the public HTTPS Preview. For 3.2.0.0, direct `file://` browser testing is outside the verification scope. See the Update08 roadmap for the release candidate checks.
 - Record changed JavaScript files, HTML size increase or decrease, and the externalization decision in the Update documentation.
 - The legacy monolithic `hado_app.js` artifact has been removed; do not recreate it for normal runtime, guide, or Phase update work. Edit the split runtime scripts that `index.html` actually loads.
 - Candidate-tray persistence and placement gates belong to `hado_formation.js`, while `hado_candidate_tray.js` owns only the tray UI. Do not recreate or load the retired duplicate `hado_candidate_tray_core.js` event/placement path.
@@ -198,7 +198,7 @@ When a derived JSON contract or its runtime consumer changes, run `node tools/te
 ### 9.2 Functional regression
 Check the areas affected by the change and the related shared paths. Unless the task is strictly documentation-only, include the applicable core paths:
 - application startup
-- local data loading
+- local data loading when local runtime testing is in scope
 - search
 - detail display
 - formation features
