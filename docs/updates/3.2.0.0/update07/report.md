@@ -39,7 +39,7 @@
 
 ## 残件
 
-Update07の必須残件はなし。`file://` の包括的実機回帰は既定のUpdate08へ継続。Update08未開始、正式版/Production/mainは未変更。
+Update07の必須残件はなし。Update08未開始、正式版/Production/mainは未変更。2026-11-14の利用者指定により、Update08の実機確認は[全体ロードマップ](../roadmap.md)に定める公開HTTPS Previewで行う。
 
 ## 確認事項
 
