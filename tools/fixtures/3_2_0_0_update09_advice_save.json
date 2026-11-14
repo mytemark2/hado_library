@@ -1,0 +1,45 @@
+{
+  "exportScope": "currentSave",
+  "currentSaveId": "update09-analysis-fixture",
+  "saves": [
+    {
+      "id": "update09-analysis-fixture",
+      "name": "Update09編成検証",
+      "generals": [
+        "LR李典", "UR曹仁", "LR黄月英", "LR羊祜", "LR司馬昭",
+        "UR辛憲英", "LR荀攸", "LR馬良", "LR孫堅・盾兵"
+      ],
+      "generalStars": {
+        "LR李典": 4,
+        "UR曹仁": 7,
+        "LR黄月英": 4,
+        "LR羊祜": 4,
+        "UR辛憲英": 7
+      },
+      "equipments": ["鋒利典雅剣", "孤月照耀兜", "江淮水利灌漑図"],
+      "equipmentStages": {"江淮水利灌漑図":"urMax"}
+    }
+  ],
+  "formationData": {
+    "groups": [{"id":"update09-fixture-group","name":"Update09 検証"}],
+    "currentFormationGroupId": "update09-fixture-group",
+    "currentFormationId": "update09-fixture-formation",
+    "formations": [
+      {
+        "id":"update09-fixture-formation",
+        "groupId":"update09-fixture-group",
+        "name":"Update09 検証用工兵",
+        "formationName":"基本",
+        "deploymentType":"normal",
+        "slots":{
+          "main":{"general":"LR李典"},
+          "deputy1":{"general":"UR曹仁"},
+          "deputy2":{"general":"LR黄月英"},
+          "support1":{"general":"LR羊祜"},
+          "support2":{"general":"LR司馬昭"}
+        },
+        "siegeWeapon":{"name":"木獣","level":5}
+      }
+    ]
+  }
+}
