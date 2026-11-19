@@ -951,7 +951,7 @@ function evaluateFormationConditionText(text,meta,ctx,opts={}){const t=norm(text
  if(opts.excludeCombat&&/戦法を発動|戦法発動|主将戦法|通常攻撃|攻撃を受け|会心攻撃|ダメージを与えた際/.test(t))return fail('battleTrigger','戦闘中条件','battle trigger condition is excluded');
  const roleChecks=[[/自身が侍従の際|侍従の際|侍従で/,['attendant'],'侍従の際'],[/主将か副将1の際|主将か、副将1の際/,['main','deputy1'],'主将か副将1の際'],[/主将か副将2の際|主将か、副将2の際/,['main','deputy2'],'主将か副将2の際'],[/主将か副将の際|主将か、副将の際|主将か副将で|主将か、副将で/,['main','deputy1','deputy2'],'主将か副将の際'],[/副将か補佐の際|副将か、補佐の際|副将か補佐で|副将か、補佐で/,['deputy1','deputy2','support1','support2'],'副将か補佐の際'],[/副将1の際|副将1で/,['deputy1'],'副将1の際'],[/副将2の際|副将2で/,['deputy2'],'副将2の際'],[/自身が副将の際|副将の際|副将で/,['deputy1','deputy2'],'副将の際'],[/自身が補佐の際|補佐の際|補佐で/,['support1','support2'],'補佐の際'],[/自身が主将の際|主将の際|主将で/,['main'],'主将の際']];
  for(const [re,allowed,raw] of roleChecks){if(re.test(t)){const pos=getFormationHolderPositionLabelFromMeta(meta||{});const allowedBySlot=formationHolderSlotAllowed(holderSlot,allowed);const allowedByRole=(allowed.includes('attendant')&&pos==='侍従');if(!allowedBySlot&&!allowedByRole)return fail('role',raw,`holder slot ${holderSlot||'-'} / position ${pos||'-'} is not allowed`);ok('role',raw,`holder slot ${holderSlot} / position ${pos||'-'} matched`,{allowedSlots:allowed,position:pos});break;}}
- if(/好相性/.test(t)){let passed=false;let reason='';if(/副将と補佐全員|副将全員|主将と副将全員/.test(t)){const targets=formationAssignedGeneralBaseNames(ctx,['deputy1','deputy2','support1','support2']);passed=targets.length>0&&targets.every(n=>formationAreCompatible(ctx,ctx.mainGeneralNormalizedName,n));reason=passed?'all deputies/supports are compatible with main':'not all deputies/supports are compatible with main';}else{passed=formationAreCompatible(ctx,holderBase,ctx.mainGeneralNormalizedName);reason=passed?'holder is compatible with main':'holder is not compatible with main';}
+ if(/好相性/.test(t)&&!(holderSlot==='main'&&/主将か[、,]?\s*主将と自身が好相性の際/.test(t))){let passed=false;let reason='';if(/副将と補佐全員|副将全員|主将と副将全員/.test(t)){const targets=formationAssignedGeneralBaseNames(ctx,['deputy1','deputy2','support1','support2']);passed=targets.length>0&&targets.every(n=>formationAreCompatible(ctx,ctx.mainGeneralNormalizedName,n));reason=passed?'all deputies/supports are compatible with main':'not all deputies/supports are compatible with main';}else{passed=formationAreCompatible(ctx,holderBase,ctx.mainGeneralNormalizedName);reason=passed?'holder is compatible with main':'holder is not compatible with main';}
   if(!passed)return fail('affinity','好相性',reason);ok('affinity','好相性',reason);}
  const mainNames=parseMainNameConditionList(t);if(mainNames.length){const passed=mainNames.includes(ctx.mainGeneralNormalizedName);if(!passed)return fail('mainGeneralName',mainNames.join('/'),`main general ${ctx.mainGeneralNormalizedName||'-'} not matched`);ok('mainGeneralName',mainNames.join('/'),`main general ${ctx.mainGeneralNormalizedName} matched`,{names:mainNames});}
  const troopMatch=t.match(/自部隊が(歩兵|騎兵|弓兵)の際|自部隊が(歩兵|騎兵|弓兵)で/);if(troopMatch){const required=troopMatch[1]||troopMatch[2];if(ctx.troopType!==required)return fail('troopType',`自部隊が${required}`,`troop type ${ctx.troopType||'-'} not matched`);ok('troopType',`自部隊が${required}`,`troop type ${ctx.troopType} matched`);}
@@ -1119,8 +1119,8 @@ function evaluateConditionBlock(block,meta,ctx,opts={}){
   // 条件ブロック全体の採否では、"→自都市駐屯部隊に編制されている際、効果が3倍"のような
   // 倍率補正行だけを条件として扱わない。常時+5%などの基礎効果は通常/詰所でも採用し、
   // 倍率補正は applyFormationDeploymentMultiplierToEffect 側で個別効果ごとに判定する。
-  const evaluationText=sanitizeFormationEffectConditionText(rawText);
-  const text=evaluationText||rawText;
+  const evaluationText=sanitizeFormationEffectConditionText(stripFormationAffinityOperands(rawText));
+  const text=evaluationText;
   const result=evaluateFormationConditionText(text,{...resolvedMeta,holderName:resolvedMeta.holder},ctx,opts);
   debugLog('conditionBlock:evaluate',{holder:resolvedMeta.holder,slot:resolvedMeta.holderSlot,sourceType:resolvedMeta.sourceType,condition:block?.condition||'',adopted:result.satisfied,reason:result.reason,conditions:result.conditions,text:text.slice(0,160),rawText:rawText.slice(0,160),sanitizedForMultiplier:rawText!==text});
   return result;
@@ -1512,10 +1512,69 @@ function buildFormationParameterData(f){
   debugLog('formationParameterData:cache-miss',{formationId:f?.id||'',formationName:f?.name||'',cacheSize:cache.size,ms:Number((performance.now()-started).toFixed(1)),policy:'Update09 Phase2 caches parameter calculation by formation/save signature'});
   return data;
 }
+// 構成員の人数を数える効果文は、技能所有者と主将を照合する発動条件ではない。
+const FORMATION_AFFINITY_SCALE = /^●部隊内[（(]主将\/副将\/補佐[）)]の自身と好相性の武将数\s*[×x]\s*(\d+(?:\.\d+)?)\s*[％%][、,]\s*部隊の(戦法速度|兵力)[がを]上昇(?:[（(]最大\s*(\d+(?:\.\d+)?)\s*[％%][）)])?$/;
+function stripFormationAffinityOperands(text){
+  if(!/好相性の武将数|好相性の副将と補佐を兵科一致/.test(text))return text;
+  return splitEffectSegments(text).filter(segment=>!FORMATION_AFFINITY_SCALE.test(segment)
+    && !/^●好相性の副将と補佐を兵科一致として兵力を決定$/.test(segment)).join(' ');
+}
+
+function getFormationEffectiveSkillRecord(record,meta,skillName,summaryRow){
+  const {level}=formationSkillNameLevelFromSource(record.source);
+  if(!level||!summaryRow)return record;
+  const total=getFormationSkillTotal(summaryRow);
+  if(total===level)return record;
+
+  const ownerSection=(meta.item?.sections||[]).find(section=>norm(section.title)===skillName);
+  const skillSection=findSkillItemByName(skillName)?.sections?.[0];
+  const available=[ownerSection,skillSection].flatMap(section=>
+    extractAllRomanLevelBlocks(filterSkillContentLines(section?.content||[]).join(' '))
+  ).filter(entry=>entry.level&&entry.text.slice(entry.level.length).trim());
+  const target=Math.min(total,Math.max(0,...available.map(entry=>ROMAN_LEVELS.indexOf(entry.level)+1)));
+  if(target===level)return record;
+  const selected=available.find(entry=>entry.level===ROMAN_LEVELS[target-1]);
+  if(selected)return {...record,source:record.source.replace(/[ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ]$/,selected.level),text:selected.text.slice(selected.level.length).trim()};
+  debugLog('formationSkill:effective-level-text-missing',{skillName,holder:meta.holder,total,source:record.source});
+  return record;
+}
+
+function getFormationSkillTotal(row){
+  const total=row.levels.reduce((sum,level)=>sum+level,0);
+  const caps=(row.equipmentBoostCaps||[]).filter(cap=>cap>0);
+  return caps.length?Math.min(total,...caps):total;
+}
+
+function appendFormationContextualEffects(effects,record,meta,ctx){
+  let condition='', timingCondition='';
+  for(const segment of splitEffectSegments(record.text)){
+    if(segment.startsWith('■')){condition=segment;timingCondition='';continue;}
+    if(segment.startsWith('▼')){timingCondition=segment;continue;}
+    const context=[condition,timingCondition].filter(Boolean).map(cleanConditionText).join(' / ');
+    const affinity=segment.match(FORMATION_AFFINITY_SCALE);
+    if(affinity){
+      const holder=normalizeGeneralComparableName(meta.holder);
+      // 自身が主将・副将・補佐の枠にいる場合は人数に含める。侍従枠は集計対象外。
+      const count=Object.values(ctx.slots).filter(slot=>slot.baseName&&(slot.baseName===holder||formationAreCompatible(ctx,holder,slot.baseName))).length;
+      const value=Number(affinity[1])*count;
+      addParameterNumericEffect(effects,{timing:classifyEffectTiming('',context),key:affinity[2],val:affinity[3]?Math.min(value,Number(affinity[3])):value,source:record.source,context,raw:segment});
+      continue;
+    }
+    if(!/^▼駐屯\/防衛中に交戦開始時$/.test(timingCondition))continue;
+    // 護厳は駐屯・防衛中に効果量分の戦法速度を上げる。表示は交戦直後の条件付き効果。
+    const guard=segment.match(/^●自身に護厳が発生していない場合、自身1部隊に(\d+)\s*[％%]の護厳を(\d+)秒付与[（(]この技能を持つ武将の将星ランクに応じて、効果量が(\d+)\s*[％%]ずつ上昇[）)]$/);
+    if(guard){
+      const star=formationConditionStarRank(meta.holder);
+      addParameterNumericEffect(effects,{timing:'defenseEngagement',key:'戦法速度',val:Number(guard[1])+star*Number(guard[3]),source:record.source,context:`${context} / 護厳未発生・将星${star}・${guard[2]}秒`,raw:segment});
+    }
+  }
+}
+
 function buildFormationParameterDataUncached(f){
   const ctx=buildFormationContext(f);
   const items=collectFormationItems(f);
   const effectsRaw=[];const specials=[];const skillRows=new Map();const savedSkillLevelSeen=new Set();
+  const adoptedSkillRecords=[];
   const baseGeneralSkills=new Set();const baseSkillMetas=new Map();const contributionLog=[];const excludedLog=[];const equipmentBoostLog=[];
   const skillAggregationConditionOpts={excludeCombat:false,ignoreBattleMode:true,ignoreBattleHp:true};
   const itemRecords=items.map(meta=>({meta,records:collectFormationParameterSourceRecords(meta.item).filter(r=>r.kind==='include'&&r.source!=='戦法')}));
@@ -1554,7 +1613,6 @@ function buildFormationParameterDataUncached(f){
       const parentEval=isEquipmentSkillLvBoost?evaluateEquipmentSkillLvBoostParentCondition(rec,meta,ctx):evaluateGrantedSkillParentBlock(rec,meta,ctx,skillAggregationConditionOpts);
       let adopted=isEquipmentSkillLvBoost?parentEval.satisfied:(blockEval.adopted.length>0&&parentEval.satisfied);
       let excludeReason=!parentEval.satisfied?parentEval.reason:(adopted?(isEquipmentSkillLvBoost?'equipment skill Lv boost parent condition adopted':'at least one condition block adopted'):'no active condition block');
-      let activeText=isEquipmentSkillLvBoost?rec.text:blockEval.activeText;
       if(rec.isAdvisorSkill){adopted=false;excludeReason='advisor skill excluded from formation aggregation';debugLog('formationSkill:advisor-excluded',{phase:'aggregate',holder:meta.holder,slot:meta.holderSlot,skillName:recSkillName,source:rec.source,reason:excludeReason});}if(rec.isAppointmentSkill||isAppointmentSkillText(rec.text)){adopted=false;excludeReason='appointment skill excluded from formation aggregation';debugLog('formationSkill:appointment-excluded',{phase:'aggregate',holder:meta.holder,slot:meta.holderSlot,skillName:recSkillName,source:rec.source,reason:excludeReason});}
       if(adopted&&isEquipmentSkillLvBoost){
         const baseEntries=baseSkillMetas.get(norm(recSkillName))||[];
@@ -1567,11 +1625,20 @@ function buildFormationParameterDataUncached(f){
       if(!adopted){excludedLog.push({holder:meta.holder,slot:meta.holderSlot,skillName:recSkillName,source:rec.source,reason:excludeReason,conditions:allConditions,excludedBlocks:blockEval.excluded.map(x=>({condition:x.block.condition,reason:x.evaluation.reason}))});return;}
       addSkillRow(rec,meta,recSkillName,recLv);
       contributionLog.push({holder:meta.holder,slot:meta.holderSlot,skillName:recSkillName,level:recLv,source:rec.source,sourceType:rec?.inheritedSkill?'inheritedSkill':meta.sourceType,adoptedBlocks:blockEval.adopted.map(x=>x.block.condition)});
-      const activeRec={...rec,text:activeText||rec.text,fullText:rec.text};
+      if(!isEquipmentSkillLvBoost)adoptedSkillRecords.push({rec,meta,recSkillName,blockEval,parentBlock:parentEval.block});
+    });
+  });
+  const formationMasterSkillsApplied=applyFormationMasterSkillsToSummary(f,skillRows,contributionLog);
+  adoptedSkillRecords.forEach(({rec:sourceRecord,meta,recSkillName,blockEval,parentBlock})=>{
+      const rec=getFormationEffectiveSkillRecord(sourceRecord,meta,recSkillName,skillRows.get(recSkillName));
+      const activeBlocks=rec===sourceRecord?blockEval:getActiveSkillBlocks(rec,meta,ctx,skillAggregationConditionOpts);
+      if(!activeBlocks.adopted.length)return;
+      const activeRec={...rec,text:activeBlocks.activeText,fullText:rec.text};
       const parsed=parseParameterEffectsFromRecord(activeRec);
+      const baseEffectMeta=resolveServantContext(meta);
+      appendFormationContextualEffects(parsed.effects,activeRec,baseEffectMeta,ctx);
       parsed.effects.forEach(e=>{
         if(!isFormationNumericParameterEffect(e)){excludedLog.push({holder:meta.holder,slot:meta.holderSlot,skillName:recSkillName,source:e.sourceLabel||rec.source,parameter:e.key||'',reason:'non-numeric parameter effect excluded from state variation rate'});return;}
-        const baseEffectMeta=(isEquipmentSkillLvBoost?((baseSkillMetas.get(norm(recSkillName))||[])[0]?.meta):null)||meta;
         // FIX[HADO-2.7.3.65-FORMATION-RANGE-CONDITION-DEFERRED]:
         // 「編制時点の自部隊の射程がN以上の際」は汎用条件評価ではなく、後段の
         // applyFormationRangeConditionGateで、条件付き射程効果自身を除いた射程により判定する。
@@ -1579,22 +1646,21 @@ function buildFormationParameterDataUncached(f){
         const isRangeThresholdEffect=isFormationRangeThresholdEffect(e);
         const effectEval=isRangeThresholdEffect
           ? {satisfied:true,reason:'range threshold condition deferred to applyFormationRangeConditionGate',conditions:[{type:'rangeThresholdDeferred',raw:[e.condition,e.rawText].map(norm).filter(Boolean).join(' '),satisfied:true}]}
-          : evaluateFormationConditionText([sanitizeFormationEffectConditionText(e.rawText),e.condition].filter(Boolean).join(' '),{...baseEffectMeta,holderName:baseEffectMeta.holder},ctx,{excludeCombat:false});
-        debugLog('formationSkill:condition-evaluate',{holder:meta.holder,slot:meta.holderSlot,evaluatedHolder:baseEffectMeta.holder,evaluatedSlot:baseEffectMeta.holderSlot,skillName:recSkillName,source:e.sourceLabel||rec.source,key:e.key,adopted:effectEval.satisfied,reason:effectEval.reason,conditions:effectEval.conditions,policy:isRangeThresholdEffect?'range threshold delegated to formation range condition gate':(isEquipmentSkillLvBoost?'equipment skill Lv boost effects evaluated by base skill holder':'numeric effects are not excluded only because they are battle-triggered')});
+          : evaluateFormationConditionText([sanitizeFormationEffectConditionText(stripFormationAffinityOperands(e.rawText)),e.condition].filter(Boolean).join(' '),{...baseEffectMeta,holderName:baseEffectMeta.holder},ctx,{excludeCombat:false});
+        debugLog('formationSkill:condition-evaluate',{holder:meta.holder,slot:meta.holderSlot,evaluatedHolder:baseEffectMeta.holder,evaluatedSlot:baseEffectMeta.holderSlot,skillName:recSkillName,source:e.sourceLabel||rec.source,key:e.key,adopted:effectEval.satisfied,reason:effectEval.reason,conditions:effectEval.conditions,policy:isRangeThresholdEffect?'range threshold delegated to formation range condition gate':'numeric effects are not excluded only because they are battle-triggered'});
         if(!effectEval.satisfied){excludedLog.push({holder:meta.holder,slot:meta.holderSlot,skillName:recSkillName,source:e.sourceLabel||rec.source,parameter:e.key,reason:effectEval.reason,conditions:effectEval.conditions});return;}
         const ep=formationSkillNameLevelFromSource(e.sourceLabel||rec.source||'');
         const skillName=rec.formationSkillName||ep.name||recSkillName;
         if(skillRows.has(skillName)){const row=skillRows.get(skillName);row.holders.add(meta.holder);row.sourceCategories.add(rec?.formationSourceCategory||formationSkillSourceCategory(meta));if(row.category==='skill')row.category=e.group||'skill';}
         const adjustedEffect=applyFormationPositionMultiplierToEffect(e,baseEffectMeta);
+        if(parentBlock&&parentBlock.condition!=='常に')adjustedEffect.condition=[adjustedEffect.condition,parentBlock.condition].filter(Boolean).join(' / ');
         effectsRaw.push({...adjustedEffect,sourceLabel:`${meta.holder}:${adjustedEffect.sourceLabel||rec.source}`,sourceItemCategory:meta.sourceType==='equipment'?'equipments':'',sourceItemName:meta.sourceType==='equipment'?meta.holder:'',sourceSlotKey:baseEffectMeta.holderSlot||'',sourcePosition:getFormationHolderPositionLabelFromMeta(baseEffectMeta)});
       });
       parsed.specials.forEach(sp=>{
-        const specialEval=evaluateFormationConditionText([sp.rawText,sp.condition].filter(Boolean).join(' '),{...meta,holderName:meta.holder},ctx,{excludeCombat:true});
+        const specialEval=evaluateFormationConditionText([sp.rawText,sp.condition].filter(Boolean).join(' '),baseEffectMeta,ctx,{excludeCombat:true});
         if(specialEval.satisfied)specials.push({...sp,sourceLabel:`${meta.holder}:${sp.sourceLabel||rec.source}`});
       });
-    });
   });
-  const formationMasterSkillsApplied=applyFormationMasterSkillsToSummary(f,skillRows,contributionLog);
   applyFormationMasterSkillsToEffects(f,ctx,effectsRaw,specials,excludedLog);
   const ethnicResearchAdopted=applyActiveEthnicResearchSkills(f,skillRows,effectsRaw,specials,contributionLog,excludedLog);
   const advisorAdopted=applyActiveAdvisorSkills(f,ctx,skillRows,effectsRaw,specials,contributionLog,excludedLog);
@@ -1606,8 +1672,8 @@ function buildFormationParameterDataUncached(f){
   if(formationRangeSummary)debugLog('formation:base-range',formationRangeSummary);
   const rangeConditionGate=applyFormationRangeConditionGate(effectsRaw,excludedLog);
   if(equipmentBoostLog.length)debugLog('formationSkill:equipment-boost',equipmentBoostLog);
-  const skillList=[...skillRows.values()].map(r=>{const rawTotal=r.levels.reduce((a,b)=>a+b,0);const capList=(Array.isArray(r.equipmentBoostCaps)?r.equipmentBoostCaps:[]).filter(v=>Number(v)>0);const cap=capList.length?Math.min(...capList):0;const total=cap?Math.min(rawTotal,cap):rawTotal;const rawMin=r.levels.length?Math.min(...r.levels):0,rawMax=r.levels.length?Math.max(...r.levels):0;const min=cap?Math.min(rawMin,cap):rawMin,max=cap?Math.min(rawMax,cap):rawMax;const sourceCategories=[...(r.sourceCategories||new Set(['その他']))].sort((a,b)=>FORMATION_SKILL_SOURCE_ORDER.indexOf(a)-FORMATION_SKILL_SOURCE_ORDER.indexOf(b));return {name:r.name,holders:[...r.holders],min:state.viewMode==='saved'?total:min,max:state.viewMode==='saved'?total:max,total,category:r.category,sourceCategories,equipmentBoostCap:cap||0,rawTotal};}).filter(r=>state.viewMode!=='saved'||r.total>0).sort((a,b)=>formationSkillSourceOrderValue(a.sourceCategories)-formationSkillSourceOrderValue(b.sourceCategories)||a.name.localeCompare(b.name,'ja'));
-  const dd=dedupeParameterEffects(effectsRaw);const rangeEffectTrace=buildFormationRangeEffectTrace(dd.kept,rangeConditionGate);const summary=summarizeFormationEffectsBySkillLevel(dd.kept,skillList);const specialSummary=summarizeSpecials(specials);
+  const skillList=[...skillRows.values()].map(r=>{const rawTotal=r.levels.reduce((a,b)=>a+b,0);const capList=(Array.isArray(r.equipmentBoostCaps)?r.equipmentBoostCaps:[]).filter(v=>Number(v)>0);const cap=capList.length?Math.min(...capList):0;const total=getFormationSkillTotal(r);const rawMin=r.levels.length?Math.min(...r.levels):0,rawMax=r.levels.length?Math.max(...r.levels):0;const min=cap?Math.min(rawMin,cap):rawMin,max=cap?Math.min(rawMax,cap):rawMax;const sourceCategories=[...(r.sourceCategories||new Set(['その他']))].sort((a,b)=>FORMATION_SKILL_SOURCE_ORDER.indexOf(a)-FORMATION_SKILL_SOURCE_ORDER.indexOf(b));return {name:r.name,holders:[...r.holders],min:state.viewMode==='saved'?total:min,max:state.viewMode==='saved'?total:max,total,category:r.category,sourceCategories,equipmentBoostCap:cap||0,rawTotal};}).filter(r=>state.viewMode!=='saved'||r.total>0).sort((a,b)=>formationSkillSourceOrderValue(a.sourceCategories)-formationSkillSourceOrderValue(b.sourceCategories)||a.name.localeCompare(b.name,'ja'));
+  const dd=dedupeParameterEffects(effectsRaw,e=>formationSkillSummaryKey(e.sourceLabel));const rangeEffectTrace=buildFormationRangeEffectTrace(dd.kept,rangeConditionGate);const summary=summarizeFormationEffectsBySkillLevel(dd.kept,skillList);const specialSummary=summarizeSpecials(specials);
   debugLog('formation:range-effect-trace',rangeEffectTrace);
   debugLog('formationSkill:summary',{formationId:f?.id||'',formationName:f?.name||'',troopType:ctx.troopType||'',baseGeneralSkills:[...baseGeneralSkills],baseSkillMetaCount:baseSkillMetas.size,contributionCount:contributionLog.length,excludedCount:excludedLog.length,equipmentBoostCount:equipmentBoostLog.length,formationMasterSkillCount:(typeof formationMasterSkillsApplied!=='undefined'?formationMasterSkillsApplied.length:0),ethnicResearchAdoptedCount:(typeof ethnicResearchAdopted!=='undefined'?ethnicResearchAdopted.length:0),advisorAdoptedCount:(typeof advisorAdopted!=='undefined'?advisorAdopted.length:0),rangeEffectTrace,skills:skillList.map(s=>({name:s.name,total:s.total,min:s.min,max:s.max,holders:s.holders,sourceCategories:s.sourceCategories})),excludedSamples:excludedLog.slice(0,50)});
   return {summary,specialSummary,skills:skillList,effects:dd.kept,specials,formationContext:ctx,contributions:contributionLog,excluded:excludedLog,equipmentBoostLog,extensionSummaryEffects,rangeConditionGate,rangeEffectTrace,formationMasterSkills:formationMasterSkillsApplied||[],advisorSkills:advisorAdopted||[],fiveElementSummary:fiveElementAdopted?.summary||calculateFormationFiveElementSummary(f),fiveElementSkills:fiveElementAdopted?.adopted||[],warhorseSkills:warhorseAdopted||[],formationRangeSummary:formationRangeSummary||null};
@@ -1627,15 +1693,26 @@ function formatFormationParameterNumber(n){const num=Number(n);if(!Number.isFini
 function formationParameterDisplayValue(key,entry){const k=norm(key);const v=entry||{};const unit=getParameterDefaultUnit(k,v.unit);const total=Number(v.maxTotal??v.total??0);if(k==='射程')return Number.isFinite(total)?formatFormationParameterNumber(total):'未判定';return `${total>=0?'+':''}${formatFormationParameterNumber(total)}${unit}`;}
 function formationParameterKeyOrderValue(key){const nk=norm(key);const k=nk.replace(/低下$/,'');let seq=0;for(const group of PARAM_GROUPS){for(const itemKey of group.keys){if(itemKey===k||itemKey===nk)return seq;seq++;}}return 9999;}
 function formationOrderedParameterKeys(entries){return Object.keys(entries||{}).sort((a,b)=>formationParameterKeyOrderValue(a)-formationParameterKeyOrderValue(b)||a.localeCompare(b,'ja'));}
-function buildFormationParameterCalculationDebug(data,f){const rows=[];const order=['tactic','deploy','normal','defense'];order.forEach(t=>{const groups=data.summary?.[t]||{};PARAM_DISPLAY_GROUP_ORDER.forEach(g=>{formationOrderedParameterKeys(groups[g]||{}).forEach(k=>{const v=groups[g][k];const unit=getParameterDefaultUnit(k,v.unit);rows.push({timing:t,timingLabel:timingLabel(t),group:g,parameterKey:k,parameterName:parameterDisplayName(k),displayValue:formationParameterDisplayValue(k,v),capApplied:!!v.capApplied,capNote:formationParameterCapNoteText(v),uncappedMaxTotal:v.uncappedMaxTotal,relatedSkills:[...new Set((v.maxItems||v.items||[]).map(e=>formationEffectSkillLabel(e.sourceLabel||'')).filter(Boolean))],formula:[formationFormulaLineDebug('計算',v.maxItems||v.items||[],v.maxTotal,unit)]});});});});return {formationId:f?.id||'',formationName:f?.name||'',viewMode:state.viewMode,mode:'fixed-by-general-stage',rowCount:rows.length,rows};}
+const FORMATION_PARAMETER_TIMINGS=['tactic','deploy','normal','defense','defenseEngagement'];
+function buildFormationParameterCalculationDebug(data,f){const rows=[];const order=FORMATION_PARAMETER_TIMINGS;order.forEach(t=>{const groups=data.summary?.[t]||{};PARAM_DISPLAY_GROUP_ORDER.forEach(g=>{formationOrderedParameterKeys(groups[g]||{}).forEach(k=>{const v=groups[g][k];const unit=getParameterDefaultUnit(k,v.unit);rows.push({timing:t,timingLabel:timingLabel(t),group:g,parameterKey:k,parameterName:parameterDisplayName(k),displayValue:formationParameterDisplayValue(k,v),capApplied:!!v.capApplied,capNote:formationParameterCapNoteText(v),uncappedMaxTotal:v.uncappedMaxTotal,relatedSkills:[...new Set((v.maxItems||v.items||[]).map(e=>formationEffectSkillLabel(e.sourceLabel||'')).filter(Boolean))],formula:[formationFormulaLineDebug('計算',v.maxItems||v.items||[],v.maxTotal,unit)]});});});});return {formationId:f?.id||'',formationName:f?.name||'',viewMode:state.viewMode,mode:'fixed-by-general-stage',rowCount:rows.length,rows};}
 function renderFormationParameterTimingTable(timing,groups){
   const rows=[];
   PARAM_DISPLAY_GROUP_ORDER.forEach(g=>{formationOrderedParameterKeys(groups?.[g]||{}).forEach(k=>{const v=groups[g][k];const val=formationParameterDisplayValue(k,v);rows.push(`<tr><td>${esc(parameterDisplayName(k))}</td><td>${esc(val)}</td><td class="formation-calc-cell">${formationParameterFormulaHtml(v)}</td></tr>`);});});
   const body=rows.join('')||'<tr><td colspan="3">状態変化率なし</td></tr>';
   return `<table class="formation-table formation-param-table ${state.formationCalcVisibleMobile?'is-calc-visible':'is-calc-collapsed'}"><thead><tr><th>項目</th><th>変化値</th><th class="formation-calc-header"><button type="button" class="formation-calc-toggle" title="スマホ表示時のみ計算式列を表示・非表示">計算式 ${state.formationCalcVisibleMobile?'▲':'▼'}</button></th></tr></thead><tbody>${body}</tbody></table>`;
 }
+function renderFormationDefenseSpeedEstimate(data){
+  const getSpeed=timing=>data.summary?.[timing]?.speed?.['戦法速度']?.maxTotal||0;
+  const defense=getSpeed('defense');
+  const engagement=getSpeed('defenseEngagement');
+  if(!defense&&!engagement)return '';
+  const steady=getSpeed('normal')+defense;
+  const opening=engagement?'、交戦開始時 '+formationCalcTotalText(steady+engagement,'%'):'';
+  return '<p class="formation-note">駐屯・防衛中の戦法速度（条件成立時） '+esc(formationCalcTotalText(steady,'%')+opening)+'</p>';
+}
+
 function renderFormationParameterSummary(data){
-  const order=['tactic','deploy','normal','defense'];
+  const order=FORMATION_PARAMETER_TIMINGS.filter(t=>t!=='defenseEngagement'||data.summary?.[t]);
   let totalRows=0;
   const mobile=isResponsiveMobileMode();
   const store=state.formationDetailsOpen||{};
@@ -1653,7 +1730,7 @@ function renderFormationParameterSummary(data){
     return `<details class="formation-timing-details" data-formation-timing="${esc(t)}"${openAttr}><summary><span>${esc(label)}</span><span class="note">${timingRows}件</span></summary><div class="formation-timing-body">${renderFormationParameterTimingTable(t,groups)}</div></details>`;
   }).join('');
   debugLog('formationSkill:fixed-value-summary',{rowCount:totalRows,reason:'general skill levels are fixed by general stage/star settings',layout:'timing-details'});
-  return `<div class="formation-param-timing-stack">${blocks}</div>`;
+  return `<div class="formation-param-timing-stack">${renderFormationDefenseSpeedEstimate(data)}${blocks}</div>`;
 }
 
 function formationDetailOpenStateKey(details){
@@ -2396,7 +2473,7 @@ const FORMATION_DECISION_SUMMARY_SPECS=Object.freeze([
   {id:'tacticSpeed',label:'戦法速度',items:[{key:'戦法速度',shortLabel:'速度'}]},
   {id:'tacticMaxPower',label:'戦法最大倍率',tacticMaxPower:true}
 ]);
-function collectFormationAllParameterRows(data){const rows=[];let seq=0;['tactic','deploy','normal','defense'].forEach(t=>{const groups=data?.summary?.[t]||{};PARAM_DISPLAY_GROUP_ORDER.forEach(g=>{formationOrderedParameterKeys(groups?.[g]||{}).forEach(k=>{const v=groups[g][k];rows.push({seq:seq++,timing:t,timingLabel:timingLabel(t),group:g,key:k,label:parameterDisplayName(k),value:formationParameterDisplayValue(k,v),entry:v});});});});return rows;}
+function collectFormationAllParameterRows(data){const rows=[];let seq=0;FORMATION_PARAMETER_TIMINGS.forEach(t=>{const groups=data?.summary?.[t]||{};PARAM_DISPLAY_GROUP_ORDER.forEach(g=>{formationOrderedParameterKeys(groups?.[g]||{}).forEach(k=>{const v=groups[g][k];rows.push({seq:seq++,timing:t,timingLabel:timingLabel(t),group:g,key:k,label:parameterDisplayName(k),value:formationParameterDisplayValue(k,v),entry:v});});});});return rows;}
 function formationRequiredResultPriority(row){const idx=FORMATION_REQUIRED_RESULT_KEYS.indexOf(norm(row?.key||''));return idx>=0?idx:999;}
 function collectFormationRequiredResultRows(data){const all=collectFormationAllParameterRows(data);return FORMATION_REQUIRED_RESULT_KEYS.map(key=>{const found=all.find(r=>norm(r.key)===key);return found||{missing:true,key,label:parameterDisplayName(key),value:key==='射程'?'未判定':'該当なし',timingLabel:'-'};});}
 function formationDecisionSummaryScope(timing,items){const conditions=[...new Set((items||[]).map(e=>cleanConditionText(e?.condition||'')).filter(Boolean))];if(conditions.length)return {label:'条件付き',conditions};if(timing==='normal')return {label:'常時',conditions:[]};return {label:timingLabel(timing),conditions:[]};}

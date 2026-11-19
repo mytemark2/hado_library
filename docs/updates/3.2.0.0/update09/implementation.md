@@ -9,3 +9,10 @@
 - `hado_version.js` をUpdate09 r229へ更新し、`index.html` のアセットキーと既存テスト12件の版期待値を変更した。HTMLは29,087→29,209バイト（+122）。新機能は外部JS2本と `hado_styles.css` の表示規則。既存保存形式、`HADO_DEV_INFO.json`、ゲームJSONはそのまま。
 - `.github/workflows/notify-preview.yml` と既存の同期検査に新しいJS2本の必須ファイルチェックとハッシュ検証を接続した。
 - 回帰を `tools/test_3_2_0_0_update09_formation_advice.js` と `tools/run_app_validation.py` に追加。履歴、セーブ、編成手順は既存テストを使用する。
+
+## r231 技能Lvと戦法速度の計算修正
+
+- `hado_formation.js` で武将・侍従・装備の採用と合算を先に行い、確定Lvに対応する取得本文を発動条件とともに解析する。駐屯・防衛の人数補正は主将・副将・補佐を対象とし、護厳は条件付き交戦開始効果として扱う。付与条件は計算式に表示する。
+- `hado_status_effects.js` で編成側から技能を重複判定のキーに渡せるようにし、別技能の同文を保持する。同一文に対するゲージの二重抽出も抑える。
+- `hado_version.js` と `index.html` のキャッシュキーをr231へ更新した。HTMLの増減は0バイト。計算と表示は既存外部JSを拡張した。保存・Export/Importの形式、`HADO_DEV_INFO.json`、ゲームJSONの変更はない。
+- `tools/test_3_2_0_0_formation_effect_calculation.js` を追加し、`tools/run_app_validation.py` に登録。既存テスト12ファイルの版期待値をr231に揃えた。
