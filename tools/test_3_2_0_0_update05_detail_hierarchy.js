@@ -23,8 +23,8 @@ function inOrder(source, tokens, label) {
 }
 
 assert(/updateNo:\s*'09'/.test(version), 'the current development stage must be visible in Preview');
-assert(/revision:\s*230/.test(version), 'the current Preview revision must be r230');
-assert(index.includes('09-r230'), 'runtime assets must use the current Preview cache key');
+assert(/revision:\s*231/.test(version), 'the current Preview revision must be r231');
+assert(index.includes('09-r231'), 'runtime assets must use the current Preview cache key');
 assert(!index.includes('04-r218'), 'stale Update04 cache keys must be absent');
 
 const generalTabsStart = core.indexOf("if(categoryKey==='generals')return [");

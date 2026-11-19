@@ -67,7 +67,7 @@ function parameterSummaryDisplayName(key,entry){const k=norm(key);const base=par
 
 function statusEffectTypeOf(name){const n=norm(name);const item=(state.statusEffects||[]).find(x=>norm(x?.name||'')===n);return norm(item?.effectType||item?.type||item?.raw?.type||'');}
 function classifyEffectTiming(text,context=''){let t=norm(context+' '+text);const deploymentOnly=/自都市駐屯部隊に編制されている際/.test(t)&&!/自都市に駐屯中|駐屯\/?防衛中|駐屯・防衛中|防衛中/.test(t);if(/戦法を発動|戦法発動|主将戦法|戦法で付与|戦法攻撃時|戦法発動時/.test(t))return 'tactic';if(/出陣時|交戦開始時|初回の戦法発動まで/.test(t))return 'deploy';if(!deploymentOnly&&/駐屯|防衛/.test(t))return 'defense';return 'normal';}
-function timingLabel(t){return t==='tactic'?'戦法発動時':t==='deploy'?'出陣時':t==='defense'?'駐屯防衛時':'通常時';}
+function timingLabel(t){return t==='tactic'?'戦法発動時':t==='deploy'?'出陣時':t==='defense'?'駐屯防衛時':t==='defenseEngagement'?'駐屯防衛中の交戦開始時':'通常時';}
 function splitEffectSegments(text){return norm(text).replace(/([■▼●])/g,'\n$1').split(/\n+/).map(norm).filter(Boolean);}
 function addEffect(list,opts){const key=norm(opts.key);if(!key)return;if(PARAM_EXCLUDED_KEYS&&PARAM_EXCLUDED_KEYS.has(key)){debugLog('parameter-effect:discarded',{reason:'excludedKey',key,source:opts.sourceLabel||'',raw:opts.rawText||''});return;}const n=Number(opts.value);if(Number.isFinite(n)&&n===0&&!opts.forceDisplay)return;const unit=getParameterDefaultUnit(key,opts.unit);list.push({...opts,key,unit,group:getParamGroup(key),timing:opts.timing||'normal',timingLabel:timingLabel(opts.timing||'normal')});}
 function parameterKeyAlternation(){return PARAM_GROUPS.flatMap(g=>g.keys).sort((a,b)=>b.length-a.length).map(k=>k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|');}
@@ -264,7 +264,10 @@ function parseParameterEffectsFromRecord(record){
     if((m=seg.match(/通常攻撃の対象部隊数\s*[+＋]([0-9]+(?:\.[0-9]+)?)/)))addEffect(effects,{timing,key:'通常攻撃対象数',value:Number(m[1]),unit:'',sign:'+',sourceLabel:source,condition:cleanConditionText(effectiveContext),rawText:seg,isConditional:!!effectiveContext});
     if((m=seg.match(/戦法ゲージ[^。●▼■]{0,40}([0-9]+(?:\.[0-9]+)?)\s*[％%][^。●▼■]{0,20}(上昇|増加)/))){
       const max=maxPercentInText(seg);
-      addParameterNumericEffect(effects,{timing,key:'戦法ゲージ',val:(max!==null?max:m[1]),sign:'+',source,context:effectiveContext,raw:seg});
+      const value=max!==null?max:Number(m[1]);
+      if(!effects.slice(segmentEffectStart).some(effect=>effect.key==='戦法ゲージ'&&effect.sign==='+'&&effect.value===value)){
+        addParameterNumericEffect(effects,{timing,key:'戦法ゲージ',val:value,sign:'+',source,context:effectiveContext,raw:seg});
+      }
     }
     if(/付与|解除|奪取|無効|不退|不滅|全兵科有利|強化反転|弱化反射|避ける/.test(seg)){
       const names=[];
@@ -276,7 +279,7 @@ function parseParameterEffectsFromRecord(record){
   appendRangeThresholdEffectsFromRecordText(record,effects);
   return {effects,specials};
 }
-function dedupeParameterEffects(effects){const grouped=new Map();const removed=[],kept=[];(effects||[]).forEach(e=>{const rawKey=norm(e.rawText||'').replace(/\s+/g,'');const key=[e.timing,e.group,e.key,e.value,e.unit,e.sign,rawKey].join('|');if(!grouped.has(key))grouped.set(key,[]);grouped.get(key).push(e);});grouped.forEach(items=>{items.sort((a,b)=>{const ag=/^技能$|^所有技能|の技能$/.test(norm(a.sourceLabel||''))?1:0;const bg=/^技能$|^所有技能|の技能$/.test(norm(b.sourceLabel||''))?1:0;return ag-bg;});items.forEach((e,i)=>{if(i===0)kept.push(e);else removed.push(e);});});return {kept,removed};}
+function dedupeParameterEffects(effects,sourceKey=()=> ''){const grouped=new Map();const removed=[],kept=[];(effects||[]).forEach(e=>{const rawKey=norm(e.rawText||'').replace(/\s+/g,'');const key=[e.timing,e.group,e.key,e.value,e.unit,e.sign,rawKey,sourceKey(e)].join('|');if(!grouped.has(key))grouped.set(key,[]);grouped.get(key).push(e);});grouped.forEach(items=>{items.sort((a,b)=>{const ag=/^技能$|^所有技能|の技能$/.test(norm(a.sourceLabel||''))?1:0;const bg=/^技能$|^所有技能|の技能$/.test(norm(b.sourceLabel||''))?1:0;return ag-bg;});items.forEach((e,i)=>{if(i===0)kept.push(e);else removed.push(e);});});return {kept,removed};}
 function effectSignedValue(e){return Number(e.value||0)*(e.sign==='-'?-1:1);}
 function parameterSourceRangeBase(label){let s=norm(label||'');if(/^技能:/.test(s)){const lv='(?:'+ROMAN_LEVELS.map(escRe).join('|')+')';s=s.replace(new RegExp(lv+'$'),'');}return s||'不明';}
 
