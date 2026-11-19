@@ -1,6 +1,6 @@
 # Update09 検証報告
 
-候補表示は `3.2.0.0 Update09 r231`。初版の開発元は `feature/app-3.2.0.0` の `82bcb6f9fa7339a54265b4c42e1a76130bb7fa66`。r230の起点は `28341dcfb954aa04e854490b0203ecb1a7511ac3`。
+候補表示は `3.2.0.0 Update09 r232`。初版の開発元は `feature/app-3.2.0.0` の `82bcb6f9fa7339a54265b4c42e1a76130bb7fa66`。r230の起点は `28341dcfb954aa04e854490b0203ecb1a7511ac3`。
 
 ## データ鮮度
 
@@ -57,7 +57,15 @@
 
 ## r232 所持内候補と新規保存
 
-- App Validationのローカル実行は187項目合格。比較項目ごとの編成計算、取得済み候補と所持不足、許可前の拒否、保存失敗の復旧、再送、別セーブ停止を検証した。公開Previewの確認結果と実測は配信後に追記する。
+- ローカルの `python -X utf8 tools/run_app_validation.py` は187項目合格。[App Validation](https://github.com/mytemark2/hado_library/actions/runs/44554315507)も合格。比較項目ごとの編成計算、照会と所持不足、許可前の拒否、保存失敗時の復旧、再送、別セーブでの失効を検証した。
+- [PR #432](https://github.com/mytemark2/hado_library/pull/432) のマージ事前検証は起点 `41dcc63d3f80261e4413469979eec31ec504e398`、head `83f2310187b6336e5d0865b0c1147cda6a9b48fd` で競合なし。
+
+### r232 Preview確認
+
+- 合格。表示は `3.2.0.0 Update09 r232`。公開の3識別ファイルは、開発元 `38e0eaf6395e2cf1f3586b804fdbae937e5354c5`、ブランチ `feature/app-3.2.0.0`、表示版 `3.2.0.0 Update09 r232`。配信時のPreview `main` は `2af0f1b367c57bc15e8c797191488e03fe4836ea`。[公開Preview](https://mytemark2.github.io/hado_library-preview/?chatgpt=formation&v=09-r232&source=38e0eaf6)・[自動同期](https://github.com/mytemark2/hado_library/actions/runs/44554693816)・[Pages](https://github.com/mytemark2/hado_library-preview/actions/runs/44554838137)
+- PreviewリポジトリはHTML、実行ファイル、CSS、ゲームJSON36件、`.nojekyll`、3識別ファイルを確認。公開の版JS・編成JS・候補探索／保存JS・CSSは開発正本とのSHA-256一致を確認した。
+- Chrome 157のネイティブWebMCPを使用。ゲームデータ読込後、武将16・装備6の検証セーブでは1.23〜1.48秒、武将64・装備30では1.40〜2.92秒で上位3案を取得した。戦法速度・兵器・耐久を各3回ずつ計測。大きい検証セーブでは986／962／868件を絞り込み、各24件を画面と同じ計算で比較した。
+- 指定品不足、照会値と画面の一致、許可前の保存拒否、許可後に候補1件だけを新規保存、再送の重複防止、接続終了後の登録解除を確認した。枠別入力は0回。PCと390×844で確認し、横はみ出しなし。公開の `formationAdvice:read` と `formationAdvice:save` ログを確認した。サイトのルートfaviconに404が1件ある。今回の操作と実行ファイルは正常だった。
 
 ### 確認事項
 
