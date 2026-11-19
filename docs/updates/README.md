@@ -5,7 +5,7 @@
 正本: `feature/app-3.2.0.0`。起点main: `e9153a954a998ad346c6ad7beb876056c11c52fb`（正式版3.1.2.1）。
 [全体ロードマップ](3.2.0.0/roadmap.md) / [Update01](3.2.0.0/update01/roadmap.md) / [Update02](3.2.0.0/update02/roadmap.md) / [Update03](3.2.0.0/update03/roadmap.md) / [Update04](3.2.0.0/update04/roadmap.md) / [Update05](3.2.0.0/update05/roadmap.md) / [Update05実装](3.2.0.0/update05/implementation.md) / [Update05報告](3.2.0.0/update05/report.md)
 
-状態：Update01〜08の検証が完了。Update09 r232で所持内候補の順位付けと一括保存を追加。公開検証はUpdate09報告を参照。11月分のゲームデータは品質ゲートで保留。
+状態：Update01〜08の検証が完了。Update09 r232で所持内候補の順位付けと一括保存を追加し、公開Previewで確認。11月分のゲームデータは品質ゲートで保留。
 
 [Update06計画](3.2.0.0/update06/roadmap.md) / [実装](3.2.0.0/update06/implementation.md) / [報告](3.2.0.0/update06/report.md)
 
