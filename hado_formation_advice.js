@@ -12,6 +12,10 @@
     siege_speed: /兵器速度|兵器の(?:攻撃間隔|待ち時間)/,
     siege_survival: /兵器(?:が受けるダメージ|の耐久|が故障|は故障)/,
     opening: /戦法ゲージ|戦法速度/,
+    tactic_speed: /戦法速度/,
+    garrison_tactic_speed: /戦法速度/,
+    engagement_tactic_speed: /戦法速度|護厳を/,
+    starting_gauge: /戦法ゲージ/,
     chain: /連鎖確率|連鎖率/,
     troop_damage: /(?:通常攻撃|戦法|物理系統|知力系統).*?(?:与ダメージ|攻撃威力)|戦法威力/,
     object_damage: /対物(?:体攻撃|特効)/,
@@ -27,10 +31,10 @@
   };
   const metrics = Object.freeze(Object.keys(patterns));
   const presets = Object.freeze({
-    siege: ['siege_damage', 'siege_speed', 'object_damage', 'siege_survival', 'opening'],
+    siege: ['siege_damage', 'siege_speed', 'object_damage', 'siege_survival', 'tactic_speed', 'starting_gauge'],
     defense: ['hit_cap', 'weakening_protection', 'power_ceiling', 'mitigation', 'recovery', 'buff_protection'],
-    assault: ['opening', 'chain', 'troop_damage', 'disruption', 'mobility'],
-    support: ['support', 'opening', 'chain', 'weakening_protection', 'recovery']
+    assault: ['tactic_speed', 'starting_gauge', 'chain', 'troop_damage', 'disruption', 'mobility'],
+    support: ['support', 'tactic_speed', 'starting_gauge', 'chain', 'weakening_protection', 'recovery']
   });
   const tacticSlots = new Set(['main', 'deputy1', 'deputy2']);
   const clone = value => JSON.parse(JSON.stringify(value));
@@ -40,6 +44,10 @@
     siege_speed: /兵器速度\s*\+\s*(\d+(?:\.\d+)?)%/,
     siege_survival: /兵器が受けるダメージ\s*[-−]\s*(\d+(?:\.\d+)?)%/,
     opening: /戦法(?:速度|ゲージ)\s*\+\s*(\d+(?:\.\d+)?)%/,
+    tactic_speed: /戦法速度\s*\+\s*(\d+(?:\.\d+)?)%/,
+    garrison_tactic_speed: /戦法速度\s*\+\s*(\d+(?:\.\d+)?)%/,
+    engagement_tactic_speed: /戦法速度\s*\+\s*(\d+(?:\.\d+)?)%/,
+    starting_gauge: /戦法ゲージ\s*\+\s*(\d+(?:\.\d+)?)%/,
     chain: /連鎖確率\s*\+\s*(\d+(?:\.\d+)?)%/,
     object_damage: /対物(?:体攻撃|特効)\s*\+\s*(\d+(?:\.\d+)?)%/
   };
@@ -47,7 +55,8 @@
   function classify(text) {
     const value = canonical(text);
     return metrics.filter(metric => {
-      if (['troop_damage', 'opening', 'chain', 'object_damage'].includes(metric) &&
+      if (['troop_damage', 'opening', 'tactic_speed', 'garrison_tactic_speed', 'engagement_tactic_speed',
+        'starting_gauge', 'chain', 'object_damage'].includes(metric) &&
           /(?:戦法威力|戦法速度|戦法ゲージ|連鎖確率|対物特効).{0,5}(?:低下|減少|[-−]\d)/.test(value)) return false;
       // An effect that protects a weapon must not count as reducing the unit's incoming damage.
       if (metric === 'mitigation' && patterns.siege_survival.test(value)) return false;
@@ -70,7 +79,9 @@
     const seconds = input.seconds ?? 30;
     if (!Number.isInteger(limit) || limit < 1 || limit > 5 ||
         !Number.isInteger(seconds) || seconds < 1 || seconds > 180) throw new Error('invalid search bounds');
-    return {...input, purpose, priorities, limit, target, seconds};
+    const defenseOnly=priorities.includes('garrison_tactic_speed')||priorities.includes('engagement_tactic_speed');
+    if (defenseOnly && input.deployment==='normal') throw new Error('駐屯時の戦法速度を比べるには自都市または詰所を指定してください。');
+    return {...input, purpose, priorities, limit, target, seconds, deployment:input.deployment || (defenseOnly?'own_city':undefined)};
   }
 
   function targetApplies(metric, row, target) {
@@ -111,6 +122,10 @@
     // Confirmed effect coverage is a search heuristic. Magnitudes/stacking need game evidence.
     for (const key of priorities) {
       const x = a[key], y = b[key];
+      if (Number.isFinite(x.formationValue) && Number.isFinite(y.formationValue)) {
+        if (x.formationValue!==y.formationValue) return y.formationValue-x.formationValue;
+        continue;
+      }
       if (key === 'hit_cap' && x.cap !== y.cap) return (x.cap ?? Infinity) - (y.cap ?? Infinity);
       if (x.strongestConfirmedPercent !== null && y.strongestConfirmedPercent !== null &&
           x.strongestConfirmedPercent !== y.strongestConfirmedPercent) return y.strongestConfirmedPercent-x.strongestConfirmedPercent;
@@ -151,7 +166,7 @@
 
   // Grow the best few formations at each slot. Validation and whole-team ranking use the
   // same detached records as explicit evaluations, so the shortlist never skips legality.
-  function search({seeds, moves, inspect, options}) {
+  function search({seeds, moves, inspect, options, shortlistLimit=options.limit}) {
     const visited = new Set();
     const results = [];
     let examined = 0;
@@ -193,7 +208,8 @@
       }).slice(0, 3);
       beam = [...diverse, ...next.filter(item => !diverse.includes(item))].slice(0, 5);
     }
-    return {examined, bound:max, candidates:results.filter(row => row.complete).sort(compare).slice(0, options.limit)};
+    const complete=results.filter(row => row.complete).sort(compare);
+    return {examined,bound:max,completeCount:complete.length,candidates:complete.slice(0,shortlistLimit)};
   }
 
   return Object.freeze({metrics, presets, tacticSlots, canonical, classify, rankInputs, summarize, compareMetrics,
