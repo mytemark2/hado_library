@@ -16,3 +16,9 @@
 - `hado_status_effects.js` で編成側から技能を重複判定のキーに渡せるようにし、別技能の同文を保持する。同一文に対するゲージの二重抽出も抑える。
 - `hado_version.js` と `index.html` のキャッシュキーをr231へ更新した。HTMLの増減は0バイト。計算と表示は既存外部JSを拡張した。保存・Export/Importの形式、`HADO_DEV_INFO.json`、ゲームJSONの変更はない。
 - `tools/test_3_2_0_0_formation_effect_calculation.js` を追加し、`tools/run_app_validation.py` に登録。既存テスト12ファイルの版期待値をr231に揃えた。
+
+## r232 所持内の候補探索と一括保存
+
+- `hado_formation_advice.js` と `hado_formation_webmcp.js` を拡張。安価な候補絞り込みの後、上位24件を既存画面の計算で再評価する。戦法速度・出陣ゲージ・兵器速度は数値比較し、被ダメージ上限などは根拠付きの評価を維持した。戦闘秒数・兵器実ダメージの未確認値は空欄。
+- `hado_formation_save` を追加。候補IDはこのタブの接続内で期限付き。新規保存は別の実ユーザー操作で1回だけ許可する。保存前に所持情報・研究を含むセーブ、同じデータ、対象グループ、既存編成、装備・侍従配置を再確認する。保存エラー時は編集状態を戻し、同じ候補の再送では増殖させない。
+- `hado_version.js` をr232へ更新し、`index.html` と既存版検証を同期した。HTMLの増減は0バイト。機能は既存外部JavaScriptを拡張した。変更試験は `tools/test_3_2_0_0_update09_formation_advice.js`。

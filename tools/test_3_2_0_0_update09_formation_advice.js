@@ -3,6 +3,7 @@
 const assert = require('node:assert/strict');
 const { readFileSync } = require('node:fs');
 const vm = require('node:vm');
+const { randomUUID } = require('node:crypto');
 const advice = require('../hado_formation_advice.js');
 
 const cap = '敵部隊からの1回の通常攻撃、1回の戦法によるダメージの上限が5000になる（連鎖攻撃の場合、連鎖攻撃ごとに上限が5000になる）';
@@ -39,7 +40,7 @@ const records = {
 const save={id:'test-save',name:'DO NOT SHARE',generals:['LR李典','LR曹仁','UR甲','UR乙','UR丙','UR丁','UR戊'],equipments:[],generalStars:{LR李典:4}};
 const privateSave={id:'other-save',generals:[],equipments:[]};
 const state={viewMode:'all',showRawJson:false,diagnostics:{preserved:true},
-  saveData:{currentSaveId:save.id,saves:[save,privateSave]},currentFormationId:initialFormation.id,
+  saveData:{currentSaveId:save.id,saves:[save,privateSave]},currentFormationId:initialFormation.id,currentFormationGroupId:'group1',
   formations:[initialFormation,{...initialFormation,id:'foreign',slots:{...initialFormation.slots,main:{...createSlot(),general:'未所持武将'}},
     siegeWeapon:{name:'非公開兵器',level:5}}],
   formationGroups:[{id:'group1'}],generals:save.generals.map(name=>({name})),equipments:[],
@@ -48,11 +49,9 @@ const state={viewMode:'all',showRawJson:false,diagnostics:{preserved:true},
 function element() {
   return {hidden:false,textContent:'',events:{},addEventListener(key,value){this.events[key]=value;}};
 }
-const nodes={section:element(),button:element(),status:element(),form:element(),pre:element(),select:element(),args:element(),save:element()};
-nodes.select.add = function () {};
-nodes.form.elements={tool:nodes.select,args:nodes.args};
-nodes.form.querySelector=()=>nodes.pre;
-nodes.section.querySelector=selector=>({'button':nodes.button,'[role="status"]':nodes.status,form:nodes.form})[selector];
+const nodes={section:element(),button:element(),write:element(),status:element(),save:element()};
+nodes.section.querySelector=selector=>({'button':nodes.button,'[role="status"]':nodes.status,'#hadoChatgptAllowSave':nodes.write})[selector];
+let stored=null, saves=0, saveFails=false;
 let mountCount=0;
 const native = new Map();
 const document={readyState:'complete',createElement:()=>nodes.section,getElementById:id=>({
@@ -62,12 +61,25 @@ const document={readyState:'complete',createElement:()=>nodes.section,getElement
 }};
 const context={
   location:{protocol:'https:',search:''},document,navigator:{},URLSearchParams,AbortController,Option:function () {},state,
-  setTimeout:()=>0,clearTimeout(){},debugLog(){},
+  setTimeout:()=>0,clearTimeout(){},debugLog(){},performance,crypto:{randomUUID},
+  FORMATION_STORAGE_KEY:'formations',SAVE_STORAGE_KEY:'saves',FORMATION_MAX_PER_GROUP:12,
+  localStorage:{getItem:()=>stored},
+  getCurrentFormationGroup:()=>state.formationGroups.find(group=>group.id===state.currentFormationGroupId),
+  createFormationRecord:label=>({id:'candidate-'+randomUUID(),name:label}),
+  sanitizeFormationRecord:row=>row,
+  saveFormationDataToStorage:()=>{
+    if(saveFails)return false;
+    saves++;
+    stored=JSON.stringify(state.formations);
+    return true;
+  },
+  setViewMode:mode=>{state.viewMode=mode;},setMainTab(){},renderFormationScreen(){},
+  getParameterSummaryCap:()=>({max:50}),
   window:{HadoFormationAdvice:advice,HADO_APP_DISPLAY_VERSION:'fixture',addEventListener(){},HADO_DATA_UPDATE_STATUS:{
     reflection:{status:'passed'},provenance:{acquiredAt:'2026-11-08T00:00:00Z',processedAt:'2026-11-14T00:00:00Z'}
   }},
   FORMATION_SLOT_SPECS:slotKeys.map(key=>({key})),EQUIP_SLOT_SPECS:['weapon','armor','treasure'].map(key=>({key,type:key})),
-  ADVISOR_SLOT_SPECS:[],FORMATION_DEPLOYMENT_TYPE_OPTIONS:[{key:'normal'}],
+  ADVISOR_SLOT_SPECS:[],FORMATION_DEPLOYMENT_TYPE_OPTIONS:[{key:'normal'},{key:'own_city'}],
   normalizeSaveItemName:value=>String(value||''),getCurrentSave:()=>state.saveData.saves.find(row=>row.id===state.saveData.currentSaveId),
   getAllDataItemsByCategory:category=>state[category]||[],getItemDisplayName:item=>item?.name||'',
   findItemByDisplayName:(category,name)=>state[category]?.find(row=>row.name===name),
@@ -81,7 +93,18 @@ const context={
   collectFormationParameterSourceRecords:item=>(records[item?.name]||[]).map(record=>({kind:'include',source:'技能:'+record.skill,text:record})),
   splitSkillConditionBlocks:({condition,line})=>[{condition,segments:['■'+condition,'●'+line]}],
   getCurrentStarValue:(category,name)=>state.saveData.saves[0].generalStars[name]||0,getEffectiveEquipmentStageForEquipmentName:()=>null,
-  buildFormationParameterDataUncached:()=>{assert.equal(state.viewMode,'saved');return {};},
+  buildFormationParameterDataUncached:f=>{
+    assert.equal(state.viewMode,'saved');
+    const members=Object.values(f.slots).map(slot=>slot.general);
+    const term=(condition,value)=>({condition,value,sign:'+'});
+    const summary={
+      normal:{speed:{戦法速度:{maxTotal:members.includes('UR丁')?20:4,maxItems:[term('常に',4)]}}},
+      defense:{speed:{戦法速度:{maxTotal:f.deploymentType==='own_city'?25:0,maxItems:[term('知力が2750以上の際',25)]}}},
+      defenseEngagement:{speed:{戦法速度:{maxTotal:f.deploymentType==='own_city'?10:0,maxItems:[term('護厳未発生・20秒',10)]}}},
+      deploy:{gauge:{戦法ゲージ:{maxTotal:50,maxItems:[term('出陣時',30),term('交戦開始時',30)]}}}
+    };
+    return {summary};
+  },
   getFormationExtensionSelectionEntry:()=>null,getFormationTacticActivationOrderRows:()=>[],collectFormationTacticAttackRows:()=>[]
 };
 const snapshot = () => JSON.stringify(state);
@@ -96,7 +119,9 @@ const snapshot = () => JSON.stringify(state);
   await nodes.button.events.click({isTrusted:false});
   assert.equal(native.size,0);
   await nodes.button.events.click({isTrusted:true});
-  assert.equal(native.size,3);
+  assert.equal(native.size,4);
+  assert.equal(native.get('hado_formation_save').annotations.readOnlyHint,false);
+  assert.equal(native.get('hado_formation_search').annotations.readOnlyHint,true);
   const before=snapshot();
   const rpc=async (key,args)=>JSON.parse(await native.get('hado_formation_'+key).execute(args));
   const info=await rpc('context',{checkNames:['LR李典','LR徐盛']});
@@ -126,6 +151,48 @@ const snapshot = () => JSON.stringify(state);
   assert.equal(siege.candidates[0].metrics.siege_speed.strongestConfirmedPercent,25);
   assert.equal(siege.candidates[0].model.siege.totalDamage,null);
   assert.equal(snapshot(),before);
+  const speed=await rpc('search',{baseId:'1',fixedMain:'LR李典',priorities:['garrison_tactic_speed'],checkNames:['UR戊','未収録装備']});
+  assert.equal(speed.ok,true,JSON.stringify(speed));
+  assert.equal(speed.exhaustive,false);
+  assert.equal(speed.allTopTiesVerified,false);
+  assert(speed.candidates.length>=2,JSON.stringify(speed));
+  assert.equal(speed.coverage[1].owned,false);
+  assert.equal(speed.candidates[0].numbers.tactic_speed.percent,20);
+  assert.equal(speed.candidates[0].numbers.garrison_tactic_speed.percent,45);
+  assert.equal(speed.candidates[0].numbers.engagement_tactic_speed.percent,55);
+  assert.equal(speed.candidates[0].numbers.starting_gauge.percent,30);
+  assert(speed.candidates[0].numbers.garrison_tactic_speed.conditions.includes('知力が2750以上の際'));
+  assert.equal(snapshot(),before);
+  const selected=speed.candidates[0];
+  const saveArgs={candidateId:selected.candidateId,name:'検証候補'};
+  assert.equal((await rpc('save',saveArgs)).ok,false);
+  await nodes.write.events.click({isTrusted:false});
+  assert.equal((await rpc('save',saveArgs)).ok,false);
+  await nodes.write.events.click({isTrusted:true});
+  assert.equal(nodes.write.disabled,true);
+  save.generalStars.LR李典=5;
+  assert.match((await rpc('save',saveArgs)).error,/変わりました/);
+  save.generalStars.LR李典=4;
+  stored='external edit';
+  assert.match((await rpc('save',saveArgs)).error,/変わりました/);
+  stored=null;
+  saveFails=true;
+  assert.match((await rpc('save',saveArgs)).error,/保存に失敗/);
+  assert.equal(snapshot(),before);
+  assert.equal(saves,0);
+  saveFails=false;
+  const created=await rpc('save',saveArgs);
+  assert.equal(created.ok,true,JSON.stringify(created));
+  assert.equal(state.formations.length,3);
+  assert.deepEqual(state.formations[0],initialFormation);
+  assert.deepEqual(JSON.parse(JSON.stringify(state.formations[2].slots)),selected.formation.slots);
+  assert.equal(state.currentFormationId,created.formationId);
+  assert.equal(state.viewMode,'saved');
+  assert.equal(nodes.write.disabled,false);
+  assert.deepEqual(await rpc('save',saveArgs),created);
+  assert.equal(saves,1);
+  assert.match((await rpc('save',{candidateId:speed.candidates[1].candidateId})).error,/新規保存を許可/);
+  const afterSave=snapshot();
   const old=native.get('hado_formation_context').execute;
   state.saveData.currentSaveId=privateSave.id;
   assert.equal(JSON.parse(await old({})).ok,false);
@@ -138,7 +205,7 @@ const snapshot = () => JSON.stringify(state);
   assert.match(nodes.status.textContent,/ChatGPTのブラウザー/);
   assert.equal(native.size,0);
   nodes.save.events.change();
-  assert.equal(snapshot(),before);
+  assert.equal(snapshot(),afterSave);
   const html=readFileSync('index.html','utf8');
   assert(html.indexOf('hado_formation.js?') < html.indexOf('hado_formation_advice.js?'));
   assert(html.indexOf('hado_formation_advice.js?') < html.indexOf('hado_formation_webmcp.js?'));

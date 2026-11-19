@@ -1,4 +1,4 @@
-/* Browser-session tools for analyzing one selected save. */
+/* Browser-session tools for planning formations from one selected save. */
 (() => {
   'use strict';
   if (location.protocol !== 'https:' || new URLSearchParams(location.search).get('chatgpt') !== 'formation') return;
@@ -285,10 +285,11 @@
       .filter(key=>chosen.reservedGenerals.has(generalIdentity(key)))),20);
     const equipment = shortlist(catalog.equipments,new Set([...catalog.equipments.keys()]
       .filter(key=>chosen.reservedEquipment.has(normalizeFormationEquipmentDuplicateKey(key)))),38);
-    const seeds = chosen.base ? [chosen.base.formation] : catalog.formations.map(row=>row.formation);
-    const fixed = name(options.fixedMain);
-    const mainCandidates = fixed ? [fixed] : generals.slice(0,12);
-    const deploy = options.deployment || chosen.base?.formation.deploymentType || 'normal';
+    const deploy=options.deployment || chosen.base?.formation.deploymentType || 'normal';
+    const savedSeeds=chosen.base?[chosen.base]:catalog.formations;
+    const seeds=savedSeeds.map(row=>({...row.formation,deploymentType:deploy}));
+    const fixed=name(options.fixedMain);
+    const mainCandidates=fixed?[fixed]:generals.slice(0,12);
     for (const candidate of mainCandidates) {
       const f = emptyFormation();
       f.slots.main.general = candidate;
@@ -332,7 +333,7 @@
           apply:(f,value)=>{f.slots[key].equipments[spec.key]=value;}});
       }
     }
-    return advice.search({seeds,moves,options,inspect: f=>{
+    return advice.search({seeds,moves,options,shortlistLimit:24,inspect: f=>{
       if (f.deploymentType!==deploy || validity(f,catalog,chosen,options).length) return null;
       const filled=slotKeys.filter(key=>f.slots[key].general).length;
       return {filled,complete:filled===slotKeys.length && (options.purpose!=='siege' || !!f.siegeWeapon.name),
@@ -341,12 +342,40 @@
     }});
   }
 
-  function detailed(f, options, evidence) {
-    const rows = evidence.collect(f);
-    const parameters = buildFormationParameterDataUncached(f);
+  function formationNumbers(parameters) {
+    const entry=(timing,group,key)=>parameters.summary?.[timing]?.[group]?.[key];
+    const speed=timing=>entry(timing,'speed','戦法速度');
+    function combine(...entries) {
+      const percent=entries.reduce((sum,item)=>sum+(item?.maxTotal||0),0);
+      const conditions=[...new Set(entries.flatMap(item=>(item?.maxItems||[]).map(effect=>effect.condition))
+        .filter(value=>value&&value!=='常に'))];
+      return {percent,conditions};
+    }
+    const gauge=entry('deploy','gauge','戦法ゲージ');
+    const gaugeTerms=(gauge?.maxItems||[]).filter(effect=>!/交戦開始|初回の戦法発動まで/.test([effect.condition,effect.rawText].join(' ')));
+    const gaugeTotal=gaugeTerms.reduce((sum,effect)=>sum+(effect.sign==='-'?-1:1)*Number(effect.value),0);
+    return {
+      tactic_speed:combine(speed('normal')),
+      garrison_tactic_speed:combine(speed('normal'),speed('defense')),
+      engagement_tactic_speed:combine(speed('normal'),speed('defense'),speed('defenseEngagement')),
+      starting_gauge:combine(gauge&&{maxTotal:Math.min(gaugeTotal,getParameterSummaryCap('戦法ゲージ',gauge)?.max??Infinity),maxItems:gaugeTerms}),
+      siege_speed:combine(entry('normal','speed','兵器速度'),entry('defense','speed','兵器速度'))
+    };
+  }
+
+  function evaluateFormation(f,options,evidence) {
+    const rows=evidence.collect(f);
+    const parameters=buildFormationParameterDataUncached(f);
+    const numbers=formationNumbers(parameters);
+    const metrics=advice.summarize(rows,options.target);
+    for (const [key,value] of Object.entries(numbers)) metrics[key].formationValue=value.percent;
+    return {rows,parameters,numbers,metrics};
+  }
+
+  function detailed(f, options, evaluation) {
+    const {rows,parameters,numbers,metrics}=evaluation;
     const weapon = getFormationExtensionSelectionEntry('siegeWeapon',f.siegeWeapon);
     const tactics = getFormationTacticActivationOrderRows(collectFormationTacticAttackRows(f,parameters));
-    const metrics = advice.summarize(rows,options.target);
     const confirmed = rows.filter(row=>row.state==='confirmed' && row.metrics.some(metric=>options.priorities.includes(metric)));
     const uncertain = rows.filter(row=>row.state!=='confirmed' && row.metrics.some(metric=>options.priorities.includes(metric)));
     const ownership = slotKeys.map(slot=>{
@@ -356,7 +385,7 @@
         equipment:Object.values(row.equipments).filter(Boolean).map(value=>({name:value,stage:getEffectiveEquipmentStageForEquipmentName(value),
           stars:getCurrentStarValue('equipments',value,10)}))};
     });
-    return {formation:f,ownership,metrics, evidence:[...confirmed,...uncertain].slice(0,36),
+    return {formation:f,ownership,metrics,numbers,evidence:[...confirmed,...uncertain].slice(0,36),
       model:{tacticActivation:tactics.map(row=>({
         slot:row.slotKey, order:row.activationOrder, general:row.generalName, baseIntervalSeconds:row.activationMeta?.intervalSec ?? null,
         estimatedChainPercent:row.slotKey==='main'?100:(row.activationMeta?.chainRate?row.chain.estimatedRate:null),
@@ -371,28 +400,35 @@
 
   function runAnalysis(catalog,input,manual) {
     const options = advice.rankInputs(input);
+    const coverage=manual?null:provenance(catalog,{checkNames:input.checkNames,gameUpdatedAt:input.gameUpdatedAt});
     if (options.deployment && !FORMATION_DEPLOYMENT_TYPE_OPTIONS.some(row=>row.key===options.deployment)) {
       throw new Error('配置場所を確認してください。');
     }
     const chosen = selection(catalog,input);
     const evidence = createEvidence(catalog);
     const baseline = chosen.base?.formation || emptyFormation();
-    const before = advice.summarize(evidence.collect(baseline),options.target);
-    const format = f => {
-      const data = detailed(f,options,evidence);
-      return {...data, differences:advice.diff(baseline,f), metricChanges:advice.compareDetails(before,data.metrics,options.priorities)};
+    const before=evaluateFormation(baseline,options,evidence).metrics;
+    const format = ({formation,evaluation}) => {
+      const data=detailed(formation,options,evaluation);
+      return {...data,differences:advice.diff(baseline,formation),metricChanges:advice.compareDetails(before,data.metrics,options.priorities)};
     };
     if (manual) {
       if (!input.formation || typeof input.formation!=='object' || Array.isArray(input.formation)) throw new Error('比較する編成を指定してください。');
       const f=publicFormation(input.formation);
       const errors=validity(f,catalog,chosen,options);
-      return errors.length ? {ok:false, errors} : {ok:true,data:dataStatus(),result:format(f)};
+      return errors.length ? {ok:false,errors} : {ok:true,data:dataStatus(),result:format({formation:f,evaluation:evaluateFormation(f,options,evidence)})};
     }
-    const result = moveSearch(catalog,options,chosen,evidence);
-    return {ok:true,data:dataStatus(),baseline:chosen.base?.id || null, purpose:options.purpose, target:options.target, priorities:options.priorities,
-      examined:result.examined, candidateLimit:result.bound, exhaustive:false, ranking:'指定優先順で、成立した効果・原文にある個別補正値を比較する候補探索',
-      candidates:result.candidates.map(row=>format(row.formation)),
-      reason:result.candidates.length?'':'指定条件で全5枠を埋められる候補がありません。保護部隊・主将固定・登録兵器を確認してください。'};
+    const result=moveSearch(catalog,options,chosen,evidence);
+    const finalists=result.candidates.map(row=>({...row,evaluation:evaluateFormation(row.formation,options,evidence)}));
+    finalists.sort((a,b)=>advice.compareMetrics(a.evaluation.metrics,b.evaluation.metrics,options.priorities) ||
+      a.changes-b.changes || byName(a.id,b.id));
+    return {ok:true,data:dataStatus(),baseline:chosen.base?.id || null,purpose:options.purpose,target:options.target,priorities:options.priorities,
+      examined:result.examined,candidateLimit:result.bound,completeCandidates:result.completeCount,
+      rankedCandidates:finalists.length,exhaustive:false,allTopTiesVerified:false,
+      ranking:'候補を絞り込み、戦法速度・出陣ゲージ・兵器速度は編成画面と同じ計算で比較します。',
+      coverage:coverage.coverage,freshness:coverage.freshness,
+      candidates:finalists.slice(0,options.limit).map(format),
+      reason:finalists.length?'':'指定条件で全5枠を埋められる候補がありません。保護部隊・主将固定・登録兵器を確認してください。'};
   }
 
   const string = {type:'string',maxLength:120};
@@ -400,7 +436,7 @@
   const inputSchema = {type:'object',additionalProperties:false,properties:{
     purpose:{type:'string',enum:Object.keys(advice.presets)},
     priorities:{type:'array',items:{type:'string',enum:advice.metrics},uniqueItems:true,minItems:1,maxItems:advice.metrics.length},
-    baseId:string, protectedIds:listOfNames, fixedMain:string,
+    baseId:string, protectedIds:listOfNames, fixedMain:string, checkNames:{...listOfNames,maxItems:25}, gameUpdatedAt:string,
     deployment:{type:'string',enum:FORMATION_DEPLOYMENT_TYPE_OPTIONS.map(row=>row.key)},
     target:{type:'string',enum:['unit','wall','citadel']},seconds:{type:'integer',minimum:1,maximum:180},
     limit:{type:'integer',minimum:1,maximum:5}
@@ -412,8 +448,78 @@
     hado_formation_search:{description:'Find legal full formations from the selected save. Rank by game effect priorities and compare with baseId. Defaults to protecting all other saved formations; set protectedIds explicitly when the user allows sharing members and equipment.',schema:inputSchema,handler:(catalog,input)=>runAnalysis(catalog,input,false)},
     hado_formation_evaluate:{description:'Validate and compare a proposed detached formation against baseId using the selected save. Use the formation shape returned by search. Does not save or change the editor.',schema:{
       ...inputSchema,required:['formation'],properties:{...inputSchema.properties,formation:{type:'object',description:'Formation returned by hado_formation_search with any requested slot changes.'}}
-    },handler:(catalog,input)=>runAnalysis(catalog,input,true)}
+    },handler:(catalog,input)=>runAnalysis(catalog,input,true)},
+    hado_formation_save:{writes:true,description:'Append one previously searched candidate to the current formation group. Call only when the user explicitly asks to save this candidate. Requires separate one-save permission in the page.',schema:{type:'object',additionalProperties:false,required:['candidateId'],properties:{candidateId:string,name:string}}}
   };
+
+  function planSnapshot(save) {
+    return {
+      signature:JSON.stringify({
+        save, data:dataStatus(), groupId:state.currentFormationGroupId,
+        formations:array(state.formations).map(row=>[row.id,row.groupId,advice.assignments(publicFormation(row))])
+      }),
+      storedFormations:localStorage.getItem(FORMATION_STORAGE_KEY),
+      storedSave:localStorage.getItem(SAVE_STORAGE_KEY)
+    };
+  }
+
+  function rememberCandidates(result,input,save) {
+    if (!result.candidates.length) return;
+    const snapshot=planSnapshot(save);
+    for (const row of result.candidates) {
+      const id=crypto.randomUUID();
+      session.plans.set(id,{formation:clone(row.formation),input:clone(input),snapshot});
+      row.candidateId=id;
+    }
+    while (session.plans.size>15) session.plans.delete(session.plans.keys().next().value);
+  }
+
+  function saveCandidate(input) {
+    const save=activeSave();
+    const plan=session.plans.get(input.candidateId);
+    if (!plan) throw new Error('今回の接続で取得した候補IDを指定してください。');
+    if (plan.saved) return plan.saved;
+    if (!session.canSave) throw new Error('接続欄で候補1件の新規保存を許可してください。');
+    const next=planSnapshot(save);
+    if (next.signature!==plan.snapshot.signature || next.storedFormations!==plan.snapshot.storedFormations || next.storedSave!==plan.snapshot.storedSave) {
+      throw new Error('所持情報・編成・保存先のいずれかが変わりました。候補を検索し直してください。');
+    }
+    const errors=withSave(save,()=>{
+      const catalog=buildCatalog(getCurrentSave());
+      return validity(plan.formation,catalog,selection(catalog,plan.input),advice.rankInputs(plan.input));
+    });
+    if (errors.length) return {ok:false,errors};
+
+    const previous={
+      formations:state.formations, formationGroups:state.formationGroups,
+      currentFormationId:state.currentFormationId, currentFormationGroupId:state.currentFormationGroupId
+    };
+    const group=getCurrentFormationGroup();
+    if (state.formations.filter(row=>row.groupId===group.id).length>=FORMATION_MAX_PER_GROUP) {
+      Object.assign(state,previous);
+      throw new Error('現在のグループが満杯です。保存先を切り替えて検索し直してください。');
+    }
+    const label=input.name?.trim() || plan.formation.slots.main.general+'の候補編成';
+    const record=sanitizeFormationRecord({...createFormationRecord(label),...plan.formation,groupId:group.id});
+    state.formations=[...state.formations,record];
+    state.currentFormationId=record.id;
+    if (!saveFormationDataToStorage('formation-advice-new-formation')) {
+      Object.assign(state,previous);
+      throw new Error('編成の保存に失敗しました。再実行できます。');
+    }
+    session.canSave=false;
+    plan.saved={ok:true,formationId:record.id,name:record.name,added:1};
+    writeButton.disabled=false;
+    status.textContent='新しい編成を保存しました。';
+    try {
+      setViewMode('saved',{skipRender:true,skipHistory:true});
+      setMainTab('formation');
+      renderFormationScreen();
+    } catch (error) {
+      debugLog('formationAdvice:render-after-save-error',{message:String(error.message || error)});
+    }
+    return plan.saved;
+  }
 
   function activeSave() {
     const save=getCurrentSave();
@@ -426,7 +532,7 @@
     return save;
   }
 
-  function execute(key, input) {
+  async function execute(key, input) {
     try {
       if (!Object.hasOwn(tools,key) || !input || typeof input!=='object' || Array.isArray(input)) throw new Error('入力を確認してください。');
       const schema = tools[key].schema;
@@ -434,21 +540,35 @@
           Object.entries(input).some(([field,value])=>schema.properties[field].type==='string' &&
             (typeof value!=='string' || value.length>120))) throw new Error('入力に対応していない項目があります。');
       const save = activeSave();
+      if (tools[key].writes) {
+        const current=session;
+        const persist=()=>current===session ? saveCandidate(input) : {ok:false,error:'接続は終了しました。'};
+        const result=navigator.locks?.request ? await navigator.locks.request(FORMATION_STORAGE_KEY,persist) : persist();
+        debugLog('formationAdvice:save',{operation:key,ok:result.ok});
+        return result;
+      }
+      const started=performance.now();
       const result=withSave(save,()=>tools[key].handler(buildCatalog(getCurrentSave()),input));
-      debugLog('formationAdvice:read',{operation:key,ok:result.ok,readOnly:true});
+      if (key==='hado_formation_search') {
+        rememberCandidates(result,input,save);
+        result.elapsedMs=Math.round(performance.now()-started);
+        result.canSave=!!session.canSave;
+      }
+      debugLog('formationAdvice:read',{operation:key,ok:result.ok,readOnly:true,elapsedMs:Math.round(performance.now()-started)});
       return result;
     } catch (error) {
       return {ok:false,error:String(error.message || error)};
     }
   }
 
-  let button, status;
+  let button, writeButton, status;
   function revoke() {
     session=null;
     controller?.abort();
     controller=null;
     clearTimeout(expiryTimer);
     if (button) button.textContent='選択中のセーブの参照を許可';
+    if (writeButton) {writeButton.hidden=true;writeButton.disabled=false;}
     if (status) status.textContent='未接続';
   }
 
@@ -465,10 +585,11 @@
       status.textContent='ChatGPTのブラウザーでこのページを開いてください。';
       return;
     }
-    session={saveId:save.id,expires:Date.now()+sessionDuration};
+    session={saveId:save.id,expires:Date.now()+sessionDuration,canSave:false,plans:new Map()};
     expiryTimer=setTimeout(revoke,sessionDuration);
     button.textContent='接続を終了';
     status.textContent='選択中のセーブを参照できます。';
+    writeButton.hidden=false;
     const current = session;
     const registration=new AbortController();
     controller=registration;
@@ -477,8 +598,8 @@
         if (session!==current) return;
         await modelContext.registerTool({
           name:key,description:tool.description,inputSchema:tool.schema,
-          annotations:{readOnlyHint:true,untrustedContentHint:true},
-          execute:async input=>JSON.stringify(session===current?execute(key,input):{ok:false,error:'接続は終了しました。'})
+          annotations:{readOnlyHint:!tool.writes,untrustedContentHint:true},
+          execute:async input=>JSON.stringify(session===current?await execute(key,input):{ok:false,error:'接続は終了しました。'})
         },{signal:registration.signal});
       }
     } catch {
@@ -493,15 +614,31 @@
     const host=document.createElement('section');
     host.id='hadoChatgptConnection';
     host.className='panel no-detail-linkify';
-    host.innerHTML='<h2>ChatGPT接続の確認</h2><p>選択中のセーブの所持情報と、それで組める保存編成を、このタブで20分間、読み取り専用で参照します。</p>' +
-      '<button type="button">選択中のセーブの参照を許可</button><p role="status">未接続</p>';
+    host.innerHTML='<h2>ChatGPT接続の確認</h2><p>選択中のセーブを、このタブで20分間参照します。候補の新規保存は1回ずつ許可できます。</p>' +
+      '<button type="button">選択中のセーブの参照を許可</button> ' +
+      '<button type="button" id="hadoChatgptAllowSave" hidden>候補1件の新規保存を許可</button><p role="status">未接続</p>';
     button=host.querySelector('button');
+    writeButton=host.querySelector('#hadoChatgptAllowSave');
     status=host.querySelector('[role="status"]');
     button.addEventListener('click',authorize);
+    writeButton.addEventListener('click',event=>{
+      if (!event.isTrusted || !session) return;
+      try {
+        activeSave();
+        session.canSave=true;
+        writeButton.disabled=true;
+        status.textContent='今回の接続で、候補1件を新規保存できます。';
+      } catch (error) {
+        status.textContent=String(error.message || error);
+      }
+    });
     for (const id of ['saveSelect','dataSheetSaveSelect']) {
       document.getElementById(id)?.addEventListener('change',revoke);
     }
     window.addEventListener('pagehide',revoke);
+    window.addEventListener('storage',event=>{
+      if (event.key===FORMATION_STORAGE_KEY || event.key===SAVE_STORAGE_KEY || event.key===null) revoke();
+    });
     document.getElementById('appTitlePanel')?.after(host);
   }
 
